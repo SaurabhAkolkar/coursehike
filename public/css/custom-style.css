@@ -1,1 +1,210 @@
 
+/* =============== Admin Dashboard Left Side Navbar CSS ============  */
+
+/* == Sidebar Toggler Icon == */
+.main-header .navbar .sidebar-toggle{
+    color: #404040;
+}
+/* == Sidebar Toggler Menu Links == */
+.sidebar a {
+    color: #404040;
+}
+/* == Sidebar Toggler Menu Links when active and hover == */
+.sidebar-menu>li:hover>a, 
+.sidebar-menu>li.active>a, 
+.sidebar-menu>li.menu-open>a {
+    background-color:#ffffff;
+    color:#6708BA;
+}
+/* == Sidebar Menu Links Spacing == */
+.sidebar-menu>li>a {
+    padding: 6px 16px;
+    display: block;
+    position:relative;
+    border-right:2px solid #f1f1f1;
+}
+/* == Sidebar Menu Links border-left == */
+.sidebar-menu>li.active>a {
+    border-left-color:transparent;
+}
+
+
+/* ================ Admin Dashboard Content =================== */
+
+/* === Dashboard Content-header === */
+.skin-blue .content-header {
+     background-color:#fff;
+}
+/* === Dashboard Content === */
+.content {
+    background-color: #ffffff;
+    min-height: 250px;
+    margin:0;
+    padding:20px;
+}
+/* == Contet small-box bg-colors == */
+.bg-aqua, .bg-orange, .bg-purple, .bg-green, .bg-blue, .bg-yellow, .bg-red{
+    background-color:#fbfbfb !important;
+}
+.small-box {
+    border-radius: 2px;
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 3px #eee;
+}
+/* == small-box icons CSS == */
+.small-box [class^="flaticon-"]:before, .small-box [class*=" flaticon-"]:before, .small-box [class^="flaticon-"]:after, .small-box [class*=" flaticon-"]:after {
+    -webkit-transition: all .3s linear;
+    -o-transition: all .3s linear;
+    transition: all .3s linear;
+    position: absolute;
+    top: 25px;
+    right:195px;
+    z-index: 0;
+    font-size: 25px;
+    color:#48ACF8;
+}
+/* == small-box inner numbering == */
+.small-box h3 {
+    position: relative;
+    top:65px;
+    bottom:0;
+    font-size: 25px;
+    font-weight: bold;
+    white-space: nowrap;
+    padding-left: 12px;
+    color:#000;
+}
+/* == small-box p CSS == */
+.small-box p {
+    font-size: 16px;
+    color: #252525;
+    font-weight:bold;
+    padding:4px 0 8px 12px;
+}
+/* ==Content small-box small-box-footer section == */
+.small-box>.small-box-footer {
+    position: relative;
+    text-align: center;
+    color: #000;
+    display: block;
+    z-index: 10;
+    background:#fbfbfb;
+    text-decoration: none;
+    text-align:right;
+}
+.small-box>.small-box-footer:hover {
+   background-color:#fbfbfb;
+}
+/* == All icons CSS == */
+.fa {
+    display: inline-block;
+    font-size:14px;
+    padding:5px 15px;
+    color:#404040;
+}
+
+
+/* ============ COURSES PAGE ============ */
+
+button.dt-button{
+    display:none;
+}
+/* == Search Bar == */
+.input-sm{
+    padding:0;
+ }
+/* == table head == */
+thead{
+    background-color:#303030;
+    color:#fff !important; 
+}
+/* == table head == */
+th.sorting {   
+    font-weight: normal;
+    font-size: 14px;
+    color:#fff !important;
+    padding:15px 0 !important;
+}
+/* == Sorting Icons after the table head Content == */
+table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting:after{
+    content: "";
+}
+
+
+/* ============  COURSES / ADD COURSE PAGE ============ */
+
+/* === Add course content box box-primary === */
+.box {
+    position: relative;
+    border-radius: 0;
+    background: #ffffff;
+    border-top: none;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: none;
+}
+/* == box-header with-border == */
+.box-header.with-border {
+    border-bottom: none;
+}
+/* == form select css == */
+.select2-container .select2-selection--single  {
+    background-color: #fcfcfc;
+    border:1px solid #dedede;
+    margin:0;
+}
+/* == form select spacing == */
+.select2-container--default .select2-selection--single, .select2-selection .select2-selection--single {
+    padding: 10px 0 0 25px;
+    height: 40px;
+}
+/* ==form form-control css == */
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #BCBCBC;
+    background-color: #fbfbfb;
+    border: 1px solid #dedede;
+    border-radius: 0;
+    box-shadow: none;
+}
+.tox-tinymce{
+    border:none !important;
+}
+/* == tox tox-menubar names of menubar == */
+.tox .tox-menubar {
+    display:none !important;
+}
+/* == Removing the border from toolbar == */
+.tox .tox-menubar+.tox-toolbar, .tox .tox-menubar+.tox-toolbar-overlord .tox-toolbar__primary {
+    border-top: none !important;
+}
+/* == Textarea field == */
+.tox .tox-edit-area__iframe {
+    background-color: #fbfbfb !important;
+    border:1px solid #dedede !important;
+}
+/* bottom statusbar displayed to none == */
+.tox .tox-statusbar {
+   display:none !important;
+}
+/* == submit button section == */
+.box-footer {
+    border:none;
+    padding: 10px;
+    background-color: #fff;
+}
+.btn-primary {
+    background-color: #7400D7 ;
+    border:none;
+    box-shadow: 0px 3px 6px #00000029;
+}
+.btn-primary:hover{
+    background-color: #7400D7 ;
+    box-shadow: 0px 3px 6px #00000029;
+}
