@@ -8,9 +8,10 @@
 <meta name="MobileOptimized" content="320" />
 <link rel="icon" type="image/icon" href="{{ asset('images/favicon/'.$gsetting->favicon) }}"> <!-- favicon-icon -->
 <!-- theme styles -->
-<link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/> <!-- bootstrap css -->
-<link href="https://fonts.googleapis.com/css?family=Great+Vibes|Poppins:300,400,500,700" rel="stylesheet"> <!--  google fonts -->
-<link href="https://fonts.googleapis.com/css?family=Muli&display=swap:400,500,600,700" rel="stylesheet"><!-- google fonts -->
+<link href="{{ url('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/> <!-- bootstrap css -->
+<link href="https://fonts.googleapis.com/css2?&family=Roboto:wght@300;400;500;700&family=Raleway:wght@700&display=swap" rel="stylesheet">
+{{-- <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Poppins:300,400,500,700" rel="stylesheet"> <!--  google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Muli&display=swap:400,500,600,700" rel="stylesheet"><!-- google fonts --> --}}
 <link rel="stylesheet" href="{{ url('vendor/fontawesome/css/all.css') }}" /> <!--  fontawesome css -->
 <link rel="stylesheet" href="{{ url('vendor/font/flaticon.css') }}" /> <!-- fontawesome css -->
 <link rel="stylesheet" href="{{ url('vendor/navigation/menumaker.css') }}" /> <!-- navigation css -->
@@ -26,6 +27,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
 @else
 
 <link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css"/> <!-- custom css -->
+<link href="{{ url('css/learner-style.css') }}" rel="stylesheet" type="text/css"/> <!-- custom css -->
 @endif
 <link rel="stylesheet" href="{{ url('css/colorbox.css') }}">
 <link rel="stylesheet" href="{{url('admin/bower_components/font-awesome/css/font-awesome.min.css')}}"><!-- fontawesome css -->

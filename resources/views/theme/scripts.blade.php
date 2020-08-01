@@ -1,6 +1,6 @@
 <script src="{{ url('js/jquery-2.min.js') }}"></script> <!-- jquery library js -->
 <script src="{{ url('js/colorbox.js') }}"></script> <!-- colorbox js -->
-<script src="{{ url('js/bootstrap.bundle.js') }}"></script> <!-- bootstrap js -->
+<script src="{{ url('vendor/bootstrap/js/bootstrap.bundle.js') }}"></script> <!-- bootstrap js -->
 <script src="{{ url('vendor/counter/waypoints.min.js') }}"></script> <!-- facts count js required for jquery.counterup.js file -->
 <script src="{{ url('vendor/counter/jquery.counterup.js') }}"></script> <!-- facts count js-->
 <?php
