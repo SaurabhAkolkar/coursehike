@@ -138,6 +138,12 @@ div.dt-buttons {
 .input-sm{
     padding:0 !important;
  } 
+ /* == Table == */
+ table.dataTable {
+    border-collapse: seperate !important;
+    border-spacing: 0 15px !important; 
+    border:none;
+}
 /* == table head == */
 thead{
     background-color:#303030;
@@ -154,6 +160,26 @@ th.sorting {
 table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting:after{
     content: "";
 }
+/* == Table rows == */
+.table-striped>tbody>tr:nth-of-type(odd) ,
+.table-striped>tbody>tr:nth-of-type(even) {
+    background-color: #F4F5F080;
+}
+/* == Table Columns == */
+table.table-bordered.dataTable tbody td {
+    border:none;
+    border-bottom-width: 0;
+    font-size:14px;
+    line-height:1 !important;
+    vertical-align: middle;
+ }
+/* == Table Column Course Image ==*/
+.table td img {
+    width: 60px;
+    height: 40px;
+}
+
+
 
 
 /* ============  COURSES / ADD COURSE PAGE ============ */
@@ -246,9 +272,56 @@ table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting:after{
     border-radius:0;
     padding:8px 32px;
     box-shadow: 0px 3px 6px #00000029;
+    float:right;
 }
 .btn-primary:hover{
     background-color: #7400D7 ;
     box-shadow: 0px 3px 6px #00000029;
+}
+
+
+/* ================= COURSE CLASS ================ */
+/* === Nav Tabs === */
+.nav-tabs-custom>.nav-tabs {
+    margin: 0;
+    border-bottom-color: #f4f4f4;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y:hidden;
+    scroll-behavior: smooth;
+}
+/* === Nav Tab Anchor Tags === */
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding:5px;
+    text-align:center;
+    width:120px;
+}
+/* == Table == */
+table, .table-bordered{
+    border-collapse: separate !important;
+    border-spacing:0 15px;
+    border:none;
+}
+/* == Table Columns == */
+.table>tbody>tr>td{
+    border:none;
+    border-bottom-width: 0;
+    font-size:14px;
+    line-height:1 !important;
+    vertical-align: middle;
+}
+
+/* ============= ADD COURSE CLASS ================ */
+/* == modal add class form == */
+.modal-dialog {
+    width: 500px;
+    margin: 30px auto;
+}
+.modal-content{
+    padding:10px 30px;
 }
 
