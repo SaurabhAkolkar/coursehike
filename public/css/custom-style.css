@@ -31,6 +31,18 @@
 
 /* ================ Admin Dashboard Content =================== */
 
+/* == top-nav language btn == */
+.language .btn-primary {
+    background-color: #fff;
+    color: #506fe4;
+    border-radius: 0;
+    box-shadow:none;
+}
+.language .btn-primary:hover {
+    background-color: #fbfbfb;
+    color: #999999;;
+    box-shadow: none;
+}
 /* === Dashboard Content-header === */
 .skin-blue .content-header {
      background-color:#fff;
@@ -93,28 +105,39 @@
     background:#fbfbfb;
     text-decoration: none;
     text-align:right;
+    padding:4px 8px;
 }
 .small-box>.small-box-footer:hover {
    background-color:#fbfbfb;
 }
-/* == All icons CSS == */
-.fa {
-    display: inline-block;
-    font-size:14px;
-    padding:5px 15px;
-    color:#404040;
-}
 
 
 /* ============ COURSES PAGE ============ */
-
-button.dt-button{
-    display:none;
+/* == Add Course Button == */
+.btn-info{
+    background-color:transparent;
+    color:#7400D7 !important;
+    border:none;
+    font-size:14px;
+    text-transform:uppercase;
+    font-weight:bold;
+}
+.btn-info:hover{
+    background-color:#ffffff !important;
+    color:#6708BA !important;
+}
+.glyphicon{
+    top:0;
+    font-size:10px !important;
+}
+/* == CSV/PDF/PRINT buttons == */
+div.dt-buttons {
+    display: none;
 }
 /* == Search Bar == */
 .input-sm{
-    padding:0;
- }
+    padding:0 !important;
+ } 
 /* == table head == */
 thead{
     background-color:#303030;
@@ -193,6 +216,23 @@ table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting:after{
 .tox .tox-statusbar {
    display:none !important;
 }
+/* == Input preview file and label == */
+.inputfile + label {
+    max-width: 100%;
+    width:220px;
+    height:150px;
+    font-size: 1.25rem; 
+    font-weight: 700;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;  
+    background-color:#fbfbfb !important;
+    color:#404040;
+    border:1px solid #dedede;
+}
+
 /* == submit button section == */
 .box-footer {
     border:none;
@@ -201,10 +241,14 @@ table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting:after{
 }
 .btn-primary {
     background-color: #7400D7 ;
+    color:#ffffff;
     border:none;
+    border-radius:0;
+    padding:8px 32px;
     box-shadow: 0px 3px 6px #00000029;
 }
 .btn-primary:hover{
     background-color: #7400D7 ;
     box-shadow: 0px 3px 6px #00000029;
 }
+
