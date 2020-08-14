@@ -16,7 +16,7 @@ class AdminIntructor
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::User()->role == "admin" || Auth::User()->role == "instructor")
+        if(Auth::user()->role == "admin" || Auth::user()->role == "instructor")
         {
             return $next($request);  
         }

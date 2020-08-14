@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <?php
 $language = Session::get('changed_language'); //or 'english' //set the system language
 $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl languages
@@ -50,48 +49,45 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
  
 
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="{{url('admin/bower_components/bootstrap/dist/css/bootstrap.min.css')}}"> <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="{{url('css/dashboard/bootstrap.min.css')}}"> <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{ url('css/datepicker.css') }}">
   <link rel="icon" type="image/icon" href="{{ asset('images/favicon/'.$gsetting->favicon) }}"> <!-- favicon-icon -->
-  <link rel="stylesheet" href="{{ url('admin/css/select2.min.css') }}"> <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{url('admin/bower_components/font-awesome/css/font-awesome.min.css')}}">
+  <link rel="stylesheet" href="{{ url('css/dashboard/select2.min.css') }}"> <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{url('css/dashboard/font-awesome.min.css')}}">
   <link rel="stylesheet" href="{{ url('css/fontawesome-iconpicker.min.css') }}">
-  <link rel="stylesheet" href="{{url('admin/css/jquery-ui.css')}}">
+  <link rel="stylesheet" href="{{url('css/dashboard/jquery-ui.css')}}">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="{{url('admin/bower_components/Ionicons/css/ionicons.min.css')}}">
+  <link rel="stylesheet" href="{{url('css/dashboard/ionicons.min.css')}}">
   <!-- DataTables -->
-  <link rel="stylesheet" href="{{url('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}"> <!-- Theme style -->
-  <link rel="stylesheet" href="{{url('admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
+  <link rel="stylesheet" href="{{url('css/dashboard/dataTables.bootstrap.min.css')}}"> <!-- Theme style -->
+  <link rel="stylesheet" href="{{url('css/dashboard/bootstrap-datepicker.min.css')}}">
   <?php
   $language = Session::get('changed_language'); //or 'english' //set the system language
   $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl languages
   ?>
   @if (in_array($language,$rtl))
-  <link rel="stylesheet" href="{{url('admin/dist/css/AdminLTE-rtl.min.css')}}">  <!-- adminLTE RTL  style -->
+  <link rel="stylesheet" href="{{url('css/dashboard/AdminLTE-rtl.min.css')}}">  <!-- adminLTE RTL  style -->
   @else
-  <link rel="stylesheet" href="{{url('admin/dist/css/AdminLTE.min.css')}}">
+  <link rel="stylesheet" href="{{url('css/dashboard/AdminLTE.min.css')}}">
   @endif
   
   <link rel="stylesheet" href="{{url('css/toggle.css')}}">
   <link rel="stylesheet" type="text/css" href="{{url('css/component.css')}}">
   <link rel="stylesheet" type="text/css" href="{{url('css/normalize.css')}}">
-  <link rel="stylesheet" href="{{ URL::asset('admin/plugins/pace/pace.min.css') }}">
-  <link rel="stylesheet" href="{{url('admin/dist/css/skins/_all-skins.min.css')}}">
-  <link href="{{url('admin/css/bootstrap-toggle.min.css')}}">
+  <link rel="stylesheet" href="{{ URL::asset('css/dashboard/pace.min.css') }}">
+  <link rel="stylesheet" href="{{url('css/dashboard/_all-skins.min.css')}}">
+  <link href="{{url('css/dashboard/bootstrap-toggle.min.css')}}">
   <link rel="stylesheet" href="{{ url('css/animate.min.css') }}"><!-- Custom Css -->
   @if (in_array($language,$rtl))
-  <link rel="stylesheet" href="{{ url('admin/css/admin-rtl.css') }}">
+  <link rel="stylesheet" href="{{ url('css/dashboard/admin-rtl.css') }}">
   @else
-  <link rel="stylesheet" href="{{ url('admin/css/admin.css') }}">
+  <link rel="stylesheet" href="{{ url('css/dashboard/admin.css') }}">
   @endif
   <link rel="stylesheet" href="{{ asset('css/custom-style.css') }}"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
-  <link rel="stylesheet" href="{{ url('admin/font/font/flaticon.css') }}" /> <!-- fontawesome css -->
-
-
-
+  <link rel="stylesheet" href="{{ url('css/dashboard/flaticon.css') }}" /> <!-- fontawesome css -->
 
   @yield('stylesheets')
   
@@ -230,40 +226,40 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
   <!-- ./wrapper -->
 
   <!-- jQuery 3 -->
-  <script src="{{url('admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
-  <script src="{{ url('admin/js/select2.min.js')}}"></script>
+  <script src="{{url('js/jquery.min.js')}}"></script>
+  <script src="{{ url('js/select2.min.js')}}"></script>
   <!-- Bootstrap 3.3.7 -->
-  <script src="{{url('admin/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script> <!-- DataTables -->
-  <script src="{{url('admin/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-  <script src="{{url('admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script> <!-- SlimScroll -->
-  <script src="{{url('admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script> <!-- FastClick -->
-  <script src="{{url('admin/bower_components/fastclick/lib/fastclick.js')}}"></script>
+  <script src="{{url('js/dashboard/bootstrap.min.js')}}"></script> <!-- DataTables -->
+  <script src="{{url('js/dashboard/jquery.dataTables.min.js')}}"></script>
+  <script src="{{url('js/dashboard/dataTables.bootstrap.min.js')}}"></script> <!-- SlimScroll -->
+  <script src="{{url('js/dashboard/jquery.slimscroll.min.js')}}"></script> <!-- FastClick -->
+  <script src="{{url('js/dashboard/fastclick.js')}}"></script>
   <!-- AdminLTE App -->
-  <script src="{{url('admin/dist/js/adminlte.min.js')}}"></script> <!-- AdminLTE for demo purposes -->
-  <script src="{{url('admin/dist/js/demo.js')}}"></script>
-  <script src="{{ URL::asset('admin/bower_components/PACE/pace.min.js') }}"></script> 
+  <script src="{{url('js/dashboard/adminlte.min.js')}}"></script> <!-- AdminLTE for demo purposes -->
+  <script src="{{url('js/dashboard/demo.js')}}"></script>
+  <script src="{{ URL::asset('js/dashboard/pace.min.js') }}"></script> 
   <!-- PACE -->
-  <script src="{{ URL::asset('admin/bower_components/ckeditor/ckeditor.js') }}"></script>
+  <script src="{{ URL::asset('js/dashboard/ckeditor.js') }}"></script>
   <!-- CK Editor -->
-  <script src="{{ URL::asset('admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script> <!-- bootstrap datepicker -->
-  <script src="{{ url('admin/js/jquery-ui.js')}}"></script>
+  <script src="{{ URL::asset('js/dashboard/bootstrap-datepicker.min.js')}}"></script> <!-- bootstrap datepicker -->
+  <script src="{{ url('js/jquery-ui.js')}}"></script>
   <script src="{{ url('js/custom-toggle.js') }}"></script>
   <script src="{{ url('js/custom-file-input.js')}}"></script>
   <script src="{{ url('js/fontawesome-iconpicker.js')}}"></script>
-  <script src="{{ url('admin/js/courseclass.js')}}"></script>
+  <script src="{{ url('js/dashboard/courseclass.js')}}"></script>
    
-  <script src="{{ url('admin/js/tinymce.min.js')}}"></script>
-  <script src="{{ url('admin/bower_components/moment/moment.js') }}"></script>
+  <script src="{{ url('js/tinymce.min.js')}}"></script>
+  <script src="{{ url('js/dashboard/moment.js') }}"></script>
   <script src="{{ url('js/datepicker.js') }}"></script>
   <script src="{{ url('js/custom-js.js')}}"></script>
 
-  <script src="{{ url('admin/js/dataTables.buttons.min.js')}}"></script> 
-  <script src="{{ url('admin/js/buttons.flash.min.js')}}"></script> 
-  <script src="{{ url('admin/js/jszip.min.js')}}"></script>
-  <script src="{{ url('admin/js/pdfmake.min.js')}}"></script>
-  <script src="{{ url('admin/js/vfs_fonts.js')}}"></script>
-  <script src="{{ url('admin/js/buttons.html5.min.js')}}"></script>
-  <script src="{{ url('admin/js/buttons.print.min.js')}}"></script>
+  <script src="{{ url('js/dashboard/dataTables.buttons.min.js')}}"></script> 
+  <script src="{{ url('js/dashboard/buttons.flash.min.js')}}"></script> 
+  <script src="{{ url('js/dashboard/jszip.min.js')}}"></script>
+  <script src="{{ url('js/dashboard/pdfmake.min.js')}}"></script>
+  <script src="{{ url('js/dashboard/vfs_fonts.js')}}"></script>
+  <script src="{{ url('js/dashboard/buttons.html5.min.js')}}"></script>
+  <script src="{{ url('js/dashboard/buttons.print.min.js')}}"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 
