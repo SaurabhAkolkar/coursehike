@@ -19,8 +19,12 @@
     <div class="row">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-aqua">
+          <div class="small-box bg-aqua"> 
             <div class="inner">
+            <div class="icon">
+              <i class="flaticon-user"></i>
+            </div>
+            <p>{{ __('adminstaticword.Users') }}</p>
               <h3>
               	@php
               		$user = App\User::all();
@@ -34,11 +38,9 @@
               		}
               	@endphp
               </h3>
-              <p>{{ __('adminstaticword.Users') }}</p>
+              
             </div>
-            <div class="icon">
-              <i class="flaticon-user"></i>
-            </div>
+           
             <a href="{{route('user.index')}}" class="small-box-footer">{{ __('adminstaticword.Moreinfo') }} <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
@@ -47,6 +49,10 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
+            <div class="icon">
+            	<i class="flaticon-layout"></i>
+            </div>
+            <p>{{ __('adminstaticword.Categories') }}</p>
               <h3>
               	@php
               		$cat = App\Categories::all();
@@ -60,10 +66,6 @@
               		}
               	@endphp
               </h3>
-              <p>{{ __('adminstaticword.Categories') }}</p>
-            </div>
-            <div class="icon">
-            	<i class="flaticon-layout"></i>
             </div>
             <a href="{{url('category')}}" class="small-box-footer">{{ __('adminstaticword.Moreinfo') }} <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -73,6 +75,10 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
+              <div class="icon">
+                <i class="flaticon-book"></i>
+              </div>
+              <p>{{ __('adminstaticword.Courses') }}</p>
               <h3>
               	@php
               		$course = App\Course::all();
@@ -85,12 +91,8 @@
               			echo "0";
               		}
               	@endphp
-              </h3>
-              <p>{{ __('adminstaticword.Courses') }}</p>
-            </div>
-            <div class="icon">
-              <i class="flaticon-book"></i>
-            </div>
+              </h3>       
+            </div>  
             <a href="{{url('course')}}" class="small-box-footer">{{ __('adminstaticword.Moreinfo') }} <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
@@ -99,6 +101,10 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
+              <div class="icon">
+                <i class="flaticon-shopping-cart-1"></i>
+              </div>
+              <p>{{ __('adminstaticword.Orders') }}</p>
               <h3>
               	@php
               		$page = App\Order::all();
@@ -112,10 +118,6 @@
               		}
               	@endphp
               </h3>
-              <p>{{ __('adminstaticword.Orders') }}</p>
-            </div>
-            <div class="icon">
-              <i class="flaticon-shopping-cart-1"></i>
             </div>
             <a href="{{url('order')}}" class="small-box-footer">{{ __('adminstaticword.Moreinfo') }} <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -125,6 +127,10 @@
           <!-- small box -->
           <div class="small-box bg-purple">
             <div class="inner">
+              <div class="icon">
+                <i class="flaticon-faq"></i>
+              </div>
+              <p>{{ __('adminstaticword.Faqs') }}</p>
               <h3>
               	@php
               		$faq = App\FaqStudent::all();
@@ -137,11 +143,7 @@
               			echo "0";
               		}
               	@endphp
-              </h3>
-              <p>{{ __('adminstaticword.Faqs') }}</p>
-            </div>
-            <div class="icon">
-              <i class="flaticon-faq"></i>
+              </h3>        
             </div>
             <a href="{{url('faq')}}" class="small-box-footer">{{ __('adminstaticword.Moreinfo') }} <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -151,6 +153,10 @@
           <!-- small box -->
           <div class="small-box bg-orange">
             <div class="inner">
+              <div class="icon">
+                 <i class="flaticon-report"></i>
+              </div>
+               <p>{{ __('adminstaticword.Pages') }}</p>
               <h3>@php
               		$review = App\Page::all();
               		if(count($review)>0){
@@ -162,11 +168,7 @@
               			echo "0";
               		}
               	@endphp
-              </h3>
-              <p>{{ __('adminstaticword.Pages') }}</p>
-            </div>
-            <div class="icon">
-             <i class="flaticon-report"></i>
+              </h3>       
             </div>
             <a href="{{ url('page') }}" class="small-box-footer">{{ __('adminstaticword.Moreinfo') }} <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -176,6 +178,10 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
+              <div class="icon">
+              <i class="flaticon-teacher"></i>
+              </div>
+              <p>{{ __('adminstaticword.Instructors') }}</p>
               <h3>
                 @php
               		$review = App\Instructor::all();
@@ -189,10 +195,6 @@
               		}
               	@endphp
               </h3>
-              <p>{{ __('adminstaticword.Instructors') }}</p>
-            </div>
-            <div class="icon">
-             <i class="flaticon-teacher"></i>
             </div>
             <a href="{{route('all.instructor')}}" class="small-box-footer">{{ __('adminstaticword.Moreinfo') }} <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -202,6 +204,10 @@
           <!-- small box -->
           <div class="small-box bg-blue">
             <div class="inner">
+              <div class="icon">
+              <i class="flaticon-customer-1"></i>
+              </div>
+              <p>{{ __('adminstaticword.Testimonials') }}</p>
               <h3>
                 @php
               		$review = App\Testimonial::all();
@@ -215,10 +221,6 @@
               		}
               	@endphp
               </h3>
-              <p>{{ __('adminstaticword.Testimonials') }}</p>
-            </div>
-            <div class="icon">
-             <i class="flaticon-customer-1"></i>
             </div>
             <a href="{{url('testimonial')}}" class="small-box-footer">{{ __('adminstaticword.Moreinfo') }} <i class="fa fa-arrow-circle-right"></i></a>
           </div>
