@@ -129,7 +129,50 @@
                     <input type="number" min="1"  class="form-control" name="day" id="exampleInputPassword1" placeholder="Please Your Enter day" value="{{ $cor->day }}">
                   </div>
                 </div>
-                <div class="col-md-3">
+
+                <div class="col-md-12">
+                    <div class="course-package-type">
+                        <label for="" class="course-pt__title">Course package type<sup class="redstar">*</sup></label><br/>
+
+                          <div class="course-package__subscription">
+                              <input type="radio" name="subscription" id="subPaid" value="Subscription" class="sub-paid"> 
+                              <label for="subPaid">Subscription </label>
+                              <small><i class="fa fa-info-circle "></i> (Default)</small>
+                            
+                              <div class="course-package__text">
+                                <p>This course is accessible by all Subscribers & also available for life-time purchase. </p>
+                                  <p>Please enter the Course cost for One-Time Purchase</p>
+                                  <div class="form-group">
+                                      <div class="input-group">
+                                        <div class="input-group-addon ">
+                                            <i class="fa fa-dollar"></i> 
+                                        </div>
+                                        <input type="text" class="form-control" value="400" style="width:160px"/>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div> <br/>
+
+                          <div class="course-package__premium">
+                              <input type="radio" name="subscription" id="subPremium" value="Premium" class="sub-premium"> 
+                              <label for="subpremium">Premium </label>
+                              <small><i class="fa fa-info-circle "></i> </small>
+
+                              <p class="course-package__text"> This course is accessible only by exclusive purchase </p>
+                          </div> <br/>
+
+                          <div class="course-package__free">
+                              <input type="radio" name="subscription" id="subFree" value="Free" class="sub-free">
+                              <label for="subFree"> Free </label>
+                              <small><i class="fa fa-info-circle "></i> </small>
+                             
+                              <p class="course-package__text">  This course is accessible only by any learner </p>
+                          </div>
+                    </div>
+                </div>
+
+
+                <!--<div class="col-md-3">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Free') }}:</label>  
                   <li class="tg-list-item"> 
                     <input  class="tgl tgl-skewed" id="cb111" name="type" type="checkbox" {{ $cor->type == '1' ? 'checked' : '' }}/>
@@ -168,11 +211,35 @@
                     </li>
                     <input type="hidden" name="status" value="{{ $cor->status }}" id="c33">
                   @endif
-                </div>
+                </div> -->
               </div>
-              <br>
-           
+              <div class="hr-line"></div>
+
               <div class="row">
+                  <div class="col-md-5">
+                      <label for=""> Course Preview Image<sup class="redstar">*</sup></label>
+                      <div class="course__previewImgVid" >
+                           <div class="course__previewText">
+                                <p class="course__preview-size">Preview Image size: 250x150</p>
+                                <p class="text-uppercase choose-file">Choose a File</p>
+                          </div>
+                          <input type="file" class="form-control" name="" />
+                      </div>
+                  </div>
+                  <div class="col-md-2"></div>
+                  <div class="col-md-5">
+                      <label for=""> Course Preview Video </label>
+                      <div class="course__previewImgVid">
+                         <div class="course__previewText">
+                                <p class="course__preview-size">Preview video size: 20MB</p>
+                                <p class="text-uppercase choose-file">Choose a File</p>
+                          </div>
+                          <input type="file" class="form-control" name="" />
+                      </div>
+                  </div>
+              </div>
+           
+              <!-- <div class="row">
                 <div class="col-md-6">
                   <label for="exampleInputDetails">{{ __('adminstaticword.PreviewVideo') }}:</label>  
                   <li class="tg-list-item"> 
@@ -215,9 +282,9 @@
                   <p class="inline info"> - Please enter duration in month</p>
                   <input min="1" class="form-control" name="duration" type="number" id="duration" value="{{ $cor->duration }}" placeholder="Enter Duration in months">
                 </div>
-              </div>
+              </div>-->
               <br>
-              <br>
+              <br> 
 
               <div class="box-footer">
                 <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('adminstaticword.Save') }}</button>

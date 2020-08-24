@@ -298,6 +298,64 @@ table.table-bordered.dataTable tbody td {
     box-shadow: 0px 3px 6px #00000029;
 }
 
+/* ===================== EDIT COURSES ====================== */
+.course-package-type .course-pt__title{ margin-bottom:20px;}
+.course-package-type{
+  background-color:#ffffff;
+  box-shadow: 0px 3px 6px #87878729;
+  padding:30px 20px;
+}
+.course-package-type .course-package__text{padding-left:20px;}
+.course-package-type .course-package__subscription, .course-package__premium, .course-package__free{padding-left:30px;}
+
+.hr-line{
+  width:100%;
+  border:.3px dashed #cccccc;
+  margin:30px 0;
+}
+input[type="file"]{
+      width:100%;
+      height:100%;
+      background:#FCFCFC;
+      position:absolute;
+      top:0;
+      left:0;
+      opacity:0;
+      display:block;
+      cursor:pointer;
+}
+.course__previewImgVid {
+      position:relative;
+      background:#FCFCFC;
+      border:1px dashed #DEDEDE;
+      width:100%;
+      height:200px;
+      color:#000;
+      font-size:16px;
+      z-index:0;
+}
+.course__previewText{
+    position:relative;
+    top:0;
+    z-index:1;
+    opacity:1;
+    display:flex;
+    justify-content:space-between;
+}
+.course__previewText .course__preview-size,.course__previewText .choose-file{
+    background:#FCFCFC ;
+    padding:10px 20px;
+    color:#BCBCBC;
+}
+.course__previewText .choose-file{
+    color:#1592E6;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+    display:block;
+}
+
+
 
 /* ================= COURSE CLASS ================ */
 /* === Nav Tabs === */
