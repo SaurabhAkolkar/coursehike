@@ -41,7 +41,7 @@
               
             </div>
            
-            <a href="{{route('user.index')}}" class="small-box-footer">{{ __('adminstaticword.Moreinfo') }} <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{route('user.index')}}" class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -67,7 +67,7 @@
               	@endphp
               </h3>
             </div>
-            <a href="{{url('category')}}" class="small-box-footer">{{ __('adminstaticword.Moreinfo') }} <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('category')}}" class="small-box-footer"><!--{{ __('adminstaticword.Moreinfo') }}--><i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -93,7 +93,7 @@
               	@endphp
               </h3>       
             </div>  
-            <a href="{{url('course')}}" class="small-box-footer">{{ __('adminstaticword.Moreinfo') }} <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('course')}}" class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -119,7 +119,7 @@
               	@endphp
               </h3>
             </div>
-            <a href="{{url('order')}}" class="small-box-footer">{{ __('adminstaticword.Moreinfo') }} <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('order')}}" class="small-box-footer"><!--{{ __('adminstaticword.Moreinfo') }} --> <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -145,7 +145,7 @@
               	@endphp
               </h3>        
             </div>
-            <a href="{{url('faq')}}" class="small-box-footer">{{ __('adminstaticword.Moreinfo') }} <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('faq')}}" class="small-box-footer"><!--{{ __('adminstaticword.Moreinfo') }}--> <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -170,7 +170,7 @@
               	@endphp
               </h3>       
             </div>
-            <a href="{{ url('page') }}" class="small-box-footer">{{ __('adminstaticword.Moreinfo') }} <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ url('page') }}" class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -196,7 +196,7 @@
               	@endphp
               </h3>
             </div>
-            <a href="{{route('all.instructor')}}" class="small-box-footer">{{ __('adminstaticword.Moreinfo') }} <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{route('all.instructor')}}" class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -222,7 +222,7 @@
               	@endphp
               </h3>
             </div>
-            <a href="{{url('testimonial')}}" class="small-box-footer">{{ __('adminstaticword.Moreinfo') }} <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('testimonial')}}" class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -234,7 +234,7 @@
 		<!-- Left col -->
     <div class="col-md-4">
       <!-- USERS LIST -->
-      <div class="box box-danger">
+      <div class="box box-danger box-recent__content">
           <div class="box-header with-border">
             <h3 class="box-title">{{ __('adminstaticword.LatestUsers') }}</h3>
 
@@ -253,10 +253,10 @@
                   @endphp
                 {{ __('adminstaticword.Users') }}
             </span>
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+             <!-- <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
               </button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-              </button>
+              </button> -->
             </div>
           </div>
           <!-- /.box-header -->
@@ -281,9 +281,11 @@
             <!-- /.users-list -->
           </div>
           <!-- /.box-body -->
-          <div class="box-footer text-center">
-            <a href="{{route('user.index')}}" class="uppercase">{{ __('adminstaticword.ViewAll') }}</a>
-          </div>
+          <div class="box-footer text-right">
+            <a href="{{route('user.index')}}" class="uppercase"> <!--{{ __('adminstaticword.ViewAll') }} -->
+                    <i class="fa fa-long-arrow-right fa-2x" style="color:#000"></i>
+            </a>
+          </div> 
           <!-- /.box-footer -->
       </div>
       <!--/.box -->
@@ -293,7 +295,7 @@
         $courses = App\Course::limit(5)->orderBy('id', 'DESC')->get()
       @endphp
       @if(!$courses->isEmpty())
-      <div class="box box-primary">
+      <div class="box box-primary box-recent__content">
           <div class="box-header with-border">
             <h3 class="box-title">{{ __('adminstaticword.RecentCourses') }}</h3>
 
@@ -343,8 +345,10 @@
             </ul>
           </div>
           <!-- /.box-body -->
-          <div class="box-footer text-center">
-            <a href="{{url('course')}}" class="uppercase">{{ __('adminstaticword.ViewAll') }}</a>
+          <div class="box-footer text-right">
+            <a href="{{url('course')}}" class="uppercase"><!-- {{ __('adminstaticword.ViewAll') }} -->
+              <i class="fa fa-long-arrow-right fa-2x" style="color:#000"></i>
+            </a>
           </div>
           <!-- /.box-footer -->
       </div>
@@ -358,21 +362,21 @@
         $orders = App\Order::limit(7)->orderBy('id', 'DESC')->get();
       @endphp
       @if( !$orders->isEmpty() )
-			<div class="box box-info">
+			<div class="box box-info box-recent__content">
 			    <div class="box-header with-border">
 			      <h3 class="box-title">{{ __('adminstaticword.LatestOrders') }}</h3>
 
-			      <div class="box-tools pull-right">
+			      <!-- <div class="box-tools pull-right">
 			        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
 			        </button>
 			        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-			      </div>
+			      </div>-->
 			    </div>
 			    <!-- /.box-header -->
 			    <div class="box-body">
 			      <div class="table-responsive">
 			        <table class="table no-margin">
-			          <thead>
+			          <!--<thead>
 			          <tr>
 			            <th>{{ __('adminstaticword.User') }}</th>
 			            <th>{{ __('adminstaticword.Course') }}</th>
@@ -380,7 +384,7 @@
 			            <th>{{ __('adminstaticword.Date') }}</th>
                   <th>{{ __('adminstaticword.Invoice') }}</th>
 			          </tr>
-			          </thead>
+			          </thead> -->
 			          <tbody>
                   @php
                     $orders = App\Order::limit(7)->orderBy('id', 'DESC')->get();
@@ -415,7 +419,9 @@
 			    </div>
 			    <!-- /.box-body -->
 			    <div class="box-footer clearfix">
-			      <a href="{{url('order')}}" class="btn btn-sm btn-default btn-flat pull-right">{{ __('adminstaticword.ViewAllOrders') }}</a>
+			      <a href="{{url('order')}}" class="pull-right"> <!-- class="btn btn-sm btn-default btn-flat pull-right"> {{ __('adminstaticword.ViewAllOrders') }} -->
+              <i class="fa fa-long-arrow-right fa-2x" style="color:#000"></i>
+            </a>
 			    </div>
 			    <!-- /.box-footer -->
 			</div>
@@ -428,7 +434,7 @@
         $instructors = App\Instructor::limit(3)->orderBy('id', 'DESC')->get();
       @endphp
       @if( !$instructors->isEmpty() )
-      <div class="box box-success">
+      <div class="box box-success box-recent__content">
         <div class="box-header">
           <i class="fa fa-user-plus"></i>
 
@@ -472,10 +478,10 @@
           <!-- /.item -->
         </div>
         <!-- /.chat -->
-        <div class="box-footer text-center">
+        <!--<div class="box-footer text-center">
           <a href="{{route('all.instructor')}}" class="btn btn-sm bg-navy btn-flat pull-left">{{ __('adminstaticword.AllInstructor') }}</a>
           <a href="{{url('requestinstructor')}}" class="btn btn-sm btn-default btn-flat pull-right">{{ __('adminstaticword.ViewAllInstructor') }}</a>
-        </div>
+        </div> -->
       </div>
       @endif
       <!-- /.box (Instructor box) -->

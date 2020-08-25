@@ -96,6 +96,8 @@ return [
         'redirect' => env('TWITTER_CALLBACK_URL'),
     ],
 
-
+    'isinstalled' =>[
+        'IsInstalled' => env('IS_INSTALLED'),
+    ],
 
 ];
