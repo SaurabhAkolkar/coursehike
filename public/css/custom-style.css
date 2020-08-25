@@ -125,9 +125,36 @@
     background-color:#fbfbfb;
     color:#000;
 }
-/* == Latest User Image == */
-.users-list>li img{
-    height:auto;
+/* == Latest Users Section == */
+.box-recent__content{
+    background-color:#fbfbfb !important;
+    padding:10px;
+}
+.box-footer{
+    background-color:transparent !important;
+}
+.box-tools{
+    display:none;
+}
+.users-list>li {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    text-align: left;
+}
+.users-list>li img {
+    height: 50px;
+    width:50px;
+}
+.users-list-name{
+    margin-left:-80px;
+}
+
+/* == Recent Courses Section == */
+.products-list>.item{
+    background:transparent;
+    border:none;
 }
 
 
@@ -359,17 +386,41 @@ input[type="file"]{
 
 /* ================= COURSE CLASS ================ */
 /* === Nav Tabs === */
-
+.nav-tabs{
+    overflow-x: scroll;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+}
+.nav-tabs::-webkit-scrollbar {
+    width:5px !important;
+    height:7px;
+  }
+.nav-tabs::-webkit-scrollbar-track {
+    background: #fff; 
+  }
+.nav-tabs::-webkit-scrollbar-thumb {
+    background:rgba(0,0,0,0.3); 
+    border-radius:25px 25px;
+}
 .nav-tabs-custom>.nav-tabs {
     margin: 0;
-    padding-bottom:15px;
+    padding-bottom:8px;
     border-bottom-color: #f4f4f4;
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
     display: flex;
-    overflow-x: scroll;
-    overflow-y:hidden;
-    scroll-behavior: smooth;
+}
+.nav-tabs{
+    border-bottom:none;
+}
+.nav-tabs-custom>.nav-tabs>li.active>a, .nav-tabs-custom>.nav-tabs>li.active:hover>a{
+    background-color:#F4F5F080 !important;
+    color:#7400D7;
+    font-weight:bold;
+}
+.nav-tabs-custom>.nav-tabs>li.active{
+    border-bottom:2px solid #7400D7;
+    border-top:none;
 }
 /* === Nav Tab Anchor Tags === */
 .nav>li>a {
@@ -384,6 +435,17 @@ table, .table-bordered{
     border-collapse: separate !important;
     border-spacing:0 15px;
     border:none;
+}
+table::-webkit-scrollbar{background: rgb(0, 0, 0);
+    width: 7px;
+    position: absolute;
+    top: 0px;
+    opacity: 0.4;
+    display: block;
+    border-radius: 7px;
+    z-index: 99;
+    right: 1px;
+    height: 347.751px;
 }
 /* == Table Columns == */
 .table>tbody>tr>td{

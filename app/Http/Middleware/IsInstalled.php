@@ -15,7 +15,7 @@ class IsInstalled
      */
     public function handle($request, Closure $next)
     {
-        if(env('IS_INSTALLED') != 0)
+        if(config('services.isinstalled.IsInstalled') != 0)
         {
             return $next($request);
         }
