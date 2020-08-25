@@ -1,1 +1,406 @@
 
+/* =============== Admin Dashboard Left Side Navbar CSS ============  */
+
+/* == Sidebar Toggler Icon == */
+.main-header .navbar .sidebar-toggle{
+    color: #404040;
+}
+/* == Sidebar User Image == */
+.sidebar .user-panel img{
+    height:auto;
+}
+/* == Sidebar Toggler Menu Links == */
+.sidebar a {
+    color: #404040;
+}
+/* == Sidebar Toggler Menu Links when active and hover == */
+.sidebar-menu>li:hover>a, 
+.sidebar-menu>li.active>a, 
+.sidebar-menu>li.menu-open>a {
+    background-color:#ffffff;
+    color:#6708BA;
+}
+/* == Sidebar Menu Links Spacing == */
+.sidebar-menu>li>a {
+    padding: 6px 16px;
+    display: block;
+    position:relative;
+    border-right:2px solid #f1f1f1;
+}
+/* == Sidebar Menu Links border-left == */
+.sidebar-menu>li.active>a {
+    border-left-color:transparent;
+}
+
+
+/* ================ Admin Dashboard Content =================== */
+
+/* == top-nav language btn == */
+.language .btn-primary {
+    background-color: #fff;
+    color: #506fe4;
+    border-radius: 0;
+    box-shadow:none;
+}
+.language .btn-primary:hover {
+    background-color: #fbfbfb;
+    color: #999999;;
+    box-shadow: none;
+}
+/* === Dashboard Content-header === */
+.skin-blue .content-header {
+     background-color:#fff;
+}
+/* === Dashboard Content === */
+.content {
+    background-color: #ffffff;
+    min-height: 250px;
+    margin:0;
+    padding:20px;
+}
+/* == Content small-box bg-colors == */
+.bg-aqua, .bg-orange, .bg-purple, .bg-green, .bg-blue, .bg-yellow, .bg-red{
+    background-color:#fbfbfb !important;
+}
+.small-box {
+    border-radius: 2px;
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 3px #eee;
+}
+
+.small-box .icon {
+    -webkit-transition: all .3s linear;
+    -o-transition: all .3s linear;
+    transition: all .3s linear;
+    position: relative;
+    top:0;
+    left:0;
+    font-size:25px;
+    display:block;
+}
+.small-box:hover .icon{font-size:25px;}
+
+/* == small-box icons CSS == */
+.small-box [class^="flaticon-"]:before, .small-box [class*=" flaticon-"]:before, .small-box [class^="flaticon-"]:after, .small-box [class*=" flaticon-"]:after {
+    -webkit-transition: all .3s linear;
+    -o-transition: all .3s linear;
+    transition: all .3s linear;
+    position: relative;
+    font-size: 25px;
+    color:#48ACF8;
+}
+/* == small-box inner numbering == */
+.small-box h3 {
+    position: relative;
+    top:10px;
+    font-size: 25px;
+    font-weight: bold;
+    white-space: nowrap;
+    padding-left: 12px;
+    color:#000;
+}
+/* == small-box p CSS == */
+.small-box p {
+    font-size: 16px;
+    color: #252525;
+    font-weight:bold;
+    padding-left:12px;
+    margin:0;
+}
+/* ==Content small-box small-box-footer section == */
+.small-box>.small-box-footer {
+    position: relative;
+    text-align: center;
+    color: #000;
+    display: block;
+    z-index: 10;
+    background:#fbfbfb;
+    text-decoration: none;
+    text-align:right;
+    padding:4px 8px;
+}
+.small-box>.small-box-footer:hover {
+    background-color:#fbfbfb;
+    color:#000;
+}
+/* == Latest User Image == */
+.users-list>li img{
+    height:auto;
+}
+
+
+/* ============ COURSES PAGE ============ */
+/* == Add Course Button == */
+.btn-info{
+    background-color:transparent;
+    color:#7400D7 !important;
+    border:none;
+    font-size:14px;
+    text-transform:uppercase;
+    font-weight:bold;
+}
+.btn-info:hover{
+    background-color:#ffffff !important;
+    color:#6708BA !important;
+}
+.glyphicon{
+    top:0;
+    font-size:10px !important;
+}
+/* == CSV/PDF/PRINT buttons == */
+div.dt-buttons {
+    display: none;
+}
+/* == Search Bar == */
+.input-sm{
+    padding:0 !important;
+ } 
+ /* == Table == */
+ table.dataTable {
+    border-collapse: seperate !important;
+    border-spacing: 0 15px !important; 
+    border:none;
+}
+/* == table head == */
+thead{
+    background-color:#303030;
+    color:#fff !important; 
+}
+/* == table head == */
+th.sorting {   
+    font-weight: normal;
+    font-size: 14px;
+    color:#fff !important;
+    padding:15px 0 !important;
+}
+/* == Sorting Icons after the table head Content == */
+table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting:after{
+    content: "";
+}
+/* == Table rows == */
+.table-striped>tbody>tr:nth-of-type(odd) ,
+.table-striped>tbody>tr:nth-of-type(even) {
+    background-color: #F4F5F080;
+}
+/* == Table Columns == */
+table.table-bordered.dataTable tbody td {
+    border:none;
+    border-bottom-width: 0;
+    font-size:14px;
+    line-height:1 !important;
+    vertical-align: middle;
+ }
+/* == Table Column Course Image ==*/
+.table td img {
+    width: 60px;
+    height: 40px;
+}
+
+
+
+
+/* ============  COURSES / ADD COURSE PAGE ============ */
+
+/* === Add course content box box-primary === */
+.box {
+    position: relative;
+    border-radius: 0;
+    background: #ffffff;
+    border-top: none;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: none;
+}
+/* == box-header with-border == */
+.box-header.with-border {
+    border-bottom: none;
+}
+/* == form select css == */
+.select2-container .select2-selection--single  {
+    background-color: #fcfcfc;
+    border:1px solid #dedede;
+    margin:0;
+}
+/* == form select spacing == */
+.select2-container--default .select2-selection--single, .select2-selection .select2-selection--single {
+    padding: 10px 0 0 25px;
+    height: 40px;
+}
+/* ==form form-control css == */
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #BCBCBC;
+    background-color: #fbfbfb;
+    border: 1px solid #dedede;
+    border-radius: 0;
+    box-shadow: none;
+}
+.tox-tinymce{
+    border:none !important;
+}
+/* == tox tox-menubar names of menubar == */
+.tox .tox-menubar {
+    display:none !important;
+}
+/* == Removing the border from toolbar == */
+.tox .tox-menubar+.tox-toolbar, .tox .tox-menubar+.tox-toolbar-overlord .tox-toolbar__primary {
+    border-top: none !important;
+}
+/* == Textarea field == */
+.tox .tox-edit-area__iframe {
+    background-color: #fbfbfb !important;
+    border:1px solid #dedede !important;
+}
+/* bottom statusbar displayed to none == */
+.tox .tox-statusbar {
+   display:none !important;
+}
+/* == Input preview file and label == */
+.inputfile + label {
+    max-width: 100%;
+    width:220px;
+    height:150px;
+    font-size: 1.25rem; 
+    font-weight: 700;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;  
+    background-color:#fbfbfb !important;
+    color:#404040;
+    border:1px solid #dedede;
+}
+
+/* == submit button section == */
+.box-footer {
+    border:none;
+    padding: 10px;
+    background-color: #fff;
+}
+.btn-primary {
+    background-color: #7400D7 ;
+    color:#ffffff;
+    border:none;
+    border-radius:0;
+    padding:8px 32px;
+    box-shadow: 0px 3px 6px #00000029;
+    float:right;
+}
+.btn-primary:hover{
+    background-color: #7400D7 ;
+    box-shadow: 0px 3px 6px #00000029;
+}
+
+/* ===================== EDIT COURSES ====================== */
+.course-package-type .course-pt__title{ margin-bottom:20px;}
+.course-package-type{
+  background-color:#ffffff;
+  box-shadow: 0px 3px 6px #87878729;
+  padding:30px 20px;
+}
+.course-package-type .course-package__text{padding-left:20px;}
+.course-package-type .course-package__subscription, .course-package__premium, .course-package__free{padding-left:30px;}
+
+.hr-line{
+  width:100%;
+  border:.3px dashed #cccccc;
+  margin:30px 0;
+}
+input[type="file"]{
+      width:100%;
+      height:100%;
+      background:#FCFCFC;
+      position:absolute;
+      top:0;
+      left:0;
+      opacity:0;
+      display:block;
+      cursor:pointer;
+}
+.course__previewImgVid {
+      position:relative;
+      background:#FCFCFC;
+      border:1px dashed #DEDEDE;
+      width:100%;
+      height:200px;
+      color:#000;
+      font-size:16px;
+      z-index:0;
+}
+.course__previewText{
+    position:relative;
+    top:0;
+    z-index:1;
+    opacity:1;
+    display:flex;
+    justify-content:space-between;
+}
+.course__previewText .course__preview-size,.course__previewText .choose-file{
+    background:#FCFCFC ;
+    padding:10px 20px;
+    color:#BCBCBC;
+}
+.course__previewText .choose-file{
+    color:#1592E6;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+    display:block;
+}
+
+
+
+/* ================= COURSE CLASS ================ */
+/* === Nav Tabs === */
+
+.nav-tabs-custom>.nav-tabs {
+    margin: 0;
+    padding-bottom:15px;
+    border-bottom-color: #f4f4f4;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y:hidden;
+    scroll-behavior: smooth;
+}
+/* === Nav Tab Anchor Tags === */
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding:5px;
+    text-align:center;
+    width:120px;
+}
+/* == Table == */
+table, .table-bordered{
+    border-collapse: separate !important;
+    border-spacing:0 15px;
+    border:none;
+}
+/* == Table Columns == */
+.table>tbody>tr>td{
+    border:none;
+    border-bottom-width: 0;
+    font-size:14px;
+    line-height:1 !important;
+    vertical-align: middle;
+}
+
+/* ============= ADD COURSE CLASS ================ */
+/* == modal add class form == */
+.modal-dialog {
+    width: 500px;
+    margin: 30px auto;
+}
+.modal-content{
+    padding:10px 30px;
+}
+
