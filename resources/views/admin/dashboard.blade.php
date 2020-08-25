@@ -283,7 +283,7 @@
           <!-- /.box-body -->
           <div class="box-footer text-right">
             <a href="{{route('user.index')}}" class="uppercase"> <!--{{ __('adminstaticword.ViewAll') }} -->
-                    <i class="fa fa-long-arrow-right fa-2x" style="color:#000"></i>
+                    <i class="fa fa-long-arrow-right fa-2x" style="color:#777777"></i>
             </a>
           </div> 
           <!-- /.box-footer -->
@@ -347,7 +347,7 @@
           <!-- /.box-body -->
           <div class="box-footer text-right">
             <a href="{{url('course')}}" class="uppercase"><!-- {{ __('adminstaticword.ViewAll') }} -->
-              <i class="fa fa-long-arrow-right fa-2x" style="color:#000"></i>
+              <i class="fa fa-long-arrow-right fa-2x" style="color:#777777"></i>
             </a>
           </div>
           <!-- /.box-footer -->
@@ -420,7 +420,7 @@
 			    <!-- /.box-body -->
 			    <div class="box-footer clearfix">
 			      <a href="{{url('order')}}" class="pull-right"> <!-- class="btn btn-sm btn-default btn-flat pull-right"> {{ __('adminstaticword.ViewAllOrders') }} -->
-              <i class="fa fa-long-arrow-right fa-2x" style="color:#000"></i>
+              <i class="fa fa-long-arrow-right fa-2x" style="color:#777777"></i>
             </a>
 			    </div>
 			    <!-- /.box-footer -->

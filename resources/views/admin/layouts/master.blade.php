@@ -123,7 +123,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
                 $languages = App\Language::all(); 
             @endphp
             <li class="dropdown admin-nav language">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-globe"></i> {{Session::has('changed_language') ? Session::get('changed_language') : ''}}</button>
+            <!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-globe"></i> {{Session::has('changed_language') ? Session::get('changed_language') : ''}}</button> -->
 
               <ul class="dropdown-menu animated flipInX">
                 @if (isset($languages) && count($languages) > 0)

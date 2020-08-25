@@ -32,6 +32,12 @@
     border-left-color:transparent;
 }
 
+.main-header .navbar .nav>li>a {
+    color: #000 !important;
+    padding: 15px 5px;
+    font-weight:500;
+}
+
 
 /* ================ Admin Dashboard Content =================== */
 
@@ -146,6 +152,7 @@
 .users-list>li img {
     height: 50px;
     width:50px;
+   border:1px solid rgba(129,129,129,.1);
 }
 .users-list-name{
     margin-left:-80px;
@@ -221,8 +228,9 @@ table.table-bordered.dataTable tbody td {
  }
 /* == Table Column Course Image ==*/
 .table td img {
-    width: 60px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
+    display:block;
 }
 
 
@@ -262,11 +270,14 @@ table.table-bordered.dataTable tbody td {
     padding: 20px;
     font-size: 15px;
     line-height: 1.42857143;
-    color: #BCBCBC;
+    color: #777777;
     background-color: #fbfbfb;
     border: 1px solid #dedede;
     border-radius: 0;
     box-shadow: none;
+}
+.form-control::placeholder{
+    color:#777777 !important;
 }
 .tox-tinymce{
     border:none !important;
@@ -429,6 +440,11 @@ input[type="file"]{
     padding:5px;
     text-align:center;
     width:120px;
+}
+@media (max-width:767px){
+    .nav>li>a{
+        width:100%;
+    }
 }
 /* == Table == */
 table, .table-bordered{
