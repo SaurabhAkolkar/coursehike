@@ -14,7 +14,6 @@
                 <form action="{{ route('player.update') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
 
-
                     <div class="row">
                        <div class="col-md-12">
                         <div class="form-group">

@@ -18,7 +18,6 @@
                             $price = 0;
                             $value = 0;
                             $sub_total = 0;
-                            $sub_total = 0;
                             $reviews = App\ReviewRating::where('course_id',$course->id)->where('status','1')->get();
                             ?> 
                             @if(!empty($reviews[0]))
@@ -162,7 +161,7 @@
                 <div class="about-home-product">
                     <div class="video-item hidden-xs">
                         <script type="text/javascript">
-                        @if($course->video !="")
+                        @if($course->video)
                         var video_url = '<iframe src="{{ asset('video/preview/'.$course['video']) }}" frameborder="0" allowfullscreen></iframe>';
                         @endif
                         @if($course->url !="")
