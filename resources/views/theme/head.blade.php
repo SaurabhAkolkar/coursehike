@@ -28,6 +28,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
 
 <link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css"/> <!-- custom css -->
 <link href="{{ url('css/learner-style.css') }}" rel="stylesheet" type="text/css"/> <!-- custom css -->
+<link href="{{ url('css/main.css') }}" rel="stylesheet" type="text/css"/> <!-- custom - lila front end styles css -->
 @endif
 <link rel="stylesheet" href="{{ url('css/colorbox.css') }}">
 <link rel="stylesheet" href="{{url('admin/bower_components/font-awesome/css/font-awesome.min.css')}}"><!-- fontawesome css -->
