@@ -37,11 +37,8 @@ class EnrollExpire implements ShouldQueue
         foreach (Auth::user()->orders as $order) {
             if($order->status == 1 ){
                 if($order->enroll_expire != NULL && $order->enroll_expire != '' ){
-                    if($todayDate >= date('Y-m-d',strtotime($order->enroll_expire))){
-                        
-                       
-                        DB::table('orders')->where('enroll_expire', '<', $todayDate)->delete();
-                        
+                    if($todayDate >= date('Y-m-d',strtotime($order->enroll_expire))){                                           
+                        DB::table('orders')->where('enroll_expire', '<', $todayDate)->delete();                        
                     }
                 }
             }

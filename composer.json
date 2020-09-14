@@ -24,7 +24,7 @@
         "intervention/image": "^2.4",
         "jorenvanhocht/laravel-share": "^3.2",
         "kingflamez/laravelrave": "^2.0",
-        "laravel/framework": "7.*",
+        "laravel/framework": "7.1",
         "laravel/helpers": "^1.2",
         "laravel/socialite": "^4.4",
         "laravel/tinker": "^2.0",
@@ -38,6 +38,7 @@
         "razorpay/razorpay": "^2.5",
         "realrashid/sweet-alert": "^3.1",
         "revolution/socialite-amazon": "^1.1",
+        "rinvex/laravel-subscriptions": "4.1.0",
         "smodav/mpesa": "^5.1",
         "spatie/laravel-cookie-consent": "^2.12",
         "spatie/laravel-image-optimizer": "^1.5",
@@ -61,7 +62,7 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "platform": {
-            "php": "7.2.5"
+            "php": "7.4.9"
         }
     },
     "extra": {
