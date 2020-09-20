@@ -35,7 +35,7 @@
     </div>
 </section>
 
-<section id="signup" class="signup-block-main-block la-entry__sec">
+<section id="signup" class="la-entry__sec">
     <div class="container-fluid la-entry__sec-inner">
         <div class="row la-entry__row h-100">
 
@@ -118,16 +118,16 @@
                                 <input id="password-confirm" type="password" class="la-form__input la-entry__input" name="password_confirmation" placeholder="Confirm Password" required>
                             </div>
                             
-                            @if($gsetting->captcha_enable == 1)
-                            <!-- <div class="form-group mb-5{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
+                            <!--@if($gsetting->captcha_enable == 1)
+                             <div class="form-group mb-5{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
                                 {!! app('captcha')->display() !!}
                                 @if ($errors->has('g-recaptcha-response'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
                                     </span>
                                 @endif
-                            </div> -->
-                            @endif
+                            </div> 
+                            @endif-->
         
                             
                             <button type="submit" title="Sign Up" class="btn la-btn la-btn--secondary text--black w-100">{{ __('frontstaticword.Signup') }}</button> 
@@ -151,13 +151,13 @@
                                 </div>
                             @endif
                             
-                            @if($gsetting->amazon_enable == 1)
-                               <!-- <div class="signin-link amazon-button">
+                            <!--@if($gsetting->amazon_enable == 1)
+                                <div class="signin-link amazon-button">
                                     <a href="{{ url('/auth/amazon') }}" target="_blank" title="amazon" class="rounded-circle btn btn-info btm-10" title="Amazon"><i class="fab fa-amazon"></i>
                                         {{-- {{ __('frontstaticword.ContinuewithAmazon') }} --}}
                                     </a>
-                                </div> -->
-                            @endif
+                                </div>
+                            @endif -->
             
                             @if($gsetting->linkedin_enable == 1)
                                 <div class="la-entry__social-lnk">
@@ -167,26 +167,26 @@
                                 </div>
                             @endif
             
-                            @if($gsetting->twitter_enable == 1)
-                                <!-- <div class="signin-link twitter-button">
+                            <!--@if($gsetting->twitter_enable == 1)
+                                 <div class="signin-link twitter-button">
                                     <a href="{{ url('/auth/twitter') }}" target="_blank" title="twitter" class="rounded-circle btn btn-info btm-10" title="Twitter"><i class="fab fa-twitter"></i>
                                         {{-- {{ __('frontstaticword.ContinuewithTwitter') }} --}}
                                     </a>
-                                </div> -->
-                            @endif
+                                </div> 
+                            @endif-->
             
-                            @if($gsetting->gitlab_login_enable == 1)
-                                <!-- <div class="signin-link">
+                            <!--@if($gsetting->gitlab_login_enable == 1)
+                                 <div class="signin-link">
                                     <a href="{{ url('/auth/gitlab') }}" target="_blank" title="gitlab" class="rounded-circle btn btn-white" title="gitlab"><i class="fab fa-gitlab"></i>
                                         {{-- {{ __('frontstaticword.ContinuewithGitLab') }} --}}
                                     </a>
-                                </div> -->
-                            @endif
+                                </div> 
+                            @endif-->
                         </div>
         
-                        <div class="signin-link text-center btm-20">
+                        <!-- <div class="signin-link text-center btm-20">
                             {{ __('frontstaticword.Bysigningup') }} <a href="{{url('terms_condition')}}" title="Policy">{{ __('frontstaticword.Terms&Condition') }} </a>, <a href="{{url('privacy_policy')}}" title="Policy">{{ __('frontstaticword.PrivacyPolicy') }}.</a>
-                        </div>
+                        </div> -->
                         <div class="sign-up text-center">
                             <small>{{ __('frontstaticword.Alreadyhaveanaccount') }}?</small><a href="{{ route('login') }}" title="sign-up"> {{ __('frontstaticword.Login') }}</a>
                         </div>
