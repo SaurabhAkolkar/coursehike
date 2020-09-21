@@ -2,13 +2,13 @@
     <div class="col offset-2">
         <div class="la-vcreator__profile mb-14">
             <img class="img-fluid" src= {{ $img }} alt= {{ $name }} />
+            <div class="la-vcreator__name text-6xl"> {{ $name }} </div>
         </div>
     </div>
 </div>
 
 <div class="row">
     <div class="col">
-        <div class="la-vcreator__name"> {{ $name }} </div>
         <div class="la-vcreator__desc">
             <p class="la-vcreator__text"> {{ $desc }} </p>
         </div>

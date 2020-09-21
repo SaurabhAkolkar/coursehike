@@ -7,7 +7,7 @@
         </span>
     </div>
 
-    <div class="panel-collapse collapse " id= {{ $subId }} aria-labelledby= {{$mainId}} data-parent="#accordion">
+    <div class="panel-collapse collapse " id= {{ $subId }} aria-labelledby= {{ $mainId }} data-parent="#accordion">
         <div class="panel-body la-bgcreator__panel-body py-4 px-5 mx-5">
             <p class="panel-text text-md">{{ $answer }}</p>
         </div>

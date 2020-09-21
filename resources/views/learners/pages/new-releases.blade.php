@@ -8,39 +8,86 @@
       <div class="container la-new__events p-0">
         <div class="row">
           <div class="col-12">
-            <div class="la-new__announcements"><a class="la-new__back text-4xl font-normal" href="#"></a>
-              <h1 class="head-font text-2xl text-sm-4xl">New Releases</h1>
-                                    <li class="la-news__item"> 
-                                      <div class="la-news__wrapper d-flex flex-column flex-lg-row justify-content-between">
-                                        <div class="la-news__eimg"><img class="d-block" src="../images/creator/banner.jpg" alt="Four new badges for learners!"></div>
-                                        <div class="la-news__etitle">
-                                          <h6 class="text-lg text-sm-2xl head-font m-0">Four new badges for learners!</h6><span class="la-news__timestamp text-xs">Just now</span>
-                                          <p class="la-news__content text-md text-sm-sm">Lorem Ipsum dolor sit amet, consectur sadispicing elitr, <span>Lorem Ipsum dolor sit amet, consectur sadispicing elitr, </span><span>Lorem Ipsum dolor sit amet, consectur sadispicing elitr, </span><span>Lorem Ipsum dolor sit amet, consectur sadispicing elitr, </span><span>Lorem Ipsum dolor sit amet, consectur sadispicing elitr, </span><br><br><span>Lorem Ipsum dolor sit amet, consectur sadispicing elitr, </span><span>Lorem Ipsum dolor sit amet, consectur sadispicing elitr, </span><span class="collapse" id="moreContent">Lorem Ipsum dolor sit amet, consectur sadispicing elitr, </span></p><a class="la-news__readmore text-center text-sm-right" role="button" href="#moreContent" data-toggle="collapse" aria-expanded="true">Read More</a>
-                                        </div>
-                                      </div>
-                                    </li>
+            <div class="la-new__announcements">
+                <a class="la-new__back text-4xl font-normal" href="#"></a>
+                <h1 class="head-font text-2xl text-sm-4xl">New Releases</h1>
             </div>
           </div>
+
           <div class="col-12">
             <div class="la-new__announcements">
-                                    <li class="la-news__app-item">
-                                      <h6 class="la-news__app-title head-font text-lg text-sm-2xl m-0">New app released for better learning</h6>
-                                      <p class="text-xs la-news__app-timestamp">2h ago</p>
-                                      <div class="la-news__app-content text-md text-sm-sm">Lorem Ipsum dolor sit amet, consecuring sadispicing elitr, sed diam nounumy eirmod tempor <span>Lorem Ipsum dolor sit amet, consecuring sadispicing elitr, sed diam nounumy eirmod tempor </span><span>Lorem Ipsum dolor sit amet, consecuring sadispicing elitr, sed diam nounumy eirmod tempor </span><span class="collapse" id="exploreMore">Lorem Ipsum dolor sit amet, consecuring sadispicing elitr, sed diam nounumy eirmod tempor </span></div><a class="la-news__readmore text-center text-sm-right mt-3" role="button" href="#exploreMore" data-toggle="collapse" aria-expanded="true">Explore More</a>
-                                    </li>
+                @php
+                    $update1 = new stdClass;
+                    $update1->img = "https://picsum.photos/350/300";
+                    $update1->title = "Four new badges for learners!";
+                    $update1->timestamp = "Just now";
+                    $update1->desc = "Lorem Ipsum dolor sit amet, consectur sadispicing elitr,";
+                    $update1->collapseId = 1;
+
+                    $updates = array($update1);
+                @endphp          
+                
+                @foreach ($updates as $update)
+                    <x-new-update
+                        :img="$update->img"
+                        :title="$update->title"
+                        :timestamp="$update->timestamp"
+                        :desc="$update->desc"
+                        :collapseId="$update->collapseId"
+                    />
+                @endforeach
             </div>
           </div>
+
+
+          <div class="col-12">
+            <div class="la-new__announcements">
+                @php
+                  $app1 = new stdClass;
+                  $app1->title = "New app released for better learning";
+                  $app1->timestamp = "2h ago";
+                  $app1->desc = "Lorem Ipsum dolor sit amet, consectur sadispicing elitr, sed diam nounumy eirmod tempor";
+                  $app1->appCollapseId = 2;
+
+                  $apps = array($app1);
+                @endphp          
+            
+                @foreach ($apps as $app)
+                    <x-app-update
+                        :title="$app->title"
+                        :timestamp="$app->timestamp"
+                        :desc="$app->desc"
+                        :appCollapseId="$app->appCollapseId"
+                    />
+                @endforeach                 
+            </div>
+          </div>
+
+
           <div class="col-12">
             <div class="la-new__meet-events">
-                                    <li class="la-news__meet-item">
-                                      <h6 class="la-news__meet-title head-font text-lg text-sm-2xl m-0">Meet the mentors</h6>
-                                      <p class="text-xs la-news__meet-timestamp">4h ago</p>
-                                      <div class="la-news__meet-content">
-                                        <p class="text-md text-sm-sm">Lorem Ipsum dolor sit amet, conseturur sadispicing elitr, sed diam nounmy erimod tempor </p>
-                                        <div class="la-news__meet-banner"><img class="d-block" src="./images/creator/banner.jpg" alt="Meet the mentors"></div>
-                                        <p class="text-md text-sm-sm my-3 collapse" id="seeEvent">Lorem Ipsum dolor sit amet, conseturur sadispicing elitr, sed diam nounmy erimod tempor </p>
-                                      </div><a class="la-news__readmore text-center text-sm-right mt-3" role="button" href="#seeEvent" data-toggle="collapse" aria-expanded="true">See Event</a>
-                                    </li>
+                 @php
+                    $event1 = new stdClass;
+                    $event1->title = "Meet the mentors";
+                    $event1->timestamp = "4h ago";
+                    $event1->about = "Lorem Ipsum dolor sit amet, conseturur sadispicing elitr, sed diam nounmy erimod tempor";
+                    $event1->img = "https://picsum.photos/850/250";
+                    $event1->desc = "Lorem Ipsum dolor sit amet, conseturur sadispicing elitr, sed diam nounmy erimod tempor";
+                    $event1->eventCollapseId = 3;
+
+                    $events = array($event1);
+                 @endphp                   
+
+                 @foreach ($events as $event)
+                    <x-new-event
+                      :title="$event->title"
+                      :timestamp="$event->timestamp"
+                      :about="$event->about"
+                      :img="$event->img"
+                      :desc="$event->desc"
+                      :eventCollapseId="$event->eventCollapseId"
+                    />
+                 @endforeach
             </div>
           </div>
         </div>
