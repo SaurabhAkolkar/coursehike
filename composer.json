@@ -8,7 +8,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "7.2.5",
+        "php": "7.4.10",
         "anandsiddharth/laravel-paytm-wallet": "^1.0",
         "anhskohbo/no-captcha": "^3.2",
         "barryvdh/laravel-dompdf": "^0.8.5",
@@ -43,6 +43,7 @@
         "spatie/laravel-cookie-consent": "^2.12",
         "spatie/laravel-image-optimizer": "^1.5",
         "spatie/laravel-translatable": "^4.3",
+        "stripe/stripe-php": "^7.52",
         "tzsk/payu": "^4.0",
         "unicodeveloper/laravel-paystack": "1.0.*"
     },
@@ -62,7 +63,7 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "platform": {
-            "php": "7.4.9"
+            "php": "7.4.10"
         }
     },
     "extra": {
