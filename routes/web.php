@@ -61,7 +61,7 @@ Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallba
         //     return view('home');
         // });
 
-        Route::get('/', 'HomeController@index');
+        // Route::get('/', 'HomeController@index');
 
         Route::get('/home', 'HomeController@index')->name('home');
 
@@ -579,6 +579,33 @@ Route::post('admin/ipblock/update', 'IPBlockController@update')->name('ipblock.u
 Route::get('all/assignment', 'AssignmentController@view')->name('assignment.view');
 Route::get('view/assignment/{id}', 'AssignmentController@assignment')->name('list.assignment');
 
+
+// Route for Learner's View
+Route::view('/','learners.pages.home');
+
+Route::view('/signup','learners.auth.signup');
+Route::view('/signin','learners.auth.signin');
+Route::view('/interests','learners.auth.interests');
+Route::view('/creator-signup','learners.auth.creator-signup');
+
+Route::view('/user-dashboard','learners.pages.user-dashboard');
+Route::view('/courses','learners.pages.courses');
+Route::view('/course','learners.pages.course');
+Route::view('/my-courses','learners.pages.my-courses');
+Route::view('/mentors','learners.pages.mentors');
+Route::view('/creator','learners.pages.creator');
+
+Route::view('/profile','learners.pages.profile');
+Route::view('/wishlist','learners.pages.wishlist');
+Route::view('/cart','learners.pages.cart');
+Route::view('/playlist','learners.pages.playist');
+Route::view('/purchase-history','learners.pages.purchase-history');
+
+Route::view('/releases','learners.pages.new-releases');
+Route::view('/learning-plans','learners.pages.learning-plans');
+Route::view('/become-creator','learners.pages.become-creator');
+Route::view('/guided-creator','learners.pages.guided-creator');
+Route::view('/contact','learners.pages.contact');
 
 
 
