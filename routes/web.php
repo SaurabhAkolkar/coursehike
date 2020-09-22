@@ -57,11 +57,11 @@ Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallba
 
     Route::middleware(['is_verified'])->group(function () {
   
-        // Route::get('/', function () {
-        //     return view('home');
-        // });
+         Route::get('/', function () {
+            return view('home');
+         });
 
-        // Route::get('/', 'HomeController@index');
+        Route::get('/', 'HomeController@index');
 
         Route::get('/home', 'HomeController@index')->name('home');
 
@@ -581,7 +581,7 @@ Route::get('view/assignment/{id}', 'AssignmentController@assignment')->name('lis
 
 
 // Route for Learner's View
-Route::view('/','learners.pages.home');
+//Route::view('/','learners.pages.home');
 
 Route::view('/signup','learners.auth.signup');
 Route::view('/signin','learners.auth.signin');
@@ -589,8 +589,8 @@ Route::view('/interests','learners.auth.interests');
 Route::view('/creator-signup','learners.auth.creator-signup');
 
 Route::view('/user-dashboard','learners.pages.user-dashboard');
-Route::view('/courses','learners.pages.courses');
-Route::view('/course','learners.pages.course');
+//Route::view('/courses','learners.pages.courses');
+//Route::view('/course','learners.pages.course');
 Route::view('/my-courses','learners.pages.my-courses');
 Route::view('/mentors','learners.pages.mentors');
 Route::view('/creator','learners.pages.creator');

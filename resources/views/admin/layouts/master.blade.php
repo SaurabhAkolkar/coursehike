@@ -101,7 +101,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
       <a href="{{ url('/') }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">
-        <img title="{{ $project_title }}" width="20px" src="{{ url('images/favicon/'.$gsetting->favicon) }}" alt=""/>
+        <img title="{{ $project_title }}" width="60px" src="{{ url('images/logo/'.$gsetting->logo) }}" alt=""/>
       </span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"> <img title="{{ $project_title }}" width="100px" src="{{ url('images/logo/'.$gsetting->logo) }}" alt=""/></span>
