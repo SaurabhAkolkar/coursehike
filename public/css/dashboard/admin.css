@@ -491,3 +491,115 @@ button.dt-button, div.dt-button, a.dt-button {
 	    max-width: 100%; 
 	}
 }
+
+
+
+/* ================================= ADMIN DASHBOARD PAGE: START ================================ */
+
+/* ===== RECENT SUBSCRIPTIONS AND BOUGHT COURSES: START ==== */
+.la-dash__recent-section{
+	background-color:#fbfbfb;
+	padding:10px;
+	margin-bottom:20px;
+	width:100%;
+}
+.la-dash__recent-section .la-dash__recent-htitle{
+	font-family: var(--body-font);
+	font-weight:500;
+	font-size: 18px;
+	color: #404040;
+	padding:10px;
+	margin:0;
+}
+.la-dash__recent-section .la-dash__recent-list .la-dash__recent-item{
+	width:100%;
+	display:flex;
+	justify-content:space-between;
+	margin-bottom:20px;
+	padding:10px;
+ }
+ .la-dash__recent-section .la-dash__recent-list .la-dash__recent-item .la-dash__recent-info{
+	 display:flex;
+ }
+ .la-dash__recent-section .la-dash__recent-list .la-dash__recent-item .la-dash__recent-info .la-dash__recent-img img{
+	 width:32px;
+	 height:32px;
+	 border-radius:50%;
+	 margin-right:20px;
+ }
+ .la-dash__recent-section .la-dash__recent-list .la-dash__recent-item .la-dash__recent-info .la-dash__recent-title{
+	 font-family:var(--body-font);
+	 font-weight:var(--font-normal);
+	 font-size:14px;
+	 color:#010101;
+ }
+ .la-dash__recent-section .la-dash__recent-list .la-dash__recent-item .la-dash__recent-info .la-dash__recent-tag{
+	 font-family:var(--body-font);
+	 font-weight:var(--font-normal);
+	 font-size:10px;
+	 color:#BCBCBC;
+	 text-transform: uppercase;
+ }
+ .la-dash__recent-section .la-dash__recent-list .la-dash__recent-item .la-dash__recent-subdate{
+	 font-family:var(--body-font);
+	 font-weight:var(--font-normal);
+	 font-size:12px;
+	 color:#BCBCBC;
+ }
+ .la-dash__recent-section .la-dash__recent-more{
+	padding:10px;
+	text-align:right;
+ }
+ .la-dash__recent-section .la-dash__recent-more a{
+	 color:#777777;
+ }
+/* ===== RECENT SUBSCRIPTIONS AND BOUGHT COURSES: END ===== */
+
+
+/* ===== ADMIN PENDING COURSES REQUESTS: START ======= */
+ .la-dash__pending-section{
+	 padding:10px 0;
+ }
+ .la-dash__pending-section .la-dash__pending-head{
+	width:100%;
+	display:flex;
+	flex-wrap:wrap;
+	justify-content: space-between;
+	padding:10px;
+	margin-bottom:10px;
+  }
+  .la-dash__pending-section .la-dash__pending-head .la-dash__pending-title{
+	font-family:Roboto;
+	font-weight:normal;
+	font-size:16px;
+	color:#BCBCBC;
+	width:15%;
+	text-align:center;
+  }
+  .la-dash__pending-section .la-dash__pending-body .la-dash__pending-list .la-dash__pending-item{
+	width:100%;
+	display:flex;
+	flex-wrap:wrap;
+	justify-content: space-between;
+	padding:10px;
+	margin-bottom:10px;
+}
+.la-dash__pending-section .la-dash__pending-body .la-dash__pending-list .la-dash__pending-item .col{
+	font-family:Roboto;
+	font-weight:normal;
+	font-size:14px;
+	color:#010101;
+	width:15%;
+	text-align:center;
+}
+.la-dash__pending-section .la-dash__pending-body .la-dash__pending-list .la-dash__pending-item .la-dash__pending-date{
+	font-size:12px !important;
+}
+.la-dash__pending-section .la-dash__pending-body .la-dash__pending-list .la-dash__pending-item .la-dash__pending-type{
+	font-family:Roboto;
+	font-weight:normal;
+	color:#1592E6;
+	font-size:12px;
+}
+
+/* ===== ADMIN PENDING COURSES REQUESTS: END ====== */

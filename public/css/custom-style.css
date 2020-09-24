@@ -1,5 +1,5 @@
 
-/* =============== Admin Dashboard Left Side Navbar CSS ============  */
+/* =============== Admin Left Side Navbar CSS ============  */
 html, body{
     font-family:'Roboto', sans-serif !important;
     background:#ffffff !important;
@@ -26,6 +26,7 @@ html, body{
 }
 /* == Sidebar Toggler Menu Links == */
 .sidebar a {
+    font-family:var(--body-font);
     color: #404040 !important;
     font-weight:500;
     font-size:15px;
@@ -105,12 +106,20 @@ html, body{
 .bg-aqua, .bg-orange, .bg-purple, .bg-green, .bg-blue, .bg-yellow, .bg-red{
     background-color:#fbfbfb !important;
 }
+.content-header>h1 {
+    margin: 0;
+    color:#404040;
+    font-family:var(--body-font);
+    font-weight:500;
+    font-size: 24px;
+}
 .small-box {
     border-radius: 0;
     position: relative;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     box-shadow: none;
+    padding:10px;
 }
 
 .small-box .icon {
@@ -139,7 +148,8 @@ html, body{
     position: relative;
     top:10px;
     font-size: 24px;
-    font-weight: 500 !important;
+    font-family:var(--body-font);
+    font-weight:500;
     white-space: nowrap;
     padding-left: 12px;
     color:#252525 !important;
@@ -151,7 +161,8 @@ html, body{
     color: #252525 !important;
     padding-left:12px;
     margin:0;
-    font-weight:500 !important;
+    font-family:var(--body-font);
+    font-weight:500;
     letter-spacing: 0px;
 }
 /* ==Content small-box small-box-footer section == */
@@ -171,6 +182,12 @@ html, body{
     color:#000;
 }
 /* == Latest Users Section == */
+.box-header .box-title {
+    font-family:var(--body-font);
+    font-weight:500;
+    font-size:18px;
+    color: #404040;
+}
 .box-recent__content{
     background-color:#fbfbfb !important;
     padding:10px;
@@ -195,16 +212,57 @@ html, body{
 }
 .users-list-name{
     margin-left:-80px;
+    font-family:var(--body-font);
+    font-weight:400;
+    color:#010101;
+    text-transform: capitalize;
+}
+.users-list-date {
+    font-family:var(--body-font);
+    font-weight:400;
+    color: #BCBCBC;
+    font-size: 12px;
 }
 
 /* == Recent Courses Section == */
+.products-list .product-img img {
+    width: 32px;
+    height: 32px;
+}
 .products-list>.item{
     background:transparent;
     border:none;
 }
-
+.products-list .product-title {
+    font-family:var(--body-font);
+    font-weight:400;
+    color:#010101;
+    font-size:14px;
+    text-transform:capitalize;
+}
+.products-list .product-description {
+    font-family:var(--body-font);
+    font-weight:400;
+    font-size:10px !important;
+    text-transform: uppercase;
+    display: block;
+    color: #BCBCBC;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.products-list .product-info span{
+    font-family:var(--body-font);
+    font-weight:400;
+    font-size:12px;
+    color:#BCBCBC !important;
+}
+.label-warning{
+    background-color:transparent !important;
+}
 
 /* ============ COURSES PAGE ============ */
+
 /* == Add Course Button == */
 .btn-info{
     background-color:transparent;
@@ -221,6 +279,14 @@ html, body{
 .glyphicon{
     top:0;
     font-size:10px !important;
+}
+
+th.sorting_asc, th.sorting{
+    font-family: var(--body-font);
+    font-weight:400;
+    color:#ffffff;
+    opacity:0.5;
+    text-align:left;
 }
 /* == CSV/PDF/PRINT buttons == */
 div.dt-buttons {
@@ -255,23 +321,41 @@ table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting:after{
 /* == Table rows == */
 .table-striped>tbody>tr:nth-of-type(odd) ,
 .table-striped>tbody>tr:nth-of-type(even) {
-    background-color: #F4F5F080;
+    background-color: #F4F5F080 !important;
 }
 /* == Table Columns == */
 table.table-bordered.dataTable tbody td {
+    font-family:var(--body-font);
+    font-weight:400;
     border:none;
     border-bottom-width: 0;
     font-size:14px;
     line-height:1 !important;
     vertical-align: middle;
+    text-transform: capitalize;
  }
 /* == Table Column Course Image ==*/
 .table td img {
-    width: 50px;
+    width: 80px;
     height: 50px;
     display:block;
 }
-
+td .btn-success, td form .btn-danger{
+    background-color:transparent !important;
+    border:none;
+    color:#000000;
+    font-size:14px;
+}
+td .btn-success:hover, td form .btn-danger:hover{
+    background-color:transparent ;
+    color:#000000;
+}
+td .btn-success:focus, td form .btn-danger:focus{
+    outline:0 !important;
+    border:none !important;
+    box-shadow:none;
+    color:#000000 !important;
+}
 
 
 
