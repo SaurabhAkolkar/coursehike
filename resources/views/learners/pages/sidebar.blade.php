@@ -9,6 +9,8 @@
         <li class="la-profile__sidebar-item"><a href="/cart"><img src="images/icons/cart.svg" alt="cart"></a></li>
         <li class="la-profile__sidebar-item"><a href=""><img src="images/icons/playlist.svg" alt="playlist"></a></li>
         <li class="la-profile__sidebar-item"><a href="/purchase-history"><img src="images/icons/history.svg" alt="history"></a></li>
+        <li class="la-profile__sidebar-item"><a href="/saved-cards"><img src="images/icons/card-unfill.svg" alt="cards"></a></li>
+        <li class="la-profile__sidebar-item"><a href="/billing-address"><img src="images/icons/address-unfill.svg" alt="address"></a></li>
       </ul>
     </div>
     <div class="la-profile__sidebar-bottom">

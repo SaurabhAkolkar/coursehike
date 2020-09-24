@@ -328,50 +328,40 @@
         <!-- Column: Start-->
         <div class="col-12 px-5 px-sm-0">
           <div class="panel-group" id="accordion">
-              <h4 class="text-2xl faq-title">FAQ&#39;s</h4>
-             
-              @php
-                  $faq1 = new stdClass;
-                  $faq1->mainId = 1;
-                  $faq1->question = "How amount is calculated?";
-                  $faq1->subId = 1;
-                  $faq1->answer= "Something";
-
-                  $faq2 = new stdClass;
-                  $faq2->mainId = 2;
-                  $faq2->question = "What is LILA's Commission?";
-                  $faq2->subId = 2;
-                  $faq2->answer= "Something";
-
-                  $faq3 = new stdClass;
-                  $faq3->mainId = 3;
-                  $faq3->question = "How much is the slab rate?";
-                  $faq3->subId = 3;
-                  $faq3->answer= "Something";
-
-                  $faq4 = new stdClass;
-                  $faq4->mainId = 4;
-                  $faq4->question = "How to redeem amount from my wallet?";
-                  $faq4->subId = 4;
-                  $faq4->answer= "Something";
-
-
-                  $faqs = array($faq1, $faq2, $faq3,$faq4);
-              @endphp
-
-              @foreach ($faqs as $faq)
-                  <x-faq
-                    :mainId="$faq->mainId"
-                    :question="$faq->question"
-                    :subId="$faq->subId"
-                    :answer="$faq->answer"
-                  />
-              @endforeach
-
-              <div class="faq-see-all text-center text-sm-right pt-4">
-                <a class="text-sm" role="button" href="#seeEvent" data-toggle="collapse" aria-expanded="true">See all</a>
+            <h4 class="text-2xl la-bgcreator__faq-title">FAQ&#39;s</h4>
+            <div class="panel panel-default la-bgcreator__faq-panel mt-2">
+              <div class="panel-heading la-bgcreator__panel-head py-2 px-5" id="faqCalcHead"><span class="panel-title la-bgcreator__panel-title mx-4 mx-sm-5"><a class="accordion-toggle collapsed text-md" href="#faqCalc" data-toggle="collapse" aria-expanded="true" aria-controls="#faq-calc">How amount is calculated?</a></span></div>
+              <div class="panel-collapse collapse show" id="faqCalc" aria-labelledby="faqCalcHead" data-parent="#accordion">
+                <div class="panel-body la-bgcreator__panel-body py-4 px-5 mx-5">
+                  <p class="panel-text text-md">Something</p>
+                </div>
               </div>
-   
+            </div>
+            <div class="panel panel-default la-bgcreator__faq-panel mt-2">
+              <div class="panel-heading la-bgcreator__panel-head py-2 px-5" id="faqCommHead"><span class="panel-title la-bgcreator__panel-title mx-4 mx-sm-5"><a class="accordion-toggle collapsed text-md" href="#faqCommission" data-toggle="collapse" aria-expanded="false" aria-controls="#faq-commission">What is LILA's Commission?</a></span></div>
+              <div class="panel-collapse collapse" id="faqCommission" aria-labelledby="faqCommHead" data-parent="#accordion">
+                <div class="panel-body la-bgcreator__panel-body py-4 px-5 mx-5">
+                  <p class="text-md panel-text">Something</p>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default la-bgcreator__faq-panel mt-2">
+              <div class="panel-heading la-bgcreator__panel-head py-2 px-5" id="faqSlabHead"><span class="panel-title la-bgcreator__panel-title mx-4 mx-sm-5"><a class="accordion-toggle collapsed text-md" href="#faqSlab" data-toggle="collapse" aria-expanded="false" aria-controls="#faq-slab-rate">How much is the slab rate?</a></span></div>
+              <div class="panel-collapse collapse" id="faqSlab" aria-labelledby="faqSlabHead" data-parent="#accordion">
+                <div class="panel-body la-bgcreator__panel-body py-4 px-5 mx-5">
+                  <p class="text-md panel-text">Ut enim ad minim veniam, quis nostrud exercitation ullamo</p>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default la-bgcreator__faq-panel mt-2">
+              <div class="panel-heading la-bgcreator__panel-head py-2 px-5" id="faqRedeemHead"><span class="panel-title la-bgcreator__panel-title mx-4 mx-sm-5"><a class="accordion-toggle collapsed text-md" href="#faqRedeem" data-toggle="collapse" aria-expanded="false" aria-controls="#faq-redeem">How to redeem amount from my wallet?</a></span></div>
+              <div class="panel-collapse collapse" id="faqRedeem" aria-labelledby="faqRedeemHead" data-parent="#accordion">
+                <div class="panel-body la-bgcreator__panel-body py-4 px-5 mx-5">
+                  <p class="text-md panel-text">Something</p>
+                </div>
+              </div>
+            </div>
+            <div class="la-bgcreator__faq-all text-center text-sm-right pt-4"><a class="text-sm" href="#">See all</a></div>
           </div>
         </div>
         <!-- Column: End-->

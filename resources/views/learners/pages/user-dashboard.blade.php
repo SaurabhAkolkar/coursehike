@@ -68,29 +68,24 @@
               <div class="la-course__tile-card d-block">
                 <div class="row no-gutters">
                   <div class="col">
-                    <div class="card la-course__tiles w-100 d-flex flex-row">
-                      <div class="la-courses__tile-thumbnail card-header d-block p-0"><img class="img-fluid d-block" src="./images/dashboard/card-tile.png" alt="At verso eos et">
-                        <div class="la-course__tile-bars d-block position-relative">
-                          <div class="la-course__tile-indicator d-block">
-                            <p class="m-0 px-2 small text-right">37%</p>
-                          </div>
-                          <div class="la-course__tile-progress progress bg-transparent d-block pt-2">
-                            <div class="progress-bar bg-success" role="progress-bar" aria-valuenow="37" aria-valuemin="0" aria-valuemax="100" style="width:37%;height:4px;border-radius: 0 0 0 10px;"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="la-course__tile-content d-block px-4 pt-1">
-                        <h6 class="body-font text-md m-0">At verso eos et</h6>
-                        <p class="body-font text-xs">Amy D'souza</p>
-                        <div class="la-course__tile-rating d-flex flex-row pt-3">
-                          <div class="la-icon--md icon-star la-tile__rtng"></div>
-                          <div class="la-icon--md icon-star la-tile__rtng"></div>
-                          <div class="la-icon--md icon-star la-tile__rtng"></div>
-                          <div class="la-icon--md icon-star la-tile__urtng"></div>
-                          <div class="la-icon--md icon-star la-tile__urtng"></div>
-                        </div>
-                      </div><a class="la-course__tile-more d-flex align-items-center" href=""><img class="img-fluid pl-8" src="./images/icons/long-arrow.svg" alt="View More"></a>
-                    </div>
+                      @php
+                          $tile = new stdClass;
+                          $tile->img = "https://picsum.photos/100";
+                          $tile->progress = 37;
+                          $tile->desc = "At verso eos";
+                          $tile->name = "Amy D'souza";
+                          $tile->rating= 4;
+
+                          $tiles = array($tile);
+                      @endphp
+
+                      <x-last-viewed
+                          :img="$tile->img"
+                          :progress="$tile->progress"
+                          :desc="$tile->desc"
+                          :name="$tile->name"
+                          :rating="$tile->rating"
+                      />
                   </div>
                 </div>
               </div>
@@ -117,7 +112,7 @@
       <div class="container">
         <div class="row" style="width:100%;height:248px;background:#eee;margin:80px 0">  
           <div class="col-12 text-center">
-            <h1 class="text-light">1080 x 248                    </h1>
+            <h1 class="text-light">1080 x 248   </h1>
           </div>
         </div>
       </div>
