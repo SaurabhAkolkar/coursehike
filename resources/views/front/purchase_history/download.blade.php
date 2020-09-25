@@ -40,7 +40,7 @@ Author: Media City
       
         <!-- title row -->
         <div class="row">
-          <div class="col-xs-12">
+          <div class="col-12">
             <div class="page-header">
               @php
                   $setting = App\setting::first();

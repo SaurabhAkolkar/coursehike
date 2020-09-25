@@ -1,6 +1,6 @@
 <section class="content">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <a data-toggle="modal" data-target="#myModalanswer" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
 
       <div class="table-responsive">
@@ -58,10 +58,10 @@
   <!-- /.row -->
 
   <!--Model start-->
-  <div class="modal fade" id="myModalanswer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade show" id="myModalanswer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-md" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header d-block">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Question') }}</h4>
         </div>
@@ -78,7 +78,7 @@
                   <div class="col-md-12">
                     <label  for="exampleInputTit1e">{{ __('adminstaticword.SelectQuestion') }}:<sup class="redstar">*</sup></label>
                     <br>
-                    <select style="width: 100%" name="question_id" required class="form-control col-md-7 col-xs-12 js-example-basic-single">
+                    <select style="width: 100%" name="question_id" required class="form-control col-md-7 col-12 js-example-basic-single">
                       <option value="none" selected disabled hidden> 
                        {{ __('adminstaticword.SelectanOption') }}
                       </option>
@@ -115,7 +115,7 @@
                 <br>
         
                 <div class="box-footer">
-                  <button type="submit" value="Add Answer" class="btn btn-md col-md-3 btn-primary">+  {{ __('adminstaticword.Save') }}</button>
+                  <button type="submit" value="Add Answer" class="btn btn-md col-md-6 btn-primary">+  {{ __('adminstaticword.Save') }}</button>
                 </div>
 
               </form>

@@ -28,11 +28,11 @@
       </div>
 
       <!-- Modal -->
-      <div id="bulk_delete" class="delete-modal modal fade" role="dialog">
+      <div id="bulk_delete" class="delete-modal modal fade show" role="dialog">
         <div class="modal-dialog modal-sm">
           <!-- Modal content-->
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header d-block">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
               <div class="delete-icon"></div>
             </div>

@@ -500,7 +500,7 @@ button.dt-button, div.dt-button, a.dt-button {
 .la-dash__recent-section{
 	background-color:#fbfbfb;
 	padding:10px;
-	margin-bottom:20px;
+	margin-top:30px;
 	width:100%;
 }
 .la-dash__recent-section .la-dash__recent-htitle{
@@ -602,4 +602,144 @@ button.dt-button, div.dt-button, a.dt-button {
 	font-size:12px;
 }
 
-/* ===== ADMIN PENDING COURSES REQUESTS: END ====== */
+/* ============ ADMIN PENDING COURSES REQUESTS: END =============== */
+
+
+/* ================ EDIT COURSE PAGE: START ====================== */
+
+/* ==== EDIT COURSES PACKAGE TYPES: START ==== */
+.la-admin__course-package{
+	background-color:#ffffff;
+	box-shadow: 0px 3px 6px #87878729;
+	padding:30px 20px;
+  }
+  .la-admin__course-package .la-admin__cp-title{ 
+	  font-family: Roboto;
+	  font-weight:500;
+	  font-size:18px;
+	  color:#000000;
+	  margin-bottom:20px;
+  }
+  .la-admin__course-package .la-admin__cp-subscription,
+  .la-admin__course-package .la-admin__cp-premium,
+  .la-admin__course-package .la-admin__cp-free {
+	  padding-left:30px;
+  } 
+  .la-admin__course-package .la-admin__cp-input{
+	  display:none;
+  }
+  .la-admin__course-package .la-admin__cp-circle{
+	  display: inline-flex;
+	  justify-content: start;
+	  align-items: center;
+  }
+  .la-admin__course-package .la-admin__cp-radio{
+	  width:14px;
+	  height:14px;
+	  border-radius:100%;
+	  border:1px solid rgba(21, 146, 230, 0.7);
+	  position:relative;
+	  margin-right:5px;
+  }
+  .la-admin__course-package .la-admin__cp-radio::before{
+	  content: "";
+	  position: absolute;
+	  top:3px;
+	  left:3px;
+	  width: 6px;
+	  height: 6px;
+	  border-radius: 100px;
+	  background-color: #1592E6;
+	  transform: scale(0);
+	  transition: all 0.2s ease;
+  }
+  .la-admin__cp-input:checked + label .la-admin__cp-radio::before {
+	  transform: scale(1);
+  }
+  .la-admin__course-package .la-admin__cp-subscription .la-admin__cp-label,
+  .la-admin__course-package .la-admin__cp-premium .la-admin__cp-label,
+  .la-admin__course-package .la-admin__cp-free .la-admin__cp-label {
+	  font-family: Roboto;
+	  font-weight:300;
+	  font-size:18px;
+	  color:#000000;
+  }
+  .la-admin__course-package .la-admin__cp-desc{
+	  padding-left:20px;
+  }
+  .la-admin__course-package .la-admin__cp-subscription .la-admin__cp-desc p,
+  .la-admin__course-package .la-admin__cp-premium .la-admin__cp-desc p,
+  .la-admin__course-package .la-admin__cp-free .la-admin__cp-desc p {
+	  font-family: Roboto;
+	  font-weight: 400;
+	  font-size:12px;
+	  color:#000000;
+  }
+  .la-admin__hr-line{
+	width:100%;
+	border:.3px dashed #cccccc;
+	margin:30px 0;
+  }
+  /* ==== EDIT COURSES PACKAGE TYPES: END ==== */
+  
+  /* ==== EDIT COURSES PREVIEW IMAGE AND VIDEO FILES: START==== */
+  .la-admin__preview .la-admin__preview-label{
+	  font-family: Roboto;
+	  font-weight: 500;
+	  font-size:18px;
+	  color:#000000;
+	  padding-left:20px;
+  }
+  .la-admin__preview .la-admin__preview-img .la-admin__preview-input,
+  .la-admin__preview .la-admin__preview-video .la-admin__preview-input{
+	  width:100%;
+	  height:100%;
+	  background:#FCFCFC;
+	  position:absolute;
+	  top:0;
+	  left:0;
+	  opacity:0;
+	  display:block;
+	  cursor:pointer;
+  }
+  .la-admin__preview .la-admin__preview-img, .la-admin__preview .la-admin__preview-video{
+		position:relative;
+		background:#FCFCFC;
+		border:1px dashed #DEDEDE;
+		width:100%;
+		height:200px;
+		color:#000;
+		font-size:16px;
+		z-index:0;
+  }
+  .la-admin__preview .la-admin__preview-img .la-admin__preview-text, .la-admin__preview .la-admin__preview-video .la-admin__preview-text{
+	  position:relative;
+	  top:0;
+	  z-index:1;
+	  opacity:1;
+	  display:flex;
+	  justify-content:space-between;
+	  align-items:center;
+	  background:#FCFCFC ;
+	  padding:10px 20px;
+  }
+  .la-admin__preview .la-admin__preview-img .la-admin__preview-text .la-admin__preview-size,
+  .la-admin__preview .la-admin__preview-video .la-admin__preview-text .la-admin__preview-size{
+	  font-family: Roboto;
+	  font-weight:300;
+	  font-size:18px;
+	  color:#BCBCBC;
+  }
+  .la-admin__preview .la-admin__preview-img .la-admin__preview-text .la-admin__preview-file,
+  .la-admin__preview .la-admin__preview-video .la-admin__preview-text .la-admin__preview-file{
+	  color:#1592E6;
+	  font-size:14px;
+	  font-weight:bold;
+	  cursor:pointer;
+	  display:block;
+  }
+  /* === EDIT COURSES PREVIEW IMAGE AND VIDEO FILES: END ==== */
+
+  /* ==================== EDIT COURSE PAGE: END ============================== */
+  
+  

@@ -5,7 +5,7 @@
 <section class="content">
   <div class="row">
     <!-- left column -->
-    <div class="col-xs-12">
+    <div class="col-12">
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
@@ -18,8 +18,8 @@
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
 
-                <label class="display-none" for="exampleInputSlug">{{ __('adminstaticword.SelectCourse') }}</label>
-                  <input value="{{ $answer->course_id }}" autofocus name="course_id" type="text" class="form-control display-none" >
+                <label class="d-none" for="exampleInputSlug">{{ __('adminstaticword.SelectCourse') }}</label>
+                  <input value="{{ $answer->course_id }}" autofocus name="course_id" type="text" class="form-control d-none" >
 
 
                   <div class="row">

@@ -2,7 +2,7 @@
 
 <section class="content">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
     
         <div class="box-header">
           <a href="{{ action('LanguageController@create') }}" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>

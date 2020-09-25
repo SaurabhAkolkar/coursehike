@@ -5,7 +5,7 @@
 <section class="content">
   <div class="row">
     <!-- left column -->
-    <div class="col-xs-12">
+    <div class="col-12">
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
@@ -19,17 +19,17 @@
               {{ csrf_field() }}
               {{ method_field('PUT') }}
 
-              <label class="display-none" for="exampleInputSlug">{{ __('adminstaticword.SelectCourse') }}</label>
-              <select name="course_id" class="form-control col-md-7 col-xs-12 display-none">
+              <label class="d-none" for="exampleInputSlug">{{ __('adminstaticword.SelectCourse') }}</label>
+              <select name="course_id" class="form-control col-md-7 col-12 d-none">
                 @foreach($courses as $cou)
-                  <option class="display-none" value="{{ $cou->id }}" {{$annou->courses->id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
+                  <option class="d-none" value="{{ $cou->id }}" {{$annou->courses->id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
                 @endforeach
               </select>
 
-              <label class="display-none" for="exampleInputSlug">{{ __('adminstaticword.User') }}</label>
-              <select  name="user" class="form-control col-md-7 col-xs-12 display-none">
+              <label class="d-none" for="exampleInputSlug">{{ __('adminstaticword.User') }}</label>
+              <select  name="user" class="form-control col-md-7 col-12 d-none">
                 @foreach($user as $cu)
-                  <option class="display-none" value="{{ $cu->id }}" {{$annou->user->id == $cu->id  ? 'selected' : ''}}>{{ $cu->fname}}</option>
+                  <option class="d-none" value="{{ $cu->id }}" {{$annou->user->id == $cu->id  ? 'selected' : ''}}>{{ $cu->fname}}</option>
                 @endforeach
               </select>
                  

@@ -276,14 +276,14 @@
 		<div id="myDiv" class="player-course-chapter-list"></div>
 	
 		<!--  Playlists -->
-		<ul id="courseplaylist" class="display-none">
+		<ul id="courseplaylist" class="d-none">
 			<li data-source="courseplaycontent{{ $class->id }}" data-playlist-name="{{ $class->coursechapters->chapter_name }}" data-thumbnail-path="{{ url('images/course/'.$class->courses->title) }}">
 				<p class="minimalDarkCategoriesTitle"><span class="minimialDarkBold">Title: </span>{{ $class->coursechapters->chapter_name }}</p>
 				<p class="minimalDarkCategoriesType"><span class="minimialDarkBold">Category: </span>{{ $class->courses->category->title }}</p>
 				<p class="minimalDarkCategoriesDescription"><span class="minimialDarkBold">Course: </span>{{ strip_tags($class->courses->title) }}</p>
 			</li>
 		</ul>
-		<ul id="courseplaycontent{{ $class->id }}" class="display-none">
+		<ul id="courseplaycontent{{ $class->id }}" class="d-none">
 				
 				@php
 					$myid =	$class->id;

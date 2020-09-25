@@ -5,7 +5,7 @@
         <span id="close">x</span>
     </div>
 </div>
-<div id="promo-tab" class="display-none">SHOW</div>
+<div id="promo-tab" class="d-none">SHOW</div>
 @endif
 
 <section id="nav-bar" class="nav-bar-main-block">
@@ -129,7 +129,7 @@
                         <div id="notificationFooter">
                             {{ __('frontstaticword.Logout') }}
                             
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="display-none">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
                         </div>
@@ -465,7 +465,7 @@
                                     <div id="notificationFooter">
                                         {{ __('frontstaticword.Logout') }}
                                         
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="display-none">
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                             @csrf
                                         </form>
                                     </div>

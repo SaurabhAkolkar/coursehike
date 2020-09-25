@@ -66,10 +66,10 @@
       <!--Box Primary end-->
 
       <!--Model start-->
-      <div class="modal fade" id="myModaljjh" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal fade show" id="myModaljjh" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header d-block">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title" id="myModalLabel">{{ __('adminstaticword.Add') }} {{ __('adminstaticword.Language') }}</h4>
             </div>
@@ -95,7 +95,7 @@
                     </div>
                     <br>
                     <div class="box-footer">
-                     <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                     <button type="submit" class="btn btn-lg col-md-6 btn-primary">{{ __('adminstaticword.Submit') }}</button>
                     </div>
                   </form>
                 </div>

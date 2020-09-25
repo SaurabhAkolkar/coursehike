@@ -15,7 +15,7 @@
             <div id="printableArea">
               <!-- title row -->
               <div class="row">
-                  <div class="col-xs-12">
+                  <div class="col-12">
                     <h2 class="page-header">
                       @if($gsetting->logo_type == 'L')
                         <div class="logo-invoice">

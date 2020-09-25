@@ -107,7 +107,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
       <span class="logo-lg"> <img title="{{ $project_title }}" width="100px" src="{{ url('images/logo/'.$gsetting->logo) }}" alt=""/></span>
     </a>
       <!-- Header Navbar: style can be found in header.less -->
-      <nav class="navbar navbar-static-top">
+      <nav class="navbar navbar-fixed-top">
         <!-- Sidebar toggle button-->
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
           <span class="sr-only">Toggle navigation</span>
@@ -117,7 +117,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
         </a>
 
         <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav d-inline-block">
             <!-- Messages: style can be found in dropdown.less-->
             @php
                 $languages = App\Language::all(); 

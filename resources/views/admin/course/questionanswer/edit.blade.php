@@ -5,7 +5,7 @@
 <section class="content">
   <div class="row">
     <!-- left column -->
-    <div class="col-xs-12">
+    <div class="col-12">
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
@@ -22,15 +22,15 @@
               <input type="hidden" name="instructor_id" class="form-control" value="{{ Auth::User()->id }}"  />
 
                    
-              <select name="course_id" class="form-control col-md-7 col-xs-12 display-none">
+              <select name="course_id" class="form-control col-md-7 col-12 d-none">
                @foreach($courses as $cou)
-               <option class="display-none" value="{{ $cou->id }}" {{$que->courses->id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
+               <option class="d-none" value="{{ $cou->id }}" {{$que->courses->id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
                @endforeach
               </select>
 
-              <select name="user_id" class="form-control col-md-7 col-xs-12 display-none">
+              <select name="user_id" class="form-control col-md-7 col-12 d-none">
                 @foreach($user as $cu)
-                  <option class="display-none" value="{{ $cu->id }}" {{$que->courses->id == $cu->id  ? 'selected' : ''}}>{{ $cu->fname}}</option>
+                  <option class="d-none" value="{{ $cu->id }}" {{$que->courses->id == $cu->id  ? 'selected' : ''}}>{{ $cu->fname}}</option>
                 @endforeach
               </select>
                    

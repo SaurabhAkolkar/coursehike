@@ -5,7 +5,7 @@
 <section class="content">
    @include('admin.message')
 	<div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
         	<div class="box box-primary">
 	           	<div class="box-header with-border">
               	<h3 class="box-title">{{ __('adminstaticword.AdsenseSetting') }}</h3>
@@ -76,7 +76,7 @@
 					            </div>
 					            <br>
     						</div>
-    						<div class="col-md-4 display-none">
+    						<div class="col-md-4 d-none">
     							<div class="form-group">
 					            	<label for="">{{ __('adminstaticword.VisibleonAll') }}: </label>
 									<li class="tg-list-item">              

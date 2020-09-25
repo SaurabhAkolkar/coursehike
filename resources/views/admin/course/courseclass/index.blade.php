@@ -67,10 +67,10 @@
   </div>
 
   <!--Model start-->
-  <div class="modal fade" id="myModalab" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade show" id="myModalab" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-md" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header d-block">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">{{ __('adminstaticword.Add') }} {{ __('adminstaticword.CourseClass') }}</h4>
         </div>
@@ -81,14 +81,14 @@
                 {{ csrf_field() }}
                           
 
-                <select class="display-none" name="course_id" class="form-control">
+                <select class="d-none" name="course_id" class="form-control">
                   <option value="{{ $cor->id }}">{{ $cor->title }}</option>
                 </select>
 
                 <div class="row">
                   <div class="col-md-12">
                     <label for="exampleInputDetails">{{ __('adminstaticword.ChapterName') }}:<sup class="redstar">*</sup></label>
-                    <select name="course_chapters" class="form-control col-md-7 col-xs-12 js-example-basic-single" required>
+                    <select name="course_chapters" class="form-control col-md-7 col-12 js-example-basic-single" required>
                       @foreach($coursechapters as $c)
                       <option value="{{ $c->id }}">{{ $c->chapter_name }}</option>
                       @endforeach
@@ -130,17 +130,17 @@
 
 
                   <!--for audio -->
-                  <div class="col-md-12 display-none" id="audioChoose">
+                  <div class="col-md-12 d-none" id="audioChoose">
                     <input type="radio" name="checkAudio" id="ch11" value="audiourl"> {{ __('adminstaticword.URL') }}
                     <input type="radio" name="checkAudio" id="ch12" value="uploadaudio"> {{ __('adminstaticword.UploadAudio') }}
                   </div>
                   
-                  <div class="col-md-12 display-none" id="audioURL">
+                  <div class="col-md-12 d-none" id="audioURL">
                     <label for="">{{ __('adminstaticword.URL') }}: </label>
                     <input type="text" name="audiourl" placeholder="Enter Your URL" class="form-control">
                   </div>
 
-                  <div class="col-md-12 display-none" id="audioUpload">
+                  <div class="col-md-12 d-none" id="audioUpload">
                     <label for="">{{ __('adminstaticword.UploadAudio') }}: </label>
                     <input type="file" name="audioupload" class="form-control">
                   </div>
@@ -148,17 +148,17 @@
 
 
                   <!--for image -->
-                  <div class="col-md-12 display-none" id="imageChoose">
+                  <div class="col-md-12 d-none" id="imageChoose">
                     <input type="radio" name="checkImage" id="ch3" value="url"> {{ __('adminstaticword.URL') }}
                     <input type="radio" name="checkImage" id="ch4" value="uploadimage"> {{ __('adminstaticword.UploadImage') }}
                   </div>
                   
-                  <div class="col-md-12 display-none" id="imageURL">
+                  <div class="col-md-12 d-none" id="imageURL">
                     <label for="">{{ __('adminstaticword.URL') }}: </label>
                     <input type="text" name="imgurl" placeholder="Enter Your URL" class="form-control">
                   </div>
 
-                  <div class="col-md-12 display-none" id="imageUpload">
+                  <div class="col-md-12 d-none" id="imageUpload">
                     <label for="">{{ __('adminstaticword.UploadImage') }}: </label>
                     <input type="file" name="image" class="form-control">
                   </div>
@@ -168,7 +168,7 @@
 
 
                   <!--video-->
-                  <div class="col-md-12 display-none" id="videotype">
+                  <div class="col-md-12 d-none" id="videotype">
                     <input type="radio" name="checkVideo" id="ch1" value="url">&nbsp;{{ __('adminstaticword.URL') }}
                     &emsp;
                     <input type="radio" name="checkVideo" id="ch2" value="uploadvideo">&nbsp;{{ __('adminstaticword.UploadVideo') }}
@@ -183,30 +183,30 @@
                     @endif
                   </div>
 
-                  <div class="col-md-12 display-none" id="videoURL">
+                  <div class="col-md-12 d-none" id="videoURL">
                     <label for="">{{ __('adminstaticword.URL') }}: </label>
                     <input type="text" name="vidurl"  placeholder="Enter Your URL" class="form-control">
                   </div>
 
-                  <div class="col-md-12 display-none" id="videoUpload">
+                  <div class="col-md-12 d-none" id="videoUpload">
                     <label for="">{{ __('adminstaticword.UploadVideo') }}: </label>
                     <input type="file" name="video_upld" class="form-control">
                   </div>
 
-                  <div class="col-md-12 display-none" id="iframeURLBox">
+                  <div class="col-md-12 d-none" id="iframeURLBox">
                     <label for="">{{ __('adminstaticword.IframeURL') }}: </label>
                     <input type="text" name="iframe_url"  placeholder="Enter Your Iframe URL" class="form-control">
                   </div>
                   
 
-                  <div class="col-md-12 display-none" id="liveclassBox">
+                  <div class="col-md-12 d-none" id="liveclassBox">
                     <label for="appt">Select a Date & Time:</label>
                     <input type="datetime-local" id="date_time" name="date_time" class="form-control">
                   </div>
                   
                   <!-- aws insert -->
                   @if($gsetting->aws_enable == 1)
-                  <div class="col-md-12 display-none" id="awsBox">
+                  <div class="col-md-12 d-none" id="awsBox">
                     <label for="appt">{{ __('adminstaticword.AWSUpload') }}</label>
                     <input type="file" name="aws_upload" class="form-control">
                   </div>
@@ -214,47 +214,47 @@
 
 
                   <!-- zip -->
-                  <div class="col-md-12 display-none" id="zipChoose">
+                  <div class="col-md-12 d-none" id="zipChoose">
                     <input type="radio" value="zipURLEnable" name="checkZip" id="ch5"> {{ __('adminstaticword.URL') }}
                     <input type="radio" value="zipEnable" name="checkZip" id="ch6"> {{ __('adminstaticword.UploadZip') }}
                   </div>
                   
-                  <div class="col-md-12 display-none" id="zipURL">
+                  <div class="col-md-12 d-none" id="zipURL">
                     <label for="">{{ __('adminstaticword.URL') }}: </label>
                     <input type="text" name="zipurl" placeholder="Enter Your URL" class="form-control">
                   </div>
 
-                  <div class="col-md-12 display-none" id="zipUpload">
+                  <div class="col-md-12 d-none" id="zipUpload">
                     <label for="">{{ __('adminstaticword.UploadZip') }}: </label>
                     <input type="file" name="uplzip" class="form-control">
                   </div>
 
 
                   <!-- pdf -->
-                  <div class="col-md-12 display-none" id="pdfChoose">
+                  <div class="col-md-12 d-none" id="pdfChoose">
                     <input type="radio" value="pdfURLEnable" name="checkPdf" id="ch7"> {{ __('adminstaticword.URL') }}
                     <input type="radio" value="pdfEnable" name="checkPdf" id="ch8"> {{ __('adminstaticword.UploadPdf') }}
                   </div>
                   
-                  <div class="col-md-12 display-none" id="pdfURL">
+                  <div class="col-md-12 d-none" id="pdfURL">
                     <label for=""> {{ __('adminstaticword.URL') }}: </label>
                     <input type="text" name="pdfurl" placeholder="Enter Your URL" class="form-control">
                   </div>
 
-                  <div class="col-md-12 display-none" id="pdfUpload">
+                  <div class="col-md-12 d-none" id="pdfUpload">
                     <label for=""> {{ __('adminstaticword.UploadPdf') }}: </label>
                     <input type="file" name="pdf" class="form-control">
                   </div>
                   <br>
 
 
-                  <div class="col-md-12 display-none" id="duration_video">
+                  <div class="col-md-12 d-none" id="duration_video">
                     <label for=""> {{ __('adminstaticword.Duration') }}:</label>
                     <input type="text" name="duration" placeholder="Enter class duration in (mins) Eg:160" class="form-control">
                   </div>
                   <br> 
 
-                  <div class="col-md-12 display-none" id="size">
+                  <div class="col-md-12 d-none" id="size">
                     <label for="">{{ __('adminstaticword.Size') }}:</label>
                     <input type="text" name="size" placeholder="Enter Your Size" class="form-control">
                   </div>
@@ -264,7 +264,7 @@
                
                 <!-- preview video -->
                 <div class="row"> 
-                  <div class="col-md-12 display-none" id="previewUrl">
+                  <div class="col-md-12 d-none" id="previewUrl">
                     <label for="exampleInputDetails">{{ __('adminstaticword.PreviewVideo') }}:</label>
                     <li class="tg-list-item">              
                       <input name="preview_type" class="tgl tgl-skewed" id="previewvid" type="checkbox"/>
@@ -272,7 +272,7 @@
                     </li>
                     <input type="hidden" name="free" value="0" id="cxv">
                  
-                    <div class="display-none" id="document11">
+                    <div class="d-none" id="document11">
                       <label for="exampleInputSlug">Preview {{ __('adminstaticword.UploadVideo') }}:</label>
                       <input type="file" name="video" id="video" value="" class="form-control">
                     </div> 
@@ -307,7 +307,7 @@
                 <br>
                 <br>
                
-                <div id="subtitle" class="display-none">
+                <div id="subtitle" class="d-none">
                   <label>{{ __('adminstaticword.Subtitle') }}:</label>
                   <table class="table table-bordered" id="dynamic_field">  
                     <tr> 
@@ -331,7 +331,7 @@
 
 
                 <div class="box-footer">
-                  <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                  <button type="submit" class="btn btn-lg col-md-6 btn-primary">{{ __('adminstaticword.Submit') }}</button>
                 </div>
              
               </form>

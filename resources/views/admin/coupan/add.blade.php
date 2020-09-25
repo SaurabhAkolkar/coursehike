@@ -52,7 +52,7 @@
           </div>
 
           
-          <div id="probox" class="form-group display-none">
+          <div id="probox" class="form-group d-none">
             <label>{{ __('adminstaticword.SelectCourse') }}: <span class="redstar">*</span> </label>
             <br>
             <select style="width: 100%" id="pro_id" name="course_id" class="js-example-basic-single form-control">
@@ -68,7 +68,7 @@
           </div>
        
 
-          <div id="catbox" class="form-group display-none">
+          <div id="catbox" class="form-group d-none">
             <label>{{ __('adminstaticword.SelectCategories') }}: <span class="required">*</span> </label>
             <br>
             <select style="width: 100%" id="cat_id" name="category_id" class="js-example-basic-single form-control">

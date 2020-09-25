@@ -60,10 +60,10 @@
   </div>
 
   <!--Model start-->
-  <div class="modal fade" id="myModalp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade show" id="myModalp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header d-block">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">{{ __('adminstaticword.AddCourseChapter') }}</h4>
         </div>
@@ -73,7 +73,7 @@
               <form id="demo-form2" method="post" action="{{ route('coursechapter.store') }}" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
-                <select name="course_id" class="form-control display-none">
+                <select name="course_id" class="form-control d-none">
                   <option value="{{ $cor->id }}">{{ $cor->title }}</option>
                 </select>
 
@@ -89,7 +89,7 @@
                 <br>
 
                 <div class="row"> 
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                   
                       <label for="exampleInputDetails">{{ __('adminstaticword.LearningMaterial') }}</label> - <p class="inline info">eg: zip or pdf files</p>
                       <br>
@@ -98,7 +98,7 @@
                       <span class="text-danger invalid-feedback" role="alert"></span>
                     
                   </div>
-                  <div class="col-md-6"> 
+                  <div class="col-md-12"> 
                     <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                     <li class="tg-list-item">
                       <input class="tgl tgl-skewed" id="cb300"   type="checkbox"/>
@@ -110,7 +110,7 @@
                 <br>
                      
                 <div class="box-footer">
-                 <button type="submit" class="btn btn-md col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                 <button type="submit" class="btn btn-md col-md-6 btn-primary">{{ __('adminstaticword.Submit') }}</button>
                 </div>
                    
               </form>

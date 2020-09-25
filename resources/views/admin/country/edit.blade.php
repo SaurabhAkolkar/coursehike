@@ -4,7 +4,7 @@
 
 <section class="content">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">Country</h3>
@@ -17,10 +17,10 @@
             {{ method_field('PUT') }}
 
             <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+              <label class="control-label col-md-3 col-sm-3 col-12" for="first-name">
                 Country Name <span class="redstar">*</span>
               </label>
-              <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="col-md-6 col-sm-6 col-12">
                 <select class="form-control js-example-basic-single" name="country">
                 <option>Choose Country:</option>
 
@@ -34,7 +34,7 @@
             </div>
                  
           <div class="box-footer">
-            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+            <div class="col-md-6 col-sm-6 col-12 col-md-offset-3">
             <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </form>

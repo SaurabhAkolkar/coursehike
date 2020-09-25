@@ -27,7 +27,7 @@
 		                  </div>
 		                  <div class="col-md-6">
 		                    <label for="heading">{{ __('adminstaticword.User') }}<sup class="redstar">*</sup></label>
-		                    <select name="user_id" class="form-control js-example-basic-single col-md-7 col-xs-12">
+		                    <select name="user_id" class="form-control js-example-basic-single col-md-7 col-12">
 			                    <option  value="{{ $show->user_id }}">{{  $show->user->fname }}</option>
 			                </select>
 			              </div>

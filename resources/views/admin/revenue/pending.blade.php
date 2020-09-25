@@ -5,7 +5,7 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">  {{ __('adminstaticword.PendingPayout') }}</h3>
@@ -15,11 +15,11 @@
           <a type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#bulk_delete"> <i class="fa fa-money"></i> {{ __('adminstaticword.PaySelected') }}</a>
         </div>
 
-        <div id="bulk_delete" class="delete-modal modal fade" role="dialog">
+        <div id="bulk_delete" class="delete-modal modal fade show" role="dialog">
         <div class="modal-dialog modal-sm">
           <!-- Modal content-->
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header d-block">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
               <div class="delete-icon"></div>
             </div>

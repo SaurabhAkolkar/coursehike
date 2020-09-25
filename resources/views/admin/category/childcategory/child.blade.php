@@ -8,10 +8,10 @@
 </div>
 @endif
          
-<div class="modal fade" id="myModal7" z-index="1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade show" id="myModal7" z-index="1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header d-block">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">{{ __('adminstaticword.AddSubCategory') }}</h4>
       </div>
@@ -22,7 +22,7 @@
           <label for="exampleInputTit1e">{{ __('adminstaticword.Category') }}</label>
           <div class="row">
             <div class="col-sm-12">
-                <select name="categories" class="form-control js-example-basic-single col-md-7 col-xs-12">
+                <select name="categories" class="form-control js-example-basic-single col-md-7 col-12">
                   @foreach($category as $cate)
                     <option value="{{$cate->id}}">{{$cate->title}}</option>
                     @endforeach

@@ -15,7 +15,7 @@
 <section class="content">
 	@include('admin.message')
 	<div class="row">
-	  <div class="col-xs-12">
+	  <div class="col-12">
 	    <div class="box box-primary" >
 	      <div class="box-header with-border">
 	        <h3 class="box-title">{{ __('adminstaticword.State') }}</h3>
@@ -66,10 +66,10 @@
 
 
 <!--Model for add city -->
-<div class="modal fade" id="myModalcity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade show" id="myModalcity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header d-block">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.City') }}</h4>
       </div>
@@ -104,7 +104,7 @@
              
             
               <div class="box-footer">
-                <button type="submit" class="btn btn-md col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                <button type="submit" class="btn btn-md col-md-6 btn-primary">{{ __('adminstaticword.Submit') }}</button>
               </div>
             </form>
           </div>

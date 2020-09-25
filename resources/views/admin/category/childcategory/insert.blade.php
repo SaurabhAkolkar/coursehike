@@ -5,7 +5,7 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{ __('adminstaticword.AddChildCategory') }}</h3>
@@ -18,7 +18,7 @@
               <div class="row">
                 <div class="col-md-5">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Category') }}</label>
-                  <select name="category_id" id="category_id" class="form-control js-example-basic-single col-md-7 col-xs-12">
+                  <select name="category_id" id="category_id" class="form-control js-example-basic-single col-md-7 col-12">
                     <option value="0">{{ __('adminstaticword.PleaseSelect') }}</option>
                     @foreach($category as $cat)
                       <option value="{{$cat->id}}">{{$cat->title}}</option>

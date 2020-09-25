@@ -54,10 +54,10 @@
   </div>
 
   <!--Model start-->
-  <div class="modal fade" id="myModalabcdef" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade show" id="myModalabcdef" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-md" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header d-block">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">{{ __('adminstaticword.Add') }}{{ __('adminstaticword.Announcement') }}</h4>
         </div>
@@ -68,14 +68,14 @@
                 {{ csrf_field() }}
                           
                
-                <label class="display-none" for="exampleInputSlug"> {{ __('adminstaticword.Course') }}<span class="required" >*</span></label>
-                <select name="course_id" class="form-control display-none">
+                <label class="d-none" for="exampleInputSlug"> {{ __('adminstaticword.Course') }}<span class="required" >*</span></label>
+                <select name="course_id" class="form-control d-none">
                   <option value="{{ $cor->id }}">{{ $cor->title }}</option>
                 </select>
             
-                <label class="display-none"  for="exampleInputTit1e">{{ __('adminstaticword.User') }}</label>
+                <label class="d-none"  for="exampleInputTit1e">{{ __('adminstaticword.User') }}</label>
 
-                <select class="display-none" name="user_id" class="form-control col-md-7 col-xs-12">
+                <select class="d-none" name="user_id" class="form-control col-md-7 col-12">
                   @php
                    $users = App\User::all();
                   @endphp
@@ -106,7 +106,7 @@
                 <br>
           
                 <div class="box-footer">
-                  <button type="submit" class="btn btn-md col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                  <button type="submit" class="btn btn-md col-md-6 btn-primary">{{ __('adminstaticword.Submit') }}</button>
                 </div>
              
             </form>

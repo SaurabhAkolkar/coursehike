@@ -55,7 +55,7 @@
                       <br>
 
 
-                      <div class="row display-none">
+                      <div class="row d-none">
                         <div class="col-md-12">
                           <label for="exampleInputTit1e">{{ __('adminstaticword.QuizTimer') }}:<span class="redstar">*</span> </label>
                           <input type="text" placeholder="Enter Quiz Time" class="form-control" name="timer" id="exampleInputTitle" value="{{ $topic->timer }}">

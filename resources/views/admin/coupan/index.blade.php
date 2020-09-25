@@ -5,7 +5,7 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{ __('adminstaticword.Coupon') }}</h3>
@@ -52,11 +52,11 @@
                       </a>
                     </td>
 
-                    <div id="coupon{{ $cpn->id }}" class="delete-modal modal fade" role="dialog">
+                    <div id="coupon{{ $cpn->id }}" class="delete-modal modal fade show" role="dialog">
                         <div class="modal-dialog modal-sm">
                           <!-- Modal content-->
                           <div class="modal-content">
-                            <div class="modal-header">
+                            <div class="modal-header d-block">
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
                               <div class="delete-icon"></div>
                             </div>

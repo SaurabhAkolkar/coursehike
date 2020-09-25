@@ -78,7 +78,7 @@
                     <label class="tgl-btn" data-tg-off="Free" data-tg-on="Paid" for="cb111"></label>
                   </li>
                   <br>
-                  <div class="display-none" id="pricebox">
+                  <div class="d-none" id="pricebox">
                     <label for="exampleInputSlug">{{ __('adminstaticword.Price') }}: <sup class="redstar">*</sup></label>
                     <input type="text" class="form-control" name="price" id="priceMain" placeholder="Please Your Enter price" value="">
         

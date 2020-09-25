@@ -16,7 +16,7 @@
 			<div class="row">
 
 				@if ($errors->has('logo'))
-				<div class="display-none" id="logo">
+				<div class="d-none" id="logo">
                     <strong class="text-danger">{{ $errors->first('logo') }}</strong>
                 </div>
                 @endif

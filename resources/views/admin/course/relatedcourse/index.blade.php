@@ -59,10 +59,10 @@
   </div>
 
   <!--Model start-->
-  <div class="modal fade" id="myModalabc" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade show" id="myModalabc" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-md" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header d-block">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.RelatedCourse') }}</h4>
         </div>
@@ -74,7 +74,7 @@
 
                 <input type="hidden" class="form-control" name="user_id" id="user_id" value="{{ $cor->user_id }}"> 
 
-                <div class="row display-none">             
+                <div class="row d-none">             
                   <div class="col-md-12">  
                     <label for="exampleInputSlug">{{ __('adminstaticword.Course') }}</label>
                     <select name="main_course_id" class="form-control">
@@ -115,7 +115,7 @@
                 <br>
 
                 <div class="box-footer">
-                  <button type="submit" class="btn btn-md col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                  <button type="submit" class="btn btn-md col-md-6 btn-primary">{{ __('adminstaticword.Submit') }}</button>
                 </div>
                    
               </form>

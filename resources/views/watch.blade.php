@@ -314,7 +314,7 @@
 		<div id="myDiv" class="player-course-chapter-list"></div>
 	
 		<!--  Playlists -->
-		<ul id="courseplaylist" class="display-none">
+		<ul id="courseplaylist" class="d-none">
 			
 			@foreach($courses->chapter as $chapter)
                 
@@ -327,7 +327,7 @@
 			@endforeach
 		</ul>
 		@foreach($courses->chapter as $chapter)
-			<ul id="courseplaycontent{{ $chapter->id }}" class="display-none">
+			<ul id="courseplaycontent{{ $chapter->id }}" class="d-none">
 				@foreach($chapter->courseclass as $class)
 					
 					@php
