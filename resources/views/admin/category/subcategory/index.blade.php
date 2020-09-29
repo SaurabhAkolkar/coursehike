@@ -17,7 +17,6 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <div class="table-responsive">
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 
@@ -70,7 +69,6 @@
                 @endforeach
               </tbody>
             </table>
-          </div>
         </div>
         <!-- /.box-body -->
       </div>

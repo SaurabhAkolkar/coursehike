@@ -14,7 +14,7 @@
        
         <!-- /.box-header -->
         <div class="box-body">
-          <div class="table-responsive">
+    
             <table id="example1" class="table table-bordered table-striped">
 
               <thead>
@@ -27,37 +27,37 @@
               </tr>
               </thead>
               <tbody>
-              <?php $i=0;?>
-              @foreach($announs as $announ)
-              <tr>
-                <?php $i++;?>
-                <td><?php echo $i;?></td>
-                  <td>{{$announ->announsment}}</td>
-                  <td>{{$announ->courses->title}}</td>
-                <td>
-                    @if($announ->status==1)
-                      {{ __('adminstaticword.Active') }}
-                    @else
-                     {{ __('adminstaticword.Deactive') }}
-                    @endif                      
-                </td>
-                
-                <td>
-                  <a class="btn btn-primary btn-sm" href="{{url('instructor/announcement/'.$announ->id)}}"><i class="glyphicon glyphicon-pencil"></i></a>
-                </td>
+                  <?php $i=0;?>
+                  @foreach($announs as $announ)
+                  <tr>
+                    <?php $i++;?>
+                    <td><?php echo $i;?></td>
+                      <td>{{$announ->announsment}}</td>
+                      <td>{{$announ->courses->title}}</td>
+                    <td>
+                        @if($announ->status==1)
+                          {{ __('adminstaticword.Active') }}
+                        @else
+                        {{ __('adminstaticword.Deactive') }}
+                        @endif                      
+                    </td>
+                    
+                    <td>
+                      <a class="btn btn-primary btn-sm" href="{{url('instructor/announcement/'.$announ->id)}}"><i class="glyphicon glyphicon-pencil"></i></a>
+                    </td>
 
-                <td><form  method="post" action="{{url('instructor/announcement/'.$announ->id)}}
-                    "data-parsley-validate class="form-horizontal form-label-left">
-                      {{ csrf_field() }}
-                      {{ method_field('DELETE') }}
-                      <button  type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash-o"></i></button>
-                  </form>
-                </td>
-              </tr>
-              @endforeach
-       
+                    <td><form  method="post" action="{{url('instructor/announcement/'.$announ->id)}}
+                        "data-parsley-validate class="form-horizontal form-label-left">
+                          {{ csrf_field() }}
+                          {{ method_field('DELETE') }}
+                          <button  type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash-o"></i></button>
+                      </form>
+                    </td>
+                  </tr>
+                  @endforeach
+                </tbody>
             </table>
-          </div>
+         
         </div>
         <!-- /.box-body -->
       </div>

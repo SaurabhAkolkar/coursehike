@@ -702,6 +702,29 @@ button.dt-button, div.dt-button, a.dt-button {
 	  display:block;
 	  cursor:pointer;
   }
+
+  .la-admin__subform-group{
+	  margin-left:2px;
+  }
+  .la-admin__subinput-group{
+	background:#fcfcfc;
+	border: 1px solid #DEDEDE;
+	display:flex;
+	align-items:center;
+	padding:0;
+  }
+  .la-admin__subinput-text{
+	  background-color:#ffffff;
+	  border-radius:0;
+	  border:none;
+	  padding:15px;	
+	  color:#BCBCBC;
+  }
+  .la-admin__subform-input{
+	  border:none !important;
+	  text-align: center;
+  }
+
   .la-admin__preview .la-admin__preview-img, .la-admin__preview .la-admin__preview-video{
 		position:relative;
 		background:#FCFCFC;
@@ -721,7 +744,7 @@ button.dt-button, div.dt-button, a.dt-button {
 	  justify-content:space-between;
 	  align-items:center;
 	  background:#FCFCFC ;
-	  padding:10px 20px;
+	  padding:10px;
   }
   .la-admin__preview .la-admin__preview-img .la-admin__preview-text .la-admin__preview-size,
   .la-admin__preview .la-admin__preview-video .la-admin__preview-text .la-admin__preview-size{
@@ -738,8 +761,150 @@ button.dt-button, div.dt-button, a.dt-button {
 	  cursor:pointer;
 	  display:block;
   }
+  .la-admin__preview .la-admin__preview-img .la-admin__preview-text .la-admin__preview-filebg{
+	  background-color:#1592E6; 
+	  box-shadow: 0px 3px 6px #00000029;
+	  color:#ffffff;
+	  letter-spacing: 1.2px;
+	  font-weight:bold;
+	  padding:10px 20px;
+  }
   /* === EDIT COURSES PREVIEW IMAGE AND VIDEO FILES: END ==== */
 
   /* ==================== EDIT COURSE PAGE: END ============================== */
   
-  
+
+  /* ==== ADD COURSE CLASS: START ===== */
+.la-admin__class-package{
+	box-shadow:none;
+	padding:30px 0;
+}
+.la-admin__class-package .la-admin__cp-subscription,
+.la-admin__class-package .la-admin__cp-free {
+	padding-left:10px !important;
+}
+
+.la-admin__preview-label{
+	padding-left:10px;
+}
+.la-admin__class-status{
+	padding:10px 10px;
+}
+.la-admin__cp-input{
+	display:none;
+}
+.la-admin__cp-circle{
+	display: inline-flex;
+	justify-content: start;
+	align-items: center;
+}
+.la-admin__cp-radio{
+	width:14px;
+	height:14px;
+	border-radius:100%;
+	border:1px solid rgba(21, 146, 230, 0.7);
+	position:relative;
+	margin-right:5px;
+}
+.la-admin__cp-radio::before{
+	content: "";
+	position: absolute;
+	top:3px;
+	left:3px;
+	width: 6px;
+	height: 6px;
+	border-radius: 100px;
+	background-color: #1592E6;
+	transform: scale(0);
+	transition: all 0.2s ease;
+}
+.la-admin__cp-input:checked + label .la-admin__cp-radio::before {
+	transform: scale(1);
+}
+
+/* === Toggle Swicth ==== */
+.la-admin__master-toggler{
+	margin:20px 0;
+}
+.la-admin__toggle-label{
+	position: relative;
+	display:inline-block;
+	width:60px;
+	height:24px;
+	background-color: #EEEEEE;
+	margin:10px 0 10px 10px;
+}
+.la-admin__toggle-label::after{
+	content: "";
+  	position: absolute;
+  	width: 30px;
+  	height: 23px;
+  	background-color: #2B2B2B;
+  	top: 1px; 
+  	left: 1px;
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+}
+.la-admin__toggle-label::before{
+	content:"";
+	position:absolute;
+	top:5px;
+	left:15px;
+	width:1px;
+	height:15px;
+	border:1px solid #ffffff;
+	box-shadow: 0px 0px 2px #0000003D;
+	z-index:1;
+}
+.la-admin__toggle-switch:checked + .la-admin__toggle-label::after {
+	left : 30px; 
+	background-color: #1592E6;
+}
+.la-admin__toggle-switch:checked + .la-admin__toggle-label::before {
+	content:"";
+	position:absolute;
+	top:5px;
+	left:45px;
+	width:1px;
+	height:15px;
+	border:1px solid #ffffff;
+	z-index:1;
+}
+.la-admin__toggle-switch:checked + .la-admin__toggle-label{
+	background-color: #EEEEEE;
+}
+.la-admin__toggle-switch{
+	display:none;
+}
+/* ==== ADD COURSE CLASS: END ===== */
+
+/* ==== EDIT COURSE CLASS: START ===== */
+.la-admin__editimg-title {
+	font-family:Roboto;
+	font-weight:normal;
+	color:#000000;
+	font-size:14px;
+}
+.la-admin__editclass-preview{
+	width:300px !important;
+}
+/* ==== EDIT COURSE CLASS: END ===== */
+
+/* ===== ADD COUPON PAGE: START ====== */
+.la-admin__coupon-usage .la-admin__usage-label{
+	padding-left:10px;
+	font-family:Roboto;
+	font-weight:500;
+	font-size:16px;
+	color:#000000;
+}
+.la-admin__add-coupon .la-admin__coupon-label{
+	font-family: Roboto;
+	font-weight:400 ;
+	color:#000000;
+	font-size:12px;
+}
+/* ===== ADD COUPON PAGE: END ====== */

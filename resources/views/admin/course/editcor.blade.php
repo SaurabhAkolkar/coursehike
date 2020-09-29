@@ -232,18 +232,18 @@
                                 <small><i class="fa fa-info-circle px-2"></i> (Default)</small>
                              </div>
 
-                              <div class="la-admin__cp-desc">
-                                  <p>This course is accessible by all Subscribers & also available for life-time purchase. </p>
-                                  <p>Please enter the Course cost for One-Time Purchase</p>
-                                  <div class="form-group la-admin__subform-group">
-                                      <div class="input-group la-admin__subinput-group">
-                                        <div class="input-group-addon ">
-                                            <i class="fa fa-dollar"></i> 
-                                        </div>
-                                        <input type="text" class="form-control la-admin__sub-input" value="400" style="width:160px"/>
-                                      </div>
+                            <div class="la-admin__cp-desc">
+                              <p>This course is accessible by all Subscribers & also available for life-time purchase. </p>
+                              <p>Please enter the Course cost for One-Time Purchase</p>
+                              <div class="form-group row  la-admin__subform-group">
+                                  <div class="input-group col-sm-6 la-admin__subinput-group">
+                                    <div class="input-group-prepend la-admin__subinput-prepend" >
+                                        <span class="fa fa-dollar input-group-text la-admin__subinput-text"></span> 
+                                    </div>
+                                    <input type="text" class="form-control la-admin__subform-input" value="400" style="width:160px"/>
                                   </div>
                               </div>
+                            </div>
                           </label>
                       </div> <br/>
 
@@ -253,7 +253,7 @@
                                 <div class="la-admin__cp-circle">
                                   <span class="la-admin__cp-radio"></span>
                                   <span class="la-admin__cp-label">Premium </span>
-                                  <small><i class="fa fa-info-circle "></i> </small>
+                                  <small><i class="fa fa-info-circle pl-1"></i> </small>
                                 </div>
                                 <div class="la-admin__cp-desc">
                                     <p> This course is accessible only by exclusive purchase </p>
@@ -267,7 +267,7 @@
                               <div class="la-admin__cp-circle">
                                 <span class="la-admin__cp-radio"></span>
                                 <span class="la-admin__cp-label">Free</span> 
-                                <small><i class="fa fa-info-circle "></i> </small>
+                                <small><i class="fa fa-info-circle pl-1"></i> </small>
                               </div>
 
                                 <div class="la-admin__cp-desc">

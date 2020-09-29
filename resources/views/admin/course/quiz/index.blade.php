@@ -28,7 +28,6 @@
         <br>
         <br>
         <div class="box-body">
-          <div class="table-responsive">
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
@@ -132,8 +131,8 @@
                                    
 
 
-                                  </div>
-                                </div>
+                              </div>
+              
                                 <br>
                                
                               
@@ -158,7 +157,6 @@
         </div>
       </div>
     </div>
-  </div>
 </section>
 
 

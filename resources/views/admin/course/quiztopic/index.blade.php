@@ -3,8 +3,6 @@
     <div class="col-12">
       <a data-toggle="modal" data-target="#myModaltopic" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
 
-      <div class="table-responsive">
-      
         <table id="example1" class="table table-bordered table-striped">
 
           <thead>
@@ -71,8 +69,7 @@
           
           </tfoot>
         </table>
-      </div>
-
+    
 
     </div>
     <!-- /.col -->

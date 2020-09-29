@@ -5,7 +5,6 @@
       <a data-toggle="modal" data-target="#myModalab" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
       <br>
       <br>
-      <div class="table-responsive">
         <table id="example1" class="table table-bordered table-striped db">
           <thead>
             <tr>
@@ -62,7 +61,6 @@
             @endforeach
           </tbody>
         </table>
-      </div>
     </div>
   </div>
 
@@ -104,6 +102,124 @@
                   </div>
                 </div>
                 <br>
+                
+                <!-- CLASS THUMBNAIL: START -->
+                <div class="row">
+                  <div class="col-12">
+                        <div class="la-admin__preview">
+                          <label for="" class="la-admin__preview-label"> Class Thumbnail<sup class="redstar">*</sup></label>
+                          <div class="la-admin__preview-img" >
+                               <div class="la-admin__preview-text">
+                                    <p class="la-admin__preview-size">Thumbnail | 500x350</p>
+                                    <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
+                              </div>
+                              <input type="file" class="form-control la-admin__preview-input" name="addClass-previewImg" id="addClass-previewImg" />
+                          </div>
+                        </div>
+                  </div>
+                </div>
+                <!-- CLASS THUMBNAIL: END -->
+
+                 <!-- COURSE PACKAGE TYPE: START -->
+                <div class="row">
+                  <div class="col-12">
+                    <div class="la-admin__course-package la-admin__class-package">
+                        <div class="la-admin__cp-subscription">
+                            <input type="radio" name="addClass-subscription" id="addClassSub" value="Subscription" class="la-admin__cp-input" /> 
+                            <label for="addClassSub"> 
+                              <div class="la-admin__cp-circle">
+                                  <span class="la-admin__cp-radio"></span>
+                                  <span class="la-admin__cp-label">Subscription</span> 
+                                  <small><i class="fa fa-info-circle px-1"></i> (Default)</small>
+                              </div>
+
+                              <div class="la-admin__cp-desc">
+                                <p>This course is accessible by all Subscribers & also available for life-time purchase. </p>
+                                <p>Please enter the Course cost for One-Time Purchase</p>
+                                <div class="form-group row  la-admin__subform-group">
+                                    <div class="input-group col-7 la-admin__subinput-group">
+                                      <div class="input-group-prepend la-admin__subinput-prepend" >
+                                          <span class="fa fa-dollar input-group-text la-admin__subinput-text"></span> 
+                                      </div>
+                                      <input type="text" name="class-OTP" id="class-OTP" class="form-control la-admin__subform-input" value="20"/>
+                                    </div>
+                                </div>
+                              </div>
+                            </label>
+                        </div> <br/>
+
+
+                        <div class="la-admin__cp-free">
+                              <input type="radio" name="addClass-subscription" id="addClassFree" value="Free" class="la-admin__cp-input">
+                              <label for="addClassFree" > 
+                                <div class="la-admin__cp-circle">
+                                  <span class="la-admin__cp-radio"></span>
+                                  <span class="la-admin__cp-label">Free</span> 
+                                  <small><i class="fa fa-info-circle pl-1"></i> </small>
+                                </div>
+
+                                  <div class="la-admin__cp-desc">
+                                      <p class="la-admin__cp-info">  This course is accessible only by any learner </p>
+                                  </div>
+                              </label>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+               <!-- COURSE PACKAGE TYPE: END -->
+
+               <!--  ADD CLASS STATUS: START -->
+              <div class="row">
+                  <div class="col-12">
+                    <label class="la-admin__preview-label"> Status<sup class="redstar">*</sup></label>
+                    <div class="la-admin__class-status d-flex justify-content-start">
+                      <div class="la-admin__class-active pr-5">
+                          <input type="radio" name="addClass-status" id="addClass-active" value="active" class="la-admin__cp-input" >
+                          <label for="addClass-active" > 
+                            <div class="la-admin__cp-circle">
+                              <span class="la-admin__cp-radio"></span>
+                              <span class="la-admin__cp-label">Active</span> 
+                            </div>
+                          </label>
+                      </div>
+
+                      <div class="la-admin__class-hold pr-5">
+                        <input type="radio" name="addClass-status" id="addClass-hold" value="hold" class="la-admin__cp-input" >
+                        <label for="addClass-hold" > 
+                          <div class="la-admin__cp-circle">
+                            <span class="la-admin__cp-radio"></span>
+                            <span class="la-admin__cp-label">On hold</span> 
+                          </div>
+                        </label>
+                      </div>
+
+                      <div class="la-admin__class-archive pr-5">
+                        <input type="radio" name="addClass-status" id="addClass-archive" value="archive" class="la-admin__cp-input" >
+                        <label for="addClass-archive" > 
+                          <div class="la-admin__cp-circle">
+                            <span class="la-admin__cp-radio"></span>
+                            <span class="la-admin__cp-label">Archive</span> 
+                          </div>
+                        </label>
+                    </div>
+                  </div>
+                  </div>
+              </div>
+              <!-- ADD CLASS STATUS: END -->
+
+              <!-- ADD CLASS MASTER TOGGLER: START -->
+              <div class="row">
+                <div class="col-12">
+                    <div class="la-admin__master-toggler">
+                      <label for="" class="la-admin__preview-label"> Master Class<sup class="redstar">*</sup></label>
+                      <div class="la-admin__master-class">
+                            <input type="checkbox" id="class-switch" name="class-switch" class="la-admin__toggle-switch" />
+                            <label for="class-switch" class="la-admin__toggle-label"></label> 
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <!-- ADD CLASS MASTER TOGGLER: END -->
 
                 <div class="row">
                   <div class="col-md-12">
@@ -126,8 +242,6 @@
                     </select>
                   </div>
                   <br>
-
-
 
                   <!--for audio -->
                   <div class="col-md-12 d-none" id="audioChoose">
@@ -282,7 +396,7 @@
                     </div>
                   </div>
                 </div>
-                </br>
+                <br/>
                 <!-- end preview video -->
 
 
@@ -329,6 +443,7 @@
                   </table>
                 </div>
 
+                
 
                 <div class="box-footer">
                   <button type="submit" class="btn btn-lg col-md-6 btn-primary">{{ __('adminstaticword.Submit') }}</button>

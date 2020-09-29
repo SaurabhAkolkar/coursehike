@@ -135,7 +135,7 @@ Author: Media City
              
         </div>
         <!-- /.row -->
-        <div class="order-table table-responsive">
+        <div class="order-table">
           <table class="table table-striped">
             <thead>
               <tr>
@@ -185,7 +185,7 @@ Author: Media City
                 $coursess = App\Course::where('id', $bundle_course)->first();
               @endphp
 
-              <div class="purchase-table table-responsive">
+              <div class="purchase-table">
                 <table class="table">
 
               <tbody>

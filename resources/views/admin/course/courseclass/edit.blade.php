@@ -363,6 +363,138 @@
                 </div>
               </div>
 
+                <!-- CLASS THUMBNAIL: START -->
+              <div class="row">
+                <div class="col-12">
+                  <div class="la-admin__preview">
+                      <label for="" class="la-admin__preview-label"> Class Thumbnail<sup class="redstar">*</sup></label>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="la-admin__preview">
+                    <h6 class="la-admin__editimg-title mb-2" > Current </h6>
+                      <div class="la-admin__preview-img la-admin__editclass-preview" >
+                          
+                      </div>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                      <div class="la-admin__preview">
+                          <h6 class="la-admin__editimg-title  mb-2" > Update new </h6>
+                          <div class="la-admin__preview-img la-admin__editclass-preview" >
+                               <div class="la-admin__preview-text d-block">
+                                  <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase text-center">Choose a File</p>
+                                  <p class="la-admin__preview-size text-center">Thumbnail | 500x350</p>
+                              </div>
+                              <input type="file" class="form-control la-admin__preview-input" name="preview-img" id="edit-upload" />
+                          </div>
+                      </div>
+                </div>
+              </div>
+                <!-- CLASS THUMBNAIL: END -->
+
+               <!-- COURSE PACKAGE TYPE: START -->
+               <div class="row">
+                <div class="col-12">
+                  <div class="la-admin__course-package la-admin__class-package">
+                      <div class="la-admin__cp-subscription">
+                          <input type="radio" name="editClass-subscription" id="editClassSub" value="Subscription" class="la-admin__cp-input" /> 
+                          <label for="editClassSub"> 
+                            <div class="la-admin__cp-circle">
+                                <span class="la-admin__cp-radio"></span>
+                                <span class="la-admin__cp-label">Subscription</span> 
+                                <small><i class="fa fa-info-circle px-1"></i> (Default)</small>
+                            </div>
+
+                            <div class="la-admin__cp-desc">
+                              <p>This course is accessible by all Subscribers & also available for life-time purchase. </p>
+                              <p>Please enter the Course cost for One-Time Purchase</p>
+                              <div class="form-group row  la-admin__subform-group">
+                                  <div class="input-group col-7 la-admin__subinput-group">
+                                    <div class="input-group-prepend la-admin__subinput-prepend" >
+                                        <span class="fa fa-dollar input-group-text la-admin__subinput-text"></span> 
+                                    </div>
+                                    <input type="text" name="edit-OTP" id="edit-OTP" class="form-control la-admin__subform-input" value="20" />
+                                  </div>
+                              </div>
+                            </div>
+                          </label>
+                      </div> <br/>
+
+                      <div class="la-admin__cp-free">
+                            <input type="radio" name="editClass-subscription" id="editClassFree" value="Free" class="la-admin__cp-input">
+                            <label for="editClassFree" > 
+                              <div class="la-admin__cp-circle">
+                                <span class="la-admin__cp-radio"></span>
+                                <span class="la-admin__cp-label">Free</span> 
+                                <small><i class="fa fa-info-circle pl-1"></i> </small>
+                              </div>
+
+                                <div class="la-admin__cp-desc">
+                                    <p class="la-admin__cp-info">  This course is accessible only by any learner </p>
+                                </div>
+                            </label>
+                      </div>
+                  </div>
+                </div>
+              </div>
+             <!-- COURSE PACKAGE TYPE: END -->
+
+              <!--  ADD CLASS STATUS: START -->
+              <div class="row">
+                <div class="col-12">
+                  <label for="" class="la-admin__preview-label"> Status<sup class="redstar">*</sup></label>
+                  <div class="la-admin__class-status d-flex justify-content-start">
+                    <div class="la-admin__class-active pr-5">
+                        <input type="radio" name="editClass-status" id="editClass-active" value="active" class="la-admin__cp-input" >
+                        <label for="editClass-active" > 
+                          <div class="la-admin__cp-circle">
+                            <span class="la-admin__cp-radio"></span>
+                            <span class="la-admin__cp-label">Active</span> 
+                          </div>
+                        </label>
+                    </div>
+
+                    <div class="la-admin__class-hold pr-5">
+                      <input type="radio" name="editClass-status" id="editClass-hold" value="hold" class="la-admin__cp-input" >
+                      <label for="editClass-hold" > 
+                        <div class="la-admin__cp-circle">
+                          <span class="la-admin__cp-radio"></span>
+                          <span class="la-admin__cp-label">On hold</span> 
+                        </div>
+                      </label>
+                    </div>
+
+                    <div class="la-admin__class-archive pr-5">
+                      <input type="radio" name="editClass-status" id="editClass-archive" value="archive" class="la-admin__cp-input" >
+                      <label for="editClass-archive" > 
+                        <div class="la-admin__cp-circle">
+                          <span class="la-admin__cp-radio"></span>
+                          <span class="la-admin__cp-label">Archive</span> 
+                        </div>
+                      </label>
+                  </div>
+                </div>
+                </div>
+            </div>
+            <!-- ADD CLASS STATUS: END --> 
+
+            <!-- ADD CLASS MASTER TOGGLER: START -->
+            <div class="row">
+              <div class="col-12">
+                  <div class="la-admin__master-toggler">
+                    <label for="" class="la-admin__preview-label"> Master Class<sup class="redstar">*</sup></label>
+                    <div class="la-admin__master-class">
+                        <input type="checkbox" id="edit-switch" name="edit-switch" class="la-admin__toggle-switch" />
+                        <label for="edit-switch" class="la-admin__toggle-label"></label> 
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <!-- ADD CLASS MASTER TOGGLER: END -->
+
               <div class="box-footer">
                 <button type="submit" class="btn btn-lg col-md-4 btn-primary">{{ __('adminstaticword.Save') }}</button>
               </div>

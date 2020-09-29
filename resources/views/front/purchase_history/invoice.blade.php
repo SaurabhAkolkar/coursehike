@@ -120,7 +120,7 @@
           </div>
         </div>
         <!-- /.row -->
-        <div class="order-table table-responsive">
+        <div class="order-table ">
           <table class="table table-striped">
             <thead>
               <tr>
@@ -172,7 +172,7 @@
                 $coursess = App\Course::where('id', $bundle_course)->first();
               @endphp
 
-              <div class="purchase-table table-responsive">
+              <div class="purchase-table ">
                 <table class="table">
 
               <tbody>

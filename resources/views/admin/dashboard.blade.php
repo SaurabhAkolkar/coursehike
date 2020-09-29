@@ -571,16 +571,16 @@
 			    </div> 
 			     
 			    <div class="box-body">
-			      <div class="table-responsive">
+			      
 			        <table class="table no-margin">
 			          <thead>
-			          <tr>
-			            <th>{{ __('adminstaticword.User') }}</th>
-			            <th>{{ __('adminstaticword.Course') }}</th>
-			            <th>{{ __('adminstaticword.Amount') }}</th>
-			            <th>{{ __('adminstaticword.Date') }}</th>
-                  <th>{{ __('adminstaticword.Invoice') }}</th>
-			          </tr>
+                  <tr>
+                    <th>{{ __('adminstaticword.User') }}</th>
+                    <th>{{ __('adminstaticword.Course') }}</th>
+                    <th>{{ __('adminstaticword.Amount') }}</th>
+                    <th>{{ __('adminstaticword.Date') }}</th>
+                    <th>{{ __('adminstaticword.Invoice') }}</th>
+                  </tr>
 			          </thead>
 			          <tbody>
                   @php
@@ -611,7 +611,7 @@
                   @endforeach
 			          </tbody>
 			        </table>
-			      </div>
+			     
 			    </div>
 			  
 			    <div class="box-footer clearfix">

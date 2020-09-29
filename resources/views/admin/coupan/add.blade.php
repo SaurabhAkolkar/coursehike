@@ -104,14 +104,115 @@
           </div>
       </div>
 
+      <!-- COUPON PACKAGE TYPE: START -->
+      <div class="row">
+        <div class="col-12">
+          <div class="la-admin__course-package la-admin__class-package">
+              <div class="la-admin__cp-subscription">
+                  <input type="radio" name="coupon-package" id="addCoupon" value="Subscription" class="la-admin__cp-input" /> 
+                  <label for="addCoupon"> 
+                    <div class="la-admin__cp-circle">
+                        <span class="la-admin__cp-radio"></span>
+                        <span class="la-admin__cp-label">Percentage</span> 
+                        <small><i class="fa fa-info-circle px-1"></i> (Default)</small>
+                    </div>
+
+                    <div class="la-admin__cp-desc">
+                      <p>This coupon provides some percentage of amount as discount</p>
+                      <div class="form-group row  la-admin__subform-group">
+                        <div class="la-admin__add-coupon">
+                          <label for="coupon-discount" class="la-admin__coupon-label"> Please enter Discount % value<sup class="redstar">*</sup></label>
+                          <div class="input-group col-10 la-admin__subinput-group">
+                            <div class="input-group-prepend la-admin__subinput-prepend" >
+                                <span class="fa fa-percent input-group-text la-admin__subinput-text"></span> 
+                            </div>
+                            <input type="text" name="coupon-discount" id="coupon-discount" class="form-control la-admin__subform-input" value="20"/>
+                          </div>
+                        </div>
+                        
+                        <div class="la-admin__add-coupon">
+                          <label for="coupon-amount" class="la-admin__coupon-label"> Maximum Amount</label>
+                          <div class="input-group col-10 la-admin__subinput-group">
+                            <div class="input-group-prepend la-admin__subinput-prepend" >
+                                <span class="fa fa-dollar input-group-text la-admin__subinput-text"></span> 
+                            </div>
+                            <input type="text" name="coupon-discount" id="coupon-amount" class="form-control la-admin__subform-input" value="20"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </label>
+              </div> <br/>
+
+
+              <div class="la-admin__cp-free">
+                    <input type="radio" name="coupon-package" id="coupon-fixed" value="fixed" class="la-admin__cp-input">
+                    <label for="coupon-fixed" > 
+                      <div class="la-admin__cp-circle">
+                        <span class="la-admin__cp-radio"></span>
+                        <span class="la-admin__cp-label">Fixed Amount</span> 
+                        <small><i class="fa fa-info-circle pl-1"></i> </small>
+                      </div>
+
+                        <div class="la-admin__cp-desc">
+                            <p class="la-admin__cp-info"> This coupon provides a fixed amount as discount </p>
+                            <div class="la-admin__add-coupon">
+                              <label for="fixed-amount" class="la-admin__coupon-label"> Fixed Amount <sup class="redstar">*</sup></label>
+                              <div class="input-group col-10 la-admin__subinput-group">
+                                <div class="input-group-prepend la-admin__subinput-prepend" >
+                                    <span class="fa fa-dollar input-group-text la-admin__subinput-text"></span> 
+                                </div>
+                                <input type="text" name="coupon-discount" id="fixed-amount" class="form-control la-admin__subform-input" value="20"/>
+                              </div>
+                            </div>
+                        </div>
+                    </label>
+              </div>
+          </div>
+        </div>
+      </div>
+     <!-- COUPON PACKAGE TYPE: END -->
+
+    <!-- COUPON USAGE LIMIT: START -->
+    <div class="row">
+        <div class="col-12">
+            <div class="la-admin__coupon-usage">
+              <label class="la-admin__usage-label"> Usage Limit 
+                <small><i class="fa fa-info-circle pl-1"></i></small>
+              </label>
+              <div class="form-group la-admin__add-coupon">
+                <div class="col-5">
+                <label for="coupon-amount" class="la-admin__coupon-label"> Please Enter No. of time this coupon can be used</label>
+                <input type="text" name="coupon-discount" id="coupon-amount" class="form-control la-admin__subinput-group" placeholder="Enter Count"/>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <!-- COUPON USAGE LIMIT: END -->
+
+    <!-- ADD CLASS MASTER TOGGLER: START -->
+    <div class="row">
+      <div class="col-12">
+          <div class="la-admin__master-toggler">
+            <label  class="la-admin__preview-label">Status<sup class="redstar">*</sup></label>
+            <div class="la-admin__master-class">
+                  <input type="checkbox" id="coupon-status" name="coupon-status" class="la-admin__toggle-switch" />
+                  <label for="coupon-status" class="la-admin__toggle-label"></label> 
+            </div>
+          </div>
+      </div>
+    </div>
+    <!-- ADD CLASS MASTER TOGGLER: END -->
+
     <div class="box-footer">
       <button type="submit" class="btn btn-md btn-primary">
         <i class="fa fa-plus-circle"></i> {{ __('adminstaticword.Save') }}
       </button>
     </form>
-      <a href="{{ route('coupon.index') }}" title="Cancel and go back" class="btn btn-md btn-default btn-flat">
+     <!--  <a href="{{ route('coupon.index') }}" title="Cancel and go back" class="btn btn-md btn-default btn-flat">
         <i class="fa fa-reply"></i> {{ __('adminstaticword.Back') }}
-      </a>
+      </a> -->
     </div>
     </div>       
   </div>
