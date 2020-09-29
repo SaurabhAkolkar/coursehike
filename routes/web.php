@@ -57,11 +57,11 @@ Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallba
 
     Route::middleware(['is_verified'])->group(function () {
   
-        // Route::get('/', function () {
-        //     return view('home');
-        // });
+         Route::get('/', function () {
+            return view('home');
+         });
 
-        // Route::get('/', 'HomeController@index');
+        //Route::get('/', 'HomeController@index');
 
         Route::get('/home', 'HomeController@index')->name('home');
 
@@ -596,8 +596,8 @@ Route::view('/interests','learners.auth.interests');
 Route::view('/creator-signup','learners.auth.creator-signup');
 
 Route::view('/user-dashboard','learners.pages.user-dashboard');
-Route::view('/courses','learners.pages.courses');
-Route::view('/course','learners.pages.course');
+//Route::view('/courses','learners.pages.courses');
+//Route::view('/course','learners.pages.course');
 Route::view('/my-courses','learners.pages.my-courses');
 Route::view('/mentors','learners.pages.mentors');
 Route::view('/creator','learners.pages.creator');
@@ -607,9 +607,12 @@ Route::view('/wishlist','learners.pages.wishlist');
 Route::view('/cart','learners.pages.cart');
 Route::view('/playlist','learners.pages.playist');
 Route::view('/purchase-history','learners.pages.purchase-history');
+Route::view('/saved-cards', 'learners.pages.saved-cards');
+Route::view('billing-address', 'learners.pages.billing-address');
 
 Route::view('/releases','learners.pages.new-releases');
 Route::view('/learning-plans','learners.pages.learning-plans');
+Route::view('/payment', 'learners.pages.payment');
 Route::view('/become-creator','learners.pages.become-creator');
 Route::view('/guided-creator','learners.pages.guided-creator');
 Route::view('/contact','learners.pages.contact');

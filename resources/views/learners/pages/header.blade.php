@@ -15,7 +15,6 @@
           <div class="la-header__menu-item">
             <a class="la-header__menu-link la-header__menu-icon la-icon icon-profile" href="/profile"></a>
           </div>
-          
 
           @php
               $msg1 = new stdClass;

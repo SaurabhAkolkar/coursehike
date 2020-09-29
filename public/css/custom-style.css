@@ -1,9 +1,24 @@
 
 /* =============== Admin Dashboard Left Side Navbar CSS ============  */
-
+html, body{
+    font-family:'Roboto', sans-serif !important;
+    background:#ffffff !important;
+}
 /* == Sidebar Toggler Icon == */
+.main-header .navbar{
+    box-shadow: 0px 3px 6px 0px  #0000001A !important;
+    border:none !important;
+}
+.skin-blue .main-header .logo{
+    box-shadow: 0px 3px 6px #0000001A !important;
+    border:none !important;
+}
 .main-header .navbar .sidebar-toggle{
-    color: #404040;
+    color: #404040 !important;
+}
+.main-sidebar{
+    background:#ffffff !important;
+    box-shadow: 0px 3px 6px #0000001A !important;
 }
 /* == Sidebar User Image == */
 .sidebar .user-panel img{
@@ -11,25 +26,53 @@
 }
 /* == Sidebar Toggler Menu Links == */
 .sidebar a {
-    color: #404040;
+    color: #404040 !important;
+    font-weight:500;
+    font-size:15px;
+    padding:10px 16px !important;
+    outline: 0;
+}
+.sidebar-menu [class^="flaticon-"]:before{
+    margin-right:14px !important;
+}
+.sidebar-menu>li>a>.fa{
+    color:#6708BA !important;
 }
 /* == Sidebar Toggler Menu Links when active and hover == */
 .sidebar-menu>li:hover>a, 
 .sidebar-menu>li.active>a, 
 .sidebar-menu>li.menu-open>a {
-    background-color:#ffffff;
-    color:#6708BA;
+    background-color:#ffffff !important;
+    color:#6708BA !important;
 }
 /* == Sidebar Menu Links Spacing == */
 .sidebar-menu>li>a {
     padding: 6px 16px;
     display: block;
     position:relative;
-    border-right:2px solid #f1f1f1;
+    border:none;
 }
 /* == Sidebar Menu Links border-left == */
 .sidebar-menu>li.active>a {
-    border-left-color:transparent;
+    border-left-color:transparent !important;
+}
+.main-header .navbar .nav>li>a {
+    color: #000 !important;
+    padding: 15px 5px;
+    font-weight:500;
+}
+.skin-blue .sidebar-menu>li>.treeview-menu{
+    background-color:#fbfbfb!important;
+}
+.skin-blue .sidebar-menu .treeview-menu>li>a{
+    font-size:14px !important;
+    color: #404040 !important;
+}
+.skin-blue .sidebar-menu .treeview-menu>li.active>a{
+    color:#6708BA !important;
+}
+.skin-blue .sidebar-menu .treeview-menu>li>a:hover{
+    color:#6708BA !important;
 }
 
 
@@ -49,7 +92,7 @@
 }
 /* === Dashboard Content-header === */
 .skin-blue .content-header {
-     background-color:#fff;
+     background-color:#fff !important;
 }
 /* === Dashboard Content === */
 .content {
@@ -63,11 +106,11 @@
     background-color:#fbfbfb !important;
 }
 .small-box {
-    border-radius: 2px;
+    border-radius: 0;
     position: relative;
     display: block;
     margin-bottom: 20px;
-    box-shadow: 0px 0px 3px #eee;
+    box-shadow: none;
 }
 
 .small-box .icon {
@@ -95,19 +138,21 @@
 .small-box h3 {
     position: relative;
     top:10px;
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 24px;
+    font-weight: 500 !important;
     white-space: nowrap;
     padding-left: 12px;
-    color:#000;
+    color:#252525 !important;
+    letter-spacing: 0px;
 }
 /* == small-box p CSS == */
 .small-box p {
-    font-size: 16px;
-    color: #252525;
-    font-weight:bold;
+    font-size: 18px;
+    color: #252525 !important;
     padding-left:12px;
     margin:0;
+    font-weight:500 !important;
+    letter-spacing: 0px;
 }
 /* ==Content small-box small-box-footer section == */
 .small-box>.small-box-footer {
@@ -146,6 +191,7 @@
 .users-list>li img {
     height: 50px;
     width:50px;
+   border:1px solid rgba(129,129,129,.1);
 }
 .users-list-name{
     margin-left:-80px;
@@ -221,8 +267,9 @@ table.table-bordered.dataTable tbody td {
  }
 /* == Table Column Course Image ==*/
 .table td img {
-    width: 60px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
+    display:block;
 }
 
 
@@ -262,11 +309,14 @@ table.table-bordered.dataTable tbody td {
     padding: 20px;
     font-size: 15px;
     line-height: 1.42857143;
-    color: #BCBCBC;
+    color: #777777;
     background-color: #fbfbfb;
     border: 1px solid #dedede;
     border-radius: 0;
     box-shadow: none;
+}
+.form-control::placeholder{
+    color:#777777 !important;
 }
 .tox-tinymce{
     border:none !important;
@@ -429,6 +479,11 @@ input[type="file"]{
     padding:5px;
     text-align:center;
     width:120px;
+}
+@media (max-width:767px){
+    .nav>li>a{
+        width:100%;
+    }
 }
 /* == Table == */
 table, .table-bordered{
