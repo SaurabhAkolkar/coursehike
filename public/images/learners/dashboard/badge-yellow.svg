@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="33.277" height="46.786" viewBox="0 0 33.277 46.786">
+  <g id="badge_yellow" data-name="badge yellow" transform="translate(-71 -11.465)">
+    <g id="Group_4212" data-name="Group 4212" transform="translate(71 6.374)">
+      <path id="Path_3568" data-name="Path 3568" d="M8100.7-2798.879c-.176.719,0,24.015,0,24.015l8.613-7.769,8.563,7.769v-24.015Z" transform="translate(-8092.333 2826.742)" fill="#ffc516"/>
+      <g id="Group_4207" data-name="Group 4207" transform="translate(0 5.091)">
+        <g id="Group_4203" data-name="Group 4203" transform="translate(0 0)">
+          <ellipse id="Ellipse_322" data-name="Ellipse 322" cx="14.832" cy="14.832" rx="14.832" ry="14.832" transform="translate(1.807 1.807)" fill="#ffb93a"/>
+          <path id="Path_3563" data-name="Path 3563" d="M156.162,491.019a16.639,16.639,0,1,1,11.765-4.873A16.53,16.53,0,0,1,156.162,491.019Zm0-32.444a15.8,15.8,0,1,0,11.176,4.629A15.7,15.7,0,0,0,156.162,458.575Zm0,29.663a13.859,13.859,0,1,1,13.859-13.859A13.874,13.874,0,0,1,156.162,488.239Zm0-26.883a13.025,13.025,0,1,0,13.024,13.024A13.039,13.039,0,0,0,156.162,461.355Z" transform="translate(-139.523 -457.741)" fill="#fd971d"/>
+          <path id="Path_3564" data-name="Path 3564" d="M157.937,492.377a16.222,16.222,0,1,1,11.471-4.751A16.116,16.116,0,0,1,157.937,492.377Zm0-29.663a13.441,13.441,0,1,0,13.442,13.441A13.457,13.457,0,0,0,157.937,462.713Z" transform="translate(-141.298 -459.516)" fill="#ffb93a"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

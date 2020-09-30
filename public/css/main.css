@@ -9885,9 +9885,9 @@ a.text-dark:focus, a.text-dark:hover {
 @font-face {
   font-family: 'icomoon';
 
-  src: url("../fonts/icons/icomoon.eot?tlgwid");
+  src: url("./fonts/learners/icons/icomoon.eot?tlgwid");
 
-  src: url("../fonts/icons/icomoon.eot?tlgwid#iefix") format("embedded-opentype"), url("../fonts/icons/icomoon.ttf?tlgwid") format("truetype"), url("../fonts/icons/icomoon.woff?tlgwid") format("woff"), url("../fonts/icons/icomoon.svg?tlgwid#icomoon") format("svg");
+  src: url("./fonts/learners/icons/icomoon.eot?tlgwid#iefix") format("embedded-opentype"), url("./fonts/learners/icons/icomoon.ttf?tlgwid") format("truetype"), url("./fonts/learners/icons/icomoon.woff?tlgwid") format("woff"), url("./fonts/learners/icons/icomoon.svg?tlgwid#icomoon") format("svg");
 
   font-weight: normal;
 
@@ -19306,7 +19306,7 @@ section.la-page--bcreator {
 }
 
 section.la-page--bcreator .la-bcreator__banner {
-  background: url("../images/creator/bcreator-banner.png") no-repeat center rgba(0, 0, 0, 0.5);
+  background: url("../images/learners/creator/bcreator-banner.png") no-repeat center rgba(0, 0, 0, 0.5);
   background-size: cover;
   background-position: 100%;
   padding: 195px 0;

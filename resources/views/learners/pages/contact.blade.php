@@ -8,7 +8,7 @@
       <div class="container">
         <div class="row">
           <!-- Column: Start-->
-          <div class="col-12 mt-8 mt-lg-10"><a class="la-back__page" href="#"> <span><img class="img-fluid" src="./images/icons/long-arrow-dark.svg" alt="Previous"></span></a></div>
+          <div class="col-12 mt-8 mt-lg-10"><a class="la-back__page" href="#"> <span><img class="img-fluid" src="./images/learners/icons/long-arrow-dark.svg" alt="Previous"></span></a></div>
           <!-- Column: End-->
           <!-- Column: Start-->
           <div class="col-12 d-none d-sm-block">
@@ -30,7 +30,7 @@
               <div class="la-contact__btm d-none d-sm-block">
                 <div class="la-contact__details"><span class="la-icon--lg icon-contact-number mr-3"></span><a class="text-md" href="tel:+91 9999999999">+91 9999999999</a></div>
                 <div class="la-contact__details"><span class="la-icon--lg icon-mail-id mr-3"></span><a class="text-md" href="mailto:ask@learnitlikealiens.com">ask@learnitlikealiens.com</a></div>
-                <div class="la-contact__smedia mt-6"><a class="mr-5" href="#"><img class="img-fluid" src="./images/icons/facebook-dark.svg" alt="Facebook"></a><a class="mr-5" href="#"><img class="img-fluid" src="./images/icons/instagram-dark.svg" alt="Instagram"></a><a class="mr-5" href="#"><img class="img-fluid" src="./images/icons/youtube-dark.svg" alt="Youtube"></a></div>
+                <div class="la-contact__smedia mt-6"><a class="mr-5" href="#"><img class="img-fluid" src="./images/learners/icons/facebook-dark.svg" alt="Facebook"></a><a class="mr-5" href="#"><img class="img-fluid" src="./images/learners/icons/instagram-dark.svg" alt="Instagram"></a><a class="mr-5" href="#"><img class="img-fluid" src="./images/learners/icons/youtube-dark.svg" alt="Youtube"></a></div>
               </div>
             </div>
           </div>
@@ -40,7 +40,7 @@
             <div class="la-contact__btm-mobile py-5 my-5">
               <div class="la-contact__details"><span class="la-icon--lg icon-contact-number mr-3"></span><a class="text-md" href="tel:+91 9999999999">+91 9999999999</a></div>
               <div class="la-contact__details"><span class="la-icon--lg icon-mail-id mr-3"></span><a class="text-md" href="mailto:ask@learnitlikealiens.com">ask@learnitlikealiens.com</a></div>
-              <div class="la-contact__smedia mt-8"><a class="mr-6" href="#"><img class="img-fluid" src="./images/icons/facebook-dark.svg" alt="Facebook"></a><a class="mr-6" href="#"><img class="img-fluid" src="./images/icons/instagram-dark.svg" alt="Instagram"></a><a class="mr-6" href="#"><img class="img-fluid" src="./images/icons/youtube-dark.svg" alt="Youtube"></a></div>
+              <div class="la-contact__smedia mt-8"><a class="mr-6" href="#"><img class="img-fluid" src="./images/learners/icons/facebook-dark.svg" alt="Facebook"></a><a class="mr-6" href="#"><img class="img-fluid" src="./images/learners/icons/instagram-dark.svg" alt="Instagram"></a><a class="mr-6" href="#"><img class="img-fluid" src="./images/learners/icons/youtube-dark.svg" alt="Youtube"></a></div>
             </div>
           </div>
           <!-- Mobile Column: End-->

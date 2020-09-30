@@ -17,10 +17,10 @@
 
     <div class="la-form__radio-icons d-flex">   
         <a class="la-form__radio-edit mr-5" href="" role="button">
-            <img src="./images/icons/edit.svg" alt="">
+            <img src="./images/learners/icons/edit.svg" alt="">
         </a>
         <a class="la-form__radio-delete" href="" role="button">
-            <img src="./images/icons/delete.svg" alt="">
+            <img src="./images/learners/icons/delete.svg" alt="">
         </a>
     </div>
 </div>

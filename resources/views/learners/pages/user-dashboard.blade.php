@@ -20,26 +20,26 @@
                 $badge1= new stdClass;
                 $badge1->title = "EXCLUSIVITY";
                 $badge1->desc = "A Badge you earn when you finish an exclusive course.";
-                $badge1->badgeImg = "https://picsum.photos/40";
+                $badge1->badgeImg = "./images/learners/dashboard/badge-purple.svg";
                 $badge1->count = 5;
 
                 $badge2= new stdClass;
                 $badge2->title = "SINCERE LEARNER";
                 $badge2->desc = "A Badge you earn when learn consistently.";
-                $badge2->badgeImg = "https://picsum.photos/40";
+                $badge2->badgeImg = "./images/learners/dashboard/badge-green.svg";
                 $badge2->count = 3;
                 
 
                 $badge3= new stdClass;
                 $badge3->title = "FAST LEARNER";
                 $badge3->desc = "A Badge you earn when learn at a fast pace.";
-                $badge3->badgeImg = "https://picsum.photos/40";
+                $badge3->badgeImg = "./images/learners/dashboard/badge-yellow.svg";
                 $badge3->count = 8;
 
                 $badge4= new stdClass;
                 $badge4->title = "MENTOR'S FAVOURITE";
                 $badge4->desc = "A Badge gifted by your mentor when you finish assignments well.";
-                $badge4->badgeImg = "https://picsum.photos/40";
+                $badge4->badgeImg = "./images/learners/dashboard/badge-red.svg";
                 $badge4->count = 1;
 
                 $badges = array($badge1, $badge2, $badge3, $badge4);
@@ -70,7 +70,7 @@
                   <div class="col">
                       @php
                           $tile = new stdClass;
-                          $tile->img = "https://picsum.photos/100";
+                          $tile->img = "./images/learners/dashboard/card-tile.png";
                           $tile->progress = 37;
                           $tile->desc = "At verso eos";
                           $tile->name = "Amy D'souza";
@@ -98,7 +98,7 @@
                     <p class="text-sm text-white">Got something different then<br>share it with the world.</p>
                     <h2 class="text-3xl text-white">become an <br><span>Alien mentor</span></h2>
                   </div>
-                  <div class="la-course__ad-learn-more pt-8 pb-4 d-flex justify-content-end"><a class="text-uppercase" href="#">Learn More<span><img class="img-fluid" src="./images/icons/long-arrow-dark.svg" alt="Learn More"></span></a></div>
+                  <div class="la-course__ad-learn-more pt-8 pb-4 d-flex justify-content-end"><a class="text-uppercase" href="#">Learn More<span><img class="img-fluid" src="./images/learners/icons/long-arrow-dark.svg" alt="Learn More"></span></a></div>
                 </div>
               </div>
             </div>
@@ -135,25 +135,25 @@
 
     @php
         $hp1 = new stdClass;
-        $hp1->hpImg = "https://picsum.photos/400";
+        $hp1->hpImg = "./images/learners/dashboard/hp1.png";
         $hp1->hpCourse = "Digital Art";
         $hp1->hpCname = "Lillan";
         $hp1->hpUrl = "";
 
         $hp2 = new stdClass;
-        $hp2->hpImg = "https://picsum.photos/400";
+        $hp2->hpImg = "./images/learners/dashboard/hp2.png";
         $hp2->hpCourse = "UI Design";
         $hp2->hpCname = "Dartin";
         $hp2->hpUrl = "";
 
         $hp3 = new stdClass;
-        $hp3->hpImg = "https://picsum.photos/400";
+        $hp3->hpImg = "./images/learners/dashboard/hp3.png";
         $hp3->hpCourse = "Line Art";
         $hp3->hpCname = "Nathan Frank";
         $hp3->hpUrl = "";
 
         $hp4 = new stdClass;
-        $hp4->hpImg = "https://picsum.photos/400";
+        $hp4->hpImg = "./images/learners/dashboard/hp1.png";
         $hp4->hpCourse = "Digital Art";
         $hp4->hpCname = "Lillan";
         $hp4->hpUrl = "";

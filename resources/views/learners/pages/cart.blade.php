@@ -22,7 +22,7 @@
                     <!-- Cousre Cart:  Start -->
                       @php
                         $cart1 = new stdClass;
-                        $cart1->courseImg = "";
+                        $cart1->courseImg = "https://picsum.photos/160/80";
                         $cart1->course = "Photography";
                         $cart1->creator = "Charlotte Floyd";
                         $cart1->remove = "Remove";
@@ -36,7 +36,7 @@
                         $cart1->realPrice = 49;
 
                         $cart2 = new stdClass;
-                        $cart2->courseImg = "";
+                        $cart2->courseImg = "https://picsum.photos/160/80";
                         $cart2->course = "Designs";
                         $cart2->creator = "Charlotte Floyd";
                         $cart2->remove = "Remove";

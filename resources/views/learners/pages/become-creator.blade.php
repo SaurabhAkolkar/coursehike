@@ -7,7 +7,7 @@
       <div class="row">
         <!-- Column: Start-->
         <div class="col-12 col-sm-12 la-bcreator__banner">
-          <div class="la-bcreator text-left text-sm-center px-5"><a class="la-bcreator__back-link position-absolute" href="#"><img class="img-fluid" src="./images/icons/long-arrow.svg"></a>
+          <div class="la-bcreator text-left text-sm-center px-5"><a class="la-bcreator__back-link position-absolute" href="#"><img class="img-fluid" src="./images/learners/icons/long-arrow.svg"></a>
             <div class="la-bcreator__content">
               <p class="text-sm text-white text-uppercase m-0">Lorem Ipsum</p>
               <h1 class="text-6xl text-white text-uppercase">Become a Creator</h1>
@@ -41,7 +41,7 @@
                                         <div class="swiper-slide la-mcard__slider mb-16">
                                           <div class="la-mcard__item p-4 p-lg-5">
                                             <div class="la-mcard__info d-flex align-items-center">
-                                              <div class="li-mcard__prfle mr-4 mr-lg-10"><img class="rounded-circle d-block la-mcard__img" src="./images/creator/banner.jpg" alt="Mentor Name"></div>
+                                              <div class="li-mcard__prfle mr-4 mr-lg-10"><img class="rounded-circle d-block la-mcard__img" src="./images/learners/creator/banner.jpg" alt="Mentor Name"></div>
                                               <div class="la-mcard__details">
                                                 <div class="la-mcard__name text-lg text-lg-xl">Mentor Name</div>
                                                 <div class="la-mcard__skill text-sm d-block d-lg-none">Expertise</div>
@@ -56,7 +56,7 @@
                                         <div class="swiper-slide la-mcard__slider mb-16">
                                           <div class="la-mcard__item p-4 p-lg-5">
                                             <div class="la-mcard__info d-flex align-items-center">
-                                              <div class="li-mcard__prfle mr-4 mr-lg-10"><img class="rounded-circle d-block la-mcard__img" src="./images/creator/banner.jpg" alt="Mentor Name"></div>
+                                              <div class="li-mcard__prfle mr-4 mr-lg-10"><img class="rounded-circle d-block la-mcard__img" src="./images/learners/creator/banner.jpg" alt="Mentor Name"></div>
                                               <div class="la-mcard__details">
                                                 <div class="la-mcard__name text-lg text-lg-xl">Mentor Name</div>
                                                 <div class="la-mcard__skill text-sm d-block d-lg-none">Expertise</div>
@@ -71,7 +71,7 @@
                                         <div class="swiper-slide la-mcard__slider mb-16">
                                           <div class="la-mcard__item p-4 p-lg-5">
                                             <div class="la-mcard__info d-flex align-items-center">
-                                              <div class="li-mcard__prfle mr-4 mr-lg-10"><img class="rounded-circle d-block la-mcard__img" src="./images/creator/banner.jpg" alt="Mentor Name"></div>
+                                              <div class="li-mcard__prfle mr-4 mr-lg-10"><img class="rounded-circle d-block la-mcard__img" src="./images/learners/creator/banner.jpg" alt="Mentor Name"></div>
                                               <div class="la-mcard__details">
                                                 <div class="la-mcard__name text-lg text-lg-xl">Mentor Name</div>
                                                 <div class="la-mcard__skill text-sm d-block d-lg-none">Expertise</div>
@@ -86,7 +86,7 @@
                                         <div class="swiper-slide la-mcard__slider mb-16">
                                           <div class="la-mcard__item p-4 p-lg-5">
                                             <div class="la-mcard__info d-flex align-items-center">
-                                              <div class="li-mcard__prfle mr-4 mr-lg-10"><img class="rounded-circle d-block la-mcard__img" src="./images/creator/banner.jpg" alt="Mentor Name"></div>
+                                              <div class="li-mcard__prfle mr-4 mr-lg-10"><img class="rounded-circle d-block la-mcard__img" src="./images/learners/creator/banner.jpg" alt="Mentor Name"></div>
                                               <div class="la-mcard__details">
                                                 <div class="la-mcard__name text-lg text-lg-xl">Mentor Name</div>
                                                 <div class="la-mcard__skill text-sm d-block d-lg-none">Expertise</div>
@@ -126,7 +126,7 @@
               <div class="la-icon-vline"><span class="la-icon--5xl icon-earnings position-absolute"></span></div>
               <div class="la-vicon-text">
                 <h5 class="text-xl">Record a Video</h5>
-                <p class="text-sm">Classify and videotape the course of your expertise as classes for better understanding</p><a class="la-arrow-link text-uppercase position-absolute" href="#">Need Assistance<span><img class="img-fluid" src="./images/icons/long-arrow.svg" alt="view more"></span></a>
+                <p class="text-sm">Classify and videotape the course of your expertise as classes for better understanding</p><a class="la-arrow-link text-uppercase position-absolute" href="#">Need Assistance<span><img class="img-fluid" src="./images/learners/icons/long-arrow.svg" alt="view more"></span></a>
               </div>
             </div>
             <div class="la-vicon d-flex align-items-start">
@@ -147,7 +147,7 @@
               <div class="la-icon-vline"><span class="la-icon--5xl icon-earnings position-absolute"></span></div>
               <div class="la-vicon-text">
                 <h5 class="text-xl">Earn with your Creations</h5>
-                <p class="text-sm">Values aren't the only takeaway for a creator. Earn for your life of dreams while helping other follow theirs!</p><a class="la-arrow-link text-uppercase position-absolute" href="#">Learn More<span><img class="img-fluid" src="./images/icons/long-arrow.svg" alt="view more"></span></a>
+                <p class="text-sm">Values aren't the only takeaway for a creator. Earn for your life of dreams while helping other follow theirs!</p><a class="la-arrow-link text-uppercase position-absolute" href="#">Learn More<span><img class="img-fluid" src="./images/learners/icons/long-arrow.svg" alt="view more"></span></a>
               </div>
             </div>
           </div>
@@ -167,7 +167,7 @@
         <!-- Column: Start-->
         <div class="col-sm-12 mb-5 pb-5">
           <div class="la-earn-blog">
-            <h3 class="text-4xl pb-5">How you Earn?</h3><img class="img-fluid mx-auto d-block" src="./images/creator/earn.png">
+            <h3 class="text-4xl pb-5">How you Earn?</h3><img class="img-fluid mx-auto d-block" src="./images/learners/creator/earn.png">
           </div>
         </div>
         <!-- Column: End-->
@@ -272,7 +272,7 @@
         <!-- Column: Start-->
         <div class="col-sm-12 col-md-4 text-center">
           <div class="la-bcreator__benefit-card p-5 p-sm-3 p-lg-5">
-            <div class="p-2"><img class="img-fluid mx-auto d-block card-icon py-2" src="./images/creator/bcreator-wallet.svg">
+            <div class="p-2"><img class="img-fluid mx-auto d-block card-icon py-2" src="./images/learners/creator/bcreator-wallet.svg">
               <h5 class="text-xl pt-2 font-weight-bold">Earnings</h5>
               <p class="text-md">Make a living, earn values all while sharing with the world, what you are best at</p>
             </div>
@@ -282,7 +282,7 @@
         <!-- Column: Start-->
         <div class="col-sm-12 col-md-4 text-center">
           <div class="la-bcreator__benefit-card p-5 p-sm-1 p-lg-5">
-            <div class="p-2"><img class="img-fluid mx-auto d-block card-icon py-2" src="./images/creator/bcreator-recognition.svg">
+            <div class="p-2"><img class="img-fluid mx-auto d-block card-icon py-2" src="./images/learners/creator/bcreator-recognition.svg">
               <h5 class="text-xl pt-2 font-weight-bold">Recognition</h5>
               <p class="text-md">With students from all parts of the world, become a household name in the art of your expertise</p>
             </div>
@@ -292,7 +292,7 @@
         <!-- Column: Start-->
         <div class="col col-sm-12 col-md-4 text-center">
           <div class="la-bcreator__benefit-card p-5 p-sm-3 p-lg-5">
-            <div class="p-2"><img class="img-fluid mx-auto d-block card-icon py-2" src="./images/creator/bcreator-bulb.svg">
+            <div class="p-2"><img class="img-fluid mx-auto d-block card-icon py-2" src="./images/learners/creator/bcreator-bulb.svg">
               <h5 class="text-xl pt-2 font-weight-bold">Inspire Students</h5>
               <p class="text-md">Help people realize their potential and bring out the true artist in them</p>
             </div>
@@ -312,7 +312,7 @@
           <div class="la-bgcreator__ad-content text-center text-white px-5">
             <div class="px-5">
               <p class="text-2xl">Start teaching Students for Life with your creations&#33;</p><br><a class="ad-btn la-btn__app text-white text-uppercase" role="button" href="#">Start Creating</a>
-              <div class="mt-5"><a class="text-xxs la-arrow-link text-uppercase position-relative" href="#"> Learn More<span><img class="img-fluid" src="./images/icons/long-arrow.svg"></span></a></div>
+              <div class="mt-5"><a class="text-xxs la-arrow-link text-uppercase position-relative" href="#"> Learn More<span><img class="img-fluid" src="./images/learners/icons/long-arrow.svg"></span></a></div>
             </div>
           </div>
         </div>

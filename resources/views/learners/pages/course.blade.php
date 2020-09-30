@@ -324,21 +324,21 @@
           <div class="row">
             <div class="col">
               <div class="la-cbenefits__item d-flex flex-column align-items-center">
-                <div class="mb-7"><img class="img-fluid" src="./images/course-benefits/video.svg"></div>
+                <div class="mb-7"><img class="img-fluid" src="./images/learners/course-benefits/video.svg"></div>
                 <h4 class="la-cbenefits__item-title mb-3">Unlimited Learning</h4>
                 <p class="la-cbenefits__item-desc m-0">One plan - All subscribed content</p>
               </div>
             </div>
             <div class="col">
               <div class="la-cbenefits__item d-flex flex-column align-items-center">
-                <div class="mb-7"><img class="img-fluid" src="./images/course-benefits/certificate.svg"></div>
+                <div class="mb-7"><img class="img-fluid" src="./images/learners/course-benefits/certificate.svg"></div>
                 <h4 class="la-cbenefits__item-title mb-3">Certification</h4>
                 <p class="la-cbenefits__item-desc m-0">Course completion certificate</p>
               </div>
             </div>
             <div class="col">
               <div class="la-cbenefits__item d-flex flex-column align-items-center">
-                <div class="mb-7"><img class="img-fluid" src="./images/course-benefits/online-course.svg"></div>
+                <div class="mb-7"><img class="img-fluid" src="./images/learners/course-benefits/online-course.svg"></div>
                 <h4 class="la-cbenefits__item-title mb-3">Assignments &amp; QUiz</h4>
                 <p class="la-cbenefits__item-desc m-0">Test your progress</p>
               </div>
