@@ -482,7 +482,7 @@
             </div>
       
             <div class="la-dash__pending-section">
-                <div class="row no-gutters la-dash__pending-head">
+                <div class="row no-gutters d-flex justify-content-between  la-dash__pending-head">
                     <div class="col la-dash__pending-title">Creator ID</div>
                     <div class="col la-dash__pending-title">Creator Name</div>
                     <div class="col la-dash__pending-title">Crourse ID</div>

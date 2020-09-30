@@ -29,12 +29,12 @@
               {{ csrf_field() }}
               {{ method_field('PUT') }}
 
-              <label class="d-none" for="exampleInputSlug">{{ __('adminstaticword.SelectCourse') }}</label>
-              <select name="course_id" class="form-control  col-12 d-none">
+              <label class="" for="exampleInputSlug">{{ __('adminstaticword.SelectCourse') }}</label>
+              <select name="course_id" class=" form-control  col-12 display-none">
                 @foreach($courses as $cou)
                   <option value="{{ $cou->id }}" {{$cate->courses->id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
                 @endforeach
-              </select>
+              </select> <br/>
 
 
               <div class="row">

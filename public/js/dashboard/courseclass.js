@@ -1,7 +1,7 @@
     
 
 
-    $('#filetype').change(function() {
+    $('#filetype').on('change', function() {
       
     if($(this).val() == 'video')
     {
@@ -132,7 +132,7 @@
     }
   });
 
-    $('#ch1').click(function(){
+    $('#ch1').on('click', function(){
       $('#videoURL').show();
       $('#videoUpload').hide();
       $('#iframeURLBox').hide();
@@ -141,7 +141,7 @@
       $('#awsBox').hide();
     });
 
-    $('#ch2').click(function(){
+    $('#ch2').on('click', function(){
       $('#videoURL').hide();
       $('#videoUpload').show();
       $('#iframeURLBox').hide();
@@ -149,7 +149,7 @@
       $('#awsBox').hide();
     });
 
-    $('#ch9').click(function(){
+    $('#ch9').on('click', function(){
       $('#iframeURLBox').show();
       $('#videoURL').hide();
       $('#videoUpload').hide();
@@ -158,7 +158,7 @@
       $('#awsBox').hide();
     });
 
-    $('#ch10').click(function(){
+    $('#ch10').on('click', function(){
       $('#videoURL').show();
       $('#liveclassBox').show();
       $('#iframeURLBox').hide();
@@ -168,7 +168,7 @@
     });
 
 
-    $('#ch13').click(function(){
+    $('#ch13').on('click', function(){
       $('#videoURL').hide();
       $('#awsBox').show();
       $('#iframeURLBox').hide();
@@ -179,21 +179,21 @@
 
 
       
-    $('#ch22').click(function(){
+    $('#ch22').on('click', function(){
       $('#videoURL').hide();
       $('#videoUpload').hide();
       $('#duration_video_video').show();
     });
 
     //audio url
-    $('#ch11').click(function(){
+    $('#ch11').on('click', function(){
       $('#audioURL').show();
       $('#audioUpload').hide();
       $('#duration_video').show();
     });
 
     //audio upload
-    $('#ch12').click(function(){
+    $('#ch12').on('click', function(){
       $('#audioURL').hide();
       $('#audioUpload').show();
       $('#duration_video').show();
@@ -204,32 +204,32 @@
 
 
 
-    $('#ch3').click(function(){
+    $('#ch3').on('click', function(){
       $('#imageURL').show();
       $('#imageUpload').hide();
     });
 
-    $('#ch4').click(function(){
+    $('#ch4').on('click', function(){
       $('#imageURL').hide();
       $('#imageUpload').show();
     });
 
-    $('#ch5').click(function(){
+    $('#ch5').on('click', function(){
       $('#zipURL').show();
       $('#zipUpload').hide();
     });
 
-    $('#ch6').click(function(){
+    $('#ch6').on('click', function(){
       $('#zipURL').hide();
       $('#zipUpload').show();
     });
 
-    $('#ch7').click(function(){
+    $('#ch7').on('click', function(){
       $('#pdfURL').show();
       $('#pdfUpload').hide();
     });
 
-    $('#ch8').click(function(){
+    $('#ch8').on('click', function(){
       $('#pdfURL').hide();
       $('#pdfUpload').show();
     });
@@ -237,9 +237,9 @@
 
 
  // dynamic subtitle add js 
-    $(document).ready(function(){
+    $(document).on('ready', function(){
       var i= 1;
-      $('#add').click(function(){  
+      $('#add').on('click', function(){  
            i++;  
            $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><input type="file" name="sub_t[]"/></td><td><input type="text" name="sub_lang[]" placeholder="Subtitle Language" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-sm btn_remove">X</button></td></tr>');  
       });
@@ -275,7 +275,7 @@
       $('.subtitle_list').hide();
       $('#subtitle-file').hide();
       $('.movie_id').hide();
-      $('input[name="subtitle"]').click(function(){
+      $('input[name="subtitle"]').on('click', function(){
           if($(this).prop("checked") == true){
               $('.subtitle_list').fadeIn();
               $('#subtitle-file').fadeIn();
@@ -285,7 +285,7 @@
               $('#subtitle-file').fadeOut();
           }
       });
-      $('.for-custom-image input').click(function(){
+      $('.for-custom-image input').on('click', function(){
         if($(this).prop("checked") == true){
           $('.upload-image-main-block').fadeIn();
         }
@@ -293,7 +293,7 @@
           $('.upload-image-main-block').fadeOut();
         }
       });
-      $('input[name="series"]').click(function(){
+      $('input[name="series"]').on('click', function(){
           if($(this).prop("checked") == true){
               $('.movie_id').fadeIn();
           }

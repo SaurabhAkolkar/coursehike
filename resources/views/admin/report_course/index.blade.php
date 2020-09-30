@@ -39,7 +39,7 @@
                     <td>{{ str_limit($item->detail, $limit=50, $end="...")}}</td>
                     <td>
                       <a class="btn btn-primary btn-sm" href="{{url('user/course/report/'.$item->id)}}">
-                      <i class="glyphicon glyphicon-pencil"></i></a>
+                      <i class="fa fa-edit"></i></a>
                     </td>
                     <td>
                       <form  method="post" action="{{url('user/course/report/'. $item->id)}}

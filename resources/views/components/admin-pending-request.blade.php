@@ -1,4 +1,4 @@
-<li class="row no-gutters la-dash__pending-item">
+<li class="row no-gutters d-flex justify-content-between la-dash__pending-item ">
     <div class="col la-dash__pending-creatorid"> {{ $creatorId }} </div>
     <div class="col la-dash__pending-creatorname"> {{ $creatorName }} </div>
     <div class="col la-dash__pending-courseid"> {{ $courseId }} </div>

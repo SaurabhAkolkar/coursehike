@@ -130,7 +130,7 @@
                     </td>
             
                     <td>
-                      <a class="btn btn-success btn-sm" href="{{url('category/'.$cat->id)}}"><i class="glyphicon glyphicon-pencil"></i></a></td>
+                      <a class="btn btn-success btn-sm" href="{{url('category/'.$cat->id)}}"><i class="fa fa-edit"></i></a></td>
                     <td>
                       <form  method="post" action="{{url('category/'.$cat->id)}}"data-parsley-validate class="form-horizontal form-label-left">
                           {{ csrf_field() }}

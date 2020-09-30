@@ -44,7 +44,7 @@
                   </form>
                 </td>
                 <td><a class="btn btn-success btn-sm" href="{{url('faq/'.$p->id.'/edit')}}">
-                    <i class="glyphicon glyphicon-pencil"></i></a>
+                    <i class="fa fa-edit"></i></a>
                 </td>
                 <td>
                   <form  method="post" action="{{url('faq/'.$p->id)}}"

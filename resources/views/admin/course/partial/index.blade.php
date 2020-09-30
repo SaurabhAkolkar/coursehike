@@ -72,7 +72,7 @@
 
                         <td>
                           <a class="btn btn-success btn-sm" href="{{ route('course.show',$cat->id) }}">
-                          <i class="glyphicon glyphicon-pencil"></i></a>
+                          <i class="fa fa-edit"></i></a>
                         </td>
 
                         <td>
@@ -126,7 +126,7 @@
 
                         <td>
                           <a class="btn btn-primary btn-sm" href="{{ route('course.show',$cor->id) }}">
-                          <i class="glyphicon glyphicon-pencil"></i></a>
+                          <i class="fa fa-edit"></i></a>
                         </td>
 
                         <td>

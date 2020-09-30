@@ -51,7 +51,7 @@
                     </form>
                   </td>
                   <td>
-                    <a class="btn btn-success btn-sm" href="{{url('childcategory/'.$cat->id)}}"><i class="glyphicon glyphicon-pencil"></i></a>
+                    <a class="btn btn-success btn-sm" href="{{url('childcategory/'.$cat->id)}}"><i class="fa fa-edit"></i></a>
                   </td>
                   <td>
                     <form  method="post" action="{{url('childcategory/'.$cat->id)}}"data-parsley-validate class="form-horizontal form-label-left">

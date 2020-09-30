@@ -38,7 +38,7 @@
               
                 <td>
                   <a class="btn btn-primary btn-sm" href="{{route('facts.edit',$fact->id)}}">
-                  <i class="glyphicon glyphicon-pencil"></i></a>
+                  <i class="fa fa-edit"></i></a>
                 </td>
 
                 <td><form  method="post" action="{{url('facts/'.$fact->id)}}

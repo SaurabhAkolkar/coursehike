@@ -37,7 +37,7 @@
                   </form>
                 </td>
                 <td>
-                  <a class="btn btn-success btn-sm" href="{{url('questionanswer/'.$que->id)}}"><i class="glyphicon glyphicon-pencil"></i></a>
+                  <a class="btn btn-success btn-sm" href="{{url('questionanswer/'.$que->id)}}"><i class="fa fa-edit"></i></a>
                 </td>
                 <td>
                   <form  method="post" action="{{url('questionanswer/'.$que->id)}}" data-parsley-validate class="form-horizontal form-label-left">

@@ -87,7 +87,7 @@
                  <td>{{ $i }}</td>
                  <td class="fl">{{ $ad->ad_type }}</td>
                  <td class="fl">{{ $ad->ad_location }}</td>
-                 <td><a href="{{ route('ad.edit',$ad->id) }}" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-pencil"></i></a></td>
+                 <td><a href="{{ route('ad.edit',$ad->id) }}" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a></td>
                  <td>
                      <form action="{{ route('ad.delete',$ad->id) }}" method="POST">
                         {{ csrf_field() }} 

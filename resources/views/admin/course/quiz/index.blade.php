@@ -59,7 +59,7 @@
                     <td>{{$quiz->c}}</td>
                     <td>{{$quiz->answer}}</td>
                     <td>
-                      <a data-toggle="modal" data-target="#myModaledit{{$quiz->id}}" href="#" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-pencil"></i></a>
+                      <a data-toggle="modal" data-target="#myModaledit{{$quiz->id}}" href="#" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
                     </td>
                     <td>
                       <form  method="post" action="{{url('admin/questions/'.$quiz->id)}}" data-parsley-validate class="form-horizontal form-label-left">

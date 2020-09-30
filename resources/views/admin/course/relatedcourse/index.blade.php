@@ -39,7 +39,7 @@
                     @endif
                 </td>
                 <td>
-                  <a class="btn btn-success btn-sm" href="{{url('relatedcourse/'.$cat->id)}}"><i class="glyphicon glyphicon-pencil"></i></a>
+                  <a class="btn btn-success btn-sm" href="{{url('relatedcourse/'.$cat->id)}}"><i class="fa fa-edit"></i></a>
                 </td>
                 <td>
                   <form  method="post" action="{{url('relatedcourse/'.$cat->id)}}

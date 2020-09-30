@@ -67,7 +67,7 @@
                         
                         <td>
                           <a class="btn btn-success btn-sm" href="{{ route('user.update',$user->id) }}">
-                            <i class="glyphicon glyphicon-pencil"></i></a>
+                            <i class="fa fa-edit"></i></a>
                         </td>
                               
                         <td><form  method="post" action="{{ route('user.delete',$user->id) }}

@@ -25,18 +25,16 @@
             <label>{{ __('adminstaticword.DiscountType') }}: <span class="redstar">*</span></label>
             
               <select required="" name="distype" id="distype" class="form-control">
-                
                 <option value="fix">{{ __('adminstaticword.FixAmount') }}</option>
                 <option value="per">% {{ __('adminstaticword.Percentage') }}</option>
-                
               </select>
-            
           </div>
+
           <div class="form-group">
               <label>{{ __('adminstaticword.Amount') }}: <span class="redstar">*</span></label>
               <input required="" type="text"  class="form-control" name="amount">
-            
           </div>
+
           <div class="form-group">
             <label>{{ __('adminstaticword.Linkedto') }}: <span class="redstar">*</span></label>
             
@@ -225,7 +223,7 @@
   (function($) {
   "use strict";
     
-      $('#link_by').on('change',function(){
+      $('#link_by').change(function(){
         var opt = $(this).val();
        
         if(opt == 'course'){
@@ -240,7 +238,7 @@
         }
     });
 
-      $('#link_by').on('change',function(){
+      $('#link_by').change(function(){
         var opt = $(this).val();
        
         if(opt == 'category'){

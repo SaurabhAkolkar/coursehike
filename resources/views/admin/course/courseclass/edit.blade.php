@@ -16,7 +16,7 @@
               {{ csrf_field() }}
               {{ method_field('PUT') }}
                         
-              <select class="d-none" name="coursechapter" class="form-control col-md-7 col-12">
+              <select class="display-none" name="coursechapter" class="form-control col-md-7 col-12">
                 @php
                  $coursechapters = App\CourseChapter::all();
                 @endphp  
@@ -39,7 +39,7 @@
                 <div class="col-md-12">
                   <label for="type">{{ __('adminstaticword.CourseChapter') }}:</label>
 
-                  <select name="coursechapter_id" id="chapters" class="form-control">
+                  <select name="coursechapter_id" id="chapters" class=" form-control">
                     @foreach($coursechapt as $chapters)
                     <option value="{{ $chapters->id }}" {{ $cate->coursechapter_id==$chapters->id ? 'selected' : '' }}>{{ $chapters->chapter_name }}</option>
                     @endforeach
@@ -89,7 +89,7 @@
                 @if($gsetting->aws_enable == 1)
                 <div class="row">
                   <div class="col-md-12">
-                    <div id="awsUpload" @if($cate->video !=NULL || $cate->iframe_url !=NULL || $cate->url) class="d-none" @endif >
+                    <div id="awsUpload" @if($cate->video !=NULL || $cate->iframe_url !=NULL || $cate->url) class="display-none" @endif >
                       <label for="">{{ __('adminstaticword.AWSUpload') }}: </label>
                       <input type="file" name="aws_upload" class="form-control">
                       @if($cate->aws_upload !="")
@@ -103,7 +103,7 @@
 
                 <div class="row">
                   <div class="col-md-12">
-                    <div id="videoURL" @if($cate->video !=NULL || $cate->iframe_url !=NULL || $cate->aws_upload !=NULL) class="d-none" @endif >
+                    <div id="videoURL" @if($cate->video !=NULL || $cate->iframe_url !=NULL || $cate->aws_upload !=NULL) class="display-none" @endif >
                       <label for="">{{ __('adminstaticword.URL') }}: </label>
                       <input type="text" value="{{ $cate->url }}" name="vidurl" class="form-control">
                     </div>
@@ -112,7 +112,7 @@
                 
                 <div class="row">
                   <div class="col-md-12">
-                    <div id="videoUpload" @if($cate->url !=NULL || $cate->iframe_url !=NULL || $cate->aws_upload !=NULL) class="d-none" @endif >
+                    <div id="videoUpload" @if($cate->url !=NULL || $cate->iframe_url !=NULL || $cate->aws_upload !=NULL) class="display-none" @endif >
                       <label for="">{{ __('adminstaticword.UploadVideo') }}: </label>
                       <input type="file" name="video_upld" class="form-control">
                       @if($cate->video !="")
@@ -125,7 +125,7 @@
 
                 <div class="row">
                   <div class="col-md-12">
-                    <div id="iframeURLBox" @if($cate->url !=NULL || $cate->video !=NULL || $cate->aws_upload !=NULL) class="d-none" @endif >
+                    <div id="iframeURLBox" @if($cate->url !=NULL || $cate->video !=NULL || $cate->aws_upload !=NULL) class="display-none" @endif >
                       <label for="">{{ __('adminstaticword.IframeURL') }}: </label>
                       <input type="text" value="{{ $cate->iframe_url }}" name="iframe_url" class="form-control">
                     </div>
@@ -136,7 +136,7 @@
 
                 <div class="row">
                   <div class="col-md-12">
-                    <div id="liveURLBox" @if($cate->iframe_url !=NULL || $cate->video !=NULL || $cate->aws_upload !=NULL || $cate->url !=NULL) class="d-none" @endif >
+                    <div id="liveURLBox" @if($cate->iframe_url !=NULL || $cate->video !=NULL || $cate->aws_upload !=NULL || $cate->url !=NULL) class="display-none" @endif >
                       <label for="appt">Select a Date & Time:</label>
                       
                       <input type="datetime-local" id="date_time" name="date_time" value="{{ $live_date }}" class="form-control">
@@ -166,7 +166,7 @@
                   
                   <div class="form-group">
                     <div class="col-md-12">
-                      <div id="audioURL" @if($cate->audio != "") class="d-none" @endif >
+                      <div id="audioURL" @if($cate->audio != "") class="display-none" @endif >
                         <label for="">{{ __('adminstaticword.URL') }}: </label>
                         <input type="text" value="{{ $cate->url }}" name="audiourl" class="form-control">
                       </div>
@@ -175,7 +175,7 @@
                   
                   <div class="form-group">
                     <div class="col-md-12">
-                      <div id="audioUpload" @if($cate->url !="") class="d-none" @endif >
+                      <div id="audioUpload" @if($cate->url !="") class="display-none" @endif >
                       <label for="">{{ __('adminstaticword.UploadAudio') }}:</label>
                       <input type="file" name="audio" class="form-control">
                       <br>
@@ -205,7 +205,7 @@
 
                 <div class="form-group">
                   <div class="col-md-12">
-                    <div id="imageURL" @if($cate->image !="") class="d-none" @endif >
+                    <div id="imageURL" @if($cate->image !="") class="display-none" @endif >
                       <label for="">{{ __('adminstaticword.URL') }}: </label>
                       <input type="text" value="{{ $cate->url }}" name="imgurl" class="form-control">
                     </div>
@@ -214,7 +214,7 @@
 
                 <div class="form-group">
                   <div class="col-md-12">
-                    <div id="imageUpload" @if($cate->url !="") class="d-none" @endif >
+                    <div id="imageUpload" @if($cate->url !="") class="display-none" @endif >
                       <label for="">{{ __('adminstaticword.UploadImage') }}:</label>
                       <input type="file" name="image" class="form-control">
                       <br>
@@ -246,7 +246,7 @@
                 
                 <div class="form-group">
                   <div class="col-md-12">
-                    <div id="zipURL" @if($cate->zip !="") class="d-none" @endif >
+                    <div id="zipURL" @if($cate->zip !="") class="display-none" @endif >
                       <label for=""> {{ __('adminstaticword.URL') }}: </label>
                       <input type="text" value="{{ $cate->url }}" name="zipurl" class="form-control">
                     </div>
@@ -255,7 +255,7 @@
                 
                 <div class="form-group">
                   <div class="col-md-12">
-                    <div id="zipUpload" @if($cate->url !="") class="d-none" @endif>
+                    <div id="zipUpload" @if($cate->url !="") class="display-none" @endif>
                       <label for="">{{ __('adminstaticword.UploadZip') }}:</label>
                       <input type="file" name="zip" class="form-control">
                       <br>
@@ -282,15 +282,15 @@
 
 
                 <div class="form-group">
-                  <div class="col-md-12" id="pdfURL" @if($cate->pdf !="") class="d-none" @endif >
-                    <div id="pdfURL" @if($cate->pdf !="") class="d-none" @endif >
+                  <div class="col-md-12" id="pdfURL" @if($cate->pdf !="") class="display-none" @endif >
+                    <div id="pdfURL" @if($cate->pdf !="") class="display-none" @endif >
                       <label for=""> {{ __('adminstaticword.URL') }}: </label>
                       <input type="text" value="{{ $cate->url }}" name="pdfurl" class="form-control">
                     </div>
                   </div>
                 </div>
 
-                <div class="col-md-7" id="pdfUpload" @if($cate->url !="") class="d-none" @endif >
+                <div class="col-md-7" id="pdfUpload" @if($cate->url !="") class="display-none" @endif >
                   <label for=""> {{ __('adminstaticword.UploadPdf') }}:</label>
                   <input type="file" name="pdf" class="form-control">
                   <br>
@@ -321,7 +321,7 @@
                   </li>
                   <input type="hidden" name="free" value="0" id="to">
 
-                  <div @if($cate->preview_type =="url" ) class="d-none" @endif id="document11">
+                  <div @if($cate->preview_type =="url" ) class="display-none" @endif id="document11">
                     <label for="exampleInputSlug">Preview {{ __('adminstaticword.UploadVideo') }}: <sup class="redstar">*</sup></label>
                     <input  type="file" class="form-control" name="preview_video" id="video" value="{{ $cate->video }}">
                     @if($cate->preview_video !="")
@@ -330,7 +330,7 @@
                     @endif 
                   </div>
 
-                  <div @if($cate->preview_type =="video") class="d-none" @endif id="document22">
+                  <div @if($cate->preview_type =="video") class="display-none" @endif id="document22">
                    
                     <label for="exampleInputSlug">Preview {{ __('adminstaticword.URL') }}: <sup class="redstar">*</sup></label>
                     <input  class="form-control" placeholder="Enter Your URL" name="preview_url" id="url" value="{{ $cate->preview_url }}">
@@ -373,7 +373,7 @@
 
                 <div class="col-6">
                   <div class="la-admin__preview">
-                    <h6 class="la-admin__editimg-title mb-2" > Current </h6>
+                    <h6 class="la-admin__editing-title mb-2" > Current </h6>
                       <div class="la-admin__preview-img la-admin__editclass-preview" >
                           
                       </div>

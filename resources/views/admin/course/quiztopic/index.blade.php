@@ -49,7 +49,7 @@
 
                 <a class="btn btn-primary btn-sm" title="Add Question" href="{{route('questions.show', $topic->id)}}"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Question') }}</a>
              
-                <a href="{{url('admin/quiztopic/'.$topic->id)}}" title="Edit" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-pencil"></i></a>
+                <a href="{{url('admin/quiztopic/'.$topic->id)}}" title="Edit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
 
                 <form  method="post" action="{{url('admin/quiztopic/'.$topic->id)}}
                   "data-parsley-validate class="form-horizontal form-label-left">

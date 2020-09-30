@@ -38,7 +38,7 @@
                   </form>
                 </td>
                 <td>
-                  <a class="btn btn-success btn-sm" href="{{url('coursechapter/'.$cat->id)}}"><i class="glyphicon glyphicon-pencil"></i></a>
+                  <a class="btn btn-success btn-sm" href="{{url('coursechapter/'.$cat->id)}}"><i class="fa fa-edit"></i></a>
                 </td>
 
                 <td>
@@ -71,9 +71,10 @@
               <form id="demo-form2" method="post" action="{{ route('coursechapter.store') }}" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
-                <select name="course_id" class="form-control d-none">
+              
+                <select name="course_id" class=" form-control  display-none">
                   <option value="{{ $cor->id }}">{{ $cor->title }}</option>
-                </select>
+                </select> <br/> 
 
                 <div class="row">
                   <div class="col-md-12">

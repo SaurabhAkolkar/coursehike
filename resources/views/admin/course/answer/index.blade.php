@@ -33,7 +33,7 @@
             </td>
             
             <td>
-              <a class="btn btn-primary btn-sm" href="{{route('courseanswer.edit',$ans->id)}}"><i class="glyphicon glyphicon-pencil"></i></a>
+              <a class="btn btn-primary btn-sm" href="{{route('courseanswer.edit',$ans->id)}}"><i class="fa fa-edit"></i></a>
             </td>
 
             <td><form  method="post" action="{{url('courseanswer/'.$ans->id)}}

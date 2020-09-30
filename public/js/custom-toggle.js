@@ -1,82 +1,82 @@
 
   $(function() {
-    $('#cb321').change(function() {
+    $('#cb321').on('change', function() {
       $('#test21').val(+ $(this).prop('checked'))
     })
   })
 
   $(function() {
-    $('#xyz').change(function() {
+    $('#xyz').on('change', function() {
       $('#xyzz').val(+ $(this).prop('checked'))
     })
   })
 
 $(function() {
-    $('#j0j').change(function() {
+    $('#j0j').on('change', function() {
       $('#j0jj').val(+ $(this).prop('checked'))
     })
   })
 $(function() {
-    $('#123').change(function() {
+    $('#123').on('change', function() {
       $('#1234').val(+ $(this).prop('checked'))
     })
   })
 $(function() {
-    $('#ram').change(function() {
+    $('#ram').on('change', function() {
       $('#sam').val(+ $(this).prop('checked'))
     })
   })
 
 
   $(function() {
-    $('#cb322').change(function() {
+    $('#cb322').on('change', function() {
       $('#jeet').val(+ $(this).prop('checked'))
     })
   })
 
    $(function() {
-    $('#uuuu').change(function() {
+    $('#uuuu').on('change', function() {
       $('#uuuuu').val(+ $(this).prop('checked'))
     })
   })
 
 $(function() {
-    $('#pj1').change(function() {
+    $('#pj1').on('change', function() {
       $('#pj2').val(+ $(this).prop('checked'))
     })
   })
 
   $(function() {
-    $('#cb100').change(function() {
+    $('#cb100').on('change', function() {
       $('#c100').val(+ $(this).prop('checked'))
     })
   })
   $(function() {
-    $('#cb1000').change(function() {
+    $('#cb1000').on('change', function() {
       $('#c1000').val(+ $(this).prop('checked'))
     })
   })
  $(function() {
-    $('#xyz').change(function() {
+    $('#xyz').on('change', function() {
       $('#xyzz').val(+ $(this).prop('checked'))
     })
   })
 
 $(function() {
-    $('#cb787').change(function() {
+    $('#cb787').on('change', function() {
       $('#jpp').val(+ $(this).prop('checked'))
     })
   })
 
   $(function() {
-    $('#cb44').change(function() {
+    $('#cb44').on('change', function() {
       $('#abcd').val(+ $(this).prop('checked'))
     })
   })
 
 
    $(function() {
-    $('#cb006').change(function() {
+    $('#cb006').on('change', function() {
       $('#php').val(+ $(this).prop('checked'))
     })
   })
@@ -85,13 +85,13 @@ $(function() {
 
 
   $(function() {
-    $('#cb111').change(function() {
+    $('#cb111').on('change', function() {
       $('#html').val(+ $(this).prop('checked'))
     })
   })
 
    $(function() {
-    $('#cb852').change(function() {
+    $('#cb852').on('change', function() {
       $('#test85').val(+ $(this).prop('checked'))
     })
   })
@@ -99,20 +99,20 @@ $(function() {
 
 
    $(function() {
-    $('#cb9').change(function() {
+    $('#cb9').on('change', function() {
       $('#rakesh').val(+ $(this).prop('checked'))
     })
   })
 
    $(function() {
-    $('#abcde').change(function() {
+    $('#abcde').on('change', function() {
       $('#abcdef').val(+ $(this).prop('checked'))
     })
   })
 
 
    $(function() {
-    $('#abcdef').change(function() {
+    $('#abcdef').on('change', function() {
       $('#abcdeff').val(+ $(this).prop('checked'))
     })
   })
@@ -120,195 +120,195 @@ $(function() {
 
 
    $(function() {
-    $('#cb6').change(function() {
+    $('#cb6').on('change', function() {
       $('#php').val(+ $(this).prop('checked'))
     })
   })
 
       $(function() {
-    $('#jp1').change(function() {
+    $('#jp1').on('change', function() {
       $('#jp11').val(+ $(this).prop('checked'))
     })
   })
 
       $(function() {
-    $('#cb06').change(function() {
+    $('#cb06').on('change', function() {
       $('#phpp').val(+ $(this).prop('checked'))
     })
   })
 
 
    $(function() {
-    $('#cb101').change(function() {
+    $('#cb101').on('change', function() {
       $('#raj').val(+ $(this).prop('checked'))
     })
   })
 
    $(function() {
-    $('#c1').change(function() {
+    $('#c1').on('change', function() {
       $('#t1').val(+ $(this).prop('checked'))
     })
   })
 
 
    $(function() {
-    $('#cb300').change(function() {
+    $('#cb300').on('change', function() {
       $('#ram').val(+ $(this).prop('checked'))
     })
   })
 
 
    $(function() {
-    $('#cb7').change(function() {
+    $('#cb7').on('change', function() {
       $('#pp').val(+ $(this).prop('checked'))
     })
   })
 
       $(function() {
-    $('#c2').change(function() {
+    $('#c2').on('change', function() {
       $('#t2').val(+ $(this).prop('checked'))
     })
   })
 
        $(function() {
-    $('#cb7').change(function() {
+    $('#cb7').on('change', function() {
       $('#jeeet').val(+ $(this).prop('checked'))
     })
   })
 
              $(function() {
-    $('#c11').change(function() {
+    $('#c11').on('change', function() {
       $('#t11').val(+ $(this).prop('checked'))
     })
   })
 
    $(function() {
-    $('#cb17').change(function() {
+    $('#cb17').on('change', function() {
       $('#jet').val(+ $(this).prop('checked'))
     })
   })
 
       $(function() {
-    $('#c22').change(function() {
+    $('#c22').on('change', function() {
       $('#t22').val(+ $(this).prop('checked'))
     })
   })
    $(function() {
-    $('#c555').change(function() {
+    $('#c555').on('change', function() {
       $('#t555').val(+ $(this).prop('checked'))
     })
   })
 
    $(function() {
-    $('#c101').change(function() {
+    $('#c101').on('change', function() {
       $('#t101').val(+ $(this).prop('checked'))
     })
   })
 
     $(function() {
-    $('#c1001').change(function() {
+    $('#c1001').on('change', function() {
       $('#t1001').val(+ $(this).prop('checked'))
     })
   })
 
 
    $(function() {
-    $('#cb31').change(function() {
+    $('#cb31').on('change', function() {
       $('#test1').val(+ $(this).prop('checked'))
     })
   })
 
 
  $(function() {
-    $('#c44').change(function() {
+    $('#c44').on('change', function() {
       $('#c404').val(+ $(this).prop('checked'))
     })
   })
 
  $(function() {
-    $('#cb606').change(function() {
+    $('#cb606').on('change', function() {
       $('#op').val(+ $(this).prop('checked'))
     })
   })
 
   $(function() {
-    $('#cb66').change(function() {
+    $('#cb66').on('change', function() {
       $('#o').val(+ $(this).prop('checked'))
     })
   })
 
 $(function() {
-    $('#cb10').change(function() {
+    $('#cb10').on('change', function() {
       $('#j').val(+ $(this).prop('checked'))
     })
   })
 $(function() {
-    $('#cb101').change(function() {
+    $('#cb101').on('change', function() {
       $('#jj').val(+ $(this).prop('checked'))
     })
   })
 
 $(function() {
-    $('#cb1011').change(function() {
+    $('#cb1011').on('change', function() {
       $('#jjj').val(+ $(this).prop('checked'))
     })
   })
 
 
 $(function() {
-    $('#cb10111').change(function() {
+    $('#cb10111').on('change', function() {
       $('#jjjj').val(+ $(this).prop('checked'))
     })
   })
 
 
 $(function() {
-    $('#cb33').change(function() {
+    $('#cb33').on('change', function() {
       $('#c3').val(+ $(this).prop('checked'))
     })
   })
 $(function() {
-    $('#cb333').change(function() {
+    $('#cb333').on('change', function() {
       $('#c33').val(+ $(this).prop('checked'))
     })
   })
 
 $(function() {
-    $('#jeet1').change(function() {
+    $('#jeet1').on('change', function() {
       $('#jeet11').val(+ $(this).prop('checked'))
     })
   })
 
 
 $(function() {
-    $('#jeet120').change(function() {
+    $('#jeet120').on('change', function() {
       $('#jeet121').val(+ $(this).prop('checked'))
     })
   })
 
 
 $(function() {
-    $('#jp11').change(function() {
+    $('#jp11').on('change', function() {
       $('#jp111').val(+ $(this).prop('checked'))
     })
   })
 
 
 $(function() {
-    $('#c03').change(function() {
+    $('#c03').on('change', function() {
       $('#t').val(+ $(this).prop('checked'))
     })
   })
 
 $(function() {
-    $('#c033').change(function() {
+    $('#c033').on('change', function() {
       $('#tt').val(+ $(this).prop('checked'))
     })
   })
 
 
   $(function() {
-    $('#jeet12').change(function() {
+    $('#jeet12').on('change', function() {
       $('#jeet123').val(+ $(this).prop('checked'))
     })
   })
@@ -316,39 +316,39 @@ $(function() {
 
 
   $(function() {
-    $('#j31').change(function() {
+    $('#j31').on('change', function() {
       $('#jj31').val(+ $(this).prop('checked'))
     })
   })
   $(function() {
-    $('#c2222').change(function() {
+    $('#c2222').on('change', function() {
       $('#t2222').val(+ $(this).prop('checked'))
     })
   })
  $(function() {
-    $('#c201').change(function() {
+    $('#c201').on('change', function() {
       $('#t201').val(+ $(this).prop('checked'))
     })
   })
 $(function() {
-    $('#dhakad1234').change(function() {
+    $('#dhakad1234').on('change', function() {
       $('#dhakad123').val(+ $(this).prop('checked'))
     })
   })
 
 $(function() {
-    $('#dhakad12').change(function() {
+    $('#dhakad12').on('change', function() {
       $('#dhakad1').val(+ $(this).prop('checked'))
     })
   })
 $(function() {
-    $('#cb77').change(function() {
+    $('#cb77').on('change', function() {
       $('#jp').val(+ $(this).prop('checked'))
     })
   })
 
 $(function() {
-    $('#cb111').change(function() {
+    $('#cb111').on('change', function() {
       $('#j111').val(+ $(this).prop('checked'))
 
       if($('#j111').val() == 0)
@@ -365,7 +365,7 @@ $(function() {
     })
   })
 $(function() {
-    $('#do').change(function() {
+    $('#do').on('change', function() {
       $('#to').val(+ $(this).prop('checked'))
 
       if($('#to').val() == 0)
@@ -383,7 +383,7 @@ $(function() {
     })
   })
 $(function() {
-    $('#rox').change(function() {
+    $('#rox').on('change', function() {
       $('#roxx').val(+ $(this).prop('checked'))
 
       if($('#roxx').val() == 0)
@@ -400,7 +400,7 @@ $(function() {
     })
   })
 $(function() {
-    $('#ffff').change(function() {
+    $('#ffff').on('change', function() {
       $('#fff').val(+ $(this).prop('checked'))
 
       if($('#fff').val() == 0)
@@ -418,7 +418,7 @@ $(function() {
   })
 
 $(function() {
-    $('#cb01').change(function() {
+    $('#cb01').on('change', function() {
       $('#cb10').val(+ $(this).prop('checked'))
 
       if($('#cb10').val() == 0)
@@ -436,7 +436,7 @@ $(function() {
   })
 
 $(function() {
-    $('#jeet123').change(function() {
+    $('#jeet123').on('change', function() {
       $('#jeet1233').val(+ $(this).prop('checked'))
 
       if($('#jeet1233').val() == 0)
@@ -455,7 +455,7 @@ $(function() {
  
 
    $(function() {
-    $('#xc').change(function() {
+    $('#xc').on('change', function() {
       $('#cx').val(+ $(this).prop('checked'))
 
       if($('#cx').val() == 0)
@@ -480,7 +480,7 @@ $(function() {
 
 
    $(function() {
-    $('#opp').change(function() {
+    $('#opp').on('change', function() {
       $('#oppp').val(+ $(this).prop('checked'))
 
       if($('#oppp').val() == 0)

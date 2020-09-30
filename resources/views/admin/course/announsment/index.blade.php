@@ -33,7 +33,7 @@
                 </td>
             
                 <td>
-                  <a class="btn btn-success btn-sm" href="{{url('announsment/'.$an->id)}}"><i class="glyphicon glyphicon-pencil"></i></a>
+                  <a class="btn btn-success btn-sm" href="{{url('announsment/'.$an->id)}}"><i class="fa fa-edit"></i></a>
                 </td> 
 
                 <td>

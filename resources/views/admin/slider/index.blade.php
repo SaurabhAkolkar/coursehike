@@ -62,7 +62,7 @@
                 </td>
               
                 <th><a class="btn btn-primary btn-sm" href="{{url('slider/'.$cat->id)}}">
-                  <i class="glyphicon glyphicon-pencil"></i></a></th>
+                  <i class="fa fa-edit"></i></a></th>
 
                 <td>
                   <form  method="post" action="{{url('slider/'.$cat->id)}}

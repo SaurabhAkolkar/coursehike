@@ -41,7 +41,7 @@
                       </td>
                       
                       <td><a class="btn btn-success btn-sm" href="{{route('languages.edit', $language->id)}}">
-                        <i class="glyphicon glyphicon-pencil"></i></a></td>
+                        <i class="fa fa-edit"></i></a></td>
 
                       <td><form method="post" action="{{url('languages/'.$language->id)}}
                             "data-parsley-validate class="form-horizontal form-label-left">

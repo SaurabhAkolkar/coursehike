@@ -44,7 +44,7 @@
                   </form>
                 </td>
                 <td>
-                  <a class="btn btn-success btn-sm" href="{{url('whatlearns/'.$cat->id)}}"><i class="glyphicon glyphicon-pencil"></i></a>
+                  <a class="btn btn-success btn-sm" href="{{url('whatlearns/'.$cat->id)}}"><i class="fa fa-edit"></i></a>
                 </td> 
                 <td>
                   <form  method="post" action="{{url('whatlearns/'.$cat->id)}}" data-parsley-validate class="form-horizontal form-label-left">
@@ -76,7 +76,7 @@
                 {{ csrf_field() }}
 
                 <select name="course_id" class="form-control display-none">
-                  <option class="display-none" name="course_id"  value="{{ $cor->id }}">{{ $cor->title }}</option>
+                  <option class="" name="course_id"  value="{{ $cor->id }}">{{ $cor->title }}</option>
                 </select>
 
                 <div class="row">

@@ -332,13 +332,13 @@
   });
 
   $(function() {
-    $('#cb1').change(function() {
+    $('#cb1').on('change', function() {
       $('#j').val(+ $(this).prop('checked'))
     })
   })
 
   $(function() {
-    $('#cb3').change(function() {
+    $('#cb3').on('change', function() {
       $('#test').val(+ $(this).prop('checked'))
     })
   })
@@ -380,7 +380,7 @@
 
   $(function(){
 
-      $('#ms').change(function(){
+      $('#ms').on('change', function(){
         if($('#ms').val()=='yes')
         {
             $('#doabox').show();
@@ -395,7 +395,7 @@
 
   $(function(){
 
-      $('#ms').change(function(){
+      $('#ms').on('change', function(){
         if($('#ms').val()=='yes')
         {
             $('#doaboxx').show();
@@ -410,7 +410,7 @@
 
   $(function(){
 
-      $('#msd').change(function(){
+      $('#msd').on('change', function(){
         if($('#msd').val()=='yes')
         {
             $('#doa').show();
@@ -425,7 +425,7 @@
 
   $(function() {
     var urlLike = '{{ url('admin/dropdown') }}';
-    $('#category_id').change(function() {
+    $('#category_id').on('change', function() {
       var up = $('#upload_id').empty();
       var cat_id = $(this).val();    
       if(cat_id){
@@ -453,7 +453,7 @@
 
   $(function() {
     var urlLike = '{{ url('admin/gcat') }}';
-    $('#upload_id').change(function() {
+    $('#upload_id').on('change', function() {
       var up = $('#grand').empty();
       var cat_id = $(this).val();    
       if(cat_id){

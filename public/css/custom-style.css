@@ -82,7 +82,7 @@ html, body{
     background-color:#fbfbfb!important;
 }
 .skin-blue .sidebar-menu .treeview-menu>li>a{
-    font-size:14px !important;
+    font-size:13px !important;
     color: #404040 !important;
 }
 .skin-blue .sidebar-menu .treeview-menu>li.active>a{
@@ -101,6 +101,9 @@ html, body{
     color: #506fe4;
     border-radius: 0;
     box-shadow:none;
+}.language .btn-primary:focus{
+    outline:0;
+    box-shadow:none !important;
 }
 .language .btn-primary:hover {
     background-color: #fbfbfb;
@@ -222,8 +225,8 @@ html, body{
     text-align: left;
 }
 .users-list>li img {
-    height: 50px;
-    width:50px;
+    height:32px;
+    width:32px;
    border:1px solid rgba(129,129,129,.1);
 }
 .users-list-name{
@@ -231,6 +234,7 @@ html, body{
     font-family:var(--body-font);
     font-weight:400;
     color:#010101;
+    font-size:14px;
     text-transform: capitalize;
 }
 .users-list-date {
@@ -287,6 +291,10 @@ html, body{
     font-size:14px;
     text-transform:uppercase;
     font-weight:bold;
+}
+.btn-info:focus{
+    box-shadow:none !important;
+    outline:0;
 }
 .btn-info:hover{
     background-color:#ffffff !important;
@@ -369,7 +377,7 @@ td .btn-success:hover, td form .btn-danger:hover{
 td .btn-success:focus, td form .btn-danger:focus{
     outline:0 !important;
     border:none !important;
-    box-shadow:none;
+    box-shadow:none !important;
     color:#000000 !important;
 }
 
@@ -404,11 +412,11 @@ td .btn-success:focus, td form .btn-danger:focus{
 }
 /* ==form form-control css == */
 .form-control {
-    font-family: Roboto;
+    font-family: var(--body-font);
     font-weight:400;
     display: block;
     width: 100%;
-    padding: 20px;
+   
     font-size: 15px;
     line-height: 1.42857143;
     color: #313131;
@@ -457,14 +465,14 @@ td .btn-success:focus, td form .btn-danger:focus{
     border:1px solid #dedede;
 }
 label{
-    font-family: Roboto;
+    font-family: var(--body-font);
     font-weight:500;
-    font-size:15px;
+    font-size:16px;
     color:#000000;
 }
 
 .select2-container .select2-selection--single .select2-selection__rendered {
-    font-family: Roboto;
+    font-family: var(--body-font);
     font-weight:400;
     padding-right: 10px;
     font-size: 15px;
@@ -535,18 +543,25 @@ label{
     background:rgba(0,0,0,0.3); 
     border-radius:25px 25px;
 }
-.nav-tabs-custom>.nav-tabs>li a{
+.nav-tabs-custom>.nav-tabs>li>a{
     padding:6px 10px;
     font-size:15px;
     outline:0;
 }
-.nav-tabs-custom>.nav-tabs>li.active{
-    border-bottom:2px solid #7400D7;
-    border-top:none;
+.nav-tabs-custom>.nav-tabs>li{
+    border-top:none !important;
+}
+.nav-tabs-custom>.nav-tabs>li>a.active{
+    background-color:#F4F5F080 !important;
+    color:#7400D7;
+    font-weight:500;
+    outline:0;
+    border-bottom:2px solid #7400D7 !important;
     outline:0;
 }
-.nav-tabs-custom>.nav-tabs>li.active>a, .nav-tabs-custom>.nav-tabs>li.active:hover>a{
+.nav-tabs-custom>.nav-tabs>li>a:hover{
     background-color:#F4F5F080 !important;
+    border-bottom:2px solid #7400D7 !important;
     color:#7400D7;
     font-weight:500;
     outline:0;

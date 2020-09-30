@@ -39,7 +39,7 @@
                       </td>
                       
                       <td><a class="btn btn-success btn-sm" href="{{route('frontstatic.lang', $language->local)}}">
-                        <i class="glyphicon glyphicon-pencil"></i></a>
+                        <i class="fa fa-edit"></i></a>
                       </td>
 
                      
