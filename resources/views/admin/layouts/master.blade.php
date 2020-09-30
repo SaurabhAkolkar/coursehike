@@ -239,7 +239,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
   <script src="{{url('js/dashboard/demo.js')}}"></script>
   <script src="{{ URL::asset('js/dashboard/pace.min.js') }}"></script> 
   <!-- PACE -->
-  <script src="{{ URL::asset('js/dashboard/ckeditor.js') }}"></script>
+  <script src="{{ URL::asset('js/dashboard/ckeditor/ckeditor.js') }}"></script>
   <!-- CK Editor -->
   <script src="{{ URL::asset('js/dashboard/bootstrap-datepicker.min.js')}}"></script> <!-- bootstrap datepicker -->
   <script src="{{ url('js/jquery-ui.js')}}"></script>

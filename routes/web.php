@@ -585,6 +585,7 @@ Route::get('view/assignment/{id}', 'AssignmentController@assignment')->name('lis
 Route::view('/subscription/plans','subscription.pay');
 Route::post('/subscription/plans','SubscriptionController@postPaymentStripe')->name('subscription.plans');
 
+Route::get("zoho/module","ZohoController@createRecords");
 
 
 // Route for Learner's View
