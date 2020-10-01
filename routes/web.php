@@ -580,6 +580,14 @@ Route::get('all/assignment', 'AssignmentController@view')->name('assignment.view
 Route::get('view/assignment/{id}', 'AssignmentController@assignment')->name('list.assignment');
 
 
+// Harish Route's
+
+Route::view('/subscription/plans','subscription.pay');
+Route::post('/subscription/plans','SubscriptionController@postPaymentStripe')->name('subscription.plans');
+
+Route::get("zoho/module","ZohoController@createRecords");
+
+
 // Route for Learner's View
 
 //Route::view('/','learners.pages.home');
