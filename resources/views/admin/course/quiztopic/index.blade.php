@@ -1,10 +1,8 @@
 <section class="content">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <a data-toggle="modal" data-target="#myModaltopic" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
 
-      <div class="table-responsive">
-      
         <table id="example1" class="table table-bordered table-striped">
 
           <thead>
@@ -51,7 +49,7 @@
 
                 <a class="btn btn-primary btn-sm" title="Add Question" href="{{route('questions.show', $topic->id)}}"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Question') }}</a>
              
-                <a href="{{url('admin/quiztopic/'.$topic->id)}}" title="Edit" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-pencil"></i></a>
+                <a href="{{url('admin/quiztopic/'.$topic->id)}}" title="Edit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
 
                 <form  method="post" action="{{url('admin/quiztopic/'.$topic->id)}}
                   "data-parsley-validate class="form-horizontal form-label-left">
@@ -71,8 +69,7 @@
           
           </tfoot>
         </table>
-      </div>
-
+    
 
     </div>
     <!-- /.col -->
@@ -80,10 +77,10 @@
   <!-- /.row -->
 
   <!--Model start-->
-  <div class="modal fade" id="myModaltopic" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade show" id="myModaltopic" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-md" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header d-block">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Question') }}</h4>
         </div>
@@ -121,7 +118,7 @@
                 <br>
 
 
-                <div class="row display-none">
+                <div class="row d-none">
                   <div class="col-md-12">
                     <label for="exampleInputTit1e">{{ __('adminstaticword.QuizTimer') }}:<span class="redstar">*</span> </label>
                     <input type="text" placeholder="Enter Quiz Time" class="form-control" name="timer" id="exampleInputTitle" value="1">
@@ -160,7 +157,7 @@
                 <br>
         
                 <div class="box-footer">
-                  <button type="submit" value="Add Answer" class="btn btn-md col-md-3 btn-primary">+ {{ __('adminstaticword.Save') }}</button>
+                  <button type="submit" value="Add Answer" class="btn btn-md col-md-6 btn-primary">+ {{ __('adminstaticword.Save') }}</button>
                 </div>
 
               </form>

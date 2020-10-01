@@ -7,10 +7,10 @@
   </ul>
 </div>
 @endif
-<div class="modal fade" id="myModal9" z-index="1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade show" id="myModal9" z-index="1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header d-block">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">{{ __('adminstaticword.AddCategory') }}</h4>
       </div>

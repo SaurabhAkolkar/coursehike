@@ -14,7 +14,7 @@
   @include('admin.message')
   <div class="row">
     <!-- left column -->
-    <div class="col-xs-12"> 
+    <div class="col-12"> 
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
@@ -45,7 +45,7 @@
 
                 <div class="row"> 
                   <div class="col-md-12">
-                    <select name="user_id" class="form-control display-none">
+                    <select name="user_id" class="form-control d-none">
                       <option  value="{{ Auth::user()->id }}">{{ Auth::user()->fname }}</option>
                     </select>
                   </div>

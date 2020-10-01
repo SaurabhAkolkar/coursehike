@@ -149,7 +149,7 @@
                   </select>
                   <br> 
               </div>
-              <div class="col-md-3 display-none" id="doaboxxx">
+              <div class="col-md-3 d-none" id="doaboxxx">
                 <label for="dob">{{ __('adminstaticword.DateofAnniversary') }}: <sup class="redstar">*</sup></label>
                   <input value="{{ old('doa')}}" name="doa" id="doa" type="text" class="form-control" placeholder="Enter your date of anniversary">
 
@@ -160,7 +160,7 @@
             
 
             <div class="row">
-              <div class="col-md-3 display-none">
+              <div class="col-md-3 d-none">
                 <label for="exampleInputDetails">{{ __('adminstaticword.Verified') }}:</label> 
                 <li class="tg-list-item">
                 

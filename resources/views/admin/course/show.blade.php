@@ -22,7 +22,7 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
 
         <div class="content-header">
@@ -53,44 +53,44 @@
 
             <!-- Tab panes -->
             <div class="tab-content">
-              <div role="tabpanel" class="tab-pane fade in active" id="a">
+              <div role="tabpanel" class="tab-pane fadein active" id="a">
                 @include('admin.course.editcor')
               </div>
-              <div role="tabpanel" class="tab-pane fade" id="b">
+              <div role="tabpanel" class="tab-pane fadein" id="b">
                 @include('admin.course.courseinclude.index')
               </div>
-              <div role="tabpanel" class="fade tab-pane" id="c">
+              <div role="tabpanel" class="fadein tab-pane" id="c">
                 @include('admin.course.whatlearns.index')
               </div>
-              <div role="tabpanel" class="fade tab-pane" id="d">
+              <div role="tabpanel" class="fadein tab-pane" id="d">
                 @include('admin.course.coursechapter.index')
               </div>
-              <div role="tabpanel" class="fade tab-pane" id="e">
+              <div role="tabpanel" class="fadein tab-pane" id="e">
                 @include('admin.course.courseclass.index')
               </div>
-              <div role="tabpanel" class="fade tab-pane" id="market">
+              <div role="tabpanel" class="fadein tab-pane" id="market">
                 @include('admin.course.relatedcourse.index')
               </div>
-              <div role="tabpanel" class="fade tab-pane" id="copy">
+              <div role="tabpanel" class="fadein tab-pane" id="copy">
                 @include('admin.course.questionanswer.index')
               </div>
-              <div role="tabpanel" class="fade tab-pane" id="ans">
+              <div role="tabpanel" class="fadein tab-pane" id="ans">
                 @include('admin.course.answer.index')
               </div>
-              <div role="tabpanel" class="fade tab-pane" id="jj">
+              <div role="tabpanel" class="fadein tab-pane" id="jj">
                 @include('admin.course.reviewrating.index')
               </div>
-              <div role="tabpanel" class="fade tab-pane" id="an">
+              <div role="tabpanel" class="fadein tab-pane" id="an">
                 @include('admin.course.announsment.index')
               </div>
-              <div role="tabpanel" class="fade tab-pane" id="report">
+              <div role="tabpanel" class="fadein tab-pane" id="report">
                 @include('admin.course.reviewreport.index')
               </div>
-              <div role="tabpanel" class="fade tab-pane" id="topic">
+              <div role="tabpanel" class="fadein tab-pane" id="topic">
                 @include('admin.course.quiztopic.index')
               </div>
              
-              <div role="tabpanel" class="fade tab-pane" id="appoint">
+              <div role="tabpanel" class="fadein tab-pane" id="appoint">
                 @include('admin.course.appointment.index')
               </div>
              

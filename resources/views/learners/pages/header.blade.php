@@ -2,7 +2,7 @@
  <!-- Header: Start-->
  <header class="la-header">
     <div class="la-header__inner px-5 py-3 d-flex align-items-center">
-      <div class="la-header__lft d-inline-flex align-items-center"><a class="la-header__brandwrap" href="/"><img class="la-header__brand" src="./images/logo.svg" alt="Lila"></a>
+      <div class="la-header__lft d-inline-flex align-items-center"><a class="la-header__brandwrap" href="/"><img class="la-header__brand" src="./images/learners/logo.svg" alt="Lila"></a>
         <div class="la-header__nav d-inline-flex">
           <div class="la-header__nav-item"><a class="la-header__nav-link" href="/user-dashboard">Dashboard</a></div>
           <div class="la-header__nav-item"><a class="la-header__nav-link" href="/courses">Browse Courses</a></div>
@@ -109,7 +109,7 @@
                 <div class="la-announcement__name d-flex justify-content-between">
                   <h6 class="text-xl body-font">New Releases</h6>
                   <a class="la-announcement__view-more" href="/releases">
-                    <img class="img-fluid" src="./images/icons/long-arrow.svg" alt="view more">
+                    <img class="img-fluid" src="./images/learners/icons/long-arrow.svg" alt="view more">
                   </a>
                 </div>
                     <!-- Announcements Panel: Start -->

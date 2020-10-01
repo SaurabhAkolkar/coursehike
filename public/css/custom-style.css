@@ -1,20 +1,40 @@
 
-/* =============== Admin Dashboard Left Side Navbar CSS ============  */
+/* =============== Admin Left Side Navbar CSS ============  */
 html, body{
     font-family:'Roboto', sans-serif !important;
     background:#ffffff !important;
 }
-/* == Sidebar Toggler Icon == */
-.main-header .navbar{
-    box-shadow: 0px 3px 6px 0px  #0000001A !important;
-    border:none !important;
+.wrapper, .content-wrapper{
+    background-color:#ffffff !important;
 }
+/* == Sidebar Toggler Icon == */
 .skin-blue .main-header .logo{
     box-shadow: 0px 3px 6px #0000001A !important;
     border:none !important;
 }
+.main-header .navbar{
+    box-shadow: 0px 3px 6px 0px  #0000001A !important;
+    border:none !important;
+    padding:0;
+}
+.navbar:before{
+    display:none;
+}
+.navbar-custom-menu>.navbar-nav>li {
+    position: relative;
+    display: inline-block;
+}
+.main-header .navbar .nav>li>a {
+    color: #000 !important;
+    font-weight:500;
+    padding:10px;
+    margin:0 5px;
+}
 .main-header .navbar .sidebar-toggle{
     color: #404040 !important;
+    padding:2px 10px;
+    margin:0 10px;
+    outline:0;
 }
 .main-sidebar{
     background:#ffffff !important;
@@ -26,6 +46,7 @@ html, body{
 }
 /* == Sidebar Toggler Menu Links == */
 .sidebar a {
+    font-family:var(--body-font);
     color: #404040 !important;
     font-weight:500;
     font-size:15px;
@@ -56,16 +77,12 @@ html, body{
 .sidebar-menu>li.active>a {
     border-left-color:transparent !important;
 }
-.main-header .navbar .nav>li>a {
-    color: #000 !important;
-    padding: 15px 5px;
-    font-weight:500;
-}
+
 .skin-blue .sidebar-menu>li>.treeview-menu{
     background-color:#fbfbfb!important;
 }
 .skin-blue .sidebar-menu .treeview-menu>li>a{
-    font-size:14px !important;
+    font-size:13px !important;
     color: #404040 !important;
 }
 .skin-blue .sidebar-menu .treeview-menu>li.active>a{
@@ -84,6 +101,9 @@ html, body{
     color: #506fe4;
     border-radius: 0;
     box-shadow:none;
+}.language .btn-primary:focus{
+    outline:0;
+    box-shadow:none !important;
 }
 .language .btn-primary:hover {
     background-color: #fbfbfb;
@@ -105,12 +125,20 @@ html, body{
 .bg-aqua, .bg-orange, .bg-purple, .bg-green, .bg-blue, .bg-yellow, .bg-red{
     background-color:#fbfbfb !important;
 }
+.content-header>h1 {
+    margin: 0;
+    color:#404040;
+    font-family:var(--body-font);
+    font-weight:500;
+    font-size: 24px;
+}
 .small-box {
     border-radius: 0;
     position: relative;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     box-shadow: none;
+    padding:10px;
 }
 
 .small-box .icon {
@@ -139,7 +167,8 @@ html, body{
     position: relative;
     top:10px;
     font-size: 24px;
-    font-weight: 500 !important;
+    font-family:var(--body-font);
+    font-weight:500;
     white-space: nowrap;
     padding-left: 12px;
     color:#252525 !important;
@@ -151,7 +180,8 @@ html, body{
     color: #252525 !important;
     padding-left:12px;
     margin:0;
-    font-weight:500 !important;
+    font-family:var(--body-font);
+    font-weight:500;
     letter-spacing: 0px;
 }
 /* ==Content small-box small-box-footer section == */
@@ -171,6 +201,12 @@ html, body{
     color:#000;
 }
 /* == Latest Users Section == */
+.box-header .box-title {
+    font-family:var(--body-font);
+    font-weight:500;
+    font-size:18px;
+    color: #404040;
+}
 .box-recent__content{
     background-color:#fbfbfb !important;
     padding:10px;
@@ -189,22 +225,64 @@ html, body{
     text-align: left;
 }
 .users-list>li img {
-    height: 50px;
-    width:50px;
+    height:32px;
+    width:32px;
    border:1px solid rgba(129,129,129,.1);
 }
 .users-list-name{
     margin-left:-80px;
+    font-family:var(--body-font);
+    font-weight:400;
+    color:#010101;
+    font-size:14px;
+    text-transform: capitalize;
+}
+.users-list-date {
+    font-family:var(--body-font);
+    font-weight:400;
+    color: #BCBCBC;
+    font-size: 12px;
 }
 
 /* == Recent Courses Section == */
+.products-list .product-img img {
+    width: 32px;
+    height: 32px;
+}
 .products-list>.item{
     background:transparent;
     border:none;
 }
-
+.products-list .product-title {
+    font-family:var(--body-font);
+    font-weight:400;
+    color:#010101;
+    font-size:14px;
+    text-transform:capitalize;
+}
+.products-list .product-description {
+    font-family:var(--body-font);
+    font-weight:400;
+    font-size:10px !important;
+    text-transform: uppercase;
+    display: block;
+    color: #BCBCBC;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.products-list .product-info span{
+    font-family:var(--body-font);
+    font-weight:400;
+    font-size:12px;
+    color:#BCBCBC !important;
+}
+.label-warning{
+    background-color:transparent !important;
+}
 
 /* ============ COURSES PAGE ============ */
+
 /* == Add Course Button == */
 .btn-info{
     background-color:transparent;
@@ -214,6 +292,10 @@ html, body{
     text-transform:uppercase;
     font-weight:bold;
 }
+.btn-info:focus{
+    box-shadow:none !important;
+    outline:0;
+}
 .btn-info:hover{
     background-color:#ffffff !important;
     color:#6708BA !important;
@@ -221,6 +303,14 @@ html, body{
 .glyphicon{
     top:0;
     font-size:10px !important;
+}
+
+th.sorting_asc, th.sorting{
+    font-family: var(--body-font);
+    font-weight:400;
+    color:#ffffff;
+    opacity:0.5;
+    text-align:left;
 }
 /* == CSV/PDF/PRINT buttons == */
 div.dt-buttons {
@@ -255,23 +345,41 @@ table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting:after{
 /* == Table rows == */
 .table-striped>tbody>tr:nth-of-type(odd) ,
 .table-striped>tbody>tr:nth-of-type(even) {
-    background-color: #F4F5F080;
+    background-color: #F4F5F080 !important;
 }
 /* == Table Columns == */
 table.table-bordered.dataTable tbody td {
+    font-family:var(--body-font);
+    font-weight:400;
     border:none;
     border-bottom-width: 0;
     font-size:14px;
     line-height:1 !important;
     vertical-align: middle;
+    text-transform: capitalize;
  }
 /* == Table Column Course Image ==*/
 .table td img {
-    width: 50px;
+    width: 80px;
     height: 50px;
     display:block;
 }
-
+td .btn-success, td form .btn-danger{
+    background-color:transparent !important;
+    border:none;
+    color:#000000;
+    font-size:14px;
+}
+td .btn-success:hover, td form .btn-danger:hover{
+    background-color:transparent ;
+    color:#000000;
+}
+td .btn-success:focus, td form .btn-danger:focus{
+    outline:0 !important;
+    border:none !important;
+    box-shadow:none !important;
+    color:#000000 !important;
+}
 
 
 
@@ -283,7 +391,7 @@ table.table-bordered.dataTable tbody td {
     border-radius: 0;
     background: #ffffff;
     border-top: none;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     width: 100%;
     box-shadow: none;
 }
@@ -304,12 +412,14 @@ table.table-bordered.dataTable tbody td {
 }
 /* ==form form-control css == */
 .form-control {
+    font-family: var(--body-font);
+    font-weight:400;
     display: block;
     width: 100%;
-    padding: 20px;
+   
     font-size: 15px;
     line-height: 1.42857143;
-    color: #777777;
+    color: #313131;
     background-color: #fbfbfb;
     border: 1px solid #dedede;
     border-radius: 0;
@@ -350,9 +460,42 @@ table.table-bordered.dataTable tbody td {
     cursor: pointer;
     display: inline-block;
     overflow: hidden;  
-    background-color:#fbfbfb !important;
+    background-color:#fcfcfc !important;
     color:#404040;
     border:1px solid #dedede;
+}
+label{
+    font-family: var(--body-font);
+    font-weight:500;
+    font-size:16px;
+    color:#000000;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    font-family: var(--body-font);
+    font-weight:400;
+    padding-right: 10px;
+    font-size: 15px;
+    color: #313131;
+    background-color: #fbfbfb;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 28px;
+    right: 10px;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow b{
+    border-color: #BCBCBC transparent transparent transparent;
+    border-style: solid;
+    border-width: 8px 7px 0 7px;
+    height: 0;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    width: 0;
+}
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-color: transparent transparent #BCBCBC transparent;
+    border-width: 0 7px 8px 7px;
 }
 
 /* == submit button section == */
@@ -375,71 +518,19 @@ table.table-bordered.dataTable tbody td {
     box-shadow: 0px 3px 6px #00000029;
 }
 
-/* ===================== EDIT COURSES ====================== */
-.course-package-type .course-pt__title{ margin-bottom:20px;}
-.course-package-type{
-  background-color:#ffffff;
-  box-shadow: 0px 3px 6px #87878729;
-  padding:30px 20px;
-}
-.course-package-type .course-package__text{padding-left:20px;}
-.course-package-type .course-package__subscription, .course-package__premium, .course-package__free{padding-left:30px;}
-
-.hr-line{
-  width:100%;
-  border:.3px dashed #cccccc;
-  margin:30px 0;
-}
-input[type="file"]{
-      width:100%;
-      height:100%;
-      background:#FCFCFC;
-      position:absolute;
-      top:0;
-      left:0;
-      opacity:0;
-      display:block;
-      cursor:pointer;
-}
-.course__previewImgVid {
-      position:relative;
-      background:#FCFCFC;
-      border:1px dashed #DEDEDE;
-      width:100%;
-      height:200px;
-      color:#000;
-      font-size:16px;
-      z-index:0;
-}
-.course__previewText{
-    position:relative;
-    top:0;
-    z-index:1;
-    opacity:1;
-    display:flex;
-    justify-content:space-between;
-}
-.course__previewText .course__preview-size,.course__previewText .choose-file{
-    background:#FCFCFC ;
-    padding:10px 20px;
-    color:#BCBCBC;
-}
-.course__previewText .choose-file{
-    color:#1592E6;
-    font-size:14px;
-    font-weight:bold;
-    cursor:pointer;
-    display:block;
-}
-
-
-
 /* ================= COURSE CLASS ================ */
 /* === Nav Tabs === */
-.nav-tabs{
+.nav-tabs-custom>.nav-tabs {
     overflow-x: scroll;
     white-space: nowrap;
     scroll-behavior: smooth;
+    border-bottom:none;
+    flex-wrap:nowrap;
+    padding-bottom:8px;
+    border-bottom-color: #f4f4f4;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    display: flex;
 }
 .nav-tabs::-webkit-scrollbar {
     width:5px !important;
@@ -452,33 +543,36 @@ input[type="file"]{
     background:rgba(0,0,0,0.3); 
     border-radius:25px 25px;
 }
-.nav-tabs-custom>.nav-tabs {
-    margin: 0;
-    padding-bottom:8px;
-    border-bottom-color: #f4f4f4;
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
-    display: flex;
+.nav-tabs-custom>.nav-tabs>li>a{
+    padding:6px 10px;
+    font-size:15px;
+    outline:0;
 }
-.nav-tabs{
-    border-bottom:none;
+.nav-tabs-custom>.nav-tabs>li{
+    border-top:none !important;
 }
-.nav-tabs-custom>.nav-tabs>li.active>a, .nav-tabs-custom>.nav-tabs>li.active:hover>a{
+.nav-tabs-custom>.nav-tabs>li>a.active{
     background-color:#F4F5F080 !important;
     color:#7400D7;
-    font-weight:bold;
+    font-weight:500;
+    outline:0;
+    border-bottom:2px solid #7400D7 !important;
+    outline:0;
 }
-.nav-tabs-custom>.nav-tabs>li.active{
-    border-bottom:2px solid #7400D7;
-    border-top:none;
+.nav-tabs-custom>.nav-tabs>li>a:hover{
+    background-color:#F4F5F080 !important;
+    border-bottom:2px solid #7400D7 !important;
+    color:#7400D7;
+    font-weight:500;
+    outline:0;
 }
+
 /* === Nav Tab Anchor Tags === */
 .nav>li>a {
     position: relative;
     display: block;
-    padding:5px;
     text-align:center;
-    width:120px;
+    width:100%;
 }
 @media (max-width:767px){
     .nav>li>a{

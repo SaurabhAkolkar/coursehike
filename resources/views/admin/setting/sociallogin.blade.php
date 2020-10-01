@@ -60,7 +60,7 @@
 			  			<div class="eyeCy col-md-12">
 			  				<label for="">{{ __('adminstaticword.ClientSecretKey') }}:</label>
 			  				<input type="password" name="GOOGLE_CLIENT_SECRET" value="{{ $env_files['GOOGLE_CLIENT_SECRET'] }}" placeholder="enter secret key" class="form-control" id="gsecret">
-			  				<span toggle="#gsecret" class="fa fa-fw fa-eye field-icon toggle-password3 display-inline-flex"></span>
+			  				<span toggle="#gsecret" class="fa fa-fw fa-eye field-icon toggle-password3 d-inline-flex"></span>
 			  			</div>
 			  			
 			  		</div>

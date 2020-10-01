@@ -6,7 +6,7 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-6">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">  {{ __('adminstaticword.Feature') }} {{ __('adminstaticword.Course') }}</h3>
@@ -43,7 +43,7 @@
              
 
               <div class="row">
-                <div class="col-md-12 display-none"> 
+                <div class="col-md-12 d-none"> 
                   <label for="total_amount">Amount to be paid to feature Course:</sup></label>
                   <input value="{{ $gsetting->feature_amount }}" type="hidden" name="total_amount" class="form-control" readonly="">
                 </div>

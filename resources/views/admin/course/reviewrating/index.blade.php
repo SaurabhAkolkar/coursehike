@@ -3,7 +3,6 @@
     <div class="col-md-12">
       <br>
       <br>
-      <div class="table-responsive">
         <table id="example1" class="table table-bordered table-striped">
             <thead>
               <tr>
@@ -80,7 +79,7 @@
                     </form>
                   </td>
         
-                  <td><a class="btn btn-success btn-sm" href="{{url('reviewrating/'.$jp->id)}}"><i class="glyphicon glyphicon-pencil"></i></a></td> 
+                  <td><a class="btn btn-success btn-sm" href="{{url('reviewrating/'.$jp->id)}}"><i class="fa fa-edit"></i></a></td> 
             
 
                   <td>
@@ -95,7 +94,6 @@
               @endforeach
             </tbody>
         </table>
-      </div>
     </div>
   </div>
 </section> 

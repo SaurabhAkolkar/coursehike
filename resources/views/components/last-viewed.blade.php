@@ -22,6 +22,6 @@
     </div>
 
     <a class="la-course__tile-more d-flex align-items-center" href="">
-        <img class="img-fluid pl-8" src="./images/icons/long-arrow.svg" alt="View More">
+        <img class="img-fluid pl-8" src="./images/learners/icons/long-arrow.svg" alt="View More">
     </a>
 </div>

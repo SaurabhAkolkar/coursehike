@@ -5,7 +5,6 @@
     <a data-toggle="modal" data-target="#myModalJ" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
     <br>
     <br>
-    <div class="table-responsive">
       <table id="example1" class="table table-bordered table-striped">
         <thead>
           <tr>
@@ -38,7 +37,7 @@
               </td>
               <td>
                   <a class="btn btn-success btn-sm" href="{{url('courseinclude/'.$cat->id)}}">
-                    <i class="glyphicon glyphicon-pencil"></i></a>
+                    <i class="fa fa-edit"></i></a>
               </td>              
 
               <td>
@@ -57,15 +56,14 @@
                 
         </tbody>
       </table>
-    </div>
   </div>
 </div>
 
 <!--Model start-->
-<div class="modal fade" id="myModalJ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade show" id="myModalJ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header d-block">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">{{ __('adminstaticword.Add') }} {{ __('adminstaticword.CourseInclude') }}</h4>
       </div>
@@ -75,7 +73,7 @@
               <form id="demo-form2" method="post" action="{{ route('courseinclude.store') }}" data-parsley-validate class="form-horizontal form-label-left">
                 {{ csrf_field() }}
      
-                <select class="display-none" name="course_id" class="form-control">
+                <select class="d-none" name="course_id" class="form-control">
                   <option value="{{ $cor->id }}">{{ $cor->title }}</option>
                 </select>
 
@@ -103,7 +101,7 @@
                 <br>
                 <br>
                 <div class="box-footer">
-                  <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                  <button type="submit" class="btn btn-lg col-md-6 btn-primary">{{ __('adminstaticword.Submit') }}</button>
                 </div>
                
               </form>

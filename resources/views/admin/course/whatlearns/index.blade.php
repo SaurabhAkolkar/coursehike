@@ -12,7 +12,6 @@
     <div class="col-md-12">
       <a data-toggle="modal" data-target="#myModaljj" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
       <br><br>
-      <div class="table-responsive">
         <table id="example1" class="table table-bordered table-striped">
           <thead>
             <tr>
@@ -45,7 +44,7 @@
                   </form>
                 </td>
                 <td>
-                  <a class="btn btn-success btn-sm" href="{{url('whatlearns/'.$cat->id)}}"><i class="glyphicon glyphicon-pencil"></i></a>
+                  <a class="btn btn-success btn-sm" href="{{url('whatlearns/'.$cat->id)}}"><i class="fa fa-edit"></i></a>
                 </td> 
                 <td>
                   <form  method="post" action="{{url('whatlearns/'.$cat->id)}}" data-parsley-validate class="form-horizontal form-label-left">
@@ -59,15 +58,14 @@
             @endforeach
           </tbody>
         </table>
-      </div>
     </div>
   </div>
 
   <!--Model start-->
-  <div class="modal fade" id="myModaljj" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade show" id="myModaljj" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header d-block">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.WhatLearns') }}</h4>
         </div>
@@ -78,7 +76,7 @@
                 {{ csrf_field() }}
 
                 <select name="course_id" class="form-control display-none">
-                  <option class="display-none" name="course_id"  value="{{ $cor->id }}">{{ $cor->title }}</option>
+                  <option class="" name="course_id"  value="{{ $cor->id }}">{{ $cor->title }}</option>
                 </select>
 
                 <div class="row">

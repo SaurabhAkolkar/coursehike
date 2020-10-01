@@ -5,7 +5,6 @@
       <a data-toggle="modal" data-target="#myModalabcde" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
       <br>
       <br>
-      <div class="table-responsive">
         <table id="example1" class="table table-bordered table-striped">
           <thead>
             <tr>
@@ -38,7 +37,7 @@
                   </form>
                 </td>
                 <td>
-                  <a class="btn btn-success btn-sm" href="{{url('questionanswer/'.$que->id)}}"><i class="glyphicon glyphicon-pencil"></i></a>
+                  <a class="btn btn-success btn-sm" href="{{url('questionanswer/'.$que->id)}}"><i class="fa fa-edit"></i></a>
                 </td>
                 <td>
                   <form  method="post" action="{{url('questionanswer/'.$que->id)}}" data-parsley-validate class="form-horizontal form-label-left">
@@ -52,15 +51,14 @@
             @endforeach
           </tbody>
         </table>
-      </div>
     </div>
   </div>
 
   <!--Model start-->
-  <div class="modal fade" id="myModalabcde" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade show" id="myModalabcde" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-md" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header d-block">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Question') }}</h4>
         </div>
@@ -72,15 +70,15 @@
 
                 <input type="hidden" name="instructor_id" class="form-control" value="{{ Auth::User()->id }}"  />
                
-                <label class="display-none" for="exampleInputSlug"> {{ __('adminstaticword.Course') }}<span class="redstar">*</span></label>
-                <select name="course_id" class="form-control display-none">
+                <label class="d-none" for="exampleInputSlug"> {{ __('adminstaticword.Course') }}<span class="redstar">*</span></label>
+                <select name="course_id" class="form-control d-none">
                   <option value="{{ $cor->id }}">{{ $cor->title }}</option>
                 </select>
 
                 <div class="row"> 
                   <div class="col-md-12">
                     <label for="exampleInputTit1e">{{ __('adminstaticword.User') }}</label>
-                    <select name="user_id" class="form-control col-md-7 col-xs-12">
+                    <select name="user_id" class="form-control col-md-12 col-12">
                       <option  value="{{ Auth::user()->id }}">{{ Auth::user()->fname }}</option>
                     </select>
                   </div>
@@ -108,7 +106,7 @@
                 <br>
               
                 <div class="box-footer">
-                  <button type="submit" class="btn btn-md col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                  <button type="submit" class="btn btn-md col-md-6 btn-primary">{{ __('adminstaticword.Submit') }}</button>
                 </div>
               </form>
             </div>

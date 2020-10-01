@@ -5,7 +5,7 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title"> Featured Course</h3>
@@ -14,7 +14,7 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <div class="table-responsive">
+         
             <table id="example1" class="table table-bordered table-striped">
               <thead>
            
@@ -30,36 +30,37 @@
                 </tr>
               </thead>
               <tbody>
-              <?php $i=0;?>
-              @foreach($featured as $feature)
-                <?php $i++;?>
-                <tr>
-                  <td><?php echo $i;?></td>
-                  <td>{{$feature->user['fname']}}</td>                 
-                  <td>{{$feature->courses['title']}}</td>
-                  <td>{{$feature->transaction_id}}</td>
-                  <td>{{$feature->payment_method}}</td>
-                  <td><i class="fa {{ $feature->currency_icon }}"></i>{{ $feature->total_amount }}</td>
+                  <?php $i=0;?>
+                  @foreach($featured as $feature)
+                    <?php $i++;?>
+                    <tr>
+                      <td><?php echo $i;?></td>
+                      <td>{{$feature->user['fname']}}</td>                 
+                      <td>{{$feature->courses['title']}}</td>
+                      <td>{{$feature->transaction_id}}</td>
+                      <td>{{$feature->payment_method}}</td>
+                      <td><i class="fa {{ $feature->currency_icon }}"></i>{{ $feature->total_amount }}</td>
 
-                  
+                      
 
-                  <td><a class="btn btn-primary btn-sm" href="{{route('featurecourse.show',$feature->id)}}">{{ __('adminstaticword.View') }}</a>
-                  </td>
-                  
-                  <td>
-                    <form  method="post" action="{{url('featurecourse/'.$feature->id)}}"
-                        data-parsley-validate class="form-horizontal form-label-left">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                      <button type="submit" class="btn btn-danger btn-sm">
-                            <i class="fa fa-fw fa-trash-o"></i>
-                      </button>
-                    </form>
-                  </td>
-                </tr>
-              @endforeach 
+                      <td><a class="btn btn-primary btn-sm" href="{{route('featurecourse.show',$feature->id)}}">{{ __('adminstaticword.View') }}</a>
+                      </td>
+                      
+                      <td>
+                        <form  method="post" action="{{url('featurecourse/'.$feature->id)}}"
+                            data-parsley-validate class="form-horizontal form-label-left">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                          <button type="submit" class="btn btn-danger btn-sm">
+                                <i class="fa fa-fw fa-trash-o"></i>
+                          </button>
+                        </form>
+                      </td>
+                    </tr>
+                  @endforeach 
+              </tbody>
             </table>
-          </div>
+          
         </div>
         <!-- /.box-body -->
       </div>

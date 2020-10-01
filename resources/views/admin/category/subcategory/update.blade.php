@@ -5,7 +5,7 @@
 <section class="content">
   <div class="row">
     <!-- left column -->
-    <div class="col-xs-12">
+    <div class="col-12">
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
@@ -24,7 +24,7 @@
 
                   <div class="col-md-6">
                     <label for="exampleInputSlug">{{ __('adminstaticword.SelectCategory') }}</label>
-                    <select name="category_id" class="form-control js-example-basic-single col-md-7 col-xs-12">
+                    <select name="category_id" class="form-control js-example-basic-single col-md-7 col-12">
           
                       @foreach($category as $cou)
                        <option value="{{ $cou->id }}" {{$cate->category_id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>

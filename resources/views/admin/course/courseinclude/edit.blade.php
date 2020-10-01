@@ -5,7 +5,7 @@
 <section class="content">
   <div class="row">
     <!-- left column -->
-    <div class="col-xs-12">
+    <div class="col-12">
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="panel panel-sum">
@@ -20,8 +20,8 @@
               {{ csrf_field() }}
               {{ method_field('PUT') }}
 
-                <label class="display-none" for="exampleInputSlug">{{ __('adminstaticword.SelectCourse') }}</label>
-                <select name="course_id" class="form-control col-md-7 col-xs-12 display-none">
+                <label class="d-none" for="exampleInputSlug">{{ __('adminstaticword.SelectCourse') }}</label>
+                <select name="course_id" class="form-control col-md-7 col-12 d-none">
         
                   @foreach($courses as $cou)
                     <option  value="{{ $cou->id }}" {{$cate->courses->id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>

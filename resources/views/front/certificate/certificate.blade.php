@@ -178,10 +178,10 @@
                     <a href="{{route('cirtificate.download',$course->id)}}" target="_blank"  class="btn btn-secondary">{{ __('frontstaticword.CertificateDownload') }}</a>
                 </div>
                 <p><a href="#" data-toggle="modal" data-target="#myModalCirtificate" title="report">{{ __('frontstaticword.Updateyourcertificate') }}</a> {{ __('frontstaticword.withyourcorrectname') }}.</p>
-                <div class="modal fade" id="myModalCirtificate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal fade show" id="myModalCirtificate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header d-block">
                           <h4 class="modal-title" id="myModalLabel">{{ __('frontstaticword.UpdateYourCertificate') }}</h4>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>

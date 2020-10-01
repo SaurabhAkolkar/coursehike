@@ -17,7 +17,7 @@
   @include('admin.message')
   <div class="row">
     <!-- left column -->
-    <div class="col-xs-12">
+    <div class="col-12">
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
@@ -33,7 +33,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Category') }}</label>
-                  <select name="category_id" class="form-control js-example-basic-single col-md-7 col-xs-12">
+                  <select name="category_id" class="form-control js-example-basic-single col-md-7 col-12">
                     @foreach($category as $cate)
                     <option value="{{$cate->id}}">{{$cate->title}}</option>
                     @endforeach

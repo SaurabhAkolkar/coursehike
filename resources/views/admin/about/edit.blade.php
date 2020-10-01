@@ -306,7 +306,7 @@
 						                    <br>
 						                </div>
 
-						                <div class="col-md-4 display-none">
+						                <div class="col-md-4 d-none">
 						                    <label for="four_icon">Section Four Icon:<sup class="redstar">*</sup></label>
 						                    <input value="1"name="four_icon" type="text" class="form-control" placeholder="Enter Heading"/>
 						                </div>

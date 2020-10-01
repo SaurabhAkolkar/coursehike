@@ -15,7 +15,7 @@
   					<div id="printableArea">
   						<!-- title row -->
   						<div class="row">
-  						    <div class="col-xs-12">
+  						    <div class="col-12">
   						      <h2 class="page-header">
   						        @if($setting->logo_type == 'L')
                         <div class="logo-invoice">
@@ -177,7 +177,7 @@
                         <tbody>
                           <tr>
                             <td>
-                              <div class="purchase-history-course-img display-inline-flex">
+                              <div class="purchase-history-course-img d-inline-flex">
                               
                                   @if($coursess['preview_image'] !== NULL && $coursess['preview_image'] !== '')
                                       <img src="{{ asset('images/course/'. $coursess->preview_image) }}" class="img-fluid" alt="course">
@@ -186,7 +186,7 @@
                                     @endif
 
                               </div>
-                              <div class="purchase-history-course-title display-inline-flex" style="vertical-align: top;">
+                              <div class="purchase-history-course-title d-inline-flex" style="vertical-align: top;">
                                 {{ $coursess->title }}
                               </div>
                             </td>

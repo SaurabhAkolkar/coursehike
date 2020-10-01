@@ -4,7 +4,7 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{ __('adminstaticword.Pages') }}</h3>
@@ -12,7 +12,6 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <div class="table-responsive">
             <table id="example1" class="table table-bordered table-striped">
               <thead>
              
@@ -47,7 +46,7 @@
                 </td>
                 
                 <td><a class="btn btn-success btn-sm" href="{{url('page/'.$p->id.'/edit')}}">
-                  <i class="glyphicon glyphicon-pencil"></i></a>
+                  <i class="fa fa-edit"></i></a>
                 </td>
 
                 <td><form  method="post" action="{{url('page/'.$p->id)}}
@@ -63,7 +62,6 @@
               </tr>
               </tfoot>
             </table>
-          </div>
         </div>
         <!-- /.box-body -->
       </div>

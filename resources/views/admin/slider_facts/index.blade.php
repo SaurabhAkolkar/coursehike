@@ -5,7 +5,7 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{ __('adminstaticword.FactsSlider') }}</h3>
@@ -38,7 +38,7 @@
               
                 <td>
                   <a class="btn btn-primary btn-sm" href="{{route('facts.edit',$fact->id)}}">
-                  <i class="glyphicon glyphicon-pencil"></i></a>
+                  <i class="fa fa-edit"></i></a>
                 </td>
 
                 <td><form  method="post" action="{{url('facts/'.$fact->id)}}

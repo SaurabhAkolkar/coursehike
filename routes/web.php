@@ -63,7 +63,7 @@ Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallba
 
         //Route::get('/', 'HomeController@index');
 
-        Route::get('/home', 'HomeController@index')->name('home');
+        //Route::get('/home', 'HomeController@index')->name('home');
 
     });
 
@@ -589,6 +589,7 @@ Route::get("zoho/module","ZohoController@createRecords");
 
 
 // Route for Learner's View
+
 Route::view('/','learners.pages.home');
 
 Route::view('/signup','learners.auth.signup');
@@ -597,8 +598,8 @@ Route::view('/interests','learners.auth.interests');
 Route::view('/creator-signup','learners.auth.creator-signup');
 
 Route::view('/user-dashboard','learners.pages.user-dashboard');
-//Route::view('/courses','learners.pages.courses');
-//Route::view('/course','learners.pages.course');
+Route::view('/courses','learners.pages.courses');
+Route::view('/course','learners.pages.course');
 Route::view('/my-courses','learners.pages.my-courses');
 Route::view('/mentors','learners.pages.mentors');
 Route::view('/creator','learners.pages.creator');

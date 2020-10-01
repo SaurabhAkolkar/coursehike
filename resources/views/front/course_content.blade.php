@@ -631,12 +631,12 @@
                                         </button>
 
                                         <!--Model start-->
-                                        <div id="myModal" class="modal fade" role="dialog">
+                                        <div id="myModal" class="modal fade show" role="dialog">
                                           <div class="modal-dialog">
 
                                             <!-- Modal content-->
                                             <div class="modal-content">
-                                              <div class="modal-header">
+                                              <div class="modal-header d-block">
                                                 <h4 class="modal-title">{{ __('frontstaticword.Askanewquestion') }}</h4>
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                               </div>
@@ -745,10 +745,10 @@
                                             </div>
                                         </div>
                                         <!--Model start-->
-                                        <div class="modal fade" id="myModalanswer{{ $ques->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                        <div class="modal fade show" id="myModalanswer{{ $ques->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                             <div class="modal-dialog modal-lg" role="document">
                                               <div class="modal-content">
-                                                <div class="modal-header">
+                                                <div class="modal-header d-block">
 
                                                   <h4 class="modal-title" id="myModalLabel">{{ __('frontstaticword.Answer') }}</h4>
                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -782,7 +782,7 @@
                                                         </div>
                                                         <br>
                                                         <div class="box-footer">
-                                                         <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('frontstaticword.Submit') }}</button>
+                                                         <button type="submit" class="btn btn-lg col-md-6 btn-primary">{{ __('frontstaticword.Submit') }}</button>
                                                         </div>
                                                     </form>
 
@@ -796,10 +796,10 @@
 
                                         <!--Model start Question Report-->
                                                            
-                                        <div class="modal fade" id="myModalquesReport{{ $ques->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                        <div class="modal fade show" id="myModalquesReport{{ $ques->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                             <div class="modal-dialog modal-lg" role="document">
                                               <div class="modal-content">
-                                                <div class="modal-header">
+                                                <div class="modal-header d-block">
 
                                                   <h4 class="modal-title" id="myModalLabel">{{ __('frontstaticword.Report') }} Question</h4>
                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -840,7 +840,7 @@
                                                         </div>
                                                         <br>
                                                         <div class="box-footer">
-                                                            <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('frontstaticword.Submit') }}</button>
+                                                            <button type="submit" class="btn btn-lg col-md-6 btn-primary">{{ __('frontstaticword.Submit') }}</button>
                                                         </div>
                                                     </form>
                                                     </div>
@@ -1113,7 +1113,7 @@
                                                             <form  method="post" action="{{url('assignment/delete/'.$assign->id)}}" ata-parsley-validate class="form-horizontal form-label-left">
                                                             {{ csrf_field() }}
 
-                                                                <button  type="submit" class="assign-remove-btn display-inline" title="Delete"> <i class="fas fa-trash-alt"></i></button>
+                                                                <button  type="submit" class="assign-remove-btn d-inline" title="Delete"> <i class="fas fa-trash-alt"></i></button>
                                                               </form>
                                                             </div>
                                                         </div>
@@ -1144,10 +1144,10 @@
 
 
 
-                                    <div class="modal fade" id="assignmodel" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal fade show" id="assignmodel" role="dialog" aria-labelledby="myModalLabel">
                                         <div class="modal-dialog modal-sm" role="document">
                                           <div class="modal-content">
-                                            <div class="modal-header">
+                                            <div class="modal-header d-block">
                                               <h4 class="modal-title" id="myModalLabel">{{ __('frontstaticword.SubmitAssignment') }}</h4>
                                               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                             </div>
@@ -1230,17 +1230,17 @@
                                                         <form  method="post" action="{{url('appointment/delete/'.$appoint->id)}}" ata-parsley-validate class="form-horizontal form-label-left">
                                                         {{ csrf_field() }}
 
-                                                        <button  type="submit" class="cart-remove-btn display-inline" title="Remove From cart"> {{ __('frontstaticword.Delete') }}</button>
+                                                        <button  type="submit" class="cart-remove-btn d-inline" title="Remove From cart"> {{ __('frontstaticword.Delete') }}</button>
                                                       </form>
 
                                                     </li>
                                                     @if($appoint->accept == 1)
                                                     <li><a href="" data-toggle="modal" data-target="#myModalresponse" title="response">Response</a></li>
 
-                                                    <div class="modal fade" id="myModalresponse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                    <div class="modal fade show" id="myModalresponse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                                         <div class="modal-dialog modal-lg" role="document">
                                                           <div class="modal-content">
-                                                            <div class="modal-header">
+                                                            <div class="modal-header d-block">
 
                                                               <h4 class="modal-title" id="myModalLabel">{{ __('frontstaticword.Response') }}</h4>
                                                               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -1294,10 +1294,10 @@
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#appointmodel">{{ __('frontstaticword.RequestAppointment') }}
                                         </button>
                                     </div>
-                                    <div class="modal fade" id="appointmodel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal fade show" id="appointmodel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                         <div class="modal-dialog modal-lg" role="document">
                                           <div class="modal-content">
-                                            <div class="modal-header">
+                                            <div class="modal-header d-block">
                                               <h4 class="modal-title" id="myModalLabel">{{ __('frontstaticword.RequestAppointment') }}</h4>
                                               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                             </div>

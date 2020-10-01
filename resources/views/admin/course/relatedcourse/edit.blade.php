@@ -23,10 +23,10 @@
 
                 <input type="hidden" class="form-control " name="user_id" id="user_id" value="{{ $cate->user_id }}"> 
 
-                <div class="row" class="display-none">             
+                <div class="row" class="d-none">             
                   <div class="col-md-12">  
-                    <label class="display-none" for="exampleInputSlug">{{ __('adminstaticword.Course') }}</label>
-                    <select class="display-none" name="main_course_id" class="form-control">
+                    <label class="d-none" for="exampleInputSlug">{{ __('adminstaticword.Course') }}</label>
+                    <select class="d-none" name="main_course_id" class="form-control">
                       <option value="{{ $cate->main_course_id }}">{{ $cate->main_course_id }}</option>
                     </select>
                   </div>
@@ -36,7 +36,7 @@
                 <div class="row">
                   <div class="col-md-8">
                     <label for="exampleInputSlug">{{ __('adminstaticword.RelatedCourse') }}</label>
-                    <select name="course_id" class="form-control col-md-7 col-xs-12">
+                    <select name="course_id" class="form-control col-md-7 col-12">
                      @foreach($courses as $cou)
                      <option value="{{ $cou->id }}" {{$cate->course_id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
                      @endforeach

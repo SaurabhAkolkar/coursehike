@@ -15,8 +15,8 @@
   </head>
   <body>
    	  
-      <div class="preL display-none">
-        <div class="preloader3 display-none"></div>
+      <div class="preL d-none">
+        <div class="preloader3 d-none"></div>
       </div>
 
    		<div class="container">

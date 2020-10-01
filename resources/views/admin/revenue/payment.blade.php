@@ -5,7 +5,7 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-6">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">  {{ __('adminstaticword.PaytoInstructor') }}</h3>
@@ -31,7 +31,7 @@
 
               <input type="hidden" value="{{ $total }}" name="total" class="form-control">
               
-              <div class="display-none">
+              <div class="d-none">
               @foreach($allchecked as $checked)
                <label >
                   <input type="hidden" name="checked[]" value="{{ $checked }}">
@@ -55,7 +55,7 @@
 
               <input type="hidden" value="{{ $total }}" name="total" class="form-control">
               
-              <div class="display-none">
+              <div class="d-none">
               @foreach($allchecked as $checked)
                <label >
                   <input type="hidden" name="checked[]" value="{{ $checked }}">
@@ -86,7 +86,7 @@
 
               <input type="hidden" value="{{ $total }}" name="total" class="form-control">
               
-              <div class="display-none">
+              <div class="d-none">
               @foreach($allchecked as $checked)
                <label >
                   <input type="hidden" name="checked[]" value="{{ $checked }}">

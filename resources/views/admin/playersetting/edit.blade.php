@@ -5,7 +5,7 @@
 <section class="content">
    @include('admin.message')
   <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
           <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title">{{ __('adminstaticword.PlayerSettings') }}</h3>
@@ -32,7 +32,7 @@
                      
 
                       @if ($errors->has('logo'))
-                        <div class="display-none" id="logo">
+                        <div class="d-none" id="logo">
                           <strong class="text-danger">{{ $errors->first('logo') }}</strong>
                         </div>
                       @endif
@@ -76,7 +76,7 @@
 
 
                       <div class="col-md-6">
-                        <div class="form-group display-none">
+                        <div class="form-group d-none">
                           <label for="CopyrightText">{{ __('adminstaticword.CopyrightText') }}<sup class="redstar">*</sup></label>
                           <input value="copyright" name="cpy_text" type="text" class="form-control" placeholder="Enter Copyright Text" autocomplete="off" />
                         </div>

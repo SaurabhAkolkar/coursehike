@@ -81,17 +81,17 @@
     <!-- Course Benefits Section: Start-->
     @php
         $cb1 = new stdClass;
-        $cb1->img = "https://picsum.photos/75";
+        $cb1->img = "./images/learners/course-benefits/video.svg";
         $cb1->title = "Unlimited Learning";
         $cb1->desc = "One Plan - All subscribed content";
 
         $cb2 = new stdClass;
-        $cb2->img = "https://picsum.photos/75";
+        $cb2->img = "./images/learners/course-benefits/certificate.svg";
         $cb2->title = "Certification";
         $cb2->desc = "Course completion certificate";
 
         $cb3 = new stdClass;
-        $cb3->img = "https://picsum.photos/75";
+        $cb3->img = "./images/learners/course-benefits/online-course.svg";
         $cb3->title = "Assignments & Quiz";
         $cb3->desc = "Test your Progress";
 
@@ -308,7 +308,7 @@
               <div class="la-lp__test-cards d-flex justify-content-end">
                 <div class="card la-lp__card-itm" id="testCard1">
                   <div class="la-card__top d-flex justify-content-between">
-                    <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle border" src="./images/logo.svg">
+                    <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle border" src="./images/learners/logo.svg">
                       <div class="col">
                         <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">Nathan Spark</h5><span class="la-lp__desg text-sm">Tattoo Artist</span>
                       </div>
@@ -331,7 +331,7 @@
               <div class="la-lp__test-cards d-flex justify-content-between">
                 <div class="card la-lp__card-itm" id="testCard2">
                   <div class="la-card__top d-flex justify-content-between">
-                    <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle border" src="./images/logo.svg">
+                    <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle border" src="./images/learners/logo.svg">
                       <div class="col">
                         <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">Charolette</h5><span class="la-lp__desg text-sm">UI Designer</span>
                       </div>
@@ -360,7 +360,7 @@
               <div class="la-lp__test-cards d-flex justify-content-end">
                 <div class="card la-lp__card-itm" id="testCard3">
                   <div class="la-card__top d-flex justify-content-between">
-                    <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle border" src="./images/logo.svg">
+                    <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle border" src="./images/learners/logo.svg">
                       <div class="col">
                         <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">Natalia</h5><span class="la-lp__desg text-sm">Photographer</span>
                       </div>

@@ -14,7 +14,7 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{ __('adminstaticword.Category') }}</h3>
@@ -24,10 +24,10 @@
             + {{ __('adminstaticword.Add') }}
           </button>
           <!-- Modal -->
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal fade show" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header d-block">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                   <h4 class="modal-title" id="myModalLabel">{{ __('adminstaticword.AddCategory') }}</h4>
                 </div>
@@ -82,7 +82,6 @@
         </div>
 
         <div class="box-body">
-          <div class="table-responsive">
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
@@ -131,7 +130,7 @@
                     </td>
             
                     <td>
-                      <a class="btn btn-success btn-sm" href="{{url('category/'.$cat->id)}}"><i class="glyphicon glyphicon-pencil"></i></a></td>
+                      <a class="btn btn-success btn-sm" href="{{url('category/'.$cat->id)}}"><i class="fa fa-edit"></i></a></td>
                     <td>
                       <form  method="post" action="{{url('category/'.$cat->id)}}"data-parsley-validate class="form-horizontal form-label-left">
                           {{ csrf_field() }}
@@ -143,7 +142,6 @@
                 @endforeach
               </tbody>
             </table>
-          </div>
         </div>
         <!-- /.box-body -->
       </div>

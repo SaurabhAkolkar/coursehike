@@ -1,8 +1,8 @@
 <section class="content">
   @include('admin.message')
     <div class="row">
+      <div class="col-12">
       <div class="box-body">
-        <div class="table-responsive">
           <table id="example1" class="table table-bordered table-striped">
             <thead>
               <br>
@@ -31,7 +31,7 @@
                   <td>{{$report->detail}}</td>
                   <td>
                     <a class="btn btn-primary btn-sm" href="{{url('reports/'.$report->id)}}">
-                    <i class="glyphicon glyphicon-pencil"></i></a>
+                    <i class="fa fa-edit"></i></a>
                   </td>
                   <td><form  method="post" action="{{url('reports/'. $report->id)}}
                         "data-parsley-validate class="form-horizontal form-label-left">
@@ -44,9 +44,9 @@
               @endforeach
             </tbody>
           </table>
-        </div>
       </div>
       <!-- /.box-body -->
+    </div>
     </div>
     <!-- /.row -->
 </section>

@@ -14,7 +14,7 @@
        
         <!-- /.box-header -->
         <div class="box-body">
-            <div class="table-responsive">
+  
               <table id="example1" class="table table-bordered table-striped table-responsive display nowrap">
                 <thead>
                   <th>#</th>
@@ -67,7 +67,7 @@
                         
                         <td>
                           <a class="btn btn-success btn-sm" href="{{ route('user.update',$user->id) }}">
-                            <i class="glyphicon glyphicon-pencil"></i></a>
+                            <i class="fa fa-edit"></i></a>
                         </td>
                               
                         <td><form  method="post" action="{{ route('user.delete',$user->id) }}
@@ -84,7 +84,6 @@
 
                 </tbody>
               </table>
-            </div>
           </div>
         <!-- /.box-body -->
       </div>

@@ -195,7 +195,7 @@
               </div>
 
 
-              <div class="col-md-3 display-none" id="doaboxxx">
+              <div class="col-md-3 d-none" id="doaboxxx">
                 <label for="dob">{{ __('adminstaticword.DateofAnniversary') }}: </label>
                 <input value="{{ $user->doa }}" name="doa" id="doa" type="text" class="form-control" placeholder="Enter Date of anniversary">
               </div>
@@ -230,7 +230,7 @@
               </div>
             </div>
 
-            <div class="row display-none" id="update-password">
+            <div class="row d-none" id="update-password">
               <div class="col-md-6">
                 <label>{{ __('adminstaticword.Password') }}</label>
                 <input type="password" name="password" class="form-control" placeholder="Enter password">

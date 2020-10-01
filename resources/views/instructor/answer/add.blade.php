@@ -14,7 +14,7 @@
   @include('admin.message')
   <div class="row">
     <!-- left column -->
-    <div class="col-xs-12"> 
+    <div class="col-12"> 
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
@@ -34,7 +34,7 @@
                   <div class="col-md-12">
                     <label  for="exampleInputTit1e"> {{ __('adminstaticword.Select') }} {{ __('adminstaticword.Question') }}:<sup class="redstar">*</sup></label>
                     <br>
-                    <select name="question_id" required class="form-control col-md-7 col-xs-12 js-example-basic-single">
+                    <select name="question_id" required class="form-control col-md-7 col-12 js-example-basic-single">
                       <option value="none" selected disabled hidden> 
                          {{ __('adminstaticword.SelectanOption') }}
                       </option>

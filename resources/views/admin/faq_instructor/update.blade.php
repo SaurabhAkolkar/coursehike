@@ -14,7 +14,7 @@
 <section class="content">
   <div class="row">
     <!-- left column -->
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.FAQ') }} - {!! $find->title !!}  </h3>
