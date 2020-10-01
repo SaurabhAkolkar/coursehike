@@ -17,37 +17,8 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
   @endphp
 
  
-    <meta name="description" content="{{ $met->meta_data_desc }}">
-    <meta name="keywords" content="{{ $met->meta_data_keyword }}">
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ $met->google_ana }}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', '{{ $met->google_ana }}');
-    </script>
-    <!-- Facebook Pixel Code -->
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '{{ $met->fb_pixel }}');
-      fbq('track', 'PageView');
-    </script>
-
-    <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
-    <noscript>
-      <img style="display:none" src="https://www.facebook.com/tr?id={{ $met->fb_pixel }}&ev=PageView&noscript=1"/>
-    </noscript>
-    <!-- End Facebook Pixel Code -->
- 
-
+  <meta name="description" content="{{ $met->meta_data_desc }}">
+  <meta name="keywords" content="{{ $met->meta_data_keyword }}">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="{{url('css/dashboard/bootstrap.min.css')}}"> <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{ url('css/datepicker.css') }}">
@@ -154,7 +125,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
                   @else
                     <img src="{{ asset('images/default/user.jpg')}}" class="img-circle" alt="User Image">
                   @endif
-                  </br>
+                  <br>
                   <p>
                    {{Auth::User()->fname}}
                     <small>{{ __('adminstaticword.MemberSince') }}: {{ date('jS F Y',strtotime( Auth::User()->created_at))}}</small>
