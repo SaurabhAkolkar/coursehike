@@ -1,0 +1,301 @@
+// Section Hero Page Start
+section.la-lp--page{
+    .la-lp__title{
+        span{font-weight:var(--font-medium);}
+        h2{
+            font-weight:var(--font-bold);
+            color:var(--gray6);
+        }
+        p{font-weight:var(--font-light);}
+    }
+
+    .la-lp__choose-main{
+        .la-lp__choose-title h1{
+            font-size:var(--text-abnormal);
+            color:var(--gray2);
+            font-weight:var(--font-black);
+        }
+
+        .la-lp__choose-bg{
+            background-color:rgba(245,244,240, 0.7);
+            box-shadow: 0px 0px 20px #C5C5C529;
+            padding:var(--size-18) var(--size-12);
+            margin-top:-100px;
+        }
+    }
+}
+
+@media (max-width:767px){
+    section.la-lp--page{
+        .la-lp__choose-main{
+            .la-lp__choose-title h1{
+                font-size:var(--text-8xl);
+                span{
+                    float:right;
+                }
+            }
+            .la-lp__choose-bg{
+                padding:var(--size-20) var(--size-8); 
+            }
+        }
+    }
+}
+
+// Section Hero Page End
+
+// Section All Include Start
+section.la-lp--include{
+    padding:var(--size-20);
+
+    .la-lp__benefits h3{
+        color:var(--gray6);
+        font-weight:var(--font-semibold);
+    }
+}
+
+@media (max-width:767px){
+    section.la-lp--include{
+        padding:var(--size-14) var(--size-8);
+    }  
+}
+// Section All Include End
+
+// Section FAQ Start
+section.la-lp--sub-faq{
+    margin: var(--size-20);
+    padding:var(--size-10) 0;
+
+    .la-lp__lft-content{
+        h4{
+            color:var(--gray5);
+            font-weight:var(--font-bold);
+        }
+        p{
+            font-family:var(--body-font);
+            font-weight:var(--font-light);
+            color:#000000;
+        }
+    }
+
+    .la-lp__rgt-content{
+        .faq-title{
+            color:var(--gray3);
+            font-weight:var(--font-bold);
+        }
+        .la-lp__faq-panel{
+            background:#ffffff;
+            box-shadow: 0px 6px 15px #A4A4A412;
+            border-radius: 10px;
+            padding:var(--size-base);
+            .la-lp__faq-main{
+                .la-lp__faq-title{
+                    font-weight:var(--font-medium);
+                    color:rgba(1,1,1,0.5);
+                                   
+                    [data-toggle="collapse"] {
+                        &:after {
+                            content: "\005E";
+                            margin-right:30px;
+                            float: right;
+                            color: var(--app-indigo-1);
+                            font-size: var(--text-2xl);
+                            line-height: 20px;
+                            transition:.4s ease-in-out;
+                            -webkit-transition:.4s ease-in-out;
+                            -moz-transition:.4s ease-in-out;
+                            -ms-transition:.4s ease-in-out;
+                            -o-transition:.4s ease-in-out;
+                        }
+                    }
+                    [data-toggle="collapse"].collapsed {
+                        &:after {
+                            color: var(--app-indigo-1);
+                            -webkit-transform: rotate(180deg);
+                            -moz-transform: rotate(180deg);
+                            -ms-transform: rotate(180deg);
+                            -o-transform: rotate(180deg);
+                            transform: rotate(180deg);                            
+                        }
+                    }
+                }
+            }
+
+            .la-lp__faq-sub{
+                .la-lp__faq-tag a{
+                    font-weight:var(--font-light);
+                    color:rgba(1,1,1,0.6);
+                }
+                .la-lp__faq-tag a[aria-expanded=true]{
+                        font-family: var(--body-font);
+                        color:var(--app-indigo-1);
+                        opacity:1;
+                }
+                [data-toggle="collapse"] {
+                    &:after {
+                        content: "\005E";
+                        margin-right:20px;
+                        float: right;
+                        color: var(--app-indigo-1);
+                        font-size: var(--text-2xl);
+                        font-weight:var(--font-medium);
+                        line-height: 20px;
+                        transition:.4s ease-in-out;
+                        -webkit-transition:.4s ease-in-out;
+                        -moz-transition:.4s ease-in-out;
+                        -ms-transition:.4s ease-in-out;
+                        -o-transition:.4s ease-in-out;
+                    }
+                }
+                [data-toggle="collapse"].collapsed {
+                    &:after {
+                        color: var(--app-indigo-1);
+                        -webkit-transform: rotate(180deg);
+                        -moz-transform: rotate(180deg);
+                        -ms-transform: rotate(180deg);
+                        -o-transform: rotate(180deg);
+                        transform: rotate(180deg);                            
+                    }
+                }
+                .panel-text{
+                    font-family: var(--body-font);
+                    font-weight:var(--font-light);
+                    color:var(--gray6);
+                }
+            }
+        }
+        .faq-see-all a{
+            font-family:var(--body-font);
+            font-size:var(--text-sm);
+            color:var(--app-indigo-1);
+
+            &:hover{
+                font-size:var(--text-md);
+            }
+        }
+    }
+}
+
+@media (max-width:767px){
+    section.la-lp--sub-faq{
+        margin:0;
+        padding:var(--size-14) var(--size-6);
+
+        .la-lp__rgt-content{
+            .la-lp__faq-panel{
+                .la-lp__faq-main{
+                    .la-lp__faq-title{                                       
+                        [data-toggle="collapse"] {
+                            &:after {
+                                margin-right:5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .la-lp__faq-sub{
+            [data-toggle="collapse"] {
+                &:after {
+                    margin-right:5px !important;
+                    margin-top:-30px;
+                }
+            }
+        }
+
+    }
+}
+// Section FAQ End
+
+// Section Testimonials Start
+section.la-lp--testimonials{
+    padding:var(--size-20);
+    .la-lp__test-lft{
+        margin:var(--size-20) 0;
+        padding:var(--size-20) 0;
+        h4{
+            color:var(--gray5);
+            font-weight:var(--font-bold);
+        }
+        p{
+            font-weight:var(--font-normal);
+            color:rgba(0,0,0,0.73);
+        }
+    }
+
+    .la-lp__test-rgt{
+        .la-lp__test-cards{
+            padding:var(--size-10);
+            .la-lp__card-itm{
+                width:440px;
+                height:auto;
+                background-color:#ffffff;
+                box-shadow: 0px 31px 39px #A4A4A424;
+                border:none;
+                border-radius: 10px;
+                padding:var(--size-10);
+                transition:all .25s ease-in;-webkit-transition:all .25s ease-in;-moz-transition:all .25s ease-in;-ms-transition:all .25s ease-in;-o-transition:all .25s ease-in;
+
+                &:hover{
+                    transform:scale(1.2);-webkit-transform:scale(1.2);-moz-transform:scale(1.2);-ms-transform:scale(1.2);-o-transform:scale(1.2);
+                    transition:all .2s ease-out;-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;-ms-transition:all .2s ease-out;-o-transition:all .2s ease-out;
+                }
+
+                .la-lp__profile{
+                    .la-lp__name{
+                        font-weight:var(--font-semibold);
+                        color:var(--gray7);
+                    }
+                    .la-lp__desg{
+                        font-weight:var(--font-normal);
+                        color:(--gray7);
+                    }
+                }
+
+                p{
+                    font-weight:var(--font-normal);
+                    color:var(--gray5);
+                }
+            }
+
+            ul.la-lp__card-list{
+                float:right;
+                li{
+                    width:10px;
+                    height:10px;
+                    border: 1px solid #FFC516;
+                    border-radius:var(--rounded-full);
+                    margin:var(--size-base) 0;
+                    cursor:pointer;
+                    a{
+                        padding:var(--size-base);
+                    }
+                    &:hover{
+                        background-color:#FFC516;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:767px){
+    section.la-lp--testimonials{
+        padding:var(--size-14) var(--size-6);
+        .la-lp__test-lft{
+            margin: 0;
+            padding: 0;
+        }
+        .la-lp__test-rgt{
+            .la-lp__test-cards{
+                padding:0;
+                .la-lp__card-itm{
+                    padding:var(--size-4);
+                    margin:var(--size-2);
+                    border-radius:0;
+                }
+            }
+        }
+    }
+}
+// Section Testimonials End

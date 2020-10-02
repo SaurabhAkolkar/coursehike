@@ -1,0 +1,47 @@
+#{$ap}- {
+    // Header: Start
+    &header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: var(--white);
+        z-index: var(--header-z);
+        &__ {
+            &inner {
+
+            }
+
+            &brand {
+                margin-right: var(--size-9);
+            }
+
+            &nav {
+                &- {
+                    &item {
+                        margin-right: var(--size-12);
+                    }
+                    &link {
+                        font-size: var(--text-lg);
+                        font-weight: var(--font-bold);
+                        font-family: var(--head-font);
+                    }
+                }
+            }
+
+            &menu {
+                &- {
+                    &item {
+                        margin-left: var(--size-7);
+                    }
+                    &link {
+                        font-size: var(--text-lg);
+                        font-weight: var(--font-bold);
+                        font-family: var(--head-font);
+                    }
+                }
+            }
+        }
+    }
+    // Header: End
+}

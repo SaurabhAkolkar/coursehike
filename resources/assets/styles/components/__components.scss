@@ -1,0 +1,241 @@
+@import './mentors', 
+        './course', // Course
+        './vcourse', // View Course
+        './course-benefits', 
+        './choose-plans', // Choose Plan Component
+        './dmentors', // Mentors List in Dashboard
+        './process', 
+        './box-banner', 
+        './faq',
+        './profile/__profile',
+        './gsearch',
+        './cmenu',
+        './mccourse', // Master Class Course
+        './form-elements', // Form Elements
+        './cart/__cart', // cart
+        './entry', // Login, register, interest, creator-signup
+        './artist'; // Artist
+
+#{$ap}- {
+
+    // Section: Start
+    &section {
+        padding: var(--size-16) 0;
+        &__ {
+            &title {
+                &-- {
+                    &big {
+                        font-family: var(--head-font);
+                        font-weight: var(--font-black);
+                        text-transform: uppercase;
+                        font-size: var(--text-abnormal);
+                        color: var(--gray2);
+                    }
+                }
+
+            }
+
+            &subtitle {
+                // Bold 32px/37px Raleway;
+                font-weight: var(--font-bold);
+                font-size: var(--text-4xl);
+                font-family: var(--head-font);
+                margin-bottom: var(--size-5);
+            }
+
+            &text {
+                // Light 20px/30px Roboto;
+                font-size: var(--text-xl);
+                font-weight: var(--font-light);
+            }
+        }
+
+        &-- {
+            &grey {
+                background-color: var(--gray);
+            }
+            &hero {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                // height: calc(100vh - var(--size-18));
+                // max-height: 100vh;
+
+                #{$ap}-section__title {
+                    position: absolute;
+                    bottom: 27%;
+                    color: rgba(0, 0, 0, 0.6);
+                    mix-blend-mode: multiply;
+                    right: 14%;
+                }
+            }
+        }
+    }
+
+    // Section: End
+
+    // SpecialOffer: Start
+    &soffer {
+        margin-left: var(--size-8);
+
+        &__ {
+            &bestprice {
+                font-size: var(--text-2xl);
+                color: #1EC812;
+            }
+
+            &realprice {
+                font-weight: var(--font-thin);
+                font-size: var(--text-lg);
+                color: #6D6D6D;
+                text-decoration: line-through #ff0000;
+            }
+        }
+    }
+
+    // SpecialOffer: End
+
+    // Button: Start
+    &btn {
+        font-weight: var(--font-bold);
+        font-size: var(--text-sm);
+        text-transform: uppercase;
+        letter-spacing: 3.2px;
+        color: #222222;
+        border: 2px solid #1EC812;
+        padding: var(--size-4) var(--size-9);
+        border-radius: var(--size-2);
+        background: none;
+
+        &-- {
+            &primary {
+
+            }
+            &secondary {
+                border-color: #7400D7;
+                color: #7400D7;
+
+                &.text--white {
+                    color: var(--white) !important;
+                }
+
+                &.text--black {
+                    color: #000000 !important;
+                }
+
+                &:hover {
+                    border-color: #7400D7 !important;
+                    background-color: #7400D7 !important;
+                }
+            }
+        }
+
+        &:hover {
+            background-color: #1EC812;
+            border-color: #1EC812;
+            color: #fff;
+        }
+    }
+
+    // BUtton: End
+
+    // Hero: Start
+    &hero {
+        &__ {
+            &tag {
+                font-size: var(--text-2xl);
+                font-weight: var(--font-extrabold);
+                font-family: var(--head-font);
+                color: #222;
+            }
+
+            &title {
+                font-size: calc(var(--text-2xl) * 3);
+                font-weight: var(--font-black);
+                line-height: 1;
+                color: #010101;
+                font-family: var(--head-font);
+                margin-bottom: var(--size-4);
+                // Black 74px/75px Raleway;
+
+                &-- {
+                    &secondary {    
+                        color: var(--gray7) !important;
+                        font-size: calc(var(--text-xl) * 3) !important;
+                    }
+                }
+            }
+
+            &bottom {
+                &- {
+                    &trial, &browse {
+                        letter-spacing: 3.2px;
+                    }
+                }
+            }
+
+            &lead {
+                // Regular 24px/29px Roboto;
+                font-size: var(--text-2xl);
+                margin-bottom: var(--size-7);
+            }
+
+            &img {
+                &:before {
+                    content: "";
+                    width: 791px;
+                    height: 701px;
+                    border-left: 0.5px solid #FFC516;
+                    opacity: 0.5;
+                    transform: rotate(-55deg) translate(119px, 10px);
+                    top: 0px;
+                    left: 0;
+                    z-index: -1;
+                    position: absolute;
+                }
+            }
+
+            &actions {}
+
+
+        }
+    }
+
+    // Hero: End
+
+    // Hero-Back_circle: Start
+    &circle {
+        &__{
+            &back {
+                width: 775px;
+                height: 775px;
+                border-radius: 100%;
+                top: -243px;
+                left: 640px;
+                background: transparent linear-gradient(233deg, #FFC516 0%, #FFE598 100%) 0% 0% no-repeat padding-box;
+                opacity: 1;
+                position: absolute;
+            }
+        }
+    }
+    // Hero-Back_circle: End
+
+    
+
+    // Box: Start
+    &box {
+        background: var(--white);
+        border: 1px solid #7400D7;
+        box-shadow: 0px 0px 30px #D4D4D47A;
+        border-radius: var(--size-3);
+
+        &__ {
+            &inner {
+                padding: var(--size-16);
+                // padding-right: calc(var(--size-20) + var(--size-12));
+            }
+        }
+    }
+
+    // Box: End
+}

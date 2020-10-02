@@ -1,0 +1,189 @@
+#{$ap}- {
+    &vcourse {
+        --playerW: 528px;
+        --playerH: 296px;
+
+        &__ {
+            &header {
+
+            }
+
+            &title {
+                font-size: var(--text-6xl);
+                font-weight: var(--font-extrabold);
+                font-family: var(--head-font);
+                color: var(--gray5);
+            }
+
+            &badge {
+
+            }
+            &rating {
+
+            }
+            &excerpt {
+                color: var(--gray5);
+            }
+            &creator {
+                &- {
+                    &avator {
+                        width: var(--size-14);
+                        height: var(--size-14);
+                        border-radius: var(--rounded-full);
+                        overflow: hidden;
+                    }
+                    &name {
+                        margin-left: var(--size-4);
+                        font-size: var(--text-2xl);
+                        color: var(--gray5);
+                    }
+                }
+            }
+
+            &buy {
+
+            }
+            &info {
+
+            }
+
+            &videos {
+
+            }
+
+            &learners {
+
+            }
+            &level {
+
+            }
+
+            &duration, &updatedon, &languages {
+                font-size: var(--text-sm);
+            }
+
+            &player {
+                width: var(--playerW);
+                height: var(--playerH);
+                background: var(--gray);
+            }
+
+            &curriculam {
+                max-height: var(--playerH);
+                overflow: auto;
+            }
+
+            &class {
+                --classThumbW: 32px;
+                --classThumbH: 32px;
+                position: relative;
+                &:not(:last-child) {
+                    padding-bottom: var(--size-10);
+                }
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 2px;
+                    height: 100%;
+                    background: var(--gray7)
+                }
+
+                &- {
+                    &header {
+                        position: relative;
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: calc((var(--size-7) - 1px) * -1);
+                            width: var(--size-4);
+                            height: var(--size-4);
+                            border: 2px solid var(--gray7);
+                            background: var(--white);
+                            border-radius: var(--rounded-full);
+                        }
+                    }
+
+                    &thumb {
+                        width: var(--classThumbW);
+                        height: var(--classThumbH);
+                        overflow: hidden;
+                    }
+
+                    &videoscount {
+                        color: var(--gray9);
+                    }
+                }
+            }
+
+            &lesson {
+                --videoW: 148px;
+                --videoH: 84px;
+                &s {
+
+                }
+
+                & {
+                    display: flex;
+                    padding-top: var(--size-3);
+                    padding-bottom: var(--size-3);
+                    padding-left: var(--size-5);
+                    padding-right: var(--size-5);
+                    &:hover {
+                        background: var(--gray);
+                    }
+                    &- {
+                        &left {
+
+                        }
+
+                        &right {
+
+                        }
+
+                        &videothumb {
+                            position: relative;
+                            width: var(--videoW);
+                            height: var(--videoH);
+                            background: rgba($gray10, 0.34);
+                            overflow: hidden;
+                        }
+
+                        &title {
+                            color: var(--gray5);
+                        }
+
+                        &creator {
+                            font-size: var(--text-sm);
+                            color: rgba($gray6, 0.5);
+                        }
+
+                        &learnt {
+                            color: var(--green);
+                            font-size: var(--text-sm);
+                        }
+
+                        &status {
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &vlesson {
+        &__ {
+            &title {
+                font-size: var(--text2xl);
+                color: var(--gray5);
+            }
+
+            &creator {
+
+            }
+        }
+    }
+}
