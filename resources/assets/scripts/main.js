@@ -42,4 +42,12 @@ $(function(){
         }
       });
 
+      $("#rateYo").rateYo({
+        starWidth: "15px",
+        rating: 3.6,
+        readOnly: true,
+        normalFill: "#D5D5D5",
+        ratedFill: "#FFC516"
+    });
+
 }); 
