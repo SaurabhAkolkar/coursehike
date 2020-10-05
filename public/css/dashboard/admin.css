@@ -693,6 +693,7 @@ button.dt-button, div.dt-button, a.dt-button {
 	  opacity:0;
 	  display:block;
 	  cursor:pointer;
+	  z-index: 2;
   }
 
   .la-admin__subform-group{

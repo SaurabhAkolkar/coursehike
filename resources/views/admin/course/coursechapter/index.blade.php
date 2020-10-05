@@ -10,7 +10,7 @@
             <tr>
               <th>#</th>
               <th>{{ __('adminstaticword.Course') }}</th>
-              <th>{{ __('adminstaticword.ChapterName') }}</th>
+              <th>{{ __('adminstaticword.ClassName') }}</th>
               <th>{{ __('adminstaticword.Status') }}</th>
               <th>{{ __('adminstaticword.Edit') }}</th>
               <th>{{ __('adminstaticword.Delete') }}</th>

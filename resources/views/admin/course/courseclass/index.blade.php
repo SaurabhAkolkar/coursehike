@@ -207,20 +207,6 @@
               </div>
               <!-- ADD CLASS STATUS: END -->
 
-              <!-- ADD CLASS MASTER TOGGLER: START -->
-              <div class="row">
-                <div class="col-12">
-                    <div class="la-admin__master-toggler">
-                      <label for="" class="la-admin__preview-label"> Master Class<sup class="redstar">*</sup></label>
-                      <div class="la-admin__master-class">
-                            <input type="checkbox" id="class-switch" name="class-switch" class="la-admin__toggle-switch" />
-                            <label for="class-switch" class="la-admin__toggle-label"></label> 
-                      </div>
-                    </div>
-                </div>
-              </div>
-              <!-- ADD CLASS MASTER TOGGLER: END -->
-
                 <div class="row">
                   <div class="col-md-12">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:</label>
@@ -283,14 +269,14 @@
 
                   <!--video-->
                   <div class="col-md-12 display-none" id="videotype">
-                    <input type="radio" name="checkVideo" id="ch1" value="url">&nbsp;{{ __('adminstaticword.URL') }}
-                    &emsp;
+                    {{-- <input type="radio" name="checkVideo" id="ch1" value="url">&nbsp;{{ __('adminstaticword.URL') }}
+                    &emsp; --}}
                     <input type="radio" name="checkVideo" id="ch2" value="uploadvideo">&nbsp;{{ __('adminstaticword.UploadVideo') }}
                     &emsp;
-                    <input type="radio" name="checkVideo" id="ch9" value="iframeurl">&nbsp;{{ __('adminstaticword.IframeURL') }}
+                    {{-- <input type="radio" name="checkVideo" id="ch9" value="iframeurl">&nbsp;{{ __('adminstaticword.IframeURL') }}
                     &emsp;
                     <input type="radio" name="checkVideo" id="ch10" value="liveurl">&nbsp;{{ __('adminstaticword.LiveClass') }}
-                    &emsp;
+                    &emsp; --}}
                     
                     @if($gsetting->aws_enable == 1)
                     <input type="radio" name="checkVideo" id="ch13" value="aws_upload">&nbsp;{{ __('adminstaticword.AWSUpload') }}
