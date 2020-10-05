@@ -139,8 +139,8 @@
                   <div class="col-md-6">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                     <li class="tg-list-item">   
-                      <input class="tgl tgl-skewed" id="c18" name="status"  type="checkbox"/>
-                      <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="c18"></label>
+                      <input class="la-admin__toggle-switch" id="c18" name="status"  type="checkbox"/>
+                      <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="c18"></label>
                     </li>
                     <input type="hidden" name="free" value="1" id="t18">
                   </div>
@@ -148,8 +148,8 @@
                 <div class="col-md-6">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.QuizReattempt') }}:</label>
                     <li class="tg-list-item">              
-                      <input class="tgl tgl-skewed" id="111" type="checkbox" name="quiz_again"  >
-                      <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="111"></label>
+                      <input class="la-admin__toggle-switch" id="111" type="checkbox" name="quiz_again"  >
+                      <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="111"></label>
                     </li>
                     <input type="hidden" name="free" value="0" for="status" id="13">
                 </div>

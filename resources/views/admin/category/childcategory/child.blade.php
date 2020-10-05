@@ -51,8 +51,8 @@
               <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
               <br>
                 <li class="tg-list-item">
-                <input class="tgl tgl-skewed" id="c101"  type="checkbox"/>
-                <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="c101"></label>
+                <input class="la-admin__toggle-switch" id="c101"  type="checkbox"/>
+                <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="c101"></label>
                 
                 </li>
                 <input type="hidden" name="status" value="0" id="t101">

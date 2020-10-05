@@ -824,7 +824,7 @@ button.dt-button, div.dt-button, a.dt-button {
 	width:60px;
 	height:24px;
 	background-color: #EEEEEE;
-	margin:10px 0 10px 10px;
+	margin:10px 0 10px 0;
 }
 .la-admin__toggle-label::after{
 	content: "";

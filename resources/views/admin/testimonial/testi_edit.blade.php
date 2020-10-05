@@ -53,8 +53,8 @@
                 <div class="col-md-6">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                   <li class="tg-list-item">              
-                    <input class="tgl tgl-skewed" id="welmail" type="checkbox" name="status" {{ $test->status == '1' ? 'checked' : '' }} >
-                    <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="welmail"></label>
+                    <input class="la-admin__toggle-switch" id="welmail" type="checkbox" name="status" {{ $test->status == '1' ? 'checked' : '' }} >
+                    <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="welmail"></label>
                   </li>
                   <input type="hidden"  name="free" value="0" for="welmail" id="welmail">
                 </div>

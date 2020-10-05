@@ -315,9 +315,9 @@
                 <div class="col-md-12">
                   <label for="exampleInputDetails">{{ __('adminstaticword.PreviewVideo') }}:</label>  
                   <li class="tg-list-item"> 
-                    <input name="preview_type" class="tgl tgl-skewed" id="previewvide" type="checkbox" >
+                    <input name="preview_type" class="la-admin__toggle-switch" id="previewvide" type="checkbox" >
 
-                    <label class="tgl-btn" data-tg-off="URL" data-tg-on="Upload" for="previewvide" ></label>
+                    <label class="la-admin__toggle-label" data-tg-off="URL" data-tg-on="Upload" for="previewvide" ></label>
                   </li>
                   <input type="hidden" name="free" value="0" id="to">
 
@@ -346,8 +346,8 @@
                 <div class="col-md-4"> 
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                   <li class="tg-list-item">              
-                  <input class="tgl tgl-skewed" id="status" type="checkbox" name="status" {{ $cate->status == '1' ? 'checked' : '' }} >
-                  <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
+                  <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" {{ $cate->status == '1' ? 'checked' : '' }} >
+                  <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
                 </li>
                 <input type="hidden"  name="free" value="0" for="status" id="status">
                   <br>
@@ -355,8 +355,8 @@
                 <div class="col-md-4"> 
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Featured') }}:</label>
                   <li class="tg-list-item">              
-                  <input class="tgl tgl-skewed" id="featured" type="checkbox" name="featured" {{ $cate->featured == '1' ? 'checked' : '' }} >
-                  <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="featured"></label>
+                  <input class="la-admin__toggle-switch" id="featured" type="checkbox" name="featured" {{ $cate->featured == '1' ? 'checked' : '' }} >
+                  <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="featured"></label>
                 </li>
                   <input type="hidden" name="free" value="0" id="featured">
                   <br>

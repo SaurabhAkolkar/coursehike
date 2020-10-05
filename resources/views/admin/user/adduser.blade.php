@@ -164,8 +164,8 @@
                 <label for="exampleInputDetails">{{ __('adminstaticword.Verified') }}:</label> 
                 <li class="tg-list-item">
                 
-                <input class="tgl tgl-skewed" id="jeet1"   type="checkbox"/>
-                <label class="tgl-btn" data-tg-off="Off" data-tg-on="On" for="jeet1"></label>
+                <input class="la-admin__toggle-switch" id="jeet1"   type="checkbox"/>
+                <label class="la-admin__toggle-label" data-tg-off="Off" data-tg-on="On" for="jeet1"></label>
                 
                 </li>
                 <input type="hidden" name="verified" value="0" id="jeet11"> 
@@ -174,8 +174,8 @@
               <div class="col-md-3">
                 <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                 <li class="tg-list-item">     
-                <input class="tgl tgl-skewed" id="jeet120"  type="checkbox"/>
-                <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="jeet120"></label>
+                <input class="la-admin__toggle-switch" id="jeet120"  type="checkbox"/>
+                <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="jeet120"></label>
                 </li>
                 <input type="hidden" name="status" value="0" id="jeet121">
               </div>
@@ -234,9 +234,9 @@
                 <i class="fa fa-plus-circle"></i> {{ __('adminstaticword.AddUser') }}
               </button>
             </form>
-              <a href="{{ route('user.index') }}" title="Cancel and go back" class="btn btn-md btn-default btn-flat">
+             <!-- <a href="{{ route('user.index') }}" title="Cancel and go back" class="btn btn-md btn-default btn-flat">
                 <i class="fa fa-reply"></i> {{ __('adminstaticword.Back') }}
-              </a>
+              </a> -->
             </div>
             <br>
 

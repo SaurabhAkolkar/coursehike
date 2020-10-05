@@ -47,8 +47,8 @@
 							<div class="col-md-12">
 								<label for="">{{ __('adminstaticword.PaytmEnable') }}: </label>
 								<li class="tg-list-item">              
-						            <input class="tgl tgl-skewed" id="paytm" type="checkbox" name="paytm_enable" {{ $setting['paytm_enable'] == '1' ? 'checked' : '' }} >
-						            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="paytm"></label>
+						            <input class="la-admin__toggle-switch" id="paytm" type="checkbox" name="paytm_enable" {{ $setting['paytm_enable'] == '1' ? 'checked' : '' }} >
+						            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="paytm"></label>
 					            </li>
 					            <input type="hidden"  name="free" value="0" for="paytm" id="paytm">
 							</div>
@@ -59,8 +59,8 @@
 							<div class="col-md-12">
 								<label for="">{{ __('adminstaticword.PaypalEnable') }}: </label>
 								<li class="tg-list-item">              
-						            <input class="tgl tgl-skewed" id="paypal" type="checkbox" name="paypal_enable" {{ $setting['paypal_enable'] == '1' ? 'checked' : '' }} >
-						            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="paypal"></label>
+						            <input class="la-admin__toggle-switch" id="paypal" type="checkbox" name="paypal_enable" {{ $setting['paypal_enable'] == '1' ? 'checked' : '' }} >
+						            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="paypal"></label>
 					            </li>
 					            <input type="hidden"  name="free" value="0" for="paypal" id="paypal">
 							</div>
@@ -71,8 +71,8 @@
 							<div class="col-md-12">
 								<label for="">{{ __('adminstaticword.BankTransferEnable') }}: </label>
 								<li class="tg-list-item">              
-						            <input class="tgl tgl-skewed" id="bank" type="checkbox" name="bank_enable" {{ $setting['bank_enable'] == '1' ? 'checked' : '' }} >
-						            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="bank"></label>
+						            <input class="la-admin__toggle-switch" id="bank" type="checkbox" name="bank_enable" {{ $setting['bank_enable'] == '1' ? 'checked' : '' }} >
+						            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="bank"></label>
 					            </li>
 					            <input type="hidden"  name="free" value="0" for="bank" id="bank">
 							</div>

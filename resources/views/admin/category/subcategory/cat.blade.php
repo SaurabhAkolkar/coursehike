@@ -42,8 +42,8 @@
             <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
             <br>
             <li class="tg-list-item">
-              <input class="tgl tgl-skewed" id="c1001"  type="checkbox"/>
-              <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="c1001"></label>
+              <input class="la-admin__toggle-switch" id="c1001"  type="checkbox"/>
+              <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="c1001"></label>
             </li>
             <input type="hidden" name="status" value="0" id="t1001">
 
@@ -53,8 +53,8 @@
           <div class="col-md-6">
             <label for="exampleInputDetails">{{ __('adminstaticword.Featured') }}:</label>
               <li class="tg-list-item">              
-              <input class="tgl tgl-skewed" id="featured" type="checkbox" name="featured" >
-              <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="featured"></label>
+              <input class="la-admin__toggle-switch" id="featured" type="checkbox" name="featured" >
+              <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="featured"></label>
             </li>
             <input type="hidden"  name="free" value="0" for="featured" id="featured">
           </div>

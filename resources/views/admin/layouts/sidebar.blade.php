@@ -5,10 +5,10 @@
       <div class="user-panel">
         <div class="pull-left image">
           @if(Auth::User()->user_img != null || Auth::User()->user_img !='')
-          <img src="{{ asset('images/user_img/'.Auth::User()->user_img)}}" class="img-circle" alt="User Image">
+          <img src="{{ asset('images/user_img/'.Auth::User()->user_img)}}" class="img-circle rounded-circle" alt="User Image">
 
           @else
-          <img src="{{ asset('images/default/user.jpg') }}" class="img-circle" alt="User Image">
+          <img src="{{ asset('images/default/user.jpg') }}" class="img-circle rounded-circle" alt="User Image">
 
           @endif
         </div>
@@ -22,9 +22,9 @@
         <ul class="sidebar-menu" data-widget="tree">
           <!-- <li class="header">{{ __('adminstaticword.Navigation') }}</li> -->
         
-          <li class="{{ Nav::isRoute('admin.index') }}"><a href="{{route('admin.index')}}"><i class="flaticon-web-browser" aria-hidden="true"></i><span>{{ __('adminstaticword.Dashboard') }}</span></a></li>
+          <li class="{{ Nav::isRoute('admin.index') }}"><a href="{{route('admin.index')}}"><i class="la-icon icon-dashboard mr-3" aria-hidden="true"></i><span>{{ __('adminstaticword.Dashboard') }}</span></a></li>
 
-          <li class="{{ Nav::isRoute('user.index') }} {{ Nav::isRoute('user.add') }} {{ Nav::isRoute('user.edit') }}"><a href="{{route('user.index')}}"><i class="flaticon-user" aria-hidden="true"></i><span>{{ __('adminstaticword.Users') }}</span></a></li>
+          <li class="{{ Nav::isRoute('user.index') }} {{ Nav::isRoute('user.add') }} {{ Nav::isRoute('user.edit') }}"><a href="{{route('user.index')}}"><i class="la-icon la-icon--xl icon-profile  mr-3" aria-hidden="true"></i><span>{{ __('adminstaticword.Users') }}</span></a></li>
 
           @if(isset($zoom_enable) && $zoom_enable == 1)
           <li class="{{ Nav::isRoute('meeting.create') }} {{ Nav::isRoute('zoom.show') }} {{ Nav::isRoute('zoom.edit') }} {{ Nav::isRoute('zoom.setting') }} {{ Nav::isRoute('zoom.index') }} {{ Nav::isRoute('meeting.show') }} treeview">
@@ -79,8 +79,8 @@
 
           <li class="{{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('course') }} {{ Nav::isResource('bundle') }} {{ Nav::isResource('courselang') }} treeview">
             <a href="#">
-                <i class="flaticon-browser-1"></i>{{ __('adminstaticword.Course') }}
-                <i class="fa fa-angle-left pull-right"></i>
+                <i class="la-icon la-icon--xl icon-courses mr-3"></i>{{ __('adminstaticword.Course') }}
+                <i class="fa fa-angle-up pull-right"></i>
             </a>                            
 
             <ul class="treeview-menu">
@@ -108,11 +108,11 @@
             </ul>
           </li>
 
-          <li class="{{ Nav::isResource('coupon') }}"><a href="{{url('coupon')}}"><i class="flaticon-coupon" aria-hidden="true"></i><span>{{ __('adminstaticword.Coupon') }}</span></a></li>
+          <li class="{{ Nav::isResource('coupon') }}"><a href="{{url('coupon')}}"><i class="la-icon la-icon--xl icon-coupon mr-3" aria-hidden="true"></i><span>{{ __('adminstaticword.Coupon') }}</span></a></li>
 
           <li class="{{ Nav::isRoute('all.instructor') }} {{ Nav::isResource('requestinstructor') }} treeview">
            <a href="#">
-             <i class="flaticon-teacher" aria-hidden="true"></i> <span>{{ __('adminstaticword.Instructor') }}</span>
+             <i class="la-icon la-icon--xl icon-users mr-3" aria-hidden="true"></i> <span>{{ __('adminstaticword.Instructor') }}</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -124,7 +124,7 @@
           </li> 
           
 
-           <li class="{{ Nav::isResource('order') }}"><a href="{{url('order')}}"><i class="flaticon-shopping-cart" aria-hidden="true"></i><span>{{ __('adminstaticword.Order') }}</span></a></li>
+           <li class="{{ Nav::isResource('order') }}"><a href="{{url('order')}}"><i class="la-icon la-icon--xl icon-cart mr-3" aria-hidden="true"></i><span>{{ __('adminstaticword.Order') }}</span></a></li>
          <!--
           <li class="{{ Nav::isResource('page') }}"><a href="{{url('page')}}"><i class="flaticon-computer" aria-hidden="true"></i><span>{{ __('adminstaticword.Pages') }}</span></a></li>
           -->

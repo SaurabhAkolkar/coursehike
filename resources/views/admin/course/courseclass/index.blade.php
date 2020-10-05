@@ -381,8 +381,8 @@
                   <div class="col-md-12 display-none" id="previewUrl">
                     <label for="exampleInputDetails">{{ __('adminstaticword.PreviewVideo') }}:</label>
                     <li class="tg-list-item">              
-                      <input name="preview_type" class="tgl tgl-skewed" id="previewvid" type="checkbox"/>
-                      <label class="tgl-btn" data-tg-off="URL" data-tg-on="Upload" for="previewvid"></label>                
+                      <input name="preview_type" class="la-admin__toggle-switch" id="previewvid" type="checkbox"/>
+                      <label class="la-admin__toggle-label" data-tg-off="URL" data-tg-on="Upload" for="previewvid"></label>                
                     </li>
                     <input type="hidden" name="free" value="0" id="cxv">
                  
@@ -404,16 +404,16 @@
                   <div class="col-md-4">    
                     <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                     <li class="tg-list-item">   
-                      <input class="tgl tgl-skewed" id="c11"  type="checkbox"/>
-                      <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="c11"></label>
+                      <input class="la-admin__toggle-switch" id="c11"  type="checkbox"/>
+                      <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="c11"></label>
                     </li>
                     <input type="hidden" name="status" value="1" id="t11">
                   </div>
                   <div class="col-md-4">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Featured') }}:</label>    
                     <li class="tg-list-item">
-                      <input class="tgl tgl-skewed" id="cb100"   type="checkbox"/>
-                      <label class="tgl-btn" data-tg-off="NO" data-tg-on="YES" for="cb100"></label>
+                      <input class="la-admin__toggle-switch" id="cb100"   type="checkbox"/>
+                      <label class="la-admin__toggle-label" data-tg-off="NO" data-tg-on="YES" for="cb100"></label>
                     </li>
                     <input type="hidden" name="featured" value="1" id="c100">
                   </div>

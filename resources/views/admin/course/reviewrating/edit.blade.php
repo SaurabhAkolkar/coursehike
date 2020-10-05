@@ -50,24 +50,24 @@
                 <div class="col-md-3">
                   <label for="status">{{ __('adminstaticword.Status') }}:</label>
                   <li class="tg-list-item">
-                  <input class="tgl tgl-skewed" id="abcde" type="checkbox" {{ $jp->status==1 ? 'checked' : '' }}>
-                  <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="abcde"></label>
+                  <input class="la-admin__toggle-switch" id="abcde" type="checkbox" {{ $jp->status==1 ? 'checked' : '' }}>
+                  <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="abcde"></label>
                   </li>
                   <input type="hidden" name="status" value="{{ $jp->status }}" id="abcdef">
                 </div>
                 <div class="col-md-3">
                   <label for="approved">{{ __('adminstaticword.Approved') }}:</label>
                   <li class="tg-list-item">
-                    <input class="tgl tgl-skewed" id="cb10112" type="checkbox" {{ $jp->approved==1 ? 'checked' : '' }}>
-                    <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="cb10112"></label>
+                    <input class="la-admin__toggle-switch" id="cb10112" type="checkbox" {{ $jp->approved==1 ? 'checked' : '' }}>
+                    <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="cb10112"></label>
                   </li>
                   <input type="hidden" name="approved" value="{{ $jp->approved }}" id="jjjj">
                 </div>
                 <div class="col-md-3">
                   <label for="featured">{{ __('adminstaticword.Featured') }}:</label>
                   <li class="tg-list-item">
-                  <input class="tgl tgl-skewed" id="featured1" type="checkbox" {{ $jp->featured==1 ? 'checked' : '' }}>
-                  <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="featured1"></label>
+                  <input class="la-admin__toggle-switch" id="featured1" type="checkbox" {{ $jp->featured==1 ? 'checked' : '' }}>
+                  <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="featured1"></label>
                   </li>
                   <input type="hidden" name="featured" value="{{ $jp->featured }}" id="featured2">
                 </div>

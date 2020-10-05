@@ -20,8 +20,8 @@
 								<div class="col-md-12">
 			                        <label  for="one_enable">Section One Header</label>
 			                        <li class="tg-list-item">
-			                          <input name="one_enable" class="tgl tgl-skewed" id="sec_one1" type="checkbox" {{ $data['one_enable']==1 ? 'checked' : '' }}/>
-			                          <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="sec_one1"></label>
+			                          <input name="one_enable" class="la-admin__toggle-switch" id="sec_one1" type="checkbox" {{ $data['one_enable']==1 ? 'checked' : '' }}/>
+			                          <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="sec_one1"></label>
 			                        </li>
 
 			                        <br>
@@ -58,8 +58,8 @@
 								<div class="col-md-12">
 			                        <label  for="two_enable">Section Two Instructor Profile</label>
 			                        <li class="tg-list-item">
-			                          <input name="two_enable" class="tgl tgl-skewed" id="sec_two2" type="checkbox" {{ $data['two_enable']==1 ? 'checked' : '' }}/>
-			                          <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="sec_two2"></label>
+			                          <input name="two_enable" class="la-admin__toggle-switch" id="sec_two2" type="checkbox" {{ $data['two_enable']==1 ? 'checked' : '' }}/>
+			                          <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="sec_two2"></label>
 			                        </li>
 
 			                        <br>
@@ -164,8 +164,8 @@
 								<div class="col-md-12">
 			                        <label for="three_enable">Section Three</label>
 			                        <li class="tg-list-item">
-			                          <input name="three_enable" class="tgl tgl-skewed" id="sec_three3" type="checkbox" {{ $data['three_enable']==1 ? 'checked' : '' }}/>
-			                          <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="sec_three3"></label>
+			                          <input name="three_enable" class="la-admin__toggle-switch" id="sec_three3" type="checkbox" {{ $data['three_enable']==1 ? 'checked' : '' }}/>
+			                          <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="sec_three3"></label>
 			                        </li>
 
 			                        <br>
@@ -255,8 +255,8 @@
 								<div class="col-md-12">
 			                        <label  for="four_enable">Section Four</label>
 			                        <li class="tg-list-item">
-			                          <input name="four_enable" class="tgl tgl-skewed" id="sec_four4" type="checkbox" {{ $data['four_enable']==1 ? 'checked' : '' }}/>
-			                          <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="sec_four4" ></label>
+			                          <input name="four_enable" class="la-admin__toggle-switch" id="sec_four4" type="checkbox" {{ $data['four_enable']==1 ? 'checked' : '' }}/>
+			                          <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="sec_four4" ></label>
 			                        </li>
 
 			                        <br>
@@ -323,8 +323,8 @@
 								<div class="col-md-12">
 			                        <label  for="five_enable">Section Five</label>
 			                        <li class="tg-list-item">
-			                          <input name="five_enable" class="tgl tgl-skewed" id="sec_five5" type="checkbox" {{ $data['five_enable']==1 ? 'checked' : '' }}/>
-			                          <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="sec_five5"></label>
+			                          <input name="five_enable" class="la-admin__toggle-switch" id="sec_five5" type="checkbox" {{ $data['five_enable']==1 ? 'checked' : '' }}/>
+			                          <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="sec_five5"></label>
 			                        </li>
 
 			                        <br>
@@ -372,8 +372,8 @@
 								<div class="col-md-12">
 			                        <label  for="six_enable">Section Six</label>
 			                        <li class="tg-list-item">
-			                          <input name="six_enable" class="tgl tgl-skewed" id="sec_six6" type="checkbox" {{ $data['six_enable']==1 ? 'checked' : '' }}/>
-			                          <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="sec_six6"></label>
+			                          <input name="six_enable" class="la-admin__toggle-switch" id="sec_six6" type="checkbox" {{ $data['six_enable']==1 ? 'checked' : '' }}/>
+			                          <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="sec_six6"></label>
 			                        </li>
 
 			                        <br>

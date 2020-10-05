@@ -114,8 +114,8 @@
                 <div class="col-md-3 display-none">
                   <label for="exampleInputDetails">{{ __('adminstaticword.MoneyBack') }}:</label>
                   <li class="tg-list-item">
-                    <input class="tgl tgl-skewed" id="cb01" type="checkbox"/>
-                    <label class="tgl-btn" data-tg-off="No" data-tg-on="Yes" for="cb01"></label>
+                    <input class="la-admin__toggle-switch" id="cb01" type="checkbox"/>
+                    <label class="la-admin__toggle-label" data-tg-off="No" data-tg-on="Yes" for="cb01"></label>
                   </li>
                   <input type="hidden" name="free" value="0" id="cb10">
                   <br>
@@ -130,8 +130,8 @@
                 <div class="col-md-3">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Free') }}:</label>                 
                   <li class="tg-list-item">
-                    <input name="type" class="tgl tgl-skewed" id="cb111" type="checkbox"/>
-                    <label class="tgl-btn" data-tg-off="Free" data-tg-on="Paid" for="cb111"></label>
+                    <input name="type" class="la-admin__toggle-switch" id="cb111" type="checkbox"/>
+                    <label class="la-admin__toggle-label" data-tg-off="Free" data-tg-on="Paid" for="cb111"></label>
                   </li>
                   <br>
                   <div class="display-none" id="pricebox">
@@ -147,8 +147,8 @@
                   <label for="exampleInputDetails">{{ __('adminstaticword.Featured') }}:</label>
                   <li class="tg-list-item">
                 
-                    <input class="tgl tgl-skewed" id="cb1"   type="checkbox"/>
-                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb1"></label>
+                    <input class="la-admin__toggle-switch" id="cb1"   type="checkbox"/>
+                    <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="cb1"></label>
                   </li>
                   <input type="hidden" name="featured" value="0" id="j">
                   @endif
@@ -157,8 +157,8 @@
                   @if(Auth::User()->role == "admin")
                   <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                   <li class="tg-list-item">  
-                    <input class="tgl tgl-skewed" id="cb3"   type="checkbox"/>
-                    <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="cb3"></label>
+                    <input class="la-admin__toggle-switch" id="cb3"   type="checkbox"/>
+                    <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="cb3"></label>
                   </li>
                   <input type="hidden" name="status" value="0" id="test">
                   @endif
@@ -170,8 +170,8 @@
                 <div class="col-md-6">
                   <label for="exampleInputDetails">{{ __('adminstaticword.PreviewVideo') }}:</label>
                   <li class="tg-list-item">              
-                    <input name="preview_type" class="tgl tgl-skewed" id="preview" type="checkbox"/>
-                    <label class="tgl-btn" data-tg-off="URL" data-tg-on="Upload" for="preview"></label>                
+                    <input name="preview_type" class="la-admin__toggle-switch" id="preview" type="checkbox"/>
+                    <label class="la-admin__toggle-label" data-tg-off="URL" data-tg-on="Upload" for="preview"></label>                
                   </li>
                   <input type="hidden" name="free" value="0" id="cx">                 
                   <div class="display-none" id="document1">

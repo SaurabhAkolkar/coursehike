@@ -164,8 +164,8 @@
               <div class="col-md-3">
                 <label for="exampleInputTit1e">{{ __('adminstaticword.Verified') }}:</label>
                 <li class="tg-list-item">
-                  <input class="tgl tgl-skewed" id="c033"   type="checkbox"  {{ $user->email_verified_at != NULL ? 'checked' : '' }}>
-                <label class="tgl-btn" data-tg-off="No" data-tg-on="Yes" for="c033"></label>
+                  <input class="la-admin__toggle-switch" id="c033"   type="checkbox"  {{ $user->email_verified_at != NULL ? 'checked' : '' }}>
+                <label class="la-admin__toggle-label" data-tg-off="No" data-tg-on="Yes" for="c033"></label>
                 </li>
                 <input type="hidden" name="verified" value="{{ $user->varified }}" id="tt">
               </div>
@@ -173,8 +173,8 @@
               <div class="col-md-3">
                 <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                 <li class="tg-list-item">              
-                  <input class="tgl tgl-skewed" id="status" type="checkbox" name="status" {{ $user->status == '1' ? 'checked' : '' }} >
-                  <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
+                  <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" {{ $user->status == '1' ? 'checked' : '' }} >
+                  <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
               </li>
               <input type="hidden"  name="free" value="0" for="status" id="status">
               </div>

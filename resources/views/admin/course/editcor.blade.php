@@ -118,8 +118,8 @@
                 <div class="col-md-3 display-none">
                   <label for="exampleInputDetails">{{ __('adminstaticword.MoneyBack') }}:</label>
                   <li class="tg-list-item">
-                    <input  class="tgl tgl-skewed" id="rox" type="checkbox" @if($cor->day !="" && $cor->day !="") checked @endif/>
-                    <label class="tgl-btn" data-tg-off="No" data-tg-on="Yes" for="rox" ></label>
+                    <input  class="la-admin__toggle-switch" id="rox" type="checkbox" @if($cor->day !="" && $cor->day !="") checked @endif/>
+                    <label class="la-admin__toggle-label" data-tg-off="No" data-tg-on="Yes" for="rox" ></label>
                   </li>
                   <input type="hidden" name="money" value="0" id="roxx">
                   <br>     
@@ -133,8 +133,8 @@
                 <div class="col-md-3">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Free') }}:</label>  
                   <li class="tg-list-item"> 
-                    <input  class="tgl tgl-skewed" id="cb111" name="type" type="checkbox" {{ $cor->type == '1' ? 'checked' : '' }}/>
-                    <label class="tgl-btn" data-tg-off="Free" data-tg-on="Paid" for="cb111" ></label>
+                    <input  class="la-admin__toggle-switch" id="cb111" name="type" type="checkbox" {{ $cor->type == '1' ? 'checked' : '' }}/>
+                    <label class="la-admin__toggle-label" data-tg-off="Free" data-tg-on="Paid" for="cb111" ></label>
                   </li>
                   <input type="hidden" name="free" value="0" id="j111">
                   <br>     
@@ -154,8 +154,8 @@
                   @if(Auth::User()->role == "admin")
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Featured') }}:</label>
                   <li class="tg-list-item">
-                    <input class="tgl tgl-skewed" id="cb1" type="checkbox"{{ $cor->featured==1 ? 'checked' : '' }}>
-                    <label class="tgl-btn" data-tg-off="No" data-tg-on="Yes" for="cb1"></label>
+                    <input class="la-admin__toggle-switch" id="cb1" type="checkbox"{{ $cor->featured==1 ? 'checked' : '' }}>
+                    <label class="la-admin__toggle-label" data-tg-off="No" data-tg-on="Yes" for="cb1"></label>
                   </li>
                   <input type="hidden" name="featured" value="{{ $cor->featured }}" id="f">
                   @endif
@@ -164,8 +164,8 @@
                   @if(Auth::User()->role == "admin")
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                     <li class="tg-list-item">
-                    <input class="tgl tgl-skewed" id="cb333" type="checkbox" {{ $cor->status==1 ? 'checked' : '' }}>
-                    <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="cb333"></label>
+                    <input class="la-admin__toggle-switch" id="cb333" type="checkbox" {{ $cor->status==1 ? 'checked' : '' }}>
+                    <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="cb333"></label>
                     </li>
                     <input type="hidden" name="status" value="{{ $cor->status }}" id="c33">
                   @endif
@@ -177,9 +177,9 @@
                 <div class="col-md-6">
                   <label for="exampleInputDetails">{{ __('adminstaticword.PreviewVideo') }}:</label>  
                   <li class="tg-list-item"> 
-                    <input name="preview_type"  class="tgl tgl-skewed" id="preview" type="checkbox" {{ $cor->preview_type=="video" ? 'checked' : '' }}>
+                    <input name="preview_type"  class="la-admin__toggle-switch" id="preview" type="checkbox" {{ $cor->preview_type=="video" ? 'checked' : '' }}>
 
-                    <label class="tgl-btn" data-tg-off="URL" data-tg-on="Upload" for="preview" ></label>
+                    <label class="la-admin__toggle-label" data-tg-off="URL" data-tg-on="Upload" for="preview" ></label>
                   </li>
                   <input type="hidden" name="free" value="0" id="to">
 

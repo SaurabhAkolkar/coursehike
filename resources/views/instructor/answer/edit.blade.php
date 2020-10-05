@@ -37,8 +37,8 @@
                     <div class="form-group">
                     <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                     <li class="tg-list-item">
-                    <input class="tgl tgl-skewed" id="cb10111" type="checkbox" {{ $answer->status==1 ? 'checked' : '' }}>
-                    <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="cb10111"></label>
+                    <input class="la-admin__toggle-switch" id="cb10111" type="checkbox" {{ $answer->status==1 ? 'checked' : '' }}>
+                    <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="cb10111"></label>
                     </li>
                     <input type="hidden" name="status" value="{{ $answer->status }}" id="jjjj">
                 </div>

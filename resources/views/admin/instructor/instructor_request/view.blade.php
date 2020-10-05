@@ -48,8 +48,8 @@
 	                    <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
 	                    <br>
 	                    <li class="tg-list-item">
-	                    <input class="tgl tgl-skewed" id="cb333" type="checkbox" {{ $show->status==1 ? 'checked' : '' }}>
-	                    <label class="tgl-btn" data-tg-off="Pending" data-tg-on="Approved" for="cb333"></label>
+	                    <input class="la-admin__toggle-switch" id="cb333" type="checkbox" {{ $show->status==1 ? 'checked' : '' }}>
+	                    <label class="la-admin__toggle-label" data-tg-off="Pending" data-tg-on="Approved" for="cb333"></label>
 	                    </li>
 	                    <input type="hidden" name="status" value="{{ $show->status }}" id="c33">
 		              </div>

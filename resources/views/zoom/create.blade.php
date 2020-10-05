@@ -17,8 +17,8 @@
 					<div class="form-group">
 						<label for="exampleInputDetails">{{ __('adminstaticword.LinkByCourse') }}:</label>
 					    <li class="tg-list-item">
-					        <input class="tgl tgl-skewed" id="link_by" type="checkbox" name="link_by" >
-					        <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="link_by"></label>
+					        <input class="la-admin__toggle-switch" id="link_by" type="checkbox" name="link_by" >
+					        <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="link_by"></label>
 					    </li>
 					    <input type="hidden" name="free" value="0" for="opp" id="link_by">
 				    </div>
