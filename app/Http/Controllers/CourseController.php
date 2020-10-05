@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+
 use DB;
 use Image;
 use App\CourseInclude;
@@ -125,6 +127,9 @@ class CourseController extends Controller
                 $data->video = $filename;
             }
         }
+
+        $data->slug = Str::slug($request->title, '-');
+        $data->status = 0;
         
 
         $data->save();
