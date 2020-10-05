@@ -9,9 +9,9 @@
         <div class="col-12 col-sm-12 la-bcreator__banner">
           <div class="la-bcreator text-left text-sm-center px-5"><a class="la-bcreator__back-link position-absolute" href="#"><img class="img-fluid" src="./images/learners/icons/long-arrow.svg"></a>
             <div class="la-bcreator__content">
-              <p class="text-sm text-white text-uppercase m-0">Lorem Ipsum</p>
-              <h1 class="text-6xl text-white text-uppercase">Become a Creator</h1>
-              <p class="text-md text-white">Join Inspiring Community and start earning for your values</p>
+              <p class="text-2xl text-white text-uppercase m-0">Lorem Ipsum</p>
+              <h1 class="text-white text-uppercase">Become a Creator</h1>
+              <p class="text-2xl text-white">Join Inspiring Community and start earning for <br/> your values</p>
             </div><br>
             <div class="la-bcreator__content-btn"><a class="la-btn__app text-white text-uppercase" role="button" href="#">Start Teaching</a></div>
           </div>
@@ -114,13 +114,13 @@
       <div class="row">
         <!-- Column: Start-->
         <div class="col-sm-12 col-md-4 col-lg-4 py-5 py-sm-2 px-5 px-sm-2 d-flex flex-row align-items-center">
-          <div class="la-start-btn mb-8"><span class="text-xl m-0 font-weight-bold">Easy steps to start</span>
-            <h2 class="text-4xl font-weight-bold">Sharing Values</h2><br><br><a class="la-btn__app text-uppercase" role="button" href="#">Start Creating</a>
+          <div class="la-start-btn mb-8"><span class="text-4xl m-0 font-weight-bold">Easy steps to start</span>
+            <h2 class="text-6xl font-weight-bold">Sharing Values</h2><br><a class="la-btn__app text-uppercase" role="button" href="#">Start Creating</a>
           </div>
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col-sm-12 col-md-7 col-lg-5 px-5 px-sm-0 py-5 py-sm-0 la-vdot__class">
+        <div class="col-sm-12 col-md-7 col-lg-5 px-5 px-sm-0 py-5 py-sm-0 ml-6 la-vdot__class">
           <div class="la-vdotted-bar position-relative px-4">
             <div class="la-vicon d-flex align-items-start">
               <div class="la-icon-vline"><span class="la-icon--5xl icon-earnings position-absolute"></span></div>
@@ -167,7 +167,7 @@
         <!-- Column: Start-->
         <div class="col-sm-12 mb-5 pb-5">
           <div class="la-earn-blog">
-            <h3 class="text-4xl pb-5">How you Earn?</h3><img class="img-fluid mx-auto d-block" src="./images/learners/creator/earn.png">
+            <h3 class="text-4xl pb-14">How you earn?</h3><img class="img-fluid mx-auto d-block" src="./images/learners/creator/earn.png">
           </div>
         </div>
         <!-- Column: End-->

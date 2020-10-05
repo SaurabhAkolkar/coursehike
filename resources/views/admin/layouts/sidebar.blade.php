@@ -80,7 +80,7 @@
           <li class="{{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('course') }} {{ Nav::isResource('bundle') }} {{ Nav::isResource('courselang') }} treeview">
             <a href="#">
                 <i class="la-icon la-icon--xl icon-courses mr-3"></i>{{ __('adminstaticword.Course') }}
-                <i class="fa fa-angle-up pull-right"></i>
+                <i class="fa fa-angle-left pull-right"></i>
             </a>                            
 
             <ul class="treeview-menu">

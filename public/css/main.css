@@ -19309,7 +19309,7 @@ section.la-page--bcreator .la-bcreator__banner {
   background: url("../images/learners/creator/bcreator-banner.png") no-repeat center rgba(0, 0, 0, 0.5);
   background-size: cover;
   background-position: 100%;
-  padding: 195px 0;
+  padding: 250px 0;
   background-blend-mode: multiply;
 }
 
@@ -19347,10 +19347,11 @@ section.la-page--bcreator .la-bcreator .la-bcreator__content p:first-child {
 section.la-page--bcreator .la-bcreator .la-bcreator__content h1 {
   font-family: var(--head-font);
   font-weight: var(--font-black);
+  font-size:74px;
 }
 
 section.la-page--bcreator .la-bcreator .la-bcreator__content p:last-child {
-  font-family: var(--head-font);
+  font-family: var(--body-font);
   font-weight: var(--font-light);
   opacity: .73;
 }
@@ -19446,7 +19447,7 @@ section.la-start-creating .la-icon-vline span {
 
 section.la-start-creating .la-vicon-text {
   font-family: var(--body-font);
-  margin-left: 65px;
+  margin-left: 90px;
 }
 
 section.la-start-creating .la-arrow-link {

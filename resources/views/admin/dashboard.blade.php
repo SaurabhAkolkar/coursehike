@@ -16,8 +16,8 @@
 </section>
 <section class="content">
 	<!-- Main row -->
-    <div class="row">
-        <div class="col-lg-4 col-6">
+    <div class="row mr-5 pr-5">
+        <div class="col-lg-4 col-6 p-3">
           <!-- small box -->
           <div class="small-box bg-aqua"> 
             <div class="inner">
@@ -45,7 +45,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-6">
+        <div class="col-lg-4 col-6 p-3">
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
@@ -71,7 +71,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-6">
+        <div class="col-lg-4 col-6 p-3">
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
@@ -96,8 +96,11 @@
             <a href="{{url('course')}}" class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
+    </div>
+
+    <div class="row mr-5 pr-5">
         <!-- ./col -->
-        <div class="col-lg-4 col-6">
+        <div class="col-lg-4 col-6 p-3">
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
@@ -175,7 +178,7 @@
           </div>
         </div> -->
         <!-- ./col -->
-        <div class="col-lg-4 col-6">
+        <div class="col-lg-4 col-6 p-3">
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
@@ -231,13 +234,13 @@
     <!-- /.row -->
 
 	<!-- Main row -->
-	<div class="row">
+	<div class="row mr-5 pr-5">
 		<!-- Left col -->
-    <div class="col-md-4">
+    <div class="col-md-5">
       <!-- RECENTLY ADDED USERS LIST -->
       <div class="box box-danger box-recent__content">
           <div class="box-header with-border">
-            <h3 class="box-title">{{ __('adminstaticword.LatestUsers') }}</h3>
+            <h3 class="box-title la-admin__box-title">{{ __('adminstaticword.LatestUsers') }}</h3>
 
             <div class="box-tools pull-right">
               <span class="label label-danger">
@@ -292,7 +295,7 @@
       <!--/.box -->
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-7">
         <!-- RECENTLY ADDED COURSES LIST -->
       @php
         $courses = App\Course::limit(5)->orderBy('id', 'DESC')->get()
@@ -300,7 +303,7 @@
       @if(!$courses->isEmpty())
       <div class="box box-primary box-recent__content">
           <div class="box-header with-border">
-            <h3 class="box-title">{{ __('adminstaticword.RecentCourses') }}</h3>
+            <h3 class="box-title la-admin__box-title">{{ __('adminstaticword.RecentCourses') }}</h3>
 
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -361,7 +364,7 @@
     <!-- /.col -->
 
     <!-- RECENT SUBSCRIPTIONS: START -->
-    <div class="col-md-4">
+    <div class="col-md-5">
         <div class="la-dash__recent-section">
           <div class="la-dash__recent-head">
             <h4 class="la-dash__recent-htitle">Recent Subscriptions</h4>
@@ -415,7 +418,7 @@
     <!-- RECENT SUBSCRIPTIONS: END -->
 
      <!-- RECENTLY BOUGHT COURSES: START -->
-    <div class="col-md-8">
+    <div class="col-md-7">
         <div class="la-dash__recent-section">
           <div class="la-dash__recent-head">
             <h4 class="la-dash__recent-htitle">Recently Bought Courses</h4>
