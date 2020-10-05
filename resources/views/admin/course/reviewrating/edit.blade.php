@@ -21,16 +21,16 @@
 
               <div class="row">
                 <div class="col-md-6">
-                  <label class="d-none" for="exampleInputSlug">{{ __('adminstaticword.Course') }}</label>
-                  <select name="course" class="form-control col-md-7 col-12 d-none">
+                  <label class="display-none" for="exampleInputSlug">{{ __('adminstaticword.Course') }}</label>
+                  <select name="course" class="form-control col-md-7 col-12 display-none">
                     @foreach($courses as $cou)
                       <option value="{{ $cou->id }}" {{$jp->courses->id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
                     @endforeach
                   </select>
                 </div>
                 <div class="col-md-6">
-                  <label class="d-none" for="exampleInputSlug">{{ __('adminstaticword.User') }}</label>
-                  <select name="user" class="form-control col-md-7 col-12 d-none">
+                  <label class="display-none" for="exampleInputSlug">{{ __('adminstaticword.User') }}</label>
+                  <select name="user" class="form-control col-md-7 col-12 display-none">
                   @foreach($users as $cu)
                   <option value="{{ $cu->id }}" {{$jp->user->id == $cu->id  ? 'selected' : ''}}>{{ $cu->fname}}</option>
                   @endforeach

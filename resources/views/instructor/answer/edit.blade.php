@@ -18,8 +18,8 @@
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
 
-                <label class="d-none" for="exampleInputSlug">{{ __('adminstaticword.SelectCourse') }}</label>
-                  <input value="{{ $answer->course_id }}" autofocus name="course_id" type="text" class="form-control d-none" >
+                <label class="display-none" for="exampleInputSlug">{{ __('adminstaticword.SelectCourse') }}</label>
+                  <input value="{{ $answer->course_id }}" autofocus name="course_id" type="text" class="form-control display-none" >
 
 
                   <div class="row">

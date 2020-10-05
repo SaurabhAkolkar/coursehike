@@ -70,8 +70,8 @@
 
                 <input type="hidden" name="instructor_id" class="form-control" value="{{ Auth::User()->id }}"  />
                
-                <label class="d-none" for="exampleInputSlug"> {{ __('adminstaticword.Course') }}<span class="redstar">*</span></label>
-                <select name="course_id" class="form-control d-none">
+                <label class="display-none" for="exampleInputSlug"> {{ __('adminstaticword.Course') }}<span class="redstar">*</span></label>
+                <select name="course_id" class="form-control display-none">
                   <option value="{{ $cor->id }}">{{ $cor->title }}</option>
                 </select>
 

@@ -31,7 +31,7 @@
 
               <input type="hidden" value="{{ $total }}" name="total" class="form-control">
               
-              <div class="d-none">
+              <div class="display-none">
               @foreach($allchecked as $checked)
                <label >
                   <input type="hidden" name="checked[]" value="{{ $checked }}">
@@ -55,7 +55,7 @@
 
               <input type="hidden" value="{{ $total }}" name="total" class="form-control">
               
-              <div class="d-none">
+              <div class="display-none">
               @foreach($allchecked as $checked)
                <label >
                   <input type="hidden" name="checked[]" value="{{ $checked }}">
@@ -86,7 +86,7 @@
 
               <input type="hidden" value="{{ $total }}" name="total" class="form-control">
               
-              <div class="d-none">
+              <div class="display-none">
               @foreach($allchecked as $checked)
                <label >
                   <input type="hidden" name="checked[]" value="{{ $checked }}">

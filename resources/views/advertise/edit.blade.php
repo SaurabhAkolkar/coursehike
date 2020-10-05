@@ -35,7 +35,7 @@
 
 				<br>
 				<label for="">Current Image:</label>
-				<img src="{{ asset('adv_upload/image/'.$ad->ad_image)}}" alt="" width="100px" class="img-responsive">
+				<img src="{{ asset('adv_upload/image/'.$ad->ad_image)}}" alt="" width="100px" class="img-fluid">
 				<br>
 				<label for="ad_target">Edit Ad Target: (Click on ad where to redirect user)</label>
 				<input class="form-control" type="text" name="ad_target" placeholder="http://" value="{{ $ad->ad_target }} ">

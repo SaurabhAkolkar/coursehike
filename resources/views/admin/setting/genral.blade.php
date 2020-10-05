@@ -16,7 +16,7 @@
 			<div class="row">
 
 				@if ($errors->has('logo'))
-				<div class="d-none" id="logo">
+				<div class="display-none" id="logo">
                     <strong class="text-danger">{{ $errors->first('logo') }}</strong>
                 </div>
                 @endif
@@ -33,7 +33,7 @@
 				<div class="col-md-4">
 					@if($setting->logo !="")
 						<div class="logo-settings">
-							<img src="{{ asset('images/logo/'.$setting->logo) }}" alt="{{ $setting->logo }}" class="img-responsive">
+							<img src="{{ asset('images/logo/'.$setting->logo) }}" alt="{{ $setting->logo }}" class="img-fluid">
 						</div>
 					@else
 						<div class="alert alert-danger">
@@ -74,7 +74,7 @@
 				<div class="col-md-4">
 					@if($setting->favicon !="")
 						<div class="favicon-settings">
-							<img src="{{ asset('images/favicon/'.$setting->favicon) }}" alt="{{ $setting->favicon }}" class="img-responsive">
+							<img src="{{ asset('images/favicon/'.$setting->favicon) }}" alt="{{ $setting->favicon }}" class="img-fluid">
 						</div>
 					@else
 						<div class="alert alert-danger">
@@ -142,7 +142,7 @@
 				<div class="col-md-6">
 					@if($setting->contact_image !="")
 						<div class="contact-settings">
-							<img src="{{ asset('images/contact/'.$setting->contact_image) }}" alt="{{ $setting->contact_image }}" class="img-responsive">
+							<img src="{{ asset('images/contact/'.$setting->contact_image) }}" alt="{{ $setting->contact_image }}" class="img-fluid">
 						</div>
 					@endif
 				</div>

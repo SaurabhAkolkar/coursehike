@@ -52,7 +52,7 @@
 		                  </div>
 		                  <div class="col-md-3">
 		                    <label for="image">{{ __('adminstaticword.Image') }}<sup class="redstar">*</sup></label>
-		                    <input type="file" name="image"  id="image"><br><img src="{{ url('/images/blog/'.$show->image) }}" class="img-responsive" />
+		                    <input type="file" name="image"  id="image"><br><img src="{{ url('/images/blog/'.$show->image) }}" class="img-fluid" />
 		                  </div>
 		              	</div>
 		              	<br>

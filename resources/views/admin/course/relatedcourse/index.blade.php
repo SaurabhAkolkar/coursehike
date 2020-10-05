@@ -72,7 +72,7 @@
 
                 <input type="hidden" class="form-control" name="user_id" id="user_id" value="{{ $cor->user_id }}"> 
 
-                <div class="row d-none">             
+                <div class="row display-none">             
                   <div class="col-md-12">  
                     <label for="exampleInputSlug">{{ __('adminstaticword.Course') }}</label>
                     <select name="main_course_id" class="form-control">

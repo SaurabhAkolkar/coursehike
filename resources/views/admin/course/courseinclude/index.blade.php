@@ -73,7 +73,7 @@
               <form id="demo-form2" method="post" action="{{ route('courseinclude.store') }}" data-parsley-validate class="form-horizontal form-label-left">
                 {{ csrf_field() }}
      
-                <select class="d-none" name="course_id" class="form-control">
+                <select class="display-none" name="course_id" class="form-control">
                   <option value="{{ $cor->id }}">{{ $cor->title }}</option>
                 </select>
 

@@ -76,7 +76,7 @@
 					            </div>
 					            <br>
     						</div>
-    						<div class="col-md-4 d-none">
+    						<div class="col-md-4 display-none">
     							<div class="form-group">
 					            	<label for="">{{ __('adminstaticword.VisibleonAll') }}: </label>
 									<li class="tg-list-item">              

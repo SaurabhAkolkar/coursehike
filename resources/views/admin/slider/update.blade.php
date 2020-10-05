@@ -33,7 +33,7 @@
               <br> 
 
               <div class="row">
-                <div class="col-md-6 d-none">
+                <div class="col-md-6 display-none">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.SearchText') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="search_text" id="exampleInputTitle" value="0">
                 </div>

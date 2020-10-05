@@ -111,7 +111,7 @@
               <br>
 
               <div class="row">
-                <div class="col-md-3 d-none">
+                <div class="col-md-3 display-none">
                   <label for="exampleInputDetails">{{ __('adminstaticword.MoneyBack') }}:</label>
                   <li class="tg-list-item">
                     <input class="tgl tgl-skewed" id="cb01" type="checkbox"/>
@@ -119,7 +119,7 @@
                   </li>
                   <input type="hidden" name="free" value="0" id="cb10">
                   <br>
-                  <div class="d-none" id="dooa">
+                  <div class="display-none" id="dooa">
           
                     <label for="exampleInputSlug">{{ __('adminstaticword.Days') }}: <sup class="redstar">*</sup></label>
                     <input type="number" min="1" class="form-control" name="day" id="exampleInputPassword1" placeholder="Please Your Enter day" value="">
@@ -134,7 +134,7 @@
                     <label class="tgl-btn" data-tg-off="Free" data-tg-on="Paid" for="cb111"></label>
                   </li>
                   <br>
-                  <div class="d-none" id="pricebox">
+                  <div class="display-none" id="pricebox">
                     <label for="exampleInputSlug">{{ __('adminstaticword.Price') }}: <sup class="redstar">*</sup></label>
                     <input type="text" class="form-control" name="price" id="priceMain" placeholder="Please Your Enter price" value="">
         
@@ -174,7 +174,7 @@
                     <label class="tgl-btn" data-tg-off="URL" data-tg-on="Upload" for="preview"></label>                
                   </li>
                   <input type="hidden" name="free" value="0" id="cx">                 
-                  <div class="d-none" id="document1">
+                  <div class="display-none" id="document1">
                     <label for="exampleInputSlug">{{ __('adminstaticword.UploadVideo') }}:</label>
                     <input type="file" name="video" id="video" value="" class="form-control">
                

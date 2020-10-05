@@ -22,15 +22,15 @@
               <input type="hidden" name="instructor_id" class="form-control" value="{{ Auth::User()->id }}"  />
 
                    
-              <select name="course_id" class="form-control col-md-7 col-12 d-none">
+              <select name="course_id" class="form-control col-md-7 col-12 display-none">
                @foreach($courses as $cou)
-               <option class="d-none" value="{{ $cou->id }}" {{$que->courses->id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
+               <option class="display-none" value="{{ $cou->id }}" {{$que->courses->id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
                @endforeach
               </select>
 
-              <select name="user_id" class="form-control col-md-7 col-12 d-none">
+              <select name="user_id" class="form-control col-md-7 col-12 display-none">
                 @foreach($user as $cu)
-                  <option class="d-none" value="{{ $cu->id }}" {{$que->courses->id == $cu->id  ? 'selected' : ''}}>{{ $cu->fname}}</option>
+                  <option class="display-none" value="{{ $cu->id }}" {{$que->courses->id == $cu->id  ? 'selected' : ''}}>{{ $cu->fname}}</option>
                 @endforeach
               </select>
                    

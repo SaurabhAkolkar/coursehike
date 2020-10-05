@@ -45,7 +45,7 @@
 
                 <div class="row"> 
                   <div class="col-md-12">
-                    <select name="user_id" class="form-control d-none">
+                    <select name="user_id" class="form-control display-none">
                       <option  value="{{ Auth::user()->id }}">{{ Auth::user()->fname }}</option>
                     </select>
                   </div>

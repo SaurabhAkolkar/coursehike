@@ -25,7 +25,7 @@
         <input type="hidden" name="free" value="0" for="opp" id="link_by">
       </div>
 
-      <div class="form-group d-none" id="sec1_one" >
+      <div class="form-group display-none" id="sec1_one" >
         <label>{{ __('adminstaticword.Courses') }}:<span class="redstar">*</span></label>
         <select name="course_id" id="course_id" class="form-control js-example-basic-single" required>
           @php

@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="col-md-1">
-                    <label class="d-none" for="">eye</label>
+                    <label class="display-none" for="">eye</label>
                     <br>
                     <span toggle="#password-field" class="fa fa-fw fa-eye field_icon toggle-password"></span>
                 </div>

@@ -17,8 +17,8 @@
 
 						<input type="hidden" name="instructor_id" class="form-control" value="{{ Auth::User()->id }}"  />
 						
-		                <label class="d-none" for="exampleInputSlug">{{ __('adminstaticword.SelectCourse') }}</label>
-	                    <input value="{{ $show->course_id }}" autofocus name="course_id" type="text" class="form-control d-none" >
+		                <label class="display-none" for="exampleInputSlug">{{ __('adminstaticword.SelectCourse') }}</label>
+	                    <input value="{{ $show->course_id }}" autofocus name="course_id" type="text" class="form-control display-none" >
 
 
 	                    <div class="row">

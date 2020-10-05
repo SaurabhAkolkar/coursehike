@@ -66,14 +66,14 @@
                 {{ csrf_field() }}
                           
                
-                <label class="d-none" for="exampleInputSlug"> {{ __('adminstaticword.Course') }}<span class="required" >*</span></label>
-                <select name="course_id" class="form-control d-none">
+                <label class="display-none" for="exampleInputSlug"> {{ __('adminstaticword.Course') }}<span class="required" >*</span></label>
+                <select name="course_id" class="form-control display-none">
                   <option value="{{ $cor->id }}">{{ $cor->title }}</option>
                 </select>
             
-                <label class="d-none"  for="exampleInputTit1e">{{ __('adminstaticword.User') }}</label>
+                <label class="display-none"  for="exampleInputTit1e">{{ __('adminstaticword.User') }}</label>
 
-                <select class="d-none" name="user_id" class="form-control col-md-7 col-12">
+                <select class="display-none" name="user_id" class="form-control col-md-7 col-12">
                   @php
                    $users = App\User::all();
                   @endphp

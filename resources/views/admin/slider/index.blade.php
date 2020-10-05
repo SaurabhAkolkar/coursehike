@@ -44,7 +44,7 @@
               <tr class="sortable" id="id-{{ $cat->id }}">
                 <td><?php echo $i;?></td>
                 <td>
-                  <img src="{{ asset('images/slider/'.$cat->image) }}" class="img-responsive">
+                  <img src="{{ asset('images/slider/'.$cat->image) }}" class="img-fluid">
                 </td>
                 <td>{{$cat->heading}}</td>
                 <td>{{$cat->sub_heading}}</td> 

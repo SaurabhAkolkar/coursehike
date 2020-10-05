@@ -33,7 +33,7 @@
                        
                         {{ __('frontstaticword.Logout') }}
                         
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="display-none">
                             @csrf
                         </form>
                        

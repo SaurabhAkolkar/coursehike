@@ -19,17 +19,17 @@
               {{ csrf_field() }}
               {{ method_field('PUT') }}
 
-              <label class="d-none" for="exampleInputSlug">{{ __('adminstaticword.SelectCourse') }}</label>
-              <select name="course_id" class="form-control col-md-7 col-12 d-none">
+              <label class="display-none" for="exampleInputSlug">{{ __('adminstaticword.SelectCourse') }}</label>
+              <select name="course_id" class="form-control col-md-7 col-12 display-none">
                 @foreach($courses as $cou)
-                  <option class="d-none" value="{{ $cou->id }}" {{$annou->courses->id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
+                  <option class="display-none" value="{{ $cou->id }}" {{$annou->courses->id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
                 @endforeach
               </select>
 
-              <label class="d-none" for="exampleInputSlug">{{ __('adminstaticword.User') }}</label>
-              <select  name="user" class="form-control col-md-7 col-12 d-none">
+              <label class="display-none" for="exampleInputSlug">{{ __('adminstaticword.User') }}</label>
+              <select  name="user" class="form-control col-md-7 col-12 display-none">
                 @foreach($user as $cu)
-                  <option class="d-none" value="{{ $cu->id }}" {{$annou->user->id == $cu->id  ? 'selected' : ''}}>{{ $cu->fname}}</option>
+                  <option class="display-none" value="{{ $cu->id }}" {{$annou->user->id == $cu->id  ? 'selected' : ''}}>{{ $cu->fname}}</option>
                 @endforeach
               </select>
                  

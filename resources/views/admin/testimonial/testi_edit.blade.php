@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-md-3">
                   <label>{{ __('adminstaticword.Image') }}</label>
-                  <input type="file" name="image" id="image"><img src="{{ url('/images/testimonial/'.$test->image) }}" class="img-responsive" />
+                  <input type="file" name="image" id="image"><img src="{{ url('/images/testimonial/'.$test->image) }}" class="img-fluid" />
                 </div>
               </div>
               <br>

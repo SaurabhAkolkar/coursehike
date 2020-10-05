@@ -115,7 +115,7 @@
               <br>
 
               <div class="row">
-                <div class="col-md-3 d-none">
+                <div class="col-md-3 display-none">
                   <label for="exampleInputDetails">{{ __('adminstaticword.MoneyBack') }}:</label>
                   <li class="tg-list-item">
                     <input  class="tgl tgl-skewed" id="rox" type="checkbox" @if($cor->day !="" && $cor->day !="") checked @endif/>
@@ -124,7 +124,7 @@
                   <input type="hidden" name="money" value="0" id="roxx">
                   <br>     
 
-                  <div @if($cor->day =="" && $cor->day =="") class="d-none" @endif id="jeet">
+                  <div @if($cor->day =="" && $cor->day =="") class="display-none" @endif id="jeet">
                     <label for="exampleInputSlug">{{ __('adminstaticword.Days') }}:<sup class="redstar">*</sup></label>
                     <input type="number" min="1"  class="form-control" name="day" id="exampleInputPassword1" placeholder="Please Your Enter day" value="{{ $cor->day }}">
                   </div>
@@ -139,12 +139,12 @@
                   <input type="hidden" name="free" value="0" id="j111">
                   <br>     
 
-                  <div @if($cor->price =="" && $cor->price =="") class="d-none" @endif id="doabox">
+                  <div @if($cor->price =="" && $cor->price =="") class="display-none" @endif id="doabox">
                     <label for="exampleInputSlug">{{ __('adminstaticword.Price') }}: <sup class="redstar">*</sup></label>
                     <input type="number" step="0.01"   class="form-control" name="price" id="exampleInputPassword1" placeholder="Please Your Enter paid" value="{{ $cor->price }}">
                   </div>
 
-                  <div @if($cor->price =="" && $cor->discount_price =="") class="d-none" @endif id="doaboxx">
+                  <div @if($cor->price =="" && $cor->discount_price =="") class="display-none" @endif id="doaboxx">
                   <br>
                     <label for="exampleInputSlug">{{ __('adminstaticword.DiscountPrice') }}: <sup class="redstar">*</sup></label>
                     <input type="number" step="0.01"  class="form-control" name="discount_price" id="exampleInputPassword1" placeholder="Please Your Enter paid" value="{{ $cor->discount_price }}">
@@ -183,7 +183,7 @@
                   </li>
                   <input type="hidden" name="free" value="0" id="to">
 
-                  <div @if($cor->preview_type =="url" ) class="d-none" @endif id="document1">
+                  <div @if($cor->preview_type =="url" ) class="display-none" @endif id="document1">
                     <label for="exampleInputSlug">{{ __('adminstaticword.UploadVideo') }}: <sup class="redstar">*</sup></label>
                     <input  type="file" class="form-control" name="video" id="video" value="{{ $cor->video }}">
                     @if($cor->video !="")
@@ -192,7 +192,7 @@
                     @endif 
                   </div>
 
-                  <div @if($cor->preview_type =="video") class="d-none" @endif id="document2">
+                  <div @if($cor->preview_type =="video") class="display-none" @endif id="document2">
                     <br>
                     <label for="exampleInputSlug">{{ __('adminstaticword.URL') }}: <sup class="redstar">*</sup></label>
                     <input  class="form-control" placeholder="Enter Your URL" name="url" id="url" value="{{ $cor->url }}">

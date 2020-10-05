@@ -32,7 +32,7 @@
                      
 
                       @if ($errors->has('logo'))
-                        <div class="d-none" id="logo">
+                        <div class="display-none" id="logo">
                           <strong class="text-danger">{{ $errors->first('logo') }}</strong>
                         </div>
                       @endif
@@ -49,7 +49,7 @@
                     <div class="col-md-12">
                       @if($ps['logo'] !="")
                         <div class="logo-settings">
-                          <img src="{{ asset('content/minimal_skin_dark/'.$ps['logo']) }}" alt="{{ $ps['logo'] }}" class="img-responsive">
+                          <img src="{{ asset('content/minimal_skin_dark/'.$ps['logo']) }}" alt="{{ $ps['logo'] }}" class="img-fluid">
                         </div>
                       @else
                         <div class="alert alert-danger">
@@ -76,7 +76,7 @@
 
 
                       <div class="col-md-6">
-                        <div class="form-group d-none">
+                        <div class="form-group display-none">
                           <label for="CopyrightText">{{ __('adminstaticword.CopyrightText') }}<sup class="redstar">*</sup></label>
                           <input value="copyright" name="cpy_text" type="text" class="form-control" placeholder="Enter Copyright Text" autocomplete="off" />
                         </div>

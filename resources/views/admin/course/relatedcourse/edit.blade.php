@@ -23,10 +23,10 @@
 
                 <input type="hidden" class="form-control " name="user_id" id="user_id" value="{{ $cate->user_id }}"> 
 
-                <div class="row" class="d-none">             
+                <div class="row" class="display-none">             
                   <div class="col-md-12">  
-                    <label class="d-none" for="exampleInputSlug">{{ __('adminstaticword.Course') }}</label>
-                    <select class="d-none" name="main_course_id" class="form-control">
+                    <label class="display-none" for="exampleInputSlug">{{ __('adminstaticword.Course') }}</label>
+                    <select class="display-none" name="main_course_id" class="form-control">
                       <option value="{{ $cate->main_course_id }}">{{ $cate->main_course_id }}</option>
                     </select>
                   </div>

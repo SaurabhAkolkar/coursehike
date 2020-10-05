@@ -281,6 +281,14 @@ html, body{
     background-color:transparent !important;
 }
 
+
+/* == TOGGLE BUTTONS === */
+.tgl-skewed + .tgl-btn{
+    background-color:
+}
+
+
+
 /* ============ COURSES PAGE ============ */
 
 /* == Add Course Button == */

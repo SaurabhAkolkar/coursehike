@@ -20,7 +20,7 @@
 		                    <label for="bg_image">{{ __('adminstaticword.BackgroundImage') }}<sup class="redstar">*</sup></label>
 		                    <input type="file" name="bg_image" id="bg_image">
 		                    <br>
-		                    <img src="{{ url('/images/comingsoon/'.$comingsoon['bg_image']) }}" class="img-responsive"/>
+		                    <img src="{{ url('/images/comingsoon/'.$comingsoon['bg_image']) }}" class="img-fluid"/>
 		                    
 		                  </div>
 		                  <div class="col-md-6">

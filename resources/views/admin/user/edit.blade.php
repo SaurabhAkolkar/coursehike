@@ -195,7 +195,7 @@
               </div>
 
 
-              <div class="col-md-3 d-none" id="doaboxxx">
+              <div class="col-md-3 display-none" id="doaboxxx">
                 <label for="dob">{{ __('adminstaticword.DateofAnniversary') }}: </label>
                 <input value="{{ $user->doa }}" name="doa" id="doa" type="text" class="form-control" placeholder="Enter Date of anniversary">
               </div>
@@ -210,11 +210,11 @@
               <div class="col-md-6">
                 @if($user->user_img != null || $user->user_img !='')
                   <div class="edit-user-img">
-                    <img src="{{ url('/images/user_img/'.$user->user_img) }}" class="img-fluid" alt="User Image" class="img-responsive">
+                    <img src="{{ url('/images/user_img/'.$user->user_img) }}" class="img-fluid" alt="User Image" class="img-fluid">
                   </div>
                 @else
                   <div class="edit-user-img">
-                    <img src="{{ asset('images/default/user.jpg')}}" class="img-fluid" alt="User Image" class="img-responsive">
+                    <img src="{{ asset('images/default/user.jpg')}}" class="img-fluid" alt="User Image" class="img-fluid">
                   </div>
                 @endif
               </div>
@@ -230,7 +230,7 @@
               </div>
             </div>
 
-            <div class="row d-none" id="update-password">
+            <div class="row display-none" id="update-password">
               <div class="col-md-6">
                 <label>{{ __('adminstaticword.Password') }}</label>
                 <input type="password" name="password" class="form-control" placeholder="Enter password">

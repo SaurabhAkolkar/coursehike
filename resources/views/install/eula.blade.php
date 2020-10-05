@@ -15,8 +15,8 @@
   <body>
     @include('admin.message')
    	  
-      <div class="preL d-none">
-        <div class="preloader3 d-none"></div>
+      <div class="preL display-none">
+        <div class="preloader3 display-none"></div>
       </div>
 
    		<div class="container">

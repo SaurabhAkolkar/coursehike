@@ -49,7 +49,7 @@
 					                    <label for="one_video">Section One Image:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="one_video" id="one_video">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['one_video']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['one_video']) }}" class="img-fluid"/>
 				                  	</div>
 				              	</div>
 		                    </div>
@@ -88,14 +88,14 @@
 					                    <label for="three_bg_image">Section Three Background Image:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="three_bg_image"  id="three_bg_image">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['three_bg_image']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['three_bg_image']) }}" class="img-fluid"/>
 				                  	</div>
 
 				                  	<div class="col-md-6">
 					                    <label for="three_video">Section Three Image:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="three_video"  id="three_video">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['three_video']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['three_video']) }}" class="img-fluid"/>
 					                    <br>
 					                    <br> 
 				                  	</div>
@@ -127,21 +127,21 @@
 					                    <label for="four_img_one">Section Four Image One:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="four_img_one"  id="four_img_one">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['four_img_one']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['four_img_one']) }}" class="img-fluid"/>
 				                  	</div>
 
 				                  	<div class="col-md-4">
 					                    <label for="four_img_two">Section Four Image Two:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="four_img_two"  id="four_img_two">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['four_img_two']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['four_img_two']) }}" class="img-fluid"/>
 				                  	</div>
 
 				                  	<div class="col-md-4">
 					                    <label for="four_img_three">Section Four Image Three:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="four_img_three"  id="four_img_three">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['four_img_three']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['four_img_three']) }}" class="img-fluid"/>
 					                    <br>
 					                    <br>
 				                  	</div>
@@ -150,21 +150,21 @@
 					                    <label for="four_img_four">Section Four Image Four:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="four_img_four"  id="four_img_four">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['four_img_four']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['four_img_four']) }}" class="img-fluid"/>
 				                  	</div>
 
 				                  	<div class="col-md-4">
 					                    <label for="four_img_five">Section Four Image Five:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="four_img_five"  id="four_img_five">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['four_img_five']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['four_img_five']) }}" class="img-fluid"/>
 				                  	</div>
 
 				                  	<div class="col-md-4">
 					                    <label for="four_img_six">Section Four Image Six:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="four_img_six"  id="four_img_six">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['four_img_six']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['four_img_six']) }}" class="img-fluid"/>
 					                    <br>
 					                    <br>
 				                  	</div>
@@ -173,21 +173,21 @@
 					                    <label for="four_img_seven">Section Four Image Seven:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="four_img_seven"  id="four_img_seven">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['four_img_seven']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['four_img_seven']) }}" class="img-fluid"/>
 				                  	</div>
 
 				                  	<div class="col-md-4">
 					                    <label for="four_img_eight">Section Four Image Eight:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="four_img_eight"  id="four_img_eight">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['four_img_eight']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['four_img_eight']) }}" class="img-fluid"/>
 				                  	</div>
 
 				                  	<div class="col-md-4">
 					                    <label for="four_img_nine">Section Four Image Nine:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="four_img_nine"  id="four_img_nine">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['four_img_nine']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['four_img_nine']) }}" class="img-fluid"/>
 					                    <br>
 					                    <br>
 				                  	</div>

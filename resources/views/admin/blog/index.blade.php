@@ -38,7 +38,7 @@
               <tr>
                 <td><?php echo $i;?></td>
                 <td>
-                  <img src="images/blog/{{$item->image}}" class="img-responsive" >
+                  <img src="images/blog/{{$item->image}}" class="img-fluid" >
                 </td>
                 
                 <td>{{$item->user->fname}}</td>

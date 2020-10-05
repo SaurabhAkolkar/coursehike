@@ -71,12 +71,12 @@
                   <input type="hidden" name="free" value="0" id="j111">
                   <br>     
 
-                  <div @if($cor->price =="" && $cor->price =="") class="d-none" @endif id="doabox">
+                  <div @if($cor->price =="" && $cor->price =="") class="display-none" @endif id="doabox">
                     <label for="exampleInputSlug">{{ __('adminstaticword.Price') }}: <sup class="redstar">*</sup></label>
                     <input type="number" min="1"   class="form-control" name="price" id="exampleInputPassword1" placeholder="Please Your Enter paid" value="{{ $cor->price }}">
                   </div>
 
-                  <div @if($cor->price =="" && $cor->discount_price =="") class="d-none" @endif id="doaboxx">
+                  <div @if($cor->price =="" && $cor->discount_price =="") class="display-none" @endif id="doaboxx">
                   <br>
                     <label for="exampleInputSlug">{{ __('adminstaticword.DiscountPrice') }}: <sup class="redstar">*</sup></label>
                     <input type="number" min="1"  class="form-control" name="discount_price" id="exampleInputPassword1" placeholder="Please Your Enter paid" value="{{ $cor->discount_price }}">
