@@ -1,0 +1,390 @@
+* {
+  box-sizing: border-box;
+}
+
+.la-video__course-desc .la-video__title {
+  font-size: var(--text-6xl);
+  font-family: var(--head-font);
+  font-weight: var(--font-bold);
+}
+.la-video__course-desc .la-video__course-desc {
+  font-size: var(--text-md);
+  color: #252525;
+}
+.la-video__course-desc .video-playlist-class-description__snap img {
+  vertical-align: middle;
+  border-style: none;
+  width: var(--text-8xl);
+  height: var(--text-8xl);
+}
+.la-video__course-desc .la-video__creator-name {
+  font-size: var(--text-2xl);
+  font-family: var(--body-font);
+  font-weight: var(--font-normal);
+  color: --text-2xl;
+}
+
+.la-video__subscribe .video-count,
+.la-video__subscribe .subscribers-count,
+.la-video__subscribe .learners-count {
+  font-size: var(--text-5xl);
+  color: #6e1ccd;
+  font-family: var(--body-font);
+  font-weight: var(--font-light);
+}
+.la-video__subscribe .subscribe-info-item-text,
+.la-video__subscribe .learner-level {
+  font-size: var(--text-md);
+  color: #010101;
+  font-family: var(--body-font);
+}
+.la-video__subscribe .subscribe-info-item-text {
+  margin-top: -27px !important;
+}
+.la-video__subscribe .la-video__subscribe-info-inner {
+  float: right;
+}
+.la-video__subscribe .la-video__subscribe-info-video {
+  margin-right: 20px;
+}
+
+.la-video__classes-videos .la-video__Classes-class-count,
+.la-video__classes-videos .la-video__Classes-video-count {
+  color: #1ec812;
+}
+
+.la-video__video-playlist .video-playlist-class-description__snap img {
+  height: 32px;
+  width: 32px;
+}
+.la-video__video-playlist .video-playlist-class-description_name {
+  margin-top: -8px;
+  font-size: var(--text-2xl);
+  font-family: var(--body-font);
+  color: #252525;
+  font-weight: var(--font-normal);
+}
+.la-video__video-playlist .video-playlist-num-videos {
+  margin-top: -10px;
+  font-size: var(--text-xs);
+}
+.la-video__video-playlist .la-video__class-videos {
+  height: 110px;
+}
+.la-video__video-playlist .active {
+  background-color: #f5f4f0;
+}
+.la-video__video-playlist .la-video__class-videos-wrapper {
+  position: relative;
+}
+.la-video__video-playlist .la-video__class-videos-wrapper img {
+  width: 150px;
+  height: 84px;
+}
+.la-video__video-playlist .text-muted {
+  margin-top: -20px;
+  font-size: 14px;
+}
+.la-video__video-playlist .la-video__playlist-inner {
+  width: 473px;
+  height: 301px;
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+}
+.la-video__video-playlist .la-video__playlist-inner::-webkit-scrollbar {
+  width: 0 !important;
+}
+.la-video__video-playlist .timeline-body {
+  position: relative;
+  margin-left: 10px;
+  border-radius: 0 8px 8px 0;
+  padding: 5px 0;
+}
+.la-video__video-playlist .timeline-body:after {
+  content: "";
+  width: 2px;
+  height: 100%;
+  margin-top: 26px;
+  background-color: black;
+  position: absolute;
+  left: -2px;
+  top: 0;
+}
+.la-video__video-playlist .timeline-item {
+  position: relative;
+  padding-left: 4px;
+  padding-top: 5px;
+}
+.la-video__video-playlist .timeline-item:after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid black;
+  background-color: white;
+  position: absolute;
+  left: -10px;
+  top: 45%;
+  z-index: 9;
+}
+
+.la-video__about-course {
+  margin-top: 100px;
+}
+.la-video__about-course .la-video__about-course-title {
+  font-size: var(--text-4xl);
+  color: #252525;
+  font-family: var(--head-font);
+  font-weight: var(--font-bold);
+}
+.la-video__about-course .la-video__about-course-title:before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 12px;
+  width: var(--size-5);
+  height: var(--size-5);
+  border: 2px solid transparent;
+  border-radius: var(--rounded-full);
+  z-index: calc(-1 * var(--z-1));
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.24s ease-out, transform 0.24s ease-out;
+  border-color: #ffc516;
+  transform: translateX(0);
+  opacity: 1;
+}
+.la-video__about-course .la-video__about-course-description {
+  font-size: var(--text-md);
+  font-family: var(--body-font);
+  font-weight: var(--font-normal);
+  color: #252525;
+}
+.la-video__about-course li {
+  list-style: none;
+}
+.la-video__about-course li i.la-icon.la-icon--xl.icon.icon-tick {
+  color: #1ec812;
+}
+
+.la-video__course-benifits {
+  margin-top: 100px;
+}
+.la-video__course-benifits .la-video__course-benifits-title {
+  font-size: var(--text-2xl);
+  color: #252525;
+  font-family: var(--head-font);
+  font-weight: var(--font-semibold);
+}
+.la-video__course-benifits .la-icon.la-icon--xl.icon.icon-assessment {
+  font-size: var(--text-8xl);
+  color: #ffb93a;
+}
+.la-video__course-benifits .la-video__course-benifits-item-title {
+  font-size: var(--text-xl);
+  color: #222222;
+  font-family: var(--head-font);
+  font-weight: var(--font-bold);
+}
+.la-video__course-benifits .la-video__course-benifits-item-description {
+  font-size: var(--text-md);
+  color: #222222;
+  font-family: var(--body-font);
+  font-weight: var(--font-normal);
+}
+.la-video__course-benifits .la-video__course-benifits-item.text-center {
+  background-color: #f5f4f0;
+  padding: 40px 40px;
+}
+
+.la-video__course-purchase {
+  margin-top: 150px;
+  background-color: #f5f4f0;
+}
+.la-video__course-purchase .la-video__course-purchase-this-course {
+  border-right: 2px dotted black;
+}
+.la-video__course-purchase .la-video__course-purchase-this-course-title,
+.la-video__course-purchase .la-video__course-purchase-this-course-price,
+.la-video__course-purchase .la-video__course-purchase-subscribe-title,
+.la-video__course-purchase .at,
+.la-video__course-purchase .la-video__course-purchase-subscribe-price {
+  font-size: var(--icon-xl);
+  color: #010101;
+  font-family: var(--body-font);
+  font-weight: var(--font-normal);
+}
+.la-video__course-purchase .la-video__course-purchase-this-course-price,
+.la-video__course-purchase .la-video__course-purchase-subscribe-price {
+  color: #1ec812;
+}
+.la-video__course-purchase .la-video__course-purchase-select {
+  font-size: var(--icon-md);
+  color: #010101;
+  font-family: var(--head-font);
+  font-weight: var(--font-semibold);
+}
+.la-video__course-purchase .la-video__course-purchase-add-to-cart {
+  font-size: var(--text-md);
+  font-family: var(--body-font);
+  font-weight: var(--font-bold);
+  letter-spacing: 3.2px;
+  color: #1ec812;
+}
+.la-video__course-purchase .la-video__course-purchase-subscribe-desc {
+  font-size: var(--text--sm);
+  font-family: var(--body-font);
+  font-weight: var(--font-normal);
+}
+.la-video__course-purchase .la-video__course-purchase-this-course,
+.la-video__course-purchase .la-video__course-purchase-subscribe {
+  padding: 40px 0;
+  padding-left: 120px;
+}
+
+.la-video__reviews-rate {
+  margin-top: 100px;
+}
+.la-video__reviews-rate .la-video__rating-info-inner,
+.la-video__reviews-rate .la-video__rating-progrss-start {
+  padding: 35px 0;
+}
+.la-video__reviews-rate .la-video__review-title-review {
+  font-size: var(--text-2xl);
+  font-family: var(--head-font);
+  font-weight: var(--font-semibold);
+}
+.la-video__reviews-rate .la-video__review-title-leave-review.text-uppercase {
+  font-size: var(--text--md);
+  font-family: var(--body-font);
+  font-weight: var(--font-bold);
+  letter-spacing: 3.2px;
+  color: #7400d7;
+}
+.la-video__reviews-rate .progress-bar {
+  background-color: #1ec812 !important;
+}
+.la-video__reviews-rate .progress {
+  width: 227px !important;
+  height: 12px !important;
+}
+.la-video__reviews-rate i.la-icon.la-icon--md.icon.icon-star.text-warning {
+  margin-top: -3px;
+}
+.la-video__reviews-rate .la-video__rating-holder-percentage {
+  font-size: 12px !important;
+}
+.la-video__reviews-rate .la-video__rating-info .la-video__rating-info-number {
+  font-size: var(--text-6xl);
+  font-family: var(--body-font);
+  font-weight: var(--font-bold);
+  color: #1ec812;
+}
+.la-video__reviews-rate .la-video__rating-info .la-video__rating-info-text {
+  font-size: var(--text-xs);
+  font-family: var(--body-font);
+  font-weight: var(--font-normal);
+  color: #252525;
+}
+
+.la-video__ratings-reviews-individuals-person {
+  margin-top: 100px;
+}
+.la-video__ratings-reviews-individuals-person img.la-video__ratings-reviews-individuals-person-info-snap {
+  width: var(--size-18);
+  height: var(--size-18);
+}
+.la-video__ratings-reviews-individuals-person .la-video__ratings-reviews-individuals-person-info-date {
+  font-size: var(--text-sm);
+  color: #222222;
+  font-family: var(--head-font);
+  font-weight: var(--font-semibold);
+}
+.la-video__ratings-reviews-individuals-person .la-video__ratings-reviews-individuals-person-info-name {
+  font-size: var(--text-2xl);
+  color: #222222;
+  font-family: var(--head-font);
+  font-weight: var(--font-bold);
+}
+.la-video__ratings-reviews-individuals-person .la-video__ratings-reviews-individuals-person-comment-rating-text {
+  font-size: var(--text-md);
+  font-family: var(--body-font);
+  font-weight: var(--font-normal);
+  color: #222222;
+}
+
+.la-video__ratings-reviews-more i {
+  color: #7400d7;
+  margin-bottom: 10px;
+}
+.la-video__ratings-reviews-more ul {
+  display: inline-block;
+  margin-left: -40px;
+}
+.la-video__ratings-reviews-more li {
+  list-style: none;
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: var(--text-2xl);
+  font-family: var(--body-font);
+  font-weight: var(--font-normal);
+  margin: var(--size-2);
+}
+.la-video__ratings-reviews-more .active {
+  padding: 1px 5px;
+  color: white;
+  background-color: #7400d7;
+  border-radius: 10px;
+}
+
+.la-video__creator .la-video__creator-title {
+  font-size: var(--text-4xl);
+  font-family: var(--head-font);
+  font-weight: var(--font-bold);
+  color: #222222;
+}
+.la-video__creator .la-video__creator-saying-title {
+  font-size: var(--text-3xl);
+  font-family: var(--body-font);
+  font-weight: var(--font-light);
+  color: #222222;
+}
+.la-video__creator .la-video__creator-saying-desc {
+  font-size: var(--text-md);
+  font-family: var(--body-font);
+  font-weight: var(--font-normal);
+}
+.la-video__creator .la-video__creator-snap-info {
+  width: 344px;
+  height: 256px;
+  background-color: #ffc516;
+  border-radius: 10px;
+}
+.la-video__creator .creator-name {
+  font-size: var(--text-2xl);
+  font-family: var(--body-font);
+  font-weight: var(--font-light);
+  color: #222222;
+}
+.la-video__creator .creator-position {
+  font-size: var(--text-xl);
+  font-family: var(--head-font);
+  font-weight: var(--font-semibold);
+  color: #222222;
+}
+.la-video__creator .video_creator-details {
+  right: 0;
+  bottom: 0;
+  margin-top: 15px;
+}
+.la-video__creator .la-video__creator-saying {
+  margin-left: 80px;
+}
+.la-video__creator .la-video__creator-read-about {
+  font-size: var(--text--md);
+  font-family: var(--body-font);
+  font-weight: var(--font-bold);
+  letter-spacing: 3.2px;
+  color: #7400d7;
+}

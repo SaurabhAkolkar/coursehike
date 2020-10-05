@@ -1,0 +1,39 @@
+.la-purchase {
+  background-color: #f5f4f0;
+  padding: 20px 100px;
+}
+.la-purchase .la-purchase__subscribe {
+  padding-left: 60px;
+  border-left: 1px dotted grey;
+}
+.la-purchase .course_price,
+.la-purchase .title,
+.la-purchase .monthly_price {
+  font-size: var(--icon-xl);
+  color: #010101;
+  font-family: var(--body-font);
+  font-weight: var(--font-normal);
+}
+.la-purchase .course_price,
+.la-purchase .monthly_price {
+  color: #1ec812;
+}
+.la-purchase .la-purchase__cart {
+  font-size: var(--text-md);
+  font-family: var(--body-font);
+  font-weight: var(--font-bold);
+  letter-spacing: 3.2px;
+  color: #1ec812;
+}
+.la-purchase .la-purchase__desc {
+  font-size: var(--text--sm);
+  font-family: var(--body-font);
+  font-weight: var(--font-normal);
+}
+.la-purchase .all-c,
+.la-purchase .choose-c {
+  font-size: var(--icon-md);
+  color: #010101;
+  font-family: var(--head-font);
+  font-weight: var(--font-semibold);
+}

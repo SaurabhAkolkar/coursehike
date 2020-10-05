@@ -1,0 +1,416 @@
+$sizes: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20;
+$boxModel: m,p;
+$boxDirections: (
+	t: 'top',
+	l: 'left',
+	r: 'right',
+	b: 'bottom',
+	x: 'horizontal',
+	y: 'vertical'
+);
+@mixin Spacings {
+    @each $size in $sizes {
+        @each $dirKey, $dir in $boxDirections {
+            @each $model in $boxModel {
+                @if($model == m) {
+                    .#{$model}#{$dirKey}-#{$size} {
+                        @if($dirKey == x) {
+                            margin-left: var(--size-#{$size}) !important;
+                            margin-right: var(--size-#{$size}) !important;
+                        }
+                        @elseif($dirKey == y) {
+                            margin-top: var(--size-#{$size}) !important;
+                            margin-bottom: var(--size-#{$size}) !important;
+                        }
+                        @else {
+                            margin-#{$dir}: var(--size-#{$size}) !important;
+                        }
+                    }
+                    // Negative Margin
+                    .-#{$model}#{$dirKey}-#{$size} {
+                        @if($dirKey == x) {
+                            margin-left: calc(var(--size-#{$size}) * -1) !important;
+                            margin-right: calc(var(--size-#{$size}) * -1) !important;
+                        }
+                        @elseif($dirKey == y) {
+                            margin-top: calc(var(--size-#{$size}) * -1) !important;
+                            margin-bottom: calc(var(--size-#{$size}) * -1) !important;
+                        }
+                        @else {
+                            margin-#{$dir}: calc(var(--size-#{$size}) * -1) !important;
+                        }
+                    }
+                }
+                @elseif($model == p) {
+                    .#{$model}#{$dirKey}-#{$size} {
+                        @if($dirKey == x) {
+                            padding-left: var(--size-#{$size}) !important;
+                            padding-right: var(--size-#{$size}) !important;
+                        }
+                        @elseif($dirKey == y) {
+                            padding-top: var(--size-#{$size}) !important;
+                            padding-bottom: var(--size-#{$size}) !important;
+                        }
+                        @else {
+                            padding-#{$dir}: var(--size-#{$size}) !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media all and (min-width: $breakpoint-sm) {
+        @each $size in $sizes {
+            @each $dirKey, $dir in $boxDirections {
+                @each $model in $boxModel {
+                    @if($model == m) {
+                        .#{$model}#{$dirKey}-sm-#{$size} {
+                            @if($dirKey == x) {
+                                margin-left: var(--size-#{$size}) !important;
+                                margin-right: var(--size-#{$size}) !important;
+                            }
+                            @elseif($dirKey == y) {
+                                margin-top: var(--size-#{$size}) !important;
+                                margin-bottom: var(--size-#{$size}) !important;
+                            }
+                            @else {
+                                margin-#{$dir}: var(--size-#{$size}) !important;
+                            }
+                        }
+                        // Negative Margin
+                        .-#{$model}#{$dirKey}-sm-#{$size} {
+                            @if($dirKey == x) {
+                                margin-left: calc(var(--size-#{$size}) * -1) !important;
+                                margin-right: calc(var(--size-#{$size}) * -1) !important;
+                            }
+                            @elseif($dirKey == y) {
+                                margin-top: calc(var(--size-#{$size}) * -1) !important;
+                                margin-bottom: calc(var(--size-#{$size}) * -1) !important;
+                            }
+                            @else {
+                                margin-#{$dir}: calc(var(--size-#{$size}) * -1) !important;
+                            }
+                        }
+                    }
+                    @elseif($model == p) {
+                        .#{$model}#{$dirKey}-sm-#{$size} {
+                            @if($dirKey == x) {
+                                padding-left: var(--size-#{$size}) !important;
+                                padding-right: var(--size-#{$size}) !important;
+                            }
+                            @elseif($dirKey == y) {
+                                padding-top: var(--size-#{$size}) !important;
+                                padding-bottom: var(--size-#{$size}) !important;
+                            }
+                            @else {
+                                padding-#{$dir}: var(--size-#{$size}) !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media all and (min-width: $breakpoint-sm) {
+        @each $size in $sizes {
+            @each $dirKey, $dir in $boxDirections {
+                @each $model in $boxModel {
+                    @if($model == m) {
+                        .#{$model}#{$dirKey}-md-#{$size} {
+                            @if($dirKey == x) {
+                                margin-left: var(--size-#{$size}) !important;
+                                margin-right: var(--size-#{$size}) !important;
+                            }
+                            @elseif($dirKey == y) {
+                                margin-top: var(--size-#{$size}) !important;
+                                margin-bottom: var(--size-#{$size}) !important;
+                            }
+                            @else {
+                                margin-#{$dir}: var(--size-#{$size}) !important;
+                            }
+                        }
+                        // Negative Margin
+                        .-#{$model}#{$dirKey}-md-#{$size} {
+                            @if($dirKey == x) {
+                                margin-left: calc(var(--size-#{$size}) * -1) !important;
+                                margin-right: calc(var(--size-#{$size}) * -1) !important;
+                            }
+                            @elseif($dirKey == y) {
+                                margin-top: calc(var(--size-#{$size}) * -1) !important;
+                                margin-bottom: calc(var(--size-#{$size}) * -1) !important;
+                            }
+                            @else {
+                                margin-#{$dir}: calc(var(--size-#{$size}) * -1) !important;
+                            }
+                        }
+                    }
+                    @elseif($model == p) {
+                        .#{$model}#{$dirKey}-md-#{$size} {
+                            @if($dirKey == x) {
+                                padding-left: var(--size-#{$size}) !important;
+                                padding-right: var(--size-#{$size}) !important;
+                            }
+                            @elseif($dirKey == y) {
+                                padding-top: var(--size-#{$size}) !important;
+                                padding-bottom: var(--size-#{$size}) !important;
+                            }
+                            @else {
+                                padding-#{$dir}: var(--size-#{$size}) !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media all and (min-width: $breakpoint-sm) {
+        @each $size in $sizes {
+            @each $dirKey, $dir in $boxDirections {
+                @each $model in $boxModel {
+                    @if($model == m) {
+                        .#{$model}#{$dirKey}-lg-#{$size} {
+                            @if($dirKey == x) {
+                                margin-left: var(--size-#{$size}) !important;
+                                margin-right: var(--size-#{$size}) !important;
+                            }
+                            @elseif($dirKey == y) {
+                                margin-top: var(--size-#{$size}) !important;
+                                margin-bottom: var(--size-#{$size}) !important;
+                            }
+                            @else {
+                                margin-#{$dir}: var(--size-#{$size}) !important;
+                            }
+                        }
+                        // Negative Margin
+                        .-#{$model}#{$dirKey}-lg-#{$size} {
+                            @if($dirKey == x) {
+                                margin-left: calc(var(--size-#{$size}) * -1) !important;
+                                margin-right: calc(var(--size-#{$size}) * -1) !important;
+                            }
+                            @elseif($dirKey == y) {
+                                margin-top: calc(var(--size-#{$size}) * -1) !important;
+                                margin-bottom: calc(var(--size-#{$size}) * -1) !important;
+                            }
+                            @else {
+                                margin-#{$dir}: calc(var(--size-#{$size}) * -1) !important;
+                            }
+                        }
+                    }
+                    @elseif($model == p) {
+                        .#{$model}#{$dirKey}-lg-#{$size} {
+                            @if($dirKey == x) {
+                                padding-left: var(--size-#{$size}) !important;
+                                padding-right: var(--size-#{$size}) !important;
+                            }
+                            @elseif($dirKey == y) {
+                                padding-top: var(--size-#{$size}) !important;
+                                padding-bottom: var(--size-#{$size}) !important;
+                            }
+                            @else {
+                                padding-#{$dir}: var(--size-#{$size}) !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media all and (min-width: $breakpoint-sm) {
+        @each $size in $sizes {
+            @each $dirKey, $dir in $boxDirections {
+                @each $model in $boxModel {
+                    @if($model == m) {
+                        .#{$model}#{$dirKey}-xl-#{$size} {
+                            @if($dirKey == x) {
+                                margin-left: var(--size-#{$size}) !important;
+                                margin-right: var(--size-#{$size}) !important;
+                            }
+                            @elseif($dirKey == y) {
+                                margin-top: var(--size-#{$size}) !important;
+                                margin-bottom: var(--size-#{$size}) !important;
+                            }
+                            @else {
+                                margin-#{$dir}: var(--size-#{$size}) !important;
+                            }
+                        }
+                        // Negative Margin
+                        .-#{$model}#{$dirKey}-xl-#{$size} {
+                            @if($dirKey == x) {
+                                margin-left: calc(var(--size-#{$size}) * -1) !important;
+                                margin-right: calc(var(--size-#{$size}) * -1) !important;
+                            }
+                            @elseif($dirKey == y) {
+                                margin-top: calc(var(--size-#{$size}) * -1) !important;
+                                margin-bottom: calc(var(--size-#{$size}) * -1) !important;
+                            }
+                            @else {
+                                margin-#{$dir}: calc(var(--size-#{$size}) * -1) !important;
+                            }
+                        }
+                    }
+                    @elseif($model == p) {
+                        .#{$model}#{$dirKey}-xl-#{$size} {
+                            @if($dirKey == x) {
+                                padding-left: var(--size-#{$size}) !important;
+                                padding-right: var(--size-#{$size}) !important;
+                            }
+                            @elseif($dirKey == y) {
+                                padding-top: var(--size-#{$size}) !important;
+                                padding-bottom: var(--size-#{$size}) !important;
+                            }
+                            @else {
+                                padding-#{$dir}: var(--size-#{$size}) !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+$text-sizes: xxs, xs, sm, md, lg, xl, 2xl, 3xl, 4xl, 5xl, 6xl;
+
+@mixin TextSizes {
+    @each $text-size in $text-sizes {
+        .text-#{$text-size} {
+            font-size: var(--text-#{$text-size}) !important;
+        }
+    }
+
+    @media screen and (min-width: $breakpoint-sm) {
+        @each $text-size in $text-sizes {
+            .text-sm-#{$text-size} {
+                font-size: var(--text-#{$text-size}) !important;
+            }
+        } 
+    }
+    
+    @media (min-width: $breakpoint-md) {
+        @each $text-size in $text-sizes {
+            .text-md-#{$text-size} {
+                font-size: var(--text-#{$text-size}) !important;
+            }
+        } 
+    }
+
+    @media (min-width: $breakpoint-lg) {
+        @each $text-size in $text-sizes {
+            .text-lg-#{$text-size} {
+                font-size: var(--text-#{$text-size}) !important;
+            }
+        } 
+    }
+    
+    @media (min-width: $breakpoint-xl) {
+        @each $text-size in $text-sizes {
+            .text-xl-#{$text-size} {
+                font-size: var(--text-#{$text-size}) !important;
+            }
+        } 
+    }
+}
+
+
+
+//
+//  MEDIA QUERIES
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+
+//
+//  RESPOND ABOVE
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include respond-above(sm) {}
+@mixin respond-above($breakpoint) {
+
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    // Write the media query.
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  
+  // If the breakpoint doesn't exist in the map.
+  } @else {
+
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+
+//
+//  RESPOND BELOW
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include respond-below(sm) {}
+@mixin respond-below($breakpoint) {
+
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    // Write the media query.
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+  
+  // If the breakpoint doesn't exist in the map.
+  } @else {
+
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+
+//
+//  RESPOND BETWEEN
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include respond-between(sm, md) {}
+@mixin respond-between($lower, $upper) {
+
+  // If both the lower and upper breakpoints exist in the map.
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+
+    // Get the lower and upper breakpoints.
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
+
+    // Write the media query.
+    @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+      @content;
+    }
+  
+  // If one or both of the breakpoints don't exist.
+  } @else {
+
+    // If lower breakpoint is invalid.
+    @if (map-has-key($breakpoints, $lower) == false) {
+
+      // Log a warning.
+      @warn 'Your lower breakpoint was invalid: #{$lower}.';
+    }
+
+    // If upper breakpoint is invalid.
+    @if (map-has-key($breakpoints, $upper) == false) {
+
+      // Log a warning.
+      @warn 'Your upper breakpoint was invalid: #{$upper}.';
+    }
+  }
+}
