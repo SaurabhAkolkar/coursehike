@@ -271,7 +271,7 @@
                               </div>
 
                                 <div class="la-admin__cp-desc">
-                                    <p class="la-admin__cp-desc">  This course is accessible only by any learner </p>
+                                    <p class="la-admin__cp-desc pl-0">  This course is accessible only by any learner </p>
                                 </div>
                             </label>
                         </div>

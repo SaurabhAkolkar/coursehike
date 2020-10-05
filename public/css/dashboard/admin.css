@@ -719,6 +719,7 @@ button.dt-button, div.dt-button, a.dt-button {
   .la-admin__subform-input{
 	  border:none !important;
 	  text-align: center;
+	  padding:23px;
   }
 
   .la-admin__preview .la-admin__preview-img, .la-admin__preview .la-admin__preview-video{

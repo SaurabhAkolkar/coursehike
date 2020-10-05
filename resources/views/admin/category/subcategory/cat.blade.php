@@ -18,8 +18,6 @@
         <form action="{{ route('cat.store') }}" method="POST">
           {{ csrf_field() }}
 
-
-
           <div class="row">
             <div class="col-md-6">
               <label for="category">{{ __('adminstaticword.Name') }}:<sup class="redstar">*</sup></label>
