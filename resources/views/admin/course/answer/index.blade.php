@@ -1,13 +1,12 @@
 <section class="content">
   <div class="row">
     <div class="col-12">
-      <a data-toggle="modal" data-target="#myModalanswer" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.AddAnswer') }}</a>
-
+        <div class="text-right">
+           <a data-toggle="modal" data-target="#myModalanswer" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.AddAnswer') }}</a>
+        </div><br/>
+       
         <table id="example1" class="table table-bordered table-striped">
-
           <thead>
-            <br>
-            <br>
             <th>#</th>
             <th>{{ __('adminstaticword.Question') }}</th>
             <th>{{ __('adminstaticword.Answer') }}</th>
@@ -33,7 +32,7 @@
             </td>
             
             <td>
-              <a class="btn btn-primary btn-sm" href="{{route('courseanswer.edit',$ans->id)}}"><i class="fa fa-edit"></i></a>
+              <a class="px-0 text-dark" href="{{route('courseanswer.edit',$ans->id)}}"><i class="fa fa-edit"></i></a>
             </td>
 
             <td><form  method="post" action="{{url('courseanswer/'.$ans->id)}}

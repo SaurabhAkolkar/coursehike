@@ -28,7 +28,7 @@
                 <!--<div><h4 class="admin-form-text"><a href="{{url('course')}}" data-toggle="tooltip" data-original-title="Go back" class="btn-floating"><i class="material-icons"><button class="btn btn-xs btn-success abc"> << {{ __('adminstaticword.Back') }}</button> </i></a></h4></div> -->
             </div>
           </div>
-        </div>
+        </div> <br/>
          
         <div class="box-body">
           <div class="form-group">
@@ -229,7 +229,7 @@
                               </div>
 
                                 <div class="la-admin__cp-desc">
-                                    <p class="la-admin__cp-desc">  This course is accessible by any learner </p>
+                                    <p class="">  This course is accessible by any learner </p>
                                 </div>
                             </label>
                         </div>

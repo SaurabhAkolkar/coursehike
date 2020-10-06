@@ -1,13 +1,13 @@
 <section class="content">
   <div class="row">
     <div class="col-12">
-      <a data-toggle="modal" data-target="#myModaltopic" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
+        <div class="text-right">
+          <a data-toggle="modal" data-target="#myModaltopic" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Question') }}</a>
+        </div>
+        <br/>
 
         <table id="example1" class="table table-bordered table-striped">
-
           <thead>
-            <br>
-            <br>
             <th>#</th>
             <th>{{ __('adminstaticword.Question') }}</th>
             <th>{{ __('adminstaticword.Marks') }}</th>
@@ -44,10 +44,10 @@
               </td>
               <td>{{$topic->due_days}}</td>
             
-              <td>
-                <a class="btn btn-primary btn-sm" title="Add Question" href="{{route('answersheet', $topic->id)}}"> Delete Answer</a>
+              <td class="d-flex justify-content-between align-items-center">
+                <a class="" title="Add Question" href="{{route('answersheet', $topic->id)}}"> Delete Answer</a>
 
-                <a class="btn btn-primary btn-sm" title="Add Question" href="{{route('questions.show', $topic->id)}}"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Question') }}</a>
+                <a class="" title="Add Question" href="{{route('questions.show', $topic->id)}}"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Question') }}</a>
              
                 <a href="{{url('admin/quiztopic/'.$topic->id)}}" title="Edit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
 

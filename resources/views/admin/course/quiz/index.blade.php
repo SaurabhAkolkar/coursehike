@@ -22,7 +22,6 @@
         </div>
         <div class="box-header">
           <a data-toggle="modal" data-target="#myModalquiz" href="#" class="btn btn-info btn-sm">+   {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Question') }}</a>
-
         </div>
 
         <br>
