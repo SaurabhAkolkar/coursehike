@@ -377,7 +377,7 @@
     height: var(--icon-5xl);
     font-size: var(--icon-5xl);
   }
-  
+
 /* =============== Admin Left Side Navbar CSS ============  */
 html, body{
     font-family:'Roboto', sans-serif !important;
@@ -427,7 +427,7 @@ html, body{
 .sidebar a {
     font-family:var(--body-font);
     color: #404040 !important;
-    font-weight:500;
+    font-weight:bold !important;
     font-size:15px;
     padding:10px 16px !important;
     outline: 0;
@@ -452,17 +452,19 @@ html, body{
     position:relative;
     border:none;
 }
+
 /* == Sidebar Menu Links border-left == */
 .sidebar-menu>li.active>a {
     border-left-color:transparent !important;
 }
 
 .skin-blue .sidebar-menu>li>.treeview-menu{
-    background-color:#fbfbfb!important;
+    background-color:#F5F4F4 !important;
 }
 .skin-blue .sidebar-menu .treeview-menu>li>a{
     font-size:13px !important;
-    color: #404040 !important;
+    color: #000000 !important;
+    margin-left:18px;
 }
 .skin-blue .sidebar-menu .treeview-menu>li.active>a{
     color:#6708BA !important;
@@ -470,8 +472,13 @@ html, body{
 .skin-blue .sidebar-menu .treeview-menu>li>a:hover{
     color:#6708BA !important;
 }
-
-
+.pull-left.info a{
+  padding:0 !important;
+}
+.sidebar-menu li>a>.fa-angle-left, .sidebar-menu li>a>.pull-right-container>.fa-angle-left{
+  transform:rotate(90deg);
+  color:#000000;
+}
 /* ================ Admin Dashboard Content =================== */
 
 /* == top-nav language btn == */
@@ -485,7 +492,7 @@ html, body{
     box-shadow:none !important;
 }
 .language .btn-primary:hover {
-    background-color: #fbfbfb;
+    background-color: #F5F4F0;
     color: #999999;;
     box-shadow: none;
 }
@@ -502,22 +509,25 @@ html, body{
 }
 /* == Content small-box bg-colors == */
 .bg-aqua, .bg-orange, .bg-purple, .bg-green, .bg-blue, .bg-yellow, .bg-red{
-    background-color:#fbfbfb !important;
+    background-color:#F5F4F0 !important;
+}
+.content-header{
+  padding:15px 25px !important;
 }
 .content-header>h1 {
     margin: 0;
     color:#404040;
     font-family:var(--body-font);
-    font-weight:500;
+    font-weight:bold;
     font-size: 24px;
 }
 .small-box {
     border-radius: 0;
     position: relative;
     display: block;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     box-shadow: none;
-    padding:10px;
+    padding:0;
 }
 
 .small-box .icon {
@@ -541,10 +551,13 @@ html, body{
     font-size: 25px;
     color:#48ACF8;
 }
+.small-box>.inner{
+  padding:20px 10px 0 15px !important;
+}
 /* == small-box inner numbering == */
 .small-box h3 {
     position: relative;
-    top:10px;
+    top:5px;
     font-size: 24px;
     font-family:var(--body-font);
     font-weight:500;
@@ -558,6 +571,7 @@ html, body{
     font-size: 18px;
     color: #252525 !important;
     padding-left:12px;
+    padding-top:5px;
     margin:0;
     font-family:var(--body-font);
     font-weight:500;
@@ -570,25 +584,41 @@ html, body{
     color: #000;
     display: block;
     z-index: 10;
-    background:#fbfbfb;
+    background:#F5F4F0;
     text-decoration: none;
     text-align:right;
-    padding:4px 8px;
+    padding:0 8px 8px;
 }
 .small-box>.small-box-footer:hover {
-    background-color:#fbfbfb;
+    background-color:#F5F4F0;
     color:#000;
 }
 /* == Latest Users Section == */
+.box-header{
+  padding: 25px 10px !important;
+}
+.box-body{
+  padding:10px !important;
+}
+
 .box-header .box-title {
     font-family:var(--body-font);
-    font-weight:500;
-    font-size:18px;
+    font-weight:bold;
+    font-size:24px;
     color: #404040;
 }
+.la-admin__box-title{
+  font-family: var(--body-font) !important;
+    font-weight: 500 !important;
+    font-size: 18px !important;
+    color: #404040 !important;
+    padding: 10px !important;
+    margin: 0;
+}
 .box-recent__content{
-    background-color:#fbfbfb !important;
+    background-color:#F5F4F0 !important;
     padding:10px;
+    margin-top:50px;
 }
 .box-footer{
     background-color:transparent !important;
@@ -703,13 +733,14 @@ div.dt-buttons {
     display: none;
 }
 /* == Search Bar == */
+
 .input-sm{
     padding:0 !important;
  } 
  /* == Table == */
- table.dataTable {
+ table {
     border-collapse: seperate !important;
-    border-spacing: 0 15px !important; 
+    border-spacing: 0 25px !important; 
     border:none;
 }
 /* == table head == */
@@ -726,7 +757,11 @@ th.sorting {
 }
 /* == Sorting Icons after the table head Content == */
 table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting:after{
-    content: "";
+    content: "" !important;
+    display:none ;
+}
+table.dataTable thead>tr>th.sorting_asc{
+  padding-left:25px!important;
 }
 /* == Table rows == */
 .table-striped>tbody>tr:nth-of-type(odd) ,
@@ -734,7 +769,9 @@ table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting:after{
     background-color: #F4F5F080 !important;
 }
 /* == Table Columns == */
+
 table.table-bordered.dataTable tbody td {
+    padding:15px 0;
     font-family:var(--body-font);
     font-weight:400;
     border:none;
@@ -743,6 +780,9 @@ table.table-bordered.dataTable tbody td {
     line-height:1 !important;
     vertical-align: middle;
     text-transform: capitalize;
+ }
+ table.table-bordered.dataTable tbody td.sorting_1{
+   padding-left:25px;
  }
 /* == Table Column Course Image ==*/
 .table td img {
@@ -766,8 +806,15 @@ td .btn-success:focus, td form .btn-danger:focus{
     box-shadow:none !important;
     color:#000000 !important;
 }
+.btn-danger{
+  background-color:transparent !important;
+  border:transparent !important;
+  color:#404040;
+}
+.btn-danger:hover{
+  color:#404040;
 
-
+}
 
 /* ============  COURSES / ADD COURSE PAGE ============ */
 
@@ -802,11 +849,10 @@ td .btn-success:focus, td form .btn-danger:focus{
     font-weight:400;
     display: block;
     width: 100%;
-   
     font-size: 15px;
     line-height: 1.42857143;
     color: #313131;
-    background-color: #fbfbfb;
+    background-color: #FCFCFC;
     border: 1px solid #dedede;
     border-radius: 0;
     box-shadow: none;
@@ -827,7 +873,7 @@ td .btn-success:focus, td form .btn-danger:focus{
 }
 /* == Textarea field == */
 .tox .tox-edit-area__iframe {
-    background-color: #fbfbfb !important;
+    background-color: #FCFCFC !important;
     border:1px solid #dedede !important;
 }
 /* bottom statusbar displayed to none == */
@@ -855,6 +901,7 @@ label{
     font-weight:500;
     font-size:16px;
     color:#000000;
+    margin-bottom:0;
 }
 
 .select2-container .select2-selection--single .select2-selection__rendered {
@@ -863,7 +910,7 @@ label{
     padding-right: 10px;
     font-size: 15px;
     color: #313131;
-    background-color: #fbfbfb;
+    background-color: #FCFCFC;
 }
 .select2-container--default .select2-selection--single .select2-selection__arrow {
     height: 28px;
@@ -895,13 +942,23 @@ label{
     color:#ffffff;
     border:none;
     border-radius:0;
-    padding:8px 32px;
+    padding:12px 30px;
     box-shadow: 0px 3px 6px #00000029;
     float:right;
+    font-size:16px !important;
+    letter-spacing: 1.2px;
 }
 .btn-primary:hover{
     background-color: #7400D7 ;
     box-shadow: 0px 3px 6px #00000029;
+}
+
+.btn-primary:focus{
+  background-color: #7400D7 !important;
+  color:#ffffff !important;
+  outline:0 !important;
+  border:none !important;
+  box-shadow:none !important;
 }
 
 /* ================= COURSE CLASS ================ */

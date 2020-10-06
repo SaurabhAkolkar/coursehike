@@ -1,0 +1,18 @@
+.la-player {
+    color: #252525;
+
+
+    .la-player__title {
+        font-family: var(--body-font);
+        font-weight: var(--font-normal);
+        font-size: var(--text-2xl);
+
+    }
+
+    .la-player__creatorv {
+        font-family: var(--body-font);
+        font-weight: var(--font-normal);
+        font-size: var(--text-xs);
+
+    }
+}

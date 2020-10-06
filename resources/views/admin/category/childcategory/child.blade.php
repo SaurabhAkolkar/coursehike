@@ -47,7 +47,7 @@
               <input type="text" class="form-control icp-auto icp" name="icon" id="exampleInputTitle" placeholder="Enter your icon" value="">
             </div>
             <br>
-            <div class="col-md-12 form-group">
+            <div class="col-md-12 pt-3 form-group">
               <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
               <br>
                 <li class="tg-list-item">

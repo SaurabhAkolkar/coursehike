@@ -11,7 +11,7 @@
 <section class="content">
   <div class="row">
     <div class="col-md-12">
-      <a data-toggle="modal" data-target="#myModalabc" href="#" class="btn btn-info btn-sm">+{{ __('adminstaticword.Add') }}</a>
+      <a data-toggle="modal" data-target="#myModalabc" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.AddRelatedCourse') }}</a>
       <br>
       <br>
         <table id="example1" class="table table-bordered table-striped">

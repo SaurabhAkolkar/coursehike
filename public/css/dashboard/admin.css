@@ -459,6 +459,10 @@ div.dataTables_wrapper div.dataTables_filter label {
 .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
 	background-color: #506FE4;
 	border-color: #506FE4;
+	color:#fff;
+	margin:0 5px;
+	padding:5px;
+	outline:0;
 }
 
 .pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
@@ -498,9 +502,9 @@ button.dt-button, div.dt-button, a.dt-button {
 
 /* ===== RECENT SUBSCRIPTIONS AND BOUGHT COURSES: START ==== */
 .la-dash__recent-section{
-	background-color:#fbfbfb;
+	background-color:#F5F4F0;
 	padding:10px;
-	margin-top:30px;
+	margin-top:60px;
 	width:100%;
 }
 .la-dash__recent-section .la-dash__recent-htitle{
@@ -515,7 +519,6 @@ button.dt-button, div.dt-button, a.dt-button {
 	width:100%;
 	display:flex;
 	justify-content:space-between;
-	margin-bottom:20px;
 	padding:10px;
  }
  .la-dash__recent-section .la-dash__recent-list .la-dash__recent-item .la-dash__recent-info{
@@ -680,7 +683,7 @@ button.dt-button, div.dt-button, a.dt-button {
 	  font-weight: 500;
 	  font-size:18px;
 	  color:#000000;
-	  padding-left:20px;
+	  padding:0 !important;
   }
   .la-admin__preview .la-admin__preview-img .la-admin__preview-input,
   .la-admin__preview .la-admin__preview-video .la-admin__preview-input{
@@ -716,6 +719,7 @@ button.dt-button, div.dt-button, a.dt-button {
   .la-admin__subform-input{
 	  border:none !important;
 	  text-align: center;
+	  padding:23px;
   }
 
   .la-admin__preview .la-admin__preview-img, .la-admin__preview .la-admin__preview-video{
@@ -901,3 +905,159 @@ button.dt-button, div.dt-button, a.dt-button {
 	font-size:12px;
 }
 /* ===== ADD COUPON PAGE: END ====== */
+
+
+/* ============ INVOICE DETAILS PAGE: START ========== */
+.la-admin__invoice{
+	padding:20px 0;
+	border-bottom: 2px solid #F5F4F0;
+}
+.la-admin__invoice .la-admin__invoice-logo img{
+	width:100%;
+	height:auto;
+}
+.la-admin__invoice .la-admin__invoice-address p{
+	font-family:var(--body-font);
+	font-size:14px;
+	font-weight:300;
+	color:#404040;
+}
+.la-admin__invoice .la-admin__invoice-address a{
+	font-family:var(--body-font);
+	font-size:14px;
+	font-weight:300;
+	color:#404040;
+	text-decoration: none;
+	outline:0;
+}
+
+.la-admin__invoice-details .la-admin__cust-info h6{
+	font-family:var(--body-font);
+	font-size:14px;
+	font-weight:normal;
+	color:#252525;
+	opacity:0.6;
+}
+.la-admin__invoice-details .la-admin__cust-info .la-admin__cust-name{
+	font-family:var(--body-font);
+	font-size:16px;
+	font-weight:normal;
+	color:#404040;
+}
+.la-admin__invoice-details .la-admin__cust-info .la-admin__cust-address{
+	font-family:var(--body-font);
+	font-size:14px;
+	font-weight:normal;
+	color:#404040;
+}
+.la-admin__invoice-details .la-admin__cust-info a{
+	font-family:var(--body-font);
+	font-size:14px;
+	font-weight:normal;
+	color:#404040;
+	text-decoration: none;
+	outline:0;
+}
+.la-admin__invoice-details .la-admin__cust-invoice .la-admin__invoice-date, 
+.la-admin__invoice-details .la-admin__cust-invoice .la-admin__invoice-order, 
+.la-admin__invoice-solditems h6{
+	font-family:var(--body-font);
+	font-size:14px;
+	font-weight:normal;
+	color:#252525;
+	opacity:0.6;
+}
+.la-admin__invoice-details .la-admin__cust-invoice .la-admin__date-format,
+.la-admin__invoice-details .la-admin__cust-invoice .la-admin__invoice-id{
+	font-family:var(--body-font);
+	font-size:14px;
+	font-weight:normal;
+	color:#404040;
+}
+
+.la-admin__invoice-solditems .la-admin__invoice-list{
+	padding:10px 0;
+	border-bottom: 2px dashed #F5F4F0;
+}
+.la-admin__invoice-solditems .la-admin__invoice-list .la-admin__invoice-items{
+	padding:10px 0;
+}
+.la-admin__invoice-solditems .la-admin__invoice-list .la-admin__invoice-items .la-admin__item-img img{
+	width:100px;
+	height:60px;
+	border-radius:10px;
+	background: transparent linear-gradient(130deg, #FFFFFF00 0%, #000000 100%) 0% 0% no-repeat padding-box;
+}
+.la-admin__invoice-solditems .la-admin__invoice-list .la-admin__invoice-items .la-admin__item-desc strong{
+	font-family:var(--body-font);
+	font-size:16px;
+	font-weight:medium;
+	color:#010101;
+}
+.la-admin__invoice-solditems .la-admin__invoice-list .la-admin__invoice-items .la-admin__item-desc span{
+	font-family:var(--body-font);
+	font-size:12px;
+	font-weight:normal;
+	color:#010101;
+}
+.la-admin__invoice-solditems .la-admin__invoice-list .la-admin__invoice-items .la-admin__item-price{
+	font-family:var(--body-font);
+	font-size:20px;
+	font-weight:300;
+	color:#010101;
+}
+.la-admin__invoice-solditems .la-admin__invoice-list .la-admin__invoice-items .la-admin__item-price span{
+	font-family:var(--body-font);
+	font-size:20px;
+	font-weight:normal;
+	color:#010101;
+}
+.la-admin__invoice-solditems .la-admin__invoice-total{
+	padding:15px 0;
+}
+.la-admin__invoice-solditems .la-admin__invoice-total .la-admin__total-title{
+	font-family:var(--body-font);
+	font-size:20px;
+	font-weight:bold;
+	color:#252525;
+}
+.la-admin__invoice-solditems .la-admin__invoice-total .la-admin__total-price{
+	font-family:var(--body-font);
+	font-size:20px;
+	font-weight:300;
+	color:#010101;
+}
+.la-admin__invoice-solditems .la-admin__invoice-total .la-admin__total-price span{
+	font-family:var(--body-font);
+	font-size:20px;
+	font-weight:normal;
+	color:#010101;
+}
+.la-admin__invoice-payment{
+	padding:25px 0;
+}
+.la-admin__invoice-payment .la-admin__payment-title{
+	font-family: var(--body-font);
+	font-size:14px;
+	font-weight:normal;
+	color:#252525;
+	opacity:0.6;
+	margin-bottom:8px;
+}
+.la-admin__invoice-payment .la-admin__payment-status span:first-child,
+.la-admin__invoice-payment .la-admin__payment-method span:first-child,
+.la-admin__invoice-payment .la-admin__payment-id span:first-child{
+	font-family: var(--body-font);
+	font-size:14px;
+	font-weight:normal;
+	color:#404040;
+}
+.la-admin__invoice-payment .la-admin__payment-status span:last-child,
+.la-admin__invoice-payment .la-admin__payment-method span:last-child,
+.la-admin__invoice-payment .la-admin__payment-id span:last-child{
+	font-family: var(--body-font);
+	font-size:16px;
+	font-weight:normal;
+	color:#404040;
+}
+/* ============ INVOICE DETAILS PAGE: END ========== */

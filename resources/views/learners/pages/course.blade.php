@@ -1,30 +1,43 @@
 @extends('learners.layouts.app')
 
 @section('content')
-<section>
+<section class="la-section">
     <div class="la-vcourse">
       <div class="container">
-        <div class="row">
-          <div class="col-12 col-lg-6">
-            <div class="la-vcourse__header">
-              <h1 class="la-vcourse__title">Water Color Art</h1>
+        <div class="row  mb-12"> 
+          <div class="col-12 col-lg-7">
+            <div class="la-vcourse__header d-flex align-items-center">
+              <h1 class="la-vcourse__title mr-8">Water Color Art</h1>
               <div class="la-vcourse__badges">
-                <div class="la-vcourse__badge">badge</div>
+                <img src="./images/icons/badge.svg" alt="badge">
               </div>
             </div>
-            <div class="la-vcourse__rating">4</div>
+            <div class="la-vcourse__rating mb-2">
+              <div id="rateYo"></div>
+            </div>
             <p class="la-vcourse__excerpt">Improvise your color theory knowledge and paint any idea in your own colors.</p>
-            <div class="la-vcourse__creator d-flex align-items-center mb-12">
+            <div class="la-vcourse__creator d-flex align-items-center">
               <div class="la-vcourse__creator-avator"><img src="https://picsum.photos/200/200" alt=""></div>
               <div class="la-vcourse__creator-name">Amy D'souza</div>
             </div>
           </div>
-          <div class="col-12 col-lg-6">
-            <div class="la-vcourse__buy"></div>
-            <div class="la-vcourse__info">
-              <div class="la-vcourse__videos"></div>
-              <div class="la-vcourse__learners"></div>
-              <div class="la-vcourse__level"></div>
+          <div class="col-12 col-lg-5 d-flex flex-column justify-content-between">
+            <div class="la-vcourse__buy text-right mb-2">
+              <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end">Subscribe Now</a>
+            </div>
+            <div class="la-vcourse__info d-flex align-item-center justify-content-end">
+              <div class="la-vcourse__videos">
+                <span class="la--count">05</span>
+                <span class="la--label">Videos</span>
+              </div>
+              <div class="la-vcourse__learners mx-10">
+                <span class="la--count">300</span>
+                <span class="la--label">Learners</span>
+              </div>
+              <div class="la-vcourse__level">
+                <span class="la--icon"><img src="./images/icons/level-beginner.svg" alt="beginner"></span>
+                <span class="la--label">Beginner</span>
+              </div>
             </div>
           </div>
         </div>
@@ -35,6 +48,16 @@
               <li class="la-vcourse__updatedon mr-14"><span class="la-text-gray4">Duration </span>  June19, 2020</li>
               <li class="la-vcourse__languages mr-14"> <span class="la-text-gray4">Languages </span>  English, Hindi </li>
             </ul>
+          </div>
+          <div class="col-12 la-vcourse__primary-info d-flex mb-2">
+            <div class="la-vcourse__classes-info mr-6">
+              <span class="la--count">2</span>
+              <span class="la-label">Classes</span>
+            </div>
+            <div class="la-vcourse__videos-info">
+              <span class="la--count">5</span>
+              <span class="la-label">Videos</span>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -50,55 +73,85 @@
                 <div class="la-vcourse__class-header d-flex mb-7 ml-5">
                   <div class="la-vcourse__class-thumb mr-3"><img class="img-fluid" src="https://picsum.photos/100"></div>
                   <div class="d-flex flex-column">
-                    <div class="la-vcourse__class-title leading-4 text-xl">Class 1: Lorem ipsum dolor sit</div><small class="la-vcourse__class-videoscount">2 Videos</small>
+                    <div class="la-vcourse__class-title leading-4 text-xl mb-1">Class 1: Lorem ipsum dolor sit</div><small class="la-vcourse__class-videoscount">2 Videos</small>
                   </div>
                 </div>
                 <div class="la-vcourse__lessons">
-                  <div class="la-vcourse__lesson">
-                    <div class="mr-5">
-                      <div class="la-vcourse__lesson-videothumb"><img class="img-fluid" src="https://picsum.photos/200/300">
-                        <div class="la-vcourse__lesson-progress">
-                          <div class="la-vcourse__progress">
-                            <div class="la-vcourse__progress-fill"></div>
+                  <div class="la-vcourse__lesson position-relative">
+                    <div class="la-vcourse__lesson-access la-vcourse__lesson-access--free">
+                      <span class=""></span>
+                    </div>
+                    <div class="la-vcourse__lesson-left position-relative">
+                      <div class="la-vcourse__lesson-thumbnail position-absolute">
+                        <img class="img-fluid" src="https://picsum.photos/200/150">
+                      </div>
+                      <div class="la-vcourse__lesson-front position-relative">
+                        <div class="la-vcourse__lesson-playbtn">
+                          <span></span>
+                        </div>
+                        <div class="la-vcourse__progress">
+                          <div class="la-vcourse__progress-time text-right"></div>
+                          <div class="la-vcourse__progress-track">
+                            <span class="la-vcourse__progress-bar"></span>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="d-flex flex-column">
+                    <div class="la-vcourse__lesson-right d-flex flex-column">
                       <div class="la-vcourse__lesson-title">1. At vero eos et accusam et</div>
                       <div class="la-vcourse__lesson-creator pl-4">Amy D'souza</div>
                       <div class="la-vcourse__lesson-learnt mt-auto">0</div>
                       <div class="la-vcourse__lesson-status"></div>
                     </div>
                   </div>
-                  <div class="la-vcourse__lesson">
-                    <div class="mr-5">
-                      <div class="la-vcourse__lesson-videothumb"><img class="img-fluid" src="https://picsum.photos/200/300">
-                        <div class="la-vcourse__lesson-progress">
-                          <div class="la-vcourse__progress">
-                            <div class="la-vcourse__progress-fill"></div>
+                  <div class="la-vcourse__lesson position-relative">
+                    <div class="la-vcourse__lesson-access la-vcourse__lesson-access--free">
+                      <span class=""></span>
+                    </div>
+                    <div class="la-vcourse__lesson-left position-relative">
+                      <div class="la-vcourse__lesson-thumbnail position-absolute">
+                        <img class="img-fluid" src="https://picsum.photos/200/150">
+                      </div>
+                      <div class="la-vcourse__lesson-front position-relative">
+                        <div class="la-vcourse__lesson-playbtn">
+                          <span></span>
+                        </div>
+                        <div class="la-vcourse__progress">
+                          <div class="la-vcourse__progress-time text-right"></div>
+                          <div class="la-vcourse__progress-track">
+                            <span class="la-vcourse__progress-bar"></span>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="d-flex flex-column">
+                    <div class="la-vcourse__lesson-right d-flex flex-column">
                       <div class="la-vcourse__lesson-title">1. At vero eos et accusam et</div>
                       <div class="la-vcourse__lesson-creator pl-4">Amy D'souza</div>
                       <div class="la-vcourse__lesson-learnt mt-auto">0</div>
                       <div class="la-vcourse__lesson-status"></div>
                     </div>
                   </div>
-                  <div class="la-vcourse__lesson">
-                    <div class="mr-5">
-                      <div class="la-vcourse__lesson-videothumb"><img class="img-fluid" src="https://picsum.photos/200/300">
-                        <div class="la-vcourse__lesson-progress">
-                          <div class="la-vcourse__progress">
-                            <div class="la-vcourse__progress-fill"></div>
+                  <div class="la-vcourse__lesson position-relative">
+                    <div class="la-vcourse__lesson-access la-vcourse__lesson-access--free">
+                      <span class=""></span>
+                    </div>
+                    <div class="la-vcourse__lesson-left position-relative">
+                      <div class="la-vcourse__lesson-thumbnail position-absolute">
+                        <img class="img-fluid" src="https://picsum.photos/200/150">
+                      </div>
+                      <div class="la-vcourse__lesson-front position-relative">
+                        <div class="la-vcourse__lesson-playbtn">
+                          <span></span>
+                        </div>
+                        <div class="la-vcourse__progress">
+                          <div class="la-vcourse__progress-time text-right"></div>
+                          <div class="la-vcourse__progress-track">
+                            <span class="la-vcourse__progress-bar"></span>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="d-flex flex-column">
+                    <div class="la-vcourse__lesson-right d-flex flex-column">
                       <div class="la-vcourse__lesson-title">1. At vero eos et accusam et</div>
                       <div class="la-vcourse__lesson-creator pl-4">Amy D'souza</div>
                       <div class="la-vcourse__lesson-learnt mt-auto">0</div>
@@ -115,51 +168,81 @@
                   </div>
                 </div>
                 <div class="la-vcourse__lessons">
-                  <div class="la-vcourse__lesson">
-                    <div class="mr-5">
-                      <div class="la-vcourse__lesson-videothumb"><img class="img-fluid" src="https://picsum.photos/200/300">
-                        <div class="la-vcourse__lesson-progress">
-                          <div class="la-vcourse__progress">
-                            <div class="la-vcourse__progress-fill"></div>
+                  <div class="la-vcourse__lesson position-relative">
+                    <div class="la-vcourse__lesson-access la-vcourse__lesson-access--free">
+                      <span class=""></span>
+                    </div>
+                    <div class="la-vcourse__lesson-left position-relative">
+                      <div class="la-vcourse__lesson-thumbnail position-absolute">
+                        <img class="img-fluid" src="https://picsum.photos/200/150">
+                      </div>
+                      <div class="la-vcourse__lesson-front position-relative">
+                        <div class="la-vcourse__lesson-playbtn">
+                          <span></span>
+                        </div>
+                        <div class="la-vcourse__progress">
+                          <div class="la-vcourse__progress-time text-right"></div>
+                          <div class="la-vcourse__progress-track">
+                            <span class="la-vcourse__progress-bar"></span>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="d-flex flex-column">
+                    <div class="la-vcourse__lesson-right d-flex flex-column">
                       <div class="la-vcourse__lesson-title">1. At vero eos et accusam et</div>
                       <div class="la-vcourse__lesson-creator pl-4">Amy D'souza</div>
                       <div class="la-vcourse__lesson-learnt mt-auto">0</div>
                       <div class="la-vcourse__lesson-status"></div>
                     </div>
                   </div>
-                  <div class="la-vcourse__lesson">
-                    <div class="mr-5">
-                      <div class="la-vcourse__lesson-videothumb"><img class="img-fluid" src="https://picsum.photos/200/300">
-                        <div class="la-vcourse__lesson-progress">
-                          <div class="la-vcourse__progress">
-                            <div class="la-vcourse__progress-fill"></div>
+                  <div class="la-vcourse__lesson position-relative">
+                    <div class="la-vcourse__lesson-access la-vcourse__lesson-access--free">
+                      <span class=""></span>
+                    </div>
+                    <div class="la-vcourse__lesson-left position-relative">
+                      <div class="la-vcourse__lesson-thumbnail position-absolute">
+                        <img class="img-fluid" src="https://picsum.photos/200/150">
+                      </div>
+                      <div class="la-vcourse__lesson-front position-relative">
+                        <div class="la-vcourse__lesson-playbtn">
+                          <span></span>
+                        </div>
+                        <div class="la-vcourse__progress">
+                          <div class="la-vcourse__progress-time text-right"></div>
+                          <div class="la-vcourse__progress-track">
+                            <span class="la-vcourse__progress-bar"></span>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="d-flex flex-column">
+                    <div class="la-vcourse__lesson-right d-flex flex-column">
                       <div class="la-vcourse__lesson-title">1. At vero eos et accusam et</div>
                       <div class="la-vcourse__lesson-creator pl-4">Amy D'souza</div>
                       <div class="la-vcourse__lesson-learnt mt-auto">0</div>
                       <div class="la-vcourse__lesson-status"></div>
                     </div>
                   </div>
-                  <div class="la-vcourse__lesson">
-                    <div class="mr-5">
-                      <div class="la-vcourse__lesson-videothumb"><img class="img-fluid" src="https://picsum.photos/200/300">
-                        <div class="la-vcourse__lesson-progress">
-                          <div class="la-vcourse__progress">
-                            <div class="la-vcourse__progress-fill"></div>
+                  <div class="la-vcourse__lesson position-relative">
+                    <div class="la-vcourse__lesson-access la-vcourse__lesson-access--free">
+                      <span class=""></span>
+                    </div>
+                    <div class="la-vcourse__lesson-left position-relative">
+                      <div class="la-vcourse__lesson-thumbnail position-absolute">
+                        <img class="img-fluid" src="https://picsum.photos/200/150">
+                      </div>
+                      <div class="la-vcourse__lesson-front position-relative">
+                        <div class="la-vcourse__lesson-playbtn">
+                          <span></span>
+                        </div>
+                        <div class="la-vcourse__progress">
+                          <div class="la-vcourse__progress-time text-right"></div>
+                          <div class="la-vcourse__progress-track">
+                            <span class="la-vcourse__progress-bar"></span>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="d-flex flex-column">
+                    <div class="la-vcourse__lesson-right d-flex flex-column">
                       <div class="la-vcourse__lesson-title">1. At vero eos et accusam et</div>
                       <div class="la-vcourse__lesson-creator pl-4">Amy D'souza</div>
                       <div class="la-vcourse__lesson-learnt mt-auto">0</div>

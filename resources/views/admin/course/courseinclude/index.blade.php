@@ -2,7 +2,7 @@
  
 <div class="row">
   <div class="col-md-12">
-    <a data-toggle="modal" data-target="#myModalJ" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
+    <a data-toggle="modal" data-target="#myModalJ" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.AddCourseInclude') }}</a>
     <br>
     <br>
       <table id="example1" class="table table-bordered table-striped">
@@ -78,12 +78,12 @@
                 <div class="row">
                   <div class="col-md-12">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
-                    <textarea rows="1" name="detail" class="form-control" placeholder="Enter Your Detail"></textarea>
+                    <textarea rows="2" name="detail" class="form-control" placeholder="Enter Your Detail"></textarea>
                   </div>
                 </div>
                 <br>
 
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                   <li class="tg-list-item">              
                     <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" >

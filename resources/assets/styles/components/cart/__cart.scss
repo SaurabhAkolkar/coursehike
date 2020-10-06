@@ -1,0 +1,47 @@
+@import './cart-item';
+
+#{$ap}- {
+    &cart {
+        &__ {
+            &bill {
+                &- {
+                    &title {
+                        font-size: var(--text-xl);
+                        font-weight: var(--font-bold);
+                    }
+
+                    &label {
+                        width: 60%;
+                        padding-right: 15px;
+                        font-size: var(--text-sm);
+                        color: var(--gray5);
+                        opacity: 0.6;
+                    }
+
+                    &amount {
+                        & .text {
+                            color: var(--app-indigo-1);
+                            font-size: var(--text-xs);
+                            font-weight: var(--font-bold);
+                        }
+                    }
+                }
+            }
+
+            &product {
+                &- {
+                    &title {
+                        margin-bottom: var(--size-10);
+                        &-- {
+                            &light h2 {
+                                font-weight: var(--font-light);
+                                color: var(--gray5)
+                            }
+                        }
+                    }
+                }
+            }
+        
+        }
+    }
+}

@@ -1,0 +1,211 @@
+@import './variables', './mixins', './functions','./icons', './reset', './btn';
+
+:root {
+    --app-indigo-1: #7322B7;
+
+    --inner-padding: calc(var(--size-20) - var(--size-3));
+
+    --body-font: 'Roboto', sans-serif;
+    --head-font: 'Raleway', sans-serif;
+
+    --text-base: 0.25rem;
+    --text-xxs: 10px;
+    --text-xs: calc(var(--text-base) * 3);
+    --text-sm: 14px;
+    --text-md: calc(var(--text-base) * 4);
+    --text-lg: 18px;
+    --text-xl: calc(var(--text-base) * 5);
+    --text-2xl: calc(var(--text-base) * 6);
+    --text-3xl: calc(var(--text-base) * 7);
+    --text-4xl: calc(var(--text-base) * 8);
+    --text-5xl: calc(var(--text-base) * 9);
+    --text-6xl: calc(var(--text-base) * 12);
+    --text-7xl: calc(var(--text-base) * 13);
+    --text-8xl: calc(var(--text-base) * 14);
+    --text-abnormal: 128px;
+
+    --icon-base: 0.25rem;
+    --icon-xs: calc(var(--icon-base) * 2);
+    --icon-sm: calc(var(--icon-base) * 3);
+    --icon-md: calc(var(--icon-base) * 4);
+    --icon-lg: calc(var(--icon-base) * 5);
+    --icon-xl: calc(var(--icon-base) * 6);
+    --icon-2xl: calc(var(--icon-base) * 7);
+    --icon-3xl: calc(var(--icon-base) * 8);
+    --icon-4xl: calc(var(--icon-base) * 10);
+    --icon-5xl: calc(var(--icon-base) * 12);
+
+    --font-thin: 100;
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+    --font-black: 900;
+
+    --size-base: 0.25rem;
+    --size-1: var(--size-base);
+    --size-2: calc(2 * var(--size-base));
+    --size-3: calc(3 * var(--size-base));
+    --size-4: calc(4 * var(--size-base));
+    --size-5: calc(5 * var(--size-base));
+    --size-6: calc(6 * var(--size-base));
+    --size-7: calc(7 * var(--size-base));
+    --size-8: calc(8 * var(--size-base));
+    --size-9: calc(9 * var(--size-base));
+    --size-10: calc(10 * var(--size-base));
+    --size-12: calc(12 * var(--size-base));
+    --size-14: calc(14 * var(--size-base));
+    --size-16: calc(16 * var(--size-base));
+    --size-18: calc(18 * var(--size-base));
+    --size-20: calc(20 * var(--size-base));
+
+
+    --rounded: 0.25rem;
+    --rounded-full: 9999px;
+
+
+    --gray: #F5F4F0;
+    --gray2: #E5E4E0;
+    --gray3: #262625;
+    --gray4: #909090;
+    --gray5: #252525;
+    --gray6: #010101;
+    --gray7: #222222;
+    --gray8: #CCCCCC;
+    --gray9: #9E9E9E;
+    --gray10: #656565;
+    
+
+    --green: #{$green};
+
+    --danger: #EE4224;
+
+    --white: #fff;
+    --header-z: 100;
+    --z-1: 1;
+    --z-2: 2;
+    --z-4: 4;
+    --z-6: 6;
+    --z-8: 8;
+    --z-10: 10;
+    --z-20: 20;
+    --z-30: 30;
+    --z-40: 40;
+    --z-50: 50;
+    --z-60: 60;
+}
+
+body {
+    font-family: var(--body-font);
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    font-family: var(--head-font);
+    font-weight: var(--font-semibold);
+    margin-bottom: inherit;
+}
+
+a {
+    &, &:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+*:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+
+.leading-3	{line-height: .75rem;}
+.leading-4	{line-height: 1rem;}
+.leading-5	{line-height: 1.25rem;}
+.leading-6	{line-height: 1.5rem;}
+.leading-7	{line-height: 1.75rem;}
+.leading-8	{line-height: 2rem;}
+.leading-9	{line-height: 2.25rem;}
+.leading-10	{line-height: 2.5rem;}
+.leading-none	{line-height: 1;}
+.leading-tight	{line-height: 1.25;}
+.leading-snug	{line-height: 1.375;}
+.leading-normal	{line-height: 1.5;}
+.leading-relaxed	{line-height: 1.625;}
+.leading-loose	{line-height: 2;}
+
+#{$ap}- {
+    &icon {
+        display: inline-block;
+        &-- {
+            &xs {
+                width: var(--icon-xs);
+                height: var(--icon-xs);
+                font-size: var(--icon-xs);
+            }
+            &sm {
+                width: var(--icon-sm);
+                height: var(--icon-sm);
+                font-size: var(--icon-sm);
+            }
+            &md {
+                width: var(--icon-md);
+                height: var(--icon-md);
+                font-size: var(--icon-md);
+            }
+            &lg {
+                width: var(--icon-lg);
+                height: var(--icon-lg);
+                font-size: var(--icon-lg);
+            }
+            &xl {
+                width: var(--icon-xl);
+                height: var(--icon-xl);
+                font-size: var(--icon-xl);
+            }
+            &2xl {
+                width: var(--icon-2xl);
+                height: var(--icon-2xl);
+                font-size: var(--icon-2xl);
+            }
+            &3xl {
+                width: var(--icon-3xl);
+                height: var(--icon-3xl);
+                font-size: var(--icon-3xl);
+            }
+            &4xl {
+                width: var(--icon-4xl);
+                height: var(--icon-4xl);
+                font-size: var(--icon-4xl);
+            }
+            &5xl {
+                width: var(--icon-5xl);
+                height: var(--icon-5xl);
+                font-size: var(--icon-5xl);
+            }
+        }
+    }
+    // Icon: End
+
+    &text-gray4 {
+        color: var(--gray4) !important;
+    }
+
+}
+
+
+.head-font {
+    font-family: var(--head-font) !important;
+}
+.body-font {
+    font-family: var(--body-font) !important;
+}
+
+@include Spacings;
+
+@include TextSizes;
