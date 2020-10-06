@@ -85,7 +85,7 @@
 
                 <div class="row">
                   <div class="col-md-12">
-                    <label for="exampleInputDetails">{{ __('adminstaticword.ChapterName') }}:<sup class="redstar">*</sup></label>
+                    <label >{{ __('adminstaticword.ClassName') }}:<sup class="redstar">*</sup></label>
                     <select name="course_chapters" class="form-control col-md-7 col-12 js-example-basic-single" required>
                       @foreach($coursechapters as $c)
                       <option value="{{ $c->id }}">{{ $c->chapter_name }}</option>
@@ -93,310 +93,72 @@
                     </select>
                   </div>
                 </div>
-                <br>
 
-                <div class="row">
+                <div class="row mt-3">
                   <div class="col-md-12">
-                    <label for="exampleInputDetails">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
+                    <label >{{ __('adminstaticword.CourseClass') }} {{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
                     <input type="text" class="form-control " name="title" id="exampleInputTitle"   placeholder="Enter Your Title"value="" required>
                   </div>
                 </div>
-                <br>
+
+                <div class="row mt-3">
+                  <div class="col-md-12">
+                    <label>{{ __('adminstaticword.Detail') }}:</label><br>
+                    <textarea name="detail" rows="3" class="form-control"></textarea>
+                  </div>
+                </div>
                 
                 <!-- CLASS THUMBNAIL: START -->
-                <div class="row">
+                <div class="row mt-3">
                   <div class="col-12">
                         <div class="la-admin__preview">
-                          <label for="" class="la-admin__preview-label"> Class Thumbnail<sup class="redstar">*</sup></label>
+                          <label for="" class="la-admin__preview-label p-0">Thumbnail Image<sup class="redstar">*</sup></label>
                           <div class="la-admin__preview-img" >
                                <div class="la-admin__preview-text">
                                     <p class="la-admin__preview-size">Thumbnail | 500x350</p>
                                     <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
                               </div>
-                              <input type="file" class="form-control la-admin__preview-input" name="addClass-previewImg" id="addClass-previewImg" />
+                              <input type="file" class="form-control la-admin__preview-input preview_img" name="preview_image" />
+                              <img src="" alt="" class="d-none preview-img"/>
                           </div>
                         </div>
                   </div>
                 </div>
                 <!-- CLASS THUMBNAIL: END -->
-
-                 <!-- COURSE PACKAGE TYPE: START -->
-                <div class="row">
+                
+                <!-- CLASS VIDEO: START -->
+                <div class="row mt-3">
                   <div class="col-12">
-                    <div class="la-admin__course-package la-admin__class-package">
-                        <div class="la-admin__cp-subscription">
-                            <input type="radio" name="addClass-subscription" id="addClassSub" value="Subscription" class="la-admin__cp-input" /> 
-                            <label for="addClassSub"> 
-                              <div class="la-admin__cp-circle">
-                                  <span class="la-admin__cp-radio"></span>
-                                  <span class="la-admin__cp-label">Subscription</span> 
-                                  <small><i class="fa fa-info-circle px-1"></i> (Default)</small>
+                        <div class="la-admin__preview">
+                          <label for="" class="la-admin__preview-label p-0">Video Upload<sup class="redstar">*</sup></label>
+                          <div class="la-admin__preview-img" >
+                               <div class="la-admin__preview-text">
+                                    <p class="la-admin__preview-size">Video | 2G</p>
+                                    <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
                               </div>
-
-                              <div class="la-admin__cp-desc">
-                                <p>This course is accessible by all Subscribers & also available for life-time purchase. </p>
-                                <p>Please enter the Course cost for One-Time Purchase</p>
-                                <div class="form-group row  la-admin__subform-group">
-                                    <div class="input-group col-7 la-admin__subinput-group">
-                                      <div class="input-group-prepend la-admin__subinput-prepend" >
-                                          <span class="fa fa-dollar input-group-text la-admin__subinput-text"></span> 
-                                      </div>
-                                      <input type="text" name="class-OTP" id="class-OTP" class="form-control la-admin__subform-input" value="20"/>
-                                    </div>
-                                </div>
-                              </div>
-                            </label>
-                        </div> <br/>
-
-
-                        <div class="la-admin__cp-free">
-                              <input type="radio" name="addClass-subscription" id="addClassFree" value="Free" class="la-admin__cp-input">
-                              <label for="addClassFree" > 
-                                <div class="la-admin__cp-circle">
-                                  <span class="la-admin__cp-radio"></span>
-                                  <span class="la-admin__cp-label">Free</span> 
-                                  <small><i class="fa fa-info-circle pl-1"></i> </small>
-                                </div>
-
-                                  <div class="la-admin__cp-desc">
-                                      <p class="la-admin__cp-info">  This course is accessible only by any learner </p>
-                                  </div>
-                              </label>
+                              <input type="file" class="form-control la-admin__preview-input preview_video" name="video_upld" />
+                              <video controls  class="d-none preview-video w-100">
+                                <source src="">
+                                  Your browser does not support HTML5 video.
+                              </video>
+                          </div>
                         </div>
-                    </div>
                   </div>
                 </div>
-               <!-- COURSE PACKAGE TYPE: END -->
-
-               <!--  ADD CLASS STATUS: START -->
-              <div class="row">
-                  <div class="col-12">
-                    <label class="la-admin__preview-label"> Status<sup class="redstar">*</sup></label>
-                    <div class="la-admin__class-status d-flex justify-content-start">
-                      <div class="la-admin__class-active pr-5">
-                          <input type="radio" name="addClass-status" id="addClass-active" value="active" class="la-admin__cp-input" >
-                          <label for="addClass-active" > 
-                            <div class="la-admin__cp-circle">
-                              <span class="la-admin__cp-radio"></span>
-                              <span class="la-admin__cp-label">Active</span> 
-                            </div>
-                          </label>
-                      </div>
-
-                      <div class="la-admin__class-hold pr-5">
-                        <input type="radio" name="addClass-status" id="addClass-hold" value="hold" class="la-admin__cp-input" >
-                        <label for="addClass-hold" > 
-                          <div class="la-admin__cp-circle">
-                            <span class="la-admin__cp-radio"></span>
-                            <span class="la-admin__cp-label">On hold</span> 
-                          </div>
-                        </label>
-                      </div>
-
-                      <div class="la-admin__class-archive pr-5">
-                        <input type="radio" name="addClass-status" id="addClass-archive" value="archive" class="la-admin__cp-input" >
-                        <label for="addClass-archive" > 
-                          <div class="la-admin__cp-circle">
-                            <span class="la-admin__cp-radio"></span>
-                            <span class="la-admin__cp-label">Archive</span> 
-                          </div>
-                        </label>
-                    </div>
-                  </div>
-                  </div>
-              </div>
-              <!-- ADD CLASS STATUS: END -->
-
-                <div class="row">
-                  <div class="col-md-12">
-                    <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:</label>
-                    <textarea id="abcd" name="detail" rows="3" class="form-control"></textarea>
-                  </div>
-                </div>
-                <br>
-
-                <div class="row">
-                  <div class="col-md-12">
-                    <label for="type">{{ __('adminstaticword.Type') }}:<sup class="redstar">*</sup></label>
-                    <select name="type" id="filetype" class="form-control " required>
-                      <option>{{ __('adminstaticword.ChooseFileType') }}</option>
-                      <option value="video">{{ __('adminstaticword.Video') }}</option>
-                      <option value="audio">{{ __('adminstaticword.Audio') }}</option>
-                      <option value="image">{{ __('adminstaticword.Image') }}</option>
-                      <option value="zip">{{ __('adminstaticword.Zip') }}</option>
-                      <option value="pdf">{{ __('adminstaticword.Pdf') }}</option>
-                    </select>
-                  </div>
-                  <br>
-
-                  <!--for audio -->
-                  <div class="col-md-12 display-none" id="audioChoose">
-                    <input type="radio" name="checkAudio" id="ch11" value="audiourl"> {{ __('adminstaticword.URL') }}
-                    <input type="radio" name="checkAudio" id="ch12" value="uploadaudio"> {{ __('adminstaticword.UploadAudio') }}
-                  </div>
-                  
-                  <div class="col-md-12 display-none" id="audioURL">
-                    <label for="">{{ __('adminstaticword.URL') }}: </label>
-                    <input type="text" name="audiourl" placeholder="Enter Your URL" class="form-control">
-                  </div>
-
-                  <div class="col-md-12 display-none" id="audioUpload">
-                    <label for="">{{ __('adminstaticword.UploadAudio') }}: </label>
-                    <input type="file" name="audioupload" class="form-control">
-                  </div>
+                <!-- CLASS VIDEO: END -->
 
 
-
-                  <!--for image -->
-                  <div class="col-md-12 display-none" id="imageChoose">
-                    <input type="radio" name="checkImage" id="ch3" value="url"> {{ __('adminstaticword.URL') }}
-                    <input type="radio" name="checkImage" id="ch4" value="uploadimage"> {{ __('adminstaticword.UploadImage') }}
-                  </div>
-                  
-                  <div class="col-md-12 display-none" id="imageURL">
-                    <label for="">{{ __('adminstaticword.URL') }}: </label>
-                    <input type="text" name="imgurl" placeholder="Enter Your URL" class="form-control">
-                  </div>
-
-                  <div class="col-md-12 display-none" id="imageUpload">
-                    <label for="">{{ __('adminstaticword.UploadImage') }}: </label>
-                    <input type="file" name="image" class="form-control">
-                  </div>
-
-
-
-
-
-                  <!--video-->
-                  <div class="col-md-12 display-none" id="videotype">
-                    {{-- <input type="radio" name="checkVideo" id="ch1" value="url">&nbsp;{{ __('adminstaticword.URL') }}
-                    &emsp; --}}
-                    <input type="radio" name="checkVideo" id="ch2" value="uploadvideo">&nbsp;{{ __('adminstaticword.UploadVideo') }}
-                    &emsp;
-                    {{-- <input type="radio" name="checkVideo" id="ch9" value="iframeurl">&nbsp;{{ __('adminstaticword.IframeURL') }}
-                    &emsp;
-                    <input type="radio" name="checkVideo" id="ch10" value="liveurl">&nbsp;{{ __('adminstaticword.LiveClass') }}
-                    &emsp; --}}
-                    
-                    @if($gsetting->aws_enable == 1)
-                    <input type="radio" name="checkVideo" id="ch13" value="aws_upload">&nbsp;{{ __('adminstaticword.AWSUpload') }}
-                    @endif
-                  </div>
-
-                  <div class="col-md-12 display-none" id="videoURL">
-                    <label for="">{{ __('adminstaticword.URL') }}: </label>
-                    <input type="text" name="vidurl"  placeholder="Enter Your URL" class="form-control">
-                  </div>
-
-                  <div class="col-md-12 display-none" id="videoUpload">
-                    <label for="">{{ __('adminstaticword.UploadVideo') }}: </label>
-                    <input type="file" name="video_upld" class="form-control">
-                  </div>
-
-                  <div class="col-md-12 display-none" id="iframeURLBox">
-                    <label for="">{{ __('adminstaticword.IframeURL') }}: </label>
-                    <input type="text" name="iframe_url"  placeholder="Enter Your Iframe URL" class="form-control">
-                  </div>
-                  
-
-                  <div class="col-md-12 display-none" id="liveclassBox">
-                    <label for="appt">Select a Date & Time:</label>
-                    <input type="datetime-local" id="date_time" name="date_time" class="form-control">
-                  </div>
-                  
-                  <!-- aws insert -->
-                  @if($gsetting->aws_enable == 1)
-                  <div class="col-md-12 display-none" id="awsBox">
-                    <label for="appt">{{ __('adminstaticword.AWSUpload') }}</label>
-                    <input type="file" name="aws_upload" class="form-control">
-                  </div>
-                  @endif
-
-
-                  <!-- zip -->
-                  <div class="col-md-12 display-none" id="zipChoose">
-                    <input type="radio" value="zipURLEnable" name="checkZip" id="ch5"> {{ __('adminstaticword.URL') }}
-                    <input type="radio" value="zipEnable" name="checkZip" id="ch6"> {{ __('adminstaticword.UploadZip') }}
-                  </div>
-                  
-                  <div class="col-md-12 display-none" id="zipURL">
-                    <label for="">{{ __('adminstaticword.URL') }}: </label>
-                    <input type="text" name="zipurl" placeholder="Enter Your URL" class="form-control">
-                  </div>
-
-                  <div class="col-md-12 display-none" id="zipUpload">
-                    <label for="">{{ __('adminstaticword.UploadZip') }}: </label>
-                    <input type="file" name="uplzip" class="form-control">
-                  </div>
-
-
-                  <!-- pdf -->
-                  <div class="col-md-12 display-none" id="pdfChoose">
-                    <input type="radio" value="pdfURLEnable" name="checkPdf" id="ch7"> {{ __('adminstaticword.URL') }}
-                    <input type="radio" value="pdfEnable" name="checkPdf" id="ch8"> {{ __('adminstaticword.UploadPdf') }}
-                  </div>
-                  
-                  <div class="col-md-12 display-none" id="pdfURL">
-                    <label for=""> {{ __('adminstaticword.URL') }}: </label>
-                    <input type="text" name="pdfurl" placeholder="Enter Your URL" class="form-control">
-                  </div>
-
-                  <div class="col-md-12 display-none" id="pdfUpload">
-                    <label for=""> {{ __('adminstaticword.UploadPdf') }}: </label>
-                    <input type="file" name="pdf" class="form-control">
-                  </div>
-                  <br>
-
-
-                  <div class="col-md-12 display-none" id="duration_video">
-                    <label for=""> {{ __('adminstaticword.Duration') }}:</label>
-                    <input type="text" name="duration" placeholder="Enter class duration in (mins) Eg:160" class="form-control">
-                  </div>
-                  <br> 
-
-                  <div class="col-md-12 display-none" id="size">
-                    <label for="">{{ __('adminstaticword.Size') }}:</label>
-                    <input type="text" name="size" placeholder="Enter Your Size" class="form-control">
-                  </div>
-                </div>
-                <br>
-
-               
-                <!-- preview video -->
-                <div class="row"> 
-                  <div class="col-md-12 display-none" id="previewUrl">
-                    <label for="exampleInputDetails">{{ __('adminstaticword.PreviewVideo') }}:</label>
-                    <li class="tg-list-item">              
-                      <input name="preview_type" class="la-admin__toggle-switch" id="previewvid" type="checkbox"/>
-                      <label class="la-admin__toggle-label" data-tg-off="URL" data-tg-on="Upload" for="previewvid"></label>                
-                    </li>
-                    <input type="hidden" name="free" value="0" id="cxv">
-                 
-                    <div class="display-none" id="document11">
-                      <label for="exampleInputSlug">Preview {{ __('adminstaticword.UploadVideo') }}:</label>
-                      <input type="file" name="video" id="video" value="" class="form-control">
-                    </div> 
-                    <div id="document22">
-                      <label for="">Preview {{ __('adminstaticword.URL') }}: </label>
-                      <input type="text" name="url" id="url"  placeholder="Enter Your URL" class="form-control" >
-                    </div>
-                  </div>
-                </div>
-                <br/>
-                <!-- end preview video -->
-
-
-                <div class="row">  
-                  <div class="col-md-4">    
-                    <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
+                <div class="row mt-3">  
+                  <div class="col-md-6">    
+                    <label >{{ __('adminstaticword.Is_preview_video') }}:</label>
                     <li class="tg-list-item">   
                       <input class="la-admin__toggle-switch" id="c11"  type="checkbox"/>
                       <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="c11"></label>
                     </li>
-                    <input type="hidden" name="status" value="1" id="t11">
+                    <input type="hidden" name="status" value="0" id="t11">
                   </div>
-                  <div class="col-md-4">
-                    <label for="exampleInputDetails">{{ __('adminstaticword.Featured') }}:</label>    
+                  <div class="col-md-6">
+                    <label >{{ __('adminstaticword.Featured') }}:</label>    
                     <li class="tg-list-item">
                       <input class="la-admin__toggle-switch" id="cb100"   type="checkbox"/>
                       <label class="la-admin__toggle-label" data-tg-off="NO" data-tg-on="YES" for="cb100"></label>
@@ -405,16 +167,15 @@
                   </div>
                 </div> 
                 <br>
-                <br>
                
-                <div id="subtitle" class="display-none">
+                <div id="subtitle">
                   <label>{{ __('adminstaticword.Subtitle') }}:</label>
                   <table class="table table-bordered" id="dynamic_field">  
                     <tr> 
-                        <td>
+                        <td class="p-0">
                            <div class="{{ $errors->has('sub_t') ? ' has-error' : '' }} input-file-block">
                             <input type="file" name="sub_t[]"/>
-                            <p class="info">Choose subtitle file ex. subtitle.srt, or. txt</p>
+                            <p class="info">Choose subtitle file ex. subtitle.srt.,</p>
                             <small class="text-danger">{{ $errors->first('sub_t') }}</small>
                           </div>
                         </td>
@@ -430,6 +191,45 @@
                 </div>
 
                 
+
+              <!--  ADD CLASS STATUS: START -->
+              <div class="row">
+                <div class="col-12">
+                  <label class="la-admin__preview-label"> Status<sup class="redstar">*</sup></label>
+                  <div class="la-admin__class-status d-flex justify-content-start">
+                    <div class="la-admin__class-active pr-5">
+                        <input type="radio" name="status" id="addVideo-active" value="2" class="la-admin__cp-input" >
+                        <label for="addVideo-active" > 
+                          <div class="la-admin__cp-circle">
+                            <span class="la-admin__cp-radio"></span>
+                            <span class="la-admin__cp-label">Active</span> 
+                          </div>
+                        </label>
+                    </div>
+
+                    <div class="la-admin__class-hold pr-5">
+                      <input type="radio" name="status" id="addVideo-hold" value="0" class="la-admin__cp-input" >
+                      <label for="addVideo-hold" > 
+                        <div class="la-admin__cp-circle">
+                          <span class="la-admin__cp-radio"></span>
+                          <span class="la-admin__cp-label">On hold</span> 
+                        </div>
+                      </label>
+                    </div>
+
+                    <div class="la-admin__class-archive pr-5">
+                      <input type="radio" name="status" id="addVideo-archive" value="1" class="la-admin__cp-input" >
+                      <label for="addVideo-archive" > 
+                        <div class="la-admin__cp-circle">
+                          <span class="la-admin__cp-radio"></span>
+                          <span class="la-admin__cp-label">Archive</span> 
+                        </div>
+                      </label>
+                  </div>
+                </div>
+                </div>
+            </div>
+            <!-- ADD CLASS STATUS: END -->
 
                 <div class="box-footer">
                   <button type="submit" class="btn btn-lg col-md-6 btn-primary">{{ __('adminstaticword.Submit') }}</button>

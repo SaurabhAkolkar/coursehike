@@ -10,7 +10,6 @@
           <tr>
             <th>#</th>
             <th>{{ __('adminstaticword.Course') }}</th>
-            <th>{{ __('adminstaticword.Icon') }}</th>
             <th>{{ __('adminstaticword.Detail') }}</th>
             <th>{{ __('adminstaticword.Status') }}</th>
             <th>{{ __('adminstaticword.Edit') }}</th>
@@ -25,7 +24,6 @@
               <?php $i++;?>
               <td><?php echo $i;?></td>
               <td>{{$cat->courses->title}}</td>
-              <td>{{$cat->icon}}</td>
               <td>{{ strip_tags($cat->detail) }}</td> 
               <td>
                 @if($cat->status==1)
@@ -78,11 +76,7 @@
                 </select>
 
                 <div class="row">
-                  <div class="col-md-6">
-                    <label for="">{{ __('adminstaticword.Icon') }}:<sup class="redstar">*</sup></label>
-                    <input type="text" name="icon" class="form-control icp-auto icp" autocomplete="off" required>
-                  </div>
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
                     <textarea rows="1" name="detail" class="form-control" placeholder="Enter Your Detail"></textarea>
                   </div>
@@ -97,8 +91,6 @@
                   </li>
                   <input type="hidden"  name="free" value="0" for="status" id="status">
                 </div>
-                <br>
-                <br>
                 <br>
                 <div class="box-footer">
                   <button type="submit" class="btn btn-lg col-md-6 btn-primary">{{ __('adminstaticword.Submit') }}</button>

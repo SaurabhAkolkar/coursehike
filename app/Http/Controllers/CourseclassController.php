@@ -49,9 +49,9 @@ class CourseclassController extends Controller
     public function store(Request $request)
     { 
         
-        $request->validate([
-            'video' => 'mimes:mp4,avi,wmv'
-        ]);
+        // $request->validate([
+        //     'video_upld' => 'mimes:mp4,avi,wmv'
+        // ]);
 
         ini_set('max_execution_time', 400);
 
@@ -63,24 +63,12 @@ class CourseclassController extends Controller
         $courseclass->status = $request->status;
         $courseclass->featured = $request->featured;
         $courseclass->video = $request->video;
-        $courseclass->image = $request->image;
-        $courseclass->zip = $request->zip;
-        $courseclass->pdf = $request->pdf;
-        $courseclass->size = $request->size;
-        $courseclass->url = $request->url;
         $courseclass->date_time = $request->date_time;
         $courseclass->detail = $request->detail;
 
         $courseclass['position'] = (CourseClass::count()+1);
 
-        if(isset($request->status))
-        {
-            $courseclass->status = '1';
-        }
-        else
-        {
-            $courseclass->status = '0';
-        }
+        $courseclass->status = $request->status;
         
 
         if(isset($request->featured))
@@ -92,172 +80,33 @@ class CourseclassController extends Controller
             $courseclass->featured = '0';
         }
 
-             
-        if($request->type == "video")
-        {
-            $courseclass->type = "video";
-                    
-            if($request->checkVideo == "url")
-            {
-                $courseclass->url = $request->vidurl;
-                $courseclass->video = null;
-                $courseclass->iframe_url = null;
-            }
-            else if($request->checkVideo == "uploadvideo")
-            {
-                if($file = $request->file('video_upld'))
-                {
-                    $name = 'video_course_'.time().$file->getClientOriginalExtension();
-                    $file->move('video/class',$name);
-                    $courseclass->video = $name;
-                    $courseclass->url = null;
-                    $courseclass->iframe_url = null;
-                }
-            }
-
-            else if($request->checkVideo == "iframeurl")
-            {
-                $courseclass->iframe_url = $request->iframe_url;
-                $courseclass->url = null;
-                $courseclass->video = null;
-            }
-            elseif($request->checkVideo == "liveurl")
-            {
-                $courseclass->url = $request->vidurl;
-                $courseclass->video = null;
-                $courseclass->iframe_url = null;
-            }
-
-            elseif($request->checkVideo == "aws_upload")
-            {
-
-                $file = request()->file('aws_upload');
-                $videoname = time() . $file->getClientOriginalName();
-
-                $t = Storage::disk('s3')->put($videoname, file_get_contents($file) , 'public');
-                $upload_video = $videoname;
-                $aws_url = env('AWS_URL') . $videoname;
+           
+        $courseclass->type = "video";
                 
-
-                $videoname = Storage::disk('s3')->url($videoname);
-
-                $courseclass->aws_upload = $aws_url;
-
-            }
-        }
-
-        
-
-                    
-        if(!isset($request->preview_type))
+        if($file = $request->file('video_upld'))
         {
-            $courseclass['preview_url'] = $request->url;
-            $courseclass['preview_type'] = "url";
+            $name = 'video_course_'.time().'.'.$file->getClientOriginalExtension();
+            $file->move('video/class',$name);
+            $courseclass->video = $name;
+            $courseclass->url = null;
+            $courseclass->iframe_url = null;
         }
-        else
+
+        if($request->checkVideo == "aws_upload")
         {
-            if($file = $request->file('video'))
-            {
-                
-              $filename = time().$file->getClientOriginalName();
-              $file->move('video/class/preview',$filename);
-              $courseclass['preview_video'] = $filename;
-            }
-            $courseclass['preview_type'] = "video";
+
+            $file = request()->file('aws_upload');
+            $videoname = time() . $file->getClientOriginalName();
+
+            $t = Storage::disk('s3')->put($videoname, file_get_contents($file) , 'public');
+            $upload_video = $videoname;
+            $aws_url = env('AWS_URL') . $videoname;
+            
+
+            $videoname = Storage::disk('s3')->url($videoname);
+
+            $courseclass->aws_upload = $aws_url;
         }
-
-
-
-        if($request->type == "image")
-        { 
-            $courseclass->type = "image";
-
-            if($request->checkImage == "url")
-            {
-                $courseclass->url = $request->imgurl;
-                $courseclass->image = null;
-            }
-            else if($request->checkImage == "uploadimage")
-            {
-                if($file = $request->file('image'))
-                {
-                    $name = time().$file->getClientOriginalName();
-                    $file->move('images/class',$name);
-                    $courseclass->image = $name;
-                    $courseclass->url = null;
-                }
-            }
-        }
-
-
-        if($request->type == "zip")
-        {
-            $courseclass->type = "zip";
-
-            if($request->checkZip == "zipURLEnable")
-            {
-                $courseclass->url = $request->zipurl;
-                $courseclass->zip = null;
-            }
-            else if($request->checkZip == "zipEnable")
-            {
-                if($file = $request->file('uplzip'))
-                {
-                    $name = time().$file->getClientOriginalName();
-                    $file->move('files/zip',$name);
-                    $courseclass->zip = $name;
-                    $courseclass->url = null;
-                }
-            }
-        } 
-
-
-        if($request->type == "pdf")
-        {
-            $courseclass->type = "pdf";
-
-            if($request->checkPdf == "pdfURLEnable")
-            {
-                $courseclass->url = $request->pdfurl;
-                $courseclass->pdf = null;
-            }
-            elseif($request->checkPdf == "pdfEnable")
-            {
-                if($file = $request->file('pdf'))
-                {
-                    $name = time().$file->getClientOriginalName();
-                    $file->move('files/pdf',$name);
-                    $courseclass->pdf = $name;
-                    $courseclass->url = null;
-                }
-            }
-        }
-
-
-        if($request->type == "audio")
-        {
-            $courseclass->type = "audio";
-
-            if($request->checkAudio == "audiourl")
-            {
-                $courseclass->url = $request->audiourl;
-                $courseclass->audio = null;
-            }
-            elseif($request->checkAudio == "uploadaudio")
-            {
-                if($file = $request->file('audioupload'))
-                {
-                    $name = time().$file->getClientOriginalName();
-                    $file->move('files/audio',$name);
-                    $courseclass->audio = $name;
-                    $courseclass->url = null;
-                }
-            }
-        }
-
-
-
-        
 
         // Notification when course class add
         $cor = Course::where('id', $request->course_id)->first();
