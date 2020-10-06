@@ -76,7 +76,7 @@
                 </select>
 
                 <div class="row"> 
-                  <div class="col-md-12">
+                  <div class="col-md-12 pt-3">
                     <label for="exampleInputTit1e">{{ __('adminstaticword.User') }}</label>
                     <select name="user_id" class="form-control col-md-12 col-12">
                       <option  value="{{ Auth::user()->id }}">{{ Auth::user()->fname }}</option>

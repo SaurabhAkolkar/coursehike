@@ -83,7 +83,7 @@
                   @endforeach
                 </select>
                 
-                <div class="row">
+                <div class="row pt-4">
                   <div class="col-md-12">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Announcement') }}:<sup class="redstar">*</sup></label>
                     <textarea name="announsment" rows="3" class="form-control" placeholder="Enter Your announsment"></textarea>

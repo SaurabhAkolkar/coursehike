@@ -97,7 +97,7 @@
                       <span class="text-danger invalid-feedback" role="alert"></span>
                     
                   </div>
-                  <div class="col-md-12"> 
+                  <div class="col-md-12 pt-4"> 
                     <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                     <li class="tg-list-item">
                       <input class="la-admin__toggle-switch" id="cb300"   type="checkbox"/>

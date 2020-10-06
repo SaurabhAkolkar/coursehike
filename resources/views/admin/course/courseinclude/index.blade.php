@@ -78,18 +78,18 @@
                 </select>
 
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-12 mb-3">
                     <label for="">{{ __('adminstaticword.Icon') }}:<sup class="redstar">*</sup></label>
                     <input type="text" name="icon" class="form-control icp-auto icp" autocomplete="off" required>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
-                    <textarea rows="1" name="detail" class="form-control" placeholder="Enter Your Detail"></textarea>
+                    <textarea rows="2" name="detail" class="form-control" placeholder="Enter Your Detail"></textarea>
                   </div>
                 </div>
                 <br>
 
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                   <li class="tg-list-item">              
                     <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" >

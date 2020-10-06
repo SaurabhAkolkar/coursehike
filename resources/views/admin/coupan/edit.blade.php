@@ -193,7 +193,7 @@
       <div class="col-12">
           <div class="la-admin__master-toggler">
             <label  class="la-admin__preview-label">Status<sup class="redstar">*</sup></label>
-            <div class="la-admin__master-class">
+            <div class="la-admin__master-class pl-2">
                   <input type="checkbox" id="edit-couponStatus" name="edit-couponStatus" class="la-admin__toggle-switch" />
                   <label for="edit-couponStatus" class="la-admin__toggle-label"></label> 
             </div>
@@ -208,7 +208,8 @@
               <i class="fa fa-save"></i> {{ __('adminstaticword.Update') }}
             </button>
           </form>
-          <a href="{{ route('coupon.index') }}" title="Cancel and go back" class="btn btn-md btn-default btn-flat"><i class="fa fa-reply"></i> {{ __('adminstaticword.Back') }}</a>
+          <!-- <a href="{{ route('coupon.index') }}" title="Cancel and go back" class="btn btn-md btn-default btn-flat"><i class="fa fa-reply"></i> {{ __('adminstaticword.Back') }}</a>
+          -->
           </div>
       </div>
     </div>       

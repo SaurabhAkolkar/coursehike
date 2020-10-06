@@ -19,11 +19,11 @@
           {{ csrf_field() }}
 
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
               <label for="category">{{ __('adminstaticword.Name') }}:<sup class="redstar">*</sup></label>
               <input required placeholder="Enter Category name" type="text" class="form-control" name="category">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12 pt-3">
               <label for="icon">{{ __('adminstaticword.Icon') }}:<sup class="redstar">*</sup></label>
               <input type="text" class="form-control icp-auto icp" name="icon" required placeholder="Choose Icon">
             </div>

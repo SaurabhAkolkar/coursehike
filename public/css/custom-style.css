@@ -475,26 +475,9 @@ html, body{
 .pull-left.info a{
   padding:0 !important;
 }
-.sidebar-menu li>a>.fa-angle-up {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    margin-top: -8px;
-}
-.sidebar-menu li>a>.pull-right-container>.fa-angle-up {
-    width: auto;
-    height: auto;
-    padding: 0;
-    margin-right: 10px;
-    -webkit-transition: transform .5s ease;
-    -o-transition: transform .5s ease;
-    transition: transform .5s ease;
-}
-.sidebar-menu .menu-open>a>.pull-right-container>.fa-angle-up {
-    -webkit-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg) !important;
+.sidebar-menu li>a>.fa-angle-left, .sidebar-menu li>a>.pull-right-container>.fa-angle-left{
+  transform:rotate(90deg);
+  color:#000000;
 }
 /* ================ Admin Dashboard Content =================== */
 
@@ -750,6 +733,7 @@ div.dt-buttons {
     display: none;
 }
 /* == Search Bar == */
+
 .input-sm{
     padding:0 !important;
  } 
@@ -872,7 +856,6 @@ td .btn-success:focus, td form .btn-danger:focus{
     border: 1px solid #dedede;
     border-radius: 0;
     box-shadow: none;
-    padding:20px;
 }
 .form-control::placeholder{
     color:#777777 !important;
@@ -918,6 +901,7 @@ label{
     font-weight:500;
     font-size:16px;
     color:#000000;
+    margin-bottom:0;
 }
 
 .select2-container .select2-selection--single .select2-selection__rendered {
@@ -958,13 +942,23 @@ label{
     color:#ffffff;
     border:none;
     border-radius:0;
-    padding:8px 32px;
+    padding:12px 30px;
     box-shadow: 0px 3px 6px #00000029;
     float:right;
+    font-size:16px !important;
+    letter-spacing: 1.2px;
 }
 .btn-primary:hover{
     background-color: #7400D7 ;
     box-shadow: 0px 3px 6px #00000029;
+}
+
+.btn-primary:focus{
+  background-color: #7400D7 !important;
+  color:#ffffff !important;
+  outline:0 !important;
+  border:none !important;
+  box-shadow:none !important;
 }
 
 /* ================= COURSE CLASS ================ */
