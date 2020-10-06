@@ -590,7 +590,7 @@ Route::get("zoho/module","ZohoController@createRecords");
 
 // Route for Learner's View
 
-//Route::view('/','learners.pages.home');
+Route::view('/','learners.pages.home');
 
 Route::view('/signup','learners.auth.signup');
 Route::view('/signin','learners.auth.signin');

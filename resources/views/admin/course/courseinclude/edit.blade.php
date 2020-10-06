@@ -29,12 +29,7 @@
                 </select>
 
                 <div class="row">
-                  <div class="col-md-6">
-                    <label for="exampleInputTit1e">{{ __('adminstaticword.Icon') }}: <sup class="redstar">*</sup></label>
-                    <input type="text" class="form-control icp-auto icp" name="icon" id="exampleInputTitle" value="{{$cate->icon}}">
-                  </div>
-                   <div class="col-md-6">
-
+                   <div class="col-md-12">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
                     <textarea rows="1" name="detail" class="form-control" >{!! $cate->detail !!}</textarea>
                   </div>
