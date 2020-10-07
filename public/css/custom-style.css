@@ -795,6 +795,12 @@ td .btn-success:focus, td form .btn-danger:focus{
 div.dataTables_wrapper div.dataTables_paginate{
   display:none;
 }
+
+/* === Preview Video ==*/
+.box-body video{
+  outline:0;
+  
+}
 /* ============  COURSES / ADD COURSE PAGE ============ */
 
 /* === Add course content box box-primary === */
