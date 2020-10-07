@@ -2,7 +2,7 @@
  
   <div class="row">
     <div class="col-md-12">
-      <a data-toggle="modal" data-target="#myModalabcde" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
+      <a data-toggle="modal" data-target="#myModalabcde" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.AddQuestion') }}</a>
       <br>
       <br>
         <table id="example1" class="table table-bordered table-striped">
@@ -70,13 +70,13 @@
 
                 <input type="hidden" name="instructor_id" class="form-control" value="{{ Auth::User()->id }}"  />
                
-                <label class="d-none" for="exampleInputSlug"> {{ __('adminstaticword.Course') }}<span class="redstar">*</span></label>
-                <select name="course_id" class="form-control d-none">
+                <label class="display-none" for="exampleInputSlug"> {{ __('adminstaticword.Course') }}<span class="redstar">*</span></label>
+                <select name="course_id" class="form-control display-none">
                   <option value="{{ $cor->id }}">{{ $cor->title }}</option>
                 </select>
 
                 <div class="row"> 
-                  <div class="col-md-12">
+                  <div class="col-md-12 pt-3">
                     <label for="exampleInputTit1e">{{ __('adminstaticword.User') }}</label>
                     <select name="user_id" class="form-control col-md-12 col-12">
                       <option  value="{{ Auth::user()->id }}">{{ Auth::user()->fname }}</option>
@@ -97,8 +97,8 @@
                   <div class="col-md-12">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>               
                     <li class="tg-list-item">                
-                      <input class="tgl tgl-skewed" id="c2222"  type="checkbox"/>
-                      <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="c2222"></label>
+                      <input class="la-admin__toggle-switch" id="c2222"  type="checkbox"/>
+                      <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="c2222"></label>
                     </li>
                     <input type="hidden" name="status" value="0" id="t2222">
                   </div>

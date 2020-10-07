@@ -20,7 +20,7 @@
 			 <div class="panel-heading">Your Zoom Profile</div>
 			  <div class="panel-body">
 			    <div class="col-md-2">
-			    	<img src="{{ isset($profile['pic_url']) ? $profile['pic_url'] : Avatar::create($profile['first_name'])}}" alt="your_profile_picture" class="img-responsive">
+			    	<img src="{{ isset($profile['pic_url']) ? $profile['pic_url'] : Avatar::create($profile['first_name'])}}" alt="your_profile_picture" class="img-fluid">
 			    </div>
 
 			    <div class="col-md-4">

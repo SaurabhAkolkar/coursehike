@@ -42,7 +42,7 @@
                         <div class="row">
 			                <div class="col-md-6">
 
-			                	<div id="paypalpayment" @if($user['prefer_pay_method'] == "banktransfer" || $user['prefer_pay_method'] == "paytm" ) class="d-none" @endif>
+			                	<div id="paypalpayment" @if($user['prefer_pay_method'] == "banktransfer" || $user['prefer_pay_method'] == "paytm" ) class="display-none" @endif>
 			                	
 			                	<h5 class="box-title">{{ __('adminstaticword.PAYPALPAYMENT') }}</h5>
 			                    <label for="pay_cid">{{ __('adminstaticword.PaypalEmail') }}<sup class="redstar">*</sup></label>
@@ -60,7 +60,7 @@
                         <div class="row">
 			                <div class="col-md-6">
 
-			                	<div id="paytmpayment" @if($user['prefer_pay_method'] == "banktransfer" || $user['prefer_pay_method'] == "paypal" ) class="d-none" @endif>
+			                	<div id="paytmpayment" @if($user['prefer_pay_method'] == "banktransfer" || $user['prefer_pay_method'] == "paypal" ) class="display-none" @endif>
 			                	<h5 class="box-title">{{ __('adminstaticword.PAYTMPAYMENT') }}</h5>
 			                    <label for="pay_cid">{{ __('adminstaticword.PaytmMobileNo') }}<sup class="redstar">*</sup></label>
 			                    <input value="{{ $user['paytm_mobile'] }}" autofocus name="paytm_mobile" type="text" class="form-control" placeholder="Enter Paytm Mobile No"/>
@@ -75,7 +75,7 @@
 		              
                         <div class="row">
 
-                        	<div id="bankpayment" @if($user['prefer_pay_method'] == "paypal" || $user['prefer_pay_method'] == "paytm" ) class="d-none" @endif>
+                        	<div id="bankpayment" @if($user['prefer_pay_method'] == "paypal" || $user['prefer_pay_method'] == "paytm" ) class="display-none" @endif>
 
 
 

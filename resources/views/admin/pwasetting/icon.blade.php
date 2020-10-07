@@ -64,7 +64,7 @@
                     </div>
 
                     <div class="col-md-6">
-                      <img src="{{ url('/images/icons/icon96x96.png') }}" class="img-responsive">
+                      <img src="{{ url('/images/icons/icon96x96.png') }}" class="img-fluid">
                     </div>
                   </div>
               
@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="col-md-6">
-                      <img src="{{ url('/images/icons/icon144x144.png') }}" class="img-responsive">
+                      <img src="{{ url('/images/icons/icon144x144.png') }}" class="img-fluid">
                     </div>
                   </div>
              
@@ -94,7 +94,7 @@
                     </div>
 
                     <div class="col-md-6">
-                      <img src="{{ url('/images/icons/icon168x168.png') }}" class="img-responsive">
+                      <img src="{{ url('/images/icons/icon168x168.png') }}" class="img-fluid">
                     </div>
                   </div>
                
@@ -109,7 +109,7 @@
                     </div>
 
                     <div class="col-md-6">
-                      <img src="{{ url('/images/icons/icon192x192.png') }}" class="img-responsive">
+                      <img src="{{ url('/images/icons/icon192x192.png') }}" class="img-fluid">
                     </div>
                   </div>
                
@@ -124,7 +124,7 @@
                     </div>
 
                     <div class="col-md-6">
-                      <img  src="{{ url('/images/icons/icon256x256.png') }}" class="img-responsive">
+                      <img  src="{{ url('/images/icons/icon256x256.png') }}" class="img-fluid">
                     </div>
                   </div>
                 

@@ -41,9 +41,9 @@
                         <td><?php echo $i;?></td>
                         <td>
                           @if($cat['preview_image'] !== NULL && $cat['preview_image'] !== '')
-                            <img src="images/course/<?php echo $cat['preview_image'];  ?>" class="img-responsive" >
+                            <img src="images/course/<?php echo $cat['preview_image'];  ?>" class="img-fluid" >
                           @else
-                            <img src="{{ Avatar::create($cat->title)->toBase64() }}" class="img-responsive" >
+                            <img src="{{ Avatar::create($cat->title)->toBase64() }}" class="img-fluid" >
                           @endif
                         </td>
                         <td>{{$cat->title}}</td>

@@ -4,6 +4,119 @@
  
 <section class="content">
    @include('admin.message')
+    <!-- INVOICE PAGE: START -->
+    <div class="row px-5">
+      <div class="col-12">
+          <div class="la-admin__invoice d-flex justify-content-between">
+              <div class="la-admin__invoice-logo">
+                  <img src="{{ asset('images/logo/'.$setting->logo) }}" alt="logo"  class="img-fluid" />
+              </div>
+
+              <div class="la-admin__invoice-address text-right">
+                  <p>K2, Old Sonal Industrial Est, Kanchpada, <br/> Malad Link Road, Malad West, Mumbai <br/> 400064. MH, India </p> 
+                  <a  href="tel: +91 9999999999"><span class="la-icon--lg icon-contact-number"></span> +91 9999999999</a> <br/>
+                  <a href="mailto: ask@learnitlikealiens.com"><span class="la-icon--lg icon-mail-id"></span> ask@learnitlikealiens.com</a>
+              </div>
+          </div>
+      </div>
+     
+      <div class="col-12">
+          <div class="la-admin__invoice-details d-flex justify-content-between py-5">
+              <div class="la-admin__cust-info">
+                  <h6>SOLD TO</h6> 
+                  <div class="la-admin__cust-name"> Customer Name </div>
+                  <div class="la-admin__cust-address">Address: Vijayanagar, India - 560104.</div>
+                  <a class="la-admin__cust-mobile" href="tel: +91 9999999999"><span class="la-icon--lg icon-contact-number"></span> +91 9999999999</a> <br/>
+                  <a class="la-admin__cust-mail" href="mailto: username@mailid.com"><span class="la-icon--lg icon-mail-id"></span> username@mailid.com</a>
+              </div>
+
+              <div class="la-admin__cust-invoice text-right">
+                <div>
+                  <span class="la-admin__invoice-date">DATE</span> <br/>
+                  <span class="la-admin__date-format">00-00-0000 </span>
+                </div>
+                  
+                <div>
+                  <span class="la-admin__invoice-order">ORDER ID </span><br/>
+                  <span class="la-admin__invoice-id">dssxyfhuygrxhskatsgjutjas</span>
+                </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-12">
+          <div class="la-admin__invoice-solditems">
+              <h6>Items</h6>
+
+              <ul class="la-admin__invoice-list">
+                  @php
+                      $item1 = new stdClass;
+                      $item1->img = "https://picsum.photos/200";
+                      $item1->course = "Photography";
+                      $item1->profile = "Charolette Floyd";
+                      $item1->price = 10;
+
+                      $item2 = new stdClass;
+                      $item2->img = "https://picsum.photos/200";
+                      $item2->course = "Photography";
+                      $item2->profile = "Charolette Floyd";
+                      $item2->price = 10;
+
+                      $item3 = new stdClass;
+                      $item3->img = "https://picsum.photos/200";
+                      $item3->course = "Photography";
+                      $item3->profile = "Charolette Floyd";
+                      $item3->price = 10;
+
+                      $item4 = new stdClass;
+                      $item4->img = "https://picsum.photos/200";
+                      $item4->course = "Photography";
+                      $item4->profile = "Charolette Floyd";
+                      $item4->price = 10;
+
+                      $items = array($item1, $item2, $item3, $item4);
+                  @endphp
+
+                  @foreach ($items as $item)
+                      <x-admin-invoice
+                          :img="$item->img"
+                          :course="$item->course"
+                          :profile="$item->profile"
+                          :price="$item->price"
+                      />
+                  @endforeach
+              </ul>
+
+              <div class="la-admin__invoice-total d-flex justify-content-end">
+                  <p class="la-admin__total-title mr-5"> Total </p>
+                  <p class="la-admin__total-price" > $ <span>40</span> </p>
+              </div>
+          </div>
+      </div>
+   
+      <div class="col-md-5">
+          <div class="la-admin__invoice-payment">
+              <div class="la-admin__payment-title">PAYMENT DETAILS</div>
+              <div class="la-admin__payment-status d-flex flex-row no-gutters">
+                  <span class="col mr-auto">Payment Status</span>
+                  <span class="col">Successful</span>
+              </div>
+
+              <div class="la-admin__payment-method d-flex flex-row no-gutters">
+                <span class="col mr-auto">Payment Method</span>
+                <span class="col">PayTM</span>
+              </div>
+
+              <div class="la-admin__payment-id  d-flex flex-row no-gutters">
+                <span class="col mr-auto">Transaction Id</span>
+                <span class="col">dssxjshaldjkdhuhf</span>
+              </div>
+          </div>
+      </div>
+    </div>
+    <!-- INVOICE PAGE: END -->
+
+
     <div class="row">
       <div class="col-md-12">
       	<div class="box box-primary">

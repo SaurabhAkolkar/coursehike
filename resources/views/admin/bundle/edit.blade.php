@@ -65,18 +65,18 @@
                 <div class="col-md-3">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Free') }}:</label>  
                   <li class="tg-list-item"> 
-                    <input  class="tgl tgl-skewed" id="cb111" name="type" type="checkbox" {{ $cor->type == '1' ? 'checked' : '' }}/>
-                    <label class="tgl-btn" data-tg-off="Free" data-tg-on="Paid" for="cb111" ></label>
+                    <input  class="la-admin__toggle-switch" id="cb111" name="type" type="checkbox" {{ $cor->type == '1' ? 'checked' : '' }}/>
+                    <label class="la-admin__toggle-label" data-tg-off="Free" data-tg-on="Paid" for="cb111" ></label>
                   </li>
                   <input type="hidden" name="free" value="0" id="j111">
                   <br>     
 
-                  <div @if($cor->price =="" && $cor->price =="") class="d-none" @endif id="doabox">
+                  <div @if($cor->price =="" && $cor->price =="") class="display-none" @endif id="doabox">
                     <label for="exampleInputSlug">{{ __('adminstaticword.Price') }}: <sup class="redstar">*</sup></label>
                     <input type="number" min="1"   class="form-control" name="price" id="exampleInputPassword1" placeholder="Please Your Enter paid" value="{{ $cor->price }}">
                   </div>
 
-                  <div @if($cor->price =="" && $cor->discount_price =="") class="d-none" @endif id="doaboxx">
+                  <div @if($cor->price =="" && $cor->discount_price =="") class="display-none" @endif id="doaboxx">
                   <br>
                     <label for="exampleInputSlug">{{ __('adminstaticword.DiscountPrice') }}: <sup class="redstar">*</sup></label>
                     <input type="number" min="1"  class="form-control" name="discount_price" id="exampleInputPassword1" placeholder="Please Your Enter paid" value="{{ $cor->discount_price }}">
@@ -86,8 +86,8 @@
                   @if(Auth::User()->role == "admin")
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Featured') }}:</label>
                   <li class="tg-list-item">
-                    <input class="tgl tgl-skewed" id="cb1" type="checkbox"{{ $cor->featured==1 ? 'checked' : '' }}>
-                    <label class="tgl-btn" data-tg-off="No" data-tg-on="Yes" for="cb1"></label>
+                    <input class="la-admin__toggle-switch" id="cb1" type="checkbox"{{ $cor->featured==1 ? 'checked' : '' }}>
+                    <label class="la-admin__toggle-label" data-tg-off="No" data-tg-on="Yes" for="cb1"></label>
                   </li>
                   <input type="hidden" name="featured" value="{{ $cor->featured }}" id="f">
                   @endif
@@ -96,8 +96,8 @@
                   @if(Auth::User()->role == "admin")
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                     <li class="tg-list-item">
-                    <input class="tgl tgl-skewed" id="cb333" type="checkbox" {{ $cor->status==1 ? 'checked' : '' }}>
-                    <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="cb333"></label>
+                    <input class="la-admin__toggle-switch" id="cb333" type="checkbox" {{ $cor->status==1 ? 'checked' : '' }}>
+                    <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="cb333"></label>
                     </li>
                     <input type="hidden" name="status" value="{{ $cor->status }}" id="c33">
                   @endif

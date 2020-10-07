@@ -30,7 +30,7 @@
               <br>
 
               <div class="row">
-                <div class="col-md-6 d-none">
+                <div class="col-md-6 display-none">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.SearchText') }}:<sup class="redstar">*</sup></label>
                   <input type="title" class="form-control" name="search_text" id="exampleInputTitle" placeholder="Please Enter Your Search Text" value="0">
                 </div>
@@ -53,8 +53,8 @@
                   <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                   <br>
                   <li class="tg-list-item">              
-                    <input class="tgl tgl-skewed" id="status" type="checkbox" name="status" >
-                    <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
+                    <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" >
+                    <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
                   </li>
                   <input type="hidden"  name="free" value="0" for="status" id="status">
                 </div>

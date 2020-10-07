@@ -45,8 +45,8 @@
                 <label for="exampleInputTit1e">{{ __('adminstaticword.Accept') }}:</label>
                 <br>
                 <li class="tg-list-item">              
-                    <input class="tgl tgl-skewed" id="appoint_accept" type="checkbox" name="accept" {{ $appoint->accept == 1 ? 'checked' : '' }} >
-                    <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="appoint_accept"></label>
+                    <input class="la-admin__toggle-switch" id="appoint_accept" type="checkbox" name="accept" {{ $appoint->accept == 1 ? 'checked' : '' }} >
+                    <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="appoint_accept"></label>
                 </li>
               </div>
             </div>

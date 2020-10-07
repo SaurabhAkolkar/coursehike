@@ -6,8 +6,8 @@
 			<div class="form-group">
 				<label for="exampleInputDetails">{{ __('adminstaticword.TextLogo') }}:</label>
 			    <li class="tg-list-item">
-			        <input class="tgl tgl-skewed" id="opp" type="checkbox" name="project_logo" {{ $gsetting->logo_type == 'L' ? 'checked' : '' }}>
-			        <label class="tgl-btn" data-tg-off="Text" data-tg-on="Logo" for="opp"></label>
+			        <input class="la-admin__toggle-switch" id="opp" type="checkbox" name="project_logo" {{ $gsetting->logo_type == 'L' ? 'checked' : '' }}>
+			        <label class="la-admin__toggle-label" data-tg-off="Text" data-tg-on="Logo" for="opp"></label>
 			    </li>
 			    <input type="hidden" name="free" value="0" for="opp" id="oppp">
 		    </div>
@@ -16,7 +16,7 @@
 			<div class="row">
 
 				@if ($errors->has('logo'))
-				<div class="d-none" id="logo">
+				<div class="display-none" id="logo">
                     <strong class="text-danger">{{ $errors->first('logo') }}</strong>
                 </div>
                 @endif
@@ -33,7 +33,7 @@
 				<div class="col-md-4">
 					@if($setting->logo !="")
 						<div class="logo-settings">
-							<img src="{{ asset('images/logo/'.$setting->logo) }}" alt="{{ $setting->logo }}" class="img-responsive">
+							<img src="{{ asset('images/logo/'.$setting->logo) }}" alt="{{ $setting->logo }}" class="img-fluid">
 						</div>
 					@else
 						<div class="alert alert-danger">
@@ -74,7 +74,7 @@
 				<div class="col-md-4">
 					@if($setting->favicon !="")
 						<div class="favicon-settings">
-							<img src="{{ asset('images/favicon/'.$setting->favicon) }}" alt="{{ $setting->favicon }}" class="img-responsive">
+							<img src="{{ asset('images/favicon/'.$setting->favicon) }}" alt="{{ $setting->favicon }}" class="img-fluid">
 						</div>
 					@else
 						<div class="alert alert-danger">
@@ -123,8 +123,8 @@
 		<div class="col-md-6">
             <label for="map_lat">{{ __('adminstaticword.MapEnable') }}:</label>
             <li class="tg-list-item">              
-	            <input class="tgl tgl-skewed" id="map_enable" type="checkbox" name="map_enable" {{ $gsetting->map_enable == 'map' ? 'checked' : '' }} >
-	            <label class="tgl-btn" data-tg-off="Image" data-tg-on="Map" for="map_enable"></label>
+	            <input class="la-admin__toggle-switch" id="map_enable" type="checkbox" name="map_enable" {{ $gsetting->map_enable == 'map' ? 'checked' : '' }} >
+	            <label class="la-admin__toggle-label" data-tg-off="Image" data-tg-on="Map" for="map_enable"></label>
 	        </li>
 	        <div>
 	            <small>(Enable Map on contact page)</small>
@@ -142,7 +142,7 @@
 				<div class="col-md-6">
 					@if($setting->contact_image !="")
 						<div class="contact-settings">
-							<img src="{{ asset('images/contact/'.$setting->contact_image) }}" alt="{{ $setting->contact_image }}" class="img-responsive">
+							<img src="{{ asset('images/contact/'.$setting->contact_image) }}" alt="{{ $setting->contact_image }}" class="img-fluid">
 						</div>
 					@endif
 				</div>
@@ -173,8 +173,8 @@
 		<div class="col-md-6">
             <label for="promo_enable">{{ __('adminstaticword.PromoEnable') }}: </label> (Enable Promobar on site)
             <li class="tg-list-item">              
-	            <input class="tgl tgl-skewed" id="promo_enable" type="checkbox" name="promo_enable" {{ $gsetting->promo_enable == 1 ? 'checked' : '' }} >
-	            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="promo_enable"></label>
+	            <input class="la-admin__toggle-switch" id="promo_enable" type="checkbox" name="promo_enable" {{ $gsetting->promo_enable == 1 ? 'checked' : '' }} >
+	            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="promo_enable"></label>
 	        </li>
 	        <div>
 	            <small></small>
@@ -207,8 +207,8 @@
 					<label for="">{{ __('adminstaticword.RightClick') }}: </label>
 					<br>
 					<li class="tg-list-item">              
-			            <input class="tgl tgl-skewed" id="cb3" type="checkbox" name="rightclick" {{ $gsetting->rightclick == '0' ? 'checked' : '' }} >
-			            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="cb3"></label>
+			            <input class="la-admin__toggle-switch" id="cb3" type="checkbox" name="rightclick" {{ $gsetting->rightclick == '0' ? 'checked' : '' }} >
+			            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="cb3"></label>
 		            </li>
 		            <input type="hidden"  name="free" value="0" for="cb3" id="cb3"> 
 				</div>
@@ -216,8 +216,8 @@
 					<label for="">{{ __('adminstaticword.InspectElement') }}: </label>
 					<br>
 		    		<li class="tg-list-item">              
-			            <input class="tgl tgl-skewed" id="cb4" type="checkbox" name="inspect" {{ $setting->inspect == '0' ? 'checked' : '' }} >
-			            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="cb4"></label>
+			            <input class="la-admin__toggle-switch" id="cb4" type="checkbox" name="inspect" {{ $setting->inspect == '0' ? 'checked' : '' }} >
+			            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="cb4"></label>
 		            </li>
 		            <input type="hidden" id="inspect" name="free" value="0" for="cb4" id="cb4">
 				</div>
@@ -236,8 +236,8 @@
 		<div class="col-md-3">
         	<label for="">{{ __('adminstaticword.PreloaderEnable') }}: </label>
 			<li class="tg-list-item">              
-	            <input class="tgl tgl-skewed" id="preloader" type="checkbox" name="preloader_enable" {{ $gsetting->preloader_enable == '1' ? 'checked' : '' }} >
-	            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="preloader"></label>
+	            <input class="la-admin__toggle-switch" id="preloader" type="checkbox" name="preloader_enable" {{ $gsetting->preloader_enable == '1' ? 'checked' : '' }} >
+	            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="preloader"></label>
             </li>
             <input type="hidden"  name="free" value="0" for="preloader" id="preloader">
         </div>
@@ -245,8 +245,8 @@
             <label>{{ __('adminstaticword.APPDebug') }}:</label>
             <br>
             <li class="tg-list-item">              
-	            <input class="tgl tgl-skewed" id="debug" type="checkbox" name="APP_DEBUG" {{ env('APP_DEBUG') == true ? "checked" : "" }} >
-	            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="debug"></label>
+	            <input class="la-admin__toggle-switch" id="debug" type="checkbox" name="APP_DEBUG" {{ env('APP_DEBUG') == true ? "checked" : "" }} >
+	            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="debug"></label>
             </li>
             <input type="hidden"  name="free" value="0" for="debug" id="debug">
 		</div>
@@ -261,8 +261,8 @@
 						<label for="">{{ __('adminstaticword.WelcomeEmail') }}: </label>
 
 						<li class="tg-list-item">              
-				            <input class="tgl tgl-skewed" id="welmail" type="checkbox" name="w_email_enable" {{ $gsetting->w_email_enable == '1' ? 'checked' : '' }} >
-				            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="welmail"></label>
+				            <input class="la-admin__toggle-switch" id="welmail" type="checkbox" name="w_email_enable" {{ $gsetting->w_email_enable == '1' ? 'checked' : '' }} >
+				            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="welmail"></label>
 			            </li>
 			            <input type="hidden"  name="free" value="0" for="welmail" id="welmail">
 			          
@@ -273,8 +273,8 @@
 						<label for="">{{ __('adminstaticword.VerifyEmail') }}: </label>
 
 						<li class="tg-list-item">              
-				            <input class="tgl tgl-skewed" id="verify" type="checkbox" name="verify_enable" {{ $gsetting->verify_enable == '1' ? 'checked' : '' }} >
-				            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="verify"></label>
+				            <input class="la-admin__toggle-switch" id="verify" type="checkbox" name="verify_enable" {{ $gsetting->verify_enable == '1' ? 'checked' : '' }} >
+				            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="verify"></label>
 			            </li>
 			            <input type="hidden" name="free" value="0" for="verify" id="verify">
 			          
@@ -292,16 +292,16 @@
 			<div class="col-md-3">
 	        	<label for="">{{ __('adminstaticword.BecomeAnInstructor') }}: </label>
 				<li class="tg-list-item">              
-		            <input class="tgl tgl-skewed" id="instructor" type="checkbox" name="instructor_enable" {{ $gsetting->instructor_enable == '1' ? 'checked' : '' }} >
-		            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="instructor"></label>
+		            <input class="la-admin__toggle-switch" id="instructor" type="checkbox" name="instructor_enable" {{ $gsetting->instructor_enable == '1' ? 'checked' : '' }} >
+		            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="instructor"></label>
 	            </li>
 	            <input type="hidden"  name="free" value="0" for="instructor" id="instructor">
 	        </div>
 	        <div class="col-md-3">
 	        	<label for="">{{ __('adminstaticword.CategoryMenu') }}: </label>
 				<li class="tg-list-item">              
-		            <input class="tgl tgl-skewed" id="category" type="checkbox" name="cat_enable" {{ $gsetting->cat_enable == '1' ? 'checked' : '' }} >
-		            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="category"></label>
+		            <input class="la-admin__toggle-switch" id="category" type="checkbox" name="cat_enable" {{ $gsetting->cat_enable == '1' ? 'checked' : '' }} >
+		            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="category"></label>
 	            </li>
 	            <input type="hidden"  name="free" value="0" for="category" id="category">
 	            <div>
@@ -319,8 +319,8 @@
     	<div class="col-md-3">
 	    	<label for="">{{ __('Enable Zoom On Portal') }}: </label>
 			<li class="tg-list-item">              
-	            <input class="tgl tgl-skewed" id="zoom_enable" type="checkbox" name="zoom_enable" {{ $gsetting->zoom_enable == 1 ? 'checked' : '' }} >
-	            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="zoom_enable"></label>
+	            <input class="la-admin__toggle-switch" id="zoom_enable" type="checkbox" name="zoom_enable" {{ $gsetting->zoom_enable == 1 ? 'checked' : '' }} >
+	            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="zoom_enable"></label>
 	        </li>
 	        <div>
 	            <small>(Enable Live zoom meetings on portal)</small>
@@ -331,8 +331,8 @@
     	<div class="col-md-3">
 	    	<label for="">{{ __('Enable Big Blue Meetings') }}: </label>
 			<li class="tg-list-item">              
-	            <input class="tgl tgl-skewed" id="bbl_enable" type="checkbox" name="bbl_enable" {{ $gsetting->bbl_enable == 1 ? 'checked' : '' }} >
-	            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="bbl_enable"></label>
+	            <input class="la-admin__toggle-switch" id="bbl_enable" type="checkbox" name="bbl_enable" {{ $gsetting->bbl_enable == 1 ? 'checked' : '' }} >
+	            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="bbl_enable"></label>
 	        </li>
 	        <div>
 	            <small>(Enable Big Blue meetings on portal)</small>
@@ -342,8 +342,8 @@
     	<div class="col-md-3">
 	    	<label for="">{{ __('Mobile no. on SignUp') }}: </label>
 			<li class="tg-list-item">              
-	            <input class="tgl tgl-skewed" id="mobile_enable" type="checkbox" name="mobile_enable" {{ $gsetting->mobile_enable == 1 ? 'checked' : '' }} >
-	            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="mobile_enable"></label>
+	            <input class="la-admin__toggle-switch" id="mobile_enable" type="checkbox" name="mobile_enable" {{ $gsetting->mobile_enable == 1 ? 'checked' : '' }} >
+	            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="mobile_enable"></label>
 	        </li>
 	        <div>
 	            <small>(Enable mobile no. on SignUp)</small>
@@ -353,8 +353,8 @@
     	<div class="col-md-3">
 	    	<label for="">{{ __('adminstaticword.CertificateEnable') }}: </label>
 			<li class="tg-list-item">              
-	            <input class="tgl tgl-skewed" id="certificate_enable" type="checkbox" name="certificate_enable" {{ $gsetting->certificate_enable == 1 ? 'checked' : '' }} >
-	            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="certificate_enable"></label>
+	            <input class="la-admin__toggle-switch" id="certificate_enable" type="checkbox" name="certificate_enable" {{ $gsetting->certificate_enable == 1 ? 'checked' : '' }} >
+	            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="certificate_enable"></label>
 	        </li>
 	        <div>
 	            <small>(Enable Certificate on courses)</small>
@@ -369,8 +369,8 @@
     	<div class="col-md-3">
 	    	<label for="">{{ __('adminstaticword.DeviceControl') }}: </label>
 			<li class="tg-list-item">              
-	            <input class="tgl tgl-skewed" id="device_enable" type="checkbox" name="device_enable" {{ $gsetting->device_control == 1 ? 'checked' : '' }} >
-	            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="device_enable"></label>
+	            <input class="la-admin__toggle-switch" id="device_enable" type="checkbox" name="device_enable" {{ $gsetting->device_control == 1 ? 'checked' : '' }} >
+	            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="device_enable"></label>
 	        </li>
 	        <div>
 	            <small>(Enable Device Control on Courses)</small>
@@ -380,8 +380,8 @@
     	<div class="col-md-3">
 	    	<label for="">{{ __('adminstaticword.IPBlock') }}: </label>
 			<li class="tg-list-item">              
-	            <input class="tgl tgl-skewed" id="ipblock_enable" type="checkbox" name="ipblock_enable" {{ $gsetting->ipblock_enable == 1 ? 'checked' : '' }} >
-	            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="ipblock_enable"></label>
+	            <input class="la-admin__toggle-switch" id="ipblock_enable" type="checkbox" name="ipblock_enable" {{ $gsetting->ipblock_enable == 1 ? 'checked' : '' }} >
+	            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="ipblock_enable"></label>
 	        </li>
 	        <div>
 	            <small>(Enable Ip block on portal)</small>
@@ -391,8 +391,8 @@
     	<div class="col-md-3">
 	    	<label for="">{{ __('adminstaticword.Assignment') }}: </label>
 			<li class="tg-list-item">              
-	            <input class="tgl tgl-skewed" id="assignment_enable" type="checkbox" name="assignment_enable" {{ $gsetting->assignment_enable == 1 ? 'checked' : '' }} >
-	            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="assignment_enable"></label>
+	            <input class="la-admin__toggle-switch" id="assignment_enable" type="checkbox" name="assignment_enable" {{ $gsetting->assignment_enable == 1 ? 'checked' : '' }} >
+	            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="assignment_enable"></label>
 	        </li>
 	        <div>
 	            <small>(Enable Assignment on Course)</small>
@@ -402,8 +402,8 @@
     	<div class="col-md-3">
 	    	<label for="">{{ __('adminstaticword.Appointment') }}: </label>
 			<li class="tg-list-item">              
-	            <input class="tgl tgl-skewed" id="appointment_enable" type="checkbox" name="appointment_enable" {{ $gsetting->appointment_enable == 1 ? 'checked' : '' }} >
-	            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="appointment_enable"></label>
+	            <input class="la-admin__toggle-switch" id="appointment_enable" type="checkbox" name="appointment_enable" {{ $gsetting->appointment_enable == 1 ? 'checked' : '' }} >
+	            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="appointment_enable"></label>
 	        </li>
 	        <div>
 	            <small>(Enable Appointment on Course)</small>

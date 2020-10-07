@@ -30,8 +30,8 @@
     							<div class="form-group">
 					            	<label for="">{{ __('adminstaticword.Status') }}: </label>
 									<li class="tg-list-item">              
-							            <input class="tgl tgl-skewed" id="statuss" type="checkbox" name="status" {{ $ad['status'] == 1 ? 'checked' : '' }} >
-							            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="statuss"></label>
+							            <input class="la-admin__toggle-switch" id="statuss" type="checkbox" name="status" {{ $ad['status'] == 1 ? 'checked' : '' }} >
+							            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="statuss"></label>
 							        </li>
 					            </div>
 					            <br>
@@ -40,8 +40,8 @@
     							<div class="form-group">
 					            	<label for="">{{ __('adminstaticword.VisibleonHome') }}: </label>
 									<li class="tg-list-item">              
-							            <input class="tgl tgl-skewed" id="ishome" type="checkbox" name="ishome" {{ $ad['ishome'] == 1 ? 'checked' : '' }} >
-							            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="ishome"></label>
+							            <input class="la-admin__toggle-switch" id="ishome" type="checkbox" name="ishome" {{ $ad['ishome'] == 1 ? 'checked' : '' }} >
+							            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="ishome"></label>
 							        </li>
 					            </div>
 					            <br>
@@ -50,8 +50,8 @@
     							<div class="form-group">
 					            	<label for="">{{ __('adminstaticword.VisibleonCart') }}: </label>
 									<li class="tg-list-item">              
-							            <input class="tgl tgl-skewed" id="iscart" type="checkbox" name="iscart" {{ $ad['iscart'] == 1 ? 'checked' : '' }} >
-							            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="iscart"></label>
+							            <input class="la-admin__toggle-switch" id="iscart" type="checkbox" name="iscart" {{ $ad['iscart'] == 1 ? 'checked' : '' }} >
+							            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="iscart"></label>
 							        </li>
 					            </div>
 					            <br>
@@ -60,8 +60,8 @@
     							<div class="form-group">
 					            	<label for="">{{ __('adminstaticword.VisibleonWishlist') }}: </label>
 									<li class="tg-list-item">              
-							            <input class="tgl tgl-skewed" id="iswishlist" type="checkbox" name="iswishlist" {{ $ad['iswishlist'] == 1 ? 'checked' : '' }} >
-							            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="iswishlist"></label>
+							            <input class="la-admin__toggle-switch" id="iswishlist" type="checkbox" name="iswishlist" {{ $ad['iswishlist'] == 1 ? 'checked' : '' }} >
+							            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="iswishlist"></label>
 							        </li>
 					            </div>
 					            <br>
@@ -70,18 +70,18 @@
     							<div class="form-group">
 					            	<label for="">{{ __('adminstaticword.VisibleonDetail') }}: </label>
 									<li class="tg-list-item">              
-							            <input class="tgl tgl-skewed" id="isdetail" type="checkbox" name="isdetail" {{ $ad['isdetail'] == 1 ? 'checked' : '' }} >
-							            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="isdetail"></label>
+							            <input class="la-admin__toggle-switch" id="isdetail" type="checkbox" name="isdetail" {{ $ad['isdetail'] == 1 ? 'checked' : '' }} >
+							            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="isdetail"></label>
 							        </li>
 					            </div>
 					            <br>
     						</div>
-    						<div class="col-md-4 d-none">
+    						<div class="col-md-4 display-none">
     							<div class="form-group">
 					            	<label for="">{{ __('adminstaticword.VisibleonAll') }}: </label>
 									<li class="tg-list-item">              
-							            <input class="tgl tgl-skewed" id="isviewall" type="checkbox" name="isviewall" {{ $ad['isviewall'] == 1 ? 'checked' : '' }} >
-							            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="isviewall"></label>
+							            <input class="la-admin__toggle-switch" id="isviewall" type="checkbox" name="isviewall" {{ $ad['isviewall'] == 1 ? 'checked' : '' }} >
+							            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="isviewall"></label>
 							        </li>
 					            </div>
 					            <br>

@@ -30,14 +30,14 @@
               <div class="row">
                 <div class="col-md-4">
                   <label>{{ __('adminstaticword.Image') }}:</label>
-                  <input type="file" name="image" id="image"><img src="{{ url('/images/trusted/'.$trusted->image) }}" class="img-responsive" />
+                  <input type="file" name="image" id="image"><img src="{{ url('/images/trusted/'.$trusted->image) }}" class="img-fluid" />
                   </br>
                 </div>
                 <div class="col-md-4">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                   <li class="tg-list-item">              
-                    <input class="tgl tgl-skewed" id="status" type="checkbox" name="status" {{ $trusted->status == '1' ? 'checked' : '' }} >
-                    <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
+                    <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" {{ $trusted->status == '1' ? 'checked' : '' }} >
+                    <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
                   </li>
                   <input type="hidden"  name="free" value="0" for="status" id="status">
                   <br>

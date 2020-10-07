@@ -164,8 +164,8 @@
               <div class="col-md-3">
                 <label for="exampleInputTit1e">{{ __('adminstaticword.Verified') }}:</label>
                 <li class="tg-list-item">
-                  <input class="tgl tgl-skewed" id="c033"   type="checkbox"  {{ $user->email_verified_at != NULL ? 'checked' : '' }}>
-                <label class="tgl-btn" data-tg-off="No" data-tg-on="Yes" for="c033"></label>
+                  <input class="la-admin__toggle-switch" id="c033"   type="checkbox"  {{ $user->email_verified_at != NULL ? 'checked' : '' }}>
+                <label class="la-admin__toggle-label" data-tg-off="No" data-tg-on="Yes" for="c033"></label>
                 </li>
                 <input type="hidden" name="verified" value="{{ $user->varified }}" id="tt">
               </div>
@@ -173,8 +173,8 @@
               <div class="col-md-3">
                 <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                 <li class="tg-list-item">              
-                  <input class="tgl tgl-skewed" id="status" type="checkbox" name="status" {{ $user->status == '1' ? 'checked' : '' }} >
-                  <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
+                  <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" {{ $user->status == '1' ? 'checked' : '' }} >
+                  <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
               </li>
               <input type="hidden"  name="free" value="0" for="status" id="status">
               </div>
@@ -195,7 +195,7 @@
               </div>
 
 
-              <div class="col-md-3 d-none" id="doaboxxx">
+              <div class="col-md-3 display-none" id="doaboxxx">
                 <label for="dob">{{ __('adminstaticword.DateofAnniversary') }}: </label>
                 <input value="{{ $user->doa }}" name="doa" id="doa" type="text" class="form-control" placeholder="Enter Date of anniversary">
               </div>
@@ -210,11 +210,11 @@
               <div class="col-md-6">
                 @if($user->user_img != null || $user->user_img !='')
                   <div class="edit-user-img">
-                    <img src="{{ url('/images/user_img/'.$user->user_img) }}" class="img-fluid" alt="User Image" class="img-responsive">
+                    <img src="{{ url('/images/user_img/'.$user->user_img) }}" class="img-fluid" alt="User Image" class="img-fluid">
                   </div>
                 @else
                   <div class="edit-user-img">
-                    <img src="{{ asset('images/default/user.jpg')}}" class="img-fluid" alt="User Image" class="img-responsive">
+                    <img src="{{ asset('images/default/user.jpg')}}" class="img-fluid" alt="User Image" class="img-fluid">
                   </div>
                 @endif
               </div>
@@ -230,7 +230,7 @@
               </div>
             </div>
 
-            <div class="row d-none" id="update-password">
+            <div class="row display-none" id="update-password">
               <div class="col-md-6">
                 <label>{{ __('adminstaticword.Password') }}</label>
                 <input type="password" name="password" class="form-control" placeholder="Enter password">

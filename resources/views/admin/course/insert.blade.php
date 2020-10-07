@@ -55,7 +55,7 @@
                   <select name="childcategory_id" id="grand" class="form-control js-example-basic-single"></select>
                 </div>
                 <div class="col-md-3">
-                  <label for="exampleInputTit1e">{{ __('adminstaticword.User') }}</label>
+                  <label for="exampleInputTit1e">{{ __('adminstaticword.Instructor') }}</label>
                     <select name="user_id" class="form-control js-example-basic-single col-md-7 col-12">
                         <option value="{{Auth::user()->id}}">{{Auth::user()->fname}}</option>
                     </select>
@@ -79,14 +79,14 @@
               <br>
 
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Title') }}: <sup class="redstar">*</sup></label>
                   <input type="title" class="form-control" name="title" id="exampleInputTitle" placeholder="Please Enter Your Title" value="" required>
                 </div>
-                <div class="col-md-6">
+                {{-- <div class="col-md-6">
                   <label for="exampleInputSlug">{{ __('adminstaticword.Slug') }}: <sup class="redstar">*</sup></label>
                   <input pattern="[/^\S*$/]+"  type="text" class="form-control" name="slug" id="exampleInputPassword1" placeholder="Please Enter Your Slug" required>
-                </div>
+                </div> --}}
               </div>
               <br>
                  
@@ -111,15 +111,15 @@
               <br>
 
               <div class="row">
-                <div class="col-md-3 d-none">
+                <div class="col-md-3 display-none">
                   <label for="exampleInputDetails">{{ __('adminstaticword.MoneyBack') }}:</label>
                   <li class="tg-list-item">
-                    <input class="tgl tgl-skewed" id="cb01" type="checkbox"/>
-                    <label class="tgl-btn" data-tg-off="No" data-tg-on="Yes" for="cb01"></label>
+                    <input class="la-admin__toggle-switch" id="cb01" type="checkbox"/>
+                    <label class="la-admin__toggle-label" data-tg-off="No" data-tg-on="Yes" for="cb01"></label>
                   </li>
                   <input type="hidden" name="free" value="0" id="cb10">
                   <br>
-                  <div class="d-none" id="dooa">
+                  <div class="display-none" id="dooa">
           
                     <label for="exampleInputSlug">{{ __('adminstaticword.Days') }}: <sup class="redstar">*</sup></label>
                     <input type="number" min="1" class="form-control" name="day" id="exampleInputPassword1" placeholder="Please Your Enter day" value="">
@@ -127,79 +127,54 @@
                   </div> 
                 </div> 
 
-                <div class="col-md-3">
+                {{-- <div class="col-md-3">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Free') }}:</label>                 
                   <li class="tg-list-item">
-                    <input name="type" class="tgl tgl-skewed" id="cb111" type="checkbox"/>
-                    <label class="tgl-btn" data-tg-off="Free" data-tg-on="Paid" for="cb111"></label>
+                    <input name="type" class="la-admin__toggle-switch" id="cb111" type="checkbox"/>
+                    <label class="la-admin__toggle-label" data-tg-off="Free" data-tg-on="Paid" for="cb111"></label>
                   </li>
                   <br>
-                  <div class="d-none" id="pricebox">
+                  <div class="display-none" id="pricebox">
                     <label for="exampleInputSlug">{{ __('adminstaticword.Price') }}: <sup class="redstar">*</sup></label>
                     <input type="text" class="form-control" name="price" id="priceMain" placeholder="Please Your Enter price" value="">
         
                     <label for="exampleInputSlug">{{ __('adminstaticword.DiscountPrice') }}: </label>
                     <input type="text" class="form-control" name="discount_price" id="offerPrice" placeholder="Please Your Enter discount_price" value="">
                   </div>
-                </div>
+                </div> 
                 <div class="col-md-3">
                   @if(Auth::User()->role == "admin")
                   <label for="exampleInputDetails">{{ __('adminstaticword.Featured') }}:</label>
                   <li class="tg-list-item">
                 
-                    <input class="tgl tgl-skewed" id="cb1"   type="checkbox"/>
-                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb1"></label>
+                    <input class="la-admin__toggle-switch" id="cb1"   type="checkbox"/>
+                    <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="cb1"></label>
                   </li>
                   <input type="hidden" name="featured" value="0" id="j">
                   @endif
                 </div> 
+
                 <div class="col-md-3">
                   @if(Auth::User()->role == "admin")
                   <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                   <li class="tg-list-item">  
-                    <input class="tgl tgl-skewed" id="cb3"   type="checkbox"/>
-                    <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="cb3"></label>
+                    <input class="la-admin__toggle-switch" id="cb3"   type="checkbox"/>
+                    <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="cb3"></label>
                   </li>
                   <input type="hidden" name="status" value="0" id="test">
                   @endif
+                </div>--}}
                 </div>
-                </div>
-                <br>
+                <br> 
 
-                <div class="row">
-                <div class="col-md-6">
-                  <label for="exampleInputDetails">{{ __('adminstaticword.PreviewVideo') }}:</label>
-                  <li class="tg-list-item">              
-                    <input name="preview_type" class="tgl tgl-skewed" id="preview" type="checkbox"/>
-                    <label class="tgl-btn" data-tg-off="URL" data-tg-on="Upload" for="preview"></label>                
-                  </li>
-                  <input type="hidden" name="free" value="0" id="cx">                 
-                  <div class="d-none" id="document1">
-                    <label for="exampleInputSlug">{{ __('adminstaticword.UploadVideo') }}:</label>
-                    <input type="file" name="video" id="video" value="" class="form-control">
-               
+              {{-- <div class="row">
+                  <div class="col-md-3">
+                    <label for="exampleInputSlug">Course Expire Duration</label>
+                    <p class="inline info"> - Please enter duration in month</p>
+                    <input min="1" class="form-control" name="duration" type="number" id="duration"  placeholder="Enter Duration in months">
                   </div> 
-                  <div class=""  id="document2">
-                    <label for="">{{ __('adminstaticword.URL') }}: </label>
-                    <input type="text" name="url" id="url"  placeholder="Enter Your URL" class="form-control" >
-                  </div>
-                </div>
-
-                <div class="col-md-3">
-                  <label>{{ __('adminstaticword.PreviewImage') }}:</label> - <p class="inline info">size: 250x150</p>
-                  <input type="file" name="preview_image" id="image" class="inputfile inputfile-1"  />
-                  <label for="image"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>{{ __('adminstaticword.Chooseafile') }}&hellip;</span></label>
-                 
-                </div>  
-             
-
-                <div class="col-md-3">
-                <label for="exampleInputSlug">Course Expire Duration</label>
-                <p class="inline info"> - Please enter duration in month</p>
-                <input min="1" class="form-control" name="duration" type="number" id="duration"  placeholder="Enter Duration in months">
-                </div> 
               </div>
-              <br/>
+              <br/> --}}
 
               <!-- COURSE PACKAGE TYPE: START -->
               <div class="row">
@@ -207,7 +182,7 @@
                   <div class="la-admin__course-package">
                       <label for="" class="la-admin__cp-title">Course package type<sup class="redstar">*</sup></label><br/>
                       <div class="la-admin__cp-subscription">
-                          <input type="radio" name="subscription" id="subPaid" value="Subscription" class="la-admin__cp-input"> 
+                          <input type="radio" name="type" id="subPaid" value="1" class="la-admin__cp-input"> 
                            <label for="subPaid"> 
                              <div class="la-admin__cp-circle">
                                 <span class="la-admin__cp-radio"></span>
@@ -223,14 +198,14 @@
                                         <div class="input-group-prepend la-admin__subinput-prepend" >
                                             <span class="fa fa-dollar input-group-text la-admin__subinput-text"></span> 
                                         </div>
-                                        <input type="text" class="form-control la-admin__subform-input" value="400" style="width:160px"/>
+                                        <input type="text" class="form-control la-admin__subform-input" name="price" style="width:160px"/>
                                       </div>
                                   </div>
                               </div>
                           </label>
-                      </div> <br/>
+                      </div>
 
-                        <div class="la-admin__cp-premium ">
+                        {{-- <div class="la-admin__cp-premium ">
                           <input type="radio" name="subscription" id="subPremium" value="Premium" class="la-admin__cp-input"> 
                               <label for="subPremium" > 
                                 <div class="la-admin__cp-circle">
@@ -242,10 +217,10 @@
                                     <p> This course is accessible only by exclusive purchase </p>
                                 </div>
                             </label>
-                        </div> <br/>
+                        </div> <br/> --}}
 
                         <div class="la-admin__cp-free">
-                            <input type="radio" name="subscription" id="subFree" value="Free" class="la-admin__cp-input">
+                            <input type="radio" name="type" id="subFree" value="0" class="la-admin__cp-input">
                             <label for="subFree" > 
                               <div class="la-admin__cp-circle">
                                 <span class="la-admin__cp-radio"></span>
@@ -254,7 +229,7 @@
                               </div>
 
                                 <div class="la-admin__cp-desc">
-                                    <p class="la-admin__cp-desc">  This course is accessible only by any learner </p>
+                                    <p class="la-admin__cp-desc">  This course is accessible by any learner </p>
                                 </div>
                             </label>
                         </div>
@@ -265,28 +240,36 @@
               <div class="la-admin__hr-line"></div>
                <!-- PREVIEW IMAGE & VIDEO FILES: START -->
               <div class="row">
+
                 <div class="col-md-5">
                       <div class="la-admin__preview">
-                        <label for="" class="la-admin__preview-label"> Course Preview Image<sup class="redstar">*</sup></label>
+                        <label for="" class="la-admin__preview-label">{{ __('adminstaticword.PreviewImage') }}:<sup class="redstar">*</sup></label>
                         <div class="la-admin__preview-img" >
                              <div class="la-admin__preview-text">
                                   <p class="la-admin__preview-size">Preview Image size: 250x150</p>
                                   <p class="la-admin__preview-file text-uppercase">Choose a File</p>
                             </div>
-                            <input type="file" class="form-control la-admin__preview-input" name="preview-img" id="preview-img" />
+                            <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="preview_image" id="image" />
+                            <img src="" alt="" class="d-none preview-img"/>
                         </div>
                       </div>
                 </div>
+
                 <div class="col-md-2"></div>
                 <div class="col-md-5">
                       <div class="la-admin__preview">
-                        <label for="" class="la-admin__preview-label"> Course Preview Video </label>
+                        <label for="" class="la-admin__preview-label"> {{ __('adminstaticword.PreviewVideo') }}:</label>
                         <div class="la-admin__preview-video">
                            <div class="la-admin__preview-text">
                                   <p class="la-admin__preview-size">Preview video size: 20MB</p>
                                   <p class="text-uppercase la-admin__preview-file">Choose a File</p>
                             </div>
-                            <input type="file" class="form-control la-admin__preview-input" name="preview-video" id="preview-video" />
+                            <input type="file" class="form-control la-admin__preview-input preview_video" name="video" />
+                            <video controls class="d-none preview-video w-100">
+                              <source src="">
+                                Your browser does not support HTML5 video.
+                            </video>
+
                         </div>
                       </div>
                 </div>
@@ -479,6 +462,28 @@
     });
   });
 })(jQuery);
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();    
+    reader.onload = function(e) {
+      $(input).siblings('.preview-img').attr('src', e.target.result).removeClass('d-none');
+    }
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
+}
+
+$(".preview_img").change(function() {
+  readURL(this);
+});
+
+$(document).on("change", ".preview_video", function(evt) {
+  var $source = $(this).siblings('.preview-video');
+  $source.find("source").attr("src", URL.createObjectURL(this.files[0]));
+  $source.load();
+  $($source).removeClass('d-none');
+});
+
 </script>
   
 @endsection

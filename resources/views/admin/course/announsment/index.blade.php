@@ -2,7 +2,7 @@
  
   <div class="row">
     <div class="col-md-12">
-      <a data-toggle="modal" data-target="#myModalabcdef" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
+      <a data-toggle="modal" data-target="#myModalabcdef" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Announcement') }}</a>
       <br>
       <br>
         <table id="example1" class="table table-bordered table-striped">
@@ -57,7 +57,7 @@
       <div class="modal-content">
         <div class="modal-header d-block">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">{{ __('adminstaticword.Add') }}{{ __('adminstaticword.Announcement') }}</h4>
+          <h4 class="modal-title" id="myModalLabel">{{ __('adminstaticword.Add') }} {{ __('adminstaticword.Announcement') }}</h4>
         </div>
         <div class="box box-primary">
           <div class="panel panel-sum">
@@ -66,14 +66,14 @@
                 {{ csrf_field() }}
                           
                
-                <label class="d-none" for="exampleInputSlug"> {{ __('adminstaticword.Course') }}<span class="required" >*</span></label>
-                <select name="course_id" class="form-control d-none">
+                <label class="display-none" for="exampleInputSlug"> {{ __('adminstaticword.Course') }}<span class="required" >*</span></label>
+                <select name="course_id" class="form-control display-none">
                   <option value="{{ $cor->id }}">{{ $cor->title }}</option>
                 </select>
             
-                <label class="d-none"  for="exampleInputTit1e">{{ __('adminstaticword.User') }}</label>
+                <label class="display-none"  for="exampleInputTit1e">{{ __('adminstaticword.User') }}</label>
 
-                <select class="d-none" name="user_id" class="form-control col-md-7 col-12">
+                <select class="display-none" name="user_id" class="form-control col-md-7 col-12">
                   @php
                    $users = App\User::all();
                   @endphp
@@ -83,7 +83,7 @@
                   @endforeach
                 </select>
                 
-                <div class="row">
+                <div class="row pt-4">
                   <div class="col-md-12">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Announcement') }}:<sup class="redstar">*</sup></label>
                     <textarea name="announsment" rows="3" class="form-control" placeholder="Enter Your announsment"></textarea>
@@ -95,8 +95,8 @@
                   <div class="col-md-12">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                     <li class="tg-list-item">
-                      <input class="tgl tgl-skewed" id="uuuu"  type="checkbox"/>
-                      <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="uuuu"></label>
+                      <input class="la-admin__toggle-switch" id="uuuu"  type="checkbox"/>
+                      <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="uuuu"></label>
                     </li>
                     <input type="hidden" name="status" value="1" id="uuuuu">
                   </div>

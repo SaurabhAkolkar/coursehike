@@ -31,8 +31,8 @@
 
 					<label for=""><i class="fa fa-facebook-square"></i> {{ __('adminstaticword.EnableFacebookLogin') }}: </label>
 					&nbsp;&nbsp;
-					<input {{ $gsetting->fb_login_enable==1 ? 'checked' : '' }} class="tgl tgl-skewed" name="fb_enable" id="fb_enable" type="checkbox"/>
-		    		<label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="fb_enable"></label>
+					<input {{ $gsetting->fb_login_enable==1 ? 'checked' : '' }} class="la-admin__toggle-switch" name="fb_enable" id="fb_enable" type="checkbox"/>
+		    		<label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="fb_enable"></label>
 					<br>
 				
 					
@@ -74,8 +74,8 @@
 			  		<br>
 				    <label for=""><i class="fa fa-google"></i> {{ __('adminstaticword.EnableGoogleLogin') }}: </label>
 					&nbsp;&nbsp;
-					<input name="google_enable" {{ $setting->google_login_enable ==1 ? 'checked' : "" }} class="tgl tgl-skewed" id="ggl_enable" type="checkbox"/>
-					<label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="ggl_enable"></label>
+					<input name="google_enable" {{ $setting->google_login_enable ==1 ? 'checked' : "" }} class="la-admin__toggle-switch" id="ggl_enable" type="checkbox"/>
+					<label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="ggl_enable"></label>
 					<br>
 			
 					
@@ -119,8 +119,8 @@
 			  	<br>
 			    <label for=""><i class="fa fa-gitlab"></i> {{ __('adminstaticword.EnableGitLabLogin') }}: </label>
 				&nbsp;&nbsp;
-				<input name="gitlab_enable" {{ $setting->gitlab_login_enable ==1 ? 'checked' : "" }} class="tgl tgl-skewed" id="git_enable" type="checkbox"/>
-				<label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="git_enable"></label>
+				<input name="gitlab_enable" {{ $setting->gitlab_login_enable ==1 ? 'checked' : "" }} class="la-admin__toggle-switch" id="git_enable" type="checkbox"/>
+				<label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="git_enable"></label>
 				<br>
 		
 				
@@ -163,8 +163,8 @@
 			  	<br>
 			    <label for=""><i class="fa fa-amazon"></i> {{ __('adminstaticword.EnableAmazonLogin') }}: </label>
 				&nbsp;&nbsp;
-				<input name="amazon_enable" {{ $setting->amazon_enable ==1 ? 'checked' : "" }} class="tgl tgl-skewed" id="amazon_enable" type="checkbox"/>
-				<label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="amazon_enable"></label>
+				<input name="amazon_enable" {{ $setting->amazon_enable ==1 ? 'checked' : "" }} class="la-admin__toggle-switch" id="amazon_enable" type="checkbox"/>
+				<label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="amazon_enable"></label>
 				<br>
 		
 				
@@ -208,8 +208,8 @@
 			  	<br>
 			    <label for=""><i class="fa fa-linkedin"></i> {{ __('adminstaticword.EnableLinkedLogin') }}: </label>
 				&nbsp;&nbsp;
-				<input name="linkedin_enable" {{ $setting->linkedin_enable == 1 ? 'checked' : "" }} class="tgl tgl-skewed" id="linkedin_enable" type="checkbox"/>
-				<label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="linkedin_enable"></label>
+				<input name="linkedin_enable" {{ $setting->linkedin_enable == 1 ? 'checked' : "" }} class="la-admin__toggle-switch" id="linkedin_enable" type="checkbox"/>
+				<label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="linkedin_enable"></label>
 				<br>
 		
 				
@@ -252,8 +252,8 @@
 			  	<br>
 			    <label for=""><i class="fa fa-twitter"></i> {{ __('adminstaticword.EnableTwitterLogin') }}: </label>
 				&nbsp;&nbsp;
-				<input name="twitter_enable" {{ $setting->twitter_enable == 1 ? 'checked' : "" }} class="tgl tgl-skewed" id="twitter_enable" type="checkbox"/>
-				<label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="twitter_enable"></label>
+				<input name="twitter_enable" {{ $setting->twitter_enable == 1 ? 'checked' : "" }} class="la-admin__toggle-switch" id="twitter_enable" type="checkbox"/>
+				<label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="twitter_enable"></label>
 				<br>
 		
 				

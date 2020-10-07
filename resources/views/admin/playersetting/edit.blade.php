@@ -19,8 +19,8 @@
                         <div class="form-group">
                           <label for="exampleInputDetails">{{ __('adminstaticword.LogoEnable') }}:</label>
                           <li class="tg-list-item">              
-                              <input class="tgl tgl-skewed" id="cb4" type="checkbox" name="logo_enable" {{ $ps['logo_enable'] == '1' ? 'checked' : '' }} />
-                              <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="cb4"></label>
+                              <input class="la-admin__toggle-switch" id="cb4" type="checkbox" name="logo_enable" {{ $ps['logo_enable'] == '1' ? 'checked' : '' }} />
+                              <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="cb4"></label>
                             </li>
                             <input type="hidden" name="free" value="0" for="cb4" id="cb4"> 
                         </div>
@@ -32,7 +32,7 @@
                      
 
                       @if ($errors->has('logo'))
-                        <div class="d-none" id="logo">
+                        <div class="display-none" id="logo">
                           <strong class="text-danger">{{ $errors->first('logo') }}</strong>
                         </div>
                       @endif
@@ -49,7 +49,7 @@
                     <div class="col-md-12">
                       @if($ps['logo'] !="")
                         <div class="logo-settings">
-                          <img src="{{ asset('content/minimal_skin_dark/'.$ps['logo']) }}" alt="{{ $ps['logo'] }}" class="img-responsive">
+                          <img src="{{ asset('content/minimal_skin_dark/'.$ps['logo']) }}" alt="{{ $ps['logo'] }}" class="img-fluid">
                         </div>
                       @else
                         <div class="alert alert-danger">
@@ -67,8 +67,8 @@
                         <div class="form-group">
                           <label for="exampleInputDetails">{{ __('adminstaticword.ShareEnable') }}:</label>
                             <li class="tg-list-item">              
-                              <input class="tgl tgl-skewed" id="cb3" type="checkbox" name="share_enable"  {{ $ps['share_enable'] == '1' ? 'checked' : '' }} />
-                              <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="cb3"></label>
+                              <input class="la-admin__toggle-switch" id="cb3" type="checkbox" name="share_enable"  {{ $ps['share_enable'] == '1' ? 'checked' : '' }} />
+                              <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="cb3"></label>
                             </li>
                             <input type="hidden"  name="free" value="0" for="cb3" id="cb3"> 
                         </div>
@@ -76,7 +76,7 @@
 
 
                       <div class="col-md-6">
-                        <div class="form-group d-none">
+                        <div class="form-group display-none">
                           <label for="CopyrightText">{{ __('adminstaticword.CopyrightText') }}<sup class="redstar">*</sup></label>
                           <input value="copyright" name="cpy_text" type="text" class="form-control" placeholder="Enter Copyright Text" autocomplete="off" />
                         </div>
@@ -94,8 +94,8 @@
                         <div class="form-group">
                           <label for="exampleInputDetails">{{ __('adminstaticword.AutoPlay') }}:</label>
                             <li class="tg-list-item">              
-                              <input class="tgl tgl-skewed" id="cb6" type="checkbox" name="autoplay"  {{ $ps['autoplay'] == '1' ? 'checked' : '' }} />
-                              <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="cb6"></label>
+                              <input class="la-admin__toggle-switch" id="cb6" type="checkbox" name="autoplay"  {{ $ps['autoplay'] == '1' ? 'checked' : '' }} />
+                              <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="cb6"></label>
                             </li>
                             <input type="hidden"  name="free" value="0" for="cb6" id="cb6"> 
                         </div>
@@ -109,8 +109,8 @@
                         <div class="form-group">
                           <label for="exampleInputDetails">Video Downlaod Enable:</label>
                             <li class="tg-list-item">              
-                              <input class="tgl tgl-skewed" id="cb7" type="checkbox" name="download"  {{ $ps['download'] == '1' ? 'checked' : '' }} />
-                              <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="cb7"></label>
+                              <input class="la-admin__toggle-switch" id="cb7" type="checkbox" name="download"  {{ $ps['download'] == '1' ? 'checked' : '' }} />
+                              <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="cb7"></label>
                             </li>
                             <input type="hidden"  name="free" value="0" for="cb7" id="cb7"> 
                         </div>

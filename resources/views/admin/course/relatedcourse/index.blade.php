@@ -11,7 +11,7 @@
 <section class="content">
   <div class="row">
     <div class="col-md-12">
-      <a data-toggle="modal" data-target="#myModalabc" href="#" class="btn btn-info btn-sm">+{{ __('adminstaticword.Add') }}</a>
+      <a data-toggle="modal" data-target="#myModalabc" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.AddRelatedCourse') }}</a>
       <br>
       <br>
         <table id="example1" class="table table-bordered table-striped">
@@ -72,7 +72,7 @@
 
                 <input type="hidden" class="form-control" name="user_id" id="user_id" value="{{ $cor->user_id }}"> 
 
-                <div class="row d-none">             
+                <div class="row display-none">             
                   <div class="col-md-12">  
                     <label for="exampleInputSlug">{{ __('adminstaticword.Course') }}</label>
                     <select name="main_course_id" class="form-control">
@@ -104,8 +104,8 @@
                   <div class="col-md-12">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                     <li class="tg-list-item">
-                      <input class="tgl tgl-skewed" id="c2"  type="checkbox"/>
-                      <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="c2"></label>
+                      <input class="la-admin__toggle-switch" id="c2"  type="checkbox"/>
+                      <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="c2"></label>
                     </li>
                     <input type="hidden" name="status" value="1" id="t2">
                   </div>

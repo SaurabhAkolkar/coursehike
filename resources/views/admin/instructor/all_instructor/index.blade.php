@@ -29,7 +29,7 @@
               <tbody>
                 @foreach($items as $item)
                 <tr>
-                	<td><img src="{{ asset('images/instructor/'.$item->image)}}" class="img-responsive"></td> 
+                	<td><img src="{{ asset('images/instructor/'.$item->image)}}" class="img-fluid"></td> 
                   <td>{{$item->fname}}</td>
                   <td>{{$item->email}}</td>
                   <td>{{ str_limit($item->detail, $limit= 50, $end = '...')}}</td>

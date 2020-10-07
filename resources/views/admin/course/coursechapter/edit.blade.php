@@ -29,13 +29,12 @@
               {{ csrf_field() }}
               {{ method_field('PUT') }}
 
-              <label class="" for="exampleInputSlug">{{ __('adminstaticword.SelectCourse') }}</label>
+              <label class="">{{ __('adminstaticword.SelectCourse') }}</label>
               <select name="course_id" class=" form-control  col-12 display-none">
                 @foreach($courses as $cou)
                   <option value="{{ $cou->id }}" {{$cate->courses->id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
                 @endforeach
-              </select> <br/>
-
+              </select>
 
               <div class="row">
                 <div class="col-md-12">
@@ -43,33 +42,89 @@
                   <input type="" class="form-control" name="chapter_name" id="exampleInputTitle" value="{{$cate->chapter_name}}">
                   <br>
                 </div>
+              </div>
 
-
-                <div class="col-md-12">
-                  
-                    <label for="exampleInputDetails">{{ __('adminstaticword.LearningMaterial') }}</label> - <p class="inline info">eg: zip or pdf files</p>
-                    <br>
-                    <input type="file" name="file" value="{{ $cate->file }}" id="file" class="{{ $errors->has('file') ? ' is-invalid' : '' }} inputfile inputfile-1"/>
-                    <label for="file"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>{{ __('adminstaticword.Chooseafile') }}</span></label>
-                    <span class="text-danger invalid-feedback" role="alert"></span>
-
-                    <input disabled class="form-control" value="{{$cate->file}}">
-                  
+              <!-- CLASS THUMBNAIL: START -->
+              <div class="row">
+                <div class="col-12">
+                      <div class="la-admin__preview">
+                        <label for="" class="la-admin__preview-label"> Class Thumbnail<sup class="redstar">*</sup></label>
+                        <div class="la-admin__preview-img" >
+                              <div class="la-admin__preview-text">
+                                  <p class="la-admin__preview-size">Thumbnail | 500x350</p>
+                                  <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
+                            </div>
+                            <input type="file" class="form-control la-admin__preview-input preview_img" name="preview_image" />
+                            <img src="" alt="" class="d-none preview-img"/>
+                        </div>
+                      </div>
                 </div>
               </div>
+              <!-- CLASS THUMBNAIL: END -->
               <br>
 
               <div class="row">
                 <div class="col-md-12">
+                  <label>One-Time Purchase Cost:<span class="redstar">*</span> </label>
+                  <input type="text" placeholder="Enter Your Class Price" class="form-control " name="price" value="">
+                </div>
+                <div class="col-md-6"> 
+                  
+                </div>
+              </div>
+
+
+              {{-- <div class="row">
+                <div class="col-md-12">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                    <li class="tg-list-item">              
-                    <input class="tgl tgl-skewed" id="status" type="checkbox" name="status" {{ $cate->status == '1' ? 'checked' : '' }} >
-                    <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
+                    <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" {{ $cate->status == '1' ? 'checked' : '' }} >
+                    <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
                   </li>
                   <input type="hidden"  name="free" value="0" for="status" id="status">
                 </div>
+              </div> --}}
+              
+
+
+                <!--  ADD CLASS STATUS: START -->
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <label class="la-admin__preview-label"> Status<sup class="redstar">*</sup></label>
+                    <div class="la-admin__class-status d-flex justify-content-start">
+                      <div class="la-admin__class-active pr-5">
+                          <input type="radio" name="status" id="addClass-active" value="2" class="la-admin__cp-input" {{ $cate->status == '2' ? 'checked' : '' }} >
+                          <label for="addClass-active" > 
+                            <div class="la-admin__cp-circle">
+                              <span class="la-admin__cp-radio"></span>
+                              <span class="la-admin__cp-label">Active</span> 
+                            </div>
+                          </label>
+                      </div>
+
+                      <div class="la-admin__class-hold pr-5">
+                        <input type="radio" name="status" id="addClass-hold" value="0" class="la-admin__cp-input" {{ $cate->status == '0' ? 'checked' : '' }} >
+                        <label for="addClass-hold" > 
+                          <div class="la-admin__cp-circle">
+                            <span class="la-admin__cp-radio"></span>
+                            <span class="la-admin__cp-label">On hold</span> 
+                          </div>
+                        </label>
+                      </div>
+
+                      <div class="la-admin__class-archive pr-5">
+                        <input type="radio" name="status" id="addClass-archive" value="1" class="la-admin__cp-input" {{ $cate->status == '1' ? 'checked' : '' }} >
+                        <label for="addClass-archive" > 
+                          <div class="la-admin__cp-circle">
+                            <span class="la-admin__cp-radio"></span>
+                            <span class="la-admin__cp-label">Archive</span> 
+                          </div>
+                        </label>
+                    </div>
+                  </div>
+                  </div>
               </div>
-              <br>
+              <!-- ADD CLASS STATUS: END -->
 
               <div class="box-footer">
                 <button type="submit" class="btn btn-md col-md-3 btn-primary">{{ __('adminstaticword.Save') }}</button>
@@ -86,4 +141,33 @@
   <!-- /.row -->
 </section> 
 
+@endsection
+
+
+@section('scripts')
+
+<script>
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();    
+    reader.onload = function(e) {
+      $(input).siblings('.preview-img').attr('src', e.target.result).removeClass('d-none');
+    }
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
+}
+
+$(".preview_img").change(function() {
+  readURL(this);
+});
+
+$(document).on("change", ".preview_video", function(evt) {
+  var $source = $(this).siblings('.preview-video');
+  $source.find("source").attr("src", URL.createObjectURL(this.files[0]));
+  $source.load();
+  $($source).removeClass('d-none');
+});
+
+</script>
+  
 @endsection

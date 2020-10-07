@@ -23,9 +23,9 @@
                 <br>
                 <br>
                 @if($course['preview_image'] !== NULL && $course['preview_image'] !== '')
-                    <img src="images/course/<?php echo $course['preview_image'];  ?>" class="img-responsive" >
+                    <img src="images/course/<?php echo $course['preview_image'];  ?>" class="img-fluid" >
                 @else
-                    <img src="{{ Avatar::create($course->title)->toBase64() }}" class="img-responsive" >
+                    <img src="{{ Avatar::create($course->title)->toBase64() }}" class="img-fluid" >
                 @endif
                 <br>
              

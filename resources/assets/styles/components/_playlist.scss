@@ -1,0 +1,36 @@
+.playlist__timeline {
+    position: relative;
+    margin-left: 10px;
+    border-radius: 0 8px 8px 0;
+    padding: 5px 0;
+}
+
+.playlist__timeline:after {
+    content: '';
+    width: 2px;
+    height: 100%;
+    margin-top: 26px;
+    background-color: black;
+    position: absolute;
+    left: -2px;
+    top: 0;
+}
+
+.playlist__item {
+    position: relative;
+    padding-left: 4px;
+    padding-top: 5px;
+
+    &:after {
+        content: '';
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 2px solid black;
+        background-color: white;
+        position: absolute;
+        left: -10px;
+        top: 45%;
+        z-index: 9;
+    }
+}

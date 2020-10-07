@@ -1,4 +1,383 @@
 
+@font-face {
+    font-family: 'icomoon';
+  
+    src: url("./fonts/learners/icons/icomoon.eot?tlgwid");
+  
+    src: url("./fonts/learners/icons/icomoon.eot?tlgwid#iefix") format("embedded-opentype"), url("./fonts/learners/icons/icomoon.ttf?tlgwid") format("truetype"), url("./fonts/learners/icons/icomoon.woff?tlgwid") format("woff"), url("./fonts/learners/icons/icomoon.svg?tlgwid#icomoon") format("svg");
+  
+    font-weight: normal;
+  
+    font-style: normal;
+  
+    font-display: block;
+  }
+  
+  [class^="icon-"],
+  [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-excel:before {
+    content: "\e922";
+  }
+  
+  .icon-revenue:before {
+    content: "\e920";
+  }
+  
+  .icon-coupon:before {
+    content: "\e921";
+  }
+  
+  .icon-browse-courses .path1:before {
+    content: "\e901";
+    color: #414141;
+  }
+  
+  .icon-browse-courses .path2:before {
+    content: "\e905";
+    margin-left: -1em;
+    color: white;
+  }
+  
+  .icon-browse-courses .path3:before {
+    content: "\e909";
+    margin-left: -1em;
+    color: #414141;
+  }
+  
+  .icon-lock:before {
+    content: "\e900";
+  }
+  
+  .icon-play:before {
+    content: "\e902";
+  }
+  
+  .icon-hide-Password:before {
+    content: "\e903";
+  }
+  
+  .icon-menu:before {
+    content: "\e904";
+  }
+  
+  .icon-profile:before {
+    content: "\e906";
+  }
+  
+  .icon-show-password:before {
+    content: "\e907";
+  }
+  
+  .icon-wallet:before {
+    content: "\e908";
+  }
+  
+  .icon-learning-plans:before {
+    content: "\e90a";
+  }
+  
+  .icon-about:before {
+    content: "\e90b";
+  }
+  
+  .icon-download:before {
+    content: "\e90c";
+  }
+  
+  .icon-arrow:before {
+    content: "\e90d";
+  }
+  
+  .icon-search:before {
+    content: "\e90e";
+  }
+  
+  .icon-file-export:before {
+    content: "\e90f";
+  }
+  
+  .icon-users:before {
+    content: "\e910";
+  }
+  
+  .icon-edit-profile-learner-filled:before {
+    content: "\e911";
+  }
+  
+  .icon-filter:before {
+    content: "\e912";
+  }
+  
+  .icon-cart-filled:before {
+    content: "\e913";
+  }
+  
+  .icon-help:before {
+    content: "\e914";
+  }
+  
+  .icon-details:before {
+    content: "\e915";
+  }
+  
+  .icon-notification-filled:before {
+    content: "\e916";
+  }
+  
+  .icon-share1:before {
+    content: "\e917";
+  }
+  
+  .icon-settings:before {
+    content: "\e918";
+  }
+  
+  .icon-drop-down:before {
+    content: "\e919";
+  }
+  
+  .icon-assessment:before {
+    content: "\e91a";
+  }
+  
+  .icon-courses:before {
+    content: "\e91b";
+  }
+  
+  .icon-messages:before {
+    content: "\e91c";
+  }
+  
+  .icon-dashboard:before {
+    content: "\e91d";
+  }
+  
+  .icon-delete:before {
+    content: "\e91e";
+  }
+  
+  .icon-edit:before {
+    content: "\e91f";
+  }
+  
+  .icon-hamburger-menu:before {
+    content: "\e923";
+  }
+  
+  .icon-playlist-filled:before {
+    content: "\e924";
+  }
+  
+  .icon-question-answer:before {
+    content: "\e925";
+  }
+  
+  .icon-sort:before {
+    content: "\e926";
+  }
+  
+  .icon-logout:before {
+    content: "\e927";
+  }
+  
+  .icon-plus:before {
+    content: "\e928";
+  }
+  
+  .icon-cancel:before {
+    content: "\e929";
+  }
+  
+  .icon-announcement:before {
+    content: "\e92a";
+  }
+  
+  .icon-announcement-filled:before {
+    content: "\e92b";
+  }
+  
+  .icon-contact:before {
+    content: "\e92c";
+  }
+  
+  .icon-purchase-history:before {
+    content: "\e92d";
+  }
+  
+  .icon-request:before {
+    content: "\e92e";
+  }
+  
+  .icon-tick:before {
+    content: "\e938";
+  }
+  
+  .icon-wishlist-filled:before {
+    content: "\e939";
+  }
+  
+  .icon-star:before {
+    content: "\e93a";
+  }
+  
+  .icon-birthday:before {
+    content: "\e93b";
+  }
+  
+  .icon-calender-filled:before {
+    content: "\e93c";
+  }
+  
+  .icon-password:before {
+    content: "\e93d";
+  }
+  
+  .icon-contact-number:before {
+    content: "\e93e";
+  }
+  
+  .icon-mail-id:before {
+    content: "\e93f";
+  }
+  
+  .icon-calender:before {
+    content: "\e941";
+  }
+  
+  .icon-become-creator:before {
+    content: "\e943";
+  }
+  
+  .icon-playlist:before {
+    content: "\e944";
+  }
+  
+  .icon-edit-learner-profile:before {
+    content: "\e945";
+  }
+  
+  .icon-notification:before {
+    content: "\e946";
+  }
+  
+  .icon-wishlist:before {
+    content: "\e947";
+  }
+  
+  .icon-cart:before {
+    content: "\e948";
+  }
+  
+  .icon-caption:before {
+    content: "\e949";
+  }
+  
+  .icon-collapse-video:before {
+    content: "\e94a";
+  }
+  
+  .icon-expand-video:before {
+    content: "\e94b";
+  }
+  
+  .icon-volume:before {
+    content: "\e94c";
+  }
+  
+  .icon-next-playlist:before {
+    content: "\e94d";
+  }
+  
+  .icon-edit-line:before {
+    content: "\e94f";
+  }
+  
+  .icon-inspire:before {
+    content: "\e950";
+  }
+  
+  .icon-recognition:before {
+    content: "\e951";
+  }
+  
+  .icon-earnings:before {
+    content: "\e952";
+  }
+  
+  .icon-share:before {
+    content: "\e953";
+  }
+  .la-icon {
+    display: inline-block;
+  }
+  
+  .la-icon--xs {
+    width: var(--icon-xs);
+    height: var(--icon-xs);
+    font-size: var(--icon-xs);
+  }
+  
+  .la-icon--sm {
+    width: var(--icon-sm);
+    height: var(--icon-sm);
+    font-size: var(--icon-sm);
+  }
+  
+  .la-icon--md {
+    width: var(--icon-md);
+    height: var(--icon-md);
+    font-size: var(--icon-md);
+  }
+  
+  .la-icon--lg {
+    width: var(--icon-lg);
+    height: var(--icon-lg);
+    font-size: var(--icon-lg);
+  }
+  
+  .la-icon--xl {
+    width: var(--icon-xl);
+    height: var(--icon-xl);
+    font-size: var(--icon-xl);
+  }
+  
+  .la-icon--2xl {
+    width: var(--icon-2xl);
+    height: var(--icon-2xl);
+    font-size: var(--icon-2xl);
+  }
+  
+  .la-icon--3xl {
+    width: var(--icon-3xl);
+    height: var(--icon-3xl);
+    font-size: var(--icon-3xl);
+  }
+  
+  .la-icon--4xl {
+    width: var(--icon-4xl);
+    height: var(--icon-4xl);
+    font-size: var(--icon-4xl);
+  }
+  
+  .la-icon--5xl {
+    width: var(--icon-5xl);
+    height: var(--icon-5xl);
+    font-size: var(--icon-5xl);
+  }
+
 /* =============== Admin Left Side Navbar CSS ============  */
 html, body{
     font-family:'Roboto', sans-serif !important;
@@ -48,7 +427,7 @@ html, body{
 .sidebar a {
     font-family:var(--body-font);
     color: #404040 !important;
-    font-weight:500;
+    font-weight:bold !important;
     font-size:15px;
     padding:10px 16px !important;
     outline: 0;
@@ -73,17 +452,19 @@ html, body{
     position:relative;
     border:none;
 }
+
 /* == Sidebar Menu Links border-left == */
 .sidebar-menu>li.active>a {
     border-left-color:transparent !important;
 }
 
 .skin-blue .sidebar-menu>li>.treeview-menu{
-    background-color:#fbfbfb!important;
+    background-color:#F5F4F4 !important;
 }
 .skin-blue .sidebar-menu .treeview-menu>li>a{
     font-size:13px !important;
-    color: #404040 !important;
+    color: #000000 !important;
+    margin-left:18px;
 }
 .skin-blue .sidebar-menu .treeview-menu>li.active>a{
     color:#6708BA !important;
@@ -91,8 +472,13 @@ html, body{
 .skin-blue .sidebar-menu .treeview-menu>li>a:hover{
     color:#6708BA !important;
 }
-
-
+.pull-left.info a{
+  padding:0 !important;
+}
+.sidebar-menu li>a>.fa-angle-left, .sidebar-menu li>a>.pull-right-container>.fa-angle-left{
+  transform:rotate(90deg);
+  color:#000000;
+}
 /* ================ Admin Dashboard Content =================== */
 
 /* == top-nav language btn == */
@@ -106,7 +492,7 @@ html, body{
     box-shadow:none !important;
 }
 .language .btn-primary:hover {
-    background-color: #fbfbfb;
+    background-color: #F5F4F0;
     color: #999999;;
     box-shadow: none;
 }
@@ -123,22 +509,25 @@ html, body{
 }
 /* == Content small-box bg-colors == */
 .bg-aqua, .bg-orange, .bg-purple, .bg-green, .bg-blue, .bg-yellow, .bg-red{
-    background-color:#fbfbfb !important;
+    background-color:#F5F4F0 !important;
+}
+.content-header{
+  padding:15px 25px !important;
 }
 .content-header>h1 {
     margin: 0;
     color:#404040;
     font-family:var(--body-font);
-    font-weight:500;
+    font-weight:bold;
     font-size: 24px;
 }
 .small-box {
     border-radius: 0;
     position: relative;
     display: block;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     box-shadow: none;
-    padding:10px;
+    padding:0;
 }
 
 .small-box .icon {
@@ -162,10 +551,13 @@ html, body{
     font-size: 25px;
     color:#48ACF8;
 }
+.small-box>.inner{
+  padding:20px 10px 0 15px !important;
+}
 /* == small-box inner numbering == */
 .small-box h3 {
     position: relative;
-    top:10px;
+    top:5px;
     font-size: 24px;
     font-family:var(--body-font);
     font-weight:500;
@@ -179,6 +571,7 @@ html, body{
     font-size: 18px;
     color: #252525 !important;
     padding-left:12px;
+    padding-top:5px;
     margin:0;
     font-family:var(--body-font);
     font-weight:500;
@@ -191,25 +584,41 @@ html, body{
     color: #000;
     display: block;
     z-index: 10;
-    background:#fbfbfb;
+    background:#F5F4F0;
     text-decoration: none;
     text-align:right;
-    padding:4px 8px;
+    padding:0 8px 8px;
 }
 .small-box>.small-box-footer:hover {
-    background-color:#fbfbfb;
+    background-color:#F5F4F0;
     color:#000;
 }
 /* == Latest Users Section == */
+.box-header{
+  padding: 25px 10px !important;
+}
+.box-body{
+  padding:10px !important;
+}
+
 .box-header .box-title {
     font-family:var(--body-font);
-    font-weight:500;
-    font-size:18px;
+    font-weight:bold;
+    font-size:24px;
     color: #404040;
 }
+.la-admin__box-title{
+  font-family: var(--body-font) !important;
+    font-weight: 500 !important;
+    font-size: 18px !important;
+    color: #404040 !important;
+    padding: 10px !important;
+    margin: 0;
+}
 .box-recent__content{
-    background-color:#fbfbfb !important;
+    background-color:#F5F4F0 !important;
     padding:10px;
+    margin-top:50px;
 }
 .box-footer{
     background-color:transparent !important;
@@ -281,6 +690,13 @@ html, body{
     background-color:transparent !important;
 }
 
+
+/* == TOGGLE BUTTONS === */
+.tg-list-item {
+    margin: 0 !important;
+}
+
+
 /* ============ COURSES PAGE ============ */
 
 /* == Add Course Button == */
@@ -317,13 +733,14 @@ div.dt-buttons {
     display: none;
 }
 /* == Search Bar == */
+
 .input-sm{
     padding:0 !important;
  } 
  /* == Table == */
- table.dataTable {
+ table {
     border-collapse: seperate !important;
-    border-spacing: 0 15px !important; 
+    border-spacing: 0 25px !important; 
     border:none;
 }
 /* == table head == */
@@ -340,7 +757,11 @@ th.sorting {
 }
 /* == Sorting Icons after the table head Content == */
 table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting:after{
-    content: "";
+    content: "" !important;
+    display:none ;
+}
+table.dataTable thead>tr>th.sorting_asc{
+  padding-left:25px!important;
 }
 /* == Table rows == */
 .table-striped>tbody>tr:nth-of-type(odd) ,
@@ -348,7 +769,9 @@ table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting:after{
     background-color: #F4F5F080 !important;
 }
 /* == Table Columns == */
+
 table.table-bordered.dataTable tbody td {
+    padding:15px 0;
     font-family:var(--body-font);
     font-weight:400;
     border:none;
@@ -357,6 +780,9 @@ table.table-bordered.dataTable tbody td {
     line-height:1 !important;
     vertical-align: middle;
     text-transform: capitalize;
+ }
+ table.table-bordered.dataTable tbody td.sorting_1{
+   padding-left:25px;
  }
 /* == Table Column Course Image ==*/
 .table td img {
@@ -380,8 +806,15 @@ td .btn-success:focus, td form .btn-danger:focus{
     box-shadow:none !important;
     color:#000000 !important;
 }
+.btn-danger{
+  background-color:transparent !important;
+  border:transparent !important;
+  color:#404040;
+}
+.btn-danger:hover{
+  color:#404040;
 
-
+}
 
 /* ============  COURSES / ADD COURSE PAGE ============ */
 
@@ -416,11 +849,10 @@ td .btn-success:focus, td form .btn-danger:focus{
     font-weight:400;
     display: block;
     width: 100%;
-   
     font-size: 15px;
     line-height: 1.42857143;
     color: #313131;
-    background-color: #fbfbfb;
+    background-color: #FCFCFC;
     border: 1px solid #dedede;
     border-radius: 0;
     box-shadow: none;
@@ -441,7 +873,7 @@ td .btn-success:focus, td form .btn-danger:focus{
 }
 /* == Textarea field == */
 .tox .tox-edit-area__iframe {
-    background-color: #fbfbfb !important;
+    background-color: #FCFCFC !important;
     border:1px solid #dedede !important;
 }
 /* bottom statusbar displayed to none == */
@@ -469,6 +901,7 @@ label{
     font-weight:500;
     font-size:16px;
     color:#000000;
+    margin-bottom:0;
 }
 
 .select2-container .select2-selection--single .select2-selection__rendered {
@@ -477,7 +910,7 @@ label{
     padding-right: 10px;
     font-size: 15px;
     color: #313131;
-    background-color: #fbfbfb;
+    background-color: #FCFCFC;
 }
 .select2-container--default .select2-selection--single .select2-selection__arrow {
     height: 28px;
@@ -509,13 +942,23 @@ label{
     color:#ffffff;
     border:none;
     border-radius:0;
-    padding:8px 32px;
+    padding:12px 30px;
     box-shadow: 0px 3px 6px #00000029;
     float:right;
+    font-size:16px !important;
+    letter-spacing: 1.2px;
 }
 .btn-primary:hover{
     background-color: #7400D7 ;
     box-shadow: 0px 3px 6px #00000029;
+}
+
+.btn-primary:focus{
+  background-color: #7400D7 !important;
+  color:#ffffff !important;
+  outline:0 !important;
+  border:none !important;
+  box-shadow:none !important;
 }
 
 /* ================= COURSE CLASS ================ */
@@ -608,8 +1051,9 @@ table::-webkit-scrollbar{background: rgb(0, 0, 0);
 /* ============= ADD COURSE CLASS ================ */
 /* == modal add class form == */
 .modal-dialog {
-    width: 500px;
+    width: 600px;
     margin: 30px auto;
+    max-width: inherit !important;
 }
 .modal-content{
     padding:10px 30px;

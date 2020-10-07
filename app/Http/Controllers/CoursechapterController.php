@@ -46,18 +46,15 @@ class CoursechapterController extends Controller
 
         $input = $request->all();
 
-        if($file = $request->file('file'))
+        if($file = $request->file('preview_image'))
         { 
           $filename = time().$file->getClientOriginalName();
           $file->move('files/material',$filename);
-          $input['file'] = $filename;
+          $input['thumbnail'] = $filename;
         }
 
 
         $data = CourseChapter::create($input);
-        
-
-
         $data->save();
 
         Session::flash('success','Added Successfully !');

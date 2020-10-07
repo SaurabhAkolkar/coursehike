@@ -52,7 +52,7 @@
 		                  </div>
 		                  <div class="col-md-3">
 		                    <label for="image">{{ __('adminstaticword.Image') }}<sup class="redstar">*</sup></label>
-		                    <input type="file" name="image"  id="image"><br><img src="{{ url('/images/blog/'.$show->image) }}" class="img-responsive" />
+		                    <input type="file" name="image"  id="image"><br><img src="{{ url('/images/blog/'.$show->image) }}" class="img-fluid" />
 		                  </div>
 		              	</div>
 		              	<br>
@@ -61,16 +61,16 @@
 		              		<div class="col-md-6">
 				                <label for="exampleInputTit1e">{{ __('adminstaticword.Approved') }}:</label>
 				                <li class="tg-list-item">              
-				                    <input class="tgl tgl-skewed" id="approved" type="checkbox" name="approved" {{ $show->approved == '1' ? 'checked' : '' }} >
-				                    <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="approved"></label>
+				                    <input class="la-admin__toggle-switch" id="approved" type="checkbox" name="approved" {{ $show->approved == '1' ? 'checked' : '' }} >
+				                    <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="approved"></label>
 				                </li>
 				                <input type="hidden"  name="free" value="0" for="approved" id="approved">
 		              		</div>
 		              		<div class="col-md-6">
 		              			<label for="exampleInput">{{ __('adminstaticword.Status') }}:</label>
 				                <li class="tg-list-item">              
-				                    <input class="tgl tgl-skewed" id="status" type="checkbox" name="status" {{ $show->status == '1' ? 'checked' : '' }} >
-				                    <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
+				                    <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" {{ $show->status == '1' ? 'checked' : '' }} >
+				                    <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
 				                </li>
 				                <input type="hidden"  name="free" value="0" for="status" id="status">
 		              		</div>

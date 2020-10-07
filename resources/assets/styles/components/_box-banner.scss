@@ -1,0 +1,20 @@
+#{$ap}- {
+    &box {
+        &__ {
+            &banner {
+                padding: calc(var(--size-10) * 2 + 10px) 0;
+                background-color: #252525;
+                border-radius: 10px;
+
+                &- {
+                    &title {
+                        font-size: var(--size-6);
+                        color: var(--white);
+                        font-weight: var(--font-light);
+                        margin-bottom: var(--size-8);
+                    }
+                }
+            }
+        }
+    }
+}

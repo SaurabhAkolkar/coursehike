@@ -30,8 +30,8 @@
               <div class="col-md-3">
                 <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                 <li class="tg-list-item">
-                <input class="tgl tgl-skewed" id="xyz" type="checkbox" {{ $language->status==1 ? 'checked' : '' }}>
-                <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="xyz"></label>
+                <input class="la-admin__toggle-switch" id="xyz" type="checkbox" {{ $language->status==1 ? 'checked' : '' }}>
+                <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="xyz"></label>
                 </li>
                 <input type="hidden" name="status" value="{{ $language->status }}" id="xyzz">
               </div>

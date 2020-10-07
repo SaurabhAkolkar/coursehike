@@ -22,15 +22,15 @@
               <input type="hidden" name="instructor_id" class="form-control" value="{{ Auth::User()->id }}"  />
 
                    
-              <select name="course_id" class="form-control col-md-7 col-12 d-none">
+              <select name="course_id" class="form-control col-md-7 col-12 display-none">
                @foreach($courses as $cou)
-               <option class="d-none" value="{{ $cou->id }}" {{$que->courses->id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
+               <option class="display-none" value="{{ $cou->id }}" {{$que->courses->id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
                @endforeach
               </select>
 
-              <select name="user_id" class="form-control col-md-7 col-12 d-none">
+              <select name="user_id" class="form-control col-md-7 col-12 display-none">
                 @foreach($user as $cu)
-                  <option class="d-none" value="{{ $cu->id }}" {{$que->courses->id == $cu->id  ? 'selected' : ''}}>{{ $cu->fname}}</option>
+                  <option class="display-none" value="{{ $cu->id }}" {{$que->courses->id == $cu->id  ? 'selected' : ''}}>{{ $cu->fname}}</option>
                 @endforeach
               </select>
                    
@@ -43,8 +43,8 @@
                 <div class="col-md-3">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                   <li class="tg-list-item">
-                    <input class="tgl tgl-skewed" id="cb77" type="checkbox" {{ $que->status==1 ? 'checked' : '' }}>
-                    <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="cb77"></label>
+                    <input class="la-admin__toggle-switch" id="cb77" type="checkbox" {{ $que->status==1 ? 'checked' : '' }}>
+                    <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="cb77"></label>
                   </li>
                   <input type="hidden" name="status" value="{{ $que->status }}" id="jp">
                 </div>

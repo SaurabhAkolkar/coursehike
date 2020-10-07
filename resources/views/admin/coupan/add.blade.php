@@ -50,7 +50,7 @@
           </div>
 
           
-          <div id="probox" class="form-group d-none">
+          <div id="probox" class="form-group display-none">
             <label>{{ __('adminstaticword.SelectCourse') }}: <span class="redstar">*</span> </label>
             <br>
             <select style="width: 100%" id="pro_id" name="course_id" class="js-example-basic-single form-control">
@@ -66,7 +66,7 @@
           </div>
        
 
-          <div id="catbox" class="form-group d-none">
+          <div id="catbox" class="form-group display-none">
             <label>{{ __('adminstaticword.SelectCategories') }}: <span class="required">*</span> </label>
             <br>
             <select style="width: 100%" id="cat_id" name="category_id" class="js-example-basic-single form-control">
@@ -181,7 +181,7 @@
               <div class="form-group la-admin__add-coupon">
                 <div class="col-5">
                 <label for="coupon-amount" class="la-admin__coupon-label"> Please Enter No. of time this coupon can be used</label>
-                <input type="text" name="coupon-discount" id="coupon-amount" class="form-control la-admin__subinput-group" placeholder="Enter Count"/>
+                <input type="text" name="coupon-discount" id="coupon-amount" class="form-control " placeholder="Enter Count"/>
                 </div>
               </div>
             </div>
@@ -189,19 +189,19 @@
     </div>
     <!-- COUPON USAGE LIMIT: END -->
 
-    <!-- ADD CLASS MASTER TOGGLER: START -->
+    <!-- ADD CLASS  TOGGLER: START -->
     <div class="row">
       <div class="col-12">
           <div class="la-admin__master-toggler">
-            <label  class="la-admin__preview-label">Status<sup class="redstar">*</sup></label>
-            <div class="la-admin__master-class">
+            <label  class="la-admin__preview-label pl-2">Status<sup class="redstar">*</sup></label>
+            <div class="la-admin__master-class pl-2">
                   <input type="checkbox" id="coupon-status" name="coupon-status" class="la-admin__toggle-switch" />
                   <label for="coupon-status" class="la-admin__toggle-label"></label> 
             </div>
           </div>
       </div>
     </div>
-    <!-- ADD CLASS MASTER TOGGLER: END -->
+    <!-- ADD CLASS  TOGGLER: END -->
 
     <div class="box-footer">
       <button type="submit" class="btn btn-md btn-primary">

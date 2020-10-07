@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+
 use DB;
 use Image;
 use App\CourseInclude;
@@ -85,18 +87,20 @@ class CourseController extends Controller
             'short_detail' => 'required',
             'detail' => 'required',
             'video' => 'mimes:mp4,avi,wmv',
-            'slug' => 'required|unique:courses,slug',
+            // 'slug' => 'required|unique:courses,slug',
         ]);
 
         $input = $request->all();
 
         $data = Course::create($input);
 
-        if (isset($request->type)) {
-            $data->type = "1";
-        } else {
-            $data->type = "0";
-        }
+        // if (isset($request->type)) {
+        //     $data->type = "1";
+        // } else {
+        //     $data->type = "0";
+        // }
+
+        $data->type = $request->type;
 
 
         if ($file = $request->file('preview_image')) {
@@ -125,6 +129,9 @@ class CourseController extends Controller
                 $data->video = $filename;
             }
         }
+
+        $data->slug = Str::slug($request->title, '-');
+        $data->status = 0;
         
 
         $data->save();
@@ -169,20 +176,19 @@ class CourseController extends Controller
         $request->validate([
           'title' => 'required',
           'video' => 'mimes:mp4,avi,wmv'
-
         ]);
 
           
         $course = Course::findOrFail($id);
         $input = $request->all();
            
+        // if (isset($request->type)) {
+        //     $data->type = "1";
+        // } else {
+        //     $data->type = "0";
+        // }
 
-
-        if (isset($request->type)) {
-            $input['type'] = "1";
-        } else {
-            $input['type'] = "0";
-        }
+        $course->type = $request->type;
 
         
         if ($file = $request->file('image')) {
@@ -229,7 +235,6 @@ class CourseController extends Controller
         }
 
        
-
         Cart::where('course_id', $id)
          ->update([
              'price' => $request->price,

@@ -43,7 +43,7 @@
              
 
               <div class="row">
-                <div class="col-md-12 d-none"> 
+                <div class="col-md-12 display-none"> 
                   <label for="total_amount">Amount to be paid to feature Course:</sup></label>
                   <input value="{{ $gsetting->feature_amount }}" type="hidden" name="total_amount" class="form-control" readonly="">
                 </div>

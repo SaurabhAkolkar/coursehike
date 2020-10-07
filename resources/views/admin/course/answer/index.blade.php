@@ -1,7 +1,7 @@
 <section class="content">
   <div class="row">
     <div class="col-12">
-      <a data-toggle="modal" data-target="#myModalanswer" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
+      <a data-toggle="modal" data-target="#myModalanswer" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.AddAnswer') }}</a>
 
         <table id="example1" class="table table-bordered table-striped">
 
@@ -60,7 +60,7 @@
       <div class="modal-content">
         <div class="modal-header d-block">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Question') }}</h4>
+          <h4 class="modal-title" id="myModalLabel"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Answer') }}</h4>
         </div>
         <div class="box box-primary">
           <div class="panel panel-sum">
@@ -103,8 +103,8 @@
                   <div class="col-md-6">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                     <li class="tg-list-item">   
-                      <input class="tgl tgl-skewed" id="c12"  type="checkbox"/>
-                      <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="c12"></label>
+                      <input class="la-admin__toggle-switch" id="c12"  type="checkbox"/>
+                      <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="c12"></label>
                     </li>
                     <input type="hidden" name="status" value="1" id="t12">
                   </div>

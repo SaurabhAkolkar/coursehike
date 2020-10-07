@@ -39,7 +39,7 @@
     <div class="container-fluid la-entry__sec-inner">
         <div class="row la-entry__row h-100">
 
-            <div class="col-md-7 la-entry__col la-entry__col-left h-100 d-none d-md-block">
+            <div class="col-md-7 la-entry__col la-entry__col-left h-100 display-none d-md-block">
                 <div class="la-entry__slider-wrap d-flex align-items-center">
                     <div class="swiper-container entry-swiper-container h-100 la-entry__slider">
                         <div class="swiper-wrapper">

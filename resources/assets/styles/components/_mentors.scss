@@ -1,0 +1,47 @@
+// MENTORS Page: Start
+#{$ap}- {
+    &mentor {
+        &s {
+
+        }
+
+        & {
+            --mentor-profileW: 370px;
+            --mentor-profileH: 270px;
+
+            &__ {
+                &profile {
+                    width: calc(var(--mentor-profileW) - var(--size-6));
+                    height: var(--mentor-profileH);
+                    border-radius: var(--size-2);
+                    overflow: hidden;
+                }
+
+                &btm {
+                    padding: var(--size-3);
+                }
+
+                &info {
+
+                }
+
+                &name {
+                    font-weight: var(--font-bold);
+                    font-size: var(--text-xl);
+                    color: #252525;
+                    margin-bottom: calc(var(--size-1) - 2px);
+                }
+
+                &skill {
+                    font-family: var(--head-font);
+                    color: #222222;
+                }
+
+                &detailview {
+
+                }
+            }
+        }
+    }
+}
+// MENTORS Page: End

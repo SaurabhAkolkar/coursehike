@@ -1,0 +1,26 @@
+#{$ap}- {
+    &cbenefits {
+        &__ {
+            &item {
+                background: rgba(#F5F4F0, 1);
+                border-radius: var(--size-2);
+                padding: var(--size-10);
+                &- {
+                    &title {
+                        font-family: var(--head-font);
+                        font-size: var(--text-lg);
+                        text-transform: uppercase;
+                        color: #222222;
+                        font-weight: var(--font-bold);
+                    }
+                    &icon {
+
+                    }
+                    &desc {
+                        color: #252525;
+                    }
+                }
+            }
+        }
+    }
+}

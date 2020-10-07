@@ -10,7 +10,7 @@
 <section class="content">
   <div class="row">
     <div class="col-md-12">
-      <a data-toggle="modal" data-target="#myModaljj" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
+      <a data-toggle="modal" data-target="#myModaljj" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.AddWhatLearns') }}</a>
       <br><br>
         <table id="example1" class="table table-bordered table-striped">
           <thead>
@@ -71,7 +71,7 @@
         </div>
         <div class="box box-primary">
           <div class="panel panel-sum">
-            <div class="modal-body">
+            <div class="modal-body pt-4">
               <form id="demo-form2" method="post" action="{{ route('whatlearns.store') }}" data-parsley-validate class="form-horizontal form-label-left">
                 {{ csrf_field() }}
 
@@ -80,22 +80,22 @@
                 </select>
 
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-12 pt-3">
                     <label  for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
-                    <textarea rows="1" name="detail" class="form-control" placeholder="Enter Your Detail"></textarea>
+                    <textarea rows="3" name="detail" class="form-control" placeholder="Enter Your Detail"></textarea>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-12 pt-3">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                      <li class="tg-list-item">              
-                      <input class="tgl tgl-skewed" id="status1" type="checkbox" name="status" >
-                      <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="status1"></label>
+                      <input class="la-admin__toggle-switch" id="status1" type="checkbox" name="status" >
+                      <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status1"></label>
                     </li>
                     <input type="hidden"  name="free" value="0" for="status1" id="status1">
                   </div>
                 </div>
                 <br>
                 <div class="box-footer">
-                  <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                  <button type="submit" class="btn btn-md col-md-6 btn-primary">{{ __('adminstaticword.Submit') }}</button>
                 </div>
              
               </form>

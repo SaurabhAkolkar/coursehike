@@ -1,0 +1,65 @@
+#{$ap}- {
+    &cart {
+        &__ {
+            &item {
+                &- {
+                    &label {
+                        font-size: var(--text-xs);
+                        color: var(--gray5);
+                        opacity: 0.6;
+                    }
+
+                    &img {
+                        width: 80px;
+                        height: 80px;
+                        background: var(--gray2);
+
+                        @include respond-above(lg) {
+                            width: 160px;
+                        }
+                    }
+
+                    &name {
+                        font-size: var(--text-xl);
+                        font-weight: var(--font-bold);
+                    }
+
+                    &author {
+                        font-size: var(--text-sm);
+                    }
+
+                    &action {
+
+                        &:first-child a {
+                            padding-left: 0;
+                        }
+
+                        &:last-child a {
+                            padding-right: 0;
+                            &:after {
+                                display: none;
+                            }
+                        }
+
+                        & a {
+                            font-size: var(--text-xs);
+                            color: var(--app-indigo-1);
+                            position: relative;
+                            padding: 0 10px;
+
+                            &:after {
+                                content: "";
+                                width: 1px;
+                                height: 100%;
+                                position: absolute;
+                                right: 0;
+                                bottom: 0;
+                                background-color: var(--app-indigo-1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

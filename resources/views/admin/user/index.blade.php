@@ -15,7 +15,7 @@
         <!-- /.box-header -->
         <div class="box-body">
   
-              <table id="example1" class="table table-bordered table-striped table-responsive display nowrap">
+              <table id="example1" class="table table-bordered table-striped text-center display nowrap">
                 <thead>
                   <th>#</th>
                   <th>{{ __('adminstaticword.Image') }}</th>
@@ -40,9 +40,9 @@
                         <td><?php echo $i;?></td>
                         <td>
                           @if($user->user_img != null || $user->user_img !='')
-                            <img src="{{ url('/images/user_img/'.$user->user_img) }}" class="img-responsive">
+                            <img src="{{ url('/images/user_img/'.$user->user_img) }}" class="img-fluid">
                           @else
-                            <img src="{{ asset('images/default/user.jpg')}}" class="img-responsive" alt="User Image">
+                            <img src="{{ asset('images/default/user.jpg')}}" class="img-fluid" alt="User Image">
                           @endif
                         </td>
                         <td>{{ $user['fname'] }}</td>

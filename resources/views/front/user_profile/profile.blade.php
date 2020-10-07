@@ -157,7 +157,7 @@
 		                      </div>
 		                    </div>
 		                </div>
-		                <div class="password d-none" id="update-password">
+		                <div class="password display-none" id="update-password">
 			                <div class="row">
 				                <div class="col-lg-6">
 					                <div class="form-group">

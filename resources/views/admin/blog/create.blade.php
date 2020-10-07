@@ -71,16 +71,16 @@
               <div class="col-md-6">
                 <label for="exampleInputDetails">{{ __('adminstaticword.Approved') }}:</label>
                 <li class="tg-list-item">              
-                  <input class="tgl tgl-skewed" id="approved" type="checkbox" name="approved" >
-                  <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="approved"></label>
+                  <input class="la-admin__toggle-switch" id="approved" type="checkbox" name="approved" >
+                  <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="approved"></label>
                 </li>
                 <input type="hidden"  name="free" value="0" for="approved" id="approved">
               </div>
                <div class="col-md-6">
                 <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                 <li class="tg-list-item">              
-                  <input class="tgl tgl-skewed" id="status" type="checkbox" name="status" >
-                  <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
+                  <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" >
+                  <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
                 </li>
                 <input type="hidden"  name="free" value="0" for="status" id="status">
               </div>

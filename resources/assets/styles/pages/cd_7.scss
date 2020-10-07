@@ -1,0 +1,98 @@
+.la-video__classes-videos {
+
+    .la-video__Classes-class-count,
+    .la-video__Classes-video-count {
+        color: #1ec812;
+    }
+}
+
+.la-video__video-playlist {
+    .video-playlist-class-description__snap img {
+        height: 32px;
+        width: 32px;
+    }
+
+    .video-playlist-class-description_name {
+        margin-top: -8px;
+        font-size: var(--text-2xl);
+        font-family: var(--body-font);
+        color: #252525;
+        font-weight: var(--font-normal);
+    }
+
+    .video-playlist-num-videos {
+        margin-top: -10px;
+        font-size: var(--text-xs);
+    }
+
+    .la-video__class-videos {
+        height: 110px;
+    }
+
+    .active {
+        background-color: #f5f4f0;
+    }
+
+    .la-video__class-videos-wrapper {
+        position: relative;
+    }
+
+    .la-video__class-videos-wrapper img {
+        width: 150px;
+        height: 84px;
+    }
+
+    .text-muted {
+        margin-top: -20px;
+        font-size: 14px;
+    }
+
+    .la-video__playlist-inner {
+        width: 473px;
+        height: 301px;
+        overflow: auto;
+        overflow: -moz-scrollbars-none;
+        -ms-overflow-style: none;
+    }
+
+    .la-video__playlist-inner::-webkit-scrollbar {
+        width: 0 !important;
+    }
+
+    .timeline-body {
+        position: relative;
+        margin-left: 10px;
+        border-radius: 0 8px 8px 0;
+        padding: 5px 0;
+    }
+
+    .timeline-body:after {
+        content: '';
+        width: 2px;
+        height: 100%;
+        margin-top: 26px;
+        background-color: black;
+        position: absolute;
+        left: -2px;
+        top: 0;
+    }
+
+    .timeline-item {
+        position: relative;
+        padding-left: 4px;
+        padding-top: 5px;
+
+        &:after {
+            content: '';
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid black;
+            background-color: white;
+            position: absolute;
+            left: -10px;
+            top: 45%;
+            z-index: 9;
+        }
+    }
+}

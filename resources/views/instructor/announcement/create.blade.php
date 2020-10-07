@@ -45,7 +45,7 @@
 
                 <div class="row"> 
                   <div class="col-md-12">
-                    <select name="user_id" class="form-control d-none">
+                    <select name="user_id" class="form-control display-none">
                       <option  value="{{ Auth::user()->id }}">{{ Auth::user()->fname }}</option>
                     </select>
                   </div>
@@ -64,8 +64,8 @@
                   <div class="col-md-12">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>               
                     <li class="tg-list-item">                
-                      <input class="tgl tgl-skewed" id="c2222"  type="checkbox"/>
-                      <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="c2222"></label>
+                      <input class="la-admin__toggle-switch" id="c2222"  type="checkbox"/>
+                      <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="c2222"></label>
                     </li>
                     <input type="hidden" name="status" value="0" id="t2222">
                   </div>
