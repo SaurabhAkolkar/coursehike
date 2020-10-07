@@ -266,7 +266,7 @@
                             </div>
                             <input type="file" class="form-control la-admin__preview-input preview_video" name="video" />
                             <video controls class="d-none preview-video w-100">
-                              <source src="{{ asset('video/preview/'.$cor->video) }}">
+                              <source src="">
                                 Your browser does not support HTML5 video.
                             </video>
 
@@ -479,11 +479,9 @@ $(".preview_img").change(function() {
 
 $(document).on("change", ".preview_video", function(evt) {
   var $source = $(this).siblings('.preview-video');
-  console.log($source);
-  $source.src = URL.createObjectURL(this.files[0]);
-  // var video_tag = $source.parent()[0]
-  source.load();
-  $(source).removeClass('d-none');
+  $source.find("source").attr("src", URL.createObjectURL(this.files[0]));
+  $source.load();
+  $($source).removeClass('d-none');
 });
 
 </script>

@@ -191,11 +191,11 @@
                                 <p class="la-admin__preview-file text-uppercase">Choose a File</p>
                           </div>
                           <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="preview_image" id="image" />
-                        @if($cor['preview_image'] !== NULL && $cor['preview_image'] !== '')
-                            <img src="{{ url('/images/course/'.$cor->preview_image) }}" id="preview-img" />
-                        @else
-                            <img src="{{ Avatar::create($cor->title)->toBase64() }}" id="preview-img" alt="course" class="img-fluid">
-                        @endif
+                          @if($cor['preview_image'] !== NULL && $cor['preview_image'] !== '')
+                              <img src="{{ url('/images/course/'.$cor->preview_image) }}" class="preview-img" />
+                          @else
+                              <img src="{{ Avatar::create($cor->title)->toBase64() }}" alt="course" class="preview-img img-fluid">
+                          @endif
                       </div>
                     </div>
                 </div>
