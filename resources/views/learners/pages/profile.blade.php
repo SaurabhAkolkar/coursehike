@@ -4,9 +4,9 @@
 <div class="la-profile">
     <div class="la-profile__wrap">
       
-       <!-- Side Navbar: Start -->
-       @include ('learners.pages.sidebar')
-       <!-- Side Navbar: End -->  
+      <!-- Side Navbar: Start -->
+      @include ('learners.pages.sidebar')
+      <!-- Side Navbar: End -->  
 
       <div class="la-profile__main">
         <div class="container">
@@ -125,7 +125,7 @@
                     </div>
                   </div>
                   <div class="la-hero__actions d-flex align-items-center justify-content-end">
-                    <submit class="btn la-btn la-btn--secondary text--black" type="button" href="">Save</submit>
+                    <button type="submit" class="btn la-btn la-btn--secondary text--black" type="button" href="">Save</button>
                   </div>
                 </form>
               </div>
@@ -133,30 +133,33 @@
             <section class="la-section la-profile__update-passwrod la-profile__form">
               <div class="la-profile__form-inner">
                 <div class="la-password__update-option mb-8 d-flex">
-                  <div class="text text-uppercase mr-3">Update Password</div><span class="icon icon-arrow d-inline-block"></span>
+                  <div class="text text-uppercase mr-3" data-toggle="collapse" data-target="#passwordCollapse" aria-expanded="false" aria-controls="passwordCollapse">Update Password</div><span class="icon icon-arrow d-inline-block"></span>
                 </div>
-                <form class="la-password__update-content" action="">
-                  <div class="row">
-                    <div class="col-md-6">
-                                    <div class="la-form__input-wrap">
-                                      <div class="la-form__lable la-form__lable--medium mb-2">Current Password</div>
-                                      <input class="la-form__input" type="password" value="India" name="current-password" placeholder="****">
-                                    </div>
+                <div class="collapse" id="passwordCollapse">
+                  <form class="la-password__update-content" action="">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="la-form__input-wrap">
+                          <div class="la-form__lable la-form__lable--medium mb-2">Current Password</div>
+                          <input class="la-form__input" type="password" value="India" name="current-password" placeholder="****">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="la-form__input-wrap">
+                          <div class="la-form__lable la-form__lable--medium mb-2">New Password</div>
+                          <input class="la-form__input" type="password" value="India" name="new-password" placeholder="****">
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-md-6">
-                                    <div class="la-form__input-wrap">
-                                      <div class="la-form__lable la-form__lable--medium mb-2">New Password</div>
-                                      <input class="la-form__input" type="password" value="India" name="new-password" placeholder="****">
-                                    </div>
+                    <div class="la-password__update-actions d-flex">
+                      <div class="la-btn__plain text--burple text-right mr-5"> 
+                        <button type="submit" class="text-uppercase"> Change Password</button>
+                      </div>
+                      <div class="la-btn__plain text--danger text-right"><a class="text-uppercase"> Cancel</a></div>
                     </div>
-                  </div>
-                  <div class="la-password__update-actions d-flex">
-                    <div class="la-btn__plain text--burple text-right mr-5"> 
-                      <submit class="text-uppercase"> Change Password</submit>
-                    </div>
-                    <div class="la-btn__plain text--danger text-right"><a class="text-uppercase"> Cancel</a></div>
-                  </div>
-                </form>
+                  </form>
+                </div>
+                
               </div>
             </section>
           </div>
