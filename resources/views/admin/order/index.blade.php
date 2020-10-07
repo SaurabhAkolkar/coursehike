@@ -70,7 +70,7 @@
                     </form>
                   </td>
 
-                  <td><a class="btn btn-primary btn-sm" href="{{route('view.order',$order->id)}}">{{ __('adminstaticword.View') }}</a>
+                  <td><a class="text-dark" href="{{route('view.order',$order->id)}}">{{ __('adminstaticword.View') }}</a>
                   </td>
                   
                   <td>

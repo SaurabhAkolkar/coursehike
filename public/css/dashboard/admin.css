@@ -502,9 +502,9 @@ button.dt-button, div.dt-button, a.dt-button {
 
 /* ===== RECENT SUBSCRIPTIONS AND BOUGHT COURSES: START ==== */
 .la-dash__recent-section{
-	background-color:#F5F4F0;
+	background-color:#FAF9F7;
 	padding:10px;
-	margin-top:60px;
+	margin-top:30px;
 	width:100%;
 }
 .la-dash__recent-section .la-dash__recent-htitle{
@@ -540,14 +540,14 @@ button.dt-button, div.dt-button, a.dt-button {
 	 font-family:var(--body-font);
 	 font-weight:var(--font-normal);
 	 font-size:10px;
-	 color:#BCBCBC;
+	 color:#979797;
 	 text-transform: uppercase;
  }
  .la-dash__recent-section .la-dash__recent-list .la-dash__recent-item .la-dash__recent-subdate{
 	 font-family:var(--body-font);
 	 font-weight:var(--font-normal);
 	 font-size:12px;
-	 color:#BCBCBC;
+	 color:#979797;
  }
  .la-dash__recent-section .la-dash__recent-more{
 	padding:10px;
@@ -572,7 +572,7 @@ button.dt-button, div.dt-button, a.dt-button {
 	font-family:var(--body-font);
 	font-weight:normal;
 	font-size:16px;
-	color:#BCBCBC;
+	color:#979797;
 	text-align:center;
   }
   .la-dash__pending-section .la-dash__pending-body .la-dash__pending-list .la-dash__pending-item{
@@ -714,7 +714,7 @@ button.dt-button, div.dt-button, a.dt-button {
 	  border-radius:0;
 	  border:none;
 	  padding:15px;	
-	  color:#BCBCBC;
+	  color:#979797;
   }
   .la-admin__subform-input{
 	  border:none !important;
@@ -748,7 +748,7 @@ button.dt-button, div.dt-button, a.dt-button {
 	  font-family: var(--body-font);
 	  font-weight:300;
 	  font-size:18px;
-	  color:#BCBCBC;
+	  color:#979797;
   }
   .la-admin__preview .la-admin__preview-img .la-admin__preview-text .la-admin__preview-file,
   .la-admin__preview .la-admin__preview-video .la-admin__preview-text .la-admin__preview-file{
@@ -829,7 +829,6 @@ button.dt-button, div.dt-button, a.dt-button {
 	width:60px;
 	height:24px;
 	background-color: #EEEEEE;
-	margin:10px 0 10px 0;
 }
 .la-admin__toggle-label::after{
 	content: "";
@@ -910,7 +909,7 @@ button.dt-button, div.dt-button, a.dt-button {
 /* ============ INVOICE DETAILS PAGE: START ========== */
 .la-admin__invoice{
 	padding:20px 0;
-	border-bottom: 2px solid #F5F4F0;
+	border-bottom: 2px solid #FAF9F7;
 }
 .la-admin__invoice .la-admin__invoice-logo img{
 	width:100%;
@@ -977,7 +976,7 @@ button.dt-button, div.dt-button, a.dt-button {
 
 .la-admin__invoice-solditems .la-admin__invoice-list{
 	padding:10px 0;
-	border-bottom: 2px dashed #F5F4F0;
+	border-bottom: 2px dashed #FAF9F7;
 }
 .la-admin__invoice-solditems .la-admin__invoice-list .la-admin__invoice-items{
 	padding:10px 0;

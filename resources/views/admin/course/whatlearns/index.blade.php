@@ -10,9 +10,11 @@
 <section class="content">
   <div class="row">
     <div class="col-md-12">
-      <a data-toggle="modal" data-target="#myModaljj" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.AddWhatLearns') }}</a>
-      <br><br>
-        <table id="example1" class="table table-bordered table-striped">
+      <div class="text-right">
+        <a data-toggle="modal" data-target="#myModaljj" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.AddWhatLearns') }}</a>
+      </div> <br/>
+    
+      <table id="example1" class="table table-bordered table-striped">
           <thead>
             <tr>
               <th>#</th>

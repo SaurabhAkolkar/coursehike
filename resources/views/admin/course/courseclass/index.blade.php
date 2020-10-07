@@ -2,9 +2,10 @@
  
   <div class="row">
     <div class="col-md-12">
-      <a data-toggle="modal" data-target="#myModalab" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.CourseClass') }}</a>
-      <br>
-      <br>
+      <div class="text-right">
+          <a data-toggle="modal" data-target="#myModalab" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.CourseClass') }}</a>
+      </div><br/>
+
         <table id="example1" class="table table-bordered table-striped db">
           <thead>
             <tr>
