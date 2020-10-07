@@ -191,7 +191,7 @@ function readURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();    
     reader.onload = function(e) {
-      $('#preview-img').attr('src', e.target.result).removeClass('d-none');
+      $(input).siblings('.preview-img').attr('src', e.target.result).removeClass('d-none');
     }
     reader.readAsDataURL(input.files[0]); // convert to base64 string
   }
@@ -202,11 +202,10 @@ $(".preview_img").change(function() {
 });
 
 $(document).on("change", ".preview_video", function(evt) {
-  var $source = $('#preview-video-source');
-  $source[0].src = URL.createObjectURL(this.files[0]);
-  var video_tag = $source.parent()[0]
-  video_tag.load();
-  $(video_tag).removeClass('d-none');
+  var $source = $(this).siblings('.preview-video');
+  $source.find("source").attr("src", URL.createObjectURL(this.files[0]));
+  $source.load();
+  $($source).removeClass('d-none');
 });
 
 </script>

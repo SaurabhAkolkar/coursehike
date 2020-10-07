@@ -327,6 +327,7 @@ return [
     'LatestOrders' => 'Latest Orders',
     'ViewAllOrders' => 'View All Orders',
     'InstructorRequest' => 'Mentors Request',
+    'Request' => 'Request',
     'ViewDetails' => 'View Details',
     'ViewAllInstructor' => 'View All Instructors Request',
     'LinkedInUrl' => 'LinkedIn Url',

@@ -52,6 +52,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
   @if (in_array($language,$rtl))
   <link rel="stylesheet" href="{{ url('css/dashboard/admin-rtl.css') }}">
   @else
+  <link rel="stylesheet" href="{{ url('css/dashboard/admin-creator.css') }}">
   <link rel="stylesheet" href="{{ url('css/dashboard/admin.css') }}">
   @endif
   <link rel="stylesheet" href="{{ asset('css/custom-style.css') }}"/>

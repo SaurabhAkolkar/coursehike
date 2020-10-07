@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="text-right">
-          <a data-toggle="modal" data-target="#myModalab" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.AddCourseClass') }}</a>
+          <a data-toggle="modal" data-target="#myModalab" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.CourseClass') }}</a>
       </div><br/>
 
         <table id="example1" class="table table-bordered table-striped db">
@@ -71,7 +71,7 @@
       <div class="modal-content">
         <div class="modal-header d-block">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">{{ __('adminstaticword.Add') }} {{ __('adminstaticword.CourseClass') }}</h4>
+          <h3 class="modal-title" id="myModalLabel">{{ __('adminstaticword.Add') }} {{ __('adminstaticword.CourseClass') }}</h3>
         </div>
         <div class="box box-primary">
           <div class="panel panel-sum">
