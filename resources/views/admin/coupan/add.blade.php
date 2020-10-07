@@ -89,21 +89,21 @@
               @php 
                 $currency = App\Currency::first();
               @endphp
-              <span class="input-group-addon"><i class="{{ $currency->icon }}"></i></span>
+              <span class="input-group-addon pt-1 pr-2"><i class="{{ $currency->icon }}"></i></span>
               <input type="number" min="0.0" value="0.00" step="0.1" class="form-control" name="minamount">
             </div>
           </div>
            <div class="form-group">
             <label>{{ __('adminstaticword.ExpiryDate') }}: </label>
             <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <span class="input-group-addon pt-1 pr-2"><i class="fa fa-calendar"></i></span>
               <input required="" id="expirydate" type="text" class="form-control" name="expirydate">
             </div>
           </div>
       </div>
 
       <!-- COUPON PACKAGE TYPE: START -->
-      <div class="row">
+      {{-- <div class="row">
         <div class="col-12">
           <div class="la-admin__course-package la-admin__class-package">
               <div class="la-admin__cp-subscription">
@@ -168,7 +168,7 @@
               </div>
           </div>
         </div>
-      </div>
+      </div> --}}
      <!-- COUPON PACKAGE TYPE: END -->
 
     <!-- COUPON USAGE LIMIT: START -->

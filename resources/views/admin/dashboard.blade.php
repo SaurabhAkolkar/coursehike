@@ -228,7 +228,7 @@
         </div>
         <!-- ./col -->
          <!-- small box -->
-        <div class="col-lg-4 col-6 p-3">
+        {{-- <div class="col-lg-4 col-6 p-3">
           <div class="small-box bg-blue">
             <div class="inner">
               <div class="icon">
@@ -254,7 +254,7 @@
               <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid mr-2 mb-2"/>
             </a>
           </div>
-        </div>
+        </div> --}}
         <!-- ./col -->
     </div>
     <!-- /.row -->

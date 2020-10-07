@@ -3,11 +3,11 @@
 @section('body')
 
 <div class="box">
-  <div class="box-header">
+  <div class="pl-4 pt-4">
     <h3 >{{$cor->title }}</h3>
   </div>
-  <div class="box-body">
   @if($errors->any())
+  <div class="box-body">
     <div class="alert alert-danger">
       <ul>
         @foreach($errors->all() as $error)
@@ -15,8 +15,8 @@
         @endforeach
       </ul>
     </div>
-  @endif
-  </div>    
+  </div>   
+  @endif 
 </div>
 
 <section class="content">
@@ -38,7 +38,7 @@
               <li  class=""  role="presentation"><a href="#ans" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.Answer') }}</a></li>
               <li  class=""  role="presentation"><a href="#jj" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.ReviewRating') }}</a></li>
               <li  class=""  role="presentation"><a href="#an" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.Announcement') }}</a></li>
-              <li  class=""  role="presentation"><a href="#report" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.ReviewReport') }}</a></li>
+              {{-- <li  class=""  role="presentation"><a href="#report" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.ReviewReport') }}</a></li> --}}
               <li  class=""  role="presentation"><a href="#topic" aria-controls="topic" role="tab" data-toggle="tab">{{ __('adminstaticword.QuizTopic') }}</a></li>
 
               @if($gsetting->appointment_enable == 1)
@@ -80,9 +80,9 @@
               <div role="tabpanel" class="fadein tab-pane" id="an">
                 @include('admin.course.announsment.index')
               </div>
-              <div role="tabpanel" class="fadein tab-pane" id="report">
+              {{-- <div role="tabpanel" class="fadein tab-pane" id="report">
                 @include('admin.course.reviewreport.index')
-              </div>
+              </div> --}}
               <div role="tabpanel" class="fadein tab-pane" id="topic">
                 @include('admin.course.quiztopic.index')
               </div>

@@ -51,7 +51,7 @@ class CourseController extends Controller
     public function index()
     {
         $course = Course::all();
-        $coursechapter = CourseChapter::all();
+        $coursechapter = CourseChapter::all()->sortByDesc('id');
            
         return view('admin.course.index', compact("course", 'coursechapter'));
     }

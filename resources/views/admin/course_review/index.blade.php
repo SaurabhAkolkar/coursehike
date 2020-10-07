@@ -9,7 +9,7 @@
     <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.Course') }} {{ __('adminstaticword.Review') }}</h3>
+          <h3 class="box-title">{{ __('adminstaticword.Course') }} {{ __('adminstaticword.Request') }}</h3>
         </div>
        
         <!-- /.box-header -->
