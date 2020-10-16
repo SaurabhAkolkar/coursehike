@@ -128,7 +128,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="la-btn__plain text--burple text-md h-100 d-flex align-items-center justify-content-center justify-content-md-start">
                       <a class="text-uppercase" href="">explore more</a>
-                      <span class="icon"></span>
+                        <span class="icon"></span>
                     </div>
                 </div>
               </div>

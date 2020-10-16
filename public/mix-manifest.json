@@ -1,3 +1,5 @@
 {
-    "/css/main.css": "/css/main.css"
+    "/css/main.css": "/css/main.css",
+    "/css/dashboard/admin.css": "/css/dashboard/admin.css",
+    "/css/dashboard/admin-creator.css": "/css/dashboard/admin-creator.css"
 }

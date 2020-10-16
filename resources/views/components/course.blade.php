@@ -29,7 +29,7 @@
                     </li>
                 </ul>
 
-                <div class="la-course__learners"><strong>300</strong>  learners</div>
+                <div class="la-course__learners"><strong>300</strong>  Learners</div>
             </div>
 
             <div class="la-course__imgwrap">
@@ -38,7 +38,7 @@
         </div>
 
         <div class="la-course__btm">
-            <div class="la-course__info d-flex align-items-center">
+            <div class="la-course__info d-flex align-items-center mb-1">
             <a class="la-course__title" href={{ $url }}> {{ $course }} </a>
                 <div class="la-course__rating ml-auto"> {{ $rating }} </div>
             </div>

@@ -4,7 +4,7 @@
     <div class="la-mentor">
       <div class="la-mentor__profile">
           <img class="img-fluid" src={{ $img }} alt={{ $name }}>
-        </div>
+      </div>
       <div class="la-mentor__btm d-flex justify-content-between">
         <div class="la-mentor__info">
           <h3 class="la-mentor__name">{{ $name }}</h3>

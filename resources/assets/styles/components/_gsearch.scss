@@ -1,8 +1,7 @@
 #{$ap}- {
     // Global Search: Start
     &gsearch {
-        margin-top: var(--size-3);
-        margin-bottom: var(--size-3);
+        margin-bottom: var(--size-10);
         
         &__ {
             &input {
@@ -10,7 +9,7 @@
                 border-left: 1px solid rgba(#000, 0.48);
                 border-radius: 0;
                 font-weight: var(--font-light);
-                font-size: var(--text-2xl);
+                font-size: var(--text-xl);
                 color: rgba(#000, 0.48);
                 &:focus, &:hover {
                     border-color: #7400d7;

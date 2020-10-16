@@ -17,10 +17,14 @@
               <thead>
                 
                 <th>{{ __('adminstaticword.ID') }}</th>
+                <th></th>
                 <th>{{ __('adminstaticword.CODE') }}</th>
+                <th>Discount Type</th>
+                <th>Discount</th>
                 <th>{{ __('adminstaticword.Amount') }}</th>
+                <th><!-- {{ __('adminstaticword.Detail') }} --> Linked to</th>
+                <th>Expiry Date</th>
                 <th>{{ __('adminstaticword.MaxUsage') }}</th>
-                <th>{{ __('adminstaticword.Detail') }}</th>
                 <th>{{ __('adminstaticword.Edit') }}</th>
                 <th>{{ __('adminstaticword.Delete') }}</th>
               </thead>
@@ -29,17 +33,26 @@
                 @foreach($coupans as $key=> $cpn)
                   <tr>
                     <td>{{ $key+1 }}</td>
+                    <td>
+                        <img src="https://picsum.photos/45/25" alt="" />
+                    </td>
                     <td>{{ $cpn->code }}</td>
                     @php
                         $currency = App\Currency::first();
                     @endphp 
-                    <td>@if($cpn->distype == 'fix') <i class="fa {{ $currency->icon }}"></i> @endif {{ $cpn->amount }}@if($cpn->distype == 'per')% @endif </td>
-                    <td>{{ $cpn->maxusage }}</td>
                     <td>
-                      <p>{{ __('adminstaticword.Linkedto') }}: <b>{{ ucfirst($cpn->link_by) }}</b></p>
-                      <p>{{ __('adminstaticword.ExpiryDate') }}: <b>{{ date('d-M-Y',strtotime($cpn->expirydate)) }}</b></p>
-                      <p>{{ __('adminstaticword.DiscountType') }}: <b>{{ $cpn->distype == 'per' ? "Percentage" : "Fixed Amount" }}</b></p>
+                      <span>{{ $cpn->distype == 'per' ? "Percentage" : "Fixed Amount" }}</span>
                     </td>
+                    <td>50%</td>
+                    <td>@if($cpn->distype == 'fix') <i class="fa {{ $currency->icon }}"></i> @endif {{ $cpn->amount }}@if($cpn->distype == 'per')% @endif </td>
+                    <td>
+                      <span>{{ ucfirst($cpn->link_by) }}</span>
+                    </td>
+                    <td>
+                     <span>{{ date('d-M-Y',strtotime($cpn->expirydate)) }}</span>
+                    </td>
+                    <td>{{ $cpn->maxusage }}</td>
+                    
                     <td>
                       <a title="Edit coupon" href="{{ route('coupon.edit',$cpn->id) }}" class="btn btn-success btn-sm">
                         <i class="fa fa-pencil"></i>

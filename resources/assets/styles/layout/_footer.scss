@@ -103,3 +103,19 @@
     }
     // Footer: End
 }
+
+@media (max-width:576px){
+    #{$ap}- {
+        // Footer: Start
+        &footer {
+           &__ {
+               &inner {
+                   padding-top: calc(var(--size-base) * 6);
+                   padding-left: calc(var(--size-base) * 4);
+                   padding-bottom: var(--size-4);
+                   padding-right: calc(var(--size-base) * 4);
+               }
+           }
+        }
+    }
+}

@@ -41,7 +41,7 @@
                                         <div class="swiper-slide la-mcard__slider mb-16">
                                           <div class="la-mcard__item p-4 p-lg-5">
                                             <div class="la-mcard__info d-flex align-items-center">
-                                              <div class="li-mcard__prfle mr-4 mr-lg-10"><img class="rounded-circle d-block la-mcard__img" src="./images/learners/creator/banner.jpg" alt="Mentor Name"></div>
+                                              <div class="li-mcard__prfle mr-4 mr-lg-10"><img class="rounded-circle d-block la-mcard__img" src="https://picsum.photos/100" alt="Mentor Name"></div>
                                               <div class="la-mcard__details">
                                                 <div class="la-mcard__name text-lg text-lg-xl">Mentor Name</div>
                                                 <div class="la-mcard__skill text-sm d-block d-lg-none">Expertise</div>
@@ -56,7 +56,7 @@
                                         <div class="swiper-slide la-mcard__slider mb-16">
                                           <div class="la-mcard__item p-4 p-lg-5">
                                             <div class="la-mcard__info d-flex align-items-center">
-                                              <div class="li-mcard__prfle mr-4 mr-lg-10"><img class="rounded-circle d-block la-mcard__img" src="./images/learners/creator/banner.jpg" alt="Mentor Name"></div>
+                                              <div class="li-mcard__prfle mr-4 mr-lg-10"><img class="rounded-circle d-block la-mcard__img" src="https://picsum.photos/100" alt="Mentor Name"></div>
                                               <div class="la-mcard__details">
                                                 <div class="la-mcard__name text-lg text-lg-xl">Mentor Name</div>
                                                 <div class="la-mcard__skill text-sm d-block d-lg-none">Expertise</div>
@@ -71,7 +71,7 @@
                                         <div class="swiper-slide la-mcard__slider mb-16">
                                           <div class="la-mcard__item p-4 p-lg-5">
                                             <div class="la-mcard__info d-flex align-items-center">
-                                              <div class="li-mcard__prfle mr-4 mr-lg-10"><img class="rounded-circle d-block la-mcard__img" src="./images/learners/creator/banner.jpg" alt="Mentor Name"></div>
+                                              <div class="li-mcard__prfle mr-4 mr-lg-10"><img class="rounded-circle d-block la-mcard__img" src="https://picsum.photos/100" alt="Mentor Name"></div>
                                               <div class="la-mcard__details">
                                                 <div class="la-mcard__name text-lg text-lg-xl">Mentor Name</div>
                                                 <div class="la-mcard__skill text-sm d-block d-lg-none">Expertise</div>
@@ -86,7 +86,7 @@
                                         <div class="swiper-slide la-mcard__slider mb-16">
                                           <div class="la-mcard__item p-4 p-lg-5">
                                             <div class="la-mcard__info d-flex align-items-center">
-                                              <div class="li-mcard__prfle mr-4 mr-lg-10"><img class="rounded-circle d-block la-mcard__img" src="./images/learners/creator/banner.jpg" alt="Mentor Name"></div>
+                                              <div class="li-mcard__prfle mr-4 mr-lg-10"><img class="rounded-circle d-block la-mcard__img" src="https://picsum.photos/100" alt="Mentor Name"></div>
                                               <div class="la-mcard__details">
                                                 <div class="la-mcard__name text-lg text-lg-xl">Mentor Name</div>
                                                 <div class="la-mcard__skill text-sm d-block d-lg-none">Expertise</div>

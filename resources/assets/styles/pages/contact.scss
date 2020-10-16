@@ -6,20 +6,19 @@ section.la-cbg--main{
 // Contact Page Section
 section.la-contact--page{
     a.la-back__page{
-        &:before{
-            content:"\2190";
+        span{
             position:absolute;
             top:0;
-            left:0;
-            z-index:1;
-            color:var(--gray6);
-            font-weight:var(--font-black);
+            left:-50px;
+            z-index:var(--z-1);
             cursor: pointer;
+            transform:rotate(180deg);-webkit-transform:rotate(180deg);-moz-transform:rotate(180deg);-ms-transform:rotate(180deg);-o-transform:rotate(180deg);
             transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-moz-transition:all .2s ease-in;-ms-transition:all .2s ease-in;-o-transition:all .2s ease-in;
-        }
-        &:hover:before{
-            left:-1%;
-            transition:all .2s ease-out;-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;-ms-transition:all .2s ease-out;-o-transition:all .2s ease-out;
+       
+            &:hover{
+                left:-60px;
+                transition:all .2s ease-out;-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;-ms-transition:all .2s ease-out;-o-transition:all .2s ease-out;
+            }
         }
     }
     .la-contact__title h1{
@@ -32,7 +31,7 @@ section.la-contact--page{
         background-color:var(--gray);
         opacity:0.9;
         box-shadow: 0px 0px 20px #C5C5C529;
-        margin-top:-100px;
+        margin-top:-90px;
         padding:var(--size-20);
     }
     .la-contact__lft{
@@ -132,8 +131,11 @@ section.la-contact--page{
 @media (max-width:600px){
     section.la-contact--page{
         a.la-back__page{
-            &:before{
-                left:8%;
+            span{
+                left:30px;
+                &:hover{
+                    left:0px;
+                }
             }
         }
         .la-contact__title h1{

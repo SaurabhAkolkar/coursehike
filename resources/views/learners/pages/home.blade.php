@@ -14,26 +14,32 @@
                 <div class="form-group flex-grow-1">
                   <input class="la-gsearch__input w-100 form-control" type="text" placeholder="What you want to learn today?">
                 </div>
-                <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--3xl icon icon-search"></i></button>
+                <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--2xl icon icon-search"></i></button>
               </form>
             </div>
             <!-- Global Search: End-->
             <div class="la-hero">
-              <p class="la-hero__tag">COURSES & CLASSES BY</p>
+              <p class="la-hero__tag m-0">COURSES & CLASSES BY</p>
               <h1 class="la-hero__title">World’s best Creators</h1>
               <p class="la-hero__lead pr-5">Observe, learn and converse with creators to master your arts</p>
-              <div class="la-hero__actions d-lg-flex align-items-center"><a class="btn btn-primary la-btn la-btn--primary d-none d-lg-block">Subscribe Now</a><a class="btn btn-primary la-btn la-btn--primary btn-block d-block d-lg-none">Subscribe Now</a>
+              <div class="la-hero__actions d-lg-flex align-items-center">
+                <div>
+                    <a class="btn btn-primary la-btn la-btn--primary d-none d-lg-block">Subscribe Now</a>
+                    <a class="btn btn-primary la-btn la-btn--primary btn-block d-block d-lg-none">Subscribe Now</a>
+                    <p class="m-0 pt-1">Access to all the Courses</p>
+                </div>
                 <div class="la-soffer d-flex d-lg-block my-6 my-lg-0">
                   <div class="la-soffer__bestprice"> <sup><small>$</small></sup>  39 / Month</div>
                   <div class="la-soffer__realprice"> <sup><small>$</small></sup>  49 / Month</div>
                 </div>
               </div>
+             
             </div>
           </div>
           <!-- Column: End-->
           <!-- Column: Start-->
           <div class="col-12 col-lg-7">
-            <div class="la-hero__img position-relative d-flex align-items-center just">
+            <div class="la-hero__img position-relative d-flex align-items-center ">
               <h2 class="la-section__title la-section__title--big">Design</h2><img class="img-fluid" src="./images/learners/home/design-a@2x.png" alt="Design">
             </div>
           </div>
@@ -137,7 +143,7 @@
                     <div class="swiper-slide la-artist__slider">
                       <div class="row la-artist__slider-row">
                         <div class="col-md-12 la-artist__slider-col la-artist__designation position-absolute d-flex align-items-center justify-content-center">
-                          <h2 class="la-section__title la-section__title--big">Alien<span style="color: var(--gray);">MENTOR </span></h2>
+                          <h2 class="la-section__title la-section__title--big">Alien <span style="color: var(--gray);">MENTOR </span></h2>
                         </div>
                         <div class="col-md-6 la-artist__slider-col la-artist__slide-img">
                           <div class="la-artist__img text-center"><img src="./images/learners/home/artist.png" alt=""></div>
@@ -435,19 +441,28 @@
   <section class="la-section la-section--trail">
     <div class="la-section__inner">
       <div class="container">
-        <div class="la-btn__plain"><a href="">ALIENS WAY OF TEACHING</a></div>
+       
         <div class="row">
-          <div class="col col-md-5 la-trail__left">
+          <div class="col-12 col-md-5 la-trail__left">
             <div class="la-trail__title la-trail__title-out la-trail__title--black la-section__title la-section__title--big position-absolute">Observe.</div>
             <div class="la-trail__img-wrap">
-              <div class="la-trail__img position-relative"><img class="img-fluid" src="./images/learners/home/observe.jpg" alt="observe"></div>
+              <div class="la-trail__img position-relative">
+                <img class="img-fluid" src="./images/learners/home/observe.jpg" alt="observe">
+              </div>
               <div class="la-trail__title la-trail__title-in la-trail__title--purple la-section__title la-section__title--big position-absolute">Observe.</div>
             </div>
           </div>
-          <div class="col col-md-7 la-trail__right d-flex align-items-end">
-            <div class="la-trail__content-wrap">
-              <div class="la-trail__para pb-10 pr-20">We believe that real learning happens with consistency. With consistent observation, learning and practicing a particular skill repetitively makes you a Pro at it.</div><a class="btn btn-primary la-btn la-btn--primary">Start free trail</a>
+          <div class="col-12 col-md-7 pl-md-0">
+            <div class="la-trail__btn la-btn__plain d-flex justify-content-center">
+              <a href="">ALIENS WAY OF TEACHING</a>
             </div>
+            <div class="la-trail__right d-flex align-items-end ">
+              <div class="la-trail__content-wrap pr-md-20 ">
+                <div class="la-trail__para pb-10 pr-md-20">We believe that real learning happens with consistency. With consistent observation, learning and practicing a particular skill repetitively makes you a Pro at it.</div>
+                <a class="btn btn-primary la-btn la-btn--primary mt-md-10">Start free trail</a>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
@@ -468,7 +483,7 @@
                   <p class="la-section__text">Through our Radical team, we strive everyday to make knowledge Affordable, Accessible for all the individuals who have limited or no access to the Real knowledge.<br><br>So, you can subscribe to all the courses and classes. Or rent them to learn whenever you want.</p>
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8"><a href="">learn more</a><span class="la-btn__arrow-icon"><img src="./images/icons/long-arrow.svg" alt=""></span></div>
                 </div>
-                <div class="col offset-lg-1 col-lg-5">
+                <div class="col offset-lg-1 col-lg-5 pt-20">
                   <div class="la-price__box">
                     <div class="la-price__box-inner"><a class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
                       <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">20% savings </span>on Annual Plan</p>
@@ -488,7 +503,7 @@
                   <p class="la-section__text">Keep learning to expand your potential and make a mark in the world<br><br>Our mission is to Encourage, Empower and Embrace Self-Learning among all the curious individuals who wish to learn,</p>
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8"><a href="">learn more</a><span class="la-btn__arrow-icon"><img src="./images/icons/long-arrow.svg" alt=""></span></div>
                 </div>
-                <div class="col offset-lg-1 col-lg-5">
+                <div class="col offset-lg-1 col-lg-5 pt-20">
                   <div class="la-price__box">
                     <div class="la-price__box-inner"><a class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
                       <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">20% savings </span>on Annual Plan</p>
@@ -508,7 +523,7 @@
                   <p class="la-section__text">Through our Radical team, we strive everyday to make knowledge Affordable, Accessible for all the individuals who have limited or no access to the Real knowledge.<br><br>So, you can subscribe to all the courses and classes. Or rent them to learn whenever you want.</p>
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8"><a href="">learn more</a><span class="la-btn__arrow-icon"><img src="./images/icons/long-arrow.svg" alt=""></span></div>
                 </div>
-                <div class="col offset-lg-1 col-lg-5">
+                <div class="col offset-lg-1 col-lg-5 pt-20">
                   <div class="la-price__box">
                     <div class="la-price__box-inner"><a class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
                       <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">20% savings </span>on Annual Plan</p>

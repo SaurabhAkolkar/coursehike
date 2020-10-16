@@ -47,21 +47,27 @@
                     color:var(--gray8);
                 }
 
+                &savings-bg{
+                    position:relative;
+                    background-color:rgba(255, 197, 22, 0.28);
+                    height:18px;
+                    margin:0 90px; 
+                }
                 &savings{
                     font-weight:var(--font-normal);
                     color:#FFC516;
-                    position:relative;
-
-                    &:before{
-                        content:"";
-                        background-color:rgba(255, 197, 22, 0.28);
-                        position:absolute;
-                        width:96px;
-                        height:18px;
-                        top:0;
-                        left:30%;
-                    }
                 }
+                &savings-bg2{
+                    position:relative;
+                    background-color:rgba(80,222,10,0.28);
+                    height:18px;
+                    margin:0 90px; 
+                }
+                &savings-green{
+                    font-weight:var(--font-normal);
+                    color:#47CC05;
+                }
+                
                 &subscribe{
                     cursor:pointer;
                     a{
@@ -102,6 +108,51 @@
                             background-color:#FFC516;
                     }
                 }
+                &slider {
+                    width: 100%;
+                    height: 100%;
+                }
+                &slide {
+                    text-align: center;
+                    font-size: 18px;
+                    background: #fff;
+                    width:300px;
+              
+                    /* Center slide text vertically */
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: -webkit-flex;
+                    display: flex;
+                    -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                    -webkit-justify-content: center;
+                    justify-content: center;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    -webkit-align-items: center;
+                    align-items: center;
+                }
+                &slide:nth-child(2n) {
+                width: 300px;
+                }
+                &slide:nth-child(3n) {
+                    width: 300px;
+                }
+                &pagination{
+                    .swiper-pagination-bullet{
+                    background:#ffffff;
+                    border:1px solid #FFC516;
+                    border-radius:50%;
+                    opacity:1 !important;
+                    margin-right:var(--size-base);
+                    }
+                
+                    .swiper-pagination-bullet-active{
+                        background-color:#FFC516;
+                    }
+                }
             }
         }
     }
+
+

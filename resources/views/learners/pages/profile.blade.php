@@ -12,7 +12,7 @@
         <div class="container">
           <div class="la-profile__main-inner">
             <div class="la-profile__title-wrap">
-              <h1 class="la-profile__title">Edit Profile</h1><span class="la-profile__para la-profile__para--light">Feel free to edit you personal details.</span>
+              <h1 class="la-profile__title m-0">Edit Profile</h1><span class="la-profile__para la-profile__para--light">Feel free to edit you personal details.</span>
             </div>
             <section class="la-profile__form">
               <div class="la-profile__form-inner">
@@ -22,17 +22,17 @@
                       <div class="la-form__input-wrap">
                         <div class="la-form__lable la-form__lable--medium mb-2">Profile Photo</div>
                         <div class="row">
-                          <div class="col-6">
+                          <div class="col-4">
                             <div class="la-form__img-wrap">
                               <div class="la-form__img-title">Current</div>
                               <div class="la-form__img d-inline-block"><img src="" alt=""></div>
                             </div>
                           </div>
-                          <div class="col-6">
+                          <div class="col-4">
                             <div class="la-form__img-wrap">
                               <div class="la-form__img-title">Upload new</div>
                               <input class="d-none" id="file-upload" type="file">
-                              <label class="la-form__img la-form__img-upload d-inline-block text-center" for="file-upload"><a class="d-inline-block" href="">CHOOSE A FILE </a><span class="la-form__img-info">Thumbnail | 500x500</span><img src="" alt=""></label>
+                              <label class="la-form__img la-form__img-upload d-inline-block text-center" for="file-upload"><a class="d-inline-block" href="">CHOOSE A FILE </a> <br/><span class="la-form__img-info">Thumbnail | 500x500</span><img src="" alt=""></label>
                             </div>
                           </div>
                         </div>
@@ -71,7 +71,7 @@
                     <div class="col-md-6">
                       <div class="la-form__input-wrap">
                         <div class="la-form__lable la-form__lable--medium mb-2">Gender</div>
-                        <div class="d-flex">
+                        <div class="d-flex pt-2">
                                         <div class="la-form__radio-wrap mr-5">
                                           <input class="la-form__radio d-none" type="radio" value="male" name="gender" id="male">
                                           <label class="d-flex align-items-center" for="male"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Male</span></label>
@@ -125,7 +125,7 @@
                     </div>
                   </div>
                   <div class="la-hero__actions d-flex align-items-center justify-content-end">
-                    <button type="submit" class="btn la-btn la-btn--secondary text--black" type="button" href="">Save</button>
+                    <button type="submit" class="btn la-btn la-btn--secondary py-3 px-14 text--black" type="button" href="">Save</button>
                   </div>
                 </form>
               </div>
@@ -153,7 +153,7 @@
                     </div>
                     <div class="la-password__update-actions d-flex">
                       <div class="la-btn__plain text--burple text-right mr-5"> 
-                        <button type="submit" class="text-uppercase"> Change Password</button>
+                        <a href="" role="button" type="submit" class="text-uppercase"> Change Password</a>
                       </div>
                       <div class="la-btn__plain text--danger text-right"><a class="text-uppercase"> Cancel</a></div>
                     </div>

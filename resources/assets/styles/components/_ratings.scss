@@ -1,0 +1,87 @@
+#{$ap}- {
+    &rtng{
+        &__{
+            &item{
+                margin-top:var(--size-12);
+                margin-bottom:var(--size-12);
+            }
+            &wrapper{
+                padding-top:var(--size-14);
+                padding-bottom:var(--size-14);
+            }
+            &title{
+                font-weight:var(--font-semibold);
+                color:var(--gray5);
+            }
+            &total{
+                color:#1EC812;
+                font-weight:var(--font-bold);
+            }
+            &fill{
+                color:#FFC516;
+            }
+            &unfill{
+                color:#D5D5D5;
+            }
+            &course{
+                color:var(--gray5);
+                font-weight:var(--font-normal);
+            }
+            &indicators{
+                padding-left:var(--size-6);
+            }
+            &progress{
+                width:230px;
+                height:15px;
+                border-radius:10px;
+                margin-bottom:var(--size-2);
+            }
+            &progress-bar{
+                background-color:#1EC812;
+            }
+            &percent{
+                color:var(--gray5);
+                font-weight:var(--font-normal);
+            }
+            &review{
+                font-size:var(--text-md);
+                color:var(--app-indigo-1);
+                font-weight:var(--font-bold);   
+                letter-spacing: 3.2px;
+                transition:all 0.2s ease-in;
+
+                &:hover{
+                    color:var(--app-indigo-1);
+                    font-size:var(--text-lg);
+                    transition:all 0.2s ease-out;
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width:767px){
+    #{$ap}- {
+        &rtng{
+            &__{
+                &item{
+                   margin:var(--size-12) var(--size-6);
+                }
+                &wrapper{
+                    padding-top:var(--size-4);
+                    padding-bottom:var(--size-4);
+                }
+                &indicators{
+                    padding-top:var(--size-6);
+                    padding-bottom:var(--size-6);
+                    padding-left:0;
+                    padding-right:0;
+                }
+                &progress{
+                    width:150px;
+                }
+            }
+        }
+    }   
+}

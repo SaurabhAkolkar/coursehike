@@ -130,7 +130,7 @@ return [
     'CityManual' => 'CityManual',
     'ID' => 'ID',
     'Coupon' => 'Coupons',
-    'CODE' => 'CODE',
+    'CODE' => 'Coupon Code',
     'Amount' => 'Amount',
     'MaxUsage' => 'Max Usage',
     'Linkedto' => 'Linked to',

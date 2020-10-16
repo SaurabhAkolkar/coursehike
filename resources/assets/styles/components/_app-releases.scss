@@ -1,0 +1,44 @@
+#{$ap}- {
+    &news{
+        &__{
+            &app-item{
+                padding-top:var(--size-10);
+                padding-bottom:var(--size-10);
+                margin-right:var(--size-12);
+            }
+            &app-title{
+                color:var(--gray7);
+                font-weight:var(--font-semibold);  
+            }
+            &app-timestamp{
+                color:#FFCE31;
+                font-weight:var(--font-normal);
+            }
+            &app-content{
+                color:var(--gray5);
+                font-weight:var(--font-normal);
+                padding-bottom:var(--size-4);
+                span{
+                    color:var(--gray5);
+                    font-weight:var(--font-normal);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:991px){
+    #{$ap}- {
+        &news{
+            &__{
+                &app-item{
+                    margin-right:0;
+                    padding:var(--size-8);
+                }
+                &app-content{
+                    border-bottom:1px dashed var(--grey8);
+                }
+            }
+        }
+    }
+}

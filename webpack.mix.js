@@ -18,3 +18,5 @@ mix.sass('resources/assets/styles/main.scss', 'public/css');
 // mix.sass('resources/assets/admin-creator/admin-v2.scss', 'public/css');
 mix.sass('resources/assets/admin-creator/admin.scss', 'public/css/dashboard');
 mix.sass('resources/assets/admin-creator/admin-creator.scss', 'public/css/dashboard');
+mix.copyDirectory('resources/assets/scripts', 'public/js/scripts');
+mix.copyDirectory('resources/assets/images', 'public/images/learners');

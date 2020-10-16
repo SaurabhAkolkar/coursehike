@@ -53,7 +53,7 @@ section.la-page--gcreator{
             &:before{ background:transparent;}
         }
         .la-gc__banner{
-            padding:var(--size-10);
+            padding:0 var(--size-10);
         }
         .la-gcbanner__inner{
             padding:var(--size-10);
@@ -62,6 +62,8 @@ section.la-page--gcreator{
         .la-gcbanner__bg img{
             margin-top:-140px;
             margin-left:75px;
+            position:relative;
+            z-index:-1;
         }
     }
 }
@@ -126,7 +128,7 @@ section.la-page--how-this-works{
             color:var(--gray5);
         }
         li{
-            // list-style-image: url("../../../../images/creator/green-tick.svg");
+            /*list-style-image: url(../../images/creator/green-tick.svg);*/
         }
         .form-group label{
             color:var(--app-indigo-1);

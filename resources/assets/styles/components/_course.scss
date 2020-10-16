@@ -125,6 +125,17 @@
                 letter-spacing: 1.1px;
                 color: #FFF;
                 align-self: flex-end;
+
+                &:after{
+                    position:absolute;
+                    content:'';
+                    right:45px;
+                    bottom:20px;
+                    width:50px;
+                    height:1px;
+                    border-top:1px solid orange;
+                    transform:rotate(30deg);
+                }
             }
             &btm {
                 padding: var(--size-4) var(--size-5);
