@@ -20,22 +20,23 @@
             <div class="la-entry__content-top">
               <div class="la-entry__interests-title la-entry__content-title text-center mb-8">Tell us about your work</div>
               <form class="la-entry__form" action="">
-                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><img src="./images/icons/mail.svg" alt=""></span>
+                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-profile"></span></span>
                             <input class="la-form__input la-entry__input" type="text" value="" name="expert-in" placeholder="Expert In">
                           </div>
-                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><img src="./images/icons/password.svg" alt=""></span>
+                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-calender"></span></span>
                             <input class="la-form__input la-entry__input" type="number" value="" name="years-of-experience" placeholder="Years of Experience">
                           </div>
-                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><img src="./images/icons/password.svg" alt=""></span>
+                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-birthday"></span></span>
                             <input class="la-form__input la-entry__input" type="date" value="" name="date-of-birth" placeholder="Date of Birth(dd/mm/yyyy)">
                           </div>
-                          <div class="la-form__input-wrap la-entry__input-wrap mb-12"><span class="la-entry__input-icon"><img src="./images/icons/password.svg" alt=""></span>
+                          <div class="la-form__input-wrap la-entry__input-wrap mb-12"><span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-mail-id"></span></span>
                             <input class="la-form__input la-entry__input" type="email" value="" name="email-id" placeholder="Email ID">
                           </div>
                 <submit class="btn la-btn la-btn--secondary text--black w-100" type="button">CONTINUE</submit>
               </form>
+              <div class="la-entry__other-option text-center mt-5">Already have an account? <span class="la-btn__plain text--burple text--md ml-2"><a href="">Login</a></span></div>
             </div>
-          </div>
+            </div>
         </div>
       </div>
     </div>

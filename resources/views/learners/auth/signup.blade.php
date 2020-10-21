@@ -19,34 +19,34 @@
           <div class="la-entry__content-wrap d-flex flex-column justify-content-center">
             <div class="la-entry__content-top">
               <form class="la-entry__form" action="">
-                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><img src="./images/icons/mail.svg" alt=""></span>
+                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-profile"></span></span>
                             <input class="la-form__input la-entry__input" type="text" value="" name="full-name" placeholder="Full Name">
                           </div>
-                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><img src="./images/icons/password.svg" alt=""></span>
+                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-contact-number"></span></span>
                             <input class="la-form__input la-entry__input" type="tel" value="" name="password" placeholder="Mobile Number">
                           </div>
-                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><img src="./images/icons/password.svg" alt=""></span>
+                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-birthday"></span></span>
                             <input class="la-form__input la-entry__input" type="date" value="" name="date-of-birth" placeholder="Date of Birth(dd/mm/yyyy)">
                           </div>
-                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><img src="./images/icons/password.svg" alt=""></span>
+                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-mail-id"></span></span>
                             <input class="la-form__input la-entry__input" type="email" value="" name="email-id" placeholder="Email ID">
                           </div>
-                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><img src="./images/icons/password.svg" alt=""></span>
+                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-password"></span></span>
                             <input class="la-form__input la-entry__input" type="password" value="" name="password" placeholder="Password">
                           </div>
-                          <div class="la-form__input-wrap la-entry__input-wrap mb-12"><span class="la-entry__input-icon"><img src="./images/icons/password.svg" alt=""></span>
+                          <div class="la-form__input-wrap la-entry__input-wrap mb-12"><span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-password"></span></span>
                             <input class="la-form__input la-entry__input" type="password" value="" name="confirm-password" placeholder="Confirm Password">
                           </div>
-                <submit class="btn la-btn la-btn--secondary text--black w-100" type="button">LOGIN</submit>
+                    <submit class="btn la-btn la-btn--secondary text--black w-100" type="button">LOGIN</submit>
               </form>
             </div>
             <div class="la-entry__content-bottom text-center"><span class="la-entry__bottom-title">Register with</span>
               <ul class="la-entry__social-lnks d-flex align-items-center justify-content-center">
-                <li class="la-entry__social-lnk"> <img src="/images/icons/facebook.svg" alt=""></li>
-                <li class="la-entry__social-lnk"> <img src="/images/icons/linkedin.svg" alt=""></li>
-                <li class="la-entry__social-lnk"> <img src="/images/icons/google.svg" alt=""></li>
+                <li class="la-entry__social-lnk mr-2"> <span class="la-icon la-icon--5xl icon-facebook"></span></li>
+                <li class="la-entry__social-lnk mr-2"> <span class="la-icon la-icon--5xl icon-facebook"></span></li>
+                <li class="la-entry__social-lnk mr-2"> <span class="la-icon la-icon--5xl icon-facebook"></span></li>
               </ul>
-              <div class="la-entry__other-option">Don't have an account? <span class="la-btn__plain text--burple text--md ml-2"><a href="">Login</a></span></div>
+              <div class="la-entry__other-option mt-10">Already have an account? <span class="la-btn__plain text--burple text--md ml-2"><a href="">Login</a></span></div>
             </div>
           </div>
         </div>

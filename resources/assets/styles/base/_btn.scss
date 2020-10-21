@@ -56,15 +56,16 @@
             &arrow {
                 position: relative;
                 display: inline-block;
+                
                 &- {
                         &icon {
                             position: absolute;
-                            right: -15px;
-                            bottom: -10px;
-
+                            right: -22px;
+                            bottom: -30px;
+                            
                             &.arrow-down {
                                 transform: rotate(90deg);
-                                right: -30px;
+                                right: -40px;
                             }
                         }
                     }

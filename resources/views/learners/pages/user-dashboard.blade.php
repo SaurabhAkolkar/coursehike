@@ -21,7 +21,9 @@
                   <div class="col d-flex flex-row justify-content-start justify-content-lg-center">
                     <div class="la-cbadge">
                         <div class="la-cbadge__thumbnail" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "EXCLUSIVITY" data-content="A Badge you earn when you finish an exclusive course." > 
-                            <img src="./images/learners/dashboard/badge-purple.svg" alt= "Exclusitivity">
+                            <span class="la-icon la-icon--7xl icon-badge-purple">
+                              <span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span>
+                            </span>
                                 <sup class="badge la-badge__count py-1">5</sup>
                         </div>
                     </div>
@@ -29,24 +31,29 @@
                   <div class="col d-flex flex-row justify-content-start justify-content-lg-center">
                     <div class="la-cbadge">
                         <div class="la-cbadge__thumbnail" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "SINCERE LEARNER" data-content="A Badge you earn when learn consistently." > 
-                            <img src="./images/learners/dashboard/badge-green.svg" alt= "SINCERE">
-                                <sup class="badge la-badge__count py-1">3</sup>
+                          <span class="la-icon la-icon--7xl icon-badge-green">
+                            <span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span>
+                          </span>   
+                          <sup class="badge la-badge__count py-1">3</sup>
                         </div>
                     </div>
                   </div>
                   <div class="col d-flex flex-row justify-content-start justify-content-lg-center">
                     <div class="la-cbadge">
                         <div class="la-cbadge__thumbnail" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "FAST LEARNER" data-content="A Badge you earn when learn at a fast pace." > 
-                            <img src="./images/learners/dashboard/badge-yellow.svg" alt= "FAST">
-                                <sup class="badge la-badge__count py-1">8</sup>
+                          <span class="la-icon la-icon--7xl icon-badge-yellow">
+                            <span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span>
+                          </span>
+                              <sup class="badge la-badge__count py-1">8</sup>
                         </div>
                     </div>
                   </div>
                   <div class="col d-flex flex-row justify-content-start justify-content-lg-center">
                     <div class="la-cbadge">
                         <div class="la-cbadge__thumbnail" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "MENTOR'S FAVOURITE" data-content="A Badge gifted by your mentor when you finish assignments well." > 
-                            <img src="./images/learners/dashboard/badge-red.svg" alt= "MENTOR'S FAVOURITE">
-                                <sup class="badge la-badge__count py-1">1</sup>
+                          <span class="la-icon la-icon--7xl icon-badge-red">
+                            <span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span>
+                          </span>   <sup class="badge la-badge__count py-1">1</sup>
                         </div>
                     </div>
                   </div>
@@ -88,17 +95,16 @@
             <div class="col"></div>
             <div class="col-12 col-md-5 col-lg-4">
               <div class="la-course__alien-ad">
-                <div class="card la-course__ad-card p-2">
-                  <div class="card-body la-course__ad-card_body position-relative">
+                <div class="card la-course__ad-card">
+                  <div class="card-body la-course__ad-card_body my-0 position-relative">
                     <p class="text-sm text-white">Got something different then<br>share it with the world.</p>
                     <h2 class="text-5xl text-white">become an <br><span>Alien mentor</span></h2>
-                  </div>
-                  <div class="la-course__ad-learn-more pb-4 d-flex justify-content-end">
-                    <a class="text-uppercase" href="#">Learn More
-                      <span>
-                        <img class="img-fluid" src="./images/learners/icons/long-arrow-dark.svg" alt="Learn More">
-                      </span>
-                    </a>
+                  
+                    <div class="la-course__ad-learn-more text-right mr-md-n4">
+                      <a class="text-uppercase" href="#">Learn More
+                        <span class="la-icon la-icon--5xl icon-black-arrow"></span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>

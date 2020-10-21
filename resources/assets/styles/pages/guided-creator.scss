@@ -21,11 +21,20 @@ section.la-page--gcreator{
     }
 
     .la-gcbanner__content{
-        .la-gcbanner__inner h1, h2{
-            font-family:var(--head-font);
-            font-size:64px;
-            p{
+        .la-gcbanner__inner {
+            .la-gcbanner__title{
+                font-family:var(--head-font);
+                font-weight: var(--font-black);
+                font-size:calc(var(--text-4xl) * 2);
+            }
+            .la-gcbanner__tag{
+                font-family:var(--head-font);
+                font-weight: var(--font-black);
+                font-size:calc(var(--text-4xl) * 2);
+            }
+            .la-gcbanner__para{
                 font-family:var(--body-font);
+                font-size: var(--text-xl);
             }
         }
     }
@@ -90,14 +99,16 @@ section.la-page--gcreator{
 section.la-page--how-this-works{
     background-color:var(--gray);
     margin:0 0 100px 0;
-    .la-gcreator__works-title h2{
+    .la-gcreator__works-title{
         font-family:var(--head-font);
+        font-size: var(--text-5xl);
+        font-weight: var(--font-semibold);
     }
     .la-gcreator__works img{
         margin-bottom:130px;
     }
     .la-gvline{
-        margin-left:35px;
+        margin-left:40px;
 		height:450px;
         border-left: 2px dotted #FFC516;
     }	
@@ -109,9 +120,9 @@ section.la-page--how-this-works{
         position:absolute;
 		left:0;
 		text-align: left;
-		width:70px;
-		height:70px;
-		padding:12px;
+		width:80px;
+		height:80px;
+		padding:12px 12px;
 		background-color: #FFC516;
 		color:#fff;
         border-radius:var(--rounded-full);
@@ -119,16 +130,23 @@ section.la-page--how-this-works{
     }
     .la-gcreator__video-content{
         margin-left:70px;
-        h5, span{
-            font-family: var(--body-font);
+        .la-gcreator__video-title{
+            font-family: var(--head-font);
+            font-size: var(--text-3xl);
+            font-weight: var(--font-medium);
+            color: var(--gray3);
         }
-        ul{  
-            padding-left:24px;
+        .la-gcreator__video-para{
+            color: var(--gray7);
+        }
+        .la-gcreator__list{  
             font-family: var(--body-font);
             color:var(--gray5);
-        }
-        li{
-            /*list-style-image: url(../../images/creator/green-tick.svg);*/
+
+            .la-gcreator__list-tick {
+                color: #1EC812;
+                margin-right: var(--size-2);
+            }
         }
         .form-group label{
             color:var(--app-indigo-1);

@@ -40,15 +40,16 @@
           <!-- Column: Start-->
           <div class="col-12 col-lg-7">
             <div class="la-hero__img position-relative d-flex align-items-center ">
-              <h2 class="la-section__title la-section__title--big">Design</h2><img class="img-fluid" src="./images/learners/home/design-a@2x.png" alt="Design">
+              <h2 class="la-section__title la-section__title--big">Design</h2>
+              <img class="img-fluid" src="./images/learners/home/design-a@2x.png" alt="Design">
             </div>
           </div>
           <!-- Column: End-->
         </div>
         <!-- Row: Start-->
         <div class="la-hero__bottom d-flex justify-content-center justify-content-lg-between align-items-center pt-14 pb-14">
-          <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing"><a href="">Start free trial</a><span class="la-btn__arrow-icon">  <img src="./images/learners/icons/long-arrow.svg" alt=""></span></div>
-          <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text--burple text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block"><a href="">BROWSE COURSES</a><span class="la-btn__arrow-icon arrow-down"> <img src="./images/learners/icons/long-arrow.svg" alt=""></span></div>
+          <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing"><a href="">Start free trial</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"> </span></div>
+          <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text--burple text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block"><a href="">BROWSE COURSES</a><span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span></div>
         </div>
         <!-- Row: End-->
       </div>
@@ -143,7 +144,7 @@
                     <div class="swiper-slide la-artist__slider">
                       <div class="row la-artist__slider-row">
                         <div class="col-md-12 la-artist__slider-col la-artist__designation position-absolute d-flex align-items-center justify-content-center">
-                          <h2 class="la-section__title la-section__title--big">Alien <span style="color: var(--gray);">MENTOR </span></h2>
+                          <h2 class="la-section__title la-section__title--big">Alien <span style="color: var(--gray);"> MENTOR </span></h2>
                         </div>
                         <div class="col-md-6 la-artist__slider-col la-artist__slide-img">
                           <div class="la-artist__img text-center"><img src="./images/learners/home/artist.png" alt=""></div>
@@ -151,12 +152,12 @@
                         <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
                           <div class="la-artist__content-top d-flex flex-column align-items-end">
                             <div class="la-artist__name">Alton Crew</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">read about</a><span class="la-btn__arrow-icon"><img src="./images/learners/icons/long-arrow.svg" alt=""></span></div>
+                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
                           </div>
                           <div class="la-artist__content-bottom d-flex flex-column align-items-end">
                             <div class="la-artist__specialist text-uppercase">TATTOO</div>
                             <div class="la-artist__company-name">Tribal Tattoo</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon"><img src="./images/learners/icons/long-arrow.svg" alt=""></span></div>
+                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
                           </div>
                         </div>
                       </div>
@@ -172,12 +173,12 @@
                         <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
                           <div class="la-artist__content-top d-flex flex-column align-items-end">
                             <div class="la-artist__name">Alton Crew</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">read about</a><span class="la-btn__arrow-icon"><img src="./images/learners/icons/long-arrow.svg" alt=""></span></div>
+                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
                           </div>
                           <div class="la-artist__content-bottom d-flex flex-column align-items-end">
                             <div class="la-artist__specialist text-uppercase">TATTOO</div>
                             <div class="la-artist__company-name">Tribal Tattoo</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon"><img src="./images/learners/icons/long-arrow.svg" alt=""></span></div>
+                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
                           </div>
                         </div>
                       </div>
@@ -193,12 +194,12 @@
                         <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
                           <div class="la-artist__content-top d-flex flex-column align-items-end">
                             <div class="la-artist__name">Alton Crew</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">read about</a><span class="la-btn__arrow-icon"><img src="./images/learners/icons/long-arrow.svg" alt=""></span></div>
+                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
                           </div>
                           <div class="la-artist__content-bottom d-flex flex-column align-items-end">
                             <div class="la-artist__specialist text-uppercase">TATTOO</div>
                             <div class="la-artist__company-name">Tribal Tattoo</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon"><img src="./images/learners/icons/long-arrow.svg" alt=""></span></div>
+                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
                           </div>
                         </div>
                       </div>
@@ -214,12 +215,12 @@
                         <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
                           <div class="la-artist__content-top d-flex flex-column align-items-end">
                             <div class="la-artist__name">Alton Crew</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">read about</a><span class="la-btn__arrow-icon"><img src="./images/learners/icons/long-arrow.svg" alt=""></span></div>
+                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
                           </div>
                           <div class="la-artist__content-bottom d-flex flex-column align-items-end">
                             <div class="la-artist__specialist text-uppercase">TATTOO</div>
                             <div class="la-artist__company-name">Tribal Tattoo</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon"><img src="./images/learners/icons/long-arrow.svg" alt=""></span></div>
+                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
                           </div>
                         </div>
                       </div>
@@ -235,12 +236,12 @@
                         <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
                           <div class="la-artist__content-top d-flex flex-column align-items-end">
                             <div class="la-artist__name">Alton Crew</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">read about</a><span class="la-btn__arrow-icon"><img src="./images/learners/icons/long-arrow.svg" alt=""></span></div>
+                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
                           </div>
                           <div class="la-artist__content-bottom d-flex flex-column align-items-end">
                             <div class="la-artist__specialist text-uppercase">TATTOO</div>
                             <div class="la-artist__company-name">Tribal Tattoo</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon"><img src="./images/learners/icons/long-arrow.svg" alt=""></span></div>
+                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
                           </div>
                         </div>
                       </div>
@@ -256,12 +257,12 @@
                         <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
                           <div class="la-artist__content-top d-flex flex-column align-items-end">
                             <div class="la-artist__name">Alton Crew</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">read about</a><span class="la-btn__arrow-icon"><img src="./images/learners/icons/long-arrow.svg" alt=""></span></div>
+                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
                           </div>
                           <div class="la-artist__content-bottom d-flex flex-column align-items-end">
                             <div class="la-artist__specialist text-uppercase">TATTOO</div>
                             <div class="la-artist__company-name">Tribal Tattoo</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon"><img src="./images/learners/icons/long-arrow.svg" alt=""></span></div>
+                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
                           </div>
                         </div>
                       </div>
@@ -300,138 +301,82 @@
         <h2 class="la-section__title la-section__title--big position-relative">Master <span>classes</span></h2>
         <div class="la-mccourses py-4">
           <div class="row justify-content-center px-lg-5">
-            <div class="col-12 col-md-6">
-                        <div class="la-mccourse mb-5">
-                          <div class="la-mccourse__imgwrap"><img class="img-fluid" src="https://picsum.photos/600/400" alt="Master in Photography"></div>
-                          <div class="la-mccourse__overlay"><a class="la-mccourse__tag"><img class="img-fluid" src="./images/learners/home/master-class-desk.png" alt="Master in Photography"></a>
-                            <div class="la-mccourse__type">video</div>
-                            <div class="la-mccourse__title">Master in Photography</div>
-                            <div class="la-mccourse__btm">
-                              <div class="la-mccourse__cprofile">
-                                <div class="la-mccourse__cprofile-imgwrap"><img class="img-fluid" src="https://picsum.photos/100/100" alt="Charlotte Floyd"></div>
-                                <div class="la-mccourse__cprofile-name">Charlotte Floyd</div>
-                              </div>
-                              <div class="la-mccourse__learners">300 learners</div>
-                            </div>
-                          </div>
-                        </div>
-            </div>
-            <div class="col-12 col-md-6">
-                        <div class="la-mccourse mb-5">
-                          <div class="la-mccourse__imgwrap"><img class="img-fluid" src="https://picsum.photos/600/400" alt="Master in Photography"></div>
-                          <div class="la-mccourse__overlay"><a class="la-mccourse__tag"><img class="img-fluid" src="./images/learners/home/master-class-desk.png" alt="Master in Photography"></a>
-                            <div class="la-mccourse__type">video</div>
-                            <div class="la-mccourse__title">Master in Photography</div>
-                            <div class="la-mccourse__btm">
-                              <div class="la-mccourse__cprofile">
-                                <div class="la-mccourse__cprofile-imgwrap"><img class="img-fluid" src="https://picsum.photos/100/100" alt="Charlotte Floyd"></div>
-                                <div class="la-mccourse__cprofile-name">Charlotte Floyd</div>
-                              </div>
-                              <div class="la-mccourse__learners">300 learners</div>
-                            </div>
-                          </div>
-                        </div>
-            </div>
-            <div class="col-12 col-md-6">
-                        <div class="la-mccourse mb-5">
-                          <div class="la-mccourse__imgwrap"><img class="img-fluid" src="https://picsum.photos/600/400" alt="Master in Photography"></div>
-                          <div class="la-mccourse__overlay"><a class="la-mccourse__tag"><img class="img-fluid" src="./images/learners/home/master-class-desk.png" alt="Master in Photography"></a>
-                            <div class="la-mccourse__type">video</div>
-                            <div class="la-mccourse__title">Master in Photography</div>
-                            <div class="la-mccourse__btm">
-                              <div class="la-mccourse__cprofile">
-                                <div class="la-mccourse__cprofile-imgwrap"><img class="img-fluid" src="https://picsum.photos/100/100" alt="Charlotte Floyd"></div>
-                                <div class="la-mccourse__cprofile-name">Charlotte Floyd</div>
-                              </div>
-                              <div class="la-mccourse__learners">300 learners</div>
-                            </div>
-                          </div>
-                        </div>
-            </div>
-            <div class="col-12 col-md-6">
-                        <div class="la-mccourse mb-5">
-                          <div class="la-mccourse__imgwrap"><img class="img-fluid" src="https://picsum.photos/600/400" alt="Master in Photography"></div>
-                          <div class="la-mccourse__overlay"><a class="la-mccourse__tag"><img class="img-fluid" src="./images/learners/home/master-class-desk.png" alt="Master in Photography"></a>
-                            <div class="la-mccourse__type">video</div>
-                            <div class="la-mccourse__title">Master in Photography</div>
-                            <div class="la-mccourse__btm">
-                              <div class="la-mccourse__cprofile">
-                                <div class="la-mccourse__cprofile-imgwrap"><img class="img-fluid" src="https://picsum.photos/100/100" alt="Charlotte Floyd"></div>
-                                <div class="la-mccourse__cprofile-name">Charlotte Floyd</div>
-                              </div>
-                              <div class="la-mccourse__learners">300 learners</div>
-                            </div>
-                          </div>
-                        </div>
-            </div>
-            <div class="col-12 col-md-6">
-                        <div class="la-mccourse mb-5">
-                          <div class="la-mccourse__imgwrap"><img class="img-fluid" src="https://picsum.photos/600/400" alt="Master in Photography"></div>
-                          <div class="la-mccourse__overlay"><a class="la-mccourse__tag"><img class="img-fluid" src="./images/learners/home/master-class-desk.png" alt="Master in Photography"></a>
-                            <div class="la-mccourse__type">video</div>
-                            <div class="la-mccourse__title">Master in Photography</div>
-                            <div class="la-mccourse__btm">
-                              <div class="la-mccourse__cprofile">
-                                <div class="la-mccourse__cprofile-imgwrap"><img class="img-fluid" src="https://picsum.photos/100/100" alt="Charlotte Floyd"></div>
-                                <div class="la-mccourse__cprofile-name">Charlotte Floyd</div>
-                              </div>
-                              <div class="la-mccourse__learners">300 learners</div>
-                            </div>
-                          </div>
-                        </div>
-            </div>
-            <div class="col-12 col-md-6">
-                        <div class="la-mccourse mb-5">
-                          <div class="la-mccourse__imgwrap"><img class="img-fluid" src="https://picsum.photos/600/400" alt="Master in Photography"></div>
-                          <div class="la-mccourse__overlay"><a class="la-mccourse__tag"><img class="img-fluid" src="./images/learners/home/master-class-desk.png" alt="Master in Photography"></a>
-                            <div class="la-mccourse__type">video</div>
-                            <div class="la-mccourse__title">Master in Photography</div>
-                            <div class="la-mccourse__btm">
-                              <div class="la-mccourse__cprofile">
-                                <div class="la-mccourse__cprofile-imgwrap"><img class="img-fluid" src="https://picsum.photos/100/100" alt="Charlotte Floyd"></div>
-                                <div class="la-mccourse__cprofile-name">Charlotte Floyd</div>
-                              </div>
-                              <div class="la-mccourse__learners">300 learners</div>
-                            </div>
-                          </div>
-                        </div>
-            </div>
-            <div class="col-12 col-md-6">
-                        <div class="la-mccourse mb-5">
-                          <div class="la-mccourse__imgwrap"><img class="img-fluid" src="https://picsum.photos/600/400" alt="Master in Photography"></div>
-                          <div class="la-mccourse__overlay"><a class="la-mccourse__tag"><img class="img-fluid" src="./images/learners/home/master-class-desk.png" alt="Master in Photography"></a>
-                            <div class="la-mccourse__type">video</div>
-                            <div class="la-mccourse__title">Master in Photography</div>
-                            <div class="la-mccourse__btm">
-                              <div class="la-mccourse__cprofile">
-                                <div class="la-mccourse__cprofile-imgwrap"><img class="img-fluid" src="https://picsum.photos/100/100" alt="Charlotte Floyd"></div>
-                                <div class="la-mccourse__cprofile-name">Charlotte Floyd</div>
-                              </div>
-                              <div class="la-mccourse__learners">300 learners</div>
-                            </div>
-                          </div>
-                        </div>
-            </div>
-            <div class="col-12 col-md-6">
-                        <div class="la-mccourse mb-5">
-                          <div class="la-mccourse__imgwrap"><img class="img-fluid" src="https://picsum.photos/600/400" alt="Master in Photography"></div>
-                          <div class="la-mccourse__overlay"><a class="la-mccourse__tag"><img class="img-fluid" src="./images/learners/home/master-class-desk.png" alt="Master in Photography"></a>
-                            <div class="la-mccourse__type">video</div>
-                            <div class="la-mccourse__title">Master in Photography</div>
-                            <div class="la-mccourse__btm">
-                              <div class="la-mccourse__cprofile">
-                                <div class="la-mccourse__cprofile-imgwrap"><img class="img-fluid" src="https://picsum.photos/100/100" alt="Charlotte Floyd"></div>
-                                <div class="la-mccourse__cprofile-name">Charlotte Floyd</div>
-                              </div>
-                              <div class="la-mccourse__learners">300 learners</div>
-                            </div>
-                          </div>
-                        </div>
-            </div>
+           
+              @php
+                  $master1 = new stdClass;
+                  $master1->img = "https://picsum.photos/600/400";
+                  $master1->title = "Master in Photography";
+                  $master1->profileImg = "https://picsum.photos/100/100";
+                  $master1->profileName = "Charlotte Floyd";
+                  $master1->learners = 300;
+
+                  $master2 = new stdClass;
+                  $master2->img = "https://picsum.photos/600/400";
+                  $master2->title = "Master in Photography";
+                  $master2->profileImg = "https://picsum.photos/100/100";
+                  $master2->profileName = "Charlotte Floyd";
+                  $master2->learners = 300;
+
+                  $master3 = new stdClass;
+                  $master3->img = "https://picsum.photos/600/400";
+                  $master3->title = "Master in Photography";
+                  $master3->profileImg = "https://picsum.photos/100/100";
+                  $master3->profileName = "Charlotte Floyd";
+                  $master3->learners = 300;
+
+                  $master4 = new stdClass;
+                  $master4->img = "https://picsum.photos/600/400";
+                  $master4->title = "Master in Photography";
+                  $master4->profileImg = "https://picsum.photos/100/100";
+                  $master4->profileName = "Charlotte Floyd";
+                  $master4->learners = 300;
+
+                  $master5 = new stdClass;
+                  $master5->img = "https://picsum.photos/600/400";
+                  $master5->title = "Master in Photography";
+                  $master5->profileImg = "https://picsum.photos/100/100";
+                  $master5->profileName = "Charlotte Floyd";
+                  $master5->learners = 300;
+
+                  $master6 = new stdClass;
+                  $master6->img = "https://picsum.photos/600/400";
+                  $master6->title = "Master in Photography";
+                  $master6->profileImg = "https://picsum.photos/100/100";
+                  $master6->profileName = "Charlotte Floyd";
+                  $master6->learners = 300;
+
+                  $master7 = new stdClass;
+                  $master7->img = "https://picsum.photos/600/400";
+                  $master7->title = "Master in Photography";
+                  $master7->profileImg = "https://picsum.photos/100/100";
+                  $master7->profileName = "Charlotte Floyd";
+                  $master7->learners = 300;
+
+                  $master8 = new stdClass;
+                  $master8->img = "https://picsum.photos/600/400";
+                  $master8->title = "Master in Photography";
+                  $master8->profileImg = "https://picsum.photos/100/100";
+                  $master8->profileName = "Charlotte Floyd";
+                  $master8->learners = 300;
+
+                  $masters = array($master1, $master2, $master3, $master4, $master5, $master6, $master7, $master8);
+              @endphp
+
+              @foreach ($masters as $master)
+                <x-master-class
+                  :img="$master->img"
+                  :title="$master->title"
+                  :profileImg="$master->profileImg"
+                  :profileName="$master->profileName"
+                  :learners="$master->learners"
+                />
+              @endforeach
+             
           </div>
         </div>
         <div class="text-right">
-          <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8"><a href="">explore more</a><span class="la-btn__arrow-icon"><img src="./images/learners/icons/long-arrow.svg" alt=""></span></div>
+          <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8">
+            <a href="">explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
         </div>
       </div>
     </div>
@@ -473,7 +418,7 @@
   <section class="la-section la-section--about pb-0">
     <div class="la-section__inner">
       <div class="container">
-        <h2 class="la-section__title la-section__title--big"> <span style="color: var(--gray);">Learn it </span><br><span>like aliens</span></h2>
+        <h2 class="la-section__title la-section__title--big leading-none"> <span style="color: var(--gray);">Learn it </span><br><span>like aliens</span></h2>
         <div class="swiper-container la-price__slider">
           <div class="swiper-wrapper">
             <div class="swiper-slide la-price__slide">
@@ -481,7 +426,9 @@
                 <div class="col col-lg-5 pt-20">
                   <h3 class="la-section__subtitle">How does subscription works?</h3>
                   <p class="la-section__text">Through our Radical team, we strive everyday to make knowledge Affordable, Accessible for all the individuals who have limited or no access to the Real knowledge.<br><br>So, you can subscribe to all the courses and classes. Or rent them to learn whenever you want.</p>
-                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8"><a href="">learn more</a><span class="la-btn__arrow-icon"><img src="./images/icons/long-arrow.svg" alt=""></span></div>
+                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8">
+                    <a href="">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
+                  </div>
                 </div>
                 <div class="col offset-lg-1 col-lg-5 pt-20">
                   <div class="la-price__box">
@@ -501,7 +448,9 @@
                 <div class="col col-lg-5 pt-20">
                   <h3 class="la-section__subtitle">What’s LILA for you ?</h3>
                   <p class="la-section__text">Keep learning to expand your potential and make a mark in the world<br><br>Our mission is to Encourage, Empower and Embrace Self-Learning among all the curious individuals who wish to learn,</p>
-                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8"><a href="">learn more</a><span class="la-btn__arrow-icon"><img src="./images/icons/long-arrow.svg" alt=""></span></div>
+                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8">
+                    <a href="">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
+                  </div>
                 </div>
                 <div class="col offset-lg-1 col-lg-5 pt-20">
                   <div class="la-price__box">
@@ -521,7 +470,9 @@
                 <div class="col col-lg-5 pt-20">
                   <h3 class="la-section__subtitle">How does subscription works?</h3>
                   <p class="la-section__text">Through our Radical team, we strive everyday to make knowledge Affordable, Accessible for all the individuals who have limited or no access to the Real knowledge.<br><br>So, you can subscribe to all the courses and classes. Or rent them to learn whenever you want.</p>
-                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8"><a href="">learn more</a><span class="la-btn__arrow-icon"><img src="./images/icons/long-arrow.svg" alt=""></span></div>
+                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8">
+                    <a href="">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
+                  </div>
                 </div>
                 <div class="col offset-lg-1 col-lg-5 pt-20">
                   <div class="la-price__box">

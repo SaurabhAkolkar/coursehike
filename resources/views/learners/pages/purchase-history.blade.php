@@ -21,10 +21,11 @@
                         <div class="col-lg-4">
                           <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-2xl head-font">Purchased                            </div>
                         </div>
-                        <div class="col-lg-2 text-center">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-1 text-center">
                           <div class="la-purchaseh__item-label text-sm">On  </div>
                         </div>
-                        <div class="col-lg-1">                   </div>
+                        <div class="col-lg-1"></div>
                         <div class="col-lg-1 text-center">
                           <div class="la-purchaseh__item-label text-sm">Payment Mode </div>
                         </div>
@@ -129,10 +130,11 @@
               <!-- Section Rent Desktop Version : Start -->
               <div class="container px-0 d-none d-lg-block">
                 <div class="la-rto__item row">         
-                  <div class="col-lg-4">
+                  <div class="col-lg-4 ">
                     <div class="la-rto__item-label la-rto__item-label2 text-2xl head-font">Rented                            </div>
                   </div>
-                  <div class="col-lg-2 text-center">
+                  <div class="col-lg-1"></div>
+                  <div class="col-lg-1 text-center">
                     <div class="la-rto__item-label text-sm">From </div>
                   </div>
                   <div class="col-lg-1 text-center">
@@ -264,7 +266,8 @@
                     <div class="col-lg-4">
                       <div class="la-rto__item-label la-rto__item-label2 text-2xl head-font">Free Trial                            </div>
                     </div>
-                    <div class="col-lg-2 text-center">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-1 text-center">
                       <div class="la-rto__item-label text-sm">From </div>
                     </div>
                     <div class="col-lg-1 text-center">
@@ -381,7 +384,8 @@
                   <div class="col-lg-4">
                     <div class="la-rto__item-label la-rto__item-label2 text-2xl head-font">Others                           </div>
                   </div>
-                  <div class="col-lg-2 text-center">
+                  <div class="col-lg-1"></div>
+                  <div class="col-lg-1 text-center">
                     <div class="la-rto__item-label text-sm">From </div>
                   </div>
                   <div class="col-lg-1 text-center">
@@ -500,7 +504,8 @@
                         <div class="col-lg-4">
                         <div class="la-rto__item-label la-rto__item-label2 text-2xl head-font">Subscribed                            </div>
                         </div>
-                        <div class="col-lg-2 text-center">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-1 text-center">
                         <div class="la-rto__item-label text-sm">From </div>
                         </div>
                         <div class="col-lg-1 text-center">

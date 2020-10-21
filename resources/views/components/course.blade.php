@@ -11,7 +11,7 @@
 
                     <li class="la-course__option">
                         <a class="d-inline-block la-course__like">
-                            <i class="la-icon la-icon--2xl icon icon-share"></i>
+                            <i class="la-icon la-icon--2xl icon icon-wishlist"></i>
                         </a>
                     </li>
 
@@ -20,9 +20,9 @@
                             <a class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);">
                                 <i class="la-icon la-icon--2xl icon icon-menu"></i>
                             </a>
-                            <div class="la-cmenu dropdown-menu">
-                                <a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Playlist</a>
-                                <a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Wishlist</a>
+                            <div class="la-cmenu dropdown-menu py-0">
+                                <a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-playlist la-icon la-icon--2xl mr-2"></i>  Add to Playlist</a>
+                                <a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-wishlist la-icon la-icon--2xl mr-2"></i>  Add to Wishlist</a>
                                 <a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</a>
                             </div>
                         </div>

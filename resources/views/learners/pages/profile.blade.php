@@ -22,13 +22,13 @@
                       <div class="la-form__input-wrap">
                         <div class="la-form__lable la-form__lable--medium mb-2">Profile Photo</div>
                         <div class="row">
-                          <div class="col-4">
+                          <div class="col-6">
                             <div class="la-form__img-wrap">
                               <div class="la-form__img-title">Current</div>
                               <div class="la-form__img d-inline-block"><img src="" alt=""></div>
                             </div>
                           </div>
-                          <div class="col-4">
+                          <div class="col-6">
                             <div class="la-form__img-wrap">
                               <div class="la-form__img-title">Upload new</div>
                               <input class="d-none" id="file-upload" type="file">
@@ -133,7 +133,7 @@
             <section class="la-section la-profile__update-passwrod la-profile__form">
               <div class="la-profile__form-inner">
                 <div class="la-password__update-option mb-8 d-flex">
-                  <div class="text text-uppercase mr-3" data-toggle="collapse" data-target="#passwordCollapse" aria-expanded="false" aria-controls="passwordCollapse">Update Password</div><span class="icon icon-arrow d-inline-block"></span>
+                  <div class="la-password__update-toggler text text-uppercase mr-3 collapsed " id="password-toggler" data-toggle="collapse" data-target="#passwordCollapse" aria-expanded="false" aria-controls="passwordCollapse">Update Password</div>
                 </div>
                 <div class="collapse" id="passwordCollapse">
                   <form class="la-password__update-content" action="">

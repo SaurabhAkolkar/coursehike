@@ -9,7 +9,10 @@
         <div class="la-mentor__info">
           <h3 class="la-mentor__name">{{ $name }}</h3>
           <p class="la-mentor__skill">{{ $skill }}</p>
-        </div><a class="la-mentor__detailview" href="/creator"><img class="img-fluid" src="./images/learners/icons/long-arrow.svg" alt="view more"></a>
+        </div>
+        <a class="la-mentor__detailview" href="/creator">
+          <span class="la-icon la-icon--6xl icon-grey-arrow"></span>
+        </a>
       </div>
     </div>
 </div>
