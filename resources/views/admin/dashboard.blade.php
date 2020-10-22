@@ -22,7 +22,8 @@
           <div class="small-box bg-aqua"> 
             <div class="inner">
             <div class="icon">
-              <i class="flaticon-user"></i>
+              <!-- <i class="flaticon-user"></i> -->
+              <img src="../css/images/icons/Card creators.svg" alt="Users" class="img-fluid ml-2 pl-1"  />
             </div>
             <p>{{ __('adminstaticword.Users') }}</p>
               <h3>
@@ -41,7 +42,10 @@
               
             </div>
            
-            <a href="{{route('user.index')}}" class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{route('user.index')}}" class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> 
+              <!-- <i class="fa fa-arrow-circle-right"></i> -->
+              <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid mr-2 mb-2"/>
+            </a>
           </div>
         </div>
         <!-- ./col -->
@@ -50,7 +54,9 @@
           <div class="small-box bg-green">
             <div class="inner">
             <div class="icon">
-            	<i class="flaticon-layout"></i>
+             <!--  <i class="flaticon-layout"></i> -->
+              <img src="../css/images/icons/Card Categories.svg" alt="Users" class="img-fluid ml-2 pl-1"  />
+            
             </div>
             <p>{{ __('adminstaticword.Categories') }}</p>
               <h3>
@@ -67,7 +73,10 @@
               	@endphp
               </h3>
             </div>
-            <a href="{{url('category')}}" class="small-box-footer"><!--{{ __('adminstaticword.Moreinfo') }}--><i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('category')}}" class="small-box-footer"><!--{{ __('adminstaticword.Moreinfo') }}-->
+              <!-- <i class="fa fa-arrow-circle-right"></i> -->
+              <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid mr-2 mb-2"/>
+            </a>
           </div>
         </div>
         <!-- ./col -->
@@ -76,7 +85,9 @@
           <div class="small-box bg-yellow">
             <div class="inner">
               <div class="icon">
-                <i class="flaticon-book"></i>
+                <!-- <i class="flaticon-book"></i> -->
+                <img src="../css/images/icons/Card Courses.svg" alt="Users" class="img-fluid ml-2"  />
+            
               </div>
               <p>{{ __('adminstaticword.Courses') }}</p>
               <h3>
@@ -93,7 +104,10 @@
               	@endphp
               </h3>       
             </div>  
-            <a href="{{url('course')}}" class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('course')}}" class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> 
+              <!--  <i class="fa fa-arrow-circle-right"></i> -->
+              <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid mr-2 mb-2"/>
+            </a>
           </div>
         </div>
     </div>
@@ -105,7 +119,8 @@
           <div class="small-box bg-red">
             <div class="inner">
               <div class="icon">
-                <i class="flaticon-shopping-cart-1"></i>
+                <!-- <i class="flaticon-shopping-cart-1"></i> -->
+                <img src="../css/images/icons/Card Revenue.svg" alt="Users" class="img-fluid ml-2"  />
               </div>
               <p>{{ __('adminstaticword.Orders') }}</p>
               <h3>
@@ -122,7 +137,10 @@
               	@endphp
               </h3>
             </div>
-            <a href="{{url('order')}}" class="small-box-footer"><!--{{ __('adminstaticword.Moreinfo') }} --> <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('order')}}" class="small-box-footer"><!--{{ __('adminstaticword.Moreinfo') }} --> 
+              <!--<i class="fa fa-arrow-circle-right"></i>-->
+              <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid mr-2 mb-2"/>
+            </a>
           </div>
         </div>
         <!-- ./col -->
@@ -183,7 +201,9 @@
           <div class="small-box bg-green">
             <div class="inner">
               <div class="icon">
-              <i class="flaticon-teacher"></i>
+              <!-- <i class="flaticon-teacher"></i>-->
+              <img src="../css/images/icons/Card Creators.svg" alt="Users" class="img-fluid ml-2 pl-1"  />
+              
               </div>
               <p>{{ __('adminstaticword.Instructors') }}</p>
               <h3>
@@ -200,12 +220,15 @@
               	@endphp
               </h3>
             </div>
-            <a href="{{route('all.instructor')}}" class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{route('all.instructor')}}" class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> 
+              <!-- <i class="fa fa-arrow-circle-right"></i> -->
+              <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid mr-2 mb-2"/>
+            </a>
           </div>
         </div>
         <!-- ./col -->
          <!-- small box -->
-        <!-- <div class="col-lg-3 col-6">
+        {{-- <div class="col-lg-4 col-6 p-3">
           <div class="small-box bg-blue">
             <div class="inner">
               <div class="icon">
@@ -226,9 +249,12 @@
               	@endphp
               </h3>
             </div>
-            <a href="{{url('testimonial')}}" class="small-box-footer"> {{ __('adminstaticword.Moreinfo') }} <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('testimonial')}}" class="small-box-footer"> <!-- {{ __('adminstaticword.Moreinfo') }} --> 
+              <!--<i class="fa fa-arrow-circle-right"></i>-->
+              <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid mr-2 mb-2"/>
+            </a>
           </div>
-        </div> -->
+        </div> --}}
         <!-- ./col -->
     </div>
     <!-- /.row -->
@@ -239,8 +265,8 @@
     <div class="col-md-5">
       <!-- RECENTLY ADDED USERS LIST -->
       <div class="box box-danger box-recent__content">
-          <div class="box-header with-border">
-            <h3 class="box-title la-admin__box-title">{{ __('adminstaticword.LatestUsers') }}</h3>
+          <div class="">
+            <h3 class="box-title la-admin__box-title ">{{ __('adminstaticword.LatestUsers') }}</h3>
 
             <div class="box-tools pull-right">
               <span class="label label-danger">
@@ -268,26 +294,36 @@
             @php
               $users = App\User::limit(8)->orderBy('id', 'DESC')->get();
             @endphp
-            <ul class="users-list clearfix">
+            <div class="row users-list ">
               @foreach($users as $user)
-              <li>
-                @if($user['user_img'] != null || $user['user_img'] !='')
-                  <img src="{{ asset('/images/user_img/'.$user['user_img']) }}" class="img-fluid" alt="User Image">
-                @else
-                  <img src="{{ asset('images/default/user.jpg')}}" class="img-fluid" alt="User Image">
-                @endif
-                <a class="users-list-name" href="#">{{ $user['fname'] }} {{ $user['lname'] }}</a>
-                <span class="users-list-date">{{ date('F Y', strtotime($user['created_at'])) }}</span>
-              </li>
+              <div class="col-md-8 px-0">
+                  <div class="d-flex align-items-center">
+                    @if($user['user_img'] != null || $user['user_img'] !='')
+                      <img src="{{ asset('/images/user_img/'.$user['user_img']) }}" class="img-fluid" alt="User Image">
+                    @else
+                      <img src="{{ asset('images/default/user.jpg')}}" class="img-fluid" alt="User Image">
+                    @endif
+                  
+                    <div class="users-info ml-3 ">
+                      <a class="users-list-name m-0" href="#">{{ $user['fname'] }} {{ $user['lname'] }}</a>
+                      <div class="users-list-desc">CREATOR</div>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-md-4 d-flex align-items-center">
+                <span class="users-list-date ">{{ date('F Y', strtotime($user['created_at'])) }}</span>
+              </div>
               @endforeach
               
-            </ul>
+            </div>
             <!-- /.users-list -->
           </div>
           <!-- /.box-body -->
-          <div class="box-footer text-right">
+          <div class="box-footer text-right pt-5">
             <a href="{{route('user.index')}}" class="uppercase"> <!--{{ __('adminstaticword.ViewAll') }} -->
-                    <i class="fa fa-long-arrow-right fa-2x" style="color:#777777"></i>
+                  <!-- <i class="fa fa-long-arrow-right fa-2x" style="color:#777777"></i> -->
+                  <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid "/>
             </a>
           </div> 
           <!-- /.box-footer -->
@@ -302,7 +338,7 @@
       @endphp
       @if(!$courses->isEmpty())
       <div class="box box-primary box-recent__content">
-          <div class="box-header with-border">
+          <div class="">
             <h3 class="box-title la-admin__box-title">{{ __('adminstaticword.RecentCourses') }}</h3>
 
             <div class="box-tools pull-right">
@@ -353,7 +389,7 @@
           <!-- /.box-body -->
           <div class="box-footer text-right">
             <a href="{{url('course')}}" class="uppercase"><!-- {{ __('adminstaticword.ViewAll') }} -->
-              <i class="fa fa-long-arrow-right fa-2x" style="color:#777777"></i>
+              <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid"/>
             </a>
           </div>
           <!-- /.box-footer -->
@@ -410,7 +446,7 @@
 
               <div class="la-dash__recent-more text-right">
                   <a href="" class="la-dash__more-btn">
-                      <i class="fa fa-long-arrow-right fa-2x"></i>
+                    <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid"/>
                   </a>
               </div>
         </div>
@@ -469,7 +505,7 @@
 
               <div class="la-dash__recent-more text-right">
                   <a href="" class="la-dash__more-btn">
-                      <i class="fa fa-long-arrow-right fa-2x"></i>
+                    <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid"/>
                   </a>
               </div>
         </div>
@@ -548,7 +584,7 @@
 
             <div class="la-dash__recent-more text-right">
               <a href="" class="la-dash__more-btn">
-                  <i class="fa fa-long-arrow-right fa-2x"></i>
+                <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid"/>
               </a>
             </div>
         </div>

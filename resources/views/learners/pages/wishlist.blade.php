@@ -36,8 +36,10 @@
                         :creatorUrl="$tattoo->creatorUrl"
                       />
                     @endforeach
-                    
-                  <div class="col-md-6 col-lg-3">
+                </div>
+
+                <div class="row la-wishlist__row">
+                  <div class="col-md-4 col-lg-4">
                     <a class="la-btn__add d-flex justify-content-center align-items-center" href="">
                       <span class="la-btn__add-icon">+</span>
                     </a>

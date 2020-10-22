@@ -1,383 +1,322 @@
-
 @font-face {
-    font-family: 'icomoon';
-  
-    src: url("./fonts/learners/icons/icomoon.eot?tlgwid");
-  
-    src: url("./fonts/learners/icons/icomoon.eot?tlgwid#iefix") format("embedded-opentype"), url("./fonts/learners/icons/icomoon.ttf?tlgwid") format("truetype"), url("./fonts/learners/icons/icomoon.woff?tlgwid") format("woff"), url("./fonts/learners/icons/icomoon.svg?tlgwid#icomoon") format("svg");
-  
-    font-weight: normal;
-  
-    font-style: normal;
-  
-    font-display: block;
-  }
-  
-  [class^="icon-"],
-  [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icomoon' !important;
-    speak: never;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .icon-excel:before {
-    content: "\e922";
-  }
-  
-  .icon-revenue:before {
-    content: "\e920";
-  }
-  
-  .icon-coupon:before {
-    content: "\e921";
-  }
-  
-  .icon-browse-courses .path1:before {
-    content: "\e901";
-    color: #414141;
-  }
-  
-  .icon-browse-courses .path2:before {
-    content: "\e905";
-    margin-left: -1em;
-    color: white;
-  }
-  
-  .icon-browse-courses .path3:before {
-    content: "\e909";
-    margin-left: -1em;
-    color: #414141;
-  }
-  
-  .icon-lock:before {
-    content: "\e900";
-  }
-  
-  .icon-play:before {
-    content: "\e902";
-  }
-  
-  .icon-hide-Password:before {
-    content: "\e903";
-  }
-  
-  .icon-menu:before {
-    content: "\e904";
-  }
-  
-  .icon-profile:before {
-    content: "\e906";
-  }
-  
-  .icon-show-password:before {
-    content: "\e907";
-  }
-  
-  .icon-wallet:before {
-    content: "\e908";
-  }
-  
-  .icon-learning-plans:before {
-    content: "\e90a";
-  }
-  
-  .icon-about:before {
-    content: "\e90b";
-  }
-  
-  .icon-download:before {
-    content: "\e90c";
-  }
-  
-  .icon-arrow:before {
-    content: "\e90d";
-  }
-  
-  .icon-search:before {
-    content: "\e90e";
-  }
-  
-  .icon-file-export:before {
-    content: "\e90f";
-  }
-  
-  .icon-users:before {
-    content: "\e910";
-  }
-  
-  .icon-edit-profile-learner-filled:before {
-    content: "\e911";
-  }
-  
-  .icon-filter:before {
-    content: "\e912";
-  }
-  
-  .icon-cart-filled:before {
-    content: "\e913";
-  }
-  
-  .icon-help:before {
-    content: "\e914";
-  }
-  
-  .icon-details:before {
-    content: "\e915";
-  }
-  
-  .icon-notification-filled:before {
-    content: "\e916";
-  }
-  
-  .icon-share1:before {
-    content: "\e917";
-  }
-  
-  .icon-settings:before {
-    content: "\e918";
-  }
-  
-  .icon-drop-down:before {
-    content: "\e919";
-  }
-  
-  .icon-assessment:before {
-    content: "\e91a";
-  }
-  
-  .icon-courses:before {
-    content: "\e91b";
-  }
-  
-  .icon-messages:before {
-    content: "\e91c";
-  }
-  
-  .icon-dashboard:before {
-    content: "\e91d";
-  }
-  
-  .icon-delete:before {
-    content: "\e91e";
-  }
-  
-  .icon-edit:before {
-    content: "\e91f";
-  }
-  
-  .icon-hamburger-menu:before {
-    content: "\e923";
-  }
-  
-  .icon-playlist-filled:before {
-    content: "\e924";
-  }
-  
-  .icon-question-answer:before {
-    content: "\e925";
-  }
-  
-  .icon-sort:before {
-    content: "\e926";
-  }
-  
-  .icon-logout:before {
-    content: "\e927";
-  }
-  
-  .icon-plus:before {
-    content: "\e928";
-  }
-  
-  .icon-cancel:before {
-    content: "\e929";
-  }
-  
-  .icon-announcement:before {
-    content: "\e92a";
-  }
-  
-  .icon-announcement-filled:before {
-    content: "\e92b";
-  }
-  
-  .icon-contact:before {
-    content: "\e92c";
-  }
-  
-  .icon-purchase-history:before {
-    content: "\e92d";
-  }
-  
-  .icon-request:before {
-    content: "\e92e";
-  }
-  
-  .icon-tick:before {
-    content: "\e938";
-  }
-  
-  .icon-wishlist-filled:before {
-    content: "\e939";
-  }
-  
-  .icon-star:before {
-    content: "\e93a";
-  }
-  
-  .icon-birthday:before {
-    content: "\e93b";
-  }
-  
-  .icon-calender-filled:before {
-    content: "\e93c";
-  }
-  
-  .icon-password:before {
-    content: "\e93d";
-  }
-  
-  .icon-contact-number:before {
-    content: "\e93e";
-  }
-  
-  .icon-mail-id:before {
-    content: "\e93f";
-  }
-  
-  .icon-calender:before {
-    content: "\e941";
-  }
-  
-  .icon-become-creator:before {
-    content: "\e943";
-  }
-  
-  .icon-playlist:before {
-    content: "\e944";
-  }
-  
-  .icon-edit-learner-profile:before {
-    content: "\e945";
-  }
-  
-  .icon-notification:before {
-    content: "\e946";
-  }
-  
-  .icon-wishlist:before {
-    content: "\e947";
-  }
-  
-  .icon-cart:before {
-    content: "\e948";
-  }
-  
-  .icon-caption:before {
-    content: "\e949";
-  }
-  
-  .icon-collapse-video:before {
-    content: "\e94a";
-  }
-  
-  .icon-expand-video:before {
-    content: "\e94b";
-  }
-  
-  .icon-volume:before {
-    content: "\e94c";
-  }
-  
-  .icon-next-playlist:before {
-    content: "\e94d";
-  }
-  
-  .icon-edit-line:before {
-    content: "\e94f";
-  }
-  
-  .icon-inspire:before {
-    content: "\e950";
-  }
-  
-  .icon-recognition:before {
-    content: "\e951";
-  }
-  
-  .icon-earnings:before {
-    content: "\e952";
-  }
-  
-  .icon-share:before {
-    content: "\e953";
-  }
-  .la-icon {
-    display: inline-block;
-  }
-  
-  .la-icon--xs {
-    width: var(--icon-xs);
-    height: var(--icon-xs);
-    font-size: var(--icon-xs);
-  }
-  
-  .la-icon--sm {
-    width: var(--icon-sm);
-    height: var(--icon-sm);
-    font-size: var(--icon-sm);
-  }
-  
-  .la-icon--md {
-    width: var(--icon-md);
-    height: var(--icon-md);
-    font-size: var(--icon-md);
-  }
-  
-  .la-icon--lg {
-    width: var(--icon-lg);
-    height: var(--icon-lg);
-    font-size: var(--icon-lg);
-  }
-  
-  .la-icon--xl {
-    width: var(--icon-xl);
-    height: var(--icon-xl);
-    font-size: var(--icon-xl);
-  }
-  
-  .la-icon--2xl {
-    width: var(--icon-2xl);
-    height: var(--icon-2xl);
-    font-size: var(--icon-2xl);
-  }
-  
-  .la-icon--3xl {
-    width: var(--icon-3xl);
-    height: var(--icon-3xl);
-    font-size: var(--icon-3xl);
-  }
-  
-  .la-icon--4xl {
-    width: var(--icon-4xl);
-    height: var(--icon-4xl);
-    font-size: var(--icon-4xl);
-  }
-  
-  .la-icon--5xl {
-    width: var(--icon-5xl);
-    height: var(--icon-5xl);
-    font-size: var(--icon-5xl);
-  }
+  font-family: "icomoon";
+  src: url(/fonts/icomoon.eot?40e804f40a47c766aaa7f4d960a17236);
+  src: url(/fonts/icomoon.eot?40e804f40a47c766aaa7f4d960a17236#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?229691a06d1c175783935876b1bc9d1e) format("truetype"), url(/fonts/icomoon.woff?c4db22456c8961355b43269cf2c01065) format("woff"), url(/fonts/icomoon.svg?1a51f74cf69d8fdf50e74cda88f104a2#icomoon) format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+[class^=icon-],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
+.icon-excel:before {
+  content: "\E922";
+}
+
+.icon-revenue:before {
+  content: "\E920";
+  font-size:18px;
+}
+
+.icon-coupon:before {
+  content: "\E921";
+  font-size:18px;
+}
+
+.icon-browse-courses .path1:before {
+  content: "\E901";
+  color: #414141;
+}
+
+.icon-browse-courses .path2:before {
+  content: "\E905";
+  margin-left: -1em;
+  color: white;
+}
+
+.icon-browse-courses .path3:before {
+  content: "\E909";
+  margin-left: -1em;
+  color: #414141;
+}
+
+.icon-lock:before {
+  content: "\E900";
+}
+
+.icon-play:before {
+  content: "\E902";
+}
+
+.icon-hide-Password:before {
+  content: "\E903";
+}
+
+.icon-menu:before {
+  content: "\E904";
+}
+
+.icon-profile:before {
+  content: "\E906";
+}
+
+.icon-show-password:before {
+  content: "\E907";
+}
+
+.icon-wallet:before {
+  content: "\E908";
+}
+
+.icon-learning-plans:before {
+  content: "\E90A";
+}
+
+.icon-about:before {
+  content: "\E90B";
+}
+
+.icon-download:before {
+  content: "\E90C";
+}
+
+.icon-arrow:before {
+  content: "\E90D";
+}
+
+.icon-search:before {
+  content: "\E90E";
+}
+
+.icon-file-export:before {
+  content: "\E90F";
+}
+
+.icon-users:before {
+  content: "\E910";
+ font-size:18px;
+}
+
+.icon-edit-profile-learner-filled:before {
+  content: "\E911";
+}
+
+.icon-filter:before {
+  content: "\E912";
+}
+
+.icon-cart-filled:before {
+  content: "\E913";
+}
+
+.icon-help:before {
+  content: "\E914";
+}
+
+.icon-details:before {
+  content: "\E915";
+}
+
+.icon-notification-filled:before {
+  content: "\E916";
+}
+
+.icon-share1:before {
+  content: "\E917";
+}
+
+.icon-settings:before {
+  content: "\E918";
+}
+
+.icon-drop-down:before {
+  content: "\E919";
+}
+
+.icon-assessment:before {
+  content: "\E91A";
+}
+
+.icon-courses:before {
+  content: "\E91B";
+  font-size:16px;
+}
+
+.icon-messages:before {
+  content: "\E91C";
+}
+
+.icon-dashboard:before {
+  content: "\E91D";
+}
+
+.icon-delete:before {
+  content: "\E91E";
+}
+
+.icon-edit:before {
+  content: "\E91F";
+}
+
+.icon-hamburger-menu:before {
+  content: "\E923";
+}
+
+.icon-playlist-filled:before {
+  content: "\E924";
+}
+
+.icon-question-answer:before {
+  content: "\E925";
+}
+
+.icon-sort:before {
+  content: "\E926";
+}
+
+.icon-logout:before {
+  content: "\E927";
+}
+
+.icon-plus:before {
+  content: "\E928";
+}
+
+.icon-cancel:before {
+  content: "\E929";
+}
+
+.icon-announcement:before {
+  content: "\E92A";
+}
+
+.icon-announcement-filled:before {
+  content: "\E92B";
+}
+
+.icon-contact:before {
+  content: "\E92C";
+}
+
+.icon-purchase-history:before {
+  content: "\E92D";
+}
+
+.icon-request:before {
+  content: "\E92E";
+}
+
+.icon-tick:before {
+  content: "\E938";
+}
+
+.icon-wishlist-filled:before {
+  content: "\E939";
+}
+
+.icon-star:before {
+  content: "\E93A";
+}
+
+.icon-birthday:before {
+  content: "\E93B";
+}
+
+.icon-calender-filled:before {
+  content: "\E93C";
+}
+
+.icon-password:before {
+  content: "\E93D";
+}
+
+.icon-contact-number:before {
+  content: "\E93E";
+}
+
+.icon-mail-id:before {
+  content: "\E93F";
+}
+
+.icon-calender:before {
+  content: "\E941";
+}
+
+.icon-become-creator:before {
+  content: "\E943";
+}
+
+.icon-playlist:before {
+  content: "\E944";
+}
+
+.icon-edit-learner-profile:before {
+  content: "\E945";
+}
+
+.icon-notification:before {
+  content: "\E946";
+}
+
+.icon-wishlist:before {
+  content: "\E947";
+}
+
+.icon-cart:before {
+  content: "\E948";
+}
+
+.icon-caption:before {
+  content: "\E949";
+}
+
+.icon-collapse-video:before {
+  content: "\E94A";
+}
+
+.icon-expand-video:before {
+  content: "\E94B";
+}
+
+.icon-volume:before {
+  content: "\E94C";
+}
+
+.icon-next-playlist:before {
+  content: "\E94D";
+}
+
+.icon-edit-line:before {
+  content: "\E94F";
+}
+
+.icon-inspire:before {
+  content: "\E950";
+}
+
+.icon-recognition:before {
+  content: "\E951";
+}
+
+.icon-earnings:before {
+  content: "\E952";
+}
+
+.icon-share:before {
+  content: "\E953";
+}
 /* =============== Admin Left Side Navbar CSS ============  */
 html, body{
     font-family:'Roboto', sans-serif !important;
@@ -475,9 +414,19 @@ html, body{
 .pull-left.info a{
   padding:0 !important;
 }
-.sidebar-menu li>a>.fa-angle-left, .sidebar-menu li>a>.pull-right-container>.fa-angle-left{
-  transform:rotate(90deg);
+.sidebar-menu li>a>.fa-angle-left{
+  transform:rotate(-90deg);
   color:#000000;
+}
+
+.sidebar-menu .menu-open>a>.fa-angle-left{
+  transform:rotate(90deg);
+}
+.sidebar-menu li>a>.pull-right-container{
+  transform:rotate(180deg);
+}
+.sidebar-menu li>a>.pull-right-container>.fa-angle-left{
+  transform:rotate(-270deg);
 }
 /* ================ Admin Dashboard Content =================== */
 
@@ -492,7 +441,7 @@ html, body{
     box-shadow:none !important;
 }
 .language .btn-primary:hover {
-    background-color: #F5F4F0;
+    background-color: #FAF9F7;
     color: #999999;;
     box-shadow: none;
 }
@@ -509,7 +458,7 @@ html, body{
 }
 /* == Content small-box bg-colors == */
 .bg-aqua, .bg-orange, .bg-purple, .bg-green, .bg-blue, .bg-yellow, .bg-red{
-    background-color:#F5F4F0 !important;
+    background-color:#FAF9F7 !important;
 }
 .content-header{
   padding:15px 25px !important;
@@ -584,18 +533,18 @@ html, body{
     color: #000;
     display: block;
     z-index: 10;
-    background:#F5F4F0;
+    background:#FAF9F7;
     text-decoration: none;
     text-align:right;
     padding:0 8px 8px;
 }
 .small-box>.small-box-footer:hover {
-    background-color:#F5F4F0;
+    background-color:#FAF9F7;
     color:#000;
 }
 /* == Latest Users Section == */
 .box-header{
-  padding: 25px 10px !important;
+  padding: 25px 10px 0 10px !important;
 }
 .box-body{
   padding:10px !important;
@@ -616,7 +565,7 @@ html, body{
     margin: 0;
 }
 .box-recent__content{
-    background-color:#F5F4F0 !important;
+    background-color:#FAF9F7 !important;
     padding:10px;
     margin-top:50px;
 }
@@ -626,31 +575,47 @@ html, body{
 .box-tools{
     display:none;
 }
-.users-list>li {
+.users-list {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    text-align: left;
+   text-align: left;
 }
-.users-list>li img {
+.users-list img {
     height:32px;
     width:32px;
-   border:1px solid rgba(129,129,129,.1);
+    border:1px solid rgba(129,129,129,.1);
+    border-radius:50%;
+    margin:10px 0;
+}
+.users-list a{
+  outline:0;
+}
+.users-list a:hover{
+  color:#010101;
+}
+.users-list a:focus{
+  color:#010101;
 }
 .users-list-name{
-    margin-left:-80px;
     font-family:var(--body-font);
     font-weight:400;
     color:#010101;
     font-size:14px;
     text-transform: capitalize;
+    margin:10px 0;
+}
+.users-list-desc{
+  font-family: var(--body-font);
+    font-weight: var(--font-normal);
+    font-size: 10px;
+    color: #979797;
+    text-transform: uppercase;
 }
 .users-list-date {
     font-family:var(--body-font);
     font-weight:400;
-    color: #BCBCBC;
+    color: #979797;
     font-size: 12px;
+    margin:10px 0;
 }
 
 /* == Recent Courses Section == */
@@ -675,7 +640,7 @@ html, body{
     font-size:10px !important;
     text-transform: uppercase;
     display: block;
-    color: #BCBCBC;
+    color: #979797;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -684,7 +649,7 @@ html, body{
     font-family:var(--body-font);
     font-weight:400;
     font-size:12px;
-    color:#BCBCBC !important;
+    color:#979797 !important;
 }
 .label-warning{
     background-color:transparent !important;
@@ -746,14 +711,20 @@ div.dt-buttons {
 /* == table head == */
 thead{
     background-color:#303030;
-    color:#fff !important; 
+    color:#ffffff !important; 
+}
+.table-bordered>thead>tr>th{
+  font-weight:300;
+  color:#fff;
+  font-size:14px;
 }
 /* == table head == */
 th.sorting {   
     font-weight: normal;
     font-size: 14px;
-    color:#fff !important;
+    color:#ffffff !important;
     padding:15px 0 !important;
+    opacity:1;
 }
 /* == Sorting Icons after the table head Content == */
 table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting:after{
@@ -762,6 +733,9 @@ table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting:after{
 }
 table.dataTable thead>tr>th.sorting_asc{
   padding-left:25px!important;
+  color:#fff;
+  opacity: 1;
+  font-weight:normal!important;
 }
 /* == Table rows == */
 .table-striped>tbody>tr:nth-of-type(odd) ,
@@ -795,6 +769,7 @@ td .btn-success, td form .btn-danger{
     border:none;
     color:#000000;
     font-size:14px;
+    padding:0;
 }
 td .btn-success:hover, td form .btn-danger:hover{
     background-color:transparent ;
@@ -816,6 +791,16 @@ td .btn-success:focus, td form .btn-danger:focus{
 
 }
 
+/* == Pagination ==  */
+div.dataTables_wrapper div.dataTables_paginate{
+  display:none;
+}
+
+/* === Preview Video ==*/
+.box-body video{
+  outline:0;
+  
+}
 /* ============  COURSES / ADD COURSE PAGE ============ */
 
 /* === Add course content box box-primary === */
@@ -901,7 +886,6 @@ label{
     font-weight:500;
     font-size:16px;
     color:#000000;
-    margin-bottom:0;
 }
 
 .select2-container .select2-selection--single .select2-selection__rendered {
@@ -917,7 +901,7 @@ label{
     right: 10px;
 }
 .select2-container--default .select2-selection--single .select2-selection__arrow b{
-    border-color: #BCBCBC transparent transparent transparent;
+    border-color: #979797 transparent transparent transparent;
     border-style: solid;
     border-width: 8px 7px 0 7px;
     height: 0;
@@ -927,7 +911,7 @@ label{
     width: 0;
 }
 .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
-    border-color: transparent transparent #BCBCBC transparent;
+    border-color: transparent transparent #979797 transparent;
     border-width: 0 7px 8px 7px;
 }
 

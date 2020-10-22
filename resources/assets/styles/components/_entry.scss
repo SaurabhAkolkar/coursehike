@@ -115,6 +115,30 @@
                         bottom: -8px;
                         left: 0px;
                     }
+
+                    &next{
+                        font-size: var(--text-xl);
+                        color: var(--app-indigo-1);
+                        font-weight: var(--font-bold);
+                        letter-spacing: 4px;
+                        position:relative;
+                        transition: all 0.25s ease-in;
+
+                        &:after{
+                            font-family:"icomoon";
+                            content:'\e97a';
+                            position: absolute;
+                            bottom:-35px;
+                            right:65px;
+                            font-size: var(--text-7xl);
+                            font-weight: var(--font-normal);
+                            color: var(--gray9);
+                        }
+                        &:hover{
+                            transform:scale(1.1);
+                            transition: all 0.25s ease-out;
+                        }
+                    }
                 }
             }
 

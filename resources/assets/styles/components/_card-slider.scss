@@ -1,0 +1,48 @@
+#{$ap}- {
+    &mcard{
+        &__{
+            &slider{
+                background: #ffffff;
+                box-shadow: 10px 20px 40px #E4E4E475 !important;
+                -webkit-box-shadow: 0px 0px 40px #E4E4E475 !important;
+                -moz-box-shadow: 0px 0px 40px #E4E4E475 !important;
+                -ms-box-shadow: 0px 0px 40px #E4E4E475 !important;
+                -o-box-shadow: 0px 0px 40px #E4E4E475 !important;
+                border-radius:2px;
+                width: 600px;
+                opacity:1;
+            }
+            &img{
+                width:100px;
+                height:100px;
+            }
+            &name{
+                font-weight:var(--font-bold);
+                color:var(--gray5);
+            }
+            &desc{
+                color:#000000;
+                font-weight:var(--font-normal);
+                opacity:0.73;
+            }
+        }
+    }
+}
+
+
+@media (max-width:991px){
+    #{$ap}- {
+        &mcard{
+            &__{
+                &slider{
+                    width: 320px;
+                }
+                &img{
+                    width:50px;
+                    height:50px;
+                }
+            }
+        }
+    } 
+}
+  

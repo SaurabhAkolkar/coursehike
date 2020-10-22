@@ -20,7 +20,6 @@
                 background: none;
                 border: none;
                 border-bottom: 1px solid #DBDBDB;
-                padding: var(--size-2) 0;
 
                 &::placeholder {
                     font-size: var(--text-xs);
@@ -78,6 +77,17 @@
                             transition: all 0.2s ease;
                         }
                     }
+
+                    &label{
+                        font-weight:var(--font-normal);
+                        color:var(--gray6);
+                        opacity:0.8;
+                    }
+                    &card{
+                        font-weight:var(--font-normal);
+                        color:var(--gray6);
+                        opacity:0.9;
+                    }
                 }
             }
 
@@ -88,8 +98,8 @@
                 background-color: var(--gray2);
 
                 @include respond-above(sm) {
-                    width: 160px;
-                    height: 160px;
+                    width: 170px;
+                    height: 150px;
                 }
 
                 &- {

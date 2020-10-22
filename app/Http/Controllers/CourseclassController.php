@@ -88,8 +88,6 @@ class CourseclassController extends Controller
             $name = 'video_course_'.time().'.'.$file->getClientOriginalExtension();
             $file->move('video/class',$name);
             $courseclass->video = $name;
-            $courseclass->url = null;
-            $courseclass->iframe_url = null;
         }
 
         if($request->checkVideo == "aws_upload")

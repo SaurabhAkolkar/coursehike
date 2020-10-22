@@ -1,7 +1,7 @@
 @extends('learners.layouts.app')
 
 @section('content')
-<section class="la-section">
+<section class="la-section la-cbg--main">
     <div class="la-section__inner">
       <div class="container"><a class="la-icon--lg icon-arrow font-weight-bold my-5 d-block d-md-none" href="#"></a>
         <div class="d-flex justify-content-between">  
@@ -10,8 +10,8 @@
         <!-- Global Search: Start-->
         <div class="la-gsearch">
           <form class="form-inline" action="">
-            <div class="form-group flex-grow-1">
-              <input class="la-gsearch__input w-100 form-control" type="text" placeholder="What you want to learn today?">
+            <div class="form-group ">
+              <input class="la-gsearch__input form-control" style="width:300px; background:transparent" type="text" placeholder="What you want to learn today?">
             </div>
             <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--3xl icon icon-search"></i></button>
           </form>

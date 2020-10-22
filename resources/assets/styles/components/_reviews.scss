@@ -1,0 +1,59 @@
+#{$ap}- {
+    &lcreviews{
+        &__{
+            &item{
+                margin-top:var(--size-10);
+                margin-bottom:var(--size-10);
+            }
+            &prfle{
+                width:75%;
+            }
+            &prfle-img{
+                img{
+                    width:70px;
+                    height:70px;
+                }
+            }
+            &prfle-info{
+                padding-left:var(--size-4);
+                margin-top:var(--size-3);
+            }
+            &timestamp{
+                font-weight:var(--font-normal);
+                color:var(--gray7);
+            }
+            &uname{
+                font-weight:var(--font-bold);
+                color:var(--gray7);
+            }
+            &content{
+                margin-top:var(--size-2);
+                padding-left:var(--size-8);
+            }
+            &comment{
+                color:var(--gray5); 
+                font-weight:var(--font-normal);
+            }
+        }
+    }
+}
+
+@media (max-width:991px){
+    #{$ap}- {
+        &lcreviews{
+            &__{
+                &item{
+                    margin:var(--size-10) var(--size-6);
+                }
+                &prfle{
+                    width:100%;
+                    padding-bottom:var(--size-2);
+                }
+                &content{
+                    margin-top:0;
+                    padding-left:0;
+                }
+            }
+        }
+    }
+}

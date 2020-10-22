@@ -1,0 +1,54 @@
+#{$ap}- {
+    &news{
+        &__{
+            &meet-item{
+                padding-top:var(--size-10);
+                padding-bottom:var(--size-10);
+                margin-right:var(--size-12);
+            }
+            &meet-title{
+                color:var(--gray7);
+                font-weight:var(--font-semibold);  
+            }
+            &meet-timestamp{
+                color:#FFCE31;
+                font-weight:var(--font-normal);
+            }
+            &meet-content{
+                color:var(--gray5);
+                font-weight:var(--font-normal);
+                padding-bottom:var(--size-4);
+            }
+            &meet-banner{
+                img{
+                    width:850px;
+                    height:250px;
+                    border-radius:10px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:991px){
+    #{$ap}- {
+        &news{
+            &__{
+                &meet-item{
+                    margin-right:0 !important;
+                    padding:var(--size-8);
+                }
+                &meet-content{
+                    border-bottom:1px dashed var(--grey8); 
+                }
+                &meet-banner{
+                    img{
+                        max-width:100%;
+                        height:auto;
+                        margin:0 auto;
+                    }
+                }
+            }
+        }
+    }
+}

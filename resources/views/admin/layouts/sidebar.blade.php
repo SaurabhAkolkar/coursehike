@@ -99,7 +99,7 @@
 
                   <li class="{{ Nav::isResource('courselang') }}"><a href="{{url('courselang')}}"><i class="flaticon-translation" aria-hidden="true"></i><span>{{ __('adminstaticword.CourseLanguage') }}</span></a></li>
 
-                  <li class="{{ Nav::isResource('coursereview') }}"><a href="{{url('coursereview')}}"><i class="flaticon-rate" aria-hidden="true"></i><span>{{ __('adminstaticword.CourseReview') }}</span></a></li>
+                  <li class="{{ Nav::isResource('coursereview') }}"><a href="{{url('coursereview')}}"><i class="flaticon-rate" aria-hidden="true"></i><span>{{ __('adminstaticword.Course') }} {{ __('adminstaticword.Request') }}</span></a></li>
                   
                   @if($gsetting->assignment_enable == 1)
                   <li class="{{ Nav::isRoute('assignment.view') }}"><a href="{{route('assignment.view')}}"><i class="flaticon-computer" aria-hidden="true"></i><span>{{ __('adminstaticword.Assignment') }}</span></a></li>
@@ -112,7 +112,7 @@
 
           <li class="{{ Nav::isRoute('all.instructor') }} {{ Nav::isResource('requestinstructor') }} treeview">
            <a href="#">
-             <i class="la-icon icon-users mr-3" aria-hidden="true"></i> <span>{{ __('adminstaticword.Instructor') }}</span>
+             <i class="la-icon icon-users  mr-3" aria-hidden="true"></i> <span>{{ __('adminstaticword.Instructor') }}</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -141,7 +141,7 @@
             </ul>
           </li> 
 
-         <li class="{{ Nav::isRoute('instructor.settings') }} {{ Nav::isRoute('admin.instructor') }} {{ Nav::isRoute('admin.completed') }}  treeview">
+         <!-- <li class="{{ Nav::isRoute('instructor.settings') }} {{ Nav::isRoute('admin.instructor') }} {{ Nav::isRoute('admin.completed') }}  treeview">
            <a href="#">
              <i class="flaticon-payment" aria-hidden="true"></i> <span>{{ __('adminstaticword.InstructorPayout') }}</span>
               <span class="pull-right-container">
@@ -155,7 +155,7 @@
               <li class="{{ Nav::isRoute('admin.completed') }}"><a href="{{route('admin.completed')}}"><i class="flaticon-file"></i>{{ __('adminstaticword.CompletedPayout') }}</a></li>
             
             </ul>
-          </li> 
+          </li>  -->
 
           <!-- <li class="{{ Nav::isResource('user/course/report') }}  treeview">
            <a href="#">

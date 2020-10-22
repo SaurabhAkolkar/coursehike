@@ -6,8 +6,8 @@
       <!-- general form elements -->
         <div class="box-header with-border">
           <h3 class="box-title"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Course') }}</h3>
-        </div>
-        <br>
+        </div> <br/>
+        
         <!-- /.box-header -->
         <div class="box-body">
           <div class="form-group">

@@ -39,6 +39,23 @@
                             }
                         }
                     }
+                    &btm{
+                        transition: all 0.25s ease-in;
+                        &:hover{
+                            transform: scale(1.1);
+                            transition: all 0.25s ease-in;
+                        }
+                    }
+                    &explore{
+                        position:relative;
+                        letter-spacing: 3.2px;
+                        font-size: var(--text-md);
+                    }
+                    &icon{
+                        position: relative;
+                        bottom:-10px;
+                        left:-30px;
+                    }
                 }
             }
         

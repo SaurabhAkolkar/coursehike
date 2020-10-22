@@ -55,7 +55,7 @@
                 </li>
               </ul>
               <div class="la-entry__interest-actions text-center">
-                <div class="la-entry__interest-next mb-2">GET STARTED</div>
+                <div class="la-entry__interest-next mb-2"><a href="">GET STARTED</a></div>
                 <div class="la-entry__interest-skip la-btn__plain text--burple"><a href="">skip</a></div>
               </div>
             </div>

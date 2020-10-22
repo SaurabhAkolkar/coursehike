@@ -2,6 +2,15 @@
         './course', // Course
         './vcourse', // View Course
         './course-benefits', 
+        './course-tabs',
+        './notifications', // Notification Panel
+        './announcements', // Announcements Panel
+        './events', // New Releases
+        './app-releases', //New App Releases
+        './meet-mentors', // New Releases Event Meet Mentors
+        './ratings', // Ratings in Courses Page
+        './reviews', // Reviews in Courses Page
+        './card-slider', // Card Slider in Become Creator
         './choose-plans', // Choose Plan Component
         './dmentors', // Mentors List in Dashboard
         './process', 
@@ -13,8 +22,11 @@
         './mccourse', // Master Class Course
         './form-elements', // Form Elements
         './cart/__cart', // cart
+        './purchase-history', // Purchase History
+        './rented', // Rented in Purchase History Page
         './entry', // Login, register, interest, creator-signup
-        './artist'; // Artist
+        './artist', // Artist
+        './home/__home'; // Trail
 
 #{$ap}- {
 
@@ -47,6 +59,35 @@
                 // Light 20px/30px Roboto;
                 font-size: var(--text-xl);
                 font-weight: var(--font-light);
+            }
+
+            &circle {
+                width: 797px;
+                height: 797px;
+                border: 1px solid var(--app-indigo-1);
+                position: absolute;
+                border-radius: 100%;
+                bottom: -34%;
+                left: -24%;
+
+                &-- {
+                    &right {
+                        bottom: -40% !important;
+                        right: -24% !important;
+                        left: unset;
+                    }
+                }
+            }
+            &cross-line {
+                content: "";
+                width: 791px;
+                height: 100%;
+                border-left: 0.5px solid #FFC516;
+                opacity: 0.5;
+                transform: rotate(-55deg) translate(-140px, 570px);
+                bottom: 0px;
+                right: 0;
+                position: absolute;
             }
         }
 
@@ -82,6 +123,12 @@
             &bestprice {
                 font-size: var(--text-2xl);
                 color: #1EC812;
+
+                &-- {
+                    &black {
+                        color: #262626;
+                    }
+                }
             }
 
             &realprice {
@@ -92,8 +139,15 @@
             }
         }
     }
-
     // SpecialOffer: End
+
+    &color {
+        &-- {
+            &primary {
+                color: var(--green);
+            }
+        }
+    }
 
     // Button: Start
     &btn {
@@ -222,20 +276,43 @@
 
     
 
-    // Box: Start
-    &box {
-        background: var(--white);
-        border: 1px solid #7400D7;
-        box-shadow: 0px 0px 30px #D4D4D47A;
-        border-radius: var(--size-3);
+    // // Box: Start
+    // &-price {
+    //     &__ {
+    //         &box {
+    //             background: var(--white);
+    //             border: 1px solid #7400D7;
+    //             box-shadow: 0px 0px 30px #D4D4D47A;
+    //             border-radius: var(--size-3);
 
-        &__ {
-            &inner {
-                padding: var(--size-16);
-                // padding-right: calc(var(--size-20) + var(--size-12));
-            }
-        }
-    }
+    //             &-{
+    //                 &inner { 
+    //                     padding: var(--size-16);
+    //                 }
+    //             }
+    //         }
 
-    // Box: End
+    //         // &__ {
+    //         //     &inner {
+    //         //         padding: var(--size-16);
+    //         //         // padding-right: calc(var(--size-20) + var(--size-12));
+    //         //     }
+    //         // }
+    //     }
+    // }
+    // // &box {
+    // //     background: var(--white);
+    // //     border: 1px solid #7400D7;
+    // //     box-shadow: 0px 0px 30px #D4D4D47A;
+    // //     border-radius: var(--size-3);
+
+    // //     &__ {
+    // //         &inner {
+    // //             padding: var(--size-16);
+    // //             // padding-right: calc(var(--size-20) + var(--size-12));
+    // //         }
+    // //     }
+    // // }
+
+    // // Box: End
 }

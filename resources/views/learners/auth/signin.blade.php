@@ -19,10 +19,10 @@
           <div class="la-entry__content-wrap d-flex flex-column justify-content-center">
             <div class="la-entry__content-top">
               <form class="la-entry__form" action="">
-                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><img src="./images/icons/mail.svg" alt=""></span>
+                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-mail-id"></span></span>
                             <input class="la-form__input la-entry__input" type="email" value="" name="email-id" placeholder="Email Id">
                           </div>
-                          <div class="la-form__input-wrap la-entry__input-wrap mb-4"><span class="la-entry__input-icon"><img src="./images/icons/password.svg" alt=""></span>
+                          <div class="la-form__input-wrap la-entry__input-wrap mb-4"><span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-password"></span></span>
                             <input class="la-form__input la-entry__input" type="password" value="" name="password" placeholder="Password">
                           </div>
                 <div class="la-btn__plain text--burple text-right mr-5 mb-8"><a href="">Forgot Password ?</a></div>
@@ -31,11 +31,11 @@
             </div>
             <div class="la-entry__content-bottom text-center"><span class="la-entry__bottom-title">Login with</span>
               <ul class="la-entry__social-lnks d-flex align-items-center justify-content-center">
-                <li class="la-entry__social-lnk"> <img src="/images/icons/facebook.svg" alt=""></li>
-                <li class="la-entry__social-lnk"> <img src="/images/icons/linkedin.svg" alt=""></li>
-                <li class="la-entry__social-lnk"> <img src="/images/icons/google.svg" alt=""></li>
+                <li class="la-entry__social-lnk mr-2"> <span class="la-icon la-icon--5xl icon-facebook"></span> </li>
+                <li class="la-entry__social-lnk mr-2"> <span class="la-icon la-icon--5xl icon-facebook"></span> </li>
+                <li class="la-entry__social-lnk mr-2"> <span class="la-icon la-icon--5xl icon-facebook"></span> </li>
               </ul>
-              <div class="la-entry__other-option">Don't have an account? <span class="la-btn__plain text--burple text--md ml-2"><a href="">Register</a></span></div>
+              <div class="la-entry__other-option mt-10">Don't have an account? <span class="la-btn__plain text--burple text--md ml-2"><a href="">Register</a></span></div>
             </div>
           </div>
         </div>

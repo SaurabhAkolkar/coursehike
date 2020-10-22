@@ -36,7 +36,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
 
-    <script src="./js/main.js"></script>
+    <script src="./js/scripts/main.js"></script>
     
 </body>
 </html>

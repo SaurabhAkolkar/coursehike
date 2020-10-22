@@ -38,7 +38,39 @@
                         font-size: var(--text-lg);
                         font-weight: var(--font-bold);
                         font-family: var(--head-font);
+
+                        &:after{
+                            display:none;
+                        }
                     }
+                    &icon{
+                        font-size:var(--text-2xl);
+                        color:var(--gray6);
+                    }
+                }
+            }
+            &dropdown-menu{
+                margin-top:var(--size-5);
+                padding-bottom:0;
+                padding-top:0;
+                box-shadow: 0px 3px 6px #00000029;
+            }
+            &dropdown-item{
+                padding:var(--size-3) var(--size-6);
+                font-weight:var(--font-semibold);
+                font-family:var(--head-font);
+                color:var(--gray5);
+                border-bottom:1px solid var(--gray2);
+
+                &:last-child{
+                    border-bottom:none;
+                }
+                &:active{
+                    background-color:var(--app-indigo-1);
+                }
+                &:hover{
+                    background-color:var(--app-indigo-1);
+                    color:#ffffff;
                 }
             }
         }

@@ -34,6 +34,9 @@
     --icon-3xl: calc(var(--icon-base) * 8);
     --icon-4xl: calc(var(--icon-base) * 10);
     --icon-5xl: calc(var(--icon-base) * 12);
+    --icon-6xl: calc(var(--icon-base) * 14);
+    --icon-7xl: calc(var(--icon-base) * 16);
+    --icon-8xl: calc(var(--icon-base) * 18);
 
     --font-thin: 100;
     --font-light: 300;
@@ -68,7 +71,7 @@
 
     --gray: #F5F4F0;
     --gray2: #E5E4E0;
-    --gray3: #262625;
+    --gray3: #262626;
     --gray4: #909090;
     --gray5: #252525;
     --gray6: #010101;
@@ -187,6 +190,21 @@ a {
                 width: var(--icon-5xl);
                 height: var(--icon-5xl);
                 font-size: var(--icon-5xl);
+            }
+            &6xl {
+                width: var(--icon-6xl);
+                height: var(--icon-6xl);
+                font-size: var(--icon-6xl);
+            }
+            &7xl {
+                width: var(--icon-7xl);
+                height: var(--icon-7xl);
+                font-size: var(--icon-7xl);
+            }
+            &8xl {
+                width: var(--icon-8xl);
+                height: var(--icon-8xl);
+                font-size: var(--icon-8xl);
             }
         }
     }
