@@ -75,6 +75,15 @@ $(function(){
       },
   });
 
+  // Rating 
+  $("#rateYo").rateYo({
+    rating: 3.5,
+    readOnly: true,
+    starWidth: "18px",
+    normalFill: "#D5D5D5",
+    ratedFill: "#FFC516"
+  });
+
 }); 
 
 // Popover Js for Dashboard Page: Start
