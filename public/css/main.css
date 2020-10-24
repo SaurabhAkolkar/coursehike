@@ -17316,7 +17316,7 @@ a, a:hover {
   background: #ffffff;
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 10px 10px 0 0;
-  border: none;
+  border: none !important;
   width: 275px;
   height: 400px;
   padding-top: var(--size-2);
@@ -17354,12 +17354,14 @@ a, a:hover {
   color: #FFCE31;
 }
 .la-notification__clear-all {
+  position: relative;
   width: 275px;
   height: 40px;
   border-radius: 0 0 10px 10px;
   box-shadow: 0px 3px 2px 0px #00000029;
   background-color: #ffffff;
   color: #EE4224;
+  border: none !important;
   font-size: var(--text-sm);
   font-weight: var(--font-bold);
   letter-spacing: 2.8px;
@@ -17409,14 +17411,14 @@ a, a:hover {
   font-weight: var(--font-normal);
   color: var(--gray-6);
 }
-.la-announcement__view-more img {
+.la-announcement__view-more {
   transition: all 0.3s ease-in;
   -webkit-transition: all 0.3s ease-in;
   -moz-transition: all 0.3s ease-in;
   -ms-transition: all 0.3s ease-in;
   -o-transition: all 0.3s ease-in;
 }
-.la-announcement__view-more img:hover {
+.la-announcement__view-more:hover {
   transition: all 0.3s ease-out;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
@@ -17475,7 +17477,7 @@ a, a:hover {
   font-weight: var(--font-normal);
   padding-top: var(--size-2);
   padding-bottom: var(--size-4);
-  border-bottom: 1px dashed var(--grey8);
+  border-bottom: 1px dashed var(--gray8);
 }
 .la-news__content span {
   color: var(--gray5);
@@ -17486,26 +17488,22 @@ a, a:hover {
   color: var(--app-indigo-1);
   font-weight: var(--font-normal);
   display: block;
-  /*&[data-toggle="collapse"]:after {  
-      content: "\2039";
-      float: right;
-      margin-top:-12px;
-      color: var(--grey9);
-      font-size: var(--text-4xl);
-      font-weight:var(--font-bold);
-      line-height: 22px;
-      transform: rotate(90deg);-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-ms-transform: rotate(90deg);-o-transform: rotate(90deg);
-      transition:.4s ease-in-out;-webkit-transition:.4s ease-in-out;-moz-transition:.4s ease-in-out;-ms-transition:.4s ease-in-out;-o-transition:.4s ease-in-out;
-  }
-  &[data-toggle="collapse"].collapsed:after {  
-      color: var(--grey9);
-      transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-ms-transform: rotate(-90deg);-o-transform: rotate(-90deg);
-
-  }  */
+  position: relative;
 }
-.la-news__readmore:hover {
-  color: var(--app-indigo-1);
-  font-size: var(--text-md);
+.la-news__readmore:before {
+  font-family: "icomoon";
+  content: "\E978";
+  position: absolute;
+  top: -15px;
+  right: 25px;
+  color: var(--gray9) !important;
+  font-weight: var(--font-normal);
+  transform: rotate(180deg);
+  transition: all 0.25s ease-in;
+  -webkit-transition: all 0.25s ease-in;
+  -moz-transition: all 0.25s ease-in;
+  -ms-transition: all 0.25s ease-in;
+  -o-transition: all 0.25s ease-in;
 }
 
 @media (max-width: 991px) {
@@ -17540,6 +17538,16 @@ a, a:hover {
     padding: var(--size-4);
   }
 }
+.la-news__readmore.collapsed:before {
+  content: "\E978";
+  transform: rotate(0);
+  transition: all 0.25s ease-in;
+  -webkit-transition: all 0.25s ease-in;
+  -moz-transition: all 0.25s ease-in;
+  -ms-transition: all 0.25s ease-in;
+  -o-transition: all 0.25s ease-in;
+}
+
 .la-news__app-item {
   padding-top: var(--size-10);
   padding-bottom: var(--size-10);
@@ -17779,7 +17787,7 @@ a, a:hover {
   font-weight: var(--font-light);
 }
 .la-choose__discount {
-  font-weight: var(--font-medium);
+  font-weight: var(--font-bold);
   color: var(--gray6);
 }
 .la-choose__oldprice {
@@ -19228,7 +19236,7 @@ section.la-page--bcreator .la-bcreator__banner-btm .la-bcreator__left-text h4 {
 section.la-page--bcreator .la-bcreator__banner-btm .la-bcreator__left-text p {
   font-family: var(--body-font);
   font-weight: var(--font-light);
-  font-size: var(--text-md);
+  font-size: var(--text-sm);
 }
 section.la-page--bcreator .la-mcard__slider-wrap .la-mcard__container {
   width: 100%;
@@ -19558,12 +19566,12 @@ section.la-page--gcreator .la-gc__banner-itm:before {
 section.la-page--gcreator .la-gcbanner__content .la-gcbanner__inner .la-gcbanner__title {
   font-family: var(--head-font);
   font-weight: var(--font-black);
-  font-size: calc(var(--text-4xl) * 2);
+  font-size: calc(var(--text-3xl) * 2);
 }
 section.la-page--gcreator .la-gcbanner__content .la-gcbanner__inner .la-gcbanner__tag {
   font-family: var(--head-font);
   font-weight: var(--font-black);
-  font-size: calc(var(--text-4xl) * 2);
+  font-size: calc(var(--text-3xl) * 2);
 }
 section.la-page--gcreator .la-gcbanner__content .la-gcbanner__inner .la-gcbanner__para {
   font-family: var(--body-font);
@@ -19739,8 +19747,8 @@ section.la-cdashboard .la-cdashboard__inner .la-cbadge .la-cbadge__thumbnail img
 }
 section.la-cdashboard .la-cdashboard__inner .la-cbadge .la-badge__count {
   position: relative;
-  left: -26px;
-  top: -20px;
+  left: -35px;
+  top: -40px;
   width: 23px;
   height: 23px;
   font-family: var(--body-font);
@@ -19904,7 +19912,7 @@ section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__ad-lea
 }
 .popover {
   width: 200px;
-  height: 150px;
+  height: 120px;
   background-color: #fff;
   padding: var(--size-3);
   border: none;
@@ -19913,17 +19921,18 @@ section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__ad-lea
 
 .popover-header {
   background-color: #fff;
+  color: var(--app-indigo-1);
   font-size: 14px;
   border-bottom: none;
   text-align: center;
-  font-weight: var(--font-semibold);
+  font-weight: var(--font-bold);
 }
 
 .popover-body {
   background-color: #fff;
   text-align: center;
   font-size: 13px;
-  padding-top: var(--size-4);
+  padding-top: var(--size-2);
 }
 
 .arrow {
@@ -20006,6 +20015,37 @@ section.la-dash-mentors-list h5 {
   font-weight: var(--font-semibold);
 }
 
+.la-empty__courses {
+  background-color: var(--white);
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 10px;
+  padding: var(--size-10) 0 var(--size-10) var(--size-20);
+  margin: var(--size-8) 0;
+  line-height: 1.6;
+}
+.la-empty__courses .la-empty__inner .la-empty__course-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-medium);
+  color: var(--gray5);
+}
+.la-empty__courses .la-empty__inner .la-empty__course-desc {
+  font-size: var(--text-md);
+  font-weight: var(--font-light);
+  color: var(--gray6);
+}
+.la-empty__courses .la-empty__browse-courses .la-empty__browse {
+  color: var(--app-indigo-1);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  font-weight: var(--font-bold);
+  letter-spacing: 2.8px;
+}
+.la-empty__courses .la-empty__browse-courses .la-empty__browse-icon {
+  position: relative;
+  bottom: -25px;
+  right: 38px;
+}
+
 section.la-cbg--main {
   background: var(--gray);
 }
@@ -20016,11 +20056,6 @@ section.la-contact--page a.la-back__page span {
   left: -50px;
   z-index: var(--z-1);
   cursor: pointer;
-  transform: rotate(180deg);
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
   transition: all 0.2s ease-in;
   -webkit-transition: all 0.2s ease-in;
   -moz-transition: all 0.2s ease-in;
@@ -20028,7 +20063,7 @@ section.la-contact--page a.la-back__page span {
   -o-transition: all 0.2s ease-in;
 }
 section.la-contact--page a.la-back__page span:hover {
-  left: -60px;
+  transform: translateX(-10px);
   transition: all 0.2s ease-out;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
@@ -20069,6 +20104,9 @@ section.la-contact--page .la-contact__lft .la-contact__btm .la-contact__details 
 section.la-contact--page .la-contact__lft .la-contact__btm .la-contact__details span, section.la-contact--page .la-contact__lft .la-contact__btm .la-contact__details a {
   color: var(--gray6);
   font-weight: var(--font-normal);
+}
+section.la-contact--page .la-contact__lft .la-contact__btm .la-contact__smedia a {
+  color: #000000;
 }
 section.la-contact--page .la-contact__rgt .la-contact__form .form-group label {
   color: var(--gray6);
@@ -20187,7 +20225,7 @@ section.la-lp--page .la-lp__choose-main .la-lp__choose-bg {
   background-color: rgba(245, 244, 240, 0.7);
   box-shadow: 0px 0px 20px #C5C5C529;
   padding: var(--size-18) var(--size-12);
-  margin-top: -100px;
+  margin-top: -90px;
 }
 section.la-lp--page .la-lp__rgt-content {
   padding-top: 0;
@@ -20231,7 +20269,7 @@ section.la-lp--include .la-lp__benefits h3 {
   }
 }
 section.la-lp--sub-faq {
-  margin: var(--size-20) var(--size-6);
+  padding: calc(var(--size-20) *2) 0;
 }
 section.la-lp--sub-faq .la-lp__lft-content h4 {
   color: var(--gray5);
@@ -20252,26 +20290,49 @@ section.la-lp--sub-faq .la-lp__rgt-content .la-lp__faq-panel {
   border-radius: 10px;
   padding: var(--size-base);
 }
-section.la-lp--sub-faq .la-lp__rgt-content .la-lp__faq-panel .la-lp__faq-main .la-lp__faq-title {
+section.la-lp--sub-faq .la-lp__rgt-content .la-lp__faq-panel .la-lp__faq-main .la-lp__faq-title a {
   font-weight: var(--font-medium);
   color: rgba(1, 1, 1, 0.5);
 }
-section.la-lp--sub-faq .la-lp__rgt-content .la-lp__faq-panel .la-lp__faq-main .la-lp__faq-title [data-toggle=collapse]:after {
-  content: "^";
-  margin-right: 30px;
+section.la-lp--sub-faq .la-lp__rgt-content .la-lp__faq-panel .la-lp__faq-main .la-lp__faq-title a:after {
+  font-family: "icomoon";
+  content: "\E96D";
+  position: relative;
   float: right;
-  color: var(--app-indigo-1);
-  font-size: var(--text-2xl);
-  line-height: 20px;
-  transition: 0.4s ease-in-out;
-  -webkit-transition: 0.4s ease-in-out;
-  -moz-transition: 0.4s ease-in-out;
-  -ms-transition: 0.4s ease-in-out;
-  -o-transition: 0.4s ease-in-out;
-}
-section.la-lp--sub-faq .la-lp__rgt-content .la-lp__faq-panel .la-lp__faq-main .la-lp__faq-title [data-toggle=collapse].collapsed:after {
-  color: var(--app-indigo-1);
+  color: var(--app-indigo-1) !important;
+  font-weight: var(--font-semibold);
+  font-size: var(--text-md);
   transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transition: all 0.25s ease-in;
+  -webkit-transition: all 0.25s ease-in;
+  -moz-transition: all 0.25s ease-in;
+  -ms-transition: all 0.25s ease-in;
+  -o-transition: all 0.25s ease-in;
+}
+section.la-lp--sub-faq .la-lp__rgt-content .la-lp__faq-panel .la-lp__faq-main .main-toggle.collapsed:after {
+  content: "\E96D";
+  transform: rotate(0);
+  -webkit-transform: rotate(0);
+  -moz-transform: rotate(0);
+  -ms-transform: rotate(0);
+  -o-transform: rotate(0);
+  transition: all 0.25s ease-in;
+  -webkit-transition: all 0.25s ease-in;
+  -moz-transition: all 0.25s ease-in;
+  -ms-transition: all 0.25s ease-in;
+  -o-transition: all 0.25s ease-in;
+}
+section.la-lp--sub-faq .la-lp__rgt-content .la-lp__faq-panel .la-lp__faq-main .main-toggle.collapsed {
+  color: rgba(0, 0, 0, 0.7);
+}
+section.la-lp--sub-faq .la-lp__rgt-content .la-lp__faq-panel .la-lp__faq-main .main-toggle:not(.collapsed) {
+  color: var(--app-indigo-1);
+  font-size: var(--text-lg);
+  font-weight: var(--font-normal);
 }
 section.la-lp--sub-faq .la-lp__rgt-content .la-lp__sub-group {
   height: 300px;
@@ -20283,32 +20344,44 @@ section.la-lp--sub-faq .la-lp__rgt-content .la-lp__sub-group .la-lp__faq-tag a {
   font-weight: var(--font-light);
   color: rgba(1, 1, 1, 0.6);
 }
-section.la-lp--sub-faq .la-lp__rgt-content .la-lp__sub-group .la-lp__faq-tag a[aria-expanded=true] {
-  font-family: var(--body-font);
-  color: var(--app-indigo-1);
-  opacity: 1;
-}
-section.la-lp--sub-faq .la-lp__rgt-content .la-lp__sub-group [data-toggle=collapse]:after {
-  content: "^";
-  margin-right: 20px;
+section.la-lp--sub-faq .la-lp__rgt-content .la-lp__sub-group .la-lp__faq-tag a:after {
+  font-family: "icomoon";
+  content: "\E96D";
+  position: relative;
   float: right;
-  /* color: var(--app-indigo-1); */
-  font-size: var(--text-2xl);
-  font-weight: var(--font-medium);
-  line-height: 20px;
-  transition: 0.4s ease-in-out;
-  -webkit-transition: 0.4s ease-in-out;
-  -moz-transition: 0.4s ease-in-out;
-  -ms-transition: 0.4s ease-in-out;
-  -o-transition: 0.4s ease-in-out;
-}
-section.la-lp--sub-faq .la-lp__rgt-content .la-lp__sub-group [data-toggle=collapse].collapsed:after {
-  /* color: var(--app-indigo-1); */
+  color: var(--app-indigo-1) !important;
+  font-weight: var(--font-semibold);
+  font-size: var(--text-md);
   transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   -o-transform: rotate(180deg);
+  transition: all 0.25s ease-in;
+  -webkit-transition: all 0.25s ease-in;
+  -moz-transition: all 0.25s ease-in;
+  -ms-transition: all 0.25s ease-in;
+  -o-transition: all 0.25s ease-in;
+}
+section.la-lp--sub-faq .la-lp__rgt-content .la-lp__sub-group .accordion-toggle.collapsed:after {
+  content: "\E96D";
+  transform: rotate(0);
+  -webkit-transform: rotate(0);
+  -moz-transform: rotate(0);
+  -ms-transform: rotate(0);
+  -o-transform: rotate(0);
+  transition: all 0.25s ease-in;
+  -webkit-transition: all 0.25s ease-in;
+  -moz-transition: all 0.25s ease-in;
+  -ms-transition: all 0.25s ease-in;
+  -o-transition: all 0.25s ease-in;
+}
+section.la-lp--sub-faq .la-lp__rgt-content .la-lp__sub-group .accordion-toggle.collapsed {
+  color: rgba(0, 0, 0, 0.7);
+}
+section.la-lp--sub-faq .la-lp__rgt-content .la-lp__sub-group .accordion-toggle:not(.collapsed) {
+  color: var(--app-indigo-1);
+  font-weight: var(--font-normal);
 }
 section.la-lp--sub-faq .la-lp__rgt-content .la-lp__sub-group .panel-text {
   font-family: var(--body-font);
@@ -20331,13 +20404,6 @@ section.la-lp--sub-faq .la-lp__rgt-content .faq-see-all a:hover {
   section.la-lp--sub-faq {
     margin: 0 !important;
     padding: var(--size-14) var(--size-4);
-  }
-  section.la-lp--sub-faq .la-lp__rgt-content .la-lp__faq-panel .la-lp__faq-main .la-lp__faq-title [data-toggle=collapse]:after {
-    margin-right: 5px;
-  }
-  section.la-lp--sub-faq .la-lp__faq-sub [data-toggle=collapse]:after {
-    margin-right: 5px !important;
-    margin-top: -5px;
   }
 }
 section.la-lp--testimonials {
@@ -20383,6 +20449,10 @@ section.la-lp--testimonials .la-lp__test-rgt .la-lp__test-cards .la-lp__card-itm
   -moz-transition: all 0.2s ease-out;
   -ms-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
+}
+section.la-lp--testimonials .la-lp__test-rgt .la-lp__test-cards .la-lp__card-itm .la-lp__profile img {
+  width: 50px;
+  height: 50px;
 }
 section.la-lp--testimonials .la-lp__test-rgt .la-lp__test-cards .la-lp__card-itm .la-lp__profile .la-lp__name {
   font-weight: var(--font-semibold);
@@ -20439,36 +20509,24 @@ section.la-lp--testimonials .la-lp__test-rgt .la-lp__test-cards ul.la-lp__card-l
 section.la-new--releases {
   padding: var(--size-14) var(--size-base);
 }
-section.la-new--releases .la-new__back:before {
-  content: "\2190";
-  position: absolute;
-  display: block;
-  top: -2%;
-  left: -2%;
-  color: var(--grey9);
-  cursor: pointer;
-  transition: all 0.3s ease-in;
-  -webkit-transition: all 0.3s ease-in;
-  -moz-transition: all 0.3s ease-in;
-  -ms-transition: all 0.3s ease-in;
-  -o-transition: all 0.3s ease-in;
+section.la-new--releases .la-new__back {
+  position: relative;
+  top: 45px;
+  left: -60px;
+  transition: all 0.25s ease-in;
 }
-section.la-new--releases .la-new__back:hover:before {
-  left: -3%;
-  transition: all 0.3s ease-out;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
+section.la-new--releases .la-new__back:hover {
+  transform: translateX(-10px);
+  transition: all 0.25s ease-in;
+}
+section.la-new--releases .la-announcement__main-title h1 {
+  padding-bottom: var(--size-4);
+  color: var(--gray5);
+  font-weight: var(--font-semibold);
 }
 section.la-new--releases .la-new__announcements {
   margin-right: calc(var(--size-20)*3);
   border-bottom: 2px solid rgba(112, 112, 112, 0.23);
-}
-section.la-new--releases .la-new__announcements h1 {
-  padding-bottom: var(--size-4);
-  color: var(--gray5);
-  font-weight: var(--font-semibold);
 }
 section.la-new--releases .la-new__meet-events {
   margin-right: calc(var(--size-20)*3);

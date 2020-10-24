@@ -29,7 +29,7 @@
                 font-weight:var(--font-normal);
                 padding-top:var(--size-2);
                 padding-bottom:var(--size-4);
-                border-bottom:1px dashed var(--grey8); 
+                border-bottom:1px dashed var(--gray8); 
                 span{
                     color:var(--gray5);
                     font-weight:var(--font-normal);
@@ -40,30 +40,20 @@
                 color:var(--app-indigo-1);
                 font-weight:var(--font-normal);
                 display:block;
-               
-                &:hover{
-                    color:var(--app-indigo-1);
-                    font-size:var(--text-md);
+                position: relative;
+                &:before{
+                    font-family: 'icomoon';
+                    content: "\e978";
+                    position:absolute;
+                    top:-15px;
+                    right:25px;
+                    color: var(--gray9) !important;
+                    font-weight: var(--font-normal);
+                    transform:rotate(180deg);
+                    transition: all 0.25s ease-in;-webkit-transition: all 0.25s ease-in;-moz-transition: all 0.25s ease-in;-ms-transition: all 0.25s ease-in;-o-transition: all 0.25s ease-in;
                 }
-               
-                /*&[data-toggle="collapse"]:after {  
-                    content: "\2039";
-                    float: right;
-                    margin-top:-12px;
-                    color: var(--grey9);
-                    font-size: var(--text-4xl);
-                    font-weight:var(--font-bold);
-                    line-height: 22px;
-                    transform: rotate(90deg);-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-ms-transform: rotate(90deg);-o-transform: rotate(90deg);
-                    transition:.4s ease-in-out;-webkit-transition:.4s ease-in-out;-moz-transition:.4s ease-in-out;-ms-transition:.4s ease-in-out;-o-transition:.4s ease-in-out;
-                }
-                &[data-toggle="collapse"].collapsed:after {  
-                    color: var(--grey9);
-                    transform: rotate(-90deg);-webkit-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-ms-transform: rotate(-90deg);-o-transform: rotate(-90deg);
-            
-                }  */             
-            }
-            
+                  
+            }           
         }
     }
 
@@ -125,4 +115,10 @@
             }
         }
     } 
+}
+
+.la-news__readmore.collapsed:before{
+    content: "\e978"; 
+    transform:rotate(0);
+    transition: all 0.25s ease-in;-webkit-transition: all 0.25s ease-in;-moz-transition: all 0.25s ease-in;-ms-transition: all 0.25s ease-in;-o-transition: all 0.25s ease-in;
 }

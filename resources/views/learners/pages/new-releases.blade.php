@@ -8,8 +8,8 @@
       <div class="container la-new__events p-0">
         <div class="row">
           <div class="col-12">
-            <div class="la-new__announcements">
-                <a class="la-new__back text-4xl font-normal" href="#"></a>
+            <div class="la-announcement__main-title">
+                <a class="la-new__back la-icon la-icon--4xl icon-back-arrow" href="#"></a>
                 <h1 class="head-font text-2xl text-sm-4xl">New Releases</h1>
             </div>
           </div>
@@ -22,8 +22,7 @@
                     $update1->title = "Four new badges for learners!";
                     $update1->timestamp = "Just now";
                     $update1->desc = "Lorem Ipsum dolor sit amet, consectur sadispicing elitr,";
-                    $update1->collapseId = 1;
-
+        
                     $updates = array($update1);
                 @endphp          
                 
@@ -33,9 +32,9 @@
                         :title="$update->title"
                         :timestamp="$update->timestamp"
                         :desc="$update->desc"
-                        :collapseId="$update->collapseId"
                     />
                 @endforeach
+          
             </div>
           </div>
 
@@ -47,8 +46,7 @@
                   $app1->title = "New app released for better learning";
                   $app1->timestamp = "2h ago";
                   $app1->desc = "Lorem Ipsum dolor sit amet, consectur sadispicing elitr, sed diam nounumy eirmod tempor";
-                  $app1->appCollapseId = 2;
-
+                
                   $apps = array($app1);
                 @endphp          
             
@@ -57,7 +55,6 @@
                         :title="$app->title"
                         :timestamp="$app->timestamp"
                         :desc="$app->desc"
-                        :appCollapseId="$app->appCollapseId"
                     />
                 @endforeach                 
             </div>
@@ -73,8 +70,7 @@
                     $event1->about = "Lorem Ipsum dolor sit amet, conseturur sadispicing elitr, sed diam nounmy erimod tempor";
                     $event1->img = "https://picsum.photos/850/250";
                     $event1->desc = "Lorem Ipsum dolor sit amet, conseturur sadispicing elitr, sed diam nounmy erimod tempor";
-                    $event1->eventCollapseId = 3;
-
+    
                     $events = array($event1);
                  @endphp                   
 
@@ -85,7 +81,6 @@
                       :about="$event->about"
                       :img="$event->img"
                       :desc="$event->desc"
-                      :eventCollapseId="$event->eventCollapseId"
                     />
                  @endforeach
             </div>

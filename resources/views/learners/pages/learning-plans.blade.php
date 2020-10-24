@@ -8,10 +8,10 @@
       <div class="container">
         <div class="row"><a class="la-icon--lg icon-arrow font-weight-bold d-block d-lg-none py-5 px-3" href="#"></a>
           <!-- Column: Start-->
-          <div class="col-12 col-lg-4 py-5 my-5">
-            <div class="la-lp__title"><span class="text-2xl text-sm-xl">The right plans</span>
-              <h2 class="text-4xl">for all your interests.</h2>
-              <p class="text-lg text-sm-sm">Whether you want to dabble with new art forms or hone your skills, we have got you covered!</p>
+          <div class="col-12 col-lg-6 my-sm-12 ">
+            <div class="la-lp__title"><span class="text-xl text-sm-3xl">The right plans</span>
+              <h2 class="text-6xl">for all your interests.</h2>
+              <p class="text-lg text-sm-xl">Whether you want to dabble with new art forms or hone your skills, we have got you covered!</p>
             </div>
           </div>
           <!-- Column: End-->
@@ -79,37 +79,36 @@
     </section>
     <!-- Section: End-->
     <!-- Course Benefits Section: Start-->
-    @php
-        $cb1 = new stdClass;
-        $cb1->img = "./images/learners/course-benefits/video.svg";
-        $cb1->title = "Unlimited Learning";
-        $cb1->desc = "One Plan - All subscribed content";
-
-        $cb2 = new stdClass;
-        $cb2->img = "./images/learners/course-benefits/certificate.svg";
-        $cb2->title = "Certification";
-        $cb2->desc = "Course completion certificate";
-
-        $cb3 = new stdClass;
-        $cb3->img = "./images/learners/course-benefits/online-course.svg";
-        $cb3->title = "Assignments & Quiz";
-        $cb3->desc = "Test your Progress";
-
-        $cbs = array($cb1, $cb2, $cb3);
-    @endphp
-
     <section class="la-lp--include">
       <div class="container">
         <div class="row">
           <div class="col">
             <div class="la-lp__benefits">
-              <h3 class="mb-7 head-font text-2xl">All plans include</h3>
+              <h3 class="mb-7 head-font text-2xl text-sm-4xl">All plans include</h3>
               <div class="la-cbenefits d-flex my-8">
                 <div class="row">
 
-                  @foreach ($cbs as $cb)
-                      <x-coursebenefit :img="$cb->img" :title="$cb->title" :desc="$cb->desc" />
-                  @endforeach
+                  <div class="col">
+                    <div class="la-cbenefits__item bg-white d-flex flex-column align-items-center">
+                      <div class="mb-7"><img class="img-fluid" src="./images/learners/course-benefits/video.svg"></div>
+                      <h4 class="la-cbenefits__item-title mb-3">Unlimited Learning</h4>
+                      <p class="la-cbenefits__item-desc m-0">One plan - All subscribed content</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="la-cbenefits__item bg-white d-flex flex-column align-items-center">
+                      <div class="mb-7"><img class="img-fluid" src="./images/learners/course-benefits/certificate.svg"></div>
+                      <h4 class="la-cbenefits__item-title mb-3">Certification</h4>
+                      <p class="la-cbenefits__item-desc m-0">Course completion certificate</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="la-cbenefits__item  bg-white d-flex flex-column align-items-center">
+                      <div class="mb-7"><img class="img-fluid" src="./images/learners/course-benefits/online-course.svg"></div>
+                      <h4 class="la-cbenefits__item-title mb-3">Assignments &amp; QUiz</h4>
+                      <p class="la-cbenefits__item-desc m-0">Test your progress</p>
+                    </div>
+                  </div>
                                  
                 </div>
               </div>
@@ -143,7 +142,7 @@
           <!-- Column: Start-->
           <div class="col-12 col-lg-5">
             <div class="la-lp__lft-content">
-              <h4 class="text-3xl head-font mb-3">How does <br>subscription works?</h4>
+              <h4 class=" text-2xl text-sm-5xl head-font mb-3">How does <br>subscription works?</h4>
               <p class="text-md">
                 Through our Radical team, we strive everyday to make knowledge Affordable, Accessible for all the individuals
                 who have limited or no access to the Real knowledge.
@@ -155,13 +154,13 @@
           <!-- Column: End-->
           <!-- Column: Start-->
           <div class="col-12 col-lg-6">
-            <div class="la-lp__rgt-content">
-              <h4 class="faq-title">FAQ's</h4>
+            <div class="la-lp__rgt-content" id="accordion">
+              <h4 class="faq-title  text-2xl text-sm-4xl">FAQ's</h4>
               <div class="panel-group la-lp__faq-group" id="accFreeMain">
                 <!-- Free Trial: Start-->
                 <div class="panel panel-default la-lp__faq-panel mt-2">
-                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqFree"><span class="panel-title la-lp__faq-title text-md mx-5"><a class="accordion-toggle collapsed" href="#faqFT" data-toggle="collapse" aria-expanded="true">FREE TRIAL</a></span></div>
-                  <div class="panel-collapse collapse" id="faqFT" aria-labelledby="faqFree" data-parent="#accFreeMain">
+                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqFree"><span class="panel-title la-lp__faq-title text-md mx-5"><a class="main-toggle collapsed" href="#faqFT" data-toggle="collapse" aria-expanded="true">FREE TRIAL</a></span></div>
+                  <div class="panel-collapse collapse" id="faqFT" aria-labelledby="faqFree" data-parent="#accordion">
                     <div class="panel-group la-lp__sub-group my-2 mx-2 mx-sm-5" id="accFree">
                       <div class="panel panel-default la-lp__faq-panel mt-2">
                         <div class="panel-heading la-lp__faq-sub py-2" id="faqF"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqFa" data-toggle="collapse" aria-expanded="true">How much it cost?</a></span>
@@ -180,8 +179,8 @@
               <div class="panel-group la-lp__faq-group" id="accSubMain">
                 <!-- Subscription: Start-->
                 <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
-                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSub"><span class="panel-title la-lp__faq-title mx-5"><a class="accordion-toggle collapsed" href="#faqSubs" data-toggle="collapse" aria-expanded="true">SUBSCRIPTION</a></span></div>
-                  <div class="panel-collapse collapse show" id="faqSubs" aria-labelledby="faqSub" data-parent="#accSubMain">
+                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSub"><span class="panel-title la-lp__faq-title mx-5"><a class="main-toggle collapsed" href="#faqSubs" data-toggle="collapse" aria-expanded="true">SUBSCRIPTION</a></span></div>
+                  <div class="panel-collapse collapse show" id="faqSubs" aria-labelledby="faqSub" data-parent="#accordion">
                     <div class="panel-group la-lp__sub-group mx-2 mx-sm-5" id="accSub"> 
                       <div class="panel panel-default la-lp__faq-panel mt-2">
                         <div class="panel-heading la-lp__faq-sub py-2" id="faqS1"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqSa" data-toggle="collapse" aria-expanded="true">Lorem Ipsum dolor sit amet, consectur adispicing elit?</a></span>
@@ -203,7 +202,7 @@
                       </div>
                       <div class="panel panel-default la-lp__faq-panel mt-2">
                         <div class="panel-heading la-lp__faq-sub py-2" id="faqS3"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqSc" data-toggle="collapse" aria-expanded="true">Lorem Ipsum dolor sit amet, consectur </a></span>
-                          <div class="panel-collapse collapse show" id="faqSc" aria-labelledby="faqS3" data-parent="#accSub">
+                          <div class="panel-collapse collapse" id="faqSc" aria-labelledby="faqS3" data-parent="#accSub">
                             <div class="panel-body py-4 px-5">
                               <div class="panel-text">Ut enim ad minim veniam, quis nosted excretion uliamo.</div>
                             </div>
@@ -245,8 +244,8 @@
               <div class="panel-group la-lp__faq-group" id="accSPMain">
                 <!-- Single Purchase: Start-->
                 <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
-                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSP"><span class="panel-title la-lp__faq-title mx-5"><a class="accordion-toggle collapsed" href="#faqSing" data-toggle="collapse" aria-expanded="true">SINGLE PURCHASE</a></span></div>
-                  <div class="panel-collapse collapse" id="faqSing" aria-labelledby="faqSP" data-parent="#accSPMain">
+                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSP"><span class="panel-title la-lp__faq-title mx-5"><a class="main-toggle collapsed" href="#faqSing" data-toggle="collapse" aria-expanded="true">SINGLE PURCHASE</a></span></div>
+                  <div class="panel-collapse collapse" id="faqSing" aria-labelledby="faqSP"  data-parent="#accordion">
                     <div class="panel-group la-lp__sub-group mx-2 mx-sm-5" id="accSP"> 
                       <div class="panel panel-default la-lp__faq-panel mt-2">
                         <div class="panel-heading la-lp__faq-sub py-2" id="faqSP1"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqSPa" data-toggle="collapse" aria-expanded="true">How much it cost?</a></span>
@@ -265,8 +264,8 @@
               <div class="panel-group la-lp__faq-group" id="accPPMain">
                 <!-- Premium Purchase: Start-->
                 <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
-                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqPP"><span class="panel-title la-lp__faq-title mx-5"><a class="accordion-toggle collapsed" href="#faqPre" data-toggle="collapse" aria-expanded="true">PREMIUM PURCHASE</a></span></div>
-                  <div class="panel-collapse collapse" id="faqPre" aria-labelledby="faqPP" data-parent="#accPPMain">
+                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqPP"><span class="panel-title la-lp__faq-title mx-5"><a class="main-toggle collapsed" href="#faqPre" data-toggle="collapse" aria-expanded="true">PREMIUM PURCHASE</a></span></div>
+                  <div class="panel-collapse collapse" id="faqPre" aria-labelledby="faqPP"  data-parent="#accordion">
                     <div class="panel-group la-lp__sub-group mx-2 mx-sm-5" id="accPP"> 
                       <div class="panel panel-default la-lp__faq-panel mt-2">
                         <div class="panel-heading la-lp__faq-sub py-2" id="faqPP1"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqPPa" data-toggle="collapse" aria-expanded="true">How much it cost?</a></span>
@@ -297,7 +296,7 @@
           <!-- Column: Start-->
           <div class="col-12 col-lg-4">
             <div class="la-lp__test-lft">
-              <h4 class="text-3xl head-font mb-3">What people say<br>about us?</h4>
+              <h4 class=" text-2xl text-sm-5xl head-font mb-3">What people say<br>about us?</h4>
               <p class="text-md body-font pr-5"> LILA has happy clients all over the world. And we're proud to share some of those experiences!</p>
             </div>
           </div>
@@ -308,7 +307,7 @@
               <div class="la-lp__test-cards d-flex justify-content-end">
                 <div class="card la-lp__card-itm" id="testCard1">
                   <div class="la-card__top d-flex justify-content-between">
-                    <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle border" src="./images/learners/logo.svg">
+                    <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle" src="https://picsum.photos/50/50" alt="Profile">
                       <div class="col">
                         <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">Nathan Spark</h5><span class="la-lp__desg text-sm">Tattoo Artist</span>
                       </div>
@@ -331,7 +330,7 @@
               <div class="la-lp__test-cards d-flex justify-content-between">
                 <div class="card la-lp__card-itm" id="testCard2">
                   <div class="la-card__top d-flex justify-content-between">
-                    <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle border" src="./images/learners/logo.svg">
+                    <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle" src="https://picsum.photos/50/50" alt="Profile">
                       <div class="col">
                         <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">Charolette</h5><span class="la-lp__desg text-sm">UI Designer</span>
                       </div>
@@ -360,7 +359,7 @@
               <div class="la-lp__test-cards d-flex justify-content-end">
                 <div class="card la-lp__card-itm" id="testCard3">
                   <div class="la-card__top d-flex justify-content-between">
-                    <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle border" src="./images/learners/logo.svg">
+                    <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle" src="https://picsum.photos/50/50" alt="Profile">
                       <div class="col">
                         <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">Natalia</h5><span class="la-lp__desg text-sm">Photographer</span>
                       </div>

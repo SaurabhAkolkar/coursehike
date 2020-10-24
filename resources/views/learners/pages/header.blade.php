@@ -52,7 +52,7 @@
           @endphp
 
           <div class="la-header__menu-item dropdown"><a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-notification" id="notificationPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
-            <div class="dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="notificationPanel" style="border:none;">
+            <div class="dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="notificationPanel" style="border:none !important;">
               <div class="card la-notification__card">
                   <!-- Notification Panel: Start -->
                   @foreach ($msgs as $msg)
@@ -112,7 +112,7 @@
                 <div class="la-announcement__name d-flex justify-content-between">
                   <h6 class="text-xl body-font">New Releases</h6>
                   <a class="la-announcement__view-more" href="/releases">
-                    <img class="img-fluid" src="./images/learners/icons/long-arrow.svg" alt="view more">
+                    <span class="la-announcement__view-icon la-icon la-icon--6xl icon-grey-arrow mt-n3"></span>
                   </a>
                 </div>
                     <!-- Announcements Panel: Start -->

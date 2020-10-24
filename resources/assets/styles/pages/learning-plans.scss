@@ -20,7 +20,7 @@ section.la-lp--page{
             background-color:rgba(245,244,240, 0.7);
             box-shadow: 0px 0px 20px #C5C5C529;
             padding:var(--size-18) var(--size-12);
-            margin-top:-100px;
+            margin-top:-90px;
         }
     }
     .la-lp__rgt-content{
@@ -84,7 +84,7 @@ section.la-lp--include{
 
 // Section FAQ Start
 section.la-lp--sub-faq{
-    margin: var(--size-20) var(--size-6);
+    padding: calc(var(--size-20) *2) 0;
     
     .la-lp__lft-content{
         h4{
@@ -109,35 +109,34 @@ section.la-lp--sub-faq{
             border-radius: 10px;
             padding:var(--size-base);
             .la-lp__faq-main{
-                .la-lp__faq-title{
+                .la-lp__faq-title a{
                     font-weight:var(--font-medium);
                     color:rgba(1,1,1,0.5);
                                    
-                    [data-toggle="collapse"] {
-                        &:after {
-                            content: "\005E";
-                            margin-right:30px;
-                            float: right;
-                            color: var(--app-indigo-1);
-                            font-size: var(--text-2xl);
-                            line-height: 20px;
-                            transition:.4s ease-in-out;
-                            -webkit-transition:.4s ease-in-out;
-                            -moz-transition:.4s ease-in-out;
-                            -ms-transition:.4s ease-in-out;
-                            -o-transition:.4s ease-in-out;
-                        }
+                    &:after{
+                        font-family: 'icomoon';
+                        content: "\e96d";
+                        position:relative;
+                        float:right;
+                        color: var(--app-indigo-1) !important;
+                        font-weight: var(--font-semibold);
+                        font-size: var(--text-md);
+                        transform: rotate(180deg);-webkit-transform: rotate(180deg);-moz-transform: rotate(180deg);-ms-transform: rotate(180deg);-o-transform: rotate(180deg);
+                        transition: all 0.25s ease-in;-webkit-transition: all 0.25s ease-in;-moz-transition: all 0.25s ease-in;-ms-transition: all 0.25s ease-in;-o-transition: all 0.25s ease-in;
                     }
-                    [data-toggle="collapse"].collapsed {
-                        &:after {
-                            color: var(--app-indigo-1);
-                            -webkit-transform: rotate(180deg);
-                            -moz-transform: rotate(180deg);
-                            -ms-transform: rotate(180deg);
-                            -o-transform: rotate(180deg);
-                            transform: rotate(180deg);                            
-                        }
-                    }
+                }
+                .main-toggle.collapsed:after{
+                    content: "\e96d"; 
+                    transform: rotate(0);-webkit-transform: rotate(0);-moz-transform: rotate(0);-ms-transform: rotate(0);-o-transform: rotate(0);
+                    transition: all 0.25s ease-in;-webkit-transition: all 0.25s ease-in;-moz-transition: all 0.25s ease-in;-ms-transition: all 0.25s ease-in;-o-transition: all 0.25s ease-in;
+                }
+                .main-toggle.collapsed {
+                    color:rgba(0,0,0,0.7);
+                }
+                .main-toggle:not(.collapsed) {
+                    color: var(--app-indigo-1);
+                    font-size: var(--text-lg);
+                    font-weight:var(--font-normal);
                 }
             }
         }
@@ -151,29 +150,30 @@ section.la-lp--sub-faq{
             .la-lp__faq-tag a{
                 font-weight:var(--font-light);
                 color:rgba(1,1,1,0.6);
-            }
-            .la-lp__faq-tag a[aria-expanded=true]{
-                font-family: var(--body-font);
-                color:var(--app-indigo-1);
-                opacity:1;
-            }
-            [data-toggle="collapse"] {
-                &:after {
-                    content: "\005E";
-                    margin-right:20px;
-                    float: right;
-                    /* color: var(--app-indigo-1); */
-                    font-size: var(--text-2xl);
-                    font-weight:var(--font-medium);
-                    line-height: 20px;
-                    transition:.4s ease-in-out;-webkit-transition:.4s ease-in-out;-moz-transition:.4s ease-in-out;-ms-transition:.4s ease-in-out;-o-transition:.4s ease-in-out;
+
+                &:after{
+                    font-family: 'icomoon';
+                    content: "\e96d";
+                    position:relative;
+                    float:right;
+                    color: var(--app-indigo-1) !important;
+                    font-weight: var(--font-semibold);
+                    font-size: var(--text-md);
+                    transform: rotate(180deg);-webkit-transform: rotate(180deg);-moz-transform: rotate(180deg);-ms-transform: rotate(180deg);-o-transform: rotate(180deg);
+                    transition: all 0.25s ease-in;-webkit-transition: all 0.25s ease-in;-moz-transition: all 0.25s ease-in;-ms-transition: all 0.25s ease-in;-o-transition: all 0.25s ease-in;
                 }
             }
-            [data-toggle="collapse"].collapsed {
-                &:after {
-                    /* color: var(--app-indigo-1); */
-                    transform: rotate(180deg);-webkit-transform: rotate(180deg);-moz-transform: rotate(180deg);-ms-transform: rotate(180deg);-o-transform: rotate(180deg);                                   
-                    }
+            .accordion-toggle.collapsed:after{
+                content: "\e96d"; 
+                transform: rotate(0);-webkit-transform: rotate(0);-moz-transform: rotate(0);-ms-transform: rotate(0);-o-transform: rotate(0);
+                transition: all 0.25s ease-in;-webkit-transition: all 0.25s ease-in;-moz-transition: all 0.25s ease-in;-ms-transition: all 0.25s ease-in;-o-transition: all 0.25s ease-in;
+            }
+            .accordion-toggle.collapsed {
+                color:rgba(0,0,0,0.7);
+            }
+            .accordion-toggle:not(.collapsed) {
+                color: var(--app-indigo-1);
+                font-weight:var(--font-normal);
             }
             .panel-text{
                 font-family: var(--body-font);
@@ -206,21 +206,8 @@ section.la-lp--sub-faq{
             .la-lp__faq-panel{
                 .la-lp__faq-main{
                     .la-lp__faq-title{                                       
-                        [data-toggle="collapse"] {
-                            &:after {
-                                margin-right:5px;
-                            }
-                        }
+                    
                     }
-                }
-            }
-        }
-
-        .la-lp__faq-sub{
-            [data-toggle="collapse"] {
-                &:after {
-                    margin-right:5px !important;
-                    margin-top:-5px;
                 }
             }
         }
@@ -264,6 +251,10 @@ section.la-lp--testimonials{
                 }
 
                 .la-lp__profile{
+                    img{
+                        width:50px;
+                        height:50px;
+                    }
                     .la-lp__name{
                         font-weight:var(--font-semibold);
                         color:var(--gray7);

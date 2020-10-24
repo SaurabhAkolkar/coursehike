@@ -125,7 +125,7 @@
                     </div>
                   </div>
                   <div class="la-hero__actions d-flex align-items-center justify-content-end">
-                    <button type="submit" class="btn la-btn la-btn--secondary py-3 px-14 text--black" type="button" href="">Save</button>
+                    <button type="submit" class="w-25 la-btn__app py-3  text--black" type="button" href="">Save</button>
                   </div>
                 </form>
               </div>

@@ -50,6 +50,19 @@
               @endforeach
                     
             </div><a class="la-mycourses__more" id="viewOngoing">See all</a>
+
+            <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
+              <div class="la-empty__inner">
+                  <h6 class="la-empty__course-title pb-2">No Courses</h6>
+                  <p class="la-empty__course-desc m-0">You currently don't have any ongoing course, start new course</p>
+              </div>
+              <div class="la-empty__browse-courses">
+                  <a href="" class="la-empty__browse">
+                      Browse Courses
+                      <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
+                  </a>
+              </div>
+          </div>
           </div>
         </div>
       </div>
@@ -128,6 +141,19 @@
               @endforeach
                                  
             </div><a class="la-mycourses__more" id="viewCompleted">See all</a>
+
+            <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
+              <div class="la-empty__inner">
+                  <h6 class="la-empty__course-title pb-2">No Courses</h6>
+                  <p class="la-empty__course-desc m-0">You have not finished any course yet.</p>
+              </div>
+              <div class="la-empty__browse-courses">
+                  <a href="" class="la-empty__browse">
+                      Browse Courses
+                      <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
+                  </a>
+              </div>
+          </div>
           </div>
         </div>
       </div>

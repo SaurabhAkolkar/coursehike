@@ -20,7 +20,7 @@
     </div>
     <div class="la-cart__bill-btn">
         <div class="la-hero__actions d-flex align-items-center justify-content-end">
-            <a class="btn la-btn la-btn--secondary text--black w-100 py-3" href= {{ $checkoutUrl }}>checkout</a>
+            <a class="la-btn__app text--black w-100 px-18 py-3" href= {{ $checkoutUrl }}>checkout</a>
         </div>
     </div>
 </div>

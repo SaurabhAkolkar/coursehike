@@ -7,7 +7,7 @@
         <div class="la-news__meet-banner">
           <img class="d-block" src= {{ $img }} alt= {{ $title }} />
         </div>
-        <p class="text-md text-sm-sm my-3 collapse" id= {{ $eventCollapseId }} > {{ $desc }} </p>
+        <p class="text-md text-sm-sm my-3 collapse" id= "seeEvent" > {{ $desc }} </p>
     </div>
-    <a class="la-news__readmore text-center text-sm-right mt-3" role="button" href="#{{ $eventCollapseId }}" data-toggle="collapse" aria-expanded="true">See Event</a>
+    <p class="la-news__readmore collapsed text-center text-sm-right mt-3" role="button" href="#seeEvent" data-toggle="collapse" aria-expanded="true">See Event</p>
 </li>

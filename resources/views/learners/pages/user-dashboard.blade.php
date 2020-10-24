@@ -130,8 +130,19 @@
       <div class="container">
         <div class="row">  
           <div class="col-12">
-            <div class="la-cpcourses__inner">
-              <h5 class="text-xl">Pending Courses</h5>
+            <h5 class="la-pcourses__title text-xl text-sm-2xl">Pending Courses</h5>
+            
+            <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
+                <div class="la-empty__inner">
+                    <h6 class="la-empty__course-title pb-2">No Courses</h6>
+                    <p class="la-empty__course-desc m-0">You currently don't have any pending course, start new course</p>
+                </div>
+                <div class="la-empty__browse-courses">
+                    <a href="" class="la-empty__browse">
+                        Browse Courses
+                        <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
+                    </a>
+                </div>
             </div>
           </div>
         </div>
@@ -173,7 +184,7 @@
         <div class="row">
           <div class="col-12 px-2">
             <div class="la-hp__inner">
-              <h5 class="text-xl la-hp__title m-0 pb-2">Hand Picked for you! </h5>
+              <h5 class="text-xl text-sm-2xl la-hp__title m-0 pb-2">Hand Picked for you! </h5>
               <div class="la-hp__data">
                 <div class="row">
                     <!-- Hand Picked: Start -->
@@ -203,7 +214,7 @@
         <div class="container">
             <div class="row no-gutters">
               <div class="col-12">
-                <h5 class="text-xl pb-5">Alien Mentors</h5>
+                <h5 class="text-xl text-sm-2xl pb-5">Alien Mentors</h5>
               </div>
           
               <div class="la-mentors">

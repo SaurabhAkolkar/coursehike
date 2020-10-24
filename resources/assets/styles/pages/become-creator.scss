@@ -55,7 +55,7 @@ section.la-page--bcreator{
 			p{
 				font-family:var(--body-font);
 				font-weight:var(--font-light);
-				font-size: var(--text-md);
+				font-size: var(--text-sm);
 			}
 		}
 	}
@@ -352,6 +352,7 @@ section.la-bgcreator--faq{
 			color:rgba(0,0,0,0.7);
 			font-weight:var(--font-light);
 			position: relative;
+			
 			&:after{
 				font-family: 'icomoon';
 				content: "\e96d";

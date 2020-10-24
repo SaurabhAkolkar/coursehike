@@ -3,30 +3,27 @@ section.la-new--releases{
     padding:var(--size-14) var(--size-base);
    
     .la-new__back{
-        &:before{
-            content:"\2190";
-            position:absolute;
-            display:block;
-            top:-2%;
-            left:-2%;
-            color:var(--grey9);
-            cursor:pointer;
-            transition:all 0.3s ease-in;-webkit-transition:all 0.3s ease-in;-moz-transition:all 0.3s ease-in;-ms-transition:all 0.3s ease-in;-o-transition:all 0.3s ease-in;
-        }
-        &:hover:before{
-            left:-3%;
-            transition:all 0.3s ease-out;-webkit-transition:all 0.3s ease-out;-moz-transition:all 0.3s ease-out;-ms-transition:all 0.3s ease-out;-o-transition:all 0.3s ease-out;
+        position: relative;
+        top:45px;
+        left:-60px;
+        transition:all 0.25s ease-in;
+
+        &:hover{
+            transform: translateX(-10px);
+            transition:all 0.25s ease-in;
         }
     }
-    .la-new__announcements{
-        margin-right:calc(var(--size-20)*3);
-        border-bottom:2px solid rgba(112,112,112,0.23);
 
+    .la-announcement__main-title{
         h1{
             padding-bottom:var(--size-4);
             color:var(--gray5);
             font-weight:var(--font-semibold);
         }
+    }
+    .la-new__announcements{
+        margin-right:calc(var(--size-20)*3);
+        border-bottom:2px solid rgba(112,112,112,0.23);
     }
 
     .la-new__meet-events{

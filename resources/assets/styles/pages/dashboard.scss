@@ -22,8 +22,8 @@ section.la-cdashboard{
             }
             .la-badge__count{
                 position:relative;
-                left:-26px;
-                top:-20px;
+                left:-35px;
+                top:-40px;
                 width:23px;
                 height:23px;
                 font-family:var(--body-font);
@@ -159,7 +159,7 @@ section.la-cdashboard{
 // Popover for Badges
 .popover{
     width:200px;
-    height:150px;
+    height:120px;
     background-color:#fff;
     padding:var(--size-3);
     border:none;
@@ -167,16 +167,17 @@ section.la-cdashboard{
 }
 .popover-header{
     background-color:#fff;
+    color: var(--app-indigo-1);
     font-size:14px;
     border-bottom:none;
     text-align:center;
-    font-weight:var(--font-semibold);
+    font-weight:var(--font-bold);
 }
 .popover-body{
     background-color:#fff;
     text-align:center;
     font-size:13px;
-    padding-top:var(--size-4);
+    padding-top:var(--size-2);
 }
 .arrow{
     display:none !important;
@@ -256,10 +257,49 @@ section.la-hp-section{
 // Hand Pick Section End
 
 
-// Alien Mentors Start
+// Alien Mentors: Start
 section.la-dash-mentors-list{
     h5{
         font-family:var(--head-font);
         font-weight:var(--font-semibold);
     }
 }
+// Alien Mentors: End
+
+
+// No Courses or Empty Courses in Dashboard and My Courses Pages: Start
+.la-empty__courses{
+    background-color: var(--white);
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 10px;
+    padding: var(--size-10) 0 var(--size-10) var(--size-20);
+    margin: var(--size-8) 0;
+    line-height: 1.6;
+
+    .la-empty__inner{
+        .la-empty__course-title{
+            font-size: var(--text-2xl);
+            font-weight: var(--font-medium);
+            color: var(--gray5);
+        }
+        .la-empty__course-desc{
+            font-size: var(--text-md);
+            font-weight: var(--font-light);
+            color: var(--gray6);
+        }
+    }
+    .la-empty__browse-courses{
+        .la-empty__browse{
+            color: var(--app-indigo-1);
+            font-size: var(--text-sm);
+            text-transform:uppercase;
+            font-weight: var(--font-bold);
+            letter-spacing: 2.8px;
+        }
+        .la-empty__browse-icon{
+            position:relative;
+            bottom:-25px;
+            right:38px;
+        }
+    }
+} 
