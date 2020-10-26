@@ -56,6 +56,14 @@
                         &:before {
                             transform: scale(1);
                         }
+
+                        &-- {
+                            &typeB {
+                                &:before {
+                                    background-color: var(--app-indigo-1);
+                                }
+                            }
+                        }
                     }
                 }
                 &- {
@@ -75,6 +83,21 @@
                             background-color: var(--app-indigo-1);
                             transform: scale(0);
                             transition: all 0.2s ease;
+                        }
+
+                        &-- {
+                            &typeB {
+                                width: 16px;
+                                height: 16px;
+                                border: 1px solid var(--app-indigo-1) !important;
+
+                                &:before {
+                                    width: 10px;
+                                    height: 10px;
+                                    background-color: rgba(115, 34, 183, 0.10);
+                                    transform: scale(1);
+                                }
+                            }
                         }
                     }
 
