@@ -10442,6 +10442,12 @@ ul, li {
   background: var(--app-indigo-1);
   color: #ffffff;
 }
+.la-btn__icon--grey {
+  color: var(--gray4);
+}
+.la-btn__text--purple {
+  color: var(--app-indigo-1);
+}
 
 :root {
   --app-indigo-1: #7322B7;
@@ -17179,6 +17185,15 @@ a, a:hover {
   border-bottom: 1px dashed var(--gray2);
   overflow: auto;
 }
+.la-vcourse__curriculam::-webkit-scrollbar {
+  width: 5px;
+}
+.la-vcourse__curriculam::-webkit-scrollbar-track {
+  background-color: var(--gray2);
+}
+.la-vcourse__curriculam::-webkit-scrollbar-thumb {
+  background: var(--gray4);
+}
 .la-vcourse__classes-info .la--count, .la-vcourse__videos-info .la--count {
   color: var(--green);
 }
@@ -17254,6 +17269,10 @@ a, a:hover {
 .la-vcourse__lesson:hover {
   background: var(--gray);
 }
+.la-vcourse__lesson:hover .la-vcourse__access:before {
+  opacity: 1;
+  transform: scale(1.7) rotate(0);
+}
 .la-vcourse__lesson-left {
   width: 150px;
 }
@@ -17271,7 +17290,7 @@ a, a:hover {
 .la-vcourse__lesson-playbtn {
   width: 20px;
   height: 20px;
-  background-color: #6e1ccd;
+  background-color: var(--app-indigo-1);
   position: absolute;
   top: 0;
   left: 0;
@@ -17311,8 +17330,58 @@ a, a:hover {
   color: var(--green);
   font-size: var(--text-sm);
 }
+.la-vcourse__access {
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+}
+.la-vcourse__access-wrap {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 0;
+  bottom: 0;
+  left: -6px;
+  margin: auto;
+  border-radius: 100px;
+  z-index: 1;
+}
+.la-vcourse__access-icon {
+  font-size: 8px;
+}
+.la-vcourse__access-icon--white {
+  color: #ffffff;
+}
+.la-vcourse__access-icon--danger {
+  color: var(--danger);
+}
+.la-vcourse__access:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 100%;
+  border: 1px dotted #000000;
+  opacity: 0;
+  transform: scale(1) rotate(10deg);
+  transition: all 0.1s ease;
+  z-index: -1;
+}
+.la-vcourse__access--free {
+  background-color: var(--app-indigo-1);
+}
+.la-vcourse__access--locked {
+  border: 2px solid var(--danger);
+  background-color: #ffffff;
+}
+.la-vcourse__access--locked:before {
+  display: none;
+}
 .la-vlesson__title {
-  font-size: var(--text2xl);
+  font-size: var(--text-2xl);
   color: var(--gray5);
 }
 @media (max-width: 991px) {

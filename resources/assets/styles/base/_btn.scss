@@ -58,17 +58,18 @@
                 display: inline-block;
                 
                 &- {
-                        &icon {
-                            position: absolute;
-                            right: -22px;
-                            bottom: -30px;
-                            
-                            &.arrow-down {
-                                transform: rotate(90deg);
-                                right: -40px;
-                            }
+                    &icon {
+                        position: absolute;
+                        right: -22px;
+                        bottom: -30px;
+                        
+                        &.arrow-down {
+                            transform: rotate(90deg);
+                            right: -40px;
                         }
                     }
+                }
+                    
             }
 
             &add {
@@ -99,6 +100,21 @@
                 &:hover{
                     background:var(--app-indigo-1);
                     color:#ffffff;
+                }
+            }
+
+            &icon {
+                &-- {
+                    &grey {
+                        color: var(--gray4);
+                    }
+                }
+            }
+            &text {
+                &-- {
+                    &purple {
+                        color: var(--app-indigo-1);
+                    }
                 }
             }
         }
