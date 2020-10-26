@@ -9793,7 +9793,7 @@ a.text-dark:focus, a.text-dark:hover {
 @font-face {
   font-family: "icomoon";
   src: url(/fonts/icomoon.eot?508f29c9c50b3177d21d78b1b4baa321);
-  src: url(/fonts/icomoon.eot?508f29c9c50b3177d21d78b1b4baa321#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?de08afde41d869b5bb05d8816027a3a9) format("truetype"), url(/fonts/icomoon.woff?c7fccae396b44ac99992843cde4843ef) format("woff"), url(/fonts/icomoon.svg?88439b33d19c989370d61c66597a74af#icomoon) format("svg");
+  src: url(/fonts/icomoon.eot?508f29c9c50b3177d21d78b1b4baa321#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?de08afde41d869b5bb05d8816027a3a9) format("truetype"), url(/fonts/icomoon.woff?c7fccae396b44ac99992843cde4843ef) format("woff"), url(/fonts/icomoon.svg?34f24ebcf1bbc81928dfb484ffa16790#icomoon) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
