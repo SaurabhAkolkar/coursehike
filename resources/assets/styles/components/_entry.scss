@@ -47,6 +47,20 @@
                     } 
                 }
             }
+            &social{
+                &-{
+                    &lnk{
+                        margin-top: var(--size-2);
+                        margin-right: var(--size-3);
+                        transition:all 0.2s ease-in;
+
+                        &:hover{
+                            transform:scale(1.1);
+                            transition: all 0.2s ease-in;
+                        }
+                    }
+                }
+            }
            
             &interest {
                 width: 33.333%;

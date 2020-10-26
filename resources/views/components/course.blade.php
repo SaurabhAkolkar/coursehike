@@ -1,7 +1,7 @@
 <div class="col-12 col-md-6 col-lg">
     <div class="la-course">
         <div class="la-course__inner">
-            <div class="la-course__overlay" href="">
+            <div class="la-course__overlay"  href= {{ $url }}>
                 <ul class="la-course__options list-unstyled text-white">
                     <li class="la-course__option">
                         <a class="d-inline-block la-course__addtocart">
@@ -39,7 +39,7 @@
 
         <div class="la-course__btm">
             <div class="la-course__info d-flex align-items-center mb-1">
-            <a class="la-course__title" href={{ $url }}> {{ $course }} </a>
+                <a class="la-course__title" > {{ $course }} </a>
                 <div class="la-course__rating ml-auto"> {{ $rating }} </div>
             </div>
             

@@ -85,9 +85,14 @@
                 color: #fff;
             }
             &tag{
-                position: absolute;
-                top: var(--size-3);
-                left: var(--size-3);
+                position: relative;
+                top: -20px;
+                left: 0;
+                
+                img{
+                    width:140px;
+                    height:80px;
+                }
             }
 
             &type {

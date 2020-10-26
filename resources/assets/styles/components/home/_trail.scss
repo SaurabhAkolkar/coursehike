@@ -46,3 +46,15 @@
         }
     }
 }
+
+@media(max-width:991px){
+    #{$ap}- {
+        &trail {
+            &__ {
+                &right {
+                    padding-top: 20px;
+                }
+            }
+        }
+    }
+}

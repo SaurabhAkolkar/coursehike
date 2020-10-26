@@ -73,6 +73,14 @@ $(function(){
           el: '.swiper-pagination',
           clickable: true,
       },
+      breakpoints:{
+        320:{
+          spaceBetween: 380,
+        },
+        1024:{
+          spaceBetween: 30,
+        }
+      },
   });
 
   // Rating 

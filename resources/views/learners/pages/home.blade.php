@@ -26,9 +26,9 @@
                 <div>
                     <a class="btn btn-primary la-btn la-btn--primary d-none d-lg-block">Subscribe Now</a>
                     <a class="btn btn-primary la-btn la-btn--primary btn-block d-block d-lg-none">Subscribe Now</a>
-                    <p class="m-0 pt-1">Access to all the Courses</p>
+                    <p class="m-0 pt-1 text-center text-sm-left">Access to all the Courses</p>
                 </div>
-                <div class="la-soffer d-flex d-lg-block my-6 my-lg-0">
+                <div class="la-soffer d-flex d-lg-block justify-content-center  my-lg-0">
                   <div class="la-soffer__bestprice"> <sup><small>$</small></sup>  39 / Month</div>
                   <div class="la-soffer__realprice"> <sup><small>$</small></sup>  49 / Month</div>
                 </div>
@@ -423,14 +423,14 @@
           <div class="swiper-wrapper">
             <div class="swiper-slide la-price__slide">
               <div class="la-price__row row mb-16">
-                <div class="col col-lg-5 pt-20">
+                <div class="col-12 col-lg-5 pt-20">
                   <h3 class="la-section__subtitle">How does subscription works?</h3>
                   <p class="la-section__text">Through our Radical team, we strive everyday to make knowledge Affordable, Accessible for all the individuals who have limited or no access to the Real knowledge.<br><br>So, you can subscribe to all the courses and classes. Or rent them to learn whenever you want.</p>
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8">
                     <a href="">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                   </div>
                 </div>
-                <div class="col offset-lg-1 col-lg-5 pt-20">
+                <div class="col-12 offset-lg-1 col-lg-5 pt-20">
                   <div class="la-price__box">
                     <div class="la-price__box-inner"><a class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
                       <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">20% savings </span>on Annual Plan</p>
@@ -445,14 +445,14 @@
             </div>
             <div class="swiper-slide la-price__slide">
               <div class="la-price__row row mb-16">
-                <div class="col col-lg-5 pt-20">
+                <div class="col-12 col-lg-5 pt-20">
                   <h3 class="la-section__subtitle">What’s LILA for you ?</h3>
                   <p class="la-section__text">Keep learning to expand your potential and make a mark in the world<br><br>Our mission is to Encourage, Empower and Embrace Self-Learning among all the curious individuals who wish to learn,</p>
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8">
                     <a href="">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                   </div>
                 </div>
-                <div class="col offset-lg-1 col-lg-5 pt-20">
+                <div class="col-12 offset-lg-1 col-lg-5 pt-20">
                   <div class="la-price__box">
                     <div class="la-price__box-inner"><a class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
                       <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">20% savings </span>on Annual Plan</p>
@@ -467,14 +467,14 @@
             </div>
             <div class="swiper-slide la-price__slide">
               <div class="la-price__row row">
-                <div class="col col-lg-5 pt-20">
+                <div class="col-12 col-lg-5 pt-20">
                   <h3 class="la-section__subtitle">How does subscription works?</h3>
                   <p class="la-section__text">Through our Radical team, we strive everyday to make knowledge Affordable, Accessible for all the individuals who have limited or no access to the Real knowledge.<br><br>So, you can subscribe to all the courses and classes. Or rent them to learn whenever you want.</p>
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8">
                     <a href="">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                   </div>
                 </div>
-                <div class="col offset-lg-1 col-lg-5 pt-20">
+                <div class="col-12 offset-lg-1 col-lg-5 pt-20">
                   <div class="la-price__box">
                     <div class="la-price__box-inner"><a class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
                       <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">20% savings </span>on Annual Plan</p>

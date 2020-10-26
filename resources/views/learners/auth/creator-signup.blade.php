@@ -1,4 +1,4 @@
-@extends('learners.layouts.app')
+@extends('learners.layouts.intro')
 
 @section('content')
 <section class="la-entry__sec">
@@ -8,8 +8,8 @@
                       <div class="la-entry__slider-wrap d-flex align-items-center">
                         <div class="swiper-container entry-swiper-container h-100 la-entry__slider">
                           <div class="swiper-wrapper">
-                            <div class="swiper-slide" style="width: 60vh;height: 60vh;background-image:url(./images/login-register/slide1.png)"></div>
-                            <div class="swiper-slide" style="width: 60vh;height: 60vh;background-image:url(./images/creator/earn.png)"></div>
+                            <div class="swiper-slide" style="width: 60vh;height: 60vh;background-image:url(./images/learners/login-register/slide1.png)"></div>
+                            <div class="swiper-slide" style="width: 60vh;height: 60vh;background-image:url(./images/learners/creator/earn.png)"></div>
                           </div>
                           <div class="swiper-pagination swiper-pagination-black"></div>
                         </div>
@@ -23,7 +23,7 @@
                           <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-profile"></span></span>
                             <input class="la-form__input la-entry__input" type="text" value="" name="expert-in" placeholder="Expert In">
                           </div>
-                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-calender"></span></span>
+                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-calender-filled"></span></span>
                             <input class="la-form__input la-entry__input" type="number" value="" name="years-of-experience" placeholder="Years of Experience">
                           </div>
                           <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-birthday"></span></span>
@@ -32,7 +32,7 @@
                           <div class="la-form__input-wrap la-entry__input-wrap mb-12"><span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-mail-id"></span></span>
                             <input class="la-form__input la-entry__input" type="email" value="" name="email-id" placeholder="Email ID">
                           </div>
-                <submit class="btn la-btn la-btn--secondary text--black w-100" type="button">CONTINUE</submit>
+                <submit class="btn la-btn la-btn--secondary  w-100" type="button">CONTINUE</submit>
               </form>
               <div class="la-entry__other-option text-center mt-5">Already have an account? <span class="la-btn__plain text--burple text--md ml-2"><a href="">Login</a></span></div>
             </div>

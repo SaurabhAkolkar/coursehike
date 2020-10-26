@@ -21,7 +21,7 @@
                   <div class="col d-flex flex-row justify-content-start justify-content-lg-center">
                     <div class="la-cbadge">
                         <div class="la-cbadge__thumbnail" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "EXCLUSIVITY" data-content="A Badge you earn when you finish an exclusive course." > 
-                            <span class="la-icon la-icon--7xl icon-badge-purple">
+                            <span class="la-icon la-icon--6xl icon-badge-purple">
                               <span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span>
                             </span>
                                 <sup class="badge la-badge__count py-1">5</sup>
@@ -31,7 +31,7 @@
                   <div class="col d-flex flex-row justify-content-start justify-content-lg-center">
                     <div class="la-cbadge">
                         <div class="la-cbadge__thumbnail" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "SINCERE LEARNER" data-content="A Badge you earn when learn consistently." > 
-                          <span class="la-icon la-icon--7xl icon-badge-green">
+                          <span class="la-icon la-icon--6xl icon-badge-green">
                             <span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span>
                           </span>   
                           <sup class="badge la-badge__count py-1">3</sup>
@@ -41,7 +41,7 @@
                   <div class="col d-flex flex-row justify-content-start justify-content-lg-center">
                     <div class="la-cbadge">
                         <div class="la-cbadge__thumbnail" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "FAST LEARNER" data-content="A Badge you earn when learn at a fast pace." > 
-                          <span class="la-icon la-icon--7xl icon-badge-yellow">
+                          <span class="la-icon la-icon--6xl icon-badge-yellow">
                             <span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span>
                           </span>
                               <sup class="badge la-badge__count py-1">8</sup>
@@ -51,7 +51,7 @@
                   <div class="col d-flex flex-row justify-content-start justify-content-lg-center">
                     <div class="la-cbadge">
                         <div class="la-cbadge__thumbnail" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "MENTOR'S FAVOURITE" data-content="A Badge gifted by your mentor when you finish assignments well." > 
-                          <span class="la-icon la-icon--7xl icon-badge-red">
+                          <span class="la-icon la-icon--6xl icon-badge-red">
                             <span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span>
                           </span>   <sup class="badge la-badge__count py-1">1</sup>
                         </div>

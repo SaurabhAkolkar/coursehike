@@ -10,6 +10,8 @@
   font-display: block;
 }
 
+
+
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
@@ -25,6 +27,41 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-facebook-colored:before {
+  content: "\e976";
+  color: #3b5999;
+}
+.icon-google-colored .path1:before {
+  content: "\e979";
+  color: rgb(255, 255, 255);
+}
+.icon-google-colored .path2:before {
+  content: "\e97b";
+  margin-left: -1em;
+  color: rgb(84, 125, 191);
+}
+.icon-google-colored .path3:before {
+  content: "\e97c";
+  margin-left: -1em;
+  color: rgb(51, 168, 82);
+}
+.icon-google-colored .path4:before {
+  content: "\e97d";
+  margin-left: -1em;
+  color: rgb(249, 188, 21);
+}
+.icon-google-colored .path5:before {
+  content: "\e97e";
+  margin-left: -1em;
+  color: rgb(234, 68, 53);
+}
+.icon-linkedin-colored:before {
+  content: "\e97f";
+  color: #1076a8;
+}
+.icon-mail:before {
+  content: "\e974";
+}
 .icon-dollar:before {
   content: "\e973";
 }

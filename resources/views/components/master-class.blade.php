@@ -6,11 +6,11 @@
       
         <div class="la-mccourse__overlay">
             <a class="la-mccourse__tag">
-                <img class="img-fluid" src="./images/learners/home/master-class-desk.png" alt="Master Class">
+                <img class="img-fluid" src="./images/learners/home/master-class.svg" alt="Master Class">
             </a>
-            <div class="la-mccourse__type">
+            <a class="la-mccourse__type" href="">
                 <span class="la-icon la-icon--xl icon-play mx-3 my-2"></span>
-            </div>
+            </a>
             <div class="la-mccourse__title">{{ $title }}</div>
 
             <div class="la-mccourse__btm">
