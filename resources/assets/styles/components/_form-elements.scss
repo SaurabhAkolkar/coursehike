@@ -114,6 +114,28 @@
                 }
             }
 
+             // Checkbox Button
+             &checkbox {
+                 &- {
+                     &input {
+                         cursor: pointer;
+                         &:checked {
+                             & + label {
+                                 & #{$ap}-form__checkbox-mark {
+                                    //  transform: scale(1);
+                                     opacity: 1;
+                                 }
+                             }
+                         }
+                     }
+                     &mark {
+                         opacity: 0;
+                        //  transform: scale(0.8);
+                         transition: all 0.1s ease;
+                     }
+                 }
+             }
+
             // Profile image Component
             &img {
                 width: 130px;

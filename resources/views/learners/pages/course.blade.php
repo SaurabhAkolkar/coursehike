@@ -449,13 +449,13 @@
   <section class="la-section la-section--grey la-vcourse__purchase">
     <div class="la-vcourse__purchase-inwrap container">
       <div class="row la-vcourse__purchase-row">
-        <div class="col-md-7 la-vcourse__purchase-left">
+        <div class="col-md-6 la-vcourse__purchase-left">
           <div class="la-vcourse__purchase-prize mb-8">Purchase this Course @ <span class="la-vcourse__purchase-prize--amount"><b>$35</b></span></div>
           <form class="la-vcourse__purchase-form" action="">
             <div class="la-vcourse__purchase-classes">
               <div class="la-vcourse__purchase-class la-vcourse__purchase-class--all mb-4">
                 <div class="la-form__radio-wrap">
-                  <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" value="all-classes" name="classes" id="allClasses">
+                  <input class="la-form__radio d-none la-vcourse__purchase-input" checked type="radio" value="all-classes" name="classes" id="allClasses">
                   <label class="d-flex align-items-center la-vcourse__purchase-label" for="allClasses">
                     <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
                     <span class="">All Classes</span>
@@ -470,19 +470,87 @@
                     <span class="">Select Classes</span>
                   </label>
                 </div>
+                <div class="la-vcourse__purchase-items mt-8 pl-8">
+                  <table class="w-100 la-vcourse__classes-wrap">
+                    <tr class="la-vcourse__sclass-item">
+                      <th class="mb-4 la-vcourse__sclass-heading"></th>
+                      <th class="mb-4 la-vcourse__sclass-heading">Class</th>
+                      <th class="mb-4 la-vcourse__sclass-heading">Name</th>
+                      <th class="mb-4 la-vcourse__sclass-heading">Mentor</th>
+                      <th class="mb-4 la-vcourse__sclass-heading">Price</th>
+                    </tr>
+                    <tr class="la-vcourse__sclass-item align-top">
+                      <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--checkbox">
+                        <div>
+                          <input id="selectItem1" class="la-form__checkbox-input custom-control-input" type="checkbox">
+                          <label class="" for="selectItem1">
+                            <svg viewBox="0 0 16 16" height="16" width="16">
+                              <g id="Group_5052" data-name="Group 5052" transform="translate(-129 -2108)">
+                                <g id="Rectangle_3239" data-name="Rectangle 3239" transform="translate(129 2108)" fill="none" stroke="#7400d7" stroke-width="1">
+                                  <rect class="la-form__checkbox-rect" x="0.5" y="0.5" width="15" height="15" fill="none" />
+                                </g>
+                              </g>
+                              <path class="la-form__checkbox-mark" id="Path_17096" data-name="Path 17096" d="M147.263,194.53a.857.857,0,0,0,.56.4.994.994,0,0,0,.171.02.854.854,0,0,0,.5-.161l7.175-5.128a.856.856,0,0,0-1-1.392l-6.419,4.589-1.871-3.1a.856.856,0,1,0-1.467.882Z" transform="matrix(0.985, -0.174, 0.174, 0.985, -173.013, -153.894)" fill="#010101"/>
+                            </svg>
+                          </label>
+                        </div>
+                      </td>
+                      <td class="la-vcourse__sclass-data la-vcourse__sclass-data--thumbnail">
+                        <img src="https://picsum.photos/68/46" alt="purchase item">
+                      </td>
+                      <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--name">At vero eos</td>
+                      <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--mentor">Amy D'souza</td>
+                      <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--price">$20</td>
+                    </tr>
+                    <tr class="la-vcourse__sclass-item align-top">
+                      <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--checkbox">
+                        <div>
+                          <input id="selectItem2" class="la-form__checkbox-input custom-control-input" type="checkbox">
+                          <label class="" for="selectItem2">
+                            <svg viewBox="0 0 16 16" height="16" width="16">
+                              <g id="Group_5052" data-name="Group 5052" transform="translate(-129 -2108)">
+                                <g id="Rectangle_3239" data-name="Rectangle 3239" transform="translate(129 2108)" fill="none" stroke="#7400d7" stroke-width="1">
+                                  <rect class="la-form__checkbox-rect" x="0.5" y="0.5" width="15" height="15" fill="none" />
+                                </g>
+                              </g>
+                              <path class="la-form__checkbox-mark" id="Path_17096" data-name="Path 17096" d="M147.263,194.53a.857.857,0,0,0,.56.4.994.994,0,0,0,.171.02.854.854,0,0,0,.5-.161l7.175-5.128a.856.856,0,0,0-1-1.392l-6.419,4.589-1.871-3.1a.856.856,0,1,0-1.467.882Z" transform="matrix(0.985, -0.174, 0.174, 0.985, -173.013, -153.894)" fill="#010101"/>
+                            </svg>
+                          </label>
+                        </div>
+                      </td>
+                      <td class="la-vcourse__sclass-data la-vcourse__sclass-data--thumbnail">
+                        <img src="https://picsum.photos/68/46" alt="purchase item">
+                      </td>
+                      <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--name">At vero eos</td>
+                      <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--mentor">Amy D'souza</td>
+                      <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--price">$20</td>
+                    </tr>
+                  </table>
+                </div>
               </div>
             </div>
-            <div class="la-vcourse__purchase-actions">
-              <div class="la-vcourse__buy text-right mb-2">
-                <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end">BUy course</a>
+            <div class="la-vcourse__purchase-actions d-flex flex-wrap align-items-center mt-8">
+              <div class="la-vcourse__purchase-btn w-50">
+                <a class="btn btn-primary la-btn la-btn--primary w-100 text-center">BUy course</a>
               </div>
-              <div class="la-vcourse__buy text-right mb-2">
-                <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end">Subscribe Now</a>
+              <div class="la-vcourse__purchase-btn w-50">
+                <a class="btn la-btn la-btn__plain text--green w-100 text-center">ADD TO CART</a>
               </div>
             </div>
           </form>
         </div>
-        <div class="col-md-5 la-vcourse__purchase-right"></div>
+        <div class="col-md-6 la-vcourse__purchase-right">
+          <div class="la-vcourse__purchase-content offset-md-2">
+            <div class="la-vcourse__purchase-prize mb-8">Subscribe for all Courses @ <span class="la-vcourse__purchase-prize--amount"><b>$39/month</b></span></div>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam consetetur sadipscing</p>
+            <div class="la-vcourse__purchase-actions d-inline-block text-center mt-8">
+              <div class="la-vcourse__purchase-btn">
+                <a class="btn btn-primary active la-btn la-btn--primary text-center">SUBSCRIBE NOW</a>
+              </div>
+              <a href="" class="la-vcourse__purchase-trial--lnk mt-8">Start free 7 Days trial</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -666,7 +734,7 @@
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  <section class="la-section">
+  <section class="la-section la-section--grey">
     <div class="la-section__inner">
       <div class="container">
         <h2 class="la-section__title mb-9">More from Creators</h2>
@@ -755,7 +823,7 @@
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  <section class="la-section">
+  <section class="la-section la-section--grey">
     <div class="la-section__inner">
       <div class="container">
         <h2 class="la-section__title mb-9">Looking for something else?</h2>
