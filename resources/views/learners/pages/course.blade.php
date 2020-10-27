@@ -444,6 +444,50 @@
     </div>
   </section>
   <!-- Section: End-->
+
+  <!-- Section: Start-->
+  <section class="la-section la-section--grey la-vcourse__purchase">
+    <div class="la-vcourse__purchase-inwrap container">
+      <div class="row la-vcourse__purchase-row">
+        <div class="col-md-7 la-vcourse__purchase-left">
+          <div class="la-vcourse__purchase-prize mb-8">Purchase this Course @ <span class="la-vcourse__purchase-prize--amount"><b>$35</b></span></div>
+          <form class="la-vcourse__purchase-form" action="">
+            <div class="la-vcourse__purchase-classes">
+              <div class="la-vcourse__purchase-class la-vcourse__purchase-class--all mb-4">
+                <div class="la-form__radio-wrap">
+                  <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" value="all-classes" name="classes" id="allClasses">
+                  <label class="d-flex align-items-center la-vcourse__purchase-label" for="allClasses">
+                    <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
+                    <span class="">All Classes</span>
+                  </label>
+                </div>
+              </div>
+              <div class="la-vcourse__purchase-class la-vcourse__purchase-class--select">
+                <div class="la-form__radio-wrap">
+                  <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" value="select-classes" name="classes" id="selectClasses">
+                  <label class="d-flex align-items-center la-vcourse__purchase-label" for="selectClasses">
+                    <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
+                    <span class="">Select Classes</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="la-vcourse__purchase-actions">
+              <div class="la-vcourse__buy text-right mb-2">
+                <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end">BUy course</a>
+              </div>
+              <div class="la-vcourse__buy text-right mb-2">
+                <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end">Subscribe Now</a>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-5 la-vcourse__purchase-right"></div>
+      </div>
+    </div>
+  </section>
+  <!-- Section: End-->
+
   <!-- Section: Start-->
   <section class="la-section">
     <div class="la-section__inner">

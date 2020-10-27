@@ -368,6 +368,23 @@
                     }
                 }
             }
+
+            &purchase {
+                &- {
+                    &label {
+                        font-family: var(--head-font);
+                        font-weight: 600;
+                    }
+                    &prize {
+                        font-size: var(--text-2xl);
+                        &-- {
+                            &amount {
+                                color: var(--green);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 

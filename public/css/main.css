@@ -17424,6 +17424,16 @@ a, a:hover {
 .la-vcourse__access--locked:before {
   display: none;
 }
+.la-vcourse__purchase-label {
+  font-family: var(--head-font);
+  font-weight: 600;
+}
+.la-vcourse__purchase-prize {
+  font-size: var(--text-2xl);
+}
+.la-vcourse__purchase-prize--amount {
+  color: var(--green);
+}
 .la-vlesson__title {
   font-size: var(--text-2xl);
   color: var(--gray5);
@@ -18639,6 +18649,9 @@ a, a:hover {
 .la-form__radio:checked + label .la-form__radio-circle:before {
   transform: scale(1);
 }
+.la-form__radio:checked + label .la-form__radio-circle--typeB:before {
+  background-color: var(--app-indigo-1);
+}
 .la-form__radio-circle {
   width: 14px;
   height: 14px;
@@ -18655,6 +18668,17 @@ a, a:hover {
   background-color: var(--app-indigo-1);
   transform: scale(0);
   transition: all 0.2s ease;
+}
+.la-form__radio-circle--typeB {
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--app-indigo-1) !important;
+}
+.la-form__radio-circle--typeB:before {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(115, 34, 183, 0.1);
+  transform: scale(1);
 }
 .la-form__radio-label {
   font-weight: var(--font-normal);
