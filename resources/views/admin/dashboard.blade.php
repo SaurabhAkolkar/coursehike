@@ -264,9 +264,9 @@
 		<!-- Left col -->
     <div class="col-md-5">
       <!-- RECENTLY ADDED USERS LIST -->
-      <div class="box box-danger box-recent__content">
+      <div class="la-dash__recent-section">
           <div class="">
-            <h3 class="box-title la-admin__box-title ">{{ __('adminstaticword.LatestUsers') }}</h3>
+            <h3 class="la-dash__recent-htitle">{{ __('adminstaticword.LatestUsers') }}</h3>
 
             <div class="box-tools pull-right">
               <span class="label label-danger">
@@ -290,7 +290,7 @@
             </div>
           </div>
           <!-- /.box-header -->
-          <div class="box-body no-padding">
+          <div class="la-dash__recent-list px-2">
             @php
               $users = App\User::limit(8)->orderBy('id', 'DESC')->get();
             @endphp
@@ -337,9 +337,9 @@
         $courses = App\Course::limit(5)->orderBy('id', 'DESC')->get()
       @endphp
       @if(!$courses->isEmpty())
-      <div class="box box-primary box-recent__content">
+      <div class="la-dash__recent-section">
           <div class="">
-            <h3 class="box-title la-admin__box-title">{{ __('adminstaticword.RecentCourses') }}</h3>
+            <h3 class="la-dash__recent-htitle">{{ __('adminstaticword.RecentCourses') }}</h3>
 
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -348,7 +348,7 @@
             </div>
           </div>
           <!-- /.box-header -->
-          <div class="box-body">
+          <div class="la-dash__recent-list px-3">
             <ul class="products-list product-list-in-box">
               
               @foreach($courses as $course)

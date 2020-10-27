@@ -19,27 +19,11 @@
         margin: 0 var(--size-5);
 
         &s {
-            height: 395px;
-            overflow-x: hidden;
-            overflow-y: auto;
+            height: auto;
             margin-top: -90px;
-
-            &::-webkit-scrollbar {
-                width: 3px;
-            }
-
-            &::-webkit-scrollbar-thumb {
-                background: #888;
-            }
-
-            &::-webkit-scrollbar-track {
-                background: #f1f1f1;
-            }
             
             @media screen and (min-width:  var(--breakpoint-md)) {
                 margin-top: calc(-1 * var(--size-20));
-                max-height: 400px;
-
             }
 
             &__ {

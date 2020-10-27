@@ -5,12 +5,12 @@
     <div class="la-section__inner">
       <div class="container">
         <a class="la-icon--lg icon-arrow font-weight-bold mb-5 pb-5 mx-3 d-block d-md-none" href="#"></a>
-        <div class="d-flex flex-column flex-lg-row mx-3 mb-5 align-items-center">
-          <h1 class="la-page__title mr-auto">Alien Mentors</h1>
+        <div class="mx-3 ">
+          <h1 class="la-page__title mb-8">Alien Mentors</h1>
           <!-- Global Search: Start-->
           <div class="la-gsearch">
             <form class="form-inline" action="">
-              <div class="form-group flex-grow-1">
+              <div class="form-group">
                 <input class="la-gsearch__input w-100 form-control" type="text" style="background:transparent" placeholder="Search Alien Mentor">
               </div>
               <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--3xl icon icon-search"></i></button>

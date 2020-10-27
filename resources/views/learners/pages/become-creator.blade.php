@@ -13,7 +13,7 @@
               <h1 class="text-white text-uppercase">Become a Creator</h1>
               <p class="text-white leading-tight">Join Inspiring Community and start earning for <br/> your values</p>
             </div>
-            <div class="la-bcreator__content-btn"><a class="la-btn__app text-white text-uppercase" role="button" href="#">Start Teaching</a></div>
+            <div class="la-bcreator__content-btn"><a class="la-btn__app text-white text-uppercase" role="button" href="/creator-signup">Start Teaching</a></div>
           </div>
         </div>
         <!-- Column: End-->
@@ -115,7 +115,7 @@
         <!-- Column: Start-->
         <div class="col-sm-12 col-md-4 col-lg-5 py-5 py-sm-2 px-5 px-sm-2 d-flex flex-row align-items-center">
           <div class="la-start-btn mb-8"><span class="text-4xl m-0 font-weight-bold">Easy steps to start</span>
-            <h2 class="text-6xl font-weight-bold">Sharing Values</h2><br><a class="la-btn__app text-uppercase" role="button" href="#">Start Creating</a>
+            <h2 class="text-6xl font-weight-bold">Sharing Values</h2><br><a class="la-btn__app text-uppercase" role="button" href="/creator-signup">Start Creating</a>
           </div>
         </div>
         <!-- Column: End-->
@@ -127,7 +127,7 @@
               <div class="la-vicon__text">
                 <h5 class="la-vicon__title">Record a Video</h5>
                 <p class="la-vicon__desc pt-2">Classify and videotape the course of your expertise as classes for better understanding</p>
-                <a class="la-vicon__link text-uppercase position-absolute" href="#">Need Assistance<span class="la-vicon__arrow la-icon la-icon--5xl icon-grey-arrow"></span></a>
+                <a class="la-vicon__link text-uppercase position-absolute" href="/guided-creator">Need Assistance<span class="la-vicon__arrow la-icon la-icon--5xl icon-grey-arrow"></span></a>
               </div>
             </div>
             <div class="la-vicon d-flex align-items-start">
@@ -261,11 +261,11 @@
         <!-- Column: Start-->
         <div class="col col-sm-12 mt-2 mt-sm-14">
           <div class="la-bcreator__stats-btn text-center d-none d-sm-block">
-            <a class="btn-get__started la-btn__app text-uppercase" role="button" href="#">Get Started</a>
+            <a class="btn-get__started la-btn__app text-uppercase" role="button" href="/creator-signup">Get Started</a>
           </div>
           <!-- For Mobile-->
           <div class="la-bcreator__stats-btn text-center d-block d-sm-none">
-            <a class="btn-get__started la-btn__app btn-block px-5 text-uppercase" role="button" href="#">Get Started</a>
+            <a class="btn-get__started la-btn__app btn-block px-5 text-uppercase" role="button" href="/creator-signup">Get Started</a>
           </div>
         </div>
         <!-- Column: End-->
@@ -329,9 +329,9 @@
         <div class="col-sm-12 px-0 px-sm-3">
           <div class="la-bgcreator__ad-content text-center text-white px-5">
             <div class="px-5">
-              <p class="la-bgcreator__ad-para">Start teaching Students for Life with your creations&#33;</p><br><a class="ad-btn la-btn__app text-white text-uppercase" role="button" href="#">Start Creating</a>
+              <p class="la-bgcreator__ad-para">Start teaching Students for Life with your creations&#33;</p><br><a class="ad-btn la-btn__app text-white text-uppercase" role="button" href="/creator-signup">Start Creating</a>
               <div class="mt-5">
-                <a class="text-xxs la-arrow-link text-uppercase position-relative" href="#"> Learn More
+                <a class="text-xxs la-arrow-link text-uppercase position-relative" href="/guided-creator"> Learn More
                   <span class="la-icon la-icon--5xl icon-grey-arrow"></span>
                 </a>
               </div>

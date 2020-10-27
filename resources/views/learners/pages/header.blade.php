@@ -4,17 +4,30 @@
     <div class="la-header__inner px-5 py-3 d-flex align-items-center">
       <div class="la-header__lft d-inline-flex align-items-center">
         <a class="la-header__brandwrap" href="/">
-          <img class="la-header__brand" src="../images/learners/logo.svg" alt="Lila">
+          <img class="la-header__brand" src="./images/learners/logo.svg" alt="Lila">
         </a>
-        <div class="la-header__nav d-inline-flex">
+        <div class="la-header__nav d-inline-flex  align-items-center">
           <div class="la-header__nav-item"><a class="la-header__nav-link" href="/user-dashboard">Dashboard</a></div>
           <div class="la-header__nav-item"><a class="la-header__nav-link" href="/courses">Browse Courses</a></div>
           <div class="la-header__nav-item"><a class="la-header__nav-link" href="/my-courses">My Courses</a></div>
           <div class="la-header__nav-item"><a class="la-header__nav-link" href="/mentors">Mentors</a></div>
+           
         </div>
       </div>
       <div class="la-header__rht ml-auto">
-        <div class="la-header__menu d-inline-flex">
+        <div class="la-header__menu d-inline-flex align-items-center">
+          <div class="la-header__menu-item">
+            <!-- Global Search: Start-->
+            <div class="la-gsearch  mb-0">
+              <form class="form-inline" action="">
+                <div class="form-group">
+                  <input class="la-gsearch__input form-control text-md pr-0" type="text" style="width:140px;" placeholder="Search Courses...">
+                </div>
+                <button class="la-gsearch__submit btn pr-0" type="submit"><i class="la-icon la-icon--xl icon icon-search"></i></button>
+              </form>
+            </div>
+            <!-- Global Search: End-->
+          </div>
           <div class="la-header__menu-item">
             <a class="la-header__menu-link la-header__menu-icon la-icon icon-profile" href="/profile"></a>
           </div>
@@ -125,7 +138,11 @@
           </div>
 
           <div class="la-header__menu-item"><a class="la-header__menu-link la-header__menu-icon la-icon icon-menu" id="moreItems" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
-            <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="moreItems" style="border:none;"><a class="dropdown-item la-header__dropdown-item text-sm" href="/learning-plans">Learning Plans</a><a class="dropdown-item la-header__dropdown-item text-sm" href="/become-creator">Become Creator</a><a class="dropdown-item la-header__dropdown-item text-sm" href="/guided-creator">Guided Creator</a><a class="dropdown-item la-header__dropdown-item text-sm" href="/contact">Contact Us</a></div>
+            <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="moreItems" style="border:none;">
+              <a class="dropdown-item la-header__dropdown-item text-sm" href="/learning-plans">Learning Plans</a>
+              <a class="dropdown-item la-header__dropdown-item text-sm" href="/become-creator">Become a Creator</a>
+              <a class="dropdown-item la-header__dropdown-item text-sm" href="/guided-creator">Guided Creator</a>
+              <a class="dropdown-item la-header__dropdown-item text-sm" href="/contact">Contact Us</a></div>
           </div>
         </div>
       </div>

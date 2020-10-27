@@ -8,24 +8,14 @@
         <div class="la-hero__top row align-items-center">
           <!-- Column: Start-->
           <div class="col-12 col-lg-5">
-            <!-- Global Search: Start-->
-            <div class="la-gsearch">
-              <form class="form-inline" action="">
-                <div class="form-group flex-grow-1">
-                  <input class="la-gsearch__input w-100 form-control" type="text" placeholder="What you want to learn today?">
-                </div>
-                <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--2xl icon icon-search"></i></button>
-              </form>
-            </div>
-            <!-- Global Search: End-->
             <div class="la-hero">
               <p class="la-hero__tag m-0">COURSES & CLASSES BY</p>
-              <h1 class="la-hero__title">World’s best Creators</h1>
+              <h1 class="la-hero__title">World’s best <span class="la-hero__subtitle">Creators</span></h1>
               <p class="la-hero__lead pr-5">Observe, learn and converse with creators to master your arts</p>
               <div class="la-hero__actions d-lg-flex align-items-center">
                 <div>
-                    <a class="btn btn-primary la-btn la-btn--primary d-none d-lg-block">Subscribe Now</a>
-                    <a class="btn btn-primary la-btn la-btn--primary btn-block d-block d-lg-none">Subscribe Now</a>
+                    <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary d-none d-lg-block">Subscribe Now</a>
+                    <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary btn-block d-block d-lg-none">Subscribe Now</a>
                     <p class="m-0 pt-1 text-center text-sm-left">Access to all the Courses</p>
                 </div>
                 <div class="la-soffer d-flex d-lg-block justify-content-center  my-lg-0">
@@ -152,7 +142,7 @@
                         <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
                           <div class="la-artist__content-top d-flex flex-column align-items-end">
                             <div class="la-artist__name">Alton Crew</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="/creator">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
                           </div>
                           <div class="la-artist__content-bottom d-flex flex-column align-items-end">
                             <div class="la-artist__specialist text-uppercase">TATTOO</div>
@@ -173,7 +163,7 @@
                         <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
                           <div class="la-artist__content-top d-flex flex-column align-items-end">
                             <div class="la-artist__name">Alton Crew</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="/creator">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
                           </div>
                           <div class="la-artist__content-bottom d-flex flex-column align-items-end">
                             <div class="la-artist__specialist text-uppercase">TATTOO</div>
@@ -194,7 +184,7 @@
                         <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
                           <div class="la-artist__content-top d-flex flex-column align-items-end">
                             <div class="la-artist__name">Alton Crew</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="/creator">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
                           </div>
                           <div class="la-artist__content-bottom d-flex flex-column align-items-end">
                             <div class="la-artist__specialist text-uppercase">TATTOO</div>
@@ -215,7 +205,7 @@
                         <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
                           <div class="la-artist__content-top d-flex flex-column align-items-end">
                             <div class="la-artist__name">Alton Crew</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="/creator">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
                           </div>
                           <div class="la-artist__content-bottom d-flex flex-column align-items-end">
                             <div class="la-artist__specialist text-uppercase">TATTOO</div>
@@ -236,7 +226,7 @@
                         <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
                           <div class="la-artist__content-top d-flex flex-column align-items-end">
                             <div class="la-artist__name">Alton Crew</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="/creator">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
                           </div>
                           <div class="la-artist__content-bottom d-flex flex-column align-items-end">
                             <div class="la-artist__specialist text-uppercase">TATTOO</div>
@@ -257,7 +247,7 @@
                         <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
                           <div class="la-artist__content-top d-flex flex-column align-items-end">
                             <div class="la-artist__name">Alton Crew</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="/creator">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
                           </div>
                           <div class="la-artist__content-bottom d-flex flex-column align-items-end">
                             <div class="la-artist__specialist text-uppercase">TATTOO</div>
@@ -345,21 +335,7 @@
                   $master6->profileName = "Charlotte Floyd";
                   $master6->learners = 300;
 
-                  $master7 = new stdClass;
-                  $master7->img = "https://picsum.photos/600/400";
-                  $master7->title = "Master in Photography";
-                  $master7->profileImg = "https://picsum.photos/100/100";
-                  $master7->profileName = "Charlotte Floyd";
-                  $master7->learners = 300;
-
-                  $master8 = new stdClass;
-                  $master8->img = "https://picsum.photos/600/400";
-                  $master8->title = "Master in Photography";
-                  $master8->profileImg = "https://picsum.photos/100/100";
-                  $master8->profileName = "Charlotte Floyd";
-                  $master8->learners = 300;
-
-                  $masters = array($master1, $master2, $master3, $master4, $master5, $master6, $master7, $master8);
+                  $masters = array($master1, $master2, $master3, $master4, $master5, $master6);
               @endphp
 
               @foreach ($masters as $master)
@@ -416,12 +392,11 @@
   <!-- Section: End-->
   <!-- Section: Start-->
   <section class="la-section la-section--about pb-0">
-    <div class="la-section__inner">
-      <div class="container">
+    <div class="la-section__inner ">
+      <div class="container la-price__container position-sticky sticky-top">
         <h2 class="la-section__title la-section__title--big leading-none"> <span style="color: var(--gray);">Learn it </span><br><span>like aliens</span></h2>
-        <div class="swiper-container la-price__slider">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide la-price__slide">
+        <div class="la-price__slider ">
+            <div class="la-price__slide">
               <div class="la-price__row row mb-16">
                 <div class="col-12 col-lg-5 pt-20">
                   <h3 class="la-section__subtitle">How does subscription works?</h3>
@@ -432,7 +407,7 @@
                 </div>
                 <div class="col-12 offset-lg-1 col-lg-5 pt-20">
                   <div class="la-price__box">
-                    <div class="la-price__box-inner"><a class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
+                    <div class="la-price__box-inner"><a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
                       <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">20% savings </span>on Annual Plan</p>
                       <div class="la-price__box-soffer la-soffer ml-0">
                         <div class="la-soffer__bestprice la-soffer__bestprice--black"> <sup><small>$</small></sup>  39 / Month</div>
@@ -443,7 +418,7 @@
                 </div>
               </div>
             </div>
-            <div class="swiper-slide la-price__slide">
+            <div class="la-price__slide">
               <div class="la-price__row row mb-16">
                 <div class="col-12 col-lg-5 pt-20">
                   <h3 class="la-section__subtitle">What’s LILA for you ?</h3>
@@ -454,7 +429,7 @@
                 </div>
                 <div class="col-12 offset-lg-1 col-lg-5 pt-20">
                   <div class="la-price__box">
-                    <div class="la-price__box-inner"><a class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
+                    <div class="la-price__box-inner"><a  href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
                       <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">20% savings </span>on Annual Plan</p>
                       <div class="la-price__box-soffer la-soffer ml-0">
                         <div class="la-soffer__bestprice la-soffer__bestprice--black"> <sup><small>$</small></sup>  39 / Month</div>
@@ -465,7 +440,7 @@
                 </div>
               </div>
             </div>
-            <div class="swiper-slide la-price__slide">
+            <div class=" la-price__slide">
               <div class="la-price__row row">
                 <div class="col-12 col-lg-5 pt-20">
                   <h3 class="la-section__subtitle">How does subscription works?</h3>
@@ -476,7 +451,7 @@
                 </div>
                 <div class="col-12 offset-lg-1 col-lg-5 pt-20">
                   <div class="la-price__box">
-                    <div class="la-price__box-inner"><a class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
+                    <div class="la-price__box-inner"><a  href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
                       <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">20% savings </span>on Annual Plan</p>
                       <div class="la-price__box-soffer la-soffer ml-0">
                         <div class="la-soffer__bestprice la-soffer__bestprice--black"> <sup><small>$</small></sup>  39 / Month</div>
@@ -487,8 +462,6 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="swiper-pagination"></div>
         </div>
       </div>
     </div>

@@ -189,7 +189,7 @@
 
                 <div class="col-md-6 col-lg-3">
                     <div class="la-cart__product-btm la-btn__plain text--burple text-md h-75 d-flex align-items-center justify-content-center justify-content-md-start">
-                      <a class="text-uppercase la-cart__product-explore" href="">explore more</a>
+                      <a class="text-uppercase la-cart__product-explore" href="/courses">explore more</a>
                         <span class="la-cart__product-icon la-icon la-icon--5xl icon-grey-arrow"></span>
                     </div>
                 </div>

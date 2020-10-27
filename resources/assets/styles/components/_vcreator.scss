@@ -19,13 +19,13 @@
                 background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9));
             }
             &name {
-                font-size: calc(var(--text-3xl) * 2);
+                font-size: calc(var(--text-6xl) * 2);
                 color: var(--gray);
                 text-transform:uppercase;
                 font-weight: var(--font-bold);
                 position: absolute;
-                bottom:-23px;
-                left:-3px;
+                bottom:-40px;
+                left:-5px;
             }
 
             &text{

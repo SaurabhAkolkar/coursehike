@@ -5,8 +5,8 @@
     <div class="col-12">
       <!-- general form elements -->
         <div class="box-header with-border">
-          <h3 class="box-title"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Course') }}</h3>
-        </div> <br/>
+          <h3 class="box-title pb-6"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Course') }}</h3>
+        </div>
         
         <!-- /.box-header -->
         <div class="box-body">

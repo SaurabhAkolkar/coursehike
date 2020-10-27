@@ -7,11 +7,10 @@
       <div class="la-page__header">
         <div class="container">
           <div class="row">
-            <div class="col-1 ">
+            <div class="col-1 mb-16">
               <a href="" class="la-vcreator__back-link"><span class="la-icon la-icon--6xl icon-grey-arrow"></span></a>
             </div>
-            <div class="col offset-7">
-              <!-- Global Search: Start-->
+            <!-- <div class="col offset-7">  
               <div class="la-gsearch my-10">
                 <form class="form-inline" action="">
                   <div class="form-group flex-grow-1">
@@ -20,8 +19,7 @@
                   <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--3xl icon icon-search"></i></button>
                 </form>
               </div>
-              <!-- Global Search: End-->
-            </div>
+            </div> -->
           </div>
 
           @php

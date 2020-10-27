@@ -85,7 +85,7 @@
 
             <ul class="treeview-menu">
               <li class="{{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('courselang') }} {{ Nav::isResource('coursereview') }} treeview">
-                  <a href="#"><i class="flaticon-interface" aria-hidden="true"></i>{{ __('adminstaticword.Category') }}<i class="fa fa-angle-left pull-right"></i></a>
+                  <a href="#"><i class="la-icon icon-courses mr-3"></i> <!-- <i class="flaticon-interface" aria-hidden="true"></i> -->{{ __('adminstaticword.Category') }}<i class="fa fa-angle-left pull-right"></i></a>
                   
                   <ul class="treeview-menu">
                     <li class="{{ Nav::isResource('category') }}"><a href="{{url('category')}}"><i class="flaticon-rec"></i>{{ __('adminstaticword.Category') }}</a></li>
@@ -93,7 +93,7 @@
                     <li class="{{ Nav::isResource('childcategory') }}"><a href="{{url('childcategory')}}"><i class="flaticon-rec"></i>{{ __('adminstaticword.ChildCategory') }}</a></li>
                   </ul>
 
-                  <li class="{{ Nav::isResource('course') }}"><a href="{{url('course')}}"><i class="flaticon-document" aria-hidden="true"></i><span>{{ __('adminstaticword.Courses') }}</span></a></li>
+                  <li class="{{ Nav::isResource('course') }}"><a href="{{url('course')}}"><i class="la-icon icon-courses mr-3"></i><!--<i class="flaticon-document" aria-hidden="true"></i> --><span>{{ __('adminstaticword.Courses') }}</span></a></li>
 
                   <li class="{{ Nav::isResource('bundle') }}"><a href="{{url('bundle')}}"><i class="flaticon-interface" aria-hidden="true"></i><span>{{ __('adminstaticword.BundleCourse') }}</span></a></li>
 

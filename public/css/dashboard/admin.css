@@ -543,9 +543,17 @@ h6 small {
   color: #141D46;
 }
 
+.content-header {
+  background-color: var(--gray) !important;
+}
+
 .content-header > .breadcrumb > li > a {
   color: #8A98AC;
   font-size: 16px;
+}
+
+.content {
+  background-color: var(--gray) !important;
 }
 
 .breadcrumb > .active {
@@ -733,7 +741,7 @@ a.dt-button {
 /* ===== RECENT SUBSCRIPTIONS AND BOUGHT COURSES: START ==== */
 
 .la-dash__recent-section {
-  background-color: var(--gray);
+  background-color: var(--white);
   padding: var(--size-3);
   margin-top: var(--size-8);
   width: 100%;
@@ -1001,7 +1009,7 @@ a.dt-button {
 .la-admin__preview .la-admin__preview-img,
 .la-admin__preview .la-admin__preview-video {
   position: relative;
-  background: var(--gray);
+  background: var(--white);
   border: 1px dashed #DEDEDE;
   width: 100%;
   height: 200px;
@@ -1019,7 +1027,7 @@ a.dt-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--gray);
+  background: var(--white);
   padding: 10px;
 }
 
@@ -1403,4 +1411,41 @@ a.dt-button {
 }
 
 /* ============ INVOICE DETAILS PAGE: END ========== */
+
+/* ============ USER EDIT PROFILE: START ========= */
+
+.la-admin__profile-label {
+  font-size: var(--text-md);
+  font-weight: var(--font-medium);
+  color: var(--gray6);
+}
+
+.la-admin__profile .la-admin__profile-img {
+  width: 180px;
+  height: 180px;
+}
+
+.la-admin__profile-new {
+  width: 180px;
+  height: 180px;
+}
+
+.la-admin__img-upload {
+  padding: var(--size-4);
+  background: none !important;
+  border: 1px dashed #606060;
+}
+
+.la-admin__img-upload a {
+  font-size: var(--text-sm);
+  color: #1592E6;
+  font-weight: var(--font-semibold);
+  margin-bottom: var(--size-4);
+}
+
+.la-admin__img-info {
+  color: #BCBCBC;
+  font-size: var(--text-sm);
+  font-weight: var(--font-light);
+}
 

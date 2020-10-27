@@ -14,7 +14,7 @@
                 <h2 class="la-gcbanner__tag leading-none"> Our Expertise.</h2>
                 <p class="la-gcbanner__para mt-2 mt-md-6 mb-2 mb-md-14">Get guidance for whatever and <br/>whenever you want</p>
                 
-                <a class="la-btn__app text-uppercase " role="button" href="#">Get Started</a>
+                <a class="la-btn__app text-uppercase " role="button" href="/creator-signup">Get Started</a>
               </div>
             </div>
             <div class="col-12 col-lg p-0">
@@ -124,7 +124,7 @@
           <div class="la-bgcreator__ad-content text-center text-white">
             <div class="px-5">
               <p class="la-bgcreator__ad-para">Ready to share your Creations?</p><br>
-              <a class="ad-btn la-btn__app text-white" role="button" href="#">Get Started</a>
+              <a class="ad-btn la-btn__app text-white" role="button" href="/creator-signup">Get Started</a>
             </div>
           </div>
         </div>

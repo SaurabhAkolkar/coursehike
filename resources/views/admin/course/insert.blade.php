@@ -19,8 +19,8 @@
     <div class="col-md-12">
       <!-- general form elements -->
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <div class="row">
+        <div class="box-header ">
+          <div class="row pb-8">
             <div class="col-md-10">
               <h3 class="box-title"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Course') }}</h3>
             </div>
@@ -28,7 +28,7 @@
                 <!--<div><h4 class="admin-form-text"><a href="{{url('course')}}" data-toggle="tooltip" data-original-title="Go back" class="btn-floating"><i class="material-icons"><button class="btn btn-xs btn-success abc"> << {{ __('adminstaticword.Back') }}</button> </i></a></h4></div> -->
             </div>
           </div>
-        </div> <br/>
+        </div> 
          
         <div class="box-body">
           <div class="form-group">

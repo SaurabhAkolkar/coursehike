@@ -15,7 +15,7 @@
     </div>
     <div class="la-profile__sidebar-bottom">
       <ul class="la-profile__sidebar-items">
-        <li class="la-profile__sidebar-item"><a href=""><img src="images/learners/icons/mentor.svg" alt="mentor"></a></li>
+        <li class="la-profile__sidebar-item"><a href="/become-creator"><img src="images/learners/icons/mentor.svg" alt="mentor"></a></li>
         <li class="la-profile__sidebar-item"><a href=""><span class="la-icon la-icon--xl icon-help-filled"></span></a></li>
         <li class="la-profile__sidebar-item"><a href=""><span class="la-icon la-icon--lg icon-logout"></span></a></li>
       </ul>

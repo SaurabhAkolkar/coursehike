@@ -63,25 +63,6 @@ $(function(){
     },
   });
 
-//Swiper Js for Price
-    var swiper = new Swiper('.la-price__slider', {
-      direction: 'vertical',
-      slidesPerView: 1,
-      spaceBetween: 30,
-      mousewheel: true,
-      pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-      },
-      breakpoints:{
-        320:{
-          spaceBetween: 380,
-        },
-        1024:{
-          spaceBetween: 30,
-        }
-      },
-  });
 
   // Rating 
   $("#rateYo").rateYo({
