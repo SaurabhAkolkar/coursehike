@@ -279,7 +279,7 @@
               <br/>
 
               <div class="box-footer">
-                <button type="submit" class="btn btn-lg col-md-4 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                <button type="submit" class="btn btn-lg btn-primary col-md-3 ">{{ __('adminstaticword.Submit') }}</button>
               </div>
 
             </form>

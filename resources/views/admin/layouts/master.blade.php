@@ -22,7 +22,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="{{url('css/dashboard/bootstrap.min.css')}}"> <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{ url('css/datepicker.css') }}">
-  <link rel="icon" type="image/icon" href="{{ asset('images/favicon/'.$gsetting->favicon) }}"> <!-- favicon-icon -->
+  <link rel="icon" type="image/icon" href="{{ asset('images/favicon/favicon.svg') }}"> <!-- favicon-icon -->
   <link rel="stylesheet" href="{{ url('css/dashboard/select2.min.css') }}"> <!-- Font Awesome -->
   <link rel="stylesheet" href="{{url('css/dashboard/font-awesome.min.css')}}">
   <link rel="stylesheet" href="{{ url('css/fontawesome-iconpicker.min.css') }}">
@@ -136,11 +136,11 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
 
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="{{ url('user/edit/'.Auth::User()->id)}}" class="btn btn-default btn-flat">{{ __('adminstaticword.Profile') }}</a>
+                    <a href="{{ url('user/edit/'.Auth::User()->id)}}" class="btn-small">{{ __('adminstaticword.Profile') }}</a>
                   </div>
                   <div class="pull-right">
 
-                    <a class="btn btn-default btn-flat" href="{{ route('logout') }}"
+                    <a class="btn-small" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">
                     {{ __('adminstaticword.Logout') }}

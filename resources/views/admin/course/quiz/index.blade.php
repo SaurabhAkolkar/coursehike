@@ -58,14 +58,14 @@
                     <td>{{$quiz->c}}</td>
                     <td>{{$quiz->answer}}</td>
                     <td>
-                      <a data-toggle="modal" data-target="#myModaledit{{$quiz->id}}" href="#" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                      <a data-toggle="modal" data-target="#myModaledit{{$quiz->id}}" href="#" class="btn btn-success btn-sm"><i class="la-icon la-icon--lg icon-edit"></i></a>
                     </td>
                     <td>
                       <form  method="post" action="{{url('admin/questions/'.$quiz->id)}}" data-parsley-validate class="form-horizontal form-label-left">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
 
-                        <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash-o"></i></button>
+                        <button type="submit" class="btn btn-danger btn-sm"><i class="la-icon la-icon--lg icon-delete"></i></button>
                       </form>
                     </td>
                   </tr>  
@@ -136,7 +136,7 @@
                                
                               
                                 <div class="box-footer">
-                                  <button type="submit" class="btn btn-md col-md-6 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                                  <button type="submit" class="btn btn-md col-md-4 btn-primary">{{ __('adminstaticword.Submit') }}</button>
                                 </div>
                               </form>
                             </div>

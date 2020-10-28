@@ -295,7 +295,7 @@
             <div class="row">
               <div class="col-md-8">
                 <button type="submit" class="btn btn-md btn-primary">
-                  <i class="fa fa-save"></i> {{ __('adminstaticword.Save') }}
+                   {{ __('adminstaticword.Save') }}
                 </button>
               </div>
             </div>

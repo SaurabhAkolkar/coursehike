@@ -115,8 +115,9 @@ sup.redstar,
 
 .box-body img,
 .instructor-detail ul li img {
-  width: 90px;
-  height: 90px;
+  width: 200px;
+  height: 130px;
+  margin: 0 95px;
 }
 
 .logo-invoice img,
@@ -149,7 +150,7 @@ sup.redstar,
 
 .box-body video {
   width: 200px;
-  height: 150px;
+  height: 130px;
 }
 
 .edit-user-img img {
@@ -193,13 +194,16 @@ td .btn-success {
 }
 
 .btn-primary {
-  background-color: var(--app-indigo-1);
-  border-color: none;
+  background-color: transparent;
+  border: 1px solid var(--app-indigo-1) !important;
+  border-radius: 10px;
+  color: #000;
+  padding: 12px 25px;
 }
 
 .btn-primary:hover {
   background: var(--app-indigo-1);
-  border-color: none;
+  color: var(--white);
 }
 
 .skin-blue .main-header .navbar .sidebar-toggle:hover {
@@ -657,40 +661,36 @@ div.dataTables_wrapper div.dataTables_filter label {
 }
 
 .pagination > .active > a {
-  background-color: #506FE4;
-  border-color: #506FE4;
-  color: #fff;
+  background-color: var(--app-indigo-1);
+  color: var(--white);
   margin: 0 5px;
-  padding: 5px;
+  padding: 3px 6px;
   outline: 0;
 }
 
 .pagination > .active > a:focus,
 .pagination > .active > a:hover {
-  background-color: #506FE4;
-  border-color: #506FE4;
-  color: #fff;
+  background-color: var(--app-indigo-1);
+  color: var(--white);
   margin: 0 5px;
-  padding: 5px;
+  padding: 3px 6px;
   outline: 0;
 }
 
 .pagination > .active > span {
-  background-color: #506FE4;
-  border-color: #506FE4;
-  color: #fff;
+  background-color: var(--app-indigo-1);
+  color: var(--white);
   margin: 0 5px;
-  padding: 5px;
+  padding: 3px 6px;
   outline: 0;
 }
 
 .pagination > .active > span:focus,
 .pagination > .active > span:hover {
-  background-color: #506FE4;
-  border-color: #506FE4;
-  color: #fff;
+  background-color: var(--app-indigo-1);
+  color: var(--white);
   margin: 0 5px;
-  padding: 5px;
+  padding: 3px 6px;
   outline: 0;
 }
 
@@ -1028,7 +1028,7 @@ a.dt-button {
   justify-content: space-between;
   align-items: center;
   background: var(--white);
-  padding: 10px;
+  padding: 10px 10px 0 10px;
 }
 
 .la-admin__preview .la-admin__preview-img .la-admin__preview-text .la-admin__preview-size,

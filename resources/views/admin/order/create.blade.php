@@ -18,7 +18,7 @@
                       
            
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <label>User<span class="redstar">*</span></label>
                   <select name="user_id" id="user_id" class="form-control js-example-basic-single" required>
                     <option value="">{{ __('adminstaticword.SelectanOption') }}</option>
@@ -27,7 +27,8 @@
                     @endforeach
                   </select>
                 </div>
-                <div class="col-md-6">
+              
+                <div class="col-md-4">
                   <label>Course<span class="redstar">*</span></label>
                   <select name="course_id" id="course_id" class="form-control js-example-basic-single" required>
                     <option value="">{{ __('adminstaticword.SelectanOption') }}</option>
@@ -37,12 +38,14 @@
                   </select>
                 </div>
               </div>
-              <br>
+              <br><br>
 
-              
-      
-              <div class="box-footer">
-                <button type="submit" value="Add Slider" class="btn btn-md col-md-2 btn-primary">Enrol User</button>
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="box-footer">
+                    <button type="submit" value="Add Slider" class="btn btn-md col-md-4 btn-primary">Enrol User</button>
+                  </div>
+                </div>
               </div>
          
             </form>

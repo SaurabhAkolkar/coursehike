@@ -57,14 +57,14 @@
                   </td>
                   <td>
                     <a class="btn btn-success btn-sm" href="{{url('subcategory/'.$cat->id)}}">
-                    <i class="fa fa-edit"></i></a>
+                    <i class="la-icon la-icon--lg icon-edit"></i></a>
                   </td>
                   <td>
                     <form  method="post" action="{{url('subcategory/'.$cat->id)}}
                       "data-parsley-validate class="form-horizontal form-label-left">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                      <button  type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash-o"></i></button>
+                      <button  type="submit" class="btn btn-danger btn-sm"><i class="la-icon la-icon--lg icon-delete"></i></button>
                     </form>
                   </td>
                 </tr>

@@ -44,7 +44,7 @@
                   </form>
                 </td>
                 <td><a class="btn btn-success btn-sm" href="{{url('faqinstructor/'.$p->id.'/edit')}}">
-                    <i class="fa fa-edit"></i></a>
+                    <i class="la-icon la-icon--lg icon-edit"></i></a>
                 </td>
                 <td>
                   <form  method="post" action="{{url('faqinstructor/'.$p->id)}}"
@@ -52,7 +52,7 @@
                       {{ csrf_field() }}
                       {{ method_field('DELETE') }}
                     <button type="submit" class="btn btn-danger">
-                          <i class="fa fa-fw fa-trash-o"></i>
+                          <i class="la-icon la-icon--lg icon-delete"></i>
                     </button>
                   </form>
                 </td>

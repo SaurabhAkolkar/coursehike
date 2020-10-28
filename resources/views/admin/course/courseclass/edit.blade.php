@@ -220,7 +220,7 @@
                       <br>
                       @if($cate->image !="")
                       <img src="{{ asset('images/class/'.$cate->image) }}" width="200" height="150" autoplay="no"> 
-                      </img>
+                      
 
                       @endif
                     </div>

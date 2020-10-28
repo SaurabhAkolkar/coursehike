@@ -24,7 +24,7 @@
           <div class="form-group">
             <label>{{ __('adminstaticword.DiscountType') }}: <span class="redstar">*</span></label>
             
-              <select required="" name="distype" id="distype" class="form-control">
+              <select required="" name="distype" id="distype" class="form-control js-example-basic-single">
                 <option value="fix">{{ __('adminstaticword.FixAmount') }}</option>
                 <option value="per">% {{ __('adminstaticword.Percentage') }}</option>
               </select>
@@ -89,14 +89,14 @@
               @php 
                 $currency = App\Currency::first();
               @endphp
-              <span class="input-group-addon pt-1 pr-2"><i class="{{ $currency->icon }}"></i></span>
+              <span class="input-group-addon pt-1 px-3 border"><i class="{{ $currency->icon }}"></i></span>
               <input type="number" min="0.0" value="0.00" step="0.1" class="form-control" name="minamount">
             </div>
           </div>
            <div class="form-group">
             <label>{{ __('adminstaticword.ExpiryDate') }}: </label>
             <div class="input-group">
-              <span class="input-group-addon pt-1 pr-2"><i class="fa fa-calendar"></i></span>
+              <span class="input-group-addon pt-2 px-2 border"><i class="la-icon la-icon--md icon-calender-filled"></i></span>
               <input required="" id="expirydate" type="text" class="form-control" name="expirydate">
             </div>
           </div>
@@ -205,7 +205,7 @@
 
     <div class="box-footer">
       <button type="submit" class="btn btn-md btn-primary">
-        <i class="fa fa-plus-circle"></i> {{ __('adminstaticword.Save') }}
+        {{ __('adminstaticword.Save') }}
       </button>
     </form>
      <!--  <a href="{{ route('coupon.index') }}" title="Cancel and go back" class="btn btn-md btn-default btn-flat">
