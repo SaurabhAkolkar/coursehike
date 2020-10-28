@@ -106,9 +106,7 @@ sup.redstar, .redstar {
 }
 
 .box-body img, .instructor-detail ul li img {
-  width: 200px;
-  height: 130px;
-  margin:0 95px;
+  
 }
 
 .logo-invoice img, .logo-settings img {
@@ -962,6 +960,11 @@ button.dt-button, div.dt-button, a.dt-button {
     cursor: pointer;
     z-index: 2;
   }
+}
+.preview-img{
+  width:200px;
+  height:130px;
+  margin:0 95px;
 }
 
 .la-admin__subform-group {

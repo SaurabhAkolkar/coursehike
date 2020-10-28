@@ -43,7 +43,7 @@
               <div class="row">
                 <div class="col-md-8">
                   <div class="box-footer">
-                    <button type="submit" value="Add Slider" class="btn btn-md col-md-4 btn-primary">Enrol User</button>
+                    <button type="submit" value="Add Slider" class="btn btn-md col-md-4 btn-primary">Enroll User</button>
                   </div>
                 </div>
               </div>

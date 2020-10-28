@@ -645,7 +645,39 @@
                       </div>
                     </div>
                   </div>
-                </div><a class="la-rtng__review text-uppercase text-center text-md-right" href="">Leave a Review</a>
+                </div>
+
+                <div class="la-rtng__review-popup">
+                  <a class="la-rtng__review text-uppercase text-center text-md-right" data-toggle="modal" data-target="#leave_rating">Leave a Review</a>
+
+                  <!-- Leave a Rating Popup: Start -->
+                  <div class="modal fade la-rtng__review-modal" id="leave_rating">
+                    <div class="modal-dialog la-rtng__review-dialog">
+                        <div class="modal-content la-rtng__review-content">
+                            <div class="modal-header la-rtng__review-header">
+                                <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
+                            </div>
+                            
+                            <div class="modal-body la-rtng__review-body">
+                                <div class="la-rtng__review-top">
+                                    <h6 class="la-rtng__review-title">Leave a rating</h6>
+                                    <div class="la-rtng__review-stars">5</div>
+                                </div>
+
+                                <div class="la-rtng__review-btm py-4">
+                                    <h6 class="la-rtng__review-title">Review</h6>
+                                    <textarea cols="38" rows="5" class="la-rtng__review-msg" placeholder="Type here..."></textarea>
+                                </div>
+
+                                <div class="text-right">
+                                  <a role="button" class="la-rtng__review-btn">Submit Review</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                  <!-- Leave a Rating Popup: End -->
+                </div>
               </div>
             </li>
           </div>

@@ -16,7 +16,7 @@
             </a>
 
             <!-- Apply Coupon Popup: Start -->
-            <div class="modal la-cart__bill-modal" id="cartCoupons">
+            <div class="modal fade la-cart__bill-modal" id="cartCoupons">
                 <div class="modal-dialog la-cart__bill-mdialog">
                   <div class="modal-content la-cart__bill-mcontent">
                   

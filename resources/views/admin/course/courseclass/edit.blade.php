@@ -392,12 +392,12 @@
                           </div>
                       </div>
                 </div>
-              </div>
+              </div> <br/>
                 <!-- CLASS THUMBNAIL: END -->
 
                <!-- COURSE PACKAGE TYPE: START -->
-               <div class="row">
-                <div class="col-12">
+               <div class="row ">
+                <div class="col-12 pr-0">
                   <div class="la-admin__course-package la-admin__class-package">
                       <div class="la-admin__cp-subscription">
                           <input type="radio" name="editClass-subscription" id="editClassSub" value="Subscription" class="la-admin__cp-input" /> 
@@ -439,7 +439,7 @@
                       </div>
                   </div>
                 </div>
-              </div>
+              </div><br/>
              <!-- COURSE PACKAGE TYPE: END -->
 
               <!--  ADD CLASS STATUS: START -->

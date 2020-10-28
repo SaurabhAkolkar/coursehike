@@ -217,6 +217,24 @@
             <br>
 
             <div class="row">
+              <div class="col-md-4">
+                <div class="update-password">
+                  <label for="box1"> {{ __('adminstaticword.UpdatePassword') }}:</label>
+                  <input type="checkbox" id="myCheck" name="update_pass" onclick="myFunction()">
+                </div>
+
+                <div class="row display-none" id="update-password">
+                  <div class="col-md-12">
+                    <label>{{ __('adminstaticword.Password') }}</label>
+                    <input type="password" name="password" class="form-control" placeholder="Enter password">
+                  </div>
+                  <div class="col-md-12">
+                    <label>{{ __('adminstaticword.ConfirmPassword') }}</label>
+                    <input type="password" name="confirmpassword" class="form-control" placeholder="Confirm password">
+                  </div>
+                </div>
+              </div>
+
               <div class="col-md-2">
                 <label for="exampleInputTit1e">{{ __('adminstaticword.Verified') }}:</label>
                 <li class="tg-list-item">
@@ -234,24 +252,8 @@
                 </li>
                 <input type="hidden"  name="free" value="0" for="status" id="status">
               </div>
-
-              <div class="col-md-4">
-                  <div class="update-password">
-                    <label for="box1"> {{ __('adminstaticword.UpdatePassword') }}:</label>
-                    <input type="checkbox" id="myCheck" name="update_pass" onclick="myFunction()">
-                  </div>
-              </div>
             </div>
-            <div class="row display-none" id="update-password">
-              <div class="col-md-4">
-                <label>{{ __('adminstaticword.Password') }}</label>
-                <input type="password" name="password" class="form-control" placeholder="Enter password">
-              </div>
-              <div class="col-md-4">
-                <label>{{ __('adminstaticword.ConfirmPassword') }}</label>
-                <input type="password" name="confirmpassword" class="form-control" placeholder="Confirm password">
-              </div>
-            </div>
+              
 
             <div class="box-header with-border">
               <h3 class="box-title">{{ __('adminstaticword.SocialProfile') }}</h3>
