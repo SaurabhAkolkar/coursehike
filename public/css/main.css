@@ -10442,9 +10442,24 @@ ul, li {
   list-style: none;
 }
 
-.la-btn__plain, .la-btn__arrow {
-  font-size: var(--text-xs);
+.la-btn {
   font-weight: var(--font-bold);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 3.2px;
+  color: #222222;
+  border: 2px solid var(--green);
+  padding: var(--size-4) var(--size-9);
+  border-radius: var(--size-2);
+  background: none;
+}
+.la-btn.active {
+  background-color: var(--green) !important;
+  border-color: var(--green) !important;
+}
+.la-btn__plain, .la-btn__arrow {
+  font-weight: var(--font-bold);
+  cursor: pointer;
 }
 .la-btn__plain.text--sm, .la-btn__arrow.text--sm {
   font-size: var(--text-sm);
@@ -10482,11 +10497,23 @@ ul, li {
 .la-btn__plain.text--danger a, .la-btn__arrow.text--danger a {
   color: var(--danger);
 }
-.la-btn__plain.text--green a, .la-btn__arrow.text--green a {
-  color: #1EC812;
+.la-btn__plain.text--green a, .la-btn__plain.text--green, .la-btn__arrow.text--green a, .la-btn__arrow.text--green {
+  color: var(--green);
+  transition: all 0.1s ease;
+}
+.la-btn__plain.text--green a:hover, .la-btn__plain.text--green:hover, .la-btn__arrow.text--green a:hover, .la-btn__arrow.text--green:hover {
+  color: var(--app-indigo-1);
 }
 .la-btn__plain.text-spacing, .la-btn__arrow.text-spacing {
   letter-spacing: 3.2px;
+}
+.la-btn__plain {
+  border: none !important;
+  background: none !important;
+  transition: transform 0.1s ease;
+}
+.la-btn__plain:hover {
+  transform: scale(1.2);
 }
 .la-btn__arrow {
   position: relative;
@@ -17342,6 +17369,29 @@ a, a:hover {
 .la-vcourse__class-videoscount {
   color: var(--gray9);
 }
+.la-vcourse__sclass-heading, .la-vcourse__sclass-data {
+  font-size: var(--text-xs);
+  padding: 10px 10px;
+}
+.la-vcourse__sclass-heading {
+  color: var(--gray4);
+  font-weight: var(--font-normal);
+}
+.la-vcourse__sclass-data:nth-child(1) {
+  width: 8%;
+}
+.la-vcourse__sclass-data:nth-child(2) {
+  width: 16%;
+}
+.la-vcourse__sclass-data:nth-child(3) {
+  width: 23%;
+}
+.la-vcourse__sclass-data:nth-child(4) {
+  width: 23%;
+}
+.la-vcourse__sclass-data:nth-child(5) {
+  width: 10%;
+}
 .la-vcourse__lesson {
   --videoW: 148px;
   --videoH: 84px;
@@ -17468,6 +17518,9 @@ a, a:hover {
 .la-vcourse__access--locked:before {
   display: none;
 }
+.la-vcourse__purchase-left {
+  border-right: 1px dashed var(--gray4);
+}
 .la-vcourse__purchase-label {
   font-family: var(--head-font);
   font-weight: 600;
@@ -17477,6 +17530,11 @@ a, a:hover {
 }
 .la-vcourse__purchase-prize--amount {
   color: var(--green);
+}
+.la-vcourse__purchase-trial--lnk {
+  font-size: var(--text-xs);
+  text-decoration: underline;
+  font-weight: var(--font-medium);
 }
 .la-vlesson__title {
   font-size: var(--text-2xl);
@@ -18734,6 +18792,16 @@ a, a:hover {
   color: var(--gray6);
   opacity: 0.9;
 }
+.la-form__checkbox-input {
+  cursor: pointer;
+}
+.la-form__checkbox-input:checked + label .la-form__checkbox-mark {
+  opacity: 1;
+}
+.la-form__checkbox-mark {
+  opacity: 0;
+  transition: all 0.1s ease;
+}
 .la-form__img {
   width: 130px;
   height: 130px;
@@ -19501,17 +19569,6 @@ a, a:hover {
 }
 .la-color--primary {
   color: var(--green);
-}
-.la-btn {
-  font-weight: var(--font-bold);
-  font-size: var(--text-sm);
-  text-transform: uppercase;
-  letter-spacing: 3.2px;
-  color: #222222;
-  border: 2px solid #1EC812;
-  padding: var(--size-4) var(--size-9);
-  border-radius: var(--size-2);
-  background: none;
 }
 .la-btn--secondary {
   border-color: #7400D7;
