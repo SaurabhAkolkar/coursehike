@@ -9,7 +9,7 @@
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.Edit') }}{{ __('adminstaticword.SubCategory') }}</h3>
+          <h3 class="box-title pb-6">{{ __('adminstaticword.Edit') }} {{ __('adminstaticword.SubCategory') }}</h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
@@ -21,7 +21,6 @@
                 {{ method_field('PUT') }}
 
                 <div class="row">
-
                   <div class="col-md-6">
                     <label for="exampleInputSlug">{{ __('adminstaticword.SelectCategory') }}</label>
                     <select name="category_id" class="form-control js-example-basic-single col-md-7 col-12">
@@ -31,18 +30,24 @@
                       @endforeach
                     </select>
                   </div>
-                
+                </div><br>
+
+                <div class="row">
                   <div class="col-md-6">
                     <label for="exampleInputTit1e">{{ __('adminstaticword.SubCategory') }}:<span class="redstar">*</span></label>
                     <input type="title" class="form-control" name="title" id="exampleInputTitle" value="{{$cate->title}}">
                   </div>
                 </div>
                 <br>
+
                 <div class="row">
                   <div class="col-md-6">
                     <label for="icon">{{ __('adminstaticword.Icon') }}:<span class="redstar">*</span></label>
                     <input type="text" class="form-control icp-auto icp" name="icon" id="exampleInputTitle" value="{{$cate->icon}}">
                   </div>
+                </div> <br/>
+
+                <div class="row">
                   <div class="col-md-6">
                     <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                    
@@ -52,10 +57,14 @@
                     </li>
                   <input type="hidden"  name="free" value="0" for="status" id="status">
                   </div>
-                </div>
-                <br>
-                <div class="box-footer">
-                  <button type="submit" class="btn btn-md col-md-2 btn-primary">{{ __('adminstaticword.Save') }}</button>
+                </div><br>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="box-footer">
+                      <button type="submit" class="btn btn-md col-md-4 btn-primary">{{ __('adminstaticword.Save') }}</button>
+                    </div>
+                  </div>
                 </div>
               </form>
             </div>

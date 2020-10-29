@@ -738,6 +738,7 @@ a.dt-button {
   padding: var(--size-3);
   margin-top: var(--size-8);
   width: 100%;
+  height: 450px;
 }
 
 .la-dash__recent-section .la-dash__recent-htitle {
@@ -973,7 +974,13 @@ a.dt-button {
   z-index: 2;
 }
 
-.preview-img {
+.la-admin__preview-img img {
+  width: 300px;
+  height: 200px;
+  margin: 0;
+}
+
+.la-admin__course-img img {
   width: 200px;
   height: 130px;
   margin: 0 95px;
@@ -1011,8 +1018,7 @@ a.dt-button {
   background: var(--white);
   border: 1px dashed #DEDEDE;
   width: 100%;
-  height: auto;
-  min-height: 200px;
+  height: 200px;
   color: var(--black);
   font-size: var(--text-md);
   z-index: 0;

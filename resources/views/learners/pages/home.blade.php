@@ -393,7 +393,7 @@
   <!-- Section: Start-->
   <section class="la-section la-section--about pb-0">
     <div class="la-section__inner ">
-      <div class="container la-price__container position-sticky sticky-top">
+      <div class="container la-price__container">
         <h2 class="la-section__title la-section__title--big leading-none"> <span style="color: var(--gray);">Learn it </span><br><span>like aliens</span></h2>
         <div class="la-price__slider ">
             <div class="la-price__slide">

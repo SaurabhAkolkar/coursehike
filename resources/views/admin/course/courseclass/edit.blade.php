@@ -210,8 +210,8 @@
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
+                <h4 class="modal-title text-left" id="myModalLabel"> {{ __('adminstaticword.Add') }}{{ __('adminstaticword.Subtitle') }}</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel"> {{ __('adminstaticword.Add') }}{{ __('adminstaticword.Subtitle') }}</h4>
               </div>
               <div class="box box-primary">
               <div class="panel panel-sum">
