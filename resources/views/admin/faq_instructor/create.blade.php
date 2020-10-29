@@ -26,7 +26,7 @@
               {{ csrf_field() }}
 
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-8">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="title" placeholder=" Enter Your Title" id="exampleInputTitle" value="">
                 </div>
@@ -34,7 +34,7 @@
               <br>
 
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-8">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
                   <textarea name="details" class="form-control" rows="5" placeholder="Enter Your Details" value=""></textarea>
                 </div>
@@ -42,7 +42,7 @@
               <br>
 
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-8">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                   <br>
                   <li class="tg-list-item">              
@@ -54,8 +54,12 @@
               </div>
               <br>
 
-              <div class="box-footer">
-                <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                  </div>
+                </div>
               </div>
             </form>
           </div>

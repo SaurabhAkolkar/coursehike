@@ -58,6 +58,8 @@
 
                         &:last-child a {
                             padding-right: 0;
+                            color:var(--app-indigo-1);
+                            cursor: pointer;
                             &:after {
                                 display: none;
                             }
@@ -79,6 +81,66 @@
                                 background-color: var(--app-indigo-1);
                             }
                         }
+                    }
+                }
+            }
+
+            &edit{
+                &-{
+                    &modal{
+                        top:15%;
+                    }
+                    &dialog{
+                        width:500px !important;
+                        height:auto;
+                        box-shadow: 0px 6px 12px #00000029;
+                        border-radius: 10px;
+                    }
+                    &header{
+                        border:none !important;
+                        padding: var(--size-6) var(--size-8) 0;
+                    }
+                    &title{
+                        font-size: var(--text-lg);
+                        font-family: var(--head-font);
+                        color: var(--gray7);
+                        font-weight: var(--font-normal);
+                    }
+                    &body{
+                        padding: var(--size-6) var(--size-8);
+                    }
+                    &classes{
+                        font-size: var(--text-sm);
+                        font-family: var(--head-font);
+                        color: var(--gray6);
+                        opacity:0.8;
+                        font-weight: var(--font-normal);
+                    }
+                    &info{
+                        padding: var(--size-2) 0;
+                    }
+                    &main{
+                        font-size: var(--text-sm);
+                        color: var(--gray5);
+                        opacity:0.6;
+                    }
+                    &submain{
+                        font-size: var(--text-sm);
+                        color: var(--gray5);
+                    }
+                    &img{
+                        width:80px;
+                        height:50px;
+                        background-color:var(--gray);
+                        border-radius:10px;
+                    }
+                    &update{
+                        font-size:var(--text-md) !important;
+                        font-weight: var(--font-bold);
+                        color: var(--app-indigo-1);
+                        text-transform: uppercase;
+                        letter-spacing: 2.8px;
+                        margin: var(--size-2) 0;
                     }
                 }
             }

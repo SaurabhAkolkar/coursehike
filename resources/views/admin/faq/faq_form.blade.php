@@ -18,7 +18,7 @@
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.FAQ') }}</h3>
+          <h3 class="box-title pb-6"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.FAQ') }}</h3>
         </div>       
         <div class="box-body">
           <div class="form-group">
@@ -27,7 +27,7 @@
 
 
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-8">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="title" placeholder=" Enter Your Titie" id="exampleInputTitle" value="">
                 </div>
@@ -35,7 +35,7 @@
               <br>
 
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-8">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
                   <textarea name="details" class="form-control" rows="5" placeholder="Enter Your Details" value=""></textarea>
                 </div>
@@ -43,7 +43,7 @@
               <br>
 
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-8">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                   <br>
                   <li class="tg-list-item">              
@@ -54,11 +54,14 @@
                 </div>
               </div>
               <br>
-
-            <div class="box-footer">
-              <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
-            </div>
-
+            
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                  </div>
+                </div>
+              </div>
           </form>
         </div>
         <!-- /.box -->

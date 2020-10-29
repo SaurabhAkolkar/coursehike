@@ -14,7 +14,6 @@
        
         <!-- /.box-header -->
         <div class="box-body">
-  
               <table id="example1" class="table table-bordered table-striped text-center display nowrap">
                 <thead>
                   <th>#</th>
@@ -67,7 +66,7 @@
                         
                         <td>
                           <a class="btn btn-success btn-sm" href="{{ route('user.update',$user->id) }}">
-                            <i class="fa fa-edit"></i></a>
+                            <i class="la-icon la-icon--lg icon-edit"></i></a>
                         </td>
                               
                         <td><form  method="post" action="{{ route('user.delete',$user->id) }}
@@ -75,7 +74,7 @@
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                              
-                              <button onclick="return confirm('Are you sure you want to delete?')"  type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash-o"></i></button>
+                              <button onclick="return confirm('Are you sure you want to delete?')"  type="submit" class="btn btn-danger btn-sm"><i class="la-icon la-icon--lg icon-delete"></i></button>
                             </form>
                         </td>
                     </tr>

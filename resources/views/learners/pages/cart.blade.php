@@ -30,7 +30,6 @@
                         $cart1->wishlist = "Move to Wishlist";
                         $cart1->wishlistUrl="";
                         $cart1->edit= "Edit";
-                        $cart1->editUrl="";
                         $cart1->allClasses = "All Classes";
                         $cart1->bestPrice = 39;
                         $cart1->realPrice = 49;
@@ -44,7 +43,6 @@
                         $cart2->wishlist = "Move to Wishlist";
                         $cart2->wishlistUrl="";
                         $cart2->edit= "Edit";
-                        $cart2->editUrl="";
                         $cart2->allClasses = "All Classes";
                         $cart2->bestPrice = 39;
                         $cart2->realPrice = 49;
@@ -63,7 +61,6 @@
                               :wishlist="$cart->wishlist"
                               :wishlistUrl="$cart->wishlistUrl"
                               :edit="$cart->edit"
-                              :editUrl="$cart->editUrl"
                               :allClasses="$cart->allClasses"
                               :bestPrice="$cart->bestPrice"
                               :realPrice="$cart->realPrice"

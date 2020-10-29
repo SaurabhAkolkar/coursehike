@@ -5,7 +5,7 @@
 @if(Auth::User()->role == "admin")
 
 <section class="content-header">
-  <h1>
+  <h1 class="m-0 pt-6">
     {{ __('adminstaticword.Dashboard') }}
     <small>{{ $project_title }}</small>
   </h1>
@@ -21,30 +21,28 @@
           <!-- small box -->
           <div class="small-box bg-aqua"> 
             <div class="inner">
-            <div class="icon">
-              <!-- <i class="flaticon-user"></i> -->
-              <img src="../css/images/icons/Card creators.svg" alt="Users" class="img-fluid ml-2 pl-1"  />
-            </div>
-            <p>{{ __('adminstaticword.Users') }}</p>
-              <h3>
-              	@php
-              		$user = App\User::all();
-              		if(count($user)>0){
+              <div class="icon">
+                <span class="la-icon la-icon--5xl icon-users"></span>
+              </div>
+              <p class="m-0">{{ __('adminstaticword.Users') }}</p>
+              <h3 class="m-0">
+                  @php
+                    $user = App\User::all();
+                    if(count($user)>0){
 
-              			echo count($user);
-              		}
-              		else{
+                      echo count($user);
+                    }
+                    else{
 
-              			echo "0";
-              		}
-              	@endphp
+                      echo "0";
+                    }
+                  @endphp
               </h3>
-              
-            </div>
-           
+          </div>
+
             <a href="{{route('user.index')}}" class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> 
               <!-- <i class="fa fa-arrow-circle-right"></i> -->
-              <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid mr-2 mb-2"/>
+              <span class="la-icon la-icon--5xl icon-black-arrow"></span>
             </a>
           </div>
         </div>
@@ -55,11 +53,11 @@
             <div class="inner">
             <div class="icon">
              <!--  <i class="flaticon-layout"></i> -->
-              <img src="../css/images/icons/Card Categories.svg" alt="Users" class="img-fluid ml-2 pl-1"  />
+             <span class="la-icon la-icon--5xl icon-categories"></span>
             
             </div>
             <p>{{ __('adminstaticword.Categories') }}</p>
-              <h3>
+              <h3  class="m-0">
               	@php
               		$cat = App\Categories::all();
               		if(count($cat)>0){
@@ -74,8 +72,7 @@
               </h3>
             </div>
             <a href="{{url('category')}}" class="small-box-footer"><!--{{ __('adminstaticword.Moreinfo') }}-->
-              <!-- <i class="fa fa-arrow-circle-right"></i> -->
-              <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid mr-2 mb-2"/>
+              <span class="la-icon la-icon--5xl icon-black-arrow"></span>
             </a>
           </div>
         </div>
@@ -85,12 +82,10 @@
           <div class="small-box bg-yellow">
             <div class="inner">
               <div class="icon">
-                <!-- <i class="flaticon-book"></i> -->
-                <img src="../css/images/icons/Card Courses.svg" alt="Users" class="img-fluid ml-2"  />
-            
+                <span class="la-icon la-icon--5xl icon-courses"></span>
               </div>
               <p>{{ __('adminstaticword.Courses') }}</p>
-              <h3>
+              <h3  class="m-0">
               	@php
               		$course = App\Course::all();
               		if(count($course)>0){
@@ -106,7 +101,7 @@
             </div>  
             <a href="{{url('course')}}" class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> 
               <!--  <i class="fa fa-arrow-circle-right"></i> -->
-              <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid mr-2 mb-2"/>
+              <span class="la-icon la-icon--5xl icon-black-arrow"></span>
             </a>
           </div>
         </div>
@@ -120,10 +115,10 @@
             <div class="inner">
               <div class="icon">
                 <!-- <i class="flaticon-shopping-cart-1"></i> -->
-                <img src="../css/images/icons/Card Revenue.svg" alt="Users" class="img-fluid ml-2"  />
+                <span class="la-icon la-icon--5xl icon-revenue"></span>
               </div>
               <p>{{ __('adminstaticword.Orders') }}</p>
-              <h3>
+              <h3  class="m-0">
               	@php
               		$page = App\Order::all();
               		if(count($page)>0){
@@ -139,7 +134,7 @@
             </div>
             <a href="{{url('order')}}" class="small-box-footer"><!--{{ __('adminstaticword.Moreinfo') }} --> 
               <!--<i class="fa fa-arrow-circle-right"></i>-->
-              <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid mr-2 mb-2"/>
+              <span class="la-icon la-icon--5xl icon-black-arrow"></span>
             </a>
           </div>
         </div>
@@ -152,7 +147,7 @@
                 <i class="flaticon-faq"></i>
               </div>
               <p>{{ __('adminstaticword.Faqs') }}</p>
-              <h3>
+              <h3  class="m-0">
               	@php
               		$faq = App\FaqStudent::all();
               		if(count($faq)>0){
@@ -179,7 +174,7 @@
                  <i class="flaticon-report"></i>
               </div>
                <p>{{ __('adminstaticword.Pages') }}</p>
-              <h3>@php
+              <h3  class="m-0">@php
               		$review = App\Page::all();
               		if(count($review)>0){
 
@@ -202,11 +197,11 @@
             <div class="inner">
               <div class="icon">
               <!-- <i class="flaticon-teacher"></i>-->
-              <img src="../css/images/icons/Card Creators.svg" alt="Users" class="img-fluid ml-2 pl-1"  />
+              <span class="la-icon la-icon--5xl icon-all-mentors"></span>
               
               </div>
               <p>{{ __('adminstaticword.Instructors') }}</p>
-              <h3>
+              <h3  class="m-0">
                 @php
               		$review = App\Instructor::all();
               		if(count($review)>0){
@@ -222,7 +217,7 @@
             </div>
             <a href="{{route('all.instructor')}}" class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> 
               <!-- <i class="fa fa-arrow-circle-right"></i> -->
-              <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid mr-2 mb-2"/>
+              <span class="la-icon la-icon--5xl icon-black-arrow"></span>
             </a>
           </div>
         </div>
@@ -235,7 +230,7 @@
               <i class="flaticon-customer-1"></i>
               </div>
               <p>{{ __('adminstaticword.Testimonials') }}</p>
-              <h3>
+              <h3  class="m-0">
                 @php
               		$review = App\Testimonial::all();
               		if(count($review)>0){
@@ -294,10 +289,10 @@
             @php
               $users = App\User::limit(8)->orderBy('id', 'DESC')->get();
             @endphp
-            <div class="row users-list ">
+            <div class="row users-list">
               @foreach($users as $user)
               <div class="col-md-8 px-0">
-                  <div class="d-flex align-items-center">
+                  <div class="d-flex align-items-center py-1">
                     @if($user['user_img'] != null || $user['user_img'] !='')
                       <img src="{{ asset('/images/user_img/'.$user['user_img']) }}" class="img-fluid" alt="User Image">
                     @else
@@ -320,10 +315,10 @@
             <!-- /.users-list -->
           </div>
           <!-- /.box-body -->
-          <div class="box-footer text-right pt-5">
+          <div class="box-footer text-right ">
             <a href="{{route('user.index')}}" class="uppercase"> <!--{{ __('adminstaticword.ViewAll') }} -->
                   <!-- <i class="fa fa-long-arrow-right fa-2x" style="color:#777777"></i> -->
-                  <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid "/>
+                  <span class="la-icon la-icon--5xl icon-black-arrow"></span>
             </a>
           </div> 
           <!-- /.box-footer -->
@@ -389,7 +384,7 @@
           <!-- /.box-body -->
           <div class="box-footer text-right">
             <a href="{{url('course')}}" class="uppercase"><!-- {{ __('adminstaticword.ViewAll') }} -->
-              <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid"/>
+              <span class="la-icon la-icon--5xl icon-black-arrow"></span>
             </a>
           </div>
           <!-- /.box-footer -->
@@ -446,7 +441,7 @@
 
               <div class="la-dash__recent-more text-right">
                   <a href="" class="la-dash__more-btn">
-                    <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid"/>
+                    <span class="la-icon la-icon--5xl icon-black-arrow"></span>
                   </a>
               </div>
         </div>
@@ -505,7 +500,7 @@
 
               <div class="la-dash__recent-more text-right">
                   <a href="" class="la-dash__more-btn">
-                    <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid"/>
+                    <span class="la-icon la-icon--5xl icon-black-arrow"></span>
                   </a>
               </div>
         </div>
@@ -584,7 +579,7 @@
 
             <div class="la-dash__recent-more text-right">
               <a href="" class="la-dash__more-btn">
-                <img src="../css/images/icons/Black Arrow.svg" alt="Go" class="img-fluid"/>
+                <span class="la-icon la-icon--5xl icon-black-arrow"></span>
               </a>
             </div>
         </div>

@@ -7,7 +7,7 @@
     <div class="col-md-8">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <div class="box-title">
+          <div class="box-title pb-6">
               {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Coupon') }}: {{ $coupan->code }}
           </div>
         </div>
@@ -24,7 +24,7 @@
               <div class="form-group">
                 <label>{{ __('adminstaticword.DiscountType') }}: <span class="redstar">*</span></label>
                 
-                  <select required="" name="distype" id="distype" class="form-control ">
+                  <select required="" name="distype" id="distype" class="form-control js-example-basic-single">
                     
                     <option {{ $coupan->distype == 'fix' ? "selected" : ""}} value="fix">{{ __('adminstaticword.FixAmount') }}</option>
                     <option {{ $coupan->distype == 'per' ? "selected" : ""}} value="per">% {{ __('adminstaticword.Percentage') }}</option>
@@ -82,18 +82,18 @@
               </div>
               <div style="{{ $coupan->link_by=='product' ? "display:none" : "" }}" id="minAmount" class="form-group">
                 <label>{{ __('adminstaticword.MinAmount') }}: </label>
-                <div class="input-group">
+                <div class="input-group ">
                   @php
                       $currency = App\Currency::first();
                   @endphp 
-                  <span class="input-group-addon"><i class="{{ $currency->icon }}"></i></span>
+                  <span class="input-group-addon pt-1 px-3 border"><i class="{{ $currency->icon }}"></i></span>
                   <input value="{{ $coupan->minamount }}" type="number" min="0.0" value="0.00" step="0.1" class="form-control" name="minamount">
                 </div>
               </div>
                <div class="form-group">
                 <label>{{ __('adminstaticword.ExpiryDate') }}: </label>
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                  <span class="input-group-addon pt-2 px-2 border"><i class="la-icon la-icon--md icon-calender-filled"></i></span>
                   <input value="{{ date('Y-m-d',strtotime($coupan->expirydate)) }}" id="expirydate" type="text" class="form-control" name="expirydate">
                 </div>
               </div>
@@ -102,7 +102,7 @@
 
           
       <!-- COUPON PACKAGE TYPE: START -->
-      <div class="row">
+      <div class="row pl-2 pr-3">
         <div class="col-12">
           <div class="la-admin__course-package la-admin__class-package">
               <div class="la-admin__cp-subscription">
@@ -167,7 +167,7 @@
               </div>
           </div>
         </div>
-      </div>
+      </div><br/>
      <!-- COUPON PACKAGE TYPE: END -->
 
     <!-- COUPON USAGE LIMIT: START -->
@@ -180,7 +180,7 @@
               <div class="form-group la-admin__add-coupon">
                 <div class="col-5">
                 <label for="edit-usage" class="la-admin__coupon-label"> Please Enter No. of time this coupon can be used</label>
-                <input type="text" name="edit-usage" id="edit-usage" class="form-control la-admin__subinput-group" placeholder="Enter Count"/>
+                <input type="text" name="edit-usage" id="edit-usage" class="px-4 form-control la-admin__subinput-group" placeholder="Enter Count"/>
                 </div>
               </div>
             </div>
@@ -189,11 +189,11 @@
     <!-- COUPON USAGE LIMIT: END -->
 
     <!-- ADD CLASS MASTER TOGGLER: START -->
-    <div class="row">
+    <div class="row pl-2">
       <div class="col-12">
           <div class="la-admin__master-toggler">
             <label  class="la-admin__preview-label">Status<sup class="redstar">*</sup></label>
-            <div class="la-admin__master-class pl-2">
+            <div class="la-admin__master-class">
                   <input type="checkbox" id="edit-couponStatus" name="edit-couponStatus" class="la-admin__toggle-switch" />
                   <label for="edit-couponStatus" class="la-admin__toggle-label"></label> 
             </div>
@@ -205,7 +205,7 @@
 
           <div class="box-footer">
             <button type="submit" class="btn btn-md btn-primary">
-              <i class="fa fa-save"></i> {{ __('adminstaticword.Update') }}
+               {{ __('adminstaticword.Update') }}
             </button>
           </form>
           <!-- <a href="{{ route('coupon.index') }}" title="Cancel and go back" class="btn btn-md btn-default btn-flat"><i class="fa fa-reply"></i> {{ __('adminstaticword.Back') }}</a>

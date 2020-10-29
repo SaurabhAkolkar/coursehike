@@ -79,7 +79,7 @@
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                       <button type="submit" class="btn btn-danger btn-sm">
-                            <i class="fa fa-fw fa-trash-o"></i>
+                            <i class="la-icon la-icon--lg icon-delete"></i>
                       </button>
                     </form>
                   </td>

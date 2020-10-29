@@ -1,3 +1,653 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "icomoon";
+  src: url(/fonts/icomoon.eot?375b8ea48ac770e8551098b2aad0ba4c);
+  src: url(/fonts/icomoon.eot?375b8ea48ac770e8551098b2aad0ba4c) format("embedded-opentype"), url(/fonts/icomoon.ttf?542de070e6df8c0a5c6670ad126c4284) format("truetype"), url(/fonts/icomoon.woff?6ec0c5693df9a07d6550c66436500ed6) format("woff"), url(/fonts/icomoon.svg?b1f82110c8c45c0c21f76409e231c675) format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^=icon-],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-all-mentors:before {
+  content: "\E986";
+}
+
+.icon-learner-faq:before {
+  content: "\E984";
+}
+
+.icon-mentor-faq:before {
+  content: "\E985";
+}
+
+.icon-child-category:before {
+  content: "\E980";
+}
+
+.icon-sub-category:before {
+  content: "\E981";
+}
+
+.icon-course-request:before {
+  content: "\E989";
+}
+
+.icon-course-language:before {
+  content: "\E98A";
+}
+
+.icon-faq:before {
+  content: "\E982";
+}
+
+.icon-pages:before {
+  content: "\E983";
+}
+
+.icon-facebook-colored:before {
+  content: "\E976";
+  color: #3b5999;
+}
+
+.icon-google-colored .path1:before {
+  content: "\E979";
+  color: white;
+}
+
+.icon-google-colored .path2:before {
+  content: "\E97B";
+  margin-left: -1em;
+  color: #547dbf;
+}
+
+.icon-google-colored .path3:before {
+  content: "\E97C";
+  margin-left: -1em;
+  color: #33a852;
+}
+
+.icon-google-colored .path4:before {
+  content: "\E97D";
+  margin-left: -1em;
+  color: #f9bc15;
+}
+
+.icon-google-colored .path5:before {
+  content: "\E97E";
+  margin-left: -1em;
+  color: #ea4435;
+}
+
+.icon-linkedin-colored:before {
+  content: "\E97F";
+  color: #1076a8;
+}
+
+.icon-mail:before {
+  content: "\E974";
+}
+
+.icon-dollar:before {
+  content: "\E973";
+}
+
+.icon-address:before {
+  content: "\E939";
+}
+
+.icon-card-filled:before {
+  content: "\E96F";
+}
+
+.icon-black-arrow:before {
+  content: "\E975";
+}
+
+.icon-learner-dropdown-down-arrow:before {
+  content: "\E977";
+}
+
+.icon-learner-dropdown-up-arrow:before {
+  content: "\E978";
+}
+
+.icon-grey-arrow:before {
+  content: "\E97A";
+  color: #9e9e9e;
+}
+
+.icon-confirm-password:before {
+  content: "\E970";
+}
+
+.icon-google:before {
+  content: "\E971";
+}
+
+.icon-linkedin:before {
+  content: "\E972";
+}
+
+.icon-video-unfilled:before {
+  content: "\E937";
+}
+
+.icon-upload-unfilled:before {
+  content: "\E940";
+}
+
+.icon-courses:before {
+  content: "\E91B";
+}
+
+.icon-right-arrow:before {
+  content: "\E92F";
+}
+
+.icon-portfolio:before {
+  content: "\E930";
+}
+
+.icon-badge .path1:before {
+  content: "\E932";
+  color: #7400d7;
+}
+
+.icon-badge .path2:before {
+  content: "\E933";
+  margin-left: -1em;
+  color: #fd971d;
+}
+
+.icon-badge .path3:before {
+  content: "\E934";
+  margin-left: -1em;
+  color: #ffb93a;
+}
+
+.icon-badge .path4:before {
+  content: "\E935";
+  margin-left: -1em;
+  color: #fd971d;
+}
+
+.icon-badge .path5:before {
+  content: "\E911";
+  margin-left: -1em;
+  color: #ffb93a;
+}
+
+.icon-categories:before {
+  content: "\E936";
+}
+
+.icon-preview-image .path1:before {
+  content: "\E942";
+  color: #e1e1e1;
+}
+
+.icon-preview-image .path2:before {
+  content: "\E94E";
+  margin-left: -1em;
+  color: #e8e8e8;
+}
+
+.icon-pdf:before {
+  content: "\E954";
+}
+
+.icon-classes-purchased:before {
+  content: "\E955";
+}
+
+.icon-help-filled:before {
+  content: "\E956";
+}
+
+.icon-preview-video:before {
+  content: "\E957";
+  color: #e8e8e8;
+}
+
+.icon-excel:before {
+  content: "\E922";
+}
+
+.icon-badge-purple .path1:before {
+  content: "\E958";
+  color: #7400d7;
+}
+
+.icon-badge-purple .path2:before {
+  content: "\E959";
+  margin-left: -1em;
+  color: #fd971d;
+}
+
+.icon-badge-purple .path3:before {
+  content: "\E95A";
+  margin-left: -1em;
+  color: #ffb93a;
+}
+
+.icon-badge-purple .path4:before {
+  content: "\E95B";
+  margin-left: -1em;
+  color: #fd971d;
+}
+
+.icon-badge-purple .path5:before {
+  content: "\E916";
+  margin-left: -1em;
+  color: #ffb93a;
+}
+
+.icon-badge-green .path1:before {
+  content: "\E95C";
+  color: #4cd20b;
+}
+
+.icon-badge-green .path2:before {
+  content: "\E95D";
+  margin-left: -1em;
+  color: #fd971d;
+}
+
+.icon-badge-green .path3:before {
+  content: "\E95E";
+  margin-left: -1em;
+  color: #ffb93a;
+}
+
+.icon-badge-green .path4:before {
+  content: "\E95F";
+  margin-left: -1em;
+  color: #fd971d;
+}
+
+.icon-badge-green .path5:before {
+  content: "\E924";
+  margin-left: -1em;
+  color: #ffb93a;
+}
+
+.icon-badge-yellow .path1:before {
+  content: "\E960";
+  color: #ffc516;
+}
+
+.icon-badge-yellow .path2:before {
+  content: "\E961";
+  margin-left: -1em;
+  color: #fd971d;
+}
+
+.icon-badge-yellow .path3:before {
+  content: "\E962";
+  margin-left: -1em;
+  color: #ffb93a;
+}
+
+.icon-badge-yellow .path4:before {
+  content: "\E963";
+  margin-left: -1em;
+  color: #fd971d;
+}
+
+.icon-badge-yellow .path5:before {
+  content: "\E92B";
+  margin-left: -1em;
+  color: #ffb93a;
+}
+
+.icon-badge-red .path1:before {
+  content: "\E964";
+  color: #d10500;
+}
+
+.icon-badge-red .path2:before {
+  content: "\E965";
+  margin-left: -1em;
+  color: #fd971d;
+}
+
+.icon-badge-red .path3:before {
+  content: "\E966";
+  margin-left: -1em;
+  color: #ffb93a;
+}
+
+.icon-badge-red .path4:before {
+  content: "\E967";
+  margin-left: -1em;
+  color: #fd971d;
+}
+
+.icon-badge-red .path5:before {
+  content: "\E931";
+  margin-left: -1em;
+  color: #ffb93a;
+}
+
+.icon-insta:before {
+  content: "\E968";
+}
+
+.icon-youtube:before {
+  content: "\E969";
+}
+
+.icon-facebook:before {
+  content: "\E96A";
+}
+
+.icon-star-unfilled:before {
+  content: "\E96B";
+  color: #d5d5d5;
+}
+
+.icon-star-filled:before {
+  content: "\E96C";
+  color: #ffc516;
+}
+
+.icon-revenue:before {
+  content: "\E920";
+}
+
+.icon-coupon:before {
+  content: "\E921";
+}
+
+.icon-browse-courses .path1:before {
+  content: "\E901";
+  color: #414141;
+}
+
+.icon-browse-courses .path2:before {
+  content: "\E905";
+  margin-left: -1em;
+  color: white;
+}
+
+.icon-browse-courses .path3:before {
+  content: "\E909";
+  margin-left: -1em;
+  color: #414141;
+}
+
+.icon-lock:before {
+  content: "\E900";
+}
+
+.icon-percent-coupon:before {
+  content: "\E987";
+}
+
+.icon-fixed-coupon:before {
+  content: "\E988";
+}
+
+.icon-down-arrow:before {
+  content: "\E96D";
+}
+
+.icon-back-arrow:before {
+  content: "\E96E";
+}
+
+.icon-play:before {
+  content: "\E902";
+}
+
+.icon-hide-Password:before {
+  content: "\E903";
+}
+
+.icon-menu:before {
+  content: "\E904";
+}
+
+.icon-profile:before {
+  content: "\E906";
+}
+
+.icon-show-password:before {
+  content: "\E907";
+}
+
+.icon-wallet:before {
+  content: "\E908";
+}
+
+.icon-learning-plans:before {
+  content: "\E90A";
+}
+
+.icon-about:before {
+  content: "\E90B";
+}
+
+.icon-download:before {
+  content: "\E90C";
+}
+
+.icon-arrow:before {
+  content: "\E90D";
+}
+
+.icon-search:before {
+  content: "\E90E";
+}
+
+.icon-file-export:before {
+  content: "\E90F";
+}
+
+.icon-users:before {
+  content: "\E910";
+}
+
+.icon-filter:before {
+  content: "\E912";
+}
+
+.icon-cart-filled:before {
+  content: "\E913";
+}
+
+.icon-help:before {
+  content: "\E914";
+}
+
+.icon-details:before {
+  content: "\E915";
+}
+
+.icon-share:before {
+  content: "\E917";
+}
+
+.icon-settings:before {
+  content: "\E918";
+}
+
+.icon-drop-down:before {
+  content: "\E919";
+}
+
+.icon-assessment:before {
+  content: "\E91A";
+}
+
+.icon-messages:before {
+  content: "\E91C";
+}
+
+.icon-dashboard:before {
+  content: "\E91D";
+}
+
+.icon-delete:before {
+  content: "\E91E";
+}
+
+.icon-edit:before {
+  content: "\E91F";
+}
+
+.icon-hamburger-menu:before {
+  content: "\E923";
+}
+
+.icon-question-answer:before {
+  content: "\E925";
+}
+
+.icon-sort:before {
+  content: "\E926";
+}
+
+.icon-logout:before {
+  content: "\E927";
+}
+
+.icon-plus:before {
+  content: "\E928";
+}
+
+.icon-cancel:before {
+  content: "\E929";
+}
+
+.icon-announcement:before {
+  content: "\E92A";
+}
+
+.icon-contact:before {
+  content: "\E92C";
+}
+
+.icon-purchase-history:before {
+  content: "\E92D";
+}
+
+.icon-request:before {
+  content: "\E92E";
+}
+
+.icon-tick:before {
+  content: "\E938";
+}
+
+.icon-star:before {
+  content: "\E93A";
+}
+
+.icon-birthday:before {
+  content: "\E93B";
+}
+
+.icon-calender-filled:before {
+  content: "\E93C";
+}
+
+.icon-password:before {
+  content: "\E93D";
+}
+
+.icon-contact-number:before {
+  content: "\E93E";
+}
+
+.icon-mail-id:before {
+  content: "\E93F";
+}
+
+.icon-calender:before {
+  content: "\E941";
+}
+
+.icon-become-creator:before {
+  content: "\E943";
+}
+
+.icon-playlist:before {
+  content: "\E944";
+}
+
+.icon-edit-learner-profile:before {
+  content: "\E945";
+}
+
+.icon-notification:before {
+  content: "\E946";
+}
+
+.icon-wishlist:before {
+  content: "\E947";
+}
+
+.icon-cart:before {
+  content: "\E948";
+}
+
+.icon-caption:before {
+  content: "\E949";
+}
+
+.icon-collapse-video:before {
+  content: "\E94A";
+}
+
+.icon-expand-video:before {
+  content: "\E94B";
+}
+
+.icon-volume:before {
+  content: "\E94C";
+}
+
+.icon-next-playlist:before {
+  content: "\E94D";
+}
+
+.icon-edit-image:before {
+  content: "\E94F";
+}
+
+.icon-inspire-image:before {
+  content: "\E950";
+}
+
+.icon-recognition-image:before {
+  content: "\E951";
+}
+
+.icon-earnings-image:before {
+  content: "\E952";
+}
+
+.icon-share-image:before {
+  content: "\E953";
+}
+
 :root {
   --body-font: "Roboto", sans-serif;
   --head-font: "Raleway", sans-serif;
@@ -26,6 +676,9 @@
   --icon-3xl: calc(var(--icon-base) * 8);
   --icon-4xl: calc(var(--icon-base) * 10);
   --icon-5xl: calc(var(--icon-base) * 12);
+  --icon-6xl: calc(var(--icon-base) * 14);
+  --icon-7xl: calc(var(--icon-base) * 16);
+  --icon-8xl: calc(var(--icon-base) * 18);
   --font-thin: 100;
   --font-light: 300;
   --font-normal: 400;
@@ -77,6 +730,82 @@
   --z-3000: 3000;
   --z-4000: 4000;
   --z-5000: 5000;
+}
+
+.la-icon {
+  display: inline-block;
+}
+
+.la-icon--xs {
+  width: var(--icon-xs);
+  height: var(--icon-xs);
+  font-size: var(--icon-xs);
+}
+
+.la-icon--sm {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  font-size: var(--icon-sm);
+}
+
+.la-icon--md {
+  width: var(--icon-md);
+  height: var(--icon-md);
+  font-size: var(--icon-md);
+}
+
+.la-icon--lg {
+  width: var(--icon-lg);
+  height: var(--icon-lg);
+  font-size: var(--icon-lg);
+}
+
+.la-icon--xl {
+  width: var(--icon-xl);
+  height: var(--icon-xl);
+  font-size: var(--icon-xl);
+}
+
+.la-icon--2xl {
+  width: var(--icon-2xl);
+  height: var(--icon-2xl);
+  font-size: var(--icon-2xl);
+}
+
+.la-icon--3xl {
+  width: var(--icon-3xl);
+  height: var(--icon-3xl);
+  font-size: var(--icon-3xl);
+}
+
+.la-icon--4xl {
+  width: var(--icon-4xl);
+  height: var(--icon-4xl);
+  font-size: var(--icon-4xl);
+}
+
+.la-icon--5xl {
+  width: var(--icon-5xl);
+  height: var(--icon-5xl);
+  font-size: var(--icon-5xl);
+}
+
+.la-icon--6xl {
+  width: var(--icon-6xl);
+  height: var(--icon-6xl);
+  font-size: var(--icon-6xl);
+}
+
+.la-icon--7xl {
+  width: var(--icon-7xl);
+  height: var(--icon-7xl);
+  font-size: var(--icon-7xl);
+}
+
+.la-icon--8xl {
+  width: var(--icon-8xl);
+  height: var(--icon-8xl);
+  font-size: var(--icon-8xl);
 }
 
 .mt-1 {

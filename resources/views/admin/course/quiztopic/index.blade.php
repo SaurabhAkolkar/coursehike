@@ -49,13 +49,13 @@
 
                 <a class="" title="Add Question" href="{{route('questions.show', $topic->id)}}"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Question') }}</a>
              
-                <a href="{{url('admin/quiztopic/'.$topic->id)}}" title="Edit" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                <a href="{{url('admin/quiztopic/'.$topic->id)}}" title="Edit" class="btn btn-success btn-sm"><i class="la-icon la-icon--lg icon-edit"></i></a>
 
                 <form  method="post" action="{{url('admin/quiztopic/'.$topic->id)}}
                   "data-parsley-validate class="form-horizontal form-label-left">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
-                    <button  type="submit" class="btn btn-danger btn-sm" title="Delete"><i class="fa fa-fw fa-trash-o"></i></button>
+                    <button  type="submit" class="btn btn-danger btn-sm" title="Delete"><i class="la-icon la-icon--lg icon-delete"></i></button>
                 </form>
                 
               </td>
@@ -157,7 +157,7 @@
                 <br>
         
                 <div class="box-footer">
-                  <button type="submit" value="Add Answer" class="btn btn-md col-md-6 btn-primary">+ {{ __('adminstaticword.Save') }}</button>
+                  <button type="submit" value="Add Answer" class="btn btn-md col-md-4 btn-primary"> {{ __('adminstaticword.Save') }}</button>
                 </div>
 
               </form>

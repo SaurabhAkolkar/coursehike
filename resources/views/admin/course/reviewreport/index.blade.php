@@ -31,13 +31,13 @@
                   <td>{{$report->detail}}</td>
                   <td>
                     <a class="btn btn-primary btn-sm" href="{{url('reports/'.$report->id)}}">
-                    <i class="fa fa-edit"></i></a>
+                    <i class="la-icon la-icon--lg icon-edit"></i></a>
                   </td>
                   <td><form  method="post" action="{{url('reports/'. $report->id)}}
                         "data-parsley-validate class="form-horizontal form-label-left">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                         <button type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash-o"></i></button>
+                         <button type="submit" class="btn btn-danger"><i class="la-icon la-icon--lg icon-delete"></i></button>
                       </form>
                   </td>
                 </tr>

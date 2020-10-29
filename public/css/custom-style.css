@@ -1,322 +1,4 @@
-@font-face {
-  font-family: "icomoon";
-  src: url(/fonts/icomoon.eot?40e804f40a47c766aaa7f4d960a17236);
-  src: url(/fonts/icomoon.eot?40e804f40a47c766aaa7f4d960a17236#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?229691a06d1c175783935876b1bc9d1e) format("truetype"), url(/fonts/icomoon.woff?c4db22456c8961355b43269cf2c01065) format("woff"), url(/fonts/icomoon.svg?1a51f74cf69d8fdf50e74cda88f104a2#icomoon) format("svg");
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
-}
-[class^=icon-],
-[class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "icomoon" !important;
-  speak: never;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-.icon-excel:before {
-  content: "\E922";
-}
-
-.icon-revenue:before {
-  content: "\E920";
-  font-size:18px;
-}
-
-.icon-coupon:before {
-  content: "\E921";
-  font-size:18px;
-}
-
-.icon-browse-courses .path1:before {
-  content: "\E901";
-  color: #414141;
-}
-
-.icon-browse-courses .path2:before {
-  content: "\E905";
-  margin-left: -1em;
-  color: white;
-}
-
-.icon-browse-courses .path3:before {
-  content: "\E909";
-  margin-left: -1em;
-  color: #414141;
-}
-
-.icon-lock:before {
-  content: "\E900";
-}
-
-.icon-play:before {
-  content: "\E902";
-}
-
-.icon-hide-Password:before {
-  content: "\E903";
-}
-
-.icon-menu:before {
-  content: "\E904";
-}
-
-.icon-profile:before {
-  content: "\E906";
-}
-
-.icon-show-password:before {
-  content: "\E907";
-}
-
-.icon-wallet:before {
-  content: "\E908";
-}
-
-.icon-learning-plans:before {
-  content: "\E90A";
-}
-
-.icon-about:before {
-  content: "\E90B";
-}
-
-.icon-download:before {
-  content: "\E90C";
-}
-
-.icon-arrow:before {
-  content: "\E90D";
-}
-
-.icon-search:before {
-  content: "\E90E";
-}
-
-.icon-file-export:before {
-  content: "\E90F";
-}
-
-.icon-users:before {
-  content: "\E910";
- font-size:18px;
-}
-
-.icon-edit-profile-learner-filled:before {
-  content: "\E911";
-}
-
-.icon-filter:before {
-  content: "\E912";
-}
-
-.icon-cart-filled:before {
-  content: "\E913";
-}
-
-.icon-help:before {
-  content: "\E914";
-}
-
-.icon-details:before {
-  content: "\E915";
-}
-
-.icon-notification-filled:before {
-  content: "\E916";
-}
-
-.icon-share1:before {
-  content: "\E917";
-}
-
-.icon-settings:before {
-  content: "\E918";
-}
-
-.icon-drop-down:before {
-  content: "\E919";
-}
-
-.icon-assessment:before {
-  content: "\E91A";
-}
-
-.icon-courses:before {
-  content: "\E91B";
-  font-size:16px;
-}
-
-.icon-messages:before {
-  content: "\E91C";
-}
-
-.icon-dashboard:before {
-  content: "\E91D";
-}
-
-.icon-delete:before {
-  content: "\E91E";
-}
-
-.icon-edit:before {
-  content: "\E91F";
-}
-
-.icon-hamburger-menu:before {
-  content: "\E923";
-}
-
-.icon-playlist-filled:before {
-  content: "\E924";
-}
-
-.icon-question-answer:before {
-  content: "\E925";
-}
-
-.icon-sort:before {
-  content: "\E926";
-}
-
-.icon-logout:before {
-  content: "\E927";
-}
-
-.icon-plus:before {
-  content: "\E928";
-}
-
-.icon-cancel:before {
-  content: "\E929";
-}
-
-.icon-announcement:before {
-  content: "\E92A";
-}
-
-.icon-announcement-filled:before {
-  content: "\E92B";
-}
-
-.icon-contact:before {
-  content: "\E92C";
-}
-
-.icon-purchase-history:before {
-  content: "\E92D";
-}
-
-.icon-request:before {
-  content: "\E92E";
-}
-
-.icon-tick:before {
-  content: "\E938";
-}
-
-.icon-wishlist-filled:before {
-  content: "\E939";
-}
-
-.icon-star:before {
-  content: "\E93A";
-}
-
-.icon-birthday:before {
-  content: "\E93B";
-}
-
-.icon-calender-filled:before {
-  content: "\E93C";
-}
-
-.icon-password:before {
-  content: "\E93D";
-}
-
-.icon-contact-number:before {
-  content: "\E93E";
-}
-
-.icon-mail-id:before {
-  content: "\E93F";
-}
-
-.icon-calender:before {
-  content: "\E941";
-}
-
-.icon-become-creator:before {
-  content: "\E943";
-}
-
-.icon-playlist:before {
-  content: "\E944";
-}
-
-.icon-edit-learner-profile:before {
-  content: "\E945";
-}
-
-.icon-notification:before {
-  content: "\E946";
-}
-
-.icon-wishlist:before {
-  content: "\E947";
-}
-
-.icon-cart:before {
-  content: "\E948";
-}
-
-.icon-caption:before {
-  content: "\E949";
-}
-
-.icon-collapse-video:before {
-  content: "\E94A";
-}
-
-.icon-expand-video:before {
-  content: "\E94B";
-}
-
-.icon-volume:before {
-  content: "\E94C";
-}
-
-.icon-next-playlist:before {
-  content: "\E94D";
-}
-
-.icon-edit-line:before {
-  content: "\E94F";
-}
-
-.icon-inspire:before {
-  content: "\E950";
-}
-
-.icon-recognition:before {
-  content: "\E951";
-}
-
-.icon-earnings:before {
-  content: "\E952";
-}
-
-.icon-share:before {
-  content: "\E953";
-}
 /* =============== Admin Left Side Navbar CSS ============  */
 html, body{
     font-family:'Roboto', sans-serif !important;
@@ -486,10 +168,11 @@ html, body{
     position: relative;
     top:0;
     left:0;
-    font-size:25px;
+    font-size:inherit;
     display:block;
+    color:#48ACF8;
 }
-.small-box:hover .icon{font-size:25px;}
+.small-box:hover .icon{font-size:inherit;}
 
 /* == small-box icons CSS == */
 .small-box [class^="flaticon-"]:before, .small-box [class*=" flaticon-"]:before, .small-box [class^="flaticon-"]:after, .small-box [class*=" flaticon-"]:after {
@@ -511,7 +194,7 @@ html, body{
     font-family:var(--body-font);
     font-weight:500;
     white-space: nowrap;
-    padding-left: 12px;
+    padding-left: 5px;
     color:#252525 !important;
     letter-spacing: 0px;
 }
@@ -519,8 +202,8 @@ html, body{
 .small-box p {
     font-size: 18px;
     color: #252525 !important;
-    padding-left:12px;
-    padding-top:5px;
+    padding-left:5px;
+    padding-top:0;
     margin:0;
     font-family:var(--body-font);
     font-weight:500;
@@ -536,12 +219,13 @@ html, body{
     background:var(--white);
     text-decoration: none;
     text-align:right;
-    padding:0 8px 8px;
+    padding:0 8px;
 }
 .small-box>.small-box-footer:hover {
   background:var(--white);
     color:#000;
 }
+
 /* == Latest Users Section == */
 .box-header{
   padding: 25px 10px 0 10px !important;
@@ -572,6 +256,14 @@ html, body{
 }
 .box-footer{
     background-color:transparent !important;
+    color:#000;
+}
+.box-footer a{
+    background-color:transparent !important;
+    color:#000;
+}
+.box-footer a:hover{
+    color:#000;
 }
 .box-tools{
     display:none;
@@ -792,11 +484,6 @@ td .btn-success:focus, td form .btn-danger:focus{
 
 }
 
-/* == Pagination ==  */
-div.dataTables_wrapper div.dataTables_paginate{
-  display:none;
-}
-
 /* === Preview Video ==*/
 .box-body video{
   outline:0;
@@ -925,27 +612,45 @@ label{
     background-color: #fff;
 }
 .btn-primary {
-    background-color: #7400D7 ;
-    color:#ffffff;
-    border:none;
-    border-radius:0;
+    background-color: transparent !important;
+    color:#000000;
+    border:2px solid var(--app-indigo-1) !important;
+    border-radius:10px !important;
     padding:12px 30px;
-    box-shadow: 0px 3px 6px #00000029;
     float:right;
     font-size:16px !important;
+    font-weight: var(--font-medium);
     letter-spacing: 1.2px;
 }
-.btn-primary:hover{
-    background-color: #7400D7 ;
-    box-shadow: 0px 3px 6px #00000029;
+.btn-primary:hover, .btn-primary:focus{
+    background-color: var(--app-indigo-1) !important;
+    color: var(--white);
+    border-radius:10px !important;
+    padding:12px 30px;
+    border:2px solid var(--app-indigo-1) !important;
+    outline:0 !important;
+    box-shadow: none !important;
 }
 
-.btn-primary:focus{
-  background-color: #7400D7 !important;
-  color:#ffffff !important;
-  outline:0 !important;
-  border:none !important;
-  box-shadow:none !important;
+.btn-small {
+    background-color: transparent !important;
+    color:#000000;
+    border:2px solid var(--app-indigo-1) !important;
+    border-radius:10px !important;
+    padding:8px 20px;
+    float:right;
+    font-size:14px !important;
+    font-weight: var(--font-medium);
+    letter-spacing: 1.2px;
+}
+.btn-small:hover, .btn-small:focus{
+    background-color: var(--app-indigo-1) !important;
+    color: var(--white);
+    padding:8px 20px;
+    border-radius:10px !important;
+    border:2px solid var(--app-indigo-1) !important;
+    outline:0 !important;
+    box-shadow:none !important;
 }
 
 /* ================= COURSE CLASS ================ */

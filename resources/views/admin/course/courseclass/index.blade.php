@@ -48,14 +48,14 @@
                   @endif
                 </td>
                 <td>
-                  <a class="btn btn-success btn-sm" href="{{url('courseclass/'.$cat->id)}}"><i class="fa fa-edit"></i></a>
+                  <a class="btn btn-success btn-sm" href="{{url('courseclass/'.$cat->id)}}"><i class="la-icon la-icon--lg icon-edit"></i></a>
                 </td> 
                 <td>
                   <form  method="post" action="{{url('courseclass/'.$cat->id)}}"data-parsley-validate class="form-horizontal form-label-left">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
 
-                    <button  type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash-o"></i></button>
+                    <button  type="submit" class="btn btn-danger btn-sm"><i class="la-icon la-icon--lg icon-delete"></i></button>
                   </form>
                 </td>
               </tr>
@@ -228,11 +228,11 @@
                   </div>
                 </div>
                 </div>
-            </div>
+            </div> <br/>
             <!-- ADD CLASS STATUS: END -->
 
                 <div class="box-footer">
-                  <button type="submit" class="btn btn-lg col-md-6 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                  <button type="submit" class="btn btn-lg btn-primary col-md-4">{{ __('adminstaticword.Submit') }}</button>
                 </div>
              
               </form>

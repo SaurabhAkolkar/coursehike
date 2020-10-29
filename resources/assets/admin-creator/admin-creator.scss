@@ -1,4 +1,4 @@
-@import './variables', './mixins';
+@import './variables', './mixins', './icons';
 
 :root {    
     --body-font: 'Roboto', sans-serif;
@@ -30,6 +30,9 @@
     --icon-3xl: calc(var(--icon-base) * 8);
     --icon-4xl: calc(var(--icon-base) * 10);
     --icon-5xl: calc(var(--icon-base) * 12);
+    --icon-6xl: calc(var(--icon-base) * 14);
+    --icon-7xl: calc(var(--icon-base) * 16);
+    --icon-8xl: calc(var(--icon-base) * 18);
     
     --font-thin: 100;
     --font-light: 300;
@@ -90,6 +93,75 @@
     --z-3000: 3000;
     --z-4000: 4000;
     --z-5000: 5000;
+}
+
+#{$ap}- {
+    &icon {
+        display: inline-block;
+        &-- {
+            &xs {
+                width: var(--icon-xs);
+                height: var(--icon-xs);
+                font-size: var(--icon-xs);
+            }
+            &sm {
+                width: var(--icon-sm);
+                height: var(--icon-sm);
+                font-size: var(--icon-sm);
+            }
+            &md {
+                width: var(--icon-md);
+                height: var(--icon-md);
+                font-size: var(--icon-md);
+            }
+            &lg {
+                width: var(--icon-lg);
+                height: var(--icon-lg);
+                font-size: var(--icon-lg);
+            }
+            &xl {
+                width: var(--icon-xl);
+                height: var(--icon-xl);
+                font-size: var(--icon-xl);
+            }
+            &2xl {
+                width: var(--icon-2xl);
+                height: var(--icon-2xl);
+                font-size: var(--icon-2xl);
+            }
+            &3xl {
+                width: var(--icon-3xl);
+                height: var(--icon-3xl);
+                font-size: var(--icon-3xl);
+            }
+            &4xl {
+                width: var(--icon-4xl);
+                height: var(--icon-4xl);
+                font-size: var(--icon-4xl);
+            }
+            &5xl {
+                width: var(--icon-5xl);
+                height: var(--icon-5xl);
+                font-size: var(--icon-5xl);
+            }
+            &6xl {
+                width: var(--icon-6xl);
+                height: var(--icon-6xl);
+                font-size: var(--icon-6xl);
+            }
+            &7xl {
+                width: var(--icon-7xl);
+                height: var(--icon-7xl);
+                font-size: var(--icon-7xl);
+            }
+            &8xl {
+                width: var(--icon-8xl);
+                height: var(--icon-8xl);
+                font-size: var(--icon-8xl);
+            }
+        }
+    }
+    // Icon: End
 }
 
 @include Spacings;

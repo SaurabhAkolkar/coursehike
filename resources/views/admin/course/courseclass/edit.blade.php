@@ -129,7 +129,7 @@
                           </div>
                       </div>
                 </div>
-              </div>
+              </div> <br/>
                 <!-- CLASS THUMBNAIL: END -->
 
               <!--  ADD CLASS STATUS: START -->

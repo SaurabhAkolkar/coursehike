@@ -34,7 +34,7 @@
                   <tr>
                     <td>{{ $key+1 }}</td>
                     <td>
-                        <img src="https://picsum.photos/45/25" alt="" />
+                        <span class="la-icon la-icon--8xl icon-fixed-coupon" style="color:#FFDD75;"></span>
                     </td>
                     <td>{{ $cpn->code }}</td>
                     @php
@@ -55,12 +55,12 @@
                     
                     <td>
                       <a title="Edit coupon" href="{{ route('coupon.edit',$cpn->id) }}" class="btn btn-success btn-sm">
-                        <i class="fa fa-pencil"></i>
+                        <i class="la-icon la-icon--lg icon-edit"></i>
                       </a>
                     </td>
                     <td>
                       <a title="Delete coupon" data-toggle="modal" data-target="#coupon{{ $cpn->id }}" class="btn btn-danger">
-                        <i class="fa fa-trash"></i>
+                        <i class="la-icon la-icon--lg icon-delete"></i>
                       </a>
                     </td>
 
