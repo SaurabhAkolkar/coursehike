@@ -7,7 +7,7 @@
           <div class="row">
             <!-- Column: Start-->
             <div class="col-7 col-lg-2">
-              <div class="la-footer__brand mb-md-6"><img class="img-fluid" src="./images/learners/logo.svg" alt="Lila"></div>
+              <div class="la-footer__brand mb-md-6"><img class="img-fluid" src="/images/learners/logo.svg" alt="Lila"></div>
               <div class="la-footer__contact">
                 <p class="la-footer__contact-address mb-2">K2, Old Sonal Industrial Est., Kanchpada, Malad Link Road, Malad West, Mumbai 400064. MH, India</p><a class="la-footer__contact-link" href="mailto:ask@learnitlikealiens.com"> <strong>ask@learnitlikealiens.com</strong></a>
               </div>

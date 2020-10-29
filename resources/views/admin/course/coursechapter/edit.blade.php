@@ -55,7 +55,7 @@
                                   <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
                             </div>
                             <input type="file" class="form-control la-admin__preview-input preview_img" name="preview_image" />
-                            <img src="" alt="" class="d-none preview-img"/>
+                            <img src="/images/course/{{$cate->thumbnail}}" alt="" class="preview-img"/>
                         </div>
                       </div>
                 </div>
@@ -66,7 +66,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <label>One-Time Purchase Cost:<span class="redstar">*</span> </label>
-                  <input type="text" placeholder="Enter Your Class Price" class="form-control " name="price" value="">
+                  <input type="text" placeholder="Enter Your Class Price" class="form-control " name="price" value="{{$cate->price}}">
                 </div>
                 <div class="col-md-6"> 
                   

@@ -153,18 +153,17 @@
                   <div class="col-md-6">    
                     <label >{{ __('adminstaticword.Is_preview_video') }}:</label>
                     <li class="tg-list-item">   
-                      <input class="la-admin__toggle-switch" id="c11"  type="checkbox"/>
+                      <input class="la-admin__toggle-switch" id="c11" name="is_preview"  type="checkbox"/>
                       <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="c11"></label>
                     </li>
-                    <input type="hidden" name="status" value="0" id="t11">
+                    {{-- <input type="hidden" name="status" value="0" id="t11"> --}}
                   </div>
                   <div class="col-md-6">
                     <label >{{ __('adminstaticword.Featured') }}:</label>    
                     <li class="tg-list-item">
-                      <input class="la-admin__toggle-switch" id="cb100"   type="checkbox"/>
+                      <input class="la-admin__toggle-switch" id="cb100" name="featured" type="checkbox"/>
                       <label class="la-admin__toggle-label" data-tg-off="NO" data-tg-on="YES" for="cb100"></label>
                     </li>
-                    <input type="hidden" name="featured" value="1" id="c100">
                   </div>
                 </div> 
                 <br>

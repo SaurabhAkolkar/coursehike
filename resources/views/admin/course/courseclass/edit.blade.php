@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'Edit Class - Admin')
+@section('title', 'Edit Video - Admin')
 @section('body')
 
 <section class="content">
@@ -56,59 +56,7 @@
               </div>
               <br>
               
-              <div class="row">
-                <div class="col-md-12">
-                  <label for="type">{{ __('adminstaticword.Type') }}:</label>
-                  <select name="type" id="filetype" class="form-control">
-                    <option value="{{ $cate->type }}">{{ $cate->type }}</option>
-                  </select>
-                </div>
-              </div>
-              <br>
-             
               @if($cate->type =="video")
-                <div class="row">
-                  <div class="col-md-12" id="videotype">
-                    <input type="radio" name="checkVideo" id="ch1" value="url" {{ $cate->url !="" ? 'checked' : "" }}>&nbsp;{{ __('adminstaticword.URL') }}&emsp;
-                    <input type="radio" name="checkVideo" id="ch2" value="uploadvideo" {{ $cate->video !="" ? 'checked' : "" }}>&nbsp;{{ __('adminstaticword.UploadVideo') }}&emsp;
-                    <input type="radio" name="checkVideo" id="ch9" value="iframeurl" {{ $cate->iframe_url !="" ? 'checked' : "" }}>&nbsp;{{ __('adminstaticword.IframeURL') }}&emsp;
-                    <input type="radio" name="checkVideo" id="ch10" value="liveurl" {{ $cate->date_time !="" ? 'checked' : "" }}>&nbsp;{{ __('adminstaticword.LiveClass') }}&emsp;
-                    
-
-                    @if($gsetting->aws_enable == 1)
-                    <input type="radio" name="checkVideo" id="ch13" value="aws_upload" {{ $cate->aws_upload !="" ? 'checked' : "" }}>&nbsp;{{ __('adminstaticword.AWSUpload') }}
-
-                    @endif
-                    <br>
-                  </div>
-                </div>
-                
-
-
-                <!-- aws edit -->
-                @if($gsetting->aws_enable == 1)
-                <div class="row">
-                  <div class="col-md-12">
-                    <div id="awsUpload" @if($cate->video !=NULL || $cate->iframe_url !=NULL || $cate->url) class="display-none" @endif >
-                      <label for="">{{ __('adminstaticword.AWSUpload') }}: </label>
-                      <input type="file" name="aws_upload" class="form-control">
-                      @if($cate->aws_upload !="")
-                        <label for="">{{ __('adminstaticword.AWSFileName') }}:</label>
-                        <input disabled value="{{ $cate->aws_upload }}" class="form-control">
-                      @endif
-                    </div>
-                  </div>
-                </div>
-                @endif
-
-                <div class="row">
-                  <div class="col-md-12">
-                    <div id="videoURL" @if($cate->video !=NULL || $cate->iframe_url !=NULL || $cate->aws_upload !=NULL) class="display-none" @endif >
-                      <label for="">{{ __('adminstaticword.URL') }}: </label>
-                      <input type="text" value="{{ $cate->url }}" name="vidurl" class="form-control">
-                    </div>
-                  </div>
-                </div>
                 
                 <div class="row">
                   <div class="col-md-12">
@@ -116,35 +64,12 @@
                       <label for="">{{ __('adminstaticword.UploadVideo') }}: </label>
                       <input type="file" name="video_upld" class="form-control">
                       @if($cate->video !="")
-                        <video src="{{ asset('video/class/'.$cate->video) }}" autoplay="no">
+                        <video src="{{ asset('video/class/'.$cate->video) }}" controls>
                         </video>
                       @endif
                     </div>
                   </div>
                 </div>
-
-                <div class="row">
-                  <div class="col-md-12">
-                    <div id="iframeURLBox" @if($cate->url !=NULL || $cate->video !=NULL || $cate->aws_upload !=NULL) class="display-none" @endif >
-                      <label for="">{{ __('adminstaticword.IframeURL') }}: </label>
-                      <input type="text" value="{{ $cate->iframe_url }}" name="iframe_url" class="form-control">
-                    </div>
-                  </div>
-                </div>
-
-              
-
-                <div class="row">
-                  <div class="col-md-12">
-                    <div id="liveURLBox" @if($cate->iframe_url !=NULL || $cate->video !=NULL || $cate->aws_upload !=NULL || $cate->url !=NULL) class="display-none" @endif >
-                      <label for="appt">Select a Date & Time:</label>
-                      
-                      <input type="datetime-local" id="date_time" name="date_time" value="{{ $live_date }}" class="form-control">
-                    </div>
-                  </div>
-                </div>
-
-
                 
                 <div class="row">
                   <div  class="col-md-12" id="duration">
@@ -154,210 +79,22 @@
                 </div>
                 <br>
               @endif
-
-              @if($cate->type =="audio")
-                  
-                  <div class="form-group">
-                    <div class="col-md-12">
-                      <input type="radio" name="checkAudio" id="ch11" value="audiourl" {{ $cate->url !="" ? 'checked' : "" }}> {{ __('adminstaticword.URL') }}
-                      <input type="radio" name="checkAudio" id="ch12"  {{ $cate->audio !="" ? 'checked' : "" }} value="uploadaudio"> {{ __('adminstaticword.UploadAudio') }}
-                    </div>
-                  </div>
-                  
-                  <div class="form-group">
-                    <div class="col-md-12">
-                      <div id="audioURL" @if($cate->audio != "") class="display-none" @endif >
-                        <label for="">{{ __('adminstaticword.URL') }}: </label>
-                        <input type="text" value="{{ $cate->url }}" name="audiourl" class="form-control">
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="form-group">
-                    <div class="col-md-12">
-                      <div id="audioUpload" @if($cate->url !="") class="display-none" @endif >
-                      <label for="">{{ __('adminstaticword.UploadAudio') }}:</label>
-                      <input type="file" name="audio" class="form-control">
-                      <br>
-                      @if($cate->audio !="")
-                      <label for="">{{ __('adminstaticword.AudioFileName') }}:</label>
-                      <input disabled value="{{ $cate->audio }}" class="form-control">
-
-                      @endif
-                    </div>
-                    </div>
-                  </div>
-                  
-                  <div class="form-group">
-                    <div  class="col-md-12" id="duration">
-                      <label for="">{{ __('adminstaticword.Duration') }} :</label>
-                      <input type="text" name="duration" value="{{ $cate->duration }}" class="form-control" placeholder="Enter class duration in (mins) Eg:160">
-                    </div>
-                  </div>
-              @endif
-
-              @if($cate->type =="image")
-               
-                <div class="col-md-7" id="imagetype">
-                  <input type="radio" name="checkImage" id="ch3" value="url" {{ $cate->url !="" ? 'checked' : "" }}> {{ __('adminstaticword.URL') }}
-                  <input type="radio" name="checkImage" id="ch4"  {{ $cate->image !="" ? 'checked' : "" }} value="uploadimage"> {{ __('adminstaticword.UploadImage') }}
-                </div>
-
-                <div class="form-group">
-                  <div class="col-md-12">
-                    <div id="imageURL" @if($cate->image !="") class="display-none" @endif >
-                      <label for="">{{ __('adminstaticword.URL') }}: </label>
-                      <input type="text" value="{{ $cate->url }}" name="imgurl" class="form-control">
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <div class="col-md-12">
-                    <div id="imageUpload" @if($cate->url !="") class="display-none" @endif >
-                      <label for="">{{ __('adminstaticword.UploadImage') }}:</label>
-                      <input type="file" name="image" class="form-control">
-                      <br>
-                      @if($cate->image !="")
-                      <img src="{{ asset('images/class/'.$cate->image) }}" width="200" height="150" autoplay="no"> 
-                      </img>
-
-                      @endif
-                    </div>
-                  </div>
-                </div>
-                <br>
-
-                <div class="form-group">
-                   <div  class="col-md-12" id="size">
-                    <label for="">{{ __('adminstaticword.Size') }}:</label>
-                    <input type="text" name="size" value="{{ $cate->size }}" class="form-control">
-                  </div>
-                </div>
-              @endif
-
-              @if($cate->type =="zip")
-                <div class="form-group">
-                  <div class="col-md-12" id="ziptype">
-                    <input type="radio" name="checkZip" id="ch5" value="url" {{ $cate->url !="" ? 'checked' : "" }}> {{ __('adminstaticword.URL') }}
-                    <input type="radio" name="checkZip" id="ch6"  {{ $cate->zip !="" ? 'checked' : "" }} value="uploadzip"> {{ __('adminstaticword.UploadZip') }}
-                  </div>
-                </div>
-                
-                <div class="form-group">
-                  <div class="col-md-12">
-                    <div id="zipURL" @if($cate->zip !="") class="display-none" @endif >
-                      <label for=""> {{ __('adminstaticword.URL') }}: </label>
-                      <input type="text" value="{{ $cate->url }}" name="zipurl" class="form-control">
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="form-group">
-                  <div class="col-md-12">
-                    <div id="zipUpload" @if($cate->url !="") class="display-none" @endif>
-                      <label for="">{{ __('adminstaticword.UploadZip') }}:</label>
-                      <input type="file" name="zip" class="form-control">
-                      <br>
-                      @if($cate->zip !="")
-                      <label for="">{{ __('adminstaticword.ZipFileName') }}:</label>
-                      <input disabled value="{{ $cate->zip }}" class="form-control">
-                      @endif
-                    </div>
-                  </div>
-                </div>
-                <br>
-              
-                <div class="col-md-12" id="size">
-                  <label for=""> {{ __('adminstaticword.Size') }}:</label>
-                  <input type="text" name="size" value="{{ $cate->size }}" class="form-control">
-                </div>
-              @endif
-
-              @if($cate->type =="pdf")
-                <div class="col-md-12" id="pdftype">
-                  <input type="radio" name="checkPdf" id="ch8" value="url" {{ $cate->url !="" ? 'checked' : "" }}> {{ __('adminstaticword.URL') }}
-                  <input type="radio" name="checkPdf" id="ch9"  {{ $cate->pdf !="" ? 'checked' : "" }} value="uploadpdf"> {{ __('adminstaticword.UploadPdf') }}
-                </div>
-
-
-                <div class="form-group">
-                  <div class="col-md-12" id="pdfURL" @if($cate->pdf !="") class="display-none" @endif >
-                    <div id="pdfURL" @if($cate->pdf !="") class="display-none" @endif >
-                      <label for=""> {{ __('adminstaticword.URL') }}: </label>
-                      <input type="text" value="{{ $cate->url }}" name="pdfurl" class="form-control">
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-7" id="pdfUpload" @if($cate->url !="") class="display-none" @endif >
-                  <label for=""> {{ __('adminstaticword.UploadPdf') }}:</label>
-                  <input type="file" name="pdf" class="form-control">
-                  <br>
-                  @if($cate->pdf !="")
-                  <label for="">{{ __('adminstaticword.PdfFileName') }}:</label>
-                  <input disabled value="{{ $cate->pdf }}" class="form-control">
-                  @endif
-                </div>
-                <br>
-                <br>
-
-                 <div  class="col-md-12" id="size">
-                  <label for="">{{ __('adminstaticword.Size') }}:</label>
-                  <input type="text" name="size" value="{{ $cate->size }}" class="form-control">
-                </div>
-              @endif
-
-
-              <!-- preview video -->
-              @if($cate->type =="video")
-              <div class="row">
-                <div class="col-md-12">
-                  <label for="exampleInputDetails">{{ __('adminstaticword.PreviewVideo') }}:</label>  
-                  <li class="tg-list-item"> 
-                    <input name="preview_type" class="la-admin__toggle-switch" id="previewvide" type="checkbox" >
-
-                    <label class="la-admin__toggle-label" data-tg-off="URL" data-tg-on="Upload" for="previewvide" ></label>
-                  </li>
-                  <input type="hidden" name="free" value="0" id="to">
-
-                  <div @if($cate->preview_type =="url" ) class="display-none" @endif id="document11">
-                    <label for="exampleInputSlug">Preview {{ __('adminstaticword.UploadVideo') }}: <sup class="redstar">*</sup></label>
-                    <input  type="file" class="form-control" name="preview_video" id="video" value="{{ $cate->video }}">
-                    @if($cate->preview_video !="")
-                      <video src="{{ asset('video/class/preview/'.$cate->preview_video) }}" width="200" height="150" autoplay="no">
-                      </video>
-                    @endif 
-                  </div>
-
-                  <div @if($cate->preview_type =="video") class="display-none" @endif id="document22">
-                   
-                    <label for="exampleInputSlug">Preview {{ __('adminstaticword.URL') }}: <sup class="redstar">*</sup></label>
-                    <input  class="form-control" placeholder="Enter Your URL" name="preview_url" id="url" value="{{ $cate->preview_url }}">
-                  </div>
-                </div>
-              </div>
-              <br>
-              @endif
-
-              <!-- end preview video -->
              
               <div class="row">
+                <div class="col-md-6">    
+                  <label >{{ __('adminstaticword.Is_preview_video') }}:</label>
+                  <li class="tg-list-item">   
+                    <input class="la-admin__toggle-switch" id="c11" name="is_preview" type="checkbox" {{ $cate->is_preview == '1' ? 'checked' : '' }} />
+                    <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active"></label>
+                  </li>
+                </div> 
+                       
                 <div class="col-md-4"> 
-                  <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
-                  <li class="tg-list-item">              
-                  <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" {{ $cate->status == '1' ? 'checked' : '' }} >
-                  <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
-                </li>
-                <input type="hidden"  name="free" value="0" for="status" id="status">
-                  <br>
-                </div>
-                <div class="col-md-4"> 
-                  <label for="exampleInputTit1e">{{ __('adminstaticword.Featured') }}:</label>
-                  <li class="tg-list-item">              
-                  <input class="la-admin__toggle-switch" id="featured" type="checkbox" name="featured" {{ $cate->featured == '1' ? 'checked' : '' }} >
-                  <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="featured"></label>
-                </li>
+                  <label>{{ __('adminstaticword.Featured') }}:</label>
+                  <li class="tg-list-item">
+                    <input class="la-admin__toggle-switch" id="featured" type="checkbox" name="featured" {{ $cate->featured == '1' ? 'checked' : '' }} >
+                    <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="featured"></label>
+                  </li>
                   <input type="hidden" name="free" value="0" id="featured">
                   <br>
                 </div>
@@ -375,7 +112,7 @@
                   <div class="la-admin__preview">
                     <h6 class="la-admin__editing-title mb-2" > Current </h6>
                       <div class="la-admin__preview-img la-admin__editclass-preview" >
-                          
+                          <img src="{{ asset('video/class/preview/'.$cate->image) }}" alt="">
                       </div>
                   </div>
                 </div>
@@ -388,59 +125,12 @@
                                   <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase text-center">Choose a File</p>
                                   <p class="la-admin__preview-size text-center">Thumbnail | 500x350</p>
                               </div>
-                              <input type="file" class="form-control la-admin__preview-input" name="preview-img" id="edit-upload" />
+                              <input type="file" class="form-control la-admin__preview-input" name="preview_image" id="edit-upload" />
                           </div>
                       </div>
                 </div>
               </div>
                 <!-- CLASS THUMBNAIL: END -->
-
-               <!-- COURSE PACKAGE TYPE: START -->
-               <div class="row">
-                <div class="col-12">
-                  <div class="la-admin__course-package la-admin__class-package">
-                      <div class="la-admin__cp-subscription">
-                          <input type="radio" name="editClass-subscription" id="editClassSub" value="Subscription" class="la-admin__cp-input" /> 
-                          <label for="editClassSub"> 
-                            <div class="la-admin__cp-circle">
-                                <span class="la-admin__cp-radio"></span>
-                                <span class="la-admin__cp-label">Subscription</span> 
-                                <small><i class="fa fa-info-circle px-1"></i> (Default)</small>
-                            </div>
-
-                            <div class="la-admin__cp-desc">
-                              <p>This course is accessible by all Subscribers & also available for life-time purchase. </p>
-                              <p>Please enter the Course cost for One-Time Purchase</p>
-                              <div class="form-group row  la-admin__subform-group">
-                                  <div class="input-group col-7 la-admin__subinput-group">
-                                    <div class="input-group-prepend la-admin__subinput-prepend" >
-                                        <span class="fa fa-dollar input-group-text la-admin__subinput-text"></span> 
-                                    </div>
-                                    <input type="text" name="edit-OTP" id="edit-OTP" class="form-control la-admin__subform-input" value="20" />
-                                  </div>
-                              </div>
-                            </div>
-                          </label>
-                      </div> <br/>
-
-                      <div class="la-admin__cp-free">
-                            <input type="radio" name="editClass-subscription" id="editClassFree" value="Free" class="la-admin__cp-input">
-                            <label for="editClassFree" > 
-                              <div class="la-admin__cp-circle">
-                                <span class="la-admin__cp-radio"></span>
-                                <span class="la-admin__cp-label">Free</span> 
-                                <small><i class="fa fa-info-circle pl-1"></i> </small>
-                              </div>
-
-                                <div class="la-admin__cp-desc">
-                                    <p class="la-admin__cp-info">  This course is accessible only by any learner </p>
-                                </div>
-                            </label>
-                      </div>
-                  </div>
-                </div>
-              </div>
-             <!-- COURSE PACKAGE TYPE: END -->
 
               <!--  ADD CLASS STATUS: START -->
               <div class="row">
@@ -448,7 +138,7 @@
                   <label for="" class="la-admin__preview-label"> Status<sup class="redstar">*</sup></label>
                   <div class="la-admin__class-status d-flex justify-content-start">
                     <div class="la-admin__class-active pr-5">
-                        <input type="radio" name="editClass-status" id="editClass-active" value="active" class="la-admin__cp-input" >
+                        <input type="radio" name="editClass-status" id="editClass-active" value="active" class="la-admin__cp-input" {{ $cate->status == '2' ? 'checked' : '' }} >
                         <label for="editClass-active" > 
                           <div class="la-admin__cp-circle">
                             <span class="la-admin__cp-radio"></span>
@@ -458,7 +148,7 @@
                     </div>
 
                     <div class="la-admin__class-hold pr-5">
-                      <input type="radio" name="editClass-status" id="editClass-hold" value="hold" class="la-admin__cp-input" >
+                      <input type="radio" name="editClass-status" id="editClass-hold" value="hold" class="la-admin__cp-input" {{ $cate->status == '0' ? 'checked' : '' }} >
                       <label for="editClass-hold" > 
                         <div class="la-admin__cp-circle">
                           <span class="la-admin__cp-radio"></span>
@@ -468,7 +158,7 @@
                     </div>
 
                     <div class="la-admin__class-archive pr-5">
-                      <input type="radio" name="editClass-status" id="editClass-archive" value="archive" class="la-admin__cp-input" >
+                      <input type="radio" name="editClass-status" id="editClass-archive" value="archive" class="la-admin__cp-input" {{ $cate->status == '1' ? 'checked' : '' }} >
                       <label for="editClass-archive" > 
                         <div class="la-admin__cp-circle">
                           <span class="la-admin__cp-radio"></span>
@@ -482,7 +172,7 @@
             <!-- ADD CLASS STATUS: END --> 
 
             <!-- ADD CLASS MASTER TOGGLER: START -->
-            <div class="row">
+            {{-- <div class="row">
               <div class="col-12">
                   <div class="la-admin__master-toggler">
                     <label for="" class="la-admin__preview-label"> Master Class<sup class="redstar">*</sup></label>
@@ -492,7 +182,7 @@
                     </div>
                   </div>
               </div>
-            </div>
+            </div> --}}
             <!-- ADD CLASS MASTER TOGGLER: END -->
 
               <div class="box-footer">

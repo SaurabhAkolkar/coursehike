@@ -156,7 +156,7 @@ return [
     'SelectQuestion' => 'Select Question',
     'Question' => 'Question',
     'AddQuestion' => 'Add Question',
-    'EditCourseChapter' => 'Edit Course Chapter',
+    'EditCourseChapter' => 'Edit Course Class',
     'AddCourseChapter' => 'Add a Class',
     'ClassName' => 'Class Name',
     'CourseClass' => 'Video',

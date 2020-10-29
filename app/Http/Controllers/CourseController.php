@@ -92,15 +92,11 @@ class CourseController extends Controller
 
         $input = $request->all();
 
+        // dd($input);
+
         $data = Course::create($input);
 
-        // if (isset($request->type)) {
-        //     $data->type = "1";
-        // } else {
-        //     $data->type = "0";
-        // }
-
-        $data->type = $request->type;
+        $data->package_type = $request->package_type;
 
 
         if ($file = $request->file('preview_image')) {
@@ -111,23 +107,11 @@ class CourseController extends Controller
 
             $data->preview_image = $image;
         }
-
-
-        if (isset($request->preview_type)) {
-            $data->preview_type = "video";
-        } else {
-            $data->preview_type = "url";
-        }
-
-                    
-        if (!isset($request->preview_type)) {
-            $data->url = $request->url;
-        } elseif ($request->preview_type) {
-            if ($file = $request->file('video')) {
-                $filename = time().$file->getClientOriginalName();
-                $file->move('video/preview', $filename);
-                $data->video = $filename;
-            }
+                  
+        if ($file = $request->file('preview_video')) {
+            $filename = time().$file->getClientOriginalName();
+            $file->move('video/preview', $filename);
+            $data->preview_video = $filename;
         }
 
         $data->slug = Str::slug($request->title, '-');
@@ -181,17 +165,11 @@ class CourseController extends Controller
           
         $course = Course::findOrFail($id);
         $input = $request->all();
-           
-        // if (isset($request->type)) {
-        //     $data->type = "1";
-        // } else {
-        //     $data->type = "0";
-        // }
 
-        $course->type = $request->type;
+        $course->package_type = $request->package_type;
 
         
-        if ($file = $request->file('image')) {
+        if ($file = $request->file('preview_image')) {
             if ($course->preview_image != null) {
                 $content = @file_get_contents(public_path().'/images/course/'.$course->preview_image);
                 if ($content) {
@@ -207,31 +185,19 @@ class CourseController extends Controller
             $input['preview_image'] = $image;
         }
 
-
-        if (isset($request->preview_type)) {
-            $input['preview_type'] = "video";
-        } else {
-            $input['preview_type'] = "url";
-        }
-
         
-        if (!isset($request->preview_type)) {
-            $course->url = $request->video_url;
-            $course->video = null;
-        } elseif ($request->preview_type) {
-            if ($file = $request->file('video')) {
-                if ($course->video != "") {
-                    $content = @file_get_contents(public_path().'/video/preview/'.$course->video);
-                    if ($content) {
-                        unlink(public_path().'/video/preview/'.$course->video);
-                    }
+        if ($file = $request->file('preview_video')) {
+            if ($course->video != "") {
+                $content = @file_get_contents(public_path().'/video/preview/'.$course->video);
+                if ($content) {
+                    unlink(public_path().'/video/preview/'.$course->video);
                 }
-              
-                $filename = time().$file->getClientOriginalName();
-                $file->move('video/preview', $filename);
-                $input['video'] = $filename;
-                $course->url = null;
             }
+            
+            $filename = time().$file->getClientOriginalName();
+            $file->move('video/preview', $filename);
+            $input['video'] = $filename;
+            $course->url = null;
         }
 
        
@@ -241,11 +207,8 @@ class CourseController extends Controller
              'offer_price' => $request->discount_price,
           ]);
 
-
         $course->update($input);
-
-        Session::flash('success', 'Updated Successfully !');
-        return redirect('course');
+        return back()->with('success', 'Updated Successfully !');;
     }
 
     /**

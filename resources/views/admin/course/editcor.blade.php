@@ -123,7 +123,7 @@
                   <div class="la-admin__course-package">
                       <label for="" class="la-admin__cp-title">Course package type<sup class="redstar">*</sup></label><br/>
                       <div class="la-admin__cp-subscription">
-                          <input type="radio" name="type" id="subPaid" value="1" class="la-admin__cp-input"> 
+                          <input type="radio" name="package_type" id="subPaid" value="1" class="la-admin__cp-input" {{ $cor->package_type == '1' ? 'checked' : '' }} > 
                            <label for="subPaid"> 
                              <div class="la-admin__cp-circle">
                                 <span class="la-admin__cp-radio"></span>
@@ -139,7 +139,7 @@
                                         <div class="input-group-prepend la-admin__subinput-prepend" >
                                             <span class="fa fa-dollar input-group-text la-admin__subinput-text"></span> 
                                         </div>
-                                        <input type="text" class="form-control la-admin__subform-input" name="price" style="width:160px"/>
+                                        <input type="text" class="form-control la-admin__subform-input" name="price" style="width:160px" value="{{ $cor->price }}"/>
                                       </div>
                                   </div>
                               </div>
@@ -161,7 +161,7 @@
                         </div> <br/> --}}
 
                         <div class="la-admin__cp-free">
-                            <input type="radio" name="type" id="subFree" value="0" class="la-admin__cp-input">
+                            <input type="radio" name="package_type" id="subFree" value="0" class="la-admin__cp-input" {{ $cor->package_type == '0' ? 'checked' : '' }} >
                             <label for="subFree" > 
                               <div class="la-admin__cp-circle">
                                 <span class="la-admin__cp-radio"></span>
@@ -208,10 +208,10 @@
                                   <p class="la-admin__preview-size">Preview video size: 20MB</p>
                                   <p class="text-uppercase la-admin__preview-file">Choose a File</p>
                             </div>
-                            <input type="file" class="form-control la-admin__preview-input preview_video" name="video" value="{{ $cor->video }}"/>
+                            <input type="file" class="form-control la-admin__preview-input preview_video" name="preview_video" value="{{ $cor->preview_video }}"/>
                             {{-- @if($cor->video !="") --}}
-                              <video controls class="d-none preview-video w-100">
-                                <source src="{{ asset('video/preview/'.$cor->video) }}" id="preview-video-source">
+                              <video controls class="preview-video w-100">
+                                <source src="{{ asset('video/preview/'.$cor->preview_video) }}" id="preview-video-source">
                                   Your browser does not support HTML5 video.
                               </video>
                             {{-- @endif  --}}
@@ -223,27 +223,13 @@
               <br>
               <br> 
 
-              <div class="row">
-                <div class="col-md-3 d-none">
-                  <label for="exampleInputDetails">{{ __('adminstaticword.MoneyBack') }}:</label>
-                  <li class="tg-list-item">
-                    <input  class="la-admin__toggle-switch" id="rox" type="checkbox" @if($cor->day !="" && $cor->day !="") checked @endif/>
-                    <label class="la-admin__toggle-label" data-tg-off="No" data-tg-on="Yes" for="rox" ></label>
-                  </li>
-                  <input type="hidden" name="money" value="0" id="roxx">
-                  <br>     
-
-                  <div @if($cor->day =="" && $cor->day =="") class="display-none" @endif id="jeet">
-                    <label for="exampleInputSlug">{{ __('adminstaticword.Days') }}:<sup class="redstar">*</sup></label>
-                    <input type="number" min="1"  class="form-control" name="day" id="exampleInputPassword1" placeholder="Please Your Enter day" value="{{ $cor->day }}">
-                  </div>
-                </div>          
+              <div class="row">    
 
                 <div class="col-md-3"> 
                   @if(Auth::User()->role == "admin")
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Featured') }}:</label>
                   <li class="tg-list-item">
-                    <input class="la-admin__toggle-switch" id="cb1" type="checkbox"{{ $cor->featured==1 ? 'checked' : '' }}>
+                    <input class="la-admin__toggle-switch" id="cb1" type="checkbox" name="featured" {{ $cor->featured==1 ? 'checked' : '' }}>
                     <label class="la-admin__toggle-label" data-tg-off="No" data-tg-on="Yes" for="cb1"></label>
                   </li>
                   <input type="hidden" name="featured" value="{{ $cor->featured }}" id="f">
@@ -253,7 +239,7 @@
                   @if(Auth::User()->role == "admin")
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                     <li class="tg-list-item">
-                    <input class="la-admin__toggle-switch" id="cb333" type="checkbox" {{ $cor->status==1 ? 'checked' : '' }}>
+                    <input class="la-admin__toggle-switch" id="cb333" type="checkbox" name="status" {{ $cor->status==1 ? 'checked' : '' }}>
                     <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="cb333"></label>
                     </li>
                     <input type="hidden" name="status" value="{{ $cor->status }}" id="c33">

@@ -111,21 +111,12 @@
               <br>
 
               <div class="row">
-                <div class="col-md-3 display-none">
-                  <label for="exampleInputDetails">{{ __('adminstaticword.MoneyBack') }}:</label>
-                  <li class="tg-list-item">
-                    <input class="la-admin__toggle-switch" id="cb01" type="checkbox"/>
-                    <label class="la-admin__toggle-label" data-tg-off="No" data-tg-on="Yes" for="cb01"></label>
-                  </li>
-                  <input type="hidden" name="free" value="0" id="cb10">
-                  <br>
-                  <div class="display-none" id="dooa">
+                {{-- <div class="col-md-3">
           
                     <label for="exampleInputSlug">{{ __('adminstaticword.Days') }}: <sup class="redstar">*</sup></label>
                     <input type="number" min="1" class="form-control" name="day" id="exampleInputPassword1" placeholder="Please Your Enter day" value="">
                
-                  </div> 
-                </div> 
+                </div>  --}}
 
                 {{-- <div class="col-md-3">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Free') }}:</label>                 
@@ -182,7 +173,7 @@
                   <div class="la-admin__course-package">
                       <label for="" class="la-admin__cp-title">Course package type<sup class="redstar">*</sup></label><br/>
                       <div class="la-admin__cp-subscription">
-                          <input type="radio" name="type" id="subPaid" value="1" class="la-admin__cp-input"> 
+                          <input type="radio" id="subPaid" name="package_type" value="1" class="la-admin__cp-input"> 
                            <label for="subPaid"> 
                              <div class="la-admin__cp-circle">
                                 <span class="la-admin__cp-radio"></span>
@@ -220,7 +211,7 @@
                         </div> <br/> --}}
 
                         <div class="la-admin__cp-free">
-                            <input type="radio" name="type" id="subFree" value="0" class="la-admin__cp-input">
+                            <input type="radio" id="subFree" name="package_type" value="0" class="la-admin__cp-input">
                             <label for="subFree" > 
                               <div class="la-admin__cp-circle">
                                 <span class="la-admin__cp-radio"></span>
@@ -264,7 +255,7 @@
                                   <p class="la-admin__preview-size">Preview video size: 20MB</p>
                                   <p class="text-uppercase la-admin__preview-file">Choose a File</p>
                             </div>
-                            <input type="file" class="form-control la-admin__preview-input preview_video" name="video" />
+                            <input type="file" class="form-control la-admin__preview-input preview_video" name="preview_video" />
                             <video controls class="d-none preview-video w-100">
                               <source src="">
                                 Your browser does not support HTML5 video.
