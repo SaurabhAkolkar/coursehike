@@ -223,15 +223,11 @@ td .btn-success {
   color: #8A98AC;
 }
 
-.skin-blue .sidebar-menu > li.active > a {
-  border-left-color: #506FE4;
-}
-
 .skin-blue .sidebar-menu > li:hover > a,
 .skin-blue .sidebar-menu > li.active > a,
 .skin-blue .sidebar-menu > li.menu-open > a {
   background-color: #F2F3F7;
-  color: #506FE4;
+  color: var(--app-indigo-1);
 }
 
 .main-footer {
@@ -448,7 +444,7 @@ td form .btn-danger {
 }
 
 .skin-blue .sidebar-menu .treeview-menu > li > a:hover {
-  color: #506FE4;
+  color: var(--app-indigo-1);
 }
 
 .bg-green,
@@ -646,7 +642,7 @@ div.dataTables_wrapper div.dataTables_filter label {
 
 .skin-blue .sidebar-menu .treeview-menu > li.active > a,
 .skin-blue .sidebar-menu .treeview-menu > li > a:hover {
-  color: #506FE4 !important;
+  color: var(--app-indigo-1) !important;
 }
 
 .skin-blue .main-header .navbar .sidebar-toggle {
@@ -738,7 +734,6 @@ a.dt-button {
   padding: var(--size-3);
   margin-top: var(--size-8);
   width: 100%;
-  height: 450px;
 }
 
 .la-dash__recent-section .la-dash__recent-htitle {
@@ -748,6 +743,10 @@ a.dt-button {
   color: var(--gray2);
   padding: var(--size-2);
   margin: 0;
+}
+
+.la-dash__recent-section .la-dash__recent-list {
+  height: 300px;
 }
 
 .la-dash__recent-section .la-dash__recent-list .la-dash__recent-item {
