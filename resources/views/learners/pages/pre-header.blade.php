@@ -16,7 +16,7 @@
       <div class="la-header__rht ml-auto">
         <div class="la-header__menu d-inline-flex align-items-center">
 
-          @php
+         {{-- @php
               $new1 = new stdClass;
               $new1->url = "";
               $new1->img = "https://picsum.photos/50";
@@ -71,7 +71,7 @@
                     <!-- Announcements Panel: End -->          
               </div>
             </div>
-          </div>
+          </div> --}}
 
           <div class="la-header__menu-item"><a class="la-header__menu-link la-header__menu-icon la-icon icon-menu" id="moreItems" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
             <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="moreItems" style="border:none;">
