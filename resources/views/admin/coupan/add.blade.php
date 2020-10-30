@@ -172,7 +172,7 @@
      <!-- COUPON PACKAGE TYPE: END -->
 
     <!-- COUPON USAGE LIMIT: START -->
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-12">
             <div class="la-admin__coupon-usage">
               <label class="la-admin__usage-label"> Usage Limit 
@@ -186,7 +186,7 @@
               </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- COUPON USAGE LIMIT: END -->
 
     <!-- ADD CLASS  TOGGLER: START -->
