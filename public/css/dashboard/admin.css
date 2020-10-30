@@ -973,16 +973,22 @@ a.dt-button {
   z-index: 2;
 }
 
-.la-admin__preview-img img {
+.la-admin__course-imgcurrent {
   width: 300px;
   height: 200px;
-  margin: 0;
 }
 
-.la-admin__course-img img {
+.la-admin__course-imgvid img {
   width: 200px;
   height: 130px;
-  margin: 0 95px;
+  margin: -160px 0 0 95px;
+  position: absolute;
+}
+
+.la-admin__course-imgvid video {
+  height: 130px;
+  margin: -140px 0 0 0;
+  position: absolute;
 }
 
 .la-admin__subform-group {
@@ -1202,8 +1208,9 @@ a.dt-button {
   font-size: var(--text-sm);
 }
 
-.la-admin__editclass-preview {
+.la-admin__editclass-preview img {
   width: 300px !important;
+  height: 200px !important;
 }
 
 /* ==== EDIT COURSE CLASS: END ===== */

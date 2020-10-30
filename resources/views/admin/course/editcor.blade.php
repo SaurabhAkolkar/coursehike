@@ -185,10 +185,15 @@
                 <div class="col-md-5">
                     <div class="la-admin__preview">
                       <label for="" class="la-admin__preview-label">{{ __('adminstaticword.PreviewImage') }}:<sup class="redstar">*</sup></label>
-                      <div class="la-admin__preview-img la-admin__course-img" >
+                      <div class="la-admin__preview-img la-admin__course-imgvid" >
                             <div class="la-admin__preview-text">
                                 <p class="la-admin__preview-size">Preview Image size: 250x150</p>
                                 <p class="la-admin__preview-file text-uppercase">Choose a File</p>
+                          </div>
+                          <div class="text-center pr-20 mr-10">
+                            <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:160px;">
+                              <span class="path1"><span class="path2"></span></span>
+                            </span>
                           </div>
                           <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="preview_image" id="image" />
                           @if($cor['preview_image'] !== NULL && $cor['preview_image'] !== '')
@@ -203,10 +208,15 @@
                 <div class="col-md-5">
                       <div class="la-admin__preview">
                         <label for="" class="la-admin__preview-label"> {{ __('adminstaticword.PreviewVideo') }}:</label>
-                        <div class="la-admin__preview-video">
+                        <div class="la-admin__preview-video la-admin__course-imgvid">
                            <div class="la-admin__preview-text">
                                   <p class="la-admin__preview-size">Preview video size: 20MB</p>
                                   <p class="text-uppercase la-admin__preview-file">Choose a File</p>
+                            </div>
+                            <div class="text-center pr-20 mr-10">
+                              <span class="la-icon la-icon--8xl icon-preview-video" style="font-size:160px;">
+                                <span class="path1"><span class="path2"></span></span>
+                              </span>
                             </div>
                             <input type="file" class="form-control la-admin__preview-input preview_video" name="preview_video" value="{{ $cor->preview_video }}"/>
                             {{-- @if($cor->video !="") --}}

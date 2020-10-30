@@ -204,7 +204,7 @@
 
 
           <div class="box-footer">
-            <button type="submit" class="btn btn-md btn-primary">
+            <button type="submit" class="btn btn-md btn-primary col-md-3">
                {{ __('adminstaticword.Update') }}
             </button>
           </form>

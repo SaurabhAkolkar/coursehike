@@ -396,6 +396,9 @@ div.dt-buttons {
     padding:0 !important;
  } 
  /* == Table == */
+ div.dataTables_wrapper div.dataTables_filter{
+     z-index:0;
+ }
  table {
     border-collapse: seperate !important;
     border-spacing: 0 25px !important; 
@@ -616,7 +619,7 @@ label{
     color:#000000;
     border:2px solid var(--app-indigo-1) !important;
     border-radius:10px !important;
-    padding:12px 30px;
+    padding:10px 30px;
     float:right;
     font-size:16px !important;
     font-weight: var(--font-medium);
@@ -626,7 +629,7 @@ label{
     background-color: var(--app-indigo-1) !important;
     color: var(--white);
     border-radius:10px !important;
-    padding:12px 30px;
+    padding:10px 30px;
     border:2px solid var(--app-indigo-1) !important;
     outline:0 !important;
     box-shadow: none !important;

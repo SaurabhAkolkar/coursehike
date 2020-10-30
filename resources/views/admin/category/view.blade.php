@@ -22,7 +22,7 @@
           </div>
           <div class="box-header">
             <button type="button"class="btn btn-info btn-sm"  data-toggle="modal" data-target="#myModal">
-              + {{ __('adminstaticword.Add') }}
+              + {{ __('adminstaticword.AddCategory') }}
             </button>
             <!-- Modal -->
             <div class="modal fade show" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

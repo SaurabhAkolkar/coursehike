@@ -9,7 +9,7 @@
     <div class="box box-primary">
     
     <div class="box-header with-border">
-      <div class="box-title">
+      <div class="box-title pb-6">
             {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Coupon') }}
       </div>
     </div>
@@ -204,7 +204,7 @@
     <!-- ADD CLASS  TOGGLER: END -->
 
     <div class="box-footer">
-      <button type="submit" class="btn btn-md btn-primary">
+      <button type="submit" class="btn btn-md btn-primary col-md-3">
         {{ __('adminstaticword.Save') }}
       </button>
     </form>

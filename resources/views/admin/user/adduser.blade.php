@@ -17,7 +17,7 @@
     <div class="col-md-12">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title pb-6"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Users') }}</h3>
+          <h3 class="box-title pb-6"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.User') }}</h3>
         </div>
         <div class="panel-body pl-3">
           <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
