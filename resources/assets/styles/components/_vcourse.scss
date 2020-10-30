@@ -74,7 +74,7 @@
                         background-color: #EBEBEB;
                     }
                     &bar {
-                        width: 50%;
+                        // width: 50%;
                         height: 100%;
                         position: absolute;
                         background-color: var(--green);
@@ -94,7 +94,7 @@
                 font-size: var(--text-sm);
             }
 
-            &player {
+            &video {
                 width: var(--playerW);
                 height: var(--playerH);
                 background: var(--gray);
@@ -261,6 +261,8 @@
                     &- {
                         &left {
                             width: 150px;
+                            border-radius: 10px;
+                            overflow: hidden;
                         }
 
                         &right {
@@ -360,6 +362,9 @@
                             &danger {
                                 color: var(--danger);
                             }
+                            &green {
+                                color: var(--green);
+                            }
                         }
                     }
                 }
@@ -394,6 +399,14 @@
 
                         &:before {
                             display: none;
+                        }
+                    }
+                    &available {
+                        border: 2px solid var(--green);
+                        background-color: #ffffff;
+
+                        & #{$ap}-vcourse__access-icon {
+                            font-size: calc(var(--text-xs) - 1px);
                         }
                     }
                 }
