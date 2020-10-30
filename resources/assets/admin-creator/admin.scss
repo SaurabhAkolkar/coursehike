@@ -228,12 +228,12 @@ td {
 
   .sidebar-menu > li {
     &.active > a {
-      border-left-color: #506FE4;
+     // border-left-color: #506FE4;
     }
 
     &:hover > a, &.active > a, &.menu-open > a {
       background-color: #F2F3F7;
-      color: #506FE4;
+      color: var(--app-indigo-1);
     }
   }
 }
@@ -445,7 +445,7 @@ td form .btn-danger {
   font-size: 12px;
 
   &:hover {
-    color: #506FE4;
+    color: var(--app-indigo-1);
   }
 }
 
@@ -644,7 +644,7 @@ div {
 .skin-blue {
   .sidebar-menu .treeview-menu > li {
     &.active > a, > a:hover {
-      color: #506FE4 !important;
+      color: var(--app-indigo-1) !important;
     }
   }
 
@@ -750,7 +750,9 @@ button.dt-button, div.dt-button, a.dt-button {
     padding: var(--size-2);
     margin: 0;
   }
-
+  .la-dash__recent-list{
+    height:300px;
+  }
   .la-dash__recent-list .la-dash__recent-item {
     width: 100%;
     display: flex;
@@ -961,7 +963,12 @@ button.dt-button, div.dt-button, a.dt-button {
     z-index: 2;
   }
 }
-.preview-img{
+.la-admin__preview-img img{
+  width:300px;
+  height:200px;
+  margin:0;
+}
+.la-admin__course-img img{
   width:200px;
   height:130px;
   margin:0 95px;

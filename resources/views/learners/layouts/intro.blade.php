@@ -16,7 +16,7 @@
 
 <body>
     <div class="la-app__inner">
-        @include ('learners.pages.header')
+        @include ('learners.pages.pre-header')
 
         <main class="la-main">
             <div class="la-main__inner">

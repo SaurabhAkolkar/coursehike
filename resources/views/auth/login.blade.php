@@ -1,3 +1,4 @@
+@extends('learners.layouts.intro')
 @section('title', 'Login')
 @include('theme.head')
 
@@ -7,7 +8,7 @@
 <!-- body start-->
 <body>
 <!-- top-nav bar start-->
-<section id="nav-bar" class="nav-bar-main-block nav-bar-main-block-one">
+<section id="nav-bar " class="nav-bar-main-block nav-bar-main-block-one p-0">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4">
@@ -28,11 +29,11 @@
                     @endif
                 </div>
             </div>
-            <div class="col-lg-4">
+            <!-- <div class="col-lg-4">
                 <div class="Login-btn txt-rgt">
                     <a href="{{ route('register') }}" class="btn btn-primary" title="signup">{{ __('frontstaticword.Signup') }}</a>
                 </div> 
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
@@ -43,7 +44,7 @@
     <div class="container-fluid la-entry__sec-inner">
         <div class="row la-entry__row h-100">
             <div class="col-md-7 la-entry__col la-entry__col-left h-100 d-none d-md-block">
-                <!-- <div class="la-entry__slider-wrap d-flex align-items-center">
+                 <div class="la-entry__slider-wrap d-flex align-items-center">
                     <div class="swiper-container entry-swiper-container h-100 la-entry__slider">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide" style="width: 60vh;height: 60vh;background-image:url(../images/learners/login-register/slide1.png)"></div>
@@ -51,7 +52,7 @@
                             </div>
                         <div class="swiper-pagination swiper-pagination-black"></div>
                     </div>
-                </div> -->
+                </div> 
             </div>
 
             <div class="col-md-5">
@@ -105,7 +106,7 @@
                                 </div>
             
                                 <div class="form-group ">
-                                    <button type="submit"  class="btn-primary">
+                                    <button type="submit"  class="btn-primary py-4">
                                         {{ __('frontstaticword.Login') }}
                                     </button>
                                     <br>

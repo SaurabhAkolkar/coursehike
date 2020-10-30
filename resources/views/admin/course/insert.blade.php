@@ -235,7 +235,7 @@
                 <div class="col-md-5">
                       <div class="la-admin__preview">
                         <label for="" class="la-admin__preview-label">{{ __('adminstaticword.PreviewImage') }}:<sup class="redstar">*</sup></label>
-                        <div class="la-admin__preview-img" >
+                        <div class="la-admin__preview-img la-admin__course-img" >
                              <div class="la-admin__preview-text">
                                   <p class="la-admin__preview-size">Preview Image size: 250x150</p>
                                   <p class="la-admin__preview-file text-uppercase">Choose a File</p>

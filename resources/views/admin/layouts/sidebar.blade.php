@@ -42,22 +42,20 @@
           </li>
           @endif
 
-       @if(isset($gsetting) && $gsetting->bbl_enable == 1)
-          <li class="{{ Nav::isRoute('bbl.setting') }} {{ Nav::isRoute('bbl.all.meeting') }} {{ Nav::isRoute('download.meeting') }} treeview">
-            <a href="#">
-             <i class="flaticon-honesty" aria-hidden="true"></i> <span>{{ __('Big Blue Meetings') }}</span>
-              <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li class="{{ Nav::isRoute('bbl.setting') }}"><a href="{{ route('bbl.setting') }}"><i class="flaticon-settings"></i>{{ __('Big Blue Button Settings') }}</a></li>
-              <li class="{{ Nav::isRoute('bbl.all.meeting') }}"><a href="{{ route('bbl.all.meeting') }}"><i class="flaticon-terms-and-conditions"></i>{{ __('List Meetings') }}</a></li>
-
-
-            </ul>
-          </li>
-       @endif
+          @if(isset($gsetting) && $gsetting->bbl_enable == 1)
+              <li class="{{ Nav::isRoute('bbl.setting') }} {{ Nav::isRoute('bbl.all.meeting') }} {{ Nav::isRoute('download.meeting') }} treeview">
+                <a href="#">
+                <i class="flaticon-honesty" aria-hidden="true"></i> <span>{{ __('Big Blue Meetings') }}</span>
+                  <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu">
+                  <li class="{{ Nav::isRoute('bbl.setting') }}"><a href="{{ route('bbl.setting') }}"><i class="flaticon-settings"></i>{{ __('Big Blue Button Settings') }}</a></li>
+                  <li class="{{ Nav::isRoute('bbl.all.meeting') }}"><a href="{{ route('bbl.all.meeting') }}"><i class="flaticon-terms-and-conditions"></i>{{ __('List Meetings') }}</a></li>
+                </ul>
+              </li>
+          @endif
 
           <!-- <li class="{{ Nav::isResource('admin/country') }} {{ Nav::isResource('admin/state') }} {{ Nav::isResource('admin/city') }} treeview">
             <a href="#">
@@ -128,18 +126,18 @@
 
           <li class="{{ Nav::isResource('order') }}"><a href="{{url('order')}}"><i class="la-icon la-icon--md icon-revenue mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Order') }}</span></a></li>
          
-          <li class="{{ Nav::isResource('page') }}"><a href="{{url('page')}}"><i class="la-icon la-icon--md icon-pages mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Pages') }}</span></a></li>
+         <!-- <li class="{{ Nav::isResource('page') }}"><a href="{{url('page')}}"><i class="la-icon la-icon--md icon-pages mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Pages') }}</span></a></li> -->
           
           <li class="{{ Nav::isResource('faq') }} {{ Nav::isResource('faqinstructor') }}  treeview">
-           <a href="#">
+            <a href="#">
              <i class="la-icon la-icon--md icon-faq mr-3" aria-hidden="true"></i> <span>{{ __('adminstaticword.Faq') }}</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="{{ Nav::isResource('faq') }}"><a href="{{url('faq')}}"><i class="la-icon la-icon--md icon-learner-faq mr-4"></i>{{ __('adminstaticword.FaqStudent') }}</a></li>
-              <li class="{{ Nav::isResource('faqinstructor') }}"><a href="{{url('faqinstructor')}}"><i class="la-icon la-icon--md icon-mentor-faq mr-4"></i>{{ __('adminstaticword.FaqInstructor') }}</a></li>
+              <li class="{{ Nav::isResource('faq') }}"><a href="{{url('faq')}}"><i class="la-icon la-icon--md icon-learner-faq mr-3"></i> <span>{{ __('adminstaticword.FaqStudent') }}</span></a></li>
+              <li class="{{ Nav::isResource('faqinstructor') }}"><a href="{{url('faqinstructor')}}"><i class="la-icon la-icon--md icon-mentor-faq mr-3"></i><span>{{ __('adminstaticword.FaqInstructor') }}</span></a></li>
             </ul>
           </li> 
 

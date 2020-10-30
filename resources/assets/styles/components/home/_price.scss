@@ -26,13 +26,14 @@
                 top:100px;
             }
             &slide {
-                height: 500px !important;
+                height: auto;
 
                 &r {
-                    height: 500px !important;
+                    height: auto;
                     margin-top: -70px;
-                    overflow-y:scroll;
-                    overflow-x:hidden;
+                    padding-bottom: 50px;
+                    // overflow-y:scroll;
+                    // overflow-x:hidden;
 
                     &::-webkit-scrollbar{
                         width:0;

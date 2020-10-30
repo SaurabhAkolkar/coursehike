@@ -426,7 +426,13 @@
                       $user4->userTag = "Learner";
                       $user4->userDate = "July 10, 2020";
 
-                      $users = array($user1, $user2, $user3, $user4);
+                      $user5 = new stdClass;
+                      $user5->userImg = "https://picsum.photos/50/50";
+                      $user5->userName = "Amy Dyana";
+                      $user5->userTag = "Learner";
+                      $user5->userDate = "July 10, 2020";
+
+                      $users = array($user1, $user2, $user3, $user4, $user5);
                   @endphp
 
                   @foreach ($users as $user)
@@ -484,7 +490,15 @@
                   $course4->courseDate = "July 10, 2020";
                   $course4->coursePrice = 95;
 
-                  $courses = array($course1, $course2, $course3, $course4);
+                  $course5 = new stdClass;
+                  $course5->courseImg = "https://picsum.photos/50/50";
+                  $course5->courseName = "Developer";
+                  $course5->courseTag = "Creator Name";
+                  $course5->courseDate = "July 10, 2020";
+                  $course5->coursePrice = 95;
+
+
+                  $courses = array($course1, $course2, $course3, $course4, $course5);
                 @endphp
 
                   @foreach ($courses as $course)
