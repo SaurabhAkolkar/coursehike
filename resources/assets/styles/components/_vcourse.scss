@@ -95,9 +95,18 @@
             }
 
             &video {
-                width: var(--playerW);
+                width: 100%;
                 height: var(--playerH);
                 background: var(--gray);
+
+                & .vjs-big-play-button {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                }
             }
 
             &curriculam {
@@ -132,6 +141,10 @@
                         }
                     }
                 }
+            }
+
+            &btn {
+                cursor: pointer;
             }
 
             &class {
@@ -195,6 +208,45 @@
 
                     &videoscount {
                         color: var(--gray9);
+                    }
+
+                    &row {
+                        &.full-view {
+                            & #{$ap}-vcourse {
+
+                                &__ {
+                                    &class-col {
+                                        width: 100% !important;
+                                        max-width: 100% !important;
+                                        flex: 0 0 100% !important;
+                                        transition: all 0.4s ease;
+                                    }
+                                    &video {
+                                        height: calc(var(--playerH) * 2);
+                                    }
+                                    &curriculam {
+                                        max-height: inherit;
+                                        overflow-y: hidden;
+                                        overflow-x: unset;
+                                        padding-top: 80px;
+                                        padding-left: 20px !important;
+                                    }
+
+                                    &lesson {
+                                        &- {
+                                            &content {
+                                                width: 35%;
+                                                padding-right: 30px;
+                                            }
+                                            
+                                            &description {
+                                                width: 65%;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -268,6 +320,11 @@
                         &right {
                             width: calc(100% - 150px);
                             padding-left: 20px;
+                        }
+                        
+                        &description {
+                            display: none;
+                            width: 65%;
                         }
 
                         &thumbnail {

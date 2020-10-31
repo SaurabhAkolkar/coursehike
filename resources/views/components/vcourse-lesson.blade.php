@@ -24,10 +24,17 @@
             </div>
         </div>
     </div>
-    <div class="la-vcourse__lesson-right d-flex flex-column">
-        <div class="la-vcourse__lesson-title"> {{ $vcourseTitle ?? '' }} </div>
-        <div class="la-vcourse__lesson-creator pl-4"> {{ $author ?? '' }} </div>
-        <div class="la-vcourse__lesson-learnt mt-auto"> {{ $statusPercentage ?? '' }} </div>
-        <div class="la-vcourse__lesson-status"></div>
+    <div class="la-vcourse__lesson-right d-flex">
+        <div class="la-vcourse__lesson-content d-flex flex-wrap flex-column">
+            <div class="la-vcourse__lesson-title"> {{ $vcourseTitle ?? '' }} </div>
+            <div class="la-vcourse__lesson-creator pl-4"> {{ $author ?? '' }} </div>
+            <div class="la-vcourse__lesson-learnt mt-auto"> {{ $statusPercentage ?? '' }} </div>
+            <div class="la-vcourse__lesson-status"></div>
+        </div>
+        <div class="la-vcourse__lesson-description">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in pulvinar ligula. In 
+                rutrum congue blandit. Sed rutrum ante ultrices nisi sodales tristique. 
+                Vivamus euismod vitae nibh quis rutrum.</p>
+        </div>
     </div>
 </div>

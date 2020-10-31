@@ -73,6 +73,18 @@ $(function(){
     ratedFill: "#FFC516"
   });
 
+
+  // Vcourse Full view button
+  $('#vcourseFullView').on('click', function() {
+    $('#vcourse_row').toggleClass('full-view');
+
+    if($('#vcourse_row').hasClass('full-view')) {
+      $('#vcourseFullView .la-btn__text').text('Collapse the list');
+    } else {
+      $('#vcourseFullView .la-btn__text').text('See the list');
+    }
+  });
+
 }); 
 
 // Popover Js for Dashboard Page: Start

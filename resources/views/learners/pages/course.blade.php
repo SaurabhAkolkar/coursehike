@@ -1,5 +1,12 @@
 @extends('learners.layouts.app')
 
+@section('headAssets')
+  <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
+
+  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+@endsection
+
 @section('content')
 <section class="la-section">
     <div class="la-vcourse">
@@ -60,8 +67,8 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-12 col-lg-6">
+        <div id="vcourse_row" class="row la-vcourse__class-row">
+          <div class="col-12 col-lg-6 la-vcourse__class-col">
             <div class="la-player la-vcourse__video-wrap mb-3">
               <video
                 id="my-video"
@@ -86,7 +93,7 @@
             </div>
             <h2 class="la-vlesson__title m-0">At vero eos et accusam et</h2><small class="la-vlesson__creator">Amy D'souza</small>
           </div>
-          <div class="col-12 col-lg-6">
+          <div class="col-12 col-lg-6 la-vcourse__class-col">
             <div class="la-vcourse__curriculam pl-2 pl-lg-8">
               <div class="la-vcourse__class">
                 <div class="la-vcourse__class-header d-flex mb-7 ml-5">
@@ -160,10 +167,10 @@
               </div>
             </div>
             <div class="la-vcourse__btn-wrap text-center mt-3">
-              <a class="la-btn__arrow-down la-vcourse__btn d-inline-block" href="">
+              <div id="vcourseFullView" class="la-btn__arrow-down la-vcourse__btn d-inline-block">
                 <span class="icon-down-arrow la-btn__icon la-btn__icon--grey"></span>
                 <div class="la-btn__text la-btn__text--purple">See the list</div>
-              </a>
+              </div>
             </div>
           </div>
         </div>
@@ -883,4 +890,10 @@
     </div>
   </section>
   <!-- Section: End-->
+@endsection
+
+@section('footerScripts')
+  <!-- video js -->
+  <script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
+
 @endsection
