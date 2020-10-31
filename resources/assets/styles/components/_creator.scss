@@ -1,49 +1,109 @@
- .la-creators {
-     .la-creators__profile {
-         width: 344px;
-         height: 256px;
-         background-color: #ffc516;
-         border-radius: 10px;
-     }
+#{$ap}- {
+    &creator {
+        &__ {
+            &inwrap {
+                padding-left: var(--size-xl);
+                &:before {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 82%;
+                    background-color: #FFC516;
+                    border-radius: 10px;
+                    z-index: -1;
+                }
+            }
+            &img {
+                & img {
+                    height: 313px;
+                }
+            }
+            &detail {
+                margin-bottom: -2px;
+            }
+            &name {
+                font-size: var(--text-2xl);
+                line-height: var(--text-2xl);
+                font-weight: var(--font-light);
+            }
+            &specialist {
+                font-family: var(--head-font);
+                font-size: var(--text-xl);
+                line-height: var(--text-xl);
+                font-weight: var(--font-semibold);
+            }
 
-     .la-creators__info {
-         right: 0;
-         bottom: 0;
-         margin-top: 15px;
-     }
-
-     .la-creators__name {
-         font-size: var(--text-2xl);
-         font-family: var(--body-font);
-         font-weight: var(--font-light);
-         color: #222222;
-     }
-
-     .la-creators__designation {
-         font-size: var(--text-xl);
-         font-family: var(--head-font);
-         font-weight: var(--font-semibold);
-         color: #222222;
-     }
-
-     .la-creators__say {
-         font-size: var(--text-3xl);
-         font-family: var(--body-font);
-         font-weight: var(--font-light);
-         color: #222222;
-     }
-
-     .la-creators__desc {
-         font-size: var(--text-md);
-         font-family: var(--body-font);
-         font-weight: var(--font-normal);
-     }
-
-     .la-creators__readmore {
-         font-size: var(--text--md);
-         font-family: var(--body-font);
-         font-weight: var(--font-bold);
-         letter-spacing: 3.2px;
-         color: #7400d7;
-     }
- }
+            &content {
+                &- {
+                    &title {
+                        & #{$ap}-- {
+                            &icon {
+                                & img {
+                                    height: 45px;
+                                }
+                            }
+                            &text {
+                                font-size: var(--text-3xl);
+                                font-weight: var(--font-light);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // &creators {
+    //     &__ {
+    //         &profile {
+    //             width: 344px;
+    //             height: 256px;
+    //             background-color: #ffc516;
+    //             border-radius: 10px;
+    //         }
+    
+    //         &info {
+    //             right: 0;
+    //             bottom: 0;
+    //             margin-top: 15px;
+    //         }
+    
+    //         &name {
+    //             font-size: var(--text-2xl);
+    //             font-family: var(--body-font);
+    //             font-weight: var(--font-light);
+    //             color: #222222;
+    //         }
+    
+    //         &designation {
+    //             font-size: var(--text-xl);
+    //             font-family: var(--head-font);
+    //             font-weight: var(--font-semibold);
+    //             color: #222222;
+    //         }
+    
+    //         &say {
+    //             font-size: var(--text-3xl);
+    //             font-family: var(--body-font);
+    //             font-weight: var(--font-light);
+    //             color: #222222;
+    //         }
+    
+    //         &desc {
+    //             font-size: var(--text-md);
+    //             font-family: var(--body-font);
+    //             font-weight: var(--font-normal);
+    //         }
+    
+    //         &readmore {
+    //             font-size: var(--text--md);
+    //             font-family: var(--body-font);
+    //             font-weight: var(--font-bold);
+    //             letter-spacing: 3.2px;
+    //             color: #7400d7;
+    //         }
+    //     }
+    // }
+}
+     

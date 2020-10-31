@@ -9793,7 +9793,7 @@ a.text-dark:focus, a.text-dark:hover {
 @font-face {
   font-family: "icomoon";
   src: url(/fonts/icomoon.eot?375b8ea48ac770e8551098b2aad0ba4c);
-  src: url(/fonts/icomoon.eot?375b8ea48ac770e8551098b2aad0ba4c#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?542de070e6df8c0a5c6670ad126c4284) format("truetype"), url(/fonts/icomoon.woff?6ec0c5693df9a07d6550c66436500ed6) format("woff"), url(/fonts/icomoon.svg?b1f82110c8c45c0c21f76409e231c675#icomoon) format("svg");
+  src: url(/fonts/icomoon.eot?375b8ea48ac770e8551098b2aad0ba4c#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?542de070e6df8c0a5c6670ad126c4284) format("truetype"), url(/fonts/icomoon.woff?6ec0c5693df9a07d6550c66436500ed6) format("woff"), url(/fonts/icomoon.svg?403afebb9d175a68c47bd92dc50fd6f4#icomoon) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -17282,7 +17282,6 @@ a, a:hover {
   background-color: #EBEBEB;
 }
 .la-vcourse__video-bar {
-  width: 50%;
   height: 100%;
   position: absolute;
   background-color: var(--green);
@@ -17290,7 +17289,7 @@ a, a:hover {
 .la-vcourse__duration, .la-vcourse__updatedon, .la-vcourse__languages {
   font-size: var(--text-sm);
 }
-.la-vcourse__player {
+.la-vcourse__video {
   width: var(--playerW);
   height: var(--playerH);
   background: var(--gray);
@@ -17413,6 +17412,8 @@ a, a:hover {
 }
 .la-vcourse__lesson-left {
   width: 150px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .la-vcourse__lesson-right {
   width: calc(100% - 150px);
@@ -17493,6 +17494,9 @@ a, a:hover {
 .la-vcourse__access-icon--danger {
   color: var(--danger);
 }
+.la-vcourse__access-icon--green {
+  color: var(--green);
+}
 .la-vcourse__access:before {
   content: "";
   position: absolute;
@@ -17517,6 +17521,13 @@ a, a:hover {
 }
 .la-vcourse__access--locked:before {
   display: none;
+}
+.la-vcourse__access--available {
+  border: 2px solid var(--green);
+  background-color: #ffffff;
+}
+.la-vcourse__access--available .la-vcourse__access-icon {
+  font-size: calc(var(--text-xs) - 1px);
 }
 .la-vcourse__purchase-left {
   border-right: 1px dashed var(--gray4);
@@ -17549,6 +17560,45 @@ a, a:hover {
     font-size: var(--text-5xl);
   }
 }
+.la-creator__inwrap {
+  padding-left: var(--size-xl);
+}
+.la-creator__inwrap:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 82%;
+  background-color: #FFC516;
+  border-radius: 10px;
+  z-index: -1;
+}
+.la-creator__img img {
+  height: 313px;
+}
+.la-creator__detail {
+  margin-bottom: -2px;
+}
+.la-creator__name {
+  font-size: var(--text-2xl);
+  line-height: var(--text-2xl);
+  font-weight: var(--font-light);
+}
+.la-creator__specialist {
+  font-family: var(--head-font);
+  font-size: var(--text-xl);
+  line-height: var(--text-xl);
+  font-weight: var(--font-semibold);
+}
+.la-creator__content-title .la--icon img {
+  height: 45px;
+}
+.la-creator__content-title .la--text {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-light);
+}
+
 .la-cbenefits__item {
   background: #f5f4f0;
   border-radius: var(--size-2);
