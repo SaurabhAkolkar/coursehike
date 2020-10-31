@@ -9,9 +9,9 @@
        @include ('learners.pages.sidebar')
        <!-- Side Navbar: End -->  
 
-        <div class="la-profile__main">
+        <div class="la-profile__main pb-md-20">
             <div class="container">
-                <div class="la-profile__main-inner">
+                <div class="la-profile__main-inner pb-md-20">
                     <h1 class="la-profile__title text-4xl pb-8">Billing Addresses</h1>
                     <div class="row">
                       <div class="col-7">
@@ -25,7 +25,7 @@
                                        $address1->inputName = "saved-address";
                                        $address1->inputId = "address1";
                                        $address1->title = "Address1";
-                                       $address1->desc = "7/52, Nehru Nagar, Worli, Mumbai, India - 500532";
+                                       $address1->desc = "7/52, Nehru Nagar, Worli, Mumbai, Maharastra, India - 500532";
   
                                        $address2 = new stdClass;
                                        $address2->inputType = "radio";
@@ -33,7 +33,7 @@
                                        $address2->inputName = "saved-address";
                                        $address2->inputId = "address2";
                                        $address2->title = "Address2";
-                                       $address2->desc = "7/52, Nehru Nagar, Worli, Mumbai, India - 500532";
+                                       $address2->desc = "7/52, Nehru Nagar, Worli, Mumbai, Maharastra, India - 500532";
   
                                        $address3 = new stdClass;
                                        $address3->inputType = "radio";
@@ -41,13 +41,13 @@
                                        $address3->inputName = "saved-address";
                                        $address3->inputId = "address3";
                                        $address3->title = "Address3";
-                                       $address3->desc = "7/52, Nehru Nagar, Worli, Mumbai, India - 500532";
+                                       $address3->desc = "7/52, Nehru Nagar, Worli, Mumbai, Maharastra, India - 500532";
   
                                        $addresss = array($address1, $address2, $address3);
                                    @endphp     
                                    
                                    @foreach ($addresss as $address)
-                                       <x-saved-card
+                                       <x-billing
                                           :inputType="$address->inputType"
                                           :inputValue="$address->inputValue"
                                           :inputName="$address->inputName"

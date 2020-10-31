@@ -25,7 +25,7 @@
             </div>
           </div>
 
-           <!-- CARD PAYMENT DETAILS: START -->
+           <!-- BILLING ADDRESS DETAILS: START -->
           <div class="row">
             <div class="col-lg-6">
               <div class="la-payment__details">

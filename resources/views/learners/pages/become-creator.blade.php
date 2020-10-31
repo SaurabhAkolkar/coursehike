@@ -123,7 +123,7 @@
         <div class="col-sm-12 col-md-7 col-lg-6 px-5 px-sm-0 py-5 py-sm-0 ml-6 la-vdot__class">
           <div class="la-vdotted__bar position-relative px-4">
             <div class="la-vicon d-flex align-items-start">
-              <div class="la-icon__vline"><span class="la-icon la-icon--7xl icon-video-unfilled position-absolute"></span></div>
+              <div class="la-icon__vline"><span class="la-icon la-icon--8xl icon-video-unfilled position-absolute"></span></div>
               <div class="la-vicon__text">
                 <h5 class="la-vicon__title">Record a Video</h5>
                 <p class="la-vicon__desc pt-2">Classify and videotape the course of your expertise as classes for better understanding</p>
@@ -131,21 +131,21 @@
               </div>
             </div>
             <div class="la-vicon d-flex align-items-start">
-              <div class="la-icon__vline"><span class="la-icon la-icon--6xl icon-upload-unfilled position-absolute"></span></div>
+              <div class="la-icon__vline"><span class="la-icon la-icon--7xl icon-upload-unfilled position-absolute"></span></div>
               <div class="la-vicon__text">
                 <h5 class=" la-vicon__title">Upload</h5>
                 <p class="la-vicon__desc pt-2">Edit and Upload classes in the recommended format</p>
               </div>
             </div>
             <div class="la-vicon d-flex align-items-start">
-              <div class="la-icon__vline"><span class="la-icon la-icon--7xl icon-share-image position-absolute"></span></div>
+              <div class="la-icon__vline"><span class="la-icon la-icon--8xl icon-share-image position-absolute"></span></div>
               <div class="la-vicon__text">
                 <h5 class="la-vicon__title">Share the World</h5>
                 <p class="la-vicon__desc pt-2">Your students and subscribers from all around the world get to learn new art forms, all while sitting in the comfort of their homes.</p>
               </div>
             </div>
             <div class="la-vicon d-flex align-items-start">
-              <div class="la-icon__vline"><span class="la-icon la-icon--7xl icon-dollar position-absolute pl-1"></span></div>
+              <div class="la-icon__vline"><span class="la-icon la-icon--8xl icon-dollar position-absolute pl-1"></span></div>
               <div class="la-vicon__text">
                 <h5 class="la-vicon__title">Earn with your Creations</h5>
                 <p class="la-vicon__desc pt-2">Values aren't the only takeaway for a creator. Earn for your life of dreams while helping other follow theirs!</p>
