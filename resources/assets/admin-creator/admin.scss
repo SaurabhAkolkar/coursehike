@@ -1431,3 +1431,65 @@ button.dt-button, div.dt-button, a.dt-button {
   font-size: var(--text-sm);
   font-weight: var(--font-light);
 }
+
+/* ============ USER EDIT PROFILE: END ========= */
+
+/* === Filter & excel Icons === */
+.la-admin__filter-icons a{
+  text-decoration:none;
+  outline:0;
+}
+
+/* ============ REVENUE PAGE STATS SECTION: START ========= */
+.la-admin__revenue-stats{
+  .la-admin__revenue-title{
+    font-size: var(--text-md);
+    font-weight: var(--font-light);
+    color: var(--gray5);
+  }
+  .la-admin__revenue-total{
+    font-size: var(--text-3xl);
+    font-weight: var(--font-medium);
+    color: var(--black);
+    padding-right: var(--size-base);
+  }
+  .la-admin__revenue-per{
+    font-size: var(--text-md);
+    font-weight: var(--font-normal);
+    color: var(--gray2);
+    opacity:0.58;
+  }
+  .la-admin__revenue-price{
+    font-size: var(--text-3xl);
+    font-weight: var(--font-medium);
+    color: #1EC812;
+  }
+}
+/* ============ REVENUE PAGE STATS SECTION: END ========= */
+
+/* ============ ADD ANNOUNCEMENT PAGE: START ============ */
+.la-admin__announcement-layout{
+  background:var(--white);
+  border: 0.5px dashed #DEDEDE;
+}
+.la-admin__layout-title{
+  background:var(--white);
+  border: 0.5px dashed #DEDEDE;
+  font-size: var(--text-sm);
+  color: var(--gray5);
+  padding: var(--size-base);
+}
+.la-admin__layout-img{
+  background:var(--white);
+  border: 0.5px dashed #DEDEDE;
+  img{
+    padding: var(--size-base) 0;
+  }
+}
+.la-admin__layout-button{
+  background:var(--white);
+  border-top: 0.5px dashed #DEDEDE;
+  margin:0 var(--size-2);
+  padding:2px 0;
+}
+/* ============ ADD ANNOUNCEMENT PAGE: END ============ */

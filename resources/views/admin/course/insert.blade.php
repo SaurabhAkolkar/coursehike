@@ -231,7 +231,6 @@
               <div class="la-admin__hr-line"></div>
                <!-- PREVIEW IMAGE & VIDEO FILES: START -->
               <div class="row">
-
                 <div class="col-md-5">
                       <div class="la-admin__preview">
                         <label for="" class="la-admin__preview-label">{{ __('adminstaticword.PreviewImage') }}:<sup class="redstar">*</sup></label>

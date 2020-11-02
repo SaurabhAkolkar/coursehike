@@ -8,7 +8,7 @@
     <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">  {{ __('adminstaticword.PendingPayout') }}</h3>
+          <h3 class="box-title pb-6">  {{ __('adminstaticword.PendingPayout') }}</h3>
         </div>
 
         <div class="box-header">

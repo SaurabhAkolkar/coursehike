@@ -9,7 +9,7 @@
     <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title"> Enroll a user</h3>
+          <h3 class="box-title pb-6"> Enroll a user</h3>
         </div>
         <div class="box-body">
           <div class="form-group">

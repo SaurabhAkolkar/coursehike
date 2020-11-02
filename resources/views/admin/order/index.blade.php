@@ -8,7 +8,7 @@
     <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title"> {{ __('adminstaticword.Order') }}</h3>
+          <h3 class="box-title pb-6"> {{ __('adminstaticword.Order') }}</h3>
           @if(Auth::User()->role == "admin")
             <a class="btn btn-info btn-md" href="{{route('order.create')}}">+ Enroll&nbsp; {{ __('adminstaticword.User') }}</a>
           @endif
@@ -16,6 +16,69 @@
         
         <!-- /.box-header -->
         <div class="box-body">
+            <div class="la-admin__revenue-stats">
+                <!-- SUBSCRIPTION SECTION: START -->
+                <div class="row mt-4">
+                    <div class="col-md-3">
+                        <div class="la-admin__revenue-title">Monthly Subscriptions</div>
+                        <div class="la-admin__revenue-info">
+                            <span class="la-admin__revenue-total">50</span>
+                            <span class="la-admin__revenue-per">@ $20 each</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="la-admin__revenue-title">Quarterly Subscriptions</div>
+                      <div class="la-admin__revenue-info">
+                          <span class="la-admin__revenue-total">20</span>
+                          <span class="la-admin__revenue-per">@ $80 each</span>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="la-admin__revenue-title">Yearly Subscriptions</div>
+                      <div class="la-admin__revenue-info">
+                          <span class="la-admin__revenue-total">60</span>
+                          <span class="la-admin__revenue-per">@ $120 each</span>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="la-admin__revenue-title">Total Amount</div>
+                      <div class="la-admin__revenue-info">
+                          <span class="la-admin__revenue-price">$9.8k</span>
+                      </div>
+                    </div>
+                </div>
+                <!-- SUBSCRIPTION SECTION: END -->
+
+                <!-- ONE TIME SUBSCRIPTION SECTION: START -->
+                <div class="row my-md-8">
+                  <div class="col-md-3">
+                      <div class="la-admin__revenue-title">No. of Learners</div>
+                      <div class="la-admin__revenue-info">
+                          <span class="la-admin__revenue-total">50</span>
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="la-admin__revenue-title">Courses Purchased</div>
+                    <div class="la-admin__revenue-info">
+                        <span class="la-admin__revenue-total">20</span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="la-admin__revenue-title">Classes Purchased</div>
+                    <div class="la-admin__revenue-info">
+                        <span class="la-admin__revenue-total">10</span>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="la-admin__revenue-title">Total Amount</div>
+                      <div class="la-admin__revenue-info">
+                        <span class="la-admin__revenue-price">$400</span>
+                      </div>
+                  </div>
+              </div>
+              <!-- ONE TIME SUBSCRIPTION SECTION: END -->
+            </div>
+
             <div class="la-admin__filter-icons text-right" style="position:relative; top:50px;z-index:0;">
               <a href="#" role="button"><span class="la-icon la-icon--3xl icon-sort mr-2" style="color:#000;"></span></a>
               <a href="#" role="button"><span class="la-icon la-icon--3xl icon-excel mr-2" style="color:#1D6F42"></span></a>
@@ -23,7 +86,6 @@
 
             <table id="example1" class="table table-bordered table-striped">
               <thead>
-              
                 <tr>
                   <th>#</th>
                   <th>{{ __('adminstaticword.User') }}</th>
