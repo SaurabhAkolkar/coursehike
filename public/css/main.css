@@ -17290,9 +17290,17 @@ a, a:hover {
   font-size: var(--text-sm);
 }
 .la-vcourse__video {
-  width: var(--playerW);
+  width: 100%;
   height: var(--playerH);
   background: var(--gray);
+}
+.la-vcourse__video .vjs-big-play-button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 .la-vcourse__curriculam {
   max-height: var(--playerH);
@@ -17313,6 +17321,9 @@ a, a:hover {
 }
 .la-vcourse__classes-info .la--label, .la-vcourse__videos-info .la--label {
   color: var(--gray4);
+}
+.la-vcourse__btn {
+  cursor: pointer;
 }
 .la-vcourse__class {
   --classThumbW: 32px;
@@ -17368,6 +17379,29 @@ a, a:hover {
 .la-vcourse__class-videoscount {
   color: var(--gray9);
 }
+.la-vcourse__class-row.full-view .la-vcourse__class-col {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
+  transition: all 0.4s ease;
+}
+.la-vcourse__class-row.full-view .la-vcourse__video {
+  height: calc(var(--playerH) * 2);
+}
+.la-vcourse__class-row.full-view .la-vcourse__curriculam {
+  max-height: inherit;
+  overflow-y: hidden;
+  overflow-x: unset;
+  padding-top: 80px;
+  padding-left: 20px !important;
+}
+.la-vcourse__class-row.full-view .la-vcourse__lesson-content {
+  width: 35%;
+  padding-right: 30px;
+}
+.la-vcourse__class-row.full-view .la-vcourse__lesson-description {
+  width: 65%;
+}
 .la-vcourse__sclass-heading, .la-vcourse__sclass-data {
   font-size: var(--text-xs);
   padding: 10px 10px;
@@ -17418,6 +17452,10 @@ a, a:hover {
 .la-vcourse__lesson-right {
   width: calc(100% - 150px);
   padding-left: 20px;
+}
+.la-vcourse__lesson-description {
+  display: none;
+  width: 65%;
 }
 .la-vcourse__lesson-thumbnail:before {
   content: "";
