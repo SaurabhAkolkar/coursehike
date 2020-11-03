@@ -587,6 +587,8 @@ Route::post('/subscription/plans','SubscriptionController@postPaymentStripe')->n
 Route::get("zoho/module","ZohoController@createRecords");
 Route::view('/edit', 'admin.course.courseresource.edit');
 
+
+Route::view('/requests', 'instructor.requests.index');
 // Route for Learner's View
 
 //Route::view('/','learners.pages.home');

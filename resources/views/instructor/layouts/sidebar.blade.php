@@ -5,10 +5,10 @@
       <div class="user-panel">
         <div class="pull-left image">
           @if(Auth::User()->user_img != null || Auth::User()->user_img !='')
-          <img src="{{ asset('images/user_img/'.Auth::User()->user_img)}}" class="img-circle" alt="User Image">
+          <img src="{{ asset('images/user_img/'.Auth::User()->user_img)}}" class="img-circle rounded-circle" alt="User Image">
 
           @else
-          <img src="{{ asset('images/default/user.jpg') }}" class="img-circle" alt="User Image">
+          <img src="{{ asset('images/default/user.jpg') }}" class="img-circle  rounded-circle" alt="User Image">
 
           @endif
         </div>
@@ -21,13 +21,17 @@
 
       @if(Auth::User()->role == "instructor")
         <ul class="sidebar-menu" data-widget="tree">
-          <li class="header">{{ __('adminstaticword.Navigation') }} </li>
+          <!-- <li class="header">{{ __('adminstaticword.Navigation') }} </li> -->
 
-          <li class="{{ Nav::isRoute('instructor.index') }}"><a href="{{route('instructor.index')}}"><i class="flaticon-web-browser" aria-hidden="true"></i><span>{{ __('adminstaticword.Dashboard') }}</span></a></li>
+          <li class="{{ Nav::isRoute('instructor.index') }}"><a href="{{route('instructor.index')}}">
+            <!-- <i class="flaticon-web-browser" aria-hidden="true"></i> -->
+            <span class="la-icon la-icon--lg icon-dashboard mr-4"></span>
+            <span>{{ __('adminstaticword.Dashboard') }}</span></a>
+          </li>
           
           <li class="{{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('course') }} {{ Nav::isResource('courselang') }} treeview">
             <a href="#">
-                <i class="flaticon-browser-1"></i>{{ __('adminstaticword.Course') }}
+                <span class="la-icon la-icon--lg icon-courses mr-4"></span>{{ __('adminstaticword.Course') }}
                 <i class="fa fa-angle-left pull-right"></i>
             </a>
 
@@ -35,23 +39,23 @@
               <li class="{{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('course') }} {{ Nav::isResource('courselang') }} treeview">
                  
                   @if($gsetting->cat_enable == 1)
-                  <a href="#"><i class="flaticon-interface" aria-hidden="true"></i>{{ __('adminstaticword.Category') }}<i class="fa fa-angle-left pull-right"></i></a>
+                  <a href="#"> <span class="la-icon la-icon--lg icon-categories mr-4"></span>{{ __('adminstaticword.Category') }}<i class="fa fa-angle-left pull-right"></i></a>
                   
                   <ul class="treeview-menu">
-                    <li class="{{ Nav::isResource('category') }}"><a href="{{url('category')}}"><i class="flaticon-rec"></i>{{ __('adminstaticword.Category') }}</a></li>
-                    <li class="{{ Nav::isResource('subcategory') }}"><a href="{{url('subcategory')}}"><i class="flaticon-rec"></i>{{ __('adminstaticword.SubCategory') }}</a></li>
-                    <li class="{{ Nav::isResource('childcategory') }}"><a href="{{url('childcategory')}}"><i class="flaticon-rec"></i>{{ __('adminstaticword.ChildCategory') }}</a></li>
+                    <li class="{{ Nav::isResource('category') }}"><a href="{{url('category')}}"> <span class="la-icon la-icon--lg icon-categories mr-4"></span>{{ __('adminstaticword.Category') }}</a></li>
+                    <li class="{{ Nav::isResource('subcategory') }}"><a href="{{url('subcategory')}}"> <span class="la-icon la-icon--lg icon-sub-category mr-4"></span>{{ __('adminstaticword.SubCategory') }}</a></li>
+                    <li class="{{ Nav::isResource('childcategory') }}"><a href="{{url('childcategory')}}"> <span class="la-icon la-icon--lg icon-child-category mr-4"></span>{{ __('adminstaticword.ChildCategory') }}</a></li>
                   </ul>
                   @endif                           
 
                 
-                  <li class="{{ Nav::isResource('course') }}"><a href="{{url('course')}}"><i class="flaticon-document" aria-hidden="true"></i><span>{{ __('adminstaticword.Course') }}</span></a></li>
+                  <li class="{{ Nav::isResource('course') }}"><a href="{{url('course')}}"> <span class="la-icon la-icon--lg icon-courses mr-4"></span><span>{{ __('adminstaticword.Course') }}</span></a></li>
 
-                  <li class="{{ Nav::isResource('courselang') }}"><a href="{{url('courselang')}}"> <i class="flaticon-translation" aria-hidden="true"></i></i><span> {{ __('adminstaticword.Course') }} {{ __('adminstaticword.Language') }}</span></a></li>
+                  <li class="{{ Nav::isResource('courselang') }}"><a href="{{url('courselang')}}">  <span class="la-icon la-icon--lg icon-course-language mr-4"></span></i><span> {{ __('adminstaticword.Course') }} {{ __('adminstaticword.Language') }}</span></a></li>
                   
-                  @if($gsetting->assignment_enable == 1)
+                  {{-- @if($gsetting->assignment_enable == 1)
                   <li class="{{ Nav::isRoute('assignment.view') }}"><a href="{{route('assignment.view')}}"><i class="flaticon-computer" aria-hidden="true"></i><span>{{ __('adminstaticword.Assignment') }}</span></a></li>
-                  @endif
+                  @endif --}}
                  
                 </li>
               </ul>
@@ -59,25 +63,13 @@
 
 
 
-          <li class="{{ Nav::isResource('userenroll') }}"><a href="{{url('userenroll')}}"><i class="flaticon-user" aria-hidden="true"></i><span> {{ __('adminstaticword.User') }} {{ __('adminstaticword.Enrolled') }}</span></a></li>
+          <!-- <li class="{{ Nav::isResource('userenroll') }}"><a href="{{url('userenroll')}}"> <span class="la-icon la-icon--lg icon-users mr-4"></span><span> {{ __('adminstaticword.Users') }}</span></a></li> -->
 
+          <li class="{{ Nav::isResource('instructor/announcement') }}"><a href="{{url('instructor/announcement')}}"> <span class="la-icon la-icon--lg icon-announcement mr-4"></span><span>{{ __('adminstaticword.Announcement') }}</span></a></li>
 
-          <li class="{{ Nav::isResource('instructorquestion') }} {{ Nav::isResource('instructoranswer') }} treeview">
-            <a href="#">
-                <i class="flaticon-faq"></i> {{ __('adminstaticword.Question') }} / {{ __('adminstaticword.Answer') }}
-                <i class="fa fa-angle-left pull-right"></i>
-            </a>                            
+          <li class=""><a href="/requests"><span class="la-icon la-icon--md icon-request mr-5"></span>Requests</a></li>
 
-            <ul class="treeview-menu">
-              <li class="{{ Nav::isResource('instructorquestion') }}"><a href="{{url('instructorquestion')}}"><i class="flaticon-help" aria-hidden="true"></i><span>{{ __('adminstaticword.Question') }}</span></a></li>
-
-              <li class="{{ Nav::isResource('instructoranswer') }}"><a href="{{url('instructoranswer')}}"><i class="flaticon-test" aria-hidden="true"></i><span>{{ __('adminstaticword.Answer') }}</span></a></li>
-            </ul>
-          </li>
-
-          <li class="{{ Nav::isResource('instructor/announcement') }}"><a href="{{url('instructor/announcement')}}"><i class="flaticon-mobile-marketing" aria-hidden="true"></i><span>{{ __('adminstaticword.Announcement') }}</span></a></li>
-
-          <li class="{{ Nav::isResource('blog') }}"><a href="{{url('blog')}}"><i class="flaticon-personal-information"></i>{{ __('adminstaticword.Blog') }}</a></li>
+          <!-- <li class="{{ Nav::isResource('blog') }}"><a href="{{url('blog')}}"><i class="flaticon-personal-information"></i>{{ __('adminstaticword.Blog') }}</a></li> -->
           
           @if(isset($gsetting->feature_amount))
           <li class="{{ Nav::isResource('featurecourse') }}"><a href="{{url('featurecourse')}}"><i class="flaticon-smartphone" aria-hidden="true"></i><span> {{ __('adminstaticword.Feature') }} {{ __('adminstaticword.Course') }}</span></a></li>
@@ -116,7 +108,7 @@
 
           <li class="{{ Nav::isResource('pending.payout') }} {{ Nav::isRoute('admin.completed') }} treeview">
             <a href="#">
-                <i class="flaticon-money-1"></i> {{ __('adminstaticword.MyRevenue') }}
+              <span class="la-icon la-icon--lg icon-revenue mr-4"></span> {{ __('adminstaticword.MyRevenue') }}
                 <i class="fa fa-angle-left pull-right"></i>
             </a>                            
 
@@ -134,8 +126,25 @@
 
           @endif
           
-          
+          <li class="{{ Nav::isResource('instructorquestion') }} {{ Nav::isResource('instructoranswer') }} treeview">
+            <a href="#">
+              <span class="la-icon la-icon--lg icon-faq mr-4"></span> {{ __('adminstaticword.Faq') }} 
+              <i class="fa fa-angle-left pull-right"></i>
+            </a>                            
 
+            <ul class="treeview-menu">
+              <li class="{{ Nav::isResource('instructorquestion') }}">
+                <a href="{{url('instructorquestion')}}">
+                  <span class="la-icon la-icon--lg icon-help-filled mr-4 mt-1"></span><span>{{ __('adminstaticword.Question') }}</span>
+                </a>
+              </li>
+              <li class="{{ Nav::isResource('instructoranswer') }}">
+                <a href="{{url('instructoranswer')}}">
+                  <span class="la-icon la-icon--lg icon-faq mr-4 mt-1"></span>{{ __('adminstaticword.Answer') }}</span>
+                </a>
+              </li>
+            </ul>
+          </li>
 
         <ul>
       @endif
