@@ -13,7 +13,7 @@
           </div>
           <div class="box-header">
             <a class="btn btn-info btn-sm" href="{{url('subcategory/create')}}">
-            <i class="glyphicon glyphicon-th-"></i>+ {{ __('adminstaticword.AddSubCategory') }}</a>
+              + {{ __('adminstaticword.AddSubCategory') }}</a>
             <br>
           </div>
         </div>

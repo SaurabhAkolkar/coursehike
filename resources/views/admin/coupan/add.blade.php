@@ -9,7 +9,7 @@
     <div class="box box-primary">
     
     <div class="box-header with-border">
-      <div class="box-title">
+      <div class="box-title pb-6">
             {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Coupon') }}
       </div>
     </div>
@@ -172,7 +172,7 @@
      <!-- COUPON PACKAGE TYPE: END -->
 
     <!-- COUPON USAGE LIMIT: START -->
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-12">
             <div class="la-admin__coupon-usage">
               <label class="la-admin__usage-label"> Usage Limit 
@@ -186,7 +186,7 @@
               </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- COUPON USAGE LIMIT: END -->
 
     <!-- ADD CLASS  TOGGLER: START -->
@@ -204,7 +204,7 @@
     <!-- ADD CLASS  TOGGLER: END -->
 
     <div class="box-footer">
-      <button type="submit" class="btn btn-md btn-primary">
+      <button type="submit" class="btn btn-md btn-primary col-md-3">
         {{ __('adminstaticword.Save') }}
       </button>
     </form>

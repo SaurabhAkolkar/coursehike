@@ -61,9 +61,9 @@ Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallba
             return view('home');
          });
 
-        Route::get('/', 'HomeController@index');
+        //Route::get('/', 'HomeController@index');
 
-        Route::get('/home', 'HomeController@index')->name('home');
+        //Route::get('/home', 'HomeController@index')->name('home');
 
     });
 
@@ -369,8 +369,7 @@ Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallba
     Route::get('/course/{id}/{slug}','CourseController@CourseDetailPage')->name('user.course.show');
     Route::get('all/blog','BlogController@blogpage')->name('blog.all');
     Route::get('about/show','AboutController@aboutpage')->name('about.show');
-    Route::get('show/comingsoon','ComingSoonController@comingsoonpage')
-    ->name('comingsoon.show');
+    Route::get('show/comingsoon','ComingSoonController@comingsoonpage')->name('comingsoon.show');
     Route::get('show/careers','CareersController@careerpage')->name('careers.show');
     Route::get('detail/blog/{id}','BlogController@blogdetailpage')->name('blog.detail');
     Route::get('gotomycourse', 'CourseController@mycoursepage')->name('mycourse.show');
@@ -586,7 +585,7 @@ Route::view('/subscription/plans','subscription.pay');
 Route::post('/subscription/plans','SubscriptionController@postPaymentStripe')->name('subscription.plans');
 
 Route::get("zoho/module","ZohoController@createRecords");
-
+Route::view('/edit', 'admin.course.courseresource.edit');
 
 // Route for Learner's View
 

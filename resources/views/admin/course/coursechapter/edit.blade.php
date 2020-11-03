@@ -19,7 +19,7 @@
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.EditCourseChapter') }}</h3>
+          <h3 class="box-title pb-6">{{ __('adminstaticword.EditCourseChapter') }}</h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
@@ -49,10 +49,15 @@
                 <div class="col-12">
                       <div class="la-admin__preview">
                         <label for="" class="la-admin__preview-label"> Class Thumbnail<sup class="redstar">*</sup></label>
-                        <div class="la-admin__preview-img" >
+                        <div class="la-admin__preview-img la-admin__course-imgvid" >
                               <div class="la-admin__preview-text">
                                   <p class="la-admin__preview-size">Thumbnail | 500x350</p>
                                   <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
+                            </div>
+                            <div class="text-center pr-20 mr-20">
+                              <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:160px;">
+                                <span class="path1"><span class="path2"></span></span>
+                              </span>
                             </div>
                             <input type="file" class="form-control la-admin__preview-input preview_img" name="preview_image" />
                             <img src="/images/course/{{$cate->thumbnail}}" alt="" class="preview-img"/>
@@ -126,8 +131,8 @@
               </div>
               <!-- ADD CLASS STATUS: END -->
 
-              <div class="box-footer">
-                <button type="submit" class="btn btn-md col-md-3 btn-primary">{{ __('adminstaticword.Save') }}</button>
+              <div class="box-footer mt-10">
+                <button type="submit" class="btn btn-md col-md-4 btn-primary">{{ __('adminstaticword.Save') }}</button>
               </div>
             </form>
           </div>

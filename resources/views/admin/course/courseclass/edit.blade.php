@@ -8,7 +8,7 @@
     <div class="col-md-7">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.Edit') }} {{ __('adminstaticword.CourseClass') }}</h3>
+          <h3 class="box-title pb-6">{{ __('adminstaticword.Edit') }} {{ __('adminstaticword.CourseClass') }}</h3>
         </div>
         <div class="box-body">
           <div class="form-group">
@@ -110,7 +110,7 @@
 
                 <div class="col-6">
                   <div class="la-admin__preview">
-                    <h6 class="la-admin__editing-title mb-2" > Current </h6>
+                      <h6 class="la-admin__editing-title mb-2" > Current </h6>
                       <div class="la-admin__preview-img la-admin__editclass-preview" >
                           <img src="{{ asset('video/class/preview/'.$cate->image) }}" alt="">
                       </div>
@@ -119,11 +119,16 @@
 
                 <div class="col-6">
                       <div class="la-admin__preview">
-                          <h6 class="la-admin__editimg-title  mb-2" > Update new </h6>
-                          <div class="la-admin__preview-img la-admin__editclass-preview" >
+                          <h6 class="la-admin__editing-title  mb-2" > Update new </h6>
+                          <div class="la-admin__preview-img la-admin__course-imgvid" >
                                <div class="la-admin__preview-text d-block">
                                   <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase text-center">Choose a File</p>
                                   <p class="la-admin__preview-size text-center">Thumbnail | 500x350</p>
+                              </div>
+                              <div class="text-center mr-20">
+                                <span class="la-icon la-icon--5xl icon-preview-image" style="font-size:100px;">
+                                  <span class="path1"><span class="path2"></span></span>
+                                </span>
                               </div>
                               <input type="file" class="form-control la-admin__preview-input" name="preview_image" id="edit-upload" />
                           </div>
@@ -185,7 +190,104 @@
             </div> --}}
             <!-- ADD CLASS MASTER TOGGLER: END -->
 
-              <div class="box-footer">
+
+
+            <!-- SUBTITLE SECTION: START -->
+            @if($cate->type =="video")
+
+            <div class="col-md-12 p-0 mt-10">
+              <div class="box box-primary">
+                <div class="box-header">
+                  <h3 class="box-title "> {{ __('adminstaticword.Subtitle') }}</h3>
+                </div>
+                <div class="box-body p-0">
+                <a data-toggle="modal" data-target="#myModalSubtitle" href="#" class="btn btn-info btn-sm">+  {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Subtitle') }}</a>
+        
+                  <!--Model start-->
+                <div class="modal fade" id="myModalSubtitle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Subtitle') }}</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      </div>
+                      <div class="box box-primary">
+                      <div class="panel panel-sum">
+                        <div  class="modal-body">
+                          <form enctype="multipart/form-data" id="demo-form2" method="post" action="{{ route('add.subtitle',$cate->id) }}" data-parsley-validate class="form-horizontal form-label-left">
+                            {{ csrf_field() }}
+        
+                            <div id="subtitle">
+        
+                              <label>{{ __('adminstaticword.Subtitle') }}:</label>
+                              <table class="table table-bordered" id="dynamic_field">  
+                                <tr> 
+                                    <td>
+                                       <div class="{{ $errors->has('sub_t') ? ' has-error' : '' }} input-file-block">
+                                        <input type="file" name="sub_t[]"/>
+                                        <p class="info">Choose subtitle file ex. subtitle.srt, or. txt</p>
+                                        <small class="text-danger">{{ $errors->first('sub_t') }}</small>
+                                      </div>
+                                    </td>
+        
+                                    <td>
+                                      <input type="text" name="sub_lang[]" placeholder="Subtitle Language" class="form-control name_list" />
+                                    </td>  
+                                    <td><button type="button" name="add" id="add" class="btn btn-xs btn-success">
+                                      <i class="fa fa-plus"></i>
+                                    </button></td>  
+                                </tr>  
+                              </table>
+                             
+                            </div>
+                            <div class="box-footer">
+                              <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                            </div>
+        
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+              </div>
+              <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <br>
+                    <br>
+                    <tr>
+                      <th>#</th>
+                      <th>{{ __('adminstaticword.SubtitleLanguage') }} </th>
+                      <th>{{ __('adminstaticword.Delete') }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php $i=0;?>
+                    @foreach($subtitles as $subtitle)
+                      <?php $i++;?>
+                      <tr>
+                        <td><?php echo $i;?></td>
+                        <td>{{$subtitle->sub_lang}}</td>
+                        <td>
+                          <form  method="post" action="{{ route('del.subtitle',$subtitle->id) }}"
+                                data-parsley-validate class="form-horizontal form-label-left">
+                            {{ csrf_field() }}
+        
+                            <button type="submit" class="btn btn-danger d-inline">
+                              <i class="fa fa-fw fa-trash-o"></i>
+                            </button>
+                          </form>
+                        </td>
+                      </tr>
+                    @endforeach 
+                  </tbody> 
+                </table>
+            </div>
+            @endif
+            <!-- SUBTITLE SECTION: END -->
+
+              <div class="box-footer mt-12">
                 <button type="submit" class="btn btn-lg col-md-4 btn-primary">{{ __('adminstaticword.Save') }}</button>
               </div>
             </form>
@@ -195,98 +297,7 @@
     </div>
 
 
-    @if($cate->type =="video")
-
-    <div class="col-md-5">
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.Subtitle') }}</h3>
-        </div>
-        <div class="box-body">
-        <a data-toggle="modal" data-target="#myModalSubtitle" href="#" class="btn btn-info btn-sm">+  {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Subtitle') }}</a>
-
-          <!--Model start-->
-        <div class="modal fade" id="myModalSubtitle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel"> {{ __('adminstaticword.Add') }}{{ __('adminstaticword.Subtitle') }}</h4>
-              </div>
-              <div class="box box-primary">
-              <div class="panel panel-sum">
-                <div  class="modal-body">
-                  <form enctype="multipart/form-data" id="demo-form2" method="post" action="{{ route('add.subtitle',$cate->id) }}" data-parsley-validate class="form-horizontal form-label-left">
-                    {{ csrf_field() }}
-
-                    <div id="subtitle">
-
-                      <label>{{ __('adminstaticword.Subtitle') }}:</label>
-                      <table class="table table-bordered" id="dynamic_field">  
-                        <tr> 
-                            <td>
-                               <div class="{{ $errors->has('sub_t') ? ' has-error' : '' }} input-file-block">
-                                <input type="file" name="sub_t[]"/>
-                                <p class="info">Choose subtitle file ex. subtitle.srt, or. txt</p>
-                                <small class="text-danger">{{ $errors->first('sub_t') }}</small>
-                              </div>
-                            </td>
-
-                            <td>
-                              <input type="text" name="sub_lang[]" placeholder="Subtitle Language" class="form-control name_list" />
-                            </td>  
-                            <td><button type="button" name="add" id="add" class="btn btn-xs btn-success">
-                              <i class="fa fa-plus"></i>
-                            </button></td>  
-                        </tr>  
-                      </table>
-                     
-                    </div>
-                    <div class="box-footer">
-                      <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
-                    </div>
-
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <table id="example1" class="table table-bordered table-striped">
-          <thead>
-            <br>
-            <br>
-            <tr>
-              <th>#</th>
-              <th>{{ __('adminstaticword.SubtitleLanguage') }} </th>
-              <th>{{ __('adminstaticword.Delete') }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php $i=0;?>
-            @foreach($subtitles as $subtitle)
-              <?php $i++;?>
-              <tr>
-                <td><?php echo $i;?></td>
-                <td>{{$subtitle->sub_lang}}</td>
-                <td>
-                  <form  method="post" action="{{ route('del.subtitle',$subtitle->id) }}"
-                        data-parsley-validate class="form-horizontal form-label-left">
-                    {{ csrf_field() }}
-
-                    <button type="submit" class="btn btn-danger d-inline">
-                      <i class="fa fa-fw fa-trash-o"></i>
-                    </button>
-                  </form>
-                </td>
-              </tr>
-            @endforeach 
-          </tbody> 
-        </table>
-    </div>
-    @endif
+   
   </div>
 </section> 
 

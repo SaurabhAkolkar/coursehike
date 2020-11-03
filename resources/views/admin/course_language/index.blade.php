@@ -9,7 +9,7 @@
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{ __('adminstaticword.CourseLanguage') }}</h3>
-          <a data-toggle="modal" data-target="#myModaljjh" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
+          <a data-toggle="modal" data-target="#myModaljjh" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.CourseLanguage') }}</a>
         </div>
         <div class="box-body">
           

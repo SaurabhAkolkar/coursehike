@@ -102,7 +102,7 @@
 
           
       <!-- COUPON PACKAGE TYPE: START -->
-      <div class="row pl-2 pr-3">
+      {{-- <div class="row pl-2 pr-3">
         <div class="col-12">
           <div class="la-admin__course-package la-admin__class-package">
               <div class="la-admin__cp-subscription">
@@ -167,11 +167,11 @@
               </div>
           </div>
         </div>
-      </div><br/>
+      </div><br/> --}}
      <!-- COUPON PACKAGE TYPE: END -->
 
     <!-- COUPON USAGE LIMIT: START -->
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-12">
             <div class="la-admin__coupon-usage">
               <label class="la-admin__usage-label"> Usage Limit 
@@ -185,7 +185,7 @@
               </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- COUPON USAGE LIMIT: END -->
 
     <!-- ADD CLASS MASTER TOGGLER: START -->
@@ -204,7 +204,7 @@
 
 
           <div class="box-footer">
-            <button type="submit" class="btn btn-md btn-primary">
+            <button type="submit" class="btn btn-md btn-primary col-md-3">
                {{ __('adminstaticword.Update') }}
             </button>
           </form>

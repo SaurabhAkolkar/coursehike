@@ -114,10 +114,15 @@
                   <div class="col-12">
                         <div class="la-admin__preview">
                           <label for="" class="la-admin__preview-label p-0">Thumbnail Image<sup class="redstar">*</sup></label>
-                          <div class="la-admin__preview-img" >
+                          <div class="la-admin__preview-img la-admin__course-imgvid" >
                                <div class="la-admin__preview-text">
                                     <p class="la-admin__preview-size">Thumbnail | 500x350</p>
                                     <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
+                              </div>
+                              <div class="text-center pr-20 mr-20">
+                                <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:160px;">
+                                  <span class="path1"><span class="path2"></span></span>
+                                </span>
                               </div>
                               <input type="file" class="form-control la-admin__preview-input preview_img" name="preview_image" />
                               <img src="" alt="" class="d-none preview-img"/>
@@ -132,10 +137,15 @@
                   <div class="col-12">
                         <div class="la-admin__preview">
                           <label for="" class="la-admin__preview-label p-0">Video Upload<sup class="redstar">*</sup></label>
-                          <div class="la-admin__preview-img" >
+                          <div class="la-admin__preview-img la-admin__course-imgvid" >
                                <div class="la-admin__preview-text">
                                     <p class="la-admin__preview-size">Video | 2G</p>
                                     <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
+                              </div>
+                              <div class="text-center pr-20 mr-20">
+                                <span class="la-icon la-icon--8xl icon-preview-video" style="font-size:150px;">
+                                  <span class="path1"><span class="path2"></span></span>
+                                </span>
                               </div>
                               <input type="file" class="form-control la-admin__preview-input preview_video" name="video_upld" />
                               <video controls  class="d-none preview-video w-100">

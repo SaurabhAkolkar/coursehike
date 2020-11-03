@@ -9,7 +9,7 @@
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{ __('adminstaticword.FAQInstructor') }}</h3>
-          <a href="{{url('faqinstructor/create')}}" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
+          <a href="{{url('faqinstructor/create')}}" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.FAQInstructor') }}</a>
         </div>
         <!-- /.box-header -->
         <div class="box-body">

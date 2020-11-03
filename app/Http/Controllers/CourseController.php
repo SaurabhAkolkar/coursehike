@@ -187,17 +187,17 @@ class CourseController extends Controller
 
         
         if ($file = $request->file('preview_video')) {
-            if ($course->video != "") {
-                $content = @file_get_contents(public_path().'/video/preview/'.$course->video);
+            if ($course->preview_video != "") {
+                $content = @file_get_contents(public_path().'/video/preview/'.$course->preview_video);
                 if ($content) {
-                    unlink(public_path().'/video/preview/'.$course->video);
+                    unlink(public_path().'/video/preview/'.$course->preview_video);
                 }
             }
             
             $filename = time().$file->getClientOriginalName();
             $file->move('video/preview', $filename);
-            $input['video'] = $filename;
-            $course->url = null;
+            $input['preview_video'] = $filename;
+            // $course->url = null;
         }
 
        

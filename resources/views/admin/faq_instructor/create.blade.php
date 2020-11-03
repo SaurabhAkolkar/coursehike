@@ -18,7 +18,7 @@
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.FAQ') }}</h3>
+          <h3 class="box-title pb-6"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.FAQ') }}</h3>
         </div>       
         <div class="box-body">
           <div class="form-group">

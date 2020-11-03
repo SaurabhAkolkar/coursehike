@@ -9,9 +9,9 @@
        @include ('learners.pages.sidebar')
        <!-- Side Navbar: End -->  
 
-        <div class="la-profile__main">
+        <div class="la-profile__main pb-md-20">
             <div class="container">
-                <div class="la-profile__main-inner">
+                <div class="la-profile__main-inner pb-md-20">
                     <h1 class="la-profile__title text-4xl pb-8">Saved Cards</h1>
                     <div class="row">
                       <div class="col-7">

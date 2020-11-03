@@ -33,6 +33,7 @@
               <li  class=""  role="presentation"><a href="#c" aria-controls="messages" role="tab" data-toggle="tab">{{ __('adminstaticword.WhatLearns') }}</a></li> -->
               <li  class=""  role="presentation"><a href="#d" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.CourseChapter') }}</a></li>
               <li  class=""  role="presentation"><a href="#e" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.CourseClass') }}</a></li>
+              {{-- <li  class=""  role="presentation"><a href="#resource" aria-controls="settings" role="tab" data-toggle="tab">Course Resource</a></li> --}}
               <li  class=""  role="presentation"><a href="#market" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.RelatedCourse') }}</a></li>
               <li  class=""  role="presentation"><a href="#copy" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.Question') }}</a></li>
               <li  class=""  role="presentation"><a href="#ans" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.Answer') }}</a></li>
@@ -64,6 +65,9 @@
               </div>
               <div role="tabpanel" class="fadein tab-pane" id="e">
                 @include('admin.course.courseclass.index')
+              </div>
+              <div role="tabpanel" class="fadein tab-pane" id="resource">
+                @include('admin.course.courseresource.index')
               </div>
               <div role="tabpanel" class="fadein tab-pane" id="market">
                 @include('admin.course.relatedcourse.index')

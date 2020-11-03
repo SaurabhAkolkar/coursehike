@@ -9,7 +9,7 @@
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{ __('adminstaticword.ChildCategory') }}</h3>
-          <a href="{{url('childcategory/create')}}" class="btn btn-info btn-sm">+ {{ __('adminstaticword.AddChildCategory') }}</a> 
+          <a href="{{url('childcategory/create')}}" class="btn btn-info btn-sm">+ {{__('adminstaticword.AddChildCategory') }}</a> 
         </div>
      
 
