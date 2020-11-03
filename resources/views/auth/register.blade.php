@@ -1,12 +1,9 @@
 @extends('learners.layouts.intro')
 @section('title', 'Sign Up')
-@include('theme.head')
 @include('admin.message')
 
-<!-- end head -->
-<!-- body start-->
-<body>
-<!-- <section id="nav-bar" class="nav-bar-main-block nav-bar-main-block-one">
+
+{{-- <section id="nav-bar" class="nav-bar-main-block nav-bar-main-block-one">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4">
@@ -34,7 +31,8 @@
             </div>
         </div>
     </div>
-</section> -->
+</section> --}}
+
 @section('content')
 <section id="signup" class="la-entry__sec">
     <div class="container-fluid la-entry__sec-inner">
@@ -52,13 +50,13 @@
            </div>
 
             <div class="col-md-5  la-entry__col la-entry__col-right h-100">
-                <!-- <div class="signup-heading">
+                {{-- <div class="signup-heading">
                     {{ __('frontstaticword.StartLearning') }}!
-                </div> -->
+                </div> --}}
 
                 <div class="la-entry__content-wrap d-flex flex-column justify-content-center" >     
                     <div class="d-flex flex-column la-entry__content-top">
-                        <form class="la-entry__form pb-md-10" method="POST" action="{{ route('register') }}">
+                        <form class="la-entry__form " method="POST" action="{{ route('register') }}">
                             @csrf
                             <div class="la-form__input-wrap la-entry__input-wrap ">
                                 <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
@@ -138,12 +136,14 @@
                             </div> 
                             @endif --}}
                             
-                            <button type="submit" title="Sign Up" class="btn la-btn la-btn--secondary w-100">{{ __('frontstaticword.Signup') }}</button> 
+                            <button type="submit" title="Sign Up" class="la-btn__app w-100">{{ __('frontstaticword.Signup') }}</button> 
                         </form>
-                        
-                        <div class="la-entry__content-bottom text-center">
-                            <span class="la-entry__bottom-title">Register with</span>
-                            <div class="d-flex justify-content-center align-items-center ">
+                    </div>
+
+                    <div class="la-entry__content-bottom text-center">
+                        <span class="la-entry__bottom-title">Register with</span>
+                        <div class="d-flex justify-content-center align-items-center ">
+
                                 @if($gsetting->fb_login_enable == 1)
                                     <div class="la-entry__social-lnk">
                                         <a href="{{ url('/auth/facebook') }}" target="_blank" title="facebook" class="" title="Facebook">
@@ -195,19 +195,19 @@
                                         </a>
                                     </div> 
                                 @endif --}}
-
-                            </div>
-                        </div>
-        
-                        <!-- <div class="signin-link text-center btm-20">
-                            {{ __('frontstaticword.Bysigningup') }} <a href="{{url('terms_condition')}}" title="Policy">{{ __('frontstaticword.Terms&Condition') }} </a>, <a href="{{url('privacy_policy')}}" title="Policy">{{ __('frontstaticword.PrivacyPolicy') }}.</a>
-                        </div> -->
-                        <div class="la-entry__other-option text-center mt-10">{{ __('frontstaticword.Alreadyhaveanaccount') }}? 
-                            <span class="la-btn__plain text--burple text--md ml-2">
-                                <a href="{{ route('login') }}" >{{ __('frontstaticword.Login') }}</a>
-                            </span>
                         </div>
                     </div>
+        
+                    <!-- <div class="signin-link text-center btm-20">
+                        {{ __('frontstaticword.Bysigningup') }} <a href="{{url('terms_condition')}}" title="Policy">{{ __('frontstaticword.Terms&Condition') }} </a>, <a href="{{url('privacy_policy')}}" title="Policy">{{ __('frontstaticword.PrivacyPolicy') }}.</a>
+                    </div> -->
+
+                    <div class="la-entry__other-option text-center mt-md-10">{{ __('frontstaticword.Alreadyhaveanaccount') }}? 
+                        <span class="la-btn__plain text--burple text--md ml-2">
+                            <a href="{{ route('login') }}" >{{ __('frontstaticword.Login') }}</a>
+                        </span>
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -215,8 +215,6 @@
 </section>
 @endsection
 
-@include('theme.scripts')
+{{-- @include('theme.scripts') --}}
 <!-- end jquery -->
-</body>
-<!-- body end -->
-</html> 
+
