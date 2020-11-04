@@ -3,7 +3,7 @@
 <div class="la-profile__sidebar position-fixed d-none d-md-flex flex-column justify-content-between align-items-center">
     <div class="la-profile__sidebar-top">  
       <ul class="la-profile__sidebar-items">
-        <li class="la-profile__sidebar-item"><a href="" class="la-profile__sidebar-link active"><span class="la-icon la-icon--xl icon-hamburger-menu"></span></a></li>
+        <li id="sidebar_menu_btn" class="la-profile__sidebar-item"><a href="" class="la-profile__sidebar-link active"><span class="la-icon la-icon--xl icon-hamburger-menu"></span></a></li>
         <li class="la-profile__sidebar-item"><a href="" class="la-profile__sidebar-link"><span class="la-icon la-icon--xl icon-edit-learner-profile"></span></a></li>
         <li class="la-profile__sidebar-item"><a href="/wishlist" class="la-profile__sidebar-link"><span class="la-icon la-icon--xl icon-wishlist"></span></a></li>
         <li class="la-profile__sidebar-item"><a href="/cart" class="la-profile__sidebar-link"><span class="la-icon la-icon--2xl icon-cart"></span></a></li>

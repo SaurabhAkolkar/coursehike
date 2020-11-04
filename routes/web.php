@@ -606,7 +606,7 @@ Route::view('/creator','learners.pages.creator');
 Route::view('/profile','learners.pages.profile');
 Route::view('/wishlist','learners.pages.wishlist');
 Route::view('/cart','learners.pages.cart');
-Route::view('/playlist','learners.pages.playist');
+Route::view('/playlist','learners.pages.playlist');
 Route::view('/purchase-history','learners.pages.purchase-history');
 Route::view('/saved-cards', 'learners.pages.saved-cards');
 Route::view('billing-address', 'learners.pages.billing-address');
