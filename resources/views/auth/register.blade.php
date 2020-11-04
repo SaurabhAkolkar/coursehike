@@ -1,4 +1,5 @@
 @extends('learners.layouts.intro')
+{{-- @include('theme.head') --}}
 @section('title', 'Sign Up')
 @include('admin.message')
 
