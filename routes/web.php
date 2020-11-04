@@ -301,6 +301,7 @@ Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallba
     Route::resource('course','CourseController');
     Route::resource('courseinclude','CourseincludeController');
     Route::resource('coursechapter','CoursechapterController');
+    Route::resource('courseresource','CourseresourceController');
     Route::resource('whatlearns','WhatlearnsController');
     Route::resource('relatedcourse','RelatedcourseController');
     Route::resource('questionanswer','QuestionanswerController');
@@ -589,7 +590,7 @@ Route::view('/edit', 'admin.course.courseresource.edit');
 
 // Route for Learner's View
 
-//Route::view('/','learners.pages.home');
+Route::view('/','learners.pages.home');
 
 Route::view('/signup','learners.auth.signup');
 Route::view('/signin','learners.auth.signin');

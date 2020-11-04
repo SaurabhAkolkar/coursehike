@@ -14,6 +14,7 @@ use App\WhatLearn;
 use App\CourseChapter;
 use App\RelatedCourse;
 use App\CourseClass;
+use App\CourseResource;
 use App\Categories;
 use App\User;
 use App\Wishlist;
@@ -296,6 +297,7 @@ class CourseController extends Controller
         $coursechapters = CourseChapter::where('course_id', '=', $id)->get();
         $relatedcourse = RelatedCourse::where('main_course_id', '=', $id)->get();
         $courseclass = CourseClass::where('course_id', '=', $id)->orderBy('position', 'ASC')->get();
+        $courseresources = CourseResource::where('course_id', '=', $id)->get();
         $announsments = Announcement::where('course_id', '=', $id)->get();
         $reports = ReportReview::where('course_id', '=', $id)->get();
         $questions = Question::where('course_id', '=', $id)->get();
@@ -303,7 +305,7 @@ class CourseController extends Controller
         $quizes = Quiz::where('course_id', '=', $id)->get();
         $topics = QuizTopic::where('course_id', '=', $id)->get();
         $appointment = Appointment::where('course_id', '=', $id)->get();
-        return view('admin.course.show', compact('cor', 'course', 'courseinclude', 'whatlearns', 'coursechapters', 'coursechapter', 'relatedcourse', 'courseclass', 'announsments', 'answers', 'reports', 'questions', 'quizes', 'topics', 'appointment'));
+        return view('admin.course.show', compact('cor', 'course', 'courseinclude', 'whatlearns', 'coursechapters', 'coursechapter', 'relatedcourse', 'courseclass', 'courseresources', 'announsments', 'answers', 'reports', 'questions', 'quizes', 'topics', 'appointment'));
     }
 
 
