@@ -18,19 +18,26 @@
             </thead>
 
             <tbody id="sortable">
+                @foreach($courseresources as $resource)
                 <tr class="sortable row1" data-id="">
                     <td> <span class="la-icon la-icon--4xl icon-pdf" style="color:#FF7474;"></span></td>
-                    <td>01</td>
-                    <td>Tatto Art</td>
+                    <td>{{$resource->id}}</td>
+                    <td>{{$resource->file_name}}</td>
                     <td>
-                      <a class="btn btn-success btn-sm" href="" ><i class="la-icon la-icon--lg icon-edit"></i></a>
+                      <a class="btn btn-success btn-sm" href="{{url('courseresource/'.$resource->id)}}" ><i class="la-icon la-icon--lg icon-edit"></i></a>
                     </td> 
                     <td>
-                      <form  method="post" action="" data-parsley-validate class="form-horizontal form-label-left">
+                      {{-- <form  method="post" action="" data-parsley-validate class="form-horizontal form-label-left">
                         <button  type="submit" class="btn btn-danger btn-sm"><i class="la-icon la-icon--lg icon-delete"></i></button>
+                      </form> --}}
+                      <form  method="post" action="{{url('courseresource/'.$resource->id)}}"  data-parsley-validate class="form-horizontal form-label-left">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                          <button type="submit" class="btn btn-danger"><i class="la-icon la-icon--lg icon-delete"></i></button>
                       </form>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
           </table>
       </div>
@@ -47,11 +54,13 @@
         <div class="box box-primary">
           <div class="panel panel-sum">
               <div class="modal-body">
-                <form enctype="multipart/form-data"  id="" method="post" action="">
+                <form enctype="multipart/form-data"  id="" method="post" action="{{ route('courseresource.store') }}" >
+                  {{ csrf_field() }}
                     <div class="row">
+                      <input type="hidden" class="form-control " name="course_id" id="exampleInputTitle" value={{ $cor->id }}>
                         <div class="col-md-12 mt-4">
                             <label >File Name:<sup class="redstar">*</sup></label>
-                            <input type="text" class="form-control" name="add_name" placeholder="Enter File Name">
+                            <input type="text" class="form-control" name="file_name" placeholder="Enter File Name">
                         </div>
 
                         <div class="col-md-12 mt-4">

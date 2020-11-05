@@ -26,12 +26,18 @@
         <div class="box-body">
           <div class="form-group">
             <form id="demo-form" method="post" action="" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
-               
+              {{ csrf_field() }}
+              {{ method_field('PUT') }}
                     <div class="row">
+                        <input type="hidden" class="form-control " name="course_id" value={{ $cate->courses->id }}>
                         <div class="col-md-12 mt-4">
                             <label >File Name:<sup class="redstar">*</sup></label>
-                            <input type="text" class="form-control" name="edit_name" placeholder="Enter File Name">
+                            <input type="text" class="form-control" name="file_name" placeholder="Enter File Name" value="{{$cate->file_name}}">
                         </div>
+                        <div class="col-md-12 mt-4">
+                          <label >Current File:<sup class="redstar">*</sup></label>
+                          <a href="{{'/files/material/'.$cate->file_url}}">{{$cate->file_url}}</a>
+                      </div>
                 
                         <div class="col-md-12 mt-4">
                             <div class="la-admin__preview la-admin__course-imgvid">
@@ -65,7 +71,4 @@
   <!-- /.row -->
 </section> 
 
-@endsection
-
-  
 @endsection

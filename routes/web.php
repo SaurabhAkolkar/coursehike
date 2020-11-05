@@ -301,6 +301,7 @@ Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallba
     Route::resource('course','CourseController');
     Route::resource('courseinclude','CourseincludeController');
     Route::resource('coursechapter','CoursechapterController');
+    Route::resource('courseresource','CourseresourceController');
     Route::resource('whatlearns','WhatlearnsController');
     Route::resource('relatedcourse','RelatedcourseController');
     Route::resource('questionanswer','QuestionanswerController');
