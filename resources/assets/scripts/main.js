@@ -87,7 +87,7 @@ $(function(){
 
   //Sidemenu
   $('#sidebar_menu_btn').on('click', function() {
-    
+    $('.la-profile__sidebar').toggleClass('menu-open')
   })
 
 
