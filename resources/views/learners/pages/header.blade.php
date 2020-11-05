@@ -19,10 +19,10 @@
           <div class="la-header__menu d-inline-flex align-items-center">
             <div class="la-header__menu-item">
               <!-- Global Search: Start-->
-              <div class="la-gsearch  mb-0">
+              <div class="la-gsearch  mb-0" >
                 <form class="form-inline" action="">
                   <div class="form-group">
-                    <input class="la-gsearch__input form-control text-md pr-0" type="text" style="width:140px;" placeholder="Search Courses...">
+                    <input class="la-gsearch__input form-control text-md pr-0" type="text"  placeholder="Search Courses...">
                   </div>
                   <button class="la-gsearch__submit btn pr-0" type="submit"><i class="la-icon la-icon--xl icon icon-search"></i></button>
                 </form>
@@ -66,7 +66,14 @@
                         $msg4->comment = "likes your comment";
                         $msg4->timestamp = "6h";
 
-                        $msgs = array($msg1, $msg2, $msg3, $msg4);
+                        $msg5 = new stdClass;
+                        $msg5->url = "";
+                        $msg5->img = "https://picsum.photos/50";
+                        $msg5->name = "Dartin";
+                        $msg5->comment = "likes your comment";
+                        $msg5->timestamp = "6h";
+
+                        $msgs = array($msg1, $msg2, $msg3, $msg4, $msg5);
                     @endphp
 
                     @foreach ($msgs as $msg)
@@ -143,7 +150,15 @@
                 <a class="dropdown-item la-header__dropdown-item text-sm" href="/learning-plans">Learning Plans</a>
                 <a class="dropdown-item la-header__dropdown-item text-sm" href="/become-creator">Become a Creator</a>
                 <a class="dropdown-item la-header__dropdown-item text-sm" href="/guided-creator">Guided Creator</a>
-                <a class="dropdown-item la-header__dropdown-item text-sm" href="/contact">Contact Us</a></div>
+                <a class="dropdown-item la-header__dropdown-item text-sm" href="/contact">Contact Us</a>
+
+                <a class="dropdown-item la-header__dropdown-item text-sm" role="button" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                  <span>Logout</span>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                  </form>
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -9,6 +9,7 @@
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">  {{ __('adminstaticword.Answer') }}</h3>
+          <a class="btn btn-info btn-sm" href="{{ url('instructoranswer/create') }}">+ Add Answer</a>
         </div>
         
         <!-- /.box-header -->

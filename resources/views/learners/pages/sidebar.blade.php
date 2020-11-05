@@ -17,7 +17,15 @@
       <ul class="la-profile__sidebar-items">
         <li class="la-profile__sidebar-item"><a href="/become-creator"><img src="images/learners/icons/mentor.svg" alt="mentor"></a></li>
         <li class="la-profile__sidebar-item"><a href=""><span class="la-icon la-icon--xl icon-help-filled"></span></a></li>
-        <li class="la-profile__sidebar-item"><a href=""><span class="la-icon la-icon--lg icon-logout"></span></a></li>
+        
+        <li class="la-profile__sidebar-item">
+          <a role="button" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <span class="la-icon la-icon--lg icon-logout"></span>
+          </a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST">
+            @csrf
+          </form>
+        </li>
       </ul>
     </div>
 </div>

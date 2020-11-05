@@ -3,8 +3,8 @@
 @section('body')
 
 <div class="box">
-  <div class="pl-4 pt-4">
-    <h3 class="box-header">Requests</h3>
+  <div class="box-header ">
+    <h3 class="box-title pl-6 pt-4">Requests</h3>
   </div>
   @if($errors->any())
   <div class="box-body">

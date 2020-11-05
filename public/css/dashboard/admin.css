@@ -731,7 +731,7 @@ a.dt-button {
 
 .la-dash__recent-section {
   background-color: var(--white);
-  padding: var(--size-3);
+  padding: var(--size-4);
   margin-top: var(--size-8);
   width: 100%;
 }
@@ -741,7 +741,7 @@ a.dt-button {
   font-weight: var(--font-medium);
   font-size: var(--text-lg);
   color: var(--gray2);
-  padding: var(--size-2);
+  padding: var(--size-2) var(--size-2) var(--size-8) var(--size-2);
   margin: 0;
 }
 
@@ -749,32 +749,32 @@ a.dt-button {
   height: 300px;
 }
 
-.la-dash__recent-section .la-dash__recent-list .la-dash__recent-item {
+.la-dash__recent-section .la-dash__recent-item {
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding: var(--size-2);
 }
 
-.la-dash__recent-section .la-dash__recent-list .la-dash__recent-item .la-dash__recent-info {
+.la-dash__recent-section .la-dash__recent-info {
   display: flex;
 }
 
-.la-dash__recent-section .la-dash__recent-list .la-dash__recent-item .la-dash__recent-info .la-dash__recent-img img {
+.la-dash__recent-section .la-dash__recent-img img {
   width: 32px;
   height: 32px;
   border-radius: 50%;
   margin-right: var(--size-6);
 }
 
-.la-dash__recent-section .la-dash__recent-list .la-dash__recent-item .la-dash__recent-info .la-dash__recent-title {
+.la-dash__recent-section .la-dash__recent-title {
   font-family: var(--body-font);
   font-weight: var(--font-normal);
   font-size: var(--text-sm);
   color: var(--gray4);
 }
 
-.la-dash__recent-section .la-dash__recent-list .la-dash__recent-item .la-dash__recent-info .la-dash__recent-tag {
+.la-dash__recent-section .la-dash__recent-tag {
   font-family: var(--body-font);
   font-weight: var(--font-normal);
   font-size: var(--text-xxs);
@@ -782,7 +782,15 @@ a.dt-button {
   text-transform: uppercase;
 }
 
-.la-dash__recent-section .la-dash__recent-list .la-dash__recent-item .la-dash__recent-subdate {
+.la-dash__recent-section .la-dash__recent-price {
+  font-family: var(--body-font);
+  font-weight: var(--font-normal);
+  font-size: var(--text-xs);
+  color: var(--gray5);
+  text-transform: uppercase;
+}
+
+.la-dash__recent-section .la-dash__recent-subdate {
   font-family: var(--body-font);
   font-weight: var(--font-normal);
   font-size: var(--text-xs);
@@ -820,13 +828,13 @@ a.dt-button {
   text-align: center;
 }
 
-.la-dash__pending-section .la-dash__pending-body .la-dash__pending-list .la-dash__pending-item {
+.la-dash__pending-section .la-dash__pending-item {
   width: 100%;
   padding: var(--size-2);
   margin-bottom: var(--size-2);
 }
 
-.la-dash__pending-section .la-dash__pending-body .la-dash__pending-list .la-dash__pending-item .col {
+.la-dash__pending-section .la-dash__pending-item .col {
   font-family: var(--body-font);
   font-weight: var(--font-normal);
   font-size: var(--text-sm);
@@ -834,11 +842,11 @@ a.dt-button {
   text-align: center;
 }
 
-.la-dash__pending-section .la-dash__pending-body .la-dash__pending-list .la-dash__pending-item .la-dash__pending-date {
+.la-dash__pending-section .la-dash__pending-item .la-dash__pending-date {
   font-size: var(--text-sm) !important;
 }
 
-.la-dash__pending-section .la-dash__pending-body .la-dash__pending-list .la-dash__pending-item .la-dash__pending-type {
+.la-dash__pending-section .la-dash__pending-item .la-dash__pending-type {
   font-family: var(--body-font);
   font-weight: var(--font-normal);
   color: var(--skyblue);
@@ -857,7 +865,7 @@ a.dt-button {
   padding: var(--size-8) var(--size-6);
 }
 
-.la-admin__course-package .la-admin__cp-title {
+.la-admin__cp-title {
   font-family: var(--body-font);
   font-weight: var(--font-medium);
   font-size: var(--text-lg);
@@ -865,23 +873,23 @@ a.dt-button {
   margin-bottom: var(--size-8);
 }
 
-.la-admin__course-package .la-admin__cp-subscription,
-.la-admin__course-package .la-admin__cp-premium,
-.la-admin__course-package .la-admin__cp-free {
+.la-admin__cp-subscription,
+.la-admin__cp-premium,
+.la-admin__cp-free {
   padding-left: var(--size-8);
 }
 
-.la-admin__course-package .la-admin__cp-input {
+.la-admin__cp-input {
   display: none;
 }
 
-.la-admin__course-package .la-admin__cp-circle {
+.la-admin__cp-circle {
   display: inline-flex;
   justify-content: start;
   align-items: center;
 }
 
-.la-admin__course-package .la-admin__cp-radio {
+.la-admin__cp-radio {
   width: 14px;
   height: 14px;
   border-radius: var(--rounded-full);
@@ -890,7 +898,7 @@ a.dt-button {
   margin-right: 5px;
 }
 
-.la-admin__course-package .la-admin__cp-radio::before {
+.la-admin__cp-radio::before {
   content: "";
   position: absolute;
   top: 3px;
@@ -1241,19 +1249,19 @@ a.dt-button {
   border-bottom: 2px solid var(--gray);
 }
 
-.la-admin__invoice .la-admin__invoice-logo img {
+.la-admin__invoice-logo img {
   width: 100%;
   height: auto;
 }
 
-.la-admin__invoice .la-admin__invoice-address p {
+.la-admin__invoice-address p {
   font-family: var(--body-font);
   font-size: var(--text-sm);
   font-weight: var(--font-light);
   color: var(--gray2);
 }
 
-.la-admin__invoice .la-admin__invoice-address a {
+.la-admin__invoice-address a {
   font-family: var(--body-font);
   font-size: var(--text-sm);
   font-weight: var(--font-light);
