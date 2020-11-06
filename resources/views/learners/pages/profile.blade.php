@@ -4,10 +4,9 @@
 <div class="la-profile">
     <div class="la-profile__wrap">
       
-       <!-- Side Navbar: Start -->
-       @include ('learners.pages.sidebar')
-       <!-- Side Navbar: End -->  
-
+      <!-- Side Navbar: Start -->
+      @include ('learners.pages.sidebar')
+      <!-- Side Navbar: End -->  
       <div class="la-profile__main">
         <div class="container">
           <div class="la-profile__main-inner">
@@ -25,7 +24,7 @@
                           <div class="col-6">
                             <div class="la-form__img-wrap">
                               <div class="la-form__img-title">Current</div>
-                              <div class="la-form__img d-inline-block"><img src="" alt=""></div>
+                              <div class="la-form__img d-inline-block d-flex justify-content-center content-fit"><img src="" alt=""></div>
                             </div>
                           </div>
                           <div class="col-6">
@@ -41,31 +40,31 @@
                     <div class="col-md-6">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">First Name</div>
-                                      <input class="la-form__input" type="text" value="Nathan" name="first-name" placeholder="Jhon">
+                                      <input class="la-form__input" type="text" value="{{Auth::user()->fname}}" name="first-name" placeholder="Jhon">
                                     </div>
                     </div>
                     <div class="col-md-6">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Last Name</div>
-                                      <input class="la-form__input" type="text" value="Spark" name="last-name" placeholder="Spark">
+                                      <input class="la-form__input" type="text" value="{{Auth::user()->lname}}" name="last-name" placeholder="Spark">
                                     </div>
                     </div>
                     <div class="col-md-6">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Email</div>
-                                      <input class="la-form__input" type="email" value="nathanspark@gmail.com" name="email" placeholder="nathanspark@gmail.com">
+                                      <input class="la-form__input" type="email" value="{{Auth::user()->email}}" name="email" placeholder="nathanspark@gmail.com">
                                     </div>
                     </div>
                     <div class="col-md-6">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Contact Number</div>
-                                      <input class="la-form__input" type="tel" value="9999999999" name="contact-number" placeholder="9999999999">
+                                      <input class="la-form__input" type="tel" value="{{Auth::user()->mobile}}" name="contact-number" placeholder="9999999999">
                                     </div>
                     </div>
                     <div class="col-md-6">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Date of Birth</div>
-                                      <input class="la-form__input" type="date" value="July 16, 1996" name="contact-number" placeholder="July 16, 1996">
+                                      <input class="la-form__input" type="date" value="{{Auth::user()->dob}}" name="contact-number" placeholder="July 16, 1996">
                                     </div>
                     </div>
                     <div class="col-md-6">
@@ -73,11 +72,11 @@
                         <div class="la-form__lable la-form__lable--medium mb-2">Gender</div>
                         <div class="d-flex">
                                         <div class="la-form__radio-wrap mr-5">
-                                          <input class="la-form__radio d-none" type="radio" value="male" name="gender" id="male">
+                                          <input class="la-form__radio d-none" type="radio" value="male" name="gender" id="male" @if(Auth::user()->gender == "male")checked @endif>
                                           <label class="d-flex align-items-center" for="male"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Male</span></label>
                                         </div>
                                         <div class="la-form__radio-wrap mr-5">
-                                          <input class="la-form__radio d-none" type="radio" value="female" name="gender" id="female">
+                                          <input class="la-form__radio d-none" type="radio" value="female" name="gender" id="female" @if(Auth::user()->gender == "female")checked @endif>
                                           <label class="d-flex align-items-center" for="female"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Female</span></label>
                                         </div>
                                         <div class="la-form__radio-wrap mr-5">
@@ -90,37 +89,37 @@
                     <div class="col-md-12">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Residential Address</div>
-                                      <input class="la-form__input" type="text" value="" name="residential-address" placeholder="F/64, Apmc Market-i, Phase Ii, Turbhe, Vashi">
+                                      <input class="la-form__input" type="text" value="{{Auth::user()->address}}" name="residential-address" placeholder="F/64, Apmc Market-i, Phase Ii, Turbhe, Vashi">
                                     </div>
                     </div>
                     <div class="col-md-6">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Country</div>
-                                      <input class="la-form__input" type="text" value="India" name="country" placeholder="India">
+                                      <input class="la-form__input" type="text" value="{{Auth::user()->country_id}}" name="country" placeholder="India">
                                     </div>
                     </div>
                     <div class="col-md-6">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">State</div>
-                                      <input class="la-form__input" type="text" value="India" name="state" placeholder="India">
+                                      <input class="la-form__input" type="text" value="{{Auth::user()->state_id}}" name="state" placeholder="India">
                                     </div>
                     </div>
                     <div class="col-md-6">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">City</div>
-                                      <input class="la-form__input" type="text" value="India" name="city" placeholder="India">
+                                      <input class="la-form__input" type="text" value="{{Auth::user()->city_id}}" name="city" placeholder="India">
                                     </div>
                     </div>
                     <div class="col-md-6">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Zip Code</div>
-                                      <input class="la-form__input" type="number" value="400703" name="zipcode" placeholder="400703">
+                                      <input class="la-form__input" type="number" value="{{Auth::user()->pin_code}}" name="zipcode" placeholder="400703">
                                     </div>
                     </div>
                     <div class="col-md-12">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Short Bio</div>
-                                      <textarea class="la-form__textarea" name="" cols="30" rows="10" placeholder="Type here"></textarea>
+                                      <textarea class="la-form__textarea" name="" cols="30" rows="10" placeholder="Type here">{{Auth::user()->details}}</textarea>
                                     </div>
                     </div>
                   </div>
@@ -135,13 +134,21 @@
                 <div class="la-password__update-option mb-8 d-flex">
                   <div class="text text-uppercase mr-3">Update Password</div><span class="icon icon-arrow d-inline-block"></span>
                 </div>
-                <form class="la-password__update-content" action="">
-                  <div class="row">
-                    <div class="col-md-6">
-                                    <div class="la-form__input-wrap">
-                                      <div class="la-form__lable la-form__lable--medium mb-2">Current Password</div>
-                                      <input class="la-form__input" type="password" value="India" name="current-password" placeholder="****">
-                                    </div>
+                <div class="collapse" id="passwordCollapse">
+                  <form class="la-password__update-content" action="">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="la-form__input-wrap">
+                          <div class="la-form__lable la-form__lable--medium mb-2">Current Password</div>
+                          <input class="la-form__input" type="password" value="{{Auth::user()->password}}" name="current-password" placeholder="****">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="la-form__input-wrap">
+                          <div class="la-form__lable la-form__lable--medium mb-2">New Password</div>
+                          <input class="la-form__input" type="password" value="{{Auth::user()->password}}" name="new-password" placeholder="****">
+                        </div>
+                      </div>
                     </div>
                     <div class="col-md-6">
                                     <div class="la-form__input-wrap">

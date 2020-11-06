@@ -5,7 +5,7 @@ use App\FaqInstructor;
 use App\User;
 use App\Setting;
 use App\CourseClass;
-
+// dd(Auth::user());
 /*
 |--------------------------------------------------------------------------
 | Web Routes
