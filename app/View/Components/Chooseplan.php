@@ -16,14 +16,16 @@ class Chooseplan extends Component
      public $discount;
      public $oldPrice;
      public $saving;
+     public $slug;
 
 
-    public function __construct($plan, $discount, $oldPrice, $saving)
+    public function __construct($plan, $discount, $oldPrice, $saving, $slug)
     {
         $this->plan =  $plan;
         $this->discount = $discount;
         $this->oldPrice = $oldPrice;
         $this->saving = $saving;
+        $this->slug = $slug;
     }
 
     /**

@@ -40,12 +40,12 @@
                 </div>
                 <br>
 
-                <div class="row">
+                {{-- <div class="row">
                   <div class="col-md-6">
                     <label for="icon">{{ __('adminstaticword.Icon') }}:<span class="redstar">*</span></label>
                     <input type="text" class="form-control icp-auto icp" name="icon" id="exampleInputTitle" value="{{$cate->icon}}">
                   </div>
-                </div> <br/>
+                </div> <br/> --}}
 
                 <div class="row">
                   <div class="col-md-6">

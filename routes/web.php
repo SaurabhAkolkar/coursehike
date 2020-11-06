@@ -582,8 +582,9 @@ Route::get('view/assignment/{id}', 'AssignmentController@assignment')->name('lis
 
 // Harish Route's
 
-Route::view('/subscription/plans','subscription.pay');
-Route::post('/subscription/plans','SubscriptionController@postPaymentStripe')->name('subscription.plans');
+// Route::view('/subscription/plans','subscription.pay');
+Route::get('/subscription/{slug}', 'SubscriptionController@plans');
+Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
 
 Route::get("zoho/module","ZohoController@createRecords");
 Route::view('/edit', 'admin.course.courseresource.edit');
@@ -616,7 +617,7 @@ Route::view('billing-address', 'learners.pages.billing-address');
 
 Route::view('/releases','learners.pages.new-releases');
 Route::view('/learning-plans','learners.pages.learning-plans');
-Route::view('/payment', 'learners.pages.payment');
+// Route::view('/payment', 'learners.pages.payment');
 Route::view('/become-creator','learners.pages.become-creator');
 Route::view('/guided-creator','learners.pages.guided-creator');
 Route::view('/contact','learners.pages.contact');

@@ -26,7 +26,7 @@
                   <th>#</th>
                   <th>{{ __('adminstaticword.Category') }}</th>
                   <th>{{ __('adminstaticword.SubCategory') }}</th>
-                  <th>{{ __('adminstaticword.Icon') }}</th>
+                  {{-- <th>{{ __('adminstaticword.Icon') }}</th> --}}
                   <th>{{ __('adminstaticword.Slug') }}</th>
                   <th>{{ __('adminstaticword.Status') }}</th>
                   <th>{{ __('adminstaticword.Edit') }}</th>
@@ -41,7 +41,7 @@
                   <td><?php echo $i;?></td>
                   <td>{{$cat->categories['title']}}</td>
                   <td>{{$cat->title}}</td>
-                  <td><i class="fa {{$cat->icon}}"></i></td>
+                  {{-- <td><i class="fa {{$cat->icon}}"></i></td> --}}
                   <td>{{$cat->slug}}</td>
                   <td>
                       <form action="{{ route('subcategory.quick',$cat->id) }}" method="POST">

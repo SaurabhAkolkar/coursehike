@@ -23,10 +23,10 @@
               <label for="category">{{ __('adminstaticword.Name') }}:<sup class="redstar">*</sup></label>
               <input required placeholder="Enter Category name" type="text" class="form-control" name="category">
             </div>
-            <div class="col-md-12 pt-3">
+            {{-- <div class="col-md-12 pt-3">
               <label for="icon">{{ __('adminstaticword.Icon') }}:<sup class="redstar">*</sup></label>
               <input type="text" class="form-control icp-auto icp" name="icon" required placeholder="Choose Icon">
-            </div>
+            </div> --}}
 
 
           </div>
