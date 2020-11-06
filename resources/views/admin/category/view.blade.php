@@ -44,13 +44,13 @@
                       </div>
                       <br>
 
-                      <div class="row">
+                      {{-- <div class="row">
                         <div class="col-md-12">
                           <label for="icon">{{ __('adminstaticword.Icon') }}:<sup class="redstar">*</sup></label>
                           <input type="text" class="form-control icp-auto icp" name="icon" required placeholder="Choose Icon">
                         </div>
                       </div>
-                      <br>
+                      <br> --}}
 
                       <div class="row">
                         <div class="col-md-4">
