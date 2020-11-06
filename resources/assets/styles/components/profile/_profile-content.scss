@@ -3,20 +3,22 @@
         &__ {
             &wrap {
                 background-color: var(--gray);
+                display: flex;
             }
             &main {
+                width: 100%;
                 padding-top: var(--size-12);
 
                 &- {
-                    &inner {
-                        @include respond-above(sm) {
-                            padding-left: 80px;
-                        }
+                    // &inner {
+                    //     @include respond-above(sm) {
+                    //         padding-left: 80px;
+                    //     }
 
-                        @include respond-above(lg) {
-                            padding-left: 80px;
-                        }
-                    }
+                    //     @include respond-above(lg) {
+                    //         padding-left: 80px;
+                    //     }
+                    // }
                 }
             }
             &form {
