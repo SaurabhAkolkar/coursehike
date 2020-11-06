@@ -85,6 +85,13 @@ $(function(){
     }
   });
 
+  //Sidemenu
+  $('#sidebar_menu_btn').on('click', function() {
+    
+  })
+
+
+
 }); 
 
 // Popover Js for Dashboard Page: Start

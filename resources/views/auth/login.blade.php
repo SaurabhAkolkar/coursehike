@@ -1,12 +1,8 @@
 @extends('learners.layouts.intro')
+{{-- @include('theme.head') --}}
 @section('title', 'Login')
-@include('theme.head')
-
 @include('admin.message')
 
-<!-- end head -->
-<!-- body start-->
-<body>
 <!-- top-nav bar start-->
 {{-- <section id="nav-bar " class="nav-bar-main-block nav-bar-main-block-one p-0">
     <div class="container-fluid">
@@ -37,10 +33,11 @@
         </div>
     </div>
 </section> --}}
-
 <!-- top-nav bar end-->
+
 <!-- Signup start-->
 @section('content')
+
     <section id="signup" class="la-entry__sec">
         <div class="container-fluid la-entry__sec-inner ">
             <div class="row la-entry__row h-100">
@@ -62,11 +59,9 @@
                     </div> --}}
 
                     <div class="la-entry__content-wrap d-flex flex-column justify-content-center">  
-                        <div class="la-entry__content-top">
-                            <div class="">
-                                <form method="POST" class="signup-form" action="{{ route('login') }}">
+                        <div class="d-flex flex-column la-entry__content-top mt-md-5">
+                                <form method="POST" class="signup-form la-entry__form" action="{{ route('login') }}">
                                     @csrf
-                                
                                     <div class="la-form__input-wrap la-entry__input-wrap mb-md-10">
                                         <!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
                                         <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-mail-id"></span></span>
@@ -109,7 +104,7 @@
                                     </div>
                 
                                     <div class="form-group">
-                                        <button type="submit"  class="btn-primary py-md-4 text-sm">
+                                        <button type="submit"  class="la-btn__app py-md-4 text-sm">
                                             {{ __('frontstaticword.Login') }}
                                         </button>   
                                     </div>
@@ -118,11 +113,11 @@
                                     {{ __('frontstaticword.Bysigningup') }} <a href="{{url('terms_condition')}}" title="Policy">{{ __('frontstaticword.Terms&Condition') }} </a>, <a href="{{url('privacy_policy')}}" title="Policy">{{ __('frontstaticword.PrivacyPolicy') }}.</a>
                                     </div> --}}
                                 </form>
-                            </div>
+                        </div>
                             
-                            <div class="signin-social la-entry__content-bottom text-center mt-md-20 pt-md-20">
-                                <span class="la-entry__bottom-title">Login with</span>
-                                <div class="d-flex justify-content-center align-items-center">
+                        <div class="la-entry__content-bottom text-center pt-md-14">
+                            <span class="la-entry__bottom-title">Login with</span>
+                            <div class="d-flex justify-content-center align-items-center">
                                     
                                     @if($gsetting->fb_login_enable == 1)  
                                         <div class="la-entry__social-lnk">
@@ -151,37 +146,39 @@
                                         </div>
                                     @endif
                                     
-                                    <!-- @if($gsetting->amazon_enable == 1)
+                                    {{-- @if($gsetting->amazon_enable == 1)
                                         <div class="signin-link amazon-button">
                                             <a href="{{ url('/auth/amazon') }}" target="_blank" title="amazon" class="btn btn-info rounded-circle" title="Amazon"><i class="m-0 fab fa-amazon"></i>
-                                                {{-- {{ __('frontstaticword.ContinuewithAmazon') }} --}}
+                                                {{ __('frontstaticword.ContinuewithAmazon') }}
                                             </a>
                                         </div>
-                                    @endif -->
+                                    @endif --}}
                 
                                 
-                                    <!--@if($gsetting->twitter_enable == 1)
+                                    {{-- @if($gsetting->twitter_enable == 1)
                                         <div class="signin-link twitter-button">
                                             <a href="{{ url('/auth/twitter') }}" target="_blank" title="twitter" class="btn btn-info rounded-circle" title="Twitter"><i class="m-0 fab fa-twitter"></i>
-                                                {{-- {{ __('frontstaticword.ContinuewithTwitter') }} --}}
+                                                 {{ __('frontstaticword.ContinuewithTwitter') }} 
                                             </a>
                                         </div>
-                                    @endif -->
+                                    @endif --}}
                 
-                                    <!-- @if($gsetting->gitlab_login_enable == 1)
+                                    {{-- @if($gsetting->gitlab_login_enable == 1)
                                         <div class="signin-link">
                                             <a href="{{ url('/auth/gitlab') }}" target="_blank" title="gitlab" class="btn btn-white rounded-circle" title="gitlab"><i class="m-0 fab fa-gitlab"></i>
-                                                {{-- {{ __('frontstaticword.ContinuewithGitLab') }} --}}
+                                                 {{ __('frontstaticword.ContinuewithGitLab') }} 
                                             </a>
                                         </div>
-                                    @endif -->
-                                </div>
+                                    @endif --}}
                             </div>
-
-                            <div class="sign-up text-center la-entry__other-option mt-md-8">{{ __('frontstaticword.Donothaveanaccount') }}?
-                            <span class="la-btn__plain text--burple text--md ml-2"><a href="{{ route('register') }}" title="sign-up">  {{ __('frontstaticword.Signup') }}</a></span>
-                            </div>  
                         </div>
+
+                        <div class="text-center la-entry__other-option mt-md-8">{{ __('frontstaticword.Donothaveanaccount') }}?
+                            <span class="la-btn__plain text--burple text--md ml-2">
+                                <a href="{{ route('register') }}" title="sign-up">  {{ __('frontstaticword.Signup') }}</a>
+                            </span>
+                        </div>  
+                        
                     </div>
                 </div>
             </div>
@@ -189,12 +186,11 @@
     </section>
 @endsection
 <!--  Signup end-->
+
 <!-- jquery -->
-@include('theme.scripts')
+{{-- @include('theme.scripts') --}}
 <!-- end jquery -->
-</body>
-<!-- body end -->
-</html> 
+
 
 
 

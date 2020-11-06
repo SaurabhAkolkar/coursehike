@@ -589,6 +589,8 @@ Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->
 Route::get("zoho/module","ZohoController@createRecords");
 Route::view('/edit', 'admin.course.courseresource.edit');
 
+
+Route::view('/requests', 'instructor.requests.index');
 // Route for Learner's View
 
 Route::view('/','learners.pages.home');
@@ -608,7 +610,7 @@ Route::view('/creator','learners.pages.creator');
 Route::view('/profile','learners.pages.profile');
 Route::view('/wishlist','learners.pages.wishlist');
 Route::view('/cart','learners.pages.cart');
-Route::view('/playlist','learners.pages.playist');
+Route::view('/playlist','learners.pages.playlist');
 Route::view('/purchase-history','learners.pages.purchase-history');
 Route::view('/saved-cards', 'learners.pages.saved-cards');
 Route::view('billing-address', 'learners.pages.billing-address');

@@ -140,9 +140,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
                   </div>
                   <div class="pull-right">
 
-                    <a class="btn-small" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                     document.getElementById('logout-form').submit();">
+                    <a class="btn-small" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     {{ __('adminstaticword.Logout') }}
                     </a>
 

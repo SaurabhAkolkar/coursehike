@@ -1,18 +1,16 @@
+@extends('learners.layouts.intro')
 @section('title', 'Verify Email')
-@include('theme.head')
+{{-- @include('theme.head') --}}
 @section('Verify Email', 'Sign Up')
 
 @include('admin.message')
 
-<!-- end head -->
-<!-- body start-->
-<body>
+
 <!-- top-nav bar start-->
-<section id="nav-bar" class="nav-bar-main-block nav-bar-main-block-one">
+{{-- <section id="nav-bar" class="nav-bar-main-block nav-bar-main-block-one">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-4">
-                
+            <div class="col-lg-4">   
             </div>
             <div class="col-lg-4">
                 <div class="logo text-center btm-10">
@@ -42,9 +40,10 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 <!-- top-nav bar end-->
+@section('content')
 <section id="signup" class="signup-block-main-block">
     <div class="container">
         <div class="row justify-content-center">
@@ -67,9 +66,7 @@
         </div>
     </div>
 </section>
+@endsection
 
-@include('theme.scripts')
+{{-- @include('theme.scripts') --}}
 <!-- end jquery -->
-</body>
-<!-- body end -->
-</html> 

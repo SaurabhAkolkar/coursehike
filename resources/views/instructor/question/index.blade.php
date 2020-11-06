@@ -9,7 +9,7 @@
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">Course Questions</h3>
-          <a class="btn btn-info btn-sm" href="{{ url('instructorquestion/create') }}">+ Add New Question</a>
+          <a class="btn btn-info btn-sm" href="{{ url('instructorquestion/create') }}">+ Add Question</a>
         </div>
         <!-- /.box-header -->
         <div class="box-body">

@@ -24,7 +24,7 @@
         
           <li class="{{ Nav::isRoute('admin.index') }}"><a href="{{route('admin.index')}}"><i class="la-icon la-icon--md icon-dashboard mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Dashboard') }}</span></a></li>
 
-          <li class="{{ Nav::isRoute('user.index') }} {{ Nav::isRoute('user.add') }} {{ Nav::isRoute('user.edit') }}"><a href="{{route('user.index')}}"><i class="la-icon la-icon--md icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Users') }}</span></a></li>
+          <li class="{{ Nav::isRoute('user.index') }} {{ Nav::isRoute('user.add') }} {{ Nav::isRoute('user.edit') }}"><a href="{{route('user.index')}}"><i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Users') }}</span></a></li>
 
           @if(isset($zoom_enable) && $zoom_enable == 1)
           <li class="{{ Nav::isRoute('meeting.create') }} {{ Nav::isRoute('zoom.show') }} {{ Nav::isRoute('zoom.edit') }} {{ Nav::isRoute('zoom.setting') }} {{ Nav::isRoute('zoom.index') }} {{ Nav::isRoute('meeting.show') }} treeview">
@@ -77,7 +77,7 @@
 
           <li class="{{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('course') }} {{ Nav::isResource('bundle') }} {{ Nav::isResource('courselang') }} treeview">
             <a href="#">
-                <i class="la-icon la-icon--md icon-courses mr-4"></i>{{ __('adminstaticword.Course') }}
+                <i class="la-icon la-icon--lg icon-courses mr-4"></i>{{ __('adminstaticword.Course') }}
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
@@ -85,21 +85,21 @@
 
             <ul class="treeview-menu">
               <li class="{{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('courselang') }} {{ Nav::isResource('coursereview') }} treeview">
-                  <a href="#"><i class="la-icon la-icon--md icon-categories mr-4"></i>{{ __('adminstaticword.Category') }}<i class="fa fa-angle-left pull-right"></i></a>
+                  <a href="#"><i class="la-icon la-icon--lg icon-categories mr-4"></i>{{ __('adminstaticword.Category') }}<i class="fa fa-angle-left pull-right"></i></a>
                   
                   <ul class="treeview-menu">
-                    <li class="{{ Nav::isResource('category') }}"><a href="{{url('category')}}"><i class="la-icon la-icon--md icon-categories mr-4"></i>{{ __('adminstaticword.Category') }}</a></li>
-                    <li class="{{ Nav::isResource('subcategory') }}"><a href="{{url('subcategory')}}"><i class="la-icon la-icon--md icon-sub-category mr-4"></i>{{ __('adminstaticword.SubCategory') }}</a></li>
-                    <li class="{{ Nav::isResource('childcategory') }}"><a href="{{url('childcategory')}}"><i class="la-icon la-icon--md icon-child-category mr-4"></i>{{ __('adminstaticword.ChildCategory') }}</a></li>
+                    <li class="{{ Nav::isResource('category') }}"><a href="{{url('category')}}"><i class="la-icon la-icon--lg icon-categories mr-4"></i>{{ __('adminstaticword.Category') }}</a></li>
+                    <li class="{{ Nav::isResource('subcategory') }}"><a href="{{url('subcategory')}}"><i class="la-icon la-icon--lg icon-sub-category mr-4"></i>{{ __('adminstaticword.SubCategory') }}</a></li>
+                    <li class="{{ Nav::isResource('childcategory') }}"><a href="{{url('childcategory')}}"><i class="la-icon la-icon--lg icon-child-category mr-4"></i>{{ __('adminstaticword.ChildCategory') }}</a></li>
                   </ul>
 
-                  <li class="{{ Nav::isResource('course') }}"><a href="{{url('course')}}"><i class="la-icon la-icon--md icon-courses mr-4"></i><!--<i class="flaticon-document" aria-hidden="true"></i> --><span>{{ __('adminstaticword.Courses') }}</span></a></li>
+                  <li class="{{ Nav::isResource('course') }}"><a href="{{url('course')}}"><i class="la-icon la-icon--lg icon-courses mr-4"></i><!--<i class="flaticon-document" aria-hidden="true"></i> --><span>{{ __('adminstaticword.Courses') }}</span></a></li>
 
                   <!-- <li class="{{ Nav::isResource('bundle') }}"><a href="{{url('bundle')}}"><i class="flaticon-interface" aria-hidden="true"></i><span>{{ __('adminstaticword.BundleCourse') }}</span></a></li> -->
 
-                  <li class="{{ Nav::isResource('courselang') }}"><a href="{{url('courselang')}}"><i class="la-icon la-icon--md icon-course-language mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.CourseLanguage') }}</span></a></li>
+                  <li class="{{ Nav::isResource('courselang') }}"><a href="{{url('courselang')}}"><i class="la-icon la-icon--lg icon-course-language mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.CourseLanguage') }}</span></a></li>
 
-                  <li class="{{ Nav::isResource('coursereview') }}"><a href="{{url('coursereview')}}"><i class="la-icon la-icon--md icon-course-request mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Course') }} {{ __('adminstaticword.Request') }}</span></a></li>
+                  <li class="{{ Nav::isResource('coursereview') }}"><a href="{{url('coursereview')}}"><i class="la-icon la-icon--lg icon-course-request mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Course') }} {{ __('adminstaticword.Request') }}</span></a></li>
                   
                   @if($gsetting->assignment_enable == 1)
                   <li class="{{ Nav::isRoute('assignment.view') }}"><a href="{{route('assignment.view')}}"><i class="flaticon-computer" aria-hidden="true"></i><span>{{ __('adminstaticword.Assignment') }}</span></a></li>
@@ -108,36 +108,36 @@
             </ul>
           </li>
 
-          <li class="{{ Nav::isResource('coupon') }}"><a href="{{url('coupon')}}"><i class="la-icon  la-icon--md icon-coupon mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Coupon') }}</span></a></li>
+          <li class="{{ Nav::isResource('coupon') }}"><a href="{{url('coupon')}}"><i class="la-icon  la-icon--lg icon-coupon mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Coupon') }}</span></a></li>
 
           <li class="{{ Nav::isRoute('all.instructor') }} {{ Nav::isResource('requestinstructor') }} treeview">
            <a href="#">
-             <i class="la-icon la-icon--md icon-all-mentors mr-3" aria-hidden="true"></i> <span>{{ __('adminstaticword.Instructor') }}</span>
+             <i class="la-icon la-icon--lg icon-all-mentors mr-3" aria-hidden="true"></i> <span>{{ __('adminstaticword.Instructor') }}</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-              {{-- <li class="{{ Nav::isRoute('all.instructor') }}"><a href="{{route('all.instructor')}}"><i class="la-icon la-icon--md icon-all-mentors mr-4"></i>{{ __('adminstaticword.AllInstructor') }}</a></li> --}}
-              <li class="{{ Nav::isResource('requestinstructor') }}"><a href="{{url('requestinstructor')}}"><i class="la-icon la-icon--md icon-request mr-4"></i>{{ __('adminstaticword.InstructorRequest') }}</a></li>
+              {{-- <li class="{{ Nav::isRoute('all.instructor') }}"><a href="{{route('all.instructor')}}"><i class="la-icon la-icon--lg icon-all-mentors mr-4"></i>{{ __('adminstaticword.AllInstructor') }}</a></li> --}}
+              <li class="{{ Nav::isResource('requestinstructor') }}"><a href="{{url('requestinstructor')}}"><i class="la-icon la-icon--lg icon-request mr-4"></i>{{ __('adminstaticword.InstructorRequest') }}</a></li>
             </ul>
           </li> 
           
 
-          <li class="{{ Nav::isResource('order') }}"><a href="{{url('order')}}"><i class="la-icon la-icon--md icon-revenue mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Order') }}</span></a></li>
+          <li class="{{ Nav::isResource('order') }}"><a href="{{url('order')}}"><i class="la-icon la-icon--lg icon-revenue mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Order') }}</span></a></li>
          
-         <!-- <li class="{{ Nav::isResource('page') }}"><a href="{{url('page')}}"><i class="la-icon la-icon--md icon-pages mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Pages') }}</span></a></li> -->
+         <!-- <li class="{{ Nav::isResource('page') }}"><a href="{{url('page')}}"><i class="la-icon la-icon--lg icon-pages mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Pages') }}</span></a></li> -->
           
           <li class="{{ Nav::isResource('faq') }} {{ Nav::isResource('faqinstructor') }}  treeview">
             <a href="#">
-             <i class="la-icon la-icon--md icon-faq mr-3" aria-hidden="true"></i> <span>{{ __('adminstaticword.Faq') }}</span>
+             <i class="la-icon la-icon--lg icon-faq mr-3" aria-hidden="true"></i> <span>{{ __('adminstaticword.Faq') }}</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="{{ Nav::isResource('faq') }}"><a href="{{url('faq')}}"><i class="la-icon la-icon--md icon-learner-faq mr-3"></i> <span>{{ __('adminstaticword.FaqStudent') }}</span></a></li>
-              <li class="{{ Nav::isResource('faqinstructor') }}"><a href="{{url('faqinstructor')}}"><i class="la-icon la-icon--md icon-mentor-faq mr-3"></i><span>{{ __('adminstaticword.FaqInstructor') }}</span></a></li>
+              <li class="{{ Nav::isResource('faq') }}"><a href="{{url('faq')}}"><i class="la-icon la-icon--lg icon-learner-faq mr-3"></i> <span>{{ __('adminstaticword.FaqStudent') }}</span></a></li>
+              <li class="{{ Nav::isResource('faqinstructor') }}"><a href="{{url('faqinstructor')}}"><i class="la-icon la-icon--lg icon-mentor-faq mr-3"></i><span>{{ __('adminstaticword.FaqInstructor') }}</span></a></li>
             </ul>
           </li> 
 
@@ -243,6 +243,23 @@
 
           <li class="{{ Nav::isResource('usermessage') }}"><a href="{{url('usermessage')}}"><i class="flaticon-phone-book" aria-hidden="true"></i><span>{{ __('adminstaticword.ContactUs') }}</span></a></li>
          -->
+
+         <li class="mt-md-20 pt-md-10">
+          <a href="" class="d-flex align-items-center">
+            <i class="la-icon la-icon--lg icon-help-filled mr-4"></i>
+            <span>Help</span>
+          </a>
+        </li>
+
+        <li class="">
+          <a role="button" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="d-flex align-items-center">
+            <i class="la-icon la-icon--lg icon-logout mr-4"></i>
+            <span>{{ __('adminstaticword.Logout') }}</span>
+          </a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST">
+            @csrf
+          </form>
+        </li>
 
         </ul>
       @endif

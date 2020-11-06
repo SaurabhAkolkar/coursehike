@@ -10,6 +10,7 @@
   </ul>
 </div>
 @endif
+
 <section class="content">
   @include('admin.message')
   <div class="row">
@@ -17,8 +18,8 @@
     <div class="col-12"> 
       <!-- general form elements -->
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">Add New Question</h3>
+        <div class="box-header ">
+          <h3 class="box-title">Add Question</h3>
         </div>
         <br>
         <div class="box-body">
@@ -30,7 +31,7 @@
                 <input type="hidden" name="instructor_id" class="form-control" value="{{ Auth::User()->id }}"  />
 
                 <div class="row"> 
-                  <div class="col-md-12">
+                  <div class="col-md-6">
                     <label for="exampleInputSlug">Course <span class="redstar">*</span></label>
                     <select name="course_id" class="form-control js-example-basic-single">
                       <option value="none" selected disabled hidden> 
@@ -41,19 +42,18 @@
                       @endforeach
                     </select>
                   </div>
-                </div>
+                </div><br/>
 
                 <div class="row"> 
-                  <div class="col-md-12">
-                    <select name="user_id" class="form-control display-none">
+                  <div class="col-md-6">
+                    <select name="user_id" class="display-none">
                       <option  value="{{ Auth::user()->id }}">{{ Auth::user()->fname }}</option>
                     </select>
                   </div>
                 </div>
-                <br>
                 
                 <div class="row">  
-                  <div class="col-md-12">
+                  <div class="col-md-6">
                     <label for="exampleInputDetails">Question:<sup class="redstar">*</sup></label>
                     <textarea name="question" rows="3" class="form-control" placeholder="Enter Your quetion"></textarea>
                   </div>
@@ -61,7 +61,7 @@
                 <br>
                 
                 <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-6">
                     <label for="exampleInputDetails">Status:</label>               
                     <li class="tg-list-item">                
                       <input class="la-admin__toggle-switch" id="c2222"  type="checkbox"/>
@@ -71,9 +71,13 @@
                   </div>
                 </div>
                 <br>
-              
-                <div class="box-footer">
-                  <button type="submit" class="btn btn-md col-md-3 btn-primary">Submit</button>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="box-footer">
+                      <button type="submit" class="btn btn-md col-md-4 btn-primary">{{ __('adminstaticword.Save') }}</button>
+                    </div>
+                  </div>
                 </div>
               </form>
           </div>

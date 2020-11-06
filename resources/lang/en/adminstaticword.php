@@ -429,6 +429,7 @@ return [
     'VisibleonCart' => 'Visible on Cart',
     'VisibleonAll' => 'Visible on All',
     'Testimonials' => 'Testimonials',
+    'Instructor' => 'Mentor',
     'Instructors' => 'Mentors',
     'Faqs' => 'F.A.Qs',
     'Courses' => 'Courses',
