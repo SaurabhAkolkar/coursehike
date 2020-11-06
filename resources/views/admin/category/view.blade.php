@@ -14,81 +14,81 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.Category') }}</h3>
-        </div>
-        <div class="box-header">
-          <button type="button"class="btn btn-info btn-sm"  data-toggle="modal" data-target="#myModal">
-            + {{ __('adminstaticword.Add') }}
-          </button>
-          <!-- Modal -->
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel">{{ __('adminstaticword.AddCategory') }}</h4>
-                </div>
-                <div class="modal-body">
-                  <form id="demo-form2" method="post" action="{{url('category/')}}" data-parsley-validate class="form-horizontal form-label-left" autocomplete="off">
-                    {{ csrf_field() }}
+        <div class="d-flex justify-content-between">
+          <div class="box-header with-border">
+            <h3 class="box-title">{{ __('adminstaticword.Category') }}</h3>
+          </div>
+          <div class="box-header">
+            <button type="button"class="btn btn-info btn-sm"  data-toggle="modal" data-target="#myModal">
+              + {{ __('adminstaticword.AddCategory') }}
+            </button>
+            <!-- Modal -->
+            <div class="modal fade show" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header d-block">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{ __('adminstaticword.AddCategory') }}</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form id="demo-form2" method="post" action="{{url('category/')}}" data-parsley-validate class="form-horizontal form-label-left" autocomplete="off">
+                      {{ csrf_field() }}
 
-                    <div class="row">
-                      <div class="col-md-12">
-                        <label for="c_name">{{ __('adminstaticword.Name') }}:<sup class="redstar">*</sup></label>
-                        <input placeholder="Enter your category" type="text" class="form-control" name="title" required="">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label for="c_name">{{ __('adminstaticword.Name') }}:<sup class="redstar">*</sup></label>
+                          <input placeholder="Enter your category" type="text" class="form-control" name="title" required="">
+                        </div>
                       </div>
-                    </div>
-                    <br>
+                      <br>
 
-                    <div class="row">
-                      <div class="col-md-12">
-                        <label for="icon">{{ __('adminstaticword.Icon') }}:<sup class="redstar">*</sup></label>
-                        <input type="text" class="form-control icp-auto icp" name="icon" required placeholder="Choose Icon">
+                      {{-- <div class="row">
+                        <div class="col-md-12">
+                          <label for="icon">{{ __('adminstaticword.Icon') }}:<sup class="redstar">*</sup></label>
+                          <input type="text" class="form-control icp-auto icp" name="icon" required placeholder="Choose Icon">
+                        </div>
                       </div>
-                    </div>
-                    <br>
+                      <br> --}}
 
-                    <div class="row">
-                      <div class="col-md-4">
-                        <label for="exampleInputDetails">{{ __('adminstaticword.Featured') }}:</label>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label for="exampleInputDetails">{{ __('adminstaticword.Featured') }}:</label>
+                            <li class="tg-list-item">              
+                            <input class="la-admin__toggle-switch" id="featured" type="checkbox" name="featured" >
+                            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="featured"></label>
+                          </li>
+                          <input type="hidden"  name="free" value="0" for="featured" id="featured">
+                        </div>
+                        <div class="col-md-4">
+                          <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                           <li class="tg-list-item">              
-                          <input class="tgl tgl-skewed" id="featured" type="checkbox" name="featured" >
-                          <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="featured"></label>
-                        </li>
-                        <input type="hidden"  name="free" value="0" for="featured" id="featured">
-                      </div>
-                      <div class="col-md-4">
-                        <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
-                        <li class="tg-list-item">              
-                          <input class="tgl tgl-skewed" id="status" type="checkbox" name="status" >
-                          <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
-                        </li>
-                        <input type="hidden"  name="free" value="0" for="status" id="status">
+                            <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" >
+                            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
+                          </li>
+                          <input type="hidden"  name="free" value="0" for="status" id="status">
 
-                        
+                          
+                        </div>
                       </div>
-                    </div>
-                    <br>
-                    <button type="submit" class="btn btn-primary">{{ __('adminstaticword.Save') }}</button>
-                  </form>
+                      <br>
+                      <button type="submit" class="btn btn-primary">{{ __('adminstaticword.Save') }}</button>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
 
         <div class="box-body">
-          <div class="table-responsive">
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
                   <th>#</th>
                   <th>{{ __('adminstaticword.Category') }}</th>
-                  <th>{{ __('adminstaticword.Icon') }}</th>
+                  {{-- <th>{{ __('adminstaticword.Icon') }}</th> --}}
                   <th>{{ __('adminstaticword.Slug') }}</th>
                   <th>{{ __('adminstaticword.Featured') }}</th>
                   <th>{{ __('adminstaticword.Status') }}</th>
@@ -103,7 +103,7 @@
                   <tr class="sortable" id="id-{{ $cat->id }}">
                     <td><?php echo $i;?></td>
                     <td>{{$cat->title}}</td>
-                    <td><i class="fa {{$cat->icon}}"></i></td>
+                    {{-- <td><i class="fa {{$cat->icon}}"></i></td> --}}
                     <td>{{$cat->slug}}</td>
                     <td>
                       <form action="{{ route('categoryf.quick',$cat->id) }}" method="POST">
@@ -131,19 +131,18 @@
                     </td>
             
                     <td>
-                      <a class="btn btn-success btn-sm" href="{{url('category/'.$cat->id)}}"><i class="glyphicon glyphicon-pencil"></i></a></td>
+                      <a class="btn btn-success btn-sm" href="{{url('category/'.$cat->id)}}"><i class="la-icon la-icon--lg icon-edit"></i></a></td>
                     <td>
                       <form  method="post" action="{{url('category/'.$cat->id)}}"data-parsley-validate class="form-horizontal form-label-left">
                           {{ csrf_field() }}
                           {{ method_field('DELETE') }}
-                        <button  type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash-o"></i></button>
+                        <button  type="submit" class="btn btn-danger btn-sm"><i class="la-icon la-icon--lg icon-delete"></i></button>
                       </form>
                     </td>
                   </tr>
                 @endforeach
               </tbody>
             </table>
-          </div>
         </div>
         <!-- /.box-body -->
       </div>

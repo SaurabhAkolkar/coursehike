@@ -74,7 +74,7 @@
 					                            	data-parsley-validate class="form-horizontal form-label-left">
 					    	                        {{ csrf_field() }}
 					    	                        
-					    	                      <button  type="submit" class="cart-remove-btn display-inline" title="Remove From cart">{{ __('frontstaticword.Remove') }}</button>
+					    	                      <button  type="submit" class="cart-remove-btn d-inline" title="Remove From cart">{{ __('frontstaticword.Remove') }}</button>
 					    	                    </form>
 											</span>
 											<span>
@@ -240,10 +240,10 @@
 	</div>
 
 	<!--Model start-->
-	<div class="modal fade" id="myModalCoupon" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal fade show" id="myModalCoupon" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	    <div class="modal-dialog modal-md" role="document">
 	      <div class="modal-content">
-	        <div class="modal-header">
+	        <div class="modal-header d-block">
 	          <h4 class="modal-title" id="myModalLabel">{{ __('frontstaticword.CouponCode') }}</h4>
 	          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	        </div>

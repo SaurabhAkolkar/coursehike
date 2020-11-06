@@ -6,7 +6,7 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{ __('adminstaticword.Assignment') }}</h3>
@@ -14,7 +14,6 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <div class="table-responsive">
         <table id="example1" class="table table-bordered table-striped">
           <thead>
             <tr>
@@ -47,14 +46,13 @@
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
 
-                    <button  type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash-o"></i></button>
+                    <button  type="submit" class="btn btn-danger btn-sm"><i class="la-icon la-icon--lg icon-delete"></i></button>
                   </form>
                 </td>
               </tr>
             @endforeach
           </tbody>
         </table>
-      </div>
         </div>
         <!-- /.box-body -->
       </div>

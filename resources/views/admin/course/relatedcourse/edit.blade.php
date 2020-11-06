@@ -36,7 +36,7 @@
                 <div class="row">
                   <div class="col-md-8">
                     <label for="exampleInputSlug">{{ __('adminstaticword.RelatedCourse') }}</label>
-                    <select name="course_id" class="form-control col-md-7 col-xs-12">
+                    <select name="course_id" class="form-control col-md-7 col-12">
                      @foreach($courses as $cou)
                      <option value="{{ $cou->id }}" {{$cate->course_id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
                      @endforeach
@@ -47,8 +47,8 @@
                   <div class="col-md-4">
                     <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                     <li class="tg-list-item">
-                    <input class="tgl tgl-skewed" id="cb7" type="checkbox" {{ $cate->status==1 ? 'checked' : '' }}>
-                    <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="cb7"></label>
+                    <input class="la-admin__toggle-switch" id="cb7" type="checkbox" {{ $cate->status==1 ? 'checked' : '' }}>
+                    <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="cb7"></label>
                     </li>
                     <input type="hidden" name="status" value="{{ $cate->status }}" id="jeeet">
                   </div>

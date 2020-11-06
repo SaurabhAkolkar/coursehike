@@ -3,7 +3,7 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
     
         <div class="box-header">
           <a href="{{ action('LanguageController@create') }}" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
@@ -11,7 +11,6 @@
 
         <!-- /.box-header -->
         <div class="box-body">
-          <div class="table-responsive">
             <table id="example1" class="table table-bordered table-striped">
               <thead>
            
@@ -42,7 +41,7 @@
                       </td>
                       
                       <td><a class="btn btn-success btn-sm" href="{{route('languages.edit', $language->id)}}">
-                        <i class="glyphicon glyphicon-pencil"></i></a></td>
+                        <i class="fa fa-edit"></i></a></td>
 
                       <td><form method="post" action="{{url('languages/'.$language->id)}}
                             "data-parsley-validate class="form-horizontal form-label-left">
@@ -57,7 +56,6 @@
                 </tbody>
               @endif
             </table>
-          </div>
         </div>
         <!-- /.box-body -->
      

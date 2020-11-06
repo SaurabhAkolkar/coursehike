@@ -6,7 +6,7 @@
   @include('admin.message')
     <div class="content">
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
           <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">{{ __('adminstaticword.Review') }}</h3>
@@ -64,7 +64,7 @@
                     </td>
                   
                     <td><a class="btn btn-primary btn-sm" href="{{action('ReviewController@show',$item->id)}}">
-                      <i class="glyphicon glyphicon-pencil"></i></a>
+                      <i class="fa fa-edit"></i></a>
                     </td>
                     @endforeach
                  

@@ -5,7 +5,7 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{ __('adminstaticword.Testimonial') }}</h3>
@@ -50,7 +50,7 @@
               </td>           
 
               <td><a class="btn btn-success btn-sm" href="{{url('testimonial/'.$p->id.'/edit')}}">
-                <i class="glyphicon glyphicon-pencil"></i></a>
+                <i class="fa fa-edit"></i></a>
               </td>
               <td><form  method="post" action="{{url('testimonial/'.$p->id)}}
                "data-parsley-validate class="form-horizontal form-label-left">

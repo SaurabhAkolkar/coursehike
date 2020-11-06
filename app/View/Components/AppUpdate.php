@@ -15,14 +15,12 @@ class AppUpdate extends Component
     public $title;
     public $timestamp;
     public $desc;
-    public $appCollapseId;
 
-    public function __construct($title, $timestamp, $desc, $appCollapseId)
+    public function __construct($title, $timestamp, $desc)
     {
         $this->title = $title;
         $this->timestamp = $timestamp;
         $this->desc = $desc;
-        $this->appCollapseId = $appCollapseId;
     }
 
     /**

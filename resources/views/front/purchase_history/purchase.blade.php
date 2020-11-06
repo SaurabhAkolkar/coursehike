@@ -17,7 +17,7 @@
 <!-- about-home end -->
 <section id="purchase-block" class="purchase-main-block">
 	<div class="container">
-		<div class="purchase-table table-responsive">
+		<div class="purchase-table ">
 	        <table class="table">
 			  <thead>
 			    <tr>

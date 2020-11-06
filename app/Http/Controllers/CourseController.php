@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+
 use DB;
 use Image;
 use App\CourseInclude;
@@ -12,6 +14,7 @@ use App\WhatLearn;
 use App\CourseChapter;
 use App\RelatedCourse;
 use App\CourseClass;
+use App\CourseResource;
 use App\Categories;
 use App\User;
 use App\Wishlist;
@@ -49,7 +52,7 @@ class CourseController extends Controller
     public function index()
     {
         $course = Course::all();
-        $coursechapter = CourseChapter::all();
+        $coursechapter = CourseChapter::all()->sortByDesc('id');
            
         return view('admin.course.index', compact("course", 'coursechapter'));
     }
@@ -85,18 +88,16 @@ class CourseController extends Controller
             'short_detail' => 'required',
             'detail' => 'required',
             'video' => 'mimes:mp4,avi,wmv',
-            'slug' => 'required|unique:courses,slug',
+            // 'slug' => 'required|unique:courses,slug',
         ]);
 
         $input = $request->all();
 
+        // dd($input);
+
         $data = Course::create($input);
 
-        if (isset($request->type)) {
-            $data->type = "1";
-        } else {
-            $data->type = "0";
-        }
+        $data->package_type = $request->package_type;
 
 
         if ($file = $request->file('preview_image')) {
@@ -107,24 +108,15 @@ class CourseController extends Controller
 
             $data->preview_image = $image;
         }
-
-
-        if (isset($request->preview_type)) {
-            $data->preview_type = "video";
-        } else {
-            $data->preview_type = "url";
+                  
+        if ($file = $request->file('preview_video')) {
+            $filename = time().$file->getClientOriginalName();
+            $file->move('video/preview', $filename);
+            $data->preview_video = $filename;
         }
 
-                    
-        if (!isset($request->preview_type)) {
-            $data->url = $request->url;
-        } elseif ($request->preview_type) {
-            if ($file = $request->file('video')) {
-                $filename = time().$file->getClientOriginalName();
-                $file->move('video/preview', $filename);
-                $data->video = $filename;
-            }
-        }
+        $data->slug = Str::slug($request->title, '-');
+        $data->status = 0;
         
 
         $data->save();
@@ -169,23 +161,16 @@ class CourseController extends Controller
         $request->validate([
           'title' => 'required',
           'video' => 'mimes:mp4,avi,wmv'
-
         ]);
 
           
         $course = Course::findOrFail($id);
         $input = $request->all();
-           
 
-
-        if (isset($request->type)) {
-            $input['type'] = "1";
-        } else {
-            $input['type'] = "0";
-        }
+        $course->package_type = $request->package_type;
 
         
-        if ($file = $request->file('image')) {
+        if ($file = $request->file('preview_image')) {
             if ($course->preview_image != null) {
                 $content = @file_get_contents(public_path().'/images/course/'.$course->preview_image);
                 if ($content) {
@@ -201,46 +186,30 @@ class CourseController extends Controller
             $input['preview_image'] = $image;
         }
 
-
-        if (isset($request->preview_type)) {
-            $input['preview_type'] = "video";
-        } else {
-            $input['preview_type'] = "url";
-        }
-
         
-        if (!isset($request->preview_type)) {
-            $course->url = $request->video_url;
-            $course->video = null;
-        } elseif ($request->preview_type) {
-            if ($file = $request->file('video')) {
-                if ($course->video != "") {
-                    $content = @file_get_contents(public_path().'/video/preview/'.$course->video);
-                    if ($content) {
-                        unlink(public_path().'/video/preview/'.$course->video);
-                    }
+        if ($file = $request->file('preview_video')) {
+            if ($course->preview_video != "") {
+                $content = @file_get_contents(public_path().'/video/preview/'.$course->preview_video);
+                if ($content) {
+                    unlink(public_path().'/video/preview/'.$course->preview_video);
                 }
-              
-                $filename = time().$file->getClientOriginalName();
-                $file->move('video/preview', $filename);
-                $input['video'] = $filename;
-                $course->url = null;
             }
+            
+            $filename = time().$file->getClientOriginalName();
+            $file->move('video/preview', $filename);
+            $input['preview_video'] = $filename;
+            // $course->url = null;
         }
 
        
-
         Cart::where('course_id', $id)
          ->update([
              'price' => $request->price,
              'offer_price' => $request->discount_price,
           ]);
 
-
         $course->update($input);
-
-        Session::flash('success', 'Updated Successfully !');
-        return redirect('course');
+        return back()->with('success', 'Updated Successfully !');;
     }
 
     /**
@@ -328,6 +297,7 @@ class CourseController extends Controller
         $coursechapters = CourseChapter::where('course_id', '=', $id)->get();
         $relatedcourse = RelatedCourse::where('main_course_id', '=', $id)->get();
         $courseclass = CourseClass::where('course_id', '=', $id)->orderBy('position', 'ASC')->get();
+        $courseresources = CourseResource::where('course_id', '=', $id)->get();
         $announsments = Announcement::where('course_id', '=', $id)->get();
         $reports = ReportReview::where('course_id', '=', $id)->get();
         $questions = Question::where('course_id', '=', $id)->get();
@@ -335,7 +305,7 @@ class CourseController extends Controller
         $quizes = Quiz::where('course_id', '=', $id)->get();
         $topics = QuizTopic::where('course_id', '=', $id)->get();
         $appointment = Appointment::where('course_id', '=', $id)->get();
-        return view('admin.course.show', compact('cor', 'course', 'courseinclude', 'whatlearns', 'coursechapters', 'coursechapter', 'relatedcourse', 'courseclass', 'announsments', 'answers', 'reports', 'questions', 'quizes', 'topics', 'appointment'));
+        return view('admin.course.show', compact('cor', 'course', 'courseinclude', 'whatlearns', 'coursechapters', 'coursechapter', 'relatedcourse', 'courseclass', 'courseresources', 'announsments', 'answers', 'reports', 'questions', 'quizes', 'topics', 'appointment'));
     }
 
 

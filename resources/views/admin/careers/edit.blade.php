@@ -19,8 +19,8 @@
 							<div class="col-md-12">
 		                        <label  for="one_enable">Section One</label>
 		                        <li class="tg-list-item">
-		                          <input name="one_enable" class="tgl tgl-skewed" id="section_one1" type="checkbox" {{ $careers['one_enable']==1 ? 'checked' : '' }}/>
-		                          <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="section_one1"></label>
+		                          <input name="one_enable" class="la-admin__toggle-switch" id="section_one1" type="checkbox" {{ $careers['one_enable']==1 ? 'checked' : '' }}/>
+		                          <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="section_one1"></label>
 		                        </li>
 		                        <br>
 				                <div class="row" style="{{ $careers['one_enable']==1 ? '' : 'display:none' }}" id="section_one">
@@ -49,7 +49,7 @@
 					                    <label for="one_video">Section One Image:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="one_video" id="one_video">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['one_video']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['one_video']) }}" class="img-fluid"/>
 				                  	</div>
 				              	</div>
 		                    </div>
@@ -62,8 +62,8 @@
 							<div class="col-md-12">
 		                        <label name="two_enable" for="two_enable">Section Two</label>
 		                        <li class="tg-list-item">
-		                          <input class="tgl tgl-skewed" id="section_two2" type="checkbox" {{ $careers['two_enable']==1 ? 'checked' : '' }}/>
-		                          <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="section_two2"></label>
+		                          <input class="la-admin__toggle-switch" id="section_two2" type="checkbox" {{ $careers['two_enable']==1 ? 'checked' : '' }}/>
+		                          <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="section_two2"></label>
 		                        </li>
 		                        <br>
 		                        <div class="row" style="{{ $careers['two_enable']==1 ? '' : 'display:none' }}" id="section_two">
@@ -78,8 +78,8 @@
 							<div class="col-md-12">
 		                        <label  for="three_enable">Section Three</label>
 		                        <li class="tg-list-item">
-		                          <input name="three_enable" class="tgl tgl-skewed" id="section_three3" type="checkbox" {{ $careers['three_enable']==1 ? 'checked' : '' }}/>
-		                          <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="section_three3"></label>
+		                          <input name="three_enable" class="la-admin__toggle-switch" id="section_three3" type="checkbox" {{ $careers['three_enable']==1 ? 'checked' : '' }}/>
+		                          <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="section_three3"></label>
 		                        </li>
 		                        <br>
 		                        <div class="row" style="{{ $careers['three_enable']==1 ? '' : 'display:none' }}" id="section_three">
@@ -88,14 +88,14 @@
 					                    <label for="three_bg_image">Section Three Background Image:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="three_bg_image"  id="three_bg_image">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['three_bg_image']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['three_bg_image']) }}" class="img-fluid"/>
 				                  	</div>
 
 				                  	<div class="col-md-6">
 					                    <label for="three_video">Section Three Image:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="three_video"  id="three_video">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['three_video']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['three_video']) }}" class="img-fluid"/>
 					                    <br>
 					                    <br> 
 				                  	</div>
@@ -117,8 +117,8 @@
 							<div class="col-md-12">
 		                        <label  for="four_enable">Section Four</label>
 		                        <li class="tg-list-item">
-		                          <input name="four_enable" class="tgl tgl-skewed" id="section_four4" type="checkbox" {{ $careers['four_enable']==1 ? 'checked' : '' }}/>
-		                          <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="section_four4"></label>
+		                          <input name="four_enable" class="la-admin__toggle-switch" id="section_four4" type="checkbox" {{ $careers['four_enable']==1 ? 'checked' : '' }}/>
+		                          <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="section_four4"></label>
 		                        </li>
 		                        <br>
 		                        <div class="row" style="{{ $careers['four_enable']==1 ? '' : 'display:none' }}" id="section_four">
@@ -127,21 +127,21 @@
 					                    <label for="four_img_one">Section Four Image One:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="four_img_one"  id="four_img_one">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['four_img_one']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['four_img_one']) }}" class="img-fluid"/>
 				                  	</div>
 
 				                  	<div class="col-md-4">
 					                    <label for="four_img_two">Section Four Image Two:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="four_img_two"  id="four_img_two">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['four_img_two']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['four_img_two']) }}" class="img-fluid"/>
 				                  	</div>
 
 				                  	<div class="col-md-4">
 					                    <label for="four_img_three">Section Four Image Three:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="four_img_three"  id="four_img_three">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['four_img_three']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['four_img_three']) }}" class="img-fluid"/>
 					                    <br>
 					                    <br>
 				                  	</div>
@@ -150,21 +150,21 @@
 					                    <label for="four_img_four">Section Four Image Four:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="four_img_four"  id="four_img_four">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['four_img_four']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['four_img_four']) }}" class="img-fluid"/>
 				                  	</div>
 
 				                  	<div class="col-md-4">
 					                    <label for="four_img_five">Section Four Image Five:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="four_img_five"  id="four_img_five">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['four_img_five']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['four_img_five']) }}" class="img-fluid"/>
 				                  	</div>
 
 				                  	<div class="col-md-4">
 					                    <label for="four_img_six">Section Four Image Six:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="four_img_six"  id="four_img_six">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['four_img_six']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['four_img_six']) }}" class="img-fluid"/>
 					                    <br>
 					                    <br>
 				                  	</div>
@@ -173,21 +173,21 @@
 					                    <label for="four_img_seven">Section Four Image Seven:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="four_img_seven"  id="four_img_seven">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['four_img_seven']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['four_img_seven']) }}" class="img-fluid"/>
 				                  	</div>
 
 				                  	<div class="col-md-4">
 					                    <label for="four_img_eight">Section Four Image Eight:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="four_img_eight"  id="four_img_eight">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['four_img_eight']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['four_img_eight']) }}" class="img-fluid"/>
 				                  	</div>
 
 				                  	<div class="col-md-4">
 					                    <label for="four_img_nine">Section Four Image Nine:<sup class="redstar">*</sup></label>
 					                    <input type="file" name="four_img_nine"  id="four_img_nine">
 					                    <br>
-					                    <img src="{{ url('/images/careers/'.$careers['four_img_nine']) }}" class="img-responsive"/>
+					                    <img src="{{ url('/images/careers/'.$careers['four_img_nine']) }}" class="img-fluid"/>
 					                    <br>
 					                    <br>
 				                  	</div>
@@ -202,8 +202,8 @@
 							<div class="col-md-12">
 		                        <label  for="four_enable">Section Five</label>
 		                        <li class="tg-list-item">
-		                          <input name="five_enable" class="tgl tgl-skewed" id="section_five5" type="checkbox" {{ $careers['five_enable']==1 ? 'checked' : '' }}/>
-		                          <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="section_five5"></label>
+		                          <input name="five_enable" class="la-admin__toggle-switch" id="section_five5" type="checkbox" {{ $careers['five_enable']==1 ? 'checked' : '' }}/>
+		                          <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="section_five5"></label>
 		                        </li>
 		                        <br>
 		                        <div class="row" style="{{ $careers['five_enable']==1 ? '' : 'display:none' }}" id="section_five">
@@ -318,8 +318,8 @@
 							<div class="col-md-12">
 		                        <label  for="four_enable">Section Six</label>
 		                        <li class="tg-list-item">
-		                          <input name="six_enable" class="tgl tgl-skewed" id="section_six6" type="checkbox" {{ $careers['six_enable']==1 ? 'checked' : '' }}/>
-		                          <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="section_six6"></label>
+		                          <input name="six_enable" class="la-admin__toggle-switch" id="section_six6" type="checkbox" {{ $careers['six_enable']==1 ? 'checked' : '' }}/>
+		                          <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="section_six6"></label>
 		                        </li>
 		                        <br>
 		                        <div class="row" style="{{ $careers['six_enable']==1 ? '' : 'display:none' }}" id="section_six">

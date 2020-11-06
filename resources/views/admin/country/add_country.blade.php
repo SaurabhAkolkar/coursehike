@@ -15,7 +15,7 @@
 <section class="content">
   <div class="row">
     @include('admin.message')
-      <div class="col-xs-12">
+      <div class="col-12">
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
@@ -29,9 +29,9 @@
                 {{csrf_field()}}
 
                 <div class="form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ __('adminstaticword.Country') }} <span class="redstar">*</span></label>
+                  <label class="control-label col-md-3 col-sm-3 col-12" for="first-name">{{ __('adminstaticword.Country') }} <span class="redstar">*</span></label>
                         
-                  <div class="col-md-6 col-sm-6 col-xs-12">
+                  <div class="col-md-6 col-sm-6 col-12">
                    
                     <select required class="form-control js-example-basic-single" name="country">
                       <option>{{ __('adminstaticword.ChooseCountry') }}:</option>
@@ -43,7 +43,7 @@
                   </div>
                 </div>
                 <div class="box-footer">
-                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                  <div class="col-md-6 col-sm-6 col-12 col-md-offset-3">
                   <button type="submit" class="btn btn-primary">{{ __('adminstaticword.Save') }}</button>
                 </div>
               </form>

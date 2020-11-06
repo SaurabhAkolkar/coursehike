@@ -16,8 +16,9 @@
             <br>
             <span> {{ $desc }}  </span>
             <span> {{ $desc }}  </span>
-            <span class="collapse" id= {{ $collapseId }} > {{ $desc }}  </span>
-            </p><a class="la-news__readmore text-center text-sm-right" role="button" href="#{{ $collapseId }}" data-toggle="collapse" aria-expanded="true">Read More</a>
+            <span class="collapse" id= "collapseId"> {{ $desc }}  </span>
+            </p>
+            <p class="la-news__readmore collapsed text-center  text-sm-right" role="button" href="#collapseId" data-toggle="collapse" aria-expanded="true">Read More</p>
         </div>
     </div>
 </li>

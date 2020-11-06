@@ -1,0 +1,156 @@
+.la-section__card-payments{
+    .la-payment__title{
+        font-weight:var(--font-semibold);
+        color:var(--gray5);
+        margin-bottom:var(--size-8);
+    }
+    .la-payment__subscription{
+        .la-payment__plan{
+            .la-payment__plan-selected, .la-payment__plan-amount{
+                color:var(--gray5);
+                opacity:0.6;
+                font-family:var(--body-font);
+                font-weight:var(--font-normal);
+            }
+        }
+        .la-payment__amount{
+            .la-payment__type, .la-payment__amount{
+                color:var(--gray6);
+                font-family:var(--body-font);
+                font-weight:var(--font-light);
+            }
+        }
+    }
+
+    .la-payment__billing{
+        margin:var(--size-10) 0;
+        .la-payment__billing-title{
+            font-family:var(--head-font);
+            font-weight:var(--font-normal);
+            color:#000000;
+            font-size:15px;
+        }
+        .la-payment__billing-form{
+            .la-payment__billing-address{
+                margin-top:var(--size-8);
+                .la-payment__billing-label{
+                    color:#000000;
+                    font-family: var(--body-font);
+                    font-weight:var(--font-normal);
+                    margin-bottom:0;
+                }
+                .la-payment__billing-input{
+                    background:transparent;
+                    border:none;
+                    border-bottom: 1px solid #DBDBDB;
+                    border-radius:0;
+                    padding:0;
+                }
+                .la-payment__billing-input::placeholder{
+                    color:#CECECD;
+                    font-size:var(--text-sm);
+                    font-weight:var(--font-normal);
+                    font-family: var(--body-font);
+                }
+                .la-payment__billing-input::-webkit-input-placeholder{
+                    color:#CECECD;
+                    font-size:var(--text-sm);
+                    font-weight:var(--font-normal);
+                    font-family: var(--body-font);
+                }
+                .la-payment__billing-input::-moz-placeholder{
+                    color:#CECECD;
+                    font-size:var(--text-sm);
+                    font-weight:var(--font-normal);
+                    font-family: var(--body-font);
+                }
+            }
+            .la-payment__billing-mobile{
+                margin-left:var(--size-8);
+            }
+        }
+    }
+
+    .la-payment__details{
+        margin:var(--size-10) 0;
+        .la-payment__details-title{
+            font-family:var(--head-font);
+            font-weight:var(--font-normal);
+            color:#000000;
+            font-size:15px;
+        }
+        .la-payment__form{
+            .la-payment__card{
+                margin-top:var(--size-8);
+                .la-payment__card-label{
+                    color:#000000;
+                    font-family: var(--body-font);
+                    font-weight:var(--font-normal);
+                    margin-bottom:0;
+                }
+                .la-payment__card-input{
+                    background:transparent;
+                    border:none;
+                    border-bottom: 1px solid #DBDBDB;
+                    border-radius:0;
+                    padding:0;
+                }
+                
+                .la-payment__card-input::placeholder{
+                    color:#CECECD;
+                    font-size:var(--text-sm);
+                    font-weight:var(--font-normal);
+                    font-family: var(--body-font);
+                }
+                .la-payment__card-input::-webkit-input-placeholder{
+                    color:#CECECD;
+                    font-size:var(--text-sm);
+                    font-weight:var(--font-normal);
+                    font-family: var(--body-font);
+                }
+                .la-payment__card-input::-moz-placeholder{
+                    color:#CECECD;
+                    font-size:var(--text-sm);
+                    font-weight:var(--font-normal);
+                    font-family: var(--body-font);
+                }
+            }
+            .la-payment__card-mobile{
+                margin-left:var(--size-8);
+            }
+            .la-payment__pay-btn{
+                letter-spacing: 1px;
+            }
+        }
+    }
+}
+
+@media (max-width:991px){
+    .la-section__card-payments{
+        .la-payment__billing{
+            .la-payment__billing-form{
+                .la-payment__billing-address{
+                    margin-top:var(--size-6);
+                }
+                .la-payment__billing-mobile{
+                    margin-left:0;
+                }
+            }
+        }    
+
+        .la-payment__details{
+            .la-payment__form{
+                .la-payment__card{
+                    margin-top:var(--size-6);
+                }
+                .la-payment__card-check{
+                    justify-content:center;
+                    margin-bottom:var(--size-2);   
+                }
+                .la-payment__card-mobile{
+                    margin-left:0;
+                }
+            }
+        }    
+    }
+}

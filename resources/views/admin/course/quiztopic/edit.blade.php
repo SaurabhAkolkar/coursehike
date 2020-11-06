@@ -76,8 +76,8 @@
                         <div class="col-md-4">
                           <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                             <li class="tg-list-item">              
-                              <input class="tgl tgl-skewed" id="111" type="checkbox" name="status" {{ $topic->status == '1' ? 'checked' : '' }} >
-                              <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="111"></label>
+                              <input class="la-admin__toggle-switch" id="111" type="checkbox" name="status" {{ $topic->status == '1' ? 'checked' : '' }} >
+                              <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="111"></label>
                             </li>
                             <input type="hidden" name="free" value="0" for="status" id="122">
                         </div>
@@ -85,8 +85,8 @@
                         <div class="col-md-4">
                           <label for="exampleInputTit1e">{{ __('adminstaticword.QuizReattempt') }}:</label>
                             <li class="tg-list-item">              
-                              <input class="tgl tgl-skewed" id="112" type="checkbox" name="quiz_again" {{ $topic->quiz_again == '1' ? 'checked' : '' }} >
-                              <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="112"></label>
+                              <input class="la-admin__toggle-switch" id="112" type="checkbox" name="quiz_again" {{ $topic->quiz_again == '1' ? 'checked' : '' }} >
+                              <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="112"></label>
                             </li>
                             <input type="hidden" name="free" value="0" for="quiz_again" id="123">
                         </div>

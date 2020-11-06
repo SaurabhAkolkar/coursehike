@@ -1,0 +1,80 @@
+#{$ap}- {
+    &purchaseh{
+        &__{
+            &item-img{
+                width:160px;
+                height:100px;
+                overflow:hidden;
+                border-radius:10px;
+                img{
+                    width:160px;
+                    height:100px;
+                    transition:all 0.2s ease-in;-webkit-transition:all 0.2s ease-in;-moz-transition:all 0.2s ease-in;-ms-transition:all 0.2s ease-in;-o-transition:all 0.2s ease-in;
+                    
+                    &:hover{
+                        transform:scale(1.1);-webkit-transform:scale(1.1);-moz-transform:scale(1.1);-ms-transform:scale(1.1);-o-transform:scale(1.1);
+                        transition:all 0.2s ease-out;-webkit-transition:all 0.2s ease-out;-moz-transition:all 0.2s ease-out;-ms-transition:all 0.2s ease-out;-o-transition:all 0.2s ease-out;
+                    }
+                }
+            }
+            &item-title{
+                color:var(--gray6);
+                font-weight:var(--font-bold);
+            }
+            &item-author{
+                color:var(--gray6);
+                font-weight:var(--font-normal);
+            }
+            &item-date, &item-paymode, &item-total, &item-paystatus{
+                color:var(--gray6);
+                font-weight:var(--font-normal);
+            }
+            &item-invoice{
+                color:var(--gray6);
+                font-weight:var(--font-bold);
+            }
+            &item-download{
+                color:var(--app-indigo-1);
+            }
+        }
+    }
+}
+
+
+@media (max-width:991px){
+    #{$ap}- {
+        &purchaseh{
+            &__{
+                &item-img{
+                    width:100%;
+                    height:auto;
+                    img{
+                        width:100%;
+                        height:auto;
+                        display:block;
+                    }
+                }
+                &item-paystatus{
+                    color:#1EC812;
+                }
+                &item-invoice{
+                    color:var(--app-indigo-1);
+                }  
+               &item-collapse{
+                   color:var(--app-indigo-1);
+               }
+               &item-toggler{
+                   transform:rotate(-90deg);
+               }
+               &item-content{
+                   border-bottom: 1px solid rgba(112, 112, 112,0.1);
+                   padding-bottom:var(--size-6);
+               }
+               &label-mobile p{
+                   color:#C0C0C0;
+                   font-weight:var(--font-light);
+               }
+            }
+        }
+    }
+}

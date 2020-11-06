@@ -1,0 +1,27 @@
+$ap: '.la';
+
+$gray: #F5F4F0;
+$gray2: #E5E4E0;
+$gray3: #262625;
+$gray4: #909090;
+$gray5: #252525;
+$gray6: #010101;
+$gray7: #222222;
+$gray8: #CCCCCC;
+$gray9: #9E9E9E;
+$gray10: #656565;
+
+$green: #1EC812;
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// A map of breakpoints.
+$breakpoints: (
+  xs: $breakpoint-sm,
+  sm: $breakpoint-md,
+  md: $breakpoint-lg,
+  lg: $breakpoint-xl
+);

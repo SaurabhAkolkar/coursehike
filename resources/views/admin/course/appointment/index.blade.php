@@ -4,7 +4,6 @@
     <div class="col-md-12">
       
       <br>
-      <div class="table-responsive">
         <table id="example1" class="table table-bordered table-striped">
           <thead>
             <tr>
@@ -44,14 +43,13 @@
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
 
-                    <button  type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash-o"></i></button>
+                    <button  type="submit" class="btn btn-danger btn-sm"><i class="la-icon la-icon--lg icon-delete"></i></button>
                   </form>
                 </td>
               </tr>
             @endforeach
           </tbody>
         </table>
-      </div>
     </div>
   </div>
 

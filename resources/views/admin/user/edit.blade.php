@@ -18,18 +18,41 @@
     <div class="col-md-12">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Users') }}</h3>
-
-          
+          <h3 class="box-title pb-6"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Users') }}</h3>
         </div>
         <br>
         <div class="panel-body">
-          <form action="{{ route('user.update',$user->id) }}" method="POST" enctype="multipart/form-data">
+          <form action="{{ route('user.update',$user->id) }}" method="POST" class="pl-md-4" enctype="multipart/form-data">
             {{ csrf_field() }}
             {{ method_field('PUT') }}
 
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4">
+                <div class="la-admin__profile-label pb-2">Current:</div>
+                @if($user->user_img != null || $user->user_img !='')
+                  <div class="edit-user-img la-admin__profile">
+                    <img src="{{ url('/images/user_img/'.$user->user_img) }}" class="img-fluid la-admin__profile-img" alt="User Image" class="img-fluid">
+                  </div>
+                @else
+                  <div class="edit-user-img la-admin__profile">
+                    <img src="{{ asset('images/default/user.jpg')}}" class="img-fluid la-admin__profile-img" alt="User Image" class="img-fluid">
+                  </div>
+                @endif
+              </div>
+              <div class="col-md-4">
+                <!-- <label>{{ __('adminstaticword.Image') }}:<sup class="redstar">*</sup></label> -->
+                <div class="la-admin__profile-label pb-2">Upload New:</div>
+                <input type="file" name="user_img"  id="user_img" class="form-control d-none">
+                <label class="la-admin__profile-new la-admin__img-upload d-inline-block text-center" for="user_img" >
+                  <a class="d-inline-block">CHOOSE A FILE </a> <br/>
+                  <span class="la-admin__img-info">Thumbnail | 500x500</span>
+                  <img src="" alt="">
+                </label>
+              </div>
+            </div> <br>
+
+            <div class="row">
+              <div class="col-md-4">
                 <label for="fname">
                   {{ __('adminstaticword.FirstName') }}:
                   <sup class="redstar">*</sup>
@@ -37,7 +60,7 @@
                 <input value="{{ $user->fname }}" autofocus required name="fname" type="text" class="form-control" placeholder="Enter first name"/>
               </div>
 
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <label for="lname">
                   {{ __('adminstaticword.LastName') }}:
                   <sup class="redstar">*</sup>
@@ -48,12 +71,11 @@
             <br>
 
             <div class="row">
-
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <label for="mobile"> {{ __('adminstaticword.Mobile') }}:<sup class="redstar">*</sup></label>
                 <input value="{{ $user->mobile }}" required type="text" name="mobile" placeholder="Enter mobile no" class="form-control">
                </div>
-               <div class="col-md-6">
+               <div class="col-md-4">
                 <label for="mobile">{{ __('adminstaticword.Email') }}:<sup class="redstar">*</sup> </label>
                 <input value="{{ $user->email }}" required type="email" name="email" placeholder="Enter email" class="form-control">
               </div>
@@ -61,17 +83,17 @@
             <br>
 
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4">
                   <label for="address">{{ __('adminstaticword.Address') }}:<sup class="redstar">*</sup> </label>
                   <textarea name="address" class="form-control" rows="1" required  placeholder="Enter adderss" value="">{{ $user->address }}</textarea>
               </div>
 
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <label for="dob">{{ __('adminstaticword.DateofBirth') }}: </label>
                 <div class="input-group date">
-                  <div class="input-group-addon">
+                  <!-- <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
-                  </div>
+                  </div> -->
                   {{-- <input type="date" value="{{ $user->dob }}" name="dob" required class="form-control pull-right" id="datepicker" placeholder="Enter your date of birth"> --}}
                   <input type="date" id="date" name="dob" class="form-control" placeholder="" value="{{ $user->dob }}" >
                 </div>
@@ -80,15 +102,15 @@
             <br>
 
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4">
                <label for="gender">{{ __('adminstaticword.Gender') }}:</label>
                 <br>
-                <input type="radio" name="gender" id="ch1" value="m" {{ $user->gender == 'm' ? 'checked' : '' }}> {{ __('adminstaticword.Male') }}
-                <input type="radio" name="gender" id="ch2" value="f" {{ $user->gender == 'f' ? 'checked' : '' }}> {{ __('adminstaticword.Female') }}
-                <input type="radio" name="gender" id="ch3" value="o" {{ $user->gender == 'o' ? 'checked' : '' }}> {{ __('adminstaticword.Other') }}
+                <input type="radio" name="gender" id="ch1" value="m" {{ $user->gender == 'm' ? 'checked' : '' }}> <span class="mr-2"> {{ __('adminstaticword.Male') }} </span>
+                <input type="radio" name="gender" id="ch2" value="f" {{ $user->gender == 'f' ? 'checked' : '' }}> <span class="mr-2"> {{ __('adminstaticword.Female') }} </span>
+                <input type="radio" name="gender" id="ch3" value="o" {{ $user->gender == 'o' ? 'checked' : '' }}> <span class="mr-2"> {{ __('adminstaticword.Other') }} </span>
               </div>
 
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <label for="role">{{ __('adminstaticword.SelectRole') }}:</label>
                   @if(Auth::User()->role=="admin")
                   <select class="form-control js-example-basic-single" name="role">
@@ -113,7 +135,7 @@
             <br>
 
             <div class="row">
-              <div class="col-md-3">
+              <div class="col-md-4">
                 <label for="city_id">{{ __('adminstaticword.Country') }}:</label>
                 <select id="country_id" class="form-control js-example-basic-single" name="country_id">
                   <option value="none" selected disabled hidden> 
@@ -127,7 +149,7 @@
                 </select>
               </div>
 
-              <div class="col-md-3">
+              <div class="col-md-4">
                 <label for="city_id">{{ __('adminstaticword.State') }}:</label>
                 <select id="upload_id" class="form-control js-example-basic-single" name="state_id">
                   <option value="none" selected disabled hidden> 
@@ -139,8 +161,10 @@
 
                 </select>
               </div>
+            </div>
 
-              <div class="col-md-3">
+            <div class="row mt-5">
+              <div class="col-md-4">
                 <label for="city_id">{{ __('adminstaticword.City') }}:</label>
                 <select id="grand" class="form-control js-example-basic-single" name="city_id">
                   <option value="none" selected disabled hidden> 
@@ -153,33 +177,14 @@
                 </select>
               </div>
           
-              <div class="col-md-3">
+              <div class="col-md-4">
                 <label for="pin_code">{{ __('adminstaticword.Pincode') }}:</label>
                 <input value="{{ $user->pin_code }}" placeholder="Enter Pincode" type="text" name="pin_code" class="form-control">
               </div>
             </div>
             <br>
 
-            <div class="row">
-              <div class="col-md-3">
-                <label for="exampleInputTit1e">{{ __('adminstaticword.Verified') }}:</label>
-                <li class="tg-list-item">
-                  <input class="tgl tgl-skewed" id="c033"   type="checkbox"  {{ $user->email_verified_at != NULL ? 'checked' : '' }}>
-                <label class="tgl-btn" data-tg-off="No" data-tg-on="Yes" for="c033"></label>
-                </li>
-                <input type="hidden" name="verified" value="{{ $user->varified }}" id="tt">
-              </div>
-
-              <div class="col-md-3">
-                <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
-                <li class="tg-list-item">              
-                  <input class="tgl tgl-skewed" id="status" type="checkbox" name="status" {{ $user->status == '1' ? 'checked' : '' }} >
-                  <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
-              </li>
-              <input type="hidden"  name="free" value="0" for="status" id="status">
-              </div>
-
-
+            <!--<div class="row">
               <div class="col-md-3">
                   <label  for="married_status">{{ __('adminstaticword.ChooseMarrigeStatus') }}: </label>
                   <select class="form-control js-example-basic-single" id="married_status" name="married_status">
@@ -199,57 +204,56 @@
                 <label for="dob">{{ __('adminstaticword.DateofAnniversary') }}: </label>
                 <input value="{{ $user->doa }}" name="doa" id="doa" type="text" class="form-control" placeholder="Enter Date of anniversary">
               </div>
-            </div>
-            <br>
+            </div> 
+            <br>  -->         
 
+        
             <div class="row">
-              <div class="col-md-6">
-                <label>{{ __('adminstaticword.Image') }}:<sup class="redstar">*</sup></label>
-                <input type="file" name="user_img" class="form-control">
-              </div>
-              <div class="col-md-6">
-                @if($user->user_img != null || $user->user_img !='')
-                  <div class="edit-user-img">
-                    <img src="{{ url('/images/user_img/'.$user->user_img) }}" class="img-fluid" alt="User Image" class="img-responsive">
-                  </div>
-                @else
-                  <div class="edit-user-img">
-                    <img src="{{ asset('images/default/user.jpg')}}" class="img-fluid" alt="User Image" class="img-responsive">
-                  </div>
-                @endif
-              </div>
-            </div>
-            <br>
-
-            <div class="row">
-              <div class="col-md-12">
-                <div class="update-password">
-                  <label for="box1"> {{ __('adminstaticword.UpdatePassword') }}:</label>
-                  <input type="checkbox" id="myCheck" name="update_pass" onclick="myFunction()">
-                </div>
-              </div>
-            </div>
-
-            <div class="row display-none" id="update-password">
-              <div class="col-md-6">
-                <label>{{ __('adminstaticword.Password') }}</label>
-                <input type="password" name="password" class="form-control" placeholder="Enter password">
-              </div>
-              <div class="col-md-6">
-                <label>{{ __('adminstaticword.ConfirmPassword') }}</label>
-                <input type="password" name="confirmpassword" class="form-control" placeholder="Confirm password">
-              </div>
-            </div>
-            <br>
-
-
-            <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-8">
                 <label for="detail">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
                 <textarea id="detail" name="detail" class="form-control" rows="5" placeholder="Enter your details" value="">{{ $user->detail }}</textarea>
               </div>
             </div>
             <br>
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="update-password">
+                  <label for="box1"> {{ __('adminstaticword.UpdatePassword') }}:</label>
+                  <input type="checkbox" id="myCheck" name="update_pass" onclick="myFunction()">
+                </div>
+
+                <div class="row display-none" id="update-password">
+                  <div class="col-md-12">
+                    <label>{{ __('adminstaticword.Password') }}</label>
+                    <input type="password" name="password" class="form-control" placeholder="Enter password">
+                  </div>
+                  <div class="col-md-12">
+                    <label>{{ __('adminstaticword.ConfirmPassword') }}</label>
+                    <input type="password" name="confirmpassword" class="form-control" placeholder="Confirm password">
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <label for="exampleInputTit1e">{{ __('adminstaticword.Verified') }}:</label>
+                <li class="tg-list-item">
+                  <input class="la-admin__toggle-switch" id="c033"   type="checkbox"  {{ $user->email_verified_at != NULL ? 'checked' : '' }}>
+                  <label class="la-admin__toggle-label" data-tg-off="No" data-tg-on="Yes" for="c033"></label>
+                </li>
+                <input type="hidden" name="verified" value="{{ $user->varified }}" id="tt">
+              </div>
+
+              <div class="col-md-2">
+                <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
+                <li class="tg-list-item">              
+                  <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" {{ $user->status == '1' ? 'checked' : '' }} >
+                  <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
+                </li>
+                <input type="hidden"  name="free" value="0" for="status" id="status">
+              </div>
+            </div>
+              
 
             <div class="box-header with-border">
               <h3 class="box-title">{{ __('adminstaticword.SocialProfile') }}</h3>
@@ -257,27 +261,29 @@
             <br>
 
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <label for="fb_url">
                 {{ __('adminstaticword.FacebookUrl') }}:
                 </label>
                 <input autofocus name="fb_url" value="{{ $user->fb_url }}" type="text" class="form-control" placeholder="Facebook.com/"/>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <label for="youtube_url">
                 {{ __('adminstaticword.YoutubeUrl') }}:
                 </label>
                 <input autofocus name="youtube_url" value="{{ $user->youtube_url }}" type="text" class="form-control" placeholder="youtube.com/"/>
                 <br>
               </div>
-            
-              <div class="col-md-6">
+            </div>
+
+            <div class="row">            
+              <div class="col-md-4">
                 <label for="twitter_url">
                 {{ __('adminstaticword.TwitterUrl') }}:
                 </label>
                 <input autofocus name="twitter_url" value="{{ $user->twitter_url }}" type="text" class="form-control" placeholder="Twitter.com/"/>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <label for="linkedin_url">
                 {{ __('adminstaticword.LinkedInUrl') }}:
                 </label>
@@ -288,15 +294,18 @@
             <br>
             
 
-            <div class="box-footer">
-              <button type="submit" class="btn btn-md btn-primary">
-                <i class="fa fa-save"></i> {{ __('adminstaticword.Save') }}
-              </button>
-            </form>
-              <a href="{{ route('user.index') }}" title="Cancel and go back" class="btn btn-md btn-default btn-flat">
-                <i class="fa fa-reply"></i> {{ __('adminstaticword.Back') }}
-              </a>
+            <div class="row">
+              <div class="col-md-8">
+                <button type="submit" class="btn btn-md btn-primary">
+                   {{ __('adminstaticword.Save') }}
+                </button>
+              </div>
             </div>
+          </form>
+              <!--<a href="{{ route('user.index') }}" title="Cancel and go back" class="btn btn-md btn-default btn-flat">
+                <i class="fa fa-reply"></i> {{ __('adminstaticword.Back') }}
+              </a> -->
+           
             <br>
 
           </form>

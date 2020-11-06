@@ -9,13 +9,17 @@
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{ __('adminstaticword.Users') }}</h3>
-          <a class="btn btn-info btn-sm" href="{{ route('user.add') }}">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.User') }}</a>
+          <a class="btn btn-info btn-sm" href="{{ route('user.add') }}"><span class="la-icon icon-plus"></span>{{ __('adminstaticword.Add') }} {{ __('adminstaticword.User') }}</a>
         </div>
        
         <!-- /.box-header -->
         <div class="box-body">
-            <div class="table-responsive">
-              <table id="example1" class="table table-bordered table-striped table-responsive display nowrap">
+            <div class="la-admin__filter-icons text-right" style="position:relative; top:50px;z-index:0;">
+              <a href="#" role="button"><span class="la-icon la-icon--3xl icon-sort mr-2" style="color:#000;"></span></a>
+              <a href="#" role="button"><span class="la-icon la-icon--3xl icon-excel mr-2" style="color:#1D6F42"></span></a>
+            </div>
+            
+              <table id="example1" class="table table-bordered table-striped text-center display nowrap">
                 <thead>
                   <th>#</th>
                   <th>{{ __('adminstaticword.Image') }}</th>
@@ -40,9 +44,9 @@
                         <td><?php echo $i;?></td>
                         <td>
                           @if($user->user_img != null || $user->user_img !='')
-                            <img src="{{ url('/images/user_img/'.$user->user_img) }}" class="img-responsive">
+                            <img src="{{ url('/images/user_img/'.$user->user_img) }}" class="img-fluid">
                           @else
-                            <img src="{{ asset('images/default/user.jpg')}}" class="img-responsive" alt="User Image">
+                            <img src="{{ asset('images/default/user.jpg')}}" class="img-fluid" alt="User Image">
                           @endif
                         </td>
                         <td>{{ $user['fname'] }}</td>
@@ -67,7 +71,7 @@
                         
                         <td>
                           <a class="btn btn-success btn-sm" href="{{ route('user.update',$user->id) }}">
-                            <i class="glyphicon glyphicon-pencil"></i></a>
+                            <i class="la-icon la-icon--lg icon-edit"></i></a>
                         </td>
                               
                         <td><form  method="post" action="{{ route('user.delete',$user->id) }}
@@ -75,7 +79,7 @@
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                              
-                              <button onclick="return confirm('Are you sure you want to delete?')"  type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash-o"></i></button>
+                              <button onclick="return confirm('Are you sure you want to delete?')"  type="submit" class="btn btn-danger btn-sm"><i class="la-icon la-icon--lg icon-delete"></i></button>
                             </form>
                         </td>
                     </tr>
@@ -84,7 +88,6 @@
 
                 </tbody>
               </table>
-            </div>
           </div>
         <!-- /.box-body -->
       </div>

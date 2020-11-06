@@ -741,7 +741,7 @@
 /* ================================= */
   /*===== Notification Icon =====*/
 /* ================================= */
-  $(document).ready(function()
+  $(document).on('ready', function()
   {
   $("#notificationLink").on('click',function()
   {
@@ -759,7 +759,7 @@
 
   });
 
-  $(document).ready(function()
+  $(document).on('ready', function()
   {
   $("#notificationLinkk").on('click',function()
   {
@@ -787,7 +787,7 @@
 /* ========================= */
   /*===== Select 2 =====*/
 /* ========================= */
-$(document).ready(function() 
+$(document).on('ready', function() 
 {  $('.js-example-basic-single').select2();
 });
 
@@ -807,7 +807,7 @@ $( ".dropdown" ).on('hover',function() {
 /* ================================ */
   /*===== Read More =====*/
 /* ================================ */
-$('.moreless-button').click(function() {
+$('.moreless-button').on('click', function() {
   $('.moretext').slideToggle();
   if ($('.moreless-button').text() == "Read more") {
     $(this).text("Read less")
@@ -853,11 +853,11 @@ $(function () {
 /* ================================ */
     /*===== Side Humburger =====*/
 /* ================================ */
-$(document).ready(function () {
+$(document).on('ready', function () {
   var trigger = $('.hamburger'),
       overlay = $('.overlay'),
      isClosed = false;
-    trigger.click(function () {
+    trigger.on('click', function () {
       hamburger_cross();
     });
     function hamburger_cross() {
@@ -873,7 +873,7 @@ $(document).ready(function () {
         isClosed = true;
       }
   }
-  $('[data-toggle="offcanvas"]').click(function () {
+  $('[data-toggle="offcanvas"]').on('click', function () {
         $('#wrapper').toggleClass('toggled');
   });
 });

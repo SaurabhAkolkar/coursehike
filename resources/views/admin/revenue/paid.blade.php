@@ -5,18 +5,18 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">  {{ __('adminstaticword.PaidPayout') }}</h3>
+          <h3 class="box-title pb-6">  {{ __('adminstaticword.PaidPayout') }}</h3>
         </div>
        
 
-        <div id="bulk_delete" class="delete-modal modal fade" role="dialog">
+        <div id="bulk_delete" class="delete-modal modal fade show" role="dialog">
         <div class="modal-dialog modal-sm">
           <!-- Modal content-->
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header d-block">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
               <div class="delete-icon"></div>
             </div>
@@ -33,51 +33,49 @@
         
         <!-- /.box-header -->
         <div class="box-body">
-          <div class="table-responsive">
             <table id="example1" class="table table-bordered table-striped">
 
-        <thead>
-         
-          <br>
-
-          <th>
-            <div class="inline">
-                
-            #
-          </th>
-          <th>{{ __('adminstaticword.User') }}</th>
-          <th>{{ __('adminstaticword.Course') }}</th>
-          <th>{{ __('adminstaticword.OrderId') }}</th>
-          <th>{{ __('adminstaticword.PayoutDeatil') }}</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php $i=0;?>
-        @foreach($payout as $pay)
-        <tr>
-          <?php $i++;?>
-          <td>
+              <thead>
               
-              <?php echo $i;?>
-            </td>
-         
-            <td>{{$pay->user->fname}}</td>
-            <td>{{$pay->courses->title}}</td>
-            <td>{{$pay->order->order_id}}</td> 
-            <td>
-              <b>{{ __('adminstaticword.TotalAmount') }}</b>: <i class="fa {{$pay->currency_icon}}"></i>{{$pay->total_amount}}
-              <br>
+                <br>
 
-              <b>{{ __('adminstaticword.InstructorRevenue') }}</b>: <i class="fa {{$pay->currency_icon}}"></i> {{$pay->instructor_revenue}}
-            </td>
-          
+                <th>
+                  <div class="inline">
+                      
+                  #
+                </th>
+                <th>{{ __('adminstaticword.User') }}</th>
+                <th>{{ __('adminstaticword.Course') }}</th>
+                <th>{{ __('adminstaticword.OrderId') }}</th>
+                <th>{{ __('adminstaticword.PayoutDeatil') }}</th>
+              </tr>
+              </thead>
+              <tbody>
+                  <?php $i=0;?>
+                  @foreach($payout as $pay)
+                  <tr>
+                    <?php $i++;?>
+                    <td>
+                        
+                        <?php echo $i;?>
+                      </td>
+                  
+                      <td>{{$pay->user->fname}}</td>
+                      <td>{{$pay->courses->title}}</td>
+                      <td>{{$pay->order->order_id}}</td> 
+                      <td>
+                        <b>{{ __('adminstaticword.TotalAmount') }}</b>: <i class="fa {{$pay->currency_icon}}"></i>{{$pay->total_amount}}
+                        <br>
 
-        </tr>
-        @endforeach
-        
-        </tfoot>
-      </table>
-          </div>
+                        <b>{{ __('adminstaticword.InstructorRevenue') }}</b>: <i class="fa {{$pay->currency_icon}}"></i> {{$pay->instructor_revenue}}
+                      </td>
+                    
+
+                  </tr>
+                  @endforeach
+                  
+              </tbody>
+           </table>
         </div>
         <!-- /.box-body -->
       </div>

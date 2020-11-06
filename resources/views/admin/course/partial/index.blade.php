@@ -1,19 +1,22 @@
 @include('admin.message')
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h3 class="box-title">{{ __('adminstaticword.Course') }}</h3>
+        <h3 class="box-title ">{{ __('adminstaticword.Course') }}</h3>
         <a class="btn btn-info btn-sm" href="{{url('course/create')}}">
-          <i class="glyphicon glyphicon">+</i> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Course') }}
+          + {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Course') }}
         </a>
       </div>
      
       <!-- /.box-header -->
         <div class="box-body">
-          <div class="table-responsive">
+            <div class="la-admin__filter-icons text-right" style="position:relative; top:50px;z-index:0;">
+                <a href="#" role="button"><span class="la-icon la-icon--3xl icon-sort mr-2" style="color:#000;"></span></a>
+                <a href="#" role="button"><span class="la-icon la-icon--3xl icon-excel mr-2" style="color:#1D6F42"></span></a>
+            </div>
+          
             <table id="example1" class="table table-bordered table-striped">
-
               <thead>
                 <tr>
                   <th>#</th>
@@ -37,9 +40,9 @@
                         <td><?php echo $i;?></td>
                         <td>
                           @if($cat['preview_image'] !== NULL && $cat['preview_image'] !== '')
-                              <img src="images/course/<?php echo $cat['preview_image'];  ?>" class="img-responsive" >
+                              <img src="images/course/<?php echo $cat['preview_image'];  ?>" class="img-fluid" >
                           @else
-                              <img src="{{ Avatar::create($cat->title)->toBase64() }}" class="img-responsive" >
+                              <img src="{{ Avatar::create($cat->title)->toBase64() }}" class="img-fluid" >
                           @endif
                         </td>
                         <td>{{$cat->title}}</td>
@@ -73,7 +76,7 @@
 
                         <td>
                           <a class="btn btn-success btn-sm" href="{{ route('course.show',$cat->id) }}">
-                          <i class="glyphicon glyphicon-pencil"></i></a>
+                          <i class="la-icon la-icon--lg icon-edit"></i></a>
                         </td>
 
                         <td>
@@ -81,7 +84,9 @@
                             "data-parsley-validate class="form-horizontal form-label-left">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                            <button onclick="return confirm('Are you sure you want to delete?')"  type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash-o"></i></button>
+                            <button onclick="return confirm('Are you sure you want to delete?')"  type="submit" class="btn btn-danger btn-sm">
+                              <i class="la-icon la-icon--lg icon-delete"></i>
+                            </button>
                           </form>
                         </td>
                       </tr>
@@ -97,9 +102,9 @@
                         <td><?php echo $i;?></td>
                         <td>
                           @if($cor['preview_image'] !== NULL && $cor['preview_image'] !== '')
-                              <img src="images/course/<?php echo $cor['preview_image'];  ?>" class="img-responsive">
+                              <img src="images/course/<?php echo $cor['preview_image'];  ?>" class="img-fluid">
                           @else
-                              <img src="{{ Avatar::create($cor->title)->toBase64() }}" class="img-responsive" >
+                              <img src="{{ Avatar::create($cor->title)->toBase64() }}" class="img-fluid" >
                           @endif
                         </td>
                         <td>{{$cor->title}}</td>
@@ -127,7 +132,7 @@
 
                         <td>
                           <a class="btn btn-primary btn-sm" href="{{ route('course.show',$cor->id) }}">
-                          <i class="glyphicon glyphicon-pencil"></i></a>
+                          <i class="la-icon la-icon--lg icon-edit"></i></a>
                         </td>
 
                         <td>
@@ -143,7 +148,6 @@
                   @endif
               </tbody>
             </table>
-          </div>
         </div>
       <!-- /.box-body -->
     </div>

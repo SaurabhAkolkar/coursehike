@@ -3,7 +3,6 @@
     <div class="col-md-12">
       <br>
       <br>
-      <div class="table-responsive">
         <table id="example1" class="table table-bordered table-striped">
             <thead>
               <tr>
@@ -80,14 +79,14 @@
                     </form>
                   </td>
         
-                  <td><a class="btn btn-success btn-sm" href="{{url('reviewrating/'.$jp->id)}}"><i class="glyphicon glyphicon-pencil"></i></a></td> 
+                  <td><a class="btn btn-success btn-sm" href="{{url('reviewrating/'.$jp->id)}}"><i class="la-icon la-icon--lg icon-edit"></i></a></td> 
             
 
                   <td>
                     <form  method="post" action="{{url('reviewrating/'.$jp->id)}}"data-parsley-validate class="form-horizontal form-label-left">
                       {{ csrf_field() }}
                       {{ method_field('DELETE') }}
-                    <button  type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash-o"></i></button>
+                    <button  type="submit" class="btn btn-danger"><i class="la-icon la-icon--lg icon-delete"></i></button>
                     </form>
                   </td>
                  
@@ -95,7 +94,6 @@
               @endforeach
             </tbody>
         </table>
-      </div>
     </div>
   </div>
 </section> 

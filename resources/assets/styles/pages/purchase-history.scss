@@ -1,0 +1,65 @@
+// Purchased Section
+section.la-purchase--history{
+    .la-purchaseh__main-title{
+        font-weight:var(--font-semibold);
+        color:var(--gray5);
+    }
+    .la-purchaseh__item{
+        .la-purchaseh__item-label{
+            margin-bottom:var(--size-1);
+            color:var(--gray5);
+            opacity:0.6;
+            font-weight:var(--font-normal);
+        }
+        .la-purchaseh__item-label2{
+            color:var(--gray7);
+            opacity:1;  
+            font-weight:var(--font-normal);
+        }
+    }   
+}
+
+@media (max-width:991px){
+    section.la-purchase--history{
+        padding:var(--size-6) var(--size-base);
+    } 
+
+    .la-ph__mobile{
+        .la-ph__course, .la-ph__status{
+            color:var(--gray5);
+            font-weight:var(--font-normal);
+            opacity:0.6;
+        }
+    }
+}
+// Purchase History Ends
+
+
+// Purchased Section
+section.la-rto--main{
+    padding-top:var(--size-10);
+    padding-bottom:var(--size-10);
+    .la-rto__item{
+        .la-rto__item-label{
+            margin-bottom:var(--size-1);
+            color:var(--gray5);
+            opacity:0.6;
+            font-weight:var(--font-normal);
+        }
+        .la-rto__item-label2{
+            color:var(--gray7);
+            opacity:1;  
+            font-weight:var(--font-normal);
+        }
+    }   
+}
+
+@media (max-width:991px){
+    section.la-rto--main{
+        padding:var(--size-6) var(--size-base);
+    }
+}
+
+
+
+

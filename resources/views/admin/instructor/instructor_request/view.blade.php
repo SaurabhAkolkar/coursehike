@@ -8,7 +8,7 @@
     <div class="col-md-12">
     	<div class="box box-primary">
            	<div class="box-header with-border">
-          	<h3 class="box-title">{{ __('adminstaticword.InstructorRequest') }}</h3>
+          	<h3 class="box-title pb-6">{{ __('adminstaticword.InstructorRequest') }}</h3>
        		</div>
           	<div class="panel-body">
 
@@ -48,8 +48,8 @@
 	                    <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
 	                    <br>
 	                    <li class="tg-list-item">
-	                    <input class="tgl tgl-skewed" id="cb333" type="checkbox" {{ $show->status==1 ? 'checked' : '' }}>
-	                    <label class="tgl-btn" data-tg-off="Pending" data-tg-on="Approved" for="cb333"></label>
+	                    <input class="la-admin__toggle-switch" id="cb333" type="checkbox" {{ $show->status==1 ? 'checked' : '' }}>
+	                    <label class="la-admin__toggle-label" data-tg-off="Pending" data-tg-on="Approved" for="cb333"></label>
 	                    </li>
 	                    <input type="hidden" name="status" value="{{ $show->status }}" id="c33">
 		              </div>

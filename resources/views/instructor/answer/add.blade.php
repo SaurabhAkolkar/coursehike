@@ -14,7 +14,7 @@
   @include('admin.message')
   <div class="row">
     <!-- left column -->
-    <div class="col-xs-12"> 
+    <div class="col-12"> 
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
@@ -31,10 +31,10 @@
                 <input type="hidden" name="ans_user_id" value="{{Auth::user()->id}}" />
            
                 <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-6">
                     <label  for="exampleInputTit1e"> {{ __('adminstaticword.Select') }} {{ __('adminstaticword.Question') }}:<sup class="redstar">*</sup></label>
                     <br>
-                    <select name="question_id" required class="form-control col-md-7 col-xs-12 js-example-basic-single">
+                    <select name="question_id" required class="form-control col-md-7 col-12 js-example-basic-single">
                       <option value="none" selected disabled hidden> 
                          {{ __('adminstaticword.SelectanOption') }}
                       </option>
@@ -51,7 +51,7 @@
                 <br>
 
                 <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-6">
                     <label for="exampleInput">{{ __('adminstaticword.Answer') }}:<sup class="redstar">*</sup></label>
                     <textarea name="answer" rows="4" class="form-control" placeholder="Please Enter Your Answer"></textarea>
                   </div>
@@ -62,16 +62,20 @@
                   <div class="col-md-6">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                     <li class="tg-list-item">   
-                      <input class="tgl tgl-skewed" id="c12"  type="checkbox"/>
-                      <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="c12"></label>
+                      <input class="la-admin__toggle-switch" id="c12"  type="checkbox"/>
+                      <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="c12"></label>
                     </li>
                     <input type="hidden" name="status" value="1" id="t12">
                   </div>
                 </div>
                 <br>
-        
-                <div class="box-footer">
-                  <button type="submit" value="Add Answer" class="btn btn-md col-md-3 btn-primary">+ {{ __('adminstaticword.Save') }}</button>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="box-footer">
+                      <button type="submit" value="Add Answer" class="btn btn-md col-md-4 btn-primary">{{ __('adminstaticword.Save') }}</button>
+                    </div>
+                  </div>
                 </div>
 
               </form>

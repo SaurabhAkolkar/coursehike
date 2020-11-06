@@ -1,14 +1,12 @@
 <section class="content">
   <div class="row">
-    <div class="col-xs-12">
-      <a data-toggle="modal" data-target="#myModalanswer" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
-
-      <div class="table-responsive">
+    <div class="col-12">
+        <div class="text-right">
+           <a data-toggle="modal" data-target="#myModalanswer" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.AddAnswer') }}</a>
+        </div><br/>
+       
         <table id="example1" class="table table-bordered table-striped">
-
           <thead>
-            <br>
-            <br>
             <th>#</th>
             <th>{{ __('adminstaticword.Question') }}</th>
             <th>{{ __('adminstaticword.Answer') }}</th>
@@ -34,14 +32,14 @@
             </td>
             
             <td>
-              <a class="btn btn-primary btn-sm" href="{{route('courseanswer.edit',$ans->id)}}"><i class="glyphicon glyphicon-pencil"></i></a>
+              <a class="px-0 text-dark" href="{{route('courseanswer.edit',$ans->id)}}"><i class="la-icon la-icon--lg icon-edit"></i></a>
             </td>
 
             <td><form  method="post" action="{{url('courseanswer/'.$ans->id)}}
                 "data-parsley-validate class="form-horizontal form-label-left">
                   {{ csrf_field() }}
                   {{ method_field('DELETE') }}
-                  <button  type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash-o"></i></button>
+                  <button  type="submit" class="btn btn-danger"><i class="la-icon la-icon--lg icon-delete"></i></button>
               </form>
             </td>
           </tr>
@@ -49,21 +47,19 @@
           
           </tfoot>
         </table>
-      </div>
-
-
+    
     </div>
     <!-- /.col -->
   </div>
   <!-- /.row -->
 
   <!--Model start-->
-  <div class="modal fade" id="myModalanswer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade show" id="myModalanswer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-md" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header d-block">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Question') }}</h4>
+          <h4 class="modal-title" id="myModalLabel"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Answer') }}</h4>
         </div>
         <div class="box box-primary">
           <div class="panel panel-sum">
@@ -78,7 +74,7 @@
                   <div class="col-md-12">
                     <label  for="exampleInputTit1e">{{ __('adminstaticword.SelectQuestion') }}:<sup class="redstar">*</sup></label>
                     <br>
-                    <select style="width: 100%" name="question_id" required class="form-control col-md-7 col-xs-12 js-example-basic-single">
+                    <select style="width: 100%" name="question_id" required class="form-control col-md-7 col-12 js-example-basic-single">
                       <option value="none" selected disabled hidden> 
                        {{ __('adminstaticword.SelectanOption') }}
                       </option>
@@ -106,8 +102,8 @@
                   <div class="col-md-6">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                     <li class="tg-list-item">   
-                      <input class="tgl tgl-skewed" id="c12"  type="checkbox"/>
-                      <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="c12"></label>
+                      <input class="la-admin__toggle-switch" id="c12"  type="checkbox"/>
+                      <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="c12"></label>
                     </li>
                     <input type="hidden" name="status" value="1" id="t12">
                   </div>
@@ -115,7 +111,7 @@
                 <br>
         
                 <div class="box-footer">
-                  <button type="submit" value="Add Answer" class="btn btn-md col-md-3 btn-primary">+  {{ __('adminstaticword.Save') }}</button>
+                  <button type="submit" value="Add Answer" class="btn btn-md btn-primary col-md-4 ">  {{ __('adminstaticword.Save') }}</button>
                 </div>
 
               </form>

@@ -1,0 +1,141 @@
+// .playlist__timeline {
+//     position: relative;
+//     margin-left: 10px;
+//     border-radius: 0 8px 8px 0;
+//     padding: 5px 0;
+// }
+
+// .playlist__timeline:after {
+//     content: '';
+//     width: 2px;
+//     height: 100%;
+//     margin-top: 26px;
+//     background-color: black;
+//     position: absolute;
+//     left: -2px;
+//     top: 0;
+// }
+
+// .playlist__item {
+//     position: relative;
+//     padding-left: 4px;
+//     padding-top: 5px;
+
+//     &:after {
+//         content: '';
+//         width: 16px;
+//         height: 16px;
+//         border-radius: 50%;
+//         border: 2px solid black;
+//         background-color: white;
+//         position: absolute;
+//         left: -10px;
+//         top: 45%;
+//         z-index: 9;
+//     }
+// }
+
+$height-half: 134px;
+$image-center: -30px;
+
+#{$ap}- {
+    &playlist {
+        &__ {
+            &item {
+                &- {
+                    &top {
+                        border-radius: 10px;
+                        overflow: hidden;
+                        
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: transparent linear-gradient(144deg, #FFFFFF00 0%, #000000 100%) 0% 0% no-repeat padding-box;
+                            opacity: 0.7;
+                        }
+                    }
+                }
+            }
+            &thumbnail {
+                &s {
+                    &-- {
+                        &two {
+                            // display: none;
+
+                            & #{$ap}- {
+                                &playlist {
+                                    &__ {
+                                        &thumbnail {
+                                            height: $height-half;
+                                            overflow: hidden;
+                                            & img {
+                                                margin-top: $image-center;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        &three {
+                            & #{$ap}- {
+                                &playlist {
+                                    &__ {
+                                        &thumbnail {
+                                            &:nth-child(1) {
+                                                height: $height-half;
+                                                & img {
+                                                    margin-top: $image-center;
+                                                }
+                                            }
+                                            &:nth-child(2),
+                                            &:nth-child(3) {
+                                                width: 50%;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &option {
+                &- {
+                    &more {
+                        right: 0;
+
+                        &-- {
+                            &white {
+                                color: #ffffff;
+                            }
+                        }
+                    }
+                }
+            }
+            // &category {
+            //     &- {
+            //         &name {
+            //             font-weight: var(--font-bold);
+            //             font-size: var(--text-xl);
+            //             color: var(--gray5);
+            //         }
+            //     }
+            // }
+            &course {
+                &- {
+                    &name {
+                        font-weight: var(--font-bold);
+                        font-size: var(--text-xl);
+                        color: var(--gray5);
+                    }
+                    &count {
+                        font-size: var(--text-sm);
+                    }
+                }
+            }
+        }
+    }
+}

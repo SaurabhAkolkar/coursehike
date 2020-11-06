@@ -19,16 +19,16 @@
 		                  <div class="col-md-6">
 		                    <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
 			                <li class="tg-list-item">
-				                <input class="tgl tgl-skewed" id="cb10111" type="checkbox" {{ $show->status==1 ? 'checked' : '' }}>
-				                <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="cb10111"></label>
+				                <input class="la-admin__toggle-switch" id="cb10111" type="checkbox" {{ $show->status==1 ? 'checked' : '' }}>
+				                <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="cb10111"></label>
 				            </li>
 			                <input type="hidden" name="status" value="{{ $show->status }}" id="jjjj">
 		                  </div>
 		                  <div class="col-md-6">
 		                    <label for="detail">{{ __('adminstaticword.Approved') }}:</label>
 		                    <li class="tg-list-item">
-				                <input class="tgl tgl-skewed" id="cb10112" type="checkbox" {{ $show->approved==1 ? 'checked' : '' }}>
-				                <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="cb10112"></label>
+				                <input class="la-admin__toggle-switch" id="cb10112" type="checkbox" {{ $show->approved==1 ? 'checked' : '' }}>
+				                <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="cb10112"></label>
 				            </li>
 				            <input type="hidden" name="status" value="{{ $show->approved }}" id="jjjj">
 		                  </div>

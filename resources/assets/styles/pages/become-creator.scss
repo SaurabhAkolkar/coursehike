@@ -1,0 +1,394 @@
+// Become a Creator Banner Start
+section.la-page--bcreator{
+	width:100%;
+	.la-bcreator__banner{
+		background-position:100%;
+		padding:260px 0;
+		background-blend-mode: multiply;
+	}
+	.la-bcreator{
+		a.la-bcreator__back-link{
+			top:2%;
+			left:30px;
+			color: var(--white);
+			z-index:var(--z-60);
+			transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-moz-transition:all .2s ease-in;-ms-transition:all .2s ease-in;-o-transition:all .2s ease-in;
+
+			&:hover{
+				left:24px;
+				transition:all .2s ease-out;-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;-ms-transition:all .2s ease-out;-o-transition:all .2s ease-out;
+			}
+		}
+
+		.la-bcreator__content{
+			position:relative;
+			top:-75px;
+			strong{
+				font-family:var(--head-font);
+				font-weight:var(--font-extrabold);
+				font-size: var(--text-3xl);
+			}
+			h1{
+				font-family:var(--head-font);
+				font-weight:var(--font-black);
+				font-size: calc(var(--text-4xl) * 3);
+			}
+			p{
+				font-family:var(--head-font);
+				font-weight:var(--font-light);
+				opacity:.73;
+				font-size: var(--text-3xl);
+			}
+		}
+	}
+
+	.la-bcreator__banner-btm{
+		margin-top:-130px;
+
+		.la-bcreator__left-text{
+			padding-left:var(--size-14);
+			h4{
+				font-family:var(--body-font);
+				font-weight:var(--font-medium);
+				font-size: var(--text-3xl);
+			}
+			p{
+				font-family:var(--body-font);
+				font-weight:var(--font-light);
+				font-size: var(--text-sm);
+			}
+		}
+	}
+	.la-mcard__slider-wrap{
+		.la-mcard__container {
+			width: 100%;
+			height: 100%;
+		}
+		.la-mcard__pagination{
+			left: 280px !important; 
+			.swiper-pagination-bullet{
+				background:#ffffff;
+				border:1px solid #FFC516;
+				border-radius:50%;
+				opacity:1 !important;
+				margin-right:var(--size-base);
+			}
+			.swiper-pagination-bullet-active{
+				background-color:#FFC516;
+			}
+		}
+	}
+}
+
+@media (max-width:991px){
+	section.la-page--bcreator{
+		.la-bcreator__banner{padding:100px 0;background-position: center center;}
+		.la-bcreator__banner-btm{margin-top:0px;}
+		.la-bcreator__left-text{
+			padding:var(--size-6) !important;
+			h4{color:var(--gray6) !important;}
+		}
+	}
+}
+// Become a Creator Banner End
+
+
+// Vertical Dotted line b/w Icons Start
+section.la-start-creating{
+	background-color:var(--gray);
+	padding:90px 0 150px 0 ;
+	margin:100px 0;
+	.la-vdotted__bar{
+		margin-left:30px;
+		height:600px;
+		border-left: 2px dotted #FFC516;
+	}
+	.la-vicon{
+		width:100%;
+		min-height:180px;
+	}	
+	.la-icon__vline{
+		position:absolute;
+		left:0;
+		text-align: left;
+		width:80px;
+		height:80px;
+		padding:33px;
+		background-color: #FFC516;
+		color:#fff;
+		border-radius:var(--rounded-full);
+		margin-left:-42px;
+		z-index:var(--z-1);
+	}
+	.la-icon__vline span{
+		margin:-24px 0 0 -22px;
+	}
+	.la-vicon__text{
+		font-family: var(--body-font);
+		margin-left:65px;
+
+		.la-vicon__title{
+			font-size: var(--text-2xl);
+		}
+		.la-vicon__desc{
+			font-size: var(--text-md);
+		}
+	}
+	.la-vicon__link{
+		font-family: var(--body-font);
+		font-size:var(--text-sm);
+		font-weight:var(--font-medium);
+		letter-spacing: .1rem;
+		color:var(--app-indigo-1);
+		position:relative;
+
+		.la-vicon__arrow{
+			position: absolute;
+			bottom:-22px;
+			right:-18px;
+		}
+		&:hover{
+			font-size:var(--text-md);
+			transition:.2s ease-in-out;
+			-webkit-transition:.2s ease-in-out;
+			-moz-transition:.2s ease-in-out;
+			-ms-transition:.2s ease-in-out;
+			-o-transition:.2s ease-in-out;
+		}
+	}
+}
+
+@media (max-width:767px){
+	section.la-start-creating{
+		margin:50px 0;
+	}
+}
+// Vertical Dotted line b/w Icons End
+
+// How you Earn Section
+section.la-bcreator--earn{
+	.la-earn__blog{
+		margin-bottom: var(--size-14);
+		.la-earn__blog-title{
+			font-size: var(--text-5xl);
+		}
+	}
+	.la-bcreator--calc-wrapper{
+		background-color:var(--gray);
+
+		.la-bcreator__calc p{
+			font-family:var(--head-font);
+		}
+		.la-bcreator__calc{
+			.la-bcreator__calc-itm span{
+				font-family:var(--head-font);
+				color:var(--gray4);
+			}
+			.la-bcreator__calc-itm p{
+				font-family: var(--body-font);
+				color:#1EC812;
+				span{
+					font-family: var(--body-font);
+					color:var(--gray6);
+				}
+			}
+		}
+	}
+}
+
+
+//Lila Reach Stats Section Start
+section.la-bcreator-reach-stats{
+	margin:100px 0;
+	.la-bcreator__reach-main{
+		line-height:1;
+		.la-bcreator__reach-tag{
+			font-size: var(--text-3xl);
+			font-weight: var(--font-medium);
+			color: var(--gray5);
+		}
+		.la-bcreator__reach-title{
+			font-size: var(--text-6xl);
+			font-weight: var(--font-bold);
+			color: var(--gray5);
+		}
+	}
+	.la-bcreator__stats-item{ 
+		.la-bcreator__stats-count{
+			font-size: var(--text-4xl);
+			font-weight: var(--font-bold);
+			font-family: var(--body-font);
+			color:var(--app-indigo-1);
+			opacity:0.98;
+		}
+
+		.la-bcreator__stats-desc{
+			font-family:var(--head-font);
+			font-size: var(--text-lg);
+			font-weight: var(--font-bold);
+			color: var(--gray7);
+		}
+		.la-bcreator__stats-text{
+			font-family:var(--body-font);
+			color:var(--gray5);
+			opacity:0.7;
+		}
+	}
+	.la-bcreator__stats-btn{
+		margin-top:var(--size-14);
+	}
+}
+
+@media (max-width:767px){
+	section.la-bcreator-reach-stats{
+		margin:50px 0;
+	}
+}
+// Lila Reach Stats Section End
+
+// Benefits Section Start
+section.la-bcreator--benefits{
+		margin:150px 0;
+		
+	.la-bcreator__benefits-main{
+		font-size:143px;
+		color:var(--gray2);
+		font-weight:var(--font-black);
+	}
+	.la-bcreator__benefits-card{
+		background:rgba(255,255,255,0.74);
+		box-shadow:0px 0px 40px #E4E4E475;
+		border-radius:10px;
+		margin-top:-95px;
+
+		&:hover{
+			background-color:#ffffff;
+		}
+		.la-bcreator__benefits-icon{
+			font-size: 90px;
+			color:#FFC516;
+		}
+		.la-bcreator__benefits-title{
+			font-family: var(--head-font);
+			font-size: var(--text-2xl);
+			font-weight: var(--font-bold);
+			color: var(--gray7);
+		}
+		.la-bcreator__benefits-para{
+			font-family: var(--body-font);
+			font-size: var(--text-md);
+			font-weight: var(--font-normal);
+			color: #000000;
+			opacity:0.73;
+		}
+	}
+}
+
+@media (max-width:767px){
+	section.la-bcreator--benefits{
+		margin:80px 0;
+
+		.la-bcreator__benefits-main h2{
+			font-size:60px;
+		}
+		.la-bcreator__benefits-card{
+			margin:-45px 0 70px 0;
+		}
+	}
+}
+// Benefits Section End
+
+
+// Ad Banner Section Start
+section.la-bgcreator--ad-banner{
+	.la-bgcreator__ad-content{
+		background-color:var(--gray5);
+		border-radius:10px;
+		padding:var(--size-20) 0;
+		font-family:var(--body-font);
+
+		.la-bgcreator__ad-para{
+			font-family: var(--body-font);
+			font-size: var(--text-3xl);
+		}
+		.la-arrow-link{
+			letter-spacing: .1rem;
+			color:#ffffff;
+			span{
+				position:absolute;
+				bottom:-25px;
+				right:-18px;
+			}	
+		}
+	}
+}
+
+@media (max-width:767px){
+	section.la-bgcreator--ad-banner{
+		.la-bgcreator__ad-content{
+			border-radius:0;
+		}
+	}
+}
+// Ad Banner Section End
+
+
+// FAQ Section Start
+section.la-bgcreator--faq{
+	margin:130px 0;
+	.la-bgcreator__faq-panel{
+		background-color:#ffffff;
+		box-shadow: 0px 6px 15px #A4A4A412;
+		border-radius:10px;
+	}
+	.la-bgcreator__faq-title{
+		font-size: var(--text-5xl);
+		font-weight: var(--font-semibold);
+		padding-bottom: var(--size-6);
+	}
+	.la-bgcreator__panel-head {
+		.la-bgcreator__panel-title a{
+			font-family: var(--body-font);
+			color:rgba(0,0,0,0.7);
+			font-weight:var(--font-light);
+			position: relative;
+			
+			&:after{
+				font-family: 'icomoon';
+				content: "\e96d";
+				position:relative;
+				float:right;
+				color: var(--app-indigo-1) !important;
+				font-weight: var(--font-semibold);
+				font-size: var(--text-md);
+				transform: rotate(180deg);-webkit-transform: rotate(180deg);-moz-transform: rotate(180deg);-ms-transform: rotate(180deg);-o-transform: rotate(180deg);
+				transition: all 0.25s ease-in;-webkit-transition: all 0.25s ease-in;-moz-transition: all 0.25s ease-in;-ms-transition: all 0.25s ease-in;-o-transition: all 0.25s ease-in;
+			}
+		}
+		.accordion-toggle.collapsed:after{
+			content: "\e96d"; 
+			transform: rotate(0);-webkit-transform: rotate(0);-moz-transform: rotate(0);-ms-transform: rotate(0);-o-transform: rotate(0);
+			transition: all 0.25s ease-in;-webkit-transition: all 0.25s ease-in;-moz-transition: all 0.25s ease-in;-ms-transition: all 0.25s ease-in;-o-transition: all 0.25s ease-in;
+		}
+		.accordion-toggle.collapsed {
+			color:rgba(0,0,0,0.7);
+		}
+		.accordion-toggle:not(.collapsed) {
+			color: var(--app-indigo-1);
+			font-size: var(--text-lg);
+			font-weight:var(--font-normal);
+		}
+			
+	}
+	.la-bgcreator__panel-para{
+		color:var(--gray6);
+		font-family: var(--body-font);
+		font-weight:var(--font-light);
+	}
+	.la-bgcreator__faq-all {
+		.la-bgcreator__all-link{
+			color:var(--app-indigo-1);
+		}
+	}
+}
+// FAQ section End

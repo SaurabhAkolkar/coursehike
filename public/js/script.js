@@ -18,7 +18,7 @@ $(function() {
     CVV.payform('formatCardCVC');
 
 
-    cardNumber.keyup(function() {
+    cardNumber.on('keyup', function() {
 
         amex.removeClass('transparent');
         visa.removeClass('transparent');
@@ -43,7 +43,7 @@ $(function() {
         }
     });
 
-    confirmButton.click(function(e) {
+    confirmButton.on('click', function(e) {
 
         e.preventDefault();
 

@@ -17,41 +17,12 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
   @endphp
 
  
-    <meta name="description" content="{{ $met->meta_data_desc }}">
-    <meta name="keywords" content="{{ $met->meta_data_keyword }}">
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ $met->google_ana }}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', '{{ $met->google_ana }}');
-    </script>
-    <!-- Facebook Pixel Code -->
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '{{ $met->fb_pixel }}');
-      fbq('track', 'PageView');
-    </script>
-
-    <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
-    <noscript>
-      <img style="display:none" src="https://www.facebook.com/tr?id={{ $met->fb_pixel }}&ev=PageView&noscript=1"/>
-    </noscript>
-    <!-- End Facebook Pixel Code -->
- 
-
+  <meta name="description" content="{{ $met->meta_data_desc }}">
+  <meta name="keywords" content="{{ $met->meta_data_keyword }}">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="{{url('css/dashboard/bootstrap.min.css')}}"> <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{ url('css/datepicker.css') }}">
-  <link rel="icon" type="image/icon" href="{{ asset('images/favicon/'.$gsetting->favicon) }}"> <!-- favicon-icon -->
+  <link rel="icon" type="image/icon" href="{{ asset('images/favicon/favicon.svg') }}"> <!-- favicon-icon -->
   <link rel="stylesheet" href="{{ url('css/dashboard/select2.min.css') }}"> <!-- Font Awesome -->
   <link rel="stylesheet" href="{{url('css/dashboard/font-awesome.min.css')}}">
   <link rel="stylesheet" href="{{ url('css/fontawesome-iconpicker.min.css') }}">
@@ -81,6 +52,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
   @if (in_array($language,$rtl))
   <link rel="stylesheet" href="{{ url('css/dashboard/admin-rtl.css') }}">
   @else
+  <link rel="stylesheet" href="{{ url('css/dashboard/admin-creator.css') }}">
   <link rel="stylesheet" href="{{ url('css/dashboard/admin.css') }}">
   @endif
   <link rel="stylesheet" href="{{ asset('css/custom-style.css') }}"/>
@@ -101,13 +73,13 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
       <a href="{{ url('/') }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">
-        <img title="{{ $project_title }}" width="20px" src="{{ url('images/favicon/'.$gsetting->favicon) }}" alt=""/>
+        <img title="{{ $project_title }}" width="60px" src="{{ url('images/logo/'.$gsetting->logo) }}" alt=""/>
       </span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"> <img title="{{ $project_title }}" width="100px" src="{{ url('images/logo/'.$gsetting->logo) }}" alt=""/></span>
     </a>
       <!-- Header Navbar: style can be found in header.less -->
-      <nav class="navbar navbar-static-top">
+      <nav class="navbar navbar-fixed-top">
         <!-- Sidebar toggle button-->
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
           <span class="sr-only">Toggle navigation</span>
@@ -117,13 +89,13 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
         </a>
 
         <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav d-inline-block">
             <!-- Messages: style can be found in dropdown.less-->
             @php
                 $languages = App\Language::all(); 
             @endphp
             <li class="dropdown admin-nav language">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-globe"></i> {{Session::has('changed_language') ? Session::get('changed_language') : ''}}</button>
+            <!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-globe"></i> {{Session::has('changed_language') ? Session::get('changed_language') : ''}}</button> -->
 
               <ul class="dropdown-menu animated flipInX">
                 @if (isset($languages) && count($languages) > 0)
@@ -154,7 +126,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
                   @else
                     <img src="{{ asset('images/default/user.jpg')}}" class="img-circle" alt="User Image">
                   @endif
-                  </br>
+                  <br>
                   <p>
                    {{Auth::User()->fname}}
                     <small>{{ __('adminstaticword.MemberSince') }}: {{ date('jS F Y',strtotime( Auth::User()->created_at))}}</small>
@@ -164,13 +136,11 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
 
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="{{ url('user/edit/'.Auth::User()->id)}}" class="btn btn-default btn-flat">{{ __('adminstaticword.Profile') }}</a>
+                    <a href="{{ url('user/edit/'.Auth::User()->id)}}" class="btn-small">{{ __('adminstaticword.Profile') }}</a>
                   </div>
                   <div class="pull-right">
 
-                    <a class="btn btn-default btn-flat" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                     document.getElementById('logout-form').submit();">
+                    <a class="btn-small" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     {{ __('adminstaticword.Logout') }}
                     </a>
 
@@ -239,7 +209,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
   <script src="{{url('js/dashboard/demo.js')}}"></script>
   <script src="{{ URL::asset('js/dashboard/pace.min.js') }}"></script> 
   <!-- PACE -->
-  <script src="{{ URL::asset('js/dashboard/ckeditor.js') }}"></script>
+  <script src="{{ URL::asset('js/dashboard/ckeditor/ckeditor.js') }}"></script>
   <!-- CK Editor -->
   <script src="{{ URL::asset('js/dashboard/bootstrap-datepicker.min.js')}}"></script> <!-- bootstrap datepicker -->
   <script src="{{ url('js/jquery-ui.js')}}"></script>

@@ -28,11 +28,11 @@
       </div>
 
       <!-- Modal -->
-      <div id="bulk_delete" class="delete-modal modal fade" role="dialog">
+      <div id="bulk_delete" class="delete-modal modal fade show" role="dialog">
         <div class="modal-dialog modal-sm">
           <!-- Modal content-->
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header d-block">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
               <div class="delete-icon"></div>
             </div>
@@ -87,7 +87,7 @@
                  <td>{{ $i }}</td>
                  <td class="fl">{{ $ad->ad_type }}</td>
                  <td class="fl">{{ $ad->ad_location }}</td>
-                 <td><a href="{{ route('ad.edit',$ad->id) }}" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-pencil"></i></a></td>
+                 <td><a href="{{ route('ad.edit',$ad->id) }}" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a></td>
                  <td>
                      <form action="{{ route('ad.delete',$ad->id) }}" method="POST">
                         {{ csrf_field() }} 

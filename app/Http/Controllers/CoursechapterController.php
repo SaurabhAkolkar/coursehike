@@ -45,18 +45,19 @@ class CoursechapterController extends Controller
         ]);
 
         $input = $request->all();
-
-        if($file = $request->file('file'))
-        { 
-          $filename = time().$file->getClientOriginalName();
-          $file->move('files/material',$filename);
-          $input['file'] = $filename;
-        }
-
+        // dd($input);
 
         $data = CourseChapter::create($input);
-        
 
+        if($file = $request->file('preview_image'))
+        { 
+          $filename = time().rand().'.'.$file->getClientOriginalExtension();
+          $file->move(public_path().'/images/course',$filename);
+          $data->thumbnail = $filename;
+        //   $input['thumbnail'] = $filename;
+        }
+
+        // dd($data);
 
         $data->save();
 

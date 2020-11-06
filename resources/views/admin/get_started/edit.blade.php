@@ -36,7 +36,7 @@
 		                  <div class="col-md-6">
 		                    <label for="image">{{ __('adminstaticword.BackgroundImage') }}<sup class="redstar">*</sup></label>
 		                    <input type="file" name="image" id="image">
-		                    <img src="{{ url('/images/getstarted/'.$show['image']) }}" class="img-responsive"/>
+		                    <img src="{{ url('/images/getstarted/'.$show['image']) }}" class="img-fluid"/>
 		                  </div>
 		              	</div>
 		              	<br>

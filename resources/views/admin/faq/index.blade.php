@@ -5,11 +5,11 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{ __('adminstaticword.FAQStudent') }}</h3>
-          <a href="{{url('faq/create')}}" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
+          <a href="{{url('faq/create')}}" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.FAQStudent') }}</a>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -44,7 +44,7 @@
                   </form>
                 </td>
                 <td><a class="btn btn-success btn-sm" href="{{url('faq/'.$p->id.'/edit')}}">
-                    <i class="glyphicon glyphicon-pencil"></i></a>
+                    <i class="la-icon la-icon--lg icon-edit"></i></a>
                 </td>
                 <td>
                   <form  method="post" action="{{url('faq/'.$p->id)}}"
@@ -52,7 +52,7 @@
                       {{ csrf_field() }}
                       {{ method_field('DELETE') }}
                     <button type="submit" class="btn btn-danger">
-                      <i class="fa fa-fw fa-trash-o"></i>
+                      <i class="la-icon la-icon--lg icon-delete"></i>
                     </button>
                   </form>
                 </td>

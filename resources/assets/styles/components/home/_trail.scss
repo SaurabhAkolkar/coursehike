@@ -1,0 +1,60 @@
+#{$ap}- {
+    &trail {
+        &__ {
+            &btn{
+               letter-spacing: 3.2px;
+               padding-left: 110px;
+               color:#FFC516;
+               font-weight:var(--font-normal);
+            }
+            &right {
+                padding-top: 230px;
+            }
+            &img {
+                &:before {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background: #7400D7 0% 0% no-repeat padding-box;
+                    mix-blend-mode: overlay;
+                    border-radius: 10px;
+                    opacity: 1;
+                }
+
+                &- {
+                    &wrap {
+                        overflow: hidden;
+                        position: relative;
+                    }
+                }
+            }
+            &title {
+                top: 15%;
+                left: 22%;
+                
+                &-- {
+                    &purple {
+                        color: #5800a2 !important;
+                        opacity: 0.5;
+                    }
+                    &black {
+                        color: var(--gray5) !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:991px){
+    #{$ap}- {
+        &trail {
+            &__ {
+                &right {
+                    padding-top: 20px;
+                }
+            }
+        }
+    }
+}

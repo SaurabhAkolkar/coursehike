@@ -3,9 +3,9 @@
       <div class="la-choose__plans">
         <div class="card la-choose__card text-center px-5 py-5">
           <div class="la-choose__box mb-4">
-            <div class="la-choose__ptitle text-lg">{{ $plan }}</div>
+            <div class="la-choose__ptitle text-lg text-sm-2xl">{{ $plan }}</div>
             <div class="la-choose__price mt-2"><sup class="la-choose__tag text-lg">$</sup>
-                <span class="la-choose__discount text-5xl mr-1"> {{ $discount }}</span>
+                <span class="la-choose__discount text-2xl text-sm-5xl mr-1"> {{ $discount }}</span>
                 <span class="la-choose__oldprice text-sm p-1">{{ $oldPrice }}</span>
             </div>
             <div class="la-choose__billing text-sm mt-1">Billed {{ $plan }}</div>
@@ -14,7 +14,9 @@
             </div>
           </div>
           <div class="la-choose__subscribe mt-5 mx-4">
-            <div class="btn la-btn la-btn-secondary py-3" href="#">SUBSCRIBE</div>
+            <a href="/subscription/{{ $slug }}" role="button" target="_self">
+              <div class="btn la-btn la-btn-secondary py-3" >SUBSCRIBE</div>
+            <a>
             <p class="text-sm pt-1">Get access to all the Courses</p><a class="text-sm" href="#">Start free 7 Days trial</a>
           </div>
           <hr>

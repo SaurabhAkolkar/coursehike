@@ -7,83 +7,93 @@
           <div class="row">
             <!-- Column: Start-->
             <div class="col-7 col-lg-2">
-              <div class="la-footer__brand mb-4"><img class="img-fluid" src="./images/logo.svg" alt="Lila"></div>
+              <div class="la-footer__brand mb-md-6"><img class="img-fluid" src="/images/learners/logo.svg" alt="Lila"></div>
               <div class="la-footer__contact">
                 <p class="la-footer__contact-address mb-2">K2, Old Sonal Industrial Est., Kanchpada, Malad Link Road, Malad West, Mumbai 400064. MH, India</p><a class="la-footer__contact-link" href="mailto:ask@learnitlikealiens.com"> <strong>ask@learnitlikealiens.com</strong></a>
               </div>
             </div>
             <!-- Column: End-->
             <!-- Column: Start-->
-            <div class="col-12 col-lg-5 offset-lg-2">
-              <div class="row row-cols-2 mt-5 pt-3">
+            <div class="col-12 col-lg-5 offset-lg-1">
+              <div class="row row-cols-2 mt-md-16">
                 <div class="col-12 col-sm-6 mb-5">
                   <div class="la-footer__title">Categories</div>
                   <ul class="la-footer__list">
                     <li class="la-footer__list-item"><a class="la-footer__list-link">Tattoo</a></li>
                     <li class="la-footer__list-item"><a class="la-footer__list-link">Design</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Tattoo</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Design</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Tattoo</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Design</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Tattoo</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Design</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">Dance</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">Rangoli</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">Lorem</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">Ipsum</a></li>
                   </ul><a class="la-footer__more">See all</a>
                 </div>
                 <div class="col-12 col-sm-6 mb-5">
                   <div class="la-footer__title">Creators</div>
                   <ul class="la-footer__list">
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Tattoo</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Design</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Tattoo</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Design</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Tattoo</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Design</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Tattoo</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Design</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">Joseph Phill</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">Ayushi Amrut</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">David</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">Lillan</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">Alton Crew</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">Nathan Frank</a></li>
                   </ul><a class="la-footer__more">See all</a>
                 </div>
                 <div class="col-12 col-sm-6 mb-5">
                   <div class="la-footer__title">Courses</div>
                   <ul class="la-footer__list">
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Tattoo</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Design</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Tattoo</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Design</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Tattoo</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Design</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Tattoo</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Design</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">Tattoo Art</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">Basic Design</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">Hiphop</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">Rangoli Art</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">UI Design</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">Photography</a></li>
                   </ul><a class="la-footer__more">See all</a>
                 </div>
                 <div class="col-12 col-sm-6 mb-5">
                   <div class="la-footer__title">Master Classes</div>
                   <ul class="la-footer__list">
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Tattoo</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Design</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Tattoo</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Design</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Tattoo</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Design</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Tattoo</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Design</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">Master in UI Design</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">Master in Photography</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">Master in Dance</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">Rangoli Art</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">UI Design</a></li>
+                    <li class="la-footer__list-item"><a class="la-footer__list-link">Photography</a></li>
                   </ul><a class="la-footer__more">See all</a>
                 </div>
               </div>
             </div>
             <!-- Column: End-->
             <!-- Column: Start-->
-            <div class="col-12 col-lg-2 offset-lg-1">
-              <div class="la-footer__search"></div>
+            <div class="col-12 col-lg-3 offset-lg-1">
+              <div class="la-footer__search">
+                 <!-- Global Search: Start-->
+                <div class="la-gsearch mb-md-4">
+                  <form class="form-inline" action="">
+                    <div class="form-group">
+                      <input class="la-gsearch__input w-100 form-control" style="border-left:1px solid rgba(229,229,229,0.2); background:transparent;font-size:15px" type="text" placeholder="What you want to learn today?">
+                    </div>
+                    <button class="la-gsearch__submit btn text-white" type="submit"><i class="la-icon la-icon--xl icon icon-search"></i></button>
+                  </form>
+                </div>
+                <!-- Global Search: End-->
+              </div>
               <ul class="la-footer__nav">
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Testimonials</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Aliens Tatto School</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Learning Plans</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Become a Creator</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Guided Creator</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Request a Tutorial</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Teaching Techniques</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Start Free Trial</a></li>
               </ul>
+
+              <div class="la-footer__social mt-md-14">
+                  <a class="la-footer__social-link mr-2" href=""><span class="la-icon la-icon--5xl icon-facebook"></span></a>
+                  <a class="la-footer__social-link mr-2" href=""><span class="la-icon la-icon--5xl icon-insta"></span></a>
+                  <a class="la-footer__social-link mr-2" href=""><span class="la-icon la-icon--5xl icon-youtube"></span></a>
+              </div>
             </div>
             <!-- Column: End-->
           </div>

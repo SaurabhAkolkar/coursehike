@@ -22,13 +22,11 @@
         </div>
         <div class="box-header">
           <a data-toggle="modal" data-target="#myModalquiz" href="#" class="btn btn-info btn-sm">+   {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Question') }}</a>
-
         </div>
 
         <br>
         <br>
         <div class="box-body">
-          <div class="table-responsive">
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
@@ -60,23 +58,23 @@
                     <td>{{$quiz->c}}</td>
                     <td>{{$quiz->answer}}</td>
                     <td>
-                      <a data-toggle="modal" data-target="#myModaledit{{$quiz->id}}" href="#" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-pencil"></i></a>
+                      <a data-toggle="modal" data-target="#myModaledit{{$quiz->id}}" href="#" class="btn btn-success btn-sm"><i class="la-icon la-icon--lg icon-edit"></i></a>
                     </td>
                     <td>
                       <form  method="post" action="{{url('admin/questions/'.$quiz->id)}}" data-parsley-validate class="form-horizontal form-label-left">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
 
-                        <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash-o"></i></button>
+                        <button type="submit" class="btn btn-danger btn-sm"><i class="la-icon la-icon--lg icon-delete"></i></button>
                       </form>
                     </td>
                   </tr>  
 
                   <!--Model for edit question-->
-                  <div class="modal fade" id="myModaledit{{$quiz->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal fade show" id="myModaledit{{$quiz->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header d-block">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                           <h4 class="modal-title" id="myModalLabel"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Question') }}</h4>
                         </div>
@@ -132,13 +130,13 @@
                                    
 
 
-                                  </div>
-                                </div>
+                              </div>
+              
                                 <br>
                                
                               
                                 <div class="box-footer">
-                                  <button type="submit" class="btn btn-md col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                                  <button type="submit" class="btn btn-md col-md-4 btn-primary">{{ __('adminstaticword.Submit') }}</button>
                                 </div>
                               </form>
                             </div>
@@ -158,7 +156,6 @@
         </div>
       </div>
     </div>
-  </div>
 </section>
 
 

@@ -14,7 +14,7 @@
   @include('admin.message')
   <div class="row">
     <!-- left column -->
-    <div class="col-xs-12"> 
+    <div class="col-12"> 
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
@@ -64,8 +64,8 @@
                   <div class="col-md-12">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>               
                     <li class="tg-list-item">                
-                      <input class="tgl tgl-skewed" id="c2222"  type="checkbox"/>
-                      <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="c2222"></label>
+                      <input class="la-admin__toggle-switch" id="c2222"  type="checkbox"/>
+                      <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="c2222"></label>
                     </li>
                     <input type="hidden" name="status" value="0" id="t2222">
                   </div>

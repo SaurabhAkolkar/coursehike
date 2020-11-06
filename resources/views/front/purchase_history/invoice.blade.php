@@ -19,7 +19,7 @@
 			<div id="printableArea">
         <!-- title row -->
         <div class="row">
-          <div class="col-xs-12">
+          <div class="col-12">
             <div class="page-header">
               @php
                   $setting = App\setting::first();
@@ -120,7 +120,7 @@
           </div>
         </div>
         <!-- /.row -->
-        <div class="order-table table-responsive">
+        <div class="order-table ">
           <table class="table table-striped">
             <thead>
               <tr>
@@ -172,7 +172,7 @@
                 $coursess = App\Course::where('id', $bundle_course)->first();
               @endphp
 
-              <div class="purchase-table table-responsive">
+              <div class="purchase-table ">
                 <table class="table">
 
               <tbody>

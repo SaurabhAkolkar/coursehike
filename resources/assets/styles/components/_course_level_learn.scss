@@ -1,0 +1,23 @@
+ .la-courseLl {
+     position: relative;
+     right: 0;
+     display: block;
+     width: 40%;
+     float: right;
+
+     .numlearner,
+     .numvid,
+     i {
+         font-size: var(--text-5xl);
+         color: #6e1ccd;
+         font-family: var(--body-font);
+         font-weight: var(--font-light);
+     }
+
+     .clevel,
+     .text {
+         margin-top: -10px;
+     }
+
+
+ }

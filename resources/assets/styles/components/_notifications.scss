@@ -1,0 +1,77 @@
+#{$ap}- {
+    &notification{
+        &__{
+            &card{
+                margin-top:var(--size-4);
+                background:#ffffff;
+                box-shadow: 0px 3px 6px #00000029;
+                border-radius: 10px 10px 0 0;
+                border:none !important;
+                width:275px;
+                height:400px;
+                padding-top:var(--size-2);
+                overflow:scroll;
+                z-index:-1;
+                overflow:-moz-scrollbars-none;
+                -ms-overflow-style: none; 
+            }
+            &card::-webkit-scrollbar{
+                width:0 !important;
+            }
+            &item{  
+                padding:var(--size-2) var(--size-6);
+
+                &:hover{
+                    border-right:3px solid #707070;
+                }
+            }
+            &prfle{
+                img{
+                    width:48px;
+                    height:48px;
+                    border-radius:var(--rounded-full);
+                }
+            }
+            &msg{
+                padding:var(--size-2);
+            }
+            &title{
+                font-weight:var(--font-medium);
+                color:var(--gray6);
+                span{
+                    color:var(--gray4);
+                    font-weight:var(--font-normal);
+                }
+            }
+            &timestamp{
+                color:#FFCE31;
+            }
+            &clear-all{
+                position: relative;
+                width:275px;
+                height:40px;
+                border-radius: 0 0 10px 10px;
+                box-shadow: 0px 3px 2px 0px #00000029;
+                background-color:#ffffff;
+                color:#EE4224;
+                border:none !important;
+                font-size:var(--text-sm);
+                font-weight:var(--font-bold);
+                letter-spacing: 2.8px;
+                z-index:0;
+                transition:all .3s ease-in;-webkit-transition:all .3s ease-in;-moz-transition:all .3s ease-in;-ms-transition:all .3s ease-in;-o-transition:all .3s ease-in;
+
+                &:hover{
+                    color:#EE4224;
+                    font-size:var(--text-md);
+                    transition: all .3s ease-out;-webkit-transition: all .3s ease-out;-moz-transition: all .3s ease-out;-ms-transition: all .3s ease-out;-o-transition: all .3s ease-out;
+                }
+            }
+            &hline{
+                margin-left:var(--size-4);  
+                margin-right:var(--size-4);
+                border-bottom: 1px solid rgba(158,158,158,0.15);
+            }
+        }
+    }
+}

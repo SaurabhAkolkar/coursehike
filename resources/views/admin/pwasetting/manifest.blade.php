@@ -2,7 +2,7 @@
 
 <section class="content">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
         <!-- /.box-header -->
         <div class="box-body">
           <form action="{{ route('manifest.update') }}" method="POST">
