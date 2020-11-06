@@ -88,7 +88,7 @@
                 <tr>
                   <th>#</th>
                   <th>{{ __('adminstaticword.Category') }}</th>
-                  <th>{{ __('adminstaticword.Icon') }}</th>
+                  {{-- <th>{{ __('adminstaticword.Icon') }}</th> --}}
                   <th>{{ __('adminstaticword.Slug') }}</th>
                   <th>{{ __('adminstaticword.Featured') }}</th>
                   <th>{{ __('adminstaticword.Status') }}</th>
@@ -103,7 +103,7 @@
                   <tr class="sortable" id="id-{{ $cat->id }}">
                     <td><?php echo $i;?></td>
                     <td>{{$cat->title}}</td>
-                    <td><i class="fa {{$cat->icon}}"></i></td>
+                    {{-- <td><i class="fa {{$cat->icon}}"></i></td> --}}
                     <td>{{$cat->slug}}</td>
                     <td>
                       <form action="{{ route('categoryf.quick',$cat->id) }}" method="POST">
