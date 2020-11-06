@@ -12,8 +12,8 @@
                 </div>
             </div>
         </div>
-        
-        <div class="col-lg-2 text-center">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-1 text-center">
             <div class="la-rto__item-fromdate text-md"> {{ $fromdate }} </div>
         </div>
 

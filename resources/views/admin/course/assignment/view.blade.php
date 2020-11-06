@@ -45,8 +45,8 @@
                       <label for="exampleInputTit1e">{{ __('adminstaticword.ReviewAssignment') }}:</label>
                       <br>
                       <li class="tg-list-item">              
-                          <input class="tgl tgl-skewed" id="assign_accept" type="checkbox" name="type" {{ $assign->type == 1 ? 'checked' : '' }} >
-                          <label class="tgl-btn" data-tg-off="Unchecked" data-tg-on="Checked" for="assign_accept"></label>
+                          <input class="la-admin__toggle-switch" id="assign_accept" type="checkbox" name="type" {{ $assign->type == 1 ? 'checked' : '' }} >
+                          <label class="la-admin__toggle-label" data-tg-off="Unchecked" data-tg-on="Checked" for="assign_accept"></label>
                       </li>
                     </div>
                   </div>

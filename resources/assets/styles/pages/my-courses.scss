@@ -1,0 +1,27 @@
+section.la-section{
+    .la-section__inner{
+        .la-mycourses__title{
+            color:var(--gray5);
+            font-weight:var(--font-semibold);
+        }
+        .la-mycourses__subtitle{
+            color:var(--gray7);
+            font-weight:var(--font-normal);
+        }
+        .la-mycourses__more{
+            color:var(--app-indigo-1);
+            font-weight:var(--font-normal);
+            float:right;
+        
+            &:hover{
+                color:transparent;
+            }
+            &:hover:after{
+                clear:both;
+                content:"See the list";
+                position:relative;
+                color:var(--app-indigo-1);
+            }
+        }
+    }
+}

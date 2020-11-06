@@ -5,7 +5,7 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{ __('adminstaticword.Blog') }}</h3>
@@ -38,7 +38,7 @@
               <tr>
                 <td><?php echo $i;?></td>
                 <td>
-                  <img src="images/blog/{{$item->image}}" class="img-responsive" >
+                  <img src="images/blog/{{$item->image}}" class="img-fluid" >
                 </td>
                 
                 <td>{{$item->user->fname}}</td>

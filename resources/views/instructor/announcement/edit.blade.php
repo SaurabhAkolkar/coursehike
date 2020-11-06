@@ -5,7 +5,7 @@
 <section class="content">
   <div class="row">
     <!-- left column -->
-    <div class="col-xs-12">
+    <div class="col-12">
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
@@ -31,8 +31,8 @@
                 <div class="col-md-3">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                   <li class="tg-list-item">
-                    <input class="tgl tgl-skewed" id="cb77" type="checkbox" {{ $announs->status==1 ? 'checked' : '' }}>
-                    <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="cb77"></label>
+                    <input class="la-admin__toggle-switch" id="cb77" type="checkbox" {{ $announs->status==1 ? 'checked' : '' }}>
+                    <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="cb77"></label>
                   </li>
                   <input type="hidden" name="status" value="{{ $announs->status }}" id="jp">
                 </div>

@@ -6,7 +6,7 @@
 
 	@include('admin.message')
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
     <div class="box box-primary">
       <div class="box-header with-border">
         <h3 class="box-title">{{ __('adminstaticword.Course') }}</h3>
@@ -16,11 +16,8 @@
       </div>
       <!-- /.box-header -->
         <div class="box-body">
-          <div class="table-responsive">
-            <table id="example1" class="table table-bordered table-striped">
-
+          <table id="example1" class="table table-bordered table-striped">
               <thead>
-                
                 <tr>
                   <th>#</th>
                   <th>{{ __('adminstaticword.Image') }}</th>
@@ -43,9 +40,9 @@
                         <td><?php echo $i;?></td>
                         <td>
                           @if($cat['preview_image'] !== NULL && $cat['preview_image'] !== '')
-                              <img src="images/bundle/<?php echo $cat['preview_image'];  ?>" class="img-responsive" >
+                              <img src="images/bundle/<?php echo $cat['preview_image'];  ?>" class="img-fluid" >
                           @else
-                              <img src="{{ Avatar::create($cat->title)->toBase64() }}" class="img-responsive" >
+                              <img src="{{ Avatar::create($cat->title)->toBase64() }}" class="img-fluid" >
                           @endif
                         </td>
                         <td>{{$cat->title}}</td>
@@ -97,9 +94,9 @@
                         <td><?php echo $i;?></td>
                         <td>
                           @if($cor['preview_image'] !== NULL && $cor['preview_image'] !== '')
-                              <img src="images/course/<?php echo $cor['preview_image'];  ?>" class="img-responsive">
+                              <img src="images/course/<?php echo $cor['preview_image'];  ?>" class="img-fluid">
                           @else
-                              <img src="{{ Avatar::create($cor->title)->toBase64() }}" class="img-responsive" >
+                              <img src="{{ Avatar::create($cor->title)->toBase64() }}" class="img-fluid" >
                           @endif
                         </td>
                         <td>{{$cor->title}}</td>
@@ -142,8 +139,7 @@
                     @endforeach
                   @endif
               </tbody>
-            </table>
-          </div>
+          </table>
         </div>
       <!-- /.box-body -->
     </div>

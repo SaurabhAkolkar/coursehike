@@ -5,7 +5,7 @@
 <section class="content">
    @include('admin.message')
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
         	<div class="box box-primary">
 	           	<div class="box-header with-border">
               	<h3 class="box-title">{{ __('adminstaticword.ComingSoon') }}</h3>
@@ -20,7 +20,7 @@
 		                    <label for="bg_image">{{ __('adminstaticword.BackgroundImage') }}<sup class="redstar">*</sup></label>
 		                    <input type="file" name="bg_image" id="bg_image">
 		                    <br>
-		                    <img src="{{ url('/images/comingsoon/'.$comingsoon['bg_image']) }}" class="img-responsive"/>
+		                    <img src="{{ url('/images/comingsoon/'.$comingsoon['bg_image']) }}" class="img-fluid"/>
 		                    
 		                  </div>
 		                  <div class="col-md-6">

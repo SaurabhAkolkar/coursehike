@@ -11,10 +11,11 @@
 <section class="content">
   <div class="row">
     <div class="col-md-12">
-      <a data-toggle="modal" data-target="#myModalabc" href="#" class="btn btn-info btn-sm">+{{ __('adminstaticword.Add') }}</a>
-      <br>
-      <br>
-      <div class="table-responsive">
+        <div class="text-right">
+            <a data-toggle="modal" data-target="#myModalabc" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.AddRelatedCourse') }}</a>
+        </div>
+        <br/>
+       
         <table id="example1" class="table table-bordered table-striped">
           <thead>
             <tr>
@@ -40,29 +41,28 @@
                     @endif
                 </td>
                 <td>
-                  <a class="btn btn-success btn-sm" href="{{url('relatedcourse/'.$cat->id)}}"><i class="glyphicon glyphicon-pencil"></i></a>
+                  <a class="btn btn-success btn-sm" href="{{url('relatedcourse/'.$cat->id)}}"><i class="la-icon la-icon--lg icon-edit"></i></a>
                 </td>
                 <td>
                   <form  method="post" action="{{url('relatedcourse/'.$cat->id)}}
                   "data-parsley-validate class="form-horizontal form-label-left">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                      <button  type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash-o"></i></button>
+                      <button  type="submit" class="btn btn-danger"><i class="la-icon la-icon--lg icon-delete"></i></button>
                   </form>
                 </td>
               </tr>
             @endforeach
           </tbody>
         </table>
-      </div>
     </div>
   </div>
 
   <!--Model start-->
-  <div class="modal fade" id="myModalabc" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade show" id="myModalabc" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-md" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header d-block">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.RelatedCourse') }}</h4>
         </div>
@@ -106,8 +106,8 @@
                   <div class="col-md-12">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                     <li class="tg-list-item">
-                      <input class="tgl tgl-skewed" id="c2"  type="checkbox"/>
-                      <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="c2"></label>
+                      <input class="la-admin__toggle-switch" id="c2"  type="checkbox"/>
+                      <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="c2"></label>
                     </li>
                     <input type="hidden" name="status" value="1" id="t2">
                   </div>
@@ -115,7 +115,7 @@
                 <br>
 
                 <div class="box-footer">
-                  <button type="submit" class="btn btn-md col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                  <button type="submit" class="btn btn-md btn-primary col-md-4 ">{{ __('adminstaticword.Submit') }}</button>
                 </div>
                    
               </form>

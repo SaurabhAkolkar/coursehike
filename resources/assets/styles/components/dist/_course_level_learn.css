@@ -1,0 +1,12 @@
+.la-courseLl .numlearner,
+.la-courseLl .numvid,
+.la-courseLl i {
+  font-size: var(--text-5xl);
+  color: #6e1ccd;
+  font-family: var(--body-font);
+  font-weight: var(--font-light);
+}
+.la-courseLl .clevel,
+.la-courseLl .text {
+  margin-top: -10px;
+}

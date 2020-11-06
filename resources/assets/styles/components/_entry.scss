@@ -1,0 +1,256 @@
+#{$ap}- {
+    &entry {
+
+        & .la-footer {
+            display: none;
+        }
+
+        &__ {
+            &sec {
+                &-{
+                    &inner {
+                        // min-height: calc(100vh - 66px);
+                    }
+                }
+            }
+            &col{
+                &- {
+                    &left {
+                        // background: transparent radial-gradient(closest-side at 90% 37%, #C287F3 0%, #7322B7 100%) 0% 0% no-repeat padding-box;
+                    }
+                    &right {
+                        background: var(--gray);
+                    }
+                }
+            }
+            &content {
+                &- {
+                    &wrap {
+                        min-height: calc(100vh - var(--inner-padding));
+                        padding: 30px 0;
+                        // margin-bottom: 80px;
+
+                        @include respond-above(sm) {
+                            width: 340px;
+                            margin: 0 auto;
+                            padding: 50px 0;
+                        }
+                    }
+                    &top {
+                        margin-bottom: var(--size-14);
+                    }
+                    &title {
+                        color: var(--grey-7);
+                        font-size: var(--text-2xl);
+                        font-family: var(--head-font);
+                        font-weight: var(--font-bold);
+                    } 
+                }
+            }
+            &social{
+                &-{
+                    &lnk{
+                        margin-top: var(--size-2);
+                        margin-right: var(--size-3);
+                        transition:all 0.2s ease-in;
+
+                        &:hover{
+                            transform:scale(1.1);
+                            transition: all 0.2s ease-in;
+                        }
+                    }
+                }
+            }
+           
+            &interest {
+                width: 33.333%;
+                height: 33.333%;
+                padding: 5px;
+                &s  {
+                        width: 290px;
+                        height: 290px;
+                        margin: 0 auto;
+                        overflow-y: scroll;
+                        overflow-y: overlay;
+
+                        &::-webkit-scrollbar {
+                            width: 3px;
+                        }
+                        
+                        /* Track */
+                        &::-webkit-scrollbar-track {
+                        background: #f1f1f1; 
+                        }
+                        
+                        /* Handle */
+                        &::-webkit-scrollbar-thumb {
+                        background: #888; 
+                        }
+                        
+                        /* Handle on hover */
+                        &::-webkit-scrollbar-thumb:hover {
+                        background: #555; 
+                        }
+                        
+                    @include respond-above(sm) {
+                        width: 340px;
+                        height: 340px;
+                    }
+                    &- {
+                        // &title {
+                        //     color: var(--grey-7);
+                        //     font-size: var(--text-2xl);
+                        //     font-family: var(--head-font);
+                        //     font-weight: var(--font-bold);
+                        // } 
+                     }
+                }
+                &- {
+                    &inner {
+                        height: 100%;
+                        overflow: hidden;
+                    }
+                    &thumbnail {
+                        top: 0;
+                        left: 0;
+
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            background: transparent radial-gradient(closest-side at 32% 75%, #898989 0%, #010101 100%) 0% 0% no-repeat padding-box;
+                            opacity: 0.25;
+                        }
+                    }
+                    &name {
+                        position: relative;
+                        color: #F5F4F0;
+                        bottom: -8px;
+                        left: 0px;
+                    }
+
+                    &next{
+                        font-size: var(--text-xl);
+                        color: var(--app-indigo-1);
+                        font-weight: var(--font-bold);
+                        letter-spacing: 4px;
+                        position:relative;
+                        transition: all 0.25s ease-in;
+
+                        &:after{
+                            font-family:"icomoon";
+                            content:'\e97a';
+                            position: absolute;
+                            bottom:-35px;
+                            right:65px;
+                            font-size: var(--text-7xl);
+                            font-weight: var(--font-normal);
+                            color: var(--gray9);
+                        }
+                        &:hover{
+                            transform:scale(1.1);
+                            transition: all 0.25s ease-out;
+                        }
+                    }
+                }
+            }
+
+            &input {
+                padding-left: 64px;
+                &- {
+                    &wrap  {
+                        position: relative;
+                    }
+                    &icon {
+                        position: absolute;
+                        bottom: 0;
+                        height: 100%;
+                        width: 50px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        &:before {
+                            content: "";
+                            width: 1px;
+                            height: 50%;
+                            background: #DBDBDB;
+                            position: absolute;
+                            right: 0;
+                        }
+                    }
+                }
+            }
+
+            &slider {
+                background-size: cover;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &.swiper-container {
+                    padding-top: var(--inner-padding);
+                }
+
+                & .swiper-wrapper {
+                    height: initial !important;
+                }
+
+                & .swiper-pagination {
+                    bottom: 30px;
+                }
+
+                & .swiper-slide {
+                    opacity: 0 !important;
+                    background-size: 100%;
+                    background-size: 80%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+
+                    &.swiper-slide-active {
+                        opacity: 1 !important;
+                    }
+                }
+
+                & .swiper-pagination-bullet {
+                    border: 1px solid #ffffff
+                }
+                
+                &- {
+                    &wrap {
+                        height: 100vh;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 58.333%;
+                        z-index: 11;
+                        background: #7322b7; /* Old browsers */
+                        background: -moz-linear-gradient(left, #7322b7 0%, #c287f3 100%); /* FF3.6-15 */
+                        background: -webkit-linear-gradient(left, #7322b7 0%,#c287f3 100%); /* Chrome10-25,Safari5.1-6 */
+                        background: linear-gradient(to right, #7322b7 0%,#c287f3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7322b7', endColorstr='#c287f3',GradientType=1 );
+                    }
+                }
+            }
+
+            &bottom {
+                &- {
+                    &title {
+                        color: #222222;
+                        opacity: 0.5;
+                    }
+                }
+            }
+
+            &other {
+                &- {
+                    &option{
+                        color: #9B9B9B;
+                        font-size: var(--text-sm);
+                    }
+                }
+            }
+        }
+    }
+}

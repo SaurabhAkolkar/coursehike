@@ -5,14 +5,14 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title"> {{ __('adminstaticword.User') }} {{ __('adminstaticword.Order') }}</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <div class="table-responsive">
+         
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 
@@ -31,40 +31,41 @@
                 </tr>
               </thead>
               <tbody>
-              <?php $i=0;?>
-              @foreach($orders as $order)
-                <?php $i++;?>
-                <tr>
-                  <td><?php echo $i;?></td>
-                  <td>{{$order->user->fname}}</td>                 
-                  <td>{{$order->courses['title']}}</td>
-                  <td>{{$order->transaction_id}}</td>
-                  <td>{{$order->payment_method}}</td>
-                  <td>{{$order->currency}}</td>
+                  <?php $i=0;?>
+                  @foreach($orders as $order)
+                    <?php $i++;?>
+                    <tr>
+                      <td><?php echo $i;?></td>
+                      <td>{{$order->user->fname}}</td>                 
+                      <td>{{$order->courses['title']}}</td>
+                      <td>{{$order->transaction_id}}</td>
+                      <td>{{$order->payment_method}}</td>
+                      <td>{{$order->currency}}</td>
 
-                  @if($order->coupon_discount == !NULL)
-                    <td><i class="{{ $order->currency_icon }}"></i>{{ $order->total_amount - $order->coupon_discount }}</td>
-                  @else
-                    <td><i class="fa {{ $order->currency_icon }}"></i>{{ $order->total_amount }}</td>
-                  @endif
+                      @if($order->coupon_discount == !NULL)
+                        <td><i class="{{ $order->currency_icon }}"></i>{{ $order->total_amount - $order->coupon_discount }}</td>
+                      @else
+                        <td><i class="fa {{ $order->currency_icon }}"></i>{{ $order->total_amount }}</td>
+                      @endif
 
-                  <td><a class="btn btn-primary btn-sm" href="{{route('view.order',$order->id)}}">{{ __('adminstaticword.View') }}</a>
-                  </td>
-                  
-                  <td>
-                    <form  method="post" action="{{url('order/'.$order->id)}}"
-                        data-parsley-validate class="form-horizontal form-label-left">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                      <button type="submit" class="btn btn-danger">
-                            <i class="fa fa-fw fa-trash-o"></i>
-                      </button>
-                    </form>
-                  </td>
-                </tr>
-              @endforeach 
+                      <td><a class="btn btn-primary btn-sm" href="{{route('view.order',$order->id)}}">{{ __('adminstaticword.View') }}</a>
+                      </td>
+                      
+                      <td>
+                        <form  method="post" action="{{url('order/'.$order->id)}}"
+                            data-parsley-validate class="form-horizontal form-label-left">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                          <button type="submit" class="btn btn-danger">
+                                <i class="fa fa-fw fa-trash-o"></i>
+                          </button>
+                        </form>
+                      </td>
+                    </tr>
+                  @endforeach 
+              </tbody>
             </table>
-          </div>
+        
         </div>
         <!-- /.box-body -->
       </div>

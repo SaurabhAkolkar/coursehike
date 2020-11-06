@@ -19,8 +19,8 @@
       <div class="form-group">
         <label for="exampleInputDetails">{{ __('adminstaticword.LinkByCourse') }}:</label>
         <li class="tg-list-item">
-            <input class="tgl tgl-skewed" id="link_by" type="checkbox" name="link_by" {{ $meeting->link_by == 'course' ? 'checked' : '' }}>
-            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="link_by"></label>
+            <input class="la-admin__toggle-switch" id="link_by" type="checkbox" name="link_by" {{ $meeting->link_by == 'course' ? 'checked' : '' }}>
+            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="link_by"></label>
         </li>
         <input type="hidden" name="free" value="0" for="opp" id="link_by">
       </div>
@@ -98,14 +98,14 @@
 
             <div class="form-group">
             	<label>Set Mute on Start:</label>
-            	<input {{ $meeting->setMuteOnStart == 1 ? "checked" : "" }} class="tgl tgl-skewed" name="setMuteOnStart" id="setMuteOnStart" type="checkbox"/>
-		    	    <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="setMuteOnStart"></label>
+            	<input {{ $meeting->setMuteOnStart == 1 ? "checked" : "" }} class="la-admin__toggle-switch" name="setMuteOnStart" id="setMuteOnStart" type="checkbox"/>
+		    	    <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="setMuteOnStart"></label>
             </div>
 
              <div class="form-group">
               <label>Allow Record:</label>
-              <input {{ $meeting->allow_record == '1' ? "checked" : "" }} class="tgl tgl-skewed" name="allow_record" id="allow_record" type="checkbox"/>
-              <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="allow_record"></label>
+              <input {{ $meeting->allow_record == '1' ? "checked" : "" }} class="la-admin__toggle-switch" name="allow_record" id="allow_record" type="checkbox"/>
+              <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="allow_record"></label>
             </div>
 
             

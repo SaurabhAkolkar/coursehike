@@ -2,12 +2,12 @@
   {{-- @include('admin.message') --}}
   <div class="row">
     <!-- left column -->
-    <div class="col-xs-12">
+    <div class="col-12">
       <!-- general form elements -->
         <div class="box-header with-border">
-          <h3 class="box-title"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Course') }}</h3>
+          <h3 class="box-title pb-6"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Course') }}</h3>
         </div>
-        <br>
+        
         <!-- /.box-header -->
         <div class="box-body">
           <div class="form-group">
@@ -56,8 +56,8 @@
                   @php
                     $User = App\User::all();
                   @endphp
-                  <label for="exampleInputSlug">{{ __('adminstaticword.SelectUser') }}</label>
-                  <select name="user" class="form-control js-example-basic-single col-md-7 col-xs-12">
+                  <label for="exampleInputSlug">{{ __('adminstaticword.Instructor') }}</label>
+                  <select name="user" class="form-control js-example-basic-single col-md-7 col-12">
                     <option  value="{{ Auth::user()->id }}">{{ Auth::user()->fname }}</option>
                   </select>
                 </div>
@@ -70,7 +70,7 @@
                       $languages = App\CourseLanguage::all();
                   @endphp
                   <label for="exampleInputSlug">{{ __('adminstaticword.SelectLanguage') }}</label>
-                  <select name="language_id" class="form-control js-example-basic-single col-md-7 col-xs-12">
+                  <select name="language_id" class="form-control js-example-basic-single col-md-7 col-12">
                     @foreach($languages as $cat)
                       <option {{ $cor->language_id == $cat->id ? 'selected' : "" }} value="{{ $cat->id }}">{{ $cat->name }}</option>
                     @endforeach
@@ -82,14 +82,9 @@
 
               <div class="row">
 
-                <div class="col-md-6"> 
+                <div class="col-md-12"> 
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="title" id="exampleInputTitle" value="{{ $cor->title }}">
-                </div>
-                
-                <div class="col-md-6">
-                  <label for="exampleInputSlug">{{ __('adminstaticword.Slug') }}: <sup class="redstar">*</sup></label>
-                  <input pattern="[/^\S*$/]+" type="text" class="form-control" name="slug" id="exampleInputPassword1" value="{{ $cor->slug}}" required>
                 </div>
               </div>
               <br>
@@ -113,48 +108,139 @@
                 </div>
               </div>
               <br>
-
-              <div class="row">
-                <div class="col-md-3 display-none">
-                  <label for="exampleInputDetails">{{ __('adminstaticword.MoneyBack') }}:</label>
-                  <li class="tg-list-item">
-                    <input  class="tgl tgl-skewed" id="rox" type="checkbox" @if($cor->day !="" && $cor->day !="") checked @endif/>
-                    <label class="tgl-btn" data-tg-off="No" data-tg-on="Yes" for="rox" ></label>
-                  </li>
-                  <input type="hidden" name="money" value="0" id="roxx">
-                  <br>     
-
-                  <div @if($cor->day =="" && $cor->day =="") class="display-none" @endif id="jeet">
-                    <label for="exampleInputSlug">{{ __('adminstaticword.Days') }}:<sup class="redstar">*</sup></label>
-                    <input type="number" min="1"  class="form-control" name="day" id="exampleInputPassword1" placeholder="Please Your Enter day" value="{{ $cor->day }}">
-                  </div>
-                </div>
+              
+              {{-- <div class="row">
                 <div class="col-md-3">
-                  <label for="exampleInputDetails">{{ __('adminstaticword.Free') }}:</label>  
-                  <li class="tg-list-item"> 
-                    <input  class="tgl tgl-skewed" id="cb111" name="type" type="checkbox" {{ $cor->type == '1' ? 'checked' : '' }}/>
-                    <label class="tgl-btn" data-tg-off="Free" data-tg-on="Paid" for="cb111" ></label>
-                  </li>
-                  <input type="hidden" name="free" value="0" id="j111">
-                  <br>     
+                  <label for="exampleInputSlug">Course Expire Duration</label>
+                  <p class="inline info"> - Please enter duration in month</p>
+                  <input min="1" class="form-control" name="duration" type="number" id="duration" value="{{ $cor->duration }}" placeholder="Enter Duration in months">
+                </div>
+              </div> --}}
 
-                  <div @if($cor->price =="" && $cor->price =="") class="display-none" @endif id="doabox">
-                    <label for="exampleInputSlug">{{ __('adminstaticword.Price') }}: <sup class="redstar">*</sup></label>
-                    <input type="number" step="0.01"   class="form-control" name="price" id="exampleInputPassword1" placeholder="Please Your Enter paid" value="{{ $cor->price }}">
-                  </div>
+              <!-- COURSE PACKAGE TYPE: START -->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="la-admin__course-package">
+                      <label for="" class="la-admin__cp-title">Course package type<sup class="redstar">*</sup></label><br/>
+                      <div class="la-admin__cp-subscription">
+                          <input type="radio" name="package_type" id="subPaid" value="1" class="la-admin__cp-input" {{ $cor->package_type == '1' ? 'checked' : '' }} > 
+                           <label for="subPaid"> 
+                             <div class="la-admin__cp-circle">
+                                <span class="la-admin__cp-radio"></span>
+                                <span class="la-admin__cp-label">Subscription</span> 
+                                <small><i class="fa fa-info-circle px-2"></i> (Default)</small>
+                             </div>
 
-                  <div @if($cor->price =="" && $cor->discount_price =="") class="display-none" @endif id="doaboxx">
-                  <br>
-                    <label for="exampleInputSlug">{{ __('adminstaticword.DiscountPrice') }}: <sup class="redstar">*</sup></label>
-                    <input type="number" step="0.01"  class="form-control" name="discount_price" id="exampleInputPassword1" placeholder="Please Your Enter paid" value="{{ $cor->discount_price }}">
+                              <div class="la-admin__cp-desc">
+                                  <p>This course is accessible by all Subscribers & also available for life-time purchase. </p>
+                                  <p>Please enter the Course cost for One-Time Purchase</p>
+                                  <div class="form-group row  la-admin__subform-group">
+                                      <div class="input-group col-sm-6 la-admin__subinput-group">
+                                        <div class="input-group-prepend la-admin__subinput-prepend" >
+                                            <span class="fa fa-dollar input-group-text la-admin__subinput-text"></span> 
+                                        </div>
+                                        <input type="text" class="form-control la-admin__subform-input" name="price" style="width:160px" value="{{ $cor->price }}"/>
+                                      </div>
+                                  </div>
+                              </div>
+                          </label>
+                      </div>
+
+                        {{-- <div class="la-admin__cp-premium ">
+                          <input type="radio" name="subscription" id="subPremium" value="Premium" class="la-admin__cp-input"> 
+                              <label for="subPremium" > 
+                                <div class="la-admin__cp-circle">
+                                  <span class="la-admin__cp-radio"></span>
+                                  <span class="la-admin__cp-label">Premium </span>
+                                  <small><i class="fa fa-info-circle pl-1"></i> </small>
+                                </div>
+                                <div class="la-admin__cp-desc">
+                                    <p> This course is accessible only by exclusive purchase </p>
+                                </div>
+                            </label>
+                        </div> <br/> --}}
+
+                        <div class="la-admin__cp-free">
+                            <input type="radio" name="package_type" id="subFree" value="0" class="la-admin__cp-input" {{ $cor->package_type == '0' ? 'checked' : '' }} >
+                            <label for="subFree" > 
+                              <div class="la-admin__cp-circle">
+                                <span class="la-admin__cp-radio"></span>
+                                <span class="la-admin__cp-label">Free</span> 
+                                <small><i class="fa fa-info-circle pl-1"></i> </small>
+                              </div>
+
+                                <div class="la-admin__cp-desc">
+                                    <p class="la-admin__cp-desc">  This course is accessible by any learner </p>
+                                </div>
+                            </label>
+                        </div>
                   </div>
                 </div>
+              </div>
+               <!-- COURSE PACKAGE TYPE: END -->
+              <div class="la-admin__hr-line"></div>
+               <!-- PREVIEW IMAGE & VIDEO FILES: START -->
+              <div class="row">
+                
+                <div class="col-md-5">
+                    <div class="la-admin__preview">
+                      <label for="" class="la-admin__preview-label">{{ __('adminstaticword.PreviewImage') }}:<sup class="redstar">*</sup></label>
+                      <div class="la-admin__preview-img la-admin__course-imgvid" >
+                            <div class="la-admin__preview-text">
+                                <p class="la-admin__preview-size">Preview Image size: 250x150</p>
+                                <p class="la-admin__preview-file text-uppercase">Choose a File</p>
+                          </div>
+                          <div class="text-center pr-20 mr-10">
+                            <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:160px;">
+                              <span class="path1"><span class="path2"></span></span>
+                            </span>
+                          </div>
+                          <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="preview_image" id="image" />
+                          @if($cor['preview_image'] !== NULL && $cor['preview_image'] !== '')
+                              <img src="{{ url('/images/course/'.$cor->preview_image) }}" class="preview-img" />
+                          @else
+                              <img src="{{ Avatar::create($cor->title)->toBase64() }}" alt="course" class="preview-img img-fluid">
+                          @endif
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-5">
+                      <div class="la-admin__preview">
+                        <label for="" class="la-admin__preview-label"> {{ __('adminstaticword.PreviewVideo') }}:</label>
+                        <div class="la-admin__preview-video la-admin__course-imgvid">
+                           <div class="la-admin__preview-text">
+                                  <p class="la-admin__preview-size">Preview video size: 20MB</p>
+                                  <p class="text-uppercase la-admin__preview-file">Choose a File</p>
+                            </div>
+                            <div class="text-center pr-20 mr-10">
+                              <span class="la-icon la-icon--8xl icon-preview-video" style="font-size:160px;">
+                                <span class="path1"><span class="path2"></span></span>
+                              </span>
+                            </div>
+                            <input type="file" class="form-control la-admin__preview-input preview_video" name="preview_video" value="{{ $cor->preview_video }}"/>
+                            {{-- @if($cor->video !="") --}}
+                              <video controls class="preview-video w-100">
+                                <source src="{{ asset('video/preview/'.$cor->preview_video) }}" id="preview-video-source">
+                                  Your browser does not support HTML5 video.
+                              </video>
+                            {{-- @endif  --}}
+                        </div>
+                      </div>
+                </div>
+              </div>
+               <!-- PREVIEW IMAGE & VIDEO FILES: END -->
+              <br>
+              <br> 
+
+              <div class="row">    
+
                 <div class="col-md-3"> 
                   @if(Auth::User()->role == "admin")
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Featured') }}:</label>
                   <li class="tg-list-item">
-                    <input class="tgl tgl-skewed" id="cb1" type="checkbox"{{ $cor->featured==1 ? 'checked' : '' }}>
-                    <label class="tgl-btn" data-tg-off="No" data-tg-on="Yes" for="cb1"></label>
+                    <input class="la-admin__toggle-switch" id="cb1" type="checkbox" name="featured" {{ $cor->featured==1 ? 'checked' : '' }}>
+                    <label class="la-admin__toggle-label" data-tg-off="No" data-tg-on="Yes" for="cb1"></label>
                   </li>
                   <input type="hidden" name="featured" value="{{ $cor->featured }}" id="f">
                   @endif
@@ -163,61 +249,13 @@
                   @if(Auth::User()->role == "admin")
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                     <li class="tg-list-item">
-                    <input class="tgl tgl-skewed" id="cb333" type="checkbox" {{ $cor->status==1 ? 'checked' : '' }}>
-                    <label class="tgl-btn" data-tg-off="Deactive" data-tg-on="Active" for="cb333"></label>
+                    <input class="la-admin__toggle-switch" id="cb333" type="checkbox" name="status" {{ $cor->status==1 ? 'checked' : '' }}>
+                    <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="cb333"></label>
                     </li>
                     <input type="hidden" name="status" value="{{ $cor->status }}" id="c33">
                   @endif
-                </div>
+                </div> 
               </div>
-              <br>
-           
-              <div class="row">
-                <div class="col-md-6">
-                  <label for="exampleInputDetails">{{ __('adminstaticword.PreviewVideo') }}:</label>  
-                  <li class="tg-list-item"> 
-                    <input name="preview_type"  class="tgl tgl-skewed" id="preview" type="checkbox" {{ $cor->preview_type=="video" ? 'checked' : '' }}>
-
-                    <label class="tgl-btn" data-tg-off="URL" data-tg-on="Upload" for="preview" ></label>
-                  </li>
-                  <input type="hidden" name="free" value="0" id="to">
-
-                  <div @if($cor->preview_type =="url" ) class="display-none" @endif id="document1">
-                    <label for="exampleInputSlug">{{ __('adminstaticword.UploadVideo') }}: <sup class="redstar">*</sup></label>
-                    <input  type="file" class="form-control" name="video" id="video" value="{{ $cor->video }}">
-                    @if($cor->video !="")
-                      <video src="{{ asset('video/preview/'.$cor->video) }}" width="200" height="150" autoplay="no">
-                      </video>
-                    @endif 
-                  </div>
-
-                  <div @if($cor->preview_type =="video") class="display-none" @endif id="document2">
-                    <br>
-                    <label for="exampleInputSlug">{{ __('adminstaticword.URL') }}: <sup class="redstar">*</sup></label>
-                    <input  class="form-control" placeholder="Enter Your URL" name="url" id="url" value="{{ $cor->url }}">
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <label>{{ __('adminstaticword.PreviewImage') }}:</label> 
-                  <br> 
-                  <input type="file" name="image" id="image" class="inputfile inputfile-1"  />
-                  <label for="image"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="7" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>{{ __('adminstaticword.Chooseafile') }}&hellip;</span>
-                  </label>
-                  <br>
-                  @if($cor['preview_image'] !== NULL && $cor['preview_image'] !== '')
-                      <img src="{{ url('/images/course/'.$cor->preview_image) }}" height="70px;" width="70px;"/>
-                  @else
-                      <img src="{{ Avatar::create($cor->title)->toBase64() }}" alt="course" class="img-fluid">
-                  @endif
-                </div>
-                <div class="col-md-3">
-                  <label for="exampleInputSlug">Course Expire Duration</label>
-                  <p class="inline info"> - Please enter duration in month</p>
-                  <input min="1" class="form-control" name="duration" type="number" id="duration" value="{{ $cor->duration }}" placeholder="Enter Duration in months">
-                </div>
-              </div>
-              <br>
-              <br>
 
               <div class="box-footer">
                 <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('adminstaticword.Save') }}</button>
@@ -364,6 +402,26 @@
 
 })(jQuery);
 
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();    
+    reader.onload = function(e) {
+      $(input).siblings('.preview-img').attr('src', e.target.result).removeClass('d-none');
+    }
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
+}
+
+$(".preview_img").change(function() {
+  readURL(this);
+});
+
+$(document).on("change", ".preview_video", function(evt) {
+  var $source = $(this).siblings('.preview-video');
+  $source.find("source").attr("src", URL.createObjectURL(this.files[0]));
+  $source.load();
+  $($source).removeClass('d-none');
+});
 </script>
   
 @endsection

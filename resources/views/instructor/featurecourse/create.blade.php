@@ -6,7 +6,7 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-6">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">  {{ __('adminstaticword.Feature') }} {{ __('adminstaticword.Course') }}</h3>

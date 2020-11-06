@@ -1,0 +1,78 @@
+#{$ap}- {
+    &rto{
+        &__{
+            &item-img{
+                width:160px;
+                height:100px;
+                overflow:hidden;
+                border-radius:10px;
+                img{
+                    width:160px;
+                    height:100px;
+                    transition:all 0.2s ease-in;-webkit-transition:all 0.2s ease-in;-moz-transition:all 0.2s ease-in;-ms-transition:all 0.2s ease-in;-o-transition:all 0.2s ease-in;
+                    
+                    &:hover{
+                        transform:scale(1.2);-webkit-transform:scale(1.2);-moz-transform:scale(1.2);-ms-transform:scale(1.2);-o-transform:scale(1.2);
+                        transition:all 0.2s ease-out;-webkit-transition:all 0.2s ease-out;-moz-transition:all 0.2s ease-out;-ms-transition:all 0.2s ease-out;-o-transition:all 0.2s ease-out;
+                    }
+                }
+            }
+            &item-subscribed{
+                font-weight:var(--font-bold);
+                color:var(--gray6);
+            }
+            &categories{
+                color:var(--gray5);
+                opacity:0.6;
+                font-weight:var(--font-normal);
+            }
+            &item-title{
+                color:var(--gray6);
+                font-weight:var(--font-bold);
+            }
+            &item-author{
+                color:var(--gray6);
+                font-weight:var(--font-normal);
+            }
+            &item-fromdate, &item-todate, &item-paymode, &item-total, &item-paystatus{
+                color:var(--gray6);
+                font-weight:var(--font-normal);
+            }
+            &item-invoice{
+                color:var(--gray6);
+                font-weight:var(--font-bold);
+            }
+            &item-download{
+                color:var(--app-indigo-1);
+            }
+            &item-actions{
+                color:var(--app-indigo-1);
+                font-weight:var(--font-bold);
+            }
+        }
+    }
+}
+
+
+@media (max-width:991px){
+    #{$ap}- {
+        &rto{
+            &__{
+                &item-img{
+                    width:100%;
+                    height:auto;
+                    img{
+                        width:100%;
+                        height:auto;
+                    }
+                }
+                &item-paystatus{
+                    color:#1EC812;
+                }
+                &categories{
+                    opacity:1;
+                }            
+            }
+        }
+    }
+}

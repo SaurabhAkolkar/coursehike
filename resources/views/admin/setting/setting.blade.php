@@ -6,7 +6,7 @@
 
 <section class="content">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
             <h1 class="box-title">{{ __('adminstaticword.SiteSetting') }}</h1>

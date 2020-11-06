@@ -57,11 +57,11 @@ Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallba
 
     Route::middleware(['is_verified'])->group(function () {
   
-        // Route::get('/', function () {
-        //     return view('home');
-        // });
+         Route::get('/', function () {
+            return view('home');
+         });
 
-        // Route::get('/', 'HomeController@index');
+        Route::get('/', 'HomeController@index');
 
         Route::get('/home', 'HomeController@index')->name('home');
 
@@ -301,6 +301,7 @@ Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallba
     Route::resource('course','CourseController');
     Route::resource('courseinclude','CourseincludeController');
     Route::resource('coursechapter','CoursechapterController');
+    Route::resource('courseresource','CourseresourceController');
     Route::resource('whatlearns','WhatlearnsController');
     Route::resource('relatedcourse','RelatedcourseController');
     Route::resource('questionanswer','QuestionanswerController');
@@ -369,8 +370,7 @@ Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallba
     Route::get('/course/{id}/{slug}','CourseController@CourseDetailPage')->name('user.course.show');
     Route::get('all/blog','BlogController@blogpage')->name('blog.all');
     Route::get('about/show','AboutController@aboutpage')->name('about.show');
-    Route::get('show/comingsoon','ComingSoonController@comingsoonpage')
-    ->name('comingsoon.show');
+    Route::get('show/comingsoon','ComingSoonController@comingsoonpage')->name('comingsoon.show');
     Route::get('show/careers','CareersController@careerpage')->name('careers.show');
     Route::get('detail/blog/{id}','BlogController@blogdetailpage')->name('blog.detail');
     Route::get('gotomycourse', 'CourseController@mycoursepage')->name('mycourse.show');
@@ -580,7 +580,19 @@ Route::get('all/assignment', 'AssignmentController@view')->name('assignment.view
 Route::get('view/assignment/{id}', 'AssignmentController@assignment')->name('list.assignment');
 
 
+// Harish Route's
+
+// Route::view('/subscription/plans','subscription.pay');
+Route::get('/subscription/{slug}', 'SubscriptionController@plans');
+Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
+
+Route::get("zoho/module","ZohoController@createRecords");
+Route::view('/edit', 'admin.course.courseresource.edit');
+
+
+Route::view('/requests', 'instructor.requests.index');
 // Route for Learner's View
+
 Route::view('/','learners.pages.home');
 
 Route::view('/signup','learners.auth.signup');
@@ -589,8 +601,8 @@ Route::view('/interests','learners.auth.interests');
 Route::view('/creator-signup','learners.auth.creator-signup');
 
 Route::view('/user-dashboard','learners.pages.user-dashboard');
-Route::view('/courses','learners.pages.courses');
-Route::view('/course','learners.pages.course');
+Route::view('/browse/courses','learners.pages.courses');
+Route::view('/learn/course/1','learners.pages.course');
 Route::view('/my-courses','learners.pages.my-courses');
 Route::view('/mentors','learners.pages.mentors');
 Route::view('/creator','learners.pages.creator');
@@ -598,11 +610,14 @@ Route::view('/creator','learners.pages.creator');
 Route::view('/profile','learners.pages.profile');
 Route::view('/wishlist','learners.pages.wishlist');
 Route::view('/cart','learners.pages.cart');
-Route::view('/playlist','learners.pages.playist');
+Route::view('/playlist','learners.pages.playlist');
 Route::view('/purchase-history','learners.pages.purchase-history');
+Route::view('/saved-cards', 'learners.pages.saved-cards');
+Route::view('billing-address', 'learners.pages.billing-address');
 
 Route::view('/releases','learners.pages.new-releases');
 Route::view('/learning-plans','learners.pages.learning-plans');
+// Route::view('/payment', 'learners.pages.payment');
 Route::view('/become-creator','learners.pages.become-creator');
 Route::view('/guided-creator','learners.pages.guided-creator');
 Route::view('/contact','learners.pages.contact');

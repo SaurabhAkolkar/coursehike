@@ -5,14 +5,14 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{ __('adminstaticword.AllMessage') }}</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <div class="table-responsive">
+         
             <table id="example1" class="table table-bordered table-striped">
               
               <thead>
@@ -49,7 +49,7 @@
                 </tr>
               </tfoot>
             </table>
-          </div>
+         
         </div>
         <!-- /.box-body -->
       </div>

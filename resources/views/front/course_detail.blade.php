@@ -310,10 +310,10 @@
                         </div>
 
                         <!--Model start-->
-                        <div class="modal fade" id="myModalshare" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal fade show" id="myModalshare" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog modal-lg" role="document">
                               <div class="modal-content">
-                                <div class="modal-header">
+                                <div class="modal-header d-block">
 
                                   <h4 class="modal-title" id="myModalLabel">{{ __('frontstaticword.Sharethiscourse') }}</h4>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -696,10 +696,10 @@
                                                 <a href="" data-toggle="modal" data-target="#myModalBBL" title="join" class="btn btn-light" title="course">{{ __('frontstaticword.JoinMeeting') }}</a>
                                             </li>
 
-                                            <div class="modal fade" id="myModalBBL" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                            <div class="modal fade show" id="myModalBBL" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                                 <div class="modal-dialog modal-lg" role="document">
                                                   <div class="modal-content">
-                                                    <div class="modal-header">
+                                                    <div class="modal-header d-block">
 
                                                       <h4 class="modal-title" id="myModalLabel">{{ __('frontstaticword.JoinMeeting') }}</h4>
                                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -1289,10 +1289,10 @@
                                         @endif
                                         {{-- report --}}
                                         <a href="#" data-toggle="modal" data-target="#myModalreport"  title="report">{{ __('frontstaticword.Report') }}</a>
-                                        <div class="modal fade" id="myModalreport" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                        <div class="modal fade show" id="myModalreport" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                             <div class="modal-dialog modal-lg" role="document">
                                               <div class="modal-content">
-                                                <div class="modal-header">
+                                                <div class="modal-header d-block">
                                                   <h4 class="modal-title" id="myModalLabel">{{ __('frontstaticword.Report') }}</h4>
                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 </div>
@@ -1331,7 +1331,7 @@
                                                             </div>
                                                             <br>
                                                             <div class="box-footer">
-                                                             <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('frontstaticword.Submit') }}</button>
+                                                             <button type="submit" class="btn btn-lg col-md-6 btn-primary">{{ __('frontstaticword.Submit') }}</button>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -1537,10 +1537,10 @@
 
                 <!--Model start-->
                 @auth
-                <div class="modal fade" id="myModalCourse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal fade show" id="myModalCourse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header d-block">
 
                           <h4 class="modal-title" id="myModalLabel">{{ __('frontstaticword.Report') }}</h4>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -1577,7 +1577,7 @@
                                 </div>
                                 <br>
                                 <div class="box-footer">
-                                    <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('frontstaticword.Submit') }}</button>
+                                    <button type="submit" class="btn btn-lg col-md-6 btn-primary">{{ __('frontstaticword.Submit') }}</button>
                                 </div>
                             </form>
                             </div>

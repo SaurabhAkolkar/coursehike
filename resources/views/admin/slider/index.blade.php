@@ -15,7 +15,7 @@
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{ __('adminstaticword.Slider') }}</h3>
@@ -44,7 +44,7 @@
               <tr class="sortable" id="id-{{ $cat->id }}">
                 <td><?php echo $i;?></td>
                 <td>
-                  <img src="{{ asset('images/slider/'.$cat->image) }}" class="img-responsive">
+                  <img src="{{ asset('images/slider/'.$cat->image) }}" class="img-fluid">
                 </td>
                 <td>{{$cat->heading}}</td>
                 <td>{{$cat->sub_heading}}</td> 
@@ -62,7 +62,7 @@
                 </td>
               
                 <th><a class="btn btn-primary btn-sm" href="{{url('slider/'.$cat->id)}}">
-                  <i class="glyphicon glyphicon-pencil"></i></a></th>
+                  <i class="fa fa-edit"></i></a></th>
 
                 <td>
                   <form  method="post" action="{{url('slider/'.$cat->id)}}

@@ -8,14 +8,14 @@
       <div class="col-md-12">
         <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">{{ __('adminstaticword.Invoice') }}</h3>
+              <h3 class="box-title pb-6">{{ __('adminstaticword.Invoice') }}</h3>
             </div>
             <div class="panel-body">
         
             <div id="printableArea">
               <!-- title row -->
               <div class="row">
-                  <div class="col-xs-12">
+                  <div class="col-12">
                     <h2 class="page-header">
                       @if($gsetting->logo_type == 'L')
                         <div class="logo-invoice">

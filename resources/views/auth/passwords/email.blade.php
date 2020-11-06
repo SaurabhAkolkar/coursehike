@@ -1,13 +1,12 @@
+@extends('learners.layouts.intro')
 @section('title', 'Forgot Password')
-@include('theme.head')
+{{-- @include('theme.head') --}}
 
 @include('admin.message')
 
-<!-- end head -->
-<!-- body start-->
-<body>
+
 <!-- top-nav bar start-->
-<section id="nav-bar" class="nav-bar-main-block nav-bar-main-block-one">
+{{-- <section id="nav-bar" class="nav-bar-main-block nav-bar-main-block-one">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4">
@@ -35,12 +34,14 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!-- top-nav bar end-->
-<section id="signup" class="signup-block-main-block">
+
+@section('content')
+<section id="signup" class="signup-block-main-block pt-md-20 mt-md-20">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-8 ">
                 <div class="card">
                     <div class="card-header">{{ __('frontstaticword.ResetPassword') }}</div>
 
@@ -82,10 +83,7 @@
         </div>
     </div>
 </section>
+@endsection
 
-@include('theme.scripts')
-<!-- end jquery -->
-</body>
-<!-- body end -->
-</html> 
+{{-- @include('theme.scripts') --}}
 

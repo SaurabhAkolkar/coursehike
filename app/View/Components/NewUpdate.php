@@ -16,15 +16,13 @@ class NewUpdate extends Component
     public $title;
     public $timestamp;
     public $desc;
-    public $collapseId;
 
-    public function __construct($img, $title, $timestamp, $desc, $collapseId)
+    public function __construct($img, $title, $timestamp, $desc)
     {
         $this->img = $img;
         $this->title = $title;
         $this->timestamp = $timestamp;
         $this->desc = $desc;
-        $this->collapseId = $collapseId;
     }
 
     /**

@@ -6,13 +6,13 @@
     <section class="la-section">
       <div class="la-section__inner">
         <div class="container"><a class="la-icon--lg icon-arrow my-5 px-3 d-block d-md-none" href="#"></a>
-          <div class="col-12 d-lg-flex justify-content-between align-items-center mb-4">
-            <h1 class="la-mycourses__title text-4xl">My Courses</h1>
+          <div class="col-12 ">
+            <h1 class="la-mycourses__title text-4xl  mb-8">My Courses</h1>
             <!-- Global Search: Start-->
             <div class="la-gsearch">
               <form class="form-inline" action="">
-                <div class="form-group flex-grow-1">
-                  <input class="la-gsearch__input w-100 form-control" type="text" placeholder="What you want to learn today?">
+                <div class="form-group ">
+                  <input class="la-gsearch__input form-control w-100" style="background:transparent" type="text" placeholder="Search course or class">
                 </div>
                 <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--3xl icon icon-search"></i></button>
               </form>
@@ -50,6 +50,19 @@
               @endforeach
                     
             </div><a class="la-mycourses__more" id="viewOngoing">See all</a>
+
+            <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
+              <div class="la-empty__inner">
+                  <h6 class="la-empty__course-title pb-2">No Courses</h6>
+                  <p class="la-empty__course-desc m-0">You currently don't have any ongoing course, start new course</p>
+              </div>
+              <div class="la-empty__browse-courses">
+                  <a href="" class="la-empty__browse">
+                      Browse Courses
+                      <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
+                  </a>
+              </div>
+          </div>
           </div>
         </div>
       </div>
@@ -128,6 +141,19 @@
               @endforeach
                                  
             </div><a class="la-mycourses__more" id="viewCompleted">See all</a>
+
+            <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
+              <div class="la-empty__inner">
+                  <h6 class="la-empty__course-title pb-2">No Courses</h6>
+                  <p class="la-empty__course-desc m-0">You have not finished any course yet.</p>
+              </div>
+              <div class="la-empty__browse-courses">
+                  <a href="" class="la-empty__browse">
+                      Browse Courses
+                      <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
+                  </a>
+              </div>
+          </div>
           </div>
         </div>
       </div>

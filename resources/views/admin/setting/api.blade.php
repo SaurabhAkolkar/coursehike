@@ -19,8 +19,8 @@
 							<div class="col-md-12">
 		                        <label for="s_enable">{{ __('adminstaticword.STRIPEPAYMENT') }}</label>
 		                        <li class="tg-list-item">
-		                          <input class="tgl tgl-skewed" id="s_sec1" type="checkbox" name="stripe_check" {{ $gsetting->stripe_enable==1 ? 'checked' : '' }}/>
-		                          <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="s_sec1"></label>
+		                          <input class="la-admin__toggle-switch" id="s_sec1" type="checkbox" name="stripe_check" {{ $gsetting->stripe_enable==1 ? 'checked' : '' }}/>
+		                          <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="s_sec1"></label>
 		                        </li>
 		                        
 
@@ -45,8 +45,8 @@
 							<div class="col-md-12">
 		                        <label for="pay_enable">{{ __('adminstaticword.PAYPALPAYMENT') }}</label> 
 		                        <li class="tg-list-item">
-		                          <input class="tgl tgl-skewed" id="pay_sec1" type="checkbox" name="paypal_check" {{ $gsetting->paypal_enable==1 ? 'checked' : '' }}/>
-		                          <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="pay_sec1"></label>
+		                          <input class="la-admin__toggle-switch" id="pay_sec1" type="checkbox" name="paypal_check" {{ $gsetting->paypal_enable==1 ? 'checked' : '' }}/>
+		                          <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="pay_sec1"></label>
 		                        </li>
 		                         <br>
 		                        <div class="row" style="{{ $gsetting->paypal_enable==1 ? '' : 'display:none' }}" id="pay_sec">
@@ -78,8 +78,8 @@
 							<div class="col-md-12">
 		                        <label for="pay_enable">{{ __('adminstaticword.INSTAMOJOPAYMENT') }}</label> 
 		                        <li class="tg-list-item">
-		                          <input class="tgl tgl-skewed" id="insta_sec1" type="checkbox" name="instamojo_check" {{ $gsetting->instamojo_enable==1 ? 'checked' : '' }} />
-		                          <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="insta_sec1"></label>
+		                          <input class="la-admin__toggle-switch" id="insta_sec1" type="checkbox" name="instamojo_check" {{ $gsetting->instamojo_enable==1 ? 'checked' : '' }} />
+		                          <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="insta_sec1"></label>
 		                        </li>
 		                         <br>
 		                        <div class="row" style="{{ $gsetting->instamojo_enable==1 ? '' : 'display:none' }}" id="insta_sec">
@@ -111,8 +111,8 @@
 							<div class="col-md-12">
 		                        <label for="razorpay_enable">{{ __('adminstaticword.RAZORPAYPAYMENT') }}</label>
 		                        <li class="tg-list-item">
-		                          <input class="tgl tgl-skewed" id="razor_sec1" type="checkbox" name="razor_check" {{ $gsetting->razorpay_enable==1 ? 'checked' : '' }}/>
-		                          <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="razor_sec1"></label>
+		                          <input class="la-admin__toggle-switch" id="razor_sec1" type="checkbox" name="razor_check" {{ $gsetting->razorpay_enable==1 ? 'checked' : '' }}/>
+		                          <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="razor_sec1"></label>
 		                        </li>
 		                        
 
@@ -137,8 +137,8 @@
 							<div class="col-md-12">
 		                        <label for="paystack_enable">{{ __('adminstaticword.PAYSTACKPAYMENT') }}</label>
 		                        <li class="tg-list-item">
-		                          <input class="tgl tgl-skewed" id="paystack_sec1" type="checkbox" name="paystack_check" {{ $gsetting->paystack_enable==1 ? 'checked' : '' }}/>
-		                          <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="paystack_sec1"></label>
+		                          <input class="la-admin__toggle-switch" id="paystack_sec1" type="checkbox" name="paystack_check" {{ $gsetting->paystack_enable==1 ? 'checked' : '' }}/>
+		                          <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="paystack_sec1"></label>
 		                        </li>
 		                        
 
@@ -188,8 +188,8 @@
 							<div class="col-md-12">
 		                        <label for="s_enable">{{ __('adminstaticword.PAYTMPAYMENT') }}</label>
 		                        <li class="tg-list-item">
-		                          <input class="tgl tgl-skewed" id="paytm_sec1" type="checkbox" name="paytm_check" {{ $gsetting->paytm_enable==1 ? 'checked' : '' }}/>
-		                          <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="paytm_sec1"></label>
+		                          <input class="la-admin__toggle-switch" id="paytm_sec1" type="checkbox" name="paytm_check" {{ $gsetting->paytm_enable==1 ? 'checked' : '' }}/>
+		                          <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="paytm_sec1"></label>
 		                        </li>
 		                        
 
@@ -250,8 +250,8 @@
 							<div class="col-md-12">
 		                        <label for="s_enable">{{ __('adminstaticword.ReCaptcha') }}</label>
 		                        <li class="tg-list-item">              
-						            <input class="tgl tgl-skewed" id="captcha_sec1" type="checkbox" name="captcha_check" {{ $gsetting->captcha_enable == 1 ? 'checked' : '' }} >
-						            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="captcha_sec1"></label>
+						            <input class="la-admin__toggle-switch" id="captcha_sec1" type="checkbox" name="captcha_check" {{ $gsetting->captcha_enable == 1 ? 'checked' : '' }} >
+						            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="captcha_sec1"></label>
 						        </li>
 		                        
 
@@ -281,8 +281,8 @@
 							<div class="col-md-12">
 		                        <label for="aws_enable">{{ __('adminstaticword.AWSSettings') }}</label>
 		                        <li class="tg-list-item">              
-						            <input class="tgl tgl-skewed" id="aws_sec1" type="checkbox" name="aws_check" {{ $gsetting->aws_enable == 1 ? 'checked' : '' }} >
-						            <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="aws_sec1"></label>
+						            <input class="la-admin__toggle-switch" id="aws_sec1" type="checkbox" name="aws_check" {{ $gsetting->aws_enable == 1 ? 'checked' : '' }} >
+						            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="aws_sec1"></label>
 						        </li>
 		                        
 

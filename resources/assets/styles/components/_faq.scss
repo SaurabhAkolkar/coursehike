@@ -1,0 +1,38 @@
+#{$ap}- {
+    &faq {
+        &__ {
+            &card {
+                padding: 15px 30px;
+                box-shadow: 0px 6px 15px #A4A4A412;
+                border-radius: 10px;
+                margin-bottom: 10px;
+                border: none;
+
+                &- {
+                    &header {
+                        font-size: var(--text-lg);
+                        &:after {
+                            font-family: 'FontAwesome';
+                            content: "\f00d";
+                            float: right;
+                            color: grey;
+                        }
+
+                        & .card-link {
+                            color: var(--app-indigo-1) !important;
+                            font-weight: var(--font-light);
+
+                            &.collapsed{
+                                color: var(--gray4) !important;
+                                font-weight: var(--font-light);
+                            }
+                        }
+                    }
+                }
+            }
+            &collapse {
+                
+            }
+        }
+    }
+}

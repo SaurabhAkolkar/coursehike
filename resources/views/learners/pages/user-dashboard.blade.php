@@ -10,51 +10,53 @@
           <div class="row d-flex flex-row justify-content-between">
             <div class="col-12 col-md-6">
               <div class="la-cdashboard__page">
-                <h1 class="text-3xl">Welcome <span>Nathan!</span></h1>
-                <p class="text-sm">Let's explore something extraordinary <br>and learn it like aliens.</p>
+                <h1 class="text-4xl">Welcome <span>Nathan!</span></h1>
+                <p class="text-sm">Let's explore something extraordinary and <br> learn it like aliens.</p>
               </div>
             </div>
             <div class="col"></div>
-
-            @php
-                $badge1= new stdClass;
-                $badge1->title = "EXCLUSIVITY";
-                $badge1->desc = "A Badge you earn when you finish an exclusive course.";
-                $badge1->badgeImg = "https://picsum.photos/40";
-                $badge1->count = 5;
-
-                $badge2= new stdClass;
-                $badge2->title = "SINCERE LEARNER";
-                $badge2->desc = "A Badge you earn when learn consistently.";
-                $badge2->badgeImg = "https://picsum.photos/40";
-                $badge2->count = 3;
-                
-
-                $badge3= new stdClass;
-                $badge3->title = "FAST LEARNER";
-                $badge3->desc = "A Badge you earn when learn at a fast pace.";
-                $badge3->badgeImg = "https://picsum.photos/40";
-                $badge3->count = 8;
-
-                $badge4= new stdClass;
-                $badge4->title = "MENTOR'S FAVOURITE";
-                $badge4->desc = "A Badge gifted by your mentor when you finish assignments well.";
-                $badge4->badgeImg = "https://picsum.photos/40";
-                $badge4->count = 1;
-
-                $badges = array($badge1, $badge2, $badge3, $badge4);
-            @endphp
-
             <div class="col-12 col-md-5 col-lg-4 px-0">
               <div class="la-cbadges__item pb-5 mb-5">
                 <div class="row no-gutters px-2 px-sm-0 py-5 py-sm-2">
-                   
-                    <!-- User Badges: Start -->
-                    @foreach($badges as $badge)
-                      <x-badge :title="$badge->title" :desc="$badge->desc" :badgeImg="$badge->badgeImg" :count="$badge->count" />
-                    @endforeach
-                    <!-- User Badges: End -->
-
+                  <div class="col d-flex flex-row justify-content-start justify-content-lg-center">
+                    <div class="la-cbadge">
+                        <div class="la-cbadge__thumbnail" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "EXCLUSIVITY" data-content="A Badge you earn when you finish an exclusive course." > 
+                            <span class="la-icon la-icon--6xl icon-badge-purple">
+                              <span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span>
+                            </span>
+                                <sup class="badge la-badge__count py-1">5</sup>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col d-flex flex-row justify-content-start justify-content-lg-center">
+                    <div class="la-cbadge">
+                        <div class="la-cbadge__thumbnail" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "SINCERE LEARNER" data-content="A Badge you earn when learn consistently." > 
+                          <span class="la-icon la-icon--6xl icon-badge-green">
+                            <span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span>
+                          </span>   
+                          <sup class="badge la-badge__count py-1">3</sup>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col d-flex flex-row justify-content-start justify-content-lg-center">
+                    <div class="la-cbadge">
+                        <div class="la-cbadge__thumbnail" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "FAST LEARNER" data-content="A Badge you earn when learn at a fast pace." > 
+                          <span class="la-icon la-icon--6xl icon-badge-yellow">
+                            <span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span>
+                          </span>
+                              <sup class="badge la-badge__count py-1">8</sup>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col d-flex flex-row justify-content-start justify-content-lg-center">
+                    <div class="la-cbadge">
+                        <div class="la-cbadge__thumbnail" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "MENTOR'S FAVOURITE" data-content="A Badge gifted by your mentor when you finish assignments well." > 
+                          <span class="la-icon la-icon--6xl icon-badge-red">
+                            <span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span>
+                          </span>   <sup class="badge la-badge__count py-1">1</sup>
+                        </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -68,29 +70,24 @@
               <div class="la-course__tile-card d-block">
                 <div class="row no-gutters">
                   <div class="col">
-                    <div class="card la-course__tiles w-100 d-flex flex-row">
-                      <div class="la-courses__tile-thumbnail card-header d-block p-0"><img class="img-fluid d-block" src="./images/dashboard/card-tile.png" alt="At verso eos et">
-                        <div class="la-course__tile-bars d-block position-relative">
-                          <div class="la-course__tile-indicator d-block">
-                            <p class="m-0 px-2 small text-right">37%</p>
-                          </div>
-                          <div class="la-course__tile-progress progress bg-transparent d-block pt-2">
-                            <div class="progress-bar bg-success" role="progress-bar" aria-valuenow="37" aria-valuemin="0" aria-valuemax="100" style="width:37%;height:4px;border-radius: 0 0 0 10px;"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="la-course__tile-content d-block px-4 pt-1">
-                        <h6 class="body-font text-md m-0">At verso eos et</h6>
-                        <p class="body-font text-xs">Amy D'souza</p>
-                        <div class="la-course__tile-rating d-flex flex-row pt-3">
-                          <div class="la-icon--md icon-star la-tile__rtng"></div>
-                          <div class="la-icon--md icon-star la-tile__rtng"></div>
-                          <div class="la-icon--md icon-star la-tile__rtng"></div>
-                          <div class="la-icon--md icon-star la-tile__urtng"></div>
-                          <div class="la-icon--md icon-star la-tile__urtng"></div>
-                        </div>
-                      </div><a class="la-course__tile-more d-flex align-items-center" href=""><img class="img-fluid pl-8" src="./images/icons/long-arrow.svg" alt="View More"></a>
-                    </div>
+                      @php
+                          $tile = new stdClass;
+                          $tile->img = "./images/learners/dashboard/card-tile.png";
+                          $tile->progress = 37;
+                          $tile->desc = "At verso eos";
+                          $tile->name = "Amy D'souza";
+                          $tile->rating= 4;
+
+                          $tiles = array($tile);
+                      @endphp
+
+                      <x-last-viewed
+                          :img="$tile->img"
+                          :progress="$tile->progress"
+                          :desc="$tile->desc"
+                          :name="$tile->name"
+                          :rating="$tile->rating"
+                      />
                   </div>
                 </div>
               </div>
@@ -98,12 +95,17 @@
             <div class="col"></div>
             <div class="col-12 col-md-5 col-lg-4">
               <div class="la-course__alien-ad">
-                <div class="card la-course__ad-card p-2">
-                  <div class="card-body la-course__ad-card_body position-relative">
+                <div class="card la-course__ad-card">
+                  <div class="card-body la-course__ad-card_body my-0 position-relative">
                     <p class="text-sm text-white">Got something different then<br>share it with the world.</p>
-                    <h2 class="text-3xl text-white">become an <br><span>Alien mentor</span></h2>
+                    <h2 class="text-5xl text-white">become an <br><span>Alien mentor</span></h2>
+                  
+                    <div class="la-course__ad-learn-more text-right mr-md-n4">
+                      <a class="text-uppercase" href="#">Learn More
+                        <span class="la-icon la-icon--5xl icon-black-arrow"></span>
+                      </a>
+                    </div>
                   </div>
-                  <div class="la-course__ad-learn-more pt-8 pb-4 d-flex justify-content-end"><a class="text-uppercase" href="#">Learn More<span><img class="img-fluid" src="./images/icons/long-arrow-dark.svg" alt="Learn More"></span></a></div>
                 </div>
               </div>
             </div>
@@ -117,7 +119,7 @@
       <div class="container">
         <div class="row" style="width:100%;height:248px;background:#eee;margin:80px 0">  
           <div class="col-12 text-center">
-            <h1 class="text-light">1080 x 248                    </h1>
+            <h1 class="text-light">1080 x 248   </h1>
           </div>
         </div>
       </div>
@@ -128,8 +130,19 @@
       <div class="container">
         <div class="row">  
           <div class="col-12">
-            <div class="la-cpcourses__inner">
-              <h5 class="text-xl">Pending Courses</h5>
+            <h5 class="la-pcourses__title text-xl text-sm-2xl">Pending Courses</h5>
+            
+            <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
+                <div class="la-empty__inner">
+                    <h6 class="la-empty__course-title pb-2">No Courses</h6>
+                    <p class="la-empty__course-desc m-0">You currently don't have any pending course, start new course</p>
+                </div>
+                <div class="la-empty__browse-courses">
+                    <a href="/courses" class="la-empty__browse">
+                        Browse Courses
+                        <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
+                    </a>
+                </div>
             </div>
           </div>
         </div>
@@ -140,25 +153,25 @@
 
     @php
         $hp1 = new stdClass;
-        $hp1->hpImg = "https://picsum.photos/400";
+        $hp1->hpImg = "./images/learners/dashboard/hp1.png";
         $hp1->hpCourse = "Digital Art";
         $hp1->hpCname = "Lillan";
         $hp1->hpUrl = "";
 
         $hp2 = new stdClass;
-        $hp2->hpImg = "https://picsum.photos/400";
+        $hp2->hpImg = "./images/learners/dashboard/hp2.png";
         $hp2->hpCourse = "UI Design";
         $hp2->hpCname = "Dartin";
         $hp2->hpUrl = "";
 
         $hp3 = new stdClass;
-        $hp3->hpImg = "https://picsum.photos/400";
+        $hp3->hpImg = "./images/learners/dashboard/hp3.png";
         $hp3->hpCourse = "Line Art";
         $hp3->hpCname = "Nathan Frank";
         $hp3->hpUrl = "";
 
         $hp4 = new stdClass;
-        $hp4->hpImg = "https://picsum.photos/400";
+        $hp4->hpImg = "./images/learners/dashboard/hp1.png";
         $hp4->hpCourse = "Digital Art";
         $hp4->hpCname = "Lillan";
         $hp4->hpUrl = "";
@@ -171,7 +184,7 @@
         <div class="row">
           <div class="col-12 px-2">
             <div class="la-hp__inner">
-              <h5 class="text-xl la-hp__title m-0 pb-2">Hand Picked for you! </h5>
+              <h5 class="text-xl text-sm-2xl la-hp__title m-0 pb-2">Hand Picked for you! </h5>
               <div class="la-hp__data">
                 <div class="row">
                     <!-- Hand Picked: Start -->
@@ -201,7 +214,7 @@
         <div class="container">
             <div class="row no-gutters">
               <div class="col-12">
-                <h5 class="text-xl pb-5">Alien Mentors</h5>
+                <h5 class="text-xl text-sm-2xl pb-5">Alien Mentors</h5>
               </div>
           
               <div class="la-mentors">

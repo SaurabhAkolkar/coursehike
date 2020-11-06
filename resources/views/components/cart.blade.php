@@ -21,12 +21,99 @@
                                     <a href={{ $wishlistUrl }}>{{ $wishlist }}</a>
                                 </div>
                                 <div class="la-cart__item-action edit">
-                                    <a href= {{ $editUrl }}> {{ $edit }}</a>
+                                    <a data-toggle="modal" data-target="#edit_cart"> {{ $edit }}</a>
+                                
+                                    <!-- Edit Selection Popup: Start -->
+                                    <div class="modal fade la-cart__edit-modal" id="edit_cart">
+                                        <div class="modal-dialog la-cart__edit-dialog">
+                                            <div class="modal-content la-cart__edit-content">
+                                                <div class="modal-header la-cart__edit-header">
+                                                    <h4 class="modal-title la-cart__edit-title">Edit Selection</h4>
+                                                    <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
+                                                </div>
+                                                
+                                                <div class="modal-body la-cart__edit-body">
+                                                    <div class="la-form__radio-wrap pb-2">
+                                                        <input type="radio" name="update_classes" id="all_classes" class="la-form__radio d-none" >
+                                                        <label for="all_classes" class="d-flex align-items-center">
+                                                            <span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span>
+                                                            <span class="la-cart__edit-classes"> All Classes</span>
+                                                        </label> 
+                                                    </div>
+                                                    <div class="la-form__radio-wrap">
+                                                        <input type="radio" name="update_classes" id="select_classes" class="la-form__radio d-none" >
+                                                        <label for="select_classes" class="d-flex align-items-center">
+                                                            <span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span>
+                                                            <span class="la-cart__edit-classes"> Select Classes</span>
+                                                        </label> 
+                                                    </div>
+
+                                                    <div class="row la-cart__edit-info">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-2">
+                                                            <div class="la-cart__edit-main">Class</div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="la-cart__edit-main">Name</div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="la-cart__edit-main">Mentor</div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <div class="la-cart__edit-main">Price</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row la-cart__edit-info ">
+                                                        <div class="col-md-2 text-center my-auto">
+                                                            <input type="checkbox" name="" class="">
+                                                        </div>
+                                                        <div class="col-md-2 p-0">
+                                                            <img class="la-cart__edit-img img-fluid d-block" src="https://picsum.photos/80/50" alt="" />
+                                                        </div>
+                                                        <div class="col-md-3 my-auto">
+                                                            <div class="la-cart__edit-submain text-sm">At vero eos et accusam et</div>
+                                                        </div>
+                                                        <div class="col-md-3 my-auto">
+                                                            <div class="la-cart__edit-submain  text-sm">Amy D'souza</div>
+                                                        </div>
+                                                        <div class="col-md-2 my-auto">
+                                                            <div class="la-cart__edit-submain  text-sm">$ 20</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row la-cart__edit-info">
+                                                        <div class="col-md-2 text-center my-auto">
+                                                            <input type="checkbox" name="" class="">
+                                                        </div>
+                                                        <div class="col-md-2 p-0">
+                                                            <img class="la-cart__edit-img img-fluid d-block" src="https://picsum.photos/80/50" alt="" />
+                                                        </div>
+                                                        <div class="col-md-3 my-auto">
+                                                            <div class="la-cart__edit-submain  text-sm">At vero eos et accusam et</div>
+                                                        </div>
+                                                        <div class="col-md-3 my-auto">
+                                                            <div class="la-cart__edit-submain  text-sm">Amy D'souza</div>
+                                                        </div>
+                                                        <div class="col-md-2 my-auto">
+                                                            <div class="la-cart__edit-submain  text-sm">$ 20</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="la-cart__edit-update text-right">
+                                                        <a href="" role="button" class="la-cart__edit-btn">Update Cart</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Edit Selection Popup: End -->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
 
                 <div class="la-cart__item-classes col-md-3">
                     <div class="la-cart__item-label mb-4">Classes</div>

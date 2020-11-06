@@ -1,0 +1,67 @@
+// MENTORS Page: Start
+#{$ap}- {
+    &mentor {
+        &s {
+
+        }
+
+        & {
+            --mentor-profileW: 370px;
+            --mentor-profileH: 270px;
+
+            
+
+            &__ {
+                &profile {
+                    width: calc(var(--mentor-profileW) - var(--size-6));
+                    height: var(--mentor-profileH);
+                    border-radius: var(--size-2);
+                    overflow: hidden;
+                    position:relative;
+
+                    img{
+                        transition: all 0.25s ease-out;
+                        -webkit-transition: all 0.25s ease-out;
+                        -moz-transition: all 0.25s ease-out;
+                        -ms-transition: all 0.25s ease-out;
+                        -o-transition: all 0.25s ease-out;
+                    }
+                    img:hover{
+                        position:absolute;
+                        transform: scale(1.1);
+                        transition: all 0.25s ease-in;
+                        -webkit-transition: all 0.25s ease-in;
+                        -moz-transition: all 0.25s ease-in;
+                        -ms-transition: all 0.25s ease-in;
+                        -o-transition: all 0.25s ease-in;
+                    }
+                }
+
+                &btm {
+                    padding: var(--size-3);
+                }
+
+                &info {
+
+                }
+
+                &name {
+                    font-weight: var(--font-bold);
+                    font-size: var(--text-xl);
+                    color: #252525;
+                    margin-bottom: calc(var(--size-1) - 2px);
+                }
+
+                &skill {
+                    font-family: var(--head-font);
+                    color: #222222;
+                }
+
+                &detailview {
+
+                }
+            }
+        }
+    }
+}
+// MENTORS Page: End

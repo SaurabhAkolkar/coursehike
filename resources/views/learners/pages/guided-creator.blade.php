@@ -10,13 +10,15 @@
           <div class="la-gc__banner-itm d-flex flex-column flex-lg-row justify-content-lg-between">
             <div class="col-12 col-lg la-gcbanner__content d-flex flex-row align-items-center p-0">
               <div class="la-gcbanner__inner">
-                <h1 class="m-0 font-weight-bold">Your Knowledge. </h1>
-                <h2 class="font-weight-bold"> Our Expertise.</h2>
-                <p class="m-0 text-lg">Get guidance for whatever and whenever you want</p><br><br><a class="la-btn__app text-uppercase" role="button" href="#">Get Started</a>
+                <h1 class="la-gcbanner__title m-0 leading-none">Your Knowledge. </h1>
+                <h2 class="la-gcbanner__tag leading-none"> Our Expertise.</h2>
+                <p class="la-gcbanner__para mt-2 mt-md-6 mb-2 mb-md-14">Get guidance for whatever and <br/>whenever you want</p>
+                
+                <a class="la-btn__app text-uppercase " role="button" href="/creator-signup">Get Started</a>
               </div>
             </div>
             <div class="col-12 col-lg p-0">
-              <div class="la-gcbanner__bg"><img class="img-fluid d-block" src="./images/guided-creator/gc-banner-1a.png" alt="Guided Creator"></div>
+              <div class="la-gcbanner__bg"><img class="img-fluid d-block" src="./images/learners/guided-creator/gc-banner-1a.png" alt="Guided Creator"></div>
             </div>
           </div>
         </div>
@@ -30,8 +32,8 @@
       <div class="row pl-4 py-5">
         <!-- Column: Start-->
         <div class="col-12 py-5 px-0 px-sm-4">
-          <div class="la-gcreator__works-title pl-5">
-            <h2 class="text-5xl pl-5 font-weight-bold">How this works?</h2>
+          <div class=" pl-5">
+            <h2 class="la-gcreator__works-title pl-5">How this works?</h2>
           </div>
         </div>
         <!-- Column: End-->
@@ -39,24 +41,25 @@
       <div class="row px-2 px-md-5">
         <!-- Column: Start-->
         <div class="col-12 col-lg-5 d-none d-lg-block">
-          <div class="la-gcreator__works mt-n5"><img class="img-fluid mx-auto d-block img-rounded" src="./images/creator/gcreator-1a.png" alt="Record a Video"></div>
-          <div class="la-gcreator__works mt-2"><img class="img-fluid mx-auto d-block img-rounded" src="./images/creator/gcreator-2a.png" alt="Edit a Video"></div>
-          <div class="la-gcreator__works mt-n5"><img class="img-fluid mx-auto d-block img-rounded" src="./images/creator/gcreator-3a.png" alt="Share Video"></div>
+          <div class="la-gcreator__works mt-n5"><img class="img-fluid mx-auto d-block img-rounded" src="./images/learners/creator/gcreator-1a.png" alt="Record a Video"></div>
+          <div class="la-gcreator__works mt-2"><img class="img-fluid mx-auto d-block img-rounded" src="./images/learners/creator/gcreator-2a.png" alt="Edit a Video"></div>
+          <div class="la-gcreator__works mt-n5"><img class="img-fluid mx-auto d-block img-rounded" src="./images/learners/creator/gcreator-3a.png" alt="Share Video"></div>
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
         <div class="col-12 col-lg-5 px-0 px-xl-3 mt-5 pt-5">
           <div class="la-gcreator__video-content position-relative">
             <div class="la-gvline d-flex align-items-start flex-column mt-5">
-              <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5"><img class="img-fluid mx-auto d-block img-rounded mt-n5" src="./images/creator/gcreator-1a.png" alt="Record a Video"></div>
-              <div class="la-gcreator__video-icon"><span class="la-icon--5xl icon-wallet"></span></div>
+              <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5"><img class="img-fluid mx-auto d-block img-rounded mt-n5" src="./images/learners/creator/gcreator-1a.png" alt="Record a Video"></div>
+              <div class="la-gcreator__video-icon"><span class="la-icon la-icon--7xl icon-video-unfilled"></span></div>
               <div class="la-gcreator__video-content mt-5">
-                <h5>We'll record a Video</h5><span class="text-md text-black">Stet clita kasd gubergen, no sea takimata sanctus est Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet.</span>
-                <ul class="pt-2 text-sm">
-                  <li>Lorem Ipsum dolor sit amet, consetetur</li>
-                  <li>Lorem Ipsum dolor sit amet, consetetur</li>
-                  <li>Lorem Ipsum dolor sit amet, consetetur</li>
-                  <li>Lorem Ipsum dolor sit amet, consetetur</li>
+                <h5 class="la-gcreator__video-title">We'll record a Video</h5>
+                <p class="la-gcreator__video-para pt-3 text-md">Stet clita kasd gubergen, no sea takimata sanctus est Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet.</p>
+                <ul class="la-gcreator__list text-sm">
+                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
+                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
+                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
+                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
                 </ul>
                 <div class="form-group pt-3">
                   <label class="d-flex" for="recordVideo">
@@ -68,15 +71,16 @@
               </div>
             </div>
             <div class="la-gvline d-flex align-items-start flex-column">
-              <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5"><img class="img-fluid mx-auto d-block img-rounded mt-n5" src="./images/creator/gcreator-2a.png" alt="Edit a Video"></div>
-              <div class="la-gcreator__video-icon"><span class="la-icon--5xl icon-edit-line"></span></div>
+              <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5"><img class="img-fluid mx-auto d-block img-rounded mt-n5" src="./images/learners/creator/gcreator-2a.png" alt="Edit a Video"></div>
+              <div class="la-gcreator__video-icon"><span class="la-icon la-icon--7xl icon-edit-image"></span></div>
               <div class="la-gcreator__video-content mt-5">
-                <h5>We'll edit the Video</h5><span class="text-md text-black">Stet clita kasd gubergen, no sea takimata sanctus est Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet.</span>
-                <ul class="pt-2 text-sm">
-                  <li>Lorem Ipsum dolor sit amet, consetetur</li>
-                  <li>Lorem Ipsum dolor sit amet, consetetur</li>
-                  <li>Lorem Ipsum dolor sit amet, consetetur</li>
-                  <li>Lorem Ipsum dolor sit amet, consetetur</li>
+                <h5 class="la-gcreator__video-title ">We'll edit the Video</h5>
+                <p class="la-gcreator__video-para text-md pt-3">Stet clita kasd gubergen, no sea takimata sanctus est Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet.</p>
+                <ul class="la-gcreator__list text-sm">
+                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
+                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
+                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
+                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
                 </ul>
                 <div class="form-group pt-3">
                   <label class="d-flex" for="editVideo">
@@ -88,15 +92,16 @@
               </div>
             </div>
             <div class="la-gvline-last d-flex align-items-start flex-column">
-              <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5"><img class="img-fluid mx-auto d-block img-rounded mt-n5" src="./images/creator/gcreator-3a.png" alt="Share Video"></div>
-              <div class="la-gcreator__video-icon"><span class="la-icon--5xl icon-share"></span></div>
+              <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5"><img class="img-fluid mx-auto d-block img-rounded mt-n5" src="./images/learners/creator/gcreator-3a.png" alt="Share Video"></div>
+              <div class="la-gcreator__video-icon"><span class="la-icon la-icon--7xl icon-share-image "></span></div>
               <div class="la-gcreator__video-content mt-5">
-                <h5>Share it to the World</h5><span class="text-md text-black">Stet clita kasd gubergen, no sea takimata sanctus est Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet.</span>
-                <ul class="pt-2 text-sm"> 
-                  <li>Lorem Ipsum dolor sit amet, consetetur</li>
-                  <li>Lorem Ipsum dolor sit amet, consetetur</li>
-                  <li>Lorem Ipsum dolor sit amet, consetetur</li>
-                  <li>Lorem Ipsum dolor sit amet, consetetur</li>
+                <h5 class="la-gcreator__video-title ">Share it with the World</h5>
+                <p class="la-gcreator__video-para text-md pt-3">Stet clita kasd gubergen, no sea takimata sanctus est Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet.</p>
+                <ul class="la-gcreator__list text-sm"> 
+                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
+                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
+                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
+                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
                 </ul>
               </div>
             </div>
@@ -118,7 +123,8 @@
         <div class="col-sm-12 px-0 px-sm-0">
           <div class="la-bgcreator__ad-content text-center text-white">
             <div class="px-5">
-              <p class="text-2xl">Ready to share your Creations?</p><br><a class="ad-btn la-btn__app text-white" role="button" href="#">Get Started</a>
+              <p class="la-bgcreator__ad-para">Ready to share your Creations?</p><br>
+              <a class="ad-btn la-btn__app text-white" role="button" href="/creator-signup">Get Started</a>
             </div>
           </div>
         </div>
@@ -132,52 +138,44 @@
     <div class="container">
       <div class="row">
         <!-- Column: Start-->
-        <div class="col-12">
+        <div class="col-12 px-5 px-sm-0">
           <div class="panel-group" id="accordion">
-            <h4 class="faq-title">FAQ's</h4>
-
-            @php
-              $faq1 = new stdClass;
-              $faq1->mainId = 1;
-              $faq1->question = "How amount is calculated?";
-              $faq1->subId = 1;
-              $faq1->answer= "Something";
-
-              $faq2 = new stdClass;
-              $faq2->mainId = 2;
-              $faq2->question = "What is LILA's Commission?";
-              $faq2->subId = 2;
-              $faq2->answer= "Something";
-
-              $faq3 = new stdClass;
-              $faq3->mainId = 3;
-              $faq3->question = "How much is the slab rate?";
-              $faq3->subId = 3;
-              $faq3->answer= "Something";
-
-              $faq4 = new stdClass;
-              $faq4->mainId = 4;
-              $faq4->question = "How to redeem amount from my wallet?";
-              $faq4->subId = 4;
-              $faq4->answer= "Something";
-
-              $faqs = array($faq1, $faq2, $faq3,$faq4);
-            @endphp
-
-            @foreach ($faqs as $faq)
-                <x-faq
-                  :mainId="$faq->mainId"
-                  :question="$faq->question"
-                  :subId="$faq->subId"
-                  :answer="$faq->answer"
-                />
-            @endforeach
-
-            <div class="faq-see-all text-right pt-4">
-                <a class="text-sm" role="button" href="" data-toggle="collapse" aria-expanded="true">See all</a>
+            <h4 class="la-bgcreator__faq-title">FAQ&#39;s</h4>
+            <div class="panel panel-default la-bgcreator__faq-panel mt-2">
+              <div class="panel-heading la-bgcreator__panel-head py-2 px-5" id="faqCalcHead"><span class="panel-title la-bgcreator__panel-title mx-4 mx-sm-5"><a class="accordion-toggle collapsed text-md" href="#faqCalc" data-toggle="collapse" aria-expanded="true" aria-controls="#faq-calc">How amount is calculated?</a></span></div>
+              <div class="panel-collapse collapse" id="faqCalc" aria-labelledby="faqCalcHead" data-parent="#accordion">
+                <div class="panel-body la-bgcreator__panel-body py-4 px-5 mx-5">
+                  <p class="la-bgcreator__panel-para panel-text text-md">Something</p>
+                </div>
+              </div>
             </div>
-
-          </div>
+            <div class="panel panel-default la-bgcreator__faq-panel mt-2">
+              <div class="panel-heading la-bgcreator__panel-head py-2 px-5" id="faqCommHead"><span class="panel-title la-bgcreator__panel-title mx-4 mx-sm-5"><a class="accordion-toggle collapsed text-md" href="#faqCommission" data-toggle="collapse" aria-expanded="false" aria-controls="#faq-commission">What is LILA's Commission?</a></span></div>
+              <div class="panel-collapse collapse" id="faqCommission" aria-labelledby="faqCommHead" data-parent="#accordion">
+                <div class="panel-body la-bgcreator__panel-body py-4 px-5 mx-5">
+                  <p class="la-bgcreator__panel-para text-md panel-text">Something</p>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default la-bgcreator__faq-panel mt-2">
+              <div class="panel-heading la-bgcreator__panel-head py-2 px-5" id="faqSlabHead"><span class="panel-title la-bgcreator__panel-title mx-4 mx-sm-5"><a class="accordion-toggle collapsed text-md" href="#faqSlab" data-toggle="collapse" aria-expanded="false" aria-controls="#faq-slab-rate">How much is the slab rate?</a></span></div>
+              <div class="panel-collapse collapse" id="faqSlab" aria-labelledby="faqSlabHead" data-parent="#accordion">
+                <div class="panel-body la-bgcreator__panel-body py-4 px-5 mx-5">
+                  <p class="la-bgcreator__panel-para text-md panel-text">Ut enim ad minim veniam, quis nostrud exercitation ullamo</p>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default la-bgcreator__faq-panel mt-2">
+              <div class="panel-heading la-bgcreator__panel-head py-2 px-5" id="faqRedeemHead"><span class="panel-title la-bgcreator__panel-title mx-4 mx-sm-5"><a class="accordion-toggle collapsed text-md" href="#faqRedeem" data-toggle="collapse" aria-expanded="false" aria-controls="#faq-redeem">How to redeem amount from my wallet?</a></span></div>
+              <div class="panel-collapse collapse" id="faqRedeem" aria-labelledby="faqRedeemHead" data-parent="#accordion">
+                <div class="panel-body la-bgcreator__panel-body py-4 px-5 mx-5">
+                  <p class="la-bgcreator__panel-para text-md panel-text">Something</p>
+                </div>
+              </div>
+            </div>
+            <div class="la-bgcreator__faq-all text-center text-sm-right pt-4">
+              <a class= "text-sm" href=""><span class="la-bgcreator__all-link">See all</span></a>
+            </div>
         </div>
         <!-- Column: End-->
       </div>

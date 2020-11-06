@@ -9,12 +9,11 @@
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{ __('adminstaticword.CourseLanguage') }}</h3>
-          <a data-toggle="modal" data-target="#myModaljjh" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
+          <a data-toggle="modal" data-target="#myModaljjh" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.CourseLanguage') }}</a>
         </div>
         <div class="box-body">
           
          
-          <div class="table-responsive">
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
@@ -46,30 +45,30 @@
                         </form>
                       </td>          
                       <td><a class="btn btn-success btn-sm" href="{{url('courselang/'.$cat->id.'/edit')}}">
-                          <i class="glyphicon glyphicon-pencil"></i></a></td>
+                          <i class="la-icon la-icon--lg icon-edit"></i></a></td>
 
                       <td><form method="post" action="{{url('courselang/'.$cat->id)}}
                             "data-parsley-validate class="form-horizontal form-label-left">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                            <button  type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash-o"></i></button>
+                            <button  type="submit" class="btn btn-danger"><i class="la-icon la-icon--lg icon-delete"></i></button>
                           </form>
                       </td>
                     </tr>
                   @endforeach
                 </tbody>
             </table>
-          </div>
+
         </div>
         <!--Panel Body end-->
       </div>
       <!--Box Primary end-->
 
       <!--Model start-->
-      <div class="modal fade" id="myModaljjh" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal fade show" id="myModaljjh" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header d-block">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title" id="myModalLabel">{{ __('adminstaticword.Add') }} {{ __('adminstaticword.Language') }}</h4>
             </div>
@@ -87,15 +86,15 @@
                       <div class="col-md-6">
                         <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                           <li class="tg-list-item">              
-                          <input class="tgl tgl-skewed" id="welmail" type="checkbox" name="status" >
-                          <label class="tgl-btn" data-tg-off="Disable" data-tg-on="Enable" for="welmail"></label>
+                          <input class="la-admin__toggle-switch" id="welmail" type="checkbox" name="status" >
+                          <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="welmail"></label>
                         </li>
                         <input type="hidden"  name="free" value="0" for="status" id="status">
                       </div>
                     </div>
                     <br>
                     <div class="box-footer">
-                     <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                     <button type="submit" class="btn btn-lg col-md-6 btn-primary">{{ __('adminstaticword.Submit') }}</button>
                     </div>
                   </form>
                 </div>

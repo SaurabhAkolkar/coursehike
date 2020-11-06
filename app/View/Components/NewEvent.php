@@ -16,16 +16,14 @@ class NewEvent extends Component
     public $about;
     public $img;
     public $desc;
-    public $eventCollapseId;
     
-    public function __construct($title, $timestamp, $about, $img, $desc, $eventCollapseId)
+    public function __construct($title, $timestamp, $about, $img, $desc)
     {
         $this->title = $title;
         $this->timestamp = $timestamp;
         $this->about = $about;
         $this->img = $img;
         $this->desc = $desc;
-        $this->eventCollapseId = $eventCollapseId;
     }
 
     /**

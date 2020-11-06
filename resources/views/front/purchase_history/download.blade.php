@@ -40,7 +40,7 @@ Author: Media City
       
         <!-- title row -->
         <div class="row">
-          <div class="col-xs-12">
+          <div class="col-12">
             <div class="page-header">
               @php
                   $setting = App\setting::first();
@@ -135,7 +135,7 @@ Author: Media City
              
         </div>
         <!-- /.row -->
-        <div class="order-table table-responsive">
+        <div class="order-table">
           <table class="table table-striped">
             <thead>
               <tr>
@@ -185,7 +185,7 @@ Author: Media City
                 $coursess = App\Course::where('id', $bundle_course)->first();
               @endphp
 
-              <div class="purchase-table table-responsive">
+              <div class="purchase-table">
                 <table class="table">
 
               <tbody>

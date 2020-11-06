@@ -6,15 +6,14 @@
 
   @include('admin.message')
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.Course') }} {{ __('adminstaticword.Review') }}</h3>
+          <h3 class="box-title">{{ __('adminstaticword.Course') }} {{ __('adminstaticword.Request') }}</h3>
         </div>
        
         <!-- /.box-header -->
           <div class="box-body">
-            <div class="table-responsive">
               <table id="example1" class="table table-bordered table-striped">
 
                 <thead>
@@ -42,9 +41,9 @@
                         <td><?php echo $i;?></td>
                         <td>
                           @if($cat['preview_image'] !== NULL && $cat['preview_image'] !== '')
-                            <img src="images/course/<?php echo $cat['preview_image'];  ?>" class="img-responsive" >
+                            <img src="images/course/<?php echo $cat['preview_image'];  ?>" class="img-fluid" >
                           @else
-                            <img src="{{ Avatar::create($cat->title)->toBase64() }}" class="img-responsive" >
+                            <img src="{{ Avatar::create($cat->title)->toBase64() }}" class="img-fluid" >
                           @endif
                         </td>
                         <td>{{$cat->title}}</td>
@@ -78,7 +77,7 @@
 
                         <td>
                           <a class="btn btn-primary btn-sm" href="{{ route('course.show',$cat->id) }}">
-                          <i class="glyphicon glyphicon-pencil"></i></a>
+                          <i class="fa fa-edit"></i></a>
                         </td>
 
                         <td>
@@ -95,7 +94,6 @@
                       
                 </tbody>
               </table>
-            </div>
           </div>
         <!-- /.box-body -->
       </div>

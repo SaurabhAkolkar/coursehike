@@ -1,0 +1,183 @@
+//Guided Creator Banner Section Start
+section.la-page--gcreator{
+    .la-gc__banner{
+        padding-left:var(--size-20);
+        padding-right:var(--size-20);
+    }
+    .la-gc__banner-itm{ 
+        position:relative;
+
+            &:before {
+                content:"";    
+                position:absolute;
+                top:-290px;
+                right:-130px;
+                background: transparent linear-gradient(233deg, #FFC516 0%, #FFE598 100%) 0% 0% no-repeat padding-box;
+                width:720px;
+                height:720px;
+                border-radius:50% 50%;
+                z-index:-1;
+            }
+    }
+
+    .la-gcbanner__content{
+        .la-gcbanner__inner {
+            .la-gcbanner__title{
+                font-family:var(--head-font);
+                font-weight: var(--font-black);
+                font-size:calc(var(--text-3xl) * 2);
+            }
+            .la-gcbanner__tag{
+                font-family:var(--head-font);
+                font-weight: var(--font-black);
+                font-size:calc(var(--text-3xl) * 2);
+            }
+            .la-gcbanner__para{
+                font-family:var(--body-font);
+                font-size: var(--text-xl);
+            }
+        }
+    }
+}
+
+@media (min-width:1440px){
+    section.la-page--gcreator{
+        .la-gc__banner-itm{ 
+            position:relative;
+    
+            &:before {
+                content:"";    
+                position:absolute;
+                top:-350px;
+                right:-100px;
+                width:800px;
+                height:800px;
+            }
+        }
+    }
+}
+@media (max-width:991px){
+    section.la-page--gcreator{
+        .la-gc__banner-itm{
+            &:before{ background:transparent;}
+        }
+        .la-gc__banner{
+            padding:0 var(--size-10);
+        }
+        .la-gcbanner__inner{
+            padding:var(--size-10);
+            h1, h2{font-size:var(--text-6xl) !important;}
+        }
+        .la-gcbanner__bg img{
+            margin-top:-140px;
+            margin-left:75px;
+            position:relative;
+            z-index:-1;
+        }
+    }
+}
+
+@media(max-width:767px){
+    section.la-page--gcreator{
+        .la-gc__banner-itm{
+            &:before{ background:transparent;}
+        }
+        .la-gc__banner{
+            padding-left:var(--size-base);
+            padding-right:var(--size-base);
+        }
+        .la-gcbanner__inner{
+            padding:var(--size-8);
+            h1, h2{font-size:var(--text-5xl) !important;}
+        }
+       
+    }
+}
+//Guided Creator Banner Section End
+
+// How this Works Section
+section.la-page--how-this-works{
+    background-color:var(--gray);
+    margin:0 0 100px 0;
+    .la-gcreator__works-title{
+        font-family:var(--head-font);
+        font-size: var(--text-5xl);
+        font-weight: var(--font-semibold);
+    }
+    .la-gcreator__works img{
+        margin-bottom:130px;
+    }
+    .la-gvline{
+        margin-left:40px;
+		height:450px;
+        border-left: 2px dotted #FFC516;
+    }	
+    .la-gvline-last{
+        margin-left:34px;
+		height:300px;
+    }
+    .la-gcreator__video-icon{
+        position:absolute;
+		left:0;
+		text-align: left;
+		width:80px;
+		height:80px;
+		padding:12px 12px;
+		background-color: #FFC516;
+		color:#fff;
+        border-radius:var(--rounded-full);
+        z-index:var(--z-1);	
+    }
+    .la-gcreator__video-content{
+        margin-left:70px;
+        .la-gcreator__video-title{
+            font-family: var(--head-font);
+            font-size: var(--text-3xl);
+            font-weight: var(--font-medium);
+            color: var(--gray3);
+        }
+        .la-gcreator__video-para{
+            color: var(--gray7);
+        }
+        .la-gcreator__list{  
+            font-family: var(--body-font);
+            color:var(--gray5);
+
+            .la-gcreator__list-tick {
+                color: #1EC812;
+                margin-right: var(--size-2);
+            }
+        }
+        .form-group label{
+            color:var(--app-indigo-1);
+            opacity:0.8;
+            font-weight:var(--font-light);
+            cursor:pointer;
+        }
+          .form-group .gcheck {
+            border: 1px solid var(--app-indigo-1);
+            width: 14px;
+            height: 14px;
+          }
+          .form-group label input[type="checkbox"]+.gcheck>.gcheck-icon {opacity: 0;} 
+          .form-group label input[type="checkbox"]:checked+.gcheck>.gcheck-icon {opacity: 1;} 
+    }
+}
+@media(max-width:991px){
+    section.la-page--how-this-works {
+        .la-gcreator__works-mobile{margin:-50px 0 0 100px !important;}
+        .la-gcreator__video-content {margin-left: 100px;}
+        .la-gvline{  height:700px; }	
+        .la-gvline-last{ height:550px;}
+    }
+}
+@media(max-width:767px){
+    section.la-page--how-this-works {
+        .la-gcreator__works-mobile{margin:-50px 0 0 50px !important;}
+        .la-gcreator__video-content {margin-left: 50px;}
+        .la-gvline{  height:620px; }	
+        .la-gvline-last{ height:500px;}
+    }
+}
+
+// How this Works End
