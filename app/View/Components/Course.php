@@ -21,6 +21,7 @@ class Course extends Component
     public $creatorUrl;
 
     public function __construct($img, $course, $rating, $url, $creatorImg, $creatorName, $creatorUrl)
+    // public function __construct()
     {
         $this->img = $img;
         $this->course = $course;

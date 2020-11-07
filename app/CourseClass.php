@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
 
 class CourseClass extends Model
@@ -57,5 +58,18 @@ class CourseClass extends Model
     public function subtitle()
     {
       return $this->hasMany('App\Subtitle','c_id');
+    }
+
+    public function getImageAttribute($value)
+    {
+        return Storage::url(config('path.course.video_thumnail').$this->course_id. '/' . $value);
+    }
+
+    public function getVideoAttribute($value)
+    {
+        return Storage::temporaryUrl(
+            config('path.course.video').$this->course_id. '/' . $value, now()->addMinutes(5)
+        );
+        // return Storage::url(config('path.course.video').$this->course_id. '/' . $value);
     }
 }

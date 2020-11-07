@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
 
 class Course extends Model
@@ -126,5 +127,20 @@ class Course extends Model
     public static function scopeSearch($query, $searchTerm)
     {
         return $query->where('title', 'like', '%' .$searchTerm. '%');
+    }
+
+    public function getPreviewImageAttribute($value)
+    {
+        // return Storage::temporaryUrl(
+        //     config('path.course.img'). $value, now()->addMinutes(5)
+        // );
+
+        return Storage::url(config('path.course.img'). $value);
+        // return Storage::url(config('path.categories'));
+    }
+
+    public function getPreviewVideoAttribute($value)
+    {
+        return Storage::url(config('path.course.preview_video'). $value);
     }
 }

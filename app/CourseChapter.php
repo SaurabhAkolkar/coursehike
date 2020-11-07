@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
 
 class CourseChapter extends Model
@@ -39,5 +40,10 @@ class CourseChapter extends Model
     public function courses()
     {
     	return $this->belongsTo('App\Course','course_id','id');
+    }
+
+    public function getThumbnailAttribute($value)
+    {
+        return Storage::url(config('path.course.class_thumnail').$this->course_id. '/' . $value);
     }
 }
