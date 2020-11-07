@@ -6,9 +6,43 @@
                     width: 80px;
                     height: 100vh;
                     top: 0;
+                    overflow: hidden;
                     background-color: var(--gray);
                     border-right: 2px solid rgba(112, 112, 112, 0.2);
-                    padding: var(--size-14) 0 var(--size-3);
+                    padding: var(--size-14) var(--size-7) var(--size-3);
+                    z-index: calc(var(--header-z) - 1);
+                }
+                transition: all 0.3s ease-in-out;
+
+                &.menu-open {
+                    width: 310px;
+
+                    & #{$ap}- {
+                        &profile {
+                            &__ {
+                                &sidebar {
+                                    &- {
+                                        &text {
+                                            animation: sidemenuText 0.3s ease-in 0s forwards;
+                                        }
+                                        &img {
+                                            opacity: 1;
+                                        }
+                                        &link {
+                                            &-- {
+                                                &name {
+                                                    width: 100%;
+                                                }
+                                            }
+                                        }
+                                        &btn {
+                                            transform: rotate(90deg);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
 
                 &- {
@@ -16,14 +50,13 @@
                         padding-top: var(--size-10);
                     }
                     &item { 
-                        margin-bottom: var(--size-3);
+                        margin-bottom: var(--size-5);
                     }
-                    &link{
+                    &link {
                         color: #111111;
                         border-radius: 0 !important;
                         padding: 0;
                         background: none !important;
-                        text-transform: uppercase;
                         position: relative;
 
                         &:before {
@@ -50,12 +83,52 @@
                                 z-index: 0;
                             }
                         }
+
+                        &-- {
+                            &name {
+                                width: 0;
+                                overflow: hidden;
+                                transition: all 0.3s ease-in-out;
+                            }
+                        }
+                    }
+                    &btn {
+                        cursor: pointer;
+                        transition: all 0.2s ease-in-out;
+                    }
+                    &img {
+                        width: 24px;
+                        height: 24px;
+                        background-color: darkgray;
+                        border-radius: 100px;
+                        opacity: 0;
+                        overflow: hidden;
+                        transition: all 0.3s ease-in-out;
+                    }
+                    &text {
+                        min-width: 200px;
+                        opacity: 0;
+                        visibility: hidden;
+                        font-size: var(--text-sm);
+                        font-family: var(--head-font);
+                        font-weight: var(--font-medium);
+                        animation: sidemenuTextout 0.1s ease 0s forwards;
+                        // opacity: 0;
+
+                        &-- {
+                            &name {
+                                font-family: var(--body-font) !important;
+                                font-size: var(--text-md);
+                                font-weight: var(--font-bold);
+                            }
+                        }
                     }
                 }
 
                 &:after {
                     content: "";
                     position: absolute;
+                    left: 0;
                     width: 100%;
                     height: 8px;
                     bottom: 0;
@@ -63,5 +136,36 @@
                 }
             }
         }
+    }
+}
+
+@keyframes sidemenuText {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(0px);
+    }
+    50% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(0px);
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(10px);
+    }
+}
+
+@keyframes sidemenuTextout {
+    0% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(10px);
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(0px);
     }
 }
