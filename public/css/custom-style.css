@@ -40,10 +40,7 @@ html, body{
     background:#ffffff !important;
     box-shadow: 0px 3px 6px #0000001A !important;
 }
-/* == Sidebar User Image == */
-.sidebar .user-panel img{
-    height:auto;
-}
+
 /* == Sidebar Toggler Menu Links == */
 .sidebar a {
     font-family:var(--body-font);
@@ -459,6 +456,7 @@ table.table-bordered.dataTable tbody td {
     width: 80px;
     height: 50px;
     display:block;
+    border-radius:10px;
 }
 td .btn-success, td form .btn-danger{
     background-color:transparent !important;

@@ -42,11 +42,11 @@
           <br>
 
           <div class="row">
-            <div class="col-md-12">
+            {{-- <div class="col-md-12">
               <label for="exampleInputTit1e">{{ __('adminstaticword.Icon') }}:<sup class="redstar">*</sup></label>
               <input type="text" class="form-control icp-auto icp" name="icon" id="exampleInputTitle" placeholder="Enter your icon" value="">
             </div>
-            <br>
+            <br> --}}
             <div class="col-md-12 pt-3 form-group">
               <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
               <br>

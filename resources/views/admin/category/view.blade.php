@@ -44,13 +44,13 @@
                       </div>
                       <br>
 
-                      <div class="row">
+                      {{-- <div class="row">
                         <div class="col-md-12">
                           <label for="icon">{{ __('adminstaticword.Icon') }}:<sup class="redstar">*</sup></label>
                           <input type="text" class="form-control icp-auto icp" name="icon" required placeholder="Choose Icon">
                         </div>
                       </div>
-                      <br>
+                      <br> --}}
 
                       <div class="row">
                         <div class="col-md-4">
@@ -88,7 +88,7 @@
                 <tr>
                   <th>#</th>
                   <th>{{ __('adminstaticword.Category') }}</th>
-                  <th>{{ __('adminstaticword.Icon') }}</th>
+                  {{-- <th>{{ __('adminstaticword.Icon') }}</th> --}}
                   <th>{{ __('adminstaticword.Slug') }}</th>
                   <th>{{ __('adminstaticword.Featured') }}</th>
                   <th>{{ __('adminstaticword.Status') }}</th>
@@ -103,7 +103,7 @@
                   <tr class="sortable" id="id-{{ $cat->id }}">
                     <td><?php echo $i;?></td>
                     <td>{{$cat->title}}</td>
-                    <td><i class="fa {{$cat->icon}}"></i></td>
+                    {{-- <td><i class="fa {{$cat->icon}}"></i></td> --}}
                     <td>{{$cat->slug}}</td>
                     <td>
                       <form action="{{ route('categoryf.quick',$cat->id) }}" method="POST">

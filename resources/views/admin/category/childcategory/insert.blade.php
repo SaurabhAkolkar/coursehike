@@ -51,13 +51,13 @@
                 </div>
               </div><br>
               
-              <div class="row">
+              {{-- <div class="row">
                 <div class="col-md-6">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Icon') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control icp-auto icp" name="icon" id="exampleInputTitle" placeholder="Enter your icon" value="">
                 </div>
               </div>
-              <br>
+              <br> --}}
 
               <div class="row">
                 <div class="col-md-6">

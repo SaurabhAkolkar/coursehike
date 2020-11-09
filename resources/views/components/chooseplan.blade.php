@@ -14,7 +14,7 @@
             </div>
           </div>
           <div class="la-choose__subscribe mt-5 mx-4">
-            <a href="/payment" role="button" target="_self">
+            <a href="/subscription/{{ $slug }}" role="button" target="_self">
               <div class="btn la-btn la-btn-secondary py-3" >SUBSCRIBE</div>
             <a>
             <p class="text-sm pt-1">Get access to all the Courses</p><a class="text-sm" href="#">Start free 7 Days trial</a>

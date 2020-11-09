@@ -16,7 +16,7 @@
 </section>
 <section class="content">
 	<!-- Main row -->
-    <div class="row mr-5 pr-5">
+    <div class="row mr-md-20">
         <div class="col-lg-4 col-6 p-3">
           <!-- small box -->
           <div class="small-box bg-aqua"> 
@@ -255,15 +255,15 @@
     <!-- /.row -->
 
 	<!-- Main row -->
-	<div class="row mr-5 pr-5">
+	<div class="row mr-md-20">
 		<!-- Left col -->
     <div class="col-md-5">
       <!-- RECENTLY ADDED USERS LIST -->
       <div class="la-dash__recent-section">
-          <div class="">
+          <div class="la-dash__recent-head">
             <h3 class="la-dash__recent-htitle">{{ __('adminstaticword.LatestUsers') }}</h3>
-
-            <div class="box-tools pull-right">
+          </div>
+           {{-- <div class="box-tools pull-right">
               <span class="label label-danger">
                 @php
                     $user = App\User::all();
@@ -278,42 +278,42 @@
                   @endphp
                 {{ __('adminstaticword.Users') }}
               </span>
-             <!-- <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
               </button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-              </button> -->
-            </div>
-          </div>
-          <!-- /.box-header -->
-          <div class="la-dash__recent-list px-2">
+              </button> 
+             </div>  --}}
+          <ul class="la-dash__recent-list">
             @php
               $users = App\User::limit(8)->orderBy('id', 'DESC')->get();
             @endphp
-            <div class="row users-list">
+            <!-- <div class="row users-list"> -->
               @foreach($users as $user)
-              <div class="col-md-8 px-0">
-                  <div class="d-flex align-items-center py-1">
-                    @if($user['user_img'] != null || $user['user_img'] !='')
-                      <img src="{{ asset('/images/user_img/'.$user['user_img']) }}" class="img-fluid" alt="User Image">
-                    @else
-                      <img src="{{ asset('images/default/user.jpg')}}" class="img-fluid" alt="User Image">
-                    @endif
+                <!-- <div class="col-md-8 px-0"> -->
+                <li class="la-dash__recent-item ">
+                  <div class="la-dash__recent-info">
+                    <div class="la-dash__recent-img">
+                      @if($user['user_img'] != null || $user['user_img'] !='')
+                        <img src="{{ asset('/images/user_img/'.$user['user_img']) }}" class="img-fluid d-block" alt="User Image">
+                      @else
+                        <img src="{{ asset('images/default/user.jpg')}}" class="img-fluid d-block" alt="User Image">
+                      @endif
+                    </div>
                   
-                    <div class="users-info ml-3 ">
-                      <a class="users-list-name m-0" href="#">{{ $user['fname'] }} {{ $user['lname'] }}</a>
-                      <div class="users-list-desc">CREATOR</div>
+                    <div class="users-info la-dash__recent-desc ml-3 ">
+                      <a class="users-list-name m-0 la-dash__recent-title" href="#">{{ $user['fname'] }} {{ $user['lname'] }}</a>
+                      <div class="users-list-desc la-dash__recent-tag">CREATOR</div>
                     </div>
                   </div>
-              </div>
-
-              <div class="col-md-4 d-flex align-items-center">
-                <span class="users-list-date ">{{ date('F Y', strtotime($user['created_at'])) }}</span>
-              </div>
+                  <!-- </div> -->
+                  <div class="la-dash__recent-date">
+                    <span class="users-list-date la-dash__recent-subdate">{{ date('F Y', strtotime($user['created_at'])) }}</span>
+                  </div>
+                </li>
               @endforeach
-              
-            </div>
+            <!-- </div> -->
             <!-- /.users-list -->
-          </div>
+          </ul>
           <!-- /.box-body -->
           <div class="box-footer text-right ">
             <a href="{{route('user.index')}}" class="uppercase"> <!--{{ __('adminstaticword.ViewAll') }} -->
@@ -326,61 +326,65 @@
       <!--/.box -->
     </div>
 
+    <!-- RECENTLY ADDED COURSES LIST -->
     <div class="col-md-7">
-        <!-- RECENTLY ADDED COURSES LIST -->
-      @php
-        $courses = App\Course::limit(5)->orderBy('id', 'DESC')->get()
-      @endphp
-      @if(!$courses->isEmpty())
       <div class="la-dash__recent-section">
-          <div class="">
-            <h3 class="la-dash__recent-htitle">{{ __('adminstaticword.RecentCourses') }}</h3>
-
-            <div class="box-tools pull-right">
+        <div class="la-dash__recent-head">
+          <h3 class="la-dash__recent-htitle">{{ __('adminstaticword.RecentCourses') }}</h3>
+        </div>
+        @php
+          $courses = App\Course::limit(5)->orderBy('id', 'DESC')->get()
+        @endphp
+        @if(!$courses->isEmpty())
+            {{-- <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
               </button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
-          </div>
-          <!-- /.box-header -->
-          <div class="la-dash__recent-list px-3">
-            <ul class="products-list product-list-in-box">
-              
+            </div> 
+            </div> --}}
+              <!-- /.box-header -->
+          <ul class="la-dash__recent-list">
+            <!-- <ul class="products-list product-list-in-box"> -->
               @foreach($courses as $course)
-              <li class="item">
-                <div class="product-img">
-                  @if($course['preview_image'] !== NULL && $course['preview_image'] !== '')
-                    <img src="images/course/<?php echo $course['preview_image'];  ?>" alt="Course Image">
-                  @else
-                    <img src="{{ Avatar::create($course->title)->toBase64() }}" alt="Course Image">
-                  @endif
-
-                </div>
-                <div class="product-info">
-                  <a href="javascript:void(0)" class="product-title">{{ str_limit($course['title'], $limit = 25, $end = '...') }}
-                  <span class="label label-warning pull-right">
-                    @if( $course->type == 1)
-                      @php
-                          $currency2 = App\Currency::first();
-                      @endphp
-                      @if($course->discount_price == !NULL)
-                        <i class="{{ $currency2['icon'] }}"></i>{{ $course['discount_price'] }}
-                      @else
-                        <i class="{{ $currency2['icon'] }}"></i>{{ $course['price'] }}
-                      @endif
+              <li class=" la-dash__recent-item">
+                <div class="la-dash__recent-info">
+                  <div class="la-dash__recent-img">
+                    @if($course['preview_image'] !== NULL && $course['preview_image'] !== '')
+                      <img class="img-fluid d-block" src="images/course/<?php echo $course['preview_image'];  ?>" alt="Course Image">
                     @else
-                      {{ __('adminstaticword.Free') }}
+                      <img class="img-fluid d-block" src="{{ Avatar::create($course->title)->toBase64() }}" alt="Course Image">
                     @endif
-                </span></a>
-                 
-                  <span class="product-description">
-                      {{ str_limit($course->short_detail, $limit = 40, $end = '...') }}
-                  </span>
+                  </div>
+
+                  <div class="la-dash__recent-desc">
+                    <a href="javascript:void(0)" class=" la-dash__recent-title ">{{ str_limit($course['title'], $limit = 25, $end = '...') }}</a>
+                    <div class="product-description la-dash__recent-tag">
+                        {{ str_limit($course->short_detail, $limit = 40, $end = '...') }}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="la-dash__recent-date d-flex justify-content-between align-items-center">
+                  <div class="users-list-date la-dash__recent-subdate">{{ date('F Y', strtotime($user['created_at'])) }}</div>
+                  <div class="label label-warning ml-20 ">
+                      @if( $course->type == 1)
+                        @php
+                            $currency2 = App\Currency::first();
+                        @endphp
+                        @if($course->discount_price == !NULL)
+                        <span class="la-dash__recent-price"><i class="{{ $currency2['icon'] }}"></i>{{ $course['discount_price'] }}</span>
+                        @else
+                        <span class="la-dash__recent-price"><i class="{{ $currency2['icon'] }}"></i>{{ $course['price'] }}</span>
+                        @endif
+                      @else
+                        <span class="la-dash__recent-price">{{ __('adminstaticword.Free') }}</span>
+                      @endif
+                  </div>
                 </div>
               </li>
               @endforeach
-            </ul>
-          </div>
+            <!-- </ul> -->
+          </ul>
           <!-- /.box-body -->
           <div class="box-footer text-right">
             <a href="{{url('course')}}" class="uppercase"><!-- {{ __('adminstaticword.ViewAll') }} -->
@@ -388,8 +392,8 @@
             </a>
           </div>
           <!-- /.box-footer -->
-      </div>
       @endif
+    </div>
       <!-- /.box -->
     </div>
     <!-- /.col -->
@@ -602,7 +606,7 @@
 
 
     <!-- TABLE: LATEST ORDERS -->
-		<!--<div class="col-md-12">
+		{{--<div class="col-md-12">
       @php
         $orders = App\Order::limit(7)->orderBy('id', 'DESC')->get();
       @endphp
@@ -669,8 +673,7 @@
 			    </div>
 			  
 			</div>
-      @endif
-    -->
+      @endif 
 			<!-- /.box -->
 
       <!-- Instructor box -->
@@ -728,7 +731,7 @@
         </div> 
       </div>
       @endif
-		</div>  -->
+		</div>  --}}
 	</div>
 </section>
 

@@ -80,7 +80,7 @@
                         </div>
                         <div class="card">
                             <form action="/subscription/plans" method="post" id="payment-form">
-                                @csrf                    
+                                @csrf
                                 <div class="form-group">
                                     <div class="card-header">
                                         <label for="card-element">

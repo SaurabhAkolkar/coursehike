@@ -31,7 +31,7 @@
                 <input type="hidden" name="ans_user_id" value="{{Auth::user()->id}}" />
            
                 <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-6">
                     <label  for="exampleInputTit1e"> {{ __('adminstaticword.Select') }} {{ __('adminstaticword.Question') }}:<sup class="redstar">*</sup></label>
                     <br>
                     <select name="question_id" required class="form-control col-md-7 col-12 js-example-basic-single">
@@ -51,7 +51,7 @@
                 <br>
 
                 <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-6">
                     <label for="exampleInput">{{ __('adminstaticword.Answer') }}:<sup class="redstar">*</sup></label>
                     <textarea name="answer" rows="4" class="form-control" placeholder="Please Enter Your Answer"></textarea>
                   </div>
@@ -69,9 +69,13 @@
                   </div>
                 </div>
                 <br>
-        
-                <div class="box-footer">
-                  <button type="submit" value="Add Answer" class="btn btn-md col-md-3 btn-primary">+ {{ __('adminstaticword.Save') }}</button>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="box-footer">
+                      <button type="submit" value="Add Answer" class="btn btn-md col-md-4 btn-primary">{{ __('adminstaticword.Save') }}</button>
+                    </div>
+                  </div>
                 </div>
 
               </form>

@@ -3,7 +3,7 @@
   <div class="col-12">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h3 class="box-title">{{ __('adminstaticword.Course') }}</h3>
+        <h3 class="box-title ">{{ __('adminstaticword.Course') }}</h3>
         <a class="btn btn-info btn-sm" href="{{url('course/create')}}">
           + {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Course') }}
         </a>
