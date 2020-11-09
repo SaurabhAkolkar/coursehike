@@ -10516,10 +10516,17 @@ ul, li {
   position: relative;
   display: inline-block;
 }
+.la-btn__arrow:hover .la-icon {
+  transform: translateX(10px);
+}
+.la-btn__arrow:hover .la-icon.arrow-down {
+  transform: rotate(90deg) translateX(10px) !important;
+}
 .la-btn__arrow-icon {
   position: absolute;
   right: -22px;
   bottom: -30px;
+  transition: all 0.2s ease;
 }
 .la-btn__arrow-icon.arrow-down {
   transform: rotate(90deg);
