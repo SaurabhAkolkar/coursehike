@@ -235,7 +235,7 @@
 
               <div class="row">    
 
-                <div class="col-md-3"> 
+                <div class="col-md-2"> 
                   @if(Auth::User()->role == "admin")
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Featured') }}:</label>
                   <li class="tg-list-item">
@@ -245,7 +245,7 @@
                   <input type="hidden" name="featured" value="{{ $cor->featured }}" id="f">
                   @endif
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                   @if(Auth::User()->role == "admin")
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                     <li class="tg-list-item">
@@ -255,7 +255,17 @@
                     <input type="hidden" name="status" value="{{ $cor->status }}" id="c33">
                   @endif
                 </div> 
-              </div>
+              
+                <div class="col-md-2">
+                  <label for="exampleInputDetails">Master Class:</label>
+                  <li class="tg-list-item">              
+                    <input class="la-admin__toggle-switch" id="master_class" type="checkbox" name="master_class" >
+                    <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="master_class"></label>
+                  </li>
+                  <input type="hidden"  name="master_class" value="0" for="master_class" id="master_class">
+                </div>
+              </div> 
+              <br/>
 
               <div class="box-footer">
                 <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('adminstaticword.Save') }}</button>
