@@ -56,29 +56,27 @@
               </div>
               <br>
               
-              @if($cate->type =="video")
                 
-                <div class="row">
-                  <div class="col-md-12">
-                    <div id="videoUpload" @if($cate->url !=NULL || $cate->iframe_url !=NULL || $cate->aws_upload !=NULL) class="display-none" @endif >
-                      <label for="">{{ __('adminstaticword.UploadVideo') }}: </label>
-                      <input type="file" name="video_upld" class="form-control">
-                      @if($cate->video !="")
-                        <video src="{{ asset('video/class/'.$cate->video) }}" controls>
-                        </video>
-                      @endif
-                    </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div id="videoUpload" @if($cate->url !=NULL || $cate->iframe_url !=NULL || $cate->aws_upload !=NULL) class="display-none" @endif >
+                    <label for="">{{ __('adminstaticword.UploadVideo') }}: </label>
+                    <input type="file" name="video_upld" class="form-control">
+                    @if($cate->video !="")
+                      <video src="{{ $cate->video }}" controls>
+                      </video>
+                    @endif
                   </div>
                 </div>
-                
-                <div class="row">
-                  <div  class="col-md-12" id="duration">
-                    <label for="">{{ __('adminstaticword.Duration') }} :</label>
-                    <input type="text" name="duration" value="{{ $cate->duration }}" class="form-control" placeholder="Enter class duration in (mins) Eg:160">
-                  </div>
+              </div>
+              
+              <div class="row">
+                <div  class="col-md-12" id="duration">
+                  <label for="">{{ __('adminstaticword.Duration') }} :</label>
+                  <input type="text" name="duration" value="{{ $cate->duration }}" class="form-control" placeholder="Enter class duration in (mins) Eg:160">
                 </div>
-                <br>
-              @endif
+              </div>
+              <br>
              
               <div class="row">
                 <div class="col-md-6">    
@@ -112,7 +110,7 @@
                   <div class="la-admin__preview">
                       <h6 class="la-admin__editing-title mb-2" > Current </h6>
                       <div class="la-admin__preview-img la-admin__editclass-preview" >
-                          <img src="{{ asset('video/class/preview/'.$cate->image) }}" alt="">
+                          <img src="{{ $cate->image }}" alt="">
                       </div>
                   </div>
                 </div>
@@ -193,7 +191,6 @@
 
 
             <!-- SUBTITLE SECTION: START -->
-            @if($cate->type =="video")
 
             <div class="col-md-12 p-0 mt-10">
               <div class="box box-primary">
@@ -284,7 +281,6 @@
                   </tbody> 
                 </table>
             </div>
-            @endif
             <!-- SUBTITLE SECTION: END -->
 
               <div class="box-footer mt-12">

@@ -45,19 +45,23 @@ class CoursechapterController extends Controller
         ]);
 
         $input = $request->all();
-        // dd($input);
-
         $data = CourseChapter::create($input);
 
         if($file = $request->file('preview_image'))
         { 
-          $filename = time().rand().'.'.$file->getClientOriginalExtension();
-          $file->move(public_path().'/images/course',$filename);
-          $data->thumbnail = $filename;
-        //   $input['thumbnail'] = $filename;
-        }
+            //   $filename = time().rand().'.'.$file->getClientOriginalExtension();
+            //   $file->move(public_path().'/images/course',$filename);
+            //   $data->thumbnail = $filename;
+            //   $input['thumbnail'] = $filename;
 
-        // dd($data);
+            $photo = Image::make($file)->fit(600, 360, function ($constraint) {
+                $constraint->upsize();
+            })->encode('jpg', 70);
+
+            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+            Storage::put(config('path.course.class_thumnail').$request->course_id .'/'. $file_name, $photo->stream() );
+            $data->thumbnail = $file_name;
+        }
 
         $data->save();
 
@@ -114,20 +118,35 @@ class CoursechapterController extends Controller
             $input['status'] = '0';
         }
 
-        if($file = $request->file('file'))
+        if($file = $request->file('preview_image'))
         {
-            if($data->file != "")
-            {
-                $chapter_file = @file_get_contents(public_path().'/files/material/'.$data->file);
+            // if($data->preview_image != "")
+            // {
+            //     $chapter_file = @file_get_contents(public_path().'/files/material/'.$data->file);
 
-                if($chapter_file)
-                {
-                    unlink('files/material/'.$data->file);
-                }
+            //     if($chapter_file)
+            //     {
+            //         unlink('files/material/'.$data->file);
+            //     }
+            // }
+            // $name = time().$file->getClientOriginalName();
+            // $file->move('files/material', $name);
+            // $input['file'] = $name;
+
+            if ($data->thumbnail != null) {
+                $exists = Storage::exists(config('path.course.class_thumnail').$data->thumbnail);
+                if ($exists)
+                    Storage::delete(config('path.course.class_thumnail').$data->thumbnail);
             }
-            $name = time().$file->getClientOriginalName();
-            $file->move('files/material', $name);
-            $input['file'] = $name;
+
+            $photo = Image::make($file)->fit(600, 360, function ($constraint) {
+                $constraint->upsize();
+            })->encode('jpg', 70);
+
+            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+            Storage::put(config('path.course.class_thumnail').$file_name, $photo->stream() );
+            $input['file'] = $file_name;
+
         }
 
         $data->update($input);

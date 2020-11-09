@@ -31,7 +31,6 @@
 
                 <div class="la-course__learners"><strong>300</strong>  Learners</div>
             </div>
-
             <div class="la-course__imgwrap">
                 <img class="img-fluid" src= {{ $img }} alt= {{ $course }} />
             </div>

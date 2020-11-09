@@ -197,7 +197,7 @@
                           </div>
                           <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="preview_image" id="image" />
                           @if($cor['preview_image'] !== NULL && $cor['preview_image'] !== '')
-                              <img src="{{ url('/images/course/'.$cor->preview_image) }}" class="preview-img" />
+                              <img src="{{ $cor->preview_image }}" class="preview-img" />
                           @else
                               <img src="{{ Avatar::create($cor->title)->toBase64() }}" alt="course" class="preview-img img-fluid">
                           @endif
@@ -221,7 +221,7 @@
                             <input type="file" class="form-control la-admin__preview-input preview_video" name="preview_video" value="{{ $cor->preview_video }}"/>
                             {{-- @if($cor->video !="") --}}
                               <video controls class="preview-video w-100">
-                                <source src="{{ asset('video/preview/'.$cor->preview_video) }}" id="preview-video-source">
+                                <source src="{{ $cor->preview_video }}" id="preview-video-source">
                                   Your browser does not support HTML5 video.
                               </video>
                             {{-- @endif  --}}

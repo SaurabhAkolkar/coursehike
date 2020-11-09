@@ -33,10 +33,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $category = Categories::orderBy('position','ASC')->get();
+        $categories = Categories::with('courses')->where('featured','1')->orderBy('position','ASC')->get();
         $sliders = Slider::orderBy('position', 'ASC')->get();
         $facts = SliderFacts::limit(3)->get();
-        $categories = CategorySlider::first();
+        // $categories = CategorySlider::first();
         $cor = Course::all();
         $bundles = BundleCourse::get();
         $meetings = Meeting::where('link_by', NULL)->get();
@@ -45,6 +45,6 @@ class HomeController extends Controller
         $trusted = Trusted::all();
 
 
-        return view('home', compact('category', 'sliders', 'facts', 'categories', 'cor', 'bundles', 'meetings', 'bigblue', 'testi', 'trusted'));
+        return view('learners.pages.home', compact('categories', 'sliders', 'facts', 'cor', 'bundles', 'meetings', 'bigblue', 'testi', 'trusted'));
     }
 }

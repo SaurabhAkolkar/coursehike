@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\CourseClass;
 use Illuminate\Http\Request;
 use Notification;
-use DB;
+use Image;
 use App\CourseChapter;
 use App\Course;
 use App\Order;
@@ -94,32 +94,18 @@ class CourseclassController extends Controller
                 
         if($file = $request->file('video_upld'))
         {
-            $name = 'video_course_'.time().'.'.$file->getClientOriginalExtension();
-            $file->move('video/class',$name);
-            $courseclass->video = $name;
+            $courseclass->video = basename(Storage::putFile(config('path.course.video'). $request->course_id, $file , 'private'));
         }
   
         if($file = $request->file('preview_image'))
         {
-            $name = 'video_thumbnail_'.time().'.'.$file->getClientOriginalExtension();
-            $file->move('video/class/preview',$name);
-            $courseclass->image = $name;
-        }
+            $photo = Image::make($file)->fit(600, 360, function ($constraint) {
+                $constraint->upsize();
+            })->encode('jpg', 70);
 
-        if($request->checkVideo == "aws_upload")
-        {
-
-            $file = request()->file('aws_upload');
-            $videoname = time() . $file->getClientOriginalName();
-
-            $t = Storage::disk('s3')->put($videoname, file_get_contents($file) , 'public');
-            $upload_video = $videoname;
-            $aws_url = env('AWS_URL') . $videoname;
-            
-
-            $videoname = Storage::disk('s3')->url($videoname);
-
-            $courseclass->aws_upload = $aws_url;
+            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+            Storage::put(config('path.course.video_thumnail').$file_name, $photo->stream() );
+            $courseclass->image = $file_name;
         }
 
         // Notification when course class add
@@ -234,18 +220,17 @@ class CourseclassController extends Controller
 
         if($file = $request->file('video_upld'))
         {
-            if($courseclass->video !="")
-            {
-                $content = @file_get_contents(public_path().'/video/class/'.$courseclass->video);
 
-                if ($content) {
-                    unlink(public_path().'/video/class/'.$courseclass->video);
+            if ($courseclass->video != "") {
+                $exists = Storage::exists(config('path.course.video'). $courseclass->course_id .'/'. $courseclass->video);
+                if ($exists) {
+                    Storage::delete(config('path.course.video'). $courseclass->course_id .'/'. $courseclass->video);
                 }
             }
-        
-            $name = 'video_course_'.time().'.'.$file->getClientOriginalExtension();
-            $file->move('video/class',$name);
-            $courseclass->video = $name;
+
+            $file_name = md5(microtime().rand()). time().'.'.$file->getClientOriginalExtension();
+            $courseclass->video = basename(Storage::putFile(config('path.course.video'). $courseclass->course_id, $file , 'private'));
+
             $courseclass->date_time = null;
             $courseclass->aws_upload = null;
 
@@ -253,36 +238,20 @@ class CourseclassController extends Controller
 
         if($file = $request->file('preview_image'))
         {
-            if($courseclass->image !="")
-            {
-                $content = @file_get_contents(public_path().'/video/class/preview/'.$courseclass->image);
 
-                if ($content) {
-                    unlink(public_path().'/video/class/preview/'.$courseclass->image);
-                }
+            if ($courseclass->image != null) {
+                $exists = Storage::exists(config('path.course.video_thumnail').$courseclass->image);
+                if ($exists)
+                    Storage::delete(config('path.course.video_thumnail').$courseclass->image);
             }
-            $name = 'video_thumbnail_'.time().'.'.$file->getClientOriginalExtension();
-            $file->move('video/class/preview',$name);
-            $courseclass->image = $name;
-        }
 
-        if($request->checkVideo == "aws_upload")
-        {
+            $photo = Image::make($file)->fit(600, 360, function ($constraint) {
+                $constraint->upsize();
+            })->encode('jpg', 70);
 
-            $file = request()->file('aws_upload');
-            $videoname = time() . $file->getClientOriginalName();
-
-            $t = Storage::disk('s3')->put($videoname, file_get_contents($file) , 'public');
-            $upload_video = $videoname;
-            $aws_url = env('AWS_URL') . $videoname;
-            
-
-            $videoname = Storage::disk('s3')->url($videoname);
-
-            $courseclass->aws_upload = $aws_url;
-            $courseclass->video = null;
-            $courseclass->date_time = null;
-
+            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+            Storage::put(config('path.course.video_thumnail').$file_name, $photo->stream() );
+            $courseclass->image = $file_name;
         }
 
         if(isset($request->status))
