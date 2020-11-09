@@ -10543,11 +10543,10 @@ ul, li {
   color: #7400D7;
 }
 .la-btn__app {
-  width: 100%;
   height: 100%;
   border: 2px solid #7400D7;
   border-radius: 10px;
-  padding: 15px 25px;
+  padding: var(--size-4) var(--size-9);
   text-transform: uppercase;
   font-size: 14px;
   font-weight: var(--font-bold);
@@ -10555,6 +10554,7 @@ ul, li {
   letter-spacing: 3.2px;
   position: relative;
   z-index: 1;
+  transition: all 0.1s ease;
 }
 .la-btn__app:hover {
   background: var(--app-indigo-1);
@@ -16945,6 +16945,30 @@ a, a:hover {
   background-color: var(--app-indigo-1);
   color: #ffffff;
 }
+.la-header__sidemenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background: #ffffff;
+  z-index: 97;
+  box-shadow: 0px 3px 6px #0000001A;
+  padding: 15px;
+}
+.la-header__sidemenu-btn {
+  z-index: 98;
+}
+.la-header__sidemenu-lnk {
+  display: flex;
+  align-items: center;
+  color: #404040;
+  padding: 10px;
+}
+.la-header__sidemenu-name {
+  margin-left: 10px;
+  font-weight: var(--font-medium);
+}
 
 .la-footer {
   background-color: var(--gray3);
@@ -18954,7 +18978,9 @@ a, a:hover {
 .la-mccourse__title {
   margin-top: auto;
   font-size: var(--text-2xl);
+  font-weight: var(--font-light);
   margin-right: var(--size-2);
+  margin-bottom: 5px;
 }
 .la-mccourse__btm {
   display: flex;
@@ -21462,6 +21488,48 @@ section.la-section .la-section__inner .la-mycourses__more:hover:after {
   content: "See the list";
   position: relative;
   color: var(--app-indigo-1);
+}
+
+.la-payment__msg-section {
+  background-color: var(--gray);
+}
+.la-payment__msg-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+  margin: 0 auto;
+}
+.la-payment__msg-icon .la-icon {
+  font-size: var(--text-6xl);
+}
+.la-payment__msg-icon--success {
+  background: rgba(135, 255, 139, 0.32);
+}
+.la-payment__msg-icon--success .la-icon {
+  color: var(--green);
+}
+.la-payment__msg-icon--failed {
+  background: rgba(238, 66, 36, 0.11);
+}
+.la-payment__msg-icon--failed .la-icon {
+  color: var(--danger);
+}
+.la-payment__msg-title {
+  font-size: calc(var(--text-4xl) + 2px);
+}
+.la-payment__msg-box {
+  width: 100%;
+  padding: 50px 30px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px 5px #eeeeee;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .la-payment__msg-box {
+    width: 600px;
+    padding: 80px 100px;
+  }
 }
 
 .la-section__card-payments .la-payment__title {

@@ -1,3 +1,5 @@
-@import './vendor/bootstrap.min';
-@import './base/__base', './layout/__layout', './components/__components';
-@import './pages/home','./pages/become-creator','./pages/guided-creator','./pages/dashboard','./pages/contact','./pages/learning-plans','./pages/new-releases.scss','./pages/purchase-history.scss','./pages/my-courses.scss', './pages/payment.scss';
+@import './vendor/bootstrap.min',
+         './base/__base', 
+        './layout/__layout', 
+        './components/__components', 
+        './pages/__pages';

@@ -1,3 +1,5 @@
+$sidemenuWidth: 250px;
+
 #{$ap}- {
     // Header: Start
     &header {
@@ -71,6 +73,35 @@
                 &:hover{
                     background-color:var(--app-indigo-1);
                     color:#ffffff;
+                }
+            }
+
+            &sidemenu {
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: $sidemenuWidth;
+                height: 100%;
+                background: #ffffff;
+                z-index: 97;
+                box-shadow: 0px 3px 6px #0000001A;
+                padding: 15px;
+                // transform: translateX($sidemenuWidth);
+
+                &- {
+                    &btn {
+                        z-index: 98;
+                    }
+                    &lnk {
+                        display: flex;
+                        align-items: center;
+                        color: #404040;
+                        padding: 10px;
+                    }
+                    &name {
+                        margin-left: 10px;
+                        font-weight: var(--font-medium);
+                    }
                 }
             }
         }

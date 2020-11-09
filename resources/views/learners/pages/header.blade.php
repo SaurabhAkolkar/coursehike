@@ -6,12 +6,11 @@
           <a class="la-header__brandwrap" href="/">
             <img class="la-header__brand" src="/images/learners/logo.svg" alt="Lila">
           </a>
-          <div class="la-header__nav d-inline-flex  align-items-center">
+          <div class="la-header__nav d-none d-md-inline-flex  align-items-center">
             <div class="la-header__nav-item"><a class="la-header__nav-link" href="/user-dashboard">Dashboard</a></div>
             <div class="la-header__nav-item"><a class="la-header__nav-link" href="/browse/courses">Browse Courses</a></div>
             <div class="la-header__nav-item"><a class="la-header__nav-link" href="/my-courses">My Courses</a></div>
             <div class="la-header__nav-item"><a class="la-header__nav-link" href="/mentors">Mentors</a></div>
-            
           </div>
         </div>
         
@@ -175,7 +174,7 @@
         <a class="la-header__brandwrap" href="/">
           <img class="la-header__brand" src="/images/learners/logo.svg" alt="Lila">
         </a>
-        <div class="la-header__nav d-inline-flex  align-items-center">
+        <div class="la-header__nav d-none d-md-inline-flex  align-items-center">
           <div class="la-header__nav-item"><a class="la-header__nav-link" href="/courses">Courses</a></div>
           <div class="la-header__nav-item"><a class="la-header__nav-link" href="/mentors">Mentors</a></div>
           <div class="la-header__nav-item"><a class="la-header__nav-link" href="/learning-plans">Learning Plans</a></div>
@@ -244,7 +243,7 @@
             </div>
           </div> 
 
-          <div class="la-header__menu-item">
+          <div class="d-none d-md-inline-block la-header__menu-item">
             <a class="la-header__menu-link la-header__menu-icon la-icon icon-menu" id="nav_dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
             <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="nav_dropdown" style="border:none;">
               <a class="dropdown-item la-header__dropdown-item text-sm" href="/become-creator">Become a Creator</a>
@@ -252,6 +251,35 @@
               <a class="dropdown-item la-header__dropdown-item text-sm" href="/contact">Contact Us</a>
             </div>
           </div>
+
+          <div class="d-md-none la-header__sidemenu-wrap">
+            <div id="" class="position-relative la-header__menu-item la-header__sidemenu-btn">
+              <span class="la-icon la-icon--xl icon-hamburger-menu"></span>
+            </div>
+            <div class="la-header__sidemenu">
+              <div class="la-header__sidemenu-inner">
+                <ul class="la-header__sidemenu-items">
+                  <li class="la-header__sidemenu-item">
+                    <a class="la-header__sidemenu-lnk" href="">
+                      <div class="la-header__sidemenu-icon">
+                        <span class="icon-profile"></span>
+                      </div>
+                      <span class="la-header__sidemenu-name">Login</span>
+                    </a>
+                  </li>
+                  <li class="la-header__sidemenu-item">
+                    <a class="la-header__sidemenu-lnk" href="">
+                      <div class="la-header__sidemenu-icon">
+                        <span class="icon-courses"></span>
+                      </div>
+                      <span class="la-header__sidemenu-name">Courses</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
