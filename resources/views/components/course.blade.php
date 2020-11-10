@@ -1,7 +1,7 @@
 <div class="col-12 col-md-6 col-lg">
     <div class="la-course">
         <div class="la-course__inner">
-            <div class="la-course__overlay"  href= {{ $url }}>
+            <a class="la-course__overlay"  href= {{ url(config('path.course.learn') .$id. '/' . $url) }}>
                 <ul class="la-course__options list-unstyled text-white">
                     <li class="la-course__option">
                         <a class="d-inline-block la-course__addtocart">
@@ -30,7 +30,7 @@
                 </ul>
 
                 <div class="la-course__learners"><strong>300</strong>  Learners</div>
-            </div>
+            </a>
             <div class="la-course__imgwrap">
                 <img class="img-fluid" src= {{ $img }} alt= {{ $course }} />
             </div>

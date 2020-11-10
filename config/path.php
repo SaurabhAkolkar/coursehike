@@ -19,6 +19,10 @@ return array(
 
         'preview_video' => 'assets/video/course_preview/',
         'video' => 'assets/video/course/',
+
+        'resources' => 'assets/course_resources/',
+
+        'learn' => 'learn/course/',
     ]
 
 );

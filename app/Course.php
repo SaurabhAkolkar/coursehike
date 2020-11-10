@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Firebase\JWT\JWT;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
@@ -74,6 +75,11 @@ class Course extends Model
         return $this->hasMany('App\CourseClass','course_id');
     }
 
+    public function resources()
+    {
+    	return $this->hasMany('App\CourseResource','course_id');
+    }
+
     public function favourite()
     {
         return $this->hasMany('App\Favourite','course_id');
@@ -142,5 +148,21 @@ class Course extends Model
     public function getPreviewVideoAttribute($value)
     {
         return Storage::url(config('path.course.preview_video'). $value);
+    }
+
+    public function getSignedStreamURL()
+    {
+        $privateKey = base64_decode(env('CLOUDFLARE_PEM_KEY'));
+        $payload = array(
+            // "iss" => "example.org",
+            // "aud" => "example.com",
+            'exp' => time() + 3600,
+            'kid' => env('CLOUDFLARE_Signing_KEY'),
+            'sub' => $this->stream_video,
+        );
+        
+        $jwt = JWT::encode($payload, $privateKey, 'RS256');
+        return 'https://videodelivery.net/'.$jwt.'/manifest/video.m3u8';
+        // return Storage::url(config('path.course.video').$this->course_id. '/' . $value);
     }
 }
