@@ -1,4 +1,5 @@
-<div class="la-vcourse__lesson position-relative">
+<div class="la-vcourse__lesson position-relative" data-video-id="{{$id}}">
+
     <div class="la-vcourse__access-wrap">
         <div class="la-vcourse__access la-vcourse__access--{{ $access ?? '' }} d-flex align-items-center justify-content-center">
             @if ($access == "free")
@@ -26,15 +27,13 @@
     </div>
     <div class="la-vcourse__lesson-right d-flex">
         <div class="la-vcourse__lesson-content d-flex flex-wrap flex-column">
-            <div class="la-vcourse__lesson-title"> {{ $vcourseTitle ?? '' }} </div>
+            <div class="la-vcourse__lesson-title"> {{ $title ?? '' }} </div>
             <div class="la-vcourse__lesson-creator pl-4"> {{ $author ?? '' }} </div>
             <div class="la-vcourse__lesson-learnt mt-auto"> {{ $statusPercentage ?? '' }} </div>
             <div class="la-vcourse__lesson-status"></div>
         </div>
         <div class="la-vcourse__lesson-description">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in pulvinar ligula. In 
-                rutrum congue blandit. Sed rutrum ante ultrices nisi sodales tristique. 
-                Vivamus euismod vitae nibh quis rutrum.</p>
+            <p>{{ $detail}}</p>
         </div>
     </div>
 </div>

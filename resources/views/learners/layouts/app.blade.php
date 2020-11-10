@@ -15,6 +15,8 @@
 
     
     <link rel="stylesheet" href="{{('/css/main.css')}}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
 </head>
 
 <body>

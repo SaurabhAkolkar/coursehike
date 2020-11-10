@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-md-12 mt-4">
                           <label >Current File:<sup class="redstar">*</sup></label>
-                          <a href="{{'/files/material/'.$cate->file_url}}">{{$cate->file_url}}</a>
+                          <a href="{{$cate->file_url}}" target="_blank">View Here</a>
                       </div>
                 
                         <div class="col-md-12 mt-4">

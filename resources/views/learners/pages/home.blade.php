@@ -77,19 +77,21 @@
             @foreach ($categories as $category)
               <div class="tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
                 <div class="row row-cols-lg-3">
-                      {{-- {{ dd($category->courses )}}  --}}
                       @foreach($category->courses as $course)
-                      {{-- {{dd($course->title, $course->preview_image)}} --}}
-                      <x-course 
-                          :img="$course->preview_image"
-                          :course="$course->title"
-                          :url="$course->slug" 
-                          :rating="$course->price"
-                          :creatorImg="$course->user->fname"
-                          :creatorName="$course->user->fname"
-                          :creatorUrl="$course->user->fname"
-                        />
-                    @endforeach
+                        @if ($course->featured == 0)
+                            @continue
+                        @endif
+                        <x-course 
+                            :id="$course->id"
+                            :img="$course->preview_image"
+                            :course="$course->title"
+                            :url="$course->slug"
+                            :rating="$course->price"
+                            :creatorImg="$course->user->user_img"
+                            :creatorName="$course->user->fname"
+                            :creatorUrl="$course->user->fname"
+                          />
+                      @endforeach
 
                 </div>
               </div>

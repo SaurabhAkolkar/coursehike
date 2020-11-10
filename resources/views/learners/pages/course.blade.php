@@ -2,19 +2,20 @@
 
 @section('headAssets')
   <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
+  <link href="https://unpkg.com/@silvermine/videojs-quality-selector/dist/css/quality-selector.css" rel="stylesheet">
 
-  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
-  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+
 @endsection
 
 @section('content')
+
 <section class="la-section">
     <div class="la-vcourse">
       <div class="container">
         <div class="row  mb-12"> 
           <div class="col-12 col-lg-7">
             <div class="la-vcourse__header d-flex align-items-center">
-              <h1 class="la-vcourse__title mr-8">Water Color Art</h1>
+              <h1 class="la-vcourse__title mr-8">{{ $course->title }}</h1>
               <div class="la-vcourse__badges">
                 <img src="../../images/learners/icons/badge.svg" alt="badge">
               </div>
@@ -22,10 +23,10 @@
             <div class="la-vcourse__rating mb-2">
               <div id="rateYo"></div>
             </div>
-            <p class="la-vcourse__excerpt mb-5">Improvise your color theory knowledge and paint any idea in your own colors.</p>
+            <p class="la-vcourse__excerpt mb-5">{{ $course->short_detail }}</p>
             <div class="la-vcourse__creator d-flex align-items-center">
               <div class="la-vcourse__creator-avator"><img src="https://picsum.photos/200/200" alt=""></div>
-              <div class="la-vcourse__creator-name">Amy D'souza</div>
+              <div class="la-vcourse__creator-name">{{ $course->user->fname }}</div>
             </div>
           </div>
           <div class="col-12 col-lg-5 d-flex flex-column justify-content-between">
@@ -34,7 +35,7 @@
             </div>
             <div class="la-vcourse__info-items d-flex align-items-center justify-content-end">
               <div class="la-vcourse__info-item la-vcourse__info--videos d-flex flex-column align-items-center justify-content-end">
-                <div class="la--count">05</div>
+                <div class="la--count">{{ $course->courseclass->count() }}</div>
                 <span class="la--label mt-1">Videos</span>
               </div>
               <div class="la-vcourse__info-item la-vcourse__info--learners d-flex flex-column align-items-center justify-content-end mx-10">
@@ -42,7 +43,7 @@
                 <span class="la--label mt-1">Learners</span>
               </div>
               <div class="la-vcourse__info-item la-vcourse__info--level d-flex flex-column align-items-center justify-content-end">
-                <div class="la--icon"><img src="../../images/learners/icons/level-beginner.svg" alt="beginner"></div>
+                <div class="la--icon"><img src="../../../images/learners/icons/level-beginner.svg" alt="beginner"></div>
                 <span class="la--label mt-1">Beginner</span>
               </div>
             </div>
@@ -51,18 +52,18 @@
         <div class="row">
           <div class="col">
             <ul class="list-unstyled d-block d-lg-flex mb-6">
-              <li class="la-vcourse__duration mr-14"><span class="la-text-gray4">Duration </span>  15h 32m</li>
-              <li class="la-vcourse__updatedon mr-14"><span class="la-text-gray4">Last Updated </span>  June19, 2020</li>
+              <li class="la-vcourse__duration mr-14"><span class="la-text-gray4">Duration </span>  {{ $course->duration }}</li>
+              <li class="la-vcourse__updatedon mr-14"><span class="la-text-gray4">Last Updated </span>  {{ $course->updated_at->format('d-M Y') }}</li>
               <li class="la-vcourse__languages mr-14"> <span class="la-text-gray4">Languages </span>  English, Hindi </li>
             </ul>
           </div>
           <div class="col-12 la-vcourse__primary-info d-flex mb-2">
             <div class="la-vcourse__classes-info pr-2">
-              <span class="la--count">2</span>
+              <span class="la--count">{{ $course->chapter->count() }}</span>
               <span class="la--label">Classes</span>
             </div>
             <div class="la-vcourse__videos-info pl-2">
-              <span class="la--count">5</span>
+              <span class="la--count">{{ $course->courseclass->count() }}</span>
               <span class="la--label">Videos</span>
             </div>
           </div>
@@ -70,101 +71,62 @@
         <div id="vcourse_row" class="row la-vcourse__class-row">
           <div class="col-12 col-lg-6 la-vcourse__class-col">
             <div class="la-player la-vcourse__video-wrap mb-3">
-              <video
-                id="my-video"
+              <video-js
+                id="lila-video"
                 class="la-vcourse__video video-js"
                 controls
                 preload="auto"
                 width="100%"
                 height="100%"
-                poster="MY_VIDEO_POSTER.jpg"
+                {{-- poster="MY_VIDEO_POSTER.jpg" --}}
                 data-setup="{}"
+                type="application/x-mpegURL" 
               >
-                <source src="../../video/vcourse/tutorial1.mp4" type="video/mp4" />
-                <source src="../../video/vcourse/tutorial1.webm" type="video/webm" />
+              {{-- https://videodelivery.net/330e598ebd8511b64de660b7b459db54/manifest/video.m3u8 --}}
+                <source src="{{ $course->getSignedStreamURL()}}" type="application/x-mpegURL" />
+                  {{-- <source src="https://videodelivery.net/048850df97dc19cf7137aaf583a281ef/manifest/video.m3u8" type="application/x-mpegURL" /> --}}
                 <p class="vjs-no-js">
-                  To view this video please enable JavaScript, and consider upgrading to a
+                  {{-- To view this video please enable JavaScript, and consider upgrading to a
                   web browser that
                   <a href="https://videojs.com/html5-video-support/" target="_blank"
                     >supports HTML5 video</a
-                  >
+                  > --}}
                 </p>
-              </video>
+              </video-js>
             </div>
-            <h2 class="la-vlesson__title m-0">At vero eos et accusam et</h2><small class="la-vlesson__creator">Amy D'souza</small>
+            <h2 class="la-vlesson__title m-0">{{ $course->title}} - Course Preview</h2><small class="la-vlesson__creator">{{ $course->user->fname }}</small>
           </div>
           <div class="col-12 col-lg-6 la-vcourse__class-col">
             <div class="la-vcourse__curriculam pl-2 pl-lg-8">
+              @foreach($course->chapter as $class)
               <div class="la-vcourse__class">
                 <div class="la-vcourse__class-header d-flex mb-7 ml-5">
-                  <div class="la-vcourse__class-thumb mr-3"><img class="img-fluid" src="https://picsum.photos/100"></div>
+                  <div class="la-vcourse__class-thumb mr-3"><img class="img-fluid" src="{{$class->thumbnail}}"></div>
                   <div class="d-flex flex-column">
-                    <div class="la-vcourse__class-title leading-4 text-xl mb-1">Class 1: Lorem ipsum dolor sit</div><small class="la-vcourse__class-videoscount">2 Videos</small>
+                    <div class="la-vcourse__class-title leading-4 text-xl mb-1">{{$class->chapter_name}}</div><small class="la-vcourse__class-videoscount">{{$class->courseclass->count()}} Videos</small>
                   </div>
                 </div>
 
-                  @php
-                      $vcourseFree = new stdClass;
-                      $vcourseFree->thumbnail = "https://picsum.photos/200/120";
-                      $vcourseFree->vcourseTitle = "1. At vero eos et accusam et";
-                      $vcourseFree->author = "Amy D'souza";
-                      $vcourseFree->watchedDuration = "01:15:00";
-                      $vcourseFree->statusPercentage = "20%";
-                      $vcourseFree->access = "free";
-
-                      $vcourseLocked = new stdClass;
-                      $vcourseLocked->thumbnail = "https://picsum.photos/200/120";
-                      $vcourseLocked->vcourseTitle = "1. At vero eos et accusam et";
-                      $vcourseLocked->author = "Amy D'souza";
-                      $vcourseLocked->watchedDuration = "01:15:00";
-                      $vcourseLocked->statusPercentage = "80%";
-                      $vcourseLocked->access = "locked";
-
-                      $vcourseAvailable = new stdClass;
-                      $vcourseAvailable->thumbnail = "https://picsum.photos/200/120";
-                      $vcourseAvailable->vcourseTitle = "1. At vero eos et accusam et";
-                      $vcourseAvailable->author = "Amy D'souza";
-                      $vcourseAvailable->watchedDuration = "01:15:00";
-                      $vcourseAvailable->statusPercentage = "5%";
-                      $vcourseAvailable->access = "available";
-
-                      $vcourse = array($vcourseFree, $vcourseLocked, $vcourseAvailable);
-                  @endphp
-
                 <div class="la-vcourse__lessons">
 
-                  @foreach ($vcourse as $vcourseLesson)
-                    <x-vcourse-lesson 
-                      :thumbnail="$vcourseLesson->thumbnail"
-                      :vcourseTitle="$vcourseLesson->vcourseTitle"
-                      :author="$vcourseLesson->author"
-                      :watchedDuration="$vcourseLesson->watchedDuration"
-                      :statusPercentage="$vcourseLesson->statusPercentage"
-                      :access="$vcourseLesson->access"
+                  @foreach ($class->courseclass as $class_video)
+                    @php
+                      $lesson_access = $class_video->is_preview == '1' ? 'free' : ($video_access ? 'free' : 'locked');                      
+                    @endphp
+                    <x-class-video
+                      :id="$class_video->id"
+                      :title="$class_video->title"
+                      :thumbnail="$class_video->image"
+                      :detail="$class_video->detail"
+                      :author="$class_video->courses->user->fname"
+                      :watchduration="$class_video->duration"
+                      :statuspercentage="$class_video->duration"
+                      :access="$lesson_access"
                     />
                   @endforeach
                 </div>
               </div>
-              <div class="la-vcourse__class">
-                <div class="la-vcourse__class-header d-flex mb-7 ml-5">
-                  <div class="la-vcourse__class-thumb mr-3"><img class="img-fluid" src="https://picsum.photos/100"></div>
-                  <div class="d-flex flex-column">
-                    <div class="la-vcourse__class-title leading-4 text-xl">Class 1: Lorem ipsum dolor sit</div><small class="la-vcourse__class-videoscount">2 Videos</small>
-                  </div>
-                </div>
-                <div class="la-vcourse__lessons">
-                  @foreach ($vcourse as $vcourseLesson)
-                    <x-vcourse-lesson 
-                      :thumbnail="$vcourseLesson->thumbnail"
-                      :vcourseTitle="$vcourseLesson->vcourseTitle"
-                      :author="$vcourseLesson->author"
-                      :watchedDuration="$vcourseLesson->watchedDuration"
-                      :statusPercentage="$vcourseLesson->statusPercentage"
-                      :access="$vcourseLesson->access"
-                    />
-                  @endforeach
-                </div>
-              </div>
+              @endforeach
             </div>
             <div class="la-vcourse__btn-wrap text-center mt-3">
               <div id="vcourseFullView" class="la-btn__arrow-down la-vcourse__btn d-inline-block">
@@ -195,17 +157,7 @@
               <div class="col-lg-9 px-0">
                 <div class="col-12 col-lg px-0">
                   <div class="la-ctabs__about">
-                    <div class="la-ctabs__about-desc">
-                      <p class="text-md">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-                      <p class="text-md">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</span><span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</span></p>
-                    </div>
-                    <div class="la-ctabs__about-list my-6">
-                      <div class="la-ctabs__list d-flex"><i class="la-icon icon-tick"></i><span class="ml-5">Lorem ipsum dolor sit amet, consetetur</span></div>
-                      <div class="la-ctabs__list d-flex"><i class="la-icon icon-tick"></i><span class="ml-5">Lorem ipsum dolor sit amet, consetetur</span></div>
-                      <div class="la-ctabs__list d-flex"><i class="la-icon icon-tick"></i><span class="ml-5">Lorem ipsum dolor sit amet, consetetur</span></div>
-                      <div class="la-ctabs__list d-flex"><i class="la-icon icon-tick"></i><span class="ml-5">Lorem ipsum dolor sit amet, consetetur</span></div>
-                      <p class="collapse mt-3" id="readmore">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-                    </div>
+                    {!! $course->detail !!}
                   </div>
                   <div class="la-vcourse__btn-wrap text-right mt-3">
                     <a class="la-btn__arrow-down la-vcourse__btn d-inline-block text-center" href="">
@@ -218,15 +170,18 @@
             </div>
             <div class="tab-pane fade" id="cnav-resource" role="tabpanel" aria-labelledby="cnav-resource-tab">
               <div class="col-lg px-0 d-flex">
-                <div class="col-12 col-md col-lg px-0">
-                  <div class="la-ctabs__resources d-flex">
-                    <div class="la-ctabs__resource-pdf"><i class="la-icon--5xl icon-download mr-8"></i></div>
-                    <div class="la-ctabs__resource-desc">
-                      <div class="la-ctabs__resource-title text-lg head-font text-uppercase">Things to follow</div><a class="la-ctabs__resource-file text-sm" href="">things_to_follow.pdf</a>
+                @foreach ( $course->resources as $resource)
+                  <div class="col-12 col-md col-lg px-0">
+                    <div class="la-ctabs__resources d-flex">
+                      <div class="la-ctabs__resource-pdf"><i class="la-icon--5xl icon-download mr-8"></i></div>
+                      <div class="la-ctabs__resource-desc">
+                        <div class="la-ctabs__resource-title text-lg head-font text-uppercase">{{$resource->file_name}}</div><a class="la-ctabs__resource-file text-sm" href="{{$resource->file_url}}" target="_blank">Download Now</a>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-12 col-md col-lg px-0">
+                @endforeach
+
+                {{-- <div class="col-12 col-md col-lg px-0">
                   <div class="la-ctabs__resources d-flex">
                     <div class="la-ctabs__resource-pdf"><i class="la-icon--5xl icon-download mr-8"></i></div>
                     <div class="la-ctabs__resource-desc">
@@ -241,7 +196,7 @@
                       <div class="la-ctabs__resource-title text-lg head-font text-uppercase">Important Tips</div><a class="la-ctabs__resource-file text-sm" href="">important_tips.pdf</a>
                     </div>
                   </div>
-                </div>
+                </div> --}}
               </div>
               <div class="col-12 px-0 d-flex justify-content-end"> <a class="la-ctabs__download-all text-sm" href=""><span class="text-uppercase">DOWNLOAD ALL<span class="pl-1 la-icon icon-download"> </span></span></a></div>
             </div>
@@ -266,30 +221,24 @@
               <div class="la-ctabs__title text-4xl mb-8">About</div>
                 <div class="col-12 col-lg px-0">
                   <div class="la-ctabs__about">
-                    <div class="la-ctabs__about-desc">
-                      <p class="text-md">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-                      <p class="text-md">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</span><span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</span></p>
-                    </div>
-                    <div class="la-ctabs__about-list my-6">
-                      <div class="la-ctabs__list d-flex"><i class="la-icon icon-tick"></i><span class="ml-5">Lorem ipsum dolor sit amet, consetetur</span></div>
-                      <div class="la-ctabs__list d-flex"><i class="la-icon icon-tick"></i><span class="ml-5">Lorem ipsum dolor sit amet, consetetur</span></div>
-                      <div class="la-ctabs__list d-flex"><i class="la-icon icon-tick"></i><span class="ml-5">Lorem ipsum dolor sit amet, consetetur</span></div>
-                      <div class="la-ctabs__list d-flex"><i class="la-icon icon-tick"></i><span class="ml-5">Lorem ipsum dolor sit amet, consetetur</span></div>
-                      <p class="collapse mt-3" id="readmore">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-                    </div>
+                    {!! $course->detail !!}
                   </div><a class="la-ctabs__readmore d-flex justify-content-center justify-content-md-end mt-lg-3" role="button" href="#readmore" data-toggle="collapse" aria-expanded="true">Read More</a>
                 </div>
             </div>
             <div class="col-12 mb-4">
               <div class="la-ctabs__title text-4xl mb-8">Resources</div>
-                <div class="col-12 col-md col-lg px-0">
-                  <div class="la-ctabs__resources d-flex">
-                    <div class="la-ctabs__resource-pdf"><i class="la-icon--5xl icon-download mr-8"></i></div>
-                    <div class="la-ctabs__resource-desc">
-                      <div class="la-ctabs__resource-title text-lg head-font text-uppercase">Things to follow</div><a class="la-ctabs__resource-file text-sm" href="">things_to_follow.pdf</a>
+              @foreach ( $course->resources as $resource)
+                  <div class="col-12 col-md col-lg px-0">
+                    <div class="la-ctabs__resources d-flex">
+                      <div class="la-ctabs__resource-pdf"><i class="la-icon--5xl icon-download mr-8"></i></div>
+                      <div class="la-ctabs__resource-desc">
+                        <div class="la-ctabs__resource-title text-lg head-font text-uppercase">{{$resource->file_name}}</div><a class="la-ctabs__resource-file text-sm" href="{{$resource->file_url}}" target="_blank">Download Now</a>
+                      </div>
                     </div>
                   </div>
-                </div>
+                @endforeach
+
+                
                 <div class="col-12 col-md col-lg px-0">
                   <div class="la-ctabs__resources d-flex">
                     <div class="la-ctabs__resource-pdf"><i class="la-icon--5xl icon-download mr-8"></i></div>
@@ -334,7 +283,7 @@
             <div class="col">
               <div class="la-cbenefits__item d-flex flex-column align-items-center">
                 <div class="mb-7">
-                  <img class="img-fluid d-block" src="../../images/learners/course-benefits/video.svg" />
+                  <img class="img-fluid d-block" src="../../../../images/learners/course-benefits/video.svg" />
                 </div>
                 <h4 class="la-cbenefits__item-title mb-3">Unlimited Learning</h4>
                 <p class="la-cbenefits__item-desc m-0">One plan - All subscribed content</p>
@@ -342,14 +291,14 @@
             </div>
             <div class="col">
               <div class="la-cbenefits__item d-flex flex-column align-items-center">
-                <div class="mb-7"><img class="img-fluid d-block" src="../../images/learners/course-benefits/certificate.svg"></div>
+                <div class="mb-7"><img class="img-fluid d-block" src="../../../../images/learners/course-benefits/certificate.svg"></div>
                 <h4 class="la-cbenefits__item-title mb-3">Certification</h4>
                 <p class="la-cbenefits__item-desc m-0">Course completion certificate</p>
               </div>
             </div>
             <div class="col">
               <div class="la-cbenefits__item d-flex flex-column align-items-center">
-                <div class="mb-7"><img class="img-fluid d-block" src="../../images/learners/course-benefits/online-course.svg"></div>
+                <div class="mb-7"><img class="img-fluid d-block" src="../../../../images/learners/course-benefits/online-course.svg"></div>
                 <h4 class="la-cbenefits__item-title mb-3">Assignments &amp; QUiz</h4>
                 <p class="la-cbenefits__item-desc m-0">Test your progress</p>
               </div>
@@ -362,6 +311,7 @@
   <!-- Section: End-->
 
   <!-- Section: Start-->
+  @unless($video_access)
   <section class="la-section la-section--grey la-vcourse__purchase">
     <div class="la-vcourse__purchase-inwrap container">
       <div class="row la-vcourse__purchase-row">
@@ -470,6 +420,7 @@
       </div>
     </div>
   </section>
+  @endunless
   <!-- Section: End-->
 
   <!-- Section: Start-->
@@ -894,6 +845,13 @@
 
 @section('footerScripts')
   <!-- video js -->
-  <script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
+  <script src="https://unpkg.com/video.js/dist/video.js"></script>
+  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+  <script src="https://unpkg.com/@silvermine/videojs-quality-selector/dist/js/silvermine-videojs-quality-selector.min.js"></script>
 
+  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-quality-levels/2.0.9/videojs-contrib-quality-levels.min.js" integrity="sha512-zkCFMhOIASwe5fZfTUz26vG8miAAMOM6EzleZtBx28ZkCvhp7+6NVZC6iroJiNizWNh+pfQMgjo4Iv8ro9tSuw==" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/videojs-hls-quality-selector@1.1.4/dist/videojs-hls-quality-selector.cjs.min.js"></script> --}}
+  {{-- <script src="https://unpkg.com/@videojs/http-streaming@2.3.0/dist/videojs-http-streaming.min.js"></script> --}}
+  {{-- <script src="https://unpkg.com/@videojs/http-streaming@2.3.0/dist/videojs-http-streaming.js"></script> --}}
 @endsection

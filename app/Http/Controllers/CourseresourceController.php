@@ -6,6 +6,7 @@ use App\CourseResource;
 use Illuminate\Http\Request;
 use DB;
 use App\Course;
+use Illuminate\Support\Facades\Storage;
 use Session;
 use Image;
 
@@ -51,10 +52,10 @@ class CourseresourceController extends Controller
 
         if($file = $request->file('add_file'))
         { 
-          $filename = time().rand().'.'.$file->getClientOriginalExtension();
-          $file->move(public_path().'/files/material/',$filename);
-          $data->file_url = $filename;
-        //   $input['thumbnail'] = $filename;
+        //   $filename = time().rand().'.'.$file->getClientOriginalExtension();
+        //   $file->move(public_path().'/files/material/',$filename);
+        //   $data->file_url = $filename;
+          $data->file_url = basename(Storage::putFile(config('path.course.resources'). $request->course_id, $file , 'private'));
         }
         $data->status = "1";
 
@@ -106,18 +107,27 @@ class CourseresourceController extends Controller
 
         if($file = $request->file('edit_file'))
         {
-            if($data->file_url != "")
-            {
-                $chapter_file = @file_get_contents(public_path().'/files/material/'.$data->file_url);
+            // if($data->file_url != "")
+            // {
+            //     $chapter_file = @file_get_contents(public_path().'/files/material/'.$data->file_url);
 
-                if($chapter_file)
-                {
-                    unlink('files/material/'.$data->file_url);
+            //     if($chapter_file)
+            //     {
+            //         unlink('files/material/'.$data->file_url);
+            //     }
+            // }
+            // $name = time().$file->getClientOriginalName();
+            // $file->move('files/material', $name);
+            // $input['file_url'] = $name;
+
+            if ($data->file_url != "") {
+                $exists = Storage::exists(config('path.course.resources'). $data->course_id .'/'. $data->file_url);
+                if ($exists) {
+                    Storage::delete(config('path.course.resources'). $data->course_id .'/'. $data->file_url);
                 }
             }
-            $name = time().$file->getClientOriginalName();
-            $file->move('files/material', $name);
-            $input['file_url'] = $name;
+
+            $input['file_url'] = basename(Storage::putFile(config('path.course.resources'). $data->course_id, $file , 'private'));
         }
 
         $data->update($input);
