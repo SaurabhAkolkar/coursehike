@@ -57,13 +57,18 @@ class LearnController extends Controller
     public function video($video_id)
     {
         $class_video = CourseClass::where('id', $video_id)->first();
-        if(Auth::check())
+        if(Auth::check() || $class_video->is_preview == '1')
         {
-        	$order = Order::where('user_id', Auth::User()->id)->where('course_id', $class_video->course_id)->first();
+            if(Auth::check())
+        	    $order = Order::where('user_id', Auth::User()->id)->where('course_id', $class_video->course_id)->first();
 
-            if( Auth::User()->role == "admin" || 
+            if(
+                $class_video->is_preview == '1' || 
+                $class_video->courses->package_type == '0' ||
+                (Auth::check() && ( Auth::User()->role == "admin" || 
                 Auth::User()->subscription('main')->active() ||
-                !empty( $order) )
+                !empty($order) )) 
+            )
             {
                 $response = array(
                     'status' => 'success',
