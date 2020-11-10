@@ -275,6 +275,38 @@
                       <span class="la-header__sidemenu-name">Courses</span>
                     </a>
                   </li>
+                  <li class="la-header__sidemenu-item">
+                    <a class="la-header__sidemenu-lnk" href="">
+                      <div class="la-header__sidemenu-icon">
+                        <span class="icon-courses"></span>
+                      </div>
+                      <span class="la-header__sidemenu-name">Mentors</span>
+                    </a>
+                  </li>
+                  <li class="la-header__sidemenu-item">
+                    <a class="la-header__sidemenu-lnk" href="">
+                      <div class="la-header__sidemenu-icon">
+                        <span class="icon-courses"></span>
+                      </div>
+                      <span class="la-header__sidemenu-name">Learning Plans</span>
+                    </a>
+                  </li>
+                  <li class="la-header__sidemenu-item">
+                    <a class="la-header__sidemenu-lnk" href="">
+                      <div class="la-header__sidemenu-icon">
+                        <span class="icon-courses"></span>
+                      </div>
+                      <span class="la-header__sidemenu-name">About LILA</span>
+                    </a>
+                  </li>
+                  <li class="la-header__sidemenu-item">
+                    <a class="la-header__sidemenu-lnk" href="">
+                      <div class="la-header__sidemenu-icon">
+                        <span class="icon-courses"></span>
+                      </div>
+                      <span class="la-header__sidemenu-name">Contact Us</span>
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>

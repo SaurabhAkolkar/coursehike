@@ -86,9 +86,23 @@ $sidemenuWidth: 250px;
                 z-index: 97;
                 box-shadow: 0px 3px 6px #0000001A;
                 padding: 15px;
-                // transform: translateX($sidemenuWidth);
+                transform: translateX($sidemenuWidth);
+                transition: all 0.2s ease-in-out;
 
                 &- {
+                    &wrap {
+                        &.menu-open {
+                            & #{$ap}- {
+                                &header {
+                                    &__ {
+                                        &sidemenu {
+                                            transform: translateX(0);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                     &btn {
                         z-index: 98;
                     }
