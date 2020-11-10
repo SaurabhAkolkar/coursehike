@@ -118,6 +118,7 @@ $('.la-vcourse__lesson').on('click', function() {
     data:{video_id:video_id},
     success: function(response){
       let data = response.data;
+
       $('.la-vlesson__title').text(data.title);
       
       var options = {
@@ -162,7 +163,7 @@ $('.la-vcourse__lesson').on('click', function() {
         {
            src: data.url+'?clientBandwidthHint=0.38',
            type: 'application/x-mpegURL',
-           label: '360P',
+           label: '240p',
         },
      ]);
      if(lilaPlayer.controlBar.getChild('QualitySelector') == undefined)
@@ -191,7 +192,10 @@ $('.la-vcourse__lesson').on('click', function() {
       //     }
       // }
       // xhr.send(); //send request
-    }
+    },
+    error: function(XMLHttpRequest, textStatus, errorThrown) { 
+        alert("You need to Login/Subscribe");
+    }  
   });
 
 });
