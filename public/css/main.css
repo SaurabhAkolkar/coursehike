@@ -16955,6 +16955,11 @@ a, a:hover {
   z-index: 97;
   box-shadow: 0px 3px 6px #0000001A;
   padding: 15px;
+  transform: translateX(250px);
+  transition: all 0.2s ease-in-out;
+}
+.la-header__sidemenu-wrap.menu-open .la-header__sidemenu {
+  transform: translateX(0);
 }
 .la-header__sidemenu-btn {
   z-index: 98;
