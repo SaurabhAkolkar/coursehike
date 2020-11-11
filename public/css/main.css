@@ -9793,7 +9793,7 @@ a.text-dark:focus, a.text-dark:hover {
 @font-face {
   font-family: "icomoon";
   src: url(/fonts/icomoon.eot?375b8ea48ac770e8551098b2aad0ba4c);
-  src: url(/fonts/icomoon.eot?375b8ea48ac770e8551098b2aad0ba4c#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?542de070e6df8c0a5c6670ad126c4284) format("truetype"), url(/fonts/icomoon.woff?6ec0c5693df9a07d6550c66436500ed6) format("woff"), url(/fonts/icomoon.svg?b1f82110c8c45c0c21f76409e231c675#icomoon) format("svg");
+  src: url(/fonts/icomoon.eot?375b8ea48ac770e8551098b2aad0ba4c#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?542de070e6df8c0a5c6670ad126c4284) format("truetype"), url(/fonts/icomoon.woff?6ec0c5693df9a07d6550c66436500ed6) format("woff"), url(/fonts/icomoon.svg?403afebb9d175a68c47bd92dc50fd6f4#icomoon) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -16899,29 +16899,43 @@ a, a:hover {
 .la-header__brand {
   margin-right: var(--size-9);
 }
-@media (max-width: 767px) {
+.la-header__collapse-wrap {
+  background: #F8F8F8;
+  padding: 0 20px;
+}
+@media (max-width: 991px) {
   .la-header__nav {
     position: fixed;
     top: 0;
     right: 0;
-    width: 250px;
+    width: 300px;
     height: 100%;
+    overflow-y: scroll;
     background: #ffffff;
     z-index: 97;
     box-shadow: 0px 3px 6px #0000001A;
-    padding: 15px;
-    transform: translateX(250px);
-    transition: all 0.2s ease-in-out;
+    padding: 15px 0 0;
+    transform: translateX(300px);
+    transition: all 0.3s ease-in-out;
   }
-  .la-header__nav:before {
-    content: "";
-    width: 100%;
-    height: 8px;
-    background-color: #FFC516;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: 1;
+  .la-header__nav-bottom {
+    border-bottom: 8px solid #FFC516;
+  }
+  .la-header__nav.menu-open {
+    transform: translateX(0);
+  }
+  .la-header__nav.menu-open .la-header__nav-item {
+    opacity: 0;
+    transform: translateX(10px);
+    -webkit-animation: meneItemShow 0.3s ease-in 0.1s forwards;
+            animation: meneItemShow 0.3s ease-in 0.1s forwards;
+  }
+  .la-header__nav-item {
+    padding: 0 15px;
+    opacity: 1;
+    transform: translateX(0px);
+    -webkit-animation: meneItemShowOut 0.1s ease 0s forwards;
+            animation: meneItemShowOut 0.1s ease 0s forwards;
   }
   .la-header__nav-name {
     margin-left: 10px;
@@ -16940,7 +16954,7 @@ a, a:hover {
     padding: 10px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .la-header__nav-icon {
     display: none;
   }
@@ -16999,8 +17013,53 @@ a, a:hover {
 }
 .la-header__sidemenu-btn {
   z-index: 99;
+  transition: all 0.2s ease;
+}
+.la-header__sidemenu-btn.menu-open {
+  transform: rotate(90deg);
 }
 
+@-webkit-keyframes meneItemShow {
+  0% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes meneItemShow {
+  0% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+@-webkit-keyframes meneItemShowOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+}
+@keyframes meneItemShowOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+}
 .la-footer {
   background-color: var(--gray3);
   color: #fff;
@@ -18653,7 +18712,7 @@ a, a:hover {
   font-weight: var(--font-light);
 }
 .la-profile__sidebar {
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in;
 }
 @media (min-width: 768px) {
   .la-profile__sidebar {
@@ -18671,8 +18730,8 @@ a, a:hover {
   width: 310px;
 }
 .la-profile__sidebar.menu-open .la-profile__sidebar-text {
-  -webkit-animation: sidemenuText 0.3s ease-in 0s forwards;
-          animation: sidemenuText 0.3s ease-in 0s forwards;
+  -webkit-animation: sidemenuText 0.2s ease-in-out 0s forwards;
+          animation: sidemenuText 0.2s ease-in-out 0s forwards;
 }
 .la-profile__sidebar.menu-open .la-profile__sidebar-img {
   opacity: 1;
@@ -19989,7 +20048,6 @@ a, a:hover {
 .la-hero__title {
   font-size: calc(var(--text-2xl) * 3);
   font-weight: var(--font-black);
-  line-height: 1;
   color: #010101;
   font-family: var(--head-font);
   margin-bottom: var(--size-4);
@@ -20033,6 +20091,7 @@ a, a:hover {
 }
 .la-hero__top .la-hero .la-hero__title {
   font-size: calc(var(--text-5xl) * 2);
+  line-height: calc(var(--text-5xl) * 2);
 }
 .la-hero__top .la-hero .la-hero__subtitle {
   color: var(--app-indigo-1);
@@ -20048,6 +20107,7 @@ a, a:hover {
   }
   .la-hero__top .la-hero .la-hero__title {
     font-size: var(--text-6xl);
+    line-height: var(--text-6xl);
   }
   .la-hero__top .la-hero .la-hero__lead {
     font-size: var(--text-lg);

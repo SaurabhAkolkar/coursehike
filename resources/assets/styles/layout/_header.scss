@@ -1,4 +1,4 @@
-$sidemenuWidth: 250px;
+$sidemenuWidth: 300px;
 
 #{$ap}- {
     // Header: Start
@@ -18,32 +18,72 @@ $sidemenuWidth: 250px;
                 margin-right: var(--size-9);
             }
 
+            &collapse {
+                &- {
+                    &wrap {
+                        background: #F8F8F8;
+                        padding: 0 20px;
+                    }
+                }
+            }
+
             &nav {
-                @include respond-below(sm) {
+                @include respond-below(md) {
                     position: fixed;
                     top: 0;
                     right: 0;
                     width: $sidemenuWidth;
                     height: 100%;
+                    overflow-y: scroll;
                     background: #ffffff;
                     z-index: 97;
                     box-shadow: 0px 3px 6px #0000001A;
-                    padding: 15px;
+                    padding: 15px 0 0;
                     transform: translateX($sidemenuWidth);
-                    transition: all 0.2s ease-in-out;
+                    transition: all 0.3s ease-in-out;
 
-                    &:before {
-                        content: "";
-                        width: 100%;
-                        height: 8px;
-                        background-color: #FFC516;
-                        position: absolute;
-                        left: 0;
-                        bottom: 0;
-                        z-index: 1;
+                    // &:before {
+                    //     content: "";
+                    //     width: 100%;
+                    //     height: 8px;
+                    //     background-color: #FFC516;
+                    //     position: absolute;
+                    //     left: 0;
+                    //     bottom: 0;
+                    //     z-index: 1;
+                    // }
+
+                    &- {
+                        &bottom {
+                            border-bottom: 8px solid #FFC516;
+                        }
+                    }
+
+                    &.menu-open {
+                        transform: translateX(0);
+
+                        & #{$ap}-header{
+                            &__ {
+                                &nav {
+                                    &- {
+                                        &item {
+                                            opacity: 0;
+                                            transform: translateX(10px);
+                                            animation: meneItemShow 0.3s ease-in 0.1s forwards;
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
 
                     &- {
+                        &item {
+                            padding: 0 15px;
+                            opacity: 1;
+                            transform: translateX(0px);
+                            animation: meneItemShowOut 0.1s ease 0s forwards;
+                        }
                         &name {
                             margin-left: 10px;
                             font-weight: var(--font-medium);
@@ -63,7 +103,7 @@ $sidemenuWidth: 250px;
                     }
                 }
 
-                @include respond-above(sm) {
+                @include respond-above(md) {
                     &- {
                         &icon {
                             display: none;
@@ -145,6 +185,11 @@ $sidemenuWidth: 250px;
                 &- {
                     &btn {
                         z-index: 99;
+                        transition: all 0.2s ease;
+
+                        &.menu-open {
+                            transform: rotate(90deg);
+                        }
                     }
                 }
             }
@@ -214,4 +259,26 @@ $sidemenuWidth: 250px;
         }
     }
     // Header: End
+}
+
+@keyframes meneItemShow {
+    0% {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes meneItemShowOut {
+    0% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(10px);
+    }
 }
