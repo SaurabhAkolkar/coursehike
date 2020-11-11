@@ -8,8 +8,8 @@
         <div class="la-hero__top row align-items-center">
           <!-- Column: Start-->
           <div class="col-12 col-lg-5">
-            <div class="la-hero">
-              <p class="la-hero__tag m-0">COURSES & CLASSES BY</p>
+            <div class="la-hero py-6 py-md-0">
+              <p class="la-hero__tag mb-2 mb-md-0">COURSES & CLASSES BY</p>
               <h1 class="la-hero__title">World’s best <span class="la-hero__subtitle">Creators</span></h1>
               <p class="la-hero__lead pr-5">Observe, learn and converse with creators to master your arts</p>
               <div class="la-hero__actions d-lg-flex align-items-center">

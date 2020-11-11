@@ -91,6 +91,12 @@ $(function(){
   })
 
 
+  //header sidemenu
+  $('.la-header__sidemenu-btn').on('click', function() {
+    $('.la-header__nav').toggleClass('menu-open');
+    $('.la-header__sidemenu-btn').toggleClass('menu-open');
+  })
+
 
 }); 
 

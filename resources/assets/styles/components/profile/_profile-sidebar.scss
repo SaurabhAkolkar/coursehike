@@ -12,7 +12,7 @@
                     padding: var(--size-14) var(--size-7) var(--size-3);
                     z-index: calc(var(--header-z) - 1);
                 }
-                transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in;
 
                 &.menu-open {
                     width: 310px;
@@ -23,7 +23,7 @@
                                 &sidebar {
                                     &- {
                                         &text {
-                                            animation: sidemenuText 0.3s ease-in 0s forwards;
+                                            animation: sidemenuText 0.2s ease-in-out 0s forwards;
                                         }
                                         &img {
                                             opacity: 1;
