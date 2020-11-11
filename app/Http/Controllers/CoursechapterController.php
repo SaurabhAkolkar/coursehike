@@ -6,6 +6,7 @@ use App\CourseChapter;
 use Illuminate\Http\Request;
 use DB;
 use App\Course;
+use Illuminate\Support\Facades\Storage;
 use Session;
 use Image;
 
@@ -134,9 +135,9 @@ class CoursechapterController extends Controller
             // $input['file'] = $name;
 
             if ($data->thumbnail != null) {
-                $exists = Storage::exists(config('path.course.class_thumnail').$data->thumbnail);
+                $exists = Storage::exists(config('path.course.class_thumnail').$data->course_id .'/'.$data->thumbnail);
                 if ($exists)
-                    Storage::delete(config('path.course.class_thumnail').$data->thumbnail);
+                    Storage::delete(config('path.course.class_thumnail').$data->course_id .'/'.$data->thumbnail);
             }
 
             $photo = Image::make($file)->fit(600, 360, function ($constraint) {
@@ -144,8 +145,8 @@ class CoursechapterController extends Controller
             })->encode('jpg', 70);
 
             $file_name = time().rand().'.'.$file->getClientOriginalExtension();
-            Storage::put(config('path.course.class_thumnail').$file_name, $photo->stream() );
-            $input['file'] = $file_name;
+            Storage::put(config('path.course.class_thumnail').$data->course_id .'/'. $file_name, $photo->stream() );
+            $data->thumbnail = $file_name;
 
         }
 

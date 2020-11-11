@@ -12,6 +12,7 @@ class Course extends Component
      * @return void
      */
 
+    public $id;
     public $img;
     public $course;
     public $rating;
@@ -20,9 +21,10 @@ class Course extends Component
     public $creatorName;
     public $creatorUrl;
 
-    public function __construct($img, $course, $rating, $url, $creatorImg, $creatorName, $creatorUrl)
+    public function __construct($id, $img, $course, $rating, $url, $creatorImg, $creatorName, $creatorUrl)
     // public function __construct()
     {
+        $this->id = $id;
         $this->img = $img;
         $this->course = $course;
         $this->rating = $rating;
