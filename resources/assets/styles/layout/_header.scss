@@ -29,7 +29,7 @@ $sidemenuWidth: 250px;
                     z-index: 97;
                     box-shadow: 0px 3px 6px #0000001A;
                     padding: 15px;
-                    // transform: translateX($sidemenuWidth);
+                    transform: translateX($sidemenuWidth);
                     transition: all 0.2s ease-in-out;
 
                     &:before {
@@ -103,12 +103,14 @@ $sidemenuWidth: 250px;
                     }
                 }
             }
+
             &dropdown-menu{
                 margin-top:var(--size-5);
                 padding-bottom:0;
                 padding-top:0;
                 box-shadow: 0px 3px 6px #00000029;
             }
+
             &dropdown-item{
                 padding:var(--size-3) var(--size-6);
                 font-weight:var(--font-semibold);
@@ -125,6 +127,25 @@ $sidemenuWidth: 250px;
                 &:hover{
                     background-color:var(--app-indigo-1);
                     color:#ffffff;
+                }
+            }
+
+            &profile {
+                &- {
+                    &img {
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 100px;
+                        overflow: hidden;
+                    }
+                }
+            }
+
+            &sidemenu {
+                &- {
+                    &btn {
+                        z-index: 99;
+                    }
                 }
             }
 

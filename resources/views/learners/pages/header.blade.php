@@ -19,7 +19,7 @@
         
         <div class="la-header__rht ml-auto">
           <div class="la-header__menu d-inline-flex align-items-center">
-            <div class="la-header__menu-item">
+            <div class="la-header__menu-item d-none d-md-block">
               <!-- Global Search: Start-->
               <div class="la-gsearch  mb-0" >
                 <form class="form-inline" action="">
@@ -31,7 +31,8 @@
               </div>
               <!-- Global Search: End-->
             </div>
-            <div class="la-header__menu-item">
+
+            <div class="la-header__menu-item d-none d-md-block">
               <a class="la-header__menu-link la-header__menu-icon la-icon icon-profile" href="/profile"></a>
             </div>
             
@@ -165,10 +166,11 @@
             </div>
 
             <div id="" class="d-md-none position-relative la-header__menu-item la-header__sidemenu-btn">
-              <span class="la-icon la-icon--xl icon-hamburger-menu"></span>
+                <span class="la-icon la-icon--xl icon-hamburger-menu"></span>
             </div>
 
           </div>
+
         </div>
       </div>
   </header>
@@ -191,7 +193,11 @@
 
       <div class="la-header__rht ml-auto mr-md-5">
         <div class="la-header__menu d-inline-flex align-items-center">
-          <div class="la-header__menu-item"><a class="la-header__nav-link text-sm" href="/login">Login</a></div>
+        
+          <div class="la-header__menu-item">
+            <a class="la-header__nav-link text-sm" href="/login">Login</a>
+          </div>
+          
           <div class="la-header__menu-item dropdown">
             <a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-announcement" id="announcementPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
             <div class="dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="announcementPanel" style="border:none !important;">
@@ -264,79 +270,8 @@
             <span class="la-icon la-icon--xl icon-hamburger-menu"></span>
           </div>
 
-          <!-- <div class="d-md-none la-header__sidemenu-wrap menu-open">
-            
-            <div class="la-header__sidemenu">
-              <div class="la-header__sidemenu-inner h-100 d-flex flex-column justify-content-between">
-                <div class="la-header__sidemenu-top">
-                  <ul class="la-header__sidemenu-items">
-                    <li class="la-header__sidemenu-item">
-                      <a class="la-header__sidemenu-lnk" href="">
-                        <div class="la-header__sidemenu-icon">
-                          <span class="icon-profile"></span>
-                        </div>
-                        <span class="la-header__sidemenu-name">Login</span>
-                      </a>
-                    </li>
-                    <li class="la-header__sidemenu-item">
-                      <a class="la-header__sidemenu-lnk" href="">
-                        <div class="la-header__sidemenu-icon">
-                          <span class="icon-courses"></span>
-                        </div>
-                        <span class="la-header__sidemenu-name">Courses</span>
-                      </a>
-                    </li>
-                    <li class="la-header__sidemenu-item">
-                      <a class="la-header__sidemenu-lnk" href="">
-                        <div class="la-header__sidemenu-icon">
-                          <span class="icon-all-mentors"></span>
-                        </div>
-                        <span class="la-header__sidemenu-name">Mentors</span>
-                      </a>
-                    </li>
-                    <li class="la-header__sidemenu-item">
-                      <a class="la-header__sidemenu-lnk" href="">
-                        <div class="la-header__sidemenu-icon">
-                          <span class="icon-learning-plans"></span>
-                        </div>
-                        <span class="la-header__sidemenu-name">Learning Plans</span>
-                      </a>
-                    </li>
-                    <li class="la-header__sidemenu-item">
-                      <a class="la-header__sidemenu-lnk" href="">
-                        <div class="la-header__sidemenu-icon">
-                          <span class="icon-about"></span>
-                        </div>
-                        <span class="la-header__sidemenu-name">About LILA</span>
-                      </a>
-                    </li>
-                    <li class="la-header__sidemenu-item">
-                      <a class="la-header__sidemenu-lnk" href="">
-                        <div class="la-header__sidemenu-icon">
-                          <span class="icon-contact"></span>
-                        </div>
-                        <span class="la-header__sidemenu-name">Contact Us</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="la-header__sidemenu-bottom">
-                  <ul class="la-header__sidemenu-items">
-                    <li class="la-header__sidemenu-item">
-                      <a class="la-header__sidemenu-lnk" href="">
-                        <div class="la-header__sidemenu-icon">
-                          <span class="icon-help-filled"></span>
-                        </div>
-                        <span class="la-header__sidemenu-name">Help</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
         </div>
+        
       </div>
     </div>
   </header>

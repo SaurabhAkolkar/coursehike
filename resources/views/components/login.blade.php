@@ -5,7 +5,7 @@
             <div class="la-header__nav-item d-md-none ">
                 <a class="la-header__nav-link" href="/login">
                     <div class="la-header__profile-img">
-                        <span class="icon-profile"></span>
+                        <img src="https://picsum.photos/25/25" alt="">
                     </div>
                     <span class="la-header__nav-name">Nathan Spark</span>
                 </a>
