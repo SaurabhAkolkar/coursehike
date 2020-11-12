@@ -29,6 +29,7 @@ html, body{
     font-weight:500;
     padding:10px;
     margin:0 5px;
+    outline:0;
 }
 .main-header .navbar .sidebar-toggle{
     color: #404040 !important;
