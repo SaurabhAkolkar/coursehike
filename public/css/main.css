@@ -215,6 +215,7 @@ button {
   border-radius: 0;
 }
 
+
 button:focus {
   outline: 1px dotted;
   outline: 5px auto -webkit-focus-ring-color;
@@ -21505,4 +21506,8 @@ section.la-section .la-section__inner .la-mycourses__more:hover:after {
   .la-section__card-payments .la-payment__details .la-payment__form .la-payment__card-mobile {
     margin-left: 0;
   }
+}
+
+.error {
+  color: red;
 }

@@ -104,6 +104,36 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        // 'fname' => [
+        //     'required' => 'First Name is required',
+        // ],
+        // 'lname' => [
+        //     'required' => 'Last Name is required',
+        // ],
+        // 'mobile' => [
+        //     'required' => 'Contact Number is required',
+        // ],
+        // 'email' => [
+        //     'required' => 'Email is required',
+        // ],
+        // 'dob' => [
+        //     'required' => 'Date of Birth is required',
+        // ],
+        // 'address' => [
+        //     'required' => 'Address is required',
+        // ],
+        // 'country_id' => [
+        //     'required' => 'Country is required',
+        // ],
+        // 'state_id' => [
+        //     'required' => 'State is required',
+        // ],
+        // 'city_id' => [
+        //     'required' => 'City is required',
+        // ],
+        // 'pin_code' => [
+        //     'required' => 'Zip Code is required',
+        // ],
     ],
 
     /*

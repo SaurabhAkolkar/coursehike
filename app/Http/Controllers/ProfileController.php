@@ -1,0 +1,125 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Allstate;
+use App\Allcity;
+use App\Country;
+use Auth;
+use Session;
+use Image;
+use Hash;
+
+class ProfileController extends Controller
+{   
+    public function __construct()
+    {
+        return $this->middleware('auth');
+    }
+
+       /**
+     * Displaying Current Profile.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function index()
+    {   
+        $cities = Allcity::pluck('name','id')->all();
+        $states = Allstate::pluck('name','id')->all();
+        $countries = Country::pluck('name','country_id')->all();
+        
+        return view('learners.pages.profile')->with(['cities' => $cities, 'states' => $states, 'countries' => $countries]);
+    }
+     /**
+     * Update the user profile in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function updateProfile(Request $request)
+    {
+       
+        $user = Auth::user();
+        
+        $request->validate([
+            //   'email' => 'required|email|unique:users,email,'.$user->id,
+              'first_name' => 'required|min:3',
+              'last_name' => 'required|min:3',
+              'gender' => 'required',
+              'dob' => 'required',
+              'mobile' => 'required|min:10',
+              'address' => 'required|min:6',
+              'country' => 'required',
+              'state' => 'required',
+              'city' => 'required',
+              'zipcode' => 'required|min:6',
+              'user_img' => 'max:5000|mimes:jpg,jpeg,png',
+          ]);
+       //   dd($request->all());
+        $input['fname'] = $request->first_name;
+        $input['lname'] = $request->last_name;
+        $input['gender'] = $request->gender;
+        $input['dob'] = $request->dob;
+        $input['address'] = $request->address;
+        $input['country_id'] = $request->country;
+        $input['state_id'] = $request->state;
+        $input['city_id'] = $request->city;
+        $input['pin_code'] = $request->zipcode;
+
+        if ($file = $request->file('user_img')) {
+
+
+            if($user->user_img != null) {
+                $content = @file_get_contents(public_path().'/images/user_img/'.$user->user_img);
+                if ($content) {
+                  unlink(public_path().'/images/user_img/'.$user->user_img);
+                }
+            }
+
+            $optimizeImage = Image::make($file);
+            $optimizePath = public_path().'/images/user_img/';
+            $image = time().$file->getClientOriginalName();
+            $optimizeImage->save($optimizePath.$image, 72);
+            $input['user_img'] = $image;
+          
+        }
+
+        if(isset($request->update_pass)){
+          
+            $input['password'] = Hash::make($request->password);
+        }
+        else{
+            $input['password'] = $user->password;
+        }
+
+        $user->update($input);
+
+        Session::flash('success','User Updated Successfully !');
+        return redirect('/profile');
+    }
+
+    public function updatePassword(Request $request){
+        
+        $user = Auth::user();
+        $request->validate([
+            'new_password' => 'required|min:6',
+            'current_password' => 'required|min:6',
+        ]);
+       
+        if($user->password == Hash::make($request->current_password) || $user->password == ""){
+            $input['password'] = Hash::make($request->password);
+            $user->update($input);
+        }else{
+            return redirect('/profile');
+        }
+       
+
+        
+        
+
+        return redirect('/profile');
+    }
+}

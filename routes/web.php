@@ -446,6 +446,7 @@ Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallba
 
     Route::get("country/dropdown","CountryController@upload_info");
     Route::get("country/gcity","CountryController@gcity");
+    Route::get("country/gstate","CountryController@gstate");
 
     Route::view('terms_condition', 'terms_condition');
     Route::view('privacy_policy', 'privacy_policy');
@@ -587,6 +588,9 @@ Route::get('/subscription/{slug}', 'SubscriptionController@plans');
 Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
 
 Route::get("zoho/module","ZohoController@createRecords");
+Route::post('/profile',"ProfileController@updateProfile");
+Route::get('/profile','ProfileController@index');
+Route::post('/update-password','ProfileController@updatePassword')->name('update.password');
 Route::view('/edit', 'admin.course.courseresource.edit');
 
 
@@ -607,7 +611,7 @@ Route::view('/my-courses','learners.pages.my-courses');
 Route::view('/mentors','learners.pages.mentors');
 Route::view('/creator','learners.pages.creator');
 
-Route::view('/profile','learners.pages.profile');
+
 Route::view('/wishlist','learners.pages.wishlist');
 Route::view('/cart','learners.pages.cart');
 Route::view('/playlist','learners.pages.playlist');

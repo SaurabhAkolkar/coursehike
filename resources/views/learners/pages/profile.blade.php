@@ -15,7 +15,8 @@
             </div>
             <section class="la-profile__form">
               <div class="la-profile__form-inner">
-                <form class="la-form" action="">
+                <form class="la-form" action="" name="profile_name" method="post" enctype="multipart/form-data" id="profile_form">
+                  @csrf
                   <div class="row">
                     <div class="col-12">
                       <div class="la-form__input-wrap">
@@ -24,14 +25,17 @@
                           <div class="col-6">
                             <div class="la-form__img-wrap">
                               <div class="la-form__img-title">Current</div>
-                              <div class="la-form__img d-inline-block d-flex justify-content-center content-fit"><img src="" alt=""></div>
+                              <div class="la-form__img d-inline-block d-flex justify-content-center content-fit"><img src="{{asset('images/user_img/'.Auth::user()->user_img)}}" alt="" class="mw-100 mh-100"></div>
                             </div>
                           </div>
                           <div class="col-6">
                             <div class="la-form__img-wrap">
                               <div class="la-form__img-title">Upload new</div>
-                              <input class="d-none" id="file-upload" type="file">
-                              <label class="la-form__img la-form__img-upload d-inline-block text-center" for="file-upload"><a class="d-inline-block" href="">CHOOSE A FILE </a> <br/><span class="la-form__img-info">Thumbnail | 500x500</span><img src="" alt=""></label>
+                              <input class="d-none" id="file-upload" type="file" name="user_img">
+                              <label class="la-form__img la-form__img-upload d-inline-block text-center" for="file-upload"><a class="d-inline-block" href="#">CHOOSE A FILE </a> <br/><span class="la-form__img-info">Thumbnail | 500x500</span><img src="" alt=""></label>
+                              @error('user_img')
+                                          <div class="alert alert-danger">{{ $message }}</div>
+                              @enderror
                             </div>
                           </div>
                         </div>
@@ -40,31 +44,46 @@
                     <div class="col-md-6">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">First Name</div>
-                                      <input class="la-form__input" type="text" value="{{Auth::user()->fname}}" name="first-name" placeholder="Jhon">
+                                      <input class="la-form__input" type="text" value="{{Auth::user()->fname}}" name="first_name" placeholder="Jhon">
+                                      @error('first_name')
+                                          <div class="alert alert-danger">{{ $message }}</div>
+                                      @enderror
                                     </div>
                     </div>
                     <div class="col-md-6">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Last Name</div>
-                                      <input class="la-form__input" type="text" value="{{Auth::user()->lname}}" name="last-name" placeholder="Spark">
+                                      <input class="la-form__input" type="text" value="{{Auth::user()->lname}}" name="last_name" placeholder="Spark">
+                                      @error('last_name')
+                                          <div class="alert alert-danger">{{ $message }}</div>
+                                      @enderror
                                     </div>
                     </div>
                     <div class="col-md-6">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Email</div>
                                       <input class="la-form__input" type="email" value="{{Auth::user()->email}}" name="email" placeholder="nathanspark@gmail.com">
+                                      @error('email')
+                                          <div class="alert alert-danger">{{ $message }}</div>
+                                      @enderror
                                     </div>
                     </div>
                     <div class="col-md-6">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Contact Number</div>
-                                      <input class="la-form__input" type="tel" value="{{Auth::user()->mobile}}" name="contact-number" placeholder="9999999999">
+                                      <input class="la-form__input" type="tel" value="{{Auth::user()->mobile}}" name="mobile" placeholder="9999999999">
+                                      @error('mobile')
+                                          <div class="alert alert-danger">{{ $message }}</div>
+                                      @enderror
                                     </div>
                     </div>
                     <div class="col-md-6">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Date of Birth</div>
-                                      <input class="la-form__input" type="date" value="{{Auth::user()->dob}}" name="contact-number" placeholder="July 16, 1996">
+                                      <input class="la-form__input" type="date" value="{{Auth::user()->dob}}" name="dob" placeholder="July 16, 1996">
+                                      @error('dob')
+                                          <div class="alert alert-danger">{{ $message }}</div>
+                                      @enderror
                                     </div>
                     </div>
                     <div class="col-md-6">
@@ -83,46 +102,89 @@
                                           <input class="la-form__radio d-none" type="radio" value="Other" name="gender" id="Other">
                                           <label class="d-flex align-items-center" for="Other"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Other</span></label>
                                         </div>
+                                        @error('gender')
+                                          <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                         </div>
                       </div>
                     </div>
                     <div class="col-md-12">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Residential Address</div>
-                                      <input class="la-form__input" type="text" value="{{Auth::user()->address}}" name="residential-address" placeholder="F/64, Apmc Market-i, Phase Ii, Turbhe, Vashi">
+                                      <input class="la-form__input" type="text" value="{{Auth::user()->address}}" name="address" placeholder="F/64, Apmc Market-i, Phase Ii, Turbhe, Vashi">
+                                      @error('address')
+                                          <div class="alert alert-danger">{{ $message }}</div>
+                                      @enderror
                                     </div>
                     </div>
                     <div class="col-md-6">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Country</div>
-                                      <input class="la-form__input" type="text" value="{{Auth::user()->country_id}}" name="country" placeholder="India">
+                                      <!-- <input class="la-form__input" type="text" value="{{Auth::user()->country_id}}" name="country" placeholder="India"> -->
+                                      <select class="la-form__input" name="country" id="country_id">
+                                        <option disabled selected>Select Country</option>
+                                        @foreach($countries as $key=>$value)
+                                            <option value="{{$key}}" @if(Auth::user()->country_id == $key) selected @endif>
+                                                {{$value}}
+                                            </option>
+                                        @endforeach
+                                      <select>
+                                      @error('country')
+                                          <div class="alert alert-danger">{{ $message }}</div>
+                                      @enderror
                                     </div>
                     </div>
                     <div class="col-md-6">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">State</div>
-                                      <input class="la-form__input" type="text" value="{{Auth::user()->state_id}}" name="state" placeholder="India">
+                                      <!-- <input class="la-form__input" type="text" value="{{Auth::user()->state_id}}" name="state" placeholder="India"> -->
+                                      <select class="la-form__input" name="state" id="state_id">
+                                        <option disabled selected>Select State</option>
+                                          @foreach($states as $key=>$value)
+                                              <option value="{{$key}}" @if(Auth::user()->state_id == $key) selected @endif>
+                                                  {{$value}}
+                                              </option>
+                                          @endforeach
+                                      <select>
+                                      @error('state')
+                                          <div class="alert alert-danger">{{ $message }}</div>
+                                      @enderror
                                     </div>
                     </div>
                     <div class="col-md-6">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">City</div>
-                                      <input class="la-form__input" type="text" value="{{Auth::user()->city_id}}" name="city" placeholder="India">
+                                      <!-- <input class="la-form__input" type="text" value="{{Auth::user()->city_id}}" name="city" placeholder="India"> -->
+                                      <select class="la-form__input" name="city" id="city_id">
+                                        <option disabled selected>Select City</option>
+                                        <!-- @foreach($cities as $key=>$value)
+                                            <option value="{{$key}}"  @if(Auth::user()->city_id == $key) selected @endif>
+                                                {{$value}}
+                                            </option>
+                                        @endforeach                                        -->
+                                      <select>
+                                      @error('city')
+                                          <div class="alert alert-danger">{{ $message }}</div>
+                                      @enderror
                                     </div>
                     </div>
                     <div class="col-md-6">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Zip Code</div>
                                       <input class="la-form__input" type="number" value="{{Auth::user()->pin_code}}" name="zipcode" placeholder="400703">
+                                      @error('zipcode')
+                                          <div class="alert alert-danger">{{ $message }}</div>
+                                      @enderror
                                     </div>
                     </div>
                     <div class="col-md-12">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Short Bio</div>
-                                      <textarea class="la-form__textarea" name="" cols="30" rows="10" placeholder="Type here">{{Auth::user()->details}}</textarea>
+                                      <textarea class="la-form__textarea" name="detail" cols="30" rows="10" placeholder="Type here" name="detail">{{Auth::user()->detail}}</textarea>
                                     </div>
                     </div>
                   </div>
+
                   <div class="la-hero__actions d-flex align-items-center justify-content-end">
                     <button type="submit" class="w-25 la-btn__app py-3  text--black" type="button" href="">Save</button>
                   </div>
@@ -135,24 +197,31 @@
                   <div class="la-password__update-toggler text text-uppercase mr-3 collapsed " id="password-toggler" data-toggle="collapse" data-target="#passwordCollapse" aria-expanded="false" aria-controls="passwordCollapse">Update Password</div>
                 </div>
                 <div class="collapse" id="passwordCollapse">
-                  <form class="la-password__update-content" action="">
+                  <form class="la-password__update-content" id="change_password_form" method="Post" action="{{route('update.password')}}" name = "change_password_form">
+                    @csrf
                     <div class="row">
                       <div class="col-md-6">
                         <div class="la-form__input-wrap">
                           <div class="la-form__lable la-form__lable--medium mb-2">Current Password</div>
-                          <input class="la-form__input" type="password" value="India" name="current-password" placeholder="****">
+                          <input class="la-form__input" type="password"  name="current_password" placeholder="">
+                          @error('current_password')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="la-form__input-wrap">
                           <div class="la-form__lable la-form__lable--medium mb-2">New Password</div>
-                          <input class="la-form__input" type="password" value="India" name="new-password" placeholder="****">
+                          <input class="la-form__input" type="password"  name="new_password" placeholder="">
+                          @error('new_password')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
                         </div>
                       </div>
                     </div>
                     <div class="la-password__update-actions d-flex">
                       <div class="la-btn__plain text--burple text-right mr-5"> 
-                        <a href="" role="button" type="submit" class="text-uppercase"> Change Password</a>
+                        <a onclick = "$('#change_password_form').submit();" role="button" type="submit" class="text-uppercase"> Change Password</a>
                       </div>
                       <div class="la-btn__plain text--danger text-right"><a class="text-uppercase"> Cancel</a></div>
                     </div>
@@ -166,4 +235,153 @@
       </div>
     </div>
   </div>
+
+@endsection
+
+@section('footerScripts')
+<script>
+    
+    
+      $('#state_id').change(function() {
+        var cat_id = $(this).val();  
+        var up = $('#city_id').empty();  
+        let urlLike = '{{ url('country/gcity') }}';
+        if(cat_id){
+          $.ajax({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type:"GET",
+            url: urlLike,
+            data: {catId: cat_id},
+            success:function(data){   
+              console.log(data);
+              up.append('<option value="0">Please City</option>');
+              $.each(data, function(id, title) {
+                up.append($('<option>', {value:id, text:title}));
+              });
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+              console.log(XMLHttpRequest);
+            }
+          });
+        }
+      });
+
+      $('#country_id').change(function() {
+        var cat_id = $(this).val();  
+        var up = $('#state_id').empty();  
+        let urlLike = '{{ url('country/gstate') }}';
+        if(cat_id){
+          $.ajax({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type:"GET",
+            url: urlLike,
+            data: {catId: cat_id},
+            success:function(data){   
+              console.log(data);
+              up.append('<option value="0">Please State</option>');
+              $.each(data, function(id, title) {
+                up.append($('<option>', {value:id, text:title}));
+              });
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+              console.log(XMLHttpRequest);
+            }
+          });
+        }
+      });
+
+    
+
+    $("form[name='profile_name']").validate({
+      
+    // Specify validation rules
+    rules: {
+      // The key name on the left side is the name attribute
+      // of an input field. Validation rules are defined
+      // on the right side
+      first_name: "required",
+      last_name: "required",
+      mobile: {
+        required: true,
+        minlength: 10
+      },
+      dob: "required",
+      zipcode: "required",
+      city: "required",
+      state: "required",
+      country: "required",
+      address : "required",
+      email: {
+        required: true,
+        email: true
+      },
+      user_img: {
+            required: false,
+            extension: "jpg|jpeg|png"
+      }
+    },
+    // Specify validation error messages
+    messages: {
+      first_name: "Please enter your Firstname.",
+      last_name: "Please enter your Lastname.",
+      mobile: {
+        required: "Please provide a Contact Number.",
+        minlength: "Your Contact Number must be at least 10 digits long."
+      },
+      email: {
+        required: "Please provide a Email.",
+        email: "Please provide a correct Email."
+      },
+      dob : "Date Of Birth is required.",
+      zipcode : "Zipcode is required.",
+      city : "Please select a City",
+      state : "Please select a State",
+      country : "Plesae select a country",
+      user_img: "Please upload image with following formats .jpg, .jpeg and .png."
+    },
+    // Make sure the form is submitted to the destination defined
+    // in the "action" attribute of the form when valid
+    submitHandler: function(form) {
+      form.submit();
+    }
+    
+  });
+
+  $("form[name='change_password_form']").validate({
+      
+      rules: {
+
+        new_password: {
+          required: true,
+          minlength: 6
+        }, 
+        current_password: {
+          required: true,
+          minlength: 6
+        }
+      },
+      // Specify validation error messages
+      messages: {
+        new_password: {
+          required: "Please provide a New Password.",
+          minlength: "Password must be minimum 6 characters."
+        },
+        current_password: {
+          required: "Please provide a Current Password.",
+          minlength: "Password must be minimum 6 characters."
+        }
+      },
+      // Make sure the form is submitted to the destination defined
+      // in the "action" attribute of the form when valid
+      submitHandler: function(form) {
+        form.submit();
+      }
+      
+    });
+
+  </script>
 @endsection
