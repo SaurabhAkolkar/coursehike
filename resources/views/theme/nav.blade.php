@@ -195,7 +195,7 @@
                          @if(Auth::User()->role == "admin" )
                         <a target="_blank" href="{{ url('/admins') }}"><li><i class="fa fa-dashboard"></i>{{ __('frontstaticword.AdminDashboard') }}</li></a>
                         @endif
-                        @if(Auth::User()->role == "instructor")
+                        @if(Auth::User()->role == "mentors")
 
                         <a target="_blank" href="{{ url('/admins') }}"><li><i class="fa fa-dashboard"></i>{{ __('frontstaticword.InstructorDashboard') }}</li></a>
                         @endif
@@ -439,7 +439,7 @@
                                 @if(Auth::User()->role == "admin" )
                                 <a target="_blank" href="{{ url('/admins') }}"><li><i class="fa fa-dashboard"></i>{{ __('frontstaticword.AdminDashboard') }}</li></a>
                                 @endif
-                                @if(Auth::User()->role == "instructor")
+                                @if(Auth::User()->role == "mentors")
 
                                 <a target="_blank" href="{{ url('/admins') }}"><li><i class="fa fa-dashboard"></i>{{ __('frontstaticword.InstructorDashboard') }}</li></a>
                                 @endif
@@ -455,7 +455,7 @@
                         
                                 @endif
 
-                                @if(Auth::User()->role == "user" || Auth::User()->role == "instructor")
+                                @if(Auth::User()->role == "user" || Auth::User()->role == "mentors")
                                 @if($gsetting->device_control == 1)
                                 <a href="{{ route('active.courses') }}" title="Watchlist"><li><i class="fas fa-swatchbook"></i>{{ __('frontstaticword.Watchlist') }}</li></a>
                                 @endif

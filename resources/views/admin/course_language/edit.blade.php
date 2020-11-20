@@ -23,10 +23,15 @@
 
             <div class="row">
               <div class="col-md-9">
-                <label for="exampleInputSlug">{{ __('adminstaticword.Name') }}: <sup class="redstar">*</sup></label>
-                <input type="text" class="form-control" name="name" value="{{ $language->name }}" id="exampleInputPassword1" placeholder="Please Enter Your  Language Name">
+                <label >{{ __('adminstaticword.Name') }}: <sup class="redstar">*</sup></label>
+                <input type="text" class="form-control" name="name" value="{{ $language->name }}" placeholder="Please Enter Your  Language Name">
               </div>
-           
+            </div>
+            <div class="row">
+              <div class="col-md-5">
+                <label >ISO Code: <sup class="redstar">*</sup></label>
+                <input type="text" class="form-control" name="iso_code" value="{{ $language->iso_code }}" placeholder="Please Enter Your  Language Name">
+              </div>
               <div class="col-md-3">
                 <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                 <li class="tg-list-item">

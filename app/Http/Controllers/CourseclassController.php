@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\AudioTrack;
 use App\CourseClass;
 use Illuminate\Http\Request;
 use Notification;
 use Image;
 use App\CourseChapter;
 use App\Course;
+use App\CourseLanguage;
 use App\Order;
 use App\User;
 use App\Notifications\CourseNotification;
@@ -157,20 +159,20 @@ class CourseclassController extends Controller
         }
           
         // Subtitle 
-        if($request->has('sub_t')){
-        foreach($request->file('sub_t') as $key=> $image)
-          {
+        // if($request->has('sub_t')){
+        // foreach($request->file('sub_t') as $key=> $image)
+        //   {
           
-            $name = $image->getClientOriginalName();
-            $image->move(public_path().'/subtitles/', $name);  
+        //     $name = $image->getClientOriginalName();
+        //     $image->move(public_path().'/subtitles/', $name);  
            
-            $form= new Subtitle();
-            $form->sub_lang = $request->sub_lang[$key];
-            $form->sub_t=$name;
-            $form->c_id = $courseclass->id;
-            $form->save(); 
-          }
-        }
+        //     $form= new Subtitle();
+        //     $form->sub_lang = $request->sub_lang[$key];
+        //     $form->sub_t=$name;
+        //     $form->c_id = $courseclass->id;
+        //     $form->save(); 
+        //   }
+        // }
 
         return back()->with('success','Class Video is Added');
     }
@@ -184,9 +186,11 @@ class CourseclassController extends Controller
     public function show( $id)
     {
         
-        $subtitles = Subtitle::where('c_id', $id)->get();
+        $languages = CourseLanguage::all();
         $cate = CourseClass::find($id);
         $coursechapt = CourseChapter::where('course_id', $cate->course_id)->get();
+        $subtitles = Subtitle::where('c_id', $id)->get();
+        // $audio_tracks = AudioTrack::where('c_id', $id)->get();
 
         $datetimevalue= strtotime($cate->date_time);
         $formatted = date('Y-m-d', $datetimevalue);
@@ -194,7 +198,7 @@ class CourseclassController extends Controller
         $pd = $cate['date_time'];
         $live_date = str_replace(" ", "T", $pd);
 
-        return view('admin.course.courseclass.edit',compact('cate','coursechapt','subtitles', 'live_date')); 
+        return view('admin.course.courseclass.edit',compact('cate','coursechapt', 'languages','subtitles', 'live_date')); 
 
     }
 

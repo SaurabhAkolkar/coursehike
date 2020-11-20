@@ -78,13 +78,12 @@
                 preload="auto"
                 width="100%"
                 height="100%"
-                {{-- poster="MY_VIDEO_POSTER.jpg" --}}
+                poster="{{ $course->preview_image }}"
                 data-setup="{}"
                 type="application/x-mpegURL" 
               >
-              {{-- https://videodelivery.net/330e598ebd8511b64de660b7b459db54/manifest/video.m3u8 --}}
-                <source src="{{ $course->getSignedStreamURL()}}" type="application/x-mpegURL" />
-                  {{-- <source src="https://videodelivery.net/048850df97dc19cf7137aaf583a281ef/manifest/video.m3u8" type="application/x-mpegURL" /> --}}
+                {{-- <source src="{{ $course->getSignedStreamURL()}}" type="application/x-mpegURL" /> --}}
+                <source src="http://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8" type="application/x-mpegURL">
                 <p class="vjs-no-js">
                   {{-- To view this video please enable JavaScript, and consider upgrading to a
                   web browser that
@@ -148,8 +147,10 @@
           <nav class="la-courses__nav">
             <ul class="nav nav-pills la-courses__nav-tabs" id="cnav-tab" role="tablist">
               <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link active text-capitalize" id="cnav-about-tab" data-toggle="tab" href="#cnav-about" role="tab" aria-controls="cnav-about" aria-selected="true">About</a></li>
-              <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link text-capitalize" id="cnav-resource-tab" data-toggle="tab" href="#cnav-resource" role="tab" aria-controls="cnav-resource" aria-selected="false">Resources</a></li>
-              <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link text-capitalize" id="cnav-certificate-tab" data-toggle="tab" href="#cnav-certificate" role="tab" aria-controls="cnav-certificate" aria-selected="false">Certificate</a></li>
+              @if($video_access == true)
+                <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link text-capitalize" id="cnav-resource-tab" data-toggle="tab" href="#cnav-resource" role="tab" aria-controls="cnav-resource" aria-selected="false">Resources</a></li>
+                <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link text-capitalize" id="cnav-certificate-tab" data-toggle="tab" href="#cnav-certificate" role="tab" aria-controls="cnav-certificate" aria-selected="false">Certificate</a></li>
+              @endif
             </ul>
           </nav>
           <div class="tab-content la-courses__content" id="cnav-tabContent">
@@ -168,50 +169,37 @@
                 </div>
               </div>
             </div>
-            <div class="tab-pane fade" id="cnav-resource" role="tabpanel" aria-labelledby="cnav-resource-tab">
-              <div class="col-lg px-0 d-flex">
-                @foreach ( $course->resources as $resource)
-                  <div class="col-12 col-md col-lg px-0">
-                    <div class="la-ctabs__resources d-flex">
-                      <div class="la-ctabs__resource-pdf"><i class="la-icon--5xl icon-download mr-8"></i></div>
-                      <div class="la-ctabs__resource-desc">
-                        <div class="la-ctabs__resource-title text-lg head-font text-uppercase">{{$resource->file_name}}</div><a class="la-ctabs__resource-file text-sm" href="{{$resource->file_url}}" target="_blank">Download Now</a>
+
+            @if($video_access == true)
+              <div class="tab-pane fade" id="cnav-resource" role="tabpanel" aria-labelledby="cnav-resource-tab">
+                <div class="col-lg px-0 d-flex">
+                  @foreach ( $course->resources as $resource)
+                    <div class="col-12 col-md col-lg px-0">
+                      <div class="la-ctabs__resources d-flex">
+                        <div class="la-ctabs__resource-pdf"><i class="la-icon--5xl icon-download mr-8"></i></div>
+                        <div class="la-ctabs__resource-desc">
+                          <div class="la-ctabs__resource-title text-lg head-font text-uppercase">{{$resource->file_name}}</div><a class="la-ctabs__resource-file text-sm" href="{{$resource->file_url}}" target="_blank">Download Now</a>
+                        </div>
+                      </div>
+                    </div>
+                  @endforeach
+
+                </div>
+                <div class="col-12 px-0 d-flex justify-content-end"> <a class="la-ctabs__download-all text-sm" href=""><span class="text-uppercase">DOWNLOAD ALL<span class="pl-1 la-icon icon-download"> </span></span></a></div>
+              </div>
+              <div class="tab-pane fade" id="cnav-certificate" role="tabpanel" aria-labelledby="cnav-certificate-tab">
+                <div class="col-lg px-0 d-flex">
+                  <div class="col-12 col-md-6 col-lg px-0">
+                    <div class="la-ctabs__certificate d-flex">
+                      <div class="la-ctabs__certificate-pdf"><i class="la-icon--5xl icon-download mr-8"></i></div>
+                      <div class="la-ctabs__certificate-desc">
+                        <div class="la-ctabs__certificate-title text-lg head-font text-uppercase">Water Color</div><a class="la-ctabs__certificate-file text-sm" href="">watercolor_certificate.pdf</a>
                       </div>
                     </div>
                   </div>
-                @endforeach
-
-                {{-- <div class="col-12 col-md col-lg px-0">
-                  <div class="la-ctabs__resources d-flex">
-                    <div class="la-ctabs__resource-pdf"><i class="la-icon--5xl icon-download mr-8"></i></div>
-                    <div class="la-ctabs__resource-desc">
-                      <div class="la-ctabs__resource-title text-lg head-font text-uppercase">Daily Routine</div><a class="la-ctabs__resource-file text-sm" href="">daily_routine.pdf</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md col-lg px-0">
-                  <div class="la-ctabs__resources d-flex">
-                    <div class="la-ctabs__resource-pdf"><i class="la-icon--5xl icon-download mr-8"></i></div>
-                    <div class="la-ctabs__resource-desc">
-                      <div class="la-ctabs__resource-title text-lg head-font text-uppercase">Important Tips</div><a class="la-ctabs__resource-file text-sm" href="">important_tips.pdf</a>
-                    </div>
-                  </div>
-                </div> --}}
-              </div>
-              <div class="col-12 px-0 d-flex justify-content-end"> <a class="la-ctabs__download-all text-sm" href=""><span class="text-uppercase">DOWNLOAD ALL<span class="pl-1 la-icon icon-download"> </span></span></a></div>
-            </div>
-            <div class="tab-pane fade" id="cnav-certificate" role="tabpanel" aria-labelledby="cnav-certificate-tab">
-              <div class="col-lg px-0 d-flex">
-                <div class="col-12 col-md-6 col-lg px-0">
-                  <div class="la-ctabs__certificate d-flex">
-                    <div class="la-ctabs__certificate-pdf"><i class="la-icon--5xl icon-download mr-8"></i></div>
-                    <div class="la-ctabs__certificate-desc">
-                      <div class="la-ctabs__certificate-title text-lg head-font text-uppercase">Water Color</div><a class="la-ctabs__certificate-file text-sm" href="">watercolor_certificate.pdf</a>
-                    </div>
-                  </div>
                 </div>
               </div>
-            </div>
+            @endif
           </div>
         </div>
         <!-- Mobile Version-->
@@ -846,6 +834,7 @@
 @section('footerScripts')
   <!-- video js -->
   <script src="https://unpkg.com/video.js/dist/video.js"></script>
+  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.15.0/videojs-contrib-hls.min.js" integrity="sha512-R1+Pgd+uyqnjx07LGUmp85iW8MSL1iLR2ICPysFAt8Y4gub8C42B+aNG2ddOfCWcDDn1JPWZO4eby4+291xP9g==" crossorigin="anonymous"></script> --}}
   <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
   <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
   <script src="https://unpkg.com/@silvermine/videojs-quality-selector/dist/js/silvermine-videojs-quality-selector.min.js"></script>

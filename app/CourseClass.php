@@ -61,6 +61,11 @@ class CourseClass extends Model
       return $this->hasMany('App\Subtitle','c_id');
     }
 
+    public function audio()
+    {
+      return $this->hasMany('App\AudioTrack','c_id');
+    }
+
     public function getImageAttribute($value)
     {
         return Storage::url(config('path.course.video_thumnail').$this->course_id. '/' . $value);

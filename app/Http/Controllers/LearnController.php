@@ -75,6 +75,9 @@ class LearnController extends Controller
                     'data' => [
                         'title' => $class_video->title,
                         'url' => $class_video->getSignedStreamURL(),
+                        'poster' => $class_video->image,
+                        'subtitles' => $class_video->subtitle,
+                        'audio_tracks' => $class_video->audio,
                     ],
                 );
                 return response()->json($response, 200);

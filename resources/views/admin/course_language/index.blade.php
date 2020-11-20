@@ -79,9 +79,15 @@
                     {{ csrf_field() }}
                             
                     <div class="row">
+                      <div class="col-md-12">
+                        <label>{{ __('adminstaticword.Name') }}:<sup class="redstar">*</sup></label>
+                        <input type="text" class="form-control" name="name" placeholder="Please Enter Your  Language Name" value="">
+                      </div>
+                    </div>
+                    <div class="row">
                       <div class="col-md-6">
-                        <label for="exampleInputSlug">{{ __('adminstaticword.Name') }}:<sup class="redstar">*</sup></label>
-                        <input type="text" class="form-control" name="name" id="exampleInputPassword1" placeholder="Please Enter Your  Language Name" value="">
+                        <label for="exampleInputSlug">ISO Code:<sup class="redstar">*</sup></label>
+                        <input type="text" class="form-control" name="iso_code" placeholder="Eg, en, hi, ta, etc,." value="">
                       </div>
                       <div class="col-md-6">
                         <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>

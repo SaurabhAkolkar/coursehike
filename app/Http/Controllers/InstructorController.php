@@ -12,7 +12,7 @@ class InstructorController extends Controller
 
     public function index()
     {   
-        if(Auth::User()->role == "instructor")
+        if(Auth::User()->role == "mentors")
         {
             return view('instructor.dashboard');
         }

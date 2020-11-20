@@ -178,7 +178,7 @@
                 </div> 
                 <br>
                
-                <div id="subtitle">
+                {{-- <div id="subtitle">
                   <label>{{ __('adminstaticword.Subtitle') }}:</label>
                   <table class="table table-bordered" id="dynamic_field">  
                     <tr> 
@@ -198,7 +198,7 @@
                         </button></td>  
                     </tr>  
                   </table>
-                </div>
+                </div> --}}
 
                 
 
