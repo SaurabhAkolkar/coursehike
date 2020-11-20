@@ -23,7 +23,7 @@ class AdminController extends Controller
         {
             return view('admin.dashboard');
         }
-        elseif(Auth::User()->role == "instructor")
+        elseif(Auth::User()->role == "mentors")
         {
             return view('instructor.dashboard');
         }

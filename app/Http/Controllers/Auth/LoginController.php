@@ -35,14 +35,14 @@ class LoginController extends Controller
         if (Auth::User()->status == 1)
         {
            
-            if ( Auth::User()->role == "admin" || Auth::User()->role == "instructor" ) 
+            if ( Auth::User()->role == "admin" || Auth::User()->role == "mentors" ) 
             {
                 // do your magic here
                 return redirect()->route('admin.index');
             }
             else
             {
-                 return redirect('/home');
+                 return redirect('/');
       
             }
         }

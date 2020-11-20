@@ -19,7 +19,7 @@
       </div>
  
 
-      @if(Auth::User()->role == "instructor")
+      @if(Auth::User()->role == "mentors")
         <ul class="sidebar-menu" data-widget="tree">
           <!-- <li class="header">{{ __('adminstaticword.Navigation') }} </li> -->
 

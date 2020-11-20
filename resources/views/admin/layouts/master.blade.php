@@ -173,7 +173,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
     @if(Auth::User()->role == "admin")
       @include('admin.layouts.sidebar')
     @endif
-    @if(Auth::User()->role == "instructor")
+    @if(Auth::User()->role == "mentors")
       @include('instructor.layouts.sidebar')
     @endif
     
