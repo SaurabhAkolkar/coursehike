@@ -33,10 +33,10 @@
                   @endphp
 
                 <div class="row la-playlist__items">
-                    @foreach ($playlist as $item)
+                    @foreach ($playlists as $item)
                         <x-playlist-item
-                            :courseName="$item->courseName"
-                            :classesCount="$item->classesCount"
+                            :courseName="$item->name"
+                            :classesCount="$item->count"
                         />
                     @endforeach
                     <div class="col-md-3">
@@ -54,16 +54,22 @@
                             <h4 class="modal-title la-playlist__modal-title">Create New Playlist</h4>
                             <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
                           </div>
-                          
+                         
                           <div class="modal-body la-playlist__modal-body">
+                            <form action="{{route('create.playlist')}}" method="post" id="create_playlist_form" name="create_playlist_form">
+                              @csrf
                               <div class="la-playlist__modal-create">
                                   <label class="la-playlist__modal-name" for="playlist_name">Playlist Name</label><br/>
-                                  <input type="text" class="la-playlist__modal-inputtype w-100" name="playlist_name" id="playlist_name" placeholder="Create New Playlist" />
+                                  <input type="text" class="la-playlist__modal-inputtype w-100" name="playlist_name" id="playlist_name" placeholder="Create New Playlist" value ="{{ old('playlist_name') }}"/>
+                                  @if(session('playlist_exists'))
+                                  <div class="alert alert-danger">{{ session('playlist_exists') }}</div>
+                                  @endif
                               </div>
-
+                              
                               <div class="la-playlist__modal-update text-center">
-                                <a href="" role="button" class="la-playlist__modal-btn">Create Playlist</a>
+                                <a onclick = "$('#create_playlist_form').submit();" role="button" class="la-playlist__modal-btn">Create Playlist</a>
                               </div>
+                            </form>
                           </div>
                         </div>
                       </div>
@@ -78,4 +84,39 @@
       </div>
     </div>
   </div>
+@endsection
+
+
+@section('footerScripts')
+<script>
+ 
+@if(session('playlist_exists'))
+  $('#create_playlist').modal('show');
+@endif
+
+  $("form[name='create_playlist_form']").validate({
+      
+      rules: {
+
+        playlist_name: {
+          required: true,
+          minlength: 3
+        }
+      },
+      // Specify validation error messages
+      messages: {
+        playlist_name: {
+          required: "Please provide a Playlist Name.",
+          minlength: "Playlist Name must be minimum 3 characters."
+        }
+      },
+      // Make sure the form is submitted to the destination defined
+      // in the "action" attribute of the form when valid
+      submitHandler: function(form) {
+        form.submit();
+      }
+      
+    });
+
+  </script>
 @endsection

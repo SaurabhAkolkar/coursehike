@@ -6,6 +6,7 @@ use App\Allcountry;
 use Illuminate\Http\Request;
 use Session;
 use App\Allstate;
+use App\Allcity;
 use App\Country;
 use DB;
 use App\State;
@@ -179,18 +180,21 @@ class CountryController extends Controller
     {
 
         $id = $request['catId'];
-
         $state = Allstate::findOrFail($id);
-        return $upload = City::where('state_id',$state->id)->pluck('name','id')->all();
-
-        return response()->json($upload);
-
-
+        $upload = AllCity::where('state_id',$state->id)->pluck('name','id')->all();
         
-
+        return response()->json($upload);
     }
 
-    
+    public function gstate(Request $request) 
+    {
+
+        $id = $request['catId'];
+        $country = Country::where('country_id',$id)->first();
+        $upload = Allstate::where('country_id',$country->country_id)->pluck('name','id')->all();
+        
+        return response()->json($upload);
+    }
 
 
 }
