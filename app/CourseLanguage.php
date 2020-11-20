@@ -29,7 +29,7 @@ class CourseLanguage extends Model
 
     protected $table = 'course_languages';
 
-    protected $fillable = ['name', 'status']; 
+    protected $fillable = ['name', 'iso_code', 'status']; 
 
     public function courses()
     {   

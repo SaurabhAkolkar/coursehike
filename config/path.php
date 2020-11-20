@@ -20,6 +20,9 @@ return array(
         'preview_video' => 'assets/video/course_preview/',
         'video' => 'assets/video/course/',
 
+        'audio_tracks' => 'assets/audio_tracks/',
+        'subtitles' => 'assets/subtitles/',
+
         'resources' => 'assets/course_resources/',
 
         'learn' => 'learn/course/',

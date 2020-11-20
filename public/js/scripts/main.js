@@ -121,18 +121,7 @@ $('.la-vcourse__lesson').on('click', function() {
 
       $('.la-vlesson__title').text(data.title);
       
-      var options = {
-        plugins: {
-            qualityMenu: {
-                useResolutionLabels: true
-            }
-        }
-    };
       var lilaPlayer = videojs('lila-video');
-      // lilaPlayer.hlsQualitySelector({
-      //     displayCurrentQuality: true,
-      // });
-      // lilaPlayer.src({type: 'application/x-mpegURL', src: data.url});
       lilaPlayer.src([
         {
            src: data.url,
@@ -165,11 +154,27 @@ $('.la-vcourse__lesson').on('click', function() {
            type: 'application/x-mpegURL',
            label: '240p',
         },
-     ]);
-     if(lilaPlayer.controlBar.getChild('QualitySelector') == undefined)
-        lilaPlayer.controlBar.addChild('QualitySelector');
+      ]);
 
-    lilaPlayer.play();
+      lilaPlayer.poster(data.poster)
+
+      if(lilaPlayer.controlBar.getChild('QualitySelector') == undefined)
+        lilaPlayer.controlBar.addChild('QualitySelector');
+    
+      // data.audio_tracks.forEach( d => {
+      //   var track = new videojs.AudioTrack({
+      //     id: d.id,
+      //     kind: 'translation',
+      //     label: d.audio_lang,
+      //     language: 'es',
+      //     audio: d.file_url,
+      //     enabled: true
+      //   });
+      //   console.log(d.file_url);
+      //   lilaPlayer.audioTracks().addTrack(track);
+      // });
+      // console.log(lilaPlayer.audioTracks());
+      lilaPlayer.play();
     
       // console.log(data.url)
 
