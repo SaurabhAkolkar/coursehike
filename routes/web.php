@@ -596,13 +596,19 @@ Route::get('/subscription/{slug}', 'SubscriptionController@plans');
 Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
 
 Route::get("zoho/module","ZohoController@createRecords");
+
+Route::view('/requests', 'instructor.requests.index');
+// Route for Learner's View
+
 Route::post('/profile',"ProfileController@updateProfile");
 Route::get('/profile','ProfileController@index');
 Route::post('/update-password','ProfileController@updatePassword')->name('update.password');
 Route::view('/edit', 'admin.course.courseresource.edit');
 
-Route::view('/requests', 'instructor.requests.index');
-// Route for Learner's View
+Route::get('/playlist','PlaylistController@index');
+
+Route::post('/create-playlist','PlaylistController@createPlaylist')->name('create.playlist');
+
 
 // Route::view('/','learners.pages.home');
 
@@ -621,7 +627,7 @@ Route::view('/creator','learners.pages.creator');
 
 Route::view('/wishlist','learners.pages.wishlist');
 Route::view('/cart','learners.pages.cart');
-Route::view('/playlist','learners.pages.playlist');
+
 Route::view('/purchase-history','learners.pages.purchase-history');
 Route::view('/payment-successful','learners.pages.payment-successful');
 Route::view('/saved-cards', 'learners.pages.saved-cards');

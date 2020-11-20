@@ -125,11 +125,6 @@ class ProfileController extends Controller
         }else{
             return redirect('/profile');
         }
-       
-
-        
-        
-
         return redirect('/profile');
     }
 }
