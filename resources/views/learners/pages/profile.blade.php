@@ -99,13 +99,13 @@
                                           <label class="d-flex align-items-center" for="female"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Female</span></label>
                                         </div>
                                         <div class="la-form__radio-wrap mr-5">
-                                          <input class="la-form__radio d-none" type="radio" value="Other" name="gender" id="Other">
+                                          <input class="la-form__radio d-none" type="radio" value="Other" name="gender" id="Other" @if(Auth::user()->gender == "Other")checked @endif>
                                           <label class="d-flex align-items-center" for="Other"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Other</span></label>
                                         </div>
-                                        @error('gender')
-                                          <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
                         </div>
+                        @error('gender')
+                             <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                       </div>
                     </div>
                     <div class="col-md-12">
@@ -157,11 +157,11 @@
                                       <!-- <input class="la-form__input" type="text" value="{{Auth::user()->city_id}}" name="city" placeholder="India"> -->
                                       <select class="la-form__input" name="city" id="city_id">
                                         <option disabled selected>Select City</option>
-                                        <!-- @foreach($cities as $key=>$value)
+                                        @foreach($cities as $key=>$value)
                                             <option value="{{$key}}"  @if(Auth::user()->city_id == $key) selected @endif>
                                                 {{$value}}
                                             </option>
-                                        @endforeach                                        -->
+                                        @endforeach                                       
                                       <select>
                                       @error('city')
                                           <div class="alert alert-danger">{{ $message }}</div>
@@ -180,7 +180,7 @@
                     <div class="col-md-12">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Short Bio</div>
-                                      <textarea class="la-form__textarea" name="detail" cols="30" rows="10" placeholder="Type here" name="detail">{{Auth::user()->detail}}</textarea>
+                                      <textarea class="la-form__textarea" name="short_bio" cols="30" rows="10" placeholder="Type here" >{{Auth::user()->detail}}</textarea>
                                     </div>
                     </div>
                   </div>
@@ -312,6 +312,7 @@
       dob: "required",
       zipcode: "required",
       city: "required",
+      gender: "required",
       state: "required",
       country: "required",
       address : "required",
@@ -338,6 +339,7 @@
       },
       dob : "Date Of Birth is required.",
       zipcode : "Zipcode is required.",
+      gender : "Gender is required.",
       city : "Please select a City",
       state : "Please select a State",
       country : "Plesae select a country",

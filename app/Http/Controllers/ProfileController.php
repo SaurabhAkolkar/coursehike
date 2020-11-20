@@ -26,10 +26,19 @@ class ProfileController extends Controller
 
     public function index()
     {   
-        $cities = Allcity::pluck('name','id')->all();
+        $cities = [];
         $states = Allstate::pluck('name','id')->all();
         $countries = Country::pluck('name','country_id')->all();
-        
+
+        if(Auth::user()->state_id != null){
+               $cities = Allcity::where('state_id', Auth::user()->state_id)->pluck('name','id')->all();
+        }
+
+        if(Auth::user()->country_id != null){
+            $states = Allstate::where('country_id', Auth::user()->country_id)->pluck('name','id')->all();
+        }
+
+
         return view('learners.pages.profile')->with(['cities' => $cities, 'states' => $states, 'countries' => $countries]);
     }
      /**
@@ -68,6 +77,7 @@ class ProfileController extends Controller
         $input['state_id'] = $request->state;
         $input['city_id'] = $request->city;
         $input['pin_code'] = $request->zipcode;
+        $input['detail'] = $request->short_bio;
 
         if ($file = $request->file('user_img')) {
 
