@@ -276,7 +276,7 @@
         <div id="testimonial-slider-one" class="testimonial-slider-main-block owl-carousel">
             @foreach($instructors as $user)
             @if($user['status'] == 1)
-                @if($user->role == "instructor")
+                @if($user->role == "mentors")
                     <div class="item testimonial-block text-center btm-30">
                         <div class="instructors-img-block btm-20">
                             @if($user['user_img'] != null || $user['user_img'] !='')

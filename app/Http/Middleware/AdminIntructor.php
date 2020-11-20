@@ -16,9 +16,9 @@ class AdminIntructor
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->role == "admin" || Auth::user()->role == "instructor")
+        if(Auth::user()->role == "admin" || Auth::user()->role == "mentors")
         {
-            return $next($request);  
+            return $next($request);
         }
         else{
             abort(404, 'Page Not Found.');

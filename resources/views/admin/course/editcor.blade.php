@@ -197,7 +197,7 @@
                           </div>
                           <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="preview_image" id="image" />
                           @if($cor['preview_image'] !== NULL && $cor['preview_image'] !== '')
-                              <img src="{{ url('/images/course/'.$cor->preview_image) }}" class="preview-img" />
+                              <img src="{{ $cor->preview_image }}" class="preview-img" />
                           @else
                               <img src="{{ Avatar::create($cor->title)->toBase64() }}" alt="course" class="preview-img img-fluid">
                           @endif
@@ -221,7 +221,7 @@
                             <input type="file" class="form-control la-admin__preview-input preview_video" name="preview_video" value="{{ $cor->preview_video }}"/>
                             {{-- @if($cor->video !="") --}}
                               <video controls class="preview-video w-100">
-                                <source src="{{ asset('video/preview/'.$cor->preview_video) }}" id="preview-video-source">
+                                <source src="{{ $cor->preview_video }}" id="preview-video-source">
                                   Your browser does not support HTML5 video.
                               </video>
                             {{-- @endif  --}}
@@ -235,7 +235,7 @@
 
               <div class="row">    
 
-                <div class="col-md-3"> 
+                <div class="col-md-2"> 
                   @if(Auth::User()->role == "admin")
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Featured') }}:</label>
                   <li class="tg-list-item">
@@ -245,7 +245,7 @@
                   <input type="hidden" name="featured" value="{{ $cor->featured }}" id="f">
                   @endif
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                   @if(Auth::User()->role == "admin")
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                     <li class="tg-list-item">
@@ -255,7 +255,17 @@
                     <input type="hidden" name="status" value="{{ $cor->status }}" id="c33">
                   @endif
                 </div> 
-              </div>
+              
+                <div class="col-md-2">
+                  <label for="exampleInputDetails">Master Class:</label>
+                  <li class="tg-list-item">              
+                    <input class="la-admin__toggle-switch" id="master_class" type="checkbox" name="master_class" >
+                    <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="master_class"></label>
+                  </li>
+                  <input type="hidden"  name="master_class" value="0" for="master_class" id="master_class">
+                </div>
+              </div> 
+              <br/>
 
               <div class="box-footer">
                 <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('adminstaticword.Save') }}</button>

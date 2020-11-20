@@ -2,18 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\AudioTrack;
 use App\CourseClass;
 use Illuminate\Http\Request;
 use Notification;
-use DB;
+use Image;
 use App\CourseChapter;
 use App\Course;
+use App\CourseLanguage;
 use App\Order;
 use App\User;
 use App\Notifications\CourseNotification;
 use App\Subtitle;
+use Illuminate\Support\Facades\Http;
 use Session;
 use Storage;
+
+use \Firebase\JWT\JWT;
+
 
 class CourseclassController extends Controller
 {
@@ -94,32 +100,36 @@ class CourseclassController extends Controller
                 
         if($file = $request->file('video_upld'))
         {
-            $name = 'video_course_'.time().'.'.$file->getClientOriginalExtension();
-            $file->move('video/class',$name);
-            $courseclass->video = $name;
+            $file_name = basename(Storage::putFile(config('path.course.video'). $request->course_id, $file , 'private'));
+            $courseclass->video = $file_name;
+
+            $response = Http::withHeaders([
+                'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
+                'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
+            ])->post('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/copy', [
+                'url' => Storage::temporaryUrl(config('path.course.video'). $courseclass->course_id.'/'.$file_name, now()->addMinutes(10)),
+                'meta' => [
+                    'name' => $file_name
+                ],
+                "requireSignedURLs" => true,
+            ]);
+            
+            if($response->successful()){
+                $res = $response->json();
+                $courseclass->stream_url = $res['result']['uid'];
+            }
+
         }
   
         if($file = $request->file('preview_image'))
         {
-            $name = 'video_thumbnail_'.time().'.'.$file->getClientOriginalExtension();
-            $file->move('video/class/preview',$name);
-            $courseclass->image = $name;
-        }
+            $photo = Image::make($file)->fit(600, 360, function ($constraint) {
+                $constraint->upsize();
+            })->encode('jpg', 70);
 
-        if($request->checkVideo == "aws_upload")
-        {
-
-            $file = request()->file('aws_upload');
-            $videoname = time() . $file->getClientOriginalName();
-
-            $t = Storage::disk('s3')->put($videoname, file_get_contents($file) , 'public');
-            $upload_video = $videoname;
-            $aws_url = env('AWS_URL') . $videoname;
-            
-
-            $videoname = Storage::disk('s3')->url($videoname);
-
-            $courseclass->aws_upload = $aws_url;
+            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+            Storage::put(config('path.course.video_thumnail').$request->course_id .'/'. $file_name, $photo->stream() );
+            $courseclass->image = $file_name;
         }
 
         // Notification when course class add
@@ -149,20 +159,20 @@ class CourseclassController extends Controller
         }
           
         // Subtitle 
-        if($request->has('sub_t')){
-        foreach($request->file('sub_t') as $key=> $image)
-          {
+        // if($request->has('sub_t')){
+        // foreach($request->file('sub_t') as $key=> $image)
+        //   {
           
-            $name = $image->getClientOriginalName();
-            $image->move(public_path().'/subtitles/', $name);  
+        //     $name = $image->getClientOriginalName();
+        //     $image->move(public_path().'/subtitles/', $name);  
            
-            $form= new Subtitle();
-            $form->sub_lang = $request->sub_lang[$key];
-            $form->sub_t=$name;
-            $form->c_id = $courseclass->id;
-            $form->save(); 
-          }
-        }
+        //     $form= new Subtitle();
+        //     $form->sub_lang = $request->sub_lang[$key];
+        //     $form->sub_t=$name;
+        //     $form->c_id = $courseclass->id;
+        //     $form->save(); 
+        //   }
+        // }
 
         return back()->with('success','Class Video is Added');
     }
@@ -176,9 +186,11 @@ class CourseclassController extends Controller
     public function show( $id)
     {
         
-        $subtitles = Subtitle::where('c_id', $id)->get();
+        $languages = CourseLanguage::all();
         $cate = CourseClass::find($id);
         $coursechapt = CourseChapter::where('course_id', $cate->course_id)->get();
+        $subtitles = Subtitle::where('c_id', $id)->get();
+        // $audio_tracks = AudioTrack::where('c_id', $id)->get();
 
         $datetimevalue= strtotime($cate->date_time);
         $formatted = date('Y-m-d', $datetimevalue);
@@ -186,7 +198,7 @@ class CourseclassController extends Controller
         $pd = $cate['date_time'];
         $live_date = str_replace(" ", "T", $pd);
 
-        return view('admin.course.courseclass.edit',compact('cate','coursechapt','subtitles', 'live_date')); 
+        return view('admin.course.courseclass.edit',compact('cate','coursechapt', 'languages','subtitles', 'live_date')); 
 
     }
 
@@ -234,18 +246,40 @@ class CourseclassController extends Controller
 
         if($file = $request->file('video_upld'))
         {
-            if($courseclass->video !="")
-            {
-                $content = @file_get_contents(public_path().'/video/class/'.$courseclass->video);
 
-                if ($content) {
-                    unlink(public_path().'/video/class/'.$courseclass->video);
+            if ($courseclass->video != "") {
+                $exists = Storage::exists(config('path.course.video'). $courseclass->course_id .'/'. $courseclass->video);
+                if ($exists) {
+                    Storage::delete(config('path.course.video'). $courseclass->course_id .'/'. $courseclass->video);
+
+                    $response = Http::withHeaders([
+                        'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
+                        'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
+                    ])->delete('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/'.$courseclass->stream_url);
+
                 }
             }
-        
-            $name = 'video_course_'.time().'.'.$file->getClientOriginalExtension();
-            $file->move('video/class',$name);
-            $courseclass->video = $name;
+
+            // $file_name = md5(microtime().rand()). time().'.'.$file->getClientOriginalExtension();
+            $file_name = basename(Storage::putFile(config('path.course.video'). $courseclass->course_id, $file , 'private'));
+            $courseclass->video = $file_name;
+
+            $response = Http::withHeaders([
+                'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
+                'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
+            ])->post('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/copy', [
+                'url' => Storage::temporaryUrl(config('path.course.video'). $courseclass->course_id.'/'.$file_name, now()->addMinutes(10)),
+                'meta' => [
+                    'name' => $file_name
+                ],
+                "requireSignedURLs" => true,
+            ]);
+            
+            if($response->successful()){
+                $res = $response->json();
+                $courseclass->stream_url = $res['result']['uid'];
+            }
+            
             $courseclass->date_time = null;
             $courseclass->aws_upload = null;
 
@@ -253,36 +287,20 @@ class CourseclassController extends Controller
 
         if($file = $request->file('preview_image'))
         {
-            if($courseclass->image !="")
-            {
-                $content = @file_get_contents(public_path().'/video/class/preview/'.$courseclass->image);
 
-                if ($content) {
-                    unlink(public_path().'/video/class/preview/'.$courseclass->image);
-                }
+            if ($courseclass->image != null) {
+                $exists = Storage::exists(config('path.course.video_thumnail').$courseclass->course_id .'/'.$courseclass->image);
+                if ($exists)
+                    Storage::delete(config('path.course.video_thumnail').$courseclass->course_id .'/'.$courseclass->image);
             }
-            $name = 'video_thumbnail_'.time().'.'.$file->getClientOriginalExtension();
-            $file->move('video/class/preview',$name);
-            $courseclass->image = $name;
-        }
 
-        if($request->checkVideo == "aws_upload")
-        {
+            $photo = Image::make($file)->fit(600, 360, function ($constraint) {
+                $constraint->upsize();
+            })->encode('jpg', 70);
 
-            $file = request()->file('aws_upload');
-            $videoname = time() . $file->getClientOriginalName();
-
-            $t = Storage::disk('s3')->put($videoname, file_get_contents($file) , 'public');
-            $upload_video = $videoname;
-            $aws_url = env('AWS_URL') . $videoname;
-            
-
-            $videoname = Storage::disk('s3')->url($videoname);
-
-            $courseclass->aws_upload = $aws_url;
-            $courseclass->video = null;
-            $courseclass->date_time = null;
-
+            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+            Storage::put(config('path.course.video_thumnail').$courseclass->course_id .'/'. $file_name, $photo->stream() );
+            $courseclass->image = $file_name;
         }
 
         if(isset($request->status))
@@ -406,6 +424,62 @@ class CourseclassController extends Controller
         }
         
         return response()->json('Update Successfully.', 200);
+    }
+
+    public function token_generate()
+    {
+        // $expiration = time() + 3600;
+        // $issuer = 'localhost';
+
+        // $token = Token::getToken('userIdentifier', 'secret', $expiration, $issuer);
+        // $payload = [
+        //     'iat' => time(),
+        //     'uid' => 1,
+        //     'exp' => time() + 3600,
+        //     // 'iss' => 'localhost',
+        //     'kid' => 'e629e2b6fe352f9fe49415fdc36fc8f8',
+        //     'sub' => '048850df97dc19cf7137aaf583a281ef',
+        // ];
+        // $secret = base64_decode(env('CLOUDFLARE_PEM_KEY'));
+        // // dd($secret);
+
+        // $token = Token::customPayload($payload, $secret);
+
+        // $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
+
+        // // Create token payload as a JSON string
+        // $payload = json_encode(['kid' => 'e629e2b6fe352f9fe49415fdc36fc8f8',
+        // 'sub' => '048850df97dc19cf7137aaf583a281ef','exp' => time() + 3600]);
+
+        // // Encode Header to Base64Url String
+        // $base64UrlHeader = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($header));
+
+        // // Encode Payload to Base64Url String
+        // $base64UrlPayload = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($payload));
+
+        // // Create Signature Hash
+        // $signature = hash_hmac('sha256', $base64UrlHeader . "." . $base64UrlPayload, base64_decode(env('CLOUDFLARE_PEM_KEY')), true);
+
+        // // Encode Signature to Base64Url String
+        // $base64UrlSignature = str_replace(['+', '/', '='], ['-', '_', ''], env('CLOUDFLARE_PEM_KEY'));
+
+        // // Create JWT
+        // $jwt = $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
+
+        // echo $jwt;
+
+        $privateKey = base64_decode(env('CLOUDFLARE_PEM_KEY'));
+        $payload = array(
+            // "iss" => "example.org",
+            // "aud" => "example.com",
+            'exp' => time() + 3600,
+            // 'iss' => 'localhost',
+            'kid' => 'e629e2b6fe352f9fe49415fdc36fc8f8',
+            'sub' => '048850df97dc19cf7137aaf583a281ef',
+        );
+        
+        $jwt = JWT::encode($payload, $privateKey, 'RS256');
+        echo print_r($jwt, true);
     }
 
    

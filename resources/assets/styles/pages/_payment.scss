@@ -1,3 +1,58 @@
+#{$ap}- {
+    &payment {
+        &__ {
+            &msg {
+                &-{
+                    &section {
+                        background-color: var(--gray);
+                    }
+                    &icon {
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 100px;
+                        margin: 0 auto;
+
+                        & #{$ap}-icon {
+                            font-size: var(--text-6xl);
+                        }
+
+                        &-- {
+                            &success {
+                                background: rgba(135, 255, 139, 0.32);
+                                & #{$ap}-icon {
+                                    color: var(--green);
+                                }
+                            }
+                            &failed {
+                                background: rgba(238, 66, 36, 0.11);
+                                & #{$ap}-icon {
+                                    color: var(--danger);
+                                }
+                            }
+                        }
+                    }
+                    &title {
+                        font-size: calc(var(--text-4xl) + 2px);
+                    }
+                    &box {
+                        width: 100%;
+                        padding: 50px 30px;
+                        border-radius: 10px;
+                        background-color: #ffffff;
+                        box-shadow: 0 0 10px 5px #eeeeee;
+                        margin: 0 auto;
+
+                        @include respond-above(sm) {
+                            width: 600px;
+                            padding: 80px 100px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 .la-section__card-payments{
     .la-payment__title{
         font-weight:var(--font-semibold);

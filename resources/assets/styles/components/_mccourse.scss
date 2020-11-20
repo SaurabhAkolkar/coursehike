@@ -91,7 +91,9 @@
             &title {
                 margin-top: auto;
                 font-size: var(--text-2xl);
+                font-weight: var(--font-light);
                 margin-right: var(--size-2);
+                margin-bottom: 5px;
             }
             &btm {
                 display: flex;

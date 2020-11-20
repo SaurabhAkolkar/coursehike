@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
 
 class CourseResource extends Model
@@ -34,5 +35,13 @@ class CourseResource extends Model
     public function courses()
     {
     	return $this->belongsTo('App\Course','course_id','id');
+    }
+
+    public function getFileUrlAttribute($value)
+    {
+        return Storage::temporaryUrl(
+            config('path.course.resources').$this->course_id. '/' . $value, now()->addMinutes(5)
+        );
+        // return Storage::url(config('path.course.video').$this->course_id. '/' . $value);
     }
 }

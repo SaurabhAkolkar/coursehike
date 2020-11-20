@@ -39,6 +39,8 @@ use App\Appointment;
 use App\BBL;
 use App\Meeting;
 use App\Currency;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
@@ -93,26 +95,43 @@ class CourseController extends Controller
 
         $input = $request->all();
 
-        // dd($input);
-
         $data = Course::create($input);
-
         $data->package_type = $request->package_type;
 
 
         if ($file = $request->file('preview_image')) {
-            $optimizeImage = Image::make($file);
-            $optimizePath = public_path().'/images/course/';
-            $image = time().$file->getClientOriginalName();
-            $optimizeImage->save($optimizePath.$image, 72);
+            $photo = Image::make($file)->fit(600, 360, function ($constraint) {
+                $constraint->upsize();
+            })->encode('jpg', 70);
 
-            $data->preview_image = $image;
+            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+            Storage::put(config('path.course.img').$file_name, $photo->stream() );
+            $data->preview_image = $file_name;
+
         }
                   
         if ($file = $request->file('preview_video')) {
-            $filename = time().$file->getClientOriginalName();
-            $file->move('video/preview', $filename);
-            $data->preview_video = $filename;
+
+            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+
+            Storage::put(config('path.course.preview_video').$file_name, fopen($file->getRealPath(), 'r+') );
+            $data->preview_video = $file_name;
+
+            $response = Http::withHeaders([
+                'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
+                'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
+            ])->post('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/copy', [
+                'url' => Storage::temporaryUrl(config('path.course.preview_video'). $file_name, now()->addMinutes(10)),
+                'meta' => [
+                    'name' => $file_name
+                ],
+                "requireSignedURLs" => true,
+            ]);
+            
+            if($response->successful()){
+                $res = $response->json();
+                $data->stream_video = $res['result']['uid'];
+            }
         }
 
         $data->slug = Str::slug($request->title, '-');
@@ -172,33 +191,57 @@ class CourseController extends Controller
         
         if ($file = $request->file('preview_image')) {
             if ($course->preview_image != null) {
-                $content = @file_get_contents(public_path().'/images/course/'.$course->preview_image);
-                if ($content) {
-                    unlink(public_path().'/images/course/'.$course->preview_image);
-                }
+                $exists = Storage::exists(config('path.course.img').$course->preview_image);
+                if ($exists)
+                    Storage::delete(config('path.course.img').$course->preview_image);
             }
 
-            $optimizeImage = Image::make($file);
-            $optimizePath = public_path().'/images/course/';
-            $image = time().$file->getClientOriginalName();
-            $optimizeImage->save($optimizePath.$image, 72);
+            $photo = Image::make($file)->fit(600, 360, function ($constraint) {
+                $constraint->upsize();
+            })->encode('jpg', 70);
 
-            $input['preview_image'] = $image;
+            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+
+            // $input['preview_image'] = Storage::putFile(config('path.course.img'), $photo );
+            Storage::put(config('path.course.img').$file_name, $photo->stream() );
+            // Storage::put(config('path.course.img').$file_name, $photo->getEncoded());
+            $input['preview_image'] = $file_name;
         }
 
         
         if ($file = $request->file('preview_video')) {
             if ($course->preview_video != "") {
-                $content = @file_get_contents(public_path().'/video/preview/'.$course->preview_video);
-                if ($content) {
-                    unlink(public_path().'/video/preview/'.$course->preview_video);
+                $exists = Storage::exists(config('path.course.preview_video').$course->preview_video);
+                if ($exists){
+                    Storage::delete(config('path.course.preview_video').$course->preview_video);
+
+                    Http::withHeaders([
+                        'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
+                        'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
+                    ])->delete('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/'.$course->stream_video);
                 }
             }
+
+            // $file_name = md5(microtime().rand()). time().'.'.$file->getClientOriginalExtension();
+            $file_name = basename(Storage::putFile(config('path.course.preview_video'), $file ));
+            $input['preview_video'] = $file_name;
+
+            $response = Http::withHeaders([
+                'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
+                'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
+            ])->post('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/copy', [
+                'url' => Storage::temporaryUrl(config('path.course.preview_video'). $file_name, now()->addMinutes(10)),
+                'meta' => [
+                    'name' => $file_name
+                ],
+                "requireSignedURLs" => true,
+            ]);
             
-            $filename = time().$file->getClientOriginalName();
-            $file->move('video/preview', $filename);
-            $input['preview_video'] = $filename;
-            // $course->url = null;
+            if($response->successful()){
+                $res = $response->json();
+                $course->stream_video = $input['stream_video'] = $res['result']['uid'];
+            }
+
         }
 
        
@@ -229,18 +272,14 @@ class CourseController extends Controller
                 $course = Course::find($id);
           
                 if ($course->preview_image != null) {
-                    $image_file = @file_get_contents(public_path().'/images/course/'.$course->preview_image);
-
-                    if ($image_file) {
-                        unlink(public_path().'/images/course/'.$course->preview_image);
-                    }
+                    $exists = Storage::exists(config('path.course.img').$course->preview_image);
+                    if ($exists)
+                        Storage::delete(config('path.course.img').$course->preview_image);
                 }
                 if ($course->video != null) {
-                    $video_file = @file_get_contents(public_path().'/video/preview/'.$course->video);
-
-                    if ($video_file != null) {
-                        unlink(public_path().'/video/preview/'.$course->video);
-                    }
+                    $exists = Storage::exists(config('path.course.preview_video').$course->preview_video);
+                    if ($exists)
+                        Storage::delete(config('path.course.preview_video').$course->preview_video);
                 }
 
                 $value = $course->delete();

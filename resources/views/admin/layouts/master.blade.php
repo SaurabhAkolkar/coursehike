@@ -89,7 +89,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
         </a>
 
         <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav d-inline-block">
+          <ul class="nav navbar-nav d-inline-block mx-10">
             <!-- Messages: style can be found in dropdown.less-->
             @php
                 $languages = App\Language::all(); 
@@ -153,7 +153,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
 
             </li>
             <!-- Control Sidebar Toggle Button -->
-            <li>
+            {{-- <li>
                  <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">
@@ -163,7 +163,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                     @csrf
                 </form>
-            </li>
+            </li> --}}
           </ul>
         </div>
       </nav>
@@ -173,7 +173,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
     @if(Auth::User()->role == "admin")
       @include('admin.layouts.sidebar')
     @endif
-    @if(Auth::User()->role == "instructor")
+    @if(Auth::User()->role == "mentors")
       @include('instructor.layouts.sidebar')
     @endif
     

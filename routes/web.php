@@ -51,8 +51,8 @@ Route::view('/ipblock','ipblock')->name('ip.block');
 Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(function () {
 
     // Auth Routes
-Route::get('auth/{provider}', 'Auth\AuthController@redirectToProvider');
-Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallback');
+    Route::get('auth/{provider}', 'Auth\AuthController@redirectToProvider');
+    Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallback');
 
 
     Route::middleware(['is_verified'])->group(function () {
@@ -79,488 +79,496 @@ Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallba
     });
   
 
-  Route::middleware(['web', 'is_active', 'auth', 'is_admin', 'switch_languages'])->group(function () {
+    Route::middleware(['web', 'is_active', 'auth', 'is_admin', 'switch_languages'])->group(function () {
 
-    // Player Settings
-    Route::get('/admin/playersetting','PlayerSettingController@get')->name('player.set');
-    Route::post('/admin/playersetting/update','PlayerSettingController@update')->name('player.update');
-
-
-    Route::get('admin/ads','AdsController@getAds')->name('ads');
-    Route::post('admin/ads/insert','AdsController@store')->name('ad.store');
-
-    Route::get('admin/ads/setting','AdsController@getAdsSettings')->name('ad.setting');
-
-    Route::put('admin/ads/timer','AdsController@updateAd')->name('ad.update');
-
-    Route::put('admin/ads/pop','AdsController@updatePopAd')->name('ad.pop.update');
-
-    Route::delete('admin/ads/delete/{id}','AdsController@delete')->name('ad.delete');
-
-    Route::get('admin/ads/create','AdsController@create')->name('ad.create');
-
-    Route::get('admin/ads/edit/{id}','AdsController@showEdit')->name('ad.edit');
-
-    Route::put('admin/ads/edit/{id}','AdsController@updateADSOLO')->name('ad.update.solo');
-
-    Route::put('admin/ads/video/{id}','AdsController@updateVideoAD')->name('ad.update.video');
-
-    Route::post('admin/ads/bulk_delete', 'AdsController@bulk_delete');
-
-    Route::post('/quickupdate/course/{id}','QuickUpdateController@courseQuick')->name('course.quick');
-    Route::post('/quickupdate/user/{id}','QuickUpdateController@userQuick')->name('user.quick');
-    Route::post('/quickupdate/slider/{id}','QuickUpdateController@sliderQuick')->name('slider.quick');
-    Route::post('/quickudate/course/{id}','QuickUpdateController@courseabc')->name('course.featured');
-    Route::post('/quickupdate/category/{id}','QuickUpdateController@categoryQuick')->name('category.quick');
-    Route::post('/quickupdate/language/{id}','QuickUpdateController@languageQuick')->name('language.quick');
-    Route::post('/quickupdate/pag/{id}','QuickUpdateController@pageQuick')->name('page.quick');
-    Route::post('/quickupdate/what/{id}','QuickUpdateController@whatQuick')->name('what.quick');
-    Route::post('/quickupdate/ansr/{id}','QuickUpdateController@ansrQuick')->name('ansr.quick');
-    Route::post('/quickupdate/Chapter/{id}','QuickUpdateController@ChapterQuick')->name('Chapter.quick');
-    Route::post('/quickupdate/testimonial/{id}','QuickUpdateController@testimonialQuick')->name('testimonial.quick');
-    Route::post('/quickupdate/subcategory/{id}','QuickUpdateController@subcategoryQuick')->name('subcategory.quick');
-    Route::post('/quickupdate/childcategory/{id}','QuickUpdateController@childcategoryQuick')->name('childcategory.quick');
-    Route::post('/quickupdate/y/{id}','QuickUpdateController@categoryfQuick')->name('categoryf.quick');
-    Route::post('/quickupdate/blog_status/{id}','QuickUpdateController@blog_statusQuick')->name('blog.status.quick');
-    Route::post('/quickupdate/blog_approved/{id}','QuickUpdateController@blog_approvedQuick')->name('blog.approved.quick');
-    Route::post('/quickupdate/status/{id}','QuickUpdateController@reviewstatusQuick')->name('reviewstatus.quick');
-    Route::post('/quickupdate/approved/{id}','QuickUpdateController@reviewapprovedQuick')->name('reviewapproved.quick');
-    Route::post('/quickupdate/featured/{id}','QuickUpdateController@reviewfeaturedQuick')->name('reviewfeatured.quick');
-    Route::post('/quickupdate/faq/{id}','QuickUpdateController@faqQuick')->name('faq.quick');
-    Route::post('/quickupdate/faqinstructor/{id}','QuickUpdateController@faqInstructorQuick')->name('faqInstructor.quick');
-
-    Route::post('/quickupdate/order/{id}','QuickUpdateController@orderQuick')->name('order.quick');
-
-    Route::prefix('user')->group(function (){
-    Route::get('/','UserController@viewAllUser')->name('user.index');
-    Route::get('/adduser','UserController@create')->name('user.add');
-    Route::post('/insertuser','UserController@store')->name('user.store');
-    Route::get('edit/{id}','UserController@edit')->name('user.edit');
-    Route::put('/edit/{id}','UserController@update')->name('user.update');   
-    Route::delete('delete/{id}','UserController@destroy')->name('user.delete');
-    });
-
-    Route::resource("admin/country","CountryController");
-    Route::resource("admin/state","StateController");
-    Route::resource("admin/city","CityController");
-
-    Route::resource('page','PageController');
-    Route::resource('/testimonial','TestimonialController');
-    Route::resource('slider','SliderController');
-    Route::resource('trusted','TrustedController');
-    
-
-    Route::post('mailsetting/update','SettingController@updateMailSetting')->name('update.mail.set');
-    Route::get('settings','SettingController@genreal')->name('gen.set');
-    Route::post('setting/store','SettingController@store')->name('setting.store');
-    Route::post('setting/seo','SettingController@updateSeo')->name('seo.set');
-    Route::post('setting/addcss','SettingController@storeCSS')->name('css.store');
-    Route::post('setting/addjs','SettingController@storeJS')->name('js.store');
-    Route::post('setting/sociallogin/fb','SettingController@slfb')->name('sl.fb');
-    Route::post('setting/sociallogin/gl','SettingController@slgl')->name('sl.gl');
-    Route::post('setting/sociallogin/git','SettingController@slgit')->name('sl.git');
-    Route::post('setting/sociallogin/amazon','SettingController@slamazon')->name('sl.amazon');
-    Route::post('setting/sociallogin/linkedin','SettingController@sllinkedin')->name('sl.linkedin');
-    Route::post('setting/sociallogin/twitter','SettingController@sltwitter')->name('sl.twitter');
-
-    Route::get('/admin/api','ApiController@setApiView')->name('api.setApiView');
-    Route::post('admin/api','ApiController@changeEnvKeys')->name('api.update');
-    Route::put('/review/update/{id}','ReviewratingController@update')
-    ->name('review.update');
-
-    Route::resource('facts', 'SliderfactsController');
-    Route::get('coursetext', 'CoursetextController@show');
-    Route::put('coursetext/update', 'CoursetextController@update');
-    Route::get('getstarted', 'GetstartedController@show');
-    Route::put('getstarted/update', 'GetstartedController@update');
-    Route::resource('hometext', 'HomeTextController');
-    Route::get('terms', 'TermsController@show')->name('termscondition');
-    Route::put('termscondition', 'TermsController@update');
-    Route::get('policy', 'TermsController@showpolicy')->name('policy');
-    Route::put('privacypolicy', 'TermsController@updatepolicy');
-
-    Route::resource('reports','ReportReviewController');
-    
-    Route::get('aboutpage', 'AboutController@show')->name('about.page');
-    Route::put('aboutupdate', 'AboutController@update');
-    Route::get('comingsoon', 'ComingSoonController@show')->name('comingsoon.page');
-    Route::put('comingsoonupdate', 'ComingSoonController@update');
-    Route::get('careers', 'CareersController@show')->name('careers.page');
-    Route::put('careers/update', 'CareersController@update');
-    Route::resource('faq','FaqController');
-    Route::resource('faqinstructor','FaqInstructorController');
-    Route::resource('carts', 'CartController');
-
-    Route::get('currency', 'CurrencyController@show');
-    Route::put('currency/update', 'CurrencyController@update');
-    
-
-    Route::get('widget', 'WidgetController@edit')->name('widget.setting');
-    Route::put('widget/update', 'WidgetController@update');
-    Route::post('admin/class/{id}/addsubtitle','SubtitleController@post')->name('add.subtitle');
-    Route::post('admin/class/{id}/delete/subtitle','SubtitleController@delete')->name('del.subtitle');
-
-    Route::get('frontslider', 'CategorySliderController@show')->name('category.slider');
-    Route::put('frontslider/update', 'CategorySliderController@update');
-
-    Route::resource('requestinstructor', 'InstructorRequestController');
-
-    Route::resource('coupon','CouponController');
-    Route::get('all/instructor', 'InstructorRequestController@allinstructor')->name('all.instructor');
-    Route::get('view/order/admin/{id}', 'OrderController@vieworder')->name('view.order');
-
-    Route::resource('user/course/report','CourseReportController');
-
-    Route::get('banktransfer', 'BankTransferController@show')->name('bank.transfer');
-    Route::put('banktransfer/update', 'BankTransferController@update');
-
-    Route::get('admin/lang', 'LanguageController@showlang')->name('show.lang');
-
-    Route::get('admin/frontstatic/{local}', 'LanguageController@frontstaticword')->name('frontstatic.lang');
-
-    Route::post('/admin/update/{lang}/frontTranslations/content','LanguageController@frontupdate')->name('static.trans.update');
-
-    Route::get('admin/adminstatic/{local}', 'LanguageController@adminstaticword')->name('adminstatic.lang');
-
-    Route::post('/admin/update/{lang}/adminTranslations/content','LanguageController@adminupdate')->name('admin.static.update');
-
-    Route::get('admin/pwa', 'PwaSettingController@index')->name('show.pwa');
-
-    Route::post('/admin/pwa/update/manifest','PwaSettingController@updatemanifest')->name('manifest.update');
-
-    Route::post('/admin/pwa/update/sw','PwaSettingController@updatesw')->name('sw.update');
-
-    Route::post('/admin/pwa/update/icons','PwaSettingController@updateicons')->name('icons.update');
-
-    Route::post('/admin/manualcity','CityController@addcity')->name('city.manual');
-
-    Route::post('/admin/manualstate','StateController@addstate')->name('state.manual');
-
-    Route::resource('user/question/report','QuestionReportController');
-
-    // adsense routes
-    Route::get('/admin/adsensesetting/','AdsenseController@index')->name('adsense');
-    Route::put('/admin/adsensesetting','AdsenseController@update')->name('adsense.update');
-
-  });
-
-  Route::middleware(['web', 'is_active', 'auth', 'admin_instructor', 'switch_languages'])->group(function () {
-
-    
-
-   if(\DB::connection()->getDatabaseName()){
-     if(env('IS_INSTALLED') == 1){
-        $zoom_enable = Setting::first()->zoom_enable;
-
-        $bbl_enable  = Setting::first()->bbl_enable;
-        
-        if(isset($zoom_enable) && $zoom_enable == 1){
-            
-            Route::prefix('zoom')->group(function (){
-                Route::get('setting','ZoomController@setting')->name('zoom.setting');
-                Route::get('dashboard','ZoomController@dashboard')->name('zoom.index');
-                Route::post('token/update','ZoomController@updateToken')->name('updateToken');
-                Route::get('create/meeting','ZoomController@create')->name('meeting.create');
-                Route::delete('delete/meeting/{id}','ZoomController@delete')->name('zoom.delete');
-                Route::post('store/new/meeting','ZoomController@store')->name('zoom.store');
-                Route::get('edit/meeting/{meetingid}','ZoomController@edit')->name('zoom.edit');
-                Route::post('update/meeting/{meetingid}','ZoomController@updatemeeting')->name('zoom.update');
-                Route::get('show/meeting/{meetingid}','ZoomController@show')->name('zoom.show');
-            });
-        }
-
-        if(isset($bbl_enable) && $bbl_enable == 1){
-            Route::prefix('bigblue')->group(function (){
-                Route::view('setting','bbl.setting')->name('bbl.setting');
-                Route::post('setting','BigBlueController@setting')->name('bbl.update.setting');
-                Route::get('meetings','BigBlueController@index')->name('bbl.all.meeting');
-                Route::view('meeting/create','bbl.create')->name('bbl.create');
-                Route::post('meeting/store','BigBlueController@store')->name('bbl.store');
-                Route::get('meeting/edit/{meetingid}','BigBlueController@edit')->name('bbl.edit');
-                Route::post('meeting/update/{meetingid}','BigBlueController@update')->name('bbl.update');
-                Route::delete('meeting/delete/{id}','BigBlueController@delete')->name('bbl.delete');
-                Route::get('api/create/meeting/{id}','BigBlueController@apiCreate')->name('api.create.meeting');
-
-                
-            });
-        }
+      // Player Settings
+      Route::get('/admin/playersetting','PlayerSettingController@get')->name('player.set');
+      Route::post('/admin/playersetting/update','PlayerSettingController@update')->name('player.update');
 
 
-     }
-    }
+      Route::get('admin/ads','AdsController@getAds')->name('ads');
+      Route::post('admin/ads/insert','AdsController@store')->name('ad.store');
 
-    Route::prefix('user')->group(function (){
+      Route::get('admin/ads/setting','AdsController@getAdsSettings')->name('ad.setting');
+
+      Route::put('admin/ads/timer','AdsController@updateAd')->name('ad.update');
+
+      Route::put('admin/ads/pop','AdsController@updatePopAd')->name('ad.pop.update');
+
+      Route::delete('admin/ads/delete/{id}','AdsController@delete')->name('ad.delete');
+
+      Route::get('admin/ads/create','AdsController@create')->name('ad.create');
+
+      Route::get('admin/ads/edit/{id}','AdsController@showEdit')->name('ad.edit');
+
+      Route::put('admin/ads/edit/{id}','AdsController@updateADSOLO')->name('ad.update.solo');
+
+      Route::put('admin/ads/video/{id}','AdsController@updateVideoAD')->name('ad.update.video');
+
+      Route::post('admin/ads/bulk_delete', 'AdsController@bulk_delete');
+
+      Route::post('/quickupdate/course/{id}','QuickUpdateController@courseQuick')->name('course.quick');
+      Route::post('/quickupdate/user/{id}','QuickUpdateController@userQuick')->name('user.quick');
+      Route::post('/quickupdate/slider/{id}','QuickUpdateController@sliderQuick')->name('slider.quick');
+      Route::post('/quickudate/course/{id}','QuickUpdateController@courseabc')->name('course.featured');
+      Route::post('/quickupdate/category/{id}','QuickUpdateController@categoryQuick')->name('category.quick');
+      Route::post('/quickupdate/language/{id}','QuickUpdateController@languageQuick')->name('language.quick');
+      Route::post('/quickupdate/pag/{id}','QuickUpdateController@pageQuick')->name('page.quick');
+      Route::post('/quickupdate/what/{id}','QuickUpdateController@whatQuick')->name('what.quick');
+      Route::post('/quickupdate/ansr/{id}','QuickUpdateController@ansrQuick')->name('ansr.quick');
+      Route::post('/quickupdate/Chapter/{id}','QuickUpdateController@ChapterQuick')->name('Chapter.quick');
+      Route::post('/quickupdate/testimonial/{id}','QuickUpdateController@testimonialQuick')->name('testimonial.quick');
+      Route::post('/quickupdate/subcategory/{id}','QuickUpdateController@subcategoryQuick')->name('subcategory.quick');
+      Route::post('/quickupdate/childcategory/{id}','QuickUpdateController@childcategoryQuick')->name('childcategory.quick');
+      Route::post('/quickupdate/y/{id}','QuickUpdateController@categoryfQuick')->name('categoryf.quick');
+      Route::post('/quickupdate/blog_status/{id}','QuickUpdateController@blog_statusQuick')->name('blog.status.quick');
+      Route::post('/quickupdate/blog_approved/{id}','QuickUpdateController@blog_approvedQuick')->name('blog.approved.quick');
+      Route::post('/quickupdate/status/{id}','QuickUpdateController@reviewstatusQuick')->name('reviewstatus.quick');
+      Route::post('/quickupdate/approved/{id}','QuickUpdateController@reviewapprovedQuick')->name('reviewapproved.quick');
+      Route::post('/quickupdate/featured/{id}','QuickUpdateController@reviewfeaturedQuick')->name('reviewfeatured.quick');
+      Route::post('/quickupdate/faq/{id}','QuickUpdateController@faqQuick')->name('faq.quick');
+      Route::post('/quickupdate/faqinstructor/{id}','QuickUpdateController@faqInstructorQuick')->name('faqInstructor.quick');
+
+      Route::post('/quickupdate/order/{id}','QuickUpdateController@orderQuick')->name('order.quick');
+
+      Route::prefix('user')->group(function (){
+      Route::get('/','UserController@viewAllUser')->name('user.index');
+      Route::get('/adduser','UserController@create')->name('user.add');
+      Route::post('/insertuser','UserController@store')->name('user.store');
       Route::get('edit/{id}','UserController@edit')->name('user.edit');
-      Route::put('/edit/{id}','UserController@update')->name('user.update');
+      Route::put('/edit/{id}','UserController@update')->name('user.update');   
+      Route::delete('delete/{id}','UserController@destroy')->name('user.delete');
+      });
+
+      Route::resource("admin/country","CountryController");
+      Route::resource("admin/state","StateController");
+      Route::resource("admin/city","CityController");
+
+      Route::resource('page','PageController');
+      Route::resource('/testimonial','TestimonialController');
+      Route::resource('slider','SliderController');
+      Route::resource('trusted','TrustedController');
+      
+
+      Route::post('mailsetting/update','SettingController@updateMailSetting')->name('update.mail.set');
+      Route::get('settings','SettingController@genreal')->name('gen.set');
+      Route::post('setting/store','SettingController@store')->name('setting.store');
+      Route::post('setting/seo','SettingController@updateSeo')->name('seo.set');
+      Route::post('setting/addcss','SettingController@storeCSS')->name('css.store');
+      Route::post('setting/addjs','SettingController@storeJS')->name('js.store');
+      Route::post('setting/sociallogin/fb','SettingController@slfb')->name('sl.fb');
+      Route::post('setting/sociallogin/gl','SettingController@slgl')->name('sl.gl');
+      Route::post('setting/sociallogin/git','SettingController@slgit')->name('sl.git');
+      Route::post('setting/sociallogin/amazon','SettingController@slamazon')->name('sl.amazon');
+      Route::post('setting/sociallogin/linkedin','SettingController@sllinkedin')->name('sl.linkedin');
+      Route::post('setting/sociallogin/twitter','SettingController@sltwitter')->name('sl.twitter');
+
+      Route::get('/admin/api','ApiController@setApiView')->name('api.setApiView');
+      Route::post('admin/api','ApiController@changeEnvKeys')->name('api.update');
+      Route::put('/review/update/{id}','ReviewratingController@update')
+      ->name('review.update');
+
+      Route::resource('facts', 'SliderfactsController');
+      Route::get('coursetext', 'CoursetextController@show');
+      Route::put('coursetext/update', 'CoursetextController@update');
+      Route::get('getstarted', 'GetstartedController@show');
+      Route::put('getstarted/update', 'GetstartedController@update');
+      Route::resource('hometext', 'HomeTextController');
+      Route::get('terms', 'TermsController@show')->name('termscondition');
+      Route::put('termscondition', 'TermsController@update');
+      Route::get('policy', 'TermsController@showpolicy')->name('policy');
+      Route::put('privacypolicy', 'TermsController@updatepolicy');
+
+      Route::resource('reports','ReportReviewController');
+      
+      Route::get('aboutpage', 'AboutController@show')->name('about.page');
+      Route::put('aboutupdate', 'AboutController@update');
+      Route::get('comingsoon', 'ComingSoonController@show')->name('comingsoon.page');
+      Route::put('comingsoonupdate', 'ComingSoonController@update');
+      Route::get('careers', 'CareersController@show')->name('careers.page');
+      Route::put('careers/update', 'CareersController@update');
+      Route::resource('faq','FaqController');
+      Route::resource('faqinstructor','FaqInstructorController');
+      Route::resource('carts', 'CartController');
+
+      Route::get('currency', 'CurrencyController@show');
+      Route::put('currency/update', 'CurrencyController@update');
+      
+
+      Route::get('widget', 'WidgetController@edit')->name('widget.setting');
+      Route::put('widget/update', 'WidgetController@update');
+      Route::post('admin/class/{id}/addsubtitle','SubtitleController@post')->name('add.subtitle');
+      Route::post('admin/class/{id}/delete/subtitle','SubtitleController@delete')->name('del.subtitle');
+
+      Route::post('admin/class/{id}/audiotrack','AudioTrackController@post')->name('add.audiotrack');
+      Route::delete('admin/class/{id}/audiotrack','AudioTrackController@delete')->name('del.audiotrack');
+
+
+      Route::get('frontslider', 'CategorySliderController@show')->name('category.slider');
+      Route::put('frontslider/update', 'CategorySliderController@update');
+
+      Route::resource('requestinstructor', 'InstructorRequestController');
+
+      Route::resource('coupon','CouponController');
+      Route::get('all/instructor', 'InstructorRequestController@allinstructor')->name('all.instructor');
+      Route::get('view/order/admin/{id}', 'OrderController@vieworder')->name('view.order');
+
+      Route::resource('user/course/report','CourseReportController');
+
+      Route::get('banktransfer', 'BankTransferController@show')->name('bank.transfer');
+      Route::put('banktransfer/update', 'BankTransferController@update');
+
+      Route::get('admin/lang', 'LanguageController@showlang')->name('show.lang');
+
+      Route::get('admin/frontstatic/{local}', 'LanguageController@frontstaticword')->name('frontstatic.lang');
+
+      Route::post('/admin/update/{lang}/frontTranslations/content','LanguageController@frontupdate')->name('static.trans.update');
+
+      Route::get('admin/adminstatic/{local}', 'LanguageController@adminstaticword')->name('adminstatic.lang');
+
+      Route::post('/admin/update/{lang}/adminTranslations/content','LanguageController@adminupdate')->name('admin.static.update');
+
+      Route::get('admin/pwa', 'PwaSettingController@index')->name('show.pwa');
+
+      Route::post('/admin/pwa/update/manifest','PwaSettingController@updatemanifest')->name('manifest.update');
+
+      Route::post('/admin/pwa/update/sw','PwaSettingController@updatesw')->name('sw.update');
+
+      Route::post('/admin/pwa/update/icons','PwaSettingController@updateicons')->name('icons.update');
+
+      Route::post('/admin/manualcity','CityController@addcity')->name('city.manual');
+
+      Route::post('/admin/manualstate','StateController@addstate')->name('state.manual');
+
+      Route::resource('user/question/report','QuestionReportController');
+
+      // adsense routes
+      Route::get('/admin/adsensesetting/','AdsenseController@index')->name('adsense');
+      Route::put('/admin/adsensesetting','AdsenseController@update')->name('adsense.update');
+
     });
 
-    Route::resource('category','CategoriesController');
-    Route::get('/category/{slug}','CategoriesController@show')->name('category.show'); 
-    Route::resource('subcategory','SubcategoryController');
-    Route::resource('childcategory','ChildcategoryController');
-    Route::resource('course','CourseController');
-    Route::resource('courseinclude','CourseincludeController');
-    Route::resource('coursechapter','CoursechapterController');
-    Route::resource('courseresource','CourseresourceController');
-    Route::resource('whatlearns','WhatlearnsController');
-    Route::resource('relatedcourse','RelatedcourseController');
-    Route::resource('questionanswer','QuestionanswerController');
-    Route::resource('courseanswer', 'AnswerController');
-    Route::resource('courseclass','CourseclassController');
-    Route::resource('reviewrating','ReviewratingController');
-    Route::resource('announsment','AnnounsmentController');
-    Route::get('/course/create/{id}','CourseController@showCourse')->name('course.show');
-    Route::post('/category/insert','CategoriesController@categoryStore')->name('cat.store');
-    Route::post('/subcategory/insert','SubcategoryController@SubcategoryStore')->name('child.store');
-    Route::put('/course/include/{id}','CourseController@testup')->name('corinc.update');
-    Route::put('/course/whatlearns/{id}','CourseController@test')->name('what.update');
-    Route::put('/course/coursechapter/{id}','CourseController@tes')->name('chapter.update');
-    Route::get('send', 'CourseclassController@store')->name('notification');
-    Route::resource('courselang','CourseLanguageController');
-    Route::get("admin/dropdown","CourseController@upload_info");
-    Route::get("admin/gcat","CourseController@gcato");
+    Route::middleware(['web', 'is_active', 'auth', 'admin_instructor', 'switch_languages'])->group(function () {
+
+      
+
+      if(\DB::connection()->getDatabaseName()){
+          if(env('IS_INSTALLED') == 1){
+              $zoom_enable = Setting::first()->zoom_enable;
+
+              $bbl_enable  = Setting::first()->bbl_enable;
+              
+              if(isset($zoom_enable) && $zoom_enable == 1){
+                  
+                  Route::prefix('zoom')->group(function (){
+                      Route::get('setting','ZoomController@setting')->name('zoom.setting');
+                      Route::get('dashboard','ZoomController@dashboard')->name('zoom.index');
+                      Route::post('token/update','ZoomController@updateToken')->name('updateToken');
+                      Route::get('create/meeting','ZoomController@create')->name('meeting.create');
+                      Route::delete('delete/meeting/{id}','ZoomController@delete')->name('zoom.delete');
+                      Route::post('store/new/meeting','ZoomController@store')->name('zoom.store');
+                      Route::get('edit/meeting/{meetingid}','ZoomController@edit')->name('zoom.edit');
+                      Route::post('update/meeting/{meetingid}','ZoomController@updatemeeting')->name('zoom.update');
+                      Route::get('show/meeting/{meetingid}','ZoomController@show')->name('zoom.show');
+                  });
+              }
+
+              if(isset($bbl_enable) && $bbl_enable == 1){
+                  Route::prefix('bigblue')->group(function (){
+                      Route::view('setting','bbl.setting')->name('bbl.setting');
+                      Route::post('setting','BigBlueController@setting')->name('bbl.update.setting');
+                      Route::get('meetings','BigBlueController@index')->name('bbl.all.meeting');
+                      Route::view('meeting/create','bbl.create')->name('bbl.create');
+                      Route::post('meeting/store','BigBlueController@store')->name('bbl.store');
+                      Route::get('meeting/edit/{meetingid}','BigBlueController@edit')->name('bbl.edit');
+                      Route::post('meeting/update/{meetingid}','BigBlueController@update')->name('bbl.update');
+                      Route::delete('meeting/delete/{id}','BigBlueController@delete')->name('bbl.delete');
+                      Route::get('api/create/meeting/{id}','BigBlueController@apiCreate')->name('api.create.meeting');
+
+                      
+                  });
+              }
 
 
-    Route::get('instructor', 'InstructorController@index')->name('instructor.index');
-    Route::resource('userenroll', 'InstructorEnrollController');
-    Route::resource('instructorquestion', 'InstructorQuestionController');
-    Route::resource('instructoranswer', 'InstructorAnswerController');
-    Route::get('coursereview', 'CourseReviewController@index');
+          }
+        }
 
-    Route::resource('instructor/announcement', 'InstructorAnnouncementController');
-    Route::resource('usermessage', 'ContactUsController');
-    Route::resource('languages', 'LanguageController');
+      Route::prefix('user')->group(function (){
+        Route::get('edit/{id}','UserController@edit')->name('user.edit');
+        Route::put('/edit/{id}','UserController@update')->name('user.update');
+      });
 
-    Route::get('reposition/category', 'CategoriesController@reposition')->name('category_reposition');
+      Route::resource('category','CategoriesController');
+      Route::get('/category/{slug}','CategoriesController@show')->name('category.show'); 
+      Route::resource('subcategory','SubcategoryController');
+      Route::resource('childcategory','ChildcategoryController');
+      Route::resource('course','CourseController');
+      Route::resource('courseinclude','CourseincludeController');
+      Route::resource('coursechapter','CoursechapterController');
+      Route::resource('courseresource','CourseresourceController');
+      Route::resource('whatlearns','WhatlearnsController');
+      Route::resource('relatedcourse','RelatedcourseController');
+      Route::resource('questionanswer','QuestionanswerController');
+      Route::resource('courseanswer', 'AnswerController');
+      Route::resource('courseclass','CourseclassController');
+      Route::resource('reviewrating','ReviewratingController');
+      Route::resource('announsment','AnnounsmentController');
+      Route::get('/course/create/{id}','CourseController@showCourse')->name('course.show');
+      Route::post('/category/insert','CategoriesController@categoryStore')->name('cat.store');
+      Route::post('/subcategory/insert','SubcategoryController@SubcategoryStore')->name('child.store');
+      Route::put('/course/include/{id}','CourseController@testup')->name('corinc.update');
+      Route::put('/course/whatlearns/{id}','CourseController@test')->name('what.update');
+      Route::put('/course/coursechapter/{id}','CourseController@tes')->name('chapter.update');
+      Route::get('send', 'CourseclassController@store')->name('notification');
+      Route::resource('courselang','CourseLanguageController');
+      Route::get("admin/dropdown","CourseController@upload_info");
+      Route::get("admin/gcat","CourseController@gcato");
 
-    Route::post('reposition/class', 'CourseclassController@sort')->name('class-sort');
 
-    Route::get('reposition/slider', 'SliderController@reposition')->name('slider_reposition');
+      Route::get('instructor', 'InstructorController@index')->name('instructor.index');
+      Route::resource('userenroll', 'InstructorEnrollController');
+      Route::resource('instructorquestion', 'InstructorQuestionController');
+      Route::resource('instructoranswer', 'InstructorAnswerController');
+      Route::get('coursereview', 'CourseReviewController@index');
 
-    Route::resource('admin/quiztopic', 'QuizTopicController');
+      Route::resource('instructor/announcement', 'InstructorAnnouncementController');
+      Route::resource('usermessage', 'ContactUsController');
+      Route::resource('languages', 'LanguageController');
 
-    Route::resource('/admin/questions', 'QuizController');
+      Route::get('reposition/category', 'CategoriesController@reposition')->name('category_reposition');
 
-    Route::resource('blog', 'BlogController');
+      Route::post('reposition/class', 'CourseclassController@sort')->name('class-sort');
 
-    Route::resource('order', 'OrderController');
+      Route::get('reposition/slider', 'SliderController@reposition')->name('slider_reposition');
 
-    Route::resource('featurecourse', 'FeatureCourseController');
+      Route::resource('admin/quiztopic', 'QuizTopicController');
 
-    Route::post('/paywithpaytm', 'FeatureCourseController@order')->name('paywithpaytm');
-    Route::get('/featurepayment/status', 'FeatureCourseController@paymentCallback');
+      Route::resource('/admin/questions', 'QuizController');
 
-    Route::post('featuredwithpaypal', 'FeatureCourseController@payWithpaypal')->name('featuredWithpaypal');
-    Route::get('getfeaturedstatus', 'FeatureCourseController@getPaymentStatus')->name('featured');
+      Route::resource('blog', 'BlogController');
 
-    Route::resource('bundle', 'BundleCourseController');
+      Route::resource('order', 'OrderController');
 
-    Route::resource('assignment', 'AssignmentController');
+      Route::resource('featurecourse', 'FeatureCourseController');
 
-    Route::resource('appointment', 'AppointmentController');
+      Route::post('/paywithpaytm', 'FeatureCourseController@order')->name('paywithpaytm');
+      Route::get('/featurepayment/status', 'FeatureCourseController@paymentCallback');
 
-  });
+      Route::post('featuredwithpaypal', 'FeatureCourseController@payWithpaypal')->name('featuredWithpaypal');
+      Route::get('getfeaturedstatus', 'FeatureCourseController@getPaymentStatus')->name('featured');
 
-  
-  
-  Route::middleware(['web','switch_languages', 'is_verified'])->group(function () {
+      Route::resource('bundle', 'BundleCourseController');
 
-    Route::post('rating/show/{id}','ReviewratingController@rating')->name('course.rating');
-    Route::post('reports/insert/{id}','ReportReviewController@store')->name('report.review');
-    Route::get('/course/{id}/{slug}','CourseController@CourseDetailPage')->name('user.course.show');
-    Route::get('all/blog','BlogController@blogpage')->name('blog.all');
-    Route::get('about/show','AboutController@aboutpage')->name('about.show');
-    Route::get('show/comingsoon','ComingSoonController@comingsoonpage')->name('comingsoon.show');
-    Route::get('show/careers','CareersController@careerpage')->name('careers.show');
-    Route::get('detail/blog/{id}','BlogController@blogdetailpage')->name('blog.detail');
-    Route::get('gotomycourse', 'CourseController@mycoursepage')->name('mycourse.show');
+      Route::resource('assignment', 'AssignmentController');
 
-    Route::get('show/help', function(){
-    $data = FaqStudent::first();
-    $item = FaqInstructor::first();
-    return view('front.help.faq',compact('data', 'item')); 
-    })->name('help.show');
+      Route::resource('appointment', 'AppointmentController');
 
-    Route::get('pages/{slug}','PageController@showpage')->name('page.show');
+    });
 
-    Route::post('show/wishlist/{id}','WishlistController@wishlist');
-    Route::post('remove/wishlist/{id}','WishlistController@removewishlist');
+    Route::middleware(['web','switch_languages', 'is_verified'])->group(function () {
 
-    Route::get('enroll/show/{id}', 'EnrollmentController@enroll')->name('show.enroll');
+      Route::post('rating/show/{id}','ReviewratingController@rating')->name('course.rating');
+      Route::post('reports/insert/{id}','ReportReviewController@store')->name('report.review');
+      Route::get('/course/{id}/{slug}','CourseController@CourseDetailPage')->name('user.course.show');
+      Route::get('all/blog','BlogController@blogpage')->name('blog.all');
+      Route::get('about/show','AboutController@aboutpage')->name('about.show');
+      Route::get('show/comingsoon','ComingSoonController@comingsoonpage')->name('comingsoon.show');
+      Route::get('show/careers','CareersController@careerpage')->name('careers.show');
+      Route::get('detail/blog/{id}','BlogController@blogdetailpage')->name('blog.detail');
+      Route::get('gotomycourse', 'CourseController@mycoursepage')->name('mycourse.show');
 
-    Route::get('show/coursecontent/{id}', 'CourseController@CourseContentPage');
+      Route::get('show/help', function(){
+      $data = FaqStudent::first();
+      $item = FaqInstructor::first();
+      return view('front.help.faq',compact('data', 'item')); 
+      })->name('help.show');
 
-    Route::post('addquestion/{id}','QuestionanswerController@question');
-    Route::post('addanswer/{id}','AnswerController@answer');
+      Route::get('pages/{slug}','PageController@showpage')->name('page.show');
 
-    Route::get('all/wishlist', 'WishlistController@wishlistpage')->name('wishlist.show');
-    Route::post('delete/wishlist/{id}', 'WishlistController@deletewishlist');
+      Route::post('show/wishlist/{id}','WishlistController@wishlist');
+      Route::post('remove/wishlist/{id}','WishlistController@removewishlist');
 
-    Route::post('addtocart', 'CartController@addtocart')->name('addtocart');
+      Route::get('enroll/show/{id}', 'EnrollmentController@enroll')->name('show.enroll');
 
-    Route::post('removefromcart/{id}','CartController@removefromcart')
-      ->name('remove.item.cart');
+      Route::get('show/coursecontent/{id}', 'CourseController@CourseContentPage');
 
-    Route::get('all/cart', 'CartController@cartpage')->name('cart.show');
+      Route::post('addquestion/{id}','QuestionanswerController@question');
+      Route::post('addanswer/{id}','AnswerController@answer');
 
-    Route::post('gotocheckout', 'CheckoutController@checkoutpage');
-    
-    Route::get('notifications/{id}', 'NotificationController@markAsRead')
-    ->name('markAsRead');
-    Route::get('delete/notifications', 'NotificationController@delete')
-    ->name('deleteNotification');
+      Route::get('all/wishlist', 'WishlistController@wishlistpage')->name('wishlist.show');
+      Route::post('delete/wishlist/{id}', 'WishlistController@deletewishlist');
 
-    Route::get('/view', 'DownloadController@getDownload');
+      Route::post('addtocart', 'CartController@addtocart')->name('addtocart');
 
-    Route::get('/download/{id}', 'DownloadController@getDownload')->name('downloadPdf')->middleware('auth');
+      Route::post('removefromcart/{id}','CartController@removefromcart')
+        ->name('remove.item.cart');
 
-    Route::post('review/helpful/{id}', 'ReviewHelpfulController@store')->name('helpful');
-    Route::post('review/delete/{id}', 'ReviewHelpfulController@destroy')
-    ->name('helpful.delete');
+      Route::get('all/cart', 'CartController@cartpage')->name('cart.show');
 
-    Route::get('gotocategory/page/{id}', 'CategoriesController@categorypage')->name('category.page');
-    Route::get('gotosubcategory/page/{id}', 'CategoriesController@subcategorypage')->name('subcategory.page');
-    Route::get('gotochildcategory/page/{id}', 'CategoriesController@childcategorypage')->name('childcategory.page');
+      Route::post('gotocheckout', 'CheckoutController@checkoutpage');
+      
+      Route::get('notifications/{id}', 'NotificationController@markAsRead')
+      ->name('markAsRead');
+      Route::get('delete/notifications', 'NotificationController@delete')
+      ->name('deleteNotification');
 
-    Route::post('apply/instructor', 'InstructorRequestController@instructor')
-    ->name('apply.instructor');
+      Route::get('/view', 'DownloadController@getDownload');
 
-    Route::get('search', 'SearchController@index')->name('search');
+      Route::get('/download/{id}', 'DownloadController@getDownload')->name('downloadPdf')->middleware('auth');
 
-    Route::get('/user/movie/time/{endtime}/{movie_id}/{user_id}','TimeHistoryController@movie_time');
+      Route::post('review/helpful/{id}', 'ReviewHelpfulController@store')->name('helpful');
+      Route::post('review/delete/{id}', 'ReviewHelpfulController@destroy')
+      ->name('helpful.delete');
 
-    Route::get('all/purchase', 'OrderController@purchasehistory')->name('purchase.show');
-    Route::get('invoice/show/{id}', 'OrderController@invoice')->name('invoice.show');
+      Route::get('gotocategory/page/{id}', 'CategoriesController@categorypage')->name('category.page');
+      Route::get('gotosubcategory/page/{id}', 'CategoriesController@subcategorypage')->name('subcategory.page');
+      Route::get('gotochildcategory/page/{id}', 'CategoriesController@childcategorypage')->name('childcategory.page');
 
-    
-    Route::get('profile/show/{id}', 'UserProfileController@userprofilepage')->name('profile.show');
-    Route::put('/edit/{id}','UserProfileController@userprofile')->name('user.profile');
+      Route::post('apply/instructor', 'InstructorRequestController@instructor')
+      ->name('apply.instructor');
 
-    Route::post('course/reports/{id}','CourseReportController@store')->name('course.report');
+      Route::get('search', 'SearchController@index')->name('search');
 
-    Route::get('watch/course/{id}', 'WatchController@watch')->name('watchcourse');
-    Route::get('watch/courseclass/{id}', 'WatchController@watchclass')->name('watchcourseclass');
-    Route::get('audio/courseclass/{id}', 'WatchController@audioclass')->name('audiocourseclass');
+      Route::get('/user/movie/time/{endtime}/{movie_id}/{user_id}','TimeHistoryController@movie_time');
 
-    Route::get('language-switch/{local}', 'LanguageSwitchController@languageSwitch')->name('languageSwitch');
+      Route::get('all/purchase', 'OrderController@purchasehistory')->name('purchase.show');
+      Route::get('invoice/show/{id}', 'OrderController@invoice')->name('invoice.show');
+
+      
+      Route::get('profile/show/{id}', 'UserProfileController@userprofilepage')->name('profile.show');
+      Route::put('/edit/{id}','UserProfileController@userprofile')->name('user.profile');
+
+      Route::post('course/reports/{id}','CourseReportController@store')->name('course.report');
+
+      Route::get('watch/course/{id}', 'WatchController@watch')->name('watchcourse');
+      Route::get('watch/courseclass/{id}', 'WatchController@watchclass')->name('watchcourseclass');
+      Route::get('audio/courseclass/{id}', 'WatchController@audioclass')->name('audiocourseclass');
 
     Route::get("country/dropdown","CountryController@upload_info");
     Route::get("country/gcity","CountryController@gcity");
     Route::get("country/gstate","CountryController@gstate");
 
-    Route::view('terms_condition', 'terms_condition');
-    Route::view('privacy_policy', 'privacy_policy');
 
-    Route::get('detail/faq/{id}','HelpController@faqstudentpage')->name('faq.detail');
-    Route::get('faqinstructor/detail/{id}','HelpController@faqinstructorpage')->name('faqinstructor.detail');
+      Route::get("country/dropdown","CountryController@upload_info");
+      Route::get("country/gcity","CountryController@gcity");
 
-    Route::view('user_contact', 'front.contact');
-    Route::post('contact/user', 'ContactUsController@usermessage')
-    ->name('contact.user');
+      Route::view('terms_condition', 'terms_condition');
+      Route::view('privacy_policy', 'privacy_policy');
 
-    Route::get('tabcontent/{id}','TabController@show');
+      Route::get('detail/faq/{id}','HelpController@faqstudentpage')->name('faq.detail');
+      Route::get('faqinstructor/detail/{id}','HelpController@faqinstructorpage')->name('faqinstructor.detail');
 
-    Route::post('paywithpaypal', 'PaypalController@payWithpaypal')->name('payWithpaypal');
-    Route::get('getpaymentstatus', 'PaypalController@getPaymentStatus')->name('status');
+      Route::view('user_contact', 'front.contact');
+      Route::post('contact/user', 'ContactUsController@usermessage')
+      ->name('contact.user');
 
-    Route::get('event', 'InstaMojoController@index');
-    Route::post('pay', 'InstaMojoController@pay');
-    Route::get('pay-success', 'InstaMojoController@success');
+      Route::get('tabcontent/{id}','TabController@show');
 
-    Route::get('stripe', 'StripePaymentController@stripe');
-    Route::post('paytostripe', 'StripePaymentController@payStripe')->name('stripe.pay');
+      Route::post('paywithpaypal', 'PaypalController@payWithpaypal')->name('payWithpaypal');
+      Route::get('getpaymentstatus', 'PaypalController@getPaymentStatus')->name('status');
 
-    Route::get('payment/braintree', 'BraintreeController@get_bt');
-    Route::post('payment/braintree', 'BraintreeController@payment');
+      Route::get('event', 'InstaMojoController@index');
+      Route::post('pay', 'InstaMojoController@pay');
+      Route::get('pay-success', 'InstaMojoController@success');
 
-    Route::get('razorpay', 'RazorpayController@pay')->name('pay');
-    Route::post('dopayment', 'RazorpayController@dopayment')->name('dopayment');
+      Route::get('stripe', 'StripePaymentController@stripe');
+      Route::post('paytostripe', 'StripePaymentController@payStripe')->name('stripe.pay');
 
-    Route::post('/paywithpaystack', 'PayStackController@redirectToGateway')->name('paywithpaystack');
-    Route::get('callback', 'PayStackController@handleGatewayCallback'); 
+      Route::get('payment/braintree', 'BraintreeController@get_bt');
+      Route::post('payment/braintree', 'BraintreeController@payment');
 
-    Route::post('apply/coupon', 'ApplyCouponController@applycoupon');
+      Route::get('razorpay', 'RazorpayController@pay')->name('pay');
+      Route::post('dopayment', 'RazorpayController@dopayment')->name('dopayment');
 
-    Route::post('removecoupon/{id}','ApplyCouponController@remove')
-      ->name('remove.coupon');
+      Route::post('/paywithpaystack', 'PayStackController@redirectToGateway')->name('paywithpaystack');
+      Route::get('callback', 'PayStackController@handleGatewayCallback'); 
 
-    Route::post('/paywithpayment', 'PaytmController@order')->name('paywithpayment');
-    Route::post('payment/status', 'PaytmController@paymentCallback');
+      Route::post('apply/coupon', 'ApplyCouponController@applycoupon');
 
-    Route::post('process/banktransfer', 'BankTransferController@banktransfer');
-    
-    Route::get('watchcourse/in/frame/{url}/{course_id}', 'WatchController@view')->name('watchinframe');
+      Route::post('removecoupon/{id}','ApplyCouponController@remove')
+        ->name('remove.coupon');
 
-    Route::get('start_quiz/{id}', 'QuizStartController@quizstart')->name('start_quiz');
+      Route::post('/paywithpayment', 'PaytmController@order')->name('paywithpayment');
+      Route::post('payment/status', 'PaytmController@paymentCallback');
 
-    Route::post('/start_quiz/store/{id}','QuizStartController@store')->name('start.quiz.store');
+      Route::post('process/banktransfer', 'BankTransferController@banktransfer');
+      
+      Route::get('watchcourse/in/frame/{url}/{course_id}', 'WatchController@view')->name('watchinframe');
 
-    Route::get('finish/{id}','QuizStartController@show')->name('start.quiz.show');
+      Route::get('start_quiz/{id}', 'QuizStartController@quizstart')->name('start_quiz');
 
-    
+      Route::post('/start_quiz/store/{id}','QuizStartController@store')->name('start.quiz.store');
 
-    Route::get('invoice/download/{id}', 'OrderController@pdfdownload')->name('invoice.download');
+      Route::get('finish/{id}','QuizStartController@show')->name('start.quiz.show');
 
-    Route::get('watch/lightbox/{id}', 'WatchController@lightbox')->name('lightbox');
+      
 
-    Route::post('question/reports/{id}','QuestionReportController@store')->name('question.report');
+      Route::get('invoice/download/{id}', 'OrderController@pdfdownload')->name('invoice.download');
 
-    Route::get('cirtificate/{id}', 'CertificateController@show')->name('cirtificate.show');
+      Route::get('watch/lightbox/{id}', 'WatchController@lightbox')->name('lightbox');
 
-    Route::get('cirtificate/download/{id}', 'CertificateController@pdfdownload')->name('cirtificate.download');
+      Route::post('question/reports/{id}','QuestionReportController@store')->name('question.report');
 
-    Route::get('answersheet/{id}', 'QuizTopicController@delete')->name('answersheet');
+      Route::get('cirtificate/{id}', 'CertificateController@show')->name('cirtificate.show');
 
-    Route::get('tryagain/{id}', 'QuizStartController@tryagain')->name('tryagain');
+      Route::get('cirtificate/download/{id}', 'CertificateController@pdfdownload')->name('cirtificate.download');
 
-    Route::get('admin/instructor/settings', 'InstructorSettingController@view')->name('instructor.settings');
+      Route::get('answersheet/{id}', 'QuizTopicController@delete')->name('answersheet');
 
-    Route::post('admin/instructor/update', 'InstructorSettingController@update')->name('instructor.update');
+      Route::get('tryagain/{id}', 'QuizStartController@tryagain')->name('tryagain');
 
-    Route::get('instructor/details', 'InstructorSettingController@instructor')->name('instructor.pay');
+      Route::get('admin/instructor/settings', 'InstructorSettingController@view')->name('instructor.settings');
 
-    Route::post('instructor/payout/{id}', 'InstructorSettingController@settings')->name('instructor.payout');
+      Route::post('admin/instructor/update', 'InstructorSettingController@update')->name('instructor.update');
 
-    Route::get('pending/payout', 'PayoutController@pending')->name('pending.payout');
+      Route::get('instructor/details', 'InstructorSettingController@instructor')->name('instructor.pay');
 
-    Route::get('admin/instructor', 'AdminPayoutController@index')->name('admin.instructor');
+      Route::post('instructor/payout/{id}', 'InstructorSettingController@settings')->name('instructor.payout');
 
-    Route::get('admin/pending/{id}', 'AdminPayoutController@pending')->name('admin.pending');
-    Route::get('admin/paid/{id}', 'AdminPayoutController@paid')->name('admin.paid');
+      Route::get('pending/payout', 'PayoutController@pending')->name('pending.payout');
 
-    Route::post('admin/payout/bulk_payout/{id}', 'AdminPayoutController@bulk_payout');
+      Route::get('admin/instructor', 'AdminPayoutController@index')->name('admin.instructor');
 
-    Route::post('admin/paypal/{id}', 'PaymentController@paypal')->name('admin.paypal');
-    Route::post('admin/banktransfer/{id}', 'PaymentController@banktransfer')->name('admin.banktransfer');
-    Route::post('admin/paytm/{id}', 'PaymentController@paytm')->name('admin.paytm');
+      Route::get('admin/pending/{id}', 'AdminPayoutController@pending')->name('admin.pending');
+      Route::get('admin/paid/{id}', 'AdminPayoutController@paid')->name('admin.paid');
 
-    Route::get('admin/completed/payout', 'CompletedPayoutController@show')->name('admin.completed');
-    Route::get('payout/completed/view/{id}', 'CompletedPayoutController@view')->name('completed.view');
+      Route::post('admin/payout/bulk_payout/{id}', 'AdminPayoutController@bulk_payout');
 
-    Route::get('admin/meeting/show', 'MeetingController@index')->name('meeting.show');
-    Route::delete('destroy/meeting/{id}','MeetingController@destroy')->name('zoom.destroy');
+      Route::post('admin/paypal/{id}', 'PaymentController@paypal')->name('admin.paypal');
+      Route::post('admin/banktransfer/{id}', 'PaymentController@banktransfer')->name('admin.banktransfer');
+      Route::post('admin/paytm/{id}', 'PaymentController@paytm')->name('admin.paytm');
 
-    Route::post('course/checked/{id}', 'CourseProgressController@checked');
+      Route::get('admin/completed/payout', 'CompletedPayoutController@show')->name('admin.completed');
+      Route::get('payout/completed/view/{id}', 'CompletedPayoutController@view')->name('completed.view');
 
-    Route::post('bundle/cart/{id}', 'BundleCourseController@addtocart')->name('bundlecart');
-    Route::get('bundle/detail/{id}', 'BundleCourseController@detailpage')->name('bundle.detail');
-    Route::get('bundle/enroll/{id}', 'BundleCourseController@enroll')->name('bundle.enroll');
+      Route::get('admin/meeting/show', 'MeetingController@index')->name('meeting.show');
+      Route::delete('destroy/meeting/{id}','MeetingController@destroy')->name('zoom.destroy');
 
-    Route::get('bbl/detail/{id}', 'BigBlueController@detailpage')->name('bbl.detail');
+      Route::post('course/checked/{id}', 'CourseProgressController@checked');
 
-    Route::get('join/meeting/{meetingid}','BigBlueController@joinview')->name('bbluserjoin');
-    Route::post('api/join/meeting','BigBlueController@apiJoin')->name('bbl.api.join');
-    
+      Route::post('bundle/cart/{id}', 'BundleCourseController@addtocart')->name('bundlecart');
+      Route::get('bundle/detail/{id}', 'BundleCourseController@detailpage')->name('bundle.detail');
+      Route::get('bundle/enroll/{id}', 'BundleCourseController@enroll')->name('bundle.enroll');
 
-    Route::post('course/assignment/{id}', 'AssignmentController@submit')->name('assignment.submit');
-    Route::post('assignment/delete/{id}', 'AssignmentController@delete');
+      Route::get('bbl/detail/{id}', 'BigBlueController@detailpage')->name('bbl.detail');
 
-    Route::get('instructor/{id}', 'InstructorSettingController@instructorprofile')->name('instructor.profile');
+      Route::get('join/meeting/{meetingid}','BigBlueController@joinview')->name('bbluserjoin');
+      Route::post('api/join/meeting','BigBlueController@apiJoin')->name('bbl.api.join');
+      
 
-    Route::post('course/appointment/{id}', 'AppointmentController@request')->name('appointment.request');
-    Route::post('appointment/delete/{id}', 'AppointmentController@delete');
+      Route::post('course/assignment/{id}', 'AssignmentController@submit')->name('assignment.submit');
+      Route::post('assignment/delete/{id}', 'AssignmentController@delete');
 
-  });
+      Route::get('instructor/{id}', 'InstructorSettingController@instructorprofile')->name('instructor.profile');
+
+      Route::post('course/appointment/{id}', 'AppointmentController@request')->name('appointment.request');
+      Route::post('appointment/delete/{id}', 'AppointmentController@delete');
+
+    });
+
+    Route::get('/learn/course/{id}/{slug}', 'LearnController@show')->name('learn.show');
+    Route::post('/learn/course/{video_id}','LearnController@video')->name('learn.video');
+    Route::get('/jwt', 'CourseclassController@token_generate');
 
 });
 
@@ -593,11 +601,10 @@ Route::get('/profile','ProfileController@index');
 Route::post('/update-password','ProfileController@updatePassword')->name('update.password');
 Route::view('/edit', 'admin.course.courseresource.edit');
 
-
 Route::view('/requests', 'instructor.requests.index');
 // Route for Learner's View
 
-Route::view('/','learners.pages.home');
+// Route::view('/','learners.pages.home');
 
 Route::view('/signup','learners.auth.signup');
 Route::view('/signin','learners.auth.signin');
@@ -606,7 +613,7 @@ Route::view('/creator-signup','learners.auth.creator-signup');
 
 Route::view('/user-dashboard','learners.pages.user-dashboard');
 Route::view('/browse/courses','learners.pages.courses');
-Route::view('/learn/course/1','learners.pages.course');
+// Route::view('/learn/course/{id}/{slug}','learners.pages.course');
 Route::view('/my-courses','learners.pages.my-courses');
 Route::view('/mentors','learners.pages.mentors');
 Route::view('/creator','learners.pages.creator');
@@ -616,6 +623,7 @@ Route::view('/wishlist','learners.pages.wishlist');
 Route::view('/cart','learners.pages.cart');
 Route::view('/playlist','learners.pages.playlist');
 Route::view('/purchase-history','learners.pages.purchase-history');
+Route::view('/payment-successful','learners.pages.payment-successful');
 Route::view('/saved-cards', 'learners.pages.saved-cards');
 Route::view('billing-address', 'learners.pages.billing-address');
 
