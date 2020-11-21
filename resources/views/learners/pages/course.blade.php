@@ -3,7 +3,7 @@
 @section('headAssets')
   <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
   <link href="https://unpkg.com/@silvermine/videojs-quality-selector/dist/css/quality-selector.css" rel="stylesheet">
-
+  <title>{{ $course->title }}</title>
 
 @endsection
 
@@ -54,7 +54,7 @@
             <ul class="list-unstyled d-block d-lg-flex mb-6">
               <li class="la-vcourse__duration mr-14"><span class="la-text-gray4">Duration </span>  {{ $course->duration }}</li>
               <li class="la-vcourse__updatedon mr-14"><span class="la-text-gray4">Last Updated </span>  {{ $course->updated_at->format('d-M Y') }}</li>
-              <li class="la-vcourse__languages mr-14"> <span class="la-text-gray4">Languages </span>  English, Hindi </li>
+              <li class="la-vcourse__languages mr-14"> <span class="la-text-gray4">Languages </span>  {{$course->language->name}} </li>
             </ul>
           </div>
           <div class="col-12 la-vcourse__primary-info d-flex mb-2">
@@ -82,8 +82,8 @@
                 data-setup="{}"
                 type="application/x-mpegURL" 
               >
-                {{-- <source src="{{ $course->getSignedStreamURL()}}" type="application/x-mpegURL" /> --}}
-                <source src="http://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8" type="application/x-mpegURL">
+                <source src="{{ $course->getSignedStreamURL()}}" type="application/x-mpegURL" />
+                {{-- <source src="http://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8" type="application/x-mpegURL"> --}}
                 <p class="vjs-no-js">
                   {{-- To view this video please enable JavaScript, and consider upgrading to a
                   web browser that
@@ -624,7 +624,7 @@
                   <span><img src="../../images/learners/course/creator-2x.png" alt=""></span>
                 </div>
                 <div class="la-creator__detail pl-8">
-                  <span class="la-creator__name">Amy D'souza</span>
+                  <span class="la-creator__name">{{$course->user->fname}}</span>
                   <div class="la-creator__specialist mt-1">Design</div>
                 </div>
               </div>
@@ -657,7 +657,48 @@
       <div class="container">
         <h2 class="la-section__title mb-9">More from Creators</h2>
         <div class="row row-cols-3">
-          <div class="col-12 col-md">
+          @foreach ($mentor_other_courses as $course)
+              {{-- <x-course 
+                :id="$course->id"
+                :img="$course->preview_image"
+                :course="$course->title"
+                :url="$course->slug"
+                :rating="$course->price"
+                :creatorImg="$course->user->user_img"
+                :creatorName="$course->user->fname"
+                :creatorUrl="$course->user->fname"
+              /> --}}
+              <div class="col-12 col-md">
+                <div class="la-course">
+                  <div class="la-course__inner">
+                    <div class="la-course__overlay" href="">
+                      <ul class="la-course__options list-unstyled text-white">
+                        <li class="la-course__option"><a class="d-inline-block la-course__addtocart"><i class="la-icon la-icon--2xl icon icon-cart"></i></a></li>
+                        <li class="la-course__option"><a class="d-inline-block la-course__like"><i class="la-icon la-icon--2xl icon icon-share"></i></a></li>
+                        <li class="la-course__option">
+                          <div class="dropdown"><a class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);"><i class="la-icon la-icon--2xl icon icon-menu"></i></a>
+                            <div class="la-cmenu dropdown-menu"><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Playlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Wishlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</a></div>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="la-course__learners"><strong>300</strong>  learners</div>
+                    </div>
+                    <div class="la-course__imgwrap"><img class="img-fluid" src="{{$course->preview_image}}" alt="{{$course->title}}"></div>
+                  </div>
+                  <div class="la-course__btm">
+                    <div class="la-course__info d-flex align-items-center"><a class="la-course__title" href="">{{$course->title}}</a>
+                      <div class="la-course__rating ml-auto">4</div>
+                    </div>
+                    <a class="la-course__creator d-inline-flex align-items-center" href="">
+                      <div class="la-course__creator-imgwrap"><img class="img-fluid" src="{{$course->user->user_img}}" alt="{{$course->user->fname}}"></div>
+                      <div class="la-course__creator-name">{{$course->user->fname}}</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+          @endforeach
+          
+          {{-- <div class="col-12 col-md">
             <div class="la-course">
               <div class="la-course__inner">
                 <div class="la-course__overlay" href="">
@@ -708,33 +749,7 @@
                   <div class="la-course__creator-name">Jospeh Phill</div></a>
               </div>
             </div>
-          </div>
-          <div class="col-12 col-md">
-            <div class="la-course">
-              <div class="la-course__inner">
-                <div class="la-course__overlay" href="">
-                  <ul class="la-course__options list-unstyled text-white">
-                    <li class="la-course__option"><a class="d-inline-block la-course__addtocart"><i class="la-icon la-icon--2xl icon icon-cart"></i></a></li>
-                    <li class="la-course__option"><a class="d-inline-block la-course__like"><i class="la-icon la-icon--2xl icon icon-share"></i></a></li>
-                    <li class="la-course__option">
-                      <div class="dropdown"><a class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);"><i class="la-icon la-icon--2xl icon icon-menu"></i></a>
-                        <div class="la-cmenu dropdown-menu"><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Playlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Wishlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</a></div>
-                      </div>
-                    </li>
-                  </ul>
-                  <div class="la-course__learners"><strong>300</strong>  learners</div>
-                </div>
-                <div class="la-course__imgwrap"><img class="img-fluid" src="https://picsum.photos/600/400" alt="Tattoo Art"></div>
-              </div>
-              <div class="la-course__btm">
-                <div class="la-course__info d-flex align-items-center"><a class="la-course__title" href="">Tattoo Art</a>
-                  <div class="la-course__rating ml-auto">4</div>
-                </div><a class="la-course__creator d-inline-flex align-items-center" href="">
-                  <div class="la-course__creator-imgwrap"><img class="img-fluid" src="https://picsum.photos/100/100" alt="Jospeh Phill"></div>
-                  <div class="la-course__creator-name">Jospeh Phill</div></a>
-              </div>
-            </div>
-          </div>
+          </div> --}}
         </div>
       </div>
     </div>
@@ -746,7 +761,48 @@
       <div class="container">
         <h2 class="la-section__title mb-9">Looking for something else?</h2>
         <div class="row row-cols-3">
-          <div class="col-12 col-md">
+          @foreach ($related_courses as $course)
+              {{-- <x-course 
+                :id="$course->id"
+                :img="$course->preview_image"
+                :course="$course->title"
+                :url="$course->slug"
+                :rating="$course->price"
+                :creatorImg="$course->user->user_img"
+                :creatorName="$course->user->fname"
+                :creatorUrl="$course->user->fname"
+              /> --}}
+              <div class="col-12 col-md">
+                <div class="la-course">
+                  <div class="la-course__inner">
+                    <div class="la-course__overlay" href="">
+                      <ul class="la-course__options list-unstyled text-white">
+                        <li class="la-course__option"><a class="d-inline-block la-course__addtocart"><i class="la-icon la-icon--2xl icon icon-cart"></i></a></li>
+                        <li class="la-course__option"><a class="d-inline-block la-course__like"><i class="la-icon la-icon--2xl icon icon-share"></i></a></li>
+                        <li class="la-course__option">
+                          <div class="dropdown"><a class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);"><i class="la-icon la-icon--2xl icon icon-menu"></i></a>
+                            <div class="la-cmenu dropdown-menu"><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Playlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Wishlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</a></div>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="la-course__learners"><strong>300</strong>  learners</div>
+                    </div>
+                    <div class="la-course__imgwrap"><img class="img-fluid" src="{{$course->preview_image}}" alt="{{$course->title}}"></div>
+                  </div>
+                  <div class="la-course__btm">
+                    <div class="la-course__info d-flex align-items-center"><a class="la-course__title" href="">{{$course->title}}</a>
+                      <div class="la-course__rating ml-auto">4</div>
+                    </div>
+                    <a class="la-course__creator d-inline-flex align-items-center" href="">
+                      <div class="la-course__creator-imgwrap"><img class="img-fluid" src="{{$course->user->user_img}}" alt="{{$course->user->fname}}"></div>
+                      <div class="la-course__creator-name">{{$course->user->fname}}</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+          @endforeach
+
+          {{-- <div class="col-12 col-md">
             <div class="la-course">
               <div class="la-course__inner">
                 <div class="la-course__overlay" href="">
@@ -823,7 +879,7 @@
                   <div class="la-course__creator-name">Jospeh Phill</div></a>
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
       </div>
     </div>

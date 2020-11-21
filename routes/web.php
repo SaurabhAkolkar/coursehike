@@ -565,6 +565,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
     Route::get('/learn/course/{id}/{slug}', 'LearnController@show')->name('learn.show');
     Route::post('/learn/course/{video_id}','LearnController@video')->name('learn.video');
+    Route::get('/browse/courses','SearchController@index');
+
     Route::get('/jwt', 'CourseclassController@token_generate');
 
 });
@@ -606,7 +608,6 @@ Route::view('/interests','learners.auth.interests');
 Route::view('/creator-signup','learners.auth.creator-signup');
 
 Route::view('/user-dashboard','learners.pages.user-dashboard');
-Route::view('/browse/courses','learners.pages.courses');
 // Route::view('/learn/course/{id}/{slug}','learners.pages.course');
 Route::view('/my-courses','learners.pages.my-courses');
 Route::view('/mentors','learners.pages.mentors');
