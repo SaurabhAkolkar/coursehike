@@ -11,7 +11,8 @@
             <div class="la-bcreator__content">
               <strong class=" text-white text-uppercase m-0">Lorem Ipsum</strong>
               <h1 class="text-white text-uppercase">Become a Creator</h1>
-              <p class="text-white leading-tight">Join Inspiring Community and start earning for <br/> your values</p>
+              <p class="text-white leading-tight d-none d-md-block">Join Inspiring Community and start earning for <br/> your values</p>
+              <p class="text-white leading-tight d-block d-md-none">Join Inspiring Community and start earning for <br/> your values</p>
             </div>
             <div class="la-bcreator__content-btn"><a class="la-btn__app text-white text-uppercase" role="button" href="/creator-signup">Start Teaching</a></div>
           </div>
@@ -113,14 +114,14 @@
     <div class="container la-dashed__vline">
       <div class="row">
         <!-- Column: Start-->
-        <div class="col-sm-12 col-md-4 col-lg-5 py-5 py-sm-2 px-5 px-sm-2 d-flex flex-row align-items-center">
+        <div class="col-md-5 col-lg-5 py-5 py-sm-2 px-5 px-sm-2 d-flex flex-row align-items-center">
           <div class="la-start-btn mb-8"><span class="text-4xl m-0 font-weight-bold">Easy steps to start</span>
             <h2 class="text-6xl font-weight-bold">Sharing Values</h2><br><a class="la-btn__app text-uppercase" role="button" href="/creator-signup">Start Creating</a>
           </div>
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col-sm-12 col-md-7 col-lg-6 px-5 px-sm-0 py-5 py-sm-0 ml-6 la-vdot__class">
+        <div class="col-md-6 col-lg-6 px-5 px-sm-0 py-5 py-sm-0 ml-6 la-vdot__class">
           <div class="la-vdotted__bar position-relative px-4">
             <div class="la-vicon d-flex align-items-start">
               <div class="la-icon__vline"><span class="la-icon la-icon--8xl icon-video-unfilled position-absolute"></span></div>
@@ -156,7 +157,7 @@
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col-sm-12 col-md-1 col-lg-1"></div>
+        <div class="col-lg-1"></div>
         <!-- Column: End-->
       </div>
     </div>
@@ -278,14 +279,14 @@
     <div class="container">
       <div class="row">
         <!-- Column: Start-->
-        <div class="col-sm-12">
+        <div class="col-12">
           <div class=" position-relative">
             <h2 class="la-bcreator__benefits-main text-uppercase text-center ">Benefits</h2>
           </div>
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col-sm-12 col-md-4 text-center">
+        <div class="col-md-6 col-lg-4 text-center">
           <div class="la-bcreator__benefits-card p-5 p-sm-3 py-lg-3 px-lg-12">
             <div class="p-2">
               <span class="la-bcreator__benefits-icon la-icon la-icon--7xl icon-earnings-image ml-md-n4"></span>
@@ -296,7 +297,7 @@
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col-sm-12 col-md-4 text-center">
+        <div class="col-md-6 col-lg-4 text-center">
           <div class="la-bcreator__benefits-card p-5 p-sm-1 py-lg-3 px-lg-10">
             <div class="p-2">
               <span class="la-bcreator__benefits-icon la-icon la-icon--8xl icon-recognition-image ml-md-n4 mt-md-1"></span>
@@ -307,7 +308,7 @@
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col col-sm-12 col-md-4 text-center">
+        <div class="col-md-12 col-lg-4 text-center">
           <div class="la-bcreator__benefits-card p-5 p-sm-3 py-lg-3 px-lg-14">
             <div class="p-2">
               <span class="la-bcreator__benefits-icon la-icon la-icon--8xl icon-inspire-image ml-md-n4"></span>

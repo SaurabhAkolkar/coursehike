@@ -82,7 +82,15 @@ section.la-page--bcreator{
 
 @media (max-width:991px){
 	section.la-page--bcreator{
-		.la-bcreator__banner{padding:100px 0;background-position: center center;}
+		.la-bcreator__banner{padding:150px 0;background-position: center center;}
+		.la-bcreator{	
+			.la-bcreator__content{
+				top:0;
+				strong{font-size: var(--text-xl);}
+				h1{font-size: var(--text-5xl);}
+				p{font-size: var(--text-md);margin-bottom:var(--size-14);padding-top:var(--size-2);}
+			}
+		}
 		.la-bcreator__banner-btm{margin-top:0px;}
 		.la-bcreator__left-text{
 			padding:var(--size-6) !important;
@@ -158,9 +166,9 @@ section.la-start-creating{
 	}
 }
 
-@media (max-width:767px){
+@media (max-width:991px){
 	section.la-start-creating{
-		margin:50px 0;
+		margin:var(--size-14) 0;
 	}
 }
 // Vertical Dotted line b/w Icons End
@@ -239,7 +247,7 @@ section.la-bcreator-reach-stats{
 	}
 }
 
-@media (max-width:767px){
+@media (max-width:991px){
 	section.la-bcreator-reach-stats{
 		margin:50px 0;
 	}
@@ -260,6 +268,7 @@ section.la-bcreator--benefits{
 		box-shadow:0px 0px 40px #E4E4E475;
 		border-radius:10px;
 		margin-top:-95px;
+		height:300px;
 
 		&:hover{
 			background-color:#ffffff;
@@ -284,15 +293,16 @@ section.la-bcreator--benefits{
 	}
 }
 
-@media (max-width:767px){
+@media (max-width:991px){
 	section.la-bcreator--benefits{
 		margin:80px 0;
 
-		.la-bcreator__benefits-main h2{
-			font-size:60px;
+		.la-bcreator__benefits-main{
+			font-size:calc(var(--text-5xl) * 2);
 		}
 		.la-bcreator__benefits-card{
-			margin:-45px 0 70px 0;
+			margin:-40px 0 70px 0;
+			height:300px;
 		}
 	}
 }
@@ -323,7 +333,7 @@ section.la-bgcreator--ad-banner{
 	}
 }
 
-@media (max-width:767px){
+@media (max-width:991px){
 	section.la-bgcreator--ad-banner{
 		.la-bgcreator__ad-content{
 			border-radius:0;
@@ -376,9 +386,8 @@ section.la-bgcreator--faq{
 		.accordion-toggle:not(.collapsed) {
 			color: var(--app-indigo-1);
 			font-size: var(--text-lg);
-			font-weight:var(--font-normal);
-		}
-			
+			font-weight:var(--font-normal);	
+		}	
 	}
 	.la-bgcreator__panel-para{
 		color:var(--gray6);

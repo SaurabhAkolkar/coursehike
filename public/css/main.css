@@ -215,7 +215,6 @@ button {
   border-radius: 0;
 }
 
-
 button:focus {
   outline: 1px dotted;
   outline: 5px auto -webkit-focus-ring-color;
@@ -20246,8 +20245,22 @@ section.la-page--bcreator .la-mcard__slider-wrap .la-mcard__pagination .swiper-p
 
 @media (max-width: 991px) {
   section.la-page--bcreator .la-bcreator__banner {
-    padding: 100px 0;
+    padding: 150px 0;
     background-position: center center;
+  }
+  section.la-page--bcreator .la-bcreator .la-bcreator__content {
+    top: 0;
+  }
+  section.la-page--bcreator .la-bcreator .la-bcreator__content strong {
+    font-size: var(--text-xl);
+  }
+  section.la-page--bcreator .la-bcreator .la-bcreator__content h1 {
+    font-size: var(--text-5xl);
+  }
+  section.la-page--bcreator .la-bcreator .la-bcreator__content p {
+    font-size: var(--text-md);
+    margin-bottom: var(--size-14);
+    padding-top: var(--size-2);
   }
   section.la-page--bcreator .la-bcreator__banner-btm {
     margin-top: 0px;
@@ -20321,9 +20334,9 @@ section.la-start-creating .la-vicon__link:hover {
   -o-transition: 0.2s ease-in-out;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   section.la-start-creating {
-    margin: 50px 0;
+    margin: var(--size-14) 0;
   }
 }
 section.la-bcreator--earn .la-earn__blog {
@@ -20389,7 +20402,7 @@ section.la-bcreator-reach-stats .la-bcreator__stats-btn {
   margin-top: var(--size-14);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   section.la-bcreator-reach-stats {
     margin: 50px 0;
   }
@@ -20407,6 +20420,7 @@ section.la-bcreator--benefits .la-bcreator__benefits-card {
   box-shadow: 0px 0px 40px #E4E4E475;
   border-radius: 10px;
   margin-top: -95px;
+  height: 300px;
 }
 section.la-bcreator--benefits .la-bcreator__benefits-card:hover {
   background-color: #ffffff;
@@ -20429,15 +20443,16 @@ section.la-bcreator--benefits .la-bcreator__benefits-card .la-bcreator__benefits
   opacity: 0.73;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   section.la-bcreator--benefits {
     margin: 80px 0;
   }
-  section.la-bcreator--benefits .la-bcreator__benefits-main h2 {
-    font-size: 60px;
+  section.la-bcreator--benefits .la-bcreator__benefits-main {
+    font-size: calc(var(--text-5xl) * 2);
   }
   section.la-bcreator--benefits .la-bcreator__benefits-card {
-    margin: -45px 0 70px 0;
+    margin: -40px 0 70px 0;
+    height: 300px;
   }
 }
 section.la-bgcreator--ad-banner .la-bgcreator__ad-content {
@@ -20460,7 +20475,7 @@ section.la-bgcreator--ad-banner .la-bgcreator__ad-content .la-arrow-link span {
   right: -18px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   section.la-bgcreator--ad-banner .la-bgcreator__ad-content {
     border-radius: 0;
   }
@@ -21819,12 +21834,4 @@ section.la-section .la-section__inner .la-mycourses__more:hover:after {
   .la-section__card-payments .la-payment__details .la-payment__form .la-payment__card-mobile {
     margin-left: 0;
   }
-}
-
-.error {
-  color: red;
-}
-.playlist_div_height{
-  height: 150px;
-  scrollbar : hidden;
 }
