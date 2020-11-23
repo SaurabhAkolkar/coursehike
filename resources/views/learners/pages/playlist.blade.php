@@ -34,9 +34,12 @@
 
                 <div class="row la-playlist__items">
                     @foreach ($playlists as $item)
+                      
                         <x-playlist-item
+                           
                             :courseName="$item->name"
                             :classesCount="$item->count"
+                            :id="$item->id"
                         />
                     @endforeach
                     <div class="col-md-3">
@@ -117,6 +120,8 @@
       }
       
     });
+
+
 
   </script>
 @endsection

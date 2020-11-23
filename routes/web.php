@@ -610,6 +610,8 @@ Route::post('/update-password','ProfileController@updatePassword')->name('update
 Route::view('/edit', 'admin.course.courseresource.edit');
 
 Route::get('/playlist','PlaylistController@index');
+Route::get('/playlist/{id}','PlaylistController@show');
+Route::post('/add-to-playlist','PlaylistController@addToPlaylist')->name('add.to.playlist');
 
 Route::post('/create-playlist','PlaylistController@createPlaylist')->name('create.playlist');
 
@@ -622,6 +624,7 @@ Route::view('/interests','learners.auth.interests');
 Route::view('/creator-signup','learners.auth.creator-signup');
 
 Route::view('/user-dashboard','learners.pages.user-dashboard');
+Route::get('/browse/courses','HomeController@browseCourses');
 // Route::view('/learn/course/{id}/{slug}','learners.pages.course');
 Route::view('/my-courses','learners.pages.my-courses');
 Route::view('/mentors','learners.pages.mentors');

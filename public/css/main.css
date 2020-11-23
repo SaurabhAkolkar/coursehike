@@ -21824,3 +21824,7 @@ section.la-section .la-section__inner .la-mycourses__more:hover:after {
 .error {
   color: red;
 }
+.playlist_div_height{
+  height: 150px;
+  scrollbar : hidden;
+}

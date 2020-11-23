@@ -1,7 +1,7 @@
 <div class="col-12 col-md-6 col-lg">
     <div class="la-course">
         <div class="la-course__inner">
-            <a class="la-course__overlay"  href= {{ url(config('path.course.learn') .$id. '/' . $url) }}>
+            <div class="la-course__overlay"  href= {{ $url }}>
                 <ul class="la-course__options list-unstyled text-white">
                     <li class="la-course__option">
                         <a class="d-inline-block la-course__addtocart">
@@ -21,7 +21,7 @@
                                 <i class="la-icon la-icon--2xl icon icon-menu"></i>
                             </a>
                             <div class="la-cmenu dropdown-menu py-0">
-                                <a class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#add_to_playlist"><i class="icon icon-playlist la-icon la-icon--2xl mr-2"></i>  Add to Playlist</a>
+                                <a class="dropdown-item la-cmenu__item d-inline-flex" onclick="showAddToPlaylist({{$id}})"><i class="icon icon-playlist la-icon la-icon--2xl mr-2"></i>  Add to Playlist</a>
                                 <a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-wishlist la-icon la-icon--2xl mr-2"></i>  Add to Wishlist</a>
                                 <a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</a>
                             </div>
@@ -67,7 +67,8 @@
                 </ul>
 
                 <div class="la-course__learners"><strong>300</strong>  Learners</div>
-            </a>
+            </div>
+
             <div class="la-course__imgwrap">
                 <img class="img-fluid" src= {{ $img }} alt= {{ $course }} />
             </div>
