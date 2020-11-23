@@ -138,16 +138,19 @@ $image-center: -30px;
             }
 
             &modal{
+                top:12% !important;
+                               
                 &-{
                     &body{
                         padding-bottom:0;
                     }
                     &content{
-                        width:300px !important;
+                        width:320px !important;
                         height:auto;
                         box-shadow: 0px 6px 12px #00000029;
                         border-radius: 10px; 
                         padding: var(--size-6) var(--size-6); 
+                        margin:0 auto;
                     }
                     &header{
                         border-bottom:none !important;
@@ -164,11 +167,26 @@ $image-center: -30px;
                     &inputtype{
                         border:none;
                         border-bottom:1px solid var(--gray6);
+                        padding: var(--size-base) 0;
+                        opacity:0.5;
 
-                        &::-webkit-input-placeholder{
-                            font-size: var(--text-xs);
+                        &::placeholder, &::-webkit-input-placeholder{
+                            font-size: var(--text-sm);
                             color: var(--gray9);
+                            padding-left: var(--size-2);
                         }
+                        &:focus{
+                            color: var(--grey6);
+                            opacity: 1;
+                            padding-left:var(--size-2);
+                        }
+                    }
+                    &addtoinput{
+                        border:none;
+                        border-left:1px solid var(--gray6);
+                    }
+                    &search{
+                        color:var(--grey9);
                     }
                     &update{
                         color: var(--app-indigo-1);
@@ -178,12 +196,24 @@ $image-center: -30px;
                         padding-top:var(--size-8);
                         font-weight: var(--font-medium);
                     }
+                    &list{
+                        height:220px;
+                        overflow:scroll;
+                        margin:var(--size-4) 0;
+                        
+                        &::-webkit-scrollbar {
+                            display: none;
+                        }
+                        &::-webkit-scrollbar {
+                            width: 0px; 
+                            background: transparent;  
+                        }
+                    }
+                    &item{
+                        padding:var(--size-3) 0 !important;
+                    }
                 }                 
             }
         }
     }
-}
-
-.modal-open .modal{
-    top:15% !important;
 }

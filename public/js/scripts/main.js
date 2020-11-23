@@ -210,3 +210,63 @@ $('.la-vcourse__lesson').on('click', function() {
   });
 
 });
+
+
+
+
+// Add to Playlist JS
+
+function showAddToPlaylist(id){
+  $('#course_id').val(id);
+  $('#add_to_playlist_modal').modal('show');
+}
+function submitAddToPlaylist(id){
+  $('#playlist_id').val(id);
+  $('#add_to_playlist_form').submit();
+}
+function addPlaylist(){
+let playlistName = $('#playlist_name').val();
+if(playlist_name == ""){
+    $('#playlist_name_error').html('Please enter the Playlist Name');
+    return false;
+}
+let up = $('#user_playlists');
+$.ajax({
+      headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      type:"POST",
+      url: "/create-playlist",
+      data: {playlist_name: playlistName, ajax_request: true},
+      success:function(data){   
+ 
+        if(data == 0){
+          $('#playlist_name_error').html('Playlist already exist.');
+        }else{
+          $('#playlist_name').val('');
+          $('#playlist_name_error').html('Playlist Added.');          
+          up.append('<a class="list-group-item" href="#" role="button" onclick="submitAddToPlaylist('+data['id']+')">'+data['name']+'</option>');
+        }
+        
+ 
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        console.log(XMLHttpRequest);
+      }
+    });
+ 
+} 
+ 
+function searchPlaylist() {
+    var input = document.getElementById("search_playlist");
+    var filter = input.value.toLowerCase();
+    var nodes = document.getElementsByClassName('targets_playlists');
+  
+    for (i = 0; i < nodes.length; i++) {
+      if (nodes[i].innerText.toLowerCase().includes(filter)) {
+        nodes[i].style.display = "block";
+      } else {
+        nodes[i].style.display = "none";
+      }
+    }
+}

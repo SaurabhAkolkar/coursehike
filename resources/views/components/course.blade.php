@@ -25,43 +25,6 @@
                                 <a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-wishlist la-icon la-icon--2xl mr-2"></i>  Add to Wishlist</a>
                                 <a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</a>
                             </div>
-
-                            <!-- Add to Playlist Popup: Start -->
-                            <div class="modal fade la-cart__bill-modal" id="add_to_playlist">
-                                <div class="modal-dialog la-cart__bill-mdialog">
-                                  <div class="modal-content la-cart__bill-mcontent">
-                                  
-                                    <div class="modal-header la-cart__bill-mheader">
-                                      <h4 class="modal-title la-cart__bill-mtitle">Add to</h4>
-                                      <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
-                                    </div>
-                                    
-                                    <div class="modal-body la-cart__bill-mbody">
-                                        <div class="la-cart__bill-mapply">
-                                            <input type="text" class="" id="search_playlist" name="search_playlist" placeholder="Search by Name" />
-                                            <span class="la-icon icon-search la-icon--lg" > </span>
-                                        </div>
-                
-                                        <ul class="la-cart__bill-coupons">
-                                            <li class="la-cart__bill-coupon">Photography</li>
-                                            <li class="la-cart__bill-coupon">Tattoo Art</li>
-                                            <li class="la-cart__bill-coupon">Rangoli</li>
-                                            <li class="la-cart__bill-coupon">Programming</li>
-                                            <li class="la-cart__bill-coupon">Photography</li>
-                                            <li class="la-cart__bill-coupon">Tattoo Art</li>
-                                            <li class="la-cart__bill-coupon">Rangoli</li>
-                                            <li class="la-cart__bill-coupon">Programming</li>
-                                        </ul>
-
-                                        <a class="la-playlist__add">
-                                            <span class="la-icon icon-plus la-icon--lg mr-3"></span>
-                                            Create Playlist
-                                        </a>
-                                    </div>
-                                  </div>
-                                </div>
-                            </div>
-                            <!-- Add to Playlist Popup: End -->
                         </div>
                     </li>
                 </ul>

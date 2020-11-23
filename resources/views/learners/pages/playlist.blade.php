@@ -78,6 +78,31 @@
                       </div>
                   </div>
                   <!-- Create Playlist Popup: End -->
+
+                  <!-- Edit Playlist Popup: Start -->
+                  <div class="modal fade la-playlist__modal" id="edit_playlist">
+                    <div class="modal-dialog la-playlist__modal-dialog">
+                      <div class="modal-content la-playlist__modal-content">
+                      
+                        <div class="modal-header la-playlist__modal-header">
+                          <h4 class="modal-title la-playlist__modal-title">Edit Playlist</h4>
+                          <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
+                        </div>
+                       
+                        <div class="modal-body la-playlist__modal-body">
+                            <div class="la-playlist__modal-create">
+                                <label class="la-playlist__modal-name" for="edit_playlist_name">Playlist Name</label><br/>
+                                <input type="text" class="la-playlist__modal-inputtype w-100" name="edit_playlist_name" id="edit_playlist_name" placeholder="Edit Playlist Name" value =""/>
+                            </div>
+                            
+                            <div class="la-playlist__modal-update text-center">
+                              <a  role="button" class="la-playlist__modal-btn">Save</a>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <!-- Edit Playlist Popup: End -->
                     
                 </div>
               </div>

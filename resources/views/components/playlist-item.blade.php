@@ -1,5 +1,5 @@
 
-<div class="col-md-3 la-playlist__item">
+<div class="col-md-3 la-playlist__item mb-3 mb-md-10">
 <a href="playlist/{{$id}}">
     <div class="la-playlist__item-top position-relative mb-4">
         <div class="la-playlist__option-more la-playlist__option-more--white position-absolute">
@@ -7,7 +7,7 @@
                 <i class="la-icon la-icon--2xl icon icon-menu"></i>
             </a>
             <div class="la-cmenu dropdown-menu py-0">
-                <a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-edit la-icon la-icon--lg mr-4"></i>Edit Playlist</a>
+                <a class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#edit_playlist" ><i class="icon icon-edit la-icon la-icon--lg mr-4"></i>Edit Playlist</a>
                 <a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-delete la-icon la-icon--lg mr-4"></i>Delete Playlist</a>
                 <a class="dropdown-item la-cmenu__item d-inline-flex" href="/browse/courses"><i class="icon icon-courses la-icon la-icon--lg mr-4"></i>Browse Courses</a>
             </div>

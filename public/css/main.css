@@ -17880,15 +17880,19 @@ a, a:hover {
 .la-playlist__course-count {
   font-size: var(--text-sm);
 }
+.la-playlist__modal {
+  top: 12% !important;
+}
 .la-playlist__modal-body {
   padding-bottom: 0;
 }
 .la-playlist__modal-content {
-  width: 300px !important;
+  width: 320px !important;
   height: auto;
   box-shadow: 0px 6px 12px #00000029;
   border-radius: 10px;
   padding: var(--size-6) var(--size-6);
+  margin: 0 auto;
 }
 .la-playlist__modal-header {
   border-bottom: none !important;
@@ -17905,10 +17909,25 @@ a, a:hover {
 .la-playlist__modal-inputtype {
   border: none;
   border-bottom: 1px solid var(--gray6);
+  padding: var(--size-base) 0;
+  opacity: 0.5;
 }
-.la-playlist__modal-inputtype::-webkit-input-placeholder {
-  font-size: var(--text-xs);
+.la-playlist__modal-inputtype::placeholder, .la-playlist__modal-inputtype::-webkit-input-placeholder {
+  font-size: var(--text-sm);
   color: var(--gray9);
+  padding-left: var(--size-2);
+}
+.la-playlist__modal-inputtype:focus {
+  color: var(--grey6);
+  opacity: 1;
+  padding-left: var(--size-2);
+}
+.la-playlist__modal-addtoinput {
+  border: none;
+  border-left: 1px solid var(--gray6);
+}
+.la-playlist__modal-search {
+  color: var(--grey9);
 }
 .la-playlist__modal-update {
   color: var(--app-indigo-1);
@@ -17918,9 +17937,20 @@ a, a:hover {
   padding-top: var(--size-8);
   font-weight: var(--font-medium);
 }
-
-.modal-open .modal {
-  top: 15% !important;
+.la-playlist__modal-list {
+  height: 220px;
+  overflow: scroll;
+  margin: var(--size-4) 0;
+}
+.la-playlist__modal-list::-webkit-scrollbar {
+  display: none;
+}
+.la-playlist__modal-list::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+.la-playlist__modal-item {
+  padding: var(--size-3) 0 !important;
 }
 
 .la-ctabs__about {
