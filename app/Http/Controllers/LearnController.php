@@ -22,6 +22,13 @@ class LearnController extends Controller
     {
         $course = Course::where('id', $id)->first();
 
+        $related_courses =  Course::whereHas('category', function($query) use($course) 
+        {
+            $query->where('id', $course->category_id); 
+        })->whereNotIn('id', [$course->id])->take(3)->get();
+
+        $mentor_other_courses =  Course::where('user_id', $course->user_id)->whereNotIn('id', [$course->id])->take(3)->get();
+
         if($course->slug != $slug)
             return redirect()->route('learn.show', ['id' => $id,'slug'=>$course->slug]);
 
@@ -39,7 +46,7 @@ class LearnController extends Controller
         	$order = Order::where('user_id', Auth::User()->id)->where('course_id', $id)->first();
 
             if( Auth::User()->role == "admin" || 
-                Auth::User()->subscription('main')->active() ||
+                (Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()) ||
                 !empty( $order) )
             {
                 $video_access = true;
@@ -49,6 +56,8 @@ class LearnController extends Controller
         $data = array(
             'video_access'=> $video_access,
             'course'=> $course,
+            'related_courses'=> $related_courses,
+            'mentor_other_courses'=> $mentor_other_courses,
         );
         return view('learners.pages.course')->with($data);
 
@@ -66,7 +75,7 @@ class LearnController extends Controller
                 $class_video->is_preview == '1' || 
                 $class_video->courses->package_type == '0' ||
                 (Auth::check() && ( Auth::User()->role == "admin" || 
-                Auth::User()->subscription('main')->active() ||
+                (Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()) ||
                 !empty($order) )) 
             )
             {

@@ -165,7 +165,7 @@
             </div>
 
             <div class="la-header__nav-item">
-                <a class="la-header__nav-link" href="/courses">
+                <a class="la-header__nav-link" href="/browse/courses">
                     <div class="la-header__nav-icon">
                         <span class="la-icon--md icon-help-filled"></span>
                     </div>
