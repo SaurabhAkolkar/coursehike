@@ -16,9 +16,9 @@
           <div class="col-12 col-lg-7">
             <div class="la-vcourse__header d-flex align-items-center">
               <h1 class="la-vcourse__title mr-8">{{ $course->title }}</h1>
-              <div class="la-vcourse__badges">
-                <img src="../../images/learners/icons/badge.svg" alt="badge">
-              </div>
+              {{-- <div class="la-vcourse__badges">
+                <img src="/images/learners/icons/badge.svg" alt="badge">
+              </div> --}}
             </div>
             <div class="la-vcourse__rating mb-2">
               <div id="rateYo"></div>
@@ -43,7 +43,7 @@
                 <span class="la--label mt-1">Learners</span>
               </div>
               <div class="la-vcourse__info-item la-vcourse__info--level d-flex flex-column align-items-center justify-content-end">
-                <div class="la--icon"><img src="../../../images/learners/icons/level-beginner.svg" alt="beginner"></div>
+                <div class="la--icon"><img src="/images/learners/icons/level-beginner.svg" alt="beginner"></div>
                 <span class="la--label mt-1">Beginner</span>
               </div>
             </div>
