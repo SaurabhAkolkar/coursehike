@@ -1,4 +1,6 @@
+
 <div class="col-md-3 la-playlist__item">
+<a href="playlist/{{$id}}">
     <div class="la-playlist__item-top position-relative mb-4">
         <div class="la-playlist__option-more la-playlist__option-more--white position-absolute">
             <span class="d-inline-block p-2"><i class="la-icon la-icon--2xl icon icon-menu"></i></span>
@@ -25,5 +27,6 @@
         <div class="la-playlist__download">
             <span class=""><img src="../../images/learners/icons/download.svg" alt="download"></span>
         </div>
-    </div>
+    </div> 
+    </a>
 </div>

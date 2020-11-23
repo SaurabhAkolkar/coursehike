@@ -13,6 +13,8 @@ use App\BBL;
 use App\BundleCourse;
 use App\Testimonial;
 use App\Trusted;
+use App\Playlist;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -46,5 +48,17 @@ class HomeController extends Controller
 
 
         return view('learners.pages.home', compact('categories', 'sliders', 'facts', 'cor', 'bundles', 'meetings', 'bigblue', 'testi', 'trusted'));
+    }
+
+    /**
+     * Show the browse Courses Page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function browseCourses()
+    {   
+
+       $playlists = Playlist::where('user_id', Auth::user()->id)->get();   
+        return view('learners.pages.courses', compact('playlists'));
     }
 }

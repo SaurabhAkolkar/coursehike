@@ -7,6 +7,9 @@
         <div class="d-flex justify-content-between">  
           <h1 class="la-page__title mb-8">Browse Courses</h1><a class="la-icon--3xl icon-filter d-block d-lg-none" id="filterCourses" role="button"></a>
         </div>
+        @if(session('message'))
+              <h1>{{session('message')}}</h1>
+        @endif
         <!-- Global Search: Start-->
         <div class="la-gsearch">
           <form class="form-inline" action="">
@@ -38,6 +41,13 @@
 
             $tattoos = array($tattoo1, $tattoo2, $tattoo3, $tattoo4, $tattoo5, $tattoo6, $tattoo7);
           @endphp
+
+             
+                   <x-add-to-playlist 
+                      :playlists="$playlists"
+                    />
+                  <!-- Add to Playlist Modal -->
+                  
 
           <!-- Tattoo Art Tab: Start -->
           <div class="tab-content la-courses__content" id="nav-tabContent">
