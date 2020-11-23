@@ -5,7 +5,7 @@ use App\FaqInstructor;
 use App\User;
 use App\Setting;
 use App\CourseClass;
-
+// dd(Auth::user());
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -444,7 +444,10 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::get('watch/courseclass/{id}', 'WatchController@watchclass')->name('watchcourseclass');
       Route::get('audio/courseclass/{id}', 'WatchController@audioclass')->name('audiocourseclass');
 
-      Route::get('language-switch/{local}', 'LanguageSwitchController@languageSwitch')->name('languageSwitch');
+    Route::get("country/dropdown","CountryController@upload_info");
+    Route::get("country/gcity","CountryController@gcity");
+    Route::get("country/gstate","CountryController@gstate");
+
 
       Route::get("country/dropdown","CountryController@upload_info");
       Route::get("country/gcity","CountryController@gcity");
@@ -595,10 +598,19 @@ Route::get('/subscription/{slug}', 'SubscriptionController@plans');
 Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
 
 Route::get("zoho/module","ZohoController@createRecords");
-Route::view('/edit', 'admin.course.courseresource.edit');
 
 Route::view('/requests', 'instructor.requests.index');
 // Route for Learner's View
+
+Route::post('/profile',"ProfileController@updateProfile");
+Route::get('/profile','ProfileController@index');
+Route::post('/update-password','ProfileController@updatePassword')->name('update.password');
+Route::view('/edit', 'admin.course.courseresource.edit');
+
+Route::get('/playlist','PlaylistController@index');
+
+Route::post('/create-playlist','PlaylistController@createPlaylist')->name('create.playlist');
+
 
 // Route::view('/','learners.pages.home');
 
@@ -613,11 +625,12 @@ Route::view('/my-courses','learners.pages.my-courses');
 Route::view('/mentors','learners.pages.mentors');
 Route::view('/creator','learners.pages.creator');
 
-Route::view('/profile','learners.pages.profile');
+
 Route::view('/wishlist','learners.pages.wishlist');
 Route::view('/cart','learners.pages.cart');
-Route::view('/playlist','learners.pages.playlist');
+
 Route::view('/purchase-history','learners.pages.purchase-history');
+Route::view('/payment-successful','learners.pages.payment-successful');
 Route::view('/saved-cards', 'learners.pages.saved-cards');
 Route::view('billing-address', 'learners.pages.billing-address');
 

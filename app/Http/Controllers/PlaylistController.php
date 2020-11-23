@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Playlist;
+use Auth;
+use Session;
+use Redirect;
+class PlaylistController extends Controller
+{
+    public function __construct()
+    {
+        return $this->middleware('auth');
+    }
+
+    /**
+     * Displaying Playlist of current User.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function index()
+    {   
+      $playlists = Playlist::where('user_id', Auth::User()->id)->get();
+
+      return view('learners.pages.playlist')->with(['playlists' => $playlists]);
+    }
+
+     /**
+     * Create a new Playlist.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function createPlaylist(Request $request)
+    {
+        
+        $request->validate([
+            'playlist_name' => 'required'
+        ]);
+
+        $input['name'] =  $request->playlist_name;
+        $input['user_id'] = Auth::user()->id;
+        $exitingPlaylist = Playlist::where(['name'=>$input['name'] , 'user_id'=> $input['user_id']])->get();
+            if(empty($exitingPlaylist)){
+                Playlist::create($input);
+                Session::flash('success','New Playlist Added');
+            }else{
+                Session::flash('playlist_exists','Playlist with this name already exist.');
+                return Redirect::back()->withInput();
+            }
+
+        return redirect('/playlist');
+    }
+
+
+}
