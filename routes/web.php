@@ -444,6 +444,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::get('watch/courseclass/{id}', 'WatchController@watchclass')->name('watchcourseclass');
       Route::get('audio/courseclass/{id}', 'WatchController@audioclass')->name('audiocourseclass');
 
+      Route::get('language-switch/{local}', 'LanguageSwitchController@languageSwitch')->name('languageSwitch');
+
     Route::get("country/dropdown","CountryController@upload_info");
     Route::get("country/gcity","CountryController@gcity");
     Route::get("country/gstate","CountryController@gstate");
