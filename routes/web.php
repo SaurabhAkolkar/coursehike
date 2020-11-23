@@ -444,6 +444,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::get('watch/courseclass/{id}', 'WatchController@watchclass')->name('watchcourseclass');
       Route::get('audio/courseclass/{id}', 'WatchController@audioclass')->name('audiocourseclass');
 
+      Route::get('language-switch/{local}', 'LanguageSwitchController@languageSwitch')->name('languageSwitch');
+
     Route::get("country/dropdown","CountryController@upload_info");
     Route::get("country/gcity","CountryController@gcity");
     Route::get("country/gstate","CountryController@gstate");
@@ -568,6 +570,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
     Route::get('/learn/course/{id}/{slug}', 'LearnController@show')->name('learn.show');
     Route::post('/learn/course/{video_id}','LearnController@video')->name('learn.video');
+    Route::get('/browse/courses','SearchController@index');
+
     Route::get('/jwt', 'CourseclassController@token_generate');
 
 });

@@ -23,9 +23,12 @@
         <div class="la-courses mt-14">
           <nav class="la-courses__nav d-flex justify-content-between">
             <ul class="nav nav-pills la-courses__nav-tabs" id="nav-tab" role="tablist">
-              <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"> <span class="position-relative">Tattoo</span></a></li>
+              {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"> <span class="position-relative">Tattoo</span></a></li>
               <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
-              <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li>
+              <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
+              @foreach ($categories as $category)
+                <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative">{{ $category->title}}</span></a></li>
+              @endforeach
             </ul><a class="la-icon--3xl icon-filter d-none d-lg-block" id="filterCourses" role="button"></a>
           </nav>
 
@@ -51,7 +54,30 @@
 
           <!-- Tattoo Art Tab: Start -->
           <div class="tab-content la-courses__content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+            @foreach ($categories as $category)
+              <div class="tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
+                <div class="row row-cols-lg-3">
+                      @foreach($category->courses as $course)
+                        @if ($course->featured == 0)
+                            @continue
+                        @endif
+                        <x-course 
+                            :id="$course->id"
+                            :img="$course->preview_image"
+                            :course="$course->title"
+                            :url="$course->slug"
+                            :rating="$course->price"
+                            :creatorImg="$course->user->user_img"
+                            :creatorName="$course->user->fname"
+                            :creatorUrl="$course->user->fname"
+                          />
+                      @endforeach
+
+                </div>
+              </div>
+            @endforeach
+            {{-- <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
               <div class="row row-cols-lg-3">
       
                     @foreach($tattoos as $tattoo)
@@ -111,7 +137,7 @@
                   @endforeach
                   
               </div>
-            </div>
+            </div> --}}
              <!-- Rangoli Tab: End -->
 
           </div>

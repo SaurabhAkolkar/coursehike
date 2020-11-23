@@ -3,7 +3,7 @@
 @section('headAssets')
   <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
   <link href="https://unpkg.com/@silvermine/videojs-quality-selector/dist/css/quality-selector.css" rel="stylesheet">
-
+  <title>{{ $course->title }}</title>
 
 @endsection
 
@@ -16,9 +16,9 @@
           <div class="col-12 col-lg-7">
             <div class="la-vcourse__header d-flex align-items-center">
               <h1 class="la-vcourse__title mr-8">{{ $course->title }}</h1>
-              <div class="la-vcourse__badges">
-                <img src="../../images/learners/icons/badge.svg" alt="badge">
-              </div>
+              {{-- <div class="la-vcourse__badges">
+                <img src="/images/learners/icons/badge.svg" alt="badge">
+              </div> --}}
             </div>
             <div class="la-vcourse__rating mb-2">
               <div id="rateYo"></div>
@@ -43,7 +43,7 @@
                 <span class="la--label mt-1">Learners</span>
               </div>
               <div class="la-vcourse__info-item la-vcourse__info--level d-flex flex-column align-items-center justify-content-end">
-                <div class="la--icon"><img src="../../../images/learners/icons/level-beginner.svg" alt="beginner"></div>
+                <div class="la--icon"><img src="/images/learners/icons/level-beginner.svg" alt="beginner"></div>
                 <span class="la--label mt-1">Beginner</span>
               </div>
             </div>
@@ -54,7 +54,7 @@
             <ul class="list-unstyled d-block d-lg-flex mb-6">
               <li class="la-vcourse__duration mr-14"><span class="la-text-gray4">Duration </span>  {{ $course->duration }}</li>
               <li class="la-vcourse__updatedon mr-14"><span class="la-text-gray4">Last Updated </span>  {{ $course->updated_at->format('d-M Y') }}</li>
-              <li class="la-vcourse__languages mr-14"> <span class="la-text-gray4">Languages </span>  English, Hindi </li>
+              <li class="la-vcourse__languages mr-14"> <span class="la-text-gray4">Languages </span>  {{$course->language->name}} </li>
             </ul>
           </div>
           <div class="col-12 la-vcourse__primary-info d-flex mb-2">
@@ -82,8 +82,8 @@
                 data-setup="{}"
                 type="application/x-mpegURL" 
               >
-                {{-- <source src="{{ $course->getSignedStreamURL()}}" type="application/x-mpegURL" /> --}}
-                <source src="http://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8" type="application/x-mpegURL">
+                <source src="{{ $course->getSignedStreamURL()}}" type="application/x-mpegURL" />
+                {{-- <source src="http://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8" type="application/x-mpegURL"> --}}
                 <p class="vjs-no-js">
                   {{-- To view this video please enable JavaScript, and consider upgrading to a
                   web browser that
@@ -271,7 +271,7 @@
             <div class="col">
               <div class="la-cbenefits__item d-flex flex-column align-items-center">
                 <div class="mb-7">
-                  <img class="img-fluid d-block" src="../../../../images/learners/course-benefits/video.svg" />
+                  <img class="img-fluid d-block" src="/images/learners/course-benefits/video.svg" />
                 </div>
                 <h4 class="la-cbenefits__item-title mb-3">Unlimited Learning</h4>
                 <p class="la-cbenefits__item-desc m-0">One plan - All subscribed content</p>
@@ -279,14 +279,14 @@
             </div>
             <div class="col">
               <div class="la-cbenefits__item d-flex flex-column align-items-center">
-                <div class="mb-7"><img class="img-fluid d-block" src="../../../../images/learners/course-benefits/certificate.svg"></div>
+                <div class="mb-7"><img class="img-fluid d-block" src="/images/learners/course-benefits/certificate.svg"></div>
                 <h4 class="la-cbenefits__item-title mb-3">Certification</h4>
                 <p class="la-cbenefits__item-desc m-0">Course completion certificate</p>
               </div>
             </div>
             <div class="col">
               <div class="la-cbenefits__item d-flex flex-column align-items-center">
-                <div class="mb-7"><img class="img-fluid d-block" src="../../../../images/learners/course-benefits/online-course.svg"></div>
+                <div class="mb-7"><img class="img-fluid d-block" src="/images/learners/course-benefits/online-course.svg"></div>
                 <h4 class="la-cbenefits__item-title mb-3">Assignments &amp; QUiz</h4>
                 <p class="la-cbenefits__item-desc m-0">Test your progress</p>
               </div>
@@ -304,7 +304,7 @@
     <div class="la-vcourse__purchase-inwrap container">
       <div class="row la-vcourse__purchase-row">
         <div class="col-md-6 la-vcourse__purchase-left">
-          <div class="la-vcourse__purchase-prize mb-8">Purchase this Course @ <span class="la-vcourse__purchase-prize--amount"><b>$35</b></span></div>
+          <div class="la-vcourse__purchase-prize mb-8">Purchase this Course @ <span class="la-vcourse__purchase-prize--amount"><b>${{$course->price}}</b></span></div>
           <form class="la-vcourse__purchase-form" action="">
             <div class="la-vcourse__purchase-classes">
               <div class="la-vcourse__purchase-class la-vcourse__purchase-class--all mb-4">
@@ -333,59 +333,40 @@
                       <th class="mb-4 la-vcourse__sclass-heading">Mentor</th>
                       <th class="mb-4 la-vcourse__sclass-heading">Price</th>
                     </tr>
-                    <tr class="la-vcourse__sclass-item align-top">
-                      <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--checkbox">
-                        <div>
-                          <input id="selectItem1" class="la-form__checkbox-input custom-control-input" type="checkbox">
-                          <label class="" for="selectItem1">
-                            <svg viewBox="0 0 16 16" height="16" width="16">
-                              <g id="Group_5052" data-name="Group 5052" transform="translate(-129 -2108)">
-                                <g id="Rectangle_3239" data-name="Rectangle 3239" transform="translate(129 2108)" fill="none" stroke="#7400d7" stroke-width="1">
-                                  <rect class="la-form__checkbox-rect" x="0.5" y="0.5" width="15" height="15" fill="none" />
+                    @foreach ($course->chapter as $class)
+
+                      <tr class="la-vcourse__sclass-item align-top">
+                        <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--checkbox">
+                          <div>
+                            <input id="selectItem1" class="la-form__checkbox-input custom-control-input" type="checkbox">
+                            <label class="" for="selectItem1">
+                              <svg viewBox="0 0 16 16" height="16" width="16">
+                                <g id="Group_5052" data-name="Group 5052" transform="translate(-129 -2108)">
+                                  <g id="Rectangle_3239" data-name="Rectangle 3239" transform="translate(129 2108)" fill="none" stroke="#7400d7" stroke-width="1">
+                                    <rect class="la-form__checkbox-rect" x="0.5" y="0.5" width="15" height="15" fill="none" />
+                                  </g>
                                 </g>
-                              </g>
-                              <path class="la-form__checkbox-mark" id="Path_17096" data-name="Path 17096" d="M147.263,194.53a.857.857,0,0,0,.56.4.994.994,0,0,0,.171.02.854.854,0,0,0,.5-.161l7.175-5.128a.856.856,0,0,0-1-1.392l-6.419,4.589-1.871-3.1a.856.856,0,1,0-1.467.882Z" transform="matrix(0.985, -0.174, 0.174, 0.985, -173.013, -153.894)" fill="#010101"/>
-                            </svg>
-                          </label>
-                        </div>
-                      </td>
-                      <td class="la-vcourse__sclass-data la-vcourse__sclass-data--thumbnail">
-                        <img src="https://picsum.photos/68/46" alt="purchase item">
-                      </td>
-                      <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--name">At vero eos</td>
-                      <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--mentor">Amy D'souza</td>
-                      <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--price">$20</td>
-                    </tr>
-                    <tr class="la-vcourse__sclass-item align-top">
-                      <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--checkbox">
-                        <div>
-                          <input id="selectItem2" class="la-form__checkbox-input custom-control-input" type="checkbox">
-                          <label class="" for="selectItem2">
-                            <svg viewBox="0 0 16 16" height="16" width="16">
-                              <g id="Group_5052" data-name="Group 5052" transform="translate(-129 -2108)">
-                                <g id="Rectangle_3239" data-name="Rectangle 3239" transform="translate(129 2108)" fill="none" stroke="#7400d7" stroke-width="1">
-                                  <rect class="la-form__checkbox-rect" x="0.5" y="0.5" width="15" height="15" fill="none" />
-                                </g>
-                              </g>
-                              <path class="la-form__checkbox-mark" id="Path_17096" data-name="Path 17096" d="M147.263,194.53a.857.857,0,0,0,.56.4.994.994,0,0,0,.171.02.854.854,0,0,0,.5-.161l7.175-5.128a.856.856,0,0,0-1-1.392l-6.419,4.589-1.871-3.1a.856.856,0,1,0-1.467.882Z" transform="matrix(0.985, -0.174, 0.174, 0.985, -173.013, -153.894)" fill="#010101"/>
-                            </svg>
-                          </label>
-                        </div>
-                      </td>
-                      <td class="la-vcourse__sclass-data la-vcourse__sclass-data--thumbnail">
-                        <img src="https://picsum.photos/68/46" alt="purchase item">
-                      </td>
-                      <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--name">At vero eos</td>
-                      <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--mentor">Amy D'souza</td>
-                      <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--price">$20</td>
-                    </tr>
+                                <path class="la-form__checkbox-mark" id="Path_17096" data-name="Path 17096" d="M147.263,194.53a.857.857,0,0,0,.56.4.994.994,0,0,0,.171.02.854.854,0,0,0,.5-.161l7.175-5.128a.856.856,0,0,0-1-1.392l-6.419,4.589-1.871-3.1a.856.856,0,1,0-1.467.882Z" transform="matrix(0.985, -0.174, 0.174, 0.985, -173.013, -153.894)" fill="#010101"/>
+                              </svg>
+                            </label>
+                          </div>
+                        </td>
+                        <td class="la-vcourse__sclass-data la-vcourse__sclass-data--thumbnail">
+                          <img src="https://picsum.photos/68/46" alt="purchase item">
+                        </td>
+                        <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--name">{{$class->chapter_name}}</td>
+                        <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--mentor">{{$course->user->fname}}</td>
+                        <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--price">${{$class->price}}</td>
+                      </tr>
+                     
+                    @endforeach
                   </table>
                 </div>
               </div>
             </div>
             <div class="la-vcourse__purchase-actions d-flex flex-wrap align-items-center mt-8">
               <div class="la-vcourse__purchase-btn w-50">
-                <a class="btn btn-primary la-btn la-btn--primary w-100 text-center">BUy course</a>
+                <a class="btn btn-primary la-btn la-btn--primary w-100 text-center">Buy course</a>
               </div>
               <div class="la-vcourse__purchase-btn w-50">
                 <a class="btn la-btn la-btn__plain text--green w-100 text-center">ADD TO CART</a>
@@ -624,7 +605,7 @@
                   <span><img src="../../images/learners/course/creator-2x.png" alt=""></span>
                 </div>
                 <div class="la-creator__detail pl-8">
-                  <span class="la-creator__name">Amy D'souza</span>
+                  <span class="la-creator__name">{{$course->user->fname}}</span>
                   <div class="la-creator__specialist mt-1">Design</div>
                 </div>
               </div>
@@ -657,7 +638,48 @@
       <div class="container">
         <h2 class="la-section__title mb-9">More from Creators</h2>
         <div class="row row-cols-3">
-          <div class="col-12 col-md">
+          @foreach ($mentor_other_courses as $course)
+              {{-- <x-course 
+                :id="$course->id"
+                :img="$course->preview_image"
+                :course="$course->title"
+                :url="$course->slug"
+                :rating="$course->price"
+                :creatorImg="$course->user->user_img"
+                :creatorName="$course->user->fname"
+                :creatorUrl="$course->user->fname"
+              /> --}}
+              <div class="col-12 col-md">
+                <div class="la-course">
+                  <div class="la-course__inner">
+                    <div class="la-course__overlay" href="">
+                      <ul class="la-course__options list-unstyled text-white">
+                        <li class="la-course__option"><a class="d-inline-block la-course__addtocart"><i class="la-icon la-icon--2xl icon icon-cart"></i></a></li>
+                        <li class="la-course__option"><a class="d-inline-block la-course__like"><i class="la-icon la-icon--2xl icon icon-share"></i></a></li>
+                        <li class="la-course__option">
+                          <div class="dropdown"><a class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);"><i class="la-icon la-icon--2xl icon icon-menu"></i></a>
+                            <div class="la-cmenu dropdown-menu"><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Playlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Wishlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</a></div>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="la-course__learners"><strong>300</strong>  learners</div>
+                    </div>
+                    <div class="la-course__imgwrap"><img class="img-fluid" src="{{$course->preview_image}}" alt="{{$course->title}}"></div>
+                  </div>
+                  <div class="la-course__btm">
+                    <div class="la-course__info d-flex align-items-center"><a class="la-course__title" href="">{{$course->title}}</a>
+                      <div class="la-course__rating ml-auto">4</div>
+                    </div>
+                    <a class="la-course__creator d-inline-flex align-items-center" href="">
+                      <div class="la-course__creator-imgwrap"><img class="img-fluid" src="https://picsum.photos/200/200" alt="{{$course->user->fname}}"></div>
+                      <div class="la-course__creator-name">{{$course->user->fname}}</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+          @endforeach
+          
+          {{-- <div class="col-12 col-md">
             <div class="la-course">
               <div class="la-course__inner">
                 <div class="la-course__overlay" href="">
@@ -708,33 +730,7 @@
                   <div class="la-course__creator-name">Jospeh Phill</div></a>
               </div>
             </div>
-          </div>
-          <div class="col-12 col-md">
-            <div class="la-course">
-              <div class="la-course__inner">
-                <div class="la-course__overlay" href="">
-                  <ul class="la-course__options list-unstyled text-white">
-                    <li class="la-course__option"><a class="d-inline-block la-course__addtocart"><i class="la-icon la-icon--2xl icon icon-cart"></i></a></li>
-                    <li class="la-course__option"><a class="d-inline-block la-course__like"><i class="la-icon la-icon--2xl icon icon-share"></i></a></li>
-                    <li class="la-course__option">
-                      <div class="dropdown"><a class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);"><i class="la-icon la-icon--2xl icon icon-menu"></i></a>
-                        <div class="la-cmenu dropdown-menu"><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Playlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Wishlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</a></div>
-                      </div>
-                    </li>
-                  </ul>
-                  <div class="la-course__learners"><strong>300</strong>  learners</div>
-                </div>
-                <div class="la-course__imgwrap"><img class="img-fluid" src="https://picsum.photos/600/400" alt="Tattoo Art"></div>
-              </div>
-              <div class="la-course__btm">
-                <div class="la-course__info d-flex align-items-center"><a class="la-course__title" href="">Tattoo Art</a>
-                  <div class="la-course__rating ml-auto">4</div>
-                </div><a class="la-course__creator d-inline-flex align-items-center" href="">
-                  <div class="la-course__creator-imgwrap"><img class="img-fluid" src="https://picsum.photos/100/100" alt="Jospeh Phill"></div>
-                  <div class="la-course__creator-name">Jospeh Phill</div></a>
-              </div>
-            </div>
-          </div>
+          </div> --}}
         </div>
       </div>
     </div>
@@ -746,7 +742,48 @@
       <div class="container">
         <h2 class="la-section__title mb-9">Looking for something else?</h2>
         <div class="row row-cols-3">
-          <div class="col-12 col-md">
+          @foreach ($related_courses as $course)
+              {{-- <x-course 
+                :id="$course->id"
+                :img="$course->preview_image"
+                :course="$course->title"
+                :url="$course->slug"
+                :rating="$course->price"
+                :creatorImg="$course->user->user_img"
+                :creatorName="$course->user->fname"
+                :creatorUrl="$course->user->fname"
+              /> --}}
+              <div class="col-12 col-md">
+                <div class="la-course">
+                  <div class="la-course__inner">
+                    <div class="la-course__overlay" href="">
+                      <ul class="la-course__options list-unstyled text-white">
+                        <li class="la-course__option"><a class="d-inline-block la-course__addtocart"><i class="la-icon la-icon--2xl icon icon-cart"></i></a></li>
+                        <li class="la-course__option"><a class="d-inline-block la-course__like"><i class="la-icon la-icon--2xl icon icon-share"></i></a></li>
+                        <li class="la-course__option">
+                          <div class="dropdown"><a class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);"><i class="la-icon la-icon--2xl icon icon-menu"></i></a>
+                            <div class="la-cmenu dropdown-menu"><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Playlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Wishlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</a></div>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="la-course__learners"><strong>300</strong>  learners</div>
+                    </div>
+                    <div class="la-course__imgwrap"><img class="img-fluid" src="{{$course->preview_image}}" alt="{{$course->title}}"></div>
+                  </div>
+                  <div class="la-course__btm">
+                    <div class="la-course__info d-flex align-items-center"><a class="la-course__title" href="">{{$course->title}}</a>
+                      <div class="la-course__rating ml-auto">4</div>
+                    </div>
+                    <a class="la-course__creator d-inline-flex align-items-center" href="">
+                      <div class="la-course__creator-imgwrap"><img class="img-fluid" src="https://picsum.photos/200/200" alt="{{$course->user->fname}}"></div>
+                      <div class="la-course__creator-name">{{$course->user->fname}}</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+          @endforeach
+
+          {{-- <div class="col-12 col-md">
             <div class="la-course">
               <div class="la-course__inner">
                 <div class="la-course__overlay" href="">
@@ -823,7 +860,7 @@
                   <div class="la-course__creator-name">Jospeh Phill</div></a>
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
       </div>
     </div>

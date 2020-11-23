@@ -102,7 +102,7 @@
                         <td><?php echo $i;?></td>
                         <td>
                           @if($cor['preview_image'] !== NULL && $cor['preview_image'] !== '')
-                              <img src="images/course/<?php echo $cor['preview_image'];  ?>" class="img-fluid">
+                              <img src="{{$cor['preview_image']}}" class="img-fluid">
                           @else
                               <img src="{{ Avatar::create($cor->title)->toBase64() }}" class="img-fluid" >
                           @endif
@@ -131,7 +131,7 @@
                         </td>
 
                         <td>
-                          <a class="btn btn-primary btn-sm" href="{{ route('course.show',$cor->id) }}">
+                          <a class="text-dark" href="{{ route('course.show',$cor->id) }}">
                           <i class="la-icon la-icon--lg icon-edit"></i></a>
                         </td>
 
