@@ -23,8 +23,12 @@
             <div class="la-mycourses__subtitle text-2xl head-font">Ongoing</div>
             <div class="la-icon--2xl icon-filter"></div>
           </div>
+          <x-add-to-playlist 
+                      :playlists="$playlists"
+          />
           <div class="col-12">
             <div class="row row-cols-lg-3">
+
               @php  
 
                 $tattoo1 = new stdClass;$tattoo1->id= 1;$tattoo1->img= "https://picsum.photos/600/400";$tattoo1->course= "Tattoo Art";$tattoo1->rating= "4";$tattoo1->url= "/course";$tattoo1->creatorImg= "https://picsum.photos/100";$tattoo1->creatorName= "Joseph Phill";$tattoo1->creatorUrl= "/creator";

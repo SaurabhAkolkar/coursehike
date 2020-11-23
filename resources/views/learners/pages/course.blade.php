@@ -495,19 +495,28 @@
                             </div>
                             
                             <div class="modal-body la-rtng__review-body">
-                                <div class="la-rtng__review-top">
-                                    <h6 class="la-rtng__review-title">Leave a rating</h6>
-                                    <div class="la-rtng__review-stars">5</div>
-                                </div>
+                                  <form action="{{route('rate.course')}}" method="post" id="rate_course_form" name="rate_course_form">
+                                      @csrf
+                                      <div class="la-rtng__review-top">
+                                          <h6 class="la-rtng__review-title">Leave a rating</h6>
+                                          <div class="la-rtng__review-stars">
+                                              <div class="starRatingContainer">
+                                                  <div class="rate2"></div>
+                                                  <input id="rating_value_input" class="border-0">
+                                                  <input type="hidden" name="course_id" value="{{$course->id}}" class="border-0">
+                                                  <input id="input2" type="hidden" name="rating_value" type="text"></div>
+                                          </div>
+                                      </div>
 
-                                <div class="la-rtng__review-btm py-4">
-                                    <h6 class="la-rtng__review-title">Review</h6>
-                                    <textarea cols="38" rows="5" class="la-rtng__review-msg" placeholder="Type here..."></textarea>
-                                </div>
+                                      <div class="la-rtng__review-btm py-4">
+                                          <h6 class="la-rtng__review-title">Review</h6>
+                                          <textarea cols="38" rows="5" class="la-rtng__review-msg" name="review" placeholder="Type here..."></textarea>
+                                      </div>
 
-                                <div class="text-right">
-                                  <a role="button" class="la-rtng__review-btn">Submit Review</a>
-                                </div>
+                                      <div class="text-right">
+                                        <a role="button" class="la-rtng__review-btn" onclick="submitRateCourseForm()">Submit Review</a>
+                                      </div>
+                                  </form>
                             </div>
                         </div>
                     </div>
@@ -875,9 +884,49 @@
   <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
   <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
   <script src="https://unpkg.com/@silvermine/videojs-quality-selector/dist/js/silvermine-videojs-quality-selector.min.js"></script>
-
+  <script src="{{asset('/js/rater.min.js')}}" charset="utf-8"></script>
   {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-quality-levels/2.0.9/videojs-contrib-quality-levels.min.js" integrity="sha512-zkCFMhOIASwe5fZfTUz26vG8miAAMOM6EzleZtBx28ZkCvhp7+6NVZC6iroJiNizWNh+pfQMgjo4Iv8ro9tSuw==" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/videojs-hls-quality-selector@1.1.4/dist/videojs-hls-quality-selector.cjs.min.js"></script> --}}
   {{-- <script src="https://unpkg.com/@videojs/http-streaming@2.3.0/dist/videojs-http-streaming.min.js"></script> --}}
   {{-- <script src="https://unpkg.com/@videojs/http-streaming@2.3.0/dist/videojs-http-streaming.js"></script> --}}
+  <script>
+      var options = {
+                max_value: 5,
+                step_size: 0.5,
+                url: 'http://localhost:8000/',
+                initial_value: 3,
+                update_input_field_name: $("#input2, #rating_value_input"),
+            }
+            // $('#input2').change(function(){   
+            //     $('#reating_value_input').val($this.val());
+            // });
+            $(".rate2").rate(options);
+
+            $("form[name='rate_course_form']").validate({
+      
+                  rules: {
+                    review: {
+                      required: true,
+                      minlength: 3
+                    }
+                  },
+                  // Specify validation error messages
+                  messages: {
+                    review: {
+                      required: "Please provide a review.",
+                      minlength: "Review must be 3 characters in length."
+                    }
+                  },
+                  // Make sure the form is submitted to the destination defined
+                  // in the "action" attribute of the form when valid
+                  submitHandler: function(form) {
+                    form.submit();
+                  }
+                  
+                });
+
+                function submitRateCourseForm(){
+                    $('#rate_course_form').submit();
+                }
+  </script>
 @endsection

@@ -99,8 +99,7 @@ class LearnController extends Controller
 
         return response()->json($response, 400);
     }
-
-
+    
     public function watchclass($id)
     {
         $class = CourseClass::where('id',$id)->first();
