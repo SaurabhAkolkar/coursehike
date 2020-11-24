@@ -3,12 +3,12 @@
     <div class="modal fade la-playlist__modal" id="add_to_playlist_modal">
                     <div class="modal-dialog la-playlist__modal-dialog">
                     <div class="modal-content la-playlist__modal-content">
-
+                        
                         <div class="modal-header la-playlist__modal-header">
                             <h4 class="modal-title la-playlist__modal-title">Add to. </h4>
                             <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
                         </div>
-                        
+                        @if (!Auth::guest())
                         <div class="modal-body la-playlist__modal-body">
                             <div class="d-flex ">
                                 <input type="text" class="la-playlist__modal-inputtype la-playlist__modal-addtoinput w-100" id="search_playlist" onkeyup="searchPlaylist()" placeholder="Search By Name"/>
@@ -48,6 +48,10 @@
                                     <a onclick = "addPlaylist()" role="button" class="la-playlist__modal-btn">Create Playlist</a>
                                   </div>
                             </div>
+
+                            @else
+                                <h6 class="text-center">Please Login To Create Playlist</h6>
+                            @endif
                         </div>
                     </div>
                 </div>
