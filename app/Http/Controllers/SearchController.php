@@ -52,14 +52,17 @@ class SearchController extends Controller
             'review' => 'required',
             'rating_value' => 'required',
 		]);
-			
+		
 		$input['review'] = $request->review;
 		$input['rating'] = $request->rating_value;
 		$input['user_id'] = Auth::user()->id;
-		$input['course'] = $request->course_id;
+		$input['course_id'] = $request->course_id;
 		$input['learn'] = 0;
 		$input['price'] = 0;
-
+		$check_review = ReviewRating::where(['user_id'=>$input['user_id'], 'course_id'=>$input['course_id']])->get();
+		if(count($check_review) > 0){
+			return redirect()->back()->with('failed','You have already reviewed the course');
+		}
 		ReviewRating::create($input);
 		
 		return redirect()->back()->with('success','Reivew added successfully.');

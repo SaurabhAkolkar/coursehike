@@ -8,10 +8,15 @@
 @endsection
 
 @section('content')
-
+@php
+use Carbon\Carbon;
+@endphp
 <section class="la-section">
     <div class="la-vcourse">
       <div class="container">
+        @if(Session('failed'))
+          <h5>Review Already Added for this course by you.</h5>
+        @endif
         <div class="row  mb-12"> 
           <div class="col-12 col-lg-7">
             <div class="la-vcourse__header d-flex align-items-center">
@@ -403,20 +408,23 @@
                 <div class="la-rtng__title head-font text-xl">Reviews &amp; Ratings
                   <div class="la-rtng__wrapper d-flex flex-column flex-md-row justify-content-between">
                     <div class="la-rtng__overall text-left text-md-center">
-                      <div class="la-rtng__total body-font text-5xl mx-4 mx-md-0 px-5 px-md-0">4.0</div>
+                      <div class="la-rtng__total body-font text-5xl mx-4 mx-md-0 px-5 px-md-0">{{$average_rating}}</div>
                       <div class="la-rtng__icons d-inline-flex">
-                        <div class="la-icon--xl icon-star la-rtng__fill"> </div>
-                        <div class="la-icon--xl icon-star la-rtng__fill"> </div>
-                        <div class="la-icon--xl icon-star la-rtng__fill"> </div>
-                        <div class="la-icon--xl icon-star la-rtng__fill"> </div>
-                        <div class="la-icon--xl icon-star la-rtng__unfill"> </div>
+                        @for($counter=1;$counter <= round($average_rating); $counter++)
+                            <div class="la-icon--xl icon-star la-rtng__fill"> </div>
+                        @endfor
+
+                        @for($counter=1;$counter <= 5-round($average_rating); $counter++)
+                            <div class="la-icon--xl icon-star la-rtng__unfill"> </div>
+                        @endfor                      
+                        
                       </div>
                       <div class="la-rtng__course body-font text-sm mt-n1 px-3 px-md-0">Course Rating</div>
                     </div>
                     <div class="la-rtng__indicators">
                       <div class="la-rtng__bars d-flex flex-row jsutify-content-between">
                         <div class="progress la-rtng__progress">
-                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$five_rating_percentage}}%" aria-valuenow="{{$five_rating_percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="la-rtng__pg-rtng d-inline-flex px-3">
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
@@ -425,11 +433,11 @@
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                         </div>
-                        <div class="la-rtng__percent body-font text-xs">60%</div>
+                        <div class="la-rtng__percent body-font text-xs">{{$five_rating_percentage}}%</div>
                       </div>
                       <div class="la-rtng__bars d-flex flex-row jsutify-content-between">
                         <div class="progress la-rtng__progress">
-                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:29%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$four_rating_percentage}}%" aria-valuenow="{{$four_rating_percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="la-rtng__pg-rtng d-inline-flex px-3">
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
@@ -438,11 +446,11 @@
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                         </div>
-                        <div class="la-rtng__percent body-font text-xs">29%</div>
+                        <div class="la-rtng__percent body-font text-xs">{{$four_rating_percentage}}%</div>
                       </div>
                       <div class="la-rtng__bars d-flex flex-row jsutify-content-between">       
                         <div class="progress la-rtng__progress">
-                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:8%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$three_rating_percentage}}%" aria-valuenow="{{$three_rating_percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="la-rtng__pg-rtng d-inline-flex px-3">
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
@@ -451,11 +459,11 @@
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                         </div>
-                        <div class="la-rtng__percent body-font text-xs">8%</div>
+                        <div class="la-rtng__percent body-font text-xs">{{$three_rating_percentage}}%</div>
                       </div>
                       <div class="la-rtng__bars d-flex flex-row jsutify-content-between">       
                         <div class="progress la-rtng__progress">
-                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:1%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$two_rating_percentage}}%" aria-valuenow="{{$two_rating_percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="la-rtng__pg-rtng d-inline-flex px-3">
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
@@ -464,11 +472,11 @@
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                         </div>
-                        <div class="la-rtng__percent body-font text-xs">1%</div>
+                        <div class="la-rtng__percent body-font text-xs">{{$two_rating_percentage}}%</div>
                       </div>
                       <div class="la-rtng__bars d-flex flex-row jsutify-content-between">       
                         <div class="progress la-rtng__progress">
-                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:2%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">  </div>
+                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$one_rating_percentage}}%" aria-valuenow="{{$one_rating_percentage}}" aria-valuemin="0" aria-valuemax="100">  </div>
                         </div>
                         <div class="la-rtng__pg-rtng d-inline-flex px-3">
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
@@ -477,7 +485,7 @@
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                         </div>
-                        <div class="la-rtng__percent body-font text-xs">2%</div>
+                        <div class="la-rtng__percent body-font text-xs">{{$one_rating_percentage}}%</div>
                       </div>
                     </div>
                   </div>
@@ -510,7 +518,7 @@
 
                                       <div class="la-rtng__review-btm py-4">
                                           <h6 class="la-rtng__review-title">Review</h6>
-                                          <textarea cols="38" rows="5" class="la-rtng__review-msg" name="review" placeholder="Type here..."></textarea>
+                                          <textarea cols="38" rows="5" class="la-rtng__review-msg" name="review" id="review_input" placeholder="Type here..."></textarea>
                                       </div>
 
                                       <div class="text-right">
@@ -527,74 +535,34 @@
             </li>
           </div>
           <div class="col-lg-8">
-            <li class="la-lcreviews__item">
-              <div class="la-lcreviews__inner">
-                <div class="la-lcreviews__wrapper d-flex flex-column flex-md-row justify-content-between">
-                  <div class="la-lcreviews__prfle d-inline-flex">
-                    <div class="la-lcreviews__prfle-img"><img class="img-fluid rounded-circle d-block" src="https://picsum.photos/70" alt="Nathan Spark"></div>
-                    <div class="la-lcreviews__prfle-info">
-                      <div class="la-reviews__timestamp text-sm">2 weeks ago</div>
-                      <div class="la-reviews__uname text-xl text-uppercase">Nathan Spark</div>
+            @foreach($reviews as $review)
+              <li class="la-lcreviews__item">
+                <div class="la-lcreviews__inner">
+                  <div class="la-lcreviews__wrapper d-flex flex-column flex-md-row justify-content-between">
+                    <div class="la-lcreviews__prfle d-inline-flex">
+                      <div class="la-lcreviews__prfle-img"><img class="img-fluid rounded-circle d-block" src="https://picsum.photos/70" alt="Amish Patel"></div>
+                      <div class="la-lcreviews__prfle-info">
+                          <div class="la-reviews__timestamp text-sm">
+                                    @if($review->created_at->diffInWeeks(Carbon::now())> 0) 
+                                        {{$review->created_at->diffInWeeks(Carbon::now())}} Weeks Ago
+                                    @elseif($review->created_at->diffInDays(Carbon::now())>0)
+                                        {{$review->created_at->diffInDays(Carbon::now())}} Days ago 
+                                    @else
+                                        Today                                      
+                                    @endif
+                          </div>
+                        <div class="la-reviews__uname text-xl text-uppercase">{{$review->user->fname.' '.$review->user->lname}}</div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="la-lcreviews__content w-100">
-                    <div class="la-lcreviews__ratings"><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__unfill"></span></div>
-                    <div class="la-lcreviews__comment text-md">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </div>
+                    <div class="la-lcreviews__content w-100">
+                      <div class="la-lcreviews__ratings"> @for($couter=1 ; $couter <= $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__fill"></span>@endfor  @for($couter=1 ; $couter <= 5 - $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__unfill"></span>@endfor</div>
+                      <div class="la-lcreviews__comment text-md">{{$review->review}}</div>
+                    </div>
+
                   </div>
                 </div>
-              </div>
-            </li>
-            <li class="la-lcreviews__item">
-              <div class="la-lcreviews__inner">
-                <div class="la-lcreviews__wrapper d-flex flex-column flex-md-row justify-content-between">
-                  <div class="la-lcreviews__prfle d-inline-flex">
-                    <div class="la-lcreviews__prfle-img"><img class="img-fluid rounded-circle d-block" src="https://picsum.photos/70" alt="Amish Patel"></div>
-                    <div class="la-lcreviews__prfle-info">
-                      <div class="la-reviews__timestamp text-sm">4 weeks ago</div>
-                      <div class="la-reviews__uname text-xl text-uppercase">Amish Patel</div>
-                    </div>
-                  </div>
-                  <div class="la-lcreviews__content w-100">
-                    <div class="la-lcreviews__ratings"><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__unfill"></span></div>
-                    <div class="la-lcreviews__comment text-md">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="la-lcreviews__item">
-              <div class="la-lcreviews__inner">
-                <div class="la-lcreviews__wrapper d-flex flex-column flex-md-row justify-content-between">
-                  <div class="la-lcreviews__prfle d-inline-flex">
-                    <div class="la-lcreviews__prfle-img"><img class="img-fluid rounded-circle d-block" src="https://picsum.photos/70" alt="Nathan Spark"></div>
-                    <div class="la-lcreviews__prfle-info">
-                      <div class="la-reviews__timestamp text-sm">2 weeks ago</div>
-                      <div class="la-reviews__uname text-xl text-uppercase">Nathan Spark</div>
-                    </div>
-                  </div>
-                  <div class="la-lcreviews__content w-100">
-                    <div class="la-lcreviews__ratings"><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__unfill"></span></div>
-                    <div class="la-lcreviews__comment text-md">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="la-lcreviews__item">
-              <div class="la-lcreviews__inner">
-                <div class="la-lcreviews__wrapper d-flex flex-column flex-md-row justify-content-between">
-                  <div class="la-lcreviews__prfle d-inline-flex">
-                    <div class="la-lcreviews__prfle-img"><img class="img-fluid rounded-circle d-block" src="https://picsum.photos/70" alt="Amish Patel"></div>
-                    <div class="la-lcreviews__prfle-info">
-                      <div class="la-reviews__timestamp text-sm">4 weeks ago</div>
-                      <div class="la-reviews__uname text-xl text-uppercase">Amish Patel</div>
-                    </div>
-                  </div>
-                  <div class="la-lcreviews__content w-100">
-                    <div class="la-lcreviews__ratings"><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__unfill"></span></div>
-                    <div class="la-lcreviews__comment text-md">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </div>
-                  </div>
-                </div>
-              </div>
-            </li>
+              </li>
+            @endforeach
           </div>
         </div>
       </div>
@@ -890,12 +858,12 @@
   {{-- <script src="https://unpkg.com/@videojs/http-streaming@2.3.0/dist/videojs-http-streaming.min.js"></script> --}}
   {{-- <script src="https://unpkg.com/@videojs/http-streaming@2.3.0/dist/videojs-http-streaming.js"></script> --}}
   <script>
-      var options = {
+            var options = {
                 max_value: 5,
-                step_size: 0.5,
+                step_size: 1,
                 url: 'http://localhost:8000/',
                 initial_value: 3,
-                update_input_field_name: $("#input2, #rating_value_input"),
+                update_input_field_name: $("#input2, #rating_value_input, #rating_value_input2, #input3"),
             }
             // $('#input2').change(function(){   
             //     $('#reating_value_input').val($this.val());

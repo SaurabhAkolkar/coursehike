@@ -566,12 +566,21 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::post('course/appointment/{id}', 'AppointmentController@request')->name('appointment.request');
       Route::post('appointment/delete/{id}', 'AppointmentController@delete');
 
+        Route::middleware(['auth'])->group(function () {
+            Route::post('/rate-course','SearchController@rateCourse')->name('rate.course');
+            Route::get('/playlist','PlaylistController@index');
+            Route::get('/playlist/{id}','PlaylistController@show');
+            Route::get('/playlist/delete/{id}','PlaylistController@deletePlaylist');
+            Route::post('/add-to-playlist','PlaylistController@addToPlaylist')->name('add.to.playlist');
+            Route::post('/create-playlist','PlaylistController@createPlaylist')->name('create.playlist');
+        });
+
     });
 
     Route::get('/learn/course/{id}/{slug}', 'LearnController@show')->name('learn.show');
     Route::post('/learn/course/{video_id}','LearnController@video')->name('learn.video');
     Route::get('/browse/courses','SearchController@index');
-    Route::post('/rate-course','SearchController@rateCourse')->name('rate.course');
+
 
     Route::get('/jwt', 'CourseclassController@token_generate');
 
@@ -612,11 +621,7 @@ Route::get('/profile','ProfileController@index');
 Route::post('/update-password','ProfileController@updatePassword')->name('update.password');
 Route::view('/edit', 'admin.course.courseresource.edit');
 
-Route::get('/playlist','PlaylistController@index');
-Route::get('/playlist/{id}','PlaylistController@show');
-Route::post('/add-to-playlist','PlaylistController@addToPlaylist')->name('add.to.playlist');
 
-Route::post('/create-playlist','PlaylistController@createPlaylist')->name('create.playlist');
 
 
 // Route::view('/','learners.pages.home');

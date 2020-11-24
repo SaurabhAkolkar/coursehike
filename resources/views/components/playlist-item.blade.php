@@ -8,8 +8,8 @@
             </a>
             <div class="la-cmenu dropdown-menu py-0">
                 <a class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#edit_playlist" ><i class="icon icon-edit la-icon la-icon--lg mr-4"></i>Edit Playlist</a>
-                <a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-delete la-icon la-icon--lg mr-4"></i>Delete Playlist</a>
-                <a class="dropdown-item la-cmenu__item d-inline-flex" href="/browse/courses"><i class="icon icon-courses la-icon la-icon--lg mr-4"></i>Browse Courses</a>
+                <a class="dropdown-item la-cmenu__item d-inline-flex" href="/playlist/delete/{{$id}}"><i class="icon icon-delete la-icon la-icon--lg mr-4"></i>Delete Playlist</a>
+                <a class="dropdown-item la-cmenu__item d-inline-flex" href="/playlist/{{$id}}"><i class="icon icon-courses la-icon la-icon--lg mr-4"></i>Browse Courses</a>
             </div>
         </div>
         <div class="la-playlist__thumbnails  la-playlist__thumbnails--three d-flex flex-wrap">
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="la-playlist__download">
-            <span class=""><img src="../../images/learners/icons/download.svg" alt="download"></span>
+            <span role="button" onclick="sharePlaylistPopup({{$id}})"><img src="../../images/learners/icons/download.svg" alt="download"></span>
         </div>
     </div> 
     </a>

@@ -102,8 +102,33 @@
                       </div>
                     </div>
                 </div>
+
+
                 <!-- Edit Playlist Popup: End -->
-                    
+                <!-- Share Playlist Pop UP -->
+                    <div class="modal fade la-playlist__modal" id="share_playlist">
+                        <div class="modal-dialog la-playlist__modal-dialog">
+                          <div class="modal-content la-playlist__modal-content">
+                          
+                            <div class="modal-header la-playlist__modal-header">
+                              <h4 class="modal-title la-playlist__modal-title">Share Playlist</h4>
+                              <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
+                            </div>
+                          
+                            <div class="modal-body la-playlist__modal-body">
+                                  <p>
+                                                                    
+                                  <a role="button" id="share_playlist_on_facebook" target="_facebook" ><img src="../../images/learners/icons/facebook_1.svg" alt="share_facebook" height="40px" ></a>
+                                  <a role="button" id="share_playlist_on_twitter" target="_twitter" class="ml-1"><img src="../../images/learners/icons/twitter.svg" alt="share_twitter" height="40px" ></a>
+                                  <a role="button" id="share_playlist_on_whatsapp" target="_whatsapp" class="ml-1"><img src="../../images/learners/icons/whatsapp.svg" alt="share_whatsapp" height="35px" ></a>
+                                  <a role="button" id="share_playlist_on_pinterest" target="_pinterest" class="ml-1"><img src="../../images/learners/icons/pinterest.svg" alt="share_pinterest" height="35px" ></a>  
+                                </p>
+                                  <p><input class="border-0 w-75" id="playlist_url_copy"><span role="button" class="float-right" onclick="copyPlaylistUrl()"><img src="../../images/learners/icons/copy.svg" alt="copy" height="25px"></span></p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                <!-- Share Playlist POP UP :END -->
                 </div>
               </div>
             </section>
@@ -146,7 +171,31 @@
       
     });
 
+    function sharePlaylistPopup(id){
+      let URL = "{{Request::url()}}/"+id;
+      let facebookURL = encodeURI(`http://www.facebook.com/sharer/sharer.php?u=${URL}`);
+      let pinterestURL = encodeURI(`https://pinterest.com/pin/create/bookmarklet/?&url=${URL}description=this is a playlist from lila`);
+      let twitterURL = encodeURI(`https://twitter.com/share?url=${URL}`);
+      let whatsappURL = encodeURI(`https://wa.me/?text=${URL}`);
+      $('#share_playlist_on_facebook').attr('href',facebookURL);
+      $('#share_playlist_on_twitter').attr('href',twitterURL);
+      $('#share_playlist_on_whatsapp').attr('href',whatsappURL);
+      $('#share_playlist_on_pinterest').attr('href',pinterestURL);
+      $('#playlist_url_copy').val(URL);
+      $('#share_playlist').modal('show');
+    }
 
+    function copyPlaylistUrl() {
+      /* Get the text field */
+      var copyText = document.getElementById("playlist_url_copy");
+
+      /* Select the text field */
+      copyText.select();
+      // copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+      /* Copy the text inside the text field */
+      document.execCommand("copy");
+    }
 
   </script>
 @endsection

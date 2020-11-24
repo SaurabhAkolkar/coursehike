@@ -11,6 +11,7 @@ use Auth;
 use Crypt;
 use Redirect;
 use App\BundleCourse;
+use App\ReviewRating;
 use App\WatchCourse;
 Use Alert;
 use App\Setting;
@@ -20,6 +21,7 @@ class LearnController extends Controller
 {
     public function show($id, $slug)
     {
+               
         $course = Course::where('id', $id)->first();
 
         $related_courses =  Course::whereHas('category', function($query) use($course) 
@@ -52,12 +54,27 @@ class LearnController extends Controller
                 $video_access = true;
             }
         }
+        $reviews = ReviewRating::with('user')->where('course_id',$id)->orderBy('rating','DESC')->get();
+        $average_rating = ReviewRating::where('course_id',$id)->average('rating');
+        $five_rating_percentage= round(100*ReviewRating::where(['course_id'=>$id,'rating'=>5])->count()/count($reviews));
+        $four_rating_percentage =  round(100*ReviewRating::where(['course_id'=>$id,'rating'=>4])->count()/count($reviews));
+        $three_rating_percentage = round(100*ReviewRating::where(['course_id'=>$id,'rating'=>3])->count()/count($reviews));
+        $two_rating_percentage = round(100*ReviewRating::where(['course_id'=>$id,'rating'=>2])->count()/count($reviews));
+        $one_rating_percentage = round(100*ReviewRating::where(['course_id'=>$id,'rating'=>1])->count()/count($reviews));
 
         $data = array(
             'video_access'=> $video_access,
             'course'=> $course,
             'related_courses'=> $related_courses,
             'mentor_other_courses'=> $mentor_other_courses,
+            'reviews'=>$reviews,
+            'average_rating'=> round($average_rating,2),
+            'five_rating_percentage' => $five_rating_percentage,
+            'four_rating_percentage' => $four_rating_percentage,
+            'three_rating_percentage' => $three_rating_percentage,
+            'two_rating_percentage' => $two_rating_percentage,
+            'one_rating_percentage' => $one_rating_percentage,
+
         );
         return view('learners.pages.course')->with($data);
 

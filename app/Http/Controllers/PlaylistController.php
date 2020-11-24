@@ -68,8 +68,11 @@ class PlaylistController extends Controller
         if(count($check_if_exist) > 0){
             return redirect()->back()->with('message','Course Already in Playlist');
         }
-        
+
         $courses = PlaylistCourse::create($input);
+        $playlist = Playlist::findOrFail($input['playlist_id']);
+        $playlist->count = $playlist->count + 1;
+        $playlist->save();
 
       return redirect()->back()->with('message','Courese Added to Playlist');
     }
@@ -108,6 +111,18 @@ class PlaylistController extends Controller
             }
 
         return redirect('/playlist');
+    }
+
+    public function deletePlaylist($id){
+        $check = Playlist::where(['id'=>$id, 'user_id'=>Auth::user()->id])->first();
+        if(empty($check)){
+            return redirect()->back()->with('failed','This Playlist Cannot be deleted By You.');
+        }
+        
+        Playlist::destroy($id);
+        $delete = PlaylistCourse::where('playlist_id',$id)->delete();
+
+        return redirect()->back()->with('success','Playlist Deleted Successfully');
     }
 
 }
