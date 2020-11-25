@@ -12,14 +12,19 @@
         @endif
         <!-- Global Search: Start-->
         <div class="la-gsearch">
-          <form class="form-inline" action="">
+          <form class="form-inline"  action="{{ url('/search-course/') }}">
             <div class="form-group ">
-              <input class="la-gsearch__input form-control" style="width:300px; background:transparent" type="text" placeholder="What you want to learn today?">
+              <input class="la-gsearch__input form-control" style="width:300px; background:transparent" name="course_name" type="text" placeholder="What you want to learn today?">
             </div>
             <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--3xl icon icon-search"></i></button>
           </form>
         </div>
         <!-- Global Search: End-->
+
+        <div id="wishlist_alert_div">
+
+        </div> 
+
         <div class="la-courses mt-14">
           <nav class="la-courses__nav d-flex justify-content-between">
             <ul class="nav nav-pills la-courses__nav-tabs" id="nav-tab" role="tablist">
@@ -145,4 +150,7 @@
       </div>
     </div>
   </section>
+
+  
   @endsection
+  

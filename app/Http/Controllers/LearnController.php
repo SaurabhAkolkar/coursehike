@@ -13,6 +13,7 @@ use Redirect;
 use App\BundleCourse;
 use App\ReviewRating;
 use App\WatchCourse;
+use App\Playlist;
 Use Alert;
 use App\Setting;
 use Illuminate\Support\Facades\Storage;
@@ -366,6 +367,19 @@ class LearnController extends Controller
 
         }
         return Redirect::route('login')->withInput()->with('delete', 'Please Login to access restricted area.');
+    }
+
+    public function searchCourse(Request $request){
+        
+        $input['course_name'] = $request->course_name;
+
+        $courses = Course::where('title','like','%'.$input['course_name'].'%')->where('featured',1)->get();
+        $playlists = [];
+		if(Auth::check()){
+			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
+        }	
+        $search_input = $input['course_name'];
+        return view('learners.pages.search_courses', compact('courses','playlists','search_input'));
     }
 
    

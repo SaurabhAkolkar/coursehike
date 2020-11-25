@@ -568,11 +568,16 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
         Route::middleware(['auth'])->group(function () {
             Route::post('/rate-course','SearchController@rateCourse')->name('rate.course');
+
             Route::get('/playlist','PlaylistController@index');
             Route::get('/playlist/{id}','PlaylistController@show');
             Route::get('/playlist/delete/{id}','PlaylistController@deletePlaylist');
             Route::post('/add-to-playlist','PlaylistController@addToPlaylist')->name('add.to.playlist');
             Route::post('/create-playlist','PlaylistController@createPlaylist')->name('create.playlist');
+
+            Route::post('/add-to-wishlist','LearnerWishlistController@store');
+            Route::get('/wishlist','LearnerWishlistController@index');
+            Route::post('/remove-from-wishlist','LearnerWishlistController@destroy');
         });
 
     });
@@ -591,6 +596,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
 Route::get("allcountry/dropdown","AllCountryController@upload_info");
 Route::get("allcountry/gcity","AllCountryController@gcity");
+
+Route::get("/search-course","LearnController@searchCourse");
 
 Route::get('/activestatus', 'WatchCourseController@active');
 
@@ -639,7 +646,7 @@ Route::view('/mentors','learners.pages.mentors');
 Route::view('/creator','learners.pages.creator');
 
 
-Route::view('/wishlist','learners.pages.wishlist');
+// Route::view('/wishlist','learners.pages.wishlist');
 Route::view('/cart','learners.pages.cart');
 
 Route::view('/purchase-history','learners.pages.purchase-history');
