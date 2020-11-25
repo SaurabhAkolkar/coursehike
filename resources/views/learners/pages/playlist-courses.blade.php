@@ -49,8 +49,16 @@
                                   />
                               @endforeach
                             @else
-                            <div class="p-5">
-                            <h4 class="ml-5">No Course In this Playlist</h4>
+                            <div class="col-12 col-md-8">
+                                <div class="la-playlist__course-nocourse text-center d-md-flex justify-content-between align-items-center">
+                                    <h4 class=" m-0">No Course In this Playlist</h4>
+                                    <div class="la-playlist__course-browse">
+                                      <a href="" class="la-playlist__course-browse-btn" role="button">
+                                          Browse Courses 
+                                          <span class="la-icon la-icon--5xl icon-grey-arrow"></span>
+                                      </a>
+                                    </div>
+                                </div>
                             </div>  
                             @endif
 

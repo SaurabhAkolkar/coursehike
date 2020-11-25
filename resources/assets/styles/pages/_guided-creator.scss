@@ -87,7 +87,7 @@ section.la-page--gcreator{
             padding-right:var(--size-base);
         }
         .la-gcbanner__inner{
-            padding:var(--size-8);
+            padding:var(--size-4);
             h1, h2{font-size:var(--text-5xl) !important;}
         }
        
@@ -122,7 +122,7 @@ section.la-page--how-this-works{
 		text-align: left;
 		width:80px;
 		height:80px;
-		padding:12px 12px;
+		padding:8px 12px;
 		background-color: #FFC516;
 		color:#fff;
         border-radius:var(--rounded-full);
@@ -173,8 +173,9 @@ section.la-page--how-this-works{
 }
 @media(max-width:767px){
     section.la-page--how-this-works {
+        margin:0;
         .la-gcreator__works-mobile{margin:-50px 0 0 50px !important;}
-        .la-gcreator__video-content {margin-left: 50px;}
+        .la-gcreator__video-content {margin-left: 28px;}
         .la-gvline{  height:620px; }	
         .la-gvline-last{ height:500px;}
     }

@@ -95,7 +95,7 @@
                 </div>
               </div>
             </section>
-            <section class="la-section la-cart__other-product pt-0">
+            <section class="la-section la-cart__product pt-0">
               <div class="la-cart__product-title la-cart__product-title--light">
                 <h2>You might also like</h2>
               </div>

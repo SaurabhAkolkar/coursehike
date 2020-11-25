@@ -27,11 +27,12 @@ section.la-contact--page{
         font-weight:var(--font-black);
     }
     .la-contact--info{
-        background-color:var(--gray);
-        opacity:0.7;
+        background-color:rgba(245,244,240,0.6);
         box-shadow: 0px 0px 20px #C5C5C529;
-        margin-top:-85px;
+        margin-top:-75px;
         padding:var(--size-20);
+        position: relative;
+        z-index: var(--z-10);
     }
     .la-contact__lft{
         .la-contact__connect{ 
@@ -95,6 +96,7 @@ section.la-contact--page{
                 }
             }
             .la-contact__btn{
+                padding-top:var(--size-6);
                 .btn-desktop{
                     width:160px;
                     height:48px;
@@ -109,7 +111,6 @@ section.la-contact--page{
                     &:hover{
                         background-color:var(--app-indigo-1);
                         color:#ffffff;
-                        border-radius:0;
                     }
                 }
             }
@@ -130,11 +131,11 @@ section.la-contact--page{
     }
 }
 
-@media (max-width:600px){
+@media (max-width:767px){
     section.la-contact--page{
         a.la-back__page{
             span{
-                left:30px;
+                left:25px;
                 &:hover{
                     left:0px;
                 }
@@ -149,14 +150,14 @@ section.la-contact--page{
             box-shadow: none;
         }
         .la-contact__lft{
-            padding:var(--size-4);
+            padding:0;
         }
         .la-contact__rgt{
-            margin-top:-40px;
-            padding:var(--size-8);
-            background-color:var(--gray);
-            opacity:0.9;
+            margin-top:-28px;
+            padding:var(--size-16) var(--size-8);
             box-shadow: 0px 0px 20px #C5C5C529;
+            z-index:var(--z-10);
+            position: relative;
             
             .la-contact__form{
                 .form-group{
@@ -178,7 +179,6 @@ section.la-contact--page{
 
                         &:hover{
                             background-color:var(--app-indigo-1);
-                            border-radius:0;
                             color:#ffffff;
                         }
                     }

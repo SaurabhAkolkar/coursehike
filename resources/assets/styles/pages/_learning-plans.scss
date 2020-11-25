@@ -102,6 +102,7 @@ section.la-lp--sub-faq{
         .faq-title{
             color:var(--gray3);
             font-weight:var(--font-bold);
+            padding-bottom:var(--size-4);
         }
         .la-lp__faq-panel{
             background:#ffffff;
@@ -203,6 +204,7 @@ section.la-lp--sub-faq{
         padding:var(--size-14) var(--size-4);
 
         .la-lp__rgt-content{
+            padding-top: var(--size-12);
             .la-lp__faq-panel{
                 .la-lp__faq-main{
                     .la-lp__faq-title{                                       
@@ -314,13 +316,19 @@ section.la-lp--testimonials{
 
 @media (max-width:767px){
     section.la-lp--testimonials{
+        padding: var(--size-16) var(--size-4);
         .la-lp__test-rgt{
             .la-lp__test-cards{
                 padding:0;
                 .la-lp__card-itm{
                     padding:var(--size-4);
-                    margin:var(--size-2);
+                    margin:var(--size-4);
                     border-radius:0;
+
+                    &:hover{
+                        transform:none;
+                        transition:none;
+                    }
                 }
             }
         }

@@ -2,7 +2,7 @@
     <div class="la-cart__items">
         <div class="la-cart__items mb-8">
             <div class="la-cart__item row">
-                <div class="la-cart__item-course col-md-7">
+                <div class="la-cart__item-course col-7 col-md-7 pr-0">
                     <div class="la-cart__item-label mb-4">Course</div>
                     <div class="la-cart__item-content d-md-flex">
                         <div class="la-cart__item-left mr-4">
@@ -14,7 +14,7 @@
                             <div class="la-cart__item-name">{{ $course }}</div>
                             <div class="la-cart__item-author mb-2">by <span>{{ $creator}}</span></div>
                             <div class="la-cart__item-actions d-flex">
-                                <div class="la-cart__item-action remove"> 
+                                <div class="la-cart__item-action remove "> 
                                     <a href= {{ $removeUrl }}>{{ $remove }}</a>
                                 </div>
                                 <div class="la-cart__item-action wishlist">
@@ -49,53 +49,53 @@
                                                     </div>
 
                                                     <div class="row la-cart__edit-info">
-                                                        <div class="col-md-2"></div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-2 col-md-2"></div>
+                                                        <div class="col-2 col-md-2">
                                                             <div class="la-cart__edit-main">Class</div>
                                                         </div>
-                                                        <div class="col-md-3">
+                                                        <div class="col-3 col-md-3">
                                                             <div class="la-cart__edit-main">Name</div>
                                                         </div>
-                                                        <div class="col-md-3">
+                                                        <div class="col-3 col-md-3">
                                                             <div class="la-cart__edit-main">Mentor</div>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-2 col-md-2">
                                                             <div class="la-cart__edit-main">Price</div>
                                                         </div>
                                                     </div>
 
                                                     <div class="row la-cart__edit-info ">
-                                                        <div class="col-md-2 text-center my-auto">
+                                                        <div class="col-2 col-md-2 text-center my-auto">
                                                             <input type="checkbox" name="" class="">
                                                         </div>
-                                                        <div class="col-md-2 p-0">
+                                                        <div class="col-2 col-md-2 p-0 my-auto">
                                                             <img class="la-cart__edit-img img-fluid d-block" src="https://picsum.photos/80/50" alt="" />
                                                         </div>
-                                                        <div class="col-md-3 my-auto">
+                                                        <div class="col-3 col-md-3 my-auto">
                                                             <div class="la-cart__edit-submain text-sm">At vero eos et accusam et</div>
                                                         </div>
-                                                        <div class="col-md-3 my-auto">
+                                                        <div class="col-3 col-md-3 my-auto">
                                                             <div class="la-cart__edit-submain  text-sm">Amy D'souza</div>
                                                         </div>
-                                                        <div class="col-md-2 my-auto">
+                                                        <div class=" col-2 col-md-2 my-auto">
                                                             <div class="la-cart__edit-submain  text-sm">$ 20</div>
                                                         </div>
                                                     </div>
 
                                                     <div class="row la-cart__edit-info">
-                                                        <div class="col-md-2 text-center my-auto">
+                                                        <div class="col-2 col-md-2 text-center my-auto">
                                                             <input type="checkbox" name="" class="">
                                                         </div>
-                                                        <div class="col-md-2 p-0">
+                                                        <div class="col-2 col-md-2 p-0 my-auto">
                                                             <img class="la-cart__edit-img img-fluid d-block" src="https://picsum.photos/80/50" alt="" />
                                                         </div>
-                                                        <div class="col-md-3 my-auto">
+                                                        <div class="col-3 col-md-3 my-auto">
                                                             <div class="la-cart__edit-submain  text-sm">At vero eos et accusam et</div>
                                                         </div>
-                                                        <div class="col-md-3 my-auto">
+                                                        <div class="col-3 col-md-3 my-auto">
                                                             <div class="la-cart__edit-submain  text-sm">Amy D'souza</div>
                                                         </div>
-                                                        <div class="col-md-2 my-auto">
+                                                        <div class="col-2 col-md-2 my-auto">
                                                             <div class="la-cart__edit-submain  text-sm">$ 20</div>
                                                         </div>
                                                     </div>
@@ -115,19 +115,22 @@
                 </div>
                 
 
-                <div class="la-cart__item-classes col-md-3">
-                    <div class="la-cart__item-label mb-4">Classes</div>
-                    <div class="la-cart__item-content"><span>{{ $allClasses }}</span></div>
-                </div>
-                <div class="la-cart__item-price col-md-2">
-                    <div class="la-cart__item-label mb-4">Price</div>
-                    <div class="la-cart__item-content">
-                        <div class="la-soffer ml-0">
-                            <div class="la-soffer__bestprice"> 
-                                <sup><small>$</small></sup><span>{{ $bestPrice}}</span>
-                            </div>
-                            <div class="la-soffer__realprice"> 
-                                <sup><small>$</small></sup><span>{{ $realPrice }}</span>
+                <div class="col-5 col-md-5 pl-0 la-cart__item-info d-flex align-items-start">
+                    <div class="la-cart__item-classes ">
+                        <div class="la-cart__item-label mb-4">Classes</div>
+                        <div class="la-cart__item-content"><span>{{ $allClasses }}</span></div>
+                    </div>
+
+                    <div class="la-cart__item-price ml-8 ml-md-20">
+                        <div class="la-cart__item-label mb-4">Price</div>
+                        <div class="la-cart__item-content">
+                            <div class="la-soffer ml-0">
+                                <div class="la-soffer__bestprice"> 
+                                    <sup><small>$</small></sup><span>{{ $bestPrice}}</span>
+                                </div>
+                                <div class="la-soffer__realprice"> 
+                                    <sup><small>$</small></sup><span>{{ $realPrice }}</span>
+                                </div>
                             </div>
                         </div>
                     </div>

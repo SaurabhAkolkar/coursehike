@@ -55,7 +55,7 @@ $(function(){
 
   //Swiper Js for Learning Plans
   var swiper = new Swiper('.la-choose__slider', {
-    slidesPerView: 'auto',
+    slidesPerView: 1,
     spaceBetween: 30,
     pagination: {
       el: '.swiper-pagination',
@@ -245,7 +245,7 @@ $.ajax({
         }else{
           $('#playlist_name').val('');
           $('#playlist_name_error').html('Playlist Added.');          
-          up.append('<a class="list-group-item" href="#" role="button" onclick="submitAddToPlaylist('+data['id']+')">'+data['name']+'</option>');
+          up.append('<a class="la-playlist__modal-item list-group-item" href="#" role="button" onclick="submitAddToPlaylist('+data['id']+')">'+data['name']+'</option>');
         }
         
  

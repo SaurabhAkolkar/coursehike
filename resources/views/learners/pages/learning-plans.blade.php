@@ -6,10 +6,11 @@
     <!-- Section: Start-->
     <section class="la-lp--page">
       <div class="container">
-        <div class="row"><a class="la-icon--lg icon-arrow font-weight-bold d-block d-lg-none py-5 px-3" href="#"></a>
+        <div class="row">
+          <a class="la-icon--5xl icon-back-arrow d-block d-lg-none my-6 px-3" href="#"></a>
           <!-- Column: Start-->
           <div class="col-12 col-lg-6 my-sm-12 ">
-            <div class="la-lp__title"><span class="text-xl text-sm-3xl">The right plans</span>
+            <div class="la-lp__title"><span class="text-2xl text-sm-3xl">The right plans</span>
               <h2 class="text-6xl">for all your interests.</h2>
               <p class="text-lg text-sm-xl">Whether you want to dabble with new art forms or hone your skills, we have got you covered!</p>
             </div>

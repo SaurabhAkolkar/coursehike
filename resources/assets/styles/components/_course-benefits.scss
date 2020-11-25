@@ -5,6 +5,10 @@
                 background: rgba(#F5F4F0, 1);
                 border-radius: var(--size-2);
                 padding: var(--size-10);
+
+                @media(max-width:991px){
+                    margin-bottom: var(--size-8);
+                }
                 &- {
                     &title {
                         font-family: var(--head-font);

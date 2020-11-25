@@ -13,7 +13,14 @@
         <div class="container">
           <div class="la-profile__main-inner">
             <div class="la-profile__title-wrap">
+              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-6" href="#"></a>
               <h1 class="la-profile__title">My Playlist</h1>
+              <a class="d-block d-md-none"  data-toggle="modal" data-target="#create_playlist" >
+                <div class="la-btn__add-icon ">
+                  <span class="la-playlist__mobile text-lg text-uppercase"> 
+                    <span class="la-icon la-icon--md icon-plus mr-3"></span>Create Playlist</span>
+                </div>
+              </a>
             </div>
             <section class="la-section la-playlist__sec pt-0">
               <div class="la-playlist__wrap">
@@ -42,7 +49,7 @@
                             :id="$item->id"
                         />
                     @endforeach
-                    <div class="col-md-3">
+                    <div class="col-md-3 d-none d-md-block">
                         <a class="la-btn__add d-flex justify-content-center align-items-center"  data-toggle="modal" data-target="#create_playlist" >
                           <span class="la-btn__add-icon">+</span>
                         </a>
