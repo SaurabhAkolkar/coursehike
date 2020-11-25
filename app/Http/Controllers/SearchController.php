@@ -15,10 +15,11 @@ class SearchController extends Controller
 {
     public function index(Request $request) 
     {	
-		if(Auth::user()){
+		$playlists = [];
+		if(Auth::check()){
 			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
 		}	
-		$playlists = [];
+		
 		$categories = Categories::with('courses')->where('featured','1')->orderBy('position','ASC')->get();
 		return view('learners.pages.courses', compact('categories','playlists'));
 
