@@ -5,12 +5,12 @@
  <section class="la-cbg--main">
     <!-- Section: Start-->
     <section class="la-new--releases">
-      <div class="container la-new__events p-0">
+      <div class="container la-new__events ">
         <div class="row">
           <div class="col-12">
             <div class="la-announcement__main-title">
-                <a class="la-new__back la-icon la-icon--4xl icon-back-arrow" href="#"></a>
-                <h1 class="head-font text-2xl text-sm-4xl">New Releases</h1>
+                <a class="la-new__back la-icon la-icon--5xl icon-back-arrow  mb-2" href="#"></a>
+                <h1 class="head-font text-3xl text-md-4xl">New Releases</h1>
             </div>
           </div>
 

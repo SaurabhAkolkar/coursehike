@@ -14,6 +14,7 @@ class PurchaseMobile extends Component
     public $img;
     public $course;
     public $creator;
+    public $id;
     public $date;
     public $paymode;
     public $total;
@@ -21,11 +22,12 @@ class PurchaseMobile extends Component
     public $invoice;
     public $invoiceUrl;
 
-    public function __construct($img, $course, $creator, $date, $paymode, $total, $paystatus, $invoice, $invoiceUrl)
+    public function __construct($img, $course, $creator, $id, $date, $paymode, $total, $paystatus, $invoice, $invoiceUrl)
     {
         $this->img = $img;
         $this->course = $course;
         $this->creator = $creator;
+        $this->id = $id;
         $this->date = $date;
         $this->paymode = $paymode;
         $this->total = $total;

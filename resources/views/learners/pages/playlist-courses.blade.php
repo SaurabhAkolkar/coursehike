@@ -13,9 +13,11 @@
         <div class="container">
           <div class="la-profile__main-inner">
             <div class="la-profile__title-wrap">
-              <h1 class="la-profile__title">My Playlist</h1>
+                <h1 class="la-profile__title">My Playlist
+                    / <span class="">{{$playlist->name}}</span>
+                </h1>
             </div>
-            <h2 class = "ml-1">{{$playlist->name}}</h2>
+            
             <section class="la-section la-playlist__sec pt-0">
               <div class="la-playlist__wrap">
                 
@@ -36,21 +38,30 @@
 
                             @if(count($courses) > 0)
                               @foreach($courses as $course)
-                              
-                              <x-course   
-                                  :id="$course->courses[0]->id"
-                                  :img="$img" 
-                                  :course="$course_type" 
-                                  :url="$course_url" 
-                                  :rating="$course_rating"
-                                  :creatorImg="$creatorImg"
-                                  :creatorName="$course->courses[0]->title"
-                                  :creatorUrl="$course_url"
-                                  />
+                              <div class="col-md-4 px-0">
+                                <x-course   
+                                    :id="$course->courses[0]->id"
+                                    :img="$img" 
+                                    :course="$course_type" 
+                                    :url="$course_url" 
+                                    :rating="$course_rating"
+                                    :creatorImg="$creatorImg"
+                                    :creatorName="$course->courses[0]->title"
+                                    :creatorUrl="$course_url"
+                                />
+                              </div>
                               @endforeach
                             @else
-                            <div class="p-5">
-                            <h4 class="ml-5">No Course In this Playlist</h4>
+                            <div class="col-12 col-md-8">
+                                <div class="la-playlist__course-nocourse text-center d-md-flex justify-content-between align-items-center">
+                                    <h4 class=" m-0">No Course In this Playlist</h4>
+                                    <div class="la-playlist__course-browse">
+                                      <a href="/browse/courses" class="la-playlist__course-view" role="button">
+                                          Browse Courses 
+                                          <span class="la-icon la-icon--5xl icon-grey-arrow"></span>
+                                      </a>
+                                    </div>
+                                </div>
                             </div>  
                             @endif
 

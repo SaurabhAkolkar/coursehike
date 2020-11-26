@@ -34,7 +34,7 @@
                           </div>
                 <submit class="btn la-btn la-btn--secondary  w-100" type="button">CONTINUE</submit>
               </form>
-              <div class="la-entry__other-option text-center mt-5">Already have an account? <span class="la-btn__plain text--burple text--md ml-2"><a href="">Login</a></span></div>
+              <!-- <div class="la-entry__other-option text-center mt-5">Already have an account? <span class="la-btn__plain text--burple text--md ml-2"><a href="">Login</a></span></div> -->
             </div>
             </div>
         </div>

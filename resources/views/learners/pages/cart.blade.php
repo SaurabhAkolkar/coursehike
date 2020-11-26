@@ -13,6 +13,7 @@
         <div class="container">
           <div class="la-profile__main-inner">
             <div class="la-profile__title-wrap">
+              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="#"></a>
               <h1 class="la-profile__title">Cart</h1>
             </div>
             <section class="la-section la-cart__sec pt-0">
@@ -95,7 +96,7 @@
                 </div>
               </div>
             </section>
-            <section class="la-section la-cart__other-product pt-0">
+            <section class="la-section la-cart__product pt-0">
               <div class="la-cart__product-title la-cart__product-title--light">
                 <h2>You might also like</h2>
               </div>

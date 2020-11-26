@@ -60,7 +60,7 @@
       <ul class="la-profile__sidebar-items">
         <li class="la-profile__sidebar-item">
           <a class="la-profile__sidebar-link d-flex align-items-center" href="/become-creator">
-            <span><img src="images/learners/icons/mentor.svg" alt="mentor"></span>
+            <span><img src="../images/learners/icons/mentor.svg" alt="mentor"></span>
             <span class="la-profile__sidebar-text pl-2">Become a Creator</span>
           </a>
         </li>

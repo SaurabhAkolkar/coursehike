@@ -41,6 +41,11 @@ $image-center: -30px;
 #{$ap}- {
     &playlist {
         &__ {
+            &mobile{
+                color: var(--app-indigo-1);
+                letter-spacing: 1px;
+                font-weight: var(--font-semibold);
+            }
             &item {
                 &- {
                     &top {
@@ -134,8 +139,44 @@ $image-center: -30px;
                     &count {
                         font-size: var(--text-sm);
                     }
+
+                    //- If No courses found in playlist/courses
+                    &nocourse{
+                        background-color: var(--white);
+                        box-shadow: 0px 1px 2px #00000029;
+                        border-radius: 10px;
+                        padding: var(--size-12);
+                        margin: var(--size-8) 0;
+                        line-height: 1.6;
+                    }
+                    &browse{
+                        @media(max-width:767px){
+                            padding-top: var(--size-6);
+                        }
+                        &:hover{
+                            color: var(--app-indigo-1);
+                            transform:translateX(15px);
+                            transition:all 0.35s linear;
+                        }
+                    }   
+                    &view{
+                        color: var(--app-indigo-1);
+                        font-size: var(--text-sm);
+                        text-transform: uppercase;
+                        font-weight: var(--font-bold);
+                        letter-spacing: 2.8px;
+                        position: relative;
+                        transition:all 0.35s linear;
+
+                        span{
+                            position: absolute;
+                            bottom:-22px;
+                            right:-15px;
+                        }      
+                    }   
                 }
             }
+            
 
             &modal{
                 top:12% !important;

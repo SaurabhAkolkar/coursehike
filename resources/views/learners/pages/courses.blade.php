@@ -3,29 +3,39 @@
 @section('content')
 <section class="la-section la-cbg--main">
     <div class="la-section__inner">
-      <div class="container"><a class="la-icon--lg icon-arrow font-weight-bold my-5 d-block d-md-none" href="#"></a>
+      <div class="container">
+        <!-- Playlist Alert Message-->
+        @if(session('message'))
+          <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible fade show" role="alert">
+              <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
+              <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true" class="text-white">&times;</span>
+              </button>
+          </div>
+        @endif
+
+        <!-- Wishlist Alert Message-->
+        <div id="wishlist_alert_div"></div> 
+
+        <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="#"></a>
         <div class="d-flex justify-content-between">  
           <h1 class="la-page__title mb-8">Browse Courses</h1><a class="la-icon--3xl icon-filter d-block d-lg-none" id="filterCourses" role="button"></a>
         </div>
-        @if(session('message'))
-              <h1>{{session('message')}}</h1>
-        @endif
+        
         <!-- Global Search: Start-->
         <div class="la-gsearch">
           <form class="form-inline"  action="{{ url('/search-course/') }}">
             <div class="form-group ">
-              <input class="la-gsearch__input form-control" style="width:300px; background:transparent" name="course_name" type="text" placeholder="What you want to learn today?">
+              <input class="la-gsearch__input form-control" style="width:270px; background:transparent" name="course_name" type="text" placeholder="What you want to learn today?">
             </div>
             <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--3xl icon icon-search"></i></button>
           </form>
         </div>
         <!-- Global Search: End-->
 
-        <div id="wishlist_alert_div">
+        
 
-        </div> 
-
-        <div class="la-courses mt-14">
+        <div class="la-courses mt-6 mt-md-14">
           <nav class="la-courses__nav d-flex justify-content-between">
             <ul class="nav nav-pills la-courses__nav-tabs" id="nav-tab" role="tablist">
               {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"> <span class="position-relative">Tattoo</span></a></li>

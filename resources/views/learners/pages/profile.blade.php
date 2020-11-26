@@ -11,6 +11,7 @@
         <div class="container">
           <div class="la-profile__main-inner">
             <div class="la-profile__title-wrap">
+              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="#"></a>
               <h1 class="la-profile__title m-0">Edit Profile</h1><span class="la-profile__para la-profile__para--light">Feel free to edit you personal details.</span>
             </div>
             <section class="la-profile__form">

@@ -16,7 +16,7 @@
 
             <div id="profileItems" class="collapse la-header__collapse-wrap">
                 <div class="la-header__nav-item">
-                    <a class="la-header__nav-link" href="/user-dashboard">
+                    <a class="la-header__nav-link" href="/profile">
                         <div class="la-header__nav-icon">
                             <span class="la-icon la-icon--md icon-edit-learner-profile"></span>
                         </div>
@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="la-header__nav-item">
-                    <a class="la-header__nav-link" href="/browse/courses">
+                    <a class="la-header__nav-link" href="/wishlist">
                         <div class="la-header__nav-icon">
                         <span class="la-icon la-icon--md icon-wishlist"></span>
                         </div>
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="la-header__nav-item">
-                    <a class="la-header__nav-link" href="/browse/courses">
+                    <a class="la-header__nav-link" href="/cart">
                         <div class="la-header__nav-icon">
                         <span class="la-icon la-icon--lg icon-cart"></span>
                         </div>
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="la-header__nav-item">
-                    <a class="la-header__nav-link" href="/browse/courses">
+                    <a class="la-header__nav-link" href="/playlist">
                         <div class="la-header__nav-icon">
                         <span class="la-icon la-icon--md icon-playlist"></span>
                         </div>
@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="la-header__nav-item">
-                    <a class="la-header__nav-link" href="/browse/courses">
+                    <a class="la-header__nav-link" href="/purchase-history">
                         <div class="la-header__nav-icon">
                         <span class="la-icon la-icon--md icon-purchase-history"></span>
                         </div>
@@ -117,7 +117,7 @@
             </div>
             
             <div class="la-header__nav-item d-lg-none">   
-                <a class="la-header__nav-link" href="/learning-plans">
+                <a class="la-header__nav-link" href="/contact">
                     <div class="la-header__nav-icon">
                         <span class="la-icon--md icon-contact"></span>
                     </div>
@@ -128,7 +128,7 @@
 
         <div class="la-header__nav-bottom d-lg-none">
             <div class="la-header__nav-item">   
-                <a class="la-header__nav-link" href="/learning-plans">
+                <a class="la-header__nav-link" href="/become-creator">
                     <div class="la-header__nav-icon">
                         <img src="images/learners/icons/mentor.svg" alt="">
                     </div>
@@ -144,11 +144,14 @@
                 </a>
             </div>
             <div class="la-header__nav-item">   
-                <a class="la-header__nav-link" href="/learning-plans">
+                <a class="la-header__nav-link" role="button" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <div class="la-header__nav-icon">
                         <span class="la-icon la-icon--md icon-logout"></span>
                     </div>
                     <span class="la-header__nav-name">Logout</span>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                    </form>
                 </a>
             </div>
         </div>

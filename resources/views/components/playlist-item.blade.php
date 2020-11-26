@@ -1,5 +1,5 @@
 
-<div class="col-md-3 la-playlist__item mb-3 mb-md-10">
+<div class="col-md-3 la-playlist__item mb-6 mb-md-10">
 <a href="playlist/{{$id}}">
     <div class="la-playlist__item-top position-relative mb-4">
         <div class="la-playlist__option-more la-playlist__option-more--white position-absolute">
