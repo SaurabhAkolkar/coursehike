@@ -61,6 +61,19 @@ $(function(){
       el: '.swiper-pagination',
       clickable: true,
     },
+breakpoints: {  
+      // when window width is <= 480px     
+      480: {       
+         slidesPerView: 1,       
+         spaceBetween: 20     
+      },       
+      767: {       
+         slidesPerView: 2,       
+         spaceBetween: 30     
+      } 
+  
+   } 
+
   });
 
 

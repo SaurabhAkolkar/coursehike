@@ -1,7 +1,7 @@
-<div class="col-12 col-sm-4 d-none d-lg-block">
-    <div class="col text-center px-0">
+<div class="col-12 col-lg-4  ">
+    <div class="col text-center px-0 ">
       <div class="la-choose__plans">
-        <div class="card la-choose__card text-center px-5 py-5">
+        <div class="card la-choose__card text-center">
           <div class="la-choose__box mb-4">
             <div class="la-choose__ptitle text-lg text-sm-2xl">{{ $plan }}</div>
             <div class="la-choose__price mt-2"><sup class="la-choose__tag text-lg">$</sup>
@@ -10,7 +10,7 @@
             </div>
             <div class="la-choose__billing text-sm mt-1">Billed {{ $plan }}</div>
             <div class="la-choose__savings-bg">
-              <div class="la-choose__savings text-xs mt-1">You save {{ $saving }}%</div>
+              <div class="la-choose__savings-{{ $class }}  text-xs mt-1">You save {{ $saving }}%</div>
             </div>
           </div>
           <div class="la-choose__subscribe mt-5 mx-4">

@@ -10572,6 +10572,18 @@ ul, li {
 .la-btn__text--purple {
   color: var(--app-indigo-1);
 }
+.la-btn__alert {
+  background-color: rgba(115, 34, 183, 0.7);
+}
+.la-btn__alert-msg {
+  padding: var(--size-4) var(--size-2);
+  color: var(--white);
+  font-size: var(--text-lg);
+  font-family: var(--font-body);
+  font-weight: var(--font-medium);
+  margin: 0;
+  opacity: 1;
+}
 
 :root {
   --app-indigo-1: #7322B7;
@@ -17764,10 +17776,13 @@ a, a:hover {
   background: #f5f4f0;
   border-radius: var(--size-2);
   padding: var(--size-10);
+  height: 220px;
 }
 @media (max-width: 991px) {
   .la-cbenefits__item {
     margin-bottom: var(--size-8);
+    height: 240px;
+    text-align: center;
   }
 }
 .la-cbenefits__item-title {
@@ -18562,6 +18577,7 @@ a, a:hover {
   border: none;
   border-radius: 10px;
   box-shadow: 0px 0px 20px #00000014;
+  padding: var(--size-10) 0;
 }
 .la-choose__ptitle {
   color: #4e4e4e;
@@ -18595,21 +18611,22 @@ a, a:hover {
 }
 .la-choose__savings-bg {
   position: relative;
-  background-color: rgba(255, 197, 22, 0.28);
-  height: 18px;
+  height: 20px;
   margin: 0 90px;
 }
-.la-choose__savings {
+@media (max-width: 1279px) {
+  .la-choose__savings-bg {
+    margin: 0 50px;
+    height: 22px;
+  }
+}
+.la-choose__savings-red {
   font-weight: var(--font-normal);
+  background-color: rgba(255, 197, 22, 0.28);
   color: #FFC516;
 }
-.la-choose__savings-bg2 {
-  position: relative;
-  background-color: rgba(80, 222, 10, 0.28);
-  height: 18px;
-  margin: 0 90px;
-}
 .la-choose__savings-green {
+  background-color: rgba(80, 222, 10, 0.28);
   font-weight: var(--font-normal);
   color: #47CC05;
 }
@@ -19045,8 +19062,8 @@ a, a:hover {
   font-family: "icomoon";
   content: "\E96D";
   position: absolute;
-  top: -4px;
-  right: -24px;
+  top: 0px;
+  right: -18px;
   font-size: var(--text-md);
   transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
@@ -21423,8 +21440,8 @@ section.la-lp--page .la-lp__choose-main .la-lp__choose-title h1 {
 section.la-lp--page .la-lp__choose-main .la-lp__choose-bg {
   background-color: rgba(245, 244, 240, 0.7);
   box-shadow: 0px 0px 20px #C5C5C529;
-  padding: var(--size-18) var(--size-12);
-  margin-top: -90px;
+  padding: var(--size-20) var(--size-12);
+  margin-top: -75px;
 }
 section.la-lp--page .la-lp__rgt-content {
   padding-top: 0;

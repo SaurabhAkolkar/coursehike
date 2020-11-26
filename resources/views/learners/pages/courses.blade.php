@@ -3,13 +3,17 @@
 @section('content')
 <section class="la-section la-cbg--main">
     <div class="la-section__inner">
-      <div class="container"><a class="la-icon--lg icon-arrow font-weight-bold my-5 d-block d-md-none" href="#"></a>
+      <div class="container">
+        @if(session('message'))
+          <div class="col-md-4 offset-md-8 la-btn__alert ">
+              <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
+          </div>
+        @endif
+        <a class="la-icon--lg icon-arrow font-weight-bold my-5 d-block d-md-none" href="#"></a>
         <div class="d-flex justify-content-between">  
           <h1 class="la-page__title mb-8">Browse Courses</h1><a class="la-icon--3xl icon-filter d-block d-lg-none" id="filterCourses" role="button"></a>
         </div>
-        @if(session('message'))
-              <h1>{{session('message')}}</h1>
-        @endif
+        
         <!-- Global Search: Start-->
         <div class="la-gsearch">
           <form class="form-inline"  action="{{ url('/search-course/') }}">

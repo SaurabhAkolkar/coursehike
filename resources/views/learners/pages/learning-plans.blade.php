@@ -23,6 +23,7 @@
             $plan1->plan = "Monthly";
             $plan1->discount = 20;
             $plan1->oldPrice = 35;
+            $plan1->class= "red";
             $plan1->saving = 10;
             $plan1->slug = "monthly-plan";
 
@@ -30,6 +31,7 @@
             $plan2->plan = "Quarterly";
             $plan2->discount = 80;
             $plan2->oldPrice = 97;
+            $plan2->class= "red";
             $plan2->saving = 25;
             $plan2->slug = "quarterly-plan";
 
@@ -37,6 +39,7 @@
             $plan3->plan = "Yearly";
             $plan3->discount = 120;
             $plan3->oldPrice = 180;
+            $plan3->class= "green";
             $plan3->saving = 25;
             $plan3->slug = "yearly-plan";
 
@@ -50,27 +53,29 @@
               <h1 class="head-font d-block d-sm-none text-left px-5 m-0">CHOOSE<span class="text-left px-5 mx-5">PLAN</span></h1>
             </div>
           </div>
-          <div class="col-12 px-0 px-sm-3">
+          <div class="col-12 px-0 px-lg-3">
             <div class="la-lp__choose-bg">
-              <div class="row d-flex flex-row">
-                  <!-- Choose Plans: Start -->
-                  @foreach ($plans as $plan)
-                      <x-chooseplan :plan="$plan->plan" :discount="$plan->discount" :oldPrice="$plan->oldPrice" :saving="$plan->saving" :slug="$plan->slug" />
-                  @endforeach
-                   <!-- Choose Plans: End -->
+              <div class="d-none d-lg-block">
+                <div class="row d-flex flex-row ">
+                    <!-- Choose Plans: Start -->
+                    @foreach ($plans as $plan)
+                        <x-chooseplan :plan="$plan->plan" :discount="$plan->discount" :oldPrice="$plan->oldPrice" :class="$plan->class" :saving="$plan->saving" :slug="$plan->slug" />
+                    @endforeach
+                    <!-- Choose Plans: End -->
+                </div>
               </div>
 
               <!-- Choose Plans Swiper Slide for Mobile Version: Start -->
               <div class="swiper-container h-100 la-choose__slider mt-4 d-block d-lg-none">
                 <div class="swiper-wrapper la-choose__wrapper">
                   <div class="swiper-slide la-choose__slide">
-                    <x-chooseplan :plan="$plan1->plan" :discount="$plan1->discount" :oldPrice="$plan1->oldPrice" :saving="$plan1->saving" :slug="$plan1->slug" />                  
+                    <x-chooseplan :plan="$plan1->plan" :discount="$plan1->discount" :oldPrice="$plan1->oldPrice"  :class="$plan1->class" :saving="$plan1->saving" :slug="$plan1->slug" />                  
                   </div>
                   <div class="swiper-slide la-choose__slide">
-                    <x-chooseplan :plan="$plan2->plan" :discount="$plan2->discount" :oldPrice="$plan2->oldPrice" :saving="$plan2->saving" :slug="$plan2->slug" />                                     
+                    <x-chooseplan :plan="$plan2->plan" :discount="$plan2->discount" :oldPrice="$plan2->oldPrice" :class="$plan2->class" :saving="$plan2->saving" :slug="$plan2->slug" />                                     
                   </div>
                   <div class="swiper-slide la-choose__slide">
-                    <x-chooseplan :plan="$plan3->plan" :discount="$plan3->discount" :oldPrice="$plan3->oldPrice" :saving="$plan3->saving" :slug="$plan3->slug" />                                                       
+                    <x-chooseplan :plan="$plan3->plan" :discount="$plan3->discount" :oldPrice="$plan3->oldPrice" :class="$plan3->class" :saving="$plan3->saving" :slug="$plan3->slug" />                                                       
                   </div>
                 </div>
               </div>
