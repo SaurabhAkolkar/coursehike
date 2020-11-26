@@ -10,6 +10,7 @@ use Auth;
 use Session;
 use Image;
 use Hash;
+use App\User;
 
 class ProfileController extends Controller
 {   
@@ -113,15 +114,16 @@ class ProfileController extends Controller
 
     public function updatePassword(Request $request){
         
-        $user = Auth::user();
+        $user = User::where('id',Auth::user()->id)->firstOrFail();;
         $request->validate([
             'new_password' => 'required|min:6',
             'current_password' => 'required|min:6',
         ]);
        
         if($user->password == Hash::make($request->current_password) || $user->password == ""){
-            $input['password'] = Hash::make($request->password);
-            $user->update($input);
+            $input['password'] = Hash::make($request->new_password);
+            $user->password= $input['password'];
+            $user->save();
         }else{
             return redirect('/profile');
         }

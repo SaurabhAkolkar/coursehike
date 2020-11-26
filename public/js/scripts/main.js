@@ -270,3 +270,65 @@ function searchPlaylist() {
       }
     }
 }
+
+function addToWishList(id){
+
+  let course_id = id;
+  if(course_id){
+    $.ajax({
+      headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      type:"post",
+      url: '/add-to-wishlist',
+      data: {course_id: course_id},
+      success:function(data){   
+        $('#wishlist_alert_div').html(' ');
+        let successAlert = `<div class="alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
+                              <p id="wishlist_alert_message" class="mb-0">${data}</p>
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div`
+        $('#wishlist_alert_div').html(successAlert);        
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        console.log(XMLHttpRequest);
+      }
+    });
+  }else{
+    alert('Something went wrong');
+  }
+}
+
+function removeFromWishList(id){
+
+  let course_id = id;
+  if(course_id){
+    $.ajax({
+      headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      type:"post",
+      url: '/remove-from-wishlist',
+      data: {course_id: course_id},
+      success:function(data){   
+        $('#wishlist_alert_div').html(' ');
+        $('#course_'+id).remove(); 
+        let successAlert = `<div class="alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
+                              <p id="wishlist_alert_message" class="mb-0">${data}</p>
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div`
+        $('#wishlist_alert_div').html(successAlert);
+               
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        console.log(XMLHttpRequest);
+      }
+    });
+  }else{
+    alert('Something went wrong');
+  }
+}

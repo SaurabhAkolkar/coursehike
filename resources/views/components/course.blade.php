@@ -1,4 +1,4 @@
-<div class="col-12 col-md-6 col-lg">
+<div class="col-12 col-md-6 col-lg" @if($addedToWhishList) id="course_{{$id}}" @endif>
     <div class="la-course">
         <div class="la-course__inner">
             <div class="la-course__overlay"  href= {{ $url }}>
@@ -22,7 +22,7 @@
                             </a>
                             <div class="la-cmenu dropdown-menu py-0">
                                 <a class="dropdown-item la-cmenu__item d-inline-flex" onclick="showAddToPlaylist({{$id}})"><i class="icon icon-playlist la-icon la-icon--2xl mr-2"></i>  Add to Playlist</a>
-                                <a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-wishlist la-icon la-icon--2xl mr-2"></i>  Add to Wishlist</a>
+                                <a class="dropdown-item la-cmenu__item d-inline-flex" onclick="@if($addedToWhishList) removeFromWishList({{$id}}) @else addToWishList({{$id}}) @endif"><i class="icon icon-wishlist la-icon la-icon--2xl mr-2"></i> @if($addedToWhishList) Remove From Playlist @else Add to Wishlist @endif </a>
                                 <a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</a>
                             </div>
                         </div>
