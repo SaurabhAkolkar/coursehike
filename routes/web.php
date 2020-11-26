@@ -574,7 +574,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
             Route::get('/playlist/delete/{id}','PlaylistController@deletePlaylist');
             Route::post('/add-to-playlist','PlaylistController@addToPlaylist')->name('add.to.playlist');
             Route::post('/create-playlist','PlaylistController@createPlaylist')->name('create.playlist');
-
+            // Wishlist Routes
             Route::post('/add-to-wishlist','LearnerWishlistController@store');
             Route::get('/wishlist','LearnerWishlistController@index');
             Route::post('/remove-from-wishlist','LearnerWishlistController@destroy');
