@@ -66,7 +66,7 @@ class PlaylistController extends Controller
 
         $check_if_exist = PlaylistCourse::where(['course_id'=>$input['course_id'],'playlist_id'=>$input['playlist_id']])->get();
         if(count($check_if_exist) > 0){
-            return redirect()->back()->with('message','Course Already in Playlist');
+            return redirect()->back()->with('message','Course Already Exist in Playlist');
         }
 
         $courses = PlaylistCourse::create($input);
@@ -74,7 +74,7 @@ class PlaylistController extends Controller
         $playlist->count = $playlist->count + 1;
         $playlist->save();
 
-      return redirect()->back()->with('message','Courese Added to Playlist');
+      return redirect()->back()->with('message','Course Added to Playlist');
     }
 
 

@@ -4,8 +4,8 @@
 <section class="la-section la-cbg--main">
     <div class="la-section__inner">
       <div class="container">
-        <a class="la-icon--lg icon-arrow font-weight-bold mb-5 pb-5 mx-3 d-block d-md-none" href="#"></a>
         <div class="mx-3 ">
+          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="#"></a>
           <h1 class="la-page__title mb-8">Alien Mentors</h1>
           <!-- Global Search: Start-->
           <div class="la-gsearch">

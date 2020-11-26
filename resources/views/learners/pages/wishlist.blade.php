@@ -24,17 +24,28 @@
 
       <div class="la-profile__main">
         <div class="container">
+          
+          <!-- Alert Message  -->
+          <div id="wishlist_alert_div"></div>
+          <!-- Alert Message  -->
+
           <div class="la-profile__main-inner">
             <div class="la-profile__title-wrap">
+              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-6" href="#"></a>
               <h1 class="la-profile__title">Wishlist</h1>
+              
+              <!-- Mobile Version Add Courses Btn -->
+              <div class="la-btn__add-icon d-block d-md-none">
+                <a class="la-playlist__mobile text-lg text-uppercase" href="/browse/courses"> 
+                  <span class="la-icon la-icon--md icon-plus mr-3"></span>Add Courses</a>
+              </div>
             </div>
-            <div id="wishlist_alert_div">
-            </div>
+            
             <section class="la-section la-wishlist__sec pt-0">
               <div class="la-wishlist__inner">
                 <div class="row la-wishlist__row">
                     @foreach($wishlist_courses as $courses)
-                        
+                      <div class="col-md-4 px-0">
                         <x-course 
                           :id="$courses->course_id"
                           :img="$img" 
@@ -46,15 +57,14 @@
                           :creatorUrl="$creatorURL"
                           :addedToWhishList="$addedToWhishList"
                         />
+                    </div>
                     @endforeach
-                </div>
-
-                <div class="row la-wishlist__row">
-                  <div class="col-md-4 col-lg-4">
-                    <a class="la-btn__add d-flex justify-content-center align-items-center" href="/courses">
-                      <span class="la-btn__add-icon">+</span>
-                    </a>
-                  </div>
+                
+                    <div class="col-md-4 col-lg-4 d-none d-md-block">
+                      <a class="la-btn__add d-flex justify-content-center align-items-center" href="/browse/courses">
+                        <span class="la-btn__add-icon">+</span>
+                      </a>
+                    </div>
                 </div>
               </div>
             </section>

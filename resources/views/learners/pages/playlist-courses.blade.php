@@ -56,7 +56,7 @@
                                 <div class="la-playlist__course-nocourse text-center d-md-flex justify-content-between align-items-center">
                                     <h4 class=" m-0">No Course In this Playlist</h4>
                                     <div class="la-playlist__course-browse">
-                                      <a href="" class="la-playlist__course-browse-btn" role="button">
+                                      <a href="/browse/courses" class="la-playlist__course-view" role="button">
                                           Browse Courses 
                                           <span class="la-icon la-icon--5xl icon-grey-arrow"></span>
                                       </a>

@@ -5,8 +5,11 @@
     <!-- Section Ongoing: Start-->
     <section class="la-section">
       <div class="la-section__inner">
-        <div class="container"><a class="la-icon--lg icon-arrow my-5 px-3 d-block d-md-none" href="#"></a>
+        <!-- Alert Message-->
+        <div id="wishlist_alert_div" class="container"></div> 
+        <div class="container">
           <div class="col-12 ">
+            <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="#"></a>
             <h1 class="la-mycourses__title text-4xl  mb-8">My Courses</h1>
             <!-- Global Search: Start-->
             <div class="la-gsearch">
@@ -19,13 +22,11 @@
             </div>
             <!-- Global Search: End-->
           </div>
-          <div class="col-12 d-flex justify-content-between mb-8">
+          <div class="col-12 d-flex justify-content-between align-items-center mb-8">
             <div class="la-mycourses__subtitle text-2xl head-font">Ongoing</div>
             <div class="la-icon--2xl icon-filter"></div>
           </div>
-          <div id="wishlist_alert_div" class="container">
-
-          </div> 
+          
           <x-add-to-playlist 
                       :playlists="$playlists"
           />

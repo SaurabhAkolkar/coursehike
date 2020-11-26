@@ -32,10 +32,13 @@ section.la-new--releases{
 }
 // Section New Releases Start
 
-@media (max-width:1024px){
+@media (max-width:1279px){
     section.la-new--releases{
         .la-new__back{
-            &:before{top:-8%;left:1%; }
+            top:0;left:0 !important;
+        }
+        .la-new__announcements,.la-new__meet-events{
+            margin-right:0;
         }
     }
 }
@@ -43,10 +46,7 @@ section.la-new--releases{
 @media (max-width:991px){
     section.la-new--releases{
         padding:var(--size-10) var(--size-base);
-        .la-new__back{
-            &:before{top:-5%;left:3%; color:var(--gray6);    }
-            &:hover:before{left:3%;}
-        }
+       
         .la-new__announcements{
             h1{ padding:var(--size-4) var(--size-base);}
         }
@@ -56,9 +56,6 @@ section.la-new--releases{
 
 @media (max-width:575px){
     section.la-new--releases{
-        .la-new__back{
-            &:before{left:10%;    }
-        }
         .la-new__announcements{
             h1{padding:var(--size-6);}
         }

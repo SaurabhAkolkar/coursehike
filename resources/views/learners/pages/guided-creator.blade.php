@@ -12,7 +12,7 @@
             <div class="col-12 col-lg la-gcbanner__content d-flex flex-row align-items-center p-0">
               <div class="la-gcbanner__inner">
                 <h1 class="la-gcbanner__title m-0 leading-none">Your Knowledge. </h1>
-                <h2 class="la-gcbanner__tag leading-none"> Our Expertise.</h2>
+                <h2 class="la-gcbanner__tag "> Our Expertise.</h2>
                 <p class="la-gcbanner__para mt-2 mt-md-6 mb-12 mb-md-14">Get guidance for whatever and <br/>whenever you want</p>
                 
                 <a class="la-btn__app text-uppercase " role="button" href="/creator-signup">Get Started</a>

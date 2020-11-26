@@ -7,12 +7,14 @@
       <div class="row">
         <!-- Column: Start-->
         <div class="col-12 col-sm-12 la-bcreator__banner" style="background:url('../images/learners/creator/bcreator-banner.png') no-repeat bottom rgba(0, 0, 0, 0.5); background-size:cover;">
-          <div class="la-bcreator text-left text-sm-center px-5"><a class="la-bcreator__back-link position-absolute" href="#"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
+          <div class="la-bcreator text-left text-sm-center px-6">
+            <a class="la-bcreator__back-link position-absolute" href="#"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
             <div class="la-bcreator__content">
               <strong class=" text-white text-uppercase m-0">Lorem Ipsum</strong>
-              <h1 class="text-white text-uppercase">Become a Creator</h1>
+              <h1 class="text-white text-uppercase d-none d-md-block">Become a Creator</h1>
+              <h1 class="text-white text-uppercase d-block d-md-none">Become <br/> a Creator</h1>
               <p class="text-white leading-tight d-none d-md-block">Join Inspiring Community and start earning for <br/> your values</p>
-              <p class="text-white leading-tight d-block d-md-none">Join Inspiring Community and start earning for <br/> your values</p>
+              <p class="text-white leading-tight d-block d-md-none">Join Inspiring Community and start earning for your values</p>
             </div>
             <div class="la-bcreator__content-btn"><a class="la-btn__app text-white text-uppercase" role="button" href="/creator-signup">Start Teaching</a></div>
           </div>
@@ -121,7 +123,7 @@
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col-md-6 col-lg-6 px-5 px-sm-0 py-5 py-sm-0 ml-6 la-vdot__class">
+        <div class="col-md-6 col-lg-6 px-5 px-sm-0 py-8 py-sm-0 ml-6 la-vdot__class">
           <div class="la-vdotted__bar position-relative px-4">
             <div class="la-vicon d-flex align-items-start">
               <div class="la-icon__vline"><span class="la-icon la-icon--8xl icon-video-unfilled position-absolute"></span></div>

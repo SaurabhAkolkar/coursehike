@@ -2,17 +2,17 @@
 
 @section('content')
 <!-- Main Section: Start-->
-<section class="la-cbg--main">
+<section class="la-cbg--main la-lp__section">
     <!-- Section: Start-->
     <section class="la-lp--page">
       <div class="container">
         <div class="row">
           <a class="la-icon--5xl icon-back-arrow d-block d-lg-none my-6 px-3" href="#"></a>
           <!-- Column: Start-->
-          <div class="col-12 col-lg-6 my-sm-12 ">
-            <div class="la-lp__title"><span class="text-2xl text-sm-3xl">The right plans</span>
-              <h2 class="text-6xl">for all your interests.</h2>
-              <p class="text-lg text-sm-xl">Whether you want to dabble with new art forms or hone your skills, we have got you covered!</p>
+          <div class="col-12 col-lg-6 ">
+            <div class="la-lp__title"><span class="text-2xl text-md-3xl">The right plans</span>
+              <h2 class="text-5xl text-md-6xl">for all your interests.</h2>
+              <p class="text-lg text-sm-xl py-3">Whether you want to dabble with new art forms or hone your skills, we have got you covered!</p>
             </div>
           </div>
           <!-- Column: End-->
@@ -93,7 +93,7 @@
         <div class="row">
           <div class="col">
             <div class="la-lp__benefits">
-              <h3 class="mb-7 head-font text-2xl text-sm-4xl">All plans include</h3>
+              <h3 class="mb-7 head-font text-md-4xl">All plans include</h3>
               <div class="la-cbenefits d-flex my-8">
                 <div class="row">
 
@@ -151,7 +151,7 @@
           <!-- Column: Start-->
           <div class="col-12 col-lg-5">
             <div class="la-lp__lft-content">
-              <h4 class=" text-2xl text-sm-5xl head-font mb-3">How does <br>subscription works?</h4>
+              <h4 class=" text-4xl text-md-5xl head-font mb-3">How does <br>subscription works?</h4>
               <p class="text-md">
                 Through our Radical team, we strive everyday to make knowledge Affordable, Accessible for all the individuals
                 who have limited or no access to the Real knowledge.
@@ -164,7 +164,7 @@
           <!-- Column: Start-->
           <div class="col-12 col-lg-6">
             <div class="la-lp__rgt-content" id="accordion">
-              <h4 class="faq-title  text-2xl text-sm-4xl">FAQ's</h4>
+              <h4 class="faq-title  text-4xl">FAQ's</h4>
               <div class="panel-group la-lp__faq-group" id="accFreeMain">
                 <!-- Free Trial: Start-->
                 <div class="panel panel-default la-lp__faq-panel mt-2">
@@ -305,7 +305,7 @@
           <!-- Column: Start-->
           <div class="col-12 col-lg-4">
             <div class="la-lp__test-lft">
-              <h4 class=" text-2xl text-sm-5xl head-font mb-3">What people say<br>about us?</h4>
+              <h4 class=" text-4xl text-md-5xl head-font mb-3">What people say<br>about us?</h4>
               <p class="text-md body-font pr-5"> LILA has happy clients all over the world. And we're proud to share some of those experiences!</p>
             </div>
           </div>

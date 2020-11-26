@@ -276,25 +276,36 @@ section.la-dash-mentors-list{
     margin: var(--size-8) 0;
     line-height: 1.6;
 
+    @media(max-width:767px){
+        padding: var(--size-12) var(--size-8);
+        text-align: center;
+    }
+
     .la-empty__inner{
         .la-empty__course-title{
             font-size: var(--text-2xl);
-            font-weight: var(--font-medium);
+            font-weight: var(--font-semibold);
             color: var(--gray5);
         }
         .la-empty__course-desc{
-            font-size: var(--text-md);
+            font-size: var(--text-lg);
             font-weight: var(--font-light);
             color: var(--gray6);
         }
     }
     .la-empty__browse-courses{
+        
         .la-empty__browse{
             color: var(--app-indigo-1);
             font-size: var(--text-sm);
             text-transform:uppercase;
             font-weight: var(--font-bold);
             letter-spacing: 2.8px;
+
+            @media(max-width:767px){
+                text-align: center;
+                font-size: var(--text-md);
+            }
         }
         .la-empty__browse-icon{
             position:relative;

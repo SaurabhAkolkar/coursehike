@@ -61,7 +61,7 @@ $(function(){
       el: '.swiper-pagination',
       clickable: true,
     },
-breakpoints: {  
+  breakpoints: {  
       // when window width is <= 480px     
       480: {       
          slidesPerView: 1,       
@@ -282,4 +282,67 @@ function searchPlaylist() {
         nodes[i].style.display = "none";
       }
     }
+}
+
+//- Add to Wishlist
+function addToWishList(id){
+
+  let course_id = id;
+  if(course_id){
+    $.ajax({
+      headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      type:"post",
+      url: '/add-to-wishlist',
+      data: {course_id: course_id},
+      success:function(data){   
+        $('#wishlist_alert_div').html(' ');
+        let successAlert = `<div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
+                              <h6 id="wishlist_alert_message" class="la-btn__alert-msg">${data}</h6>
+                              <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true" class="text-white">&times;</span>
+                              </button>
+                            </div>`
+        $('#wishlist_alert_div').html(successAlert);        
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        console.log(XMLHttpRequest);
+      }
+    });
+  }else{
+    alert('Something went wrong');
+  }
+}
+
+function removeFromWishList(id){
+
+  let course_id = id;
+  if(course_id){
+    $.ajax({
+      headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      type:"post",
+      url: '/remove-from-wishlist',
+      data: {course_id: course_id},
+      success:function(data){   
+        $('#wishlist_alert_div').html(' ');
+        $('#course_'+id).remove(); 
+        let successAlert = `<div class="la-btn__alert-success col-md-4 offset-md-8 alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
+                              <h6 id="wishlist_alert_message" class="la-btn__alert-msg">${data}</h6>
+                              <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true" class="text-white">&times;</span>
+                              </button>
+                            </div>`
+        $('#wishlist_alert_div').html(successAlert);
+               
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        console.log(XMLHttpRequest);
+      }
+    });
+  }else{
+    alert('Something went wrong');
+  }
 }

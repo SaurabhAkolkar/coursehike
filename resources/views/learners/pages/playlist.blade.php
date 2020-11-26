@@ -15,6 +15,7 @@
             <div class="la-profile__title-wrap">
               <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-6" href="#"></a>
               <h1 class="la-profile__title">My Playlist</h1>
+              <!-- Mobile Version Button to Add Playlist -->
               <a class="d-block d-md-none"  data-toggle="modal" data-target="#create_playlist" >
                 <div class="la-btn__add-icon ">
                   <span class="la-playlist__mobile text-lg text-uppercase"> 

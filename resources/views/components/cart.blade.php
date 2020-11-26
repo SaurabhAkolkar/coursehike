@@ -1,5 +1,6 @@
 
     <div class="la-cart__items">
+        <h2 class="la-cart__title text-2xl d-block d-md-none pt-14 pb-3">Courses in the Cart</h2>
         <div class="la-cart__items mb-8">
             <div class="la-cart__item row">
                 <div class="la-cart__item-course col-7 col-md-7 pr-0">

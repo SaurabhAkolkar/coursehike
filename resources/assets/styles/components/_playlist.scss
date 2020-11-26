@@ -153,30 +153,30 @@ $image-center: -30px;
                         @media(max-width:767px){
                             padding-top: var(--size-6);
                         }
-                        &-{
-                            &btn{
-                                color: var(--app-indigo-1);
-                                font-size: var(--text-sm);
-                                text-transform: uppercase;
-                                font-weight: var(--font-bold);
-                                letter-spacing: 2.8px;
-                                position: relative;
-                                transition:all 0.35s linear;
-                                span{
-                                    position: absolute;
-                                    bottom:-22px;
-                                    right:-15px;
-                                }
-                                &:hover{
-                                    color: var(--app-indigo-1);
-                                    transform:translateX(15px);
-                                    transition:all 0.35s linear;
-                                }
-                            }
-                        } 
-                    }
+                        &:hover{
+                            color: var(--app-indigo-1);
+                            transform:translateX(15px);
+                            transition:all 0.35s linear;
+                        }
+                    }   
+                    &view{
+                        color: var(--app-indigo-1);
+                        font-size: var(--text-sm);
+                        text-transform: uppercase;
+                        font-weight: var(--font-bold);
+                        letter-spacing: 2.8px;
+                        position: relative;
+                        transition:all 0.35s linear;
+
+                        span{
+                            position: absolute;
+                            bottom:-22px;
+                            right:-15px;
+                        }      
+                    }   
                 }
             }
+            
 
             &modal{
                 top:12% !important;

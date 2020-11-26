@@ -24,11 +24,17 @@
                     width:850px;
                     height:250px;
                     border-radius:10px;
+
+                    @media(max-width:1279px){
+                        width:100%;
+                    }
                 }
             }
         }
     }
 }
+
+
 
 @media (max-width:991px){
     #{$ap}- {

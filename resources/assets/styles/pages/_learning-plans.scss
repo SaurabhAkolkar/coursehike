@@ -1,4 +1,11 @@
 // Section Hero Page Start
+.la-lp__section{
+    padding: var(--size-14) 0;
+
+    @media(max-width:991px){
+        padding:0;
+    }
+}
 section.la-lp--page{
     .la-lp__title{
         span{font-weight:var(--font-medium);}
@@ -50,13 +57,14 @@ section.la-lp--page{
         .la-lp__choose-main{
             .la-lp__choose-title h1{
                 font-size:var(--text-8xl);
+                padding-top:var(--size-10);
                 span{
                     float:right;
                 }
             }
             .la-lp__choose-bg{
                 padding:var(--size-20) var(--size-8);
-                margin-top:-100px !important; 
+                margin-top:-90px !important; 
             }
         }
     }
@@ -77,7 +85,7 @@ section.la-lp--include{
 
 @media (max-width:767px){
     section.la-lp--include{
-        padding:var(--size-14) var(--size-4);
+        padding:var(--size-18) var(--size-4);
     }  
 }
 // Section All Include End
@@ -321,10 +329,9 @@ section.la-lp--testimonials{
             .la-lp__test-cards{
                 padding:0;
                 .la-lp__card-itm{
-                    padding:var(--size-4);
+                    padding:var(--size-6);
                     margin:var(--size-4);
-                    border-radius:0;
-
+                   
                     &:hover{
                         transform:none;
                         transition:none;

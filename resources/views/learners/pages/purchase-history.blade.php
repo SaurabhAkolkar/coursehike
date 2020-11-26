@@ -13,6 +13,7 @@
             <!-- SECTION PURCHASED: START -->
             <section class="la-purchase--history">
                 <div class="container px-0">
+                  <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="#"></a>
                   <div class="la-purchaseh__main-title text-3xl head-font pb-5 pb-lg-10">Purchase History</div>
                 </div>
                   <!-- Purchased Desktop Version: Start -->
