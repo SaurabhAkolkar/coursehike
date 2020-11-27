@@ -313,7 +313,9 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::resource('courseclass','CourseclassController');
       Route::resource('reviewrating','ReviewratingController');
       Route::resource('announsment','AnnounsmentController');
+      Route::resource('announcement','AnnouncementController');
       Route::get('/course/create/{id}','CourseController@showCourse')->name('course.show');
+      Route::post('/course/annoucement','CourseController@storeAnnoucement')->name('annoucement.store');
       Route::post('/category/insert','CategoriesController@categoryStore')->name('cat.store');
       Route::post('/subcategory/insert','SubcategoryController@SubcategoryStore')->name('child.store');
       Route::put('/course/include/{id}','CourseController@testup')->name('corinc.update');

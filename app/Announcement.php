@@ -29,7 +29,7 @@ class Announcement extends Model
 
     protected $table = 'announcements';
 
-    protected $fillable = ['user_id', 'course_id', 'announsment', 'status'];
+    protected $fillable = ['user_id', 'course_id', 'title','short_description', 'category_id','long_description','preview_image','stream_video','layout','preview_video','status'];
 
     public function user()
     {

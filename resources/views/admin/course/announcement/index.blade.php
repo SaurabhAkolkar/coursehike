@@ -34,11 +34,11 @@
                 </td>
             
                 <td>
-                  <a class="btn btn-success btn-sm" href="{{url('announsment/'.$an->id)}}"><i class="la-icon la-icon--lg icon-edit"></i></a>
+                  <a class="btn btn-success btn-sm" href="{{url('announcement/'.$an->id)}}"><i class="la-icon la-icon--lg icon-edit"></i></a>
                 </td> 
 
                 <td>
-                  <form  method="post" action="{{url('announsment/'.$an->id)}}" ata-parsley-validate class="form-horizontal form-label-left">
+                  <form  method="post" action="{{url('announcement/'.$an->id)}}" ata-parsley-validate class="form-horizontal form-label-left">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
 
@@ -108,7 +108,9 @@
             </form> -->
 
             
-            <form class="la-admin__announce-form" name="announcement-form" action="{{ route('announsment.store') }}" method="post">
+            <form class="la-admin__announce-form" name="announcement-form" action="{{ route('announcement.store') }}" method="post"  enctype="multipart/form-data">
+              @csrf
+              <input type="hidden" name="course_id" value="{{$cor->id}}" />
               <div class="row">
                 <div class="form-group col-md-12">
                     <label for="announcement_title">Title:</label>
@@ -118,10 +120,13 @@
                 <div class="form-group col-md-12">
                     <label for="announcement_category">Category:</label>
                     <select name="announcement_category" id="announcement_category" class="form-control js-example-basic-single">
-                        <option value="Select">Select</option>
+                        <option selected disabled>Select</option>
+                        @foreach($categories as $key=>$value)
+                            <option value="{{$key}}">{{$value}}</option>
+                        @endforeach
                     </select>
                 </div>
-
+               
                 <div class="form-group col-md-12">
                     <label for="announcement_short">Short Description:</label>
                     <textarea cols="30" rows="4" class="form-control" name="announcement_short" id="announcement_short" placeholder="Short discription on the preview of the announcement"></textarea>
@@ -180,7 +185,7 @@
                <div class="row">
                   <!-- Layout 1 -->
                   <div class="col-md-12 pb-4">
-                    <input type="radio" id="layout1" name="layouts" value="0" class="la-admin__cp-input">
+                    <input type="radio" id="layout1" name="layouts" value="1" class="la-admin__cp-input">
                     <label for="layout1" class="w-100 "> 
                       <div class="la-admin__cp-circle ">
                         <span class="la-admin__cp-radio"></span>
@@ -213,7 +218,7 @@
 
                   <!-- Layout 2 -->
                   <div class="col-md-12 pb-4">
-                    <input type="radio" id="layout2" name="layouts" value="0" class="la-admin__cp-input">
+                    <input type="radio" id="layout2" name="layouts" value="2" class="la-admin__cp-input">
                     <label for="layout2" class="w-100"> 
                       <div class="la-admin__cp-circle">
                         <span class="la-admin__cp-radio"></span>
@@ -236,7 +241,7 @@
 
                   <!-- Layout 3 -->
                   <div class="col-md-12 pb-4">
-                    <input type="radio" id="layout3" name="layouts" value="0" class="la-admin__cp-input">
+                    <input type="radio" id="layout3" name="layouts" value="3" class="la-admin__cp-input">
                     <label for="layout3" class="w-100"> 
                       <div class="la-admin__cp-circle">
                         <span class="la-admin__cp-radio"></span>
@@ -284,3 +289,4 @@
 
      <!--Model close -->    
 </section> 
+

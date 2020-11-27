@@ -82,7 +82,7 @@
                 @include('admin.course.reviewrating.index')
               </div>
               <div role="tabpanel" class="fadein tab-pane" id="an">
-                @include('admin.course.announsment.index')
+                @include('admin.course.announcement.index')
               </div>
               {{-- <div role="tabpanel" class="fadein tab-pane" id="report">
                 @include('admin.course.reviewreport.index')
