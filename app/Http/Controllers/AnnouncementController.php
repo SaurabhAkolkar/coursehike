@@ -11,6 +11,8 @@ use Auth;
 use Image;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Http;
+use Notification;
+use App\Notifications\NewReleases;
 
 class AnnouncementController extends Controller
 {
@@ -97,7 +99,21 @@ class AnnouncementController extends Controller
 
         }
 
-        Announcement::create($input);
+        $anno = Announcement::create($input);
+
+        $users = [1, 2, 4];
+        if($anno->status == 1){
+            $notificationData['id'] = $anno->id;
+            $notificationData['title'] = $anno->title;
+            $notificationData['created_at'] = $anno->created_at;
+            // $notificationData['created_at'] = $anno->created_at; 
+            // dd($notificationData);
+            foreach($users as $id){
+                $user = User::find($id);
+                Notification::send($user, new NewReleases($notificationData));
+            }
+        }
+        
 
         return redirect()->back()->with('success','Announcement Created Successfully');
     }
@@ -152,7 +168,7 @@ class AnnouncementController extends Controller
         $input['category_id'] = $request->announcement_category;
         $input['short_description'] = $request->announcement_short;
         $input['long_description'] = $request->announcement_long;
-        $input['status'] = $request->status=='On'?1:0;
+        $input['status'] = $request->status="on"?1:0;
         $input['layout'] = $request->layouts;
         $input['course_id'] = $request->course_id;
         $input['user_id'] = Auth::user()->id;
@@ -211,9 +227,23 @@ class AnnouncementController extends Controller
             }
 
         }
-        
+
         $annou->update($input);
-    
+
+        $users = [1, 2, 4];
+        if($annou->status == 1){
+            $notificationData['id'] = $annou->id;
+            $notificationData['title'] = $annou->title;
+            $notificationData['created_at'] = $annou->created_at;
+            // $notificationData['created_at'] = $anno->created_at; 
+            // dd($notificationData);
+            foreach($users as $id){
+                $user = User::find($id);
+                Notification::send($user, new NewReleases($notificationData));
+            }
+        }
+
+
         return redirect('/course/create/'.$annou->course_id)->with('success','Announcement edited successfully.');
     }
 
@@ -226,5 +256,26 @@ class AnnouncementController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function showAllRelease(){
+        $allReleases = Announcement::where(['status'=>1])->get();
+        // dd($allReleases);
+        return view('learners.pages.new-releases',compact('allReleases'));
+    }
+
+    public function showRelease($id){
+        $release = Announcement::where(['status'=>1, 'id'=>$id])->first();
+        if($release == null){
+            return redirect()->back();
+        }
+        return view('learners.pages.new-release', compact('release'));
+    }
+    public function markNotificationRead(){
+        $user = Auth::user();
+        foreach ($user->unreadNotifications as $notification) {
+            $notification->markAsRead();
+        }
+        return 1;
     }
 }

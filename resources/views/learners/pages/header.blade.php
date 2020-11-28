@@ -1,4 +1,8 @@
+@php
+use Carbon\Carbon;
+@endphp
 @if (Auth::check())
+
   <!-- Header: Start-->
   <header class="la-header">
       <div class="la-header__inner px-5 py-3 d-flex align-items-center">
@@ -41,6 +45,7 @@
                 <div class="card la-notification__card">
                     <!-- Notification Panel: Start -->
                     @php
+                    $user = Auth::user();
                         $msg1 = new stdClass;
                         $msg1->url = "";
                         $msg1->img = "https://picsum.photos/50";
@@ -77,11 +82,20 @@
                         $msg5->timestamp = "6h";
 
                         $msgs = array($msg1, $msg2, $msg3, $msg4, $msg5);
+                        $notificationCount = 0;
                     @endphp
 
                     @foreach ($msgs as $msg)
                         <x-notification :url="$msg->url" :img="$msg->img" :name="$msg->name" :comment="$msg->comment" :timestamp="$msg->timestamp" />
-                    @endforeach          
+                    @endforeach 
+
+                    @foreach ($user->unreadNotifications as $notification)
+                      @if($notification->type == "App\Notifications\NewReleases")
+                        @php 
+                              $notificationCount++;
+                        @endphp
+                      @endif
+                    @endforeach         
                     <!-- Notification Panel: End -->
                 </div>
                 <a class="la-notification__clear-all position-fixed" href="#">
@@ -90,7 +104,8 @@
               </div>
             </div>
             
-            <div class="la-header__menu-item dropdown"><a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-announcement" id="announcementPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
+            <div class="la-header__menu-item dropdown">
+            <a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-announcement" onclick="markNotificationRead()" id="announcementPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="badge badge-light" id="releaseNotificationBadge">{{$notificationCount}}</span></a>
               <div class="dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="announcementPanel" style="border:none;">
                 <div class="card la-announcement__card">
                   <div class="la-announcement__name d-flex justify-content-between">
@@ -101,48 +116,61 @@
                   </div>
                       <!-- Announcements Panel: Start -->
                       @php
-                          $new1 = new stdClass;
-                          $new1->url = "";
-                          $new1->img = "https://picsum.photos/50";
-                          $new1->event = "Four new badges for learners!";
-                          $new1->timestamp = "Just now";
 
-                          $new2 = new stdClass;
-                          $new2->url = "";
-                          $new2->img = "https://picsum.photos/50";
-                          $new2->event = "New app released for better learning";
-                          $new2->timestamp = "Just now";
+                          $announcement = App\Announcement::where(['status'=>1])->get();
+                          
 
-                          $new3 = new stdClass;
-                          $new3->url = "";
-                          $new3->img = "https://picsum.photos/50";
-                          $new3->event = "Meet the mentors at this event";
-                          $new3->timestamp = "2h";
-
-                          $new4 = new stdClass;
-                          $new4->url = "";
-                          $new4->img = "https://picsum.photos/50";
-                          $new4->event = "Four new badges for learners!";
-                          $new4->timestamp = "2h";
-
-                          $new5 = new stdClass;
-                          $new5->url = "";
-                          $new5->img = "https://picsum.photos/50";
-                          $new5->event = "New app released for better learning";
-                          $new5->timestamp = "2h";
-
-                          $new6 = new stdClass;
-                          $new6->url = "";
-                          $new6->img = "https://picsum.photos/50";
-                          $new6->event = "Meet the mentors at this event";
-                          $new6->timestamp = "Just now";
-
-                          $news = array($new1, $new2, $new3, $new4, $new5, $new6);
                       @endphp
+                      
 
-                      @foreach ($news as $new)
-                        <x-announcement :url="$new->url" :img="$new->img" :event="$new->event" :timestamp="$new->timestamp" />
-                      @endforeach          
+                       @foreach ($user->unreadNotifications as $notification)
+                          @if($notification->type == 'App\Notifications\NewReleases')
+                              
+                              @php
+                                  $notification->preview_image = "";
+
+                                  if($notification->preview_image == "")
+                                  {
+                                    $notification->preview_image = "https://picsum.photos/50";
+                                  }else{
+                                    $notification->preview_image = asset('/images/announcement/'.$notification->preview_image);
+                                  }
+                                  $created_at = Carbon::parse($notification->data['created_at']);
+                                  $timestamp = $created_at->diffInDays(Carbon::now());
+                                  if($timestamp > 0){
+                                    $timestamp = $timestamp.' Days Ago';
+                                  }else{
+                                    $timestamp = 'Today';
+                                  }                      
+                              @endphp
+                            
+                            <x-announcement :url="$notification->data['id']" :img="$notification->preview_image" :event="$notification->data['title']" :timestamp="$timestamp" />
+                            @endif
+                      @endforeach   
+                      @foreach ($user->readNotifications as $notification)
+                          @if($notification->type == 'App\Notifications\NewReleases')
+                              
+                              @php
+                                  $notification->preview_image = "";
+
+                                  if($notification->preview_image == "")
+                                  {
+                                    $notification->preview_image = "https://picsum.photos/50";
+                                  }else{
+                                    $notification->preview_image = asset('/images/announcement/'.$notification->preview_image);
+                                  }
+                                  $created_at = Carbon::parse($notification->data['created_at']);
+                                  $timestamp = $created_at->diffInDays(Carbon::now());
+                                  if($timestamp > 0){
+                                    $timestamp = $timestamp.' Days Ago';
+                                  }else{
+                                    $timestamp = 'Today';
+                                  }                      
+                              @endphp
+                            
+                            <x-announcement :url="$notification->data['id']" :img="$notification->preview_image" :event="$notification->data['title']" :timestamp="$timestamp" />
+                            @endif
+                      @endforeach      
                       <!-- Announcements Panel: End -->          
                 </div>
               </div>

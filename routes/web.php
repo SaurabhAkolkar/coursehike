@@ -315,7 +315,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::resource('announsment','AnnounsmentController');
       Route::resource('announcement','AnnouncementController');
       Route::get('/course/create/{id}','CourseController@showCourse')->name('course.show');
-      Route::post('/course/annoucement','CourseController@storeAnnoucement')->name('annoucement.store');
+      // Route::post('/course/annoucement','CourseController@storeAnnoucement')->name('annoucement.store');
       Route::post('/category/insert','CategoriesController@categoryStore')->name('cat.store');
       Route::post('/subcategory/insert','SubcategoryController@SubcategoryStore')->name('child.store');
       Route::put('/course/include/{id}','CourseController@testup')->name('corinc.update');
@@ -630,6 +630,10 @@ Route::get('/profile','ProfileController@index');
 Route::post('/update-password','ProfileController@updatePassword')->name('update.password');
 Route::view('/edit', 'admin.course.courseresource.edit');
 
+Route::get('/releases','AnnouncementController@showAllRelease');
+Route::get('/releases/{id}','AnnouncementController@showRelease');
+Route::get('/mark-nofification-read','AnnouncementController@markNotificationRead');
+
 
 
 
@@ -656,7 +660,7 @@ Route::view('/payment-successful','learners.pages.payment-successful');
 Route::view('/saved-cards', 'learners.pages.saved-cards');
 Route::view('billing-address', 'learners.pages.billing-address');
 
-Route::view('/releases','learners.pages.new-releases');
+// Route::view('/releases','learners.pages.new-releases');
 Route::view('/learning-plans','learners.pages.learning-plans');
 // Route::view('/payment', 'learners.pages.payment');
 Route::view('/become-creator','learners.pages.become-creator');
