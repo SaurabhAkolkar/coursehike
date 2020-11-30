@@ -643,6 +643,7 @@ Route::view('/signup','learners.auth.signup');
 Route::view('/signin','learners.auth.signin');
 Route::view('/interests','learners.auth.interests');
 Route::view('/creator-signup','learners.auth.creator-signup');
+Route::post('/creator-signup','InstructorController@creatorSignUp');
 
 Route::view('/user-dashboard','learners.pages.user-dashboard');
 // Route::get('/browse/courses','HomeController@browseCourses');
