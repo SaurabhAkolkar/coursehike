@@ -7,6 +7,8 @@ use Auth;
 use App\Course;
 use App\CourseChapter;
 use App\Instructor;
+use App\User;
+use App\ReviewRating;
 
 class InstructorController extends Controller
 {
@@ -65,6 +67,34 @@ class InstructorController extends Controller
             return redirect('/home');
     }
 
+    public function allMentors(){
 
-	
+        $mentors = User::where(['role'=>'mentors','status'=>'1'])->get();
+        
+        return view('learners.pages.mentors',compact('mentors'));
+
+    }
+
+    public function creator($id){
+        $creator = User::findorfail($id);
+        $courses = Course::with('user')->where('user_id', $id)->get();
+        $courses_ids = Course::where('user_id', $id)->pluck('id');
+        $rating = ReviewRating::whereIn('course_id', $courses_ids)->avg('rating');
+               
+        return view('learners.pages.creator', compact('creator','courses','rating'));
+    }
+
+    public function searchMentor(Request $request){
+        define("MENTOR_SEARCH_INPUT", $request->name);
+        $mentors = User::where(['role'=>'mentors','status'=>'1'])
+                            ->where(
+                                function ($q) {
+                                $q->where('fname','like', '%'.MENTOR_SEARCH_INPUT.'%')->orWhere('lname','like', '%'.MENTOR_SEARCH_INPUT.'%');
+                            })->get();
+        $inputValue = $request->name;
+        return view('learners.pages.search_mentor',compact('mentors','inputValue'));
+    }
+    
 }
+
+        

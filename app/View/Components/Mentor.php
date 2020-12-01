@@ -14,12 +14,15 @@ class Mentor extends Component
     public $img;
     public $name;
     public $skill;
-    public function __construct($img, $name, $skill)
+    public $id;
+
+    public function __construct($img, $name, $skill,$id)
     {
         $this->img = $img;
         $this->name = $name;
         $this->skill = $skill;
-         
+        $this->id = $id;
+        
     }
 
     /**

@@ -1,5 +1,7 @@
 @php
 use Carbon\Carbon;
+use App\CourseProgress;
+use App\Announcement;
 @endphp
 @if (Auth::check())
 
@@ -105,7 +107,34 @@ use Carbon\Carbon;
             </div>
             
             <div class="la-header__menu-item dropdown">
-            <a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-announcement" onclick="markNotificationRead()" id="announcementPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="badge badge-light" id="releaseNotificationBadge">{{$notificationCount}}</span></a>
+              @php
+                  $announcements = [];
+                  $old_announcements = [];
+                  if(Auth::User()->subscription('main') && Auth::User()->subscription('main')->active())
+                  {
+                      $courses_id = CourseProgress::where('user_id', Auth::User()->id)->pluck('course_id');
+                      $last_annoucement_check = Auth::user()->last_annoucement_check;
+                    
+                    if($last_annoucement_check==null){
+                      $last_annoucement_check = Auth::user()->created_at;
+                    }
+                      $announcements = Announcement::where('updated_at','>=', $last_annoucement_check)
+                                                      ->whereIn('course_id', $courses_id)
+                                                      ->where('status',1)
+                                                      ->orderBy('updated_at', 'DESC')
+                                                      ->get();
+                      
+                      $old_announcements = Announcement::where('updated_at','<', $last_annoucement_check)
+                                                      ->whereIn('course_id', $courses_id)
+                                                      ->where('status',1)
+                                                      ->orderBy('updated_at', 'DESC')
+                                                      ->get();
+                      
+                      
+                  }
+                  
+              @endphp
+            <a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-announcement" onclick="markNotificationRead()" id="announcementPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="badge badge-light" id="releaseNotificationBadge">{{count($announcements)}}</span></a>
               <div class="dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="announcementPanel" style="border:none;">
                 <div class="card la-announcement__card">
                   <div class="la-announcement__name d-flex justify-content-between">
@@ -115,28 +144,19 @@ use Carbon\Carbon;
                     </a>
                   </div>
                       <!-- Announcements Panel: Start -->
-                      @php
-
-                          $announcement = App\Announcement::where(['status'=>1])->get();
-                          
-
-                      @endphp
                       
-
-                       @foreach ($user->unreadNotifications as $notification)
-                          @if($notification->type == 'App\Notifications\NewReleases')
-                              
+                       @foreach ($announcements as $anno)
+                         
                               @php
-                                  $notification->preview_image = "";
-
-                                  if($notification->preview_image == "")
+                                
+                                  if($anno->preview_image == "")
                                   {
-                                    $notification->preview_image = "https://picsum.photos/50";
+                                    $anno->preview_image = "https://picsum.photos/50";
                                   }else{
-                                    $notification->preview_image = asset('/images/announcement/'.$notification->preview_image);
+                                    $anno->preview_image = asset('/images/announcement/'.$anno->preview_image);
                                   }
-                                  $created_at = Carbon::parse($notification->data['created_at']);
-                                  $timestamp = $created_at->diffInDays(Carbon::now());
+                                 
+                                  $timestamp = $anno->created_at->diffInDays(Carbon::now());
                                   if($timestamp > 0){
                                     $timestamp = $timestamp.' Days Ago';
                                   }else{
@@ -144,23 +164,22 @@ use Carbon\Carbon;
                                   }                      
                               @endphp
                             
-                            <x-announcement :url="$notification->data['id']" :img="$notification->preview_image" :event="$notification->data['title']" :timestamp="$timestamp" />
-                            @endif
-                      @endforeach   
-                      @foreach ($user->readNotifications as $notification)
-                          @if($notification->type == 'App\Notifications\NewReleases')
-                              
-                              @php
-                                  $notification->preview_image = "";
+                            <x-announcement :url="$anno->id" :img="$anno->preview_image" :event="$anno->title" :timestamp="$timestamp" />
+                 
+                      @endforeach 
 
-                                  if($notification->preview_image == "")
+                        @foreach ($old_announcements as $anno)
+                         
+                              @php
+                                
+                                  if($anno->preview_image == "")
                                   {
-                                    $notification->preview_image = "https://picsum.photos/50";
+                                    $anno->preview_image = "https://picsum.photos/50";
                                   }else{
-                                    $notification->preview_image = asset('/images/announcement/'.$notification->preview_image);
+                                    $anno->preview_image = asset('/images/announcement/'.$anno->preview_image);
                                   }
-                                  $created_at = Carbon::parse($notification->data['created_at']);
-                                  $timestamp = $created_at->diffInDays(Carbon::now());
+                                 
+                                  $timestamp = $anno->created_at->diffInDays(Carbon::now());
                                   if($timestamp > 0){
                                     $timestamp = $timestamp.' Days Ago';
                                   }else{
@@ -168,9 +187,9 @@ use Carbon\Carbon;
                                   }                      
                               @endphp
                             
-                            <x-announcement :url="$notification->data['id']" :img="$notification->preview_image" :event="$notification->data['title']" :timestamp="$timestamp" />
-                            @endif
-                      @endforeach      
+                            <x-announcement :url="$anno->id" :img="$anno->preview_image" :event="$anno->title" :timestamp="$timestamp" />
+                 
+                      @endforeach     
                       <!-- Announcements Panel: End -->          
                 </div>
               </div>

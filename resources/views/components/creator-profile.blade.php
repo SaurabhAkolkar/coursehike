@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col p-md-0">
         <div class="la-vcreator__profile">
-            <img class="img-fluid d-block" src= {{ $img }} alt= {{ $name }} />
+            <img class="img-fluid d-block" src= "{{ $img }}" alt= "{{ $name }}" />
             <div class="la-vcreator__overlay">
               <div class="la-vcreator__name"> {{ $name }} </div>
             </div>
@@ -12,21 +12,21 @@
 <div class="row my-md-14">
     <div class="col-md-6 p-md-0">
         <div class="la-vcreator__desc">
-            <p class="la-vcreator__text"> {{ $desc }} </p>
+            <p class="la-vcreator__text"> {!! $desc !!} </p>
         </div>
 
         <div class="la-vcreator__social mt-8">
           <div class="la-vcreator__social-itm mr-5">
-            <a class="la-vcreator__social-link" href="">
+            <a class="la-vcreator__social-link" href="{{$facebook}}">
               <i class="la-icon la-icon--5xl icon-facebook"></i>
             </a>
-            <a class="la-vcreator__social-link" href="">
+            <a class="la-vcreator__social-link" href="{{$facebook}}">
               <i class="la-icon la-icon--5xl icon-insta"></i>
             </a>
-            <a class="la-vcreator__social-link" href="">
+            <a class="la-vcreator__social-link" href="{{$google}}">
               <i class="la-icon la-icon--5xl icon-youtube"></i>
             </a>
-            <a class="la-vcreator__social-link" href="">
+            <a class="la-vcreator__social-link" href="{{$email}}">
               <i class="la-icon la-icon--5xl icon-mail"></i>
             </a>
           </div>

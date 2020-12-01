@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Http;
 use Notification;
 use App\Notifications\NewReleases;
+use Carbon\Carbon;
 
 class AnnouncementController extends Controller
 {
@@ -99,21 +100,7 @@ class AnnouncementController extends Controller
 
         }
 
-        $anno = Announcement::create($input);
-
-        $users = [1, 2, 4];
-        if($anno->status == 1){
-            $notificationData['id'] = $anno->id;
-            $notificationData['title'] = $anno->title;
-            $notificationData['created_at'] = $anno->created_at;
-            // $notificationData['created_at'] = $anno->created_at; 
-            // dd($notificationData);
-            foreach($users as $id){
-                $user = User::find($id);
-                Notification::send($user, new NewReleases($notificationData));
-            }
-        }
-        
+        $anno = Announcement::create($input);      
 
         return redirect()->back()->with('success','Announcement Created Successfully');
     }
@@ -230,20 +217,6 @@ class AnnouncementController extends Controller
 
         $annou->update($input);
 
-        $users = [1, 2, 4];
-        if($annou->status == 1){
-            $notificationData['id'] = $annou->id;
-            $notificationData['title'] = $annou->title;
-            $notificationData['created_at'] = $annou->created_at;
-            // $notificationData['created_at'] = $anno->created_at; 
-            // dd($notificationData);
-            foreach($users as $id){
-                $user = User::find($id);
-                Notification::send($user, new NewReleases($notificationData));
-            }
-        }
-
-
         return redirect('/course/create/'.$annou->course_id)->with('success','Announcement edited successfully.');
     }
 
@@ -255,7 +228,8 @@ class AnnouncementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Announcement::where('id',$id)->delete();
+        return redirect()->back();
     }
 
     public function showAllRelease(){
@@ -273,9 +247,8 @@ class AnnouncementController extends Controller
     }
     public function markNotificationRead(){
         $user = Auth::user();
-        foreach ($user->unreadNotifications as $notification) {
-            $notification->markAsRead();
-        }
+        $user->last_annoucement_check = Carbon::now();
+        $user->save();
         return 1;
     }
 }

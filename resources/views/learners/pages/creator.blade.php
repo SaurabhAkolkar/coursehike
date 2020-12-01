@@ -23,35 +23,44 @@
           </div>
 
           @php
-              $creator = new stdClass;
-              $creator->img = "https://picsum.photos/1200/600";
-              $creator->name = "Dyna Acker";
-              $creator->desc = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd";
-              $creator->skill = "Tattoo Artist";
-              $creator->location = "California, US State";
-              $creator->courses = 10;
-              $creator->rating = 4.5;
               $creator->awards = 5;
 
-              $creators = array($creator);
+             if($creator->user_img){
+                  $creator->user_img = asset('/images/user_img/'.$creator->user_img);
+             }else{
+                  $creator->user_img = "https://picsum.photos/1200/600";
+             } 
+             if(!$rating){
+                $rating = 0;
+             }
+             $course_count = count($courses);
+             if(!$creator->facebook_id){
+                  $creator->facebook_id = "#";
+             }
+             if(!$creator->google_id){
+                  $creator->google_id = "#";
+             }
           @endphp
 
           
             <x-creator-profile 
-                  :img="$creator->img"
-                  :name="$creator->name"
-                  :desc="$creator->desc"
+                  :img="$creator->user_img"
+                  :name="$creator->FullName"
+                  :desc="$creator->detail"
+                  :email="$creator->email"
                   :skill="$creator->skill"
                   :location="$creator->location"
-                  :courses="$creator->courses"
-                  :rating="$creator->rating"
+                  :courses="$course_count"
+                  :rating="$rating"
                   :awards="$creator->awards"
+                  :facebook="$creator->facebook_id"
+                  :google="$creator->google_id"
               />
         
 
           <div class="row py-6 py-md-20">   
             <div class="col p-md-0">
-              <h4 class="text-3xl head-font font-weight-bold p-3">Courses from Dyna</h4>
+              <h4 class="text-3xl head-font font-weight-bold p-3">Courses from {{ucfirst($creator->FullName)}}</h4>
               <div class="la-courses__creator-courses d-flex flex-row">
                 @php  
                   $tattoo1 = new stdClass;$tattoo1->img= "https://picsum.photos/600/400";$tattoo1->course= "Tattoo Art";$tattoo1->rating= "4";$tattoo1->url= "";$tattoo1->creatorImg= "https://picsum.photos/100";$tattoo1->creatorName= "Joseph Phill";$tattoo1->creatorUrl= "/creator";
@@ -61,15 +70,16 @@
                   $tattoos = array($tattoo1, $tattoo2, $tattoo3);
                 @endphp
 
-                @foreach($tattoos as $tattoo)
+                @foreach($courses as $course)
                   <x-course 
-                      :img="$tattoo->img" 
-                      :course="$tattoo->course" 
-                      :url="$tattoo->url" 
-                      :rating="$tattoo->rating"
-                      :creatorImg="$tattoo->creatorImg"
-                      :creatorName="$tattoo->creatorName"
-                      :creatorUrl="$tattoo->creatorUrl"
+                      :id="$course->id"
+                      :img="$course->preview_image" 
+                      :course="$course->title" 
+                      :url="$course->title" 
+                      :rating="4"
+                      :creatorImg="$course->user()->user_img"
+                      :creatorName="$course->user()->FullName"
+                      :creatorUrl="$course->user()->id"
                     />
                 @endforeach
 

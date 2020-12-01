@@ -13,15 +13,28 @@
             </div>
         </div>
         <div class="la-playlist__thumbnails  la-playlist__thumbnails--three d-flex flex-wrap">
+            @if($classesCount <= 1)
             <div class="la-playlist__thumbnail">
                 <img class="img-fluid" src="https://picsum.photos/600/500" alt="thumbnail">
             </div>
-            <div class="la-playlist__thumbnail">
-                <img class="img-fluid" src="https://picsum.photos/600/500" alt="thumbnail">
-            </div>
-            <div class="la-playlist__thumbnail">
-                <img class="img-fluid" src="https://picsum.photos/600/500" alt="thumbnail">
-            </div>
+            @elseif($classesCount == 2)
+                <div class="la-playlist__thumbnail">
+                    <img class="img-fluid" src="https://picsum.photos/600/500" alt="thumbnail">
+                </div>
+                <div class="la-playlist__thumbnail">
+                    <img class="img-fluid" src="https://picsum.photos/600/500" alt="thumbnail" width="100%">
+                </div>
+            @else
+                <div class="la-playlist__thumbnail">
+                    <img class="img-fluid" src="https://picsum.photos/600/500" alt="thumbnail">
+                </div>
+                <div class="la-playlist__thumbnail">
+                    <img class="img-fluid" src="https://picsum.photos/600/500" alt="thumbnail">
+                </div>
+                <div class="la-playlist__thumbnail">
+                    <img class="img-fluid" src="https://picsum.photos/600/500" alt="thumbnail">
+                </div>
+            @endif
         </div>
     </div>
     <div class="la-playlist__item-bottom d-flex justify-content-between">

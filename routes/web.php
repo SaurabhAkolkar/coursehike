@@ -573,13 +573,14 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
             Route::get('/playlist','PlaylistController@index');
             Route::get('/playlist/{id}','PlaylistController@show');
+            Route::get('/playlist/{playlist_id}/{id}','PlaylistController@removeCourse');
             Route::get('/playlist/delete/{id}','PlaylistController@deletePlaylist');
             Route::post('/add-to-playlist','PlaylistController@addToPlaylist')->name('add.to.playlist');
             Route::post('/create-playlist','PlaylistController@createPlaylist')->name('create.playlist');
             // Wishlist Routes
             Route::post('/add-to-wishlist','LearnerWishlistController@store');
             Route::get('/wishlist','LearnerWishlistController@index');
-            Route::post('/remove-from-wishlist','LearnerWishlistController@destroy');
+            Route::get('/remove-from-wishlist/{id}','LearnerWishlistController@destroy');
         });
 
     });
@@ -644,12 +645,16 @@ Route::view('/signin','learners.auth.signin');
 Route::view('/interests','learners.auth.interests');
 Route::view('/creator-signup','learners.auth.creator-signup');
 Route::post('/creator-signup','InstructorController@creatorSignUp');
+Route::get('/mentors','InstructorController@allMentors');
+Route::post('/search-mentor','InstructorController@searchMentor');
+Route::get('/creator/{id}','InstructorController@creator');
+
 
 Route::view('/user-dashboard','learners.pages.user-dashboard');
 // Route::get('/browse/courses','HomeController@browseCourses');
 // Route::view('/learn/course/{id}/{slug}','learners.pages.course');
 // Route::view('/my-courses','learners.pages.my-courses');
-Route::view('/mentors','learners.pages.mentors');
+// Route::view('/mentors','learners.pages.mentors');
 Route::view('/creator','learners.pages.creator');
 
 
