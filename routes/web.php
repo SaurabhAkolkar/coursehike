@@ -574,13 +574,15 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
             Route::get('/playlist','PlaylistController@index');
             Route::get('/playlist/{id}','PlaylistController@show');
             Route::get('/playlist/{playlist_id}/{id}','PlaylistController@removeCourse');
-            Route::get('/playlist/delete/{id}','PlaylistController@deletePlaylist');
+            
             Route::post('/add-to-playlist','PlaylistController@addToPlaylist')->name('add.to.playlist');
             Route::post('/create-playlist','PlaylistController@createPlaylist')->name('create.playlist');
             // Wishlist Routes
             Route::post('/add-to-wishlist','LearnerWishlistController@store');
             Route::get('/wishlist','LearnerWishlistController@index');
             Route::get('/remove-from-wishlist/{id}','LearnerWishlistController@destroy');
+
+            Route::get('/playlist-delete/{id}','LearnerWishlistController@deletePlaylist');
         });
 
     });
@@ -603,6 +605,8 @@ Route::get("allcountry/gcity","AllCountryController@gcity");
 Route::get("/search-course","LearnController@searchCourse");
 
 Route::get('/activestatus', 'WatchCourseController@active');
+
+
 
 Route::get('active/courses', 'WatchCourseController@watchlist')->name('active.courses');
 Route::post('active/delete/{id}', 'WatchCourseController@delete')->name('active.delete');
