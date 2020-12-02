@@ -28,7 +28,15 @@
           <!-- Alert Message  -->
           <div id="wishlist_alert_div"></div>
           <!-- Alert Message  -->
-
+          @if(session('message'))
+              <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible fade show" role="alert">
+                  <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
+                  <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" class="text-white">&times;</span>
+                  </button>
+              </div>
+          @endif
+            
           <div class="la-profile__main-inner">
             <div class="la-profile__title-wrap">
               <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-6" href="#"></a>
@@ -40,7 +48,7 @@
                   <span class="la-icon la-icon--md icon-plus mr-3"></span>Add Courses</a>
               </div>
             </div>
-            
+          
             <section class="la-section la-wishlist__sec pt-0">
               <div class="la-wishlist__inner">
                 <div class="row la-wishlist__row">

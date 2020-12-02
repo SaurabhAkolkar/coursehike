@@ -315,7 +315,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::resource('announsment','AnnounsmentController');
       Route::resource('announcement','AnnouncementController');
       Route::get('/course/create/{id}','CourseController@showCourse')->name('course.show');
-      Route::post('/course/annoucement','CourseController@storeAnnoucement')->name('annoucement.store');
+      // Route::post('/course/annoucement','CourseController@storeAnnoucement')->name('annoucement.store');
       Route::post('/category/insert','CategoriesController@categoryStore')->name('cat.store');
       Route::post('/subcategory/insert','SubcategoryController@SubcategoryStore')->name('child.store');
       Route::put('/course/include/{id}','CourseController@testup')->name('corinc.update');
@@ -573,13 +573,14 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
             Route::get('/playlist','PlaylistController@index');
             Route::get('/playlist/{id}','PlaylistController@show');
+            Route::get('/playlist/{playlist_id}/{id}','PlaylistController@removeCourse');
             Route::get('/playlist/delete/{id}','PlaylistController@deletePlaylist');
             Route::post('/add-to-playlist','PlaylistController@addToPlaylist')->name('add.to.playlist');
             Route::post('/create-playlist','PlaylistController@createPlaylist')->name('create.playlist');
             // Wishlist Routes
             Route::post('/add-to-wishlist','LearnerWishlistController@store');
             Route::get('/wishlist','LearnerWishlistController@index');
-            Route::post('/remove-from-wishlist','LearnerWishlistController@destroy');
+            Route::get('/remove-from-wishlist/{id}','LearnerWishlistController@destroy');
         });
 
     });
@@ -630,6 +631,10 @@ Route::get('/profile','ProfileController@index');
 Route::post('/update-password','ProfileController@updatePassword')->name('update.password');
 Route::view('/edit', 'admin.course.courseresource.edit');
 
+Route::get('/releases','AnnouncementController@showAllRelease');
+Route::get('/releases/{id}','AnnouncementController@showRelease');
+Route::get('/mark-nofification-read','AnnouncementController@markNotificationRead');
+
 
 
 
@@ -639,12 +644,17 @@ Route::view('/signup','learners.auth.signup');
 Route::view('/signin','learners.auth.signin');
 Route::view('/interests','learners.auth.interests');
 Route::view('/creator-signup','learners.auth.creator-signup');
+Route::post('/creator-signup','InstructorController@creatorSignUp');
+Route::get('/mentors','InstructorController@allMentors');
+Route::post('/search-mentor','InstructorController@searchMentor');
+Route::get('/creator/{id}','InstructorController@creator');
+
 
 Route::view('/user-dashboard','learners.pages.user-dashboard');
 // Route::get('/browse/courses','HomeController@browseCourses');
 // Route::view('/learn/course/{id}/{slug}','learners.pages.course');
 // Route::view('/my-courses','learners.pages.my-courses');
-Route::view('/mentors','learners.pages.mentors');
+// Route::view('/mentors','learners.pages.mentors');
 Route::view('/creator','learners.pages.creator');
 
 
@@ -656,7 +666,7 @@ Route::view('/payment-successful','learners.pages.payment-successful');
 Route::view('/saved-cards', 'learners.pages.saved-cards');
 Route::view('billing-address', 'learners.pages.billing-address');
 
-Route::view('/releases','learners.pages.new-releases');
+// Route::view('/releases','learners.pages.new-releases');
 Route::view('/learning-plans','learners.pages.learning-plans');
 // Route::view('/payment', 'learners.pages.payment');
 Route::view('/become-creator','learners.pages.become-creator');

@@ -66,7 +66,7 @@
             </form>
           </div> -->
 
-          <form class="la-admin__announce-form mr-20 pr-20" name="announcement-form" enctype="multipart/form-data" action="{{url('announcement/'.$annou->id)}}" method="post">
+          <form class="la-admin__announce-form mr-20 pr-20" name="announcement_form" enctype="multipart/form-data" action="{{url('announcement/'.$annou->id)}}" method="post">
           @method('PUT')
           @csrf
             <input type="hidden" name="course_id" value="{{$annou->course_id}}" />

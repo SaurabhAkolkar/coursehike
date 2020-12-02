@@ -96,14 +96,10 @@ class LearnerWishlistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        $request->validate([
-            'course_id' => 'required',
-        ]);
-
-        Wishlist::where(['user_id'=>Auth::user()->id, 'course_id'=>$request->course_id])->delete();
+        Wishlist::where(['user_id'=>Auth::user()->id, 'course_id'=>$id])->delete();
         
-        return "Course remove successfully";
+        return redirect()->back()->with('message','Course Removed Successfully.');
     }
 }

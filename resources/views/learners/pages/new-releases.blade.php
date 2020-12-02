@@ -9,7 +9,7 @@
         <div class="row">
           <div class="col-12">
             <div class="la-announcement__main-title">
-                <a class="la-new__back la-icon la-icon--5xl icon-back-arrow  mb-2" href="#"></a>
+                <a class="la-new__back la-icon la-icon--5xl icon-back-arrow  mb-2" href="{{URL::previous()}}"></a>
                 <h1 class="head-font text-3xl text-md-4xl">New Releases</h1>
             </div>
           </div>
@@ -24,15 +24,34 @@
                     $update1->desc = "Lorem Ipsum dolor sit amet, consectur sadispicing elitr,";
         
                     $updates = array($update1);
+
                 @endphp          
                 
-                @foreach ($updates as $update)
-                    <x-new-update
-                        :img="$update->img"
-                        :title="$update->title"
-                        :timestamp="$update->timestamp"
-                        :desc="$update->desc"
-                    />
+                @foreach ($allReleases as $ar)
+                  @if($ar->layout == 1)
+                        <x-new-update
+                              :img="asset('images/announcement/'.$ar->preview_image)"
+                              :title="$ar->title"
+                              :timestamp="$ar->created_at"
+                              :desc="$ar->short_description.' '.$ar->long_description"
+                          />
+                  @elseif($ar->layout == 2)
+                          <x-app-update
+                                :title="$ar->title"
+                                :timestamp="$ar->created_at"
+                                :desc="$ar->short_description.' '.$ar->long_description"
+                            />
+
+                  @else
+                        <x-new-event
+                            :title="$ar->title"
+                            :timestamp="$ar->created_at"
+                            :about="$ar->short_description"
+                            :img="asset('images/announcement/'.$ar->preview_image)"
+                            :desc="$ar->long_description"
+                          />
+                  @endif
+                    
                 @endforeach
           
             </div>

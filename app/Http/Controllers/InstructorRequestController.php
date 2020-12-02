@@ -32,10 +32,8 @@ class InstructorRequestController extends Controller
 
         $data = Instructor::findorfail($id);
         $input['status'] = $request->status;
-        
-        
-
-        if($data->status == 1)
+   
+        if($request->status == 0)
         {
             $show = User::where('id', $request->user_id)->first();
             $input['role'] = 'user';
@@ -71,8 +69,8 @@ class InstructorRequestController extends Controller
         $input['gender'] = $request->gender;
         $input['dob'] = $request->dob;
         
-        User::where('id', $request->user_id)
-                    ->update(['detail' => $request->detail, 'mobile' => $request->mobile, 'gender' => $request->gender, 'dob' => $request->dob ]);
+        // User::where('id', $request->user_id)
+        //             ->update(['detail' => $request->detail, 'mobile' => $request->mobile, 'gender' => $request->gender, 'dob' => $request->dob ]);
 
         return redirect()->route('requestinstructor.index');
     }

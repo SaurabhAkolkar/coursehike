@@ -11,6 +11,14 @@
       
       <div class="la-profile__main">
         <div class="container">
+        @if(session('message'))
+              <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible fade show" role="alert">
+                  <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
+                  <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" class="text-white">&times;</span>
+                  </button>
+              </div>
+          @endif
           <div class="la-profile__main-inner">
             <div class="la-profile__title-wrap">
                 <h1 class="la-profile__title">My Playlist
@@ -31,6 +39,7 @@
                     $course_type = "Tattoo Art";
                     $course_url = "/creator";
                     $tattoos = array($tattoo1, $tattoo2, $tattoo7);
+                    $removeFromPlaylist = true;
                     @endphp
 
 
@@ -48,6 +57,7 @@
                                     :creatorImg="$creatorImg"
                                     :creatorName="$course->courses[0]->title"
                                     :creatorUrl="$course_url"
+                                    :removeFromPlaylist="$removeFromPlaylist"
                                 />
                               </div>
                               @endforeach

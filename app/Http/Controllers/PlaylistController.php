@@ -46,6 +46,18 @@ class PlaylistController extends Controller
       return view('learners.pages.playlist-courses')->with(['courses' => $courses, 'playlist'=>$playlist]);
     }
 
+    public function removeCourse($playlist_id, $id){
+        $check = Playlist::where(['user_id'=> Auth::user()->id,'id' => $playlist_id])->first();
+        
+        if($check){
+            PlaylistCourse::where(['playlist_id'=>$playlist_id, 'course_id'=>$id])->delete();
+            return redirect()->back()->with(['message'=>'Course Removed Successfully.']);
+        }else{
+            return redirect()->back()->with(['message'=>'You do not have access to delete.']);
+        }
+       
+    }
+
     /**
      * Adding Course to playlist
      * 

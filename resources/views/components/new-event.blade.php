@@ -5,7 +5,7 @@
     <div class="la-news__meet-content">
         <p class="text-md text-sm-sm"> {{ $about }} </p>
         <div class="la-news__meet-banner">
-          <img class="d-block" src= {{ $img }} alt= {{ $title }} />
+          <img class="d-block" src= "{{ $img }}" alt= {{ $title }} />
         </div>
         <p class="text-md text-sm-sm my-3 collapse" id= "seeEvent" > {{ $desc }} </p>
     </div>

@@ -11,6 +11,9 @@ use Auth;
 use Image;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Http;
+use Notification;
+use App\Notifications\NewReleases;
+use Carbon\Carbon;
 
 class AnnouncementController extends Controller
 {
@@ -97,7 +100,7 @@ class AnnouncementController extends Controller
 
         }
 
-        Announcement::create($input);
+        $anno = Announcement::create($input);      
 
         return redirect()->back()->with('success','Announcement Created Successfully');
     }
@@ -152,7 +155,7 @@ class AnnouncementController extends Controller
         $input['category_id'] = $request->announcement_category;
         $input['short_description'] = $request->announcement_short;
         $input['long_description'] = $request->announcement_long;
-        $input['status'] = $request->status=='On'?1:0;
+        $input['status'] = $request->status="on"?1:0;
         $input['layout'] = $request->layouts;
         $input['course_id'] = $request->course_id;
         $input['user_id'] = Auth::user()->id;
@@ -211,9 +214,9 @@ class AnnouncementController extends Controller
             }
 
         }
-        
+
         $annou->update($input);
-    
+
         return redirect('/course/create/'.$annou->course_id)->with('success','Announcement edited successfully.');
     }
 
@@ -225,6 +228,27 @@ class AnnouncementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Announcement::where('id',$id)->delete();
+        return redirect()->back();
+    }
+
+    public function showAllRelease(){
+        $allReleases = Announcement::where(['status'=>1])->get();
+        // dd($allReleases);
+        return view('learners.pages.new-releases',compact('allReleases'));
+    }
+
+    public function showRelease($id){
+        $release = Announcement::where(['status'=>1, 'id'=>$id])->first();
+        if($release == null){
+            return redirect()->back();
+        }
+        return view('learners.pages.new-release', compact('release'));
+    }
+    public function markNotificationRead(){
+        $user = Auth::user();
+        $user->last_annoucement_check = Carbon::now();
+        $user->save();
+        return 1;
     }
 }

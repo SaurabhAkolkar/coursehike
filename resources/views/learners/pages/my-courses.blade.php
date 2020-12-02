@@ -67,7 +67,7 @@
                   <p class="la-empty__course-desc m-0">You currently don't have any ongoing course, start new course</p>
               </div>
               <div class="la-empty__browse-courses">
-                  <a href="" class="la-empty__browse">
+                  <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
                       Browse Courses
                       <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
                   </a>

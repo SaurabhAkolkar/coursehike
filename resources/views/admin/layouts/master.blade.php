@@ -462,7 +462,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
 
 <script>
   
-  $("form[name='announcement-form']").validate({
+  $("form[name='announcement_form']").validate({
       
       // Specify validation rules
       rules: {

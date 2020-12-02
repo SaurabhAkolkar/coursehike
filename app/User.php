@@ -120,6 +120,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function bundle()
     {
         return $this->hasMany('App\BundleCourse','user_id');
-    }     
+    }
+    public function getFullNameAttribute()
+    {
+        return "{$this->fname} {$this->lname}";
+    }   
 }
 
