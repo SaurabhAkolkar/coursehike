@@ -10,11 +10,6 @@ use Session;
 use Redirect;
 class PlaylistController extends Controller
 {
-    public function __construct()
-    {
-        return $this->middleware('auth');
-    }
-
     /**
      * Displaying Playlist of current User.
      *
@@ -51,6 +46,9 @@ class PlaylistController extends Controller
         
         if($check){
             PlaylistCourse::where(['playlist_id'=>$playlist_id, 'course_id'=>$id])->delete();
+            $check->count = $check->count - 1;
+            $check->update();
+
             return redirect()->back()->with(['message'=>'Course Removed Successfully.']);
         }else{
             return redirect()->back()->with(['message'=>'You do not have access to delete.']);
@@ -125,16 +123,6 @@ class PlaylistController extends Controller
         return redirect('/playlist');
     }
 
-    public function deletePlaylist($id){
-        $check = Playlist::where(['id'=>$id, 'user_id'=>Auth::user()->id])->first();
-        if(empty($check)){
-            return redirect()->back()->with('failed','This Playlist Cannot be deleted By You.');
-        }
-        
-        Playlist::destroy($id);
-        $delete = PlaylistCourse::where('playlist_id',$id)->delete();
-
-        return redirect()->back()->with('success','Playlist Deleted Successfully');
-    }
+ 
 
 }

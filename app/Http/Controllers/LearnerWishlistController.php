@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Wishlist;
 use Auth;
+use App\Playlist;
+use App\PlaylistCourse;
 
 class LearnerWishlistController extends Controller
 {
@@ -101,5 +103,20 @@ class LearnerWishlistController extends Controller
         Wishlist::where(['user_id'=>Auth::user()->id, 'course_id'=>$id])->delete();
         
         return redirect()->back()->with('message','Course Removed Successfully.');
+    }
+
+    public function deletePlaylist($id){
+   
+        $check = Playlist::where(['id'=>$id, 'user_id'=>Auth::user()->id])->first();
+
+        if(empty($check)){
+            return redirect()->back()->with('success','This Playlist Cannot be deleted By You.');
+        }
+        
+        Playlist::where('id',$id)->delete();
+        
+        $delete = PlaylistCourse::where('playlist_id',$id)->delete();
+
+        return redirect()->back()->with('success','Playlist Deleted Successfully');
     }
 }
