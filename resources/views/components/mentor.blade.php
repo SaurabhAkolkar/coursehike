@@ -1,6 +1,6 @@
 
 
-<div class="col d-inline-flex justify-content-center">
+<div class="col-lg-4 d-inline-flex justify-content-center">
     <div class="la-mentor">
       <div class="la-mentor__profile">
           <img class="img-fluid" src="{{ $img }}" alt={{ $name }}>

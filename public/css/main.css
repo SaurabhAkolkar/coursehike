@@ -10614,10 +10614,10 @@ ul, li {
 }
 .la-btn__alert-msg {
   padding: var(--size-5) var(--size-6);
-  font-size: var(--text-lg);
+  font-size: var(--text-md);
   font-family: var(--font-body);
   font-weight: var(--font-medium);
-  margin: 0;
+  margin: var(--size-base) 0;
   opacity: 1;
 }
 
