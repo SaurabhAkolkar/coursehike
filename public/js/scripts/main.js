@@ -346,19 +346,3 @@ function removeFromWishList(id){
     alert('Something went wrong');
   }
 }
-
-function markNotificationRead(){
-  $.ajax({
-    headers: {
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    },
-    type:"get",
-    url: '/mark-nofification-read',
-    success:function(data){   
-      $('#releaseNotificationBadge').html('0');              
-    },
-    error: function(XMLHttpRequest, textStatus, errorThrown) {
-      console.log(XMLHttpRequest);
-    }
-  });
-}
