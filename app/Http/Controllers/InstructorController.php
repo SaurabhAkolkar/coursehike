@@ -26,21 +26,24 @@ class InstructorController extends Controller
     }
 
     public function creatorSignUp(Request $request){
-
+           
             $request->validate([
                 'display_name' => 'required|min:3',
                 'expert_in' => 'required|min:3',
                 'yoe' => 'required',
             ]);
-           
+          
 
             if(Auth::user()->role == "admin" || Auth::user()->role == "mentors" ){
-                return redirect()->back()->withErrors(['You are already a mentor.']);
+                return 'You are already a mentor.';
             }
             
             $check = Instructor::where('user_id', Auth::User()->id)->first();
             if($check){
-                return redirect()->back()->withErrors(['You already have a request for the becoming a mentor.']);
+                return 'You already have a request for the becoming a mentor.';
+            }
+            if(Auth::user()->dob == "" || Auth::user()->detail =="" || Auth::user()->address =="" || Auth::user()->state_id =="" || Auth::user()->country_id =="" ){
+                return 'Update your profile to become a creator';
             }
             $portfolio = $request->all_portfolio;
             $portfolio= json_encode(explode(",",$portfolio));
@@ -64,7 +67,7 @@ class InstructorController extends Controller
 
             Instructor::create($input);
 
-            return redirect('/home');
+            return 1;
     }
 
     public function allMentors(){
@@ -77,11 +80,12 @@ class InstructorController extends Controller
 
     public function creator($id){
         $creator = User::findorfail($id);
-        $courses = Course::with('user')->where('user_id', $id)->get();
+        $courses = Course::with('user','review')->where('user_id', $id)->get();
         $courses_ids = Course::where('user_id', $id)->pluck('id');
         $rating = ReviewRating::whereIn('course_id', $courses_ids)->avg('rating');
-               
-        return view('learners.pages.creator', compact('creator','courses','rating'));
+        $awards = count(Instructor::where('user_id', $id)->pluck('awards'));
+        
+        return view('learners.pages.creator', compact('creator','courses','rating','awards'));
     }
 
     public function searchMentor(Request $request){

@@ -591,6 +591,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
     Route::post('/learn/course/{video_id}','LearnController@video')->name('learn.video');
     Route::get('/browse/courses','SearchController@index');
 
+    Route::view('/creator-signup','learners.auth.creator-signup')->middleware('check_creator');
+    Route::post('/creator-signup','InstructorController@creatorSignUp')->middleware('check_creator');
 
     Route::get('/jwt', 'CourseclassController@token_generate');
 
@@ -643,12 +645,12 @@ Route::get('/mark-nofification-read','AnnouncementController@markNotificationRea
 
 
 // Route::view('/','learners.pages.home');
-
+Route::get('/interests','UserController@getInterests');
+Route::post('/add-interests','UserController@storeInterest');
 Route::view('/signup','learners.auth.signup');
 Route::view('/signin','learners.auth.signin');
-Route::view('/interests','learners.auth.interests');
-Route::view('/creator-signup','learners.auth.creator-signup');
-Route::post('/creator-signup','InstructorController@creatorSignUp');
+// Route::view('/interests','learners.auth.interests');
+
 Route::get('/mentors','InstructorController@allMentors');
 Route::post('/search-mentor','InstructorController@searchMentor');
 Route::get('/creator/{id}','InstructorController@creator');

@@ -17,7 +17,7 @@
         </div>
         <div class="col-md-5 la-entry__col la-entry__col-right h-100">
           <div class="la-entry__content-wrap d-flex flex-column justify-content-center">
-            <div class="la-entry__content-top">
+            <div class="la-entry__content-top" id="creator_signup_div">
               <div class="la-entry__interests-title la-entry__content-title text-center mb-8">Tell us about your work</div>
               @if($errors->any())
               <h4></h4>
@@ -152,9 +152,17 @@
       // Make sure the form is submitted to the destination defined
       // in the "action" attribute of the form when valid
       submitHandler: function(form) {
-        form.submit();
+            
+            $.ajax({
+              url: '/creator-signup',
+              type: 'post',
+              data: $(form).serialize(),
+              success: function(response) {
+                  let message = `<h3>${response}</h3>`;
+                  $('#creator_signup_div').html(message);
+              }   
+            });  
       }
-      
     });
 
 </script>

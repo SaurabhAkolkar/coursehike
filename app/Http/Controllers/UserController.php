@@ -26,6 +26,9 @@ use App\BundleCourse;
 use App\BBL;
 use App\Instructor;
 use App\CourseProgress;
+use App\Categories;
+use App\UserInterest;
+
 
 class UserController extends Controller
 {
@@ -241,7 +244,27 @@ class UserController extends Controller
         }
     }
 
+    public function getInterests(){
+            $categories = Categories::where('status',1)->get();
+            return view('learners.auth.interests', compact('categories'));
+    }
+    public function storeInterest(Request $request){
 
+        $input['user_id'] = Auth::user()->id;
+        $input['course_id'] = $request->interets;
+        $input['course_id']=explode(",",$input['course_id']);
+        $input['course_id_all']=array_filter($input['course_id']);
+        UserInterest::where('user_id', Auth::User()->id)->delete();
+        foreach($input['course_id_all'] as $c){
+            $input['course_id'] = $c; 
+            $check = UserInterest::where(['user_id'=>Auth::User()->id, 'course_id'=>$c])->first();
 
+            if(!$check){
+                UserInterest::create($input);
+            }
+        }
+        return redirect('/');
+
+    }
     
 }
