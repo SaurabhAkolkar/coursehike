@@ -23,7 +23,6 @@
           </div>
 
           @php
-              $creator->awards = 5;
 
              if($creator->user_img){
                   $creator->user_img = asset('/images/user_img/'.$creator->user_img);
@@ -34,12 +33,6 @@
                 $rating = 0;
              }
              $course_count = count($courses);
-             if(!$creator->facebook_id){
-                  $creator->facebook_id = "#";
-             }
-             if(!$creator->google_id){
-                  $creator->google_id = "#";
-             }
           @endphp
 
           
@@ -52,7 +45,7 @@
                   :location="$creator->location"
                   :courses="$course_count"
                   :rating="$rating"
-                  :awards="$creator->awards"
+                  :awards="$awards"
                   :facebook="$creator->facebook_id"
                   :google="$creator->google_id"
               />
@@ -62,24 +55,19 @@
             <div class="col p-md-0">
               <h4 class="text-3xl head-font font-weight-bold p-3">Courses from {{ucfirst($creator->FullName)}}</h4>
               <div class="la-courses__creator-courses d-flex flex-row">
-                @php  
-                  $tattoo1 = new stdClass;$tattoo1->img= "https://picsum.photos/600/400";$tattoo1->course= "Tattoo Art";$tattoo1->rating= "4";$tattoo1->url= "";$tattoo1->creatorImg= "https://picsum.photos/100";$tattoo1->creatorName= "Joseph Phill";$tattoo1->creatorUrl= "/creator";
-                  $tattoo2 = new stdClass;$tattoo2->img= "https://picsum.photos/600/400"; $tattoo2->course= "Tattoo Art";$tattoo2->rating= "4";$tattoo2->url= "";$tattoo2->creatorImg= "https://picsum.photos/100";$tattoo2->creatorName= "Amy D'souza";$tattoo2->creatorUrl= "/creator";
-                  $tattoo3 = new stdClass;$tattoo3->img= "https://picsum.photos/600/400";$tattoo3->course= "Tattoo Art";$tattoo3->rating= "4";$tattoo3->url= "";$tattoo3->creatorImg= "https://picsum.photos/100";$tattoo3->creatorName= "Alton Crew";$tattoo3->creatorUrl= "/creator";
-                
-                  $tattoos = array($tattoo1, $tattoo2, $tattoo3);
-                @endphp
+
 
                 @foreach($courses as $course)
+                
                   <x-course 
                       :id="$course->id"
                       :img="$course->preview_image" 
                       :course="$course->title" 
                       :url="$course->title" 
-                      :rating="4"
-                      :creatorImg="$course->user()->user_img"
-                      :creatorName="$course->user()->FullName"
-                      :creatorUrl="$course->user()->id"
+                      :rating="$course->review->avg('rating')"
+                      :creatorImg="$course->user->user_img"
+                      :creatorName="$course->user->FullName"
+                      :creatorUrl="$course->user->id"
                     />
                 @endforeach
 

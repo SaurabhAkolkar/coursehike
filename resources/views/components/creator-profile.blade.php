@@ -17,15 +17,19 @@
 
         <div class="la-vcreator__social mt-8">
           <div class="la-vcreator__social-itm mr-5">
+            @if($facebook)
             <a class="la-vcreator__social-link" href="{{$facebook}}">
               <i class="la-icon la-icon--5xl icon-facebook"></i>
             </a>
             <a class="la-vcreator__social-link" href="{{$facebook}}">
               <i class="la-icon la-icon--5xl icon-insta"></i>
             </a>
+            @endif
+            @if($google)
             <a class="la-vcreator__social-link" href="{{$google}}">
               <i class="la-icon la-icon--5xl icon-youtube"></i>
             </a>
+            @endif
             <a class="la-vcreator__social-link" href="{{$email}}">
               <i class="la-icon la-icon--5xl icon-mail"></i>
             </a>
@@ -46,7 +50,7 @@
             <div class="la-vcreator__category text-uppercase">Courses</div>
         </li>
         <li class="la-vcreator__ratings">
-            <div class="la-vcreator__stats text-center"> {{ $rating }} </div>
+            <div class="la-vcreator__stats text-center"> {{ round($rating, 2) }} </div>
             <div class="la-vcreator__category text-uppercase">Ratings</div>
         </li>
         <li class="la-vcreator__awards">

@@ -62,7 +62,7 @@
                             <div class="la-form__input-wrap la-entry__input-wrap ">
                                 <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
                                 <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-profile"></span></span>
-                                <input type="text" class="la-form__input la-entry__input{{ $errors->has('fname') ? ' is-invalid' : '' }}" name="firstname" value="{{ old('fname') }}" id="fname" placeholder="Full Name">
+                                <input type="text" class="la-form__input la-entry__input{{ $errors->has('fname') ? ' is-invalid' : '' }}" name="fname" value="{{ old('fname') }}" id="fname" placeholder="Full Name">
                                 @if ($errors->has('fname'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('fname') }}</strong>

@@ -45,6 +45,8 @@ class HomeController extends Controller
         $bigblue = BBL::where('is_ended','!=',1)->where('link_by', NULL)->get();
         $testi = Testimonial::all();
         $trusted = Trusted::all();
+        // $Playlist = [];
+        
 
 
         return view('learners.pages.home', compact('categories', 'sliders', 'facts', 'cor', 'bundles', 'meetings', 'bigblue', 'testi', 'trusted'));

@@ -4,10 +4,19 @@
   <!-- Section: Start-->
   <section class="la-page--bcreator">
     <div class="container-fluid">
+    @if(session('message'))
+                <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible fade show" role="alert">
+                    <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
+                    <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true" class="text-white">&times;</span>
+                    </button>
+                </div>
+     @endif
       <div class="row">
         <!-- Column: Start-->
         <div class="col-12 col-sm-12 la-bcreator__banner" style="background:url('../images/learners/creator/bcreator-banner.png') no-repeat bottom rgba(0, 0, 0, 0.5); background-size:cover;">
           <div class="la-bcreator text-left text-sm-center px-6">
+
             <a class="la-bcreator__back-link position-absolute" href="#"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
             <div class="la-bcreator__content">
               <strong class=" text-white text-uppercase m-0">Lorem Ipsum</strong>

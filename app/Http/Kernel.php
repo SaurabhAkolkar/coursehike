@@ -70,6 +70,7 @@ class Kernel extends HttpKernel
         'optimizeImages' => \Spatie\LaravelImageOptimizer\Middlewares\OptimizeImages::class,
         'is_verified' => \App\Http\Middleware\IsVerified::class,
         'ip_block' => \App\Http\Middleware\IpBlock::class,
+        'check_creator' => \App\Http\Middleware\CheckCreator::class,
     ];
 
     /**
