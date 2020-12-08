@@ -55,7 +55,7 @@
     </div>
     <div class="la-cart__bill-btn">
         <div class="la-hero__actions d-flex align-items-center justify-content-end">
-            <a class="la-btn__app text--black w-100 px-18 py-3" href= {{ $checkoutUrl }}>checkout</a>
+            <button type="submit" class="w-25 la-btn__app py-3 w-100  text--black" type="button" href= {{ $checkoutUrl }}>Checkout</button>
         </div>
     </div>
 </div>

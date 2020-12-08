@@ -1,8 +1,8 @@
 @extends('admin.layouts.master')
-@section('title', 'Dashboard - Instructor')
+@section('title', 'Dashboard - Creators')
 @section('body')
 
-@if(Auth::User()->role == "instructor")
+@if(Auth::User()->role == "mentors")
 
 <section class="content-header">
   <h1 class="m-0 pt-6">

@@ -8,7 +8,7 @@ class Instructor extends Model
 {
 	protected $table = 'instructors';
 	
-    protected $fillable = [ 'user_id', 'fname', 'lname', 'email', 'dob', 'mobile', 'gender', 'detail', 'file', 'image', 'status', ];
+    protected $fillable = [ 'user_id', 'fname', 'lname', 'display_name','yoe', 'awards', 'portfolio_links', 'expert_in', 'email', 'dob', 'mobile', 'gender', 'detail', 'file', 'image', 'status', ];
 
     public function courses()
     {

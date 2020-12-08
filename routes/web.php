@@ -5,7 +5,7 @@ use App\FaqInstructor;
 use App\User;
 use App\Setting;
 use App\CourseClass;
-
+// dd(Auth::user());
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -200,6 +200,10 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::post('admin/class/{id}/addsubtitle','SubtitleController@post')->name('add.subtitle');
       Route::post('admin/class/{id}/delete/subtitle','SubtitleController@delete')->name('del.subtitle');
 
+      Route::post('admin/class/{id}/audiotrack','AudioTrackController@post')->name('add.audiotrack');
+      Route::delete('admin/class/{id}/audiotrack','AudioTrackController@delete')->name('del.audiotrack');
+
+
       Route::get('frontslider', 'CategorySliderController@show')->name('category.slider');
       Route::put('frontslider/update', 'CategorySliderController@update');
 
@@ -309,7 +313,9 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::resource('courseclass','CourseclassController');
       Route::resource('reviewrating','ReviewratingController');
       Route::resource('announsment','AnnounsmentController');
+      Route::resource('announcement','AnnouncementController');
       Route::get('/course/create/{id}','CourseController@showCourse')->name('course.show');
+      // Route::post('/course/annoucement','CourseController@storeAnnoucement')->name('annoucement.store');
       Route::post('/category/insert','CategoriesController@categoryStore')->name('cat.store');
       Route::post('/subcategory/insert','SubcategoryController@SubcategoryStore')->name('child.store');
       Route::put('/course/include/{id}','CourseController@testup')->name('corinc.update');
@@ -442,6 +448,11 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::get('language-switch/{local}', 'LanguageSwitchController@languageSwitch')->name('languageSwitch');
 
+    Route::get("country/dropdown","CountryController@upload_info");
+    Route::get("country/gcity","CountryController@gcity");
+    Route::get("country/gstate","CountryController@gstate");
+
+
       Route::get("country/dropdown","CountryController@upload_info");
       Route::get("country/gcity","CountryController@gcity");
 
@@ -557,11 +568,35 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::post('course/appointment/{id}', 'AppointmentController@request')->name('appointment.request');
       Route::post('appointment/delete/{id}', 'AppointmentController@delete');
 
+        Route::middleware(['auth'])->group(function () {
+            Route::post('/rate-course','SearchController@rateCourse')->name('rate.course');
+
+            Route::get('/playlist','PlaylistController@index');
+            Route::get('/playlist/{id}','PlaylistController@show');
+            Route::get('/playlist/{playlist_id}/{id}','PlaylistController@removeCourse');
+            
+            Route::post('/add-to-playlist','PlaylistController@addToPlaylist')->name('add.to.playlist');
+            Route::post('/create-playlist','PlaylistController@createPlaylist')->name('create.playlist');
+            // Wishlist Routes
+            Route::post('/add-to-wishlist','LearnerWishlistController@store');
+            Route::get('/wishlist','LearnerWishlistController@index');
+            Route::get('/remove-from-wishlist/{id}','LearnerWishlistController@destroy');
+
+            Route::get('/playlist-delete/{id}','LearnerWishlistController@deletePlaylist');
+        });
+
     });
 
     Route::get('/learn/course/{id}/{slug}', 'LearnController@show')->name('learn.show');
     Route::post('/learn/course/{video_id}','LearnController@video')->name('learn.video');
+    Route::get('/browse/courses','SearchController@index');
+
+    Route::view('/creator-signup','learners.auth.creator-signup')->middleware('check_creator');
+    Route::post('/creator-signup','InstructorController@creatorSignUp')->middleware('check_creator');
+
     Route::get('/jwt', 'CourseclassController@token_generate');
+
+    Route::get('/my-courses','SearchController@myCourses');
 
 });
 
@@ -569,7 +604,11 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 Route::get("allcountry/dropdown","AllCountryController@upload_info");
 Route::get("allcountry/gcity","AllCountryController@gcity");
 
+Route::get("/search-course","LearnController@searchCourse");
+
 Route::get('/activestatus', 'WatchCourseController@active');
+
+
 
 Route::get('active/courses', 'WatchCourseController@watchlist')->name('active.courses');
 Route::post('active/delete/{id}', 'WatchCourseController@delete')->name('active.delete');
@@ -589,35 +628,51 @@ Route::get('/subscription/{slug}', 'SubscriptionController@plans');
 Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
 
 Route::get("zoho/module","ZohoController@createRecords");
-Route::view('/edit', 'admin.course.courseresource.edit');
 
 Route::view('/requests', 'instructor.requests.index');
 // Route for Learner's View
 
-// Route::view('/','learners.pages.home');
+Route::post('/profile',"ProfileController@updateProfile");
+Route::get('/profile','ProfileController@index');
+Route::post('/update-password','ProfileController@updatePassword')->name('update.password');
+Route::view('/edit', 'admin.course.courseresource.edit');
 
+Route::get('/releases','AnnouncementController@showAllRelease');
+Route::get('/releases/{id}','AnnouncementController@showRelease');
+Route::get('/mark-nofification-read','AnnouncementController@markNotificationRead');
+
+
+
+
+// Route::view('/','learners.pages.home');
+Route::get('/interests','UserController@getInterests');
+Route::post('/add-interests','UserController@storeInterest');
 Route::view('/signup','learners.auth.signup');
 Route::view('/signin','learners.auth.signin');
-Route::view('/interests','learners.auth.interests');
-Route::view('/creator-signup','learners.auth.creator-signup');
+// Route::view('/interests','learners.auth.interests');
+
+Route::get('/mentors','InstructorController@allMentors');
+Route::post('/search-mentor','InstructorController@searchMentor');
+Route::get('/creator/{id}','InstructorController@creator');
+
 
 Route::view('/user-dashboard','learners.pages.user-dashboard');
-Route::view('/browse/courses','learners.pages.courses');
+// Route::get('/browse/courses','HomeController@browseCourses');
 // Route::view('/learn/course/{id}/{slug}','learners.pages.course');
-Route::view('/my-courses','learners.pages.my-courses');
-Route::view('/mentors','learners.pages.mentors');
+// Route::view('/my-courses','learners.pages.my-courses');
+// Route::view('/mentors','learners.pages.mentors');
 Route::view('/creator','learners.pages.creator');
 
-Route::view('/profile','learners.pages.profile');
-Route::view('/wishlist','learners.pages.wishlist');
+
+// Route::view('/wishlist','learners.pages.wishlist');
 Route::view('/cart','learners.pages.cart');
-Route::view('/playlist','learners.pages.playlist');
+
 Route::view('/purchase-history','learners.pages.purchase-history');
 Route::view('/payment-successful','learners.pages.payment-successful');
 Route::view('/saved-cards', 'learners.pages.saved-cards');
 Route::view('billing-address', 'learners.pages.billing-address');
 
-Route::view('/releases','learners.pages.new-releases');
+// Route::view('/releases','learners.pages.new-releases');
 Route::view('/learning-plans','learners.pages.learning-plans');
 // Route::view('/payment', 'learners.pages.payment');
 Route::view('/become-creator','learners.pages.become-creator');

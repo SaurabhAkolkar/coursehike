@@ -15,13 +15,27 @@
           		<div class="view-instructor">
                     <div class="instructor-detail">
                     	<ul>
-                    		<li><img src="{{ asset('images/instructor/'.$show->image) }}" class="img-circle"/></li>
+                    		<li><img src="{{ asset('images/user_img/'.$show->image) }}" class="img-circle"/></li>
                     		<li>{{ __('adminstaticword.Name') }}: {{ $show->fname }} {{ $show['lname'] }}</li>
                     		<li>{{ __('adminstaticword.Role') }}: {{ $show->role }}</li>
                     		<li>{{ __('adminstaticword.Phone') }}: {{ $show->mobile }}</li>
                     		<li>{{ __('adminstaticword.Email') }}: {{ $show->email }}</li>
                     		<li>{{ __('adminstaticword.DateofBirth') }}: {{ $show->dob }}</li>
                     		<li>{{ __('adminstaticword.Gender') }}: {{ $show->gender }}</li>
+							<li>{{ __('Awards') }}: @php foreach(json_decode($show->awards) as $a)
+															{
+																echo $a;
+															}
+													@endphp
+													
+													</li>
+							<li>{{ __('Portfolio') }}: @php foreach(json_decode($show->portfolio_links) as $a)
+									{
+										echo $a.',';
+									}
+							@endphp
+							
+							</li>
                     		<li>{{ __('adminstaticword.Detail') }}: {{ $show->detail }}</li>
                     		<li>{{ __('adminstaticword.Resume') }}: <a href="{{ asset('files/instructor/'.$show->file) }}" download="{{$show->file}}">{{ __('adminstaticword.Download') }} <i class="fa fa-download"></i></a></li>
 
@@ -35,7 +49,7 @@
 	                {{ method_field('PUT') }}
 
 	                <input type="hidden" value="{{ $show->user_id }}" name="user_id" class="form-control">
-					        <input type="hidden" value="{{ $show->role }}" name="role" class="form-control">
+					        <input type="hidden" value="mentors" name="role" class="form-control">
                   <input type="hidden" value="{{ $show->mobile }}" name="mobile" class="form-control">
                   <input type="hidden" value="{{ $show->detail }}" name="detail" class="form-control">
                   <input type="hidden" value="{{ $show->gender }}" name="gender" class="form-control">

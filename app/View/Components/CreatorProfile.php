@@ -19,8 +19,11 @@ class CreatorProfile extends Component
     public $courses;
     public $rating;
     public $awards;
+    public $facebook;
+    public $google;
+    public $email;
 
-    public function __construct($img, $name, $desc, $skill, $location, $courses, $rating, $awards)
+    public function __construct($img, $name, $desc, $skill, $location, $courses, $rating, $awards, $facebook, $google, $email)
     {
         $this->img = $img;
         $this->name = $name;
@@ -30,6 +33,9 @@ class CreatorProfile extends Component
         $this->courses = $courses;
         $this->rating = $rating;
         $this->awards = $awards;
+        $this->facebook = $facebook;
+        $this->google = $google;
+        $this->email = $email;
     }
 
     /**

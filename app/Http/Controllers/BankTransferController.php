@@ -101,7 +101,7 @@ class BankTransferController extends Controller
 
                     if(isset($setting))
                     {
-                        if($cart->courses->user->role == "instructor")
+                        if($cart->courses->user->role == "mentors")
                         {
                             $x_amount = $pay_amount * $setting->instructor_revenue;
                             $instructor_payout = $x_amount / 100;
@@ -164,7 +164,7 @@ class BankTransferController extends Controller
                     if($cart->type == 0)
                     {
 
-                        if($cart->courses->user->role == "instructor")
+                        if($cart->courses->user->role == "mentors")
                         {
 
                             $created_payout = PendingPayout::create([

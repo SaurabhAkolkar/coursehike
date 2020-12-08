@@ -14,7 +14,7 @@
                 <div class="la-profile__main-inner pb-md-20">
                     <h1 class="la-profile__title text-4xl pb-8">Billing Addresses</h1>
                     <div class="row">
-                      <div class="col-7">
+                      <div class="col-md-7">
                         <div class="la-form" name="saved-addresss">
                             <div class="la-form__input-wrap">
                               <div class="la-form__lable la-form__lable--medium mb-2"> 

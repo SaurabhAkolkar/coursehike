@@ -13,6 +13,7 @@
             <!-- SECTION PURCHASED: START -->
             <section class="la-purchase--history">
                 <div class="container px-0">
+                  <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="#"></a>
                   <div class="la-purchaseh__main-title text-3xl head-font pb-5 pb-lg-10">Purchase History</div>
                 </div>
                   <!-- Purchased Desktop Version: Start -->
@@ -97,6 +98,7 @@
                       $purchase1->img = "https://picsum.photos/100/100";
                       $purchase1->course = "Photography";
                       $purchase1->creator = "Charlotte Floyd";
+                      $purchase1->id = "p1";
                       $purchase1->date = "20.01.19";
                       $purchase1->paymode = "payTM";
                       $purchase1->total = 39;
@@ -112,6 +114,7 @@
                           :img="$purchase->img"
                           :course="$purchase->course"
                           :creator="$purchase->creator"
+                          :id="$purchase->id"
                           :date="$purchase->date"
                           :paymode="$purchase->paymode"
                           :total="$purchase->total"
@@ -222,6 +225,7 @@
                   $rent1->img = "https://picsum.photos/100/100";
                   $rent1->classes= "Classes 1 & 2";
                   $rent1->course = "Photography";
+                  $rent1->id = "rent1";
                   $rent1->creator = "Charlotte Floyd";
                   $rent1->fromdate = "20.01.19";
                   $rent1->todate = "20.01.20";
@@ -242,6 +246,7 @@
                       :classes="$rent->classes"
                       :course="$rent->course"
                       :creator="$rent->creator"
+                      :id="$rent->id"
                       :fromdate="$rent->fromdate"
                       :todate="$rent->todate"
                       :paymode="$rent->paymode"
@@ -341,6 +346,7 @@
                     $trial1->classes= "";
                     $trial1->course = "Photography";
                     $trial1->creator = "Charlotte Floyd";
+                    $trial1->id = "trial1";
                     $trial1->fromdate = "20.01.19";
                     $trial1->todate = "20.01.20";
                     $trial1->paymode = "payTM";
@@ -360,6 +366,7 @@
                           :classes="$trial->classes"
                           :course="$trial->course"
                           :creator="$trial->creator"
+                          :id="$trial->id"
                           :fromdate="$trial->fromdate"
                           :todate="$trial->todate"
                           :paymode="$trial->paymode"
@@ -456,39 +463,41 @@
                 </div>
 
                 @php
-                  $rent1 = new stdClass;
-                  $rent1->img = "https://picsum.photos/100/100";
-                  $rent1->classes= "";
-                  $rent1->course = "Photography";
-                  $rent1->creator = "Charlotte Floyd";
-                  $rent1->fromdate = "20.01.19";
-                  $rent1->todate = "20.01.20";
-                  $rent1->paymode = "payTM";
-                  $rent1->total = 39;
-                  $rent1->paystatus = "Paid";
-                  $rent1->invoice = "Invoice";
-                  $rent1->invoiceUrl = "";
-                  $rent1->upgrade = "Renew";
-                  $rent1->upgradeUrl = "";
+                  $other1 = new stdClass;
+                  $other1->img = "https://picsum.photos/100/100";
+                  $other1->classes= "";
+                  $other1->course = "Photography";
+                  $other1->creator = "Charlotte Floyd";
+                  $other1->id = "other1";
+                  $other1->fromdate = "20.01.19";
+                  $other1->todate = "20.01.20";
+                  $other1->paymode = "payTM";
+                  $other1->total = 39;
+                  $other1->paystatus = "Paid";
+                  $other1->invoice = "Invoice";
+                  $other1->invoiceUrl = "";
+                  $other1->upgrade = "Renew";
+                  $other1->upgradeUrl = "";
 
-                  $rents = array($rent1);
+                  $others = array($other1);
                 @endphp
 
-                @foreach ($rents as $rent)
+                @foreach ($others as $other)
                   <x-rent-mobile 
-                      :img="$rent->img"
-                      :classes="$rent->classes"
-                      :course="$rent->course"
-                      :creator="$rent->creator"
-                      :fromdate="$rent->fromdate"
-                      :todate="$rent->todate"
-                      :paymode="$rent->paymode"
-                      :total="$rent->total"
-                      :paystatus="$rent->paystatus"
-                      :invoice="$rent->invoice"
-                      :invoiceUrl="$rent->invoiceUrl"
-                      :upgrade="$rent->upgrade"
-                      :upgradeUrl="$rent->upgradeUrl"
+                      :img="$other->img"
+                      :classes="$other->classes"
+                      :course="$other->course"
+                      :creator="$other->creator"
+                      :id="$other->id"
+                      :fromdate="$other->fromdate"
+                      :todate="$other->todate"
+                      :paymode="$other->paymode"
+                      :total="$other->total"
+                      :paystatus="$other->paystatus"
+                      :invoice="$other->invoice"
+                      :invoiceUrl="$other->invoiceUrl"
+                      :upgrade="$other->upgrade"
+                      :upgradeUrl="$other->upgradeUrl"
                   />
                 @endforeach             
               </div>

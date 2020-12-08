@@ -89,7 +89,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
         </a>
 
         <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav d-inline-block">
+          <ul class="nav navbar-nav d-inline-block mx-10">
             <!-- Messages: style can be found in dropdown.less-->
             @php
                 $languages = App\Language::all(); 
@@ -153,7 +153,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
 
             </li>
             <!-- Control Sidebar Toggle Button -->
-            <li>
+            {{-- <li>
                  <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">
@@ -163,7 +163,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                     @csrf
                 </form>
-            </li>
+            </li> --}}
           </ul>
         </div>
       </nav>
@@ -173,7 +173,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
     @if(Auth::User()->role == "admin")
       @include('admin.layouts.sidebar')
     @endif
-    @if(Auth::User()->role == "instructor")
+    @if(Auth::User()->role == "mentors")
       @include('instructor.layouts.sidebar')
     @endif
     
@@ -198,6 +198,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
   <!-- jQuery 3 -->
   <script src="{{url('js/jquery.min.js')}}"></script>
   <script src="{{ url('js/select2.min.js')}}"></script>
+  <script src="{{ asset('/installer/js/jquery.validate.min.js') }} "></script>
   <!-- Bootstrap 3.3.7 -->
   <script src="{{url('js/dashboard/bootstrap.min.js')}}"></script> <!-- DataTables -->
   <script src="{{url('js/dashboard/jquery.dataTables.min.js')}}"></script>
@@ -232,7 +233,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
   <script src="{{ url('js/dashboard/buttons.print.min.js')}}"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-
+ 
   
   <!-- page script -->
   <script>
@@ -449,11 +450,52 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
           }
         }
       })(jQuery);
+
+
     </script>
+
+    
   @endif
 
 @yield('scripts')
 @yield('script')
 
+<script>
+  
+  $("form[name='announcement_form']").validate({
+      
+      // Specify validation rules
+      rules: {
+        // The key name on the left side is the name attribute
+        // of an input field. Validation rules are defined
+        // on the right side
+        announcement_title: "required",
+        announcement_short: "required",
+        announcement_long: "required",
+        announcement_category: "required",
+        preview_image: {
+              extension: "jpg|jpeg|png",
+        },
+        preview_video: {
+          extension: "mp4",
+        }
+      },
+      // Specify validation error messages
+      messages: {
+        announcement_title: "Please enter title.",
+        announcement_short: "Please enter Short Description.",
+        announcement_long : "Please enter long Decription.",
+        announcement_category : "Please select category.",
+        preview_image : "Preview Image should be of jpg, jpeg, png type.",
+        preview_video : "Preview Video Should be of .mp4 format.",
+      },
+      // Make sure the form is submitted to the destination defined
+      // in the "action" attribute of the form when valid
+      submitHandler: function(form) {
+        form.submit();
+      }
+      
+    });
+</script>
 </body>
 </html>

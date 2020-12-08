@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Instructor;
 use DB;
 use App\User;
+use App\Mail\CreatorRequest;
+use App\Setting;
 
 class InstructorRequestController extends Controller
 {
@@ -32,10 +34,8 @@ class InstructorRequestController extends Controller
 
         $data = Instructor::findorfail($id);
         $input['status'] = $request->status;
-        
-        
-
-        if($data->status == 1)
+   
+        if($request->status == 0)
         {
             $show = User::where('id', $request->user_id)->first();
             $input['role'] = 'user';
@@ -47,6 +47,7 @@ class InstructorRequestController extends Controller
             
             Instructor::where('user_id', $request->user_id)
                     ->update(['status' => 0]);
+
             
         }
         else
@@ -55,10 +56,24 @@ class InstructorRequestController extends Controller
             $show = User::where('id', $request->user_id)->first();
             $abc['role'] = $request->role;
             
-            User::where('id', $request->user_id)
+            $user = User::where('id', $request->user_id)
                     ->update(['role' => $request->role]);
+            
+            $setting = Setting::first();    
+            if($setting->w_email_enable == 1){
+                try{
                     
-           
+                    Mail::to($request->email)->send(new CreatorRequest($user));
+                    
+                }
+                catch(\Swift_TransportException $e){
+
+                    header( "refresh:5;url=./login" );
+
+                    dd("Your Registration is successfull ! but welcome email is not sent because your webmaster not updated the mail settings in admin dashboard ! Kindly go back and login");
+
+                }
+            }
             
             Instructor::where('user_id', $request->user_id)
                     ->update(['status' => 1]);
@@ -71,8 +86,8 @@ class InstructorRequestController extends Controller
         $input['gender'] = $request->gender;
         $input['dob'] = $request->dob;
         
-        User::where('id', $request->user_id)
-                    ->update(['detail' => $request->detail, 'mobile' => $request->mobile, 'gender' => $request->gender, 'dob' => $request->dob ]);
+        // User::where('id', $request->user_id)
+        //             ->update(['detail' => $request->detail, 'mobile' => $request->mobile, 'gender' => $request->gender, 'dob' => $request->dob ]);
 
         return redirect()->route('requestinstructor.index');
     }

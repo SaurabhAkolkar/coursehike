@@ -5,6 +5,13 @@
                 background: rgba(#F5F4F0, 1);
                 border-radius: var(--size-2);
                 padding: var(--size-10);
+                height:220px;
+
+                @media(max-width:991px){
+                    margin-bottom: var(--size-8);
+                    height:240px;
+                    text-align: center;
+                }
                 &- {
                     &title {
                         font-family: var(--head-font);

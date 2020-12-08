@@ -329,6 +329,7 @@ class CourseController extends Controller
         $course = Course::all();
         
         $cor = Course::findOrFail($id);
+        $categories = Categories::where('status',1)->pluck('title','id');
        
         $courseinclude = CourseInclude::where('course_id', '=', $id)->get();
         $coursechapter = CourseChapter::where('course_id', '=', $id)->get();
@@ -344,7 +345,7 @@ class CourseController extends Controller
         $quizes = Quiz::where('course_id', '=', $id)->get();
         $topics = QuizTopic::where('course_id', '=', $id)->get();
         $appointment = Appointment::where('course_id', '=', $id)->get();
-        return view('admin.course.show', compact('cor', 'course', 'courseinclude', 'whatlearns', 'coursechapters', 'coursechapter', 'relatedcourse', 'courseclass', 'courseresources', 'announsments', 'answers', 'reports', 'questions', 'quizes', 'topics', 'appointment'));
+        return view('admin.course.show', compact('cor', 'course', 'categories','courseinclude', 'whatlearns', 'coursechapters', 'coursechapter', 'relatedcourse', 'courseclass', 'courseresources', 'announsments', 'answers', 'reports', 'questions', 'quizes', 'topics', 'appointment'));
     }
 
 
@@ -401,6 +402,71 @@ class CourseController extends Controller
         } else {
             return view('front.course_detail', compact('course', 'courseinclude', 'whatlearns', 'coursechapters', 'courseclass', 'coursereviews', 'reviews', 'relatedcourse', 'ad', 'bigblue', 'meetings', 'currency'));
         }
+    }
+
+    public function storeAnnoucement(Request $request){
+        
+
+        $request->validate([
+            'announcement_title' => 'required',
+            'announcement_category' => 'required',
+            'announcement_short' => 'required',
+            'announcement_long' => 'required',
+            'layouts' => 'required',
+            'status' => 'required',
+            'preview_image'=>'mimes:jpg,jpeg',
+            'preview_video'=>'mimes:mp4,avi,wmv'
+          ]);
+  
+        $input['title'] = $request->announcement_title;
+        $input['category_id'] = $request->announcement_category;
+        $input['short_description'] = $request->announcement_short;
+        $input['long_description'] = $request->announcement_long;
+        $input['status'] = $request->status;
+        $input['layout'] = $request->layouts;
+        $input['course_id'] = $request->course_id;
+        $input['user_id'] = Auth::user()->id;
+        
+        if ($file = $request->file('preview_image')) {
+
+            $optimizeImage = Image::make($file);
+            $optimizePath = public_path().'/images/announcement/';
+            $image = time().$file->getClientOriginalName();
+            $optimizeImage->save($optimizePath.$image, 72);
+            $input['preview_image'] = $image;
+          
+        }
+
+        if ($file = $request->file('preview_video')) {
+
+            // $file_name = md5(microtime().rand()). time().'.'.$file->getClientOriginalExtension();
+            $file_name = basename(Storage::putFile(config('path.announcement.preview_video'), $file ));
+            $input['preview_video'] = $file_name;
+
+            $response = Http::withHeaders([
+                'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
+                'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
+            ])->post('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/copy', [
+                'url' => Storage::temporaryUrl(config('path.announcement.preview_video'). $file_name, now()->addMinutes(10)),
+                'meta' => [
+                    'name' => $file_name
+                ],
+                "requireSignedURLs" => true,
+            ]);
+            
+            if($response->successful()){
+                $res = $response->json();
+              
+                $input['stream_video'] = $res['result']['uid'];
+            }
+
+        }
+
+        Announcement::create($input);
+
+        return redirect()->back()->with('success','Announcement Created Successfully');
+
+
     }
 
     public function CourseContentPage($id)
