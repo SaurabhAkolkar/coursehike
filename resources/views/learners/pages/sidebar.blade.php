@@ -54,6 +54,12 @@
             <span class="la-profile__sidebar-text pl-2">Billing Address</span>
           </a>
         </li>
+        <li class="la-profile__sidebar-item">
+          <a href="/my-interests" class="la-profile__sidebar-link d-flex align-items-center">
+            <span class="la-icon la-icon--xl icon-interests"></span>
+            <span class="la-profile__sidebar-text pl-2">Interests</span>
+          </a>
+        </li>
       </ul>
     </div>
     <div class="la-profile__sidebar-bottom">

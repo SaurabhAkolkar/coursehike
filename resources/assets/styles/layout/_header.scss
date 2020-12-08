@@ -141,6 +141,11 @@ $sidemenuWidth: 300px;
                         font-size:var(--text-2xl);
                         color:var(--gray6);
                     }
+                    &badge{
+                        position: absolute;
+                        top:-10px;
+                        font-size: var(--text-xs);
+                    }
                 }
             }
 

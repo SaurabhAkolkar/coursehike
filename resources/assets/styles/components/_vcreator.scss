@@ -1,6 +1,27 @@
 #{$ap}- {
     &vcreator {
         &__{
+            &back{
+                position: absolute;
+                left:-60px;
+                top:35px;
+                opacity:0.5;
+                transition: all 0.25s ease-in;
+
+                &:hover{
+                    transform:translateX(-10px);
+                    transition: all 0.25s ease-in;
+                }
+
+                @media(max-width:767px){
+                    left:10px;
+                    top:5px;
+
+                    &:hover{
+                        transform:none;
+                    }
+                }
+            }
             &profile{
                img{
                     width:100%;
@@ -26,6 +47,13 @@
                 position: absolute;
                 bottom:-40px;
                 left:-5px;
+                z-index: 99;
+
+                @media(max-width:767px){
+                    font-size:var(--text-6xl);
+                    bottom:-18px;
+                    left:0;
+                }
             }
 
             &text{
@@ -60,18 +88,5 @@
             }
             
         }
-    }
-}
-
-.la-vcreator__back-link{
-    position: absolute;
-    left:-60px;
-    top:35px;
-    transform:rotate(180deg);
-    transition: all 0.25s ease-in;
-
-    &:hover{
-        transform:translateX(-10px) rotate(180deg);
-        transition: all 0.25s ease-in;
     }
 }

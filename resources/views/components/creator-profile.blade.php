@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col p-md-0">
+    <div class="col p-0 p-md-0">
         <div class="la-vcreator__profile">
             <img class="img-fluid d-block" src= "{{ $img }}" alt= "{{ $name }}" />
             <div class="la-vcreator__overlay">
@@ -10,7 +10,7 @@
 </div>
 
 <div class="row my-md-14">
-    <div class="col-md-6 p-md-0">
+    <div class="col-md-6 p-4 p-md-0">
         <div class="la-vcreator__desc">
             <p class="la-vcreator__text"> {!! $desc !!} </p>
         </div>
@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="col-md-2 p-md-0"></div>
-    <div class="col-md-4 p-md-0">
+    <div class="col-md-4 p-4 p-md-0">
       <div class="la-vcreator__profession">
         <h4 class="text-uppercase la-vcreator__skill"> {{ $skill }} </h4>
         <div class="la-vcreator__location"> {{ $location }} </div>
