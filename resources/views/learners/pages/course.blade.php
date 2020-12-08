@@ -310,11 +310,13 @@ use Carbon\Carbon;
       <div class="row la-vcourse__purchase-row">
         <div class="col-md-6 la-vcourse__purchase-left">
           <div class="la-vcourse__purchase-prize mb-8">Purchase this Course @ <span class="la-vcourse__purchase-prize--amount"><b>${{$course->price}}</b></span></div>
-          <form class="la-vcourse__purchase-form" action="">
+          <form class="la-vcourse__purchase-form" id="add_to_cart_form" method="post" action="/add-to-cart">
+            <input type="hidden" name="course_id" value="{{$course->id}}" />
+            @csrf
             <div class="la-vcourse__purchase-classes">
               <div class="la-vcourse__purchase-class la-vcourse__purchase-class--all mb-4">
                 <div class="la-form__radio-wrap">
-                  <input class="la-form__radio d-none la-vcourse__purchase-input" checked type="radio" value="all-classes" name="classes" id="allClasses">
+                  <input class="la-form__radio d-none la-vcourse__purchase-input" @if($in_cart == null) checked @endif type="radio" value="all-classes" name="classes" id="allClasses">
                   <label class="d-flex align-items-center la-vcourse__purchase-label" for="allClasses">
                     <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
                     <span class="">All Classes</span>
@@ -329,7 +331,7 @@ use Carbon\Carbon;
                     <span class="">Select Classes</span>
                   </label>
                 </div>
-                <div class="la-vcourse__purchase-items mt-8 pl-8">
+                <div class="la-vcourse__purchase-items mt-8 pl-8" id="selected_class_div">
                   <table class="w-100 la-vcourse__classes-wrap">
                     <tr class="la-vcourse__sclass-item">
                       <th class="mb-4 la-vcourse__sclass-heading"></th>
@@ -339,12 +341,12 @@ use Carbon\Carbon;
                       <th class="mb-4 la-vcourse__sclass-heading">Price</th>
                     </tr>
                     @foreach ($course->chapter as $class)
-
+                    
                       <tr class="la-vcourse__sclass-item align-top">
                         <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--checkbox">
                           <div>
-                            <input id="selectItem1" class="la-form__checkbox-input custom-control-input" type="checkbox">
-                            <label class="" for="selectItem1">
+                            <input id="selectItem_{{$class->id}}" name="selected_classes[]" class="la-form__checkbox-input custom-control-input" type="checkbox" value="{{$class->id}}">
+                            <label class="" for="selectItem_{{$class->id}}">
                               <svg viewBox="0 0 16 16" height="16" width="16">
                                 <g id="Group_5052" data-name="Group 5052" transform="translate(-129 -2108)">
                                   <g id="Rectangle_3239" data-name="Rectangle 3239" transform="translate(129 2108)" fill="none" stroke="#7400d7" stroke-width="1">
@@ -374,7 +376,7 @@ use Carbon\Carbon;
                 <a class="btn btn-primary la-btn la-btn--primary w-100 text-center">Buy course</a>
               </div>
               <div class="la-vcourse__purchase-btn w-50">
-                <a class="btn la-btn la-btn__plain text--green w-100 text-center">ADD TO CART</a>
+                <a class="btn la-btn la-btn__plain text--green w-100 text-center" onclick="$('#add_to_cart_form').submit()">ADD TO CART</a>
               </div>
             </div>
           </form>
@@ -896,5 +898,6 @@ use Carbon\Carbon;
                 function submitRateCourseForm(){
                     $('#rate_course_form').submit();
                 }
+
   </script>
 @endsection

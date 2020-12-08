@@ -590,6 +590,13 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
     Route::get('/learn/course/{id}/{slug}', 'LearnController@show')->name('learn.show');
     Route::post('/learn/course/{video_id}','LearnController@video')->name('learn.video');
     Route::get('/browse/courses','SearchController@index');
+    Route::get('/add-to-cart','CartController@addtocartAjax');
+    Route::post('/add-to-cart','CartController@addToCart');
+
+    Route::get('/remove-from-cart/{id}','CartController@removeFromCart');
+    Route::get('/apply-coupon/{id}','CartController@applyCoupon');
+    Route::get('/move-to-wishlist/{id}','CartController@moveToWishlist');
+    Route::post('/checkout','CartController@cartCheckout');
 
     Route::view('/creator-signup','learners.auth.creator-signup')->middleware('check_creator');
     Route::post('/creator-signup','InstructorController@creatorSignUp')->middleware('check_creator');
@@ -665,7 +672,7 @@ Route::view('/creator','learners.pages.creator');
 
 
 // Route::view('/wishlist','learners.pages.wishlist');
-Route::view('/cart','learners.pages.cart');
+Route::get('/cart','CartController@learnerCart');
 
 Route::view('/purchase-history','learners.pages.purchase-history');
 Route::view('/payment-successful','learners.pages.payment-successful');
