@@ -16,7 +16,7 @@
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
         overflow: hidden;
         border-radius: var(--size-2);
-        margin: 0 var(--size-5);
+        margin-bottom: calc(var(--size-7) + 2px);
 
         &s {
             height: auto;
