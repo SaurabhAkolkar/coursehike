@@ -50,7 +50,7 @@
                             </div>
 
                             @else
-                                <h6 class="text-center">Please Login To Create Playlist</h6>
+                                <h6 class="text-center py-10" style="color: var(--app-indigo-1)">Please Login To Create Playlist</h6>
                             @endif
                         </div>
                     </div>

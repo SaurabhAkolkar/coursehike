@@ -195,7 +195,11 @@ use App\Announcement;
               </div>
             </div>
 
-            <div class="d-none d-lg-block la-header__menu-item la-header__menu-item--btn">
+            <div class="la-header__menu-item d-none d-lg-block">
+              <a class="la-header__menu-link la-header__menu-icon la-icon icon-cart" href="/cart"></a>
+            </div>
+
+            <div class="d-none d-lg-block la-header__menu-item la-header__menu-item--btn ml-5">
               <a class="la-header__menu-link la-header__menu-icon la-icon icon-menu" id="moreItems" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
               <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="moreItems"  style="border:none !important;">
                 <a class="dropdown-item la-header__dropdown-item text-sm" href="/learning-plans">Learning Plans</a>
