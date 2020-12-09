@@ -14,11 +14,13 @@ class MyInterest extends Component
 
     public $img;
     public $name;
+    public $id;
 
-    public function __construct($img, $name)
+    public function __construct($img, $name, $id)
     {
         $this->img = $img;
         $this->name = $name;
+        $this->id = $id;
     }
 
     /**
