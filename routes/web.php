@@ -653,6 +653,8 @@ Route::get('/mark-nofification-read','AnnouncementController@markNotificationRea
 
 // Route::view('/','learners.pages.home');
 Route::get('/interests','UserController@getInterests');
+Route::get('/my-interests', 'UserController@myInterests');
+
 Route::post('/add-interests','UserController@storeInterest');
 Route::view('/signup','learners.auth.signup');
 Route::view('/signin','learners.auth.signin');
@@ -678,7 +680,6 @@ Route::view('/purchase-history','learners.pages.purchase-history');
 Route::view('/payment-successful','learners.pages.payment-successful');
 Route::view('/saved-cards', 'learners.pages.saved-cards');
 Route::view('billing-address', 'learners.pages.billing-address');
-Route::view('/my-interests', 'learners.pages.my-interests');
 
 // Route::view('/releases','learners.pages.new-releases');
 Route::view('/learning-plans','learners.pages.learning-plans');

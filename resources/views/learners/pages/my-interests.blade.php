@@ -56,12 +56,14 @@
                                 $interests = array($interest1, $interest2, $interest3, $interest4);
                             @endphp
 
-                            @foreach ($interests as $interest)
-                                <x-my-interest
-                                    :img="$interest->img"
-                                    :name="$interest->name"
-                                />
-                            @endforeach
+                            @if(count($myInterests))
+                                @foreach ($myInterests as $interest)
+                                    <x-my-interest
+                                        :img="'https://picsum.photos/100/100'"
+                                        :name="$interest->category->title"
+                                    />
+                                @endforeach
+                            @endif
                         </ul>
 
                         <div class="la-interests__like">
@@ -71,23 +73,10 @@
                                     $interests = array($interest1, $interest2, $interest3, $interest4, $interest5, $interest6, $interest7, $interest8);
                                 @endphp
 
-                                @foreach ($interests as $interest)
+                                @foreach ($otherCategories as $category)
                                     <x-my-interest
-                                        :img="$interest->img"
-                                        :name="$interest->name"
-                                    />
-                                @endforeach
-                            </ul>
-
-                            <ul class="la-interests__list d-md-flex justify-content-start">
-                                @php
-                                    $interests = array($interest1, $interest2, $interest3, $interest4, $interest5, $interest6, $interest7, $interest8);
-                                @endphp
-
-                                @foreach ($interests as $interest)
-                                    <x-my-interest
-                                        :img="$interest->img"
-                                        :name="$interest->name"
+                                        :img="'https://picsum.photos/100/100'"
+                                        :name="$category->title"
                                     />
                                 @endforeach
                             </ul>
