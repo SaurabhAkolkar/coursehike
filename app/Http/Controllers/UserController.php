@@ -45,7 +45,7 @@ class UserController extends Controller
 
     public function viewAllUser()
     {
-        $users = User::all();
+        $users = User::with('country')->get();
         return view('admin.user.index', compact('users'));
     }
 
@@ -251,13 +251,13 @@ class UserController extends Controller
     public function storeInterest(Request $request){
 
         $input['user_id'] = Auth::user()->id;
-        $input['course_id'] = $request->interets;
-        $input['course_id']=explode(",",$input['course_id']);
-        $input['course_id_all']=array_filter($input['course_id']);
+        $input['category_id'] = $request->interets;
+        $input['category_id']=explode(",",$input['category_id']);
+        $input['course_id_all']=array_filter($input['category_id']);
         UserInterest::where('user_id', Auth::User()->id)->delete();
         foreach($input['course_id_all'] as $c){
-            $input['course_id'] = $c; 
-            $check = UserInterest::where(['user_id'=>Auth::User()->id, 'course_id'=>$c])->first();
+            $input['category_id'] = $c; 
+            $check = UserInterest::where(['user_id'=>Auth::User()->id, 'category_id'=>$c])->first();
 
             if(!$check){
                 UserInterest::create($input);
@@ -265,6 +265,20 @@ class UserController extends Controller
         }
         return redirect('/');
 
+    }
+
+    public function myInterests(){
+        $myInterests = UserInterest::with('category')->where('user_id',Auth::User()->id)->get();
+        $coursesId = UserInterest::where('user_id', Auth::User()->id)->pluck('category_id');
+
+
+        if(count($coursesId)){
+            $otherCategories = Categories::where('status',1)->whereNotIn('id', $coursesId)->get();
+        }else{
+            $otherCategories = Categories::where('status',1)->get();
+        }
+        
+        return view('learners.pages.my-interests',compact('myInterests','otherCategories'));
     }
     
 }
