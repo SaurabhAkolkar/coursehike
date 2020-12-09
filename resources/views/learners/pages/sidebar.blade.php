@@ -13,7 +13,7 @@
           <div href="" class="la-profile__sidebar-btn active"><span class="la-icon la-icon--xl icon-hamburger-menu"></span></div>
         </li>
         <li class="la-profile__sidebar-item">
-          <a href="" class="la-profile__sidebar-link d-flex align-items-center">
+          <a href="/profile" class="la-profile__sidebar-link d-flex align-items-center">
             <span class="la-icon la-icon--xl icon-edit-learner-profile"></span>
             <span class="la-profile__sidebar-text pl-2">Edit Profile</span>
           </a>
