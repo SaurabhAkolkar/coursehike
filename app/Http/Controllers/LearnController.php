@@ -11,6 +11,7 @@ use Auth;
 use Crypt;
 use Redirect;
 use App\BundleCourse;
+use App\Cart;
 use App\ReviewRating;
 use App\WatchCourse;
 use App\Playlist;
@@ -43,7 +44,7 @@ class LearnController extends Controller
         // Subscibed
 
         $video_access = false;
-
+        $in_cart = null;
         if(Auth::check())
         {
         	$order = Order::where('user_id', Auth::User()->id)->where('course_id', $id)->first();
@@ -54,6 +55,9 @@ class LearnController extends Controller
             {
                 $video_access = true;
             }
+
+            $in_cart = Cart::where('user_id', Auth::User()->id)->where('course_id', $id)->get();
+
         }
         $reviews = ReviewRating::with('user')->where('course_id',$id)->orderBy('rating','DESC')->get();
         $average_rating = ReviewRating::where('course_id',$id)->average('rating');
@@ -75,6 +79,7 @@ class LearnController extends Controller
             'three_rating_percentage' => $three_rating_percentage,
             'two_rating_percentage' => $two_rating_percentage,
             'one_rating_percentage' => $one_rating_percentage,
+            'in_cart'=>$in_cart,
 
         );
         return view('learners.pages.course')->with($data);

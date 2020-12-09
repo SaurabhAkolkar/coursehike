@@ -164,3 +164,43 @@
   
   @endsection
   
+  @section('footerScripts')
+  <script>
+   function addToCart(id='1', classes='all') {
+
+      let course_id = id;
+      if(classes != 'all'){
+
+      }
+
+      if(course_id){
+        $.ajax({
+          headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          type:"get",
+          url: '/add-to-cart',
+          data: {course_id: course_id, classes : classes},
+          success:function(data){   
+            $('#wishlist_alert_div').html(' ');
+            $('#course_'+id).remove(); 
+            let successAlert = `<div class="la-btn__alert-success col-md-4 offset-md-8 alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
+                                  <h6 id="wishlist_alert_message" class="la-btn__alert-msg">${data}</h6>
+                                  <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true" class="text-white">&times;</span>
+                                  </button>
+                                </div>`
+            $('#wishlist_alert_div').html(successAlert);
+                  
+          },
+          error: function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest);
+          }
+        });
+      }else{
+        alert('Something went wrong');
+      }
+   
+   }
+  </script>
+  @endsection

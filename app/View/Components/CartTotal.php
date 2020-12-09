@@ -17,14 +17,16 @@ class CartTotal extends Component
     public $applyCoupon;
     public $discountAmount;
     public $checkoutUrl;
+    public $coupons;
 
-    public function __construct($totalAmount, $offerAmount, $applyCoupon, $discountAmount, $checkoutUrl )
+    public function __construct($totalAmount, $offerAmount, $applyCoupon, $discountAmount, $checkoutUrl, $coupons)
     {
         $this->totalAmount = $totalAmount;
         $this->offerAmount = $offerAmount;
         $this->applyCoupon = $applyCoupon;
         $this->discountAmount = $discountAmount;
         $this->checkoutUrl = $checkoutUrl;
+        $this->coupons= $coupons;
     }
 
     /**

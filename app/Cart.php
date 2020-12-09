@@ -8,7 +8,7 @@ class Cart extends Model
 {
 	protected $table = 'carts';
 
-    protected $fillable = ['user_id', 'course_id', 'price', 'offer_price', 'disamount', 'distype' ];
+    protected $fillable = ['user_id', 'course_id', 'price', 'offer_price', 'disamount', 'distype', 'created_at','updated_at' ];
 
     public function user()
     {
@@ -23,5 +23,9 @@ class Cart extends Model
     public function bundle()
     {
         return $this->belongsTo('App\BundleCourse','bundle_id','id');
+    }
+    public function chapter()
+    {
+        return $this->belongsTo('App\CourseChapter','class_id','id');
     }
 }
