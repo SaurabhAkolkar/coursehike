@@ -14,7 +14,7 @@
         <div class="container">
           <div class="la-profile__main-inner">
               @if(session('message'))
-              <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible fade show" role="alert">
+              <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible" role="alert">
                   <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
                   <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true" class="text-white">&times;</span>
