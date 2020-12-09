@@ -1,6 +1,20 @@
 #{$ap}- {
     &artist {
         &__ {
+            &slider {
+                & .swiper-slide-active {
+                    #{$ap}- {
+                        &artist {
+                            &__ {
+                                &img {
+                                    opacity: 1;
+                                    transform: translateX(0);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             &designation {
                 top: 0;
                 bottom: 0;
@@ -38,6 +52,10 @@
             }
 
             &img {
+                transform: translateX(20px);
+                opacity: 0;
+                transition: all 0.2s ease;
+                transition-delay: 0.2s;
                 // height: 60vh;
 
                 & img {

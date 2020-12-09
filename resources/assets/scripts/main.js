@@ -33,6 +33,9 @@ $(function(){
       watchSlidesProgress: true,
     });
     var galleryTop = new Swiper('.gallery-top', {
+      effect: 'fade',
+      fadeEffect: { crossFade: true },
+      virtualTranslate: true,
       spaceBetween: 10,
       navigation: {
         nextEl: '.swiper-button-next',

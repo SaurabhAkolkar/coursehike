@@ -20155,6 +20155,10 @@ a, a:hover {
   font-size: var(--text-sm);
 }
 
+.la-artist__slider .swiper-slide-active .la-artist__img {
+  opacity: 1;
+  transform: translateX(0);
+}
 .la-artist__designation {
   top: 0;
   bottom: 0;
@@ -20187,6 +20191,12 @@ a, a:hover {
   font-size: var(--text-4xl);
   font-family: var(--head-font);
   font-weight: var(--font-semibold);
+}
+.la-artist__img {
+  transform: translateX(20px);
+  opacity: 0;
+  transition: all 0.2s ease;
+  transition-delay: 0.2s;
 }
 .la-artist__img img {
   height: 100%;
@@ -20315,11 +20325,10 @@ a, a:hover {
   border: 1px solid var(--app-indigo-1);
   position: absolute;
   border-radius: 100%;
-  bottom: -34%;
+  top: -40%;
   left: -24%;
 }
 .la-section__circle--right {
-  bottom: -40% !important;
   right: -24% !important;
   left: unset;
 }
