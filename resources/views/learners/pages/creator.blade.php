@@ -8,7 +8,7 @@
         <div class="container">
           <div class="row">
             <div class="col-1 mb-16">
-              <a href="" class="la-vcreator__back-link"><span class="la-icon la-icon--6xl icon-grey-arrow"></span></a>
+              <a href="" class="la-vcreator__back"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
             </div>
             <!-- <div class="col offset-7">  
               <div class="la-gsearch my-10">

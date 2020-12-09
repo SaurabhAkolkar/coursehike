@@ -49,7 +49,7 @@
   <!-- Section: Start-->
   <section class="la-section la-section--grey la-section--art-categories position-relative">
     <div class="la-section__inner">
-      <div class="container"><span class="la-section__circle"></span><span class="la-section__cross-line"></span>
+      <div class="container"><span class="la-section__cross-line"></span>
         <div class="la-courses mt-14">
           <nav class="la-courses__nav d-flex justify-content-between">
             <ul class="nav nav-pills la-courses__nav-tabs" id="nav-tab" role="tablist">
@@ -153,136 +153,170 @@
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  <section class="la-section la-section--artists">
+  <section class="la-section la-section--artists position-relative">
     <div class="la-section__inner">
+      <span class="la-section__circle"></span>
       <div class="swiper-container gallery-top la-artist__slider container">
+
+        <div class="col-md-12 la-artist__slider-col la-artist__designation position-absolute d-flex align-items-center justify-content-center">
+            <h2 class="la-section__title la-section__title--big">Alien <span style="color: var(--gray);"> MENTOR </span></h2>
+        </div>
+
         <div class="swiper-wrapper">
-                    <div class="swiper-slide la-artist__slider">
-                      <div class="row la-artist__slider-row">
-                        <div class="col-md-12 la-artist__slider-col la-artist__designation position-absolute d-flex align-items-center justify-content-center">
-                          <h2 class="la-section__title la-section__title--big">Alien <span style="color: var(--gray);"> MENTOR </span></h2>
-                        </div>
-                        <div class="col-md-6 la-artist__slider-col la-artist__slide-img">
-                          <div class="la-artist__img text-center"><img src="./images/learners/home/artist.png" alt=""></div>
-                        </div>
-                        <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
-                          <div class="la-artist__content-top d-flex flex-column align-items-end">
-                            <div class="la-artist__name">Alton Crew</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="/creator">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
-                          </div>
-                          <div class="la-artist__content-bottom d-flex flex-column align-items-end">
-                            <div class="la-artist__specialist text-uppercase">TATTOO</div>
-                            <div class="la-artist__company-name">Tribal Tattoo</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="swiper-slide la-artist__slider">
-                      <div class="row la-artist__slider-row">
-                        <div class="col-md-12 la-artist__slider-col la-artist__designation position-absolute d-flex align-items-center justify-content-center">
-                          <h2 class="la-section__title la-section__title--big">Alien<span style="color: var(--gray);">MENTOR </span></h2>
-                        </div>
-                        <div class="col-md-6 la-artist__slider-col la-artist__slide-img">
-                          <div class="la-artist__img text-center"><img src="./images/learners/home/artist.png" alt=""></div>
-                        </div>
-                        <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
-                          <div class="la-artist__content-top d-flex flex-column align-items-end">
-                            <div class="la-artist__name">Alton Crew</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="/creator">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
-                          </div>
-                          <div class="la-artist__content-bottom d-flex flex-column align-items-end">
-                            <div class="la-artist__specialist text-uppercase">TATTOO</div>
-                            <div class="la-artist__company-name">Tribal Tattoo</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="swiper-slide la-artist__slider">
-                      <div class="row la-artist__slider-row">
-                        <div class="col-md-12 la-artist__slider-col la-artist__designation position-absolute d-flex align-items-center justify-content-center">
-                          <h2 class="la-section__title la-section__title--big">Alien<span style="color: var(--gray);">MENTOR </span></h2>
-                        </div>
-                        <div class="col-md-6 la-artist__slider-col la-artist__slide-img">
-                          <div class="la-artist__img text-center"><img src="./images/learners/home/artist.png" alt=""></div>
-                        </div>
-                        <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
-                          <div class="la-artist__content-top d-flex flex-column align-items-end">
-                            <div class="la-artist__name">Alton Crew</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="/creator">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
-                          </div>
-                          <div class="la-artist__content-bottom d-flex flex-column align-items-end">
-                            <div class="la-artist__specialist text-uppercase">TATTOO</div>
-                            <div class="la-artist__company-name">Tribal Tattoo</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="swiper-slide la-artist__slider">
-                      <div class="row la-artist__slider-row">
-                        <div class="col-md-12 la-artist__slider-col la-artist__designation position-absolute d-flex align-items-center justify-content-center">
-                          <h2 class="la-section__title la-section__title--big">Alien<span style="color: var(--gray);">MENTOR </span></h2>
-                        </div>
-                        <div class="col-md-6 la-artist__slider-col la-artist__slide-img">
-                          <div class="la-artist__img text-center"><img src="./images/learners/home/artist.png" alt=""></div>
-                        </div>
-                        <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
-                          <div class="la-artist__content-top d-flex flex-column align-items-end">
-                            <div class="la-artist__name">Alton Crew</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="/creator">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
-                          </div>
-                          <div class="la-artist__content-bottom d-flex flex-column align-items-end">
-                            <div class="la-artist__specialist text-uppercase">TATTOO</div>
-                            <div class="la-artist__company-name">Tribal Tattoo</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="swiper-slide la-artist__slider">
-                      <div class="row la-artist__slider-row">
-                        <div class="col-md-12 la-artist__slider-col la-artist__designation position-absolute d-flex align-items-center justify-content-center">
-                          <h2 class="la-section__title la-section__title--big">Alien<span style="color: var(--gray);">MENTOR </span></h2>
-                        </div>
-                        <div class="col-md-6 la-artist__slider-col la-artist__slide-img">
-                          <div class="la-artist__img text-center"><img src="./images/learners/home/artist.png" alt=""></div>
-                        </div>
-                        <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
-                          <div class="la-artist__content-top d-flex flex-column align-items-end">
-                            <div class="la-artist__name">Alton Crew</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="/creator">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
-                          </div>
-                          <div class="la-artist__content-bottom d-flex flex-column align-items-end">
-                            <div class="la-artist__specialist text-uppercase">TATTOO</div>
-                            <div class="la-artist__company-name">Tribal Tattoo</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="swiper-slide la-artist__slider">
-                      <div class="row la-artist__slider-row">
-                        <div class="col-md-12 la-artist__slider-col la-artist__designation position-absolute d-flex align-items-center justify-content-center">
-                          <h2 class="la-section__title la-section__title--big">Alien<span style="color: var(--gray);">MENTOR </span></h2>
-                        </div>
-                        <div class="col-md-6 la-artist__slider-col la-artist__slide-img">
-                          <div class="la-artist__img text-center"><img src="./images/learners/home/artist.png" alt=""></div>
-                        </div>
-                        <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
-                          <div class="la-artist__content-top d-flex flex-column align-items-end">
-                            <div class="la-artist__name">Alton Crew</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="/creator">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
-                          </div>
-                          <div class="la-artist__content-bottom d-flex flex-column align-items-end">
-                            <div class="la-artist__specialist text-uppercase">TATTOO</div>
-                            <div class="la-artist__company-name">Tribal Tattoo</div>
-                            <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+
+        @php
+          $artist1 = new stdClass;
+          $artist1->artistName = "Alton Crew";
+          $artist1->artistCategory = "TATTOO";
+          $artist1->artistCampany = "Tribal Tattoo";
+
+          $artist2 = new stdClass;
+          $artist2->artistName = "Charlotte Floyd";
+          $artist2->artistCategory = "TATTOO";
+          $artist2->artistCampany = "Tribal Tattoo";
+
+          $artist3 = new stdClass;
+          $artist3->artistName = "Marco";
+          $artist3->artistCategory = "TATTOO";
+          $artist3->artistCampany = "Tribal Tattoo";
+
+          $artists = array($artist1, $artist2, $artist3);
+        @endphp
+
+        @foreach ($artists as $artist)
+              <x-artist 
+                :artistName="$artist->artistName"
+                :artistCategory="$artist->artistCategory"
+                :artistCampany="$artist->artistCampany"
+              />
+        @endforeach
+
+          <!-- <div class="swiper-slide la-artist__slider">
+            <div class="row la-artist__slider-row">
+              <div class="col-md-12 la-artist__slider-col la-artist__designation position-absolute d-flex align-items-center justify-content-center">
+                <h2 class="la-section__title la-section__title--big">Alien <span style="color: var(--gray);"> MENTOR </span></h2>
+              </div>
+              <div class="col-md-6 la-artist__slider-col la-artist__slide-img">
+                <div class="la-artist__img text-center"><img src="./images/learners/home/artist.png" alt=""></div>
+              </div>
+              <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
+                <div class="la-artist__content-top d-flex flex-column align-items-end">
+                  <div class="la-artist__name">Alton Crew</div>
+                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="/creator">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+                </div>
+                <div class="la-artist__content-bottom d-flex flex-column align-items-end">
+                  <div class="la-artist__specialist text-uppercase">TATTOO</div>
+                  <div class="la-artist__company-name">Tribal Tattoo</div>
+                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide la-artist__slider">
+            <div class="row la-artist__slider-row">
+              <div class="col-md-12 la-artist__slider-col la-artist__designation position-absolute d-flex align-items-center justify-content-center">
+                <h2 class="la-section__title la-section__title--big">Alien<span style="color: var(--gray);">MENTOR </span></h2>
+              </div>
+              <div class="col-md-6 la-artist__slider-col la-artist__slide-img">
+                <div class="la-artist__img text-center"><img src="./images/learners/home/artist.png" alt=""></div>
+              </div>
+              <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
+                <div class="la-artist__content-top d-flex flex-column align-items-end">
+                  <div class="la-artist__name">Alton Crew</div>
+                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="/creator">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+                </div>
+                <div class="la-artist__content-bottom d-flex flex-column align-items-end">
+                  <div class="la-artist__specialist text-uppercase">TATTOO</div>
+                  <div class="la-artist__company-name">Tribal Tattoo</div>
+                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide la-artist__slider">
+            <div class="row la-artist__slider-row">
+              <div class="col-md-12 la-artist__slider-col la-artist__designation position-absolute d-flex align-items-center justify-content-center">
+                <h2 class="la-section__title la-section__title--big">Alien<span style="color: var(--gray);">MENTOR </span></h2>
+              </div>
+              <div class="col-md-6 la-artist__slider-col la-artist__slide-img">
+                <div class="la-artist__img text-center"><img src="./images/learners/home/artist.png" alt=""></div>
+              </div>
+              <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
+                <div class="la-artist__content-top d-flex flex-column align-items-end">
+                  <div class="la-artist__name">Alton Crew</div>
+                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="/creator">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+                </div>
+                <div class="la-artist__content-bottom d-flex flex-column align-items-end">
+                  <div class="la-artist__specialist text-uppercase">TATTOO</div>
+                  <div class="la-artist__company-name">Tribal Tattoo</div>
+                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide la-artist__slider">
+            <div class="row la-artist__slider-row">
+              <div class="col-md-12 la-artist__slider-col la-artist__designation position-absolute d-flex align-items-center justify-content-center">
+                <h2 class="la-section__title la-section__title--big">Alien<span style="color: var(--gray);">MENTOR </span></h2>
+              </div>
+              <div class="col-md-6 la-artist__slider-col la-artist__slide-img">
+                <div class="la-artist__img text-center"><img src="./images/learners/home/artist.png" alt=""></div>
+              </div>
+              <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
+                <div class="la-artist__content-top d-flex flex-column align-items-end">
+                  <div class="la-artist__name">Alton Crew</div>
+                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="/creator">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+                </div>
+                <div class="la-artist__content-bottom d-flex flex-column align-items-end">
+                  <div class="la-artist__specialist text-uppercase">TATTOO</div>
+                  <div class="la-artist__company-name">Tribal Tattoo</div>
+                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide la-artist__slider">
+            <div class="row la-artist__slider-row">
+              <div class="col-md-12 la-artist__slider-col la-artist__designation position-absolute d-flex align-items-center justify-content-center">
+                <h2 class="la-section__title la-section__title--big">Alien<span style="color: var(--gray);">MENTOR </span></h2>
+              </div>
+              <div class="col-md-6 la-artist__slider-col la-artist__slide-img">
+                <div class="la-artist__img text-center"><img src="./images/learners/home/artist.png" alt=""></div>
+              </div>
+              <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
+                <div class="la-artist__content-top d-flex flex-column align-items-end">
+                  <div class="la-artist__name">Alton Crew</div>
+                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="/creator">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+                </div>
+                <div class="la-artist__content-bottom d-flex flex-column align-items-end">
+                  <div class="la-artist__specialist text-uppercase">TATTOO</div>
+                  <div class="la-artist__company-name">Tribal Tattoo</div>
+                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide la-artist__slider">
+            <div class="row la-artist__slider-row">
+              <div class="col-md-12 la-artist__slider-col la-artist__designation position-absolute d-flex align-items-center justify-content-center">
+                <h2 class="la-section__title la-section__title--big">Alien<span style="color: var(--gray);">MENTOR </span></h2>
+              </div>
+              <div class="col-md-6 la-artist__slider-col la-artist__slide-img">
+                <div class="la-artist__img text-center"><img src="./images/learners/home/artist.png" alt=""></div>
+              </div>
+              <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
+                <div class="la-artist__content-top d-flex flex-column align-items-end">
+                  <div class="la-artist__name">Alton Crew</div>
+                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="/creator">read about</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+                </div>
+                <div class="la-artist__content-bottom d-flex flex-column align-items-end">
+                  <div class="la-artist__specialist text-uppercase">TATTOO</div>
+                  <div class="la-artist__company-name">Tribal Tattoo</div>
+                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold"><a href="">learn more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+                </div>
+              </div>
+            </div>
+          </div> -->
         </div>
       </div>
       <div class="swiper-container gallery-thumbs la-artist__thumbnails-wrap">
@@ -313,7 +347,7 @@
   <!-- Section: Start-->
   <section class="la-section la-section--classes la-section--grey position-relative">
     <div class="la-section__inner">
-      <div class="container"><span class="la-section__circle la-section__circle--right"></span>
+      <div class="container">
         <h2 class="la-section__title la-section__title--big position-relative">Master <span>classes</span></h2>
         <div class="la-mccourses py-4">
           <div class="row justify-content-center px-lg-5">
@@ -385,8 +419,9 @@
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  <section class="la-section la-section--trail">
+  <section class="la-section la-section--trail position-relative">
     <div class="la-section__inner">
+      <span class="la-section__circle la-section__circle--right"></span>
       <div class="container">
        
         <div class="row">

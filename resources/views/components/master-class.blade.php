@@ -1,5 +1,5 @@
 <div class="col-12 col-md-6">
-    <div class="la-mccourse mb-5">
+    <div class="la-mccourse">
         <div class="la-mccourse__imgwrap">
             <img class="img-fluid" src= {{ $img }} alt= {{ $title }} />
         </div>

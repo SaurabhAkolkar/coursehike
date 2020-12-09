@@ -70,7 +70,7 @@
 
           <!-- <li class="{{ Nav::isResource('userenroll') }}"><a href="{{url('userenroll')}}"> <span class="la-icon la-icon--lg icon-users mr-4"></span><span> {{ __('adminstaticword.Users') }}</span></a></li> -->
 
-          <li class="{{ Nav::isResource('instructor/announcement') }}"><a href="{{url('instructor/announcement')}}"> <i class="la-icon la-icon--lg icon-announcement mr-4"></i><span>{{ __('adminstaticword.Announcement') }}</span></a></li>
+          {{-- <li class="{{ Nav::isResource('instructor/announcement') }}"><a href="{{url('instructor/announcement')}}"> <i class="la-icon la-icon--lg icon-announcement mr-4"></i><span>{{ __('adminstaticword.Announcement') }}</span></a></li> --}}
 
           <li class="">
             <a href="/requests">

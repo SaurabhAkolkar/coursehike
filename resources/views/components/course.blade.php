@@ -22,7 +22,7 @@
                             </a>
                             <div class="la-cmenu dropdown-menu py-0">
                                 <a class="dropdown-item la-cmenu__item d-inline-flex" @if($removeFromPlaylist) href="{{url()->current()}}/{{$id}}"  @else onclick="showAddToPlaylist({{$id}})" @endif><i class="icon icon-playlist la-icon la-icon--2xl mr-2"></i> @if($removeFromPlaylist) Remove From Playlist  @else Add to Playlist @endif</a>
-                                <a class="dropdown-item la-cmenu__item d-inline-flex" @if($addedToWhishList) href="/remove-from-wishlist/{{$id}}" @else onclick="addToWishList({{$id}})" @endif><i class="icon icon-wishlist la-icon la-icon--2xl mr-2"></i> @if($addedToWhishList) Remove From Playlist @else Add to Wishlist @endif </a>
+                                <a class="dropdown-item la-cmenu__item d-inline-flex" @if($addedToWhishList) href="/remove-from-wishlist/{{$id}}" @else onclick="addToWishList({{$id}})" @endif><i class="icon icon-wishlist la-icon la-icon--2xl mr-2"></i> @if($addedToWhishList) Remove From Wishlist @else Add to Wishlist @endif </a>
                                 <a class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToCart({{$id}})"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</a>
                             </div>
                         </div>

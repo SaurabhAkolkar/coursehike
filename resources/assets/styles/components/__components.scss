@@ -27,6 +27,7 @@
         './cart/__cart', // cart
         './purchase-history', // Purchase History
         './rented', // Rented in Purchase History Page
+        './my-interests', //Interests Page 
         './entry', // Login, register, interest, creator-signup
         './artist', // Artist
         './home/__home'; // Trail
@@ -74,12 +75,16 @@
                 border: 1px solid var(--app-indigo-1);
                 position: absolute;
                 border-radius: 100%;
-                bottom: -34%;
+                top: -40%;
                 left: -24%;
+
+                // bottom: -34%;
+                // left: -24%;
 
                 &-- {
                     &right {
-                        bottom: -40% !important;
+                        // top: unset;
+                        // bottom: -40% !important;
                         right: -24% !important;
                         left: unset;
                     }

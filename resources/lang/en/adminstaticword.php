@@ -22,6 +22,7 @@ return [
     'ChildCategory' => 'Child Categories',
     'CourseLanguage' => 'Course Language',
     'CourseReview' => 'Course Review',
+    'Publish' => 'Publish',
     'Coupon' => 'Coupons',
     'Instructor' => 'Mentors',
     'AllInstructor' => 'All Mentors',

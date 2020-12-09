@@ -50,6 +50,7 @@ $image-center: -30px;
                 &- {
                     &top {
                         border-radius: 10px;
+                        height:200px;
                         overflow: hidden;
                         
                         &:before {
@@ -92,7 +93,7 @@ $image-center: -30px;
                                             &:nth-child(1) {
                                                 height: $height-half;
                                                 & img {
-                                                    margin-top: $image-center;
+                                                    //margin-top: $image-center;
                                                 }
                                             }
                                             &:nth-child(2),
