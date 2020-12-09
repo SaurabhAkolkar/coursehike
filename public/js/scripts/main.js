@@ -114,6 +114,56 @@ $(function(){
   })
 
 
+
+  ////// Scroll animation ////////
+
+
+  gsap.utils.toArray('.la-anim__wrap').forEach(function(elem) {
+
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: elem,
+        start: 'top 85%'
+      }
+    });
+
+    var item_stagger = elem.querySelectorAll(".la-anim__stagger-item");
+    var item_stagger_x = elem.querySelectorAll(".la-anim__stagger-item--x");
+    var item_textMove = elem.querySelector(".la-anim__text-move");
+    var item_textMoveImg = elem.querySelector(".la-anim__text-move + img");
+    var item_fadeIn = elem.querySelector(".la-anim__fade-in");
+
+    // Global
+    tl.to(item_stagger, {opacity: 1, y:0, stagger: 0.2})
+    tl.to(item_textMove, {opacity: 1, y: 0}, "-=0.6")
+    tl.to(item_fadeIn, {duration: 0.4, opacity: 1, ease: "Expo.ease"})
+    tl.to(item_stagger_x, {opacity: 1, x:0, stagger: 0.1}, "0")
+    
+
+  });
+
+  gsap.to('.la-section__circle', {
+    scrollTrigger: {
+    trigger: ".la-anim__wrap",
+    start: "bottom center",
+    scrub: true,
+  }, opacity: 1, scale: 1});
+
+  gsap.to(".la-anim__text-move", {
+    scrollTrigger: {
+      trigger: ".la-anim__text-move",
+      start: "top center",
+      scrub: true,
+    }, x: 40, ease: "Expo.ease"});
+
+    gsap.to(".la-anim__text-move + img", {
+      scrollTrigger: {
+        trigger: ".la-anim__text-move + img",
+        start: "top center",
+        scrub: true,
+      }, x: -40, ease: "Expo.ease"});
+
+
 }); 
 
 // Popover Js for Dashboard Page: Start

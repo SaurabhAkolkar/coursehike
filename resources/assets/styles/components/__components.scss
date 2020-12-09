@@ -29,7 +29,8 @@
         './rented', // Rented in Purchase History Page
         './entry', // Login, register, interest, creator-signup
         './artist', // Artist
-        './home/__home'; // Trail
+        './home/__home', // Trail
+        './anim'; // Animation
 
 #{$ap}- {
 
@@ -54,6 +55,18 @@
 
             }
 
+            &crossline {
+                width: 791px;
+                height: 701px;
+                border-left: 0.5px solid #FFC516;
+                opacity: 0.5;
+                transform: rotate(-55deg) translate(119px, 10px);
+                top: 0px;
+                left: 0;
+                z-index: -1;
+                position: absolute;
+            }
+
             &subtitle {
                 // Bold 32px/37px Raleway;
                 font-weight: var(--font-bold);
@@ -76,6 +89,8 @@
                 border-radius: 100%;
                 top: -40%;
                 left: -24%;
+                opacity: 0;
+                transform: scale(0.4);
 
                 // bottom: -34%;
                 // left: -24%;
@@ -230,6 +245,10 @@
                 }
             }
 
+            &img {
+                height: 570px;
+            }
+
             &bottom {
                 &- {
                     &trial, &browse {
@@ -246,16 +265,16 @@
 
             &img {
                 &:before {
-                    content: "";
-                    width: 791px;
-                    height: 701px;
-                    border-left: 0.5px solid #FFC516;
-                    opacity: 0.5;
-                    transform: rotate(-55deg) translate(119px, 10px);
-                    top: 0px;
-                    left: 0;
-                    z-index: -1;
-                    position: absolute;
+                    // content: "";
+                    // width: 791px;
+                    // height: 701px;
+                    // border-left: 0.5px solid #FFC516;
+                    // opacity: 0.5;
+                    // transform: rotate(-55deg) translate(119px, 590px);
+                    // top: 0px;
+                    // left: 0;
+                    // z-index: -1;
+                    // position: absolute;
                 }
             }
 
