@@ -469,7 +469,7 @@
                     <a href="">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                   </div>
                 </div>
-                <div class="col-12 offset-lg-1 col-lg-5 pt-20">
+                <div class="col-12 offset-lg-1 col-lg-5 pt-20 la-anim__slide-box">
                   <div class="la-price__box">
                     <div class="la-price__box-inner"><a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
                       <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">20% savings </span>on Annual Plan</p>
@@ -491,7 +491,7 @@
                     <a href="">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                   </div>
                 </div>
-                <div class="col-12 offset-lg-1 col-lg-5 pt-20">
+                <div class="col-12 offset-lg-1 col-lg-5 pt-20 la-anim__slide-box">
                   <div class="la-price__box">
                     <div class="la-price__box-inner"><a  href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
                       <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">20% savings </span>on Annual Plan</p>
@@ -513,7 +513,7 @@
                     <a href="">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                   </div>
                 </div>
-                <div class="col-12 offset-lg-1 col-lg-5 pt-20">
+                <div class="col-12 offset-lg-1 col-lg-5 pt-20 la-anim__slide-box">
                   <div class="la-price__box">
                     <div class="la-price__box-inner"><a  href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
                       <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">20% savings </span>on Annual Plan</p>

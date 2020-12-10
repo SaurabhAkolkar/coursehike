@@ -131,11 +131,11 @@ $(function(){
     var item_stagger_x = elem.querySelectorAll(".la-anim__stagger-item--x");
     var item_textMove = elem.querySelectorAll(".la-anim__text-move");
     var item_textMoveImg = elem.querySelector(".la-anim__text-move + img");
-    var item_fadeIn = elem.querySelector(".la-anim__fade-in");
-    var item_fadeInLeft = elem.querySelector(".la-anim__fade-in-left");
-    var item_fadeInRight = elem.querySelector(".la-anim__fade-in-right");
-    var item_fadeInTop = elem.querySelector(".la-anim__fade-in-top");
-    var item_fadeInBottom = elem.querySelector(".la-anim__fade-in-bottom");
+    var item_fadeIn = elem.querySelectorAll(".la-anim__fade-in");
+    var item_fadeInLeft = elem.querySelectorAll(".la-anim__fade-in-left");
+    var item_fadeInRight = elem.querySelectorAll(".la-anim__fade-in-right");
+    var item_fadeInTop = elem.querySelectorAll(".la-anim__fade-in-top");
+    var item_fadeInBottom = elem.querySelectorAll(".la-anim__fade-in-bottom");
 
     // Global
     tl.to(item_stagger, {opacity: 1, y:0, stagger: 0.2})
@@ -185,10 +185,25 @@ $(function(){
       pinSpacing: false,
       start: "top 15%",
       end: "+=970px",
-    }
+    }, opacity: 0.2
   });
 
 
+  // For Home Page
+  gsap.utils.toArray('.la-anim__slide').forEach(function(elem) {
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: elem,
+        start: "top 40%",
+        toggleActions: "restart none none reset"
+      }
+    });
+
+    var item_priceSlide = elem.querySelectorAll(".la-anim__slide-box");
+
+    tl.to(item_priceSlide, {opacity: 1, y: -40, duration: 0.4, ease: "Expo.ease"})
+
+  });
 
     // gsap.to(".la-anim__text-move + img", {
     //   scrollTrigger: {
