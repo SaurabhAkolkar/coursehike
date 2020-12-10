@@ -14,9 +14,9 @@
         <div class="container">
           <div class="la-profile__main-inner">
               @if(session('message'))
-              <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible fade show" role="alert">
+              <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible" role="alert">
                   <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
-                  <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                  <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true" class="text-white">&times;</span>
                   </button>
               </div>
@@ -32,7 +32,7 @@
                   <div class="row flex-column-reverse flex-md-row">
                     <!-- Cousre Cart:  Start -->
                       @php
-                        $courseImg = "https://picsum.photos/160/80";
+                        $courseImg = "https://picsum.photos/160/85";
                         $edit = 'Edit';
                         $wishlist ='Move to Wishlist';
                         $remove = 'Remove';
@@ -43,6 +43,7 @@
                         @foreach ($carts as $cart)
                             <x-cart 
                               :courseId="$cart->course_id"
+                              :collapseId="$cart->collapseId"
                               :courseImg="$courseImg"
                               :classType="$cart->type"
                               :course="$cart->courses->title"
@@ -59,7 +60,7 @@
                         @endforeach
                       @else
                           <div class="d-flex justify-content-center align-items-center">
-                          <h2 class="text-center">Cart is empty.</h2>
+                              <h2 class="text-center my-20 py-10" style="color: var(--gray8);">Cart is empty</h2>
                           </div>
                       @endif
                     </div>

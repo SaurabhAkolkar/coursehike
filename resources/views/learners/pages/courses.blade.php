@@ -6,9 +6,9 @@
       <div class="container">
         <!-- Playlist Alert Message-->
         @if(session('message'))
-          <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible fade show" role="alert">
+          <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible" role="alert">
               <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
-              <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+              <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true" class="text-white">&times;</span>
               </button>
           </div>
@@ -184,13 +184,18 @@
           success:function(data){   
             $('#wishlist_alert_div').html(' ');
             $('#course_'+id).remove(); 
-            let successAlert = `<div class="la-btn__alert-success col-md-4 offset-md-8 alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
+            let successAlert = `<div class="la-btn__alert-success col-md-4 offset-md-8 alert alert-success alert-dismissible" id="wishlist_alert" role="alert">
                                   <h6 id="wishlist_alert_message" class="la-btn__alert-msg">${data}</h6>
-                                  <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                                  <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
                                       <span aria-hidden="true" class="text-white">&times;</span>
                                   </button>
                                 </div>`
             $('#wishlist_alert_div').html(successAlert);
+            window.setTimeout(function() {
+              $(".alert").fadeTo(500, 0).slideUp(500, function() {
+                  $(this).remove();
+              });
+            }, 3000);
                   
           },
           error: function(XMLHttpRequest, textStatus, errorThrown) {

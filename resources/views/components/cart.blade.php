@@ -17,9 +17,26 @@
                             <div class="la-cart__item-img">
                                 <img src= {{ $courseImg }} alt= {{ $course }} />
                             </div>
+                            <div class="la-cart__item-cartclasses py-2">
+                                <div class="la-cart__item-carttoggler collapsed position-relative mx-2" data-toggle="collapse"  href="#cart_class_{{ $collapseId }}" aria-expanded="false">
+                                    Classes in the Cart
+                                </div>
+                                
+                                <div class="la-cart__item-cartclass collapse show mx-2 my-2" id="cart_class_{{ $collapseId }}">
+                                    <ol class="la-cart__item-cartlist pl-7">
+                                        <li class="la-cart__item-cartitem">Class One</li>
+                                        <li class="la-cart__item-cartitem">Class Two</li>
+                                        <li class="la-cart__item-cartitem">Class Three</li>
+                                        <li class="la-cart__item-cartitem">Class Four</li>
+                                        <li class="la-cart__item-cartitem">Class Five</li>
+                                        <li class="la-cart__item-cartitem">Class Six</li>
+                                        
+                                    </ol>
+                                </div>
+                            </div>
                         </div>
                         <div class="la-cart__item-right">
-                            <div class="la-cart__item-name">{{ $course }}</div>
+                            <div class="la-cart__item-name ">{{ $course }}</div>
                             <div class="la-cart__item-author mb-2">by <span>{{ $creator}}</span></div>
                             <div class="la-cart__item-actions d-flex">
                                 <div class="la-cart__item-action remove "> 
@@ -93,7 +110,7 @@
                                                             </div>
                                                         @endforeach
                                                     </div>
-<!-- 
+                                                    <!-- 
                                                     <div class="row la-cart__edit-info">
                                                         <div class="col-2 col-md-2 text-center my-auto">
                                                             <input type="checkbox" name="" class="">

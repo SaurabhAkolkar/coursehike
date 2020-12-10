@@ -64,7 +64,7 @@
                                 <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-profile"></span></span>
                                 <input type="text" class="la-form__input la-entry__input{{ $errors->has('fname') ? ' is-invalid' : '' }}" name="fname" value="{{ old('fname') }}" id="fname" placeholder="Full Name">
                                 @if ($errors->has('fname'))
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
                                         <strong>{{ $errors->first('fname') }}</strong>
                                     </span>
                                 @endif
@@ -84,7 +84,7 @@
                                 <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-contact-number"></span></span>
                                 <input type="text" class="la-form__input la-entry__input{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile') }}" id="mobile" placeholder="Mobile Number">
                                 @if($errors->has('mobile'))
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
                                         <strong>{{ $errors->first('mobile') }}</strong>
                                     </span>
                                 @endif
@@ -103,7 +103,7 @@
                                 <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-mail-id"></span></span>
                                 <input type="email" class="la-form__input la-entry__input{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" id="email" placeholder="Email ID">
                                 @if($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
@@ -114,7 +114,7 @@
                                 <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-password"></span></span>
                                 <input type="password" class="la-form__input la-entry__input{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" id="password" placeholder="Password">
                                 @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif

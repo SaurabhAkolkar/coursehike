@@ -58,7 +58,7 @@
 
 
                 @foreach($courses as $course)
-                
+                  
                   <x-course 
                       :id="$course->id"
                       :img="$course->preview_image" 

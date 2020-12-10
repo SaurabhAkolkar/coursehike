@@ -29,19 +29,19 @@
                             <input class="la-form__input la-entry__input" type="text" value="" name="display_name" placeholder="Display Name">
                           </div>
                           @error('display_name')
-                              <div class="alert alert-danger">{{ $message }}</div>
+                              <div class="alert alert-danger" style="margin-left:60px;position:absolute">{{ $message }}</div>
                           @enderror
                           <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-profile"></span></span>
                             <input class="la-form__input la-entry__input" type="text" value="" name="expert_in" placeholder="Expert In">
                           </div>
                           @error('expert_in')
-                              <div class="alert alert-danger">{{ $message }}</div>
+                              <div class="alert alert-danger" style="margin-left:60px;position:absolute">{{ $message }}</div>
                           @enderror
                           <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-calender-filled"></span></span>
                             <input class="la-form__input la-entry__input" type="number" value="" name="yoe" placeholder="Years of Experience">
                           </div>
                           @error('yoe')
-                              <div class="alert alert-danger">{{ $message }}</div>
+                              <div class="alert alert-danger" style="margin-left:60px;position:absolute">{{ $message }}</div>
                           @enderror
                           <div id="added_to_awards">
                             <input type="hidden" name="all_awards" id="all_awards"/>
