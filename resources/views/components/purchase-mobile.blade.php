@@ -9,16 +9,16 @@
                 </div>
                 <div class="la-purcaseh__item-by">
                     <div class="la-purchaseh__item-title text-2xl">{{ $course }}</div>
-                    <div class="la-purchaseh__item-author">by <span>{{ $creator }}</span></div>
-                    <div class="la-purchaseh__item-invoice mt-4">{{ $invoice }}
-                        <a class="la-icon icon-download la-purchaseh__item-download" href= {{ $invoiceUrl }}></a>
-                    </div>
+                    <div class="la-purchaseh__item-author mb-7">by <span>{{ $creator }}</span></div>
+                    <a class="la-purchaseh__item-invoice" href= {{ $invoiceUrl }}> {{ $invoice }}
+                        <span class="la-icon icon-download la-purchaseh__item-download" ></span>
+                    </a>
                 </div>
             </div>
         </div>
 
         <div class="la-purchaseh__item-paystatus"> {{ $paystatus }}
-            <div class="la-purchaseh__item-toggler collapsed position-relative text-sm mt-14" data-toggle="collapse" href="#purchased_{{ $id }}" aria-expanded="false" aria-controls="1">Details</div>
+            <div class="la-purchaseh__item-toggler collapsed position-relative text-sm mt-16" data-toggle="collapse" href="#purchased_{{ $id }}" aria-expanded="false" aria-controls="1">Details</div>
         </div>
     </div>
     

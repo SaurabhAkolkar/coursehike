@@ -1,4 +1,4 @@
-<div class="col-12 col-md-6 col-lg-4" @if($addedToWhishList) id="course_{{$id}}" @endif>
+<div class="col-12 " @if($addedToWhishList) id="course_{{$id}}" @endif>
     <div class="la-course">
         <div class="la-course__inner">
             <div class="la-course__overlay"  href= {{ $url }}>

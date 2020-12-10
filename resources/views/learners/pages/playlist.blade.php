@@ -127,7 +127,7 @@
                         <div class="modal-dialog la-playlist__modal-dialog">
                           <div class="modal-content la-playlist__modal-content">
                           
-                            <div class="modal-header la-playlist__modal-header">
+                            <div class="modal-header la-playlist__modal-header d-flex align-items-center">
                               <h4 class="modal-title la-playlist__modal-title">Share Playlist</h4>
                               <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
                             </div>
@@ -135,10 +135,10 @@
                             <div class="modal-body la-playlist__modal-body">
                                   <p>
                                                                     
-                                  <a role="button" id="share_playlist_on_facebook" target="_facebook" ><img src="../../images/learners/icons/facebook_1.svg" alt="share_facebook" height="40px" ></a>
-                                  <a role="button" id="share_playlist_on_twitter" target="_twitter" class="ml-1"><img src="../../images/learners/icons/twitter.svg" alt="share_twitter" height="40px" ></a>
-                                  <a role="button" id="share_playlist_on_whatsapp" target="_whatsapp" class="ml-1"><img src="../../images/learners/icons/whatsapp.svg" alt="share_whatsapp" height="35px" ></a>
-                                  <a role="button" id="share_playlist_on_pinterest" target="_pinterest" class="ml-1"><img src="../../images/learners/icons/pinterest.svg" alt="share_pinterest" height="35px" ></a>  
+                                  <a role="button" id="share_playlist_on_facebook" target="_facebook" ><span class="la-icon la-icon--5xl icon-facebook-colored"></span></a>
+                                  <a role="button" id="share_playlist_on_twitter" target="_twitter" ><span class="la-icon la-icon--5xl icon-twitter"></span></a>
+                                  <a role="button" id="share_playlist_on_whatsapp" target="_whatsapp" ><span class="la-icon la-icon--5xl icon-whatsapp"></span></a>
+                                  <a role="button" id="share_playlist_on_pinterest" target="_pinterest" ><span class="la-icon la-icon--5xl icon-pinterest"></span></a>  
                                 </p>
                                   <p><input class="border-0 w-75" id="playlist_url_copy"><span role="button" class="float-right" onclick="copyPlaylistUrl()"><img src="../../images/learners/icons/copy.svg" alt="copy" height="25px"></span></p>
                             </div>

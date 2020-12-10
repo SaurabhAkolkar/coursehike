@@ -92,7 +92,7 @@
                       <div class="la-ph__course text-md">Course</div>
                       <div class="la-ph__status text-md">Status</div>
                     </div>
-                    <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font">Purchased</div>
+                    <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font pb-3">Purchased</div>
                   </div>
                         
                     @php
@@ -219,7 +219,7 @@
               <!-- Section Rent Mobile Version: Start -->
               <div class="container">
                 <div class="la-ph__mobile d-block d-lg-none">
-                  <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font">Rented</div>
+                  <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font pb-3">Rented</div>
                 </div>
                           
                 @php
@@ -339,7 +339,7 @@
                   <!-- Section Free Trial Mobile Version: Start -->
                 <div class="container">
                   <div class="la-ph__mobile d-block d-lg-none">
-                    <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font">Free Trial</div>
+                    <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font pb-3">Free Trial</div>
                   </div>
                   
                   @php
@@ -461,7 +461,7 @@
               <!-- Section Others Mobile Version: Start -->
               <div class="container">
                 <div class="la-ph__mobile d-block d-lg-none">
-                  <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font">Others</div>
+                  <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font pb-3">Others</div>
                 </div>
 
                 @php

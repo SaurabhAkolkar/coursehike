@@ -25,9 +25,9 @@
         </div>
 
         <div class="col-lg-1 p-0 text-center">
-            <div class="la-rto__item-invoice"> {{ $invoice }} 
-                <a class="la-icon icon-download la-rto__item-download" href= {{ $invoiceUrl }} ></a>
-            </div>
+            <a class="la-rto__item-invoice"  href= {{ $invoiceUrl }} > {{ $invoice }} 
+                <span class="la-icon icon-download la-rto__item-download"></span>
+            </a>
         </div>
 
         <div class="col-lg-1 text-center">

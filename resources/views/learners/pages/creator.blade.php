@@ -54,21 +54,22 @@
           <div class="row py-6 py-md-20">   
             <div class="col p-md-0">
               <h4 class="text-3xl head-font font-weight-bold p-3">Courses from {{ucfirst($creator->FullName)}}</h4>
-              <div class="la-courses__creator-courses d-flex flex-row">
+              <div class="la-courses__creator-courses d-md-flex flex-row">
 
 
                 @foreach($courses as $course)
-                  
-                  <x-course 
-                      :id="$course->id"
-                      :img="$course->preview_image" 
-                      :course="$course->title" 
-                      :url="$course->title" 
-                      :rating="$course->review->avg('rating')"
-                      :creatorImg="$course->user->user_img"
-                      :creatorName="$course->user->FullName"
-                      :creatorUrl="$course->user->id"
-                    />
+                  <div class="col-md-4 px-0">
+                    <x-course 
+                        :id="$course->id"
+                        :img="$course->preview_image" 
+                        :course="$course->title" 
+                        :url="$course->title" 
+                        :rating="$course->review->avg('rating')"
+                        :creatorImg="$course->user->user_img"
+                        :creatorName="$course->user->FullName"
+                        :creatorUrl="$course->user->id"
+                      />
+                  </div>
                 @endforeach
 
               </div>
