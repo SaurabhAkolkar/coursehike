@@ -29,18 +29,20 @@
           <!-- Column: End-->
           <!-- Column: Start-->
           <div class="col-12 col-lg-7 la-anim__item la-anim__item--right">
-            <div class="la-hero__img position-relative d-flex align-items-center ">
+            <div class="la-hero__img position-relative d-flex align-items-center la-anim__fade-in">
               <span class="la-section__crossline"></span>
               <h2 class="la-section__title la-section__title--big la-anim__text-move"><div class="la-anim__text-move--content">Design</div></h2>
-              <img class="img-fluid la-anim__fade-in" src="./images/learners/home/design-a@2x.png" alt="Design">
+              <img class="img-fluid" src="./images/learners/home/design-a@2x.png" alt="Design">
             </div>
           </div>
           <!-- Column: End-->
         </div>
         <!-- Row: Start-->
-        <div class="la-hero__bottom d-flex justify-content-center justify-content-lg-between align-items-center pt-14 pb-14 la-anim__wrap">
-          <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing la-anim__fade-in"><a href="">Start free trial</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"> </span></div>
-          <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text--burple text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block la-anim__fade-in"><a href="">BROWSE COURSES</a><span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span></div>
+        <div class="la-anim__wrap">
+          <div class="la-hero__bottom d-flex justify-content-center justify-content-lg-between align-items-center pt-14 pb-14 la-anim__fade-in">
+            <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing"><a href="">Start free trial</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"> </span></div>
+            <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text--burple text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block"><a href="">BROWSE COURSES</a><span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span></div>
+          </div>
         </div>
         <!-- Row: End-->
       </div>
@@ -159,7 +161,7 @@
       <span class="la-section__circle"></span>
       <div class="swiper-container gallery-top la-artist__slider container">
 
-        <div class="col-md-12 la-artist__slider-col la-artist__designation position-absolute d-flex align-items-center justify-content-center">
+        <div class="col-md-12 la-artist__slider-col la-artist__designation position-absolute d-flex align-items-center justify-content-center la-anim__fade-in-top la-anim__A">
             <h2 class="la-section__title la-section__title--big">Alien <span style="color: var(--gray);"> MENTOR </span></h2>
         </div>
 
@@ -320,7 +322,7 @@
           </div> -->
         </div>
       </div>
-      <div class="swiper-container gallery-thumbs la-artist__thumbnails-wrap">
+      <div class="swiper-container gallery-thumbs la-artist__thumbnails-wrap la-anim__fade-in-right">
         <div class="swiper-wrapper la-artist__thumbnails">
           <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-1.png" alt=""></div>
           <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-2.png" alt=""></div>
@@ -346,12 +348,12 @@
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  <section class="la-section la-section--classes la-section--grey position-relative">
+  <section class="la-section la-section--classes la-section--grey position-relative la-anim__wrap">
     <div class="la-section__inner">
       <div class="container">
-        <h2 class="la-section__title la-section__title--big position-relative">Master <span>classes</span></h2>
+        <h2 class="la-section__title la-section__title--big position-relative la-anim__fade-in-top la-anim__A">Master <span>classes</span></h2>
         <div class="la-mccourses py-4">
-          <div class="row justify-content-center px-lg-5">
+          <div class="row justify-content-center px-lg-5 la-anim__stagger la-anim__A">
            
               @php
                   $master1 = new stdClass;
@@ -411,8 +413,8 @@
              
           </div>
         </div>
-        <div class="text-right">
-          <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8">
+        <div class="text-right la-anim__wrap">
+          <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8 la-anim__fade-in-right">
             <a href="">explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
         </div>
       </div>
@@ -420,29 +422,29 @@
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  <section class="la-section la-section--trail position-relative">
+  <section class="la-section la-section--trail position-relative la-anim__wrap">
     <div class="la-section__inner">
       <span class="la-section__circle la-section__circle--right"></span>
       <div class="container">
        
         <div class="row">
           <div class="col-12 col-md-5 la-trail__left">
-            <div class="la-trail__title la-trail__title-out la-trail__title--black la-section__title la-section__title--big position-absolute">Observe.</div>
-            <div class="la-trail__img-wrap">
+            <div class="la-trail__title la-trail__title-out la-trail__title--black la-section__title la-section__title--big position-absolute la-anim__text-move">Observe.</div>
+            <div class="la-trail__img-wrap la-anim__fade-in-right la-anim__B">
               <div class="la-trail__img position-relative">
                 <img class="w-100" src="./images/learners/home/observe.jpg" alt="observe">
               </div>
-              <div class="la-trail__title la-trail__title-in la-trail__title--purple la-section__title la-section__title--big position-absolute">Observe.</div>
+              <div class="la-trail__title la-trail__title-in la-trail__title--purple la-section__title la-section__title--big position-absolute la-anim__text-move la-anim__text-move--z1">Observe.</div>
             </div>
           </div>
           <div class="col-12 col-md-7 pl-md-0">
-            <div class="la-trail__btn la-btn__plain d-flex justify-content-center">
+            <div class="la-trail__btn la-btn__plain d-flex justify-content-center la-anim__fade-in-left">
               <a href="">ALIENS WAY OF TEACHING</a>
             </div>
             <div class="la-trail__right d-flex align-items-end ">
-              <div class="la-trail__content-wrap pr-md-20 ">
-                <div class="la-trail__para pb-10 pr-md-20">We believe that real learning happens with consistency. With consistent observation, learning and practicing a particular skill repetitively makes you a Pro at it.</div>
-                <a class="btn btn-primary la-btn la-btn--primary mt-md-10">Start free trail</a>
+              <div class="la-trail__content-wrap pr-md-20 la-anim__stagger">
+                <div class="la-trail__para pb-10 pr-md-20 la-anim__stagger-item la-anim__B">We believe that real learning happens with consistency. With consistent observation, learning and practicing a particular skill repetitively makes you a Pro at it.</div>
+                <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item la-anim__B">Start free trail</a>
               </div>
             </div>
             
@@ -453,12 +455,12 @@
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  <section class="la-section la-section--price pb-0">
+  <section class="la-section la-section--price pb-0 la-anim__wrap la-anim__wrap-pin">
     <div class="la-section__inner ">
       <div class="container la-price__container">
-        <h2 class="la-section__title la-section__title--big leading-none"> <span style="color: var(--gray);">Learn it </span><br><span>like aliens</span></h2>
-        <div class="la-price__slider">
-            <div class="la-price__slide">
+        <h2 class="la-section__title la-section__title--big leading-none la-anim__pin"> <span style="color: var(--gray);">Learn it </span><br><span>like aliens</span></h2>
+        <div class="la-price__slider la-anim__slider">
+            <div class="la-price__slide la-anim__slide">
               <div class="la-price__row row mb-16">
                 <div class="col-12 col-lg-5 pt-20">
                   <h3 class="la-section__subtitle">How does subscription works?</h3>
@@ -480,7 +482,7 @@
                 </div>
               </div>
             </div>
-            <div class="la-price__slide">
+            <div class="la-price__slide la-anim__slide">
               <div class="la-price__row row mb-16">
                 <div class="col-12 col-lg-5 pt-20">
                   <h3 class="la-section__subtitle">What’s LILA for you ?</h3>
@@ -502,7 +504,7 @@
                 </div>
               </div>
             </div>
-            <div class="la-price__slide">
+            <div class="la-price__slide la-anim__slide">
               <div class="la-price__row row">
                 <div class="col-12 col-lg-5 pt-20">
                   <h3 class="la-section__subtitle">How does subscription works?</h3>

@@ -123,45 +123,79 @@ $(function(){
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: elem,
-        start: 'top 85%'
+        start: 'top bottom'
       }
     });
 
     var item_stagger = elem.querySelectorAll(".la-anim__stagger-item");
     var item_stagger_x = elem.querySelectorAll(".la-anim__stagger-item--x");
-    var item_textMove = elem.querySelector(".la-anim__text-move");
+    var item_textMove = elem.querySelectorAll(".la-anim__text-move");
     var item_textMoveImg = elem.querySelector(".la-anim__text-move + img");
     var item_fadeIn = elem.querySelector(".la-anim__fade-in");
+    var item_fadeInLeft = elem.querySelector(".la-anim__fade-in-left");
+    var item_fadeInRight = elem.querySelector(".la-anim__fade-in-right");
+    var item_fadeInTop = elem.querySelector(".la-anim__fade-in-top");
+    var item_fadeInBottom = elem.querySelector(".la-anim__fade-in-bottom");
 
     // Global
     tl.to(item_stagger, {opacity: 1, y:0, stagger: 0.2})
     tl.to(item_textMove, {opacity: 1, y: 0}, "-=0.6")
     tl.to(item_fadeIn, {duration: 0.4, opacity: 1, ease: "Expo.ease"})
     tl.to(item_stagger_x, {opacity: 1, x:0, stagger: 0.1}, "0")
-    
+
+    tl.to(item_fadeInTop, {duration: 0.4, opacity: 1, y: 0, ease: "Expo.ease"}, "0")
+    tl.to(item_fadeInBottom, {duration: 0.4, opacity: 1, y: 0, ease: "Expo.ease"}, "0")
+    tl.to(item_fadeInLeft, {duration: 0.4, opacity: 1, x: 0, ease: "Expo.ease"}, "0")
+    tl.to(item_fadeInRight, {duration: 0.4, opacity: 1, x: 0, ease: "Expo.ease"}, "0")
 
   });
 
-  gsap.to('.la-section__circle', {
-    scrollTrigger: {
-    trigger: ".la-anim__wrap",
-    start: "bottom center",
-    scrub: true,
-  }, opacity: 1, scale: 1});
 
-  gsap.to(".la-anim__text-move", {
-    scrollTrigger: {
-      trigger: ".la-anim__text-move",
-      start: "top center",
-      scrub: true,
-    }, x: 40, ease: "Expo.ease"});
+  gsap.utils.toArray('.la-anim__wrap').forEach(function(elem) {
 
-    gsap.to(".la-anim__text-move + img", {
+    let tl = gsap.timeline({
       scrollTrigger: {
-        trigger: ".la-anim__text-move + img",
-        start: "top center",
-        scrub: true,
-      }, x: -40, ease: "Expo.ease"});
+        trigger: elem,
+        scrub: true
+      }
+    });
+
+    var item_circle = elem.querySelector(".la-section__circle");
+    var item_TextMove = elem.querySelectorAll(".la-anim__text-move");
+
+    tl.to(item_circle, {
+      scrollTrigger: {
+        start: 'top bottom'
+      }, duration: 0.4, opacity: 1, scale: 1}, "0")
+
+    tl.to(item_TextMove, {
+      scrollTrigger: {
+        start: "top bottom"
+      }, x: 100, ease: "Expo.ease"}, "0");
+
+  });
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to(".la-anim__pin", {
+    scrollTrigger: {
+      trigger: ".la-anim__pin",
+      scrub: true,
+      pin: true,
+      pinSpacing: false,
+      start: "top 15%",
+      end: "+=970px",
+    }
+  });
+
+
+
+    // gsap.to(".la-anim__text-move + img", {
+    //   scrollTrigger: {
+    //     trigger: ".la-anim__text-move + img",
+    //     start: "top center",
+    //     scrub: true,
+    //   }, x: -40, ease: "Expo.ease"});
 
 
 }); 

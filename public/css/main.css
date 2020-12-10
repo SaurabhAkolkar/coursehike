@@ -20167,7 +20167,7 @@ a, a:hover {
 }
 .la-trail__title--purple {
   color: #5800a2 !important;
-  opacity: 0.5;
+  opacity: 0.5 !important;
 }
 .la-trail__title--black {
   color: var(--gray5) !important;
@@ -20177,9 +20177,6 @@ a, a:hover {
   .la-trail__right {
     padding-top: 20px;
   }
-}
-.la-section--price {
-  height: 100vh;
 }
 .la-price__box {
   background: var(--white);
@@ -20210,6 +20207,30 @@ a, a:hover {
   background: transparent;
 }
 
+.la-anim__A {
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+  transition-delay: 0.1s !important;
+}
+.la-anim__B {
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+  transition-delay: 0.2s !important;
+}
+.la-anim__C {
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+  transition-delay: 0.3s !important;
+}
+.la-anim__D {
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+  transition-delay: 0.4s !important;
+}
+.la-anim__E {
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+  transition-delay: 0.5s !important;
+}
+.la-anim__F {
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+  transition-delay: 0.6s !important;
+}
 .la-anim__item--left {
   transform: translateY(10px);
 }
@@ -20220,18 +20241,40 @@ a, a:hover {
 .la-anim__stagger-item--x {
   opacity: 0;
   transform: translateX(10px);
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+  transition-delay: 0.1s;
 }
 .la-anim__text-move {
   right: unset !important;
   opacity: 0;
-  z-index: 11;
+  z-index: 0;
   transition: all 0.2s cubic-bezier(0.25, 0.1, 0.14, 1.05);
 }
-.la-anim__text-move + img {
-  transform: translateY(-30px);
+.la-anim__text-move--z1 {
+  z-index: 1;
 }
 .la-anim__fade-in {
   opacity: 0;
+}
+.la-anim__fade-in-top {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+}
+.la-anim__fade-in-bottom {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+}
+.la-anim__fade-in-left {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+}
+.la-anim__fade-in-right {
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
 }
 
 .la-section {
@@ -20367,8 +20410,10 @@ a, a:hover {
   color: var(--gray7) !important;
   font-size: calc(var(--text-xl) * 3) !important;
 }
-.la-hero__img {
-  height: 570px;
+@media (min-width: 992px) {
+  .la-hero__img {
+    height: 570px;
+  }
 }
 .la-hero__bottom-trial, .la-hero__bottom-browse {
   letter-spacing: 3.2px;
