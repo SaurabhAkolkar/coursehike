@@ -67,18 +67,20 @@
                           $purchases = array($purchase1, $purchase2)
                       @endphp
 
-                      @foreach ($purchases as $purchase)
-                          <x-purchase 
-                              :img="$purchase->img"
-                              :course="$purchase->course"
-                              :creator="$purchase->creator"
-                              :date="$purchase->date"
-                              :paymode="$purchase->paymode"
-                              :total="$purchase->total"
-                              :paystatus="$purchase->paystatus"
-                              :invoice="$purchase->invoice"
-                              :invoiceUrl="$purchase->invoiceUrl"
-                          />
+                      @foreach ($invoice as $i)
+                          @foreach($i->details as $detail)
+                              <x-purchase 
+                                  :img="'https://picsum.photos/200/100'"
+                                  :course="$detail->course->title"
+                                  :creator="$detail->course->user->fullname"
+                                  :date="Carbon\Carbon::parse($detail->created_at)->isoFormat('D/M/YY')"
+                                  :paymode="'PayTM'"
+                                  :total="$detail->price"
+                                  :paystatus="$i->status"
+                                  :invoice="'Invoice'"
+                                  :invoiceUrl="'/download-invoice/'.$i->id"
+                              />
+                          @endforeach
                       @endforeach
                 </div>
                   <!-- Purchased Desktop Version: Start -->

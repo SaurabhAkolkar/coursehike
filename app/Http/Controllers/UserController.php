@@ -267,6 +267,16 @@ class UserController extends Controller
 
     }
 
+    public function addMyInterests(Request $request){
+
+        if($request->category_id){
+            $myInterests = UserInterest::create(['user_id'=>Auth::User()->id, 'category_id' => $request->category_id]);
+
+            return 'Course added Successfully';
+        }        
+        return 'No course selected';
+    }
+
     public function myInterests(){
         $myInterests = UserInterest::with('category')->where('user_id',Auth::User()->id)->get();
         $coursesId = UserInterest::where('user_id', Auth::User()->id)->pluck('category_id');
