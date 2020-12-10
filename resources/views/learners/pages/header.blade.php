@@ -134,7 +134,7 @@ use App\Announcement;
                   }
                   
               @endphp
-            <a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-announcement" onclick="markNotificationRead()" id="announcementPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="badge badge-light" id="releaseNotificationBadge">{{count($announcements)}}</span></a>
+            <a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-announcement" onclick="markNotificationRead()" id="announcementPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <sup class="la-header__menu-badge badge badge-light" id="releaseNotificationBadge">{{count($announcements)}}</sup></a>
               <div class="dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="announcementPanel" style="border:none;">
                 <div class="card la-announcement__card">
                   <div class="la-announcement__name d-flex justify-content-between">
@@ -195,7 +195,11 @@ use App\Announcement;
               </div>
             </div>
 
-            <div class="d-none d-lg-block la-header__menu-item la-header__menu-item--btn">
+            <div class="la-header__menu-item d-none d-lg-block">
+              <a class="la-header__menu-link la-header__menu-icon la-icon icon-cart" href="/cart"></a>
+            </div>
+
+            <div class="d-none d-lg-block la-header__menu-item la-header__menu-item--btn ml-5">
               <a class="la-header__menu-link la-header__menu-icon la-icon icon-menu" id="moreItems" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
               <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="moreItems"  style="border:none !important;">
                 <a class="dropdown-item la-header__dropdown-item text-sm" href="/learning-plans">Learning Plans</a>

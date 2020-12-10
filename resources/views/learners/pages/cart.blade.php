@@ -8,65 +8,61 @@
        @include ('learners.pages.sidebar')
        <!-- Side Navbar: End -->
 
+  
       
       <div class="la-profile__main">
         <div class="container">
           <div class="la-profile__main-inner">
+              @if(session('message'))
+              <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible" role="alert">
+                  <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
+                  <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" class="text-white">&times;</span>
+                  </button>
+              </div>
+            @endif
             <div class="la-profile__title-wrap">
               <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="#"></a>
               <h1 class="la-profile__title">Cart</h1>
             </div>
+
             <section class="la-section la-cart__sec pt-0">
               <div class="la-cart__inner">
                 <div class="la-cart__row">
                   <div class="row flex-column-reverse flex-md-row">
                     <!-- Cousre Cart:  Start -->
                       @php
-                        $cart1 = new stdClass;
-                        $cart1->courseImg = "https://picsum.photos/160/80";
-                        $cart1->course = "Photography";
-                        $cart1->creator = "Charlotte Floyd";
-                        $cart1->remove = "Remove";
-                        $cart1->removeUrl = "";
-                        $cart1->wishlist = "Move to Wishlist";
-                        $cart1->wishlistUrl="";
-                        $cart1->edit= "Edit";
-                        $cart1->allClasses = "All Classes";
-                        $cart1->bestPrice = 39;
-                        $cart1->realPrice = 49;
-
-                        $cart2 = new stdClass;
-                        $cart2->courseImg = "https://picsum.photos/160/80";
-                        $cart2->course = "Designs";
-                        $cart2->creator = "Charlotte Floyd";
-                        $cart2->remove = "Remove";
-                        $cart2->removeUrl = "";
-                        $cart2->wishlist = "Move to Wishlist";
-                        $cart2->wishlistUrl="";
-                        $cart2->edit= "Edit";
-                        $cart2->allClasses = "All Classes";
-                        $cart2->bestPrice = 39;
-                        $cart2->realPrice = 49;
-
-                        $carts = array($cart1, $cart2);
+                        $courseImg = "https://picsum.photos/160/85";
+                        $edit = 'Edit';
+                        $wishlist ='Move to Wishlist';
+                        $remove = 'Remove';
                     @endphp
 
                     <div class="col-lg-8 col-xl-9">
+                      @if(count($carts) > 0)
                         @foreach ($carts as $cart)
                             <x-cart 
-                              :courseImg="$cart->courseImg"
-                              :course="$cart->course"
-                              :creator="$cart->creator"
-                              :remove="$cart->remove"
-                              :removeUrl="$cart->removeUrl"
-                              :wishlist="$cart->wishlist"
-                              :wishlistUrl="$cart->wishlistUrl"
-                              :edit="$cart->edit"
+                              :courseId="$cart->course_id"
+                              :collapseId="$cart->collapseId"
+                              :courseImg="$courseImg"
+                              :classType="$cart->type"
+                              :course="$cart->courses->title"
+                              :creator="$cart->user->FullName"
+                              :remove="$remove"
+                              :removeUrl="'remove-from-cart/'.$cart->course_id"
+                              :wishlist="$wishlist"
+                              :wishlistUrl="'move-to-wishlist/'.$cart->course_id"
+                              :edit="$edit"
                               :allClasses="$cart->allClasses"
-                              :bestPrice="$cart->bestPrice"
-                              :realPrice="$cart->realPrice"
+                              :bestPrice="$cart->price"
+                              :realPrice="$cart->offer_price"
                             />
                         @endforeach
+                      @else
+                          <div class="d-flex justify-content-center align-items-center">
+                              <h2 class="text-center my-20 py-10" style="color: var(--gray8);">Cart is empty</h2>
+                          </div>
+                      @endif
                     </div>
                     <!-- Cousre Cart:  End -->
 
@@ -76,6 +72,11 @@
                         $checkout->totalAmount = 39;
                         $checkout->offerAmount = 10;
                         $checkout->applyCoupon = "Apply Coupon";
+                        $appliedCoupon = null;
+                        if(Session::get('appliedCoupon')){
+                          $checkout->applyCoupon = $coupon->code;
+                        }
+
                         $checkout->discountAmount = 10;
                         $checkout->checkoutUrl = "";
 
@@ -83,9 +84,10 @@
                     @endphp
                     <div class="col-lg-4 col-xl-3 mb-5 mb-md-0">
                         <x-cart-total 
-                          :totalAmount="$checkout->totalAmount"
-                          :offerAmount="$checkout->offerAmount"
+                          :totalAmount="$total"
+                          :offerAmount="$discount"
                           :applyCoupon="$checkout->applyCoupon"
+                          :coupons="$coupons"
                           :discountAmount="$checkout->discountAmount"
                           :checkoutUrl="$checkout->checkoutUrl"
                         />

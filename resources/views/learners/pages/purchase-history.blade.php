@@ -67,18 +67,20 @@
                           $purchases = array($purchase1, $purchase2)
                       @endphp
 
-                      @foreach ($purchases as $purchase)
-                          <x-purchase 
-                              :img="$purchase->img"
-                              :course="$purchase->course"
-                              :creator="$purchase->creator"
-                              :date="$purchase->date"
-                              :paymode="$purchase->paymode"
-                              :total="$purchase->total"
-                              :paystatus="$purchase->paystatus"
-                              :invoice="$purchase->invoice"
-                              :invoiceUrl="$purchase->invoiceUrl"
-                          />
+                      @foreach ($invoice as $i)
+                          @foreach($i->details as $detail)
+                              <x-purchase 
+                                  :img="'https://picsum.photos/200/100'"
+                                  :course="$detail->course->title"
+                                  :creator="$detail->course->user->fullname"
+                                  :date="Carbon\Carbon::parse($detail->created_at)->isoFormat('D/M/YY')"
+                                  :paymode="'PayTM'"
+                                  :total="$detail->price"
+                                  :paystatus="$i->status"
+                                  :invoice="'Invoice'"
+                                  :invoiceUrl="'/download-invoice/'.$i->id"
+                              />
+                          @endforeach
                       @endforeach
                 </div>
                   <!-- Purchased Desktop Version: Start -->
@@ -90,7 +92,7 @@
                       <div class="la-ph__course text-md">Course</div>
                       <div class="la-ph__status text-md">Status</div>
                     </div>
-                    <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font">Purchased</div>
+                    <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font pb-3">Purchased</div>
                   </div>
                         
                     @php
@@ -217,7 +219,7 @@
               <!-- Section Rent Mobile Version: Start -->
               <div class="container">
                 <div class="la-ph__mobile d-block d-lg-none">
-                  <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font">Rented</div>
+                  <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font pb-3">Rented</div>
                 </div>
                           
                 @php
@@ -337,7 +339,7 @@
                   <!-- Section Free Trial Mobile Version: Start -->
                 <div class="container">
                   <div class="la-ph__mobile d-block d-lg-none">
-                    <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font">Free Trial</div>
+                    <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font pb-3">Free Trial</div>
                   </div>
                   
                   @php
@@ -459,7 +461,7 @@
               <!-- Section Others Mobile Version: Start -->
               <div class="container">
                 <div class="la-ph__mobile d-block d-lg-none">
-                  <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font">Others</div>
+                  <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font pb-3">Others</div>
                 </div>
 
                 @php

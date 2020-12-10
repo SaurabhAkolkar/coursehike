@@ -3,6 +3,13 @@ $(function(){
   $('.dropdown-toggle').dropdown()
   // Global Dropdown Toggle: End
 
+  // Global Alert Animation for Learners
+  window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function() {
+        $(this).remove();
+    });
+  }, 3000);
+
   //Swiper Js for Login & Register page
   var swiper = new Swiper('.entry-swiper-container', {
       fadeEffect: { crossFade: true },
@@ -427,6 +434,11 @@ function addToWishList(id){
                               </button>
                             </div>`
         $('#wishlist_alert_div').html(successAlert);        
+        window.setTimeout(function() {
+          $(".alert").fadeTo(500, 0).slideUp(500, function() {
+              $(this).remove();
+          });
+        }, 3000);
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {
         console.log(XMLHttpRequest);
@@ -458,6 +470,11 @@ function removeFromWishList(id){
                               </button>
                             </div>`
         $('#wishlist_alert_div').html(successAlert);
+        window.setTimeout(function() {
+          $(".alert").fadeTo(500, 0).slideUp(500, function() {
+              $(this).remove();
+          });
+        }, 3000);
                
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {

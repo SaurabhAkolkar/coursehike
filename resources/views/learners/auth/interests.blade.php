@@ -22,7 +22,12 @@
               <ul class="la-entry__interests d-flex flex-wrap mb-3">
                 @foreach ($categories as $c)
                     <li class="la-entry__interest">
-                      <div class="la-entry__interest-inner position-relative d-flex align-items-end"><span class="la-entry__interest-thumbnail position-absolute z-0" role="button" onclick="addToInterest({{$c->id}})" id="interest_span_{{$c->id}}"><img class="img-fluid" src="https://picsum.photos/115/115" alt=""></span><span class="la-entry__interest-name">{{$c->title}}</span></div>
+                      <div class="la-entry__interest-inner position-relative d-flex align-items-end">
+                        <span class="la-entry__interest-thumbnail position-absolute z-0" role="button" onclick="addToInterest({{$c->id}})" id="interest_span_{{$c->id}}">
+                          <img class="img-fluid" src="https://picsum.photos/115/115" alt="">
+                        </span>
+                        <span class="la-entry__interest-name">{{$c->title}}</span>
+                      </div>
                     </li>
 
                 @endforeach

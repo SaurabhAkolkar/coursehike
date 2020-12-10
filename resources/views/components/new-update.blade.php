@@ -12,9 +12,9 @@
             <br>
 
             <span> {{ $desc }}  </span>
-            <span class="collapse" id= "collapseId"> {{ $desc }}  </span>
+            <span class="collapse" id= "update_{{ $updateId }} "> {{ $desc }}  </span>
             </p>
-            <p class="la-news__readmore collapsed text-center  text-sm-right" role="button" href="#collapseId" data-toggle="collapse" aria-expanded="true">Read More</p>
+            <p class="la-news__readmore collapsed text-center  text-sm-right" role="button" href="#update_{{ $updateId }}" data-toggle="collapse" aria-expanded="true">Read More</p>
         </div>
     </div>
 </li>

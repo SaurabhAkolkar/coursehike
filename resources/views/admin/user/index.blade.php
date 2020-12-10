@@ -55,7 +55,11 @@
                         <td>
                           {{$user->mobile}}
                         </td>
-                        <td>{{  $user->country['nicename']  }}</td>
+                        <td>
+                          @if($user->country_id)
+                          {{  $user->country['nicename']  }}
+                          @endif
+                        </td>
                         <td>
                           <form action="{{ route('user.quick',$user->id) }}" method="POST">
                             {{ csrf_field() }}

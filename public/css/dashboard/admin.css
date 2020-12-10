@@ -1339,6 +1339,13 @@ a.dt-button {
   padding: var(--size-4) 0;
 }
 
+.la-admin__invoice-solditems .la-admin__invoice-list .la-admin__invoice-items .la-admin__item-img {
+  width: 100px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: var(--white);
+}
+
 .la-admin__invoice-solditems .la-admin__invoice-list .la-admin__invoice-items .la-admin__item-img img {
   width: 100px;
   height: 60px;
@@ -1540,4 +1547,110 @@ a.dt-button {
 }
 
 /* ============ ADD ANNOUNCEMENT PAGE: END ============ */
+
+/* ============ PUBLISH PAGE IN CREATOR COURSES: START ======== */
+
+.la-admin__publish-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-medium);
+  font-family: var(--body-font);
+  color: var(--gray7);
+  margin-bottom: var(--size-6);
+}
+
+.la-admin__publish-item {
+  padding: var(--size-base) 0;
+}
+
+.la-admin__publish-dot {
+  font-size: var(--text-4xl);
+  color: var(--app-indigo-1);
+  margin-top: -10px;
+}
+
+.la-admin__publish-desc {
+  font-size: var(--text-md);
+  color: var(--gray7);
+}
+
+.la-admin__publish-btn {
+  width: 160px;
+  height: 100%;
+  background-color: var(--app-indigo-1);
+  color: var(--white);
+  padding: var(--size-3);
+  font-size: var(--text-md);
+  font-family: var(--head-font);
+  font-weight: var(--font-medium);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 0;
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+.la-admin__publish-btn:focus {
+  outline: 0;
+}
+
+/* ============ PUBLISH PAGE IN CREATOR COURSES: END ======== */
+
+/* =========== ALERT SUCCESS & DANGER: START =========== */
+
+.la-btn__alert-success {
+  position: relative;
+  background-color: rgba(146, 61, 216, 0.7) !important;
+  color: var(--white);
+  border: none;
+  -webkit-animation: fadeAlert 0.5s ease 1;
+          animation: fadeAlert 0.5s ease 1;
+  transition: all 0.1s ease;
+  padding: 0 !important;
+}
+
+.la-btn__alert-danger {
+  position: relative;
+  background-color: rgba(248, 93, 106, 0.7) !important;
+  color: var(--white);
+  border: none;
+  -webkit-animation: fadeAlert 0.5s ease 1;
+          animation: fadeAlert 0.5s ease 1;
+  transition: all 0.1s ease;
+  padding: 0 !important;
+}
+
+@-webkit-keyframes fadeAlert {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeAlert {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.la-btn__alert-msg {
+  padding: var(--size-5) var(--size-6);
+  font-size: var(--text-md);
+  font-family: var(--font-body);
+  font-weight: var(--font-medium);
+  margin: var(--size-base) 0;
+  opacity: 1;
+}
+
+/* =========== ALERT SUCCESS & DANGER: END =========== */
 
