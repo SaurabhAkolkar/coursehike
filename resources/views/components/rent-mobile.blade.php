@@ -10,7 +10,7 @@
                 <div class="la-rto__item-title text-lg"> {{ $course }} </div>
                 <div class="la-rto__item-author mb-4">by <span>  {{ $course }}   </span></div>
 
-                <a class="la-purchaseh__item-invoice" href= {{$invoiceUrl}} >   {{ $invoice }}
+                <a class="la-purchaseh__item-invoice" role="button" target="_blank" href= {{$invoiceUrl}} >   {{ $invoice }}
                     <span class="la-icon icon-download la-purchaseh__item-download" ></span>
                 </a>
             </div>

@@ -34,7 +34,7 @@
         </div>
 
         <div class="col-lg-1 p-0 text-center">
-            <a class="la-rto__item-invoice"  href= {{ $invoiceUrl}}>{{ $invoice}}
+            <a class="la-rto__item-invoice" role="button" target="_blank" href= {{ $invoiceUrl}}>{{ $invoice}}
                 <span class="la-icon icon-download la-rto__item-download" ></span>
             </a>
         </div>

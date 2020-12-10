@@ -1,0 +1,28 @@
+.la-payment__history-table{
+    border:1px solid var(--gray2);
+    thead{
+        background-color: var(--gray2);
+    }
+    th{
+        font-size:16px;
+        font-weight: var(--font-bold);
+        color: var(--gray3);
+        vertical-align: middle !important;
+    }
+    td{
+        font-size: 15px;
+        color: #333333;
+        font-weight: var(--font-normal);
+        vertical-align: middle !important;
+    }
+}
+.la-payment__history-success{
+    color:#4BB543;
+    font-weight: var(--font-semibold) !important;
+}
+.la-payment__history-danger{
+    color:#d9534f;
+}
+.la-payment__history-invoice{
+    color: var(--app-indigo-1);
+}

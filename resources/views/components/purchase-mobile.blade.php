@@ -10,7 +10,7 @@
                 <div class="la-purcaseh__item-by">
                     <div class="la-purchaseh__item-title text-2xl">{{ $course }}</div>
                     <div class="la-purchaseh__item-author mb-7">by <span>{{ $creator }}</span></div>
-                    <a class="la-purchaseh__item-invoice" href= {{ $invoiceUrl }}> {{ $invoice }}
+                    <a class="la-purchaseh__item-invoice" role="button" target="_blank" href= {{ $invoiceUrl }}> {{ $invoice }}
                         <span class="la-icon icon-download la-purchaseh__item-download" ></span>
                     </a>
                 </div>

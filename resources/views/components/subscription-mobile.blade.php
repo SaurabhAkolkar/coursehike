@@ -3,7 +3,7 @@
     <div class="la-rto__item d-flex justify-content-between mb-4">           
         <div class="la-rto__categories text-sm">
             <div class="la-rto__item-title text-2xl mb-6"> {{ $subscription }} </div>
-            <a class="la-purchaseh__item-invoice" href= {{ $invoiceUrl }}> {{ $invoice }} 
+            <a class="la-purchaseh__item-invoice" role="button" target="_blank" href= {{ $invoiceUrl }}> {{ $invoice }} 
                 <span class="la-icon icon-download la-purchaseh__item-download"  ></span>
             </a>
         </div>

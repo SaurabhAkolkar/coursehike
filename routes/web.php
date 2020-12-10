@@ -701,5 +701,10 @@ Route::view('/become-creator','learners.pages.become-creator');
 Route::view('/guided-creator','learners.pages.guided-creator');
 Route::view('/contact','learners.pages.contact');
 
+Route::view('/personal-billing', 'learners.pages.personal-billing');
+Route::view('/payment-cards', 'learners.pages.payment-cards');
+Route::view('/payment-details', 'learners.pages.payment-details');
+Route::view('/payment-history', 'learners.pages.payment-history');
+
 
 

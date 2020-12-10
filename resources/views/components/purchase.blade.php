@@ -31,7 +31,7 @@
         </div>
 
         <div class="col-lg-1 p-0 text-right">
-            <a class="la-purchaseh__item-invoice" role="button" href= {{ $invoiceUrl }}>{{ $invoice }}
+            <a class="la-purchaseh__item-invoice" role="button" target="_blank" href= {{ $invoiceUrl }}>{{ $invoice }}
                 <span class="la-icon icon-download la-purchaseh__item-download" ></span>
             </a>
         </div>

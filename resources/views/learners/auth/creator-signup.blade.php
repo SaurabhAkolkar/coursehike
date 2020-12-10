@@ -28,31 +28,34 @@
                           <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-profile"></span></span>
                             <input class="la-form__input la-entry__input" type="text" value="" name="display_name" placeholder="Display Name">
                           </div>
-                          @error('display_name')
-                              <div class="alert alert-danger" style="margin-left:60px;position:absolute">{{ $message }}</div>
-                          @enderror
+                          
+                            @error('display_name')
+                                <span class="alert alert-danger" >{{ $message }}</span>
+                            @enderror 
+                          
+
                           <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-profile"></span></span>
                             <input class="la-form__input la-entry__input" type="text" value="" name="expert_in" placeholder="Expert In">
                           </div>
                           @error('expert_in')
-                              <div class="alert alert-danger" style="margin-left:60px;position:absolute">{{ $message }}</div>
+                              <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
                           <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-calender-filled"></span></span>
                             <input class="la-form__input la-entry__input" type="number" value="" name="yoe" placeholder="Years of Experience">
                           </div>
                           @error('yoe')
-                              <div class="alert alert-danger" style="margin-left:60px;position:absolute">{{ $message }}</div>
+                              <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
                           <div id="added_to_awards">
                             <input type="hidden" name="all_awards" id="all_awards"/>
                           </div>
-                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-birthday"></span></span>
+                          <div class="la-form__input-wrap la-entry__input-wrap"><span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-awards"></span></span>
                               <input class="la-form__input la-entry__input" value="" id="awards" name="awards" placeholder="Any Award you want to add"><span class="la-entry__input-icon" style="right:0;cursor:pointer;border:0" onclick="addToAwards();">+</span>
                           </div>
                           <div id="added_to_portfolio">
                             <input type="hidden" name="all_portfolio" id="all_portfolio" />
                           </div>
-                          <div class="la-form__input-wrap la-entry__input-wrap mb-12"><span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-birthday"></span></span>
+                          <div class="la-form__input-wrap la-entry__input-wrap mb-12"><span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-portfolio"></span></span>
                             <input class="la-form__input la-entry__input"value="" id="portfolio_links" name="portfolio_links" placeholder="Portfolio Links (if any)"><span class="la-entry__input-icon" style="right:0;cursor:pointer;border:0" onclick="addToLinks();">+</span>
                           </div>
                 <button class="btn la-btn la-btn--secondary  w-100" type="submit">CONTINUE</button>
@@ -73,7 +76,7 @@
         let awardInput = $('#all_awards').val();
 
         if(award && !awardInput.includes(award)){
-            let badge = `<span class="badge badge-pill badge-secondary mr-2" id="award_${award}">${award} <span class="ml-2" role="button" onclick="removeAward('${award}')">x</span></span>`;
+            let badge = `<span class="la-entry__badge badge badge-pill" id="award_${award}">${award} <span class="ml-2" role="button" onclick="removeAward('${award}')">x</span></span>`;
             if(awardInput){
               awardInput = awardInput+', '+award; 
             }else{
@@ -90,7 +93,7 @@
         let portfolioInput = $('#all_portfolio').val();
         
         if(portfolio && !portfolioInput.includes(portfolio)){
-            let badge = `<span class="badge badge-pill badge-secondary mr-2" id="portfolio_${portfolio}">${portfolio} <span class="ml-2" role="button" onclick="removePortfolio('${portfolio}')">x</span></span>`;
+            let badge = `<span class="la-entry__badge badge badge-pill" id="portfolio_${portfolio}">${portfolio} <span class="ml-2" role="button" onclick="removePortfolio('${portfolio}')">x</span></span>`;
             if(portfolioInput){
               portfolioInput = portfolioInput+','+portfolio; 
             }else{
