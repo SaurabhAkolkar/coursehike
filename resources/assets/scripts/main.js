@@ -184,7 +184,7 @@ $(function(){
       pin: true,
       pinSpacing: false,
       start: "top 15%",
-      end: "+=970px",
+      end: "+=1130px",
     }, opacity: 0.2
   });
 
@@ -205,12 +205,32 @@ $(function(){
 
   });
 
-    // gsap.to(".la-anim__text-move + img", {
-    //   scrollTrigger: {
-    //     trigger: ".la-anim__text-move + img",
-    //     start: "top center",
-    //     scrub: true,
-    //   }, x: -40, ease: "Expo.ease"});
+  //For Header scroll to hide and show
+  var actionNav = gsap.to('.la-header', {y:'-=80', duration:0.5, ease:'power2.in', paused:true});
+
+  ScrollTrigger.create({
+    trigger: ".la-header",
+    start: "10px top",
+    end: 99999,
+    // onEnter: () => {},
+    onUpdate: ({progress, direction, isActive}) => {
+      if (direction == -1) {
+        actionNav.reverse()
+      } if (direction == 1 ) {
+        actionNav.play()
+      } else if (direction == 1 && isActive == true) {
+        actionNav.play()
+      }
+    }
+  });
+
+  gsap.to('.la-header', {
+    scrollTrigger: {
+      trigger: ".la-header",
+      start: "80px top",
+      toggleActions: "restart none reset none"
+    }, boxShadow:"rgba(202, 202, 202, 0.10) 0px 0px 10px 10px"
+  })
 
 
 }); 

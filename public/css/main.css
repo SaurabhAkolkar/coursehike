@@ -20200,7 +20200,6 @@ a, a:hover {
 .la-price__slider {
   height: auto;
   margin-top: -70px;
-  padding-bottom: 50px;
 }
 .la-price__slider::-webkit-scrollbar {
   width: 0;
@@ -20282,7 +20281,7 @@ a, a:hover {
 }
 
 .la-section {
-  padding: var(--size-16) 0;
+  padding: calc(var(--size-16) + 40px) 0;
 }
 @media (max-width: 767px) {
   .la-section {

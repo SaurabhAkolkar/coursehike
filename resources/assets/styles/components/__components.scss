@@ -36,7 +36,7 @@
 
     // Section: Start
     &section {
-        padding: var(--size-16) 0;
+        padding: calc(var(--size-16) + 40px) 0;
 
         @media(max-width:767px){
             padding: var(--size-8) 0;

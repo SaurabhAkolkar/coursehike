@@ -29,9 +29,9 @@
           <!-- Column: End-->
           <!-- Column: Start-->
           <div class="col-12 col-lg-7 la-anim__item la-anim__item--right">
-            <div class="la-hero__img position-relative d-flex align-items-center la-anim__fade-in">
+            <div class="la-hero__img position-relative d-flex align-items-center la-anim__fade-in-right">
               <span class="la-section__crossline"></span>
-              <h2 class="la-section__title la-section__title--big la-anim__text-move"><div class="la-anim__text-move--content">Design</div></h2>
+              <h2 class="la-section__title la-section__title--big"><div class="la-anim__text-move--content">Design</div></h2>
               <img class="img-fluid" src="./images/learners/home/design-a@2x.png" alt="Design">
             </div>
           </div>
@@ -53,7 +53,7 @@
   <section class="la-section la-section--grey la-section--art-categories position-relative">
     <div class="la-section__inner la-anim__wrap">
       <div class="container"><span class="la-section__cross-line"></span>
-        <div class="la-courses mt-14">
+        <div class="la-courses">
           <nav class="la-courses__nav d-flex justify-content-between">
             <ul class="nav nav-pills la-courses__nav-tabs la-anim__stagger-x" id="nav-tab" role="tablist">
               @foreach ($categories as $category)
@@ -455,7 +455,7 @@
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  <section class="la-section la-section--price pb-0 la-anim__wrap la-anim__wrap-pin">
+  <section class="la-section la-section--price la-anim__wrap la-anim__wrap-pin">
     <div class="la-section__inner ">
       <div class="container la-price__container">
         <h2 class="la-section__title la-section__title--big leading-none la-anim__pin"> <span style="color: var(--gray);">Learn it </span><br><span>like aliens</span></h2>
