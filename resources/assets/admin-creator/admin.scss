@@ -1214,8 +1214,9 @@ button.dt-button, div.dt-button, a.dt-button {
   border-bottom: 2px solid var(--gray);
 }
 .la-admin__invoice-logo img {
-  width: 100%;
-  height: auto;
+  width: 160px;
+  height: 40px;
+  margin-left:-35px;
 }
 
 .la-admin__invoice-address {

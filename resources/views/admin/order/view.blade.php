@@ -8,14 +8,14 @@
     <div class="row px-5">
       <div class="col-12">
           <div class="la-admin__invoice d-flex justify-content-between">
-              <div class="la-admin__invoice-logo">
-                  <img src="{{ asset('images/logo/'.$setting->logo) }}" alt="logo"  class="img-fluid" />
+              <div class="la-admin__invoice-logo position-relative">
+                  <img src="{{ asset('images/logo/'.$setting->logo) }}" alt="logo"  class="img-fluid d-block " />
               </div>
 
               <div class="la-admin__invoice-address text-right">
                   <p>K2, Old Sonal Industrial Est, Kanchpada, <br/> Malad Link Road, Malad West, Mumbai <br/> 400064. MH, India </p> 
-                  <a  href="tel: +91 9999999999"><span class="la-icon--lg icon-contact-number"></span> +91 9999999999</a> <br/>
-                  <a href="mailto: ask@learnitlikealiens.com"><span class="la-icon--lg icon-mail-id"></span> ask@learnitlikealiens.com</a>
+                  <a  href="tel: +91 9999999999" class="d-flex justify-content-end align-items-center"><span class="la-icon--xl icon-contact-number"></span> <span class="pl-2">+91 9999999999 </span></a>
+                  <a href="mailto: ask@learnitlikealiens.com" class="d-flex justify-content-end align-items-center"><span class="la-icon--xl icon-mail-id"></span> <span class="pl-2">ask@learnitlikealiens.com </span></a>
               </div>
           </div>
       </div>
@@ -33,8 +33,8 @@
                       {{ $show->courses->user->country['name'] }}
                     @endif
                   </div>
-                  <a class="la-admin__cust-mobile" href="tel: {{ $show->courses->user['mobile'] }}"><span class="la-icon--lg icon-contact-number"></span> +{{ $show->courses->user['mobile'] }}</a> <br/>
-                  <a class="la-admin__cust-mail" href="mailto: {{ $show->courses->user['email'] }}"><span class="la-icon--lg icon-mail-id"></span> {{ $show->courses->user['email'] }}</a>
+                  <a class="la-admin__cust-mobile d-flex align-items-center" href="tel: {{ $show->courses->user['mobile'] }}"><span class="la-icon--xl icon-contact-number"></span> <span class="pl-2"> +{{ $show->courses->user['mobile'] }} </span></a> 
+                  <a class="la-admin__cust-mail d-flex align-items-center" href="mailto: {{ $show->courses->user['email'] }}"><span class="la-icon--xl icon-mail-id"></span> <span class="pl-2"> {{ $show->courses->user['email'] }} </span></a>
               </div>
 
               <div class="la-admin__cust-invoice text-right">

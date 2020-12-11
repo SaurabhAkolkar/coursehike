@@ -8,11 +8,11 @@
         <!-- Alert Message-->
         <div id="wishlist_alert_div" class="container"></div> 
         <div class="container">
-          <div class="col-12 ">
+          <div class="col-12 la-anim__wrap">
             <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="#"></a>
-            <h1 class="la-mycourses__title text-4xl  mb-8">My Courses</h1>
+            <h1 class="la-mycourses__title text-4xl mb-8 la-anim__fade-in-right">My Courses</h1>
             <!-- Global Search: Start-->
-            <div class="la-gsearch">
+            <div class="la-gsearch la-anim__fade-in">
               <form class="form-inline">
                 <div class="form-group ">
                   <input class="la-gsearch__input form-control w-100" style="background:transparent" type="text" placeholder="Search course or class">
@@ -22,16 +22,16 @@
             </div>
             <!-- Global Search: End-->
           </div>
-          <div class="col-12 d-flex justify-content-between align-items-center mb-8">
-            <div class="la-mycourses__subtitle text-2xl head-font">Ongoing</div>
-            <div class="la-icon--2xl icon-filter"></div>
+          <div class="col-12 d-flex justify-content-between align-items-center mb-8 la-anim__wrap ">
+            <div class="la-mycourses__subtitle text-2xl head-font la-anim__stagger-item">Ongoing</div>
+            <div class="la-icon--2xl icon-filter la-anim__stagger-item"></div>
           </div>
           
           <x-add-to-playlist 
                       :playlists="$playlists"
           />
-          <div class="col-12">
-            <div class="row row-cols-lg-3">
+          <div class="col-12 la-anim__wrap">
+            <div class="row row-cols-lg-3 la-anim__stagger-item">
 
               @php  
 
@@ -81,13 +81,13 @@
     <!-- Section Yet to Start: Start-->
     <section class="la-section">
       <div class="la-section__inner">
-        <div class="container">
-          <div class="col-12 d-flex justify-content-between mb-6">
-            <div class="la-mycourses__subtitle text-2xl head-font">Yet to Start</div>
-            <div class="la-icon--2xl icon-filter"></div>
+        <div class="container la-anim__wrap">
+          <div class="col-12 d-flex justify-content-between mb-6 la-anim__stagger-item">
+            <div class="la-mycourses__subtitle text-2xl head-font ">Yet to Start</div>
+            <div class="la-icon--2xl icon-filter "></div>
           </div>
-          <div class="col-12">
-            <div class="row row-cols-lg-3">
+          <div class="col-12 ">
+            <div class="row row-cols-lg-3 la-anim__stagger-item">
               {{-- @php  
                 $tattoo1 = new stdClass;$tattoo1->img= "https://picsum.photos/600/400";$tattoo1->course= "Tattoo Art";$tattoo1->rating= "4";$tattoo1->url= "";$tattoo1->creatorImg= "https://picsum.photos/100";$tattoo1->creatorName= "Joseph Phill";$tattoo1->creatorUrl= "/creator";
                 $tattoo2 = new stdClass;$tattoo2->img= "https://picsum.photos/600/400"; $tattoo2->course= "Tattoo Art";$tattoo2->rating= "4";$tattoo2->url= "";$tattoo2->creatorImg= "https://picsum.photos/100";$tattoo2->creatorName= "Amy D'souza";$tattoo2->creatorUrl= "/creator";
@@ -121,13 +121,13 @@
     <!-- Section Completed: Start-->
     <section class="la-section">
       <div class="la-section__inner">
-        <div class="container">
-          <div class="col-12 d-flex justify-content-between mb-6">
+        <div class="container la-anim__wrap">
+          <div class="col-12 d-flex justify-content-between mb-6 la-anim__stagger-item">
             <div class="la-mycourses__subtitle text-2xl head-font">Completed</div>
             <div class="la-icon--2xl icon-filter"></div>
           </div>
           <div class="col-12">
-            <div class="row row-cols-lg-3">
+            <div class="row row-cols-lg-3 la-anim__stagger-item">
               @php  
                 // $tattoo1 = new stdClass;$tattoo1->img= "https://picsum.photos/600/400";$tattoo1->course= "Tattoo Art";$tattoo1->rating= "4";$tattoo1->url= "";$tattoo1->creatorImg= "https://picsum.photos/100";$tattoo1->creatorName= "Joseph Phill";$tattoo1->creatorUrl= "/creator";
                 // $tattoo2 = new stdClass;$tattoo2->img= "https://picsum.photos/600/400"; $tattoo2->course= "Tattoo Art";$tattoo2->rating= "4";$tattoo2->url= "";$tattoo2->creatorImg= "https://picsum.photos/100";$tattoo2->creatorName= "Amy D'souza";$tattoo2->creatorUrl= "/creator";

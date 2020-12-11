@@ -21,8 +21,9 @@
           @endif
           <div class="la-profile__main-inner">
             <div class="la-profile__title-wrap">
-                <h1 class="la-profile__title">My Playlist
-                    / <span class="">{{$playlist->name}}</span>
+                <h1 class="la-profile__title">
+                    <a href="/playlist" role="button" style="color:var(--app-indigo-1)">My Playlist</a> / 
+                    <span class="">{{$playlist->name}}</span>
                 </h1>
             </div>
             

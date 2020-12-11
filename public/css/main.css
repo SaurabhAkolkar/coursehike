@@ -9792,8 +9792,8 @@ a.text-dark:focus, a.text-dark:hover {
 }
 @font-face {
   font-family: "icomoon";
-  src: url(/fonts/icomoon.eot?8bc7c3af25201dc43a61c96b68681020);
-  src: url(/fonts/icomoon.eot?8bc7c3af25201dc43a61c96b68681020#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?4a9ec252d4147e9125e4e4bb5dc427fd) format("truetype"), url(/fonts/icomoon.woff?124663c3787c5d3a4d2b95b0aaae3ec7) format("woff"), url(/fonts/icomoon.svg?71a0d5a459b0c32acb0cb221b51f116a#icomoon) format("svg");
+  src: url(/fonts/icomoon.eot?2420cc134afe84fb2acd852a145a1ae6);
+  src: url(/fonts/icomoon.eot?2420cc134afe84fb2acd852a145a1ae6#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?03ddd39b825442e63533cc3e9c0aa0d1) format("truetype"), url(/fonts/icomoon.woff?c6a31c753169123a7905b01831f93c56) format("woff"), url(/fonts/icomoon.svg?b7611eaf94269b906653011dc9db207b#icomoon) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -9810,6 +9810,26 @@ a.text-dark:focus, a.text-dark:hover {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-error:before {
+  content: "\E994";
+}
+
+.icon-copy-clipboard:before {
+  content: "\E990";
+}
+
+.icon-experience:before {
+  content: "\E991";
+}
+
+.icon-expert-in:before {
+  content: "\E992";
+}
+
+.icon-portfolio-link:before {
+  content: "\E993";
 }
 
 .icon-pinterest:before {
@@ -20385,6 +20405,91 @@ label.error {
   background: transparent;
 }
 
+.la-status__info {
+  position: relative;
+  height: 100%;
+}
+.la-status__info-card {
+  width: 100%;
+  height: auto;
+  background: var(--white);
+  box-shadow: 0px 3px 24px #0000001A;
+  border-radius: 10px;
+  padding: var(--size-20);
+}
+@media (max-width: 991px) {
+  .la-status__info-card {
+    padding: var(--size-10);
+    margin-bottom: var(--size-10);
+  }
+}
+.la-status__info-title {
+  font-size: var(--text-4xl);
+  color: var(--green);
+}
+.la-status__info-title2 {
+  color: #FF5900;
+}
+.la-status__info-tag {
+  font-size: var(--text-md);
+  color: var(--black);
+  font-weight: var(--font-medium);
+}
+.la-status__info-list {
+  padding: var(--size-10) 0;
+}
+.la-status__info-item {
+  padding: 2px 0;
+  color: var(--gray3);
+}
+.la-status__info-moto {
+  color: var(--gray6);
+  font-size: 16px;
+  font-weight: var(--font-medium);
+  padding-bottom: var(--size-4);
+  position: relative;
+  z-index: var(--z-10);
+}
+.la-status__info-cta {
+  background: var(--white);
+  color: var(--gray6);
+}
+.la-status__info-cta:hover {
+  background-color: var(--app-indigo-1);
+  color: var(--white);
+}
+@media (max-width: 767px) {
+  .la-status__info-cta {
+    width: 100%;
+  }
+}
+.la-status__info-banner {
+  position: absolute;
+  right: -260px;
+  top: -8px;
+}
+@media (max-width: 991px) {
+  .la-status__info-banner {
+    right: -200px;
+  }
+}
+.la-status__info-successimg {
+  height: 535px;
+}
+@media (max-width: 991px) {
+  .la-status__info-successimg {
+    height: 460px;
+  }
+}
+.la-status__info-failureimg {
+  height: 485px;
+}
+@media (max-width: 991px) {
+  .la-status__info-failureimg {
+    height: 408px;
+  }
+}
+
 .la-anim__A {
   transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
   transition-delay: 0.1s !important;
@@ -22410,19 +22515,14 @@ section.la-section .la-section__inner .la-mycourses__more:hover:after {
     margin-left: 0;
   }
 }
-.la-personal__billing-title {
-  font-size: var(--text-4xl);
-  color: var(--gray5);
-}
-
 .la-personal__billing-card {
   margin: var(--size-16) 0;
-  padding: var(--size-8) var(--size-10);
+  padding: var(--size-8);
   background-color: var(--white);
   border-radius: 10px;
   box-shadow: 0px 0px 20px #00000014;
   width: 100%;
-  height: 180px;
+  height: 170px;
 }
 
 .la-personal__card-title {
@@ -22435,28 +22535,20 @@ section.la-section .la-section__inner .la-mycourses__more:hover:after {
 .la-personal__card-bill {
   font-family: var(--body-font);
   font-size: var(--text-4xl);
-  color: var(--app-indigo-1);
+  color: var(--gray6);
   font-weight: var(--font-bold);
   padding: var(--size-2) 0;
 }
 
 .la-personal__card-cta {
-  padding-top: var(--size-6);
+  padding-top: var(--size-8);
   font-size: var(--text-md);
-  color: var(--gray3);
+  color: var(--app-indigo-1);
   display: block;
 }
-.la-personal__card-cta span {
-  position: absolute;
-  right: -20px;
+.la-personal__card-cta:hover {
   color: var(--gray6);
-  opacity: 0.85;
-  transition: all 0.25s ease;
-}
-
-.la-personal__card-cta:hover > span {
-  transform: translateX(10px);
-  transition: all 0.25s ease;
+  text-decoration: underline;
 }
 
 .la-personal__card-update {
@@ -22467,20 +22559,28 @@ section.la-section .la-section__inner .la-mycourses__more:hover:after {
   font-size: 16px;
   color: var(--app-indigo-1);
 }
+.la-personal__card-desc:hover {
+  color: var(--gray3);
+  text-decoration: underline;
+}
 
 .la-personal__info-title {
-  font-size: var(--text-3xl);
+  font-size: var(--text-2xl);
   color: var(--gray5);
 }
 
 .la-personal__info {
-  padding: var(--size-10) 0;
+  padding: var(--size-6) 0;
+}
+
+.la-personal__info-msg {
+  color: #EE4224;
+  font-size: var(--text-lg);
 }
 
 .la-personal__info-subtitle {
-  font-size: var(--text-xl);
-  font-weight: var(--font-medium);
-  color: var(--gray10);
+  font-size: 18px;
+  color: var(--gray3);
 }
 
 .la-personal__info-card {
@@ -22493,14 +22593,14 @@ section.la-section .la-section__inner .la-mycourses__more:hover:after {
 }
 
 .la-personal__info-cta {
-  padding-top: var(--size-6);
-  font-size: 16px;
+  font-size: 12px;
   font-weight: var(--font-medium);
   color: var(--app-indigo-1);
   display: block;
 }
 .la-personal__info-cta:hover {
-  color: var(--app-indigo-1);
+  color: var(--gray6);
+  text-decoration: underline;
 }
 
 .la-payment__add-title {

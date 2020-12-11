@@ -43,17 +43,17 @@
           </a>
         </li>
         <li class="la-profile__sidebar-item">
-          <a href="/saved-cards" class="la-profile__sidebar-link d-flex align-items-center">
+          <a href="/billing" class="la-profile__sidebar-link d-flex align-items-center">
             <span class="la-icon la-icon--xl icon-card-filled"></span>
-            <span class="la-profile__sidebar-text pl-2">Saved Cards</span>
+            <span class="la-profile__sidebar-text pl-2">Billing</span>
           </a>
         </li>
-        <li class="la-profile__sidebar-item">
+        <!-- <li class="la-profile__sidebar-item">
           <a href="/billing-address" class="la-profile__sidebar-link d-flex align-items-center">
             <span class="la-icon la-icon--xl icon-address"></span>
             <span class="la-profile__sidebar-text pl-2">Billing Address</span>
           </a>
-        </li>
+        </li> -->
         <li class="la-profile__sidebar-item">
           <a href="/my-interests" class="la-profile__sidebar-link d-flex align-items-center">
             <span class="la-icon la-icon--xl icon-interests"></span>
@@ -66,7 +66,7 @@
       <ul class="la-profile__sidebar-items">
         <li class="la-profile__sidebar-item">
           <a class="la-profile__sidebar-link d-flex align-items-center" href="/become-creator">
-            <span><img src="../images/learners/icons/mentor.svg" alt="mentor"></span>
+            <span class="la-icon la-icon--2xl icon-become-creator"></span>
             <span class="la-profile__sidebar-text pl-2">Become a Creator</span>
           </a>
         </li>

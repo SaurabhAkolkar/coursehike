@@ -140,7 +140,7 @@
                                   <a role="button" id="share_playlist_on_whatsapp" target="_whatsapp" ><span class="la-icon la-icon--5xl icon-whatsapp"></span></a>
                                   <a role="button" id="share_playlist_on_pinterest" target="_pinterest" ><span class="la-icon la-icon--5xl icon-pinterest"></span></a>  
                                 </p>
-                                  <p><input class="border-0 w-75" id="playlist_url_copy"><span role="button" class="float-right" onclick="copyPlaylistUrl()"><img src="../../images/learners/icons/copy.svg" alt="copy" height="25px"></span></p>
+                                  <p><input class="border-0 w-75" id="playlist_url_copy"><span role="button" class="float-right" onclick="copyPlaylistUrl()"><span class="la-icon la-icon--3xl icon-copy-clipboard"></span></p>
                             </div>
                           </div>
                         </div>

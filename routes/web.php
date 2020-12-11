@@ -691,8 +691,8 @@ Route::view('/creator','learners.pages.creator');
 
 
 Route::view('/payment-successful','learners.pages.payment-successful');
-Route::view('/saved-cards', 'learners.pages.saved-cards');
-Route::view('billing-address', 'learners.pages.billing-address');
+Route::view('/billing', 'learners.pages.billing');
+// Route::view('billing-address', 'learners.pages.billing-address');
 
 // Route::view('/releases','learners.pages.new-releases');
 Route::view('/learning-plans','learners.pages.learning-plans');
@@ -701,10 +701,14 @@ Route::view('/become-creator','learners.pages.become-creator');
 Route::view('/guided-creator','learners.pages.guided-creator');
 Route::view('/contact','learners.pages.contact');
 
-Route::view('/personal-billing', 'learners.pages.personal-billing');
+//- Payment Info of Learners
 Route::view('/payment-cards', 'learners.pages.payment-cards');
 Route::view('/payment-details', 'learners.pages.payment-details');
 Route::view('/payment-history', 'learners.pages.payment-history');
+
+//- Subscription Status for Learners
+Route::view('/subscription-successful', 'learners.pages.subscription-successful');
+Route::view('/subscription-failure', 'learners.pages.subscription-failure');
 
 
 
