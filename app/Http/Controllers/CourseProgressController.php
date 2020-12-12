@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\CourseProgress;
 use App\CourseChapter;
+use App\UserWatchTime;
 use Auth;
 
 class CourseProgressController extends Controller
@@ -47,5 +48,28 @@ class CourseProgressController extends Controller
 		}
 
         return back(); 
+	}
+
+    public function progress_log(Request $request, $course_id, $class_id)
+	{
+		// print_r($course_id);
+		if(!Auth::check())
+			return;
+		$logs = array();
+		foreach ($request->all() as $log) {
+			$logs[] = [
+				'user_id' => Auth::User()->id ?? 0,
+				'course_id' => $course_id,
+				'class_id' => $class_id,
+				'time' => $log["time"],
+				'position' => $log["position"],
+				'created_at'  => \Carbon\Carbon::now()->toDateTimeString()
+			];
+		}
+		UserWatchTime::insert($logs);
+		// $response = array(
+		// 	'status' => 'success',
+		// );
+		// return response()->json($response, 200);
 	}
 }

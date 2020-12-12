@@ -120,6 +120,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function bundle()
     {
         return $this->hasMany('App\BundleCourse','user_id');
-    }     
+    }
+
+    public function subscribed()
+    {
+        return $this->hasOne('App\UserSubscription','user_id');
+    }
 }
 

@@ -5,6 +5,8 @@ use App\FaqInstructor;
 use App\User;
 use App\Setting;
 use App\CourseClass;
+use Barryvdh\DomPDF\Facade as PDF;
+
 // dd(Auth::user());
 /*
 |--------------------------------------------------------------------------
@@ -248,9 +250,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
     });
 
-    Route::middleware(['web', 'is_active', 'auth', 'admin_instructor', 'switch_languages'])->group(function () {
-
-      
+    Route::middleware(['web', 'is_active', 'auth', 'admin_instructor', 'switch_languages'])->group(function () {      
 
       if(\DB::connection()->getDatabaseName()){
           if(env('IS_INSTALLED') == 1){
@@ -446,9 +446,9 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::get('language-switch/{local}', 'LanguageSwitchController@languageSwitch')->name('languageSwitch');
 
-    Route::get("country/dropdown","CountryController@upload_info");
-    Route::get("country/gcity","CountryController@gcity");
-    Route::get("country/gstate","CountryController@gstate");
+      Route::get("country/dropdown","CountryController@upload_info");
+      Route::get("country/gcity","CountryController@gcity");
+      Route::get("country/gstate","CountryController@gstate");
 
 
       Route::get("country/dropdown","CountryController@upload_info");
@@ -570,10 +570,16 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
     Route::get('/learn/course/{id}/{slug}', 'LearnController@show')->name('learn.show');
     Route::post('/learn/course/{video_id}','LearnController@video')->name('learn.video');
+    Route::post('/subscribed-courses/{course_id}/{class_id}/progress-logs', 'CourseProgressController@progress_log');
+    Route::get('/watch_time', 'InstructorController@totalWatchTime');
+    Route::get('/payoutCalculate', 'InstructorController@payoutCalculate');
     Route::get('/browse/courses','SearchController@index');
 
     Route::get('/jwt', 'CourseclassController@token_generate');
 
+
+    // Route::post('/hooks', 'SubscriptionController@hooks');
+    Route::stripeWebhooks('/hooks');
 });
 
 
