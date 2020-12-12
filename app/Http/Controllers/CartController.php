@@ -173,6 +173,45 @@ class CartController extends Controller
       
     }
 
+    public function applyCouponManual(Request $request){
+        
+        $getCouponId = Coupon::where('code', $request->coupon_name)->first();
+
+        if($getCouponId){
+
+            $check = Coupon::findOrFail($getCouponId->id);
+        
+            $total = Cart::where('user_id', Auth::user()->id)->sum('price');
+    
+                if($check){
+    
+                    if($check->expiry_date > Carbon::now()){
+    
+                        return redirect()->back()->with('message','Coupon already expired.');
+    
+                    }else if($total < $check->minamount){
+    
+                        return redirect()->back()->with('message','Coupon is not applicable.');
+    
+                    }else if($check->maxusage <= 0){
+    
+                        return redirect()->back()->with('message','Coupon is reached max usage.');
+                    }
+    
+                    Session::put('appliedCoupon', $getCouponId->id);
+    
+                    return redirect()->back()->with('message','Coupon applied.');
+    
+                }else{
+    
+                    return redirect()->back()->with('message', 'Coupon Not Found.');
+                }
+
+        }
+        
+        return redirect()->back()->with('message', 'Coupon Not Found.');
+    }
+
     public function moveToWishlist($id){
 
         $check = Course::findorFail($id);
@@ -200,8 +239,11 @@ class CartController extends Controller
     }
 
     public function cartCheckout(Request $request){
-
-            $check = UserInvoiceDetail::where(['user_id' => Auth::User()->id, 'status'=>'pending'])->update(['status'=>'failed']);
+            $check = Cart::where('user_id',Auth::User()->id)->get();
+            if(count($check) <= 0){
+                return redirect()->back()->with('message','Your cart is empty.');
+            }
+            // $check = UserInvoiceDetail::where(['user_id' => Auth::User()->id, 'status'=>'pending'])->update(['status'=>'failed']);
 
             $insert['user_id'] =  Auth::User()->id;
             $insert['sub_total'] = $request->sub_total;
@@ -217,7 +259,7 @@ class CartController extends Controller
                     $insert['coupon_id'] = $request->coupon_id;
                 }
             }
-            $insert['status'] = 'pending';
+            $insert['status'] = 'successful';
             $info = UserInvoiceDetail::create($insert);
 
             $cart = Cart::where('user_id', Auth::User()->id)->get();

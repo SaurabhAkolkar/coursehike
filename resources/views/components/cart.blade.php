@@ -23,14 +23,10 @@
                                 </div>
                                 
                                 <div class="la-cart__item-cartclass collapse show mx-2 my-2" id="cart_class_{{ $collapseId }}">
-                                    <ol class="la-cart__item-cartlist pl-7">
-                                        <li class="la-cart__item-cartitem">Class One</li>
-                                        <li class="la-cart__item-cartitem">Class Two</li>
-                                        <li class="la-cart__item-cartitem">Class Three</li>
-                                        <li class="la-cart__item-cartitem">Class Four</li>
-                                        <li class="la-cart__item-cartitem">Class Five</li>
-                                        <li class="la-cart__item-cartitem">Class Six</li>
-                                        
+                                    <ol class="la-cart__item-cartlist pl-7 mr-7">
+                                        @foreach($classes as $class)
+                                            <li class="la-cart__item-cartitem">{{ strlen($class->chapter_name) > 20? substr($class->chapter_name, 0, 15).'....': $class->chapter_name}}</li>
+                                        @endforeach
                                     </ol>
                                 </div>
                             </div>

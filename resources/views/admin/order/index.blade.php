@@ -54,25 +54,25 @@
                   <div class="col-md-3">
                       <div class="la-admin__revenue-title">No. of Learners</div>
                       <div class="la-admin__revenue-info">
-                          <span class="la-admin__revenue-total">50</span>
+                          <span class="la-admin__revenue-total">{{$learners}}</span>
                       </div>
                   </div>
                   <div class="col-md-3">
                     <div class="la-admin__revenue-title">Courses Purchased</div>
                     <div class="la-admin__revenue-info">
-                        <span class="la-admin__revenue-total">20</span>
+                        <span class="la-admin__revenue-total">{{$courses_count}}</span>
                     </div>
                   </div>
                   <div class="col-md-3">
                     <div class="la-admin__revenue-title">Classes Purchased</div>
                     <div class="la-admin__revenue-info">
-                        <span class="la-admin__revenue-total">10</span>
+                        <span class="la-admin__revenue-total">{{$classes}}</span>
                     </div>
                   </div>
                   <div class="col-md-2">
                     <div class="la-admin__revenue-title">Total Amount</div>
                       <div class="la-admin__revenue-info">
-                        <span class="la-admin__revenue-price">$400</span>
+                        <span class="la-admin__revenue-price">${{$total_earning}}</span>
                       </div>
                   </div>
               </div>
@@ -81,7 +81,7 @@
 
             <div class="la-admin__filter-icons text-right" style="position:relative; top:50px;z-index:0;">
               <a href="#" role="button"><span class="la-icon la-icon--3xl icon-sort mr-2" style="color:#000;"></span></a>
-              <a href="#" role="button"><span class="la-icon la-icon--3xl icon-excel mr-2" style="color:#1D6F42"></span></a>
+              <a href="/revenue-excel" role="button"><span class="la-icon la-icon--3xl icon-excel mr-2" style="color:#1D6F42"></span></a>
             </div>
 
             <table id="example1" class="table table-bordered table-striped">
@@ -93,13 +93,36 @@
                   <th>{{ __('adminstaticword.TransactionId') }}</th>
                   <th>{{ __('adminstaticword.PaymentMethod') }}</th>
                   <th>{{ __('adminstaticword.TotalAmount') }}</th>
-                  <th>{{ __('adminstaticword.Status') }}</th>
                   <th>{{ __('adminstaticword.View') }}</th>
-                  <th>{{ __('adminstaticword.Delete') }}</th>
                 </tr>
               </thead>
               <tbody>
               <?php $i=0;?>
+                @foreach($invoiceDetails as $invoice)
+                    <tr>
+                      <td><?php echo $i;?></td>
+                      <td>{{$invoice->fname.' '.$invoice->lname}}</td>                 
+                      <td>
+                        
+                        @if($invoice->course_id != NULL)
+                          {{ json_decode($invoice->title)->en }}
+                        @endif
+                      </td>
+                      <td>{{$invoice->id}}</td>
+                      <td>PayTms</td>
+                    
+
+                      @if($invoice->course_id == !NULL)
+                        <td>$ {{ $invoice->sub_total }}</td>
+               
+                      @endif
+
+                      <td><a class="text-dark" href="{{route('view.order',$invoice->id)}}">{{ __('adminstaticword.View') }}</a>
+                      </td>
+                    
+                    </tr>
+                @endforeach
+            {{--
               @foreach($orders as $order)
                 <?php $i++;?>
                 <tr>
@@ -151,6 +174,7 @@
                   </td>
                 </tr>
               @endforeach 
+              --}}
             </table>
         </div>
         <!-- /.box-body -->

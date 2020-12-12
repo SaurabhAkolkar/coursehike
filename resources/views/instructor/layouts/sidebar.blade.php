@@ -125,10 +125,12 @@
             </a>                            
 
             <ul class="treeview-menu">
+              
+              <li class="{{ Nav::isRoute('instructor.revenue') }}"><a href="{{route('instructor.revenue')}}"><i class="flaticon-file"></i>{{ __('adminstaticword.Revenue') }}</a></li>
+
               <li class="{{ Nav::isResource('pending.payout') }}"><a href="{{route('pending.payout')}}"><i class="flaticon-pending" aria-hidden="true"></i><span>{{ __('adminstaticword.PendingPayout') }}</span></a></li>
 
               <li class="{{ Nav::isRoute('admin.completed') }}"><a href="{{route('admin.completed')}}"><i class="flaticon-file"></i>{{ __('adminstaticword.CompletedPayout') }}</a></li>
-
             </ul>
           </li>
 
