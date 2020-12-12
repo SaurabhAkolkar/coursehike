@@ -8,9 +8,9 @@
          />
 
         <label class="d-flex align-items-start" for="{{ $inputId }}">
-            <span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span>
-            <span class="la-form__radio-label text-md mt-n1"> {{ $title }} <br>
-                <h6 class="la-form__radio-card text-sm body-font"> {{ $desc }}</h6>
+            <span class="la-form__radio-circle position-absolute d-flex justify-content-center align-items-center mr-2"></span>
+            <span class="la-form__radio-label text-md ml-8 mt-n1"> {{ $title }} <br>
+                <h6 class="la-form__radio-card text-sm body-font "> {{ $desc }}</h6>
             </span>
         </label>
     </div>
@@ -92,7 +92,7 @@
                         @endforeach
                 </div>
 
-                <div class=" d-flex justify-content-end mt-md-8 mb-2">
+                <div class=" d-flex justify-content-end mt-6 mt-md-8 mb-2">
                     <button class="la-btn__app col-md-4 py-3">Save</button>
                 </div>
             </form>

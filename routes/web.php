@@ -313,7 +313,9 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::resource('courseclass','CourseclassController');
       Route::resource('reviewrating','ReviewratingController');
       Route::resource('announsment','AnnounsmentController');
+      Route::resource('announcement','AnnouncementController');
       Route::get('/course/create/{id}','CourseController@showCourse')->name('course.show');
+      // Route::post('/course/annoucement','CourseController@storeAnnoucement')->name('annoucement.store');
       Route::post('/category/insert','CategoriesController@categoryStore')->name('cat.store');
       Route::post('/subcategory/insert','SubcategoryController@SubcategoryStore')->name('child.store');
       Route::put('/course/include/{id}','CourseController@testup')->name('corinc.update');
@@ -565,6 +567,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::post('course/appointment/{id}', 'AppointmentController@request')->name('appointment.request');
       Route::post('appointment/delete/{id}', 'AppointmentController@delete');
+      
+      Route::get('/my-courses','SearchController@myCourses');
 
     });
 
@@ -574,19 +578,74 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
     Route::get('/watch_time', 'InstructorController@totalWatchTime');
     Route::get('/payoutCalculate', 'InstructorController@payoutCalculate');
     Route::get('/browse/courses','SearchController@index');
+    Route::get('/add-to-cart','CartController@addtocartAjax');
+    Route::post('/add-to-cart','CartController@addToCart');
+
+    Route::get('/remove-from-cart/{id}','CartController@removeFromCart');
+    Route::get('/apply-coupon/{id}','CartController@applyCoupon');
+    Route::get('/move-to-wishlist/{id}','CartController@moveToWishlist');
+    Route::post('/checkout','CartController@cartCheckout');
+
+  
 
     Route::get('/jwt', 'CourseclassController@token_generate');
 
-
-    // Route::post('/hooks', 'SubscriptionController@hooks');
     Route::stripeWebhooks('/hooks');
+
 });
 
+
+Route::middleware(['auth'])->group(function () {
+
+  Route::post('/rate-course','SearchController@rateCourse')->name('rate.course');
+
+  Route::get('/playlist','PlaylistController@index');
+  Route::get('/playlist/{id}','PlaylistController@show');
+  Route::get('/playlist/{playlist_id}/{id}','PlaylistController@removeCourse');
+  
+  Route::post('/add-to-playlist','PlaylistController@addToPlaylist')->name('add.to.playlist');
+  Route::post('/create-playlist','PlaylistController@createPlaylist')->name('create.playlist');
+  // Wishlist Routes
+  Route::post('/add-to-wishlist','LearnerWishlistController@store');
+  Route::get('/wishlist','LearnerWishlistController@index');
+  Route::get('/remove-from-wishlist/{id}','LearnerWishlistController@destroy');
+
+  Route::get('/playlist-delete/{id}','LearnerWishlistController@deletePlaylist');
+
+  Route::post('/profile',"ProfileController@updateProfile");
+  Route::get('/profile','ProfileController@index');
+  Route::post('/update-password','ProfileController@updatePassword')->name('update.password');
+  Route::view('/edit', 'admin.course.courseresource.edit');
+
+  Route::get('/releases','AnnouncementController@showAllRelease');
+  Route::get('/releases/{id}','AnnouncementController@showRelease');
+  Route::get('/mark-nofification-read','AnnouncementController@markNotificationRead');
+
+  Route::get('/interests','UserController@getInterests');
+  Route::get('/my-interests', 'UserController@myInterests');
+  Route::post('/add-to-my-interest', 'UserController@addMyInterests');
+  Route::post('/add-interests','UserController@storeInterest');
+
+  Route::get('/cart','CartController@learnerCart');
+
+  Route::view('/creator-signup','learners.auth.creator-signup')->middleware('check_creator');
+  Route::post('/creator-signup','InstructorController@creatorSignUp')->middleware('check_creator');
+
+  Route::get('/purchase-history','PurchaseHistoryController@index');
+  
+  Route::get('/download-invoice/{id}','PurchaseHistoryController@downloadPdf');
+
+
+});
 
 Route::get("allcountry/dropdown","AllCountryController@upload_info");
 Route::get("allcountry/gcity","AllCountryController@gcity");
 
+Route::get("/search-course","LearnController@searchCourse");
+
 Route::get('/activestatus', 'WatchCourseController@active');
+
+
 
 Route::get('active/courses', 'WatchCourseController@watchlist')->name('active.courses');
 Route::post('active/delete/{id}', 'WatchCourseController@delete')->name('active.delete');
@@ -610,44 +669,49 @@ Route::get("zoho/module","ZohoController@createRecords");
 Route::view('/requests', 'instructor.requests.index');
 // Route for Learner's View
 
-Route::post('/profile',"ProfileController@updateProfile");
-Route::get('/profile','ProfileController@index');
-Route::post('/update-password','ProfileController@updatePassword')->name('update.password');
-Route::view('/edit', 'admin.course.courseresource.edit');
-
-Route::get('/playlist','PlaylistController@index');
-
-Route::post('/create-playlist','PlaylistController@createPlaylist')->name('create.playlist');
 
 
-// Route::view('/','learners.pages.home');
 
 Route::view('/signup','learners.auth.signup');
 Route::view('/signin','learners.auth.signin');
-Route::view('/interests','learners.auth.interests');
-Route::view('/creator-signup','learners.auth.creator-signup');
+// Route::view('/interests','learners.auth.interests');
+
+Route::get('/mentors','InstructorController@allMentors');
+Route::post('/search-mentor','InstructorController@searchMentor');
+Route::get('/creator/{id}','InstructorController@creator');
+
 
 Route::view('/user-dashboard','learners.pages.user-dashboard');
+// Route::get('/browse/courses','HomeController@browseCourses');
 // Route::view('/learn/course/{id}/{slug}','learners.pages.course');
-Route::view('/my-courses','learners.pages.my-courses');
-Route::view('/mentors','learners.pages.mentors');
+// Route::view('/my-courses','learners.pages.my-courses');
+// Route::view('/mentors','learners.pages.mentors');
 Route::view('/creator','learners.pages.creator');
 
 
-Route::view('/wishlist','learners.pages.wishlist');
-Route::view('/cart','learners.pages.cart');
+// Route::view('/wishlist','learners.pages.wishlist');
 
-Route::view('/purchase-history','learners.pages.purchase-history');
+
+
 Route::view('/payment-successful','learners.pages.payment-successful');
-Route::view('/saved-cards', 'learners.pages.saved-cards');
-Route::view('billing-address', 'learners.pages.billing-address');
+Route::view('/billing', 'learners.pages.billing');
+// Route::view('billing-address', 'learners.pages.billing-address');
 
-Route::view('/releases','learners.pages.new-releases');
+// Route::view('/releases','learners.pages.new-releases');
 Route::view('/learning-plans','learners.pages.learning-plans');
 // Route::view('/payment', 'learners.pages.payment');
 Route::view('/become-creator','learners.pages.become-creator');
 Route::view('/guided-creator','learners.pages.guided-creator');
 Route::view('/contact','learners.pages.contact');
+
+//- Payment Info of Learners
+Route::view('/payment-cards', 'learners.pages.payment-cards');
+Route::view('/payment-details', 'learners.pages.payment-details');
+Route::view('/payment-history', 'learners.pages.payment-history');
+
+//- Subscription Status for Learners
+Route::view('/subscription-successful', 'learners.pages.subscription-successful');
+Route::view('/subscription-failure', 'learners.pages.subscription-failure');
 
 
 

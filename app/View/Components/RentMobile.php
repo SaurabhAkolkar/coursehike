@@ -11,10 +11,12 @@ class RentMobile extends Component
      *
      * @return void
      */
+    
     public $img;
     public $classes;
     public $course;
     public $creator;
+    public $id;
     public $fromdate;
     public $todate;
     public $paymode;
@@ -25,12 +27,14 @@ class RentMobile extends Component
     public $upgrade;
     public $upgradeUrl;
 
-    public function __construct($img, $classes, $course, $creator, $fromdate, $todate, $paymode, $total, $paystatus, $invoice, $invoiceUrl, $upgrade, $upgradeUrl)
+    public function __construct( $img, $classes, $course, $creator, $id, $fromdate, $todate, $paymode, $total, $paystatus, $invoice, $invoiceUrl, $upgrade, $upgradeUrl)
     {
+        
         $this->img = $img;
         $this->classes = $classes;
         $this->course = $course;
         $this->creator = $creator;
+        $this->id = $id;
         $this->fromdate = $fromdate;
         $this->todate = $todate;
         $this->paymode = $paymode;

@@ -13,6 +13,7 @@ class Cart extends Component
      */
     
     public $courseImg;
+    public $collapseId;
     public $course;
     public $creator;
     public $remove;
@@ -23,10 +24,14 @@ class Cart extends Component
     public $allClasses;
     public $bestPrice;
     public $realPrice;
+    public $courseId;
+    public $classType;   
 
-    public function __construct($courseImg, $course, $creator, $remove, $removeUrl, $wishlist, $wishlistUrl, $edit, $allClasses, $bestPrice, $realPrice)
+
+    public function __construct($courseImg, $collapseId, $course, $creator, $remove, $removeUrl, $wishlist, $wishlistUrl, $edit, $allClasses, $bestPrice, $realPrice, $courseId, $classType)
     {
         $this->courseImg = $courseImg;
+        $this->collapseId = $collapseId;
         $this->course = $course;
         $this->creator = $creator;
         $this->remove = $remove;
@@ -37,6 +42,8 @@ class Cart extends Component
         $this->allClasses = $allClasses;
         $this->bestPrice = $bestPrice;
         $this->realPrice = $realPrice;
+        $this->courseId = $courseId;
+        $this->classType = $classType;
 
     }
 

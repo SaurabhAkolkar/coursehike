@@ -30,12 +30,17 @@ class ReviewRating extends Model
     protected $table = 'review_ratings'; 
 
     protected $fillable = [
-        'course_id', 'user_id', 'learn', 'price', 'value', 'review', 'status', 'approved', 
+        'course_id', 'user_id', 'rating','learn', 'price', 'value', 'review', 'status', 'approved', 
         'featured', ];
 
     public function user()
     {
         return $this->belongsTo('App\User','user_id','id');
+    }
+
+    public function getAverageRatingAttribute()
+    {
+        return $this->average('rating');
     }
     
     public function courses()

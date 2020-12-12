@@ -29,12 +29,13 @@
     <script src="{{ ('/js/bootstrap.bundle.js') }} "></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
-
+    <script src="{{ asset('installer/js/jquery.validate.min.js') }} "></script>
+    
     <script src="./js/scripts/main.js"></script>
+    @yield('footerScripts')
     
 </body>
 </html>

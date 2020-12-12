@@ -38,7 +38,8 @@
               <li  class=""  role="presentation"><a href="#copy" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.Question') }}</a></li>
               <li  class=""  role="presentation"><a href="#ans" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.Answer') }}</a></li>
               <li  class=""  role="presentation"><a href="#jj" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.ReviewRating') }}</a></li> --}}
-              <li  class=""  role="presentation"><a href="#an" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.Announcement') }}</a></li>
+              {{-- <li  class=""  role="presentation"><a href="#an" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.Announcement') }}</a></li> --}}
+              <li class="" role="presentation"><a href="#publish" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.Publish') }}</a></li>
               {{-- <li  class=""  role="presentation"><a href="#report" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.ReviewReport') }}</a></li> --}}
               {{-- <li  class=""  role="presentation"><a href="#topic" aria-controls="topic" role="tab" data-toggle="tab">{{ __('adminstaticword.QuizTopic') }}</a></li> --}}
 
@@ -81,8 +82,11 @@
               <div role="tabpanel" class="fadein tab-pane" id="jj">
                 @include('admin.course.reviewrating.index')
               </div>
-              <div role="tabpanel" class="fadein tab-pane" id="an">
-                @include('admin.course.announsment.index')
+              {{-- <div role="tabpanel" class="fadein tab-pane" id="an">
+                @include('admin.course.announcement.index')
+              </div> --}}
+              <div role="tabpanel" class="fadein tab-pane" id="publish">
+                @include('admin.course.publish.index')
               </div>
               {{-- <div role="tabpanel" class="fadein tab-pane" id="report">
                 @include('admin.course.reviewreport.index')

@@ -130,7 +130,7 @@ class WishlistController extends Controller
 
 
             if(!empty($wishlist)){
-                return back()->with('delete','Course is already in wishlist !');
+                return back()->with('delete','Course is already in Wishlist !');
             }
             else{
 
@@ -141,16 +141,16 @@ class WishlistController extends Controller
                     'user_id'   => Auth::User()->id,
                 ]);
             }
-            return back()->with('success','Course is added to your wishlist !');
+            return back()->with('success','Course is added to your Wishlist !');
         }
 
-        return back()->with('success','Course is added to your wishlist !');
+        return back()->with('success','Course is added to your Wishlist !');
     }
 
     public function removewishlist(Request $request,$id)
     {
         DB::table('wishlists')->where('course_id', $id)->where('user_id', $request->user_id)->delete();
-        return back()->with('delete','Course is deleted from your wishlist');
+        return back()->with('delete','Course is deleted from your Wishlist');
     }
 
     public function wishlistpage(Request $request)
@@ -165,7 +165,7 @@ class WishlistController extends Controller
     {
         
         DB::table('wishlists')->where('id', $id)->delete();
-        return back()->with('delete','Course is deleted from your wishlist');;
+        return back()->with('delete','Course is deleted from your Wishlist');;
     }
 
 

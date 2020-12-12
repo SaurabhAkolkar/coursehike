@@ -9,6 +9,7 @@
                 img{
                     width:160px;
                     height:100px;
+                    background-color: var(--white);
                     transition:all 0.2s ease-in;-webkit-transition:all 0.2s ease-in;-moz-transition:all 0.2s ease-in;-ms-transition:all 0.2s ease-in;-o-transition:all 0.2s ease-in;
                     
                     &:hover{
@@ -59,11 +60,9 @@
         &rto{
             &__{
                 &item-img{
-                    width:100%;
-                    height:auto;
+                    width:100px;
                     img{
-                        width:100%;
-                        height:auto;
+                        width:100px;
                     }
                 }
                 &item-paystatus{

@@ -33,7 +33,7 @@
                 @foreach($items as $item)
                 <tr>
                   @if($item->status == '0')
-                  	<td><img src="{{ asset('images/instructor/'.$item->image)}}"></td> 
+                  	<td><img src="{{ asset('images/user_img/'.$item->image)}}"></td> 
                     <td>{{$item->fname}}</td>
                     <td>{{$item->email}}</td>
                     <td>{{ str_limit($item->detail, $limit= 50, $end = '...')}}</td>

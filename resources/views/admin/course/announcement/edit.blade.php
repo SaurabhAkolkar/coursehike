@@ -12,7 +12,17 @@
           <h3 class="box-title pb-6">{{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Announcement') }}</h3>
         </div>
         <!-- /.box-header -->
-     
+        @if($errors->any())
+        <div class="box-body">
+          <div class="alert alert-danger">
+            <ul>
+              @foreach($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+        </div>   
+        @endif 
         <div class="box-body">
           <!-- <div class="form-group">
             <form id="demo-form" method="post" action="{{url('announsment/'.$annou->id)}}" data-parsley-validate class="form-horizontal form-label-left">
@@ -56,28 +66,33 @@
             </form>
           </div> -->
 
-          <form class="la-admin__announce-form mr-20 pr-20" name="announcement-form" action="{{url('announsment/'.$annou->id)}}" method="post">
+          <form class="la-admin__announce-form mr-20 pr-20" name="announcement_form" enctype="multipart/form-data" action="{{url('announcement/'.$annou->id)}}" method="post">
+          @method('PUT')
+          @csrf
+            <input type="hidden" name="course_id" value="{{$annou->course_id}}" />
             <div class="row">
               <div class="form-group col-md-6">
                   <label for="announcement_title">Title:</label>
-                  <input type="text" class="form-control" name="announcement_title" id="announcement_title" placeholder="Enter Title for the announcement">
+                  <input type="text" class="form-control" name="announcement_title" id="announcement_title" value="{{$annou->title}}" placeholder="Enter Title for the announcement">
               </div>
 
               <div class="form-group col-md-6">
                   <label for="announcement_category">Category:</label>
                   <select name="announcement_category" id="announcement_category" class="form-control js-example-basic-single">
-                      <option value="Select">Select</option>
+                      @foreach($categories as $key=>$value)
+                          <option value="{{$key}}" @if($key == $annou->category_id) selected @endif >{{$value}}</option> 
+                      @endforeach
                   </select>
               </div>
 
               <div class="form-group col-md-12">
                   <label for="announcement_short">Short Description:</label>
-                  <textarea cols="30" rows="4" class="form-control" name="announcement_short" id="announcement_short" placeholder="Short discription on the preview of the announcement"></textarea>
+                  <textarea cols="30" rows="4" class="form-control" name="announcement_short" id="announcement_short" placeholder="Short discription on the preview of the announcement">{{$annou->short_description}}</textarea>
               </div>
 
               <div class="form-group col-md-12">
                 <label for="announcement_long">Long Description:</label>
-                <textarea id="announcement_long" name="announcement_long" rows="5" class="form-control" placeholder="Long description appear when someone clicks 'Read More'"></textarea>
+                <textarea id="announcement_long" name="announcement_long" rows="5" class="form-control" placeholder="Long description appear when someone clicks 'Read More'">{{$annou->long_description}}</textarea>
               </div>
             </div>
              <!-- PREVIEW IMAGE & VIDEO FILES: START -->
@@ -96,7 +111,7 @@
                             </span>
                           </div>
                           <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="preview_image" id="image" />
-                          <img src="" alt="" class="d-none preview-img"/>
+                          <img src="{{asset('images/announcement/'.$annou->preview_image)}}" alt="" class="@if($annou->preview_image) @else d-none @endif preview-img"/>
                       </div>
                     </div>
               </div>
@@ -128,7 +143,7 @@
              <div class="row">
                 <!-- Layout 1 -->
                 <div class="col-md-4">
-                  <input type="radio" id="layout1" name="layouts" value="0" class="la-admin__cp-input">
+                  <input type="radio" id="layout1" name="layouts" value="1" class="la-admin__cp-input" @if($annou->layout == 1) checked @endif>
                   <label for="layout1" class="w-100"> 
                     <div class="la-admin__cp-circle">
                       <span class="la-admin__cp-radio"></span>
@@ -161,7 +176,7 @@
 
                 <!-- Layout 2 -->
                 <div class="col-md-4">
-                  <input type="radio" id="layout2" name="layouts" value="0" class="la-admin__cp-input">
+                  <input type="radio" id="layout2" name="layouts" value="2" class="la-admin__cp-input" @if($annou->layout == 2) checked @endif> 
                   <label for="layout2" class="w-100"> 
                     <div class="la-admin__cp-circle">
                       <span class="la-admin__cp-radio"></span>
@@ -184,7 +199,7 @@
 
                 <!-- Layout 3 -->
                 <div class="col-md-4 pb-4">
-                  <input type="radio" id="layout3" name="layouts" value="0" class="la-admin__cp-input">
+                  <input type="radio" id="layout3" name="layouts" value="3" class="la-admin__cp-input" @if($annou->layout == 3) checked @endif>
                   <label for="layout3" class="w-100"> 
                     <div class="la-admin__cp-circle">
                       <span class="la-admin__cp-radio"></span>
@@ -216,7 +231,6 @@
                     <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" {{ $annou->status == '1' ? 'checked' : '' }} >
                     <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
                 </li>
-                <input type="hidden"  name="free" value="0" for="status" id="status">
               </div>
             </div>
             

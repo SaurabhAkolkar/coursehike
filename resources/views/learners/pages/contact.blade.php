@@ -8,7 +8,7 @@
       <div class="container">
         <div class="row">
           <!-- Column: Start-->
-          <div class="col-12 mt-8 mt-lg-10">
+          <div class="col-12 mt-5 mt-lg-10">
             <a class="la-back__page" href="#"> 
               <span class="la-icon la-icon--5xl icon-back-arrow"></span>
             </a>
@@ -22,27 +22,28 @@
           </div>
           <!-- Column: End-->
         </div>
-        <div class="row la-contact--info d-flex flex-row justify-content-between">
+        <div class="row la-contact--info d-flex flex-row justify-content-between ">
           <!-- Column: Start-->
-          <div class="col-12 col-sm-6 col-lg-5 order-1">
+          <div class="col-12 col-sm-5 col-md-4 col-lg-5 order-1">
             <div class="la-contact__lft">
               <div class="la-contact__connect order-first">
                 <h6 class="m-0 text-xl text-md-2xl">Feel free to reach us</h6>
-                <h2 class="text-4xl text-md-6xl">Let's Connect </h2>
-                <p class="text-sm">Stet clita kasd gubergen, no sea takimata sanctus est Lorem Ipsum dolor sit amet. Lorem ipsum dolor sit amet.                            </p>
+                <h2 class="text-5xl text-md-6xl">Let's Connect </h2>
+                <p class="text-sm pt-2">Stet clita kasd gubergen, no sea takimata sanctus est Lorem Ipsum dolor sit amet. Lorem ipsum dolor sit amet.                            </p>
               </div>
               <div class="la-contact__btm d-none d-sm-block">
                 <div class="la-contact__details"><span class="la-icon--lg icon-contact-number mr-3"></span><a class="text-md" href="tel:+91 9999999999">+91 9999999999</a></div>
                 <div class="la-contact__details"><span class="la-icon--lg icon-mail-id mr-3"></span><a class="text-md" href="mailto:ask@learnitlikealiens.com">ask@learnitlikealiens.com</a></div>
                 <div class="la-contact__smedia mt-6">
-                  <a class="mr-5" href="#"><span class="la-icon la-icon--6xl icon-facebook"></a>
-                  <a class="mr-5" href="#"><span class="la-icon la-icon--6xl icon-insta"></a>
-                  <a class="mr-5" href="#"><span class="la-icon la-icon--6xl icon-youtube"></a>
+                  <a href="#"><span class="la-icon la-icon--6xl icon-facebook"></a>
+                  <a  href="#"><span class="la-icon la-icon--6xl icon-insta"></a>
+                  <a  href="#"><span class="la-icon la-icon--6xl icon-youtube"></a>
                 </div>
               </div>
             </div>
           </div>
           <!-- Column: End-->
+
           <!-- Mobile Column: Start-->
           <div class="col order-3 order-sm-none my-5 py-5 px-5 mx-4 d-block d-sm-none"> 
             <div class="la-contact__btm-mobile py-5 my-5">
@@ -56,8 +57,9 @@
             </div>
           </div>
           <!-- Mobile Column: End-->
+
           <!-- Column: Start-->
-          <div class="col-12 col-sm-5 col-lg-4 order-2 order-sm-3 px-0 px-md-3">
+          <div class="col-12 col-sm-7 col-lg-4 order-2 order-sm-3 px-0 px-md-3">
             <div class="la-contact__title text-center pt-5 d-block d-sm-none">
               <h1>CONTACT</h1>
             </div>

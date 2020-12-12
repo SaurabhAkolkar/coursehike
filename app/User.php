@@ -126,5 +126,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne('App\UserSubscription','user_id');
     }
+    public function getFullNameAttribute()
+    {
+        return "{$this->fname} {$this->lname}";
+    }   
 }
 

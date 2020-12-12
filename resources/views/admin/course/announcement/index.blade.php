@@ -24,7 +24,7 @@
                 <?php $i++;?>
                 <td><?php echo $i;?></td>
                 <td>{{$an->courses->title}}</td>
-                <td>{{ str_limit($an->announsment, $limit = 70, $end = '....')}}</td> 
+                <td>{{ str_limit($an->title, $limit = 70, $end = '....')}}</td> 
                 <td>
                   @if($an->status==1)
                    {{ __('adminstaticword.Active') }}
@@ -34,11 +34,11 @@
                 </td>
             
                 <td>
-                  <a class="btn btn-success btn-sm" href="{{url('announsment/'.$an->id)}}"><i class="la-icon la-icon--lg icon-edit"></i></a>
+                  <a class="btn btn-success btn-sm" href="{{url('announcement/'.$an->id)}}"><i class="la-icon la-icon--lg icon-edit"></i></a>
                 </td> 
 
                 <td>
-                  <form  method="post" action="{{url('announsment/'.$an->id)}}" ata-parsley-validate class="form-horizontal form-label-left">
+                  <form  method="post" action="{{url('announcement/'.$an->id)}}" ata-parsley-validate class="form-horizontal form-label-left">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
 
@@ -63,52 +63,12 @@
         <div class="box box-primary">
           <div class="panel panel-sum">
             <div class="modal-body">
-             <!-- <form id="demo-form2" method="post" action="{{ route('announsment.store') }}" data-parsley-validate class="form-horizontal form-label-left">
-                {{ csrf_field() }}
-                          
-                <label class="display-none" for="exampleInputSlug"> {{ __('adminstaticword.Course') }}<span class="required" >*</span></label>
-                <select name="course_id" class="form-control display-none">
-                  <option value="{{ $cor->id }}">{{ $cor->title }}</option>
-                </select>
-            
-                <label class="display-none"  for="exampleInputTit1e">{{ __('adminstaticword.User') }}</label>
 
-                <select class="display-none" name="user_id" class="form-control col-md-7 col-12">
-                  @php
-                   $users = App\User::all();
-                  @endphp
-
-                  @foreach($users as $us)
-                  <option value="{{$us->id}}">{{$us->fname}}</option>
-                  @endforeach
-                </select>
-                
-                <div class="row pt-4">
-                  <div class="col-md-12">
-                    <label for="exampleInputDetails">{{ __('adminstaticword.Announcement') }}:<sup class="redstar">*</sup></label>
-                    <textarea name="announsment" rows="3" class="form-control" placeholder="Enter Your announcement"></textarea>
-                  </div>
-                </div>
-                <br>
-
-                <div class="row">
-                  <div class="col-md-12">
-                    <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
-                    <li class="tg-list-item">
-                      <input class="la-admin__toggle-switch" id="uuuu"  type="checkbox"/>
-                      <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="uuuu"></label>
-                    </li>
-                    <input type="hidden" name="status" value="1" id="uuuuu">
-                  </div>
-                </div>
-                <br>          
-                <div class="box-footer">
-                  <button type="submit" class="btn btn-md btn-primary  col-md-4">{{ __('adminstaticword.Submit') }}</button>
-                </div>
-            </form> -->
 
             
-            <form class="la-admin__announce-form" name="announcement-form" action="{{ route('announsment.store') }}" method="post">
+            <form class="la-admin__announce-form" name="announcement_form" action="/announcement" method="post"  enctype="multipart/form-data">
+              @csrf
+              <input type="hidden" name="course_id" value="{{$cor->id}}" />
               <div class="row">
                 <div class="form-group col-md-12">
                     <label for="announcement_title">Title:</label>
@@ -118,10 +78,13 @@
                 <div class="form-group col-md-12">
                     <label for="announcement_category">Category:</label>
                     <select name="announcement_category" id="announcement_category" class="form-control js-example-basic-single">
-                        <option value="Select">Select</option>
+                        <option selected disabled>Select</option>
+                        @foreach($categories as $key=>$value)
+                            <option value="{{$key}}">{{$value}}</option>
+                        @endforeach
                     </select>
                 </div>
-
+               
                 <div class="form-group col-md-12">
                     <label for="announcement_short">Short Description:</label>
                     <textarea cols="30" rows="4" class="form-control" name="announcement_short" id="announcement_short" placeholder="Short discription on the preview of the announcement"></textarea>
@@ -180,7 +143,7 @@
                <div class="row">
                   <!-- Layout 1 -->
                   <div class="col-md-12 pb-4">
-                    <input type="radio" id="layout1" name="layouts" value="0" class="la-admin__cp-input">
+                    <input type="radio" id="layout1" name="layouts" value="1" class="la-admin__cp-input">
                     <label for="layout1" class="w-100 "> 
                       <div class="la-admin__cp-circle ">
                         <span class="la-admin__cp-radio"></span>
@@ -213,7 +176,7 @@
 
                   <!-- Layout 2 -->
                   <div class="col-md-12 pb-4">
-                    <input type="radio" id="layout2" name="layouts" value="0" class="la-admin__cp-input">
+                    <input type="radio" id="layout2" name="layouts" value="2" class="la-admin__cp-input">
                     <label for="layout2" class="w-100"> 
                       <div class="la-admin__cp-circle">
                         <span class="la-admin__cp-radio"></span>
@@ -236,7 +199,7 @@
 
                   <!-- Layout 3 -->
                   <div class="col-md-12 pb-4">
-                    <input type="radio" id="layout3" name="layouts" value="0" class="la-admin__cp-input">
+                    <input type="radio" id="layout3" name="layouts" value="3" class="la-admin__cp-input">
                     <label for="layout3" class="w-100"> 
                       <div class="la-admin__cp-circle">
                         <span class="la-admin__cp-radio"></span>
@@ -284,3 +247,4 @@
 
      <!--Model close -->    
 </section> 
+

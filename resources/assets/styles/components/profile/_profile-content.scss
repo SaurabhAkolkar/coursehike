@@ -9,6 +9,9 @@
                 width: 100%;
                 padding-top: var(--size-12);
 
+                @media(max-width:767px){
+                    padding-top: var(--size-4);
+                }
                 &- {
                     // &inner {
                     //     @include respond-above(sm) {

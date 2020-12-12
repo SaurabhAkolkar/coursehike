@@ -6,9 +6,11 @@
                 height:100px;
                 overflow:hidden;
                 border-radius:10px;
+                background-color: var(--white);
                 img{
                     width:160px;
                     height:100px;
+                    background-color: var(--white);
                     transition:all 0.2s ease-in;-webkit-transition:all 0.2s ease-in;-moz-transition:all 0.2s ease-in;-ms-transition:all 0.2s ease-in;-o-transition:all 0.2s ease-in;
                     
                     &:hover{
@@ -46,12 +48,9 @@
         &purchaseh{
             &__{
                 &item-img{
-                    width:100%;
-                    height:auto;
+                    width:100px;
                     img{
-                        width:100%;
-                        height:auto;
-                        display:block;
+                        width:100px;
                     }
                 }
                 &item-paystatus{
@@ -60,11 +59,26 @@
                 &item-invoice{
                     color:var(--app-indigo-1);
                 }  
-               &item-collapse{
-                   color:var(--app-indigo-1);
-               }
-               &item-toggler{
-                   transform:rotate(-90deg);
+                &item-toggler{
+                    color: var(--app-indigo-1);
+
+                    &:after{
+                        font-family: 'icomoon';
+                        content: "\e96d";
+                        margin-top:1.3px;
+                        position:absolute;
+                        top:0;
+                        right:-16px;
+                        font-size: var(--text-md);
+                        transform: rotate(180deg);-webkit-transform: rotate(180deg);-moz-transform: rotate(180deg);-ms-transform: rotate(180deg);-o-transform: rotate(180deg);
+                        transition: all 0.25s ease-in;-webkit-transition: all 0.25s ease-in;-moz-transition: all 0.25s ease-in;-ms-transition: all 0.25s ease-in;-o-transition: all 0.25s ease-in;
+                    }
+
+                    &.collapsed:after{
+                        content: "\e96d"; 
+                        transform: rotate(0);-webkit-transform: rotate(0);-moz-transform: rotate(0);-ms-transform: rotate(0);-o-transform: rotate(0);
+                        transition: all 0.25s ease-in;-webkit-transition: all 0.25s ease-in;-moz-transition: all 0.25s ease-in;-ms-transition: all 0.25s ease-in;-o-transition: all 0.25s ease-in;
+                    }
                }
                &item-content{
                    border-bottom: 1px solid rgba(112, 112, 112,0.1);

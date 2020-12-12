@@ -1,11 +1,11 @@
 @if (Session::has('success'))
-    <div class="offset-md-3 col-md-offset-3 col-md-6 animated fadeInDown alert alert-success" role="alert">
-       {{Session::get('success')}}
+    <div class="la-btn__alert-success col-md-4 offset-md-8 animated fadeInDown alert alert-success" role="alert">
+        <h6 class="la-btn__alert-msg">{{Session::get('success')}}</h6>
     </div>
 @endif
 
 @if (Session::has('delete'))
-    <div class="offset-md-3 col-md-offset-3 col-md-6 animated fadeInDown alert alert-danger" role="alert">
-       {{Session::get('delete')}}
+    <div class="la-btn__alert-danger col-md-4 offset-md-8 animated fadeInDown alert alert-danger" role="alert">
+        <h6 class="la-btn__alert-msg">{{Session::get('delete')}}</h6>
     </div>
 @endif

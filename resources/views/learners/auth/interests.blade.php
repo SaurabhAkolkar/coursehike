@@ -20,43 +20,25 @@
             <div class="la-entry__interests-wrap">
               <div class="la-entry__interests-title la-entry__content-title text-center mb-4">Your Interests</div>
               <ul class="la-entry__interests d-flex flex-wrap mb-3">
-                <li class="la-entry__interest">
-                  <div class="la-entry__interest-inner position-relative d-flex align-items-end"><span class="la-entry__interest-thumbnail position-absolute z-0"><img class="img-fluid" src="https://picsum.photos/115/115" alt=""></span><span class="la-entry__interest-name">Design</span></div>
-                </li>
-                <li class="la-entry__interest">
-                  <div class="la-entry__interest-inner position-relative d-flex align-items-end"><span class="la-entry__interest-thumbnail position-absolute z-0"><img class="img-fluid" src="https://picsum.photos/115/115" alt=""></span><span class="la-entry__interest-name">Dance</span></div>
-                </li>
-                <li class="la-entry__interest">
-                  <div class="la-entry__interest-inner position-relative d-flex align-items-end"><span class="la-entry__interest-thumbnail position-absolute z-0"><img class="img-fluid" src="https://picsum.photos/115/115" alt=""></span><span class="la-entry__interest-name">Rangoli</span></div>
-                </li>
-                <li class="la-entry__interest">
-                  <div class="la-entry__interest-inner position-relative d-flex align-items-end"><span class="la-entry__interest-thumbnail position-absolute z-0"><img class="img-fluid" src="https://picsum.photos/115/115" alt=""></span><span class="la-entry__interest-name">Music</span></div>
-                </li>
-                <li class="la-entry__interest">
-                  <div class="la-entry__interest-inner position-relative d-flex align-items-end"><span class="la-entry__interest-thumbnail position-absolute z-0"><img class="img-fluid" src="https://picsum.photos/115/115" alt=""></span><span class="la-entry__interest-name">Travel</span></div>
-                </li>
-                <li class="la-entry__interest">
-                  <div class="la-entry__interest-inner position-relative d-flex align-items-end"><span class="la-entry__interest-thumbnail position-absolute z-0"><img class="img-fluid" src="https://picsum.photos/115/115" alt=""></span><span class="la-entry__interest-name">Tattoo</span></div>
-                </li>
-                <li class="la-entry__interest">
-                  <div class="la-entry__interest-inner position-relative d-flex align-items-end"><span class="la-entry__interest-thumbnail position-absolute z-0"><img class="img-fluid" src="https://picsum.photos/115/115" alt=""></span><span class="la-entry__interest-name">Fashion</span></div>
-                </li>
-                <li class="la-entry__interest">
-                  <div class="la-entry__interest-inner position-relative d-flex align-items-end"><span class="la-entry__interest-thumbnail position-absolute z-0"><img class="img-fluid" src="https://picsum.photos/115/115" alt=""></span><span class="la-entry__interest-name">Makeup</span></div>
-                </li>
-                <li class="la-entry__interest">
-                  <div class="la-entry__interest-inner position-relative d-flex align-items-end"><span class="la-entry__interest-thumbnail position-absolute z-0"><img class="img-fluid" src="https://picsum.photos/115/115" alt=""></span><span class="la-entry__interest-name">Craft</span></div>
-                </li>
-                <li class="la-entry__interest">
-                  <div class="la-entry__interest-inner position-relative d-flex align-items-end"><span class="la-entry__interest-thumbnail position-absolute z-0"><img class="img-fluid" src="https://picsum.photos/115/115" alt=""></span><span class="la-entry__interest-name">Makeup</span></div>
-                </li>
-                <li class="la-entry__interest">
-                  <div class="la-entry__interest-inner position-relative d-flex align-items-end"><span class="la-entry__interest-thumbnail position-absolute z-0"><img class="img-fluid" src="https://picsum.photos/115/115" alt=""></span><span class="la-entry__interest-name">Craft</span></div>
-                </li>
+                @foreach ($categories as $c)
+                    <li class="la-entry__interest">
+                      <div class="la-entry__interest-inner position-relative d-flex align-items-end">
+                        <span class="la-entry__interest-thumbnail position-absolute z-0" role="button" onclick="addToInterest({{$c->id}})" id="interest_span_{{$c->id}}">
+                          <img class="img-fluid" src="https://picsum.photos/115/115" alt="">
+                        </span>
+                        <span class="la-entry__interest-name">{{$c->title}}</span>
+                      </div>
+                    </li>
+
+                @endforeach
               </ul>
               <div class="la-entry__interest-actions text-center">
-                <div class="la-entry__interest-next mb-2"><a href="">GET STARTED</a></div>
-                <div class="la-entry__interest-skip la-btn__plain text--burple"><a href="">skip</a></div>
+                <form action="/add-interests" method="post" id="add_interests">
+                  @csrf
+                  <input type="hidden" name="interets" id="interest_input"/>
+                  <div class="la-entry__interest-next mb-2"><a onclick="$('#add_interests').submit()" role="button">GET STARTED</a></div>
+                </form>
+                <div class="la-entry__interest-skip la-btn__plain text--burple"><a href="/profile">skip</a></div>
               </div>
             </div>
           </div>
@@ -64,4 +46,31 @@
       </div>
     </div>
   </section>
+@endsection
+
+@section('footerScripts')
+<script>
+  function addToInterest(id){
+      let input = $('#interest_input').val();
+     
+      if($('#interest_span_'+id).hasClass('border')){
+        $('#interest_span_'+id).removeClass('border border-success');
+
+        let input = $('#interest_input').val();
+        input = input.replace(id,'');
+        $('#interest_input').val(input);
+
+      }else{
+        if(id){
+        input = input+', '+id; 
+        }else{
+        input = id;
+        }
+
+        $('#interest_input').val(input);
+        $('#interest_span_'+id).addClass('border border-success');
+      }
+      
+  }
+</script>
 @endsection

@@ -3,15 +3,16 @@
 @section('content')
 <section class="la-section la-cbg--main">
     <div class="la-section__inner">
-      <div class="container">
-        <a class="la-icon--lg icon-arrow font-weight-bold mb-5 pb-5 mx-3 d-block d-md-none" href="#"></a>
-        <div class="mx-3 ">
-          <h1 class="la-page__title mb-8">Alien Mentors</h1>
+      <div class="container la-anim__wrap">
+        <div class="mx-3 la-anim__fade-in-right">
+          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="#"></a>
+          <h1 class="la-page__title mb-8 ">Alien Mentors</h1>
           <!-- Global Search: Start-->
           <div class="la-gsearch">
-            <form class="form-inline" action="">
+            <form class="form-inline" action="/search-mentor" method="post">
+              @csrf
               <div class="form-group">
-                <input class="la-gsearch__input w-100 form-control" type="text" style="background:transparent" placeholder="Search Alien Mentor">
+                <input class="la-gsearch__input w-100 form-control" name="name" type="text" style="background:transparent" placeholder="Search Alien Mentor">
               </div>
               <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--3xl icon icon-search"></i></button>
             </form>
@@ -30,13 +31,20 @@
           $mentor9 = new stdClass; $mentor9->name="Amy D'souza";$mentor9->img="https://picsum.photos/400";$mentor9->skill="Tattoo";
 
 
-          $mentors = array($mentor1, $mentor2, $mentor3, $mentor4, $mentor5, $mentor6, $mentor7, $mentor8, $mentor9);
+          //$mentors = array($mentor1, $mentor2, $mentor3, $mentor4, $mentor5, $mentor6, $mentor7, $mentor8, $mentor9);
         @endphp
 
-        <div class="la-mentors">
-          <div class="row no-gutters">
+        <div class="la-mentors la-anim__wrap">
+          <div class="row no-gutters la-anim__stagger-item">
               @foreach($mentors as $mentor)
-                  <x-mentor :img="$mentor->img" :name="$mentor->name" :skill="$mentor->skill" />
+                  @php 
+                        if($mentor->user_img == ""){
+                            $mentor->user_img = "https://picsum.photos/400";
+                        }else{
+                            $mentor->user_img = asset('/images/user_img/'.$mentor->user_img);
+                        }
+                  @endphp
+                  <x-mentor :img="$mentor->user_img" :id="$mentor->id" :name="$mentor->fname.' '.$mentor->lname" :skill="$mentor->skill" />
                @endforeach
             </div>
         </div>

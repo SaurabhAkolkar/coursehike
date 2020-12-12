@@ -12,7 +12,7 @@
         <div class="container px-lg-14">
           <div class="row">
             <div class="col-lg-6">
-              <h1 class="la-payment__title text-4xl head-font">Payment Details</h1>
+              <h1 class="la-payment__title text-2xl text-md-4xl head-font">Payment Details</h1>
             </div>
           </div>
           <div class="row">

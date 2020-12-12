@@ -2,13 +2,13 @@
  <div class="la-purchaseh__items-mobile d-block d-lg-none">
     <div class="la-rto__item d-flex justify-content-between mb-4">           
         <div class="la-rto__categories text-sm">
-            <div class="la-rto__item-title text-2xl"> {{ $subscription }} </div>
-            <div class="la-purchaseh__item-invoice mt-4"> {{ $invoice }} 
-                <a class="la-icon icon-download la-purchaseh__item-download" href= {{ $invoiceUrl }} ></a>
-            </div>
+            <div class="la-rto__item-title text-2xl mb-6"> {{ $subscription }} </div>
+            <a class="la-purchaseh__item-invoice" role="button" target="_blank" href= {{ $invoiceUrl }}> {{ $invoice }} 
+                <span class="la-icon icon-download la-purchaseh__item-download"  ></span>
+            </a>
         </div>
 
-        <div class="la-rto__item-paystatus">{{ $paystatus }} </div>
+        <div class="la-rto__item-paystatus pt-2">{{ $paystatus }} </div>
     </div>
 
     <div class="la-purchaseh__label-mobile d-flex justify-content-between">

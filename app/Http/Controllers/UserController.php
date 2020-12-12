@@ -26,6 +26,9 @@ use App\BundleCourse;
 use App\BBL;
 use App\Instructor;
 use App\CourseProgress;
+use App\Categories;
+use App\UserInterest;
+
 
 class UserController extends Controller
 {
@@ -42,7 +45,7 @@ class UserController extends Controller
 
     public function viewAllUser()
     {
-        $users = User::all();
+        $users = User::with('country')->get();
         return view('admin.user.index', compact('users'));
     }
 
@@ -241,7 +244,51 @@ class UserController extends Controller
         }
     }
 
+    public function getInterests(){
+            $categories = Categories::where('status',1)->get();
+            return view('learners.auth.interests', compact('categories'));
+    }
+    public function storeInterest(Request $request){
+
+        $input['user_id'] = Auth::user()->id;
+        $input['category_id'] = $request->interets;
+        $input['category_id']=explode(",",$input['category_id']);
+        $input['course_id_all']=array_filter($input['category_id']);
+        UserInterest::where('user_id', Auth::User()->id)->delete();
+        foreach($input['course_id_all'] as $c){
+            $input['category_id'] = $c; 
+            $check = UserInterest::where(['user_id'=>Auth::User()->id, 'category_id'=>$c])->first();
+
+            if(!$check){
+                UserInterest::create($input);
+            }
+        }
+        return redirect('/');
+
+    }
+
+    public function addMyInterests(Request $request){
+
+        if($request->category_id){
+            $myInterests = UserInterest::create(['user_id'=>Auth::User()->id, 'category_id' => $request->category_id]);
+
+            return 'Course added Successfully';
+        }        
+        return 'No course selected';
+    }
+
+    public function myInterests(){
+        $myInterests = UserInterest::with('category')->where('user_id',Auth::User()->id)->get();
+        $coursesId = UserInterest::where('user_id', Auth::User()->id)->pluck('category_id');
 
 
+        if(count($coursesId)){
+            $otherCategories = Categories::where('status',1)->whereNotIn('id', $coursesId)->get();
+        }else{
+            $otherCategories = Categories::where('status',1)->get();
+        }
+        
+        return view('learners.pages.my-interests',compact('myInterests','otherCategories'));
+    }
     
 }

@@ -68,7 +68,7 @@
                                         <input id="email" type="email" class="la-form__input la-entry__input{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Enter Your E-Mail"   name="email" value="{{ old('email') }}" required autofocus>
                 
                                         @if ($errors->has('email'))
-                                            <span class="invalid-feedback" role="alert">
+                                            <span class="invalid-feedback" role="alert"  style="margin-left:60px;position:absolute">
                                                 <strong>{{ $errors->first('email') }}</strong>
                                             </span>
                                         @endif
@@ -78,9 +78,10 @@
                                         <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
                                         <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-password"></span></span>
                                         <input id="password" type="password" class="la-form__input la-entry__input{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Enter Your Password" name="password" required>
-                
+                                       
+
                                         @if ($errors->has('password'))
-                                            <span class="invalid-feedback" role="alert">
+                                            <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
                                                 <strong>{{ $errors->first('password') }}</strong>
                                             </span>
                                         @endif

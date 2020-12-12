@@ -8,7 +8,7 @@
         <div class="container">
           <div class="row">
             <div class="col-1 mb-16">
-              <a href="" class="la-vcreator__back-link"><span class="la-icon la-icon--6xl icon-grey-arrow"></span></a>
+              <a href="" class="la-vcreator__back"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
             </div>
             <!-- <div class="col offset-7">  
               <div class="la-gsearch my-10">
@@ -23,54 +23,53 @@
           </div>
 
           @php
-              $creator = new stdClass;
-              $creator->img = "https://picsum.photos/1200/600";
-              $creator->name = "Dyna Acker";
-              $creator->desc = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd";
-              $creator->skill = "Tattoo Artist";
-              $creator->location = "California, US State";
-              $creator->courses = 10;
-              $creator->rating = 4.5;
-              $creator->awards = 5;
 
-              $creators = array($creator);
+             if($creator->user_img){
+                  $creator->user_img = asset('/images/user_img/'.$creator->user_img);
+             }else{
+                  $creator->user_img = "https://picsum.photos/1200/600";
+             } 
+             if(!$rating){
+                $rating = 0;
+             }
+             $course_count = count($courses);
           @endphp
 
           
             <x-creator-profile 
-                  :img="$creator->img"
-                  :name="$creator->name"
-                  :desc="$creator->desc"
+                  :img="$creator->user_img"
+                  :name="$creator->FullName"
+                  :desc="$creator->detail"
+                  :email="$creator->email"
                   :skill="$creator->skill"
                   :location="$creator->location"
-                  :courses="$creator->courses"
-                  :rating="$creator->rating"
-                  :awards="$creator->awards"
+                  :courses="$course_count"
+                  :rating="$rating"
+                  :awards="$awards"
+                  :facebook="$creator->facebook_id"
+                  :google="$creator->google_id"
               />
         
 
           <div class="row py-6 py-md-20">   
             <div class="col p-md-0">
-              <h4 class="text-3xl head-font font-weight-bold p-3">Courses from Dyna</h4>
-              <div class="la-courses__creator-courses d-flex flex-row">
-                @php  
-                  $tattoo1 = new stdClass;$tattoo1->img= "https://picsum.photos/600/400";$tattoo1->course= "Tattoo Art";$tattoo1->rating= "4";$tattoo1->url= "";$tattoo1->creatorImg= "https://picsum.photos/100";$tattoo1->creatorName= "Joseph Phill";$tattoo1->creatorUrl= "/creator";
-                  $tattoo2 = new stdClass;$tattoo2->img= "https://picsum.photos/600/400"; $tattoo2->course= "Tattoo Art";$tattoo2->rating= "4";$tattoo2->url= "";$tattoo2->creatorImg= "https://picsum.photos/100";$tattoo2->creatorName= "Amy D'souza";$tattoo2->creatorUrl= "/creator";
-                  $tattoo3 = new stdClass;$tattoo3->img= "https://picsum.photos/600/400";$tattoo3->course= "Tattoo Art";$tattoo3->rating= "4";$tattoo3->url= "";$tattoo3->creatorImg= "https://picsum.photos/100";$tattoo3->creatorName= "Alton Crew";$tattoo3->creatorUrl= "/creator";
-                
-                  $tattoos = array($tattoo1, $tattoo2, $tattoo3);
-                @endphp
+              <h4 class="text-3xl head-font font-weight-bold p-3">Courses from {{ucfirst($creator->FullName)}}</h4>
+              <div class="la-courses__creator-courses d-md-flex flex-row">
 
-                @foreach($tattoos as $tattoo)
-                  <x-course 
-                      :img="$tattoo->img" 
-                      :course="$tattoo->course" 
-                      :url="$tattoo->url" 
-                      :rating="$tattoo->rating"
-                      :creatorImg="$tattoo->creatorImg"
-                      :creatorName="$tattoo->creatorName"
-                      :creatorUrl="$tattoo->creatorUrl"
-                    />
+
+                @foreach($courses as $course)
+                  <div class="col-md-4 px-0">
+                    <x-course 
+                        :id="$course->id"
+                        :img="$course->preview_image" 
+                        :course="$course->title" 
+                        :url="$course->title" 
+                        :rating="$course->review->avg('rating')"
+                        :creatorImg="$course->user->user_img"
+                        :creatorName="$course->user->FullName"
+                        :creatorUrl="$course->user->id"
+                      />
+                  </div>
                 @endforeach
 
               </div>

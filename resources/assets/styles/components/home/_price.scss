@@ -1,4 +1,11 @@
 #{$ap}- {
+    &section {
+        &-- {
+            &price {
+                // height: 100vh;
+            }
+        }
+    }
     // Box: Start
     &price {
         &__ {
@@ -31,7 +38,7 @@
                 &r {
                     height: auto;
                     margin-top: -70px;
-                    padding-bottom: 50px;
+                    // padding-bottom: 50px;
                     // overflow-y:scroll;
                     // overflow-x:hidden;
 

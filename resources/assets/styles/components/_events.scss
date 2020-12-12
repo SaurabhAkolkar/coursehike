@@ -10,6 +10,7 @@
                     width:350px;
                     height:280px;
                     border-radius:10px;
+                    background-color: var(--white);
                 }
             }
             &etitle{
@@ -78,7 +79,11 @@
                 &etitle{
                     padding:var(--size-4) var(--size-6);
                 }
-                &readmore{                   
+                &readmore{   
+                    &:before{
+                        top:-15px;
+                        left:22px;
+                    }                
                     &:hover{
                         font-size:var(--text-sm);
                     }
@@ -107,7 +112,6 @@
             &__{
                 &item{
                     margin-right:0;
-                    padding:var(--size-4) var(--size-4);
                 }
                 &etitle{
                     padding:var(--size-4);

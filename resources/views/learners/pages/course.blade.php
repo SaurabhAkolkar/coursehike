@@ -8,10 +8,15 @@
 @endsection
 
 @section('content')
-
+@php
+use Carbon\Carbon;
+@endphp
 <section class="la-section">
     <div class="la-vcourse">
       <div class="container">
+        @if(Session('failed'))
+          <h5>Review Already Added for this course by you.</h5>
+        @endif
         <div class="row  mb-12"> 
           <div class="col-12 col-lg-7">
             <div class="la-vcourse__header d-flex align-items-center">
@@ -312,11 +317,13 @@
       <div class="row la-vcourse__purchase-row">
         <div class="col-md-6 la-vcourse__purchase-left">
           <div class="la-vcourse__purchase-prize mb-8">Purchase this Course @ <span class="la-vcourse__purchase-prize--amount"><b>${{$course->price}}</b></span></div>
-          <form class="la-vcourse__purchase-form" action="">
+          <form class="la-vcourse__purchase-form" id="add_to_cart_form" method="post" action="/add-to-cart">
+            <input type="hidden" name="course_id" value="{{$course->id}}" />
+            @csrf
             <div class="la-vcourse__purchase-classes">
               <div class="la-vcourse__purchase-class la-vcourse__purchase-class--all mb-4">
                 <div class="la-form__radio-wrap">
-                  <input class="la-form__radio d-none la-vcourse__purchase-input" checked type="radio" value="all-classes" name="classes" id="allClasses">
+                  <input class="la-form__radio d-none la-vcourse__purchase-input" @if($in_cart == null) checked @endif type="radio" value="all-classes" name="classes" id="allClasses">
                   <label class="d-flex align-items-center la-vcourse__purchase-label" for="allClasses">
                     <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
                     <span class="">All Classes</span>
@@ -331,7 +338,7 @@
                     <span class="">Select Classes</span>
                   </label>
                 </div>
-                <div class="la-vcourse__purchase-items mt-8 pl-8">
+                <div class="la-vcourse__purchase-items mt-8 pl-8" id="selected_class_div">
                   <table class="w-100 la-vcourse__classes-wrap">
                     <tr class="la-vcourse__sclass-item">
                       <th class="mb-4 la-vcourse__sclass-heading"></th>
@@ -341,12 +348,12 @@
                       <th class="mb-4 la-vcourse__sclass-heading">Price</th>
                     </tr>
                     @foreach ($course->chapter as $class)
-
+                    
                       <tr class="la-vcourse__sclass-item align-top">
                         <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--checkbox">
                           <div>
-                            <input id="selectItem1" class="la-form__checkbox-input custom-control-input" type="checkbox">
-                            <label class="" for="selectItem1">
+                            <input id="selectItem_{{$class->id}}" name="selected_classes[]" class="la-form__checkbox-input custom-control-input" type="checkbox" value="{{$class->id}}">
+                            <label class="" for="selectItem_{{$class->id}}">
                               <svg viewBox="0 0 16 16" height="16" width="16">
                                 <g id="Group_5052" data-name="Group 5052" transform="translate(-129 -2108)">
                                   <g id="Rectangle_3239" data-name="Rectangle 3239" transform="translate(129 2108)" fill="none" stroke="#7400d7" stroke-width="1">
@@ -376,7 +383,7 @@
                 <a class="btn btn-primary la-btn la-btn--primary w-100 text-center">Buy course</a>
               </div>
               <div class="la-vcourse__purchase-btn w-50">
-                <a class="btn la-btn la-btn__plain text--green w-100 text-center">ADD TO CART</a>
+                <a class="btn la-btn la-btn__plain text--green w-100 text-center" onclick="$('#add_to_cart_form').submit()">ADD TO CART</a>
               </div>
             </div>
           </form>
@@ -410,20 +417,23 @@
                 <div class="la-rtng__title head-font text-xl">Reviews &amp; Ratings
                   <div class="la-rtng__wrapper d-flex flex-column flex-md-row justify-content-between">
                     <div class="la-rtng__overall text-left text-md-center">
-                      <div class="la-rtng__total body-font text-5xl mx-4 mx-md-0 px-5 px-md-0">4.0</div>
+                      <div class="la-rtng__total body-font text-5xl mx-4 mx-md-0 px-5 px-md-0">{{$average_rating}}</div>
                       <div class="la-rtng__icons d-inline-flex">
-                        <div class="la-icon--xl icon-star la-rtng__fill"> </div>
-                        <div class="la-icon--xl icon-star la-rtng__fill"> </div>
-                        <div class="la-icon--xl icon-star la-rtng__fill"> </div>
-                        <div class="la-icon--xl icon-star la-rtng__fill"> </div>
-                        <div class="la-icon--xl icon-star la-rtng__unfill"> </div>
+                        @for($counter=1;$counter <= round($average_rating); $counter++)
+                            <div class="la-icon--xl icon-star la-rtng__fill"> </div>
+                        @endfor
+
+                        @for($counter=1;$counter <= 5-round($average_rating); $counter++)
+                            <div class="la-icon--xl icon-star la-rtng__unfill"> </div>
+                        @endfor                      
+                        
                       </div>
                       <div class="la-rtng__course body-font text-sm mt-n1 px-3 px-md-0">Course Rating</div>
                     </div>
                     <div class="la-rtng__indicators">
                       <div class="la-rtng__bars d-flex flex-row jsutify-content-between">
                         <div class="progress la-rtng__progress">
-                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$five_rating_percentage}}%" aria-valuenow="{{$five_rating_percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="la-rtng__pg-rtng d-inline-flex px-3">
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
@@ -432,11 +442,11 @@
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                         </div>
-                        <div class="la-rtng__percent body-font text-xs">60%</div>
+                        <div class="la-rtng__percent body-font text-xs">{{$five_rating_percentage}}%</div>
                       </div>
                       <div class="la-rtng__bars d-flex flex-row jsutify-content-between">
                         <div class="progress la-rtng__progress">
-                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:29%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$four_rating_percentage}}%" aria-valuenow="{{$four_rating_percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="la-rtng__pg-rtng d-inline-flex px-3">
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
@@ -445,11 +455,11 @@
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                         </div>
-                        <div class="la-rtng__percent body-font text-xs">29%</div>
+                        <div class="la-rtng__percent body-font text-xs">{{$four_rating_percentage}}%</div>
                       </div>
                       <div class="la-rtng__bars d-flex flex-row jsutify-content-between">       
                         <div class="progress la-rtng__progress">
-                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:8%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$three_rating_percentage}}%" aria-valuenow="{{$three_rating_percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="la-rtng__pg-rtng d-inline-flex px-3">
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
@@ -458,11 +468,11 @@
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                         </div>
-                        <div class="la-rtng__percent body-font text-xs">8%</div>
+                        <div class="la-rtng__percent body-font text-xs">{{$three_rating_percentage}}%</div>
                       </div>
                       <div class="la-rtng__bars d-flex flex-row jsutify-content-between">       
                         <div class="progress la-rtng__progress">
-                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:1%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$two_rating_percentage}}%" aria-valuenow="{{$two_rating_percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="la-rtng__pg-rtng d-inline-flex px-3">
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
@@ -471,11 +481,11 @@
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                         </div>
-                        <div class="la-rtng__percent body-font text-xs">1%</div>
+                        <div class="la-rtng__percent body-font text-xs">{{$two_rating_percentage}}%</div>
                       </div>
                       <div class="la-rtng__bars d-flex flex-row jsutify-content-between">       
                         <div class="progress la-rtng__progress">
-                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:2%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">  </div>
+                          <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$one_rating_percentage}}%" aria-valuenow="{{$one_rating_percentage}}" aria-valuemin="0" aria-valuemax="100">  </div>
                         </div>
                         <div class="la-rtng__pg-rtng d-inline-flex px-3">
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
@@ -484,7 +494,7 @@
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                         </div>
-                        <div class="la-rtng__percent body-font text-xs">2%</div>
+                        <div class="la-rtng__percent body-font text-xs">{{$one_rating_percentage}}%</div>
                       </div>
                     </div>
                   </div>
@@ -502,19 +512,28 @@
                             </div>
                             
                             <div class="modal-body la-rtng__review-body">
-                                <div class="la-rtng__review-top">
-                                    <h6 class="la-rtng__review-title">Leave a rating</h6>
-                                    <div class="la-rtng__review-stars">5</div>
-                                </div>
+                                  <form action="{{route('rate.course')}}" method="post" id="rate_course_form" name="rate_course_form">
+                                      @csrf
+                                      <div class="la-rtng__review-top">
+                                          <h6 class="la-rtng__review-title">Leave a rating</h6>
+                                          <div class="la-rtng__review-stars">
+                                              <div class="starRatingContainer">
+                                                  <div class="rate2"></div>
+                                                  <input id="rating_value_input" class="border-0">
+                                                  <input type="hidden" name="course_id" value="{{$course->id}}" class="border-0">
+                                                  <input id="input2" type="hidden" name="rating_value" type="text"></div>
+                                          </div>
+                                      </div>
 
-                                <div class="la-rtng__review-btm py-4">
-                                    <h6 class="la-rtng__review-title">Review</h6>
-                                    <textarea cols="38" rows="5" class="la-rtng__review-msg" placeholder="Type here..."></textarea>
-                                </div>
+                                      <div class="la-rtng__review-btm py-4">
+                                          <h6 class="la-rtng__review-title">Review</h6>
+                                          <textarea cols="38" rows="5" class="la-rtng__review-msg" name="review" id="review_input" placeholder="Type here..."></textarea>
+                                      </div>
 
-                                <div class="text-right">
-                                  <a role="button" class="la-rtng__review-btn">Submit Review</a>
-                                </div>
+                                      <div class="text-right">
+                                        <a role="button" class="la-rtng__review-btn" onclick="submitRateCourseForm()">Submit Review</a>
+                                      </div>
+                                  </form>
                             </div>
                         </div>
                     </div>
@@ -525,74 +544,34 @@
             </li>
           </div>
           <div class="col-lg-8">
-            <li class="la-lcreviews__item">
-              <div class="la-lcreviews__inner">
-                <div class="la-lcreviews__wrapper d-flex flex-column flex-md-row justify-content-between">
-                  <div class="la-lcreviews__prfle d-inline-flex">
-                    <div class="la-lcreviews__prfle-img"><img class="img-fluid rounded-circle d-block" src="https://picsum.photos/70" alt="Nathan Spark"></div>
-                    <div class="la-lcreviews__prfle-info">
-                      <div class="la-reviews__timestamp text-sm">2 weeks ago</div>
-                      <div class="la-reviews__uname text-xl text-uppercase">Nathan Spark</div>
+            @foreach($reviews as $review)
+              <li class="la-lcreviews__item">
+                <div class="la-lcreviews__inner">
+                  <div class="la-lcreviews__wrapper d-flex flex-column flex-md-row justify-content-between">
+                    <div class="la-lcreviews__prfle d-inline-flex">
+                      <div class="la-lcreviews__prfle-img"><img class="img-fluid rounded-circle d-block" src="https://picsum.photos/70" alt="Amish Patel"></div>
+                      <div class="la-lcreviews__prfle-info">
+                          <div class="la-reviews__timestamp text-sm">
+                                    @if($review->created_at->diffInWeeks(Carbon::now())> 0) 
+                                        {{$review->created_at->diffInWeeks(Carbon::now())}} Weeks Ago
+                                    @elseif($review->created_at->diffInDays(Carbon::now())>0)
+                                        {{$review->created_at->diffInDays(Carbon::now())}} Days ago 
+                                    @else
+                                        Today                                      
+                                    @endif
+                          </div>
+                        <div class="la-reviews__uname text-xl text-uppercase">{{$review->user->fname.' '.$review->user->lname}}</div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="la-lcreviews__content w-100">
-                    <div class="la-lcreviews__ratings"><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__unfill"></span></div>
-                    <div class="la-lcreviews__comment text-md">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </div>
+                    <div class="la-lcreviews__content w-100">
+                      <div class="la-lcreviews__ratings"> @for($couter=1 ; $couter <= $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__fill"></span>@endfor  @for($couter=1 ; $couter <= 5 - $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__unfill"></span>@endfor</div>
+                      <div class="la-lcreviews__comment text-md">{{$review->review}}</div>
+                    </div>
+
                   </div>
                 </div>
-              </div>
-            </li>
-            <li class="la-lcreviews__item">
-              <div class="la-lcreviews__inner">
-                <div class="la-lcreviews__wrapper d-flex flex-column flex-md-row justify-content-between">
-                  <div class="la-lcreviews__prfle d-inline-flex">
-                    <div class="la-lcreviews__prfle-img"><img class="img-fluid rounded-circle d-block" src="https://picsum.photos/70" alt="Amish Patel"></div>
-                    <div class="la-lcreviews__prfle-info">
-                      <div class="la-reviews__timestamp text-sm">4 weeks ago</div>
-                      <div class="la-reviews__uname text-xl text-uppercase">Amish Patel</div>
-                    </div>
-                  </div>
-                  <div class="la-lcreviews__content w-100">
-                    <div class="la-lcreviews__ratings"><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__unfill"></span></div>
-                    <div class="la-lcreviews__comment text-md">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="la-lcreviews__item">
-              <div class="la-lcreviews__inner">
-                <div class="la-lcreviews__wrapper d-flex flex-column flex-md-row justify-content-between">
-                  <div class="la-lcreviews__prfle d-inline-flex">
-                    <div class="la-lcreviews__prfle-img"><img class="img-fluid rounded-circle d-block" src="https://picsum.photos/70" alt="Nathan Spark"></div>
-                    <div class="la-lcreviews__prfle-info">
-                      <div class="la-reviews__timestamp text-sm">2 weeks ago</div>
-                      <div class="la-reviews__uname text-xl text-uppercase">Nathan Spark</div>
-                    </div>
-                  </div>
-                  <div class="la-lcreviews__content w-100">
-                    <div class="la-lcreviews__ratings"><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__unfill"></span></div>
-                    <div class="la-lcreviews__comment text-md">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="la-lcreviews__item">
-              <div class="la-lcreviews__inner">
-                <div class="la-lcreviews__wrapper d-flex flex-column flex-md-row justify-content-between">
-                  <div class="la-lcreviews__prfle d-inline-flex">
-                    <div class="la-lcreviews__prfle-img"><img class="img-fluid rounded-circle d-block" src="https://picsum.photos/70" alt="Amish Patel"></div>
-                    <div class="la-lcreviews__prfle-info">
-                      <div class="la-reviews__timestamp text-sm">4 weeks ago</div>
-                      <div class="la-reviews__uname text-xl text-uppercase">Amish Patel</div>
-                    </div>
-                  </div>
-                  <div class="la-lcreviews__content w-100">
-                    <div class="la-lcreviews__ratings"><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__fill"></span><span class="la-icon--xl icon-star la-rtng__unfill"></span></div>
-                    <div class="la-lcreviews__comment text-md">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </div>
-                  </div>
-                </div>
-              </div>
-            </li>
+              </li>
+            @endforeach
           </div>
         </div>
       </div>
@@ -734,11 +713,52 @@
   <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
   <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
   <script src="https://unpkg.com/@silvermine/videojs-quality-selector/dist/js/silvermine-videojs-quality-selector.min.js"></script>
-
+  <script src="{{asset('/js/rater.min.js')}}" charset="utf-8"></script>
   {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-quality-levels/2.0.9/videojs-contrib-quality-levels.min.js" integrity="sha512-zkCFMhOIASwe5fZfTUz26vG8miAAMOM6EzleZtBx28ZkCvhp7+6NVZC6iroJiNizWNh+pfQMgjo4Iv8ro9tSuw==" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/videojs-hls-quality-selector@1.1.4/dist/videojs-hls-quality-selector.cjs.min.js"></script> --}}
   {{-- <script src="https://unpkg.com/@videojs/http-streaming@2.3.0/dist/videojs-http-streaming.min.js"></script> --}}
   {{-- <script src="https://unpkg.com/@videojs/http-streaming@2.3.0/dist/videojs-http-streaming.js"></script> --}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   <script src="/js/scripts/video-progress-log.js"></script>
+  <script>
+            var options = {
+                max_value: 5,
+                step_size: 1,
+                url: '/',
+                initial_value: 3,
+                update_input_field_name: $("#input2, #rating_value_input, #rating_value_input2, #input3"),
+            }
+            // $('#input2').change(function(){   
+            //     $('#reating_value_input').val($this.val());
+            // });
+            $(".rate2").rate(options);
+
+            $("form[name='rate_course_form']").validate({
+      
+                  rules: {
+                    review: {
+                      required: true,
+                      minlength: 3
+                    }
+                  },
+                  // Specify validation error messages
+                  messages: {
+                    review: {
+                      required: "Please provide a review.",
+                      minlength: "Review must be 3 characters in length."
+                    }
+                  },
+                  // Make sure the form is submitted to the destination defined
+                  // in the "action" attribute of the form when valid
+                  submitHandler: function(form) {
+                    form.submit();
+                  }
+                  
+                });
+
+                function submitRateCourseForm(){
+                    $('#rate_course_form').submit();
+                }
+
+  </script>
 @endsection

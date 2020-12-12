@@ -13,6 +13,28 @@
         
         <!-- /.box-header -->
         <div class="box-body">
+          <div class="la-admin__revenue-stats">
+            <!-- TOTAL WATCH TIME SECTION: START -->
+            <div class="row my-4">
+                <div class="col-md-3">
+                    <div class="la-admin__revenue-title">Total Watch Time</div>
+                    <div class="la-admin__revenue-info">
+                        <span class="la-admin__revenue-total">15h:25m:00s</span>
+                        <!-- <span class="la-admin__revenue-per"></span> -->
+                    </div>
+                </div>
+                
+                <div class="col-md-2">
+                  <div class="la-admin__revenue-title">Total Earnings</div>
+                  <div class="la-admin__revenue-info">
+                      <span class="la-admin__revenue-price">$9.8k</span>
+                      <span class="la-admin__revenue-per">( Last Month )</span>
+                  </div>
+                </div>
+            </div>
+            <!-- TOTAL WATCH TIME SECTION: END -->
+          </div>
+
       
             <table id="example1" class="table table-bordered table-striped">
 

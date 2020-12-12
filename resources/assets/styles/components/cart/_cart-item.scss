@@ -2,16 +2,22 @@
     &cart {
         &__ {
             &item {
+                @media(max-width:767px){
+                    padding-top: var(--size-8);
+                }
                 &- {
+                    &info{
+
+                    }
                     &label {
                         font-size: var(--text-xs);
                         color: var(--gray5);
                         opacity: 0.6;
                     }
-
+                
                     &img {
-                        width: 80px;
-                        height: 80px;
+                        width: 160px;
+                        height: 85px;
                         background: var(--gray2);
                         border-radius:10px;
                         position:relative;
@@ -41,9 +47,17 @@
                         }
                     }
 
+                    &right{
+                        @media(max-width:767px){
+                            padding-top:var(--size-2);
+                        }
+                    }
                     &name {
                         font-size: var(--text-xl);
                         font-weight: var(--font-bold);
+                        word-wrap: break-word;
+                        line-height: 1.2;
+                        margin-right:var(--size-2);
                     }
 
                     &author {
@@ -80,7 +94,53 @@
                                 bottom: 0;
                                 background-color: var(--app-indigo-1);
                             }
+
+                            @media(max-width:767px){
+                                padding: 0 5px;
+                            }
                         }
+                    }
+                    &cartclasses{
+                        height:80px;
+                    }
+                    &carttoggler{
+                        color: var(--gray6);
+                        
+                        &:after{
+                            font-family: 'icomoon';
+                            content: "\e96d";
+                            position:absolute;
+                            top:0;
+                            right:3px;
+                            font-size: var(--text-md);
+                            transform: rotate(180deg);-webkit-transform: rotate(180deg);-moz-transform: rotate(180deg);-ms-transform: rotate(180deg);-o-transform: rotate(180deg);
+                            transition: all 0.25s ease-in;-webkit-transition: all 0.25s ease-in;-moz-transition: all 0.25s ease-in;-ms-transition: all 0.25s ease-in;-o-transition: all 0.25s ease-in;
+                        }
+                        &.collapsed:after{  
+                            content: "\e96d"; 
+                            transform: rotate(0);-webkit-transform: rotate(0);-moz-transform: rotate(0);-ms-transform: rotate(0);-o-transform: rotate(0);
+                            transition: all 0.25s ease-in;-webkit-transition: all 0.25s ease-in;-moz-transition: all 0.25s ease-in;-ms-transition: all 0.25s ease-in;-o-transition: all 0.25s ease-in;
+                        }
+                    }
+                    &cartclass{
+                        height:80px;
+                        width:auto;
+                        overflow-y: scroll;
+
+                        &::-webkit-scrollbar {
+                            width: 2px;  
+                            background: transparent; 
+                        }
+                        &::-webkit-scrollbar-thumb {
+                            background: rgba(0,0,0,0.2);
+                            border-radius:20px;
+                        }
+                    }
+                    &cartitem{
+                        list-style-type: decimal-leading-zero !important;
+                        font-size: var(--text-md);
+                        color:var(--gray6);
+                        padding-top:2px;
                     }
                 }
             }
@@ -89,16 +149,25 @@
                 &-{
                     &modal{
                         top:15%;
+                        left:0;
                     }
                     &dialog{
                         width:500px !important;
                         height:auto;
                         box-shadow: 0px 6px 12px #00000029;
                         border-radius: 10px;
+
+                        @media(max-width:767px){
+                            width:auto !important;
+                        }
                     }
                     &header{
                         border:none !important;
                         padding: var(--size-6) var(--size-8) 0;
+
+                        @media(max-width:767px){
+                            padding:var(--size-6) var(--size-6) 0 ;
+                        }
                     }
                     &title{
                         font-size: var(--text-lg);
@@ -108,6 +177,10 @@
                     }
                     &body{
                         padding: var(--size-6) var(--size-8);
+
+                        @media(max-width:767px){
+                            padding:var(--size-6);
+                        }
                     }
                     &classes{
                         font-size: var(--text-sm);

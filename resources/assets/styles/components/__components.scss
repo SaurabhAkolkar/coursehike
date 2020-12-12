@@ -27,15 +27,22 @@
         './cart/__cart', // cart
         './purchase-history', // Purchase History
         './rented', // Rented in Purchase History Page
+        './my-interests', //Interests Page 
         './entry', // Login, register, interest, creator-signup
         './artist', // Artist
-        './home/__home'; // Trail
+        './home/__home', // Trail
+        './status', // Subscription Status
+        './anim'; // Animation
 
 #{$ap}- {
 
     // Section: Start
     &section {
-        padding: var(--size-16) 0;
+        padding: calc(var(--size-16) + 40px) 0;
+
+        @media(max-width:767px){
+            padding: var(--size-8) 0;
+        }
         &__ {
             &title {
                 &-- {
@@ -48,6 +55,18 @@
                     }
                 }
 
+            }
+
+            &crossline {
+                width: 791px;
+                height: 701px;
+                border-left: 0.5px solid #FFC516;
+                opacity: 0.5;
+                transform: rotate(-55deg) translate(119px, 10px);
+                top: 0px;
+                left: 0;
+                z-index: -1;
+                position: absolute;
             }
 
             &subtitle {
@@ -70,12 +89,18 @@
                 border: 1px solid var(--app-indigo-1);
                 position: absolute;
                 border-radius: 100%;
-                bottom: -34%;
+                top: -40%;
                 left: -24%;
+                opacity: 0;
+                transform: scale(0.4);
+
+                // bottom: -34%;
+                // left: -24%;
 
                 &-- {
                     &right {
-                        bottom: -40% !important;
+                        // top: unset;
+                        // bottom: -40% !important;
                         right: -24% !important;
                         left: unset;
                     }
@@ -222,6 +247,12 @@
                 }
             }
 
+            &img {
+                @include respond-above(md) {
+                    height: 570px;
+                }
+            }
+
             &bottom {
                 &- {
                     &trial, &browse {
@@ -238,16 +269,16 @@
 
             &img {
                 &:before {
-                    content: "";
-                    width: 791px;
-                    height: 701px;
-                    border-left: 0.5px solid #FFC516;
-                    opacity: 0.5;
-                    transform: rotate(-55deg) translate(119px, 10px);
-                    top: 0px;
-                    left: 0;
-                    z-index: -1;
-                    position: absolute;
+                    // content: "";
+                    // width: 791px;
+                    // height: 701px;
+                    // border-left: 0.5px solid #FFC516;
+                    // opacity: 0.5;
+                    // transform: rotate(-55deg) translate(119px, 590px);
+                    // top: 0px;
+                    // left: 0;
+                    // z-index: -1;
+                    // position: absolute;
                 }
             }
 

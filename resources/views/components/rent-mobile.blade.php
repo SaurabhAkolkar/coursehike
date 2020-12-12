@@ -7,21 +7,21 @@
             </div>
             <div class="la-purcaseh__item-by">  
                 <div class="la-rto__categories text-sm"> {{ $classes }} </div>
-                <div class="la-rto__item-title text-2xl"> {{ $course }} </div>
-                <div class="la-rto__item-author">by <span>  {{ $course }}   </span></div>
+                <div class="la-rto__item-title text-lg"> {{ $course }} </div>
+                <div class="la-rto__item-author mb-4">by <span>  {{ $course }}   </span></div>
 
-                <div class="la-purchaseh__item-invoice mt-4">   {{ $invoice }}
-                    <a class="la-icon icon-download la-purchaseh__item-download" href= {{$invoiceUrl}} ></a>
-                </div>
+                <a class="la-purchaseh__item-invoice" role="button" target="_blank" href= {{$invoiceUrl}} >   {{ $invoice }}
+                    <span class="la-icon icon-download la-purchaseh__item-download" ></span>
+                </a>
             </div>
         </div>
 
         <div class="la-rto__item-paystatus">  {{ $paystatus}}
-            <div class="la-purchaseh__item-collapse position-relative text-sm mt-18" data-toggle="collapse" href="#viewDetails" aria-expanded="false">Details<span class="la-icon icon-arrow la-purchaseh__item-toggler"></span></div>
+            <div class="la-purchaseh__item-toggler collapsed position-relative text-sm mt-16" data-toggle="collapse" href="#details_{{$id}}" aria-expanded="false">Details</div>
         </div>
     </div>
 
-    <div class="la-purchaseh__item-content collapse mt-3 mb-8" id="viewDetails">
+    <div class="la-purchaseh__item-content collapse mt-3 mb-8" id="details_{{$id}}">
         <div class="la-purchaseh__label-mobile d-flex justify-content-between">
             <p class="text-md">Purchase Date</p>
             <div class="la-rto__item-fromdate text-md"> {{ $fromdate }}  </div>

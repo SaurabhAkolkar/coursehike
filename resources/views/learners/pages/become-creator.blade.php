@@ -4,14 +4,26 @@
   <!-- Section: Start-->
   <section class="la-page--bcreator">
     <div class="container-fluid">
+    @if(session('message'))
+                <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible fade show" role="alert">
+                    <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
+                    <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true" class="text-white">&times;</span>
+                    </button>
+                </div>
+     @endif
       <div class="row">
         <!-- Column: Start-->
         <div class="col-12 col-sm-12 la-bcreator__banner" style="background:url('../images/learners/creator/bcreator-banner.png') no-repeat bottom rgba(0, 0, 0, 0.5); background-size:cover;">
-          <div class="la-bcreator text-left text-sm-center px-5"><a class="la-bcreator__back-link position-absolute" href="#"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
+          <div class="la-bcreator text-left text-sm-center px-6">
+
+            <a class="la-bcreator__back-link position-absolute" href="#"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
             <div class="la-bcreator__content">
               <strong class=" text-white text-uppercase m-0">Lorem Ipsum</strong>
-              <h1 class="text-white text-uppercase">Become a Creator</h1>
-              <p class="text-white leading-tight">Join Inspiring Community and start earning for <br/> your values</p>
+              <h1 class="text-white text-uppercase d-none d-md-block">Become a Creator</h1>
+              <h1 class="text-white text-uppercase d-block d-md-none">Become <br/> a Creator</h1>
+              <p class="text-white leading-tight d-none d-md-block">Join Inspiring Community and start earning for <br/> your values</p>
+              <p class="text-white leading-tight d-block d-md-none">Join Inspiring Community and start earning for your values</p>
             </div>
             <div class="la-bcreator__content-btn"><a class="la-btn__app text-white text-uppercase" role="button" href="/creator-signup">Start Teaching</a></div>
           </div>
@@ -113,14 +125,14 @@
     <div class="container la-dashed__vline">
       <div class="row">
         <!-- Column: Start-->
-        <div class="col-sm-12 col-md-4 col-lg-5 py-5 py-sm-2 px-5 px-sm-2 d-flex flex-row align-items-center">
+        <div class="col-md-5 col-lg-5 py-5 py-sm-2 px-5 px-sm-2 d-flex flex-row align-items-center">
           <div class="la-start-btn mb-8"><span class="text-4xl m-0 font-weight-bold">Easy steps to start</span>
             <h2 class="text-6xl font-weight-bold">Sharing Values</h2><br><a class="la-btn__app text-uppercase" role="button" href="/creator-signup">Start Creating</a>
           </div>
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col-sm-12 col-md-7 col-lg-6 px-5 px-sm-0 py-5 py-sm-0 ml-6 la-vdot__class">
+        <div class="col-md-6 col-lg-6 px-5 px-sm-0 py-8 py-sm-0 ml-6 la-vdot__class">
           <div class="la-vdotted__bar position-relative px-4">
             <div class="la-vicon d-flex align-items-start">
               <div class="la-icon__vline"><span class="la-icon la-icon--8xl icon-video-unfilled position-absolute"></span></div>
@@ -156,7 +168,7 @@
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col-sm-12 col-md-1 col-lg-1"></div>
+        <div class="col-lg-1"></div>
         <!-- Column: End-->
       </div>
     </div>
@@ -278,14 +290,14 @@
     <div class="container">
       <div class="row">
         <!-- Column: Start-->
-        <div class="col-sm-12">
+        <div class="col-12">
           <div class=" position-relative">
             <h2 class="la-bcreator__benefits-main text-uppercase text-center ">Benefits</h2>
           </div>
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col-sm-12 col-md-4 text-center">
+        <div class="col-md-6 col-lg-4 text-center">
           <div class="la-bcreator__benefits-card p-5 p-sm-3 py-lg-3 px-lg-12">
             <div class="p-2">
               <span class="la-bcreator__benefits-icon la-icon la-icon--7xl icon-earnings-image ml-md-n4"></span>
@@ -296,7 +308,7 @@
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col-sm-12 col-md-4 text-center">
+        <div class="col-md-6 col-lg-4 text-center">
           <div class="la-bcreator__benefits-card p-5 p-sm-1 py-lg-3 px-lg-10">
             <div class="p-2">
               <span class="la-bcreator__benefits-icon la-icon la-icon--8xl icon-recognition-image ml-md-n4 mt-md-1"></span>
@@ -307,7 +319,7 @@
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col col-sm-12 col-md-4 text-center">
+        <div class="col-md-12 col-lg-4 text-center">
           <div class="la-bcreator__benefits-card p-5 p-sm-3 py-lg-3 px-lg-14">
             <div class="p-2">
               <span class="la-bcreator__benefits-icon la-icon la-icon--8xl icon-inspire-image ml-md-n4"></span>
@@ -351,35 +363,35 @@
         <div class="col-12 px-5 px-sm-0">
           <div class="panel-group" id="accordion">
             <h4 class="la-bgcreator__faq-title">FAQ&#39;s</h4>
-            <div class="panel panel-default la-bgcreator__faq-panel mt-2">
-              <div class="panel-heading la-bgcreator__panel-head py-2 px-5" id="faqCalcHead"><span class="panel-title la-bgcreator__panel-title mx-4 mx-sm-5"><a class="accordion-toggle collapsed text-md" href="#faqCalc" data-toggle="collapse" aria-expanded="true" aria-controls="#faq-calc">How amount is calculated?</a></span></div>
+            <div class="panel panel-default la-bgcreator__faq-panel">
+              <div class="panel-heading la-bgcreator__panel-head " id="faqCalcHead"><div class="panel-title la-bgcreator__panel-title"><a class="accordion-toggle collapsed text-md" href="#faqCalc" data-toggle="collapse" aria-expanded="true" aria-controls="#faq-calc">How amount is calculated ?</a></div></div>
               <div class="panel-collapse collapse" id="faqCalc" aria-labelledby="faqCalcHead" data-parent="#accordion">
-                <div class="panel-body la-bgcreator__panel-body py-4 px-5 mx-5">
-                  <p class="la-bgcreator__panel-para panel-text text-md">Something</p>
+                <div class="panel-body la-bgcreator__panel-body">
+                  <p class="m-0 la-bgcreator__panel-para panel-text text-md">Something</p>
                 </div>
               </div>
             </div>
-            <div class="panel panel-default la-bgcreator__faq-panel mt-2">
-              <div class="panel-heading la-bgcreator__panel-head py-2 px-5" id="faqCommHead"><span class="panel-title la-bgcreator__panel-title mx-4 mx-sm-5"><a class="accordion-toggle collapsed text-md" href="#faqCommission" data-toggle="collapse" aria-expanded="false" aria-controls="#faq-commission">What is LILA's Commission?</a></span></div>
+            <div class="panel panel-default la-bgcreator__faq-panel">
+              <div class="panel-heading la-bgcreator__panel-head " id="faqCommHead"><div class="panel-title la-bgcreator__panel-title "><a class="accordion-toggle collapsed text-md" href="#faqCommission" data-toggle="collapse" aria-expanded="false" aria-controls="#faq-commission">What is LILA's Commission ?</a></div></div>
               <div class="panel-collapse collapse" id="faqCommission" aria-labelledby="faqCommHead" data-parent="#accordion">
-                <div class="panel-body la-bgcreator__panel-body py-4 px-5 mx-5">
-                  <p class="la-bgcreator__panel-para text-md panel-text">Something</p>
+                <div class="panel-body la-bgcreator__panel-body">
+                  <p class="m-0 la-bgcreator__panel-para text-md panel-text">Something</p>
                 </div>
               </div>
             </div>
-            <div class="panel panel-default la-bgcreator__faq-panel mt-2">
-              <div class="panel-heading la-bgcreator__panel-head py-2 px-5" id="faqSlabHead"><span class="panel-title la-bgcreator__panel-title mx-4 mx-sm-5"><a class="accordion-toggle collapsed text-md" href="#faqSlab" data-toggle="collapse" aria-expanded="false" aria-controls="#faq-slab-rate">How much is the slab rate?</a></span></div>
+            <div class="panel panel-default la-bgcreator__faq-panel">
+              <div class="panel-heading la-bgcreator__panel-head " id="faqSlabHead"><div class="panel-title la-bgcreator__panel-title"><a class="accordion-toggle collapsed text-md" href="#faqSlab" data-toggle="collapse" aria-expanded="false" aria-controls="#faq-slab-rate">How much is the slab rate ?</a></div></div>
               <div class="panel-collapse collapse" id="faqSlab" aria-labelledby="faqSlabHead" data-parent="#accordion">
-                <div class="panel-body la-bgcreator__panel-body py-4 px-5 mx-5">
-                  <p class="la-bgcreator__panel-para text-md panel-text">Ut enim ad minim veniam, quis nostrud exercitation ullamo</p>
+                <div class="panel-body la-bgcreator__panel-body">
+                  <p class="m-0 la-bgcreator__panel-para text-md panel-text">Ut enim ad minim veniam, quis nostrud exercitation ullamo</p>
                 </div>
               </div>
             </div>
-            <div class="panel panel-default la-bgcreator__faq-panel mt-2">
-              <div class="panel-heading la-bgcreator__panel-head py-2 px-5" id="faqRedeemHead"><span class="panel-title la-bgcreator__panel-title mx-4 mx-sm-5"><a class="accordion-toggle collapsed text-md" href="#faqRedeem" data-toggle="collapse" aria-expanded="false" aria-controls="#faq-redeem">How to redeem amount from my wallet?</a></span></div>
+            <div class="panel panel-default la-bgcreator__faq-panel">
+              <div class="panel-heading la-bgcreator__panel-head " id="faqRedeemHead"><div class="panel-title la-bgcreator__panel-title "><a class="accordion-toggle collapsed text-md" href="#faqRedeem" data-toggle="collapse" aria-expanded="false" aria-controls="#faq-redeem">How to redeem amount from my wallet ?</a></div></div>
               <div class="panel-collapse collapse" id="faqRedeem" aria-labelledby="faqRedeemHead" data-parent="#accordion">
-                <div class="panel-body la-bgcreator__panel-body py-4 px-5 mx-5">
-                  <p class="la-bgcreator__panel-para text-md panel-text">Something</p>
+                <div class="panel-body la-bgcreator__panel-body">
+                  <p class="m-0 la-bgcreator__panel-para text-md panel-text">Something</p>
                 </div>
               </div>
             </div>

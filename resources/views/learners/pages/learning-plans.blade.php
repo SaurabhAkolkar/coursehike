@@ -2,16 +2,17 @@
 
 @section('content')
 <!-- Main Section: Start-->
-<section class="la-cbg--main">
+<section class="la-cbg--main la-lp__section">
     <!-- Section: Start-->
     <section class="la-lp--page">
-      <div class="container">
-        <div class="row"><a class="la-icon--lg icon-arrow font-weight-bold d-block d-lg-none py-5 px-3" href="#"></a>
+      <div class="container la-anim__wrap">
+        <div class="row ">
+          <a class="la-icon--5xl icon-back-arrow d-block d-lg-none my-6 px-3" href="#"></a>
           <!-- Column: Start-->
-          <div class="col-12 col-lg-6 my-sm-12 ">
-            <div class="la-lp__title"><span class="text-xl text-sm-3xl">The right plans</span>
-              <h2 class="text-6xl">for all your interests.</h2>
-              <p class="text-lg text-sm-xl">Whether you want to dabble with new art forms or hone your skills, we have got you covered!</p>
+          <div class="col-12 col-lg-6 la-anim__fade-in-right">
+            <div class="la-lp__title"><span class="text-2xl text-md-3xl">The right plans</span>
+              <h2 class="text-5xl text-md-6xl">for all your interests.</h2>
+              <p class="text-lg text-sm-xl py-3">Whether you want to dabble with new art forms or hone your skills, we have got you covered!</p>
             </div>
           </div>
           <!-- Column: End-->
@@ -22,6 +23,7 @@
             $plan1->plan = "Monthly";
             $plan1->discount = 20;
             $plan1->oldPrice = 35;
+            $plan1->class= "red";
             $plan1->saving = 10;
             $plan1->slug = "monthly-plan";
 
@@ -29,6 +31,7 @@
             $plan2->plan = "Quarterly";
             $plan2->discount = 80;
             $plan2->oldPrice = 97;
+            $plan2->class= "red";
             $plan2->saving = 25;
             $plan2->slug = "quarterly-plan";
 
@@ -36,6 +39,7 @@
             $plan3->plan = "Yearly";
             $plan3->discount = 120;
             $plan3->oldPrice = 180;
+            $plan3->class= "green";
             $plan3->saving = 25;
             $plan3->slug = "yearly-plan";
 
@@ -43,33 +47,35 @@
         @endphp
         <div class="row la-lp__choose-main">
           <!-- Column: Start-->
-          <div class="col-12">
+          <div class="col-12 la-anim__fade-in-bottom">
             <div class="la-lp__choose-title text-center">
               <h1 class="head-font d-none d-sm-block">CHOOSE PLAN</h1>
               <h1 class="head-font d-block d-sm-none text-left px-5 m-0">CHOOSE<span class="text-left px-5 mx-5">PLAN</span></h1>
             </div>
           </div>
-          <div class="col-12 px-0 px-sm-3">
+          <div class="col-12 px-0 px-lg-3">
             <div class="la-lp__choose-bg">
-              <div class="row d-flex flex-row">
-                  <!-- Choose Plans: Start -->
-                  @foreach ($plans as $plan)
-                      <x-chooseplan :plan="$plan->plan" :discount="$plan->discount" :oldPrice="$plan->oldPrice" :saving="$plan->saving" :slug="$plan->slug" />
-                  @endforeach
-                   <!-- Choose Plans: End -->
+              <div class="d-none d-lg-block">
+                <div class="row d-flex flex-row la-anim__stagger-item">
+                    <!-- Choose Plans: Start -->
+                    @foreach ($plans as $plan)
+                        <x-chooseplan :plan="$plan->plan" :discount="$plan->discount" :oldPrice="$plan->oldPrice" :class="$plan->class" :saving="$plan->saving" :slug="$plan->slug" />
+                    @endforeach
+                    <!-- Choose Plans: End -->
+                </div>
               </div>
 
               <!-- Choose Plans Swiper Slide for Mobile Version: Start -->
               <div class="swiper-container h-100 la-choose__slider mt-4 d-block d-lg-none">
-                <div class="swiper-wrapper la-choose__wrapper">
+                <div class="swiper-wrapper la-choose__wrapper la-anim__stagger-item">
                   <div class="swiper-slide la-choose__slide">
-                    <x-chooseplan :plan="$plan1->plan" :discount="$plan1->discount" :oldPrice="$plan1->oldPrice" :saving="$plan1->saving" :slug="$plan1->slug" />                  
+                    <x-chooseplan :plan="$plan1->plan" :discount="$plan1->discount" :oldPrice="$plan1->oldPrice"  :class="$plan1->class" :saving="$plan1->saving" :slug="$plan1->slug" />                  
                   </div>
                   <div class="swiper-slide la-choose__slide">
-                    <x-chooseplan :plan="$plan2->plan" :discount="$plan2->discount" :oldPrice="$plan2->oldPrice" :saving="$plan2->saving" :slug="$plan2->slug" />                                     
+                    <x-chooseplan :plan="$plan2->plan" :discount="$plan2->discount" :oldPrice="$plan2->oldPrice" :class="$plan2->class" :saving="$plan2->saving" :slug="$plan2->slug" />                                     
                   </div>
                   <div class="swiper-slide la-choose__slide">
-                    <x-chooseplan :plan="$plan3->plan" :discount="$plan3->discount" :oldPrice="$plan3->oldPrice" :saving="$plan3->saving" :slug="$plan3->slug" />                                                       
+                    <x-chooseplan :plan="$plan3->plan" :discount="$plan3->discount" :oldPrice="$plan3->oldPrice" :class="$plan3->class" :saving="$plan3->saving" :slug="$plan3->slug" />                                                       
                   </div>
                 </div>
               </div>
@@ -83,29 +89,29 @@
     <!-- Section: End-->
     <!-- Course Benefits Section: Start-->
     <section class="la-lp--include">
-      <div class="container">
+      <div class="container la-anim__wrap">
         <div class="row">
           <div class="col">
             <div class="la-lp__benefits">
-              <h3 class="mb-7 head-font text-2xl text-sm-4xl">All plans include</h3>
+              <h3 class="mb-7 head-font text-md-4xl la-anim__fade-in-bottom">All plans include</h3>
               <div class="la-cbenefits d-flex my-8">
                 <div class="row">
 
-                  <div class="col">
+                  <div class="col la-anim__stagger-item--x">
                     <div class="la-cbenefits__item bg-white d-flex flex-column align-items-center">
                       <div class="mb-7"><img class="img-fluid" src="./images/learners/course-benefits/video.svg"></div>
                       <h4 class="la-cbenefits__item-title mb-3">Unlimited Learning</h4>
                       <p class="la-cbenefits__item-desc m-0">One plan - All subscribed content</p>
                     </div>
                   </div>
-                  <div class="col">
+                  <div class="col la-anim__stagger-item--x">
                     <div class="la-cbenefits__item bg-white d-flex flex-column align-items-center">
                       <div class="mb-7"><img class="img-fluid" src="./images/learners/course-benefits/certificate.svg"></div>
                       <h4 class="la-cbenefits__item-title mb-3">Certification</h4>
                       <p class="la-cbenefits__item-desc m-0">Course completion certificate</p>
                     </div>
                   </div>
-                  <div class="col">
+                  <div class="col la-anim__stagger-item--x">
                     <div class="la-cbenefits__item  bg-white d-flex flex-column align-items-center">
                       <div class="mb-7"><img class="img-fluid" src="./images/learners/course-benefits/online-course.svg"></div>
                       <h4 class="la-cbenefits__item-title mb-3">Assignments &amp; QUiz</h4>
@@ -123,13 +129,14 @@
     <!-- Course Benefits Section: End-->
     <!-- Section: Start-->
     <section class="la-bgcreator--ad-banner">
-      <div class="container">
+      <div class="container la-anim__wrap">
         <div class="row">
           <!-- Column: Start-->
           <div class="col-sm-12 px-0 px-sm-3">
             <div class="la-bgcreator__ad-content text-center text-white">
-              <div class="py-2 px-5">
-                <div class="text-2xl font-weight-light pb-5 mb-5">Start learning from the best mentors across the world!</div><a class="ad-btn la-btn la-btn-secondary text-white text-uppercase px-5" role="button" href="#">Get Started</a>
+              <div class="py-2 px-5 la-anim__fade-in-bottom">
+                <div class="text-2xl font-weight-light pb-5 mb-5">Start learning from the best mentors across the world!</div>
+                <a class="ad-btn la-btn la-btn-secondary text-white text-uppercase px-5" role="button" href="#">Get Started</a>
               </div>
             </div>
           </div>
@@ -140,12 +147,12 @@
     <!-- Section: End-->
     <!-- Section: Start-->
     <section class="la-lp--sub-faq">
-      <div class="container">
+      <div class="container la-anim__wrap">
         <div class="row d-flex justify-content-lg-between">
           <!-- Column: Start-->
-          <div class="col-12 col-lg-5">
+          <div class="col-12 col-lg-5 la-anim__stagger-item">
             <div class="la-lp__lft-content">
-              <h4 class=" text-2xl text-sm-5xl head-font mb-3">How does <br>subscription works?</h4>
+              <h4 class=" text-4xl text-md-5xl head-font mb-3">How does <br>subscription works?</h4>
               <p class="text-md">
                 Through our Radical team, we strive everyday to make knowledge Affordable, Accessible for all the individuals
                 who have limited or no access to the Real knowledge.
@@ -156,9 +163,9 @@
           </div>
           <!-- Column: End-->
           <!-- Column: Start-->
-          <div class="col-12 col-lg-6">
+          <div class="col-12 col-lg-6 la-anim__stagger-item">
             <div class="la-lp__rgt-content" id="accordion">
-              <h4 class="faq-title  text-2xl text-sm-4xl">FAQ's</h4>
+              <h4 class="faq-title  text-4xl">FAQ's</h4>
               <div class="panel-group la-lp__faq-group" id="accFreeMain">
                 <!-- Free Trial: Start-->
                 <div class="panel panel-default la-lp__faq-panel mt-2">
@@ -294,20 +301,20 @@
     <!-- Section: End-->
     <!-- Section: Start-->
     <section class="la-lp--testimonials">
-      <div class="container pb-5">
+      <div class="container pb-5 la-anim__wrap">
         <div class="row d-flex justify-content-lg-between">
           <!-- Column: Start-->
           <div class="col-12 col-lg-4">
-            <div class="la-lp__test-lft">
-              <h4 class=" text-2xl text-sm-5xl head-font mb-3">What people say<br>about us?</h4>
+            <div class="la-lp__test-lft la-anim__stagger-item--x">
+              <h4 class=" text-4xl text-md-5xl head-font mb-3">What people say<br>about us?</h4>
               <p class="text-md body-font pr-5"> LILA has happy clients all over the world. And we're proud to share some of those experiences!</p>
             </div>
           </div>
           <!-- Column: End-->
           <!-- Column: Start-->
           <div class="col-12 col-lg-8 px-0 px-lg-3"> 
-            <div class="la-lp__test-rgt">                  
-              <div class="la-lp__test-cards d-flex justify-content-end">
+            <div class="la-lp__test-rgt ">                  
+              <div class="la-lp__test-cards d-flex justify-content-end la-anim__stagger-item--x">
                 <div class="card la-lp__card-itm" id="testCard1">
                   <div class="la-card__top d-flex justify-content-between">
                     <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle" src="https://picsum.photos/50/50" alt="Profile">
@@ -330,7 +337,7 @@
                   </p>
                 </div>
               </div>
-              <div class="la-lp__test-cards d-flex justify-content-between">
+              <div class="la-lp__test-cards d-flex justify-content-between la-anim__stagger-item--x">
                 <div class="card la-lp__card-itm" id="testCard2">
                   <div class="la-card__top d-flex justify-content-between">
                     <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle" src="https://picsum.photos/50/50" alt="Profile">
@@ -359,7 +366,7 @@
                   </ul>
                 </div>
               </div>
-              <div class="la-lp__test-cards d-flex justify-content-end">
+              <div class="la-lp__test-cards d-flex justify-content-end la-anim__stagger-item--x">
                 <div class="card la-lp__card-itm" id="testCard3">
                   <div class="la-card__top d-flex justify-content-between">
                     <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle" src="https://picsum.photos/50/50" alt="Profile">

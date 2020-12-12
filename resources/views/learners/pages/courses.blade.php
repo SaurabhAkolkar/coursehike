@@ -3,28 +3,46 @@
 @section('content')
 <section class="la-section la-cbg--main">
     <div class="la-section__inner">
-      <div class="container"><a class="la-icon--lg icon-arrow font-weight-bold my-5 d-block d-md-none" href="#"></a>
-        <div class="d-flex justify-content-between">  
-          <h1 class="la-page__title mb-8">Browse Courses</h1><a class="la-icon--3xl icon-filter d-block d-lg-none" id="filterCourses" role="button"></a>
+      <div class="container">
+        <!-- Playlist Alert Message-->
+        @if(session('message'))
+          <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible" role="alert">
+              <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
+              <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true" class="text-white">&times;</span>
+              </button>
+          </div>
+        @endif
+
+        <!-- Wishlist Alert Message-->
+        <div id="wishlist_alert_div"></div> 
+
+        <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="#"></a>
+        <div class="d-flex justify-content-between la-anim__wrap">  
+          <h1 class="la-page__title mb-8 la-anim__fade-in-right">Browse Courses</h1><a class="la-icon--3xl icon-filter d-block d-lg-none" id="filterCourses" role="button"></a>
         </div>
+        
         <!-- Global Search: Start-->
-        <div class="la-gsearch">
-          <form class="form-inline" action="">
+        <div class="la-gsearch la-anim__wrap">
+          <form class="form-inline la-anim__fade-in"  action="{{ url('/search-course/') }}">
             <div class="form-group ">
-              <input class="la-gsearch__input form-control" style="width:300px; background:transparent" type="text" placeholder="What you want to learn today?">
+              <input class="la-gsearch__input form-control" style="width:270px; background:transparent" name="course_name" type="text" placeholder="What you want to learn today?">
             </div>
             <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--3xl icon icon-search"></i></button>
           </form>
         </div>
         <!-- Global Search: End-->
-        <div class="la-courses mt-14">
+
+        
+
+        <div class="la-courses mt-6 mt-md-14 la-anim__wrap">
           <nav class="la-courses__nav d-flex justify-content-between">
-            <ul class="nav nav-pills la-courses__nav-tabs" id="nav-tab" role="tablist">
+            <ul class="nav nav-pills la-courses__nav-tabs " id="nav-tab" role="tablist">
               {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"> <span class="position-relative">Tattoo</span></a></li>
               <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
               <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
               @foreach ($categories as $category)
-                <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative">{{ $category->title}}</span></a></li>
+                <li class="nav-item la-courses__nav-item la-anim__stagger-item--x"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative">{{ $category->title}}</span></a></li>
               @endforeach
             </ul><a class="la-icon--3xl icon-filter d-none d-lg-block" id="filterCourses" role="button"></a>
           </nav>
@@ -42,12 +60,19 @@
             $tattoos = array($tattoo1, $tattoo2, $tattoo3, $tattoo4, $tattoo5, $tattoo6, $tattoo7);
           @endphp
 
+             
+                   <x-add-to-playlist 
+                      :playlists="$playlists"
+                    />
+                  <!-- Add to Playlist Modal -->
+                  
+
           <!-- Tattoo Art Tab: Start -->
-          <div class="tab-content la-courses__content" id="nav-tabContent">
+          <div class="tab-content la-courses__content la-anim__wrap" id="nav-tabContent">
 
             @foreach ($categories as $category)
               <div class="tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
-                <div class="row row-cols-lg-3">
+                <div class="row row-cols-lg-3 la-anim__stagger-item">
                       @foreach($category->courses as $course)
                         @if ($course->featured == 0)
                             @continue
@@ -135,4 +160,52 @@
       </div>
     </div>
   </section>
+
+  
+  @endsection
+  
+  @section('footerScripts')
+  <script>
+   function addToCart(id='1', classes='all') {
+
+      let course_id = id;
+      if(classes != 'all'){
+
+      }
+
+      if(course_id){
+        $.ajax({
+          headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          type:"get",
+          url: '/add-to-cart',
+          data: {course_id: course_id, classes : classes},
+          success:function(data){   
+            $('#wishlist_alert_div').html(' ');
+            $('#course_'+id).remove(); 
+            let successAlert = `<div class="la-btn__alert-success col-md-4 offset-md-8 alert alert-success alert-dismissible" id="wishlist_alert" role="alert">
+                                  <h6 id="wishlist_alert_message" class="la-btn__alert-msg">${data}</h6>
+                                  <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true" class="text-white">&times;</span>
+                                  </button>
+                                </div>`
+            $('#wishlist_alert_div').html(successAlert);
+            window.setTimeout(function() {
+              $(".alert").fadeTo(500, 0).slideUp(500, function() {
+                  $(this).remove();
+              });
+            }, 3000);
+                  
+          },
+          error: function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest);
+          }
+        });
+      }else{
+        alert('Something went wrong');
+      }
+   
+   }
+  </script>
   @endsection

@@ -11,10 +11,27 @@
       
       <div class="la-profile__main">
         <div class="container">
+        @if(session('success'))
+              <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible" role="alert">
+                  <h6 class="la-btn__alert-msg">{{session('success')}}</h6>
+                  <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" class="text-white">&times;</span>
+                  </button>
+              </div>
+          @endif
           <div class="la-profile__main-inner">
             <div class="la-profile__title-wrap">
+              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-6" href="#"></a>
               <h1 class="la-profile__title">My Playlist</h1>
+              <!-- Mobile Version Button to Add Playlist -->
+              <a class="d-block d-md-none"  data-toggle="modal" data-target="#create_playlist" >
+                <div class="la-btn__add-icon ">
+                  <span class="la-playlist__mobile text-lg text-uppercase"> 
+                    <span class="la-icon la-icon--md icon-plus mr-3"></span>Create Playlist</span>
+                </div>
+              </a>
             </div>
+            
             <section class="la-section la-playlist__sec pt-0">
               <div class="la-playlist__wrap">
 
@@ -34,12 +51,15 @@
 
                 <div class="row la-playlist__items">
                     @foreach ($playlists as $item)
+                      
                         <x-playlist-item
+                           
                             :courseName="$item->name"
                             :classesCount="$item->count"
+                            :id="$item->id"
                         />
                     @endforeach
-                    <div class="col-md-3">
+                    <div class="col-md-3 d-none d-md-block">
                         <a class="la-btn__add d-flex justify-content-center align-items-center"  data-toggle="modal" data-target="#create_playlist" >
                           <span class="la-btn__add-icon">+</span>
                         </a>
@@ -75,7 +95,57 @@
                       </div>
                   </div>
                   <!-- Create Playlist Popup: End -->
-                    
+
+                  <!-- Edit Playlist Popup: Start -->
+                  <div class="modal fade la-playlist__modal" id="edit_playlist">
+                    <div class="modal-dialog la-playlist__modal-dialog">
+                      <div class="modal-content la-playlist__modal-content">
+                      
+                        <div class="modal-header la-playlist__modal-header">
+                          <h4 class="modal-title la-playlist__modal-title">Edit Playlist</h4>
+                          <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
+                        </div>
+                       
+                        <div class="modal-body la-playlist__modal-body">
+                            <div class="la-playlist__modal-create">
+                                <label class="la-playlist__modal-name" for="edit_playlist_name">Playlist Name</label><br/>
+                                <input type="text" class="la-playlist__modal-inputtype w-100" name="edit_playlist_name" id="edit_playlist_name" placeholder="Edit Playlist Name" value =""/>
+                            </div>
+                            
+                            <div class="la-playlist__modal-update text-center">
+                              <a  role="button" class="la-playlist__modal-btn">Save</a>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+
+                <!-- Edit Playlist Popup: End -->
+                <!-- Share Playlist Pop UP -->
+                    <div class="modal fade la-playlist__modal" id="share_playlist">
+                        <div class="modal-dialog la-playlist__modal-dialog">
+                          <div class="modal-content la-playlist__modal-content">
+                          
+                            <div class="modal-header la-playlist__modal-header d-flex align-items-center">
+                              <h4 class="modal-title la-playlist__modal-title">Share Playlist</h4>
+                              <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
+                            </div>
+                          
+                            <div class="modal-body la-playlist__modal-body">
+                                  <p>
+                                                                    
+                                  <a role="button" id="share_playlist_on_facebook" target="_facebook" ><span class="la-icon la-icon--5xl icon-facebook-colored"></span></a>
+                                  <a role="button" id="share_playlist_on_twitter" target="_twitter" ><span class="la-icon la-icon--5xl icon-twitter"></span></a>
+                                  <a role="button" id="share_playlist_on_whatsapp" target="_whatsapp" ><span class="la-icon la-icon--5xl icon-whatsapp"></span></a>
+                                  <a role="button" id="share_playlist_on_pinterest" target="_pinterest" ><span class="la-icon la-icon--5xl icon-pinterest"></span></a>  
+                                </p>
+                                  <p><input class="border-0 w-75" id="playlist_url_copy"><span role="button" class="float-right" onclick="copyPlaylistUrl()"><span class="la-icon la-icon--3xl icon-copy-clipboard"></span></p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                <!-- Share Playlist POP UP :END -->
                 </div>
               </div>
             </section>
@@ -117,6 +187,32 @@
       }
       
     });
+
+    function sharePlaylistPopup(id){
+      let URL = "{{Request::url()}}/"+id;
+      let facebookURL = encodeURI(`http://www.facebook.com/sharer/sharer.php?u=${URL}`);
+      let pinterestURL = encodeURI(`https://pinterest.com/pin/create/bookmarklet/?&url=${URL}description=this is a playlist from lila`);
+      let twitterURL = encodeURI(`https://twitter.com/share?url=${URL}`);
+      let whatsappURL = encodeURI(`https://wa.me/?text=${URL}`);
+      $('#share_playlist_on_facebook').attr('href',facebookURL);
+      $('#share_playlist_on_twitter').attr('href',twitterURL);
+      $('#share_playlist_on_whatsapp').attr('href',whatsappURL);
+      $('#share_playlist_on_pinterest').attr('href',pinterestURL);
+      $('#playlist_url_copy').val(URL);
+      $('#share_playlist').modal('show');
+    }
+
+    function copyPlaylistUrl() {
+      /* Get the text field */
+      var copyText = document.getElementById("playlist_url_copy");
+
+      /* Select the text field */
+      copyText.select();
+      // copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+      /* Copy the text inside the text field */
+      document.execCommand("copy");
+    }
 
   </script>
 @endsection
