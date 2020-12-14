@@ -3,7 +3,8 @@
             $classes = App\CourseChapter::where('course_id', $courseId)->get(); 
         }else{
             $classes_id = App\Cart::where('course_id', $courseId)->pluck('class_id'); 
-            $classes = App\CourseChapter::whereIn('id', $classes_id)->get(); 
+            $classes = App\CourseChapter::where('course_id', $courseId)->get(); 
+ 
         }
     @endphp
     <div class="la-cart__items">
@@ -24,7 +25,7 @@
                                 
                                 <div class="la-cart__item-cartclass collapse show mx-2 my-2" id="cart_class_{{ $collapseId }}">
                                     <ol class="la-cart__item-cartlist pl-7 mr-7">
-                                        @foreach($classes as $class)
+                                        @foreach($classes->whereIn('id', $classes_id) as $class)
                                             <li class="la-cart__item-cartitem">{{ strlen($class->chapter_name) > 20? substr($class->chapter_name, 0, 15).'....': $class->chapter_name}}</li>
                                         @endforeach
                                     </ol>
@@ -90,7 +91,7 @@
                                                     <div class="row la-cart__edit-info ">
                                                         @foreach($classes as $class)
                                                             <div class="col-2 col-md-2 text-center my-auto">
-                                                                <input type="checkbox" name="selected_classes[]" class="" checked value="{{$class->id}}">
+                                                                <input type="checkbox" name="selected_classes[]" class="" @if(in_array($class->id, $classes_id->toArray())) checked @endif value="{{$class->id}}">
                                                             </div>
                                                             <div class="col-2 col-md-2 p-0 my-auto">
                                                                 <img class="la-cart__edit-img img-fluid d-block" src="https://picsum.photos/80/50" alt="" />
@@ -144,7 +145,7 @@
                 <div class="col-5 col-md-5 pl-0 la-cart__item-info d-flex align-items-start">
                     <div class="la-cart__item-classes ">
                         <div class="la-cart__item-label mb-4">Classes</div>
-                        <div class="la-cart__item-content"><span>@if($classType == 0) All Classes @else {{count($classes)}} @endif</span></div>
+                        <div class="la-cart__item-content"><span>@if($classType == 0) All Classes @else {{count($classes->whereIn('id',$classes_id))}} @endif</span></div>
                     </div>
 
                     <div class="la-cart__item-price ml-8 ml-md-20">

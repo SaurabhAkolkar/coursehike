@@ -241,25 +241,39 @@ class CartController extends Controller
 
     public function cartCheckout(Request $request){
             $check = Cart::where('user_id',Auth::User()->id)->get();
+
             if(count($check) <= 0){
                 return redirect()->back()->with('message','Your cart is empty.');
             }
             // $check = UserInvoiceDetail::where(['user_id' => Auth::User()->id, 'status'=>'pending'])->update(['status'=>'failed']);
-
+            $price = $check->sum('price');
+            
             $insert['user_id'] =  Auth::User()->id;
-            $insert['sub_total'] = $request->sub_total;
-            $insert['total'] = $request->total;
-            $insert['taxes'] = $request->taxes;
-            $insert['discount'] = $request->discount;
-            $insert['discount_type'] = $request->discount_type;
-            if($request->coupon_id > 0 )
+            $insert['taxes'] = 5;
+
+            if(Session::has('appliedCoupon'))
             {
                 $coupon = Coupon::findOrFail($request->coupon_id);
                 if($coupon){
+                    if($coupon->distype == 'fix'){
+                        $insert['discount'] = $coupon->amount;
+                    }else{
+                        $insert['discount'] = ( $price * $coupon->amount) / 100;
+                    }
                     $insert['coupon_appied'] = $coupon->code;
                     $insert['coupon_id'] = $request->coupon_id;
+                    $insert['discount_type'] = 'coupon_discount';
+                    $price = $price - $insert['discount'];
+                }else{
+                    $insert['discount_type'] = 'regular_discount';
                 }
+            }else{
+                $insert['discount_type'] = 'regular_discount';
+
             }
+            
+            $insert['sub_total'] = $price;
+            $insert['total'] = $price + ( $price * 5 ) / 100 ;
             $insert['status'] = 'successful';
             $info = UserInvoiceDetail::create($insert);
 
