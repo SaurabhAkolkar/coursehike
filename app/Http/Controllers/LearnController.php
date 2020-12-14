@@ -18,13 +18,16 @@ use App\Playlist;
 Use Alert;
 use App\Setting;
 use Illuminate\Support\Facades\Storage;
+use Debugbar;
 
 class LearnController extends Controller
 {
     public function show($id, $slug)
     {
                
-        $course = Course::where('id', $id)->first();
+        $course = Course::with('review','review.user')->where('id', $id)->first();
+        
+
 
         $related_courses =  Course::whereHas('category', function($query) use($course) 
         {
@@ -59,13 +62,23 @@ class LearnController extends Controller
             $in_cart = Cart::where('user_id', Auth::User()->id)->where('course_id', $id)->get();
 
         }
-        $reviews = ReviewRating::with('user')->where('course_id',$id)->orderBy('rating','DESC')->get();
-        $average_rating = ReviewRating::where('course_id',$id)->average('rating');
-        $five_rating_percentage= round(100*ReviewRating::where(['course_id'=>$id,'rating'=>5])->count()/count($reviews));
-        $four_rating_percentage =  round(100*ReviewRating::where(['course_id'=>$id,'rating'=>4])->count()/count($reviews));
-        $three_rating_percentage = round(100*ReviewRating::where(['course_id'=>$id,'rating'=>3])->count()/count($reviews));
-        $two_rating_percentage = round(100*ReviewRating::where(['course_id'=>$id,'rating'=>2])->count()/count($reviews));
-        $one_rating_percentage = round(100*ReviewRating::where(['course_id'=>$id,'rating'=>1])->count()/count($reviews));
+        $reviews = $course->review->sortByDesc('rating');
+
+        // dd($reviews);
+
+        $average_rating = $course->review->average('rating');
+        if(count($reviews)==0){
+            $reviews = 1;
+        }
+        
+        Debugbar::startMeasure('render','Time for rendering');
+
+        $five_rating_percentage= round(100*$course->review->where('rating',5)->count()/count($reviews));
+        $four_rating_percentage =  round(100*$course->review->where('rating',4)->count()/count($reviews));
+        $three_rating_percentage = round(100*$course->review->where('rating',3)->count()/count($reviews));
+        $two_rating_percentage = round(100*$course->review->where('rating',2)->count()/count($reviews));
+        $one_rating_percentage = round(100*$course->review->where('rating',1)->count()/count($reviews));
+        Debugbar::stopMeasure('render');
 
         $data = array(
             'video_access'=> $video_access,

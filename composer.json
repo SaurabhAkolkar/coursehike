@@ -32,6 +32,7 @@
         "laravel/ui": "^2.0",
         "laravolt/avatar": "^3.2",
         "league/flysystem-aws-s3-v3": "~1.0",
+        "maatwebsite/excel": "^3.1",
         "mollie/laravel-mollie": "^2.9",
         "obydul/laraskrill": "^1.0",
         "orangehill/iseed": "^2.6",
@@ -48,9 +49,9 @@
         "tzsk/payu": "^4.0",
         "unicodeveloper/laravel-paystack": "1.0.*",
         "zohocrm/php-sdk": "^2.2"
-        
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.5",
         "beyondcode/laravel-dump-server": "^1.0",
         "composer/composer": "^1.9",
         "facade/ignition": "^2.0",

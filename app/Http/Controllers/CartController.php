@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\App;
 use App\Adsense;
 use App\UserInvoiceDetail;
 use App\InvoiceDetail;
+use Debugbar;
 
 class CartController extends Controller
 {
