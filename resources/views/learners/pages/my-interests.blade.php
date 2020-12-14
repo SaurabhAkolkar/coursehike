@@ -11,7 +11,7 @@
             <div class="container">
               <div class="la-profile__main-inner">
                 <div class="la-profile__title-wrap m-0">
-                  <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="#"></a>
+                  <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
                   <h1 class="la-profile__title ">Interests</h1>
                 </div>
                 <div id="interest_alert_div">

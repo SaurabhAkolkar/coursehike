@@ -6,7 +6,7 @@
             $classes = App\CourseChapter::whereIn('id', $classes_id)->get(); 
         }
     @endphp
-    <div class="la-cart__items">
+    <div class="la-cart__items la-anim__stagger-item">
         <h2 class="la-cart__title text-2xl d-block d-md-none pt-14 pb-3">Courses in the Cart</h2>
         <div class="la-cart__items mb-8">
             <div class="la-cart__item row">
@@ -17,7 +17,7 @@
                             <div class="la-cart__item-img">
                                 <img src= {{ $courseImg }} alt= {{ $course }} />
                             </div>
-                            <div class="la-cart__item-cartclasses py-2">
+                            <div class="la-cart__item-cartclasses py-2  la-anim__stagger-item">
                                 <div class="la-cart__item-carttoggler collapsed position-relative mx-2" data-toggle="collapse"  href="#cart_class_{{ $collapseId }}" aria-expanded="false">
                                     Classes in the Cart
                                 </div>
@@ -31,7 +31,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="la-cart__item-right">
+                        <div class="la-cart__item-right la-anim__stagger-item">
                             <div class="la-cart__item-name ">{{ $course }}</div>
                             <div class="la-cart__item-author mb-2">by <span>{{ $creator}}</span></div>
                             <div class="la-cart__item-actions d-flex">
@@ -142,12 +142,12 @@
                 
 
                 <div class="col-5 col-md-5 pl-0 la-cart__item-info d-flex align-items-start">
-                    <div class="la-cart__item-classes ">
+                    <div class="la-cart__item-classes  la-anim__stagger-item">
                         <div class="la-cart__item-label mb-4">Classes</div>
                         <div class="la-cart__item-content"><span>@if($classType == 0) All Classes @else {{count($classes)}} @endif</span></div>
                     </div>
 
-                    <div class="la-cart__item-price ml-8 ml-md-20">
+                    <div class="la-cart__item-price ml-8 ml-md-20  la-anim__stagger-item">
                         <div class="la-cart__item-label mb-4">Price</div>
                         <div class="la-cart__item-content">
                             <div class="la-soffer ml-0">

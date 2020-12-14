@@ -10,7 +10,7 @@
 
       
       <div class="la-profile__main">
-        <div class="container">
+        <div class="container la-anim__wrap">
         @if(session('message'))
               <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible fade show" role="alert">
                   <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
@@ -21,7 +21,7 @@
           @endif
           <div class="la-profile__main-inner">
             <div class="la-profile__title-wrap">
-                <h1 class="la-profile__title">
+                <h1 class="la-profile__title la-anim__stagger-item">
                     <a href="/playlist" role="button" style="color:var(--app-indigo-1)">My Playlist</a> / 
                     <span class="">{{$playlist->name}}</span>
                 </h1>
