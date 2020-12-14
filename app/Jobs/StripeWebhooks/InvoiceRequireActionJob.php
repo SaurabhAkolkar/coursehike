@@ -13,7 +13,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Spatie\WebhookClient\Models\WebhookCall;
 
-class InvoicePaymentSucceededJob implements ShouldQueue
+class InvoiceRequireActionJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -59,15 +59,13 @@ class InvoicePaymentSucceededJob implements ShouldQueue
 		$invoice_paid = $invoice['paid']; // true
         $invoice_status = $invoice['status']; //paid
         
-        if($subscription_status == 'active' && $invoice_status == 'paid' && $invoice_paid){
+        if($subscription_status != 'active' || $invoice_status != 'paid' || !$invoice_paid){
             $user = UserSubscription::where('stripe_subscription_id', $subscription_id)->first()->user;
-            if($user->subscription('main')->ended()){
-
-                $user->subscription('main')->renew();
+            if($user != 0 && $user->subscription('main')->ended()){
                 
                 // Create Invoice Record
                 UserSubscriptionInvoice::create([
-                    'user_id' => $$user->id,
+                    'user_id' => $user->id,
                     'subscription_id' => $user->subscription('main')->id,
                     'stripe_subscription_id' => $subscription['id'],
                     'start_date' => Carbon::createFromTimestamp($subscription_start)->toDateTimeString(),
@@ -76,8 +74,10 @@ class InvoicePaymentSucceededJob implements ShouldQueue
                     'invoice_charge_id' => $invoice_charge,
                     'payment_intent_id' => $payment_intent_id,
                     'invoice_paid' => $invoice_amount_paid,
-                    'status' => $invoice_status,
+                    'status' => 'require_action',
                 ]);
+
+                // TODO: Need to add iFrame in frontend, so that user can authenticate the payment (use payment_intent_id to get "next_action.redirect_to_url.url" )
                 
             }
         }

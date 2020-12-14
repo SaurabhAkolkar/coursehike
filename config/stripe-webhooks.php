@@ -17,6 +17,8 @@ return [
      */
     'jobs' => [
         'invoice_payment_succeeded' => \App\Jobs\StripeWebhooks\InvoicePaymentSucceededJob::class,
+        'invoice_payment_failed' => \App\Jobs\StripeWebhooks\InvoicePaymentFailedJob::class,
+        'invoice_payment_action_required' => \App\Jobs\StripeWebhooks\InvoiceRequireActionJob::class,
         // 'source_chargeable' => \App\Jobs\StripeWebhooks\HandleChargeableSource::class,
         // 'charge_failed' => \App\Jobs\StripeWebhooks\HandleFailedCharge::class,
     ],

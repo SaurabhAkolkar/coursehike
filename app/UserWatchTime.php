@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserWatchTime extends Model
 {
-	protected $table = 'user_watch_timelog';
+	protected $table = 'user_watch_timelogs';
 	
     protected $fillable = ['user_id', 'course_id', 'class_id', 'position', 'time'];
 
