@@ -15,8 +15,13 @@ use App\Currency;
 use App\BundleCourse;
 use Session;
 use Crypt;
+use Excel;
+use App\UserInvoiceDetail;
+use App\Exports\UserInvoiceExport;
+use Carbon\Carbon;
 
-class OrderController extends Controller
+    
+class OrderController extends Controller 
 {
     public function index()
     {
@@ -57,7 +62,32 @@ class OrderController extends Controller
     }
 
     public function getExcel(){
-        dd('wait');
+
+        $invoiceDetails = DB::table('invoice_details as id')
+                                ->join('user_invoice_details as uid', 'id.invoice_id', '=', 'uid.id')
+                                ->join('courses as c','c.id','=','id.course_id')
+                                ->leftJoin('course_chapters as cc','cc.id','=','id.class_id')
+                                ->join('users as u','uid.user_id','=','u.id')
+                                ->where(['uid.status' => 'successful'])
+                                ->get(['c.title','uid.sub_total', 'uid.created_at','uid.status', 'class_id','uid.coupon_id','c.title','id.id','id.course_id','cc.chapter_name','u.fname','u.lname']);
+
+        $data = [];
+        $i = 0;
+        foreach($invoiceDetails as $d){
+                $data[$i]['Sr#'] = $i+1 ;
+                $data[$i]['title'] = json_decode($d->title)->en; 
+                $data[$i]['user_name'] = $d->fname.' '.$d->lname;
+                $data[$i]['chapters'] = $d->class_id?'All Chapters':'Selected Classes'; 
+                $data[$i]['coupon_appied'] = $d->coupon_id==null?'No':'Yes'; 
+                $data[$i]['sub_total'] = '$ '.$d->sub_total;
+                $data[$i]['date'] = Carbon::parse($d->created_at)->format('d/m/Y');
+                $i++;
+        }
+      
+        $export = new UserInvoiceExport($data);
+        ob_end_clean(); // this
+        ob_start(); // and this
+        return Excel::download($export, 'invoice.xlsx');
     }
     public function create()
     {

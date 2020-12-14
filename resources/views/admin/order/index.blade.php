@@ -100,7 +100,7 @@
               <?php $i=0;?>
                 @foreach($invoiceDetails as $invoice)
                     <tr>
-                      <td><?php echo $i;?></td>
+                      <td><?php echo ++$i;?></td>
                       <td>{{$invoice->fname.' '.$invoice->lname}}</td>                 
                       <td>
                         

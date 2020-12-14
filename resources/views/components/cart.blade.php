@@ -1,9 +1,14 @@
     @php
-        if($classType == 0){
+        if($classType == 'all_classes'){
+
+            $classes_id = App\CourseChapter::where('course_id', $courseId)->pluck('id'); 
             $classes = App\CourseChapter::where('course_id', $courseId)->get(); 
+
         }else{
-            $classes_id = App\Cart::where('course_id', $courseId)->pluck('class_id'); 
-            $classes = App\CourseChapter::whereIn('id', $classes_id)->get(); 
+
+            $classes_id = App\CartItem::where('cart_id', $cartId)->pluck('class_id'); 
+            $classes = App\CourseChapter::where('course_id', $courseId)->get(); 
+
         }
     @endphp
     <div class="la-cart__items la-anim__stagger-item">
@@ -24,7 +29,7 @@
                                 
                                 <div class="la-cart__item-cartclass collapse show mx-2 my-2" id="cart_class_{{ $collapseId }}">
                                     <ol class="la-cart__item-cartlist pl-7 mr-7">
-                                        @foreach($classes as $class)
+                                        @foreach($classes->whereIn('id', $classes_id) as $class)
                                             <li class="la-cart__item-cartitem">{{ strlen($class->chapter_name) > 20? substr($class->chapter_name, 0, 15).'....': $class->chapter_name}}</li>
                                         @endforeach
                                     </ol>
@@ -57,14 +62,14 @@
                                                 <input type = "hidden" value="{{$courseId}}" name="course_id"/>
                                                 <div class="modal-body la-cart__edit-body">
                                                     <div class="la-form__radio-wrap pb-2">
-                                                        <input type="radio" name="classes" value="all-classes" id="all_classes" class="la-form__radio d-none" @if($classType == 0) checked @endif>
+                                                        <input type="radio" name="classes" value="all-classes" id="all_classes" class="la-form__radio d-none" @if($classType == 'all_classes') checked @endif>
                                                         <label for="all_classes" class="d-flex align-items-center">
                                                             <span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span>
                                                             <span class="la-cart__edit-classes"> All Classes</span>
                                                         </label> 
                                                     </div>
                                                     <div class="la-form__radio-wrap">
-                                                        <input type="radio" name="classes" value="select-classes" id="select_classes" class="la-form__radio d-none" @if($classType > 0) checked @endif >
+                                                        <input type="radio" name="classes" value="select-classes" id="select_classes" class="la-form__radio d-none" @if($classType  == 'selected_classes') checked @endif >
                                                         <label for="select_classes" class="d-flex align-items-center">
                                                             <span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span>
                                                             <span class="la-cart__edit-classes"> Select Classes</span>
@@ -90,7 +95,7 @@
                                                     <div class="row la-cart__edit-info ">
                                                         @foreach($classes as $class)
                                                             <div class="col-2 col-md-2 text-center my-auto">
-                                                                <input type="checkbox" name="selected_classes[]" class="" checked value="{{$class->id}}">
+                                                                <input type="checkbox" name="selected_classes[]" class="" @if(in_array($class->id, $classes_id->toArray())) checked @endif value="{{$class->id}}">
                                                             </div>
                                                             <div class="col-2 col-md-2 p-0 my-auto">
                                                                 <img class="la-cart__edit-img img-fluid d-block" src="https://picsum.photos/80/50" alt="" />
@@ -144,7 +149,7 @@
                 <div class="col-5 col-md-5 pl-0 la-cart__item-info d-flex align-items-start">
                     <div class="la-cart__item-classes  la-anim__stagger-item">
                         <div class="la-cart__item-label mb-4">Classes</div>
-                        <div class="la-cart__item-content"><span>@if($classType == 0) All Classes @else {{count($classes)}} @endif</span></div>
+                        <div class="la-cart__item-content"><span>@if($classType == 0) All Classes @else {{count($classes->whereIn('id',$classes_id))}} @endif</span></div>
                     </div>
 
                     <div class="la-cart__item-price ml-8 ml-md-20  la-anim__stagger-item">

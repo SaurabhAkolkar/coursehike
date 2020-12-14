@@ -351,7 +351,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::resource('order', 'OrderController');
 
-      Route::get('/revenue-execel', 'OrderController@getExcel');
+      Route::get('/revenue-excel', 'OrderController@getExcel');
 
       Route::resource('featurecourse', 'FeatureCourseController');
 
