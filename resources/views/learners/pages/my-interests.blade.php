@@ -10,15 +10,16 @@
         <div class="la-profile__main">
             <div class="container">
               <div class="la-profile__main-inner">
-                <div class="la-profile__title-wrap m-0">
-                  <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
-                  <h1 class="la-profile__title ">Interests</h1>
+                <div class="la-profile__title-wrap m-0 la-anim__wrap">
+                  <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5 la-anim__stagger-item" href="{{URL::previous()}}"></a>
+                  <h1 class="la-profile__title la-anim__stagger-item">Interests</h1>
                 </div>
-                <div id="interest_alert_div">
-                </div>
+
+                <div id="interest_alert_div"></div>
+
                 <section class="la-section la-interests__sec">
-                    <div class="la-interests__inner">
-                        <div class="la-interests__title">Your Interests</div>
+                    <div class="la-interests__inner la-anim__wrap">
+                        <div class="la-interests__title la-anim__stagger-item">Your Interests</div>
                         <ul class="la-interests__list d-md-flex justify-content-start">
                             
                             @if(count($myInterests))
@@ -33,8 +34,8 @@
                             @endif
                         </ul>
 
-                        <div class="la-interests__like">
-                            <div class="la-interests__title">You might also like</div>
+                        <div class="la-interests__like la-anim__wrap">
+                            <div class="la-interests__title la-anim__stagger-item">You might also like</div>
                             <ul class="la-interests__list d-md-flex justify-content-start">
                          
 

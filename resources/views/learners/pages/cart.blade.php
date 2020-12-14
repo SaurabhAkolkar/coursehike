@@ -11,7 +11,7 @@
   
       
       <div class="la-profile__main">
-        <div class="container la-anim__wrap">
+        <div class="container ">
           <div class="la-profile__main-inner">
               @if(session('message'))
               <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible" role="alert">
@@ -21,7 +21,7 @@
                   </button>
               </div>
             @endif
-            <div class="la-profile__title-wrap la-anim__stagger-item">
+            <div class="la-profile__title-wrap">
               <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
               <h1 class="la-profile__title">Cart</h1>
             </div>
@@ -61,8 +61,8 @@
                             />
                         @endforeach
                       @else
-                          <div class="d-flex justify-content-center align-items-center  la-anim__stagger-item">
-                              <h2 class="text-center my-20 py-10" style="color: var(--gray8);">Cart is empty</h2>
+                          <div class="d-flex justify-content-center align-items-center la-anim__wrap ">
+                              <h2 class="text-center my-20 py-10 la-anim__stagger-item" style="color: var(--gray8);">Cart is empty</h2>
                           </div>
                       @endif
                     </div>
@@ -84,7 +84,7 @@
 
                         $checkouts = array($checkout);
                     @endphp
-                    <div class="col-lg-4 col-xl-3 mb-5 mb-md-0">
+                    <div class="col-lg-4 col-xl-3 mb-5 mb-md-0 la-anim__wrap">
                         <x-cart-total 
                           :totalAmount="$total"
                           :offerAmount="$discount"
