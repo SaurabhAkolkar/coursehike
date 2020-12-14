@@ -47,6 +47,7 @@
                     <div class="modal-body la-cart__bill-mbody">
                         <div class="la-cart__bill-mapply">
                             <form action="/apply-coupon" method="post" id="apply_coupon">
+                                @csrf
                                 <input type="text" class="la-cart__bill-input" name="coupon_name" placeholder="Enter Coupon" required/>
                                 <button class="la-cart__bill-submit" onclick="$('#apply_coupon').submit()"> APPLY </button>
                             </form>
@@ -86,7 +87,8 @@
                 <input type="hidden" value="{{$totalAmount + ($totalAmount * 5/ 100)}}" name ="total" />
                 <input type="hidden" value="{{$totalAmount + ($totalAmount * 5/ 100)}}" name ="total" />
             </form>
-            <button type="submit" onclick="$('#checkOutForm').submit();" class="w-25 la-btn__app py-3 w-100  text--black" type="button" href= {{ $checkoutUrl }}>Checkout</button>
+           
+            <button type="submit"  @if($totalAmount == 0 ) @else onclick="$('#checkOutForm').submit();" @endif class="w-25 la-btn__app py-3 w-100  text--black" type="button" href= {{ $checkoutUrl }}>Checkout</button>
         </div>
     </div>
 </div>

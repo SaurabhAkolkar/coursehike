@@ -20,10 +20,45 @@ class OrderController extends Controller
 {
     public function index()
     {
+        $invoiceDetails = DB::table('invoice_details as id')
+                ->join('user_invoice_details as uid', 'id.invoice_id', '=', 'uid.id')
+                ->join('courses as c','c.id','=','id.course_id')
+                ->leftJoin('course_chapters as cc','cc.id','=','id.class_id')
+                ->join('users as u','uid.user_id','=','u.id')
+                ->where(['uid.status' => 'successful'])
+                ->get(['c.title','uid.sub_total', 'uid.status','uid.coupon_id','c.title','id.id','id.course_id','cc.chapter_name','u.fname','u.lname']);
+
+        $learners = DB::table('user_invoice_details as uid')
+                        ->rightJoin('invoice_details as id', 'id.invoice_id', '=', 'uid.id')
+                        ->where(['uid.status' => 'successful'])
+                        ->count('uid.user_id');
+
+        $courses_count = DB::table('invoice_details as id')
+                                ->rightJoin('user_invoice_details as uid', 'id.invoice_id', '=', 'uid.id')
+                                ->where(['id.class_id'=>0])
+                                ->where(['uid.status' => 'successful'])
+                                ->groupBy('course_id')
+                                ->count('course_id');
+
+        $classes = DB::table('invoice_details as id')
+                            ->rightJoin('user_invoice_details as uid', 'id.invoice_id', '=', 'uid.id')
+                            ->where('id.class_id','>' , 0 )
+                            ->where(['uid.status' => 'successful'])
+                            ->count('course_id');
+
+        $total_earning = DB::table('user_invoice_details as uid')
+                                ->join('invoice_details as id', 'id.invoice_id', '=', 'uid.id')
+                                ->where(['uid.status' => 'successful'])
+                                ->sum('uid.sub_total');
+
         $orders = Order::all();
-        return view('admin.order.index', compact('orders'));
+
+        return view('admin.order.index', compact('orders','learners','courses_count', 'invoiceDetails','classes','total_earning'));
     }
 
+    public function getExcel(){
+        dd('wait');
+    }
     public function create()
     {
         $users = User::all();

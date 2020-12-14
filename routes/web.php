@@ -351,6 +351,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::resource('order', 'OrderController');
 
+      Route::get('/revenue-execel', 'OrderController@getExcel');
+
       Route::resource('featurecourse', 'FeatureCourseController');
 
       Route::post('/paywithpaytm', 'FeatureCourseController@order')->name('paywithpaytm');
@@ -531,6 +533,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::get('pending/payout', 'PayoutController@pending')->name('pending.payout');
 
+      Route::get('pending/revenue', 'InstructorRevenueController@instructorRevenue')->name('instructor.revenue');
+
       Route::get('admin/instructor', 'AdminPayoutController@index')->name('admin.instructor');
 
       Route::get('admin/pending/{id}', 'AdminPayoutController@pending')->name('admin.pending');
@@ -580,6 +584,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
     Route::get('/remove-from-cart/{id}','CartController@removeFromCart');
     Route::get('/apply-coupon/{id}','CartController@applyCoupon');
+    Route::post('/apply-coupon','CartController@applyCouponManual');
     Route::get('/move-to-wishlist/{id}','CartController@moveToWishlist');
     Route::post('/checkout','CartController@cartCheckout');
 

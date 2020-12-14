@@ -48,6 +48,7 @@
         "tzsk/payu": "^4.0",
         "unicodeveloper/laravel-paystack": "1.0.*",
         "zohocrm/php-sdk": "^2.2"
+        
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
