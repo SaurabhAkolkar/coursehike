@@ -50,8 +50,12 @@
                         font-family: var(--head-font);
                         font-weight: var(--font-black);
                         text-transform: uppercase;
-                        font-size: var(--text-abnormal);
+                        font-size: var(--text-8xl);
                         color: var(--gray2);
+
+                        @include respond-above(md) {
+                            font-size: var(--text-abnormal);
+                        }
                     }
                 }
 
@@ -84,8 +88,8 @@
             }
 
             &circle {
-                width: 797px;
-                height: 797px;
+                width: 497px;
+                height: 497px;
                 border: 1px solid var(--app-indigo-1);
                 position: absolute;
                 border-radius: 100%;
@@ -93,6 +97,11 @@
                 left: -24%;
                 opacity: 0;
                 transform: scale(0.4);
+
+                @include respond-above(md) {
+                    width: 797px;
+                    height: 797px;
+                }
 
                 // bottom: -34%;
                 // left: -24%;
