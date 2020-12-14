@@ -627,6 +627,7 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/my-interests', 'UserController@myInterests');
   Route::post('/add-to-my-interest', 'UserController@addMyInterests');
   Route::post('/add-interests','UserController@storeInterest');
+  Route::post('/remove-interest','UserController@removeInterest');
 
   Route::get('/cart','CartController@learnerCart');
 

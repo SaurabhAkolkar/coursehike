@@ -270,16 +270,32 @@ class UserController extends Controller
     public function addMyInterests(Request $request){
 
         if($request->category_id){
+            $check = UserInterest::where(['user_id'=> Auth::User()->id, 'category_id' => $request->category_id])->first();
+
+            if($check){
+                return 'Interest is already added.';
+            }
             $myInterests = UserInterest::create(['user_id'=>Auth::User()->id, 'category_id' => $request->category_id]);
 
-            return 'Course added Successfully';
+            return 'Interest added Successfully';
+        }        
+        return 'No course selected';
+    }
+
+    public function removeInterest(Request $request){
+
+        if($request->category_id){
+   
+            $myInterests = UserInterest::where(['user_id'=>Auth::User()->id, 'category_id' => $request->category_id])->delete();
+
+            return 'Interest removed Successfully';
         }        
         return 'No course selected';
     }
 
     public function myInterests(){
         $myInterests = UserInterest::with('category')->where('user_id',Auth::User()->id)->get();
-        $coursesId = UserInterest::where('user_id', Auth::User()->id)->pluck('category_id');
+        $coursesId = $myInterests->pluck('category_id');
 
 
         if(count($coursesId)){

@@ -15,12 +15,14 @@ class MyInterest extends Component
     public $img;
     public $name;
     public $id;
+    public $alreadyAdded;
 
-    public function __construct($img, $name, $id)
+    public function __construct($img, $name, $id, $alreadyAdded=false)
     {
         $this->img = $img;
         $this->name = $name;
         $this->id = $id;
+        $this->alreadyAdded = $alreadyAdded;
     }
 
     /**
