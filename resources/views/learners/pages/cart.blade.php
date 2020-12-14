@@ -39,15 +39,17 @@
                     @endphp
 
                     <div class="col-lg-8 col-xl-9">
-                      @if(count($carts) > 0)
-                        @foreach ($carts as $cart)
+                      @if(count($cartItem) > 0)
+                        @foreach ($cartItem as $cart)
+                        
                             <x-cart 
+                              :cartId="$cart->cart_id"
                               :courseId="$cart->course_id"
                               :collapseId="$cart->collapseId"
                               :courseImg="$courseImg"
-                              :classType="$cart->type"
+                              :classType="$cart->purchase_type"
                               :course="$cart->courses->title"
-                              :creator="$cart->user->FullName"
+                              :creator="$cart->courses->user->fullName"
                               :remove="$remove"
                               :removeUrl="'remove-from-cart/'.$cart->course_id"
                               :wishlist="$wishlist"

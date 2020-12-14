@@ -304,7 +304,8 @@ use Carbon\Carbon;
   <!-- Section: End-->
 
   <!-- Section: Start-->
-  @unless($video_access)
+  @if($video_access)
+
   <section class="la-section la-section--grey la-vcourse__purchase">
     <div class="la-vcourse__purchase-inwrap container">
       <div class="row la-vcourse__purchase-row">
@@ -396,7 +397,7 @@ use Carbon\Carbon;
       </div>
     </div>
   </section>
-  @endunless
+  @endif
   <!-- Section: End-->
 
   <!-- Section: Start-->

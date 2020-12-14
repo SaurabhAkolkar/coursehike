@@ -1,10 +1,14 @@
     @php
-        if($classType == 0){
+        if($classType == 'all_classes'){
+
+            $classes_id = App\CourseChapter::where('course_id', $courseId)->pluck('id'); 
             $classes = App\CourseChapter::where('course_id', $courseId)->get(); 
+
         }else{
-            $classes_id = App\Cart::where('course_id', $courseId)->pluck('class_id'); 
+
+            $classes_id = App\CartItem::where('cart_id', $cartId)->pluck('class_id'); 
             $classes = App\CourseChapter::where('course_id', $courseId)->get(); 
- 
+
         }
     @endphp
     <div class="la-cart__items">
@@ -58,14 +62,14 @@
                                                 <input type = "hidden" value="{{$courseId}}" name="course_id"/>
                                                 <div class="modal-body la-cart__edit-body">
                                                     <div class="la-form__radio-wrap pb-2">
-                                                        <input type="radio" name="classes" value="all-classes" id="all_classes" class="la-form__radio d-none" @if($classType == 0) checked @endif>
+                                                        <input type="radio" name="classes" value="all-classes" id="all_classes" class="la-form__radio d-none" @if($classType == 'all_classes') checked @endif>
                                                         <label for="all_classes" class="d-flex align-items-center">
                                                             <span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span>
                                                             <span class="la-cart__edit-classes"> All Classes</span>
                                                         </label> 
                                                     </div>
                                                     <div class="la-form__radio-wrap">
-                                                        <input type="radio" name="classes" value="select-classes" id="select_classes" class="la-form__radio d-none" @if($classType > 0) checked @endif >
+                                                        <input type="radio" name="classes" value="select-classes" id="select_classes" class="la-form__radio d-none" @if($classType  == 'selected_classes') checked @endif >
                                                         <label for="select_classes" class="d-flex align-items-center">
                                                             <span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span>
                                                             <span class="la-cart__edit-classes"> Select Classes</span>

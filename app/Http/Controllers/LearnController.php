@@ -59,7 +59,7 @@ class LearnController extends Controller
                 $video_access = true;
             }
 
-            $in_cart = Cart::where('user_id', Auth::User()->id)->where('course_id', $id)->get();
+            $in_cart = Cart::where('user_id', Auth::User()->id)->get();
 
         }
         $reviews = $course->review->sortByDesc('rating');
