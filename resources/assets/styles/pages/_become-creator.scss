@@ -35,15 +35,15 @@ section.la-page--bcreator{
 				font-weight:var(--font-extrabold);
 				font-size: var(--text-3xl);
 			}
-			h1{
+			.la-bcreator__title{
 				font-family:var(--head-font);
 				font-weight:var(--font-black);
 				font-size: calc(var(--text-4xl) * 3);
 			}
-			p{
+			.la-bcreator__tag{
 				font-family:var(--head-font);
 				font-weight:var(--font-light);
-				opacity:.73;
+				color:var(--gray2);
 				font-size: var(--text-3xl);
 			}
 		}
@@ -98,8 +98,8 @@ section.la-page--bcreator{
 			.la-bcreator__content{
 				top:0;
 				strong{font-size: var(--text-2xl);}
-				h1{font-size: var(--text-8xl);line-height:1;}
-				p{font-size: var(--text-2xl);margin-bottom:var(--size-14);padding-top:var(--size-4);opacity:1;}
+				.la-bcreator__title{font-size: var(--text-8xl);line-height:1;}
+				.la-bcreator__tag{font-size: var(--text-2xl);margin-bottom:var(--size-14);padding-top:var(--size-4);}
 			}
 		}
 		.la-bcreator__banner-btm{margin-top:0px;}

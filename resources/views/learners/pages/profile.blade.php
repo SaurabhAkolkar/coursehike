@@ -8,10 +8,10 @@
       @include ('learners.pages.sidebar')
       <!-- Side Navbar: End -->  
       <div class="la-profile__main">
-        <div class="container">
+        <div class="container la-anim__wrap">
           <div class="la-profile__main-inner">
-            <div class="la-profile__title-wrap">
-              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="#"></a>
+            <div class="la-profile__title-wrap la-anim__stagger-item">
+              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
               <h1 class="la-profile__title m-0">Edit Profile</h1><span class="la-profile__para la-profile__para--light">Feel free to edit you personal details.</span>
             </div>
             @if(session('message'))
@@ -21,18 +21,18 @@
               <div class="la-profile__form-inner">
                 <form class="la-form" action="" name="profile_name" method="post" enctype="multipart/form-data" id="profile_form">
                   @csrf
-                  <div class="row">
+                  <div class="row ">
                     <div class="col-12">
                       <div class="la-form__input-wrap">
-                        <div class="la-form__lable la-form__lable--medium mb-2">Profile Photo</div>
+                        <div class="la-form__lable la-form__lable--medium mb-2 la-anim__stagger-item">Profile Photo</div>
                         <div class="row">
-                          <div class="col-6">
+                          <div class="col-6 la-anim__stagger-item--x">
                             <div class="la-form__img-wrap">
                               <div class="la-form__img-title">Current</div>
                               <div class="la-form__img d-inline-block d-flex justify-content-center content-fit"><img src="{{asset('images/user_img/'.Auth::user()->user_img)}}" alt="" class="mw-100 mh-100"></div>
                             </div>
                           </div>
-                          <div class="col-6">
+                          <div class="col-6 la-anim__stagger-item--x">
                             <div class="la-form__img-wrap">
                               <div class="la-form__img-title">Upload new</div>
                               <input class="d-none" id="file-upload" type="file" name="user_img">
@@ -45,7 +45,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">First Name</div>
                                       <input class="la-form__input" type="text" value="{{Auth::user()->fname}}" name="first_name" placeholder="Jhon">
@@ -54,7 +54,7 @@
                                       @enderror
                                     </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Last Name</div>
                                       <input class="la-form__input" type="text" value="{{Auth::user()->lname}}" name="last_name" placeholder="Spark">
@@ -63,7 +63,7 @@
                                       @enderror
                                     </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Email</div>
                                       <input class="la-form__input" type="email" value="{{Auth::user()->email}}" name="email" placeholder="nathanspark@gmail.com">
@@ -72,7 +72,7 @@
                                       @enderror
                                     </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Contact Number</div>
                                       <input class="la-form__input" type="tel" value="{{Auth::user()->mobile}}" name="mobile" placeholder="9999999999">
@@ -81,7 +81,7 @@
                                       @enderror
                                     </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Date of Birth</div>
                                       <input class="la-form__input" type="date" value="{{Auth::user()->dob}}" name="dob" placeholder="July 16, 1996">
@@ -90,7 +90,7 @@
                                       @enderror
                                     </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 la-anim__stagger-item--x">
                       <div class="la-form__input-wrap">
                         <div class="la-form__lable la-form__lable--medium mb-2">Gender</div>
                         <div class="d-flex pt-2">
@@ -112,7 +112,7 @@
                         @enderror
                       </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Residential Address</div>
                                       <input class="la-form__input" type="text" value="{{Auth::user()->address}}" name="address" placeholder="F/64, Apmc Market-i, Phase Ii, Turbhe, Vashi">
@@ -121,7 +121,7 @@
                                       @enderror
                                     </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Country</div>
                                       <!-- <input class="la-form__input" type="text" value="{{Auth::user()->country_id}}" name="country" placeholder="India"> -->
@@ -138,7 +138,7 @@
                                       @enderror
                                     </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">State</div>
                                       <!-- <input class="la-form__input" type="text" value="{{Auth::user()->state_id}}" name="state" placeholder="India"> -->
@@ -155,7 +155,7 @@
                                       @enderror
                                     </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">City</div>
                                       <!-- <input class="la-form__input" type="text" value="{{Auth::user()->city_id}}" name="city" placeholder="India"> -->
@@ -172,7 +172,7 @@
                                       @enderror
                                     </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Zip Code</div>
                                       <input class="la-form__input" type="number" value="{{Auth::user()->pin_code}}" name="zipcode" placeholder="400703">
@@ -181,7 +181,7 @@
                                       @enderror
                                     </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Short Bio</div>
                                       <textarea class="la-form__textarea" name="short_bio" cols="30" rows="10" placeholder="Type here" >{{Auth::user()->detail}}</textarea>
@@ -189,18 +189,19 @@
                     </div>
                   </div>
 
-                  <div class="la-hero__actions d-flex align-items-center justify-content-end">
+                  <div class="la-hero__actions d-flex align-items-center justify-content-end la-anim__stagger-item--x">
                     <button type="submit" class="w-25 la-btn__app py-3  text--black" type="button" href="">Save</button>
                   </div>
                 </form>
               </div>
             </section>
-            <section class="la-section la-profile__update-passwrod la-profile__form">
-              <div class="la-profile__form-inner">
-                <div class="la-password__update-option mb-8 d-flex">
+
+            <section class="la-section la-profile__update-passwrod la-profile__form la-anim__wrap">
+              <div class="la-profile__form-inner ">
+                <div class="la-password__update-option mb-8 d-flex la-anim__stagger-item--x">
                   <div class="la-password__update-toggler text text-uppercase mr-3 collapsed " id="password-toggler" data-toggle="collapse" data-target="#passwordCollapse" aria-expanded="false" aria-controls="passwordCollapse">Update Password</div>
                 </div>
-                <div class="collapse" id="passwordCollapse">
+                <div class="collapse " id="passwordCollapse">
                   <form class="la-password__update-content" id="change_password_form" method="Post" action="{{route('update.password')}}" name = "change_password_form">
                     @csrf
                     <div class="row">

@@ -8,7 +8,7 @@ class Cart extends Model
 {
 	protected $table = 'carts';
 
-    protected $fillable = ['user_id', 'course_id', 'price', 'offer_price', 'disamount', 'distype', 'created_at','updated_at' ];
+    protected $fillable = ['user_id','status','created_at','updated_at' ];
 
     public function user()
     {

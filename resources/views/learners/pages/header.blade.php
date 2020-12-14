@@ -197,7 +197,7 @@ use App\Announcement;
 
             <div class="la-header__menu-item d-none d-lg-block">
               @php
-                  $cart = App\Cart::where('user_id', Auth::User()->id)->groupBy('course_id')->get();
+                  $cart = App\Cart::where('user_id', Auth::User()->id)->get();
               @endphp
               <a class="la-header__menu-link la-header__menu-icon la-icon icon-cart position-relative" href="/cart"><sup class="la-header__menu-badge badge badge-light" >{{count($cart)}}</sup></a>
             </div>

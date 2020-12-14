@@ -5,10 +5,10 @@
       <div class="user-panel">
         <div class="pull-left image">
           @if(Auth::User()->user_img != null || Auth::User()->user_img !='')
-          <img src="{{ asset('images/user_img/'.Auth::User()->user_img)}}" class="img-circle rounded-circle" alt="User Image">
+          <img src="{{ asset('images/user_img/'.Auth::User()->user_img)}}" class="img-circle rounded-circle img-fluid d-block" alt="User Image">
 
           @else
-          <img src="{{ asset('images/default/user.jpg') }}" class="img-circle rounded-circle" alt="User Image">
+          <img src="{{ asset('images/default/user.jpg') }}" class="img-circle rounded-circle img-fluid d-block" alt="User Image">
 
           @endif
         </div>

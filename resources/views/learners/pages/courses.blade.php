@@ -17,14 +17,14 @@
         <!-- Wishlist Alert Message-->
         <div id="wishlist_alert_div"></div> 
 
-        <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="#"></a>
+        <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
         <div class="d-flex justify-content-between la-anim__wrap">  
-          <h1 class="la-page__title mb-8 la-anim__fade-in-right">Browse Courses</h1><a class="la-icon--3xl icon-filter d-block d-lg-none" id="filterCourses" role="button"></a>
+          <h1 class="la-page__title mb-8 la-anim__stagger-item">Browse Courses</h1><a class="la-icon--3xl icon-filter d-block d-lg-none" id="filterCourses" role="button"></a>
         </div>
         
         <!-- Global Search: Start-->
         <div class="la-gsearch la-anim__wrap">
-          <form class="form-inline la-anim__fade-in"  action="{{ url('/search-course/') }}">
+          <form class="form-inline la-anim__stagger-item"  action="{{ url('/search-course/') }}">
             <div class="form-group ">
               <input class="la-gsearch__input form-control" style="width:270px; background:transparent" name="course_name" type="text" placeholder="What you want to learn today?">
             </div>

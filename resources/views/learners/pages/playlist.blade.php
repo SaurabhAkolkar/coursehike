@@ -10,7 +10,7 @@
 
       
       <div class="la-profile__main">
-        <div class="container">
+        <div class="container la-anim__wrap">
         @if(session('success'))
               <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible" role="alert">
                   <h6 class="la-btn__alert-msg">{{session('success')}}</h6>
@@ -20,8 +20,8 @@
               </div>
           @endif
           <div class="la-profile__main-inner">
-            <div class="la-profile__title-wrap">
-              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-6" href="#"></a>
+            <div class="la-profile__title-wrap la-anim__stagger-item">
+              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-6" href="{{URL::previous()}}"></a>
               <h1 class="la-profile__title">My Playlist</h1>
               <!-- Mobile Version Button to Add Playlist -->
               <a class="d-block d-md-none"  data-toggle="modal" data-target="#create_playlist" >
@@ -59,7 +59,7 @@
                             :id="$item->id"
                         />
                     @endforeach
-                    <div class="col-md-3 d-none d-md-block">
+                    <div class="col-md-3 d-none d-md-block la-anim__stagger-item">
                         <a class="la-btn__add d-flex justify-content-center align-items-center"  data-toggle="modal" data-target="#create_playlist" >
                           <span class="la-btn__add-icon">+</span>
                         </a>
