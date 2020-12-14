@@ -5,18 +5,18 @@
             <div class="la-cart__bill-label">Total Price</div>
             <div class="la-cart__bill-amount">$ {{ $totalAmount + ($totalAmount * 5/ 100) }}</div>
         </div>
-        <div class="la-cart__bill-item d-flex justify-content-between mb-2">
+        {{-- <div class="la-cart__bill-item d-flex justify-content-between mb-2">
             <div class="la-cart__bill-label">Taxes</div>
             <div class="la-cart__bill-amount"> 5%</div>
-        </div>
+        </div> --}}
         <div class="la-cart__bill-item d-flex justify-content-between mb-2">
             <div class="la-cart__bill-label">Sub Total</div>
             <div class="la-cart__bill-amount">$ {{ $totalAmount }}</div>
         </div>
-        <div class="la-cart__bill-item d-flex justify-content-between mb-2">
+        {{-- <div class="la-cart__bill-item d-flex justify-content-between mb-2">
             <div class="la-cart__bill-label">Original Price</div>
             <div class="la-cart__bill-amount"><strike>$ {{ $totalAmount + $offerAmount }}</strike></div>
-        </div>
+        </div> --}}
         <div class="la-cart__bill-item d-flex justify-content-between mb-2">
             <div class="la-cart__bill-label">Offer Discount</div>
             <div class="la-cart__bill-amount">$ {{ $offerAmount }}</div>
@@ -72,7 +72,7 @@
     </div>
     <div class="la-cart__bill-btn">
         <div class="la-hero__actions d-flex align-items-center justify-content-end">    
-            <form action="/checkout" method="post" id="checkOutForm">
+            {{-- <form action="/checkout" method="post" id="checkOutForm"> --}}
                 @csrf
                 <input type="hidden" value="{{$totalAmount}}" name ="sub_total" />
                 <input type="hidden" value="{{$offerAmount}}" name ="discount" />
@@ -86,9 +86,10 @@
                 <input type="hidden" value="5" name ="taxes" />
                 <input type="hidden" value="{{$totalAmount + ($totalAmount * 5/ 100)}}" name ="total" />
                 <input type="hidden" value="{{$totalAmount + ($totalAmount * 5/ 100)}}" name ="total" />
-            </form>
+            {{-- </form> --}}
            
-            <button type="submit"  @if($totalAmount == 0 ) @else onclick="$('#checkOutForm').submit();" @endif class="w-25 la-btn__app py-3 w-100  text--black" type="button" href= {{ $checkoutUrl }}>Checkout</button>
+            <button id="checkout-button" type="submit"  class="w-25 la-btn__app py-3 w-100  text--black" type="button">Checkout</button>
+            {{-- <button id="checkout-button" type="submit"  @if($totalAmount == 0 ) @else onclick="$('#checkOutForm').submit();" @endif class="w-25 la-btn__app py-3 w-100  text--black" type="button" href= {{ $checkoutUrl }}>Checkout</button> --}}
         </div>
     </div>
 </div>

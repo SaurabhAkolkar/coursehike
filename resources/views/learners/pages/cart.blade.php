@@ -201,3 +201,34 @@
     </div>
   </div>
 @endsection
+
+@section('footerScripts')
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+  // Create a Stripe client.
+  var stripe = Stripe('{{ env("STRIPE_KEY") }}');
+
+  var checkoutButton = document.getElementById('checkout-button');
+  checkoutButton.addEventListener("click", function () {
+
+    $.ajax({
+      headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      type:"POST",
+      url: "/stripe-checkout",
+      // data: {playlist_name: playlistName, ajax_request: true},
+      success:function(session){   
+        console.log(session);
+        stripe.redirectToCheckout({ sessionId: session.id });
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        console.log(XMLHttpRequest);
+      }
+    });
+ 
+  });
+</script>
+
+@endsection

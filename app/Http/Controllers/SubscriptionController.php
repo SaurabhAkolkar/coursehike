@@ -15,6 +15,7 @@ use App\Course;
 use App\Search;
 use App\Question;
 use App\UserSubscription;
+use Illuminate\Support\Facades\Log;
 
 class SubscriptionController extends Controller
 {
@@ -45,6 +46,12 @@ class SubscriptionController extends Controller
 		$validator = Validator::make($request->all(), [
 			'stripeToken' => 'required',
 			'subscription_plan' => 'required',
+
+			'street_name' => 'required',
+			'zipcode' => 'required',
+			'city' => 'required',
+			'state' => 'required',
+			'country' => 'required',
 		]);
 
 		if ($validator->fails()) {
@@ -52,10 +59,13 @@ class SubscriptionController extends Controller
 				->withErrors($validator)
 				->withInput();
 		}
-		// $input = $request->all();
-		// $input = array_except($input, array('_token'));
 
-		// $this->stripe = \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+		// TODO: If the user already have subscription, then remove the existing one.
+		// Changing from one subscription plan to another.
+		// 		- Remove trial period
+		// 		- Add plans to stripe without trial dates
+		// 		- Charge them immediately.
+		// 		- https://stripe.com/docs/billing/subscriptions/billing-cycle
 		try {
 
 			if (Auth::user()->stripe_id != null)
@@ -109,6 +119,8 @@ class SubscriptionController extends Controller
 
 			if($request->subscription_plan == 'monthly-plan')
 				$plan_id = 'price_1Hk3QlE6m1twc6cGzy7K0Xwh';
+			else if($request->subscription_plan == 'quarterly-plan')
+				$plan_id = 'price_1HyL7FE6m1twc6cGxmT4KI6G';
 			else if($request->subscription_plan == 'yearly-plan')
 				$plan_id = 'price_1Hk3Q8E6m1twc6cGJjmdFY17';
 
@@ -117,8 +129,8 @@ class SubscriptionController extends Controller
 			]);
 
 			
-			echo '<pre>';
-			print_r($subscription);
+			// echo '<pre>';
+			// print_r($subscription);
 
 			// $token = $this->stripe->tokens()->create([
 			// 	'card' => [
@@ -140,21 +152,21 @@ class SubscriptionController extends Controller
 				$userSubscription->stripe_subscription_id = $subscription['id'];
 				$userSubscription->save();
 
-				exit();
-				return redirect()->route('addmoney.paymentstripe');
+
+				return view('learners.messages.subscription-successful', compact('userSubscription'));
 			} else {
 				Session::flash('errors', 'Something went wrong');
 				// return redirect()->back();
 			}
 		} catch (Exception $e) {
 			Session::flash('errors', $e->getMessage());
-			return redirect()->back();
+			return redirect()->back()->withInput();
 		} catch (\Cartalyst\Stripe\Exception\CardErrorException $e) {
 			Session::flash('errors', $e->getMessage());
-			return redirect()->back();
+			return redirect()->back()->withInput();
 		} catch (\Cartalyst\Stripe\Exception\MissingParameterException $e) {
 			Session::flash('errors', $e->getMessage());
-			return redirect()->back();
+			return redirect()->back()->withInput();
 		}
 	}
 

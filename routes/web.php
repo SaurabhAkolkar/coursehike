@@ -573,6 +573,10 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::post('appointment/delete/{id}', 'AppointmentController@delete');
       
       Route::get('/my-courses','SearchController@myCourses');
+      
+      // Route::view('/subscription/plans','subscription.pay');
+      Route::get('/subscription/{slug}', 'SubscriptionController@plans');
+      Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
 
     });
 
@@ -589,13 +593,18 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
     Route::get('/apply-coupon/{id}','CartController@applyCoupon');
     Route::post('/apply-coupon','CartController@applyCouponManual');
     Route::get('/move-to-wishlist/{id}','CartController@moveToWishlist');
-    Route::post('/checkout','CartController@cartCheckout');
 
-  
+    Route::post('/checkout','CartController@cartCheckout');
+    Route::post('/stripe-checkout','CartController@stripeCheckout');
+
+    //- Checkout Status for Learners
+    Route::get('/checkout-successful/{id}', 'CartController@stripeCheckout');
+    Route::get('/checkout-failure/{id}', 'CartController@checkoutFailed');
 
     Route::get('/jwt', 'CourseclassController@token_generate');
 
     Route::stripeWebhooks('/hooks');
+    
 
 });
 
@@ -665,10 +674,6 @@ Route::get('view/assignment/{id}', 'AssignmentController@assignment')->name('lis
 
 // Harish Route's
 
-// Route::view('/subscription/plans','subscription.pay');
-Route::get('/subscription/{slug}', 'SubscriptionController@plans');
-Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
-
 Route::get("zoho/module","ZohoController@createRecords");
 
 Route::view('/requests', 'instructor.requests.index');
@@ -717,6 +722,3 @@ Route::view('/payment-history', 'learners.pages.payment-history');
 //- Subscription Status for Learners
 Route::view('/subscription-successful', 'learners.pages.subscription-successful');
 Route::view('/subscription-failure', 'learners.pages.subscription-failure');
-
-
-

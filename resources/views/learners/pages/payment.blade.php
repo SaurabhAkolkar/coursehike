@@ -47,13 +47,7 @@
                               $address1->inputValue = "H.No:7/52,BDD,Worli,Mumbai";
                               $address1->inputName = "street_name";
                               $address1->inputId = "bill-address";
-
-                              // $address2 = new stdClass;
-                              // $address2->inputLabel = "Country";
-                              // $address2->inputType = "text";
-                              // $address2->inputValue = "India";
-                              // $address2->inputName = "country";
-                              // $address2->inputId = "bill-country";
+                              $address1->value = "bill-address";
 
                               $address3 = new stdClass;
                               $address3->inputLabel = "State";
@@ -106,7 +100,7 @@
                                   <label class="la-payment__card-label text-sm">Country</label>
                                   <select name="country" class="col-sm-9 form-control select2">
                                       @foreach ($countries as $country)
-                                      <option value="{{ $country->iso }}">
+                                      <option value="{{ $country->iso }}" {{ (old("country") == $country->iso ? "selected":"") }}>
                                           {{ $country->nicename }}</option>
                                       @endforeach
                                   </select>

@@ -28,7 +28,7 @@ class IsVerified
                 {
                     if(Auth::user()->email_verified_at == NULL)
                     { 
-                        return redirect()->route('verification.notice');   
+                        return redirect()->route('verification.notice');
                     }
                     else{
 
@@ -47,7 +47,8 @@ class IsVerified
         }
         else
         {
-            return $next($request);
+            // return $next($request);
+            return redirect()->route('register');
         }
     }
 }
