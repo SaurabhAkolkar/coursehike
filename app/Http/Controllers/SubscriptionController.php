@@ -136,7 +136,7 @@ class SubscriptionController extends Controller
 
 				$userSubscription = new UserSubscription();
 				$userSubscription->user_id = Auth::user()->id;
-				$userSubscription->payment_id = $paymentMethod['id'];
+				$userSubscription->payment_method_id = $paymentMethod['id'];
 				$userSubscription->stripe_subscription_id = $subscription['id'];
 				$userSubscription->save();
 
@@ -161,5 +161,85 @@ class SubscriptionController extends Controller
 	public function cancelSubscription(Request $request)
 	{
 		$subscription = $this->stripe->subscriptions()->cancel(Auth::user()->stripe_id, $request->subscription_id, true);
+	}
+
+	public function hooks(Request $request)
+	{
+		// $payload = $request->all();
+		// $event = null;
+
+		$body = @file_get_contents('php://input');
+		$event_json = json_decode($body);
+		var_dump($event_json);
+		// http_response_code(300); 
+		// return;
+
+
+		// for extra security, retrieve from the Stripe API
+		$event_id = $event_json->id;
+		// $event = Stripe_Event::retrieve($event_id);
+
+		try {
+			$event = \Stripe\Event::constructFrom(
+				json_decode($body, true)
+			);
+		} catch(\UnexpectedValueException $e) {
+			// Invalid payload
+			http_response_code(400);
+			exit();
+		}
+		
+		switch ($event->type) {
+			case 'payment_intent.succeeded':
+				$paymentIntent = $event->data->object; // contains a \Stripe\PaymentIntent
+				// Then define and call a method to handle the successful payment intent.
+				// handlePaymentIntentSucceeded($paymentIntent);
+				break;
+			
+			case 'customer.subscription.updated':
+				$subscription = $event->data->object;
+				$this->handleSubscriptionUpdated($subscription);
+				break;
+
+			case 'customer.subscription.deleted':
+				$subscription = $event->data->object;
+				break;
+
+			case 'invoice.payment_succeeded':
+				$invoiceObject = $event->data->object; // contains a \Stripe\PaymentMethod
+				// Then define and call a method to handle the successful attachment of a PaymentMethod.
+				handleInvoicePaidUpdated($invoiceObject);
+				break;
+
+			// ... handle other event types
+			default:
+				echo 'Received unknown event type ' . $event->type;
+		}
+		
+		http_response_code(200);
+	}
+
+	public function handleSubscriptionUpdated($subscription)
+	{
+		$customer_id = $subscription->customer;
+		$customer = $this->stripe->customers()->find($customer_id);
+
+		$subscription_id = $subscription->id;
+		$start = $subscription->current_period_start;
+		$end = $subscription->current_period_end;
+		$status = $subscription->status;
+	}
+
+	public function handleInvoicePaidUpdated($invoiceObject)
+	{
+		$customer_id = $invoiceObject->customer;
+		$customer = $this->stripe->customers()->find($customer_id);
+
+		$subscription_id = $invoiceObject->subscription;
+
+		$start = $invoiceObject->period_start;
+		$end = $invoiceObject->period_end;
+		$paid = $invoiceObject->paid;
+		$status = $invoiceObject->status;
 	}
 }

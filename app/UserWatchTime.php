@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserSubscription extends Model
+class UserWatchTime extends Model
 {
-	protected $table = 'user_subscriptions';
+	protected $table = 'user_watch_timelog';
 	
-    protected $fillable = ['user_id', 'subscription_id', 'stripe_subscription_id', 'payment_method_id'];
+    protected $fillable = ['user_id', 'course_id', 'class_id', 'position', 'time'];
 
     public function user()
     {
@@ -18,5 +18,10 @@ class UserSubscription extends Model
     public function courses()
     {
     	return $this->belongsTo('App\Course','course_id','id');
+    }
+
+    public function courseclass()
+    {
+    	return $this->belongsTo('App\CourseClass','class_id','id');
     }
 }

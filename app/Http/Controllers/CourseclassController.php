@@ -112,6 +112,7 @@ class CourseclassController extends Controller
                     'name' => $file_name
                 ],
                 "requireSignedURLs" => true,
+                // "allowedorigins" => ["*.lila.com","localhost"],
             ]);
             
             if($response->successful()){
@@ -226,7 +227,6 @@ class CourseclassController extends Controller
             'video' => 'mimes:mp4,avi,wmv'
         ]);
 
-
         ini_set('max_execution_time', 400);
 
         $courseclass = CourseClass::findOrFail($id);
@@ -247,17 +247,16 @@ class CourseclassController extends Controller
         if($file = $request->file('video_upld'))
         {
 
-            if ($courseclass->video != "") {
-                $exists = Storage::exists(config('path.course.video'). $courseclass->course_id .'/'. $courseclass->video);
-                if ($exists) {
-                    Storage::delete(config('path.course.video'). $courseclass->course_id .'/'. $courseclass->video);
+            if ($courseclass->stream_url != "") {
+                // $exists = Storage::exists(config('path.course.video'). $courseclass->course_id .'/'. $courseclass->video);
+                // if ($exists) {
+                Storage::delete(config('path.course.video'). $courseclass->course_id .'/'. $courseclass->video);
 
-                    $response = Http::withHeaders([
-                        'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
-                        'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
-                    ])->delete('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/'.$courseclass->stream_url);
-
-                }
+                $response = Http::withHeaders([
+                    'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
+                    'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
+                ])->delete('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/'.$courseclass->stream_url);
+                // }
             }
 
             // $file_name = md5(microtime().rand()). time().'.'.$file->getClientOriginalExtension();
@@ -273,6 +272,7 @@ class CourseclassController extends Controller
                     'name' => $file_name
                 ],
                 "requireSignedURLs" => true,
+                "allowedorigins" => ["*.lila.com","localhost","*.thestudiohash.com"],
             ]);
             
             if($response->successful()){
