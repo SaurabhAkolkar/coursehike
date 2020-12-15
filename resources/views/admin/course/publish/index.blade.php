@@ -28,7 +28,27 @@
         </div>
 
         <div class="col-9 text-right pt-16">
-            <button type="button" class="la-admin__publish-btn">Publish</button>
+            @if(!$publisRequest)
+                @if(Auth::User()->role == "admin")
+                    @if($cor->published == null )
+                        <form action="/approve-course-to-publish" method="post">
+                            @csrf
+                            <input type="hidden" name="course_id" value="{{$cor->id}}" />
+                            <button type="submit" class="la-admin__publish-btn">Publish</button>
+                        </form>
+                    @else
+                        <h3>Course Published</h3>
+                    @endif
+                @else
+                    <form action="/send-course-to-publish" method="post">
+                        @csrf
+                        <input type="hidden" name="course_id" value="{{$cor->id}}" />
+                        <button type="submit" class="la-admin__publish-btn">Publish</button>
+                    </form>
+                @endif
+            @else
+                <h3>Already Sent To Publish Approval</h3>
+            @endif
         </div>
     </div>
 </section> 
