@@ -15,17 +15,8 @@ class Cart extends Model
         return $this->belongsTo('App\User','user_id','id');
     }
 
-    public function courses()
+    public function cartItems()
     {
-    	return $this->belongsTo('App\Course','course_id','id');
-    }
-
-    public function bundle()
-    {
-        return $this->belongsTo('App\BundleCourse','bundle_id','id');
-    }
-    public function chapter()
-    {
-        return $this->belongsTo('App\CourseChapter','class_id','id');
+        return $this->hasMany('App\CartItem','cart_id','id');
     }
 }

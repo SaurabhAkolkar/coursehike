@@ -64,7 +64,7 @@
            
             &interest {
                 width: 33.333%;
-                height: 33.333%;
+                height: 120px;
                 padding: 5px;
                 &s  {
                         width: 290px;
@@ -72,6 +72,7 @@
                         margin: 0 auto;
                         overflow-y: scroll;
                         overflow-y: overlay;
+                        overflow-x:hidden;
 
                         &::-webkit-scrollbar {
                             width: 3px;
@@ -121,6 +122,9 @@
                             height: 100%;
                             background: transparent radial-gradient(closest-side at 32% 75%, #898989 0%, #010101 100%) 0% 0% no-repeat padding-box;
                             opacity: 0.25;
+                        }
+                        img{
+                            height:120px;
                         }
                     }
                     &name {

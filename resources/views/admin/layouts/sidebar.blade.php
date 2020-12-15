@@ -101,9 +101,11 @@
 
                   <li class="{{ Nav::isResource('coursereview') }}"><a href="{{url('coursereview')}}"><i class="la-icon la-icon--lg icon-course-request mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Course') }} {{ __('adminstaticword.Request') }}</span></a></li>
                   
-                  @if($global_settings->assignment_enable == 1)
+                  <li class="{{ Nav::isResource('publish-request') }}"><a href="{{url('publish-request')}}"><i class="la-icon la-icon--lg icon-course-request mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Publish') }} {{ __('adminstaticword.Request') }}</span></a></li>
+                  
+                  {{-- @if($gsetting->assignment_enable == 1)
                   <li class="{{ Nav::isRoute('assignment.view') }}"><a href="{{route('assignment.view')}}"><i class="flaticon-computer" aria-hidden="true"></i><span>{{ __('adminstaticword.Assignment') }}</span></a></li>
-                  @endif
+                  @endif --}}
               </li>
             </ul>
           </li>

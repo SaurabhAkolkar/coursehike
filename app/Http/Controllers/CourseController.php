@@ -24,6 +24,7 @@ use App\Announcement;
 use App\Order;
 use App\Answer;
 use App\Cart;
+use App\CartItem;
 use App\ReportReview;
 use App\SubCategory;
 use Session;
@@ -38,6 +39,7 @@ use App\Assignment;
 use App\Appointment;
 use App\BBL;
 use App\Meeting;
+use App\PublishRequest;
 use App\Currency;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
@@ -245,7 +247,7 @@ class CourseController extends Controller
         }
 
        
-        Cart::where('course_id', $id)
+        CartItem::where('course_id', $id)
          ->update([
              'price' => $request->price,
              'offer_price' => $request->discount_price,
@@ -286,7 +288,7 @@ class CourseController extends Controller
 
 
                 Wishlist::where('course_id', $id)->delete();
-                Cart::where('course_id', $id)->delete();
+                CartItem::where('course_id', $id)->delete();
                 ReviewRating::where('course_id', $id)->delete();
                 Question::where('course_id', $id)->delete();
                 Answer::where('course_id', $id)->delete();
@@ -330,6 +332,8 @@ class CourseController extends Controller
         
         $cor = Course::findOrFail($id);
         $categories = Categories::where('status',1)->pluck('title','id');
+        $publisRequest = PublishRequest::where(['status' => 1, 'course_id' => $id, 'user_id' => Auth::User()->id])->first();
+
        
         $courseinclude = CourseInclude::where('course_id', '=', $id)->get();
         $coursechapter = CourseChapter::where('course_id', '=', $id)->get();
@@ -345,9 +349,21 @@ class CourseController extends Controller
         $quizes = Quiz::where('course_id', '=', $id)->get();
         $topics = QuizTopic::where('course_id', '=', $id)->get();
         $appointment = Appointment::where('course_id', '=', $id)->get();
-        return view('admin.course.show', compact('cor', 'course', 'categories','courseinclude', 'whatlearns', 'coursechapters', 'coursechapter', 'relatedcourse', 'courseclass', 'courseresources', 'announsments', 'answers', 'reports', 'questions', 'quizes', 'topics', 'appointment'));
+        return view('admin.course.show', compact('cor', 'course', 'categories', 'publisRequest','courseinclude', 'whatlearns', 'coursechapters', 'coursechapter', 'relatedcourse', 'courseclass', 'courseresources', 'announsments', 'answers', 'reports', 'questions', 'quizes', 'topics', 'appointment'));
     }
 
+
+    public function sendToPulish(Request $request){
+        $check = PublishRequest::where(['course_id'=> $request->course_id , 'user_id' => Auth::User()->id , 'status' => 1])->first();
+  
+        if($check){
+            return redirect()->back()->with('success','Course has already sent for approval.');
+        }
+
+        PublishRequest::create(['course_id' => $request->course_id, 'user_id' => Auth::User()->id, 'status' => 1]);
+
+        return redirect()->back()->with('success','Course has been sent for approval.');
+    }
 
 
     public function CourseDetailPage($id, $slug)

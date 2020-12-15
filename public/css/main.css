@@ -20110,7 +20110,7 @@ a, a:hover {
 }
 .la-entry__interest {
   width: 33.333%;
-  height: 33.333%;
+  height: 120px;
   padding: 5px;
 }
 .la-entry__interests {
@@ -20119,6 +20119,7 @@ a, a:hover {
   margin: 0 auto;
   overflow-y: scroll;
   overflow-y: overlay;
+  overflow-x: hidden;
   /* Track */
   /* Handle */
   /* Handle on hover */
@@ -20156,6 +20157,9 @@ a, a:hover {
   height: 100%;
   background: transparent radial-gradient(closest-side at 32% 75%, #898989 0%, #010101 100%) 0% 0% no-repeat padding-box;
   opacity: 0.25;
+}
+.la-entry__interest-thumbnail img {
+  height: 120px;
 }
 .la-entry__interest-name {
   position: relative;

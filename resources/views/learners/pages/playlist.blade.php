@@ -105,17 +105,20 @@
                           <h4 class="modal-title la-playlist__modal-title">Edit Playlist</h4>
                           <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
                         </div>
-                       
-                        <div class="modal-body la-playlist__modal-body">
-                            <div class="la-playlist__modal-create">
-                                <label class="la-playlist__modal-name" for="edit_playlist_name">Playlist Name</label><br/>
-                                <input type="text" class="la-playlist__modal-inputtype w-100" name="edit_playlist_name" id="edit_playlist_name" placeholder="Edit Playlist Name" value =""/>
+                          <form action="/edit-playlist" method="post" id="editPlaylistForm">
+                            @csrf
+                            <div class="modal-body la-playlist__modal-body">
+                                <div class="la-playlist__modal-create">
+                                    <input type="hidden" value="" name="playlist_id" id="edit_playlist_id" />
+                                    <label class="la-playlist__modal-name" for="edit_playlist_name">Playlist Name</label><br/>
+                                    <input type="text" class="la-playlist__modal-inputtype w-100" name="edit_playlist_name" id="edit_playlist_name" placeholder="Edit Playlist Name" value =""/>
+                                </div>
+                                
+                                <div class="la-playlist__modal-update text-center">
+                                  <a role="button" class="la-playlist__modal-btn" type="submit" onclick="$('#editPlaylistForm').submit()">Save</a>
+                                </div>
                             </div>
-                            
-                            <div class="la-playlist__modal-update text-center">
-                              <a  role="button" class="la-playlist__modal-btn">Save</a>
-                            </div>
-                        </div>
+                          </form>
                       </div>
                     </div>
                 </div>
@@ -202,6 +205,11 @@
       $('#share_playlist').modal('show');
     }
 
+    function editPlaylistPopup(id, name){
+        $('#edit_playlist_id').val(id);
+        $('#edit_playlist_name').val(name);
+        $('#edit_playlist').modal('show');
+    }
     function copyPlaylistUrl() {
       /* Get the text field */
       var copyText = document.getElementById("playlist_url_copy");
