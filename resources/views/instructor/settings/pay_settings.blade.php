@@ -22,15 +22,15 @@
 	                    <select name="type" id="paytype" class="form-control js-example-basic-single" required >
 	                      <option value="none" selected disabled hidden >{{ __('adminstaticword.ChoosePaymentType') }}</option>
 
-	                      @if($isetting['paytm_enable'] == 1)
+	                      {{-- @if($isetting['paytm_enable'] == 1)
 	                      	<option {{ $user->prefer_pay_method == 'paytm' ? 'selected' : ''}} value="paytm">{{ __('adminstaticword.Paytm') }}</option>
 	                      @endif
-	                      @if($isetting['paypal_enable'] == 1)
+	                      @if($isetting['paypal_enable'] == 1) --}}
 	                      <option {{ $user->prefer_pay_method == 'paypal' ? 'selected' : ''}} value="paypal">{{ __('adminstaticword.Paypal') }}</option>
-	                      @endif
-	                      @if($isetting['bank_enable'] == 1)
+	                      {{-- @endif
+	                      @if($isetting['bank_enable'] == 1) --}}
 	                      <option {{ $user->prefer_pay_method == 'banktransfer' ? 'selected' : ''}} value="bank">{{ __('adminstaticword.BankTransfer') }}</option>
-	                      @endif
+	                      {{-- @endif --}}
 	                    </select>
 	                  </div>
 	              	</div>

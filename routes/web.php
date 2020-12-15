@@ -572,11 +572,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::post('course/appointment/{id}', 'AppointmentController@request')->name('appointment.request');
       Route::post('appointment/delete/{id}', 'AppointmentController@delete');
       
-      Route::get('/my-courses','SearchController@myCourses');
-      
-      // Route::view('/subscription/plans','subscription.pay');
-      Route::get('/subscription/{slug}', 'SubscriptionController@plans');
-      Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
+      Route::get('/my-courses','SearchController@myCourses');      
 
     });
 
@@ -594,8 +590,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
     Route::post('/apply-coupon','CartController@applyCouponManual');
     Route::get('/move-to-wishlist/{id}','CartController@moveToWishlist');
 
-    Route::post('/checkout','CartController@cartCheckout');
-    Route::post('/stripe-checkout','CartController@stripeCheckout');
+    // Route::post('/checkout','CartController@cartCheckout');
+    Route::post('/stripe-checkout','CartController@cartCheckout');
 
     //- Checkout Status for Learners
     Route::get('/checkout-successful/{id}', 'CartController@stripeCheckout');
@@ -649,6 +645,8 @@ Route::middleware(['auth'])->group(function () {
   
   Route::get('/download-invoice/{id}','PurchaseHistoryController@downloadPdf');
 
+  Route::get('/subscription/{slug}', 'SubscriptionController@plans');
+  Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
 
 });
 

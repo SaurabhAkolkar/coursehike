@@ -3,7 +3,7 @@
     <div class="la-cart__bill-items mb-4">
         <div class="la-cart__bill-item d-flex justify-content-between mb-2 la-anim__stagger-item--x">
             <div class="la-cart__bill-label">Total Price</div>
-            <div class="la-cart__bill-amount">$ {{ $totalAmount + ($totalAmount * 5/ 100) }}</div>
+            <div class="la-cart__bill-amount">$ {{ $totalAmount }}</div>
         </div>
         {{-- <div class="la-cart__bill-item d-flex justify-content-between mb-2 la-anim__stagger-item--x">
             <div class="la-cart__bill-label">Taxes</div>

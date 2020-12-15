@@ -25,9 +25,7 @@ class LearnController extends Controller
     public function show($id, $slug)
     {
                
-        $course = Course::with('review','review.user')->where('id', $id)->first();
-        
-
+        $course = Course::with('chapter', 'courseclass', 'review','review.user')->where('id', $id)->first();
 
         $related_courses =  Course::whereHas('category', function($query) use($course) 
         {
@@ -67,17 +65,19 @@ class LearnController extends Controller
         // dd($reviews);
 
         $average_rating = $course->review->average('rating');
-        if(count($reviews)==0){
-            $reviews = 1;
-        }
+        $total_rating = $course->review->count() > 0 ? $course->review->count() : 1 ;
+        // dd($total_rating);
+        // if(count($reviews)==0){
+        //     $reviews = 1;
+        // }
         
         Debugbar::startMeasure('render','Time for rendering');
 
-        $five_rating_percentage= round(100*$course->review->where('rating',5)->count()/count($reviews));
-        $four_rating_percentage =  round(100*$course->review->where('rating',4)->count()/count($reviews));
-        $three_rating_percentage = round(100*$course->review->where('rating',3)->count()/count($reviews));
-        $two_rating_percentage = round(100*$course->review->where('rating',2)->count()/count($reviews));
-        $one_rating_percentage = round(100*$course->review->where('rating',1)->count()/count($reviews));
+        $five_rating_percentage= round(100*$course->review->where('rating',5)->count()/$total_rating);
+        $four_rating_percentage =  round(100*$course->review->where('rating',4)->count()/$total_rating);
+        $three_rating_percentage = round(100*$course->review->where('rating',3)->count()/$total_rating);
+        $two_rating_percentage = round(100*$course->review->where('rating',2)->count()/$total_rating);
+        $one_rating_percentage = round(100*$course->review->where('rating',1)->count()/$total_rating);
         Debugbar::stopMeasure('render');
 
         $data = array(

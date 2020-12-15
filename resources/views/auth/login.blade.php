@@ -120,32 +120,32 @@
                             <span class="la-entry__bottom-title">Login with</span>
                             <div class="d-flex justify-content-center align-items-center">
                                     
-                                    @if($gsetting->fb_login_enable == 1)  
+                                    {{-- @if($gsetting->fb_login_enable == 1)   --}}
                                         <div class="la-entry__social-lnk">
                                             <a href="{{ url('/auth/facebook') }}" target="_blank" title="facebook" class="" title="Facebook">
                                                 <span class="la-icon la-icon--6xl icon-facebook-colored"></span>
                                                 {{-- {{ __('frontstaticword.ContinuewithFacebook') }} --}}
                                             </a>
                                         </div>
-                                    @endif
+                                    {{-- @endif --}}
 
-                                    @if($gsetting->linkedin_enable == 0)
+                                    {{-- @if($gsetting->linkedin_enable == 0) --}}
                                     <div class="la-entry__social-lnk">
                                         <a href="{{ url('/auth/linkedin') }}" target="_blank" title="linkedin" class="" title="Linkedin">
                                             <span class="la-icon la-icon--6xl icon-linkedin-colored"></span>
                                             {{-- {{ __('frontstaticword.ContinuewithLinkedin') }} --}}
                                         </a>
                                     </div>
-                                    @endif
+                                    {{-- @endif --}}
 
-                                    @if($gsetting->google_login_enable == 1)
+                                    {{-- @if($gsetting->google_login_enable == 1) --}}
                                         <div class="la-entry__social-lnk">
                                             <a href="{{ url('/auth/google') }}" target="_blank" title="google" class="" title="google">
                                                 <span class="la-icon la-icon--6xl icon-google-colored"><span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span></span>
                                                 {{-- {{ __('frontstaticword.ContinuewithGoogle') }} --}}
                                             </a>
                                         </div>
-                                    @endif
+                                    {{-- @endif --}}
                                     
                                     {{-- @if($gsetting->amazon_enable == 1)
                                         <div class="signin-link amazon-button">

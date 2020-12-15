@@ -31,7 +31,7 @@
 
                               <div class="la-status__info-item d-flex align-items-center">
                                 <div class="col-6 col-md-4 px-0">Amount to bePaid</div>
-                                <div class="col-6 col-md-4 px-0"><strong>$ {{ $invoice->price }}</strong></div>
+                                <div class="col-6 col-md-4 px-0"><strong>$ {{ $invoice->total }}</strong></div>
                               </div>
 
                               <div class="la-status__info-item d-flex align-items-center">

@@ -7,7 +7,7 @@
 <section class="content-header">
   <h1 class="m-0 pt-6">
     {{ __('adminstaticword.Dashboard') }}
-    <small>{{ $project_title }}</small>
+    <small>LILA</small>
   </h1>
   <!-- <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i>{{ __('adminstaticword.Home') }}</a></li>

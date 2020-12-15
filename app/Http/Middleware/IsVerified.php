@@ -47,8 +47,8 @@ class IsVerified
         }
         else
         {
-            // return $next($request);
-            return redirect()->route('register');
+            return $next($request);
+            // return redirect()->route('register');
         }
     }
 }

@@ -316,7 +316,7 @@ class CartController extends Controller
             }
             
             $insert['sub_total'] = $price;
-            $insert['total'] = $price + ( $price * 5 ) / 100 ;
+            $insert['total'] = $price;
             $insert['status'] = 'payment-pending';
 
             $info = UserInvoiceDetail::create($insert);
@@ -333,11 +333,11 @@ class CartController extends Controller
             }
 
             Session::forget('appliedCoupon');
-            Cart::where(['user_id'=> Auth::User()->id])->update(['status'=>0]);
+            // Cart::where(['user_id'=> Auth::User()->id])->update(['status'=>0]);
 
-            $this->stripeCheckout($insert);
+            return $this->stripeCheckout($info);
 
-            return redirect()->back()->with('message','Purchase Successful.');
+            // return redirect()->back()->with('message','Purchase Successful.');
     }
 
     public function cartpage(Request $request)
@@ -447,10 +447,8 @@ class CartController extends Controller
        
     }
 
-    public function stripeCheckout()
+    public function stripeCheckout($order)
     {
-        $cart = Cart::where('user_id', Auth::User()->id)->first();
-        // return $cart;
 
         \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
         
@@ -459,7 +457,7 @@ class CartController extends Controller
             'line_items' => [[
               'price_data' => [
                 'currency' => 'inr',
-                'unit_amount' => $cart->price * 100,
+                'unit_amount' => $order->total * 100,
                 'product_data' => [
                   'name' => 'LILA Checkout',
                   'images' => ["https://i.imgur.com/EHyR2nP.png"],
@@ -467,14 +465,15 @@ class CartController extends Controller
               ],
               'quantity' => 1,
             ]],
+            'customer' => Auth::user()->stripe_id,
             'customer_email' => Auth::user()->email,
-            'client_reference_id' => 1, // Cart ID
+            'client_reference_id' => $order->id, // Cart ID
             'mode' => 'payment',
             'metadata' => [
-                'order_id' => $cart->id,
+                'order_id' => $order->id,
             ],
-            'success_url' => env('APP_URL') . '/checkout-successful',
-            'cancel_url' => env('APP_URL') . '/checkout-failure',
+            'success_url' => env('APP_URL') . "/checkout-successful/$order->id",
+            'cancel_url' => env('APP_URL') . "/checkout-failure/$order->id",
           ]);
           
           $response = [
@@ -485,13 +484,13 @@ class CartController extends Controller
 
     public function checkoutSuccessful($transaction_id)
     {
-        $invoice = Cart::where('user_id', Auth::User()->id)->first();
+        $invoice = UserInvoiceDetail::where('id', $transaction_id)->first();
         return view('learners.messages.charge-successful', compact('invoice'));
     }
 
     public function checkoutFailed($transaction_id)
     {
-        $invoice = Cart::where('user_id', Auth::User()->id)->first();
+        $invoice = UserInvoiceDetail::where('id', $transaction_id)->first();
         return view('learners.messages.charge-failure', compact('invoice'));
     }
     

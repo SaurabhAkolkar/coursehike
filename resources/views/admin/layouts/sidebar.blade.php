@@ -42,7 +42,7 @@
           </li>
           @endif
 
-          @if(isset($gsetting) && $gsetting->bbl_enable == 1)
+          @if(isset($global_settings) && $global_settings->bbl_enable == 1)
               <li class="{{ Nav::isRoute('bbl.setting') }} {{ Nav::isRoute('bbl.all.meeting') }} {{ Nav::isRoute('download.meeting') }} treeview">
                 <a href="#">
                 <i class="flaticon-honesty" aria-hidden="true"></i> <span>{{ __('Big Blue Meetings') }}</span>
@@ -101,7 +101,7 @@
 
                   <li class="{{ Nav::isResource('coursereview') }}"><a href="{{url('coursereview')}}"><i class="la-icon la-icon--lg icon-course-request mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Course') }} {{ __('adminstaticword.Request') }}</span></a></li>
                   
-                  @if($gsetting->assignment_enable == 1)
+                  @if($global_settings->assignment_enable == 1)
                   <li class="{{ Nav::isRoute('assignment.view') }}"><a href="{{route('assignment.view')}}"><i class="flaticon-computer" aria-hidden="true"></i><span>{{ __('adminstaticword.Assignment') }}</span></a></li>
                   @endif
               </li>
@@ -212,7 +212,7 @@
               <li class="{{ Nav::isRoute('show.pwa') }}"><a href="{{route('show.pwa')}}"><i class="flaticon-mobile-marketing" aria-hidden="true"></i><span> {{ __('adminstaticword.PWASetting') }}</span></a></li>
               <li class="{{ Nav::isRoute('adsense') }}"><a href="{{url('/admin/adsensesetting')}}" title="Page Setting"><span><i class="flaticon-settings-3"></i> &nbsp;&nbsp;{{ __('adminstaticword.AdsenseSetting') }}</span></a></li>
               
-              @if(isset($gsetting) && $gsetting->ipblock_enable == 1)
+              @if(isset($global_settings) && $global_settings->ipblock_enable == 1)
               <li class="{{ Nav::isRoute('ipblock.view') }}"><a href="{{url('admin/ipblock')}}" title="Page Setting"><span><i class="flaticon-error"></i> &nbsp;&nbsp;{{ __('adminstaticword.IPBlockSettings') }}</span></a></li>
               @endif
 
