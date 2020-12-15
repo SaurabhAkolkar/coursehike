@@ -77,7 +77,7 @@ class OrderController extends Controller
                 $data[$i]['Sr#'] = $i+1 ;
                 $data[$i]['title'] = json_decode($d->title)->en; 
                 $data[$i]['user_name'] = $d->fname.' '.$d->lname;
-                $data[$i]['chapters'] = $d->class_id?'All Chapters':'Selected Classes'; 
+                $data[$i]['chapters'] = $d->class_id==0?'All Classes':'Selected Classes'; 
                 $data[$i]['coupon_appied'] = $d->coupon_id==null?'No':'Yes'; 
                 $data[$i]['sub_total'] = '$ '.$d->sub_total;
                 $data[$i]['date'] = Carbon::parse($d->created_at)->format('d/m/Y');

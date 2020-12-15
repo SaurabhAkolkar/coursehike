@@ -24,6 +24,7 @@ use App\Announcement;
 use App\Order;
 use App\Answer;
 use App\Cart;
+use App\CartItem;
 use App\ReportReview;
 use App\SubCategory;
 use Session;
@@ -245,7 +246,7 @@ class CourseController extends Controller
         }
 
        
-        Cart::where('course_id', $id)
+        CartItem::where('course_id', $id)
          ->update([
              'price' => $request->price,
              'offer_price' => $request->discount_price,
@@ -286,7 +287,7 @@ class CourseController extends Controller
 
 
                 Wishlist::where('course_id', $id)->delete();
-                Cart::where('course_id', $id)->delete();
+                CartItem::where('course_id', $id)->delete();
                 ReviewRating::where('course_id', $id)->delete();
                 Question::where('course_id', $id)->delete();
                 Answer::where('course_id', $id)->delete();
