@@ -315,6 +315,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::resource('announsment','AnnounsmentController');
       Route::resource('announcement','AnnouncementController');
       Route::get('/course/create/{id}','CourseController@showCourse')->name('course.show');
+      Route::post('/send-course-to-publish','CourseController@sendToPulish');
       // Route::post('/course/annoucement','CourseController@storeAnnoucement')->name('annoucement.store');
       Route::post('/category/insert','CategoriesController@categoryStore')->name('cat.store');
       Route::post('/subcategory/insert','SubcategoryController@SubcategoryStore')->name('child.store');
@@ -332,6 +333,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::resource('instructorquestion', 'InstructorQuestionController');
       Route::resource('instructoranswer', 'InstructorAnswerController');
       Route::get('coursereview', 'CourseReviewController@index');
+      Route::get('publish-request', 'CourseReviewController@coursePublish');
+      Route::post('/approve-course-to-publish', 'CourseReviewController@publishRequestApproval');
 
       Route::resource('instructor/announcement', 'InstructorAnnouncementController');
       Route::resource('usermessage', 'ContactUsController');
@@ -607,6 +610,7 @@ Route::middleware(['auth'])->group(function () {
   
   Route::post('/add-to-playlist','PlaylistController@addToPlaylist')->name('add.to.playlist');
   Route::post('/create-playlist','PlaylistController@createPlaylist')->name('create.playlist');
+  Route::post('/edit-playlist','PlaylistController@editPlaylist');
   // Wishlist Routes
   Route::post('/add-to-wishlist','LearnerWishlistController@store');
   Route::get('/wishlist','LearnerWishlistController@index');

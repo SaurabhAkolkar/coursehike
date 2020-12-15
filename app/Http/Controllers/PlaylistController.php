@@ -87,6 +87,29 @@ class PlaylistController extends Controller
       return redirect()->back()->with('message','Course Added to Playlist');
     }
 
+    public function editPlaylist(Request $request){
+
+        $request->validate([
+            'edit_playlist_name' => 'required',
+            'playlist_id' => 'required'
+        ]);
+
+            $playlist = Playlist::where(['id'=>$request->playlist_id, 'user_id' => Auth::User()->id])->first();
+            
+            if($playlist){
+                $check = Playlist::where(['name'=>$request->edit_playlist_name, 'user_id' =>  Auth::User()->id])->first();
+
+                if($check){
+                    return redirect()->back()->with('success','Playlist already exist with same name.');
+                }
+
+                $playlist->name = $request->edit_playlist_name;
+                $playlist->save();
+                return redirect()->back()->with('success','Playlist update successfully.');
+            }
+            return redirect()->back()->with('success','something went wrong');
+    }
+
 
      /**
      * Create a new Playlist.
@@ -105,7 +128,7 @@ class PlaylistController extends Controller
         $input['user_id'] = Auth::user()->id;
 
         $exitingPlaylist = Playlist::where(['name'=>$input['name'] , 'user_id'=> $input['user_id']])->get();
-        
+         
             if(count($exitingPlaylist) == 0){
                 $addedPlaylist = Playlist::create($input);
                 if($request->ajax_request == true){
@@ -116,7 +139,7 @@ class PlaylistController extends Controller
                 if($request->ajax_request == true){
                     return 0;
                 }
-                Session::flash('playlist_exists','Playlist with this name already exist.');
+                Session::flash('success','Playlist with this name already exist.');
                 return Redirect::back()->withInput();
             }
 
