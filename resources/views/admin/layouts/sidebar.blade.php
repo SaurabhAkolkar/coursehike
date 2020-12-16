@@ -98,14 +98,15 @@
                   <!-- <li class="{{ Nav::isResource('bundle') }}"><a href="{{url('bundle')}}"><i class="flaticon-interface" aria-hidden="true"></i><span>{{ __('adminstaticword.BundleCourse') }}</span></a></li> -->
 
                   <li class="{{ Nav::isResource('courselang') }}"><a href="{{url('courselang')}}"><i class="la-icon la-icon--lg icon-course-language mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.CourseLanguage') }}</span></a></li>
+                  
+                  <li class="{{ Nav::isResource('publishrequest') }}"><a href="{{url('publishrequest')}}"><i class="la-icon la-icon--lg icon-course-request mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Publish') }} {{ __('adminstaticword.Review') }}</span></a></li>
+                  
+                  <li class="{{ Nav::isResource('coursereviewunpublish') }}"><a href="{{url('coursereviewunpublish')}}"><i class="la-icon la-icon--lg icon-course-request mr-4" aria-hidden="true"></i><span>Unpublish Review</span></a></li>
 
-                  <li class="{{ Nav::isResource('coursereview') }}"><a href="{{url('coursereview')}}"><i class="la-icon la-icon--lg icon-course-request mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Course') }} {{ __('adminstaticword.Request') }}</span></a></li>
-                  
-                  <li class="{{ Nav::isResource('publish-request') }}"><a href="{{url('publish-request')}}"><i class="la-icon la-icon--lg icon-course-request mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Publish') }} {{ __('adminstaticword.Request') }}</span></a></li>
-                  
                   @if($gsetting->assignment_enable == 1)
                   <li class="{{ Nav::isRoute('assignment.view') }}"><a href="{{route('assignment.view')}}"><i class="flaticon-computer" aria-hidden="true"></i><span>{{ __('adminstaticword.Assignment') }}</span></a></li>
                   @endif
+
               </li>
             </ul>
           </li>

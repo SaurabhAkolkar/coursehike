@@ -315,7 +315,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::resource('announsment','AnnounsmentController');
       Route::resource('announcement','AnnouncementController');
       Route::get('/course/create/{id}','CourseController@showCourse')->name('course.show');
-      Route::post('/send-course-to-publish','CourseController@sendToPulish');
+      Route::post('/send-course-to-publish','CourseController@sendToPublish');
+      Route::post('/send-course-to-unpublish','CourseController@sendToUnpublish');
       // Route::post('/course/annoucement','CourseController@storeAnnoucement')->name('annoucement.store');
       Route::post('/category/insert','CategoriesController@categoryStore')->name('cat.store');
       Route::post('/subcategory/insert','SubcategoryController@SubcategoryStore')->name('child.store');
@@ -333,7 +334,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::resource('instructorquestion', 'InstructorQuestionController');
       Route::resource('instructoranswer', 'InstructorAnswerController');
       Route::get('coursereview', 'CourseReviewController@index');
-      Route::get('publish-request', 'CourseReviewController@coursePublish');
+      Route::get('publishrequest', 'CourseReviewController@coursePublish');
+      Route::get('coursereviewunpublish', 'CourseReviewController@courseUnPublish');
       Route::post('/approve-course-to-publish', 'CourseReviewController@publishRequestApproval');
       Route::post('/unpublish-course', 'CourseReviewController@unpublishCourse');
 
