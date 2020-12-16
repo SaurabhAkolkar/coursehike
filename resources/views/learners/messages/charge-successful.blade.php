@@ -24,37 +24,28 @@
                               <div class="la-status__info-tag">Your payment was successful</div>
 
                               <div class="la-status__info-list">
+
+                                  <div class="la-status__info-item d-flex align-items-center">
+                                    <div class="col-6 col-md-4 px-0">Transaction Id</div>
+                                    <div class="col-6 col-md-4 px-0"><strong>{{ $invoice->invoice_id }}</strong></div>
+                                  </div>
+
                                   <div class="la-status__info-item d-flex align-items-center">
                                       <div class="col-6 col-md-4 px-0">Payment for</div>
-                                      <div class="col-6 col-md-4 px-0"><strong>Annual Subscription</strong></div>
+                                      <div class="col-6 col-md-4 px-0"><strong>Cart Checkout</strong></div>
                                   </div>
 
                                   <div class="la-status__info-item d-flex align-items-center">
                                     <div class="col-6 col-md-4 px-0">Amount Paid</div>
-                                    <div class="col-6 col-md-4 px-0"><strong>$ {{ $invoice->price }}</strong></div>
-                                  </div>
-
-                                  <div class="la-status__info-item d-flex align-items-center">
-                                    <div class="col-6 col-md-4 px-0">Subscription ends on</div>
-                                    <div class="col-6 col-md-4 px-0">20.12.2021</div>
+                                    <div class="col-6 col-md-4 px-0"><strong>$ {{ $invoice->total }}</strong></div>
                                   </div>
 
                                   <div class="la-status__info-item d-flex align-items-center">
                                     <div class="col-6 col-md-4 px-0">Payment Status</div>
-                                    <div class="col-6 col-md-4 px-0">Successful</div>
+                                    <div class="col-6 col-md-4 px-0"><strong>Successful</strong></div>
                                   </div>
 
-                                  <div class="la-status__info-item d-flex align-items-center">
-                                    <div class="col-6 col-md-4 px-0">Payment Method</div>
-                                    <div class="col-6 col-md-4 px-0">Debit Card</div>
-                                  </div>
-
-                                  <div class="la-status__info-item d-flex align-items-center">
-                                    <div class="col-6 col-md-4 px-0">Transaction Id</div>
-                                    <div class="col-6 col-md-4 px-0">hgkfih457fhf55</div>
-                                  </div>
-
-                                  <div class="la-status__info-item d-flex align-items-center">
+                                  {{-- <div class="la-status__info-item d-flex align-items-center">
                                     <div class="col-6 col-md-4 px-0">Download</div>
                                     <div class="col-6 col-md-4 px-0">
                                       <a href="" role="button">
@@ -62,13 +53,13 @@
                                         <span class="la-icon la-icon--md icon-download" style="color:var(--app-indigo-1)"></span>
                                       </a>
                                     </div>
-                                  </div>
+                                  </div> --}}
                               </div>
 
                               <div class="la-status__info-btm">
                                   <div class="la-status__info-moto">Start learning from the best mentors across the globe!</div>
                                   <div class="la-status__info-browse">
-                                      <button href="/browse/courses" class="la-btn__app la-status__info-cta py-3" type="button">Browse Courses</button>
+                                      <button href="/my-courses" class="la-btn__app la-status__info-cta py-3" type="button">Browse Your Courses</button>
                                   </div>
                               </div>
                           </div>
