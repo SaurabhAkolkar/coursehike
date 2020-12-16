@@ -12,6 +12,7 @@ use Crypt;
 use Redirect;
 use App\BundleCourse;
 use App\Cart;
+use App\CartItem;
 use App\ReviewRating;
 use App\WatchCourse;
 use App\Playlist;
@@ -27,8 +28,6 @@ class LearnController extends Controller
                
         $course = Course::with('review','review.user')->where('id', $id)->first();
         
-
-
         $related_courses =  Course::whereHas('category', function($query) use($course) 
         {
             $query->where('id', $course->category_id); 
@@ -39,15 +38,9 @@ class LearnController extends Controller
         if($course->slug != $slug)
             return redirect()->route('learn.show', ['id' => $id,'slug'=>$course->slug]);
 
-        // Not Logged-In
-        // Logged-In
-        // In Trial
-        // Course Bought
-        // Individual Class Bought
-        // Subscibed
-
         $video_access = false;
         $in_cart = null;
+        $order_type = null;
         if(Auth::check())
         {
         	$order = Order::where('user_id', Auth::User()->id)->where('course_id', $id)->first();
@@ -59,12 +52,26 @@ class LearnController extends Controller
                 $video_access = true;
             }
 
-            $in_cart = Cart::where('user_id', Auth::User()->id)->get();
+            $cart = Cart::where(['user_id' => Auth::User()->id, 'status' => 1])->first();
+            if($cart){
+                $in_cart = CartItem::where(['cart_id' => $cart->id, 'course_id' => $id])->get();
+             
+                if(count($in_cart) > 0){
+                    foreach($in_cart as $a){
+                        
+                        if($a->purchase_type == 'all_classes'){
+                            $order_type = 'all_classes';
+                        }
+                        if($a->purchase_type == 'selected_classes'){
+                            $order_type = 'selected_classes';
+                        }
+                    }
+                }
+            }
 
         }
-        $reviews = $course->review->sortByDesc('rating');
 
-        // dd($reviews);
+        $reviews = $course->review->sortByDesc('rating');
 
         $average_rating = $course->review->average('rating');
         if(count($reviews)==0){
@@ -93,6 +100,7 @@ class LearnController extends Controller
             'two_rating_percentage' => $two_rating_percentage,
             'one_rating_percentage' => $one_rating_percentage,
             'in_cart'=>$in_cart,
+            'order_type'=>$order_type
 
         );
         return view('learners.pages.course')->with($data);

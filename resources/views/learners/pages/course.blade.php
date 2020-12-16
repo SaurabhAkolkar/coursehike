@@ -17,6 +17,7 @@ use Carbon\Carbon;
         @if(Session('failed'))
           <h5>Review Already Added for this course by you.</h5>
         @endif
+        <div id="wishlist_alert_div"></div> 
         <div class="row  mb-12"> 
           <div class="col-12 col-lg-7">
             <div class="la-vcourse__header d-flex align-items-center">
@@ -317,7 +318,7 @@ use Carbon\Carbon;
             <div class="la-vcourse__purchase-classes">
               <div class="la-vcourse__purchase-class la-vcourse__purchase-class--all mb-4">
                 <div class="la-form__radio-wrap">
-                  <input class="la-form__radio d-none la-vcourse__purchase-input" @if($in_cart == null) checked @endif type="radio" value="all-classes" name="classes" id="allClasses">
+                  <input class="la-form__radio d-none la-vcourse__purchase-input" @if($order_type == null || $order_type == 'all_classes') checked @endif type="radio" value="all-classes" name="classes" id="allClasses">
                   <label class="d-flex align-items-center la-vcourse__purchase-label" for="allClasses">
                     <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
                     <span class="">All Classes</span>
@@ -326,7 +327,7 @@ use Carbon\Carbon;
               </div>
               <div class="la-vcourse__purchase-class la-vcourse__purchase-class--select">
                 <div class="la-form__radio-wrap">
-                  <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" value="select-classes" name="classes" id="selectClasses">
+                  <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" value="select-classes" @if($order_type == 'selected_classes') @endif name="classes" id="selectClasses">
                   <label class="d-flex align-items-center la-vcourse__purchase-label" for="selectClasses">
                     <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
                     <span class="">Select Classes</span>
@@ -346,7 +347,8 @@ use Carbon\Carbon;
                       <tr class="la-vcourse__sclass-item align-top">
                         <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--checkbox">
                           <div>
-                            <input id="selectItem_{{$class->id}}" name="selected_classes[]" class="la-form__checkbox-input custom-control-input" type="checkbox" value="{{$class->id}}">
+                            <input id="selectItem_{{$class->id}}" name="selected_classes[]" class="la-form__checkbox-input custom-control-input" type="checkbox" value="{{$class->id}}" @if(count($in_cart->where('class_id', $class->id )) || $order_type == 'all_classes') checked @endif>
+                            
                             <label class="" for="selectItem_{{$class->id}}">
                               <svg viewBox="0 0 16 16" height="16" width="16">
                                 <g id="Group_5052" data-name="Group 5052" transform="translate(-129 -2108)">
