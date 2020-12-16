@@ -259,7 +259,15 @@ class CartController extends Controller
         $check = Course::findorFail($id);
         if($check){
             Session::forget('appliedCoupon');
-            Cart::where(['user_id' => Auth::User()->id, 'course_id' => $id])->delete();
+
+            $cart_id = Cart::where(['user_id'=> Auth::User()->id, 'status' => 1])->pluck('id');
+            if($cart_id){
+
+                CartItem::where(['cart_id' =>  $cart_id, 'course_id' => $id])->delete();
+                Session::forget('appliedCoupon');
+                
+            }
+            
             $checkWishlist =  Wishlist::where(['user_id' => Auth::User()->id, 'course_id' => $id])->first();
             if(empty($checkWishlist)){
                 Wishlist::create(['user_id'=> Auth::User()->id , 'course_id' => $id]);
@@ -274,10 +282,17 @@ class CartController extends Controller
 
     public function removefromcart($id)
     {
-        $cart = Cart::where('course_id', '=', $id)->firstOrFail();
-        $cart->delete();
-        Session::forget('appliedCoupon');
-        return back()->with('delete','Course is removed from your cart');
+        $cart_id = Cart::where(['user_id'=> Auth::User()->id, 'status' => 1])->pluck('id');
+        if($cart_id){
+
+            CartItem::where(['cart_id' =>  $cart_id, 'course_id' => $id])->delete();
+            Session::forget('appliedCoupon');
+
+            return redirect()->back()->with('message','Course is removed from your cart');
+        }else{
+            return redirect()->back()->with('message','Cart is already empty.');
+        }
+       
     }
 
     public function cartCheckout(Request $request){
