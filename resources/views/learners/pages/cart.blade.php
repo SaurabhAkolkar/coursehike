@@ -39,19 +39,21 @@
                     @endphp
 
                     <div class="col-lg-8 col-xl-9">
-                      @if(count($cartItem) > 0)
-                        @foreach ($cartItem as $cart)
-                        
-                            <x-cart 
-                              :cartId="$cart->cart_id"
+                      {{-- {{ dd($cartItem)}} --}}
+                      @if(count($carts) > 0)
+                        @foreach ($carts as $cart)
+                            {{-- {{ dd($cart)}} --}}
+                            <x-cart
+                              :cartId="$cart->id"
+                              :cart="$cart"
                               :courseId="$cart->course_id"
                               :collapseId="$cart->collapseId"
                               :courseImg="$courseImg"
-                              :classType="$cart->purchase_type"
+                              :classType="$cart->cartItems->first()->purchase_type"
                               :course="$cart->courses->title"
                               :creator="$cart->courses->user->fullName"
                               :remove="$remove"
-                              :removeUrl="'remove-from-cart/'.$cart->course_id"
+                              :removeUrl="'remove-from-cart/'.$cart->id"
                               :wishlist="$wishlist"
                               :wishlistUrl="'move-to-wishlist/'.$cart->course_id"
                               :edit="$edit"
@@ -84,6 +86,7 @@
 
                         $checkouts = array($checkout);
                     @endphp
+                    @if(count($carts) > 0)
                     <div class="col-lg-4 col-xl-3 mb-5 mb-md-0 la-anim__wrap">
                         <x-cart-total 
                           :totalAmount="$total"
@@ -95,6 +98,7 @@
                         />
                     </div>
                      <!-- Cart Checkout: End -->
+                    @endif
 
                   </div>
                 </div>

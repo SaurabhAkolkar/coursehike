@@ -24,29 +24,25 @@
                           <div class="la-status__info-tag">Your payment failed</div>
 
                           <div class="la-status__info-list ">
+
+                              <div class="la-status__info-item d-flex align-items-center">
+                                <div class="col-6 col-md-4 px-0">Transaction Id</div>
+                                <div class="col-6 col-md-4 px-0"><strong>{{ $invoice->invoice_id }}</strong></div>
+                              </div>
+
+                              <div class="la-status__info-item d-flex align-items-center">
+                                <div class="col-6 col-md-4 px-0">Payment Status</div>
+                                <div class="col-6 col-md-4 px-0 danger"><strong>Failed</strong></div>
+                              </div>
+
                               <div class="la-status__info-item d-flex align-items-center">
                                   <div class="col-6 col-md-4 px-0">Payment for</div>
                                   <div class="col-6 col-md-4 px-0"><strong>Cart Checkout</strong></div>
                               </div>
 
                               <div class="la-status__info-item d-flex align-items-center">
-                                <div class="col-6 col-md-4 px-0">Amount to bePaid</div>
+                                <div class="col-6 col-md-4 px-0">Amount to be Paid</div>
                                 <div class="col-6 col-md-4 px-0"><strong>$ {{ $invoice->total }}</strong></div>
-                              </div>
-
-                              <div class="la-status__info-item d-flex align-items-center">
-                                <div class="col-6 col-md-4 px-0">Payment Status</div>
-                                <div class="col-6 col-md-4 px-0">Failed</div>
-                              </div>
-
-                              <div class="la-status__info-item d-flex align-items-center">
-                                <div class="col-6 col-md-4 px-0">Payment Method</div>
-                                <div class="col-6 col-md-4 px-0">Debit Card</div>
-                              </div>
-
-                              <div class="la-status__info-item d-flex align-items-center">
-                                <div class="col-6 col-md-4 px-0">Transaction Id</div>
-                                <div class="col-6 col-md-4 px-0">hgkfih457fhf55</div>
                               </div>
                           </div>
 
