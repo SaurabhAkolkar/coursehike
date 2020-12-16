@@ -239,7 +239,7 @@ $(function(){
     }, boxShadow:"rgba(202, 202, 202, 0.10) 0px 0px 10px 10px"
   })
 
-
+  
 }); 
 
 // Popover Js for Dashboard Page: Start

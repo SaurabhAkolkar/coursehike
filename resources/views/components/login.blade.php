@@ -62,7 +62,7 @@
 
             </div>
 
-            <div class="la-header__nav-item d-lg-none ">
+            <div class="la-header__nav-item  ">
                 <a class="la-header__nav-link" href="/user-dashboard">
                     <div class="la-header__nav-icon">
                         <span class="la-icon--md icon-dashboard"></span>
@@ -98,7 +98,7 @@
                 </a>
             </div>
 
-            <div class="la-header__nav-item">   
+            <div class="la-header__nav-item d-lg-none">   
                 <a class="la-header__nav-link" href="/learning-plans">
                     <div class="la-header__nav-icon">
                         <span class="la-icon--md icon-learning-plans"></span>
@@ -108,7 +108,7 @@
             </div>
 
             <div class="la-header__nav-item d-lg-none">   
-                <a class="la-header__nav-link" href="/learning-plans">
+                <a class="la-header__nav-link" href="/">
                     <div class="la-header__nav-icon">
                         <span class="la-icon--md icon-about"></span>
                     </div>
@@ -136,7 +136,7 @@
                 </a>
             </div>
             <div class="la-header__nav-item">   
-                <a class="la-header__nav-link" href="/learning-plans">
+                <a class="la-header__nav-link" href="/">
                     <div class="la-header__nav-icon">
                         <span class="la-icon--md icon-help-filled"></span>
                     </div>
