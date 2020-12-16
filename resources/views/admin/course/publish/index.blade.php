@@ -37,7 +37,11 @@
                             <button type="submit" class="la-admin__publish-btn">Publish</button>
                         </form>
                     @else
-                        <h3>Course Published</h3>
+                        <form action="/unpublish-course" method="post">
+                            @csrf
+                            <input type="hidden" name="course_id" value="{{$cor->id}}" />
+                            <button type="submit" class="la-admin__publish-btn">Unpublish</button>
+                        </form>
                     @endif
                 @else
                     <form action="/send-course-to-publish" method="post">

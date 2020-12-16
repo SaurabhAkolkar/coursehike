@@ -335,6 +335,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::get('coursereview', 'CourseReviewController@index');
       Route::get('publish-request', 'CourseReviewController@coursePublish');
       Route::post('/approve-course-to-publish', 'CourseReviewController@publishRequestApproval');
+      Route::post('/unpublish-course', 'CourseReviewController@unpublishCourse');
 
       Route::resource('instructor/announcement', 'InstructorAnnouncementController');
       Route::resource('usermessage', 'ContactUsController');

@@ -37,4 +37,14 @@ class CourseReviewController extends Controller
 
         return redirect()->back()->with('success','Course Published');
     }
+
+    public function unpublishCourse(Request $request){
+      
+        $course = Course::findorfail($request->course_id);
+        $course->published = 0;
+        $course->updated_at = Carbon::now();
+        $course->save();
+
+        return redirect()->back()->with('success','Course unpublished.');
+    }
 }

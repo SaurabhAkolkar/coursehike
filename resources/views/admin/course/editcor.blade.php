@@ -264,6 +264,18 @@
                   </li>
                   <input type="hidden"  name="master_class" value="0" for="master_class" id="master_class">
                 </div>
+
+                <div class="col-md-2"> 
+                  @if(Auth::User()->role == "admin")
+                    <label for="exampleInputTit1e">{{ __('adminstaticword.Publish') }}:</label>
+                    <li class="tg-list-item">
+                      <input class="la-admin__toggle-switch" id="cb2" type="checkbox" name="published" {{ $cor->published==1 ? 'checked' : '' }}>
+                      <label class="la-admin__toggle-label" data-tg-off="No" data-tg-on="Yes" for="cb2"></label>
+                    </li>
+                    <input type="hidden" name="published" value="{{ $cor->published }}" id="published">
+                  @endif
+                </div>
+
               </div> 
               <br/>
 
@@ -302,6 +314,13 @@
   $(function() {
     $('#cb1').change(function() {
       $('#f').val(+ $(this).prop('checked'))
+    })
+  })
+
+
+  $(function() {
+    $('#cb2').change(function() {
+      $('#published').val(+ $(this).prop('checked'))
     })
   })
 
