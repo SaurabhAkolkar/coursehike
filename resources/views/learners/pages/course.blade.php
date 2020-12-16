@@ -312,7 +312,7 @@ use Carbon\Carbon;
   <!-- Section: End-->
 
   <!-- Section: Start-->
-  @if($video_access)
+  @if($video_access || !auth()->check())
 
   <section class="la-section la-section--grey la-vcourse__purchase">
     <div class="la-vcourse__purchase-inwrap container">

@@ -600,7 +600,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
     Route::post('/stripe-checkout','CartController@cartCheckout');
 
     //- Checkout Status for Learners
-    Route::get('/checkout-successful/{id}', 'CartController@stripeCheckout');
+    Route::get('/checkout-successful/{id}', 'CartController@checkoutSuccessful');
     Route::get('/checkout-failure/{id}', 'CartController@checkoutFailed');
 
     Route::get('/jwt', 'CourseclassController@token_generate');
