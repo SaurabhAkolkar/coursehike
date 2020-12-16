@@ -245,14 +245,15 @@
                   <input type="hidden" name="featured" value="{{ $cor->featured }}" id="f">
                   @endif
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-4">
                   @if(Auth::User()->role == "admin")
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
-                    <li class="tg-list-item">
-                    <input class="la-admin__toggle-switch" id="cb333" type="checkbox" name="status" {{ $cor->status==1 ? 'checked' : '' }}>
-                    <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="cb333"></label>
-                    </li>
-                    <input type="hidden" name="status" value="{{ $cor->status }}" id="c33">
+                      <div class="d-flex pt-2">
+                              <input type="radio" name="status" id="ch1" value="1" {{ $cor->status == 1 ? 'checked' : '' }}> <span class="mr-2"> {{ __('adminstaticword.Active') }} </span>
+                              <input type="radio" name="status" id="ch2" value="0" {{ $cor->status == 0 ? 'checked' : '' }}> <span class="mr-2"> {{ __('OnHold') }} </span>
+                              <input type="radio" name="status" id="ch3" value="2" {{ $cor->status == 2 ? 'checked' : '' }}> <span class="mr-2"> {{ __('Archive') }} </span>
+                        </div>
+                   
                   @endif
                 </div> 
               
@@ -264,6 +265,9 @@
                   </li>
                   <input type="hidden"  name="master_class" value="0" for="master_class" id="master_class">
                 </div>
+
+
+
               </div> 
               <br/>
 
@@ -304,6 +308,8 @@
       $('#f').val(+ $(this).prop('checked'))
     })
   })
+
+
 
   $(function() {
     $('#cb3').change(function() {

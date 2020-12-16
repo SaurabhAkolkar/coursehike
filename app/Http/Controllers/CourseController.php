@@ -353,16 +353,29 @@ class CourseController extends Controller
     }
 
 
-    public function sendToPulish(Request $request){
-        $check = PublishRequest::where(['course_id'=> $request->course_id , 'user_id' => Auth::User()->id , 'status' => 1])->first();
+    public function sendToPublish(Request $request){
+        $check = PublishRequest::where(['course_id'=> $request->course_id , 'user_id' => Auth::User()->id , 'request_type'=>'publish','status' => 1])->first();
   
         if($check){
-            return redirect()->back()->with('success','Course has already sent for approval.');
+            return redirect()->back()->with('success','Course has already sent for publish approval.');
         }
 
-        PublishRequest::create(['course_id' => $request->course_id, 'user_id' => Auth::User()->id, 'status' => 1]);
+        PublishRequest::create(['course_id' => $request->course_id, 'user_id' => Auth::User()->id, 'request_type'=>'publish','status' => 1 ]);
 
-        return redirect()->back()->with('success','Course has been sent for approval.');
+        return redirect()->back()->with('success','Course has been sent for publish approval.');
+    }
+
+    public function sendToUnPublish(Request $request){
+
+        $check = PublishRequest::where(['course_id'=> $request->course_id ,  'user_id' => Auth::User()->id , 'request_type'=>'unpublish','status' => 1])->first();
+  
+        if($check){
+            return redirect()->back()->with('success','Course has already sent for unpublish unapproval.');
+        }
+
+        PublishRequest::create(['course_id' => $request->course_id, 'user_id' => Auth::User()->id, 'request_type'=>'unpublish', 'status' => 1]);
+
+        return redirect()->back()->with('success','Course has been sent for  unpublish unapproval.');
     }
 
 

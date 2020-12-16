@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'Course Review - Admin')
+@section('title', 'Course Unpublish Review - Admin')
 @section('body')
 
 <section class="content">
@@ -9,7 +9,7 @@
     <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.Course') }} Publish {{ __('adminstaticword.Request') }}</h3>
+          <h3 class="box-title">{{ __('adminstaticword.Course') }} Unpublish Request</h3>
         </div>
        
         <!-- /.box-header -->
