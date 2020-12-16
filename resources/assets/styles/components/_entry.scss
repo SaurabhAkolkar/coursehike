@@ -64,7 +64,7 @@
            
             &interest {
                 width: 33.333%;
-                height: 33.333%;
+                height: 120px;
                 padding: 5px;
                 &s  {
                         width: 290px;
@@ -72,6 +72,7 @@
                         margin: 0 auto;
                         overflow-y: scroll;
                         overflow-y: overlay;
+                        overflow-x:hidden;
 
                         &::-webkit-scrollbar {
                             width: 3px;
@@ -122,6 +123,9 @@
                             background: transparent radial-gradient(closest-side at 32% 75%, #898989 0%, #010101 100%) 0% 0% no-repeat padding-box;
                             opacity: 0.25;
                         }
+                        img{
+                            height:120px;
+                        }
                     }
                     &name {
                         position: relative;
@@ -158,6 +162,7 @@
             }
 
             &input {
+                position: relative;
                 padding-left: 64px;
                 &- {
                     &wrap  {
@@ -169,7 +174,7 @@
                         height: 100%;
                         width: 50px;
                         display: flex;
-                        align-items: center;
+                        align-items: start;
                         justify-content: center;
 
                         &:before {
@@ -178,12 +183,13 @@
                             height: 50%;
                             background: #DBDBDB;
                             position: absolute;
+                            top:6px;
                             right: 0;
                         }
                     }
                 }
             }
-
+            
             &slider {
                 background-size: cover;
                 display: flex;
@@ -252,6 +258,21 @@
                     }
                 }
             }
+            &badge{
+                background-color: var(--white);
+                color: var(--app-indigo-1);
+                font-size: var(--text-xs);
+                font-weight:var(--font-medium) !important;
+                border-radius:10px;
+                padding: var(--size-2) var(--size-3);
+                margin:0 0 var(--size-3) var(--size-2);
+                text-transform: capitalize;
+            }
         }
     }
+}
+
+label.error{
+    color:#e94f4f;
+    margin-left:65px;
 }

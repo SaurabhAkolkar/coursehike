@@ -1,7 +1,7 @@
 #{$ap}- {
     &btn {
         font-weight: var(--font-bold);
-        font-size: var(--text-sm);
+        font-size: var(--text-xs);
         text-transform: uppercase;
         letter-spacing: 3.2px;
         color: #222222;
@@ -10,7 +10,11 @@
         border-radius: var(--size-2);
         background: none;
 
-        &.active {
+        @include respond-above(md) {
+            font-size: var(--text-sm);
+        }
+
+        &.active, &:focus {
             background-color: var(--green) !important;
             border-color: var(--green) !important;
         }
@@ -84,6 +88,11 @@
             &arrow {
                 position: relative;
                 display: inline-block;
+                font-size: var(--text-xs);
+
+                @include respond-above(md) {
+                    font-size: var(--text-sm);
+                }
 
                 &:hover {
                     & #{$ap}- {

@@ -23,7 +23,7 @@
       @endphp
 
       <div class="la-profile__main">
-        <div class="container">
+        <div class="container la-anim__wrap">
           
           <!-- Alert Message  -->
           <div id="wishlist_alert_div"></div>
@@ -37,9 +37,9 @@
               </div>
           @endif
             
-          <div class="la-profile__main-inner">
+          <div class="la-profile__main-inner la-anim__stagger-item">
             <div class="la-profile__title-wrap">
-              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-6" href="#"></a>
+              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-6" href="{{URL::previous()}}"></a>
               <h1 class="la-profile__title">Wishlist</h1>
               
               <!-- Mobile Version Add Courses Btn -->

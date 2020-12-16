@@ -1,4 +1,4 @@
-<div class="col-12 col-md-6">
+<div class="col-12 col-md-6 la-anim__stagger-item la-anim__B">
     <div class="la-mccourse">
         <div class="la-mccourse__imgwrap">
             <img class="img-fluid" src= {{ $img }} alt= {{ $title }} />

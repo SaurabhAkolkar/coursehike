@@ -85,7 +85,7 @@ class CourseClass extends Model
         $payload = array(
             // "iss" => "example.org",
             // "aud" => "example.com",
-            'exp' => time() + 3600,
+            'exp' => time() + (60 * 60 * 1),
             'kid' => env('CLOUDFLARE_Signing_KEY'),
             'sub' => $this->stream_url,
         );

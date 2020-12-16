@@ -30,13 +30,15 @@
         './my-interests', //Interests Page 
         './entry', // Login, register, interest, creator-signup
         './artist', // Artist
-        './home/__home'; // Trail
+        './home/__home', // Trail
+        './status', // Subscription Status
+        './anim'; // Animation
 
 #{$ap}- {
 
     // Section: Start
     &section {
-        padding: var(--size-16) 0;
+        padding: calc(var(--size-16) + 40px) 0;
 
         @media(max-width:767px){
             padding: var(--size-8) 0;
@@ -48,11 +50,27 @@
                         font-family: var(--head-font);
                         font-weight: var(--font-black);
                         text-transform: uppercase;
-                        font-size: var(--text-abnormal);
+                        font-size: var(--text-8xl);
                         color: var(--gray2);
+
+                        @include respond-above(md) {
+                            font-size: var(--text-abnormal);
+                        }
                     }
                 }
 
+            }
+
+            &crossline {
+                width: 791px;
+                height: 701px;
+                border-left: 0.5px solid #FFC516;
+                opacity: 0.5;
+                transform: rotate(-55deg) translate(119px, 10px);
+                top: 0px;
+                left: 0;
+                z-index: -1;
+                position: absolute;
             }
 
             &subtitle {
@@ -70,13 +88,20 @@
             }
 
             &circle {
-                width: 797px;
-                height: 797px;
+                width: 497px;
+                height: 497px;
                 border: 1px solid var(--app-indigo-1);
                 position: absolute;
                 border-radius: 100%;
                 top: -40%;
                 left: -24%;
+                opacity: 0;
+                transform: scale(0.4);
+
+                @include respond-above(md) {
+                    width: 797px;
+                    height: 797px;
+                }
 
                 // bottom: -34%;
                 // left: -24%;
@@ -231,6 +256,12 @@
                 }
             }
 
+            &img {
+                @include respond-above(md) {
+                    height: 570px;
+                }
+            }
+
             &bottom {
                 &- {
                     &trial, &browse {
@@ -247,16 +278,16 @@
 
             &img {
                 &:before {
-                    content: "";
-                    width: 791px;
-                    height: 701px;
-                    border-left: 0.5px solid #FFC516;
-                    opacity: 0.5;
-                    transform: rotate(-55deg) translate(119px, 10px);
-                    top: 0px;
-                    left: 0;
-                    z-index: -1;
-                    position: absolute;
+                    // content: "";
+                    // width: 791px;
+                    // height: 701px;
+                    // border-left: 0.5px solid #FFC516;
+                    // opacity: 0.5;
+                    // transform: rotate(-55deg) translate(119px, 590px);
+                    // top: 0px;
+                    // left: 0;
+                    // z-index: -1;
+                    // position: absolute;
                 }
             }
 

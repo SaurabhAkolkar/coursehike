@@ -31,12 +31,12 @@
             }
             &title {
                 top: 15%;
-                left: 22%;
+                left: 26%;
                 
                 &-- {
                     &purple {
                         color: #5800a2 !important;
-                        opacity: 0.5;
+                        opacity: 0.5 !important;
                     }
                     &black {
                         color: var(--gray5) !important;

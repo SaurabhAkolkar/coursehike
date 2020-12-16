@@ -17,13 +17,9 @@
               <div class="row">
                   <div class="col-12">
                     <h2 class="page-header">
-                      @if($gsetting->logo_type == 'L')
                         <div class="logo-invoice">
-                          <img src="{{ asset('images/logo/'.$gsetting->logo) }}">
+                          <img src="{{ asset('images/logo/logo.png') }}">
                         </div>
-                      @else()
-                          <a href="{{ url('/') }}"><b><div class="logotext" >{{ $gsetting->project_title }}</div></b></a>
-                      @endif
                       <small>{{ __('adminstaticword.Date') }}:&nbsp;{{ date('jS F Y', strtotime($payout['created_at'])) }}</small>
                     </h2>
                   </div>

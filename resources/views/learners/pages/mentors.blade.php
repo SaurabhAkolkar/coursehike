@@ -3,12 +3,12 @@
 @section('content')
 <section class="la-section la-cbg--main">
     <div class="la-section__inner">
-      <div class="container">
-        <div class="mx-3 ">
-          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="#"></a>
-          <h1 class="la-page__title mb-8">Alien Mentors</h1>
+      <div class="container ">
+        <div class="mx-3 la-anim__wrap">
+          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
+          <h1 class="la-page__title mb-8 la-anim__stagger-item">Alien Mentors</h1>
           <!-- Global Search: Start-->
-          <div class="la-gsearch">
+          <div class="la-gsearch la-anim__stagger-item">
             <form class="form-inline" action="/search-mentor" method="post">
               @csrf
               <div class="form-group">
@@ -34,8 +34,8 @@
           //$mentors = array($mentor1, $mentor2, $mentor3, $mentor4, $mentor5, $mentor6, $mentor7, $mentor8, $mentor9);
         @endphp
 
-        <div class="la-mentors">
-          <div class="row no-gutters">
+        <div class="la-mentors la-anim__wrap">
+          <div class="row no-gutters ">
               @foreach($mentors as $mentor)
                   @php 
                         if($mentor->user_img == ""){

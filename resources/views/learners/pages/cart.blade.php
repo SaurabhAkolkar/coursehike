@@ -11,7 +11,7 @@
   
       
       <div class="la-profile__main">
-        <div class="container">
+        <div class="container ">
           <div class="la-profile__main-inner">
               @if(session('message'))
               <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible" role="alert">
@@ -22,7 +22,7 @@
               </div>
             @endif
             <div class="la-profile__title-wrap">
-              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="#"></a>
+              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
               <h1 class="la-profile__title">Cart</h1>
             </div>
 
@@ -61,8 +61,8 @@
                             />
                         @endforeach
                       @else
-                          <div class="d-flex justify-content-center align-items-center">
-                              <h2 class="text-center my-20 py-10" style="color: var(--gray8);">Cart is empty</h2>
+                          <div class="d-flex justify-content-center align-items-center la-anim__wrap ">
+                              <h2 class="text-center my-20 py-10 la-anim__stagger-item" style="color: var(--gray8);">Cart is empty</h2>
                           </div>
                       @endif
                     </div>
@@ -84,7 +84,7 @@
 
                         $checkouts = array($checkout);
                     @endphp
-                    <div class="col-lg-4 col-xl-3 mb-5 mb-md-0">
+                    <div class="col-lg-4 col-xl-3 mb-5 mb-md-0 la-anim__wrap">
                         <x-cart-total 
                           :totalAmount="$total"
                           :offerAmount="$discount"
@@ -100,14 +100,14 @@
                 </div>
               </div>
             </section>
-            <section class="la-section la-cart__product pt-0">
-              <div class="la-cart__product-title la-cart__product-title--light">
+            <section class="la-section la-cart__product pt-0 la-anim__wrap">
+              <div class="la-cart__product-title la-cart__product-title--light la-anim__stagger-item">
                 <h2>You might also like</h2>
               </div>
 
               <div class="row">
                 <div class="col-md-6 col-lg-3">
-                  <div class="la-course">
+                  <div class="la-course la-anim__stagger-item--x">
                     <div class="la-course__inner">
                       <div class="la-course__overlay" href="">
                         <ul class="la-course__options list-unstyled text-white">
@@ -136,7 +136,7 @@
                 </div>
 
                 <div class="col-md-6 col-lg-3">
-                  <div class="la-course">
+                  <div class="la-course la-anim__stagger-item--x">
                     <div class="la-course__inner">
                       <div class="la-course__overlay" href="">
                         <ul class="la-course__options list-unstyled text-white">
@@ -163,7 +163,7 @@
                 </div>
 
                 <div class="col-md-6 col-lg-3">
-                  <div class="la-course">
+                  <div class="la-course la-anim__stagger-item--x">
                     <div class="la-course__inner">
                       <div class="la-course__overlay" href="">
                         <ul class="la-course__options list-unstyled text-white">
@@ -189,7 +189,7 @@
                   </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3 la-anim__stagger-item--x">
                     <div class="la-cart__product-btm la-btn__plain text--burple text-md h-75 d-flex align-items-center justify-content-center justify-content-md-start">
                       <a class="text-uppercase la-cart__product-explore" href="/courses">explore more</a>
                         <span class="la-cart__product-icon la-icon la-icon--5xl icon-grey-arrow"></span>
@@ -202,4 +202,35 @@
       </div>
     </div>
   </div>
+@endsection
+
+@section('footerScripts')
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+  // Create a Stripe client.
+  var stripe = Stripe('{{ env("STRIPE_KEY") }}');
+
+  var checkoutButton = document.getElementById('checkout-button');
+  checkoutButton.addEventListener("click", function () {
+
+    $.ajax({
+      headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      type:"POST",
+      url: "/stripe-checkout",
+      // data: {playlist_name: playlistName, ajax_request: true},
+      success:function(session){   
+        console.log(session);
+        stripe.redirectToCheckout({ sessionId: session.id });
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        console.log(XMLHttpRequest);
+      }
+    });
+ 
+  });
+</script>
+
 @endsection

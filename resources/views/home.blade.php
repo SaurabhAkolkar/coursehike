@@ -33,7 +33,6 @@
                             <div class="home-heading text-white">{{ $slider['heading'] }}</div>
                             <p class="text-white btm-10">{{ $slider['sub_heading'] }}</p>
                             <p class="text-white btm-20">{{ $slider['detail'] }}</div>
-                            
                         </div>
                     </div>
                 </div>

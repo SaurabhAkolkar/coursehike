@@ -6,25 +6,25 @@
   <p class="alert alert-danger">{{ Session::get('errors') }}</p>
 @endif
 
-<section class="la-section">
+<section class="la-section la-section__payments-bg">
     <div class="la-section__inner">
       <div class="la-section__card-payments">
         <div class="container px-lg-14">
-          <div class="row">
+          <div class="row la-anim__wrap">
             <div class="col-lg-6">
-              <h1 class="la-payment__title text-4xl head-font">Payment Details</h1>
+              <h1 class="la-payment__title text-2xl text-md-4xl head-font la-anim__stagger-item">Payment Details</h1>
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-5">
+            <div class="col-lg-5 la-anim__wrap">
               <div class="la-payment__subscription d-flex justify-content-between">
                 <div class="la-payment__plan">
-                  <div class="text-sm la-payment__plan-selected">Plan Selected</div>
-                  <div class="text-sm la-payment__plan-amount mt-2">Amount </div>
+                  <div class="text-sm la-payment__plan-selected la-anim__stagger-item--x">Plan Selected</div>
+                  <div class="text-sm la-payment__plan-amount mt-2 la-anim__stagger-item--x">Amount </div>
                 </div>
                 <div class="la-payment__amount">
-                  <div class="text-md la-payment__type">{{$plan->name}} Subscription</div>
-                  <div class="text-md la-payment__amount mt-2">${{$plan->price}} </div>
+                  <div class="text-md la-payment__type la-anim__stagger-item--x">{{$plan->name}} Subscription</div>
+                  <div class="text-md la-payment__amount mt-2 la-anim__stagger-item--x">${{$plan->price}} </div>
                 </div>
               </div>
             </div>
@@ -34,10 +34,10 @@
             @csrf
             <input type="hidden" name="subscription_plan" value="{{$plan->slug}}">
             <!-- BILLING ADDRESS DETAILS: START -->
-            <div class="row">
+            <div class="row la-anim__wrap">
               <div class="col-lg-6">
                 <div class="la-payment__details">
-                  <div class="la-payment__details-title text-2xl">Billing Address</div>
+                  <div class="la-payment__details-title text-2xl la-anim__stagger-item--x">Billing Address</div>
                   <div class="la-payment__form">
                       <div class="form-row la-payment__form-row">                        
                           @php
@@ -47,13 +47,7 @@
                               $address1->inputValue = "H.No:7/52,BDD,Worli,Mumbai";
                               $address1->inputName = "street_name";
                               $address1->inputId = "bill-address";
-
-                              // $address2 = new stdClass;
-                              // $address2->inputLabel = "Country";
-                              // $address2->inputType = "text";
-                              // $address2->inputValue = "India";
-                              // $address2->inputName = "country";
-                              // $address2->inputId = "bill-country";
+                              $address1->value = "bill-address";
 
                               $address3 = new stdClass;
                               $address3->inputLabel = "State";
@@ -102,11 +96,11 @@
                           @endforeach
 
                           <div class="col-12 col-md-12">
-                              <div class="la-payment__card">
+                              <div class="la-payment__card la-anim__stagger-item--x">
                                   <label class="la-payment__card-label text-sm">Country</label>
                                   <select name="country" class="col-sm-9 form-control select2">
                                       @foreach ($countries as $country)
-                                      <option value="{{ $country->iso }}">
+                                      <option value="{{ $country->iso }}" {{ (old("country") == $country->iso ? "selected":"") }}>
                                           {{ $country->nicename }}</option>
                                       @endforeach
                                   </select>
@@ -121,21 +115,21 @@
             <!-- BILLING ADDRESS DETAILS: END -->
             
             <!-- CARD PAYMENT DETAILS: START -->
-            <div class="row">
+            <div class="row la-anim__wrap">
               <div class="col-lg-6">
                 <div class="la-payment__details">
-                  <div class="la-payment__details-title text-2xl">Card Details</div>
+                  <div class="la-payment__details-title text-2xl la-anim__stagger-item--x">Card Details</div>
                   <div class="la-payment__form">
                     <div class="form-row la-payment__form-row">
                           <div class="col-12 col-md-6">
-                            <div class="la-payment__card">
+                            <div class="la-payment__card la-anim__stagger-item--x">
                               <label class="la-payment__card-label text-sm">Card Number</label>
                               <div id="card-number"></div>
                             </div>
                           </div>
 
                           <div class="col-12 col-md-6">
-                            <div class="la-payment__card">
+                            <div class="la-payment__card la-anim__stagger-item--x">
                               <label class="la-payment__card-label text-sm">Expiry Date</label>
                               <div id="card-expiry"></div>
                             </div>
@@ -144,7 +138,7 @@
 
                     <div class="form-row la-payment__form-row">
                           <div class="col-12 col-md-6">
-                            <div class="la-payment__card">
+                            <div class="la-payment__card la-anim__stagger-item--x">
                                 <label class="la-payment__card-label text-sm">Card Holder's Name</label>
                                     <input class="form-control la-payment__card-input" 
                                         type="text"
@@ -155,7 +149,7 @@
                           </div>
 
                           <div class="col-12 col-md-6">
-                            <div class="la-payment__card">
+                            <div class="la-payment__card la-anim__stagger-item--x">
                               <label class="la-payment__card-label text-sm">CVV/CVC</label>
                               <div id="card-cvc"></div>
                             </div>
@@ -165,13 +159,13 @@
 
                     <div class="form-row la-payment__form-row my-16">
                       <div class="col-12 col-md">
-                          <div class="la-payment__card-check d-flex align-items-start mt-lg-1">
+                          <div class="la-payment__card-check d-flex align-items-start mt-lg-1 la-anim__stagger-item--x">
                               <label class="la-payment__card-label text-xs mt-n1">
                                 This card will be used for future transaction. Charges may apply.
                               </label>
                           </div>
                       </div>
-                      <div class="col-12 col-md la-payment__pay">
+                      <div class="col-12 col-md la-payment__pay la-anim__stagger-item--x">
                         <button class="la-btn la-payment__pay-btn py-3 text-center" type="submit">Proceed to Pay</button>
                       </div>
                     </div>

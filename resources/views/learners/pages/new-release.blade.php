@@ -8,9 +8,9 @@
       <div class="container la-new__events ">
         <div class="row">
           <div class="col-12">
-            <div class="la-announcement__main-title">
-                <a class="la-new__back la-icon la-icon--5xl icon-back-arrow  mb-2" href="{{URL::previous()}}"></a>
-                <h1 class="head-font text-3xl text-md-4xl">New Releases</h1>
+            <div class="la-announcement__main-title  la-anim__wrap">
+                <a class="la-new__back la-icon la-icon--5xl icon-back-arrow mb-2 la-anim__stagger-item" href="{{URL::previous()}}"></a>
+                <h1 class="head-font text-3xl text-md-4xl la-anim__fade-in-top">New Releases</h1>
             </div>
           </div>
 

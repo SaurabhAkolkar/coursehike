@@ -11,18 +11,24 @@
 
         }
     @endphp
-    <div class="la-cart__items">
-        <h2 class="la-cart__title text-2xl d-block d-md-none pt-14 pb-3">Courses in the Cart</h2>
+    <div class="la-cart__items ">
+        <div class="la-anim__wrap">
+            <h2 class="la-cart__title text-2xl d-block d-md-none pt-14 pb-3 la-anim__stagger-item">
+                Courses in the Cart
+            </h2>
+        </div>
         <div class="la-cart__items mb-8">
             <div class="la-cart__item row">
                 <div class="la-cart__item-course col-7 col-md-7 pr-0">
-                    <div class="la-cart__item-label mb-4">Course</div>
-                    <div class="la-cart__item-content d-md-flex">
+                    <div class="la-anim__wrap">
+                        <div class="la-cart__item-label mb-4 la-anim__stagger-item">Course</div>
+                    </div>
+                    <div class="la-cart__item-content d-md-flex la-anim__wrap">
                         <div class="la-cart__item-left mr-4">
-                            <div class="la-cart__item-img">
+                            <div class="la-cart__item-img la-anim__stagger-item">
                                 <img src= {{ $courseImg }} alt= {{ $course }} />
                             </div>
-                            <div class="la-cart__item-cartclasses py-2">
+                            <div class="la-cart__item-cartclasses py-2 la-anim__stagger-item ">
                                 <div class="la-cart__item-carttoggler collapsed position-relative mx-2" data-toggle="collapse"  href="#cart_class_{{ $collapseId }}" aria-expanded="false">
                                     Classes in the Cart
                                 </div>
@@ -36,18 +42,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="la-cart__item-right">
-                            <div class="la-cart__item-name ">{{ $course }}</div>
-                            <div class="la-cart__item-author mb-2">by <span>{{ $creator}}</span></div>
+                        <div class="la-cart__item-right ">
+                            <div class="la-cart__item-name la-anim__stagger-item">{{ $course }}</div>
+                            <div class="la-cart__item-author mb-2 la-anim__stagger-item">by <span>{{ $creator}}</span></div>
                             <div class="la-cart__item-actions d-flex">
-                                <div class="la-cart__item-action remove "> 
+                                <div class="la-cart__item-action remove la-anim__stagger-item"> 
                                     <a href= {{ $removeUrl }}>{{ $remove }}</a>
                                 </div>
-                                <div class="la-cart__item-action wishlist">
+                                <div class="la-cart__item-action wishlist la-anim__stagger-item">
                                     <a href={{ $wishlistUrl }}>{{ $wishlist }}</a>
                                 </div>
-                                <div class="la-cart__item-action edit">
-                                    <a data-toggle="modal" data-target="#edit_cart"> {{ $edit }}</a>
+                                <div class="la-cart__item-action edit ">
+                                    <a class="la-anim__stagger-item" data-toggle="modal" data-target="#edit_cart"> {{ $edit }}</a>
                                 
                                     <!-- Edit Selection Popup: Start -->
                                     <div class="modal fade la-cart__edit-modal" id="edit_cart">
@@ -146,20 +152,20 @@
                 </div>
                 
 
-                <div class="col-5 col-md-5 pl-0 la-cart__item-info d-flex align-items-start">
-                    <div class="la-cart__item-classes ">
-                        <div class="la-cart__item-label mb-4">Classes</div>
-                        <div class="la-cart__item-content"><span>@if($classType == 0) All Classes @else {{count($classes->whereIn('id',$classes_id))}} @endif</span></div>
+                <div class="col-5 col-md-5 pl-0 la-cart__item-info d-flex align-items-start la-anim__wrap">
+                    <div class="la-cart__item-classes  ">
+                        <div class="la-cart__item-label mb-4 la-anim__stagger-item">Classes</div>
+                        <div class="la-cart__item-content la-anim__stagger-item"><span>@if($classType == 0) All Classes @else {{count($classes->whereIn('id',$classes_id))}} @endif</span></div>
                     </div>
 
-                    <div class="la-cart__item-price ml-8 ml-md-20">
-                        <div class="la-cart__item-label mb-4">Price</div>
+                    <div class="la-cart__item-price ml-8 ml-md-20  ">
+                        <div class="la-cart__item-label mb-4 la-anim__stagger-item">Price</div>
                         <div class="la-cart__item-content">
                             <div class="la-soffer ml-0">
-                                <div class="la-soffer__bestprice"> 
+                                <div class="la-soffer__bestprice la-anim__stagger-item"> 
                                     <sup><small>$</small></sup><span>{{ $bestPrice}}</span>
                                 </div>
-                                <div class="la-soffer__realprice"> 
+                                <div class="la-soffer__realprice la-anim__stagger-item"> 
                                     <sup><small>$</small></sup><span>{{ $realPrice }}</span>
                                 </div>
                             </div>

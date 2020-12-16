@@ -1,4 +1,4 @@
-@extends('learners.layouts.intro')
+@extends('learners.layouts.app')
 @section('title', 'Forgot Password')
 {{-- @include('theme.head') --}}
 
@@ -38,42 +38,43 @@
 <!-- top-nav bar end-->
 
 @section('content')
-<section id="signup" class="signup-block-main-block pt-md-20 mt-md-20">
+<section id="signup" class="signup-block-main-block py-14 py-md-20" style="background:var(--gray)">
     <div class="container">
         <div class="row justify-content-center align-items-center">
             <div class="col-md-8 ">
-                <div class="card">
-                    <div class="card-header">{{ __('frontstaticword.ResetPassword') }}</div>
+                <div class="la-reset__password text-center">
+                    <h1 class="la-reset__password-title text-5xl">{{ __('frontstaticword.ResetPassword') }}</h1>
+                    <p class="la-reset__password-tag text-md" style="color: var(--gray6)">Provide email id to receive password reset link</p>
 
-                    <div class="card-body">
+                    <div class="la-reset__password-info">
                         @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
+                            <div class="la-btn__alert-success alert alert-success" role="alert">
+                                <h6 class="la-btn__alert-msg">{{ session('status') }}</h6>
                             </div>
                         @endif
 
                         <form method="POST" action="{{ route('password.email') }}">
                             @csrf
 
-                            <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('frontstaticword.E-MailAddress') }}</label>
+                            <div class="form-group py-8 py-md-12">
+                                <div class="col-md-3 offset-md-2 text-left">
+                                    <label for="email" class="la-form__lable" style="color: var(--gray6)">Email ID</label><br/>
+                                </div>
 
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                <div class="col-md-8 offset-md-2 text-center">
+                                    <input id="email" type="email" class="la-form__input {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Enter your Email ID" required>
 
                                     @if ($errors->has('email'))
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback" role="alert" >
                                             <strong>{{ $errors->first('email') }}</strong>
                                         </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('frontstaticword.SendPasswordResetLink') }}
-                                    </button>
+                            <div class="form-group row">
+                                <div class="col-md-8 offset-md-2">
+                                    <button type="submit" class="la-btn__app w-50">Send Link</button>
                                 </div>
                             </div>
                         </form>

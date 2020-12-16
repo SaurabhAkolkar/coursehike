@@ -121,121 +121,136 @@ $(function(){
   })
 
 
+
+  ////// Scroll animation ////////
+
+
+  gsap.utils.toArray('.la-anim__wrap').forEach(function(elem) {
+
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: elem,
+        start: 'top bottom'
+      }
+    });
+
+    var item_stagger = elem.querySelectorAll(".la-anim__stagger-item");
+    var item_stagger_x = elem.querySelectorAll(".la-anim__stagger-item--x");
+    var item_textMove = elem.querySelectorAll(".la-anim__text-move");
+    var item_textMoveImg = elem.querySelector(".la-anim__text-move + img");
+    var item_fadeIn = elem.querySelectorAll(".la-anim__fade-in");
+    var item_fadeInLeft = elem.querySelectorAll(".la-anim__fade-in-left");
+    var item_fadeInRight = elem.querySelectorAll(".la-anim__fade-in-right");
+    var item_fadeInTop = elem.querySelectorAll(".la-anim__fade-in-top");
+    var item_fadeInBottom = elem.querySelectorAll(".la-anim__fade-in-bottom");
+
+    // Global
+    tl.to(item_stagger, {opacity: 1, y:0, stagger: 0.2})
+    tl.to(item_textMove, {opacity: 1, y: 0}, "-=0.6")
+    tl.to(item_fadeIn, {duration: 0.4, opacity: 1, ease: "Expo.ease"})
+    tl.to(item_stagger_x, {opacity: 1, x:0, stagger: 0.1}, "0")
+
+    tl.to(item_fadeInTop, {duration: 0.4, opacity: 1, y: 0, ease: "Expo.ease"}, "0")
+    tl.to(item_fadeInBottom, {duration: 0.4, opacity: 1, y: 0, ease: "Expo.ease"}, "0")
+    tl.to(item_fadeInLeft, {duration: 0.4, opacity: 1, x: 0, ease: "Expo.ease"}, "0")
+    tl.to(item_fadeInRight, {duration: 0.4, opacity: 1, x: 0, ease: "Expo.ease"}, "0")
+
+  });
+
+
+  gsap.utils.toArray('.la-anim__wrap').forEach(function(elem) {
+
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: elem,
+        scrub: true
+      }
+    });
+
+    var item_circle = elem.querySelector(".la-section__circle");
+    var item_TextMove = elem.querySelectorAll(".la-anim__text-move");
+
+    tl.to(item_circle, {
+      scrollTrigger: {
+        start: 'top bottom'
+      }, duration: 0.4, opacity: 1, scale: 1}, "0")
+
+    tl.to(item_TextMove, {
+      scrollTrigger: {
+        start: "top bottom"
+      }, x: 100, ease: "Expo.ease"}, "0");
+
+  });
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to(".la-anim__pin", {
+    scrollTrigger: {
+      trigger: ".la-anim__pin",
+      scrub: true,
+      pin: true,
+      pinSpacing: false,
+      start: "top 15%",
+      end: "+=1130px",
+    }, opacity: 0.2
+  });
+
+
+  // For Home Page
+  gsap.utils.toArray('.la-anim__slide').forEach(function(elem) {
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: elem,
+        start: "top 40%",
+        toggleActions: "restart none none reset"
+      }
+    });
+
+    var item_priceSlide = elem.querySelectorAll(".la-anim__slide-box");
+
+    tl.to(item_priceSlide, {opacity: 1, y: -40, duration: 0.4, ease: "Expo.ease"})
+
+  });
+
+  //For Header scroll to hide and show
+  var actionNav = gsap.to('.la-header', {y:'-=80', duration:0.5, ease:'power2.in', paused:true});
+
+  ScrollTrigger.create({
+    trigger: ".la-header",
+    start: "10px top",
+    end: 99999,
+    // onEnter: () => {},
+    onUpdate: ({progress, direction, isActive}) => {
+      if (direction == -1) {
+        actionNav.reverse()
+      } if (direction == 1 ) {
+        actionNav.play()
+      } else if (direction == 1 && isActive == true) {
+        actionNav.play()
+      }
+    }
+  });
+
+  gsap.to('.la-header', {
+    scrollTrigger: {
+      trigger: ".la-header",
+      start: "80px top",
+      toggleActions: "restart none reset none"
+    }, boxShadow:"rgba(202, 202, 202, 0.10) 0px 0px 10px 10px"
+  })
+
+
 }); 
 
 // Popover Js for Dashboard Page: Start
 $('[data-toggle="popover"]').popover();
 // Popover Js for Dashboard Page: End
 
- 
-
-
-// Video Course JS
 $.ajaxSetup({
   headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
   }
 });
-
-$('.la-vcourse__lesson').on('click', function() {
-
-  var video_id = $(this).attr('data-video-id');
-
-  $.ajax({
-    type: 'POST',
-    url: "/learn/course/" + video_id,
-    data:{video_id:video_id},
-    success: function(response){
-      let data = response.data;
-
-      $('.la-vlesson__title').text(data.title);
-      
-      var lilaPlayer = videojs('lila-video');
-      lilaPlayer.src([
-        {
-           src: data.url,
-           type: 'application/x-mpegURL',
-           label: 'Auto',
-           selected: true,
-        },
-        {
-           src: data.url+'?clientBandwidthHint=5',
-           type: 'application/x-mpegURL',
-           label: '1080P',
-        },
-        {
-          src: data.url+'?clientBandwidthHint=35',
-          type: 'application/x-mpegURL',
-          label: '720P',
-       },
-        {
-           src: data.url+'?clientBandwidthHint=1.8',
-           type: 'application/x-mpegURL',
-           label: '480P',
-        },
-        {
-           src: data.url+'?clientBandwidthHint=0.77',
-           type: 'application/x-mpegURL',
-           label: '360P',
-        },
-        {
-           src: data.url+'?clientBandwidthHint=0.38',
-           type: 'application/x-mpegURL',
-           label: '240p',
-        },
-      ]);
-
-      lilaPlayer.poster(data.poster)
-
-      if(lilaPlayer.controlBar.getChild('QualitySelector') == undefined)
-        lilaPlayer.controlBar.addChild('QualitySelector');
-    
-      // data.audio_tracks.forEach( d => {
-      //   var track = new videojs.AudioTrack({
-      //     id: d.id,
-      //     kind: 'translation',
-      //     label: d.audio_lang,
-      //     language: 'es',
-      //     audio: d.file_url,
-      //     enabled: true
-      //   });
-      //   console.log(d.file_url);
-      //   lilaPlayer.audioTracks().addTrack(track);
-      // });
-      // console.log(lilaPlayer.audioTracks());
-      lilaPlayer.play();
-    
-      // console.log(data.url)
-
-      // window.URL = window.URL || window.webkitURL; //Used to judge that the computer system window.webkitURL and window.URL are the same, window.URL standard definition, window.webkitURL is the realization of the webkit kernel, generally used on mobile phones, and the implementation of browsers such as Firefox.
-      // var xhr = new XMLHttpRequest();  // Implement data request and communicate with http protocol
-      // xhr.open("GET", data.url, true);  //Open an address, request type address Asynchronous or synchronous 
-      // xhr.responseType = "blob";  // Set the return value to blob object
-      // xhr.onload = function (e) { //The function to be executed after the request
-      //     if (this.status == 200) { //Successful 
-      //         var blob = this.response;  // The parameter successfully requested is assigned to "blob"
-      //         console.log(blob);
-      //         var src_url = window.URL.createObjectURL(blob); //Create an object The video only needs to be obtained once, and after obtaining it once, the object needs to be released.
-              
-      //         var lilaPlayer = videojs('lila-video');
-      //         lilaPlayer.src({type: 'application/x-mpegURL', src: src_url});
-
-      //         lilaPlayer.onload = function () {//The function to execute after getting the video?
-      //             window.URL.revokeObjectURL(lilaPlayer.src); //release this object
-      //         };
-      //     }
-      // }
-      // xhr.send(); //send request
-    },
-    error: function(XMLHttpRequest, textStatus, errorThrown) { 
-        alert("You need to Login/Subscribe");
-    }  
-  });
-
-});
-
-
-
 
 // Add to Playlist JS
 

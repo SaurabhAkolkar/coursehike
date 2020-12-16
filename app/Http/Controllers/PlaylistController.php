@@ -105,7 +105,7 @@ class PlaylistController extends Controller
 
                 $playlist->name = $request->edit_playlist_name;
                 $playlist->save();
-                return redirect()->back()->with('success','Playlist update successfully.');
+                return redirect()->back()->with('success','Playlist updated Successfully.');
             }
             return redirect()->back()->with('success','something went wrong');
     }

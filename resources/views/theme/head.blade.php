@@ -1,6 +1,6 @@
 <head>
 <meta charset="utf-8" />
-<title>@yield('title') | {{ $project_title }}</title>
+<title>@yield('title') | LILA</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="{{ $gsetting->meta_data_desc }}" />
 <meta name="keywords" content="{{ $gsetting->meta_data_keyword }}">

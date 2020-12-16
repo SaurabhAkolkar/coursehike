@@ -17,14 +17,14 @@
         <!-- Wishlist Alert Message-->
         <div id="wishlist_alert_div"></div> 
 
-        <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="#"></a>
-        <div class="d-flex justify-content-between">  
-          <h1 class="la-page__title mb-8">Browse Courses</h1><a class="la-icon--3xl icon-filter d-block d-lg-none" id="filterCourses" role="button"></a>
+        <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
+        <div class="d-flex justify-content-between la-anim__wrap">  
+          <h1 class="la-page__title mb-8 la-anim__stagger-item">Browse Courses</h1><a class="la-icon--3xl icon-filter d-block d-lg-none" id="filterCourses" role="button"></a>
         </div>
         
         <!-- Global Search: Start-->
-        <div class="la-gsearch">
-          <form class="form-inline"  action="{{ url('/search-course/') }}">
+        <div class="la-gsearch la-anim__wrap">
+          <form class="form-inline la-anim__stagger-item"  action="{{ url('/search-course/') }}">
             <div class="form-group ">
               <input class="la-gsearch__input form-control" style="width:270px; background:transparent" name="course_name" type="text" placeholder="What you want to learn today?">
             </div>
@@ -35,14 +35,14 @@
 
         
 
-        <div class="la-courses mt-6 mt-md-14">
+        <div class="la-courses mt-6 mt-md-14 la-anim__wrap">
           <nav class="la-courses__nav d-flex justify-content-between">
-            <ul class="nav nav-pills la-courses__nav-tabs" id="nav-tab" role="tablist">
+            <ul class="nav nav-pills la-courses__nav-tabs " id="nav-tab" role="tablist">
               {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"> <span class="position-relative">Tattoo</span></a></li>
               <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
               <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
               @foreach ($categories as $category)
-                <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative">{{ $category->title}}</span></a></li>
+                <li class="nav-item la-courses__nav-item la-anim__stagger-item--x"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative">{{ $category->title}}</span></a></li>
               @endforeach
             </ul><a class="la-icon--3xl icon-filter d-none d-lg-block" id="filterCourses" role="button"></a>
           </nav>
@@ -68,11 +68,11 @@
                   
 
           <!-- Tattoo Art Tab: Start -->
-          <div class="tab-content la-courses__content" id="nav-tabContent">
+          <div class="tab-content la-courses__content la-anim__wrap" id="nav-tabContent">
 
             @foreach ($categories as $category)
               <div class="tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
-                <div class="row row-cols-lg-3">
+                <div class="row row-cols-lg-3 la-anim__stagger-item">
                       @foreach($category->courses as $course)
                         @if ($course->featured == 0)
                             @continue

@@ -1,16 +1,16 @@
-<div class="row">
+<div class="row ">
     <div class="col p-0 p-md-0">
-        <div class="la-vcreator__profile">
+        <div class="la-vcreator__profile la-anim__stagger-item">
             <img class="img-fluid d-block" src= "{{ $img }}" alt= "{{ $name }}" />
             <div class="la-vcreator__overlay">
-              <div class="la-vcreator__name"> {{ $name }} </div>
+              <div class="la-vcreator__name la-anim__stagger-item--x"> {{ $name }} </div>
             </div>
         </div>
     </div>
 </div>
 
 <div class="row my-md-14">
-    <div class="col-md-6 p-4 p-md-0">
+    <div class="col-md-6 p-4 p-md-0 la-anim__stagger-item">
         <div class="la-vcreator__desc">
             <p class="la-vcreator__text"> {!! $desc !!} </p>
         </div>
@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="col-md-2 p-md-0"></div>
-    <div class="col-md-4 p-4 p-md-0">
+    <div class="col-md-4 p-4 p-md-0 la-anim__stagger-item">
       <div class="la-vcreator__profession">
         <h4 class="text-uppercase la-vcreator__skill"> {{ $skill }} </h4>
         <div class="la-vcreator__location"> {{ $location }} </div>

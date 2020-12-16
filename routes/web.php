@@ -5,6 +5,8 @@ use App\FaqInstructor;
 use App\User;
 use App\Setting;
 use App\CourseClass;
+use Barryvdh\DomPDF\Facade as PDF;
+
 // dd(Auth::user());
 /*
 |--------------------------------------------------------------------------
@@ -248,9 +250,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
     });
 
-    Route::middleware(['web', 'is_active', 'auth', 'admin_instructor', 'switch_languages'])->group(function () {
-
-      
+    Route::middleware(['web', 'is_active', 'auth', 'admin_instructor', 'switch_languages'])->group(function () {      
 
       if(\DB::connection()->getDatabaseName()){
           if(env('IS_INSTALLED') == 1){
@@ -456,9 +456,9 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::get('language-switch/{local}', 'LanguageSwitchController@languageSwitch')->name('languageSwitch');
 
-    Route::get("country/dropdown","CountryController@upload_info");
-    Route::get("country/gcity","CountryController@gcity");
-    Route::get("country/gstate","CountryController@gstate");
+      Route::get("country/dropdown","CountryController@upload_info");
+      Route::get("country/gcity","CountryController@gcity");
+      Route::get("country/gstate","CountryController@gstate");
 
 
       Route::get("country/dropdown","CountryController@upload_info");
@@ -577,13 +577,16 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::post('course/appointment/{id}', 'AppointmentController@request')->name('appointment.request');
       Route::post('appointment/delete/{id}', 'AppointmentController@delete');
-
       
+      Route::get('/my-courses','SearchController@myCourses');      
 
     });
 
     Route::get('/learn/course/{id}/{slug}', 'LearnController@show')->name('learn.show');
     Route::post('/learn/course/{video_id}','LearnController@video')->name('learn.video');
+    Route::post('/subscribed-courses/{course_id}/{class_id}/progress-logs', 'CourseProgressController@progress_log');
+    Route::get('/watch_time', 'InstructorController@totalWatchTime');
+    Route::get('/payoutCalculate', 'InstructorController@payoutCalculate');
     Route::get('/browse/courses','SearchController@index');
     Route::get('/add-to-cart','CartController@addtocartAjax');
     Route::post('/add-to-cart','CartController@addToCart');
@@ -592,13 +595,18 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
     Route::get('/apply-coupon/{id}','CartController@applyCoupon');
     Route::post('/apply-coupon','CartController@applyCouponManual');
     Route::get('/move-to-wishlist/{id}','CartController@moveToWishlist');
-    Route::post('/checkout','CartController@cartCheckout');
 
-  
+    // Route::post('/checkout','CartController@cartCheckout');
+    Route::post('/stripe-checkout','CartController@cartCheckout');
+
+    //- Checkout Status for Learners
+    Route::get('/checkout-successful/{id}', 'CartController@stripeCheckout');
+    Route::get('/checkout-failure/{id}', 'CartController@checkoutFailed');
 
     Route::get('/jwt', 'CourseclassController@token_generate');
 
-    Route::get('/my-courses','SearchController@myCourses');
+    Route::stripeWebhooks('/hooks');
+    
 
 });
 
@@ -645,6 +653,8 @@ Route::middleware(['auth'])->group(function () {
   
   Route::get('/download-invoice/{id}','PurchaseHistoryController@downloadPdf');
 
+  Route::get('/subscription/{slug}', 'SubscriptionController@plans');
+  Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
 
 });
 
@@ -669,10 +679,6 @@ Route::get('view/assignment/{id}', 'AssignmentController@assignment')->name('lis
 
 
 // Harish Route's
-
-// Route::view('/subscription/plans','subscription.pay');
-Route::get('/subscription/{slug}', 'SubscriptionController@plans');
-Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
 
 Route::get("zoho/module","ZohoController@createRecords");
 
@@ -704,8 +710,8 @@ Route::view('/creator','learners.pages.creator');
 
 
 Route::view('/payment-successful','learners.pages.payment-successful');
-Route::view('/saved-cards', 'learners.pages.saved-cards');
-Route::view('billing-address', 'learners.pages.billing-address');
+Route::view('/billing', 'learners.pages.billing');
+// Route::view('billing-address', 'learners.pages.billing-address');
 
 // Route::view('/releases','learners.pages.new-releases');
 Route::view('/learning-plans','learners.pages.learning-plans');
@@ -714,5 +720,12 @@ Route::view('/become-creator','learners.pages.become-creator');
 Route::view('/guided-creator','learners.pages.guided-creator');
 Route::view('/contact','learners.pages.contact');
 
+//- Payment Info of Learners
+Route::view('/payment-cards', 'learners.pages.payment-cards');
+Route::view('/payment-details', 'learners.pages.payment-details');
+Route::view('/payment-history', 'learners.pages.payment-history');
 
-
+//- Subscription Status for Learners
+Route::view('/subscription-successful', 'learners.pages.subscription-successful');
+Route::view('/subscription-failure', 'learners.pages.subscription-failure');
+Route::view('/subscription-trial', 'learners.pages.subscription-trial');

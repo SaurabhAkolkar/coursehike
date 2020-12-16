@@ -53,7 +53,11 @@
     }
 }
 
+.la-section__payments-bg{
+background: var(--gray);
+}
 .la-section__card-payments{
+    
     .la-payment__title{
         font-weight:var(--font-semibold);
         color:var(--gray5);
@@ -62,8 +66,7 @@
     .la-payment__subscription{
         .la-payment__plan{
             .la-payment__plan-selected, .la-payment__plan-amount{
-                color:var(--gray5);
-                opacity:0.6;
+                color:var(--gray6);
                 font-family:var(--body-font);
                 font-weight:var(--font-normal);
             }

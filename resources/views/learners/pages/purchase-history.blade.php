@@ -8,35 +8,35 @@
       @include ('learners.pages.sidebar')
       <!-- Side Navbar: End -->
       <div class="la-profile__main">
-        <div class="container">
+        <div class="container la-anim__wrap">
           <div class="la-profile__main-inner">
             <!-- SECTION PURCHASED: START -->
             <section class="la-purchase--history">
-                <div class="container px-0">
-                  <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="#"></a>
+                <div class="container px-0 la-anim__stagger-item">
+                  <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
                   <div class="la-purchaseh__main-title text-3xl head-font pb-5 pb-lg-10">Purchase History</div>
                 </div>
                   <!-- Purchased Desktop Version: Start -->
                 <div class="container px-0 d-none d-lg-block"> 
-                      <div class="la-purchaseh__item row">          
-                        <div class="col-lg-4">
+                      <div class="la-purchaseh__item row ">          
+                        <div class="col-lg-4 la-anim__stagger-item--x">
                           <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-2xl head-font">Purchased                            </div>
                         </div>
-                        <div class="col-lg-1"></div>
-                        <div class="col-lg-1 text-center">
+                        <div class="col-lg-1 "></div>
+                        <div class="col-lg-1 text-center la-anim__stagger-item--x">
                           <div class="la-purchaseh__item-label text-sm">On  </div>
                         </div>
                         <div class="col-lg-1"></div>
-                        <div class="col-lg-1 text-center">
+                        <div class="col-lg-1 text-center la-anim__stagger-item--x">
                           <div class="la-purchaseh__item-label text-sm">Payment Mode </div>
                         </div>
-                        <div class="col-lg-1 px-0 text-center">
+                        <div class="col-lg-1 px-0 text-center la-anim__stagger-item--x">
                           <div class="la-purchaseh__item-label text-sm">Total Price </div>
                         </div>
-                        <div class="col-lg-1 text-center">
+                        <div class="col-lg-1 text-center la-anim__stagger-item--x">
                           <div class="la-purchaseh__item-label text-sm">Payment Status </div>
                         </div>
-                        <div class="col-lg-1 p-0 text-center">
+                        <div class="col-lg-1 p-0 text-center la-anim__stagger-item--x">
                           <div class="la-purchaseh__item-label text-sm">Invoice </div>
                         </div>
                       </div>
@@ -87,12 +87,12 @@
 
                   <!-- Purchased Mobile Version: Start -->
                 <div class="container ">
-                  <div class="la-ph__mobile d-block d-lg-none">
+                  <div class="la-ph__mobile d-block d-lg-none la-anim__stagger-item">
                     <div class="la-ph__mobile-inner d-flex justify-content-between my-5">
-                      <div class="la-ph__course text-md">Course</div>
+                      <div class="la-ph__course text-md ">Course</div>
                       <div class="la-ph__status text-md">Status</div>
                     </div>
-                    <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font">Purchased</div>
+                    <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font pb-3">Purchased</div>
                   </div>
                         
                     @php
@@ -131,33 +131,33 @@
             <!-- SECTION PURCHASED: END -->
 
             <!-- SECTION RENT: START -->
-            <section class="la-rto--main ">
+            <section class="la-rto--main la-anim__wrap">
               <!-- Section Rent Desktop Version : Start -->
               <div class="container px-0 d-none d-lg-block">
                 <div class="la-rto__item row">         
-                  <div class="col-lg-4 ">
+                  <div class="col-lg-4 la-anim__stagger-item--x">
                     <div class="la-rto__item-label la-rto__item-label2 text-2xl head-font">Rented                            </div>
                   </div>
                   <div class="col-lg-1"></div>
-                  <div class="col-lg-1 text-center">
+                  <div class="col-lg-1 text-center la-anim__stagger-item--x">
                     <div class="la-rto__item-label text-sm">From </div>
                   </div>
-                  <div class="col-lg-1 text-center">
+                  <div class="col-lg-1 text-center la-anim__stagger-item--x">
                     <div class="la-rto__item-label text-sm">Until </div>
                   </div>
-                  <div class="col-lg-1 text-center">
+                  <div class="col-lg-1 text-center la-anim__stagger-item--x">
                     <div class="la-rto__item-label text-sm">Payment Mode </div>
                   </div>
-                  <div class="col-lg-1 px-0 text-center">
+                  <div class="col-lg-1 px-0 text-center la-anim__stagger-item--x">
                     <div class="la-rto__item-label text-sm">Total Price </div>
                   </div>
-                  <div class="col-lg-1 text-center">
+                  <div class="col-lg-1 text-center la-anim__stagger-item--x">
                     <div class="la-rto__item-label text-sm">Payment Status</div>
                   </div>
-                  <div class="col-lg-1 p-0 text-center">
+                  <div class="col-lg-1 p-0 text-center la-anim__stagger-item--x">
                     <div class="la-rto__item-label text-sm">Invoice </div>
                   </div>
-                  <div class="col-lg-1 p-0 text-center">
+                  <div class="col-lg-1 p-0 text-center la-anim__stagger-item--x">
                     <div class="la-rto__item-label text-sm">Actions   </div>
                   </div>
                 </div>
@@ -217,9 +217,9 @@
             <!-- Section Rent Desktop Version: End -->
 
               <!-- Section Rent Mobile Version: Start -->
-              <div class="container">
-                <div class="la-ph__mobile d-block d-lg-none">
-                  <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font">Rented</div>
+              <div class="container la-anim__wrap">
+                <div class="la-ph__mobile d-block d-lg-none la-anim__stagger-item">
+                  <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font pb-3">Rented</div>
                 </div>
                           
                 @php
@@ -266,33 +266,33 @@
             <!-- SECTION RENT: END -->
             
             <!-- SECTION FREE TRIAL: START -->
-            <section class="la-rto--main">
+            <section class="la-rto--main la-anim__wrap">
                 <!-- Section Free Trial Desktop Version: Start -->
                 <div class="container px-0 d-none d-lg-block">
                   <div class="la-rto__item row">         
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 la-anim__stagger-item--x">
                       <div class="la-rto__item-label la-rto__item-label2 text-2xl head-font">Free Trial                            </div>
                     </div>
                     <div class="col-lg-1"></div>
-                    <div class="col-lg-1 text-center">
+                    <div class="col-lg-1 text-center la-anim__stagger-item--x">
                       <div class="la-rto__item-label text-sm">From </div>
                     </div>
-                    <div class="col-lg-1 text-center">
+                    <div class="col-lg-1 text-center la-anim__stagger-item--x">
                       <div class="la-rto__item-label text-sm">Until</div>
                     </div>
-                    <div class="col-lg-1 text-center">
+                    <div class="col-lg-1 text-center la-anim__stagger-item--x">
                       <div class="la-rto__item-label text-sm">Payment Mode</div>
                     </div>
-                    <div class="col-lg-1 px-0 text-center">
+                    <div class="col-lg-1 px-0 text-center la-anim__stagger-item--x">
                       <div class="la-rto__item-label text-sm">Total Price</div>
                     </div>
-                    <div class="col-lg-1 text-center">
+                    <div class="col-lg-1 text-center la-anim__stagger-item--x">
                       <div class="la-rto__item-label text-sm">Payment Status </div>
                     </div>
-                    <div class="col-lg-1 p-0 text-center">
+                    <div class="col-lg-1 p-0 text-center la-anim__stagger-item--x">
                       <div class="la-rto__item-label text-sm">Invoice </div>
                     </div>
-                    <div class="col-lg-1 p-0 text-center">
+                    <div class="col-lg-1 p-0 text-center la-anim__stagger-item--x">
                       <div class="la-rto__item-label text-sm">Actions  </div>
                     </div>
                   </div>
@@ -337,9 +337,9 @@
                 <!-- Section Free Trial Desktop Version: End -->
 
                   <!-- Section Free Trial Mobile Version: Start -->
-                <div class="container">
-                  <div class="la-ph__mobile d-block d-lg-none">
-                    <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font">Free Trial</div>
+                <div class="container la-anim__wrap">
+                  <div class="la-ph__mobile d-block d-lg-none la-anim__stagger-item">
+                    <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font pb-3">Free Trial</div>
                   </div>
                   
                   @php
@@ -386,33 +386,33 @@
             <!-- SECTION FREE TRIAL: END -->
 
             <!-- SECTION OTHERS: START -->
-            <section class="la-rto--main">
+            <section class="la-rto--main la-anim__wrap">
               <!-- Section Others Desktop Version: Start -->
               <div class="container px-0 d-none d-lg-block">
                 <div class="la-rto__item row">         
-                  <div class="col-lg-4">
+                  <div class="col-lg-4 la-anim__stagger-item--x">
                     <div class="la-rto__item-label la-rto__item-label2 text-2xl head-font">Others                           </div>
                   </div>
                   <div class="col-lg-1"></div>
-                  <div class="col-lg-1 text-center">
+                  <div class="col-lg-1 text-center la-anim__stagger-item--x">
                     <div class="la-rto__item-label text-sm">From </div>
                   </div>
-                  <div class="col-lg-1 text-center">
+                  <div class="col-lg-1 text-center la-anim__stagger-item--x">
                     <div class="la-rto__item-label text-sm">Until                     </div>
                   </div>
-                  <div class="col-lg-1 text-center">
+                  <div class="col-lg-1 text-center la-anim__stagger-item--x">
                     <div class="la-rto__item-label text-sm">Payment Mode                      </div>
                   </div>
-                  <div class="col-lg-1 px-0 text-center">
+                  <div class="col-lg-1 px-0 text-center la-anim__stagger-item--x">
                     <div class="la-rto__item-label text-sm">Total Price                       </div>
                   </div>
-                  <div class="col-lg-1 text-center">
+                  <div class="col-lg-1 text-center la-anim__stagger-item--x">
                     <div class="la-rto__item-label text-sm">Payment Status                      </div>
                   </div>
-                  <div class="col-lg-1 p-0 text-center">
+                  <div class="col-lg-1 p-0 text-center la-anim__stagger-item--x">
                     <div class="la-rto__item-label text-sm">Invoice </div>
                   </div>
-                  <div class="col-lg-1 p-0 text-center">
+                  <div class="col-lg-1 p-0 text-center la-anim__stagger-item--x">
                     <div class="la-rto__item-label text-sm">Actions  </div>
                   </div>
                 </div>
@@ -459,9 +459,9 @@
               <!-- Section Others Desktop Version: End -->
 
               <!-- Section Others Mobile Version: Start -->
-              <div class="container">
-                <div class="la-ph__mobile d-block d-lg-none">
-                  <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font">Others</div>
+              <div class="container la-anim__wrap">
+                <div class="la-ph__mobile d-block d-lg-none la-anim__stagger-item">
+                  <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font pb-3">Others</div>
                 </div>
 
                 @php
@@ -508,33 +508,33 @@
             <!-- SECTION OTHERS: END -->
 
             <!-- SECTION SUBSCRIPTION: START -->
-            <section class="la-rto--main">
+            <section class="la-rto--main la-anim__wrap">
                 <!-- Section Subscription Desktop Version: Start -->
                 <div class="container px-0 d-none d-lg-block py-8">
                     <div class="la-rto__item row">         
-                        <div class="col-lg-4">
-                        <div class="la-rto__item-label la-rto__item-label2 text-2xl head-font">Subscribed                            </div>
+                        <div class="col-lg-4 la-anim__stagger-item--x">
+                          <div class="la-rto__item-label la-rto__item-label2 text-2xl head-font">Subscribed                            </div>
                         </div>
                         <div class="col-lg-1"></div>
-                        <div class="col-lg-1 text-center">
+                        <div class="col-lg-1 text-center la-anim__stagger-item--x">
                         <div class="la-rto__item-label text-sm">From </div>
                         </div>
-                        <div class="col-lg-1 text-center">
+                        <div class="col-lg-1 text-center la-anim__stagger-item--x">
                         <div class="la-rto__item-label text-sm">Until  </div>
                         </div>
-                        <div class="col-lg-1 text-center">
+                        <div class="col-lg-1 text-center la-anim__stagger-item--x">
                         <div class="la-rto__item-label text-sm">Payment Mode</div>
                         </div>
-                        <div class="col-lg-1 px-0 text-center">
+                        <div class="col-lg-1 px-0 text-center la-anim__stagger-item--x">
                         <div class="la-rto__item-label text-sm">Total Price</div>
                         </div>
-                        <div class="col-lg-1 text-center">
+                        <div class="col-lg-1 text-center la-anim__stagger-item--x">
                         <div class="la-rto__item-label text-sm">Payment Status</div>
                         </div>
-                        <div class="col-lg-1 p-0 text-center">
+                        <div class="col-lg-1 p-0 text-center la-anim__stagger-item--x">
                         <div class="la-rto__item-label text-sm">Invoice </div>
                         </div>
-                        <div class="col-lg-1 p-0 text-center">
+                        <div class="col-lg-1 p-0 text-center la-anim__stagger-item--x">
                         <div class="la-rto__item-label text-sm">Actions</div>
                         </div>
                     </div>
@@ -573,8 +573,8 @@
                 <!-- Section Subscription Desktop Version: End -->
 
                 <!-- Section Subscription Mobile Version: Start -->
-                <div class="container">
-                    <div class="la-ph__mobile d-block d-lg-none ">
+                <div class="container la-anim__wrap">
+                    <div class="la-ph__mobile d-block d-lg-none la-anim__stagger-item">
                         <div class="la-ph__mobile-inner d-flex justify-content-between my-5">
                         <div class="la-ph__course text-md">Subscription</div>
                         <div class="la-ph__status text-md">Status</div>

@@ -1,4 +1,4 @@
-<div class="col-12 col-lg-4  ">
+<div class="col-12 col-lg-4 la-anim__stagger-item ">
     <div class="col text-center px-0 ">
       <div class="la-choose__plans">
         <div class="card la-choose__card text-center">

@@ -21,6 +21,7 @@
                     $update1->img = "https://picsum.photos/350/300";
                     $update1->title = "Four new badges for learners!";
                     $update1->timestamp = "Just now";
+                    $update1->updateId = "1";
                     $update1->desc = "Lorem Ipsum dolor sit amet, consectur sadispicing elitr,";
         
                     $updates = array($update1);
@@ -33,12 +34,14 @@
                               :img="asset('images/announcement/'.$ar->preview_image)"
                               :title="$ar->title"
                               :timestamp="$ar->created_at"
+                              :updateId="1"
                               :desc="$ar->short_description.' '.$ar->long_description"
                           />
                   @elseif($ar->layout == 2)
                           <x-app-update
                                 :title="$ar->title"
                                 :timestamp="$ar->created_at"
+                                :appId="1"
                                 :desc="$ar->short_description.' '.$ar->long_description"
                             />
 
@@ -48,6 +51,7 @@
                             :timestamp="$ar->created_at"
                             :about="$ar->short_description"
                             :img="asset('images/announcement/'.$ar->preview_image)"
+                            :eventId="1"
                             :desc="$ar->long_description"
                           />
                   @endif
@@ -64,6 +68,7 @@
                   $app1 = new stdClass;
                   $app1->title = "New app released for better learning";
                   $app1->timestamp = "2h ago";
+                  $app1->appId = "1";
                   $app1->desc = "Lorem Ipsum dolor sit amet, consectur sadispicing elitr, sed diam nounumy eirmod tempor";
                 
                   $apps = array($app1);
@@ -73,6 +78,7 @@
                     <x-app-update
                         :title="$app->title"
                         :timestamp="$app->timestamp"
+                        :appId="1"
                         :desc="$app->desc"
                     />
                 @endforeach                 
@@ -88,6 +94,7 @@
                     $event1->timestamp = "4h ago";
                     $event1->about = "Lorem Ipsum dolor sit amet, conseturur sadispicing elitr, sed diam nounmy erimod tempor";
                     $event1->img = "https://picsum.photos/850/250";
+                    $event1->eventId = "1";
                     $event1->desc = "Lorem Ipsum dolor sit amet, conseturur sadispicing elitr, sed diam nounmy erimod tempor";
     
                     $events = array($event1);
@@ -99,6 +106,7 @@
                       :timestamp="$event->timestamp"
                       :about="$event->about"
                       :img="$event->img"
+                      :eventId="$event->eventId"
                       :desc="$event->desc"
                     />
                  @endforeach

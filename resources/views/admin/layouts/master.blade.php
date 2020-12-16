@@ -2,23 +2,21 @@
 <?php
 $language = Session::get('changed_language'); //or 'english' //set the system language
 $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl languages
+
+$global_settings = App\Setting::first();
 ?>
 
 <html class="no-js" lang="en" @if (in_array($language,$rtl)) dir="rtl" @endif>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>@yield('title') | {{ $project_title }}</title>
+  <title>@yield('title') | {{ $global_settings->project_title }}</title>
   <!-- Tell the browser to be 
    to screen width -->
 
-  @php
-    $met = App\Setting::first();
-  @endphp
-
  
-  <meta name="description" content="{{ $met->meta_data_desc }}">
-  <meta name="keywords" content="{{ $met->meta_data_keyword }}">
+  <meta name="description" content="{{ $global_settings->meta_data_desc }}">
+  <meta name="keywords" content="{{ $global_settings->meta_data_keyword }}">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="{{url('css/dashboard/bootstrap.min.css')}}"> <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{ url('css/datepicker.css') }}">
@@ -73,10 +71,10 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
       <a href="{{ url('/') }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">
-        <img title="{{ $project_title }}" width="60px" src="{{ url('images/logo/'.$gsetting->logo) }}" alt=""/>
+        <img title="{{ $global_settings->project_title }}" width="60px" src="{{ url('images/logo/'.$global_settings->logo) }}" alt=""/>
       </span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"> <img title="{{ $project_title }}" width="100px" src="{{ url('images/logo/'.$gsetting->logo) }}" alt=""/></span>
+      <span class="logo-lg"> <img title="{{ $global_settings->project_title }}" width="100px" src="{{ url('images/logo/'.$global_settings->logo) }}" alt=""/></span>
     </a>
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-fixed-top">
@@ -186,9 +184,9 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
     <!-- /.content-wrapper -->
     <footer class="main-footer">
       <div class="pull-right hidden-xs">
-        {{ $project_title }} ({{ config('app.version') }})
+        {{ $global_settings->project_title }} ({{ config('app.version') }})
       </div>
-     {{ $cpy_txt }} 
+     {{ $global_settings->cpy_txt }} 
     </footer>
     <!-- /.control-sidebar -->
     <div class="control-sidebar-bg"></div>
@@ -416,7 +414,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
     });
   </script>
 
-  @if($gsetting->rightclick=='1')
+  @if($global_settings->rightclick=='1')
     <script>
       (function($) {
         "use strict";
@@ -428,7 +426,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
       })(jQuery);
     </script>
   @endif
-  @if($gsetting->inspect=='1')
+  @if($global_settings->inspect=='1')
     <script>
       (function($) {
       "use strict";

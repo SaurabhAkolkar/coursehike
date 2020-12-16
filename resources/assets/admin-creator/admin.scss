@@ -96,10 +96,6 @@ sup.redstar, .redstar {
   display: inline-flex;
 }
 
-.sidebar .user-panel img {
-  height: 45px;
-}
-
 .table td img {
   width: 60px;
   height: 60px;
@@ -1214,8 +1210,9 @@ button.dt-button, div.dt-button, a.dt-button {
   border-bottom: 2px solid var(--gray);
 }
 .la-admin__invoice-logo img {
-  width: 100%;
-  height: auto;
+  width: 160px;
+  height: 40px;
+  margin-left:-35px;
 }
 
 .la-admin__invoice-address {
@@ -1309,6 +1306,12 @@ button.dt-button, div.dt-button, a.dt-button {
     .la-admin__invoice-items {
       padding: var(--size-4) 0;
 
+      .la-admin__item-img{
+        width: 100px;
+        height: 60px;
+        border-radius: 10px;
+        background-color: var(--white);
+      }
       .la-admin__item-img img {
         width: 100px;
         height: 60px;

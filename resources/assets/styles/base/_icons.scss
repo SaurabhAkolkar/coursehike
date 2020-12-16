@@ -26,6 +26,33 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-error:before {
+  content: "\e994";
+}
+.icon-copy-clipboard:before {
+  content: "\e990";
+}
+.icon-experience:before {
+  content: "\e991";
+}
+.icon-expert-in:before {
+  content: "\e992";
+}
+.icon-portfolio-link:before {
+  content: "\e993";
+}
+.icon-pinterest:before {
+  content: "\e98d";
+  color: #e60023;
+}
+.icon-twitter:before {
+  content: "\e98e";
+  color: #00acee;
+}
+.icon-whatsapp:before {
+  content: "\e98f";
+  color: #25d366;
+}
 .icon-awards:before {
   content: "\e98b";
 }
