@@ -64,7 +64,11 @@
                 }
 
                 &content {
-
+                    &>.active{
+                        z-index:99;
+                        position: relative;
+                    }
+                    
                 }
             }
         }

@@ -17372,6 +17372,10 @@ a, a:hover {
   opacity: 1;
   z-index: 0;
 }
+.la-courses__content > .active {
+  z-index: 99;
+  position: relative;
+}
 .la-course__inner {
   position: relative;
 }
@@ -19360,6 +19364,9 @@ a, a:hover {
 .la-mccourse__learners {
   font-size: var(--text-xs);
 }
+.la-mccourse__view-more {
+  z-index: 99;
+}
 
 .la-form__lable {
   font-size: var(--text-xs);
@@ -20658,6 +20665,7 @@ label.error {
   left: -24%;
   opacity: 0;
   transform: scale(0.4);
+  z-index: 1;
 }
 @media (min-width: 992px) {
   .la-section__circle {
@@ -20668,6 +20676,7 @@ label.error {
 .la-section__circle--right {
   right: -24% !important;
   left: unset;
+  z-index: 10;
 }
 .la-section__cross-line {
   content: "";
@@ -20715,6 +20724,9 @@ label.error {
 .la-color--primary {
   color: var(--green);
 }
+.la-btn--primary {
+  background: var(--white) !important;
+}
 .la-btn--secondary {
   border-color: #7400D7;
   color: #7400D7;
@@ -20730,9 +20742,14 @@ label.error {
   background-color: #7400D7 !important;
 }
 .la-btn:hover {
-  background-color: #1EC812;
-  border-color: #1EC812;
+  background-color: #1EC812 !important;
+  border-color: #1EC812 !important;
   color: #fff;
+}
+.la-btn:focus {
+  background-color: #1EC812 !important;
+  border-color: #1EC812 !important;
+  color: #fff !important;
 }
 .la-hero__tag {
   font-size: var(--text-2xl);

@@ -413,9 +413,10 @@
              
           </div>
         </div>
-        <div class="text-right la-anim__wrap">
-          <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8 la-anim__fade-in-right">
-            <a href="">explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+        <div class="la-mccourse__view-more position-relative text-right la-anim__wrap">
+          <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8 la-anim__fade-in-right">
+            <a href="" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
+          </div>
         </div>
       </div>
     </div>

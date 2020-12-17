@@ -120,7 +120,16 @@
             &learners {
                 font-size: var(--text-xs);
             }
+
+            &view{
+                &-{
+                    &more{
+                        z-index:99;
+                    }
+                }
+            }
         }
+        
     }
     // Master Class: End
 }

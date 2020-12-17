@@ -68,7 +68,7 @@
                   
 
           <!-- Tattoo Art Tab: Start -->
-          <div class="tab-content la-courses__content la-anim__wrap" id="nav-tabContent">
+          <div class="tab-content la-courses__content la-anim__wrap position-relative" id="nav-tabContent">
 
             @foreach ($categories as $category)
               <div class="tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">

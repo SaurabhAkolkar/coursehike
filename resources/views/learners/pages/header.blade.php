@@ -30,7 +30,7 @@ use App\Announcement;
               <div class="la-gsearch  mb-0" >
                 <form class="form-inline" action="">
                   <div class="form-group">
-                    <input class="la-gsearch__input form-control text-md pr-0" type="text"  placeholder="Search Courses...">
+                    <input class="la-gsearch__input form-control text-md pr-0" type="text"  placeholder="Search Courses and Classes...">
                   </div>
                   <button class="la-gsearch__submit btn pr-0" type="submit"><i class="la-icon la-icon--xl icon icon-search"></i></button>
                 </form>
