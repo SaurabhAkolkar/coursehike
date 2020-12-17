@@ -10,6 +10,7 @@ use App\Question;
 use App\Playlist;
 use Auth;
 use App\ReviewRating;
+use App\UserPurchasedCourse;
 
 class SearchController extends Controller
 {
@@ -74,7 +75,8 @@ class SearchController extends Controller
 	
 	public function myCourses(){
 		$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
-		return view('learners.pages.my-courses',compact('playlists'));
+		$courses = UserPurchasedCourse::with('course','course.user','course.review')->where(['user_id'=>Auth::User()->id])->get();
+		return view('learners.pages.my-courses',compact('playlists','courses'));
 	}
 
    

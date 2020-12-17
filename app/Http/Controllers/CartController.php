@@ -41,11 +41,6 @@ class CartController extends Controller
     public function addtocartAjax(Request $request)
     {
 
-        // $cart = Cart::where(['user_id' => Auth::User()->id, 'status' => 1])->first();
-
-        // if(!$cart){
-        //    $cart = Cart::create(['user_id'=>Auth::user()->id , 'status' =>1]);
-        // }
         $cart = Cart::firstOrCreate(
             ['user_id' => Auth::User()->id, 'course_id' => $request->course_id, 'status' => 1]
         );
@@ -80,24 +75,21 @@ class CartController extends Controller
 
     public function addToCart(Request $request){
         
-
-        // $cart = Cart::where(['user_id' => Auth::User()->id, 'status' => 1])->first();
-
-        $cart = Cart::firstOrCreate(
-            ['user_id' => Auth::User()->id, 'course_id' => $request->course_id, 'status' => 1]
-        );
-   
-        // if(!$cart){
-        //    $cart = Cart::create(['user_id'=>Auth::user()->id , 'status' =>1]);
-        // }
-
         $course = Course::findOrFail($request->course_id);
         if($course){
             $classes = CourseChapter::where('course_id',$course->id)->count();
-            if($classes == count($request->selected_classes)){
-                $request->classes ='all-classes';
-            }
+            if($request->classes == 'selected-classes'){
+                if(!$request->selected_classes){
+                    return redirect()->back()->with('message','Please select classes to add to cart.');
+                }
+                if($classes == count($request->selected_classes)){
+                    $request->classes ='all-classes';
+                }
+            }            
         }
+        $cart = Cart::firstOrCreate(
+            ['user_id' => Auth::User()->id, 'course_id' => $request->course_id, 'status' => 1]
+        );
 
         if($request->classes =='all-classes'){
            
@@ -166,7 +158,7 @@ class CartController extends Controller
         $total = 0;
         $coupon = Null;
         $coupons = [];
-        
+   
         if($carts){
             // $cartItem = CartItem::with('courses','courses.user')->where('cart_id', $carts->id)->get();
             // $discount = $cartItem->sum('offer_price');
@@ -278,7 +270,7 @@ class CartController extends Controller
         if($check){
             Session::forget('appliedCoupon');
 
-            $cart_id = Cart::where(['user_id'=> Auth::User()->id, 'status' => 1])->pluck('id');
+            $cart_id = Cart::where(['user_id'=> Auth::User()->id, 'course_id' => $id,'status' => 1])->pluck('id');
             if($cart_id){
 
                 CartItem::where(['cart_id' =>  $cart_id, 'course_id' => $id])->delete();
@@ -286,6 +278,8 @@ class CartController extends Controller
                 
             }
             
+            Cart::where(['user_id'=> Auth::User()->id, 'course_id' => $id, 'status' => 1])->delete();
+
             $checkWishlist =  Wishlist::where(['user_id' => Auth::User()->id, 'course_id' => $id])->first();
             if(empty($checkWishlist)){
                 Wishlist::create(['user_id'=> Auth::User()->id , 'course_id' => $id]);

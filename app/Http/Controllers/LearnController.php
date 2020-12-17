@@ -20,6 +20,8 @@ Use Alert;
 use App\Setting;
 use Illuminate\Support\Facades\Storage;
 use Debugbar;
+use PDF;
+use Carbon\Carbon;
 
 class LearnController extends Controller
 {
@@ -411,4 +413,14 @@ class LearnController extends Controller
     }
 
    
+    public function downloadCertificate($id){
+        
+        $course = Course::with('user')->findorfail($id);
+        $learner_name = Auth::User()->fname.' '.Auth::User()->lname;
+        $date = Carbon::now()->isoFormat('D/M/YYYY'); 
+        $mentor = $course->user->fname.' '.$course->user->lname;
+        $pdf = PDF::loadView('learners.pages.courseCertificate', compact('course','learner_name','mentor','date'))->setPaper('landscape');
+        
+        return $pdf->stream('certificate.pdf');
+    }
 }

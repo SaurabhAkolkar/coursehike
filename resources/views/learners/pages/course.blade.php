@@ -17,6 +17,14 @@ use Carbon\Carbon;
         @if(Session('failed'))
           <h5>Review Already Added for this course by you.</h5>
         @endif
+         @if(session('message'))
+          <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible" role="alert">
+              <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
+              <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true" class="text-white">&times;</span>
+              </button>
+          </div>
+        @endif
         <div id="wishlist_alert_div"></div> 
         <div class="row  mb-12"> 
           <div class="col-12 col-lg-7">
@@ -206,7 +214,7 @@ use Carbon\Carbon;
                     <div class="la-ctabs__certificate d-flex">
                       <div class="la-ctabs__certificate-pdf"><i class="la-icon--5xl icon-download mr-8"></i></div>
                       <div class="la-ctabs__certificate-desc">
-                        <div class="la-ctabs__certificate-title text-lg head-font text-uppercase">Water Color</div><a class="la-ctabs__certificate-file text-sm" href="">watercolor_certificate.pdf</a>
+                        <div class="la-ctabs__certificate-title text-lg head-font text-uppercase">Water Color</div><a target="_blank" class="la-ctabs__certificate-file text-sm" href="/download-certificate/{{$course->id}}">watercolor_certificate.pdf</a>
                       </div>
                     </div>
                   </div>
@@ -319,7 +327,7 @@ use Carbon\Carbon;
       <div class="row la-vcourse__purchase-row">
         <div class="col-md-6 la-vcourse__purchase-left">
           <div class="la-vcourse__purchase-prize mb-8">Purchase this Course @ <span class="la-vcourse__purchase-prize--amount"><b>${{$course->price}}</b></span></div>
-          <form class="la-vcourse__purchase-form" id="add_to_cart_form" method="post" action="/add-to-cart">
+          <form class="la-vcourse__purchase-form" id="add_to_cart_form" name="add_to_cart_form" method="post" action="/add-to-cart">
             <input type="hidden" name="course_id" value="{{$course->id}}" />
             @csrf
             <div class="la-vcourse__purchase-classes">
@@ -354,7 +362,7 @@ use Carbon\Carbon;
                       <tr class="la-vcourse__sclass-item align-top">
                         <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--checkbox">
                           <div>
-                            <input id="selectItem_{{$class->id}}" name="selected_classes[]" class="la-form__checkbox-input custom-control-input" type="checkbox" value="{{$class->id}}" @if(count($in_cart->where('class_id', $class->id )) || $order_type == 'all_classes') checked @endif>
+                            <input id="selectItem_{{$class->id}}" name="selected_classes[]" class="la-form__checkbox-input selected_classes custom-control-input" type="checkbox" value="{{$class->id}}" @if($order_type == 'all_classes') checked @endif>
                             
                             <label class="" for="selectItem_{{$class->id}}">
                               <svg viewBox="0 0 16 16" height="16" width="16">
@@ -383,7 +391,7 @@ use Carbon\Carbon;
             </div>
             <div class="la-vcourse__purchase-actions d-flex flex-wrap align-items-center mt-8">
               <div class="la-vcourse__purchase-btn w-50">
-                <a class="btn btn-primary la-btn la-btn--primary w-100 text-center">Buy course</a>
+                <a class="btn btn-primary la-btn la-btn--primary w-100 text-center" onclick="$('#add_to_cart_form').submit()">Buy course</a>
               </div>
               <div class="la-vcourse__purchase-btn w-50">
                 <a class="btn la-btn la-btn__plain text--green w-100 text-center" onclick="$('#add_to_cart_form').submit()">ADD TO CART</a>
@@ -626,37 +634,72 @@ use Carbon\Carbon;
     <div class="la-section__inner">
       <div class="container">
         <h2 class="la-section__title mb-9">More from Creators</h2>
-        <div class="row row-cols-3">
+        <div class="row-cols-lg-3 ">
           @foreach ($mentor_other_courses as $related_course)
-          
-              <div class="col-12 col-md">
-                <div class="la-course">
+              
+          <div class="col-12" >
+              <div class="la-course">
                   <div class="la-course__inner">
-                    <div class="la-course__overlay" href="">
-                      <ul class="la-course__options list-unstyled text-white">
-                        <li class="la-course__option"><a class="d-inline-block la-course__addtocart"><i class="la-icon la-icon--2xl icon icon-cart"></i></a></li>
-                        <li class="la-course__option"><a class="d-inline-block la-course__like"><i class="la-icon la-icon--2xl icon icon-share"></i></a></li>
-                        <li class="la-course__option">
-                          <div class="dropdown"><a class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);"><i class="la-icon la-icon--2xl icon icon-menu"></i></a>
-                            <div class="la-cmenu dropdown-menu"><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Playlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Wishlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</a></div>
+                      
+                          <div class="la-course__overlay">
+                              
+                                  <ul class="la-course__options list-unstyled text-white">
+                                      <li class="la-course__option">
+                                          <span class="d-inline-block la-course__addtocart" onclick="addToCart({{$related_course->id}})">
+                                              <i class="la-icon la-icon--2xl icon icon-cart"></i>
+                                          </span>
+                                      </li>
+
+                                      <li class="la-course__option">
+                                          <span class="d-inline-block la-course__like">
+                                              <i class="la-icon la-icon--2xl icon icon-wishlist"></i>
+                                          </span>
+                                      </li>
+
+                                      <li class="la-course__option">
+                                          <div class="dropdown">
+                                              <span class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);">
+                                                  <i class="la-icon la-icon--2xl icon icon-menu"></i>
+                                              </span>
+                                              <div class="la-cmenu dropdown-menu py-0">
+                                                  <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="showAddToPlaylist({{$related_course->id}})" ><i class="icon icon-playlist la-icon la-icon--2xl mr-2"></i> Add to Playlist </span>
+                                                  <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToWishList({{$related_course->id}})"><i class="icon icon-wishlist la-icon la-icon--2xl mr-2"></i>  Add to Wishlist  </span>
+                                                  <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToCart({{$related_course->id}})"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</span>
+                                                  <a href= {{ '/learn/course/'.$related_course->id.'/'.$related_course->slug }}>
+                                                      <span class="dropdown-item la-cmenu__item d-inline-flex" >View Course</span>
+                                                  </a>
+                                              </div>
+                                          </div>
+                                      </li>
+                                  </ul>
+
+                                  <div class="la-course__learners"><strong>300</strong>  Learners</div>
                           </div>
-                        </li>
-                      </ul>
-                      <div class="la-course__learners"><strong>300</strong>  learners</div>
-                    </div>
-                    <div class="la-course__imgwrap"><img class="img-fluid" src="{{$related_course->preview_image}}" alt="{{$related_course->title}}"></div>
+                      
+                          <div class="la-course__imgwrap">
+                              <img class="img-fluid" src="{{$related_course->preview_image}}" alt= {{ $related_course->title }} />
+                          </div>
+                      
                   </div>
+
                   <div class="la-course__btm">
-                    <div class="la-course__info d-flex align-items-center"><a class="la-course__title" href="">{{$related_course->title}}</a>
-                      <div class="la-course__rating ml-auto">4</div>
-                    </div>
-                    <a class="la-course__creator d-inline-flex align-items-center" href={{ url(config('path.course.learn') .$related_course->id. '/' . $related_course->slug) }}>
-                      <div class="la-course__creator-imgwrap"><img class="img-fluid" src="https://picsum.photos/200/200" alt="{{$related_course->user->fname}}"></div>
-                      <div class="la-course__creator-name">{{$related_course->user->fname}}</div>
-                    </a>
+                      <div class="la-course__info d-flex align-items-center mb-1">
+                          <a class="la-course__title" > {{ $related_course->title }} </a>
+                          <div class="la-course__rating ml-auto"> 4 </div>
+                      </div>
+                      
+                      <a class="la-course__creator d-inline-flex align-items-center"  >
+                          <div class="la-course__creator-imgwrap">
+                              <img class="img-fluid" src="https://picsum.photos/200/200" alt={{ $related_course->user->fullName }} />
+                           
+                          </div>
+                          <div class="la-course__creator-name">{{ $related_course->user->fullName }}</div>
+                      </a>
                   </div>
-                </div>
               </div>
+          </div>
+
+              
           @endforeach
           
         </div>
@@ -669,36 +712,69 @@ use Carbon\Carbon;
     <div class="la-section__inner">
       <div class="container">
         <h2 class="la-section__title mb-9">Looking for something else?</h2>
-        <div class="row row-cols-3">
+        <div class="row-cols-lg-3 ">
           @foreach ($related_courses as $related_course)
-              <div class="col-12 col-md">
-                <div class="la-course">
+          <div class="col-12" >
+              <div class="la-course">
                   <div class="la-course__inner">
-                    <div class="la-course__overlay" href={{ url(config('path.course.learn') .$related_course->id. '/' . $related_course->slug) }}>
-                      <ul class="la-course__options list-unstyled text-white">
-                        <li class="la-course__option"><a class="d-inline-block la-course__addtocart"><i class="la-icon la-icon--2xl icon icon-cart"></i></a></li>
-                        <li class="la-course__option"><a class="d-inline-block la-course__like"><i class="la-icon la-icon--2xl icon icon-share"></i></a></li>
-                        <li class="la-course__option">
-                          <div class="dropdown"><a class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);"><i class="la-icon la-icon--2xl icon icon-menu"></i></a>
-                            <div class="la-cmenu dropdown-menu"><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Playlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Wishlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</a></div>
+                      
+                          <div class="la-course__overlay">
+                              
+                                  <ul class="la-course__options list-unstyled text-white">
+                                      <li class="la-course__option">
+                                          <span class="d-inline-block la-course__addtocart" onclick="addToCart({{$related_course->id}})">
+                                              <i class="la-icon la-icon--2xl icon icon-cart"></i>
+                                          </span>
+                                      </li>
+
+                                      <li class="la-course__option">
+                                          <span class="d-inline-block la-course__like">
+                                              <i class="la-icon la-icon--2xl icon icon-wishlist"></i>
+                                          </span>
+                                      </li>
+
+                                      <li class="la-course__option">
+                                          <div class="dropdown">
+                                              <span class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);">
+                                                  <i class="la-icon la-icon--2xl icon icon-menu"></i>
+                                              </span>
+                                              <div class="la-cmenu dropdown-menu py-0">
+                                                  <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="showAddToPlaylist({{$related_course->id}})" ><i class="icon icon-playlist la-icon la-icon--2xl mr-2"></i> Add to Playlist </span>
+                                                  <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToWishList({{$related_course->id}})"><i class="icon icon-wishlist la-icon la-icon--2xl mr-2"></i>  Add to Wishlist  </span>
+                                                  <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToCart({{$related_course->id}})"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</span>
+                                                  <a href= {{ '/learn/course/'.$related_course->id.'/'.$related_course->slug }}>
+                                                      <span class="dropdown-item la-cmenu__item d-inline-flex" >View Course</span>
+                                                  </a>
+                                              </div>
+                                          </div>
+                                      </li>
+                                  </ul>
+
+                                  <div class="la-course__learners"><strong>300</strong>  Learners</div>
                           </div>
-                        </li>
-                      </ul>
-                      <div class="la-course__learners"><strong>300</strong>  learners</div>
-                    </div>
-                    <div class="la-course__imgwrap"><img class="img-fluid" src="{{$related_course->preview_image}}" alt="{{$related_course->title}}"></div>
+                      
+                          <div class="la-course__imgwrap">
+                              <img class="img-fluid" src="{{$related_course->preview_image}}" alt= {{ $related_course->title }} />
+                          </div>
+                      
                   </div>
+
                   <div class="la-course__btm">
-                    <div class="la-course__info d-flex align-items-center"><a class="la-course__title" href={{ url(config('path.course.learn') .$related_course->id. '/' . $related_course->slug) }}>{{$related_course->title}}</a>
-                      <div class="la-course__rating ml-auto">4</div>
-                    </div>
-                    <a class="la-course__creator d-inline-flex align-items-center" href={{ url(config('path.course.learn') .$related_course->id. '/' . $related_course->slug) }}>
-                      <div class="la-course__creator-imgwrap"><img class="img-fluid" src="https://picsum.photos/200/200" alt="{{$related_course->user->fname}}"></div>
-                      <div class="la-course__creator-name">{{$related_course->user->fname}}</div>
-                    </a>
+                      <div class="la-course__info d-flex align-items-center mb-1">
+                          <a class="la-course__title" > {{ $related_course->title }} </a>
+                          <div class="la-course__rating ml-auto"> 4 </div>
+                      </div>
+                      
+                      <a class="la-course__creator d-inline-flex align-items-center"  >
+                          <div class="la-course__creator-imgwrap">
+                              <img class="img-fluid" src="https://picsum.photos/200/200" alt={{ $related_course->user->fullName }} />
+                           
+                          </div>
+                          <div class="la-course__creator-name">{{ $related_course->user->fullName }}</div>
+                      </a>
                   </div>
-                </div>
               </div>
+          </div>
           @endforeach
 
         </div>
@@ -759,9 +835,49 @@ use Carbon\Carbon;
                   
                 });
 
+                
                 function submitRateCourseForm(){
                     $('#rate_course_form').submit();
                 }
+
+                $("form[name='add_to_cart_form']").validate({
+      
+                    rules: {
+
+                      classes: {
+                        required: true,
+                      }, 
+                      selected_classes: {
+                        required: true,
+                      }
+                    },
+                    // Specify validation error messages
+                    messages: {
+                      classes: {
+                        required: "Please select the type of purchase.",
+                      },
+                      selected_classes: {
+                        required: "Please select classes.",
+                      }
+                    },
+                    // Make sure the form is submitted to the destination defined
+                    // in the "action" attribute of the form when valid
+                    submitHandler: function(form) {
+                      form.submit();
+                    }
+                    
+                });
+
+                $('input[type=radio][name=classes]').change(function() {
+                    if (this.value == 'all-classes') {
+                        $('.selected_classes').prop('checked', true);
+                    }
+                    if(this.value == 'select-classes'){
+                      $('.selected_classes').removeAttr('checked');
+                    } 
+                  
+                });
+
 
   </script>
 @endsection

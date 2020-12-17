@@ -363,7 +363,7 @@ function addToCart(id='1', classes='all') {
       data: {course_id: course_id, classes : classes},
       success:function(data){   
         $('#wishlist_alert_div').html(' ');
-        $('#course_'+id).remove(); 
+     
         let successAlert = `<div class="la-btn__alert-success col-md-4 offset-md-8 alert alert-success alert-dismissible" id="wishlist_alert" role="alert">
                               <h6 id="wishlist_alert_message" class="la-btn__alert-msg">${data}</h6>
                               <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
