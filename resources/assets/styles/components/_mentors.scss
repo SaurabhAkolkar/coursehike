@@ -65,7 +65,11 @@
                 }
 
                 &detailview {
-
+                    transition:all 0.25s ease;
+                    &:hover{
+                        transform:translateX(10px);
+                        transition:all 0.25s ease;
+                    }
                 }
             }
         }

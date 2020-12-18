@@ -21,7 +21,7 @@
                         <div class="col-md-6">
                             <div class="la-payment__add-card">
                                 <h4 class="la-payment__add-subtitle la-anim__stagger-item">Pay with</h4>
-                                <a role="button" href="" class="d-inline-flex align-items-center la-anim__stagger-item">
+                                <a role="button" href="" class="la-payment__add-old d-inline-flex align-items-center la-anim__stagger-item">
                                     <span class="la-icon la-icon--2xl icon-card-filled"></span>
                                     <p class="la-payment__add-details m-0 pl-2"><strong> Visa </strong> ending **** **** **** 5525</p>
                                 </a>

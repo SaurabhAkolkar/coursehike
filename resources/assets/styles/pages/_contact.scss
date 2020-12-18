@@ -65,13 +65,25 @@ section.la-contact--page{
             margin-top:calc(16 * var(--size-3));
             .la-contact__details{
                font-family:var(--body-font);
-               span, a{
+               font-size: 16px;
+                span{
                    color:var(--gray6);
                    font-weight:var(--font-normal);
+                }
+                a{
+                    color:var(--gray6);
+                    font-weight:var(--font-normal);
+                   &:hover{
+                    text-decoration: underline;
+                }
                }
             }
             .la-contact__smedia a{
                 color:#000000;
+
+                &:hover{
+                    color:var(--app-indigo-1);
+                }
             }
         }
     }

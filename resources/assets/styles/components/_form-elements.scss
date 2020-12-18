@@ -152,12 +152,19 @@
                         padding: var(--size-4);
                         background: none !important;
                         border: 1px dashed #606060;
+                        transition:all 0.25s ease;
+
+                        &:hover{
+                            border:1px dotted var(--app-indigo-1);
+                            transition:all 0.25s ease;
+                        }
 
                         & a {
                             font-size: var(--text-xs);
                             color: #1592E6;
                             font-weight: var(--font-semibold);
                             margin-bottom: var(--size-4);
+                            
                         }
                     }
                     &info{

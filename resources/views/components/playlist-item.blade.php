@@ -44,8 +44,8 @@
                 <span class="la-playlist__course-count">{{ $classesCount }}</span> Courses
             </div>
         </div>
-        <div class="la-playlist__download">
-            <span role="button" onclick="sharePlaylistPopup({{$id}})"><img src="../../images/learners/icons/download.svg" alt="download"></span>
+        <div class="la-playlist__item-share">
+            <span role="button" onclick="sharePlaylistPopup({{$id}})"><span class="la-icon la-icon--2xl icon-share"></span>
         </div>
     </div> 
     </a>

@@ -1,22 +1,26 @@
 @extends('learners.layouts.app')
+<!-- Playlist Alert Message-->
+@if(session('message'))
+<div class="la-btn__alert position-relative">
+  <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible" role="alert">
+      <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
+      <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true" style="color:#56188C">&times;</span>
+      </button>
+  </div>
+</div>
+@endif
 
+<!-- Wishlist Alert Message-->
+<div id="wishlist_alert_div"></div> 
 @section('content')
+
 <section class="la-section la-cbg--main">
+    
+    
     <div class="la-section__inner">
       <div class="container">
-        <!-- Playlist Alert Message-->
-        @if(session('message'))
-          <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible" role="alert">
-              <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
-              <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true" class="text-white">&times;</span>
-              </button>
-          </div>
-        @endif
-
-        <!-- Wishlist Alert Message-->
-        <div id="wishlist_alert_div"></div> 
-
+        
         <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
         <div class="d-flex justify-content-between la-anim__wrap">  
           <h1 class="la-page__title mb-8 la-anim__stagger-item">Browse Courses</h1><a class="la-icon--3xl icon-filter d-block d-lg-none" id="filterCourses" role="button"></a>
@@ -44,7 +48,7 @@
               @foreach ($categories as $category)
                 <li class="nav-item la-courses__nav-item la-anim__stagger-item--x"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative">{{ $category->title}}</span></a></li>
               @endforeach
-            </ul><a class="la-icon--3xl icon-filter d-none d-lg-block" id="filterCourses" role="button"></a>
+            </ul><a class="la-icon--3xl icon-filter la-courses__nav-filter d-none d-lg-block" id="filterCourses" role="button"></a>
           </nav>
 
           @php  
@@ -160,8 +164,6 @@
       </div>
     </div>
   </section>
-
-  
   @endsection
   
   @section('footerScripts')

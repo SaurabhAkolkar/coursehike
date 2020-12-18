@@ -28,6 +28,10 @@
                             color: var(--app-indigo-1);
                             font-size: var(--text-xs);
                             font-weight: var(--font-bold);
+
+                            &:hover{
+                                color:var(--gray6);
+                            }
                         }
                     }
 
@@ -109,6 +113,11 @@
                         padding: var(--size-3) 0;
                         border-bottom:1px solid var(--gray);
                         cursor: pointer;
+
+                        &:hover{
+                            color:var(--app-indigo-1);
+                            opacity:1;
+                        }
                     }
                    
                 }

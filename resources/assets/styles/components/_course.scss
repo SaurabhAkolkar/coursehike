@@ -60,6 +60,11 @@
                                 }
                             }
                         }
+                        &filter{
+                            &:hover{
+                                color:var(--app-indigo-1);
+                            }
+                        }
                     }
                 }
 
@@ -104,6 +109,9 @@
 
             }
             &option {
+                &:hover{
+                    color:var(--yellow);
+                }
                 &s {
                     position: relative;
                     margin-left: auto;
@@ -148,11 +156,16 @@
                 font-weight: var(--font-bold);
                 font-size: var(--text-xl);
                 color: #252525;
+
+                &:hover{
+                    color:var(--app-indigo-1);
+                }
             }
             &rating {
 
             }
             &creator {
+                
                 &- {
                     &imgwrap {
                         width: var(--size-10);
@@ -160,10 +173,18 @@
                         border-radius: var(--rounded-full);
                         overflow: hidden;
                         margin-right: var(--size-3);
+
+                        &:hover{
+                            box-shadow:0px 0px 30px #D4D4D47A;
+                        }
                     }
                     &name {
                         font-size: var(--text-sm);
                         color: #010101;
+
+                        &:hover{
+                            color:var(--app-indigo-1);
+                        }
                     }
                 }
             }
