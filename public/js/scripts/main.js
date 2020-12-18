@@ -10,6 +10,9 @@ $(function(){
     });
   }, 3000);
 
+  
+
+
   //Swiper Js for Login & Register page
   var swiper = new Swiper('.entry-swiper-container', {
       fadeEffect: { crossFade: true },

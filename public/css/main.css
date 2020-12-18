@@ -17372,10 +17372,6 @@ a, a:hover {
   opacity: 1;
   z-index: 0;
 }
-.la-courses__content > .active {
-  z-index: 99;
-  position: relative;
-}
 .la-course__inner {
   position: relative;
 }

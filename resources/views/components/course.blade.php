@@ -1,10 +1,10 @@
 <div class="col-12 la-anim__stagger-item--x" @if($addedToWhishList) id="course_{{$id}}" @endif>
     <div class="la-course">
         <div class="la-course__inner">
-            <a href= {{ '/learn/course/'.$id.'/'.$url }}>
+            <a class="la-course__inner-link" role="button" href= {{ '/learn/course/'.$id.'/'.$url }}>
                 <div class="la-course__overlay">
                     
-                        <ul class="la-course__options list-unstyled text-white">
+                        <ul class="la-course__options list-unstyled text-white" id="la-course__nested-links">
                             <li class="la-course__option">
                                 <span class="d-inline-block la-course__addtocart">
                                     <i class="la-icon la-icon--2xl icon icon-cart"></i>
