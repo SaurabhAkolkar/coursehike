@@ -578,7 +578,9 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::post('course/appointment/{id}', 'AppointmentController@request')->name('appointment.request');
       Route::post('appointment/delete/{id}', 'AppointmentController@delete');
       
-      Route::get('/my-courses','SearchController@myCourses');      
+      Route::get('/my-courses','SearchController@myCourses');
+      
+      Route::get('/download-certificate/{id}','LearnController@downloadCertificate');
 
     });
 

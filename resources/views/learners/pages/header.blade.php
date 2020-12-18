@@ -197,16 +197,11 @@ use App\Announcement;
 
             <div class="la-header__menu-item d-none d-lg-block">
               @php
-                  $cart = App\Cart::with('cartItems')->where(['user_id' => Auth::User()->id, 'status' => 1])->first();
+                  $cart = App\Cart::with('cartItems')->where(['user_id' => Auth::User()->id, 'status' => 1])->get();
                   
-                  if(!$cart){
-                    $cartItems = 0;
-                  }else{
-                    $cartItems = count($cart->cartItems);
-                  }
-                  
+                    
               @endphp
-              <a class="la-header__menu-link la-header__menu-icon la-icon icon-cart position-relative" href="/cart"><sup class="la-header__menu-badge badge badge-light" >{{$cartItems}}</sup></a>
+              <a class="la-header__menu-link la-header__menu-icon la-icon icon-cart position-relative" href="/cart"><sup class="la-header__menu-badge badge badge-light" >{{count($cart)}}</sup></a>
             </div>
 
             <div class="d-none d-lg-block la-header__menu-item la-header__menu-item--btn ml-5">

@@ -8,8 +8,6 @@
        @include ('learners.pages.sidebar')
        <!-- Side Navbar: End -->
 
-  
-      
       <div class="la-profile__main">
         <div class="container ">
           <div class="la-profile__main-inner">
@@ -39,10 +37,9 @@
                     @endphp
 
                     <div class="col-lg-8 col-xl-9">
-                      {{-- {{ dd($cartItem)}} --}}
+                  
                       @if(count($carts) > 0)
                         @foreach ($carts as $cart)
-                            {{-- {{ dd($cart)}} --}}
                             <x-cart
                               :cartId="$cart->id"
                               :cart="$cart"
@@ -86,17 +83,18 @@
 
                         $checkouts = array($checkout);
                     @endphp
+
                     @if(count($carts) > 0)
-                    <div class="col-lg-4 col-xl-3 mb-5 mb-md-0 la-anim__wrap">
-                        <x-cart-total 
-                          :totalAmount="$total"
-                          :offerAmount="$discount"
-                          :applyCoupon="$checkout->applyCoupon"
-                          :coupons="$coupons"
-                          :discountAmount="$checkout->discountAmount"
-                          :checkoutUrl="$checkout->checkoutUrl"
-                        />
-                    </div>
+                      <div class="col-lg-4 col-xl-3 mb-5 mb-md-0 la-anim__wrap">
+                          <x-cart-total 
+                            :totalAmount="$total"
+                            :offerAmount="$discount"
+                            :applyCoupon="$checkout->applyCoupon"
+                            :coupons="$coupons"
+                            :discountAmount="$checkout->discountAmount"
+                            :checkoutUrl="$checkout->checkoutUrl"
+                          />
+                      </div>
                      <!-- Cart Checkout: End -->
                     @endif
 

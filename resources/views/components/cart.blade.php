@@ -41,10 +41,10 @@
                                     <a href={{ $wishlistUrl }}>{{ $wishlist }}</a>
                                 </div>
                                 <div class="la-cart__item-action edit ">
-                                    <a class="la-anim__stagger-item" data-toggle="modal" data-target="#edit_cart"> {{ $edit }}</a>
+                                    <a class="la-anim__stagger-item" data-toggle="modal" data-target="#edit_cart_{{$cartId}}"> {{ $edit }}</a>
                                 
                                     <!-- Edit Selection Popup: Start -->
-                                    <div class="modal fade la-cart__edit-modal" id="edit_cart">
+                                    <div class="modal fade la-cart__edit-modal" id="edit_cart_{{$cartId}}">
                                         <div class="modal-dialog la-cart__edit-dialog">
                                             <div class="modal-content la-cart__edit-content">
                                                 <div class="modal-header la-cart__edit-header">
@@ -122,7 +122,8 @@
                                                         <div class="col-2 col-md-2 my-auto">
                                                             <div class="la-cart__edit-submain  text-sm">$ 20</div>
                                                         </div>
-                                                    </div> -->
+                                                    </div>
+                                                    -->
 
                                                     <div class="la-cart__edit-update text-right">
                                                         <a onclick="$('#update_cart_form').submit()" role="button" class="la-cart__edit-btn">Update Cart</a>
@@ -138,19 +139,19 @@
                         </div>
                     </div>
                     @if($classType != 'all_classes')
-                    <div class="la-cart__item-cartclasses py-2 ">
-                        <div class="la-cart__item-carttoggler collapsed position-relative mx-2" data-toggle="collapse"  href="#cart_class_{{ $collapseId }}" aria-expanded="false">
-                            Classes in the Cart
+                        <div class="la-cart__item-cartclasses py-2 ">
+                            <div class="la-cart__item-carttoggler collapsed position-relative mx-2" data-toggle="collapse"  href="#cart_class_{{ $collapseId }}" aria-expanded="false">
+                                Classes in the Cart
+                            </div>
+                            
+                            <div class="la-cart__item-cartclass collapse show mx-2 my-2" id="cart_class_{{ $collapseId }}">
+                                <ol class="la-cart__item-cartlist pl-7 mr-7">
+                                    @foreach($cart->cartItems as $class)
+                                        <li class="la-cart__item-cartitem">{{ strlen($class->chapter->chapter_name) > 50? substr($class->chapter->chapter_name, 0, 45).'....': $class->chapter->chapter_name}}</li>
+                                    @endforeach
+                                </ol>
+                            </div>
                         </div>
-                        
-                        <div class="la-cart__item-cartclass collapse show mx-2 my-2" id="cart_class_{{ $collapseId }}">
-                            <ol class="la-cart__item-cartlist pl-7 mr-7">
-                                @foreach($cart->cartItems as $class)
-                                    <li class="la-cart__item-cartitem">{{ strlen($class->chapter->chapter_name) > 50? substr($class->chapter->chapter_name, 0, 45).'....': $class->chapter->chapter_name}}</li>
-                                @endforeach
-                            </ol>
-                        </div>
-                    </div>
                     @endif
                 </div>
                 
