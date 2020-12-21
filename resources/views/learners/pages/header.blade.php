@@ -24,13 +24,13 @@ use App\Announcement;
         </div>
         
         <div class="la-header__rht ml-auto">
-          <div class="la-header__menu d-inline-flex align-items-center">
+          <div class="la-header__menu d-inline-flex align-items-center position-relative">
             <div class="la-header__menu-item d-none d-md-block">
               <!-- Global Search: Start-->
               <div class="la-gsearch  mb-0" >
                 <form class="form-inline" action="">
                   <div class="form-group">
-                    <input class="la-gsearch__input form-control text-md pr-0" type="text"  placeholder="Search Courses...">
+                    <input class="la-gsearch__input form-control text-md pr-0" type="text"  placeholder="Search Courses and Classes...">
                   </div>
                   <button class="la-gsearch__submit btn pr-0" type="submit"><i class="la-icon la-icon--xl icon icon-search"></i></button>
                 </form>
@@ -38,11 +38,11 @@ use App\Announcement;
               <!-- Global Search: End-->
             </div>
 
-            <div class="la-header__menu-item d-none d-lg-block">
+            <div class="la-header__menu-item d-none d-lg-block @if(Request::segment(1) == 'profile') active @endif">
               <a class="la-header__menu-link la-header__menu-icon la-icon icon-profile" href="/profile"></a>
             </div>
             
-            <div class="la-header__menu-item dropdown"><a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-notification" id="notificationPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
+            <div class="la-header__menu-item dropdown"><a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-notification " id="notificationPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
               <div class="dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="notificationPanel" style="border:none !important;">
                 <div class="card la-notification__card">
                     <!-- Notification Panel: Start -->
@@ -201,7 +201,7 @@ use App\Announcement;
                   
                     
               @endphp
-              <a class="la-header__menu-link la-header__menu-icon la-icon icon-cart position-relative" href="/cart"><sup class="la-header__menu-badge badge badge-light" >{{count($cart)}}</sup></a>
+              <a class="la-header__menu-link la-header__menu-icon la-icon icon-cart position-relative @if(Request::segment(1) == 'cart') active @endif" href="/cart"><sup class="la-header__menu-badge badge badge-light" >{{count($cart)}}</sup></a>
             </div>
 
             <div class="d-none d-lg-block la-header__menu-item la-header__menu-item--btn ml-5">

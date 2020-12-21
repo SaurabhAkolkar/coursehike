@@ -302,6 +302,9 @@ section.la-dash-mentors-list{
             font-weight: var(--font-bold);
             letter-spacing: 2.8px;
 
+            &:hover{
+                color:var(--gray3);
+            }
             @media(max-width:767px){
                 text-align: center;
                 font-size: var(--text-md);

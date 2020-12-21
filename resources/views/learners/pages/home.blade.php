@@ -16,7 +16,7 @@
                 <div>
                     <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary d-none d-lg-block">Subscribe Now</a>
                     <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary btn-block d-block d-lg-none">Subscribe Now</a>
-                    <p class="m-0 pt-1 text-center text-sm-left">Access to all the Courses</p>
+                    <p class="m-0 pt-1 pl-1 text-center text-sm-left">Access to all the Courses</p>
                 </div>
                 <div class="la-soffer d-flex d-lg-block justify-content-center  my-lg-0">
                   <div class="la-soffer__bestprice"> <sup><small>$</small></sup>  39 / Month</div>
@@ -62,7 +62,7 @@
               
               {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
               <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
-            </ul><a class="la-icon--3xl icon-filter d-none d-lg-block" id="filterCourses" role="button"></a>
+            </ul><a class="la-icon--3xl icon-filter la-courses__nav-filter d-none d-lg-block" id="filterCourses" role="button"></a>
           </nav>
 
           @php  
@@ -368,9 +368,10 @@
              
           </div>
         </div>
-        <div class="text-right la-anim__wrap">
-          <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8 la-anim__fade-in-right">
-            <a href="">explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+        <div class="la-mccourse__view-more position-relative text-right la-anim__wrap">
+          <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8 la-anim__fade-in-right">
+            <a href="" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
+          </div>
         </div>
       </div>
     </div>

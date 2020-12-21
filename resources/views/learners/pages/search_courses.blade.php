@@ -6,11 +6,13 @@
       <div class="container">
         <!-- Alert Message -->
         @if(session('message'))
-          <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible fade show" role="alert">
-            <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
-            <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true" class="text-white">&times;</span>
-            </button>
+          <div class="la-btn__alert position-relative">
+            <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" role="alert">
+              <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
+              <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true" style="color:#56188C">&times;</span>
+              </button>
+            </div>
           </div>
         @endif
         <!-- Wishlist Alert Message -->

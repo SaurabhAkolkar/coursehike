@@ -63,6 +63,19 @@ $image-center: -30px;
                             opacity: 0.7;
                         }
                     }
+                    &share{
+                        color:var(--app-indigo-1);
+
+                        &:hover{
+                            color:var(--gray6);
+                        }
+                    }
+                    &clipboard{
+                        color:var(--gray10);
+                        &:hover{
+                            color:var(--app-indigo-1);
+                        }
+                    }
                 }
             }
             &thumbnail {

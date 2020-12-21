@@ -32,8 +32,8 @@
                 <p class="text-sm pt-2 la-anim__stagger-item">Stet clita kasd gubergen, no sea takimata sanctus est Lorem Ipsum dolor sit amet. Lorem ipsum dolor sit amet.                            </p>
               </div>
               <div class="la-contact__btm d-none d-sm-block">
-                <div class="la-contact__details la-anim__stagger-item"><span class="la-icon--lg icon-contact-number mr-3"></span><a class="text-md" href="tel:+91 9999999999">+91 9999999999</a></div>
-                <div class="la-contact__details la-anim__stagger-item"><span class="la-icon--lg icon-mail-id mr-3"></span><a class="text-md" href="mailto:ask@learnitlikealiens.com">ask@learnitlikealiens.com</a></div>
+                <div class="la-contact__details la-anim__stagger-item"><span class="la-icon--xl icon-contact-number mr-3"></span><a  href="tel:+91 9999999999">+91 9999999999</a></div>
+                <div class="la-contact__details la-anim__stagger-item"><span class="la-icon--xl icon-mail-id mr-3"></span><a  href="mailto:ask@learnitlikealiens.com">ask@learnitlikealiens.com</a></div>
                 <div class="la-contact__smedia mt-6">
                   <a class="la-anim__stagger-item" href="#"><span class="la-icon la-icon--6xl icon-facebook"></a>
                   <a class="la-anim__stagger-item" href="#"><span class="la-icon la-icon--6xl icon-insta"></a>

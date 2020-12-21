@@ -85,8 +85,13 @@
                 right: var(--size-3);
                 width: var(--size-10);
                 height: var(--size-10);
-                background:#7400D7;
+                background:var(--app-indigo-1);
                 border-radius: var(--rounded-full);
+
+                &:hover{
+                    background:var(--yellow);
+                    color:var(--gray);
+                }
             }
             &title {
                 margin-top: auto;
@@ -120,7 +125,16 @@
             &learners {
                 font-size: var(--text-xs);
             }
+
+            &view{
+                &-{
+                    &more{
+                        z-index:99;
+                    }
+                }
+            }
         }
+        
     }
     // Master Class: End
 }

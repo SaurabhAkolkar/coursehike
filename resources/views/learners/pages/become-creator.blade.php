@@ -5,12 +5,14 @@
   <section class="la-page--bcreator ">
     <div class="container-fluid">
     @if(session('message'))
-                <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible fade show" role="alert">
+              <div class="la-btn__alert position-relative">
+                <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" role="alert">
                     <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
                     <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true" class="text-white">&times;</span>
+                      <span aria-hidden="true" style="color:#56188C">&times;</span>
                     </button>
                 </div>
+              </div>
      @endif
       <div class="row la-anim__wrap">
         <!-- Column: Start-->
@@ -344,8 +346,8 @@
             <div class="px-5">
               <p class="la-bgcreator__ad-para la-anim__stagger-item">Start teaching Students for Life with your creations&#33;</p><br>
               <a class="ad-btn la-btn__app text-white text-uppercase la-anim__stagger-item" role="button" href="/creator-signup">Start Creating</a>
-              <div class="mt-5">
-                <a class="text-xxs la-arrow-link text-uppercase position-relative la-anim__stagger-item" href="/guided-creator"> Learn More
+              <div class="mt-8">
+                <a class="la-arrow-link text-uppercase position-relative la-anim__stagger-item" href="/guided-creator"> Learn More
                   <span class="la-icon la-icon--5xl icon-grey-arrow la-anim__stagger-item--x"></span>
                 </a>
               </div>

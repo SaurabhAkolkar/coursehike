@@ -11,6 +11,11 @@
     font-family: var(--body-font);
     font-weight: var(--font-medium);
 }
+.la-payment__add-old{
+ &:hover{
+     color:var(--gray10);
+ }   
+}
 .la-payment__add-details{
     font-size:var(--text-lg);
     padding: var(--size-4) 0;
