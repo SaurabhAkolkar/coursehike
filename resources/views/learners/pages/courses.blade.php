@@ -165,9 +165,3 @@
     </div>
   </section>
   @endsection
-  
-  @section('footerScripts')
-  <script>
- 
-  </script>
-  @endsection

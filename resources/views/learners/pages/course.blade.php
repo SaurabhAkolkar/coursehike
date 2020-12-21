@@ -805,11 +805,11 @@ use Carbon\Carbon;
                           <img src="/images/learners/status/locked-login.svg" alt="Login" class="img-fluid mx-auto d-block la-locked__modal-img">
                           <p class="la-locked__modal-desc px-6">Please login & subscribe to gain full access to courses.</p>
 
-                          <button class="la-btn__app py-3 w-100 la-locked__modal-btn" type="button">Login</button>
+                          <a href="/login"><button class="la-btn__app py-3 w-100 la-locked__modal-btn" type="button">Login</button></a>
 
                           <div class="la-locked__modal-register pt-3">
                               <span class="la-locked__modal-info pr-1">Don't have an account?</span>
-                              <a href="" role="button" class="la-locked__modal-link">Register</a>
+                              <a href="/register" role="button" class="la-locked__modal-link">Register</a>
                           </div>
                       </div>
                   </div>

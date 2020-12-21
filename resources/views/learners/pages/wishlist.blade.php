@@ -58,13 +58,13 @@
                       <div class="col-md-4 px-0">
                         <x-course 
                           :id="$courses->course_id"
-                          :img="$img" 
-                          :course="$course_name" 
+                          :img="$courses->courses->preview_image" 
+                          :course="$courses->courses->title" 
                           :url="$rating" 
-                          :rating="$rating"
+                          :rating="$courses->courses->review->avg('rating')?$courses->courses->review->avg('rating'):'0'"
                           :creatorImg="$img"
-                          :creatorName="$creatorURL"
-                          :creatorUrl="$creatorURL"
+                          :creatorName="$courses->courses->user->FullName"
+                          :creatorUrl="$courses"
                           :addedToWhishList="$addedToWhishList"
                         />
                     </div>

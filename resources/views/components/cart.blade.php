@@ -27,7 +27,7 @@
                     <div class="la-cart__item-content d-md-flex la-anim__wrap">
                         <div class="la-cart__item-left mr-4">
                             <div class="la-cart__item-img la-anim__stagger-item">
-                                <img src= {{ $courseImg }} alt= {{ $course }} />
+                                <img src= "{{ $courseImg }}" class="img-fluid" alt= {{ $course }} />
                             </div>
                         </div>
                         <div class="la-cart__item-right ">

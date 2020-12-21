@@ -53,13 +53,14 @@
 
                 <div class="row la-playlist__items">
                     @foreach ($playlists as $item)
-                      
-                        <x-playlist-item
-                           
-                            :courseName="$item->name"
-                            :classesCount="$item->count"
-                            :id="$item->id"
-                        />
+                        
+                          <x-playlist-item
+                            
+                              :courseName="$item->name"
+                              :classesCount="$item->count"
+                              :id="$item->id"
+                          />
+                       
                     @endforeach
                     <div class="col-md-3 d-none d-md-block la-anim__stagger-item">
                         <a class="la-btn__add d-flex justify-content-center align-items-center"  data-toggle="modal" data-target="#create_playlist" >
