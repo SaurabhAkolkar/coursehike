@@ -731,4 +731,3 @@ Route::view('/payment-history', 'learners.pages.payment-history');
 Route::view('/subscription-successful', 'learners.pages.subscription-successful');
 Route::view('/subscription-failure', 'learners.pages.subscription-failure');
 Route::view('/subscription-trial', 'learners.pages.subscription-trial');
-Route::view('/invoice', 'learners.pages.invoice');
