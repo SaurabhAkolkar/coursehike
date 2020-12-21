@@ -594,7 +594,6 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       
       Route::get('/my-courses','SearchController@myCourses');
       
-      Route::get('/download-certificate/{id}','LearnController@downloadCertificate');
 
     });
 
@@ -671,6 +670,8 @@ Route::middleware(['auth'])->group(function () {
 
   Route::get('/subscription/{slug}', 'SubscriptionController@plans');
   Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
+  Route::get('/download-certificate/{id}','LearnController@downloadCertificate');
+
 
 });
 

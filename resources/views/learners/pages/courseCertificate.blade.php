@@ -18,14 +18,14 @@
             color:#010101;
             line-height:1.5;
             border:25px solid #FFC516;
-            height:100%;
+            height:calc(100%-20px);
             padding:0;
             margin:0 auto;
         }        
     </style>
 </head>
 <body>
-    <section class="la-cert__section" style="color:#010101;padding:80px 0;">
+    <section class="la-cert__section" style="color:#010101;padding:80px 0 0px;">
         <div class="container px-5">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -41,7 +41,7 @@
                             </div>
                           
 
-                            <div class="la-cert__info" style="padding:80px 0">
+                            <div class="la-cert__info" style="padding:20px 0">
                                 <div class="la-cert__to text-uppercase" style="letter-spacing:2px;color:#454545;font-size:14px;">This Certificate is proudly presented to </div>
                                 <h1 class="la-cert__learner pt-3" style="font-size:64px;border-bottom:2px solid #FFC516;margin:0 35px;">{{$learner_name}}</h1>
                                 <div class="la-cert__desc" style="color:#252525;font-size:16px;letter-spacing:1px;padding-top:30px;">

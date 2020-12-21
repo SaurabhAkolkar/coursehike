@@ -419,8 +419,9 @@ class LearnController extends Controller
         $learner_name = Auth::User()->fname.' '.Auth::User()->lname;
         $date = Carbon::now()->isoFormat('D/M/YYYY'); 
         $mentor = $course->user->fname.' '.$course->user->lname;
-        $pdf = PDF::loadView('learners.pages.courseCertificate', compact('course','learner_name','mentor','date'))->setPaper('landscape');
-        
+        $pdf = PDF::loadView('learners.pages.courseCertificate', compact('course','learner_name','mentor','date'))->setPaper('A4','landscape');
         return $pdf->stream('certificate.pdf');
+        
+
     }
 }
