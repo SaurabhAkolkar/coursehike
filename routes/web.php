@@ -199,6 +199,20 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::get('widget', 'WidgetController@edit')->name('widget.setting');
       Route::put('widget/update', 'WidgetController@update');
+
+      Route::get('/firstsection', 'FirstSectionController@index');
+      Route::put('firstsection/update', 'FirstSectionController@update');
+
+      Route::get('/featuredMentors', 'FeaturedMentorController@index');
+      Route::get('/featuredMentors/create', 'FeaturedMentorController@create');
+      Route::post('/featuredMentors/store', 'FeaturedMentorController@store');
+      Route::get('/featuredMentors/edit/{id}', 'FeaturedMentorController@edit')->name('featuredmentor.edit');
+      Route::post('/featuredMentors/update', 'FeaturedMentorController@update');
+      Route::get('/featuredMentors/getcourses', 'FeaturedMentorController@getCourses');
+      Route::delete('/featuredMentors/{id}', 'FeaturedMentorController@delete');
+
+
+
       Route::post('admin/class/{id}/addsubtitle','SubtitleController@post')->name('add.subtitle');
       Route::post('admin/class/{id}/delete/subtitle','SubtitleController@delete')->name('del.subtitle');
 

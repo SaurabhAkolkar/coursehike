@@ -1,7 +1,7 @@
 <div class="col-12 col-md-6 la-anim__stagger-item la-anim__B">
     <div class="la-mccourse">
         <div class="la-mccourse__imgwrap">
-            <img class="img-fluid" src= {{ $img }} alt= {{ $title }} />
+            <img class="img-fluid" src= "{{ $img }}" alt= {{ $title }} />
         </div>
       
         <div class="la-mccourse__overlay">
@@ -16,7 +16,7 @@
             <div class="la-mccourse__btm">
                 <div class="la-mccourse__cprofile">
                     <div class="la-mccourse__cprofile-imgwrap">
-                        <img class="img-fluid" src= {{ $profileImg }}   alt= {{ $profileName }} />
+                        <img class="img-fluid" src= "{{ $profileImg }}"   alt= {{ $profileName }} />
                     </div>
                     <div class="la-mccourse__cprofile-name">{{ $profileName }} </div>
                 </div>

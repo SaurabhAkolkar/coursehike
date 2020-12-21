@@ -12,6 +12,7 @@ class CoursetextController extends Controller
     public function show()
     {
         $show = CourseText::first();
+       
         return view('admin.course_text.edit',compact('show'));
     }
 

@@ -28,12 +28,12 @@
 		              	<div class="row">
 		                  <div class="col-md-6">
 		                    <label for="heading">{{ __('adminstaticword.Heading') }}<sup class="redstar">*</sup></label>
-		                    <input value="{{ $show['heading'] }}" autofocus required name="heading" type="text" class="form-control" placeholder="Enter Facts Heading"/>
+		                    <input value="{{ $show?$show['heading']: '' }}" autofocus required name="heading" type="text" class="form-control" placeholder="Enter Facts Heading"/>
 		                  </div>
 		              	
 		                  <div class="col-md-6">
 		                    <label for="sub_heading">{{ __('adminstaticword.SubHeading') }}<sup class="redstar">*</sup></label>
-		                    <input value="{{ $show['sub_heading'] }}" autofocus required name="sub_heading" type="text" class="form-control" placeholder="Enter Facts Sub Heading"/>
+		                    <input value="{{ $show?$show['sub_heading']: '' }}" autofocus required name="sub_heading" type="text" class="form-control" placeholder="Enter Facts Sub Heading"/>
 		                  </div>
 		              	</div>
 		              	<br>

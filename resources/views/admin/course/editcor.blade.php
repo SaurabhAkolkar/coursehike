@@ -260,10 +260,10 @@
                 <div class="col-md-2">
                   <label for="exampleInputDetails">Master Class:</label>
                   <li class="tg-list-item">              
-                    <input class="la-admin__toggle-switch" id="master_class" type="checkbox" name="master_class" >
+                    <input class="la-admin__toggle-switch" id="master_class" type="checkbox" name="master_class" @if($check_master_class) checked @endif >
                     <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="master_class"></label>
                   </li>
-                  <input type="hidden"  name="master_class" value="0" for="master_class" id="master_class">
+                  <input type="hidden"  name="master_class"  for="master_class" id="master_class2" @if($check_master_class) value="1" @endif>
                 </div>
 
 
@@ -306,6 +306,12 @@
   $(function() {
     $('#cb1').change(function() {
       $('#f').val(+ $(this).prop('checked'))
+    })
+  })
+
+  $(function() {
+    $('#master_class').change(function() {
+      $('#master_class2').val(+ $(this).prop('checked'))
     })
   })
 

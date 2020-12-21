@@ -14,6 +14,9 @@ use App\BundleCourse;
 use App\Testimonial;
 use App\Trusted;
 use App\Playlist;
+use App\MasterClass;
+use App\FirstSection;
+use App\FeaturedMentor;
 use Auth;
 
 class HomeController extends Controller
@@ -46,10 +49,12 @@ class HomeController extends Controller
         $testi = Testimonial::all();
         $trusted = Trusted::all();
         // $Playlist = [];
+        $firstSection = FirstSection::first();
+        $master_classes = MasterClass::with('courses','courses.user')->get();
+        $featuredMentor = FeaturedMentor::with('user','courses','courses.category')->where(['status'=>1])->get();
         
-
-
-        return view('learners.pages.home', compact('categories', 'sliders', 'facts', 'cor', 'bundles', 'meetings', 'bigblue', 'testi', 'trusted'));
+    
+        return view('learners.pages.home', compact('categories', 'firstSection', 'featuredMentor','master_classes','sliders', 'facts', 'cor', 'bundles', 'meetings', 'bigblue', 'testi', 'trusted'));
     }
 
 }
