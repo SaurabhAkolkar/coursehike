@@ -135,32 +135,32 @@
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col-md-6 col-lg-6 px-5 px-sm-0 py-8 py-sm-0 ml-6 la-vdot__class la-anim__wrap">
+        <div class="col-md-6 col-lg-6 px-5 px-sm-0 py-8 py-sm-0 ml-6 la-vdot__class ">
           <div class="la-vdotted__bar position-relative px-4">
-            <div class="la-vicon d-flex align-items-start">
-              <div class="la-icon__vline la-anim__stagger-item"><span class="la-icon la-icon--8xl icon-video-unfilled position-absolute"></span></div>
+            <div class="la-vicon d-flex align-items-start la-anim__wrap">
+              <div class="la-icon__vline la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-video-unfilled position-absolute la-anim__stagger-item--x"></span></div>
               <div class="la-vicon__text">
                 <h5 class="la-vicon__title la-anim__stagger-item">Record a Video</h5>
                 <p class="la-vicon__desc pt-2 la-anim__stagger-item">Classify and videotape the course of your expertise as classes for better understanding</p>
                 <a class="la-vicon__link text-uppercase position-absolute la-anim__stagger-item" href="/guided-creator">Need Assistance<span class="la-vicon__arrow la-icon la-icon--5xl icon-grey-arrow"></span></a>
               </div>
             </div>
-            <div class="la-vicon d-flex align-items-start">
-              <div class="la-icon__vline la-anim__stagger-item"><span class="la-icon la-icon--7xl icon-upload-unfilled position-absolute"></span></div>
+            <div class="la-vicon d-flex align-items-start la-anim__wrap">
+              <div class="la-icon__vline la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-upload-unfilled position-absolute la-anim__stagger-item--x"></span></div>
               <div class="la-vicon__text">
                 <h5 class=" la-vicon__title la-anim__stagger-item">Upload</h5>
                 <p class="la-vicon__desc pt-2 la-anim__stagger-item">Edit and Upload classes in the recommended format</p>
               </div>
             </div>
-            <div class="la-vicon d-flex align-items-start">
-              <div class="la-icon__vline la-anim__stagger-item"><span class="la-icon la-icon--8xl icon-share-image position-absolute"></span></div>
+            <div class="la-vicon d-flex align-items-start la-anim__wrap">
+              <div class="la-icon__vline la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-share-image position-absolute la-anim__stagger-item--x"></span></div>
               <div class="la-vicon__text">
                 <h5 class="la-vicon__title la-anim__stagger-item">Share the World</h5>
                 <p class="la-vicon__desc pt-2 la-anim__stagger-item">Your students and subscribers from all around the world get to learn new art forms, all while sitting in the comfort of their homes.</p>
               </div>
             </div>
-            <div class="la-vicon d-flex align-items-start">
-              <div class="la-icon__vline la-anim__stagger-item"><span class="la-icon la-icon--8xl icon-dollar position-absolute pl-1"></span></div>
+            <div class="la-vicon d-flex align-items-start la-anim__wrap">
+              <div class="la-icon__vline la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-dollar position-absolute pl-1 la-anim__stagger-item--x"></span></div>
               <div class="la-vicon__text">
                 <h5 class="la-vicon__title la-anim__stagger-item">Earn with your Creations</h5>
                 <p class="la-vicon__desc pt-2 la-anim__stagger-item">Values aren't the only takeaway for a creator. Earn for your life of dreams while helping other follow theirs!</p>
@@ -182,10 +182,10 @@
     <div class="container">
       <div class="row">
         <!-- Column: Start-->
-        <div class="col-sm-12 la-anim__wrap">
-          <div class="la-earn__blog">
+        <div class="col-sm-12 ">
+          <div class="la-earn__blog la-anim__wrap">
             <h3 class="la-earn__blog-title la-anim__stagger-item">How you earn?</h3>
-            <img class="img-fluid mx-auto d-block la-anim__stagger-item" src="./images/learners/creator/earn.png">
+            <img class="img-fluid mx-auto d-block la-anim__stagger-item--x la-anim__D" src="../images/learners/creator/earn.svg" alt="How you Earn?">
           </div>
         </div>
         <!-- Column: End-->
@@ -229,11 +229,11 @@
   <!-- Section: End-->
   <!-- Section: Start-->
   <section class="la-bcreator-reach-stats">
-    <div class="container my-5 la-anim__wrap">
+    <div class="container my-5 ">
       <div class="row my-5">
         <!-- Column: Start-->
         <div class="col-sm-12 col-md-5">
-          <div class="la-bcreator__reach-main pb-5 pb-sm-0">
+          <div class="la-bcreator__reach-main pb-5 pb-sm-0 la-anim__wrap">
             <span class="la-bcreator__reach-tag la-anim__stagger-item">LILA&#39;s </span><br>
             <h3 class="la-bcreator__reach-title la-anim__stagger-item--x">Reach</h3>
           </div>
@@ -242,7 +242,7 @@
         <!-- Column: Start-->
         <div class="col col-sm-4 col-md-2">
           <div class="la-bcreator__stats">
-            <div class="la-bcreator__stats-item">
+            <div class="la-bcreator__stats-item la-anim__wrap">
               <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">80 M</h4>
               <p class="la-bcreator__stats-desc  text-uppercase la-anim__stagger-item">Students</p>
               <span class="la-bcreator__stats-text text-sm la-anim__stagger-item">Lorem Ipsum</span>
@@ -252,7 +252,7 @@
         <!-- Column: End-->
         <!-- Column: Start-->
         <div class="col col-sm-4 col-md-2">   
-          <div class="la-bcreator__stats-item">
+          <div class="la-bcreator__stats-item la-anim__wrap">
             <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">20 &#43;</h4>
             <p class="la-bcreator__stats-desc text-uppercase la-anim__stagger-item">Courses</p>
             <span class="la-bcreator__stats-text text-sm la-anim__stagger-item">Lorem Ipsum</span>
@@ -261,7 +261,7 @@
         <!-- Column: End-->
         <!-- Column: Start-->
         <div class="col col-sm-4 col-md-2">
-          <div class="la-bcreator__stats-item">
+          <div class="la-bcreator__stats-item la-anim__wrap">
             <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">100 &#43;</h4>
             <p class="la-bcreator__stats-desc text-uppercase la-anim__stagger-item">Countries</p>
             <span class="la-bcreator__stats-text text-sm la-anim__stagger-item">Lorem Ipsum</span>
@@ -274,7 +274,7 @@
       </div>
       <div class="row mt-5">
         <!-- Column: Start-->
-        <div class="col col-sm-12 mt-2 mt-sm-14">
+        <div class="col col-sm-12 mt-2 mt-sm-14 la-anim__wrap">
           <div class="la-bcreator__stats-btn text-center d-none d-sm-block la-anim__stagger-item">
             <a class="btn-get__started la-btn__app text-uppercase" role="button" href="/creator-signup">Get Started</a>
           </div>
@@ -291,16 +291,16 @@
   <!-- Section: Start-->
   <section class="la-bcreator--benefits ">
     <div class="container">
-      <div class="row la-anim__wrap">
+      <div class="row ">
         <!-- Column: Start-->
         <div class="col-12 ">
-          <div class=" position-relative">
-            <h2 class="la-bcreator__benefits-main text-uppercase text-center la-anim__text-move ">Benefits</h2>
+          <div class=" position-relative la-anim__wrap">
+            <h2 class="la-bcreator__benefits-main text-uppercase text-center la-anim__fade-in-top ">Benefits</h2>
           </div>
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col-md-6 col-lg-4 text-center ">
+        <div class="col-md-6 col-lg-4 text-center la-anim__wrap">
           <div class="la-bcreator__benefits-card p-5 p-sm-3 py-lg-3 px-lg-12 la-anim__stagger-item--x">
             <div class="p-2">
               <span class="la-bcreator__benefits-icon la-icon la-icon--7xl icon-earnings-image ml-md-n4 la-anim__stagger-item"></span>
@@ -311,7 +311,7 @@
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col-md-6 col-lg-4 text-center ">
+        <div class="col-md-6 col-lg-4 text-center la-anim__wrap">
           <div class="la-bcreator__benefits-card p-5 p-sm-1 py-lg-3 px-lg-10 la-anim__stagger-item--x">
             <div class="p-2">
               <span class="la-bcreator__benefits-icon la-icon la-icon--8xl icon-recognition-image ml-md-n4 mt-md-1 la-anim__stagger-item"></span>
@@ -322,7 +322,7 @@
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col-md-12 col-lg-4 text-center la-anim__stagger-item--x">
+        <div class="col-md-12 col-lg-4 text-center la-anim__wrap">
           <div class="la-bcreator__benefits-card p-5 p-sm-3 py-lg-3 px-lg-14 la-anim__stagger-item--x">
             <div class="p-2">
               <span class="la-bcreator__benefits-icon la-icon la-icon--8xl icon-inspire-image ml-md-n4 la-anim__stagger-item"></span>

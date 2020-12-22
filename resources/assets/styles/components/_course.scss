@@ -96,7 +96,7 @@
                 width: 100%;
                 height: 100%;
                 padding: var(--size-3);
-                background: transparent linear-gradient(180deg, #010101 0%, #8E8E8E05 60%, #000000 100%) 0% 0% no-repeat padding-box;
+                background: transparent linear-gradient(180deg, #010101 0%, #8E8E8E05 0%, #000000 150%) 0% 0% no-repeat padding-box;
                 z-index: var(--z-10);
                 border-radius: var(--size-2);
                 &:hover {
@@ -134,7 +134,7 @@
                 color: #FFF;
                 align-self: flex-end;
 
-                &:after{
+                /*&:after{
                     position:absolute;
                     content:'';
                     right:45px;
@@ -143,7 +143,7 @@
                     height:1px;
                     border-top:1px solid orange;
                     transform:rotate(30deg);
-                }
+                } */
             }
             &btm {
                 padding: var(--size-4) var(--size-5);

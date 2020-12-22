@@ -56,7 +56,7 @@
           <div class="col-12 px-0 px-lg-3">
             <div class="la-lp__choose-bg">
               <div class="d-none d-lg-block">
-                <div class="row d-flex flex-row ">
+                <div class="row d-flex flex-row justify-content-center">
                     <!-- Choose Plans: Start -->
                     @foreach ($plans as $plan)
                         <x-chooseplan :plan="$plan->plan" :discount="$plan->discount" :oldPrice="$plan->oldPrice" :class="$plan->class" :saving="$plan->saving" :slug="$plan->slug" />

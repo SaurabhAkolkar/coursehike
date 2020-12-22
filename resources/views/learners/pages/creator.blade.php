@@ -52,7 +52,7 @@
         
 
           <div class="row py-6 py-md-20">   
-            <div class="col p-md-0">
+            <div class="col-12 p-md-0">
               <h4 class="text-3xl head-font font-weight-bold p-3">Courses from {{ucfirst($creator->FullName)}}</h4>
               <div class="la-courses__creator-courses d-md-flex flex-row">
 
