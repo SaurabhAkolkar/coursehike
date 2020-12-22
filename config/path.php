@@ -8,10 +8,6 @@ return array(
     
     'avatar'    => 'img/avatar/',
 
-    'restaurant'     => 'img/restaurants/',
-    'dishes'     => 'img/dishes/',
-    'categories'     => 'img/categories/',
-
     'course' => [
         'img' => 'images/course/',
         'class_thumnail' => 'images/class_thumnail/',

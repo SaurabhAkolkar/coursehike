@@ -90,13 +90,6 @@
                                 @endif
                             </div>
                             {{-- @endif --}}
-
-                            <div class="la-form__input-wrap la-entry__input-wrap">
-                                <span class="la-entry__input-icon">
-                                    <span class="la-icon la-icon--xl icon-birthday"></span>
-                                </span>
-                                <input class="la-form__input la-entry__input" type="date" value="" name="date-of-birth" placeholder="Date of Birth(dd/mm/yyyy)">
-                            </div>
                             
                             <div class="la-form__input-wrap la-entry__input-wrap">
                                 <!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
@@ -107,6 +100,13 @@
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
+                            </div>
+
+                            <div class="la-form__input-wrap la-entry__input-wrap">
+                                <span class="la-entry__input-icon">
+                                    <span class="la-icon la-icon--xl icon-birthday"></span>
+                                </span>
+                                <input class="la-form__input la-entry__input" type="text" value="" onfocus="(this.type='date')" name="dob" placeholder="Date of Birth(dd/mm/yyyy)">
                             </div>
                            
                             <div class="la-form__input-wrap la-entry__input-wrap">
@@ -120,11 +120,11 @@
                                 @endif
                             </div>
         
-                            <div class="la-form__input-wrap la-entry__input-wrap mb-12">
+                            {{-- <div class="la-form__input-wrap la-entry__input-wrap mb-12">
                                 <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
                                 <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-confirm-password"></span></span>
                                 <input id="password-confirm" type="password" class="la-form__input la-entry__input" name="password_confirmation" placeholder="Confirm Password" required>
-                            </div>
+                            </div> --}}
                             
                             {{-- @if($gsetting->captcha_enable == 1)
                              <div class="form-group mb-5{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
