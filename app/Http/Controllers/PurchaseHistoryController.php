@@ -21,7 +21,7 @@ class PurchaseHistoryController extends Controller
         $date = Carbon::parse($invoiceData->create_at)->isoFormat('D/M/YYYY');
         $invoiceDetailData = InvoiceDetail::with('course','course.user')->where('invoice_id', $id)->get();
 
-        $pdf = PDF::loadView('learners.pages.invoicePDF', compact('invoiceData'))->download('itsolutionstuff.pdf');
+        $pdf = PDF::loadView('learners.pages.invoicePDF', compact('invoiceData'))->stream('itsolutionstuff.pdf');
     
            
         return $pdf;

@@ -30,18 +30,18 @@
   <!-- Section: Start-->
   <section class="la-page--how-this-works py-5 ">
     <div class="container-fluid pl-0 pl-md-5 py-5">
-      <div class="row pl-4 py-5 la-anim__wrap">
+      <div class="row pl-4 py-5">
         <!-- Column: Start-->
-        <div class="col-12 py-5 px-0 px-sm-4">
-          <div class=" pl-5 la-anim__stagger-item">
-            <h2 class="la-gcreator__works-title pl-1 pl-md-5">How this works?</h2>
+        <div class="col-12 py-5 px-0 px-sm-4 ">
+          <div class=" pl-5 la-anim__wrap ">
+            <h2 class="la-gcreator__works-title pl-1 pl-md-5 la-anim__stagger-item">How this works?</h2>
           </div>
         </div>
         <!-- Column: End-->
       </div>
-      <div class="row px-2 px-md-5 la-anim__wrap">
+      <div class="row px-2 px-md-5 ">
         <!-- Column: Start-->
-        <div class="col-12 col-lg-5 d-none d-lg-block">
+        <div class="col-12 col-lg-5 d-none d-lg-block la-anim__wrap">
           <div class="la-gcreator__works mt-n5 "><img class="img-fluid mx-auto d-block img-rounded la-anim__stagger-item" src="./images/learners/creator/gcreator-1a.png" alt="Record a Video"></div>
           <div class="la-gcreator__works mt-2 "><img class="img-fluid mx-auto d-block img-rounded la-anim__stagger-item" src="./images/learners/creator/gcreator-2a.png" alt="Edit a Video"></div>
           <div class="la-gcreator__works mt-n5 "><img class="img-fluid mx-auto d-block img-rounded la-anim__stagger-item" src="./images/learners/creator/gcreator-3a.png" alt="Share Video"></div>
@@ -50,10 +50,10 @@
         <!-- Column: Start-->
         <div class="col-12 col-lg-5 px-0 px-xl-3 mt-5 pt-5 ">
           <div class="la-gcreator__video-content position-relative">
-            <div class="la-gvline d-flex align-items-start flex-column mt-5">
+            <div class="la-gvline d-flex align-items-start flex-column mt-5 la-anim__wrap">
               <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5 la-anim__stagger-item">
                 <img class="img-fluid mx-auto d-block img-rounded mt-n5" src="./images/learners/creator/gcreator-1a.png" alt="Record a Video"></div>
-              <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--8xl icon-video-unfilled"></span></div>
+              <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-video-unfilled la-anim__stagger-item--x"></span></div>
               <div class="la-gcreator__video-content mt-5">
                 <h5 class="la-gcreator__video-title la-anim__stagger-item">We'll record a Video</h5>
                 <p class="la-gcreator__video-para pt-3 text-md la-anim__stagger-item">Stet clita kasd gubergen, no sea takimata sanctus est Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet.</p>
@@ -72,9 +72,9 @@
                 </div>
               </div>
             </div>
-            <div class="la-gvline d-flex align-items-start flex-column">
+            <div class="la-gvline d-flex align-items-start flex-column la-anim__wrap">
               <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5 la-anim__stagger-item"><img class="img-fluid mx-auto d-block img-rounded mt-n5" src="./images/learners/creator/gcreator-2a.png" alt="Edit a Video"></div>
-              <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--8xl icon-edit-image"></span></div>
+              <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-edit-image la-anim__stagger-item--x"></span></div>
               <div class="la-gcreator__video-content mt-5">
                 <h5 class="la-gcreator__video-title la-anim__stagger-item">We'll edit the Video</h5>
                 <p class="la-gcreator__video-para text-md pt-3 la-anim__stagger-item">Stet clita kasd gubergen, no sea takimata sanctus est Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet.</p>
@@ -93,9 +93,9 @@
                 </div>
               </div>
             </div>
-            <div class="la-gvline-last d-flex align-items-start flex-column">
+            <div class="la-gvline-last d-flex align-items-start flex-column la-anim__wrap">
               <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5 la-anim__stagger-item"><img class="img-fluid mx-auto d-block img-rounded mt-n5" src="./images/learners/creator/gcreator-3a.png" alt="Share Video"></div>
-              <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--8xl icon-share-image "></span></div>
+              <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-share-image la-anim__stagger-item--x"></span></div>
               <div class="la-gcreator__video-content mt-5">
                 <h5 class="la-gcreator__video-title la-anim__stagger-item">Share it with the World</h5>
                 <p class="la-gcreator__video-para text-md pt-3 la-anim__stagger-item">Stet clita kasd gubergen, no sea takimata sanctus est Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet.</p>
