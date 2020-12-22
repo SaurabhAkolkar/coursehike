@@ -18,7 +18,7 @@ use App\MasterClass;
 use App\FirstSection;
 use App\FeaturedMentor;
 use Auth;
-
+use stdClass;
 class HomeController extends Controller
 {
     /**
@@ -50,6 +50,15 @@ class HomeController extends Controller
         $trusted = Trusted::all();
         // $Playlist = [];
         $firstSection = FirstSection::first();
+            if($firstSection == null){
+                $firstSection = new stdClass;
+                $firstSection->sub_heading = 'Observe, learn and converse with creators to master your arts';
+                $firstSection->image = asset('images/learners/home/design-a@2x.png');
+                $firstSection->image_text = 'DESIGN';
+                
+            }else{
+                $firstSection->image = asset('images/firstsection/'.$firstSection->image);
+            }
         $master_classes = MasterClass::with('courses','courses.user')->get();
         $featuredMentor = FeaturedMentor::with('user','courses','courses.category')->where(['status'=>1])->get();
         

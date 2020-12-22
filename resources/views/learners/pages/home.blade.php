@@ -32,7 +32,7 @@
             <div class="la-hero__img position-relative d-flex align-items-center la-anim__fade-in-right">
               <span class="la-section__crossline"></span>
               <h2 class="la-section__title la-section__title--big"><div class="la-anim__text-move--content">{{$firstSection->image_text}}</div></h2>
-              <img class="img-fluid" src="{{asset('images/firstsection/'.$firstSection->image)}}" alt="{{$firstSection->image_text}}">
+              <img class="img-fluid" src="{{$firstSection->image}}" alt="{{$firstSection->image_text}}">
             </div>
           </div>
           <!-- Column: End-->
