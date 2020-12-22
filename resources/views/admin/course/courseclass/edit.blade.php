@@ -82,8 +82,9 @@
                 <div class="col-md-6">    
                   <label >{{ __('adminstaticword.Is_preview_video') }}:</label>
                   <li class="tg-list-item">   
+               
                     <input class="la-admin__toggle-switch" id="c11" name="is_preview" type="checkbox" {{ $cate->is_preview == '1' ? 'checked' : '' }} />
-                    <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active"></label>
+                    <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="c11"></label>
                   </li>
                 </div> 
                        

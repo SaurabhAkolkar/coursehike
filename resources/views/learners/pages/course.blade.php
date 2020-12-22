@@ -565,7 +565,9 @@ use Carbon\Carbon;
             </li>
           </div>
           <div class="col-lg-8">
+            
             @foreach($reviews as $review)
+           
               <li class="la-lcreviews__item">
                 <div class="la-lcreviews__inner">
                   <div class="la-lcreviews__wrapper d-flex flex-column flex-md-row justify-content-between">

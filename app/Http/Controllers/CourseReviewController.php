@@ -13,7 +13,7 @@ class CourseReviewController extends Controller
     public function index()
     {   
         $requests = PublishRequest::with('courses')->where(['status'=>1])->get();
-
+     
     	$course = Course::where('user_id', '!=' ,Auth::User()->id)->get();
         return view('admin.course_review.index',compact('course','requests'));
     }
@@ -21,7 +21,7 @@ class CourseReviewController extends Controller
     public function coursePublish()
     {   
         $requests = PublishRequest::with('courses')->where([ 'request_type'=>'publish', 'status'=>1])->get();
-
+        
         $course = Course::where('user_id', '!=' ,Auth::User()->id)->get();
         
         return view('admin.course_review.publishRequest',compact('course','requests'));

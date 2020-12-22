@@ -56,11 +56,11 @@ class HomeController extends Controller
                 $firstSection->image = asset('images/learners/home/design-a@2x.png');
                 $firstSection->image_text = 'DESIGN';
                 
-            }else{
-                $firstSection->image = asset('images/firstsection/'.$firstSection->image);
             }
         $master_classes = MasterClass::with('courses','courses.user')->get();
-        $featuredMentor = FeaturedMentor::with('user','courses','courses.category')->where(['status'=>1])->get();
+        $featuredMentor = FeaturedMentor::with('user','courses','courses.category')->where(['status'=>'1'])->get();
+
+        //dd($featuredMentor);
         
     
         return view('learners.pages.home', compact('categories', 'firstSection', 'featuredMentor','master_classes','sliders', 'facts', 'cor', 'bundles', 'meetings', 'bigblue', 'testi', 'trusted'));
