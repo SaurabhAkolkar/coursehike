@@ -11,7 +11,11 @@ return array(
     'restaurant'     => 'img/restaurants/',
     'dishes'     => 'img/dishes/',
     'categories'     => 'img/categories/',
-
+    'mentor' => [
+        'featured' => 'img/mentor/featured/',
+        'featuredthumbnail' => 'img/mentor/featured/thumbnail/'
+    ],
+    'firstsection' => 'img/firstsection/',
     'course' => [
         'img' => 'images/course/',
         'class_thumnail' => 'images/class_thumnail/',

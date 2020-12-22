@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\FirstSection;
 use Session;
 use Image;
+use Storage;
 
 class FirstSectionController extends Controller
 {
@@ -29,20 +30,29 @@ class FirstSectionController extends Controller
             'image_text' => 'required',
         ]);
 
-        $input = $request->all();
-
-        if($file = $request->file('image')) 
-        {        
-          $optimizeImage = Image::make($file);
-          $optimizePath = public_path().'/images/firstsection/';
-          $image = time().$file->getClientOriginalName();
-          $optimizeImage->save($optimizePath.$image, 72);
-
-          $input['image'] = $image;
-          
-        }
+        $input = $request->all();   
 
         $firstSection = FirstSection::first();
+
+        if ($file = $request->file('image')) {
+            if($firstSection)
+                if ($firstSection->image != null) {
+                    $exists = Storage::exists(config('path.firstsection').$firstSection->image);
+                    if ($exists)
+                        Storage::delete(config('path.firstsection').$firstSection->image);
+                }
+                
+                $photo = Image::make($file);
+                
+                $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+                
+                // $input['preview_image'] = Storage::putFile(config('path.course.img'), $photo );
+                Storage::put(config('path.firstsection').$file_name, $photo->stream() );
+                // Storage::put(config('path.course.img').$file_name, $photo->getEncoded());
+                $input['image'] = $file_name;
+        }
+
+       
         if(isset($firstSection))
         {
             $firstSection->update($input);
@@ -52,7 +62,7 @@ class FirstSectionController extends Controller
         else
         {
 
-            if($request->image){
+            if($request->file('image') == null){
                 Session::flash('success','Image is required.');
                 return redirect('/firstsection');
             }

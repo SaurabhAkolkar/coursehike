@@ -1,6 +1,6 @@
 
 
-<div class="col-lg-4 d-inline-flex justify-content-center la-anim__stagger-item--x">
+<div class="col-lg-4 d-inline-flex justify-content-center">
     <div class="la-mentor">
       <div class="la-mentor__profile">
           <img class="img-fluid" src="{{ $img }}" alt={{ $name }}>

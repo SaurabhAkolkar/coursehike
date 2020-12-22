@@ -16,14 +16,16 @@ class artist extends Component
      public $artistCategory;
      public $artistCampany;
      public $artistImage;
+     public $course;
 
 
-    public function __construct($artistName, $artistCategory, $artistCampany, $artistImage)
+    public function __construct($artistName, $artistCategory, $artistCampany, $artistImage, $course)
     {
         $this->artistName = $artistName;
         $this->artistCategory = $artistCategory;
         $this->artistCampany = $artistCampany;
         $this->artistImage = $artistImage;
+        $this->course = $course;
     }
 
     /**

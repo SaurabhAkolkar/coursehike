@@ -186,7 +186,7 @@ class CourseclassController extends Controller
      */
     public function show( $id)
     {
-        
+    
         $languages = CourseLanguage::all();
         $cate = CourseClass::find($id);
         $coursechapt = CourseChapter::where('course_id', $cate->course_id)->get();
@@ -319,9 +319,10 @@ class CourseclassController extends Controller
         else
         {
             $courseclass['featured'] = '0';
-        }
+        }   
+        $courseclass['is_preview'] = $request->is_preview =='on'?'1':'0';
 
-
+   
         $courseclass->save();
         Session::flash('success','Updated Successfully !');
         return redirect()->route('course.show',$maincourse->id); 

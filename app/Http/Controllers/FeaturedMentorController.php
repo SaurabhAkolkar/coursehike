@@ -8,12 +8,13 @@ use App\User;
 use App\Course;
 use Image;
 use Session;
+use Storage;
 
 class FeaturedMentorController extends Controller
 {
     public function index(){
         $data = FeaturedMentor::with('user','courses')->get();
-       
+        
 		return view('admin.featured_mentors.index',compact('data'));
     }
 
@@ -47,33 +48,31 @@ class FeaturedMentorController extends Controller
             Session::flash('success','User already in featured mentors.');
             return redirect()->back();        
         }
-        if($file = $request->file('user_image')) 
-        {        
-          $optimizeImage = Image::make($file);
-          $optimizePath = public_path().'/images/featuredmentor/';
-        if (!file_exists($optimizePath)) {
-            mkdir($optimizePath, 666, true);
-        }
-          $image = time().$file->getClientOriginalName();
-          $optimizeImage->save($optimizePath.$image, 72);
 
-          $input['user_image'] = $image;
-          
+        if ($file = $request->file('user_image')) {
+                
+                $photo = Image::make($file);
+                
+                $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+                
+                // $input['preview_image'] = Storage::putFile(config('path.course.img'), $photo );
+                Storage::put(config('path.mentor.featured').$file_name, $photo->stream() );
+                // Storage::put(config('path.course.img').$file_name, $photo->getEncoded());
+                $input['user_image'] = $file_name;
         }
 
-        if($file = $request->file('image_thumbnail')) 
-        {        
-          $optimizeImage = Image::make($file);
-          $optimizePath = public_path().'/images/featuredmentor/thumbnail/';
-          if (!file_exists($optimizePath)) {
-            mkdir($optimizePath, 666, true);
-            }
-          $image = time().$file->getClientOriginalName();
-          $optimizeImage->save($optimizePath.$image, 72);
-
-          $input['user_thumbnail'] = $image;
-          
+        if ($file = $request->file('image_thumbnail')) {
+                
+                $photo = Image::make($file);
+                
+                $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+                
+                // $input['preview_image'] = Storage::putFile(config('path.course.img'), $photo );
+                Storage::put(config('path.mentor.featuredthumbnail').$file_name, $photo->stream() );
+                // Storage::put(config('path.course.img').$file_name, $photo->getEncoded());
+                $input['user_thumbnail'] = $file_name;
         }
+
         $input['user_id'] = $request->mentor;
         $input['course_id'] = $request->course;
         $input['status'] = $request->status?1:0;
@@ -94,51 +93,50 @@ class FeaturedMentorController extends Controller
         $featuredmentor = FeaturedMentor::where('id', $request->featured_id)->first();
          
         if($featuredmentor){
-            if($file = $request->file('user_image')) 
-            {      
-                if($featuredmentor->image != null) {
-                    $content = @file_get_contents(public_path().'/images/featuredmentor/'.$featuredmentor->user_image);
-                    if ($content) {
-                      unlink(public_path().'/images/featuredmentor/'.$featuredmentor->user_image);
-                    }
-                }
-    
-              $optimizeImage = Image::make($file);
-              $optimizePath = public_path().'/images/featuredmentor/';
-    
-              
-                if (!file_exists($optimizePath)) {
-                    mkdir($optimizePath, 666, true);
-                }
 
-                $image = time().$file->getClientOriginalName();
-                $optimizeImage->save($optimizePath.$image, 72);
-        
-                $input['user_image'] = $image;
-              
-            }
-    
-            if($file = $request->file('image_thumbnail')) 
-            {     
-                if($featuredmentor->image != null) {
-                    $content = @file_get_contents(public_path().'/images/featuredmentor/thumbnail/'.$featuredmentor->user_thumbnail);
-                    if ($content) {
-                      unlink(public_path().'/images/featuredmentor/'.$featuredmentor->user_thumbnail);
+            if ($file = $request->file('user_image')) {
+
+                if ($featuredmentor->user_image != null) {
+
+                    $exists = Storage::exists(config('path.mentor.featured').$featuredmentor->user_image);
+                    if ($exists)
+                    Storage::delete(config('path.mentor.featured').$featuredmentor->user_image);
                     }
-                }   
-                $optimizeImage = Image::make($file);
-                $optimizePath = public_path().'/images/featuredmentor/thumbnail/';
-                if (!file_exists($optimizePath)) {
-                    mkdir($optimizePath, 666, true);
-                    }
-                $image = time().$file->getClientOriginalName();
-                $optimizeImage->save($optimizePath.$image, 72);
-        
-                $input['user_thumbnail'] = $image;
-              
+                    
+                    $photo = Image::make($file);
+                    
+                    $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+                    
+                    // $input['preview_image'] = Storage::putFile(config('path.course.img'), $photo );
+                    Storage::put(config('path.mentor.featured').$file_name, $photo->stream() );
+                    // Storage::put(config('path.course.img').$file_name, $photo->getEncoded());
+                    $input['user_image'] = $file_name;
             }
+
+            if ($file = $request->file('image_thumbnail')) {
+
+                if ($featuredmentor->image_thumbnail != null) {
+
+                    $exists = Storage::exists(config('path.mentor.featuredthumbnail').$featuredmentor->user_thumbnail);
+                    if ($exists)
+                        Storage::delete(config('path.mentor.featuredthumbnail').$featuredmentor->user_thumbnail);
+                    }
+                    
+                    $photo = Image::make($file);
+                    
+                    $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+                    
+                    // $input['preview_image'] = Storage::putFile(config('path.course.img'), $photo );
+                    Storage::put(config('path.mentor.featuredthumbnail').$file_name, $photo->stream() );
+                    // Storage::put(config('path.course.img').$file_name, $photo->getEncoded());
+                    $input['user_thumbnail'] = $file_name;
+            }
+
+            
             $input['course_id'] = $request->course;
-            $input['status'] = $request->status?1:0;
+            
+            $input['status'] = $request->status?$request->status:0;
+       
             $featuredmentor->update($input);
             Session::flash('success','Added Successfully !');
             return redirect('/featuredMentors');      

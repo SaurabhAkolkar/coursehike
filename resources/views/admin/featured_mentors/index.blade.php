@@ -35,7 +35,7 @@
                 <td><?php echo $i;?></td>
                 <td>{{$d->user->fullName}}</td>
                 <td>{{$d->courses->title}}</td>
-                <td> <img src="{{ asset('images/featuredmentor/thumbnail/'.$d->user_thumbnail) }}" class="img-fluid"></td>
+                <td> <img src="{{ $d->user_thumbnail }}" class="img-fluid"></td>
                 <td>{{$d->status == 1 ? 'Active' : 'Inactive'}}</td>
                 <td>
                   <a class="btn btn-primary btn-sm" href="{{route('featuredmentor.edit',$d->id)}}">

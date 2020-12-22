@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Storage;
 
 class FeaturedMentor extends Model
 {
@@ -17,5 +18,15 @@ class FeaturedMentor extends Model
     {
         return $this->belongsTo('App\Course','course_id','id');
     }   
+
+    public function getUserImageAttribute($value)
+    {
+        return Storage::url(config('path.mentor.featured'). $value);
+    }
+
+    public function getUserThumbnailAttribute($value)
+    {
+        return Storage::url(config('path.mentor.featuredthumbnail'). $value);
+    }
 
 }
