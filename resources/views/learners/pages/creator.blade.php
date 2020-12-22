@@ -58,18 +58,20 @@
 
 
                 @foreach($courses as $course)
-                  <div class="col-md-4 px-0">
-                    <x-course 
-                        :id="$course->id"
-                        :img="$course->preview_image" 
-                        :course="$course->title" 
-                        :url="$course->title" 
-                        :rating="$course->review->avg('rating')"
-                        :creatorImg="$course->user->user_img"
-                        :creatorName="$course->user->FullName"
-                        :creatorUrl="$course->user->id"
-                      />
-                  </div>
+                  @if($status == 1)
+                    <div class="col-md-4 px-0">
+                      <x-course 
+                          :id="$course->id"
+                          :img="$course->preview_image" 
+                          :course="$course->title" 
+                          :url="$course->title" 
+                          :rating="$course->review->avg('rating')"
+                          :creatorImg="$course->user->user_img"
+                          :creatorName="$course->user->FullName"
+                          :creatorUrl="$course->user->id"
+                        />
+                    </div>
+                  @endif
                 @endforeach
 
               </div>
