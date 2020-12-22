@@ -53,10 +53,11 @@ class LearnController extends Controller
                 (Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()) ||
                 !empty( $order) )
             {
+                // TODO: Verify the Order Purchased and Subscription area
                 $video_access = true;
-                if($order->purchase_type == 'all_classes')
+                if($order && $order->purchase_type == 'all_classes')
                     $class_access = 1;
-                else
+                elseif($order)
                     $class_access = json_decode($order->class_id);
             }
 
