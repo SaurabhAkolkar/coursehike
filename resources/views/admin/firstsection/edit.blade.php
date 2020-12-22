@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="col-md-6">
                                 <label>{{ __('adminstaticword.Image') }}</label>
-                                    <input type="file" name="image"  id="image">@if($show['image'])<img height="200" src="{{ url('/images/firstsection/'.$show['image']) }}"/>@endif
+                                    <input type="file" name="image"  id="image">@if($show['image'])<img height="200" src="{{ $show['image'] }}"/>@endif
                                 </br>
                                 </div>
                             </div>

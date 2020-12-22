@@ -42,7 +42,7 @@
                               <input class="la-admin__toggle-switch" id="cb1" type="checkbox" name="status" @if($data->status == 1) checked @endif value="1" >
                               <label class="la-admin__toggle-label" data-tg-off="No" data-tg-on="Yes" for="cb1"></label>
                             </li>
-                            <input type="hidden" name="status" id="f" @if($data->status == 1) value="1" @endif>
+                            
                             </br>
                     </div>
                    
@@ -52,13 +52,13 @@
                     <div class="col-md-4">
                             <label>{{ __('adminstaticword.UserImage') }}</label>
                                 <input type="file" name="user_image"  id="user_image">
-                                @if($data['user_thumbnail'])<img height="200" src="{{ url('/images/featuredmentor/'.$data['user_image']) }}"/>@endif
+                                @if($data['user_thumbnail'])<img height="200" src="{{ $data['user_image'] }}"/>@endif
                             </br>
                     </div>
                     <div class="col-md-4">
                             <label>{{ __('adminstaticword.ImageThumbnail') }}</label>
                                 <input type="file" name="image_thumbnail"  id="image_thumbnail">
-                                @if($data['user_thumbnail'])<img height="200" src="{{ url('/images/featuredmentor/thumbnail/'.$data['user_thumbnail']) }}"/>@endif
+                                @if($data['user_thumbnail'])<img height="200" src="{{ $data['user_thumbnail'] }}"/>@endif
                             </br>
                     </div>
 

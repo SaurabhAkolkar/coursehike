@@ -192,6 +192,7 @@
                 :artistImage="$feat->user_image"
                 :artistCategory="$feat->courses->category->title"
                 :artistCampany="$feat->courses->title"
+                :course="$feat->courses"
               />
         @endforeach
 

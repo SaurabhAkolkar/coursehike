@@ -16,7 +16,7 @@ class CreateUserInterestsTable extends Migration
         Schema::create('user_interests', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('course_id');
+            $table->string('category_id');
             $table->timestamps();
         });
     }

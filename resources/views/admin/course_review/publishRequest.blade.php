@@ -34,7 +34,7 @@
                   <?php $i=0;?>
 
                     @foreach($requests as $requests)
-                    @if($requests->courses->status == 1)
+                    @if($requests->courses->status != 1)
                       <?php $i++;?>
                       <tr>
                         <td><?php echo $i;?></td>
