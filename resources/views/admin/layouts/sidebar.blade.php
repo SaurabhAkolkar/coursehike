@@ -103,9 +103,9 @@
                   
                   <li class="{{ Nav::isResource('coursereviewunpublish') }}"><a href="{{url('coursereviewunpublish')}}"><i class="la-icon la-icon--lg icon-course-request mr-4" aria-hidden="true"></i><span>Unpublish Review</span></a></li>
 
-                  @if($global_settings->assignment_enable == 1)
+                  {{-- @if($global_settings->assignment_enable == 1)
                     <li class="{{ Nav::isRoute('assignment.view') }}"><a href="{{route('assignment.view')}}"><i class="flaticon-computer" aria-hidden="true"></i><span>{{ __('adminstaticword.Assignment') }}</span></a></li>
-                  @endif
+                  @endif --}}
                   
               </li>
             </ul>
@@ -144,7 +144,7 @@
             </ul>
           </li> 
 
-         <!-- <li class="{{ Nav::isRoute('instructor.settings') }} {{ Nav::isRoute('admin.instructor') }} {{ Nav::isRoute('admin.completed') }}  treeview">
+         <li class="{{ Nav::isRoute('instructor.settings') }} {{ Nav::isRoute('admin.instructor') }} {{ Nav::isRoute('admin.completed') }}  treeview">
            <a href="#">
              <i class="flaticon-payment" aria-hidden="true"></i> <span>{{ __('adminstaticword.InstructorPayout') }}</span>
               <span class="pull-right-container">
@@ -158,7 +158,7 @@
               <li class="{{ Nav::isRoute('admin.completed') }}"><a href="{{route('admin.completed')}}"><i class="flaticon-file"></i>{{ __('adminstaticword.CompletedPayout') }}</a></li>
             
             </ul>
-          </li>  -->
+          </li> 
 
           <!-- <li class="{{ Nav::isResource('user/course/report') }}  treeview">
            <a href="#">
@@ -173,7 +173,7 @@
             </ul>
           </li> -->
 
-          <!-- <li class="{{ Nav::isResource('slider') }} {{ Nav::isResource('facts') }} {{ Nav::isRoute('category.slider') }} {{ Nav::isResource('coursetext') }} {{ Nav::isResource('getstarted') }} {{ Nav::isResource('trusted') }} {{ Nav::isRoute('widget.setting') }} {{ Nav::isRoute('terms') }} {{ Nav::isResource('testimonial') }} treeview">
+          <li class="{{ Nav::isResource('slider') }} {{ Nav::isResource('facts') }} {{ Nav::isRoute('category.slider') }} {{ Nav::isResource('coursetext') }} {{ Nav::isResource('getstarted') }} {{ Nav::isResource('trusted') }} {{ Nav::isRoute('widget.setting') }} {{ Nav::isRoute('terms') }} {{ Nav::isResource('testimonial') }} treeview">
            <a href="#">
              <i class="flaticon-optimization" aria-hidden="true"></i> <span>{{ __('adminstaticword.FrontSetting') }}</span>
               <span class="pull-right-container">
@@ -189,8 +189,10 @@
               <li class="{{ Nav::isResource('trusted') }}"><a href="{{url('trusted')}}"><i class="flaticon-sliders"></i><span>{{ __('adminstaticword.TrustedSlider') }}</span></a></li>
               <li class="{{ Nav::isRoute('widget.setting') }}"><a href="{{route('widget.setting')}}"><i class="flaticon-real-state"></i>{{ __('adminstaticword.WidgetSetting') }}</a></li>
               <li class="{{ Nav::isResource('testimonial') }}"><a href="{{url('testimonial')}}"><i class="flaticon-customer-1"></i>{{ __('adminstaticword.Testimonial') }}</a></li>
+              <li class="{{ Nav::isResource('firstsection') }}"><a href="{{url('firstsection')}}"><i class="flaticon-customer-1"></i>{{ __('adminstaticword.FirstSection') }}</a></li>
+              <li class="{{ Nav::isResource('featuredMentors') }}"><a href="{{url('featuredMentors')}}"><i class="flaticon-customer-1"></i>{{ __('adminstaticword.FeaturedMentors') }}</a></li>
             </ul>
-          </li> -->
+          </li>
           
           <!-- <li class="{{ Nav::isRoute('gen.set') }} {{ Nav::isRoute('api.setApiView') }} {{ Nav::isResource('blog') }} {{ Nav::isRoute('about.page') }} {{ Nav::isRoute('careers.page') }} {{ Nav::isRoute('comingsoon.page') }} {{ Nav::isRoute('termscondition') }} {{ Nav::isRoute('policy') }} {{ Nav::isRoute('bank.transfer') }} {{ Nav::isRoute('show.pwa') }} {{ Nav::isRoute('adsense') }} treeview">
            <a href="#">

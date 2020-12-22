@@ -84,11 +84,13 @@
                 $('#interest_alert_div').html(' ');
                 $('#course_'+id).remove(); 
                 console.log(data == 'Interest is already added.');
-                let successAlert = `<div class="la-btn__alert-success col-md-4 offset-md-8 alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
-                                    <h6 id="wishlist_alert_message" class="la-btn__alert-msg">${data}</h6>
-                                    <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true" class="text-white">&times;</span>
-                                    </button>
+                let successAlert = `<div class="la-btn__alert position-relative">
+                                        <div class="la-btn__alert-success col-md-4 offset-md-4 alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
+                                            <h6 id="wishlist_alert_message" class="la-btn__alert-msg">${data}</h6>
+                                            <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true" style="color:#56188C">&times;</span>
+                                            </button>
+                                         </div>
                                     </div>`
                 $('#interest_alert_div').html(successAlert);
            
@@ -121,11 +123,13 @@
                 $('#interest_alert_div').html(' ');
                 $('#course_'+id).remove(); 
                 console.log(data);
-                let successAlert = `<div class="la-btn__alert-success col-md-4 offset-md-8 alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
-                                    <h6 id="wishlist_alert_message" class="la-btn__alert-msg">${data}</h6>
-                                    <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true" class="text-white">&times;</span>
-                                    </button>
+                let successAlert = `<div class="la-btn__alert position-relative">
+                                        <div class="la-btn__alert-success col-md-4 offset-md-4 alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
+                                            <h6 id="wishlist_alert_message" class="la-btn__alert-msg">${data}</h6>
+                                            <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true" style="color:#56188C">&times;</span>
+                                            </button>
+                                        </div>
                                     </div>`
                 $('#interest_alert_div').html(successAlert);
                

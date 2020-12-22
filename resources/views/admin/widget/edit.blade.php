@@ -18,17 +18,17 @@
 		              	<div class="row">
 		                  <div class="col-md-4">
 		                    <label for="heading">{{ __('adminstaticword.WidgetOne') }}<sup class="redstar">*</sup></label>
-		                    <input value="{{ $show['widget_one'] }}" autofocus name="widget_one" type="text" class="form-control" placeholder="Enter widget" required/>
+		                    <input value="{{ $show?$show['widget_one']:'' }}" autofocus name="widget_one" type="text" class="form-control" placeholder="Enter widget" required/>
 		                  </div>
 
 	                      <div class="col-md-4">
 	                        <label for="heading">{{ __('adminstaticword.WidgetTwo') }}<sup class="redstar">*</sup></label>
-	                        <input value="{{ $show['widget_two'] }}" autofocus name="widget_two" type="text" class="form-control" placeholder="Enter widget" required/>
+	                        <input value="{{ $show?$show['widget_two']:'' }}" autofocus name="widget_two" type="text" class="form-control" placeholder="Enter widget" required/>
 	                      </div>
 
 	                      <div class="col-md-4">
 	                        <label for="heading">{{ __('adminstaticword.WidgetThree') }}<sup class="redstar">*</sup></label>
-	                        <input value="{{ $show['widget_three'] }}" autofocus name="widget_three" type="text" class="form-control" placeholder="Enter widget" required/>
+	                        <input value="{{ $show?$show['widget_three']:'' }}" autofocus name="widget_three" type="text" class="form-control" placeholder="Enter widget" required/>
 	                      </div>
 			            </div>
 			            <br>

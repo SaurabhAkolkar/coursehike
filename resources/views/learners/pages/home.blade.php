@@ -11,12 +11,12 @@
             <div class="la-hero py-6 py-md-0 la-anim__stagger">
               <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">COURSES & CLASSES BY</p>
               <h1 class="la-hero__title la-anim__stagger-item">World’s best <span class="la-hero__subtitle">Creators</span></h1>
-              <p class="la-hero__lead pr-5 la-anim__stagger-item">Observe, learn and converse with creators to master your arts</p>
+              <p class="la-hero__lead pr-5 la-anim__stagger-item">{{$firstSection->sub_heading}}</p>
               <div class="la-hero__actions d-lg-flex align-items-center la-anim__stagger-item">
                 <div>
                     <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary d-none d-lg-block">Subscribe Now</a>
                     <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary btn-block d-block d-lg-none">Subscribe Now</a>
-                    <p class="m-0 pt-1 text-center text-sm-left">Access to all the Courses</p>
+                    <p class="m-0 pt-1 pl-1 text-center text-sm-left">Access to all the Courses</p>
                 </div>
                 <div class="la-soffer d-flex d-lg-block justify-content-center  my-lg-0">
                   <div class="la-soffer__bestprice"> <sup><small>$</small></sup>  39 / Month</div>
@@ -31,8 +31,8 @@
           <div class="col-12 col-lg-7 la-anim__item la-anim__item--right">
             <div class="la-hero__img position-relative d-flex align-items-center la-anim__fade-in-right">
               <span class="la-section__crossline"></span>
-              <h2 class="la-section__title la-section__title--big"><div class="la-anim__text-move--content">Design</div></h2>
-              <img class="img-fluid" src="./images/learners/home/design-a@2x.png" alt="Design">
+              <h2 class="la-section__title la-section__title--big"><div class="la-anim__text-move--content">{{$firstSection->image_text}}</div></h2>
+              <img class="img-fluid" src="{{$firstSection->image}}" alt="{{$firstSection->image_text}}">
             </div>
           </div>
           <!-- Column: End-->
@@ -62,7 +62,7 @@
               
               {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
               <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
-            </ul><a class="la-icon--3xl icon-filter d-none d-lg-block" id="filterCourses" role="button"></a>
+            </ul><a class="la-icon--3xl icon-filter la-courses__nav-filter d-none d-lg-block" id="filterCourses" role="button"></a>
           </nav>
 
           @php  
@@ -186,11 +186,12 @@
           $artists = array($artist1, $artist2, $artist3);
         @endphp
 
-        @foreach ($artists as $artist)
+        @foreach ($featuredMentor as $feat)
               <x-artist 
-                :artistName="$artist->artistName"
-                :artistCategory="$artist->artistCategory"
-                :artistCampany="$artist->artistCampany"
+                :artistName="ucfirst($feat->user->fullName)"
+                :artistImage="$feat->user_image"
+                :artistCategory="$feat->courses->category->title"
+                :artistCampany="$feat->courses->title"
               />
         @endforeach
 
@@ -355,67 +356,22 @@
         <div class="la-mccourses py-4">
           <div class="row justify-content-center px-lg-5 la-anim__stagger la-anim__A">
            
-              @php
-                  $master1 = new stdClass;
-                  $master1->img = "https://picsum.photos/600/400";
-                  $master1->title = "Master in Photography";
-                  $master1->profileImg = "https://picsum.photos/100/100";
-                  $master1->profileName = "Charlotte Floyd";
-                  $master1->learners = 300;
-
-                  $master2 = new stdClass;
-                  $master2->img = "https://picsum.photos/600/400";
-                  $master2->title = "Master in Photography";
-                  $master2->profileImg = "https://picsum.photos/100/100";
-                  $master2->profileName = "Charlotte Floyd";
-                  $master2->learners = 300;
-
-                  $master3 = new stdClass;
-                  $master3->img = "https://picsum.photos/600/400";
-                  $master3->title = "Master in Photography";
-                  $master3->profileImg = "https://picsum.photos/100/100";
-                  $master3->profileName = "Charlotte Floyd";
-                  $master3->learners = 300;
-
-                  $master4 = new stdClass;
-                  $master4->img = "https://picsum.photos/600/400";
-                  $master4->title = "Master in Photography";
-                  $master4->profileImg = "https://picsum.photos/100/100";
-                  $master4->profileName = "Charlotte Floyd";
-                  $master4->learners = 300;
-
-                  $master5 = new stdClass;
-                  $master5->img = "https://picsum.photos/600/400";
-                  $master5->title = "Master in Photography";
-                  $master5->profileImg = "https://picsum.photos/100/100";
-                  $master5->profileName = "Charlotte Floyd";
-                  $master5->learners = 300;
-
-                  $master6 = new stdClass;
-                  $master6->img = "https://picsum.photos/600/400";
-                  $master6->title = "Master in Photography";
-                  $master6->profileImg = "https://picsum.photos/100/100";
-                  $master6->profileName = "Charlotte Floyd";
-                  $master6->learners = 300;
-
-                  $masters = array($master1, $master2, $master3, $master4, $master5, $master6);
-              @endphp
-
-              @foreach ($masters as $master)
+              @foreach ($master_classes as $master)
                 <x-master-class
-                  :img="$master->img"
-                  :title="$master->title"
-                  :profileImg="$master->profileImg"
-                  :profileName="$master->profileName"
-                  :learners="$master->learners"
+                  :img="$master->courses->preview_image"
+                  :title="$master->courses->title"
+                  :profileImg="'https://picsum.photos/100/100'"
+                  :profileName="$master->courses->user->fullName"
+                  :learners="'300'"
                 />
               @endforeach
              
           </div>
         </div>
-        <div class="text-right la-anim__wrap">
-          <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8 la-anim__fade-in-right">
-            <a href="">explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></div>
+        <div class="la-mccourse__view-more position-relative text-right la-anim__wrap">
+          <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8 la-anim__fade-in-right">
+            <a href="" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
+          </div>
         </div>
       </div>
     </div>

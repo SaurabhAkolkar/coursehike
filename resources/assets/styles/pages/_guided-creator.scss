@@ -153,14 +153,18 @@ section.la-page--how-this-works{
             opacity:0.8;
             font-weight:var(--font-light);
             cursor:pointer;
+
+            &:hover{
+                opacity:1;
+            }
         }
-          .form-group .gcheck {
+        .form-group .gcheck {
             border: 1px solid var(--app-indigo-1);
             width: 14px;
             height: 14px;
-          }
-          .form-group label input[type="checkbox"]+.gcheck>.gcheck-icon {opacity: 0;} 
-          .form-group label input[type="checkbox"]:checked+.gcheck>.gcheck-icon {opacity: 1;} 
+        }
+        .form-group label input[type="checkbox"]+.gcheck>.gcheck-icon {opacity: 0;} 
+        .form-group label input[type="checkbox"]:checked+.gcheck>.gcheck-icon {opacity: 1;} 
     }
 }
 @media(max-width:991px){

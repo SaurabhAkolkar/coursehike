@@ -24,7 +24,7 @@
 	          		<form action="{{ action('CategorySliderController@update') }}" method="POST" enctype="multipart/form-data">
 		                {{ csrf_field() }}
 		                {{ method_field('PUT') }}
-						
+					
 		                <div class="row">
 		                  <div class="col-md-6">
 		                  	<div class="form-group">
@@ -32,8 +32,9 @@
 			                  <select class="form-control js-example-basic-single" name="category_id[]" multiple="multiple" size="3" required>
 
 		                      @foreach ($category as $cat)
+							 
 								@if($cat->status == 1)
-		                        <option value="{{ $cat->id }}" {{in_array($cat->id, $category_slider['category_id'] ?: []) ? "selected": ""}}>{{ $cat->title }}
+		                        <option value="{{ $cat->id }}" {{in_array($cat->id, $category_slider['category_id']) ? "selected": ""}}>{{ $cat->title }}
 		                        </option>
 		                        @endif
 

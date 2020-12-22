@@ -177,22 +177,28 @@
             &alert{
                 &-{
                     &success{
-                        position:relative;
-                        background-color: rgba(146, 61, 216, 0.7);
-                        color: var(--white);
+                        position:fixed;
+                        top:90px;
+                        background-color: #EBD3FF !important;
+                        color:#56188C;
                         border:none;
                         animation: fadeAlert 0.5s ease 1;
                         transition: all 0.1s ease;
                         padding:0 !important;
+                        z-index:101;
+                        overflow:hidden;
                     }
                     &danger{
-                        position:relative;
-                        background-color: rgba(248, 93, 106, 0.7);
-                        color: var(--white);
+                        position:fixed;
+                        top:90px;
+                        background-color:#FFD3D9 !important;
+                        color:#C52A2E;
                         border:none;
                         animation: fadeAlert 0.5s ease 1;
                         transition: all 0.1s ease;
                         padding:0 !important;
+                        z-index:101;
+                        overflow:hidden;
                     }
                     @keyframes fadeAlert{
                         from{transform:translateY(-30px); opacity:0;}

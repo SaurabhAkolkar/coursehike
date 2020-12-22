@@ -12,12 +12,14 @@
       <div class="la-profile__main">
         <div class="container la-anim__wrap">
         @if(session('success'))
-              <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible" role="alert">
+            <div class="la-btn__alert position-relative">
+              <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible" role="alert">
                   <h6 class="la-btn__alert-msg">{{session('success')}}</h6>
-                  <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true" class="text-white">&times;</span>
+                  <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" style="color:#56188C">&times;</span>
                   </button>
               </div>
+            </div>
           @endif
           <div class="la-profile__main-inner">
             <div class="la-profile__title-wrap la-anim__stagger-item">
@@ -51,13 +53,14 @@
 
                 <div class="row la-playlist__items">
                     @foreach ($playlists as $item)
-                      
-                        <x-playlist-item
-                           
-                            :courseName="$item->name"
-                            :classesCount="$item->count"
-                            :id="$item->id"
-                        />
+                        
+                          <x-playlist-item
+                            
+                              :courseName="$item->name"
+                              :classesCount="$item->count"
+                              :id="$item->id"
+                          />
+                       
                     @endforeach
                     <div class="col-md-3 d-none d-md-block la-anim__stagger-item">
                         <a class="la-btn__add d-flex justify-content-center align-items-center"  data-toggle="modal" data-target="#create_playlist" >
@@ -138,12 +141,12 @@
                             <div class="modal-body la-playlist__modal-body">
                                   <p>
                                                                     
-                                  <a role="button" id="share_playlist_on_facebook" target="_facebook" ><span class="la-icon la-icon--5xl icon-facebook-colored"></span></a>
-                                  <a role="button" id="share_playlist_on_twitter" target="_twitter" ><span class="la-icon la-icon--5xl icon-twitter"></span></a>
-                                  <a role="button" id="share_playlist_on_whatsapp" target="_whatsapp" ><span class="la-icon la-icon--5xl icon-whatsapp"></span></a>
-                                  <a role="button" id="share_playlist_on_pinterest" target="_pinterest" ><span class="la-icon la-icon--5xl icon-pinterest"></span></a>  
+                                  <a role="button" id="share_playlist_on_facebook" target="_facebook" ><span class="la-icon la-icon--6xl icon-facebook-colored"></span></a>
+                                  <a role="button" id="share_playlist_on_twitter" target="_twitter" ><span class="la-icon la-icon--6xl icon-twitter"></span></a>
+                                  <a role="button" id="share_playlist_on_whatsapp" target="_whatsapp" ><span class="la-icon la-icon--6xl icon-whatsapp"></span></a>
+                                  <a role="button" id="share_playlist_on_pinterest" target="_pinterest" ><span class="la-icon la-icon--6xl icon-pinterest"></span></a>  
                                 </p>
-                                  <p><input class="border-0 w-75" id="playlist_url_copy"><span role="button" class="float-right" onclick="copyPlaylistUrl()"><span class="la-icon la-icon--3xl icon-copy-clipboard"></span></p>
+                                  <p><input class="border-0 w-75" id="playlist_url_copy"><span role="button" class="float-right" onclick="copyPlaylistUrl()"><span class="la-icon la-icon--3xl icon-copy-clipboard la-playlist__item-clipboard"></span></p>
                             </div>
                           </div>
                         </div>

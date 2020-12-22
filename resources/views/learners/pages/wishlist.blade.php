@@ -29,12 +29,14 @@
           <div id="wishlist_alert_div"></div>
           <!-- Alert Message  -->
           @if(session('message'))
-              <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible fade show" role="alert">
-                  <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
-                  <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true" class="text-white">&times;</span>
-                  </button>
-              </div>
+            <div class="la-btn__alert position-relative">
+                <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" role="alert">
+                    <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
+                    <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true" style="color:#56188C">&times;</span>
+                    </button>
+                </div>
+            </div>
           @endif
             
           <div class="la-profile__main-inner la-anim__stagger-item">
@@ -56,13 +58,13 @@
                       <div class="col-md-4 px-0">
                         <x-course 
                           :id="$courses->course_id"
-                          :img="$img" 
-                          :course="$course_name" 
+                          :img="$courses->courses->preview_image" 
+                          :course="$courses->courses->title" 
                           :url="$rating" 
-                          :rating="$rating"
+                          :rating="$courses->courses->review->avg('rating')?$courses->courses->review->avg('rating'):'0'"
                           :creatorImg="$img"
-                          :creatorName="$creatorURL"
-                          :creatorUrl="$creatorURL"
+                          :creatorName="$courses->courses->user->FullName"
+                          :creatorUrl="$courses"
                           :addedToWhishList="$addedToWhishList"
                         />
                     </div>

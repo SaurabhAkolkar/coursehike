@@ -18,7 +18,7 @@ class LearnerWishlistController extends Controller
      */
     public function index()
     {
-        $wishlist_courses = Wishlist::with('courses')->where('user_id',Auth::User()->id)->get();
+        $wishlist_courses = Wishlist::with('courses','courses.review','courses.user')->where('user_id',Auth::User()->id)->get();
 
         return view('learners.pages.wishlist',compact('wishlist_courses'));
     }

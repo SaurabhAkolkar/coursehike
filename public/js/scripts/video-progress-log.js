@@ -111,7 +111,7 @@ $('.la-vcourse__lesson').on('click', function() {
       
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) { 
-          alert("You need to Login/Subscribe");
+          $('#locked_login').modal('show');
       }  
     });
   

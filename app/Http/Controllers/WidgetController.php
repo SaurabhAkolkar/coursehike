@@ -16,10 +16,10 @@ class WidgetController extends Controller
 
     public function update(Request $request)
     {
-    	$widget = WidgetSetting::first();
+    	
 
         $input = $request->all();
-
+        $widget = WidgetSetting::first();
         if(isset($widget))
         {
             $widget->update($input);

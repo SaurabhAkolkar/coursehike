@@ -489,9 +489,14 @@ return [
     'AllAssignments' => 'All Assignments',
     'ReviewAssignment' => 'Review Assignment',
     'Logo' => 'Logo',
-    'PaystackCallbackURL' => 'Paystack Callback URL'
-
-
-    
+    'PaystackCallbackURL' => 'Paystack Callback URL',
+    'FirstSection' => 'First Section',
+    'ImageText' => 'Image Text',
+    'FeaturedMentors' => 'Featured Mentors',
+    'Thumbnail' => 'Thumbnail',
+    'Mentor' => 'Mentor',
+    'UserImage' =>'User Image',
+    'ImageThumbnail' => 'Image Thumbnail',
+       
 
 ];

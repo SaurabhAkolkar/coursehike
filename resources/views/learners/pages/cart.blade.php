@@ -12,11 +12,13 @@
         <div class="container ">
           <div class="la-profile__main-inner">
               @if(session('message'))
-              <div class="la-btn__alert-success col-md-4 offset-md-8  alert alert-success alert-dismissible" role="alert">
-                  <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
-                  <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true" class="text-white">&times;</span>
-                  </button>
+              <div class="la-btn__alert position-relative">
+                <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible" role="alert">
+                    <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
+                    <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true" style="color:#56188C">&times;</span>
+                    </button>
+                </div>
               </div>
             @endif
             <div class="la-profile__title-wrap">
@@ -45,7 +47,7 @@
                               :cart="$cart"
                               :courseId="$cart->course_id"
                               :collapseId="$cart->collapseId"
-                              :courseImg="$courseImg"
+                              :courseImg="$cart->courses->preview_image"
                               :classType="$cart->cartItems->first()->purchase_type"
                               :course="$cart->courses->title"
                               :creator="$cart->courses->user->fullName"

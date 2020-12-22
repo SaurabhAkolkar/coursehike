@@ -42,6 +42,9 @@
             &item-invoice{
                 color:var(--gray6);
                 font-weight:var(--font-bold);
+                &:hover{
+                    color:var(--app-indigo-1);
+                }
             }
             &item-download{
                 color:var(--app-indigo-1);

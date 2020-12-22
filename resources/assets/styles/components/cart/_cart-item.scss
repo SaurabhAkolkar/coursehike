@@ -65,7 +65,7 @@
                     }
 
                     &action {
-
+                        
                         &:first-child a {
                             padding-left: 0;
                         }
@@ -85,6 +85,10 @@
                             position: relative;
                             padding: 0 10px;
 
+                            &:hover{
+                                color:var(--gray6);
+                            }
+                            
                             &:after {
                                 content: "";
                                 width: 1px;

@@ -452,7 +452,6 @@ $global_settings = App\Setting::first();
 
     </script>
 
-    
   @endif
 
 @yield('scripts')

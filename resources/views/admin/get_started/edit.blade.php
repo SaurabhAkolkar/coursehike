@@ -18,11 +18,11 @@
 		              	<div class="row">
 		                  <div class="col-md-6">
 		                    <label for="heading">{{ __('adminstaticword.Heading') }}</label>
-		                    <input value="{{ $show['heading'] }}" autofocus name="heading" type="text" class="form-control" placeholder="Enter Heading"/>
+		                    <input value="{{ $show?$show['heading']:'' }}" autofocus name="heading" type="text" class="form-control" placeholder="Enter Heading"/>
 		                  </div>
 		                  <div class="col-md-6">
 		                    <label for="sub_heading">{{ __('adminstaticword.SubHeading') }}</label>
-		                    <input value="{{ $show['sub_heading'] }}" autofocus name="sub_heading" type="text" class="form-control" placeholder="Enter Sub Heading"/>
+		                    <input value="{{ $show?$show['sub_heading']: '' }}" autofocus name="sub_heading" type="text" class="form-control" placeholder="Enter Sub Heading"/>
 		                  </div>
 		              	</div>
 		              	<br>
@@ -30,13 +30,15 @@
 		              	<div class="row">
 		                  <div class="col-md-6">
 		                    <label for="button_txt">{{ __('adminstaticword.ButtonText') }}</label>
-		                    <input value="{{ $show['button_txt'] }}" autofocus name="button_txt" type="text" class="form-control" placeholder="Enter Button Text"/>
+		                    <input value="{{ $show?$show['button_txt']: '' }}" autofocus name="button_txt" type="text" class="form-control" placeholder="Enter Button Text"/>
 		                  </div>
 		              	
 		                  <div class="col-md-6">
 		                    <label for="image">{{ __('adminstaticword.BackgroundImage') }}<sup class="redstar">*</sup></label>
 		                    <input type="file" name="image" id="image">
+							@if($show)
 		                    <img src="{{ url('/images/getstarted/'.$show['image']) }}" class="img-fluid"/>
+							@endif
 		                  </div>
 		              	</div>
 		              	<br>

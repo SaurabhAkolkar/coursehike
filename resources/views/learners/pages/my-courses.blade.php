@@ -24,7 +24,7 @@
           </div>
           <div class="col-12 d-flex justify-content-between align-items-center mb-8 la-anim__wrap ">
             <div class="la-mycourses__subtitle text-2xl head-font la-anim__stagger-item--x">Ongoing</div>
-            <div class="la-icon--2xl icon-filter la-anim__stagger-item"></div>
+            <div class="la-icon--2xl icon-filter la-courses__nav-filter la-anim__stagger-item"></div>
           </div>
           
           <x-add-to-playlist 
@@ -57,7 +57,7 @@
         <div class="container la-anim__wrap">
           <div class="col-12 d-flex justify-content-between mb-6 la-anim__stagger-item--x">
             <div class="la-mycourses__subtitle text-2xl head-font ">Yet to Start</div>
-            <div class="la-icon--2xl icon-filter "></div>
+            <div class="la-icon--2xl icon-filter la-courses__nav-filter"></div>
           </div>
             <div class="col-12">
                 <div class="la-empty__courses d-md-flex justify-content-between align-items-start ">
@@ -82,7 +82,7 @@
         <div class="container la-anim__wrap">
           <div class="col-12 d-flex justify-content-between mb-6 la-anim__stagger-item--x">
             <div class="la-mycourses__subtitle text-2xl head-font">Completed</div>
-            <div class="la-icon--2xl icon-filter"></div>
+            <div class="la-icon--2xl icon-filter la-courses__nav-filter"></div>
           </div>
             <div class="col-12">
               <div class="la-empty__courses d-md-flex justify-content-between align-items-start ">

@@ -41,6 +41,7 @@ use App\BBL;
 use App\Meeting;
 use App\PublishRequest;
 use App\Currency;
+use App\MasterClass;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
@@ -154,6 +155,7 @@ class CourseController extends Controller
     public function show($id)
     {
         $cor = Course::find($id);
+
         return view('admin.course.editcor', compact('cor'));
     }
 
@@ -184,6 +186,14 @@ class CourseController extends Controller
           'video' => 'mimes:mp4,avi,wmv'
         ]);
 
+        if($request->master_class){
+            $check = MasterClass::where('course_id', $id)->first();
+            if(!$check){
+                MasterClass::create(['course_id' => $id]);
+            }
+        }else{
+            MasterClass::where('course_id', $id)->delete(); 
+        }
           
         $course = Course::findOrFail($id);
         $input = $request->all();
@@ -334,7 +344,8 @@ class CourseController extends Controller
         $categories = Categories::where('status',1)->pluck('title','id');
         $publisRequest = PublishRequest::where(['status' => 1, 'course_id' => $id, 'user_id' => Auth::User()->id])->first();
 
-       
+        $check_master_class = MasterClass::where(['course_id'=>$id])->first();
+
         $courseinclude = CourseInclude::where('course_id', '=', $id)->get();
         $coursechapter = CourseChapter::where('course_id', '=', $id)->get();
         $whatlearns = WhatLearn::where('course_id', '=', $id)->get();
@@ -349,7 +360,7 @@ class CourseController extends Controller
         $quizes = Quiz::where('course_id', '=', $id)->get();
         $topics = QuizTopic::where('course_id', '=', $id)->get();
         $appointment = Appointment::where('course_id', '=', $id)->get();
-        return view('admin.course.show', compact('cor', 'course', 'categories', 'publisRequest','courseinclude', 'whatlearns', 'coursechapters', 'coursechapter', 'relatedcourse', 'courseclass', 'courseresources', 'announsments', 'answers', 'reports', 'questions', 'quizes', 'topics', 'appointment'));
+        return view('admin.course.show', compact('cor', 'course', 'categories', 'publisRequest','courseinclude', 'whatlearns', 'coursechapters', 'coursechapter', 'check_master_class','relatedcourse', 'courseclass', 'courseresources', 'announsments', 'answers', 'reports', 'questions', 'quizes', 'topics', 'appointment'));
     }
 
 
@@ -526,7 +537,7 @@ class CourseController extends Controller
     {
         $course = Course::all();
         $enroll = Order::where('user_id', Auth::user()->id)->get();
-      
+        
         return view('front.my_course', compact('course', 'enroll'));
     }
 }

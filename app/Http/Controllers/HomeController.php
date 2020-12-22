@@ -14,8 +14,11 @@ use App\BundleCourse;
 use App\Testimonial;
 use App\Trusted;
 use App\Playlist;
+use App\MasterClass;
+use App\FirstSection;
+use App\FeaturedMentor;
 use Auth;
-
+use stdClass;
 class HomeController extends Controller
 {
     /**
@@ -46,10 +49,21 @@ class HomeController extends Controller
         $testi = Testimonial::all();
         $trusted = Trusted::all();
         // $Playlist = [];
+        $firstSection = FirstSection::first();
+            if($firstSection == null){
+                $firstSection = new stdClass;
+                $firstSection->sub_heading = 'Observe, learn and converse with creators to master your arts';
+                $firstSection->image = asset('images/learners/home/design-a@2x.png');
+                $firstSection->image_text = 'DESIGN';
+                
+            }else{
+                $firstSection->image = asset('images/firstsection/'.$firstSection->image);
+            }
+        $master_classes = MasterClass::with('courses','courses.user')->get();
+        $featuredMentor = FeaturedMentor::with('user','courses','courses.category')->where(['status'=>1])->get();
         
-
-
-        return view('learners.pages.home', compact('categories', 'sliders', 'facts', 'cor', 'bundles', 'meetings', 'bigblue', 'testi', 'trusted'));
+    
+        return view('learners.pages.home', compact('categories', 'firstSection', 'featuredMentor','master_classes','sliders', 'facts', 'cor', 'bundles', 'meetings', 'bigblue', 'testi', 'trusted'));
     }
 
 }

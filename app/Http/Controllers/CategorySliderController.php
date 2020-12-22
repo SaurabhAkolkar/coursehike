@@ -10,8 +10,13 @@ class CategorySliderController extends Controller
 {
     public function show()
     {
-    	$category = Categories::orderBy('position','ASC')->get();
-    	$category_slider = CategorySlider::first();
+        $category = Categories::orderBy('position','ASC')->get();
+        // dd($category);
+        $category_slider = CategorySlider::first();
+        if($category_slider == null){
+            $category_slider = [];
+            $category_slider['category_id'] = [];
+        }
     	return view('admin.category_slider.edit', compact('category', 'category_slider'));
     }
 
