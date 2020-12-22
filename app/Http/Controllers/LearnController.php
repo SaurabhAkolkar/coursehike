@@ -42,6 +42,7 @@ class LearnController extends Controller
             return redirect()->route('learn.show', ['id' => $id,'slug'=>$course->slug]);
 
         $video_access = false;
+        $class_access = false;
         $in_cart = null;
         $order_type = null;
         if(Auth::check())

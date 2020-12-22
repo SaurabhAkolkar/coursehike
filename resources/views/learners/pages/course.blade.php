@@ -137,7 +137,7 @@ use Carbon\Carbon;
                       if($class_video->is_preview == '1')       
                         $lesson_access = 'free';
                       else{
-                        if($video_access == true || in_array($class_video->id, $class_access) || $class_access === 1)
+                        if($video_access == true || (is_array($class_access) && in_array($class_video->id, $class_access)) || $class_access === 1)
                           $lesson_access = 'free';
                         else 
                           $lesson_access = 'locked';
