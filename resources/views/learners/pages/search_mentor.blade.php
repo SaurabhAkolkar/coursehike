@@ -21,6 +21,7 @@
         </div>
         <div class="la-mentors">
           <div class="row no-gutters">
+              @if(count($mentors))
               @foreach($mentors as $mentor)
                   @php 
                         if($mentor->user_img == ""){
@@ -28,10 +29,19 @@
                         }else{
                             $mentor->user_img = asset('/images/user_img/'.$mentor->user_img);
                         }
+                       
                   @endphp
+
                   <x-mentor :img="$mentor->user_img" :id="$mentor->id" :name="$mentor->fname.' '.$mentor->lname" :skill="$mentor->skill" />
                @endforeach
             </div>
+            @else
+                <div class="col-12 col-md-8">
+                  <div class="la-playlist__course-nocourse text-center d-md-flex justify-content-between align-items-center">
+                      <h4 class=" m-0">No Mentors found.</h4>
+                  </div>
+                </div>  
+            @endif
         </div>
       </div>
     </div>
