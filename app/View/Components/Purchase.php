@@ -12,7 +12,7 @@ class Purchase extends Component
      * @return void
      */
 
-    public $img;
+    public $invoice_id;
     public $course;
     public $creator;
     public $date;
@@ -22,13 +22,14 @@ class Purchase extends Component
     public $invoice;
     public $invoiceUrl;
 
-    public function __construct($img, $course, $creator, $date, $paymode, $total, $paystatus, $invoice, $invoiceUrl)
+    public function __construct($date, $total, $paystatus, $invoice, $invoiceUrl)
     {
-        $this->img = $img;
-        $this->course = $course;
-        $this->creator = $creator;
+        // $this->img = $img;
+        // $this->course = $course;
+        // $this->creator = $creator;
+        // $this->invoice_id = $invoice_id;
         $this->date = $date;
-        $this->paymode = $paymode;
+        // $this->paymode = $paymode;
         $this->total = $total;
         $this->paystatus = $paystatus;
         $this->invoice = $invoice;

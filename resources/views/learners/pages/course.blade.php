@@ -131,7 +131,15 @@ use Carbon\Carbon;
 
                   @foreach ($class->courseclass as $class_video)
                     @php
-                      $lesson_access = $class_video->is_preview == '1' ? 'free' : ($video_access ? 'free' : 'locked');                      
+                      $lesson_access = $class_video->is_preview == '1' ? 'free' : ($video_access ? 'free' : 'locked');  
+                      if($class_video->is_preview == '1')       
+                        $lesson_access = 'free';
+                      else{
+                        if($video_access == true || in_array($class_video->id, $class_access) || $class_access === 1)
+                          $lesson_access = 'free';
+                        else 
+                          $lesson_access = 'locked';
+                      }
                     @endphp
                     <x-class-video
                       :id="$class_video->id"

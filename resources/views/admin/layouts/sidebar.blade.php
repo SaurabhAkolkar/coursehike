@@ -103,10 +103,10 @@
                   
                   <li class="{{ Nav::isResource('coursereviewunpublish') }}"><a href="{{url('coursereviewunpublish')}}"><i class="la-icon la-icon--lg icon-course-request mr-4" aria-hidden="true"></i><span>Unpublish Review</span></a></li>
 
-               <!-- @if($gsetting->assignment_enable == 1)
-                  <li class="{{ Nav::isRoute('assignment.view') }}"><a href="{{route('assignment.view')}}"><i class="flaticon-computer" aria-hidden="true"></i><span>{{ __('adminstaticword.Assignment') }}</span></a></li>
+                  @if($global_settings->assignment_enable == 1)
+                    <li class="{{ Nav::isRoute('assignment.view') }}"><a href="{{route('assignment.view')}}"><i class="flaticon-computer" aria-hidden="true"></i><span>{{ __('adminstaticword.Assignment') }}</span></a></li>
                   @endif
-                   -->
+                  
               </li>
             </ul>
           </li>

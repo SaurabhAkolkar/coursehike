@@ -18,18 +18,18 @@
                 </div>
                   <!-- Purchased Desktop Version: Start -->
                 <div class="container px-0 d-none d-lg-block"> 
-                      <div class="la-purchaseh__item row ">          
+                      <div class="la-purchaseh__item row mb-5">          
                         <div class="col-lg-4 la-anim__stagger-item--x">
-                          <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-2xl head-font">Purchased                            </div>
+                          <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-2xl head-font">Invoice ID                            </div>
                         </div>
                         <div class="col-lg-1 "></div>
                         <div class="col-lg-1 text-center la-anim__stagger-item--x">
                           <div class="la-purchaseh__item-label text-sm">On  </div>
                         </div>
                         <div class="col-lg-1"></div>
-                        <div class="col-lg-1 text-center la-anim__stagger-item--x">
+                        {{-- <div class="col-lg-1 text-center la-anim__stagger-item--x">
                           <div class="la-purchaseh__item-label text-sm">Payment Mode </div>
-                        </div>
+                        </div> --}}
                         <div class="col-lg-1 px-0 text-center la-anim__stagger-item--x">
                           <div class="la-purchaseh__item-label text-sm">Total Price </div>
                         </div>
@@ -41,46 +41,17 @@
                         </div>
                       </div>
 
-                      @php
-                          $purchase1 = new stdClass;
-                          $purchase1->img = "https://picsum.photos/200/100";
-                          $purchase1->course = "Photography";
-                          $purchase1->creator = "Charlotte Floyd";
-                          $purchase1->date = "20.01.19";
-                          $purchase1->paymode = "payTM";
-                          $purchase1->total = 39;
-                          $purchase1->paystatus = "Paid";
-                          $purchase1->invoice = "Invoice";
-                          $purchase1->invoiceUrl = "";
-
-                          $purchase2 = new stdClass;
-                          $purchase2->img = "https://picsum.photos/200/100";
-                          $purchase2->course = "Photography";
-                          $purchase2->creator = "Charlotte Floyd";
-                          $purchase2->date = "20.01.19";
-                          $purchase2->paymode = "payTM";
-                          $purchase2->total = 39;
-                          $purchase2->paystatus = "Paid";
-                          $purchase2->invoice = "Invoice";
-                          $purchase2->invoiceUrl = "";
-
-                          $purchases = array($purchase1, $purchase2)
-                      @endphp
-
                       @foreach ($invoice as $i)
-                          @foreach($i->details as $detail)
+                          {{-- @foreach($i->details as $detail) --}}
                               <x-purchase 
-                                  :img="'https://picsum.photos/200/100'"
-                                  :course="$detail->course->title"
-                                  :creator="$detail->course->user->fullname"
-                                  :date="Carbon\Carbon::parse($detail->created_at)->isoFormat('D/M/YY')"
+                                  :date="Carbon\Carbon::parse($i->created_at)->format('d.M.Y')"
                                   :paymode="'PayTM'"
-                                  :total="$detail->price"
+                                  :total="$i->total"
                                   :paystatus="$i->status"
-                                  :invoice="'Invoice'"
+                                  :invoice="$i->invoice_id"
                                   :invoiceUrl="'/download-invoice/'.$i->id"
                               />
-                          @endforeach
+                          {{-- @endforeach --}}
                       @endforeach
                 </div>
                   <!-- Purchased Desktop Version: Start -->
@@ -94,43 +65,29 @@
                     </div>
                     <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font pb-3">Purchased</div>
                   </div>
-                        
-                    @php
-                      $purchase1 = new stdClass;
-                      $purchase1->img = "https://picsum.photos/100/100";
-                      $purchase1->course = "Photography";
-                      $purchase1->creator = "Charlotte Floyd";
-                      $purchase1->id = "p1";
-                      $purchase1->date = "20.01.19";
-                      $purchase1->paymode = "payTM";
-                      $purchase1->total = 39;
-                      $purchase1->paystatus = "Paid";
-                      $purchase1->invoice = "Invoice";
-                      $purchase1->invoiceUrl = "";
-
-                      $purchases = array($purchase1);
-                    @endphp
-
-                    @foreach ($purchases as $purchase)
-                      <x-purchase-mobile 
-                          :img="$purchase->img"
-                          :course="$purchase->course"
-                          :creator="$purchase->creator"
-                          :id="$purchase->id"
-                          :date="$purchase->date"
-                          :paymode="$purchase->paymode"
-                          :total="$purchase->total"
-                          :paystatus="$purchase->paystatus"
-                          :invoice="$purchase->invoice"
-                          :invoiceUrl="$purchase->invoiceUrl"
-                      />
-                    @endforeach           
+                  
+                    @foreach ($invoice as $i)
+                      @foreach($i->details as $detail)
+                        <x-purchase-mobile 
+                          :id="$detail->id"
+                          :img="'https://picsum.photos/200/100'"
+                          :course="$detail->course->title"
+                          :creator="$detail->course->user->fullname"
+                          :date="Carbon\Carbon::parse($detail->created_at)->isoFormat('D/M/YY')"
+                          :paymode="'PayTM'"
+                          :total="$detail->price"
+                          :paystatus="$i->status"
+                          :invoice="'Invoice'"
+                          :invoiceUrl="'/download-invoice/'.$i->id"
+                        />
+                      @endforeach   
+                    @endforeach        
                 </div>
                 <!-- Purchased Mobile Version: End -->
             </section>
             <!-- SECTION PURCHASED: END -->
 
-            <!-- SECTION RENT: START -->
+            {{-- <!-- SECTION RENT: START -->
             <section class="la-rto--main la-anim__wrap">
               <!-- Section Rent Desktop Version : Start -->
               <div class="container px-0 d-none d-lg-block">
@@ -615,7 +572,7 @@
                 </div>
                 <!-- Section Subscription Mobile Version: End -->
             </section>
-            <!-- SECTION SUBSCRIPTION: END -->
+            <!-- SECTION SUBSCRIPTION: END --> --}}
           
           </div>
         </div>

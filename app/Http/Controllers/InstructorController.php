@@ -13,6 +13,7 @@ use Carbon\CarbonInterval;
 use Cartalyst\Stripe\Stripe;
 use App\Instructor;
 use App\ReviewRating;
+use App\UserSubscriptionInvoice;
 
 class InstructorController extends Controller
 {
@@ -56,20 +57,22 @@ class InstructorController extends Controller
             function ($item,$key) {
                 return $item['course_id'];
             },
-        ], $preserveKeys = true)->toArray();
+        ], true)->toArray();
 
         $total_income = 0;
         foreach($learners_grouped as $learner => $watch_course){
 
             // dd(User::find($learner)->subscription('main')->active(),
             // User::find($learner)->subscription('main')->onTrial());
-            $customer = $stripe->customers()->find(User::find($learner)->stripe_id);
-            $subscription = $stripe->subscriptions()->find(User::find($learner)->stripe_id, User::find($learner)->subscribed->stripe_subscription_id);
+            // $customer = $stripe->customers()->find(User::find($learner)->stripe_id);
+            // $subscription = $stripe->subscriptions()->find(User::find($learner)->stripe_id, User::find($learner)->subscribed->stripe_subscription_id);
+            // dd($subscription, $customer);
 
-            $invoice = $stripe->invoices()->find($subscription['latest_invoice']);
-            User::find($learner)->subscription('main')->renew();
+            // If user didn't paid/subscribed last month then skip calculating it...
+            $checkUserSubscribedLastMonth = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid']])->whereBetween('end_date', [$start->startOfMonth(), $end->endOfMonth()])->exists();
 
-            dd($subscription, $invoice);
+            if(!$checkUserSubscribedLastMonth)
+                continue;
 
             $totalWatchtime = 0;
             $creatorCourseWatchtime = 0;
@@ -83,9 +86,6 @@ class InstructorController extends Controller
             $creator_watch_share = ($creatorCourseWatchtime * 100) / $totalWatchtime;
 
             $creatorPoolShare = InstructorController::$REVENUE_POOL * ($creator_watch_share / 100) ;
-
-            //Check User only If paid in the last month...
-            // echo User::find($learner)->subscription('main') && User::find($learner)->subscribedPlans();
 
             $creator_per_income = InstructorController::$LEARNER_PAID * ($creatorPoolShare / 100);
 
@@ -101,9 +101,9 @@ class InstructorController extends Controller
         }
         $watch_time = $watch_logs->count() * 3;
 
-        echo "Total Income: $".$total_income;
+        echo "Total Income: $".$total_income." $watch_time";
         // print_r($learners);
-        dd($learners_grouped);
+        // dd($watch_logs, $learners_grouped);
     }
 
     public function totalWatchTime()
