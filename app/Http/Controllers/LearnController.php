@@ -18,6 +18,7 @@ use App\WatchCourse;
 use App\Playlist;
 Use Alert;
 use App\Setting;
+use App\UserPurchasedCourse;
 use Illuminate\Support\Facades\Storage;
 use Debugbar;
 use PDF;
@@ -41,35 +42,40 @@ class LearnController extends Controller
             return redirect()->route('learn.show', ['id' => $id,'slug'=>$course->slug]);
 
         $video_access = false;
+        $class_access = false;
         $in_cart = null;
         $order_type = null;
         if(Auth::check())
         {
-        	$order = Order::where('user_id', Auth::User()->id)->where('course_id', $id)->first();
-
+        	$order = UserPurchasedCourse::where('user_id', Auth::User()->id)->where('course_id', $id)->first();
+            
             if( Auth::User()->role == "admin" || 
                 (Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()) ||
                 !empty( $order) )
             {
                 $video_access = true;
+                if($order->purchase_type == 'all_classes')
+                    $class_access = 1;
+                else
+                    $class_access = json_decode($order->class_id);
             }
 
-            $cart = Cart::where(['user_id' => Auth::User()->id, 'status' => 1])->first();
-            if($cart){
-                $in_cart = CartItem::where(['cart_id' => $cart->id, 'course_id' => $id])->get();
+            // $cart = Cart::where(['user_id' => Auth::User()->id, 'status' => 1])->first();
+            // if($cart){
+            //     $in_cart = CartItem::where(['cart_id' => $cart->id, 'course_id' => $id])->get();
              
-                if(count($in_cart) > 0){
-                    foreach($in_cart as $a){
+            //     if(count($in_cart) > 0){
+            //         foreach($in_cart as $a){
                         
-                        if($a->purchase_type == 'all_classes'){
-                            $order_type = 'all_classes';
-                        }
-                        if($a->purchase_type == 'selected_classes'){
-                            $order_type = 'selected_classes';
-                        }
-                    }
-                }
-            }
+            //             if($a->purchase_type == 'all_classes'){
+            //                 $order_type = 'all_classes';
+            //             }
+            //             if($a->purchase_type == 'selected_classes'){
+            //                 $order_type = 'selected_classes';
+            //             }
+            //         }
+            //     }
+            // }
 
         }
 
@@ -81,18 +87,17 @@ class LearnController extends Controller
         // if(count($reviews)==0){
         //     $reviews = 1;
         // }
-        
-        Debugbar::startMeasure('render','Time for rendering');
 
         $five_rating_percentage= round(100*$course->review->where('rating',5)->count()/$total_rating);
         $four_rating_percentage =  round(100*$course->review->where('rating',4)->count()/$total_rating);
         $three_rating_percentage = round(100*$course->review->where('rating',3)->count()/$total_rating);
         $two_rating_percentage = round(100*$course->review->where('rating',2)->count()/$total_rating);
         $one_rating_percentage = round(100*$course->review->where('rating',1)->count()/$total_rating);
-        Debugbar::stopMeasure('render');
+        
 
         $data = array(
             'video_access'=> $video_access,
+            'class_access' => $class_access,
             'course'=> $course,
             'related_courses'=> $related_courses,
             'mentor_other_courses'=> $mentor_other_courses,
@@ -117,14 +122,13 @@ class LearnController extends Controller
         if(Auth::check() || $class_video->is_preview == '1')
         {
             if(Auth::check())
-        	    $order = Order::where('user_id', Auth::User()->id)->where('course_id', $class_video->course_id)->first();
-
+                $have_purchased = UserPurchasedCourse::where('user_id', Auth::User()->id)->where('course_id', $class_video->course_id)->whereJsonContains('class_id', [(int)$video_id])->exists();
             if(
                 $class_video->is_preview == '1' || 
                 $class_video->courses->package_type == '0' ||
                 (Auth::check() && ( Auth::User()->role == "admin" || 
-                (Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()) ||
-                !empty($order) )) 
+                (Auth::check() && Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()) ||
+                $have_purchased )) 
             )
             {
                 $response = array(

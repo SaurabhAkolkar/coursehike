@@ -8,14 +8,12 @@ return array(
     
     'avatar'    => 'img/avatar/',
 
-    'restaurant'     => 'img/restaurants/',
-    'dishes'     => 'img/dishes/',
-    'categories'     => 'img/categories/',
     'mentor' => [
-        'featured' => 'img/mentor/featured/',
-        'featuredthumbnail' => 'img/mentor/featured/thumbnail/'
+        'featured' => 'images/mentor/featured/',
+        'featuredthumbnail' => 'images/mentor/featured/thumbnail/'
     ],
-    'firstsection' => 'img/firstsection/',
+    'firstsection' => 'images/firstsection/',
+    
     'course' => [
         'img' => 'images/course/',
         'class_thumnail' => 'images/class_thumnail/',

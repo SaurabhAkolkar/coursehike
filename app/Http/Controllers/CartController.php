@@ -523,7 +523,9 @@ class CartController extends Controller
 
     public function checkoutFailed($transaction_id)
     {
-        $invoice = UserInvoiceDetail::where([['id', $transaction_id],['status', '!=' , 'paid']])->firstOrFail();
+        $invoice = UserInvoiceDetail::where([['id', $transaction_id],['user_id', Auth::user()->id],['status', '!=' , 'paid']])->firstOrFail();
+        $invoice->status = 'failed';
+        $invoice->save();
         return view('learners.messages.charge-failure', compact('invoice'));
     }
     

@@ -57,19 +57,19 @@ class RegisterController extends Controller
         if($setting->captcha_enable == 1){
             return Validator::make($data, [
                 'fname' => ['required', 'string', 'max:255'],
-                'lname' => ['required', 'string', 'max:255'],
+                'mobile' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'string', 'min:6', 'confirmed'],
-                'g-recaptcha-response' => 'required|captcha',
+                'password' => ['required', 'string', 'min:6'],
+                // 'g-recaptcha-response' => 'required|captcha',
             ]);
         }
         else{
 
             return Validator::make($data, [
                 'fname' => ['required', 'string', 'max:255'],
-                'lname' => ['required', 'string', 'max:255'],
+                'mobile' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'string', 'min:6', 'confirmed'],
+                'password' => ['required', 'string', 'min:6'],
             ]);
 
         }
@@ -85,32 +85,33 @@ class RegisterController extends Controller
     {
         $setting = Setting::first();
 
-        if($setting->mobile_enable == 1)
-        {
-            $mobile = $data['mobile'];
-        }
-        else
-        {
-            $mobile = NULL;
-        }
+        // if($setting->mobile_enable == 1)
+        // {
+        //     $mobile = $data['mobile'];
+        // }
+        // else
+        // {
+        //     $mobile = NULL;
+        // }
 
-        if($setting->verify_enable == 0)
-        {
+        // if($setting->verify_enable == 0)
+        // {
             $verified = \Carbon\Carbon::now()->toDateTimeString();
-        }
-        else
-        {
-            $verified = NULL;
-        }
+        // }
+        // else
+        // {
+        //     $verified = NULL;
+        // }
         
         
         $user = User::create([
 
             'fname' => $data['fname'],
-            'lname' => $data['lname'],
+            'lname' => '',
             'email' => $data['email'],
-            'mobile' => $mobile,
+            'mobile' => $data['mobile'],
             'email_verified_at'  => $verified,
+            'dob' => $data['dob'],
             'password' => Hash::make($data['password']),
         ]);
         

@@ -2,6 +2,7 @@
 
 namespace App\Jobs\StripeWebhooks;
 
+use App\Cart;
 use App\UserInvoiceDetail;
 use App\UserPurchasedCourse;
 use Cartalyst\Stripe\Stripe;
@@ -41,15 +42,12 @@ class CheckoutChargeSucceededJob implements ShouldQueue
         // you can access the payload of the webhook call with `$this->webhookCall->payload`
         $invoice = $this->webhookCall->payload['data']['object'];
 
-        Log::debug($invoice);
-
         $customer_id = $invoice['customer'];
         $client_reference_id = $invoice['client_reference_id'];
         $payment_status = $invoice['payment_status'];
         $amount_total = $invoice['amount_total'];
         $livemode = $invoice['livemode'];
 
-        // TODO: Update Invoice successfull
 
         $user_invoice = UserInvoiceDetail::where('id', $client_reference_id)->first();
 
@@ -61,13 +59,19 @@ class CheckoutChargeSucceededJob implements ShouldQueue
             $user_invoice->status = 'paid';
             $user_invoice->save();
 
-            UserPurchasedCourse::create([
-                'order_id' => $client_reference_id,
-                'user_id' => $user_invoice->user->id,
-                'course_id' => $user_invoice->user->id,
-                'class_id' => json_encode($user_invoice->details->pluck('class_id')->all()),
-                'purchase_type' => $user_invoice->purchase_type,
-            ]);
+            // TODO: Update UserPurchasedCourse for multiple courses
+            foreach($user_invoice->details as $invoice_items){
+                UserPurchasedCourse::create([
+                    'order_id' => $client_reference_id,
+                    'user_id' => $user_invoice->user->id,
+                    'course_id' => $invoice_items->course_id,
+                    'class_id' => json_encode($invoice_items->pluck('class_id')->all()),
+                    'purchase_type' => $user_invoice->purchase_type,
+                ]);
+            }
+
+            Cart::where(['user_id', $user_invoice->user->id])->delete();
+            CartItem::where(['user_id', $user_invoice->user->id])->delete();
         }
         
     }

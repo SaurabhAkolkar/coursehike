@@ -33,10 +33,10 @@
             <div class="la-purchaseh__item-total">$ {{ $total }}</div>
         </div>
 
-        <div class="la-purchaseh__label-mobile d-flex justify-content-between">
+        {{-- <div class="la-purchaseh__label-mobile d-flex justify-content-between">
             <p class="text-md">Payment Method</p>
             <div class="la-purchaseh__item-paymode">{{ $paymode }}</div>
-        </div>
+        </div> --}}
     </div>
 
 </div>
