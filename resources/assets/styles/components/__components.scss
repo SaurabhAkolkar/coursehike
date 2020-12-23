@@ -53,9 +53,13 @@
                         text-transform: uppercase;
                         font-size: var(--text-8xl);
                         color: var(--gray2);
-
+                        
                         @include respond-above(md) {
                             font-size: var(--text-abnormal);
+                        }
+
+                        @media(max-width:991px){
+                            text-align:center;
                         }
                     }
                 }
@@ -105,6 +109,7 @@
                     height: 797px;
                 }
 
+               
                 // bottom: -34%;
                 // left: -24%;
 
@@ -115,6 +120,10 @@
                         right: -24% !important;
                         left: unset;
                         z-index:10;
+
+                        @media(max-width:767px){
+                            display:none;
+                        }
                     }
                 }
             }

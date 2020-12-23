@@ -224,6 +224,7 @@ $(function(){
       end: "+=800",
     }, opacity: 1
   });
+  
   // For Home Page
   gsap.utils.toArray('.la-anim__slide').forEach(function(elem) {
     let tl = gsap.timeline({

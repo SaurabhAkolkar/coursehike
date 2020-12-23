@@ -146,6 +146,13 @@ $sidemenuWidth: 300px;
                                 opacity: 0.8;
                                 z-index: 0;
                             }
+
+                            @media(max-width:991px){
+                                color:var(--app-indigo-1);
+                                &:before{
+                                    display:none;
+                                }
+                            }
                         }
                         &:hover{
                             color:var(--app-indigo-1);
