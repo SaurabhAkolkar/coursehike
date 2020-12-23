@@ -19,7 +19,7 @@
                         // background: transparent radial-gradient(closest-side at 90% 37%, #C287F3 0%, #7322B7 100%) 0% 0% no-repeat padding-box;
                     }
                     &right {
-                        background: var(--gray);
+                        background: var(--white);
                     }
                 }
             }
@@ -52,11 +52,11 @@
                     &lnk{
                         margin-top: var(--size-2);
                         margin-right: var(--size-3);
-                        transition:all 0.2s ease-in;
+                        transition:all 0.25s linear;-webkit-transition: all 0.25s linear;
 
                         &:hover{
                             transform:scale(1.1);
-                            transition: all 0.2s ease-in;
+                            transition: all 0.25s linear;-webkit-transition: all 0.25s linear;
                         }
                     }
                 }

@@ -3,6 +3,16 @@ $(function(){
   $('.dropdown-toggle').dropdown()
   // Global Dropdown Toggle: End
 
+  // Navbar Dropdown Toggle: Start
+  $("#profileMenu").on('click', function(){
+    $(this).toggleClass("la-header__menu-rotate"); 
+  });
+
+  $("#profileBeforeLogin").on('click', function(){
+    $(this).toggleClass("la-header__menu-rotate"); 
+  });
+  // Navbar Dropdown Toggle: End
+
   // Global Alert Animation for Learners
   window.setTimeout(function() {
     $(".alert").fadeTo(500, 0).slideUp(500, function() {

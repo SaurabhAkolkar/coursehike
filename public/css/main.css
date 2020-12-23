@@ -10620,6 +10620,15 @@ ul, li {
     width: 100% !important;
   }
 }
+.la-btn__secondary {
+  background: var(--white);
+  color: #000;
+}
+.la-btn__secondary:hover {
+  background: var(--app-indigo-1);
+  color: #ffffff;
+  border-radius: 10px;
+}
 .la-btn__icon--grey {
   color: var(--gray4);
 }
@@ -17133,6 +17142,16 @@ a, a:hover {
 .la-header__menu-icon {
   font-size: var(--text-2xl);
   color: var(--gray6);
+  transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+}
+.la-header__menu-rotate {
+  transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
 }
 .la-header__menu-badge {
   position: absolute;
@@ -17142,6 +17161,7 @@ a, a:hover {
   color: var(--app-indigo-1);
 }
 .la-header__dropdown-menu {
+  background: var(--gray);
   margin-top: var(--size-5);
   padding-bottom: 0;
   padding-top: 0;
@@ -20203,7 +20223,7 @@ a, a:hover {
   display: none;
 }
 .la-entry__col-right {
-  background: var(--gray);
+  background: var(--white);
 }
 .la-entry__content-wrap {
   min-height: calc(100vh - var(--inner-padding));
@@ -20228,11 +20248,13 @@ a, a:hover {
 .la-entry__social-lnk {
   margin-top: var(--size-2);
   margin-right: var(--size-3);
-  transition: all 0.2s ease-in;
+  transition: all 0.25s linear;
+  -webkit-transition: all 0.25s linear;
 }
 .la-entry__social-lnk:hover {
   transform: scale(1.1);
-  transition: all 0.2s ease-in;
+  transition: all 0.25s linear;
+  -webkit-transition: all 0.25s linear;
 }
 .la-entry__interest {
   width: 33.333%;

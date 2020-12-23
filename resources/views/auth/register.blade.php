@@ -137,7 +137,7 @@
                             </div> 
                             @endif --}}
                             
-                            <button type="submit" title="Sign Up" class="la-btn__app w-100">{{ __('frontstaticword.Signup') }}</button> 
+                            <button type="submit" title="Sign Up" class="la-btn__app la-btn__secondary w-100">{{ __('frontstaticword.Signup') }}</button> 
                         </form>
                     </div>
 
