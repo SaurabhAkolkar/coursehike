@@ -58,7 +58,7 @@
 
 
                 @foreach($courses as $course)
-                  @if($status == 1)
+                  @if($course->status == 1)
                     <div class="col-md-4 px-0">
                       <x-course 
                           :id="$course->id"

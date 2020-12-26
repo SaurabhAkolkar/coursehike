@@ -9,9 +9,9 @@
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title pb-6"> {{ __('adminstaticword.Order') }}</h3>
-          @if(Auth::User()->role == "admin")
+          {{-- @if(Auth::User()->role == "admin")
             <a class="btn btn-info btn-md" href="{{route('order.create')}}">+ Enroll&nbsp; {{ __('adminstaticword.User') }}</a>
-          @endif
+          @endif --}}
         </div>
         
         <!-- /.box-header -->
@@ -20,30 +20,30 @@
                 <!-- SUBSCRIPTION SECTION: START -->
                 <div class="row mt-4">
                     <div class="col-md-3">
-                        <div class="la-admin__revenue-title">Monthly Subscriptions</div>
-                        <div class="la-admin__revenue-info">
-                            <span class="la-admin__revenue-total">50</span>
-                            <span class="la-admin__revenue-per">@ $20 each</span>
-                        </div>
+                      <div class="la-admin__revenue-title">Active Trial Subscriptions</div>
+                      <div class="la-admin__revenue-info">
+                          <span class="la-admin__revenue-total">{{$trial_subscriptions}}</span>
+                          {{-- <span class="la-admin__revenue-per">@ $80 each</span> --}}
+                      </div>
                     </div>
                     <div class="col-md-3">
-                      <div class="la-admin__revenue-title">Quarterly Subscriptions</div>
-                      <div class="la-admin__revenue-info">
-                          <span class="la-admin__revenue-total">20</span>
-                          <span class="la-admin__revenue-per">@ $80 each</span>
-                      </div>
+                        <div class="la-admin__revenue-title">Monthly Subscriptions</div>
+                        <div class="la-admin__revenue-info">
+                            <span class="la-admin__revenue-total">{{$monthly_subscriptions}}</span>
+                            <span class="la-admin__revenue-per">@ $39 each</span>
+                        </div>
                     </div>
                     <div class="col-md-3">
                       <div class="la-admin__revenue-title">Yearly Subscriptions</div>
                       <div class="la-admin__revenue-info">
-                          <span class="la-admin__revenue-total">60</span>
-                          <span class="la-admin__revenue-per">@ $120 each</span>
+                          <span class="la-admin__revenue-total">{{$yearly_subscriptions}}</span>
+                          <span class="la-admin__revenue-per">@ $309 each</span>
                       </div>
                     </div>
                     <div class="col-md-2">
                       <div class="la-admin__revenue-title">Total Amount</div>
                       <div class="la-admin__revenue-info">
-                          <span class="la-admin__revenue-price">$9.8k</span>
+                          <span class="la-admin__revenue-price">${{ ($monthly_subscriptions * 39) + ($yearly_subscriptions * 309) }}</span>
                       </div>
                     </div>
                 </div>
@@ -51,12 +51,12 @@
 
                 <!-- ONE TIME SUBSCRIPTION SECTION: START -->
                 <div class="row my-md-8">
-                  <div class="col-md-3">
+                  {{-- <div class="col-md-3">
                       <div class="la-admin__revenue-title">No. of Learners</div>
                       <div class="la-admin__revenue-info">
                           <span class="la-admin__revenue-total">{{$learners}}</span>
                       </div>
-                  </div>
+                  </div> --}}
                   <div class="col-md-3">
                     <div class="la-admin__revenue-title">Courses Purchased</div>
                     <div class="la-admin__revenue-info">
@@ -66,7 +66,7 @@
                   <div class="col-md-3">
                     <div class="la-admin__revenue-title">Classes Purchased</div>
                     <div class="la-admin__revenue-info">
-                        <span class="la-admin__revenue-total">{{$classes}}</span>
+                        <span class="la-admin__revenue-total">{{$classes_count}}</span>
                     </div>
                   </div>
                   <div class="col-md-2">
@@ -87,35 +87,27 @@
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>{{ __('adminstaticword.User') }}</th>
-                  <th>{{ __('adminstaticword.Course') }}</th>
                   <th>{{ __('adminstaticword.TransactionId') }}</th>
-                  <th>{{ __('adminstaticword.PaymentMethod') }}</th>
+                  <th>{{ __('adminstaticword.User') }}</th>
+                  {{-- <th>{{ __('adminstaticword.Course') }}</th> --}}
+                  {{-- <th>{{ __('adminstaticword.PaymentMethod') }}</th> --}}
                   <th>{{ __('adminstaticword.TotalAmount') }}</th>
+                  <th>{{ __('adminstaticword.Status') }}</th>
+                  <th>{{ __('adminstaticword.Date') }}</th>
                   <th>{{ __('adminstaticword.View') }}</th>
                 </tr>
               </thead>
               <tbody>
               <?php $i=0;?>
-                @foreach($invoiceDetails as $invoice)
+                @foreach($total_purchase as $invoice)
                     <tr>
-                      <td><?php echo ++$i;?></td>
-                      <td>{{$invoice->fname.' '.$invoice->lname}}</td>                 
-                      <td>
-                        
-                        @if($invoice->course_id != NULL)
-                          {{ json_decode($invoice->title)->en }}
-                        @endif
-                      </td>
-                      <td>{{$invoice->id}}</td>
-                      <td>PayTms</td>
+                      <td>{{$invoice->invoice_id}}</td>
+                      {{-- <td><?php echo ++$i;?></td> --}}
+                      <td>{{$invoice->user->fname.' '.$invoice->user->lname}}</td>
                     
-
-                      @if($invoice->course_id == !NULL)
-                        <td>$ {{ $invoice->sub_total }}</td>
-               
-                      @endif
+                      <td>$ {{ $invoice->total }}</td>  
+                      <td>{{ $invoice->status }}</td>   
+                      <td>{{ $invoice->created_at }}</td>            
 
                       <td><a class="text-dark" href="{{route('view.order',$invoice->id)}}">{{ __('adminstaticword.View') }}</a>
                       </td>
