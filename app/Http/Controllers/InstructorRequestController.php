@@ -100,7 +100,7 @@ class InstructorRequestController extends Controller
 
     public function allinstructor()
     {
-        $items = Instructor::all();
+        $items = Instructor::where('status','1')->get();
         return view('admin.instructor.all_instructor.index',compact('items'));
     }
 

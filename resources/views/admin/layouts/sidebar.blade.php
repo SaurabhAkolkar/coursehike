@@ -121,7 +121,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              {{-- <li class="{{ Nav::isRoute('all.instructor') }}"><a href="{{route('all.instructor')}}"><i class="la-icon la-icon--lg icon-all-mentors mr-4"></i>{{ __('adminstaticword.AllInstructor') }}</a></li> --}}
+              <li class="{{ Nav::isRoute('all.instructor') }}"><a href="{{route('all.instructor')}}"><i class="la-icon la-icon--lg icon-all-mentors mr-4"></i>{{ __('adminstaticword.AllInstructor') }}</a></li>
               <li class="{{ Nav::isResource('requestinstructor') }}"><a href="{{url('requestinstructor')}}"><i class="la-icon la-icon--lg icon-request mr-4"></i>{{ __('adminstaticword.InstructorRequest') }}</a></li>
             </ul>
           </li> 
