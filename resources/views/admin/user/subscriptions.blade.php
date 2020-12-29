@@ -8,8 +8,8 @@
     <div class="col-md-12">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.Users') }}</h3>
-          <a class="btn btn-info btn-sm" href="{{ route('user.add') }}"><span class="la-icon icon-plus"></span>{{ __('adminstaticword.Add') }} {{ __('adminstaticword.User') }}</a>
+          <h3 class="box-title">{{ __('adminstaticword.Subscription') }}</h3>
+          <a class="btn btn-info btn-sm" href="{{route('create.subscription', $user_id)}}"><span class="la-icon icon-plus"></span>{{ __('adminstaticword.Add') }} {{ __('adminstaticword.Subscription') }}</a>
         </div>
        
         <!-- /.box-header -->
@@ -24,67 +24,24 @@
                   <th>#</th>
                   <th>{{ __('adminstaticword.StartDate') }}</th>
                   <th>{{ __('adminstaticword.EndDate') }}</th>
+                  <th>{{ __('adminstaticword.Amount') }}</th>
                   <th></th>
                 </thead> 
 
                 <tbody>
                   <?php $i=0;?>
 
-                    @foreach ($users as $user)
+                    @foreach ($subscriptions as $s)
                     
                         <?php $i++;?>
 
                       <tr>
                         <td><?php echo $i;?></td>
-                        <td>
-                          @if($user->user_img != null || $user->user_img !='')
-                            <img src="{{ url('/images/user_img/'.$user->user_img) }}" class="img-fluid">
-                          @else
-                            <img src="{{ asset('images/default/user.jpg')}}" class="img-fluid" alt="User Image">
-                          @endif
-                        </td>
-                        <td>{{ $user['fname'] }}</td>
-                        <td>{{ $user['email'] }}</td>
-                        <td>{{ $user['role'] }}</td>
-                        <td>
-                          {{$user->mobile}}
-                        </td>
-                        <td>
-                          @if($user->country_id)
-                          {{  $user->country['nicename']  }}
-                          @endif
-                        </td>
-                        <td class="text-center">
-                          <a class="" href="{{ route('user.subscriptions',$user->id) }}">View</a>
-                        </td>
-                        <td>
-                          <form action="{{ route('user.quick',$user->id) }}" method="POST">
-                            {{ csrf_field() }}
-                            <button  type="Submit" class="btn btn-xs {{ $user->status ==1 ? 'btn-success' : 'btn-danger' }}">
-                              @if($user->status ==1)
-                              {{ __('adminstaticword.Active') }}
-                              @else
-                              {{ __('adminstaticword.Deactive') }}
-                              @endif
-                            </button>
-                          </form>
-                        </td>
-                       
-                        <td>
-                          <a class="btn btn-success btn-sm" href="{{ route('user.update',$user->id) }}">
-                            <i class="la-icon la-icon--lg icon-edit"></i></a>
-                        </td>
-                              
-                        <td><form  method="post" action="{{ route('user.delete',$user->id) }}
-                            "data-parsley-validate class="form-horizontal form-label-left">
-                            {{ csrf_field() }}
-                            {{ method_field('DELETE') }}
-                             
-                              <button onclick="return confirm('Are you sure you want to delete?')"  type="submit" class="btn btn-danger btn-sm"><i class="la-icon la-icon--lg icon-delete"></i></button>
-                            </form>
-                        </td>
+                        <td>{{$s->subscriptionDetails->start_date}}</td>                 
+                        <td>{{$s->subscriptionDetails->end_date}}</td>                 
+                        <td>$ {{$s->subscriptionDetails->invoice_paid}}</td>                 
                     </tr>
-                    @endif
+                  @endforeach
 
                 </tbody>
               </table>
@@ -92,6 +49,50 @@
         <!-- /.box-body -->
       </div>
     </div>
+
+
+    <div class="col-md-12">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">{{ __('adminstaticword.Courses') }}</h3>
+          <a class="btn btn-info btn-sm" href="/user/subscriptions/add-course/{{$user_id}}"><span class="la-icon icon-plus"></span>{{ __('adminstaticword.Add') }} {{ __('adminstaticword.Courses') }}</a>
+        </div>
+       
+        <!-- /.box-header -->
+        <div class="box-body">            
+              <table id="example2" class="table table-bordered table-striped text-center display nowrap">
+                <thead>
+                  <th>#</th>
+                  <th>{{ __('adminstaticword.Title') }}</th>
+                  <th>{{ __('adminstaticword.Classes') }}</th>
+                  <th>{{ __('adminstaticword.PurchaseType') }}</th>
+                  <th>{{ __('adminstaticword.PurchaseDate') }}</th>
+                  <th></th>
+                </thead> 
+
+                <tbody>
+                  <?php $i=0;?>
+
+                    @foreach ($courses_purchased as $cp)
+                    
+                        <?php $i++;?>
+
+                      <tr>
+                        <td><?php echo $i;?></td>
+                        <td>{{$cp->course->title}}</td>                 
+                        <td>{{count(json_decode($cp->class_id))}}</td>                 
+                        <td>{{$cp->purchase_type=='all_classes'?'All Classes':'Selected Classes'}}</td>                 
+                        <td>{{Carbon\Carbon::parse($cp->created_at)->format('d-M-Y')}}</td>                 
+                    </tr>
+                  @endforeach
+
+                </tbody>
+              </table>
+          </div>
+        <!-- /.box-body -->
+      </div>
+    </div>
+
     <!-- /.col -->
   </div>
   <!-- /.row -->

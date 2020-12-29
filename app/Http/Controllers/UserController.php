@@ -30,7 +30,11 @@ use App\Categories;
 use App\UserInterest;
 use App\UserSubscription;
 use App\UserPurchasedCourse;
-
+use App\CourseChapter;
+use Illuminate\Support\Str;
+use App\UserInvoiceDetail;
+use Carbon\Carbon;
+use App\UserSubscriptionInvoice;
 
 class UserController extends Controller
 {
@@ -58,9 +62,117 @@ class UserController extends Controller
      */
 
     public function subscriptions($id){
+
         $subscriptions = UserSubscription::with('subscriptionDetails')->where('user_id', $id)->get();
         $courses_purchased =  UserPurchasedCourse::with('course')->where('user_id', $id)->get();
-        return view('admin.user.subscriptions', compact('subscriptions','courses_purchased'));
+        $user_id = $id;
+  
+        return view('admin.user.subscriptions', compact('subscriptions','courses_purchased','user_id'));
+
+    }
+
+    public function addCourse($id){
+        $user_id = $id;
+        $courses = Course::where(['status'=>1])->get();
+        
+        return view('admin.user.addcourse', compact('user_id','courses'));
+    }
+
+    public function getClasses(Request $request){
+        $course_id = $request->course_id;
+        $classes = CourseChapter::where(['course_id'=>$course_id])->pluck('chapter_name','id');
+        
+        return $classes;
+    }
+
+    public function addUserCourse(Request $request){
+        $request->validate([
+            'course_id' => 'required',
+            'purchase_type' => 'required',
+            'amount' => 'required',
+      ]);
+         
+        $check = UserPurchasedCourse::where(['course_id'=>$request->course_id, 'user_id'=>$request->user_id])->get();
+
+        if($check){
+            return redirect()->back()->with('delete','Course is already added for the User.');
+        }
+        if($request->purchase_type == 'selected_classes'){
+         
+        }
+        else if($request->purchase_type == 'all_classes'){
+            $request->class_id = CourseChapter::where(['course_id'=>$request->course_id])->pluck(['id']);
+        }   
+
+                $random = Str::of(Str::orderedUuid())->upper()->explode('-');
+               
+                $insert['invoice_id'] = '#LILA-'. date('m-d') . '-'. $random[0]. '-'. $random[1];
+                $insert['user_id'] = $request->user_id;
+                $insert['discount_type'] = 'regular_discount';
+                $insert['purchase_type'] = $request->puchase_type;
+                $insert['status'] = 'successful';
+                $insert['sub_total'] = $request->amount;
+                
+                $get_order_id = UserInvoiceDetail::create($insert);
+               
+                $order['order_id'] = 1;
+                $order['user_id'] = $request->user_id;
+                $order['course_id'] = $request->course_id;
+                $classes = array_values($request->class_id);
+                $order['class_id'] = json_encode($classes);
+                $order['purchase_type'] = $request->puchase_type;
+                
+
+                UserPurchasedCourse::create($order);
+
+                return redirect('/user/subscriptions/'.$request->user_id)->with('success','Courses added successfully.');
+
+    }
+
+    public function addSubscription($id){
+        $user_id = $id;
+
+        return view('admin.user.addsubscription', compact('user_id'));
+    }
+
+    public function storeSubscription(Request $request){
+        
+        $request->validate([
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'amount' => 'required',
+        ]);
+            $start_date = Carbon::parse($request->start_date);
+            $end_date = Carbon::parse($request->end_date);
+            $diff = $start_date->diffInDays($end_date);
+
+            if(round($diff/30) <= 1)
+                $plan_id = 'price_1Hk3QlE6m1twc6cGzy7K0Xwh';
+            else if(round($diff/30) <= 3 )
+                $plan_id = 'price_1HyL7FE6m1twc6cGxmT4KI6G';
+            else if(round($diff/30) <= 12)
+                $plan_id = 'price_1Hk3Q8E6m1twc6cGJjmdFY17';
+
+            $input['user_id'] = $request->user_id;
+            $input['stripe_subscription_id'] = 'Admin-Purchased';
+            $input['payment_id'] = $plan_id;
+                
+            $subscription = UserSubscription::create($input);
+
+            $input['subscription_id'] = $subscription->id;
+            $input['start_date'] = $start_date->format('Y-m-d h:i:s');
+            $input['end_date'] = $end_date->format('Y-m-d h:i:s');
+            $input['stripe_subscription_id'] = 'Admin-Purchased';
+            $input['stripe_invoice_id'] = $plan_id;
+            $input['invoice_charge_id'] = $plan_id;
+            $input['invoice_charge_id'] = $plan_id;
+            $input['payment_intent_id'] = $plan_id;
+            $input['invoice_paid'] = $request->amount;
+            $input['status'] = 'successful';
+
+            UserSubscriptionInvoice::create($input);
+
+        return redirect('/user/subscriptions/'.$request->user_id)->with('success','Subscription added successfully.');
     }
     public function create()
     {

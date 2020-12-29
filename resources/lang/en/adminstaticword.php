@@ -506,5 +506,8 @@ return [
     'CourseAmount' => 'Course Amount',
     'Total' => 'Total',
     'Month'=>'Month',    
+    'Classes'=>'Classes',
+    'PurchaseType'=>'Purchase Type',
+    'PurchaseDate' => 'Purchase Date',    
 
 ];

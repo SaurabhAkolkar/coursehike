@@ -132,15 +132,22 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::post('/quickupdate/faqinstructor/{id}','QuickUpdateController@faqInstructorQuick')->name('faqInstructor.quick');
 
       Route::post('/quickupdate/order/{id}','QuickUpdateController@orderQuick')->name('order.quick');
+      Route::get('/user/subscriptions/add-course/{id}','UserController@addCourse');
+      Route::get('/get-classes','UserController@getClasses');
+      Route::post('/add-user-course','UserController@addUserCourse')->name('addusercourse');
+
+      Route::get('/user/subscription/create/{id}','UserController@addSubscription')->name('create.subscription');
+      Route::post('/user/subscription/store','UserController@storeSubscription')->name('store.subscription');
 
       Route::prefix('user')->group(function (){
-      Route::get('/','UserController@viewAllUser')->name('user.index');
-      Route::get('/adduser','UserController@create')->name('user.add');
-      Route::post('/insertuser','UserController@store')->name('user.store');
-      Route::get('/subscriptions/{id}','UserController@subscriptions')->name('user.subscriptions');
-      Route::get('edit/{id}','UserController@edit')->name('user.edit');
-      Route::put('/edit/{id}','UserController@update')->name('user.update');   
-      Route::delete('delete/{id}','UserController@destroy')->name('user.delete');
+        Route::get('/','UserController@viewAllUser')->name('user.index');
+        Route::get('/adduser','UserController@create')->name('user.add');
+        Route::post('/insertuser','UserController@store')->name('user.store');
+        Route::get('/subscriptions/{id}','UserController@subscriptions')->name('user.subscriptions');
+        Route::get('/subscriptions/add','UserController@addSubscriptions')->name('user.addSubscription');
+        Route::get('edit/{id}','UserController@edit')->name('user.edit');
+        Route::put('/edit/{id}','UserController@update')->name('user.update');   
+        Route::delete('delete/{id}','UserController@destroy')->name('user.delete');
       });
 
       Route::resource("admin/country","CountryController");
