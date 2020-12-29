@@ -331,7 +331,7 @@ function addToWishList(id){
       url: '/add-to-wishlist',
       data: {course_id: course_id},
       success:function(data){   
-        $('#wishlist_alert_div').html(' ');
+        $('#alert_div').html(' ');
         let successAlert = `<div class="la-btn__alert position-relative">
                               <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
                                 <h6 id="wishlist_alert_message" class="la-btn__alert-msg">${data}</h6>
@@ -340,7 +340,7 @@ function addToWishList(id){
                                 </button>
                               </div>
                             </div>`
-        $('#wishlist_alert_div').html(successAlert);        
+        $('#alert_div').html(successAlert);        
         window.setTimeout(function() {
           $(".alert").fadeTo(500, 0).slideUp(500, function() {
               $(this).remove();
@@ -368,7 +368,7 @@ function removeFromWishList(id){
       url: '/remove-from-wishlist',
       data: {course_id: course_id},
       success:function(data){   
-        $('#wishlist_alert_div').html(' ');
+        $('#alert_div').html(' ');
         $('#course_'+id).remove(); 
         let successAlert = `<div class="la-btn__alert position-relative">
                               <div class="la-btn__alert-success col-md-4 offset-md-4 alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
@@ -378,7 +378,7 @@ function removeFromWishList(id){
                                 </button>
                               </div>
                             </div>`
-        $('#wishlist_alert_div').html(successAlert);
+        $('#alert_div').html(successAlert);
         window.setTimeout(function() {
           $(".alert").fadeTo(500, 0).slideUp(500, function() {
               $(this).remove();
@@ -409,7 +409,7 @@ function addToCart(id='1', classes='all') {
       url: '/add-to-cart',
       data: {course_id: course_id, classes : classes},
       success:function(data){   
-        $('#wishlist_alert_div').html(' ');
+        $('#alert_div').html(' ');
      
         let successAlert = `<div class="la-btn__alert position-relative">
                               <div class="la-btn__alert-success col-md-4 offset-md-4 alert alert-success alert-dismissible" id="wishlist_alert" role="alert">
@@ -419,7 +419,7 @@ function addToCart(id='1', classes='all') {
                                 </button>
                               </div>
                             </div>`
-        $('#wishlist_alert_div').html(successAlert);
+        $('#alert_div').html(successAlert);
         window.setTimeout(function() {
           $(".alert").fadeTo(500, 0).slideUp(500, function() {
               $(this).remove();

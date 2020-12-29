@@ -763,3 +763,6 @@ button.close:focus{
   outline:0 !important;
 }
 
+.ui-datepicker-calendar{
+    border-spacing : 0px !important;
+}

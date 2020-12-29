@@ -15,6 +15,7 @@ return array(
         'featured' => 'img/mentor/featured/',
         'featuredthumbnail' => 'img/mentor/featured/thumbnail/'
     ],
+    'profile' => 'img/userprofile/',
     'firstsection' => 'img/firstsection/',
     'course' => [
         'img' => 'images/course/',

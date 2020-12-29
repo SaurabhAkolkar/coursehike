@@ -156,6 +156,7 @@
               <li class="{{ Nav::isRoute('admin.instructor') }}"><a href="{{route('admin.instructor')}}"><i class="flaticon-pending"></i>{{ __('adminstaticword.PendingPayout') }}</a></li>
 
               <li class="{{ Nav::isRoute('admin.completed') }}"><a href="{{route('admin.completed')}}"><i class="flaticon-file"></i>{{ __('adminstaticword.CompletedPayout') }}</a></li>
+              <li class="{{ Nav::isRoute('admin.creatorpayout') }}"><a href="{{route('admin.creatorpayout')}}"><i class="flaticon-file"></i>{{ __('adminstaticword.CreatorPayout') }}</a></li>
             
             </ul>
           </li> 

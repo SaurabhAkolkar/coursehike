@@ -22,23 +22,16 @@
               <table id="example1" class="table table-bordered table-striped text-center display nowrap">
                 <thead>
                   <th>#</th>
-                  <th>{{ __('adminstaticword.Image') }}</th>
-                  <th>{{ __('adminstaticword.FirstName') }}</th>
-                  <th>{{ __('adminstaticword.Email') }}</th>
-                  <th>{{ __('adminstaticword.Role') }}</th>
-                  <th>{{ __('adminstaticword.Mobile') }}</th>
-                  <th>{{ __('adminstaticword.Country') }}</th>
-                  <th>{{ __('adminstaticword.Subscription') }}</th>
-                  <th>{{ __('adminstaticword.Status') }}</th>
-                  <th>{{ __('adminstaticword.Edit') }}</th>
-                  <th>{{ __('adminstaticword.Delete') }}</th>
+                  <th>{{ __('adminstaticword.StartDate') }}</th>
+                  <th>{{ __('adminstaticword.EndDate') }}</th>
+                  <th></th>
                 </thead> 
 
                 <tbody>
                   <?php $i=0;?>
 
                     @foreach ($users as $user)
-                      @if($user->id != Auth::User()->id)
+                    
                         <?php $i++;?>
 
                       <tr>
@@ -92,7 +85,6 @@
                         </td>
                     </tr>
                     @endif
-                    @endforeach
 
                 </tbody>
               </table>

@@ -13,9 +13,11 @@
                             </li>
 
                             <li class="la-course__option">
-                                <span class="d-inline-block la-course__like" >
-                                    <i class="la-icon la-icon--2xl icon icon-wishlist"></i>
+                                <a @if($addedToWhishList) onclick="location.href='/remove-from-wishlist/{{$id}}'" @else onclick="addToWishList({{$id}})" @endif  >
+                                <span class="d-inline-block la-course__like">
+                                    <i class="la-icon la-icon--2xl icon icon-wishlist @if($addedToWhishList) text-warning @endif"></i>
                                 </span>
+                                </a>
                             </li>
 
                             <li class="la-course__option">
@@ -24,8 +26,8 @@
                                         <i class="la-icon la-icon--2xl icon icon-menu"></i>
                                     </span>
                                     <div class="la-cmenu dropdown-menu py-0">
-                                        <span class="dropdown-item la-cmenu__item d-inline-flex" @if($removeFromPlaylist) href="{{url()->current()}}/{{$id}}"  @else onclick="showAddToPlaylist({{$id}})" @endif><i class="icon icon-playlist la-icon la-icon--2xl mr-2"></i> @if($removeFromPlaylist) Remove from Playlist  @else Add to Playlist @endif</span>
-                                        <span class="dropdown-item la-cmenu__item d-inline-flex" @if($addedToWhishList) href="/remove-from-wishlist/{{$id}}" @else onclick="addToWishList({{$id}})" @endif><i class="icon icon-wishlist la-icon la-icon--2xl mr-2"></i> @if($addedToWhishList) Remove from Wishlist @else Add to Wishlist @endif </span>
+                                        <span class="dropdown-item la-cmenu__item d-inline-flex" @if($removeFromPlaylist) onclick="location.href='{{url()->current()}}/{{$id}}'"  @else onclick="showAddToPlaylist({{$id}})" @endif><i class="icon icon-playlist la-icon la-icon--2xl mr-2"></i> @if($removeFromPlaylist) Remove from Playlist  @else Add to Playlist @endif</span>
+                                        <span class="dropdown-item la-cmenu__item d-inline-flex" @if($addedToWhishList) onclick="location.href='/remove-from-wishlist/{{$id}}'" @else onclick="addToWishList({{$id}})" @endif><i class="icon icon-wishlist la-icon la-icon--2xl mr-2"></i> @if($addedToWhishList) Remove from Wishlist @else Add to Wishlist @endif </span>
                                         <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToCart({{$id}})"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</span>
                                     </div>
                                 </div>

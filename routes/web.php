@@ -137,6 +137,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::get('/','UserController@viewAllUser')->name('user.index');
       Route::get('/adduser','UserController@create')->name('user.add');
       Route::post('/insertuser','UserController@store')->name('user.store');
+      Route::get('/subscriptions/{id}','UserController@subscriptions')->name('user.subscriptions');
       Route::get('edit/{id}','UserController@edit')->name('user.edit');
       Route::put('/edit/{id}','UserController@update')->name('user.update');   
       Route::delete('delete/{id}','UserController@destroy')->name('user.delete');
@@ -557,6 +558,13 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::get('admin/instructor', 'AdminPayoutController@index')->name('admin.instructor');
 
+      Route::get('admin/creatorpayout', 'CreatorPayoutController@index')->name('admin.creatorpayout');
+
+      Route::get('admin/addpayout', 'CreatorPayoutController@create');
+      Route::post('admin/creatorpayout/store', 'CreatorPayoutController@store')->name('creatorpayout.store');
+      Route::get('admin/creatorpayout/edit/{id}', 'CreatorPayoutController@edit')->name('creatorpayout.edit');
+      Route::put('admin/creatorpayout/update', 'CreatorPayoutController@update')->name('creatorpayout.update');
+
       Route::get('admin/pending/{id}', 'AdminPayoutController@pending')->name('admin.pending');
       Route::get('admin/paid/{id}', 'AdminPayoutController@paid')->name('admin.paid');
 
@@ -712,7 +720,6 @@ Route::view('/signin','learners.auth.signin');
 Route::get('/mentors','InstructorController@allMentors');
 Route::post('/search-mentor','InstructorController@searchMentor');
 Route::get('/creator/{id}','InstructorController@creator');
-
 
 Route::view('/user-dashboard','learners.pages.user-dashboard');
 // Route::get('/browse/courses','HomeController@browseCourses');

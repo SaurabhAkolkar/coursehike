@@ -22,8 +22,10 @@
 <body>
     <div class="la-app__inner">
         @include ('learners.pages.header')
-
+       
         <main class="la-main">
+            <div id="alert_div" >
+            </div>
             <div class="la-main__inner">
                 @yield('content')
             </div>

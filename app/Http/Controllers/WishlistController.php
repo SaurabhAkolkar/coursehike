@@ -22,6 +22,7 @@ class WishlistController extends Controller
     public function index()
     {
         $wishlist = Wishlist::all();
+        	
         return view('admin.wishlist.index',compact("wishlist"));
     }
 

@@ -28,6 +28,8 @@ use App\Instructor;
 use App\CourseProgress;
 use App\Categories;
 use App\UserInterest;
+use App\UserSubscription;
+use App\UserPurchasedCourse;
 
 
 class UserController extends Controller
@@ -55,6 +57,11 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function subscriptions($id){
+        $subscriptions = UserSubscription::with('subscriptionDetails')->where('user_id', $id)->get();
+        $courses_purchased =  UserPurchasedCourse::with('course')->where('user_id', $id)->get();
+        return view('admin.user.subscriptions', compact('subscriptions','courses_purchased'));
+    }
     public function create()
     {
         $cities = Allcity::all();

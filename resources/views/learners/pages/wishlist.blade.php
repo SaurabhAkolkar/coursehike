@@ -21,6 +21,10 @@
         $course_name = "Tatto Art";
         $addedToWhishList = true;
       @endphp
+      
+      <x-add-to-playlist 
+              :playlists="$playlists"
+            />
 
       <div class="la-profile__main">
         <div class="container la-anim__wrap">
@@ -50,7 +54,7 @@
                   <span class="la-icon la-icon--md icon-plus mr-3"></span>Add Courses</a>
               </div>
             </div>
-          
+
             <section class="la-section la-wishlist__sec pt-0">
               <div class="la-wishlist__inner">
                 <div class="row la-wishlist__row">

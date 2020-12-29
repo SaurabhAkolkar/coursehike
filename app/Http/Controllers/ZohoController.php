@@ -16,11 +16,14 @@ class ZohoController extends Controller
 {
     public function __construct()
     {
-        $configuration = array("client_id" => "1000.SDY87NIVKNGDL5ZAYR2GK5CB7OHLAU", "client_secret" => "254beaeafc0b1e68b00ee7ae17205e50b7212fd65f", "redirect_uri" => "/", "currentUserEmail" => "akash@alienstattoos.com", "token_persistence_path" =>  storage_path('app/TokenStorage'));
+        $configuration = array("client_id" => "1000.P15TJJ3B5PQJF7CXZPMMOJLH1HT50P", 'scope' => 'ZohoCRM.modules.all',"client_secret" => "f5ed8a0d0e7f1a58e4f2a0d265d9784da5cb0be984", "redirect_uri" => "/", "currentUserEmail" => "vikram@earningdesigns.com");
         ZCRMRestClient::initialize($configuration);
-        // $oAuthClient = ZohoOAuth::getClientInstance();
-        // $grantToken = "1000.5c70662a03a72636b8145f251b4042e7.be4003146f69b768cbf3cc44e23b1422";
-        // $oAuthTokens = $oAuthClient->generateAccessToken($grantToken);
+        //  dd($object);
+        $oAuthClient = ZohoOAuth::getClientInstance();
+       
+        $grantToken = "1000.70bf4c4a3f1e4bd53a56cccde1b023fd.2373ad4460fd8a23c652d7a1dd3a33de";
+        $oAuthTokens = $oAuthClient->generateAccessToken($grantToken);
+        dd($oAuthTokens);
         // dd($oAuthTokens);
     }
 
@@ -100,17 +103,16 @@ class ZohoController extends Controller
         $moduleIns = ZCRMRestClient::getInstance()->getModuleInstance("LILA_Subscribers_DEVs"); //to get the instance of the module
         $records = array();
         $record = ZCRMRecord::getInstance("LILA_Subscribers_DEVs", null);  //To get ZCRMRecord instance
-
+        
         $record->setFieldValue("Email", "harish4@example.com");
         $record->setFieldValue("Name", "harish");
         $record->setFieldValue("Phone", "81900657820");
         $record->setFieldValue("Plan", "Monthly");
         $record->setFieldValue("Subscription_Status", "Free Trial");
         /** Following methods are being used only by Inventory modules **/
-
-
+       
         array_push($records, $record); // pushing the record to the array.
-
+        
         // $responseIn = $moduleIns->createRecords($records,$trigger,$lar_id); // updating the records.$trigger,$lar_id are optional
         // foreach ($responseIn->getEntityResponses() as $responseIns) {
         //     echo "HTTP Status Code:" . $responseIn->getHttpStatusCode(); // To get http response code
