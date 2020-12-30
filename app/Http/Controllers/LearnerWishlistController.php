@@ -19,8 +19,11 @@ class LearnerWishlistController extends Controller
     public function index()
     {
         $wishlist_courses = Wishlist::with('courses','courses.review','courses.user')->where('user_id',Auth::User()->id)->get();
-
-        return view('learners.pages.wishlist',compact('wishlist_courses'));
+        $playlists = [];
+        if(Auth::check()){
+			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
+        }
+        return view('learners.pages.wishlist',compact('wishlist_courses','playlists'));
     }
 
     /**
