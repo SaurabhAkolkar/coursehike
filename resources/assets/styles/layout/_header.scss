@@ -146,6 +146,13 @@ $sidemenuWidth: 300px;
                                 opacity: 0.8;
                                 z-index: 0;
                             }
+
+                            @media(max-width:991px){
+                                color:var(--app-indigo-1);
+                                &:before{
+                                    display:none;
+                                }
+                            }
                         }
                         &:hover{
                             color:var(--app-indigo-1);
@@ -180,7 +187,15 @@ $sidemenuWidth: 300px;
                     &icon{
                         font-size:var(--text-2xl);
                         color:var(--gray6);
+                        transition:all 0.3s linear;-webkit-transition:all 0.3s linear;
                     }
+                    &rotate{
+                        transform-origin: 50% 50%;-webkit-transform-origin: 50% 50%;
+                        transform:rotate(90deg);-webkit-transform:rotate(90deg);
+                        transition:all 0.3s linear;-webkit-transition:all 0.3s linear;
+                    }
+                    
+            
                     &badge{
                         position: absolute;
                         top:-12px;
@@ -192,6 +207,7 @@ $sidemenuWidth: 300px;
             }
 
             &dropdown-menu{
+                background:var(--gray);
                 margin-top:var(--size-5);
                 padding-bottom:0;
                 padding-top:0;

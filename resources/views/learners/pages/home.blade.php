@@ -396,7 +396,7 @@
           </div>
           <div class="col-12 col-md-7 pl-md-0">
             <div class="la-trail__btn la-btn__plain d-flex justify-content-center la-anim__fade-in-left">
-              <a href="">ALIENS WAY OF TEACHING</a>
+              <a href="" class="d-none d-md-block">ALIENS WAY OF TEACHING</a>
             </div>
             <div class="la-trail__right d-flex align-items-end ">
               <div class="la-trail__content-wrap pr-md-20 la-anim__stagger">

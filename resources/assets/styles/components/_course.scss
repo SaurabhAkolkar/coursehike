@@ -20,6 +20,15 @@
                     &- {
                         &tabs {
                             margin-bottom: var(--size-12);
+                            flex-wrap:nowrap;
+                            overflow-x:scroll;
+                        }
+                        &tabs::-webkit-scrollbar {
+                            width:0;
+                            background:transparent;
+                        }
+                        &tabs::-webkit-scrollbar-thumb {
+                            background: transparent;
                         }
                         &item {
                             margin-right: var(--size-14);

@@ -105,7 +105,7 @@
                                     </div>
                 
                                     <div class="form-group">
-                                        <button type="submit"  class="la-btn__app py-md-4 text-sm">
+                                        <button type="submit"  class="la-btn__app la-btn__secondary py-md-4 text-sm w-100">
                                             {{ __('frontstaticword.Login') }}
                                         </button>   
                                     </div>

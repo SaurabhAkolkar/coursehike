@@ -159,6 +159,15 @@
                     width:100% !important;
                 }
             }
+            &secondary{
+                background:var(--white);
+                color:#000;
+                &:hover{
+                    background:var(--app-indigo-1);
+                    color:#ffffff;
+                    border-radius: 10px;
+                }
+            }
 
             &icon {
                 &-- {
