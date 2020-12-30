@@ -28,6 +28,7 @@
                   <th>{{ __('adminstaticword.Role') }}</th>
                   <th>{{ __('adminstaticword.Mobile') }}</th>
                   <th>{{ __('adminstaticword.Country') }}</th>
+                  <th>{{ __('adminstaticword.Subscription') }}</th>
                   <th>{{ __('adminstaticword.Status') }}</th>
                   <th>{{ __('adminstaticword.Edit') }}</th>
                   <th>{{ __('adminstaticword.Delete') }}</th>
@@ -60,6 +61,9 @@
                           {{  $user->country['nicename']  }}
                           @endif
                         </td>
+                        <td class="text-center">
+                          <a class="" href="{{ route('user.subscriptions',$user->id) }}">View</a>
+                        </td>
                         <td>
                           <form action="{{ route('user.quick',$user->id) }}" method="POST">
                             {{ csrf_field() }}
@@ -72,7 +76,7 @@
                             </button>
                           </form>
                         </td>
-                        
+                       
                         <td>
                           <a class="btn btn-success btn-sm" href="{{ route('user.update',$user->id) }}">
                             <i class="la-icon la-icon--lg icon-edit"></i></a>

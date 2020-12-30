@@ -497,6 +497,17 @@ return [
     'Mentor' => 'Mentor',
     'UserImage' =>'User Image',
     'ImageThumbnail' => 'Image Thumbnail',
-       
+    'ImageThumbnail' => 'Image Thumbnail',
+    'Subscription'=>'Subscription',
+    'StartDate' => 'Start Date',
+    'EndDate' => 'End Date',
+    'CreatorPayout' => 'Creator Payout',
+    'SubscriptionAmount'=>'Subscription Amount',
+    'CourseAmount' => 'Course Amount',
+    'Total' => 'Total',
+    'Month'=>'Month',    
+    'Classes'=>'Classes',
+    'PurchaseType'=>'Purchase Type',
+    'PurchaseDate' => 'Purchase Date',    
 
 ];
