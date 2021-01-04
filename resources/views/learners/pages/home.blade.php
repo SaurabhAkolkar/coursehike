@@ -39,7 +39,7 @@
         </div>
         <!-- Row: Start-->
         <div class="la-anim__wrap">
-          <div class="la-hero__bottom d-flex justify-content-center justify-content-lg-between align-items-center pt-14 pb-14 la-anim__fade-in">
+          <div class="la-hero__bottom d-flex justify-content-center justify-content-lg-between align-items-center pt-6 pb-14 la-anim__fade-in">
             <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing"><a href="">Start free trial</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"> </span></div>
             <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text--burple text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block"><a href="/browse/courses">BROWSE COURSES</a><span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span></div>
           </div>
@@ -368,7 +368,7 @@
           </div>
           <div class="col-12 col-md-7 pl-md-0">
             <div class="la-trail__btn la-btn__plain d-flex justify-content-center la-anim__fade-in-left">
-              <a href="">ALIENS WAY OF TEACHING</a>
+              <a href="" class="d-none d-md-block">ALIENS WAY OF TEACHING</a>
             </div>
             <div class="la-trail__right d-flex align-items-end ">
               <div class="la-trail__content-wrap pr-md-20 la-anim__stagger">
@@ -398,9 +398,10 @@
                     <a href="/learning-plans">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                   </div>
                 </div>
-                <div class="col-12 offset-lg-1 col-lg-5 pt-20 la-anim__slide-box">
-                  <div class="la-price__box">
-                    <div class="la-price__box-inner"><a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
+                <div class="col-12 offset-lg-1 col-lg-5 pt-20  ">
+                  <div class="la-anim__wrap la-anim__wrap-pin2">
+                  <div class="la-price__box la-anim__pin2 ">
+                    <div class="la-price__box-inner "><a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
                       <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">20% savings </span>on Annual Plan</p>
                       <div class="la-price__box-soffer la-soffer ml-0">
                         <div class="la-soffer__bestprice la-soffer__bestprice--black"> <sup><small>$</small></sup>  39 / Month</div>
@@ -409,6 +410,7 @@
                     </div>
                   </div>
                 </div>
+                </div> 
               </div>
             </div>
             <div class="la-price__slide la-anim__slide">
@@ -420,8 +422,8 @@
                     <a href="/learning-plans">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                   </div>
                 </div>
-                <div class="col-12 offset-lg-1 col-lg-5 pt-20 la-anim__slide-box">
-                  <div class="la-price__box">
+                <!--<div class="col-12 offset-lg-1 col-lg-5 pt-20 la-anim__slide-box ">
+                  <div class="la-price__box ">
                     <div class="la-price__box-inner"><a  href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
                       <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">20% savings </span>on Annual Plan</p>
                       <div class="la-price__box-soffer la-soffer ml-0">
@@ -430,7 +432,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="la-price__slide la-anim__slide">
@@ -442,7 +444,7 @@
                     <a href="/learning-plans">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                   </div>
                 </div>
-                <div class="col-12 offset-lg-1 col-lg-5 pt-20 la-anim__slide-box">
+                <!-- <div class="col-12 offset-lg-1 col-lg-5 pt-20 la-anim__slide-box">
                   <div class="la-price__box">
                     <div class="la-price__box-inner"><a  href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
                       <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">20% savings </span>on Annual Plan</p>
@@ -452,7 +454,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
         </div>

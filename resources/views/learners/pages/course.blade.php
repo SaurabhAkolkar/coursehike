@@ -133,7 +133,15 @@ use Carbon\Carbon;
 
                   @foreach ($class->courseclass as $class_video)
                     @php
-                      $lesson_access = $class_video->is_preview == '1' ? 'free' : ($video_access ? 'free' : 'locked');                      
+                      $lesson_access = $class_video->is_preview == '1' ? 'free' : ($video_access ? 'free' : 'locked');  
+                      if($class_video->is_preview == '1')       
+                        $lesson_access = 'free';
+                      else{
+                        if($video_access == true || (is_array($class_access) && in_array($class_video->id, $class_access)) || $class_access === 1)
+                          $lesson_access = 'free';
+                        else 
+                          $lesson_access = 'locked';
+                      }
                     @endphp
                     <x-class-video
                       :id="$class_video->id"
@@ -646,10 +654,10 @@ use Carbon\Carbon;
     <div class="la-section__inner">
       <div class="container">
         <h2 class="la-section__title mb-9">More from Creators</h2>
-        <div class="row-cols-lg-3 ">
+        <div class="row col-12 px-0">
           @foreach ($mentor_other_courses as $related_course)
               
-          <div class="col-12" >
+          <div class="col-md-4" >
               <div class="la-course">
                   <div class="la-course__inner">
                       
@@ -709,9 +717,7 @@ use Carbon\Carbon;
                       </a>
                   </div>
               </div>
-          </div>
-
-              
+          </div>              
           @endforeach
           
         </div>
@@ -724,9 +730,9 @@ use Carbon\Carbon;
     <div class="la-section__inner">
       <div class="container">
         <h2 class="la-section__title mb-9">Looking for something else?</h2>
-        <div class="row-cols-lg-3 ">
+        <div class="row col-12 px-0 ">
           @foreach ($related_courses as $related_course)
-          <div class="col-12" >
+          <div class="col-md-4" >
               <div class="la-course">
                   <div class="la-course__inner">
                       
@@ -787,6 +793,8 @@ use Carbon\Carbon;
                   </div>
               </div>
           </div>
+
+          
           @endforeach
 
         </div>
@@ -801,7 +809,7 @@ use Carbon\Carbon;
       <div class="row">
         <!-- Locked Login Popup: Start -->
         <div class="col-12">
-          <a class="" data-toggle="modal" data-target="#locked_login">Locked Course Login</a>
+          <!-- <a class="" data-toggle="modal" data-target="#locked_login">Locked Course Login</a>-->
                 
             <div class="modal fade  la-locked__modal" id="locked_login">
               <div class="modal-dialog  la-locked__modal-dialog">
@@ -830,7 +838,7 @@ use Carbon\Carbon;
 
         <!-- Locked Subscribe Popup: Start -->
         <div class="col-12">
-          <a class="" data-toggle="modal" data-target="#locked_subscribe">Locked Course Subscribe</a>
+          <!--<a class="" data-toggle="modal" data-target="#locked_subscribe">Locked Course Subscribe</a> -->
         
             <div class="modal fade  la-locked__modal" id="locked_subscribe">
               <div class="modal-dialog  la-locked__modal-dialog">
@@ -859,7 +867,7 @@ use Carbon\Carbon;
 
         <!-- Locked Signup Popup: Start -->
         <div class="col-12">
-          <a class="" data-toggle="modal" data-target="#locked_trial">Locked Course Signup</a>
+          <!--<a class="" data-toggle="modal" data-target="#locked_trial">Locked Course Signup</a>-->
                 
             <div class="modal fade  la-locked__modal" id="locked_trial">
               <div class="modal-dialog  la-locked__modal-dialog">

@@ -54,15 +54,15 @@ class CheckoutChargeFailedJob implements ShouldQueue
 
         $user_invoice = UserInvoiceDetail::where('id', $client_reference_id)->first();
 
-        // if($payment_status != 'paid' && $livemode == false && 
-        //     $user_invoice->status != 'paid' 
-        //     // intval($user_invoice->total * 100) == $amount_total &&
-        //     // && $user_invoice->user->stripe_id == $customer_id
-        // )
-        // {
+        if($payment_status != 'paid' && $livemode == false && 
+            $user_invoice->status != 'paid' 
+            // intval($user_invoice->total * 100) == $amount_total &&
+            // && $user_invoice->user->stripe_id == $customer_id
+        )
+        {
             $user_invoice->status = 'failed';
             $user_invoice->save();
-        // }
+        }
 
         
     }

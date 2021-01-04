@@ -123,6 +123,7 @@ section.la-start-creating{
 	.la-vicon{
 		width:100%;
 		min-height:180px;
+		position:relative;
 	}	
 	.la-icon__vline{
 		position:absolute;
@@ -130,11 +131,11 @@ section.la-start-creating{
 		text-align: left;
 		width:80px;
 		height:80px;
-		padding:33px;
+		padding:38px;
 		background-color: #FFC516;
 		color:#fff;
 		border-radius:var(--rounded-full);
-		margin-left:-42px;
+		margin-left:-54px;
 		z-index:var(--z-1);
 	}
 	.la-icon__vline span{
@@ -375,7 +376,7 @@ section.la-bgcreator--faq{
 	}
 	.la-bgcreator__faq-panel{
 		background-color:#ffffff;
-		box-shadow: 0px 6px 15px #A4A4A412;
+		box-shadow: 0px 6px 15px #a0a0a012;
 		border-radius:10px;
         position: relative;
 		display: block;

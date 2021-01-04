@@ -17,30 +17,44 @@
             <!-- TOTAL WATCH TIME SECTION: START -->
             <div class="row my-md-8">
                   <div class="col-md-3">
-                      <div class="la-admin__revenue-title">No. of Learners</div>
+                      <div class="la-admin__revenue-title">Subscriber Total Watch Time</div>
                       <div class="la-admin__revenue-info">
-                          <span class="la-admin__revenue-total">{{$learners}}</span>
+                          <span class="la-admin__revenue-total">{{$payout['watch_time']}}</span>
                       </div>
                   </div>
                   <div class="col-md-3">
-                    <div class="la-admin__revenue-title">Courses Purchased</div>
+                    <div class="la-admin__revenue-title">Subscription Estimated Revenue</div>
                     <div class="la-admin__revenue-info">
-                        <span class="la-admin__revenue-total">{{$courses_count}}</span>
+                        <span class="la-admin__revenue-price">${{$payout['total_income']}}</span>
                     </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="la-admin__revenue-title">Classes Purchased</div>
-                    <div class="la-admin__revenue-info">
-                        <span class="la-admin__revenue-total">{{$classes}}</span>
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="la-admin__revenue-title">Total Amount</div>
-                      <div class="la-admin__revenue-info">
-                        <span class="la-admin__revenue-price">${{$total_earning}}</span>
-                      </div>
                   </div>
               </div>
+              <div class="row my-md-8">
+                <div class="col-md-3">
+                    <div class="la-admin__revenue-title">No. of Learners</div>
+                    <div class="la-admin__revenue-info">
+                        <span class="la-admin__revenue-total">{{count($payout['learners'])}}</span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="la-admin__revenue-title">Courses Purchased</div>
+                  <div class="la-admin__revenue-info">
+                      <span class="la-admin__revenue-total">{{$courses_count}}</span>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="la-admin__revenue-title">Classes Purchased</div>
+                  <div class="la-admin__revenue-info">
+                      <span class="la-admin__revenue-total">{{$classes}}</span>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="la-admin__revenue-title">Total Amount</div>
+                    <div class="la-admin__revenue-info">
+                      <span class="la-admin__revenue-price">${{$total_earning}}</span>
+                    </div>
+                </div>
+            </div>
             <!-- TOTAL WATCH TIME SECTION: END -->
           </div>
 

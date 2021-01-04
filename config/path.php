@@ -8,12 +8,9 @@ return array(
     
     'avatar'    => 'img/avatar/',
 
-    'restaurant'     => 'img/restaurants/',
-    'dishes'     => 'img/dishes/',
-    'categories'     => 'img/categories/',
     'mentor' => [
-        'featured' => 'img/mentor/featured/',
-        'featuredthumbnail' => 'img/mentor/featured/thumbnail/'
+        'featured' => 'images/mentor/featured/',
+        'featuredthumbnail' => 'images/mentor/featured/thumbnail/'
     ],
     'profile' => 'img/userprofile/',
     'firstsection' => 'img/firstsection/',

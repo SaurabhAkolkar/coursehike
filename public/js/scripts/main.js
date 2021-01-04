@@ -3,6 +3,16 @@ $(function(){
   $('.dropdown-toggle').dropdown()
   // Global Dropdown Toggle: End
 
+  // Navbar Dropdown Toggle: Start
+  $("#profileMenu").on('click', function(){
+    $(this).toggleClass("la-header__menu-rotate"); 
+  });
+
+  $("#profileBeforeLogin").on('click', function(){
+    $(this).toggleClass("la-header__menu-rotate"); 
+  });
+  // Navbar Dropdown Toggle: End
+
   // Global Alert Animation for Learners
   window.setTimeout(function() {
     $(".alert").fadeTo(500, 0).slideUp(500, function() {
@@ -203,7 +213,17 @@ $(function(){
     }, opacity: 0.2
   });
 
-
+  gsap.to(".la-anim__pin2", {
+    scrollTrigger: {
+      trigger: ".la-anim__pin2",
+      scrub: true,
+      pin: true,
+      pinSpacing: false,
+      start: "top 20%",
+      end: "+=800",
+    }, opacity: 1
+  });
+  
   // For Home Page
   gsap.utils.toArray('.la-anim__slide').forEach(function(elem) {
     let tl = gsap.timeline({

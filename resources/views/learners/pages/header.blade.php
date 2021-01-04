@@ -198,15 +198,14 @@ use App\Announcement;
             <div class="la-header__menu-item d-none d-lg-block">
               @php
                   $cart = App\Cart::with('cartItems')->where(['user_id' => Auth::User()->id, 'status' => 1])->get();
-                  
-                    
+                                
               @endphp
               <a class="la-header__menu-link la-header__menu-icon la-icon icon-cart position-relative @if(Request::segment(1) == 'cart') active @endif" href="/cart"><sup class="la-header__menu-badge badge badge-light" >{{count($cart)}}</sup></a>
             </div>
 
             <div class="d-none d-lg-block la-header__menu-item la-header__menu-item--btn ml-5">
-              <a class="la-header__menu-link la-header__menu-icon la-icon icon-menu" id="moreItems" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
-              <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="moreItems"  style="border:none !important;">
+              <a class="la-header__menu-link la-header__menu-icon la-icon icon-hamburger-menu font-weight-normal" id="profileMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
+              <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="profileMenu"  style="border:none !important;">
                 <a class="dropdown-item la-header__dropdown-item text-sm" href="/learning-plans">Learning Plans</a>
                 <a class="dropdown-item la-header__dropdown-item text-sm" href="/become-creator">Become a Creator</a>
                 <a class="dropdown-item la-header__dropdown-item text-sm" href="/guided-creator">Guided Creator</a>
@@ -250,6 +249,19 @@ use App\Announcement;
       <div class="la-header__rht ml-auto mr-md-5">
         <div class="la-header__menu d-inline-flex align-items-center">
 
+          <div class="la-header__menu-item d-none d-md-block">
+            <!-- Global Search: Start-->
+            <div class="la-gsearch  mb-0" >
+              <form class="form-inline" action="">
+                <div class="form-group">
+                  <input class="la-gsearch__input form-control text-md pr-0" type="text"  placeholder="Search Courses...">
+                </div>
+                <button class="la-gsearch__submit btn pr-0" type="submit"><i class="la-icon la-icon--xl icon icon-search"></i></button>
+              </form>
+            </div>
+            <!-- Global Search: End-->
+          </div>
+          
           <div class="la-header__menu-item">
             <a class="la-header__nav-link text-sm" href="/login">Login</a>
           </div>
@@ -314,8 +326,8 @@ use App\Announcement;
           </div> 
 
           <div class="d-none d-lg-inline-block la-header__menu-item">
-            <a class="la-header__menu-link la-header__menu-icon la-icon icon-menu" id="nav_dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
-            <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="nav_dropdown" style="border:none;">
+            <a class="la-header__menu-link la-header__menu-icon icon-hamburger-menu font-weight-normal" id="profileBeforeLogin" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
+            <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="profileBeforeLogin" style="border:none;">
               <a class="dropdown-item la-header__dropdown-item text-sm" href="/become-creator">Become a Creator</a>
               <a class="dropdown-item la-header__dropdown-item text-sm" href="/guided-creator">Guided Creator</a>
               <a class="dropdown-item la-header__dropdown-item text-sm" href="/contact">Contact Us</a>
