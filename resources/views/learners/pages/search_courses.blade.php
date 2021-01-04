@@ -20,7 +20,7 @@
         
         <a class="la-icon--lg icon-arrow font-weight-bold my-5 d-block d-md-none" href="{{URL::previous()}}"></a>
         <div class="d-flex justify-content-between">  
-          <h1 class="la-page__title mb-8">Browse Courses</h1><a class="la-icon--3xl icon-filter d-block d-lg-none" id="filterCourses" role="button"></a>
+          <h1 class="la-page__title mb-8">Search Courses</h1><a class="la-icon--3xl icon-filter d-block d-lg-none" id="filterCourses" role="button"></a>
         </div>
         <!-- Global Search: Start-->
         <div class="la-gsearch">
@@ -52,10 +52,10 @@
                             :img="$course->preview_image"
                             :course="$course->title"
                             :url="$course->slug"
-                            :rating="$course->price"
+                            :rating="$course->review->avg('rating')"
                             :creatorImg="$course->user->user_img"
                             :creatorName="$course->user->fname"
-                            :creatorUrl="$course->user->fname"
+                            :creatorUrl="$course->user->id"
                           />
                       @endforeach                  
                   @endif

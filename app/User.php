@@ -128,7 +128,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
     public function getFullNameAttribute()
     {
-        return "{$this->fname} {$this->lname}";
+        return ucfirst("{$this->fname} {$this->lname}");
     }   
 }
 

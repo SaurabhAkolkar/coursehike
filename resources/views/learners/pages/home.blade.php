@@ -41,7 +41,7 @@
         <div class="la-anim__wrap">
           <div class="la-hero__bottom d-flex justify-content-center justify-content-lg-between align-items-center pt-14 pb-14 la-anim__fade-in">
             <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing"><a href="">Start free trial</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"> </span></div>
-            <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text--burple text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block"><a href="">BROWSE COURSES</a><span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span></div>
+            <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text--burple text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block"><a href="/browse/courses">BROWSE COURSES</a><span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span></div>
           </div>
         </div>
         <!-- Row: End-->
@@ -63,20 +63,11 @@
               {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
               <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
             </ul><a class="la-icon--3xl icon-filter la-courses__nav-filter d-none d-lg-block" id="filterCourses" role="button"></a>
-          </nav>
+          </nav>          
+          <x-add-to-playlist 
+                      :playlists="$playlists"
+                    />
 
-          @php  
-            $tattoo1 = new stdClass;$tattoo1->img= "https://picsum.photos/600/400";$tattoo1->course= "Tattoo Art";$tattoo1->rating= "4";$tattoo1->url= "";$tattoo1->creatorImg= "https://picsum.photos/100";$tattoo1->creatorName= "Joseph Phill";$tattoo1->creatorUrl= "/creator";
-            $tattoo2 = new stdClass;$tattoo2->img= "https://picsum.photos/600/400"; $tattoo2->course= "Tattoo Art";$tattoo2->rating= "4";$tattoo2->url= "";$tattoo2->creatorImg= "https://picsum.photos/100";$tattoo2->creatorName= "Amy D'souza";$tattoo2->creatorUrl= "/creator";
-            $tattoo3 = new stdClass;$tattoo3->img= "https://picsum.photos/600/400";$tattoo3->course= "Tattoo Art";$tattoo3->rating= "4";$tattoo3->url= "";$tattoo3->creatorImg= "https://picsum.photos/100";$tattoo3->creatorName= "Alton Crew";$tattoo3->creatorUrl= "/creator";
-            $tattoo4 = new stdClass;$tattoo4->img= "https://picsum.photos/600/400";$tattoo4->course= "Tattoo Art";$tattoo4->rating= "4";$tattoo4->url= "";$tattoo4->creatorImg= "https://picsum.photos/100";$tattoo4->creatorName= "Nathan Spark";$tattoo4->creatorUrl= "/creator";
-            $tattoo5 = new stdClass;$tattoo5->img= "https://picsum.photos/600/400";$tattoo5->course= "Tattoo Art"; $tattoo5->rating= "4";$tattoo5->url= ""; $tattoo5->creatorImg= "https://picsum.photos/100"; $tattoo5->creatorName= "Harry Lisa"; $tattoo5->creatorUrl= "/creator";
-            $tattoo6 = new stdClass;$tattoo6->img= "https://picsum.photos/600/400";$tattoo6->course= "Tattoo Art";$tattoo6->rating= "4"; $tattoo6->url= "";$tattoo6->creatorImg= "https://picsum.photos/100";$tattoo6->creatorName= "Natalia Spark";$tattoo6->creatorUrl= "/creator";
-            $tattoo7 = new stdClass;$tattoo7->img= "https://picsum.photos/600/400"; $tattoo7->course= "Tattoo Art";$tattoo7->rating= "4"; $tattoo7->url= "";$tattoo7->creatorImg= "https://picsum.photos/100";$tattoo7->creatorName= "Remo Joseph"; $tattoo7->creatorUrl= "/creator";
-
-            $tattoos = array($tattoo1, $tattoo2, $tattoo3, $tattoo4, $tattoo5, $tattoo6, $tattoo7);
-          @endphp
- 
           <div class="tab-content la-courses__content" id="nav-tabContent">
             @foreach ($categories as $category)
               <div class="tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
@@ -90,7 +81,7 @@
                             :img="$course->preview_image"
                             :course="$course->title"
                             :url="$course->slug"
-                            :rating="$course->price"
+                            :rating="$course->review->avg('rating')"
                             :creatorImg="$course->user->user_img"
                             :creatorName="$course->user->fname"
                             :creatorUrl="$course->user->fname"
@@ -166,26 +157,6 @@
         </div>
 
         <div class="swiper-wrapper">
-
-        @php
-          $artist1 = new stdClass;
-          $artist1->artistName = "Alton Crew";
-          $artist1->artistCategory = "TATTOO";
-          $artist1->artistCampany = "Tribal Tattoo";
-
-          $artist2 = new stdClass;
-          $artist2->artistName = "Charlotte Floyd";
-          $artist2->artistCategory = "TATTOO";
-          $artist2->artistCampany = "Tribal Tattoo";
-
-          $artist3 = new stdClass;
-          $artist3->artistName = "Marco";
-          $artist3->artistCategory = "TATTOO";
-          $artist3->artistCampany = "Tribal Tattoo";
-
-          $artists = array($artist1, $artist2, $artist3);
-        @endphp
-
         @foreach ($featuredMentor as $feat)
               <x-artist 
                 :artistName="ucfirst($feat->user->fullName)"
@@ -193,6 +164,7 @@
                 :artistCategory="$feat->courses->category->title"
                 :artistCampany="$feat->courses->title"
                 :course="$feat->courses"
+                :artistId="$feat->user->id"
               />
         @endforeach
 
@@ -401,7 +373,7 @@
             <div class="la-trail__right d-flex align-items-end ">
               <div class="la-trail__content-wrap pr-md-20 la-anim__stagger">
                 <div class="la-trail__para pb-10 pr-md-20 la-anim__stagger-item la-anim__B">We believe that real learning happens with consistency. With consistent observation, learning and practicing a particular skill repetitively makes you a Pro at it.</div>
-                <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item la-anim__B">Start free trail</a>
+                <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item la-anim__B" href="/learning-plans">Start free trail</a>
               </div>
             </div>
             
@@ -423,7 +395,7 @@
                   <h3 class="la-section__subtitle">How does subscription works?</h3>
                   <p class="la-section__text">Through our Radical team, we strive everyday to make knowledge Affordable, Accessible for all the individuals who have limited or no access to the Real knowledge.<br><br>So, you can subscribe to all the courses and classes. Or rent them to learn whenever you want.</p>
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8">
-                    <a href="">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
+                    <a href="/learning-plans">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                   </div>
                 </div>
                 <div class="col-12 offset-lg-1 col-lg-5 pt-20 la-anim__slide-box">
@@ -445,7 +417,7 @@
                   <h3 class="la-section__subtitle">What’s LILA for you ?</h3>
                   <p class="la-section__text">Keep learning to expand your potential and make a mark in the world<br><br>Our mission is to Encourage, Empower and Embrace Self-Learning among all the curious individuals who wish to learn,</p>
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8">
-                    <a href="">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
+                    <a href="/learning-plans">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                   </div>
                 </div>
                 <div class="col-12 offset-lg-1 col-lg-5 pt-20 la-anim__slide-box">
@@ -467,7 +439,7 @@
                   <h3 class="la-section__subtitle">How does subscription works?</h3>
                   <p class="la-section__text">Through our Radical team, we strive everyday to make knowledge Affordable, Accessible for all the individuals who have limited or no access to the Real knowledge.<br><br>So, you can subscribe to all the courses and classes. Or rent them to learn whenever you want.</p>
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8">
-                    <a href="">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
+                    <a href="/learning-plans">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                   </div>
                 </div>
                 <div class="col-12 offset-lg-1 col-lg-5 pt-20 la-anim__slide-box">

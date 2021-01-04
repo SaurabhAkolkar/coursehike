@@ -3,9 +3,16 @@
 @section('content')
 <section class="la-section la-cbg--main">
     <div class="la-section__inner">
+     
       <div class="container">
+      <div class="row">
+          <div class="col-1 mb-10">
+            <a href="{{URL::previous()}}" class="la-vcreator__back"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
+          </div>
+        </div>
         <div class="mx-3 ">
-          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
+        
+          <!-- <a class="la-icon la-icon--5xl icon-back-arrow d-block ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a> -->
           <h1 class="la-page__title mb-8">Alien Mentors</h1>
           <!-- Global Search: Start-->
           <div class="la-gsearch">

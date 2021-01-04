@@ -221,7 +221,7 @@
                 <div class="row">
 
                     @foreach($mentors as $mentor)
-                        <x-mentor :img="$mentor->img" :name="$mentor->name" :skill="$mentor->skill" />
+                        <x-mentor :img="$mentor->img" :name="$mentor->name" :skill="$mentor->skill" id="1" />
                     @endforeach
 
                   </div>

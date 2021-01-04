@@ -5,7 +5,7 @@
                     <div class="modal-content la-playlist__modal-content">
                         
                         <div class="modal-header la-playlist__modal-header">
-                            <h4 class="modal-title la-playlist__modal-title">Add to. </h4>
+                            <h4 class="modal-title la-playlist__modal-title">Your Playlists</h4>
                             <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
                         </div>
                         @if (!Auth::guest())
@@ -50,7 +50,7 @@
                             </div>
 
                             @else
-                                <h6 class="text-center py-10" style="color: var(--app-indigo-1)">Please Login To Create Playlist</h6>
+                                <h6 class="text-center py-10" style="color: var(--app-indigo-1)"><a href="/login">Please Login To Create Playlist</a></h6>
                             @endif
                         </div>
                     </div>

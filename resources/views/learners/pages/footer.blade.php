@@ -1,4 +1,8 @@
-
+@php
+  $creators = App\User::where(['role'=>'mentors', 'status'=>1])->limit(6)->get();
+  $footer_categories = App\Categories::where(['status'=>1])->orderBy('featured','DESC')->limit(6)->get();
+  $courses = App\Course::where(['status'=>1])->limit(6)->get();
+@endphp
 <!-- Footer: Start-->
 <footer class="la-footer">
     <div class="la-footer__inner">
@@ -19,34 +23,25 @@
                 <div class="col-12 col-sm-6 mb-5">
                   <div class="la-footer__title">Categories</div>
                   <ul class="la-footer__list">
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Tattoo</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Design</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Dance</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Rangoli</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Lorem</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Ipsum</a></li>
+                    @foreach ($footer_categories as $fc)
+                      <li class="la-footer__list-item"><a class="la-footer__list-link" >{{$fc->title}}</a></li>
+                    @endforeach
                   </ul><a class="la-footer__more">See all</a>
                 </div>
                 <div class="col-12 col-sm-6 mb-5">
                   <div class="la-footer__title">Creators</div>
                   <ul class="la-footer__list">
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Joseph Phill</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Ayushi Amrut</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">David</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Lillan</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Alton Crew</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Nathan Frank</a></li>
+                    @foreach ($creators as $c)
+                      <li class="la-footer__list-item"><a class="la-footer__list-link" href="/creator/{{$c->id}}">{{$c->fullName}}</a></li>
+                    @endforeach
                   </ul><a class="la-footer__more">See all</a>
                 </div>
                 <div class="col-12 col-sm-6 mb-5">
                   <div class="la-footer__title">Courses</div>
                   <ul class="la-footer__list">
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Tattoo Art</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Basic Design</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Hiphop</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Rangoli Art</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">UI Design</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Photography</a></li>
+                    @foreach ($courses as $c)
+                      <li class="la-footer__list-item"><a class="la-footer__list-link" href="/learn/course/{{$c->id}}/{{$c->slug}}">{{$c->title}}</a></li>
+                    @endforeach
                   </ul><a class="la-footer__more">See all</a>
                 </div>
                 <div class="col-12 col-sm-6 mb-5">
@@ -78,7 +73,7 @@
                 <!-- Global Search: End-->
               </div>
               <ul class="la-footer__nav">
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li>
+                <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li> -->
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Testimonials</a></li>
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Aliens Tatto School</a></li>
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Learning Plans</a></li>
