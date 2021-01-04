@@ -17,7 +17,7 @@
             <a href="/subscription/{{ $slug }}" role="button" target="_self">
               <div class="btn la-btn la-btn-secondary py-3" >SUBSCRIBE</div>
             <a>
-            <p class="text-sm pt-1">Get access to all the Courses</p><a class="la-choose__subscribe-trial text-sm" href="#">Start free 7 Days trial</a>
+            <p class="text-sm pt-1">Get access to all the Courses</p><a class="la-choose__subscribe-trial text-sm" href="@if(Auth::check()) # @else /login @endif">Start free 7 Days trial</a>
           </div>
           <hr>
           <div class="la-choose__content mb-3"><i class="la-icon--sm mr-5 icon-tick"></i><span class="text-sm">Through our Radical team</span><br><i class="la-icon--sm mr-5 icon-tick"></i><span class="text-sm">Through our Radical team</span><br><i class="la-icon--sm mr-5 icon-tick"></i><span class="text-sm">Through our Radical team</span></div>

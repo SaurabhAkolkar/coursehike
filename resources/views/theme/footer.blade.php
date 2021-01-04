@@ -4,6 +4,7 @@
             <div class="row">
                 @php
                     $widgets = App\WidgetSetting::first();
+                   
                 @endphp
                 @if(isset($widgets))
 

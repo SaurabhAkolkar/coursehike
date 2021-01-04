@@ -26,7 +26,6 @@ $(function(){
     e.preventDefault();
     console.log(value)
   });
-
   
   
   //Swiper Js for Login & Register page

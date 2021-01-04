@@ -13,9 +13,9 @@
             <h1 class="la-mycourses__title text-4xl mb-8 la-anim__stagger-item">My Courses</h1>
             <!-- Global Search: Start-->
             <div class="la-gsearch la-anim__stagger-item">
-              <form class="form-inline">
+              <form class="form-inline" action="{{ url('/search-course/') }}">
                 <div class="form-group ">
-                  <input class="la-gsearch__input form-control w-100" style="background:transparent" type="text" placeholder="Search course or class">
+                  <input class="la-gsearch__input form-control w-100" style="background:transparent" type="text" name="course_name" placeholder="Search course or class">
                 </div>
                 <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--3xl icon icon-search"></i></button>
               </form>
@@ -31,21 +31,38 @@
                       :playlists="$playlists"
           />
           <div class="col-12 la-anim__wrap">
-            <div class="row row-cols-lg-3 ">
-              @foreach($courses as $course)
-              <x-course 
-                  :id="$course->course->id"
-                  :img="$course->course->preview_image" 
-                  :course="$course->course->title" 
-                  :url="$course->course->slug" 
-                  :rating="$course->course->review->avg('rating')"
-                  :creatorImg="$course->course->user->img"
-                  :creatorName="$course->course->user->fullName"
-                  :creatorUrl="$course->course->user->id"
-                />
-              @endforeach
-                    
-            </div>
+            
+              @if(count($courses) != 0)
+                <div class="row row-cols-lg-3 ">
+                  @foreach($courses as $course)
+                  
+                  <x-course 
+                      :id="$course->course->id"
+                      :img="$course->course->preview_image" 
+                      :course="$course->course->title" 
+                      :url="$course->course->slug" 
+                      :rating="$course->course->review->avg('rating')"
+                      :creatorImg="$course->course->user->img"
+                      :creatorName="$course->course->user->fullName"
+                      :creatorUrl="$course->course->user->id"
+                    />
+                  @endforeach
+                </div>
+              @else
+                <div class="la-empty__courses d-md-flex justify-content-between align-items-start ">
+                    <div class="la-empty__inner">
+                        <h6 class="la-empty__course-title pb-2 la-anim__stagger-item">No Courses</h6>
+                        <p class="la-empty__course-desc m-0 la-anim__stagger-item">You have not finished any course yet.</p>
+                    </div>
+                    <div class="la-empty__browse-courses">
+                        <a href="/browse/courses" class="la-empty__browse la-anim__stagger-item">
+                            Browse Courses
+                            <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow la-anim__stagger-item--x"></span>
+                        </a>
+                    </div>
+                </div> 
+              @endif
+
           </div>
         </div>
       </div>
@@ -66,7 +83,7 @@
                       <p class="la-empty__course-desc m-0 la-anim__stagger-item">You have not finished any course yet.</p>
                   </div>
                   <div class="la-empty__browse-courses">
-                      <a href="" class="la-empty__browse la-anim__stagger-item">
+                      <a href="/browse/courses" class="la-empty__browse la-anim__stagger-item">
                           Browse Courses
                           <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow la-anim__stagger-item--x"></span>
                       </a>
@@ -91,7 +108,7 @@
                     <p class="la-empty__course-desc m-0 la-anim__stagger-item">You have not finished any course yet.</p>
                 </div>
                 <div class="la-empty__browse-courses">
-                    <a href="" class="la-empty__browse la-anim__stagger-item">
+                    <a href="/browse/courses" class="la-empty__browse la-anim__stagger-item">
                         Browse Courses
                         <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow la-anim__stagger-item--x"></span>
                     </a>

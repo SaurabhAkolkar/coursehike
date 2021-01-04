@@ -47,7 +47,7 @@ use Carbon\Carbon;
           </div>
           <div class="col-12 col-lg-5 d-flex flex-column justify-content-between">
             <div class="la-vcourse__buy text-right mb-2">
-              <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end">Subscribe Now</a>
+              <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end" href="/learning-plans">Subscribe Now</a>
             </div>
             <div class="la-vcourse__info-items d-flex align-items-center justify-content-end">
               <div class="la-vcourse__info-item la-vcourse__info--videos d-flex flex-column align-items-center justify-content-end">
@@ -86,7 +86,7 @@ use Carbon\Carbon;
                   $finishTime = \Carbon\Carbon::parse('2020-12-05T01:18:36.862+1:30');
 
                   $totalDuration = $finishTime->diffInHours($startTime);
-                  echo($totalDuration);
+                  
               @endphp
             </div>
           </div>
@@ -401,10 +401,10 @@ use Carbon\Carbon;
             </div>
             <div class="la-vcourse__purchase-actions d-flex flex-wrap align-items-center mt-8">
               <div class="la-vcourse__purchase-btn w-50">
-                <a class="btn btn-primary la-btn la-btn--primary w-100 text-center" onclick="$('#add_to_cart_form').submit()">Buy course</a>
+                <a class="btn btn-primary la-btn la-btn--primary w-100 text-center" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login" @endif >Buy course</a>
               </div>
               <div class="la-vcourse__purchase-btn w-50">
-                <a class="btn la-btn la-btn__plain text--green w-100 text-center" onclick="$('#add_to_cart_form').submit()">ADD TO CART</a>
+                <a class="btn la-btn la-btn__plain text--green w-100 text-center" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login" @endif>ADD TO CART</a>
               </div>
             </div>
           </form>
@@ -415,9 +415,9 @@ use Carbon\Carbon;
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam consetetur sadipscing</p>
             <div class="la-vcourse__purchase-actions d-inline-block text-center mt-8">
               <div class="la-vcourse__purchase-btn">
-                <a class="btn btn-primary active la-btn la-btn--primary text-center">SUBSCRIBE NOW</a>
+                <a class="btn btn-primary active la-btn la-btn--primary text-center"  href="/learning-plans">SUBSCRIBE NOW</a>
               </div>
-              <a href="" class="la-vcourse__purchase-trial--lnk mt-8">Start free 7 Days trial</a>
+              <a @if(Auth::check()) href="#" @else data-toggle="modal" data-target="#locked_login" @endif  class="la-vcourse__purchase-trial--lnk mt-8">Start free 7 Days trial</a>
             </div>
           </div>
         </div>
@@ -611,10 +611,18 @@ use Carbon\Carbon;
             <div class="la-creator__wrap position-relative pl-md-16">
               <div class="la-creator__inwrap d-flex align-items-end">
                 <div class="la-creator__img">
-                  <span><img src="../../images/learners/course/creator-2x.png" alt=""></span>
+                @php 
+                      if($course->user->user_img == ""){
+                          $course->user->user_img = "https://picsum.photos/400";
+                      }else{
+                          $course->user->user_img = asset('/images/user_img/'.$mentor->user_img);
+                      }
+                @endphp
+
+                  <span><img src="{{$course->user->user_img}}" alt=""></span>
                 </div>
                 <div class="la-creator__detail pl-8">
-                  <span class="la-creator__name">{{$course->user->fname}}</span>
+                  <span class="la-creator__name">{{$course->user->fullName}}</span>
                   <div class="la-creator__specialist mt-1">Design</div>
                 </div>
               </div>
@@ -630,7 +638,7 @@ use Carbon\Carbon;
                 invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</div>
                 <div class="la-creator__content-btn">
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold">
-                    <a href="/creator">read about</a>
+                    <a href="/creator/{{$course->user->id}}">read about</a>
                     <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
                   </div>
                 </div>

@@ -30,7 +30,7 @@
         <div class="la-gsearch la-anim__wrap">
           <form class="form-inline la-anim__stagger-item"  action="{{ url('/search-course/') }}">
             <div class="form-group ">
-              <input class="la-gsearch__input form-control" style="width:270px; background:transparent" name="course_name" type="text" placeholder="What you want to learn today?">
+              <input class="la-gsearch__input form-control" style="width:300px; background:transparent" name="course_name" type="text" placeholder="What you want to learn today?">
             </div>
             <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--3xl icon icon-search"></i></button>
           </form>
@@ -86,10 +86,10 @@
                             :img="$course->preview_image"
                             :course="$course->title"
                             :url="$course->slug"
-                            :rating="$course->price"
+                            :rating="$course->review->avg('rating')"
                             :creatorImg="$course->user->user_img"
                             :creatorName="$course->user->fname"
-                            :creatorUrl="$course->user->fname"
+                            :creatorUrl="$course->user->id"
                           />
                       @endforeach
 

@@ -1,10 +1,8 @@
-<div class="col-12 la-anim__stagger-item--x" @if($addedToWhishList) id="course_{{$id}}" @endif>
+<div class="col-12 " @if($addedToWhishList) id="course_{{$id}}" @endif>
     <div class="la-course">
-        <div class="la-course__inner">
-            <a class="la-course__inner-link" role="button" href= {{ '/learn/course/'.$id.'/'.$url }}>
-            
-                <div class="la-course__overlay">
-                    
+            <div class="la-course__inner">
+                <a class="la-course__inner-link" role="button" href= "{{ '/learn/course/'.$id.'/'.$url }}" >
+                    <div class="la-course__overlay">
                         <ul class="la-course__options list-unstyled text-white" id="la-course__nested-links">
                             <li class="la-course__option">
                                 <span class="d-inline-block la-course__addtocart" onclick="addToCart({{$id}})">
@@ -13,43 +11,50 @@
                             </li>
 
                             <li class="la-course__option">
-                                <a @if($addedToWhishList) onclick="location.href='/remove-from-wishlist/{{$id}}'" @else onclick="addToWishList({{$id}})" @endif  >
-                                <span class="d-inline-block la-course__like">
-                                    <i class="la-icon la-icon--2xl icon icon-wishlist @if($addedToWhishList) text-warning @endif"></i>
+                                <span @if($addedToWhishList) onclick="location.href='/remove-from-wishlist/{{$id}}'" @else onclick="addToWishList({{$id}})" @endif  >
+                                    <span class="d-inline-block la-course__like">
+                                        <i class="la-icon la-icon--2xl icon icon-wishlist @if($addedToWhishList) text-warning @endif"></i>
+                                    </span>
                                 </span>
-                                </a>
                             </li>
 
                             <li class="la-course__option">
-                                <div class="dropdown">
-                                    <span class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);">
-                                        <i class="la-icon la-icon--2xl icon icon-menu"></i>
-                                    </span>
-                                    <div class="la-cmenu dropdown-menu py-0">
-                                        <span class="dropdown-item la-cmenu__item d-inline-flex" @if($removeFromPlaylist) onclick="location.href='{{url()->current()}}/{{$id}}'"  @else onclick="showAddToPlaylist({{$id}})" @endif><i class="icon icon-playlist la-icon la-icon--2xl mr-2"></i> @if($removeFromPlaylist) Remove from Playlist  @else Add to Playlist @endif</span>
-                                        <span class="dropdown-item la-cmenu__item d-inline-flex" @if($addedToWhishList) onclick="location.href='/remove-from-wishlist/{{$id}}'" @else onclick="addToWishList({{$id}})" @endif><i class="icon icon-wishlist la-icon la-icon--2xl mr-2"></i> @if($addedToWhishList) Remove from Wishlist @else Add to Wishlist @endif </span>
-                                        <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToCart({{$id}})"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</span>
+                                    <div class="dropdown">
+                                        <span class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);">
+                                            <i class="la-icon la-icon--2xl icon icon-menu"></i>
+                                        </span>
+                                        <div class="la-cmenu dropdown-menu py-0">
+                                            <span class="dropdown-item la-cmenu__item d-inline-flex" @if($removeFromPlaylist) onclick="location.href='{{url()->current()}}/{{$id}}'"  @else onclick="showAddToPlaylist({{$id}})" @endif><i class="icon icon-playlist la-icon la-icon--2xl mr-2"></i> @if($removeFromPlaylist) Remove from Playlist  @else Add to Playlist @endif</span>
+                                            <span class="dropdown-item la-cmenu__item d-inline-flex" @if($addedToWhishList) onclick="location.href='/remove-from-wishlist/{{$id}}'" @else onclick="addToWishList({{$id}})" @endif><i class="icon icon-wishlist la-icon la-icon--2xl mr-2"></i> @if($addedToWhishList) Remove from Wishlist @else Add to Wishlist @endif </span>
+                                            <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToCart({{$id}})"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</span>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
+                                </li>
+
+                               
+
                         </ul>
 
                         <div class="la-course__learners"><strong>300</strong>  Learners</div>
-                </div>
+                       
+                    </div>
+                </a>
+                    <div class="la-course__imgwrap">
+                        <img class="img-fluid" src= "{{ $img }}" alt= "{{ $course }}" />
+                    </div>
+                
             
-                <div class="la-course__imgwrap">
-                    <img class="img-fluid" src= {{ $img }} alt= {{ $course }} />
-                </div>
-            </a>
+           
+                           
         </div>
-
+         
         <div class="la-course__btm">
             <div class="la-course__info d-flex align-items-center mb-1">
                 <a class="la-course__title" href= {{ '/learn/course/'.$id.'/'.$url }}> {{ strlen($course)>25?substr($course,0,25).'...':$course }} </a>
                 <div class="la-course__rating ml-auto"> {{ $rating }} </div>
             </div>
             
-            <a class="la-course__creator d-inline-flex align-items-center" href= {{ $creatorUrl }} >
+            <a class="la-course__creator d-inline-flex align-items-center" href= "/creator/{{ $creatorUrl }}" >
                 <div class="la-course__creator-imgwrap">
                     <img class="img-fluid" src="https://picsum.photos/200/200" alt={{ $creatorName }} />
                     {{-- <img class="img-fluid" src={{ $creatorImg }} alt={{ $creatorName }} /> --}}

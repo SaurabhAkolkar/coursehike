@@ -48,7 +48,7 @@ class HomeController extends Controller
         $bigblue = BBL::where('is_ended','!=',1)->where('link_by', NULL)->get();
         $testi = Testimonial::all();
         $trusted = Trusted::all();
-        // $Playlist = [];
+        $playlists = [];
         $firstSection = FirstSection::first();
             if($firstSection == null){
                 $firstSection = new stdClass;
@@ -57,13 +57,17 @@ class HomeController extends Controller
                 $firstSection->image_text = 'DESIGN';
                 
             }
+
+        if(Auth::check()){
+            $playlists = Playlist::where('user_id', Auth::user()->id)->get();   
+        }
         $master_classes = MasterClass::with('courses','courses.user')->get();
         $featuredMentor = FeaturedMentor::with('user','courses','courses.category')->where(['status'=>'1'])->get();
-
+       
         //dd($featuredMentor);
         
     
-        return view('learners.pages.home', compact('categories', 'firstSection', 'featuredMentor','master_classes','sliders', 'facts', 'cor', 'bundles', 'meetings', 'bigblue', 'testi', 'trusted'));
+        return view('learners.pages.home', compact('categories','playlists','firstSection', 'featuredMentor','master_classes','sliders', 'facts', 'cor', 'bundles', 'meetings', 'bigblue', 'testi', 'trusted'));
     }
 
 }
