@@ -118,15 +118,19 @@ section.la-page--how-this-works{
     }
     .la-gcreator__video-icon{
         position:absolute;
-		left:0;
-		text-align: left;
+        left:0;
 		width:80px;
 		height:80px;
-		padding:16px 18px;
+		//padding:16px 18px;
 		background-color: #FFC516;
 		color:#fff;
         border-radius:var(--rounded-full);
         z-index:var(--z-1);	
+    }
+    .la-gcreator__video-icon span{
+        position:relative;
+        top:11px;
+        left:14px;
     }
     .la-gcreator__video-content{
         margin-left:70px;
@@ -148,25 +152,42 @@ section.la-page--how-this-works{
                 margin-right: var(--size-2);
             }
         }
-        .form-group label{
-            color:var(--app-indigo-1);
-            opacity:0.8;
-            font-weight:var(--font-light);
-            cursor:pointer;
-
-            &:hover{
-                opacity:1;
-            }
-        }
-        .form-group .gcheck {
-            border: 1px solid var(--app-indigo-1);
-            width: 14px;
-            height: 14px;
-        }
-        .form-group label input[type="checkbox"]+.gcheck>.gcheck-icon {opacity: 0;} 
-        .form-group label input[type="checkbox"]:checked+.gcheck>.gcheck-icon {opacity: 1;} 
     }
 }
+.form-group label{
+    color:var(--app-indigo-1);
+    opacity:0.8;
+    font-weight:var(--font-light);
+    cursor:pointer;
+
+    &:hover{
+        opacity:1;
+    }
+}
+.form-group .glabel-main{
+    color:var(--black);
+    font-size:var(--text-sm);
+    font-weight:var(--font-bold);
+    opacity:1;
+}
+.form-group .glabel{
+    color:var(--gray6);
+    font-size:var(--text-sm);
+    font-weight:var(--font-normal);
+    cursor:pointer;
+}
+.form-group .gcheck {
+    border: 1px solid var(--app-indigo-1);
+    width: 13px;
+    height: 13px;
+}
+.form-group .gcheck-icon{
+    color:var(--app-indigo-1);
+    font-weight:var(--font-semibold) !important;
+}
+.form-group label input[type="checkbox"]+.gcheck>.gcheck-icon {opacity: 0;} 
+.form-group label input[type="checkbox"]:checked+.gcheck>.gcheck-icon {opacity: 1;} 
+    
 @media(max-width:991px){
     section.la-page--how-this-works {
         .la-gcreator__works-mobile{margin:-50px 0 0 100px !important;}

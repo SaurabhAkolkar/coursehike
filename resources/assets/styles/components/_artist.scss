@@ -102,11 +102,11 @@
             &thumbnail {
                 width: 90px !important;
                 cursor:pointer;
-
+                
                 &.swiper-slide-thumb-active {
                     transform: scale(1.2);
                     position: relative;
-                    z-index: 1;
+                    z-index: var(--z-1);
                     transition: all 0.2s ease-out;
                     position: relative;
 
@@ -118,6 +118,14 @@
                         border: 3px solid var(--app-indigo-1);
                     }
                 }
+
+                &:hover{
+                    position:relative;
+                    z-index: var(--z-2);
+                    transition: all 0.2s ease-out;
+                    transform: scale(1.2);
+                }
+                
 
                 &s {
                     &- {

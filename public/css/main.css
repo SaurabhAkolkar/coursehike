@@ -9792,8 +9792,8 @@ a.text-dark:focus, a.text-dark:hover {
 }
 @font-face {
   font-family: "icomoon";
-  src: url(/fonts/icomoon.eot?b096aaa8936b22f7b3e49c13b44cf74c);
-  src: url(/fonts/icomoon.eot?b096aaa8936b22f7b3e49c13b44cf74c#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?b88d9fe966296de7bad0135a2c0d74e2) format("truetype"), url(/fonts/icomoon.woff?091b4b499b3d74d1c6ad018232584754) format("woff"), url(/fonts/icomoon.svg?ad17331765ea48e01564a8cbc6152507#icomoon) format("svg");
+  src: url(/fonts/icomoon.eot?6b7ed849733515ffb31ffe3c50988431);
+  src: url(/fonts/icomoon.eot?6b7ed849733515ffb31ffe3c50988431#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?7cd0152e5f93212eb9758c55960c33f2) format("truetype"), url(/fonts/icomoon.woff?e0aad280f0eeacfd011896ac75b36b1b) format("woff"), url(/fonts/icomoon.svg?eb8486ce719fb5022b7f9772b82de6b2#icomoon) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -9810,6 +9810,78 @@ a.text-dark:focus, a.text-dark:hover {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-trusted-sliders:before {
+  content: "\E995";
+}
+
+.icon-unpublished-course:before {
+  content: "\E996";
+}
+
+.icon-widget-settings:before {
+  content: "\E997";
+}
+
+.icon-category-sliders:before {
+  content: "\E998";
+}
+
+.icon-completed-payout:before {
+  content: "\E999";
+}
+
+.icon-course-text:before {
+  content: "\E99A";
+}
+
+.icon-fact-sliders:before {
+  content: "\E99B";
+}
+
+.icon-featured-mentor:before {
+  content: "\E99C";
+}
+
+.icon-first-section:before {
+  content: "\E99D";
+}
+
+.icon-front-Settings:before {
+  content: "\E99E";
+}
+
+.icon-get-started:before {
+  content: "\E99F";
+}
+
+.icon-mentor-payout:before {
+  content: "\E9A0";
+}
+
+.icon-my-revenue:before {
+  content: "\E9A1";
+}
+
+.icon-payout-settings:before {
+  content: "\E9A2";
+}
+
+.icon-pending-payout:before {
+  content: "\E9A3";
+}
+
+.icon-published-course:before {
+  content: "\E9A4";
+}
+
+.icon-sliders:before {
+  content: "\E9A5";
+}
+
+.icon-testimonials:before {
+  content: "\E9A6";
 }
 
 .icon-error:before {
@@ -10225,6 +10297,14 @@ a.text-dark:focus, a.text-dark:hover {
 
 .icon-lock:before {
   content: "\E900";
+}
+
+.icon-list-layout:before {
+  content: "\E9A7";
+}
+
+.icon-grid-layout:before {
+  content: "\E9A8";
 }
 
 .icon-percent-coupon:before {
@@ -20531,7 +20611,7 @@ label.error {
 .la-artist__thumbnail.swiper-slide-thumb-active {
   transform: scale(1.2);
   position: relative;
-  z-index: 1;
+  z-index: var(--z-1);
   transition: all 0.2s ease-out;
   position: relative;
 }
@@ -20541,6 +20621,12 @@ label.error {
   width: 100%;
   height: 100%;
   border: 3px solid var(--app-indigo-1);
+}
+.la-artist__thumbnail:hover {
+  position: relative;
+  z-index: var(--z-2);
+  transition: all 0.2s ease-out;
+  transform: scale(1.2);
 }
 .la-artist__thumbnails-wrap {
   overflow: visible !important;
@@ -21180,10 +21266,9 @@ section.la-start-creating .la-vicon {
 section.la-start-creating .la-icon__vline {
   position: absolute;
   left: 0;
-  text-align: left;
+  top: 0;
   width: 80px;
   height: 80px;
-  padding: 38px;
   background-color: #FFC516;
   color: #fff;
   border-radius: var(--rounded-full);
@@ -21191,7 +21276,9 @@ section.la-start-creating .la-icon__vline {
   z-index: var(--z-1);
 }
 section.la-start-creating .la-icon__vline span {
-  margin: -24px 0 0 -22px;
+  position: relative;
+  top: 10px;
+  left: 10px;
 }
 section.la-start-creating .la-vicon__text {
   font-family: var(--body-font);
@@ -21362,7 +21449,7 @@ section.la-bgcreator--ad-banner .la-bgcreator__ad-content .la-bgcreator__ad-para
 section.la-bgcreator--ad-banner .la-bgcreator__ad-content .la-arrow-link {
   letter-spacing: 0.1rem;
   color: #ffffff;
-  font-size: 10px;
+  font-size: var(--text-xs);
 }
 section.la-bgcreator--ad-banner .la-bgcreator__ad-content .la-arrow-link span {
   position: absolute;
@@ -21596,14 +21683,17 @@ section.la-page--how-this-works .la-gvline-last {
 section.la-page--how-this-works .la-gcreator__video-icon {
   position: absolute;
   left: 0;
-  text-align: left;
   width: 80px;
   height: 80px;
-  padding: 16px 18px;
   background-color: #FFC516;
   color: #fff;
   border-radius: var(--rounded-full);
   z-index: var(--z-1);
+}
+section.la-page--how-this-works .la-gcreator__video-icon span {
+  position: relative;
+  top: 11px;
+  left: 14px;
 }
 section.la-page--how-this-works .la-gcreator__video-content {
   margin-left: 70px;
@@ -21625,24 +21715,47 @@ section.la-page--how-this-works .la-gcreator__video-content .la-gcreator__list .
   color: #1EC812;
   margin-right: var(--size-2);
 }
-section.la-page--how-this-works .la-gcreator__video-content .form-group label {
+
+.form-group label {
   color: var(--app-indigo-1);
   opacity: 0.8;
   font-weight: var(--font-light);
   cursor: pointer;
 }
-section.la-page--how-this-works .la-gcreator__video-content .form-group label:hover {
+.form-group label:hover {
   opacity: 1;
 }
-section.la-page--how-this-works .la-gcreator__video-content .form-group .gcheck {
-  border: 1px solid var(--app-indigo-1);
-  width: 14px;
-  height: 14px;
+
+.form-group .glabel-main {
+  color: var(--black);
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  opacity: 1;
 }
-section.la-page--how-this-works .la-gcreator__video-content .form-group label input[type=checkbox] + .gcheck > .gcheck-icon {
+
+.form-group .glabel {
+  color: var(--gray6);
+  font-size: var(--text-sm);
+  font-weight: var(--font-normal);
+  cursor: pointer;
+}
+
+.form-group .gcheck {
+  border: 1px solid var(--app-indigo-1);
+  width: 13px;
+  height: 13px;
+}
+
+.form-group .gcheck-icon {
+  color: var(--app-indigo-1);
+  font-weight: var(--font-semibold) !important;
+}
+
+.form-group label input[type=checkbox] + .gcheck > .gcheck-icon {
   opacity: 0;
 }
-section.la-page--how-this-works .la-gcreator__video-content .form-group label input[type=checkbox]:checked + .gcheck > .gcheck-icon {
+
+.form-group label input[type=checkbox]:checked + .gcheck > .gcheck-icon {
   opacity: 1;
 }
 
