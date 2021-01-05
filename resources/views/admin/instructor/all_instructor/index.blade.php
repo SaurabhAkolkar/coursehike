@@ -26,6 +26,7 @@
                   <th>{{ __('adminstaticword.Detail') }}</th>
                   <th>{{ __('adminstaticword.Status') }}</th>
                   <th>{{ __('adminstaticword.View') }}</th>
+                  <th>{{ __('adminstaticword.Edit') }}</th>
                   <th>{{ __('adminstaticword.Delete') }}</th>
                 </tr>
               </thead>
@@ -44,7 +45,10 @@
                     @endif
                   </td>
                   <td><a class="btn btn-primary btn-sm" href="{{route('requestinstructor.edit',$item->id)}}">{{ __('adminstaticword.View') }}</a></td>
-
+                  <td>
+                          <a class="text-dark" href="/user/edit/{{$item->id}}">
+                          <i class="la-icon la-icon--lg icon-edit"></i></a>
+                  </td>
                   <td><form  method="post" action="{{url('requestinstructor/'.$item->id)}}
                         "data-parsley-validate class="form-horizontal form-label-left">
                         {{ csrf_field() }}

@@ -17,6 +17,8 @@
                   <div class="la-purchaseh__main-title text-3xl head-font pb-5 pb-lg-10">Purchase History</div>
                 </div>
                   <!-- Purchased Desktop Version: Start -->
+
+                @if(count($invoice) != 0 )
                 <div class="container px-0 d-none d-lg-block"> 
                       <div class="la-purchaseh__item row mb-5">          
                         <div class="col-lg-4 la-anim__stagger-item--x">
@@ -54,6 +56,15 @@
                           {{-- @endforeach --}}
                       @endforeach
                 </div>
+                @else
+                  <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
+                        <div class="la-empty__inner">
+                            <h6 class="la-empty__course-title pb-2">No Purchase History.</h6>
+                        </div>
+          
+                    </div>
+
+                @endif
                   <!-- Purchased Desktop Version: Start -->
 
                   <!-- Purchased Mobile Version: Start -->

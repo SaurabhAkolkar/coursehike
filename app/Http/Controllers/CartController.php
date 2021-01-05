@@ -151,7 +151,7 @@ class CartController extends Controller
     }
 
     public function learnerCart(){
-
+        // dd(Session::all());
         $carts = Cart::with('user','cartItems')->where(['user_id' => Auth::User()->id, 'status' => 1])->get();
         $cartItem = [];
         $discount = 0;
@@ -200,15 +200,16 @@ class CartController extends Controller
         if($check){
 
             if($check->expiry_date > Carbon::now()){
-
+                
+                Session::flash('couponModal','True');
                 return redirect()->back()->with('message','Coupon already expired.');
 
             }else if($total < $check->minamount){
-
+                Session::flash('couponModal','True');
                 return redirect()->back()->with('message','Coupon is not applicable.');
 
             }else if($check->maxusage <= 0){
-
+                Session::flash('couponModal','True');
                 return redirect()->back()->with('message','Coupon is reached max usage.');
             }
 
@@ -217,10 +218,10 @@ class CartController extends Controller
             return redirect()->back()->with('message','Coupon applied.');
 
         }else{
-
+            Session::flash('couponModal','True');
             return redirect()->back()->with('message', 'Coupon Not Found.');
         }
-
+            Session::flash('couponModal','True');   
         return redirect()->back()->with('message', 'Coupon Not Found.');
       
     }
@@ -238,15 +239,15 @@ class CartController extends Controller
                 if($check){
     
                     if($check->expiry_date > Carbon::now()){
-    
+                        Session::flash('couponModal','True');
                         return redirect()->back()->with('message','Coupon already expired.');
     
                     }else if($total < $check->minamount){
-    
+                        Session::flash('couponModal','True');
                         return redirect()->back()->with('message','Coupon is not applicable.');
     
                     }else if($check->maxusage <= 0){
-    
+                        Session::flash('couponModal','True');
                         return redirect()->back()->with('message','Coupon is reached max usage.');
                     }
     
@@ -255,12 +256,12 @@ class CartController extends Controller
                     return redirect()->back()->with('message','Coupon applied.');
     
                 }else{
-    
+                    Session::flash('couponModal','True');
                     return redirect()->back()->with('message', 'Coupon Not Found.');
                 }
 
         }
-        
+        Session::flash('couponModal','True');
         return redirect()->back()->with('message', 'Coupon Not Found.');
     }
 

@@ -660,8 +660,8 @@ use Carbon\Carbon;
           <div class="col-md-4" >
               <div class="la-course">
                   <div class="la-course__inner">
-                      
-                          <div class="la-course__overlay">
+                      <a href= {{ '/learn/course/'.$related_course->id.'/'.$related_course->slug }}>
+                            <div class="la-course__overlay" id="la-course__nested-links">
                               
                                   <ul class="la-course__options list-unstyled text-white">
                                       <li class="la-course__option">
@@ -685,9 +685,6 @@ use Carbon\Carbon;
                                                   <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="showAddToPlaylist({{$related_course->id}})" ><i class="icon icon-playlist la-icon la-icon--2xl mr-2"></i> Add to Playlist </span>
                                                   <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToWishList({{$related_course->id}})"><i class="icon icon-wishlist la-icon la-icon--2xl mr-2"></i>  Add to Wishlist  </span>
                                                   <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToCart({{$related_course->id}})"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</span>
-                                                  <a href= {{ '/learn/course/'.$related_course->id.'/'.$related_course->slug }}>
-                                                      <span class="dropdown-item la-cmenu__item d-inline-flex" >View Course</span>
-                                                  </a>
                                               </div>
                                           </div>
                                       </li>
@@ -699,7 +696,7 @@ use Carbon\Carbon;
                           <div class="la-course__imgwrap">
                               <img class="img-fluid" src="{{$related_course->preview_image}}" alt= {{ $related_course->title }} />
                           </div>
-                      
+                      </a>
                   </div>
 
                   <div class="la-course__btm">
@@ -735,9 +732,9 @@ use Carbon\Carbon;
           <div class="col-md-4" >
               <div class="la-course">
                   <div class="la-course__inner">
-                      
+                      <a href= {{ '/learn/course/'.$related_course->id.'/'.$related_course->slug }}>
                           <div class="la-course__overlay">
-                              
+
                                   <ul class="la-course__options list-unstyled text-white">
                                       <li class="la-course__option">
                                           <span class="d-inline-block la-course__addtocart" onclick="addToCart({{$related_course->id}})">
@@ -760,9 +757,7 @@ use Carbon\Carbon;
                                                   <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="showAddToPlaylist({{$related_course->id}})" ><i class="icon icon-playlist la-icon la-icon--2xl mr-2"></i> Add to Playlist </span>
                                                   <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToWishList({{$related_course->id}})"><i class="icon icon-wishlist la-icon la-icon--2xl mr-2"></i>  Add to Wishlist  </span>
                                                   <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToCart({{$related_course->id}})"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</span>
-                                                  <a href= {{ '/learn/course/'.$related_course->id.'/'.$related_course->slug }}>
-                                                      <span class="dropdown-item la-cmenu__item d-inline-flex" >View Course</span>
-                                                  </a>
+                                                  
                                               </div>
                                           </div>
                                       </li>
@@ -774,7 +769,7 @@ use Carbon\Carbon;
                           <div class="la-course__imgwrap">
                               <img class="img-fluid" src="{{$related_course->preview_image}}" alt= {{ $related_course->title }} />
                           </div>
-                      
+                      </a>
                   </div>
 
                   <div class="la-course__btm">

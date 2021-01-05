@@ -26,6 +26,7 @@ $(function(){
     e.preventDefault();
     console.log(value)
   });
+
   
   
   //Swiper Js for Login & Register page
@@ -358,7 +359,7 @@ function addToWishList(id){
                                   <span aria-hidden="true" style="color:#56188C">&times;</span>
                                 </button>
                               </div>
-                            </div>`
+                            </div>`;
         $('#alert_div').html(successAlert);        
         window.setTimeout(function() {
           $(".alert").fadeTo(500, 0).slideUp(500, function() {
@@ -396,7 +397,7 @@ function removeFromWishList(id){
                                   <span aria-hidden="true" style="color:#56188C">&times;</span>
                                 </button>
                               </div>
-                            </div>`
+                            </div>`;
         $('#alert_div').html(successAlert);
         window.setTimeout(function() {
           $(".alert").fadeTo(500, 0).slideUp(500, function() {
@@ -437,7 +438,7 @@ function addToCart(id='1', classes='all') {
                                   <span aria-hidden="true" style="color:#56188C">&times;</span>
                                 </button>
                               </div>
-                            </div>`
+                            </div>`;
         $('#alert_div').html(successAlert);
         window.setTimeout(function() {
           $(".alert").fadeTo(500, 0).slideUp(500, function() {

@@ -18,8 +18,8 @@
              
               <tr>
                 <th>#</th>
-                <th>{{ __('adminstaticword.Title') }}</th>
-                <th>{{ __('adminstaticword.Detail') }}</th>
+                <th>{{ __('adminstaticword.Question') }}</th>
+                <th>{{ __('adminstaticword.Answer') }}</th>
                 <th>{{ __('adminstaticword.Status') }}</th>
                 <th>{{ __('adminstaticword.Edit') }}</th>
                 <th>{{ __('adminstaticword.Delete') }}</th>

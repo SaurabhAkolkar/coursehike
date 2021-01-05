@@ -5,7 +5,7 @@
     <div class="la-profile__sidebar-top">  
       <ul class="la-profile__sidebar-items la-anim__wrap">
         <li id="sidebar_menu_btn" class="la-profile__sidebar-item d-flex align-items-center la-anim__stagger-item ">
-          <a href="/wishlist" class="la-profile__sidebar-link la-profile__sidebar-link--name d-flex align-items-center">
+          <a href="/profile" class="la-profile__sidebar-link la-profile__sidebar-link--name d-flex align-items-center">
             <span class="la-profile__sidebar-img">
               <img src="https://picsum.photos/24/24" alt="profile image">
             </span>
@@ -79,9 +79,12 @@
           </a>
         </li>
         <li class="la-profile__sidebar-item la-anim__stagger-item ">
-          <a class="la-profile__sidebar-link d-flex align-items-center" href="">
+          <a class="la-profile__sidebar-link d-flex align-items-center" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             <span class="la-icon la-icon--lg icon-logout"></span>
             <span class="la-profile__sidebar-text pl-2">Logout</span>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+              @csrf
+            </form>
           </a>
         </li>
       </ul>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="la-profile">
     <div class="la-profile__wrap">
-
+    
        <!-- Side Navbar: Start -->
        @include ('learners.pages.sidebar')
        <!-- Side Navbar: End -->
@@ -195,7 +195,7 @@
 
                 <div class="col-md-6 col-lg-3 la-anim__stagger-item--x">
                     <div class="la-cart__product-btm la-btn__plain text--burple text-md h-75 d-flex align-items-center justify-content-center justify-content-md-start">
-                      <a class="text-uppercase la-cart__product-explore" href="/courses">explore more</a>
+                      <a class="text-uppercase la-cart__product-explore" href="/browse/courses">explore more</a>
                         <span class="la-cart__product-icon la-icon la-icon--5xl icon-grey-arrow"></span>
                     </div>
                 </div>
@@ -212,6 +212,10 @@
 <script src="https://js.stripe.com/v3/"></script>
 
 <script>
+    @if(session('couponModal')) 
+        $('#cartCoupons').modal('show');
+    @endif
+
   // Create a Stripe client.
   var stripe = Stripe('{{ env("STRIPE_KEY") }}');
 
