@@ -10,6 +10,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Mail\WelcomeUser;
 use Illuminate\Support\Facades\Mail;
 use App\Setting;
+use Carbon\Carbon;
+use Redirect;
 
 class RegisterController extends Controller
 {
@@ -50,13 +52,15 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
-    {
-
+    {   
+        
         $setting = Setting::first();
 
         if($setting->captcha_enable == 1){
+
             return Validator::make($data, [
                 'fname' => ['required', 'string', 'max:255'],
+                'lname' => ['required', 'string', 'max:255'],
                 'mobile' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'string', 'min:6'],
@@ -67,6 +71,7 @@ class RegisterController extends Controller
 
             return Validator::make($data, [
                 'fname' => ['required', 'string', 'max:255'],
+                'lname' => ['required', 'string', 'max:255'],
                 'mobile' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'string', 'min:6'],
@@ -103,11 +108,11 @@ class RegisterController extends Controller
         //     $verified = NULL;
         // }
         
-        
+                
         $user = User::create([
 
             'fname' => $data['fname'],
-            'lname' => '',
+            'lname' => $data['lname'],
             'email' => $data['email'],
             'mobile' => $data['mobile'],
             'email_verified_at'  => $verified,

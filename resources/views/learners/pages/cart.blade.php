@@ -3,7 +3,7 @@
 @section('content')
 <div class="la-profile">
     <div class="la-profile__wrap">
-
+    
        <!-- Side Navbar: Start -->
        @include ('learners.pages.sidebar')
        <!-- Side Navbar: End -->
@@ -212,6 +212,10 @@
 <script src="https://js.stripe.com/v3/"></script>
 
 <script>
+    @if(session('couponModal')) 
+        $('#cartCoupons').modal('show');
+    @endif
+
   // Create a Stripe client.
   var stripe = Stripe('{{ env("STRIPE_KEY") }}');
 

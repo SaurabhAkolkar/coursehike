@@ -32,16 +32,17 @@
                             @if(count($myInterests))
                                 @php
                                 $alreadyAdded = true;
-                                @endphp
+                                @endphp 
 
                                 @foreach ($myInterests as $interest)
-                                    
-                                    <x-my-interest
-                                        :id="$interest->category_id"
-                                        :img="'https://picsum.photos/100/100'"
-                                        :name="$interest->category['title']"
-                                        :alreadyAdded="$alreadyAdded"
-                                    />
+                                    @if($interest->category != null)
+                                        <x-my-interest
+                                            :id="$interest->category_id"
+                                            :img="'https://picsum.photos/100/100'"
+                                            :name="$interest->category['title']"
+                                            :alreadyAdded="$alreadyAdded"
+                                        />
+                                    @endif
                                 @endforeach
                             @endif
                         </ul>

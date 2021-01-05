@@ -33,53 +33,55 @@
                 <tbody>
                   <?php $i=0;?>
 
-                    @foreach($requests as $requests)
-                    @if($requests->courses->status != 1)
-                      <?php $i++;?>
-                      <tr>
-                        <td><?php echo $i;?></td>
-                        <td>
-                          @if($requests->courses['preview_image'] !== NULL && $requests->courses['preview_image'] !== '')
-                            <img src="<?php echo $requests->courses['preview_image'];  ?>" class="img-fluid" >
-                          @else
-                            <img src="{{ Avatar::create($requests->courses->title)->toBase64() }}" class="img-fluid" >
-                          @endif
-                        </td>
-                        <td>{{$requests->courses->title}}</td>
-                        <td>{{ $requests->courses->user->fname }}</td>
-                        <td>{{$requests->courses->slug}}</td>
-                        <td>
-                          <form action="{{ route('course.quick',$requests->courses->id) }}" method="POST">
-                            {{ csrf_field() }}
-                            <button  type="Submit" class="btn btn-xs {{ $requests->courses->featured ==1 ? 'btn-success' : 'btn-danger' }}">
-                              @if($requests->courses->featured ==1)
-                                {{ __('adminstaticword.Yes') }}
+                    @foreach($requests as $r)
+                   
+                        @if($r->course->status != 1)
+                          <?php $i++;?>
+                          <tr>
+                            <td><?php echo $i;?></td>
+                            <td>
+                              @if($r->course['preview_image'] !== NULL && $r->course['preview_image'] !== '')
+                                <img src="<?php echo $r->course['preview_image'];  ?>" class="img-fluid" >
                               @else
-                                {{ __('adminstaticword.No') }}
+                                <img src="{{ Avatar::create($r->course->title)->toBase64() }}" class="img-fluid" >
                               @endif
-                            </button>
-                          </form>
-                        </td>
-                         
-                        <td>
-                          <form action="{{ route('course.quick',$requests->courses->id) }}" method="POST">
-                            {{ csrf_field() }}
-                            <button  type="Submit" class="btn btn-xs {{ $requests->courses->status ==1 ? 'btn-success' : 'btn-danger' }}">
-                              @if($requests->courses->status ==1)
-                                {{ __('adminstaticword.Active') }}
-                              @else
-                                {{ __('adminstaticword.Deactive') }}
-                              @endif
-                            </button>
-                          </form>
-                        </td>
+                            </td>
+                            <td>{{$r->course->title}}</td>
+                            <td>{{ $r->course->user->fname }}</td>
+                            <td>{{$r->course->slug}}</td>
+                            <td>
+                              <form action="{{ route('course.quick',$r->course->id) }}" method="POST">
+                                {{ csrf_field() }}
+                                <button  type="Submit" class="btn btn-xs {{ $r->course->featured ==1 ? 'btn-success' : 'btn-danger' }}">
+                                  @if($r->course->featured ==1)
+                                    {{ __('adminstaticword.Yes') }}
+                                  @else
+                                    {{ __('adminstaticword.No') }}
+                                  @endif
+                                </button>
+                              </form>
+                            </td>
+                            
+                            <td>
+                              <form action="{{ route('course.quick',$r->course->id) }}" method="POST">
+                                {{ csrf_field() }}
+                                <button  type="Submit" class="btn btn-xs {{ $r->course->status ==1 ? 'btn-success' : 'btn-danger' }}">
+                                  @if($r->course->status ==1)
+                                    {{ __('adminstaticword.Active') }}
+                                  @else
+                                    {{ __('adminstaticword.Deactive') }}
+                                  @endif
+                                </button>
+                              </form>
+                            </td>
 
-                        <td>
-                          <a class="btn btn-primary btn-sm" href="{{ route('course.show',$requests->courses->id) }}">
-                          <i class="fa fa-edit"></i></a>
-                        </td>
-                      </tr>
-                    @endif
+                            <td>
+                              <a class="btn btn-primary btn-sm" href="{{ route('course.show',$r->course->id) }}">
+                              <i class="fa fa-edit"></i></a>
+                            </td>
+                          </tr>
+                        @endif
+                 
                     @endforeach
                       
                 </tbody>

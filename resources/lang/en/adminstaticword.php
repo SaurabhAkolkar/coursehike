@@ -28,9 +28,9 @@ return [
     'AllInstructor' => 'All Mentors',
     'Order' => 'Revenue',
     'Pages' => 'Pages',
-    'Faq' => 'Faq\'s',
-    'FaqStudent' => 'Faq Learners',
-    'FaqInstructor' => 'Faq Mentors',
+    'Faq' => 'FAQ\'s',
+    'FaqStudent' => 'FAQ Learners',
+    'FaqInstructor' => 'FAQ Mentors',
     'Report' => 'Reports',
     'FrontSetting' => 'Front Settings',
     'Slider' => 'Sliders',
@@ -508,6 +508,7 @@ return [
     'Month'=>'Month',    
     'Classes'=>'Classes',
     'PurchaseType'=>'Purchase Type',
-    'PurchaseDate' => 'Purchase Date',    
+    'PublishRequest'=>'Publish Request',
+    'UnpublishRequest'=>'Unpublish Request',
 
 ];

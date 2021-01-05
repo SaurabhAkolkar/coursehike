@@ -62,10 +62,21 @@
                             <div class="la-form__input-wrap la-entry__input-wrap ">
                                 <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
                                 <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-profile"></span></span>
-                                <input type="text" class="la-form__input la-entry__input{{ $errors->has('fname') ? ' is-invalid' : '' }}" name="fname" value="{{ old('fname') }}" id="fname" placeholder="Full Name">
+                                <input type="text" class="la-form__input la-entry__input{{ $errors->has('fname') ? ' is-invalid' : '' }}" name="fname" value="{{ old('fname') }}" id="fname" placeholder="First Name">
                                 @if ($errors->has('fname'))
                                     <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
                                         <strong>{{ $errors->first('fname') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <div class="la-form__input-wrap la-entry__input-wrap ">
+                                <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+                                <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-profile"></span></span>
+                                <input type="text" class="la-form__input la-entry__input{{ $errors->has('lname') ? ' is-invalid' : '' }}" name="lname" value="{{ old('lname') }}" id="lname" placeholder="Last Name">
+                                @if ($errors->has('lname'))
+                                    <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
+                                        <strong>{{ $errors->first('lname') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -82,7 +93,7 @@
                             <div class="la-form__input-wrap la-entry__input-wrap">
                                 <!-- <i class="fa fa-phone" aria-hidden="true"></i> -->
                                 <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-contact-number"></span></span>
-                                <input type="text" class="la-form__input la-entry__input{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile') }}" id="mobile" placeholder="Mobile Number">
+                                <input type="text" class="la-form__input la-entry__input{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile') }}" id="mobile" placeholder="Mobile Number" maxlength="10">
                                 @if($errors->has('mobile'))
                                     <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
                                         <strong>{{ $errors->first('mobile') }}</strong>
