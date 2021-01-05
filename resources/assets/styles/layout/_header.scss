@@ -200,7 +200,7 @@ $sidemenuWidth: 300px;
                         position: absolute;
                         top:-12px;
                         right:-8px;
-                        font-size: 9px;
+                        font-size: var(--text-sm);
                         color:var(--app-indigo-1);
                     }
                 }
