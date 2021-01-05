@@ -1,5 +1,11 @@
 @extends('admin.layouts.master')
-@section('title', 'Edit User - Admin')
+
+  @if(Auth::user()->id == $user->id)
+    @section('title', 'Profile - Admin')
+  @else
+    @section('title', 'Edit User - Admin')
+  @endif
+
 @section('body')
 
 @if ($errors->any())
@@ -18,7 +24,12 @@
     <div class="col-md-12">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title pb-6"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Users') }}</h3>
+            @if(Auth::user()->id == $user->id)
+                <h3 class="box-title pb-6"> {{ __('adminstaticword.Profile') }}</h3>
+            @else
+                <h3 class="box-title pb-6"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Users') }}</h3>
+            @endif
+
         </div>
         <br>
         <div class="panel-body">
@@ -42,9 +53,9 @@
               <div class="col-md-4">
                 <!-- <label>{{ __('adminstaticword.Image') }}:<sup class="redstar">*</sup></label> -->
                 <div class="la-admin__profile-label pb-2">Upload New:</div>
-                <input type="file" name="user_img"  id="user_img" class="form-control d-none">
-                <label class="la-admin__profile-new la-admin__img-upload d-inline-block text-center" for="user_img" >
-                  <a class="d-inline-block">CHOOSE A FILE </a> <br/>
+                <input type="file" name="user_img"  id="user_img" class="form-control d-none" role="button">
+                <label class="la-admin__profile-new la-admin__img-upload d-inline-block text-center" role="button" for="user_img" >
+                  <a class="d-inline-block" role="button">CHOOSE A FILE </a> <br/>
                   <span class="la-admin__img-info">Thumbnail | 500x500</span>
                   <img src="" alt="">
                 </label>
@@ -73,7 +84,7 @@
             <div class="row">
               <div class="col-md-4">
                 <label for="mobile"> {{ __('adminstaticword.Mobile') }}:<sup class="redstar">*</sup></label>
-                <input value="{{ $user->mobile }}" required type="text" name="mobile" placeholder="Enter mobile no" class="form-control">
+                <input value="{{ $user->mobile }}" required type="type" name="mobile" placeholder="Enter mobile no" class="form-control" maxlength="10">
                </div>
                <div class="col-md-4">
                 <label for="mobile">{{ __('adminstaticword.Email') }}:<sup class="redstar">*</sup> </label>
@@ -95,7 +106,7 @@
                     <i class="fa fa-calendar"></i>
                   </div> -->
                   {{-- <input type="date" value="{{ $user->dob }}" name="dob" required class="form-control pull-right" id="datepicker" placeholder="Enter your date of birth"> --}}
-                  <input type="date" id="date" name="dob" class="form-control" placeholder="" value="{{ $user->dob }}" >
+                  <input type="date" id="date" name="dob" class="form-control" placeholder="" value="{{ $user->dob }}" max="{{Carbon\Carbon::now()->subYears(18)->format('Y-m-d')}}" >
                 </div>
               </div>
             </div>
@@ -113,7 +124,7 @@
               <div class="col-md-4">
                 <label for="role">{{ __('adminstaticword.SelectRole') }}:</label>
                   @if(Auth::User()->role=="admin")
-                  <select class="form-control js-example-basic-single" name="role">
+                  <select class="form-control js-example-basic-single" name="role"   @if(Auth::user()->id == $user->id) disabled @endif >
                     <option {{ $user->role == 'user' ? 'selected' : ''}} value="user">{{ __('adminstaticword.User') }}</option>
                     <option {{ $user->role == 'admin' ? 'selected' : ''}} value="admin">{{ __('adminstaticword.Admin') }}</option>
                     <option {{ $user->role == 'instructor' ? 'selected' : ''}} value="instructor">{{ __('adminstaticword.Instructor') }}</option>
@@ -234,24 +245,27 @@
                   </div>
                 </div>
               </div>
+                @if(Auth::user()->id == $user->id)
 
-              <div class="col-md-2">
-                <label for="exampleInputTit1e">{{ __('adminstaticword.Verified') }}:</label>
-                <li class="tg-list-item">
-                  <input class="la-admin__toggle-switch" id="c033"   type="checkbox"  {{ $user->email_verified_at != NULL ? 'checked' : '' }}>
-                  <label class="la-admin__toggle-label" data-tg-off="No" data-tg-on="Yes" for="c033"></label>
-                </li>
-                <input type="hidden" name="verified" value="{{ $user->varified }}" id="tt">
-              </div>
+                @else
+                  <div class="col-md-2">
+                    <label for="exampleInputTit1e">{{ __('adminstaticword.Verified') }}:</label>
+                    <li class="tg-list-item">
+                      <input class="la-admin__toggle-switch" id="c033"   type="checkbox"  {{ $user->email_verified_at != NULL ? 'checked' : '' }}>
+                      <label class="la-admin__toggle-label" data-tg-off="No" data-tg-on="Yes" for="c033"></label>
+                    </li>
+                    <input type="hidden" name="verified" value="{{ $user->varified }}" id="tt">
+                  </div>
 
-              <div class="col-md-2">
-                <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
-                <li class="tg-list-item">              
-                  <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" {{ $user->status == '1' ? 'checked' : '' }} >
-                  <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
-                </li>
-                <input type="hidden"  name="free" value="0" for="status" id="status">
-              </div>
+                  <div class="col-md-2">
+                    <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
+                    <li class="tg-list-item">              
+                      <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" {{ $user->status == '1' ? 'checked' : '' }} >
+                      <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
+                    </li>
+                    <input type="hidden"  name="free" value="0" for="status" id="status">
+                  </div>
+                @endif
             </div>
               
 

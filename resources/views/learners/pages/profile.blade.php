@@ -36,7 +36,7 @@
                             <div class="la-form__img-wrap">
                               <div class="la-form__img-title">Upload new</div>
                               <input class="d-none" id="file-upload" type="file" name="user_img">
-                              <label class="la-form__img la-form__img-upload d-inline-block text-center" for="file-upload"><a class="d-inline-block" href="#">CHOOSE A FILE </a> <br/><span class="la-form__img-info">Thumbnail | 500x500</span><img src="" alt=""></label>
+                              <label class="la-form__img la-form__img-upload d-inline-block text-center" for="file-upload"><a class="d-inline-block" href="#" onclick="$('#file-upload').click()">CHOOSE A FILE </a> <br/><span class="la-form__img-info">Thumbnail | 500x500</span><img src="" alt=""></label>
                               @error('user_img')
                                           <div class="alert alert-danger">{{ $message }}</div>
                               @enderror
@@ -84,7 +84,7 @@
                     <div class="col-md-6 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Date of Birth</div>
-                                      <input class="la-form__input" type="date" value="{{Auth::user()->dob}}" name="dob" placeholder="July 16, 1996">
+                                    <input class="la-form__input" type="date" value="{{Auth::user()->dob}}" name="dob" placeholder="July 16, 1996" min='1899-01-01' max='2000-01-01'>
                                       @error('dob')
                                           <div class="alert alert-danger">{{ $message }}</div>
                                       @enderror
@@ -261,7 +261,7 @@
             data: {catId: cat_id},
             success:function(data){   
               console.log(data);
-              up.append('<option value="0">Please City</option>');
+              up.append('<option value="0">Select City</option>');
               $.each(data, function(id, title) {
                 up.append($('<option>', {value:id, text:title}));
               });
@@ -287,7 +287,7 @@
             data: {catId: cat_id},
             success:function(data){   
               console.log(data);
-              up.append('<option value="0">Please State</option>');
+              up.append('<option value="0">Select State</option>');
               $.each(data, function(id, title) {
                 up.append($('<option>', {value:id, text:title}));
               });

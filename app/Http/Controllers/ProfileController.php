@@ -108,25 +108,27 @@ class ProfileController extends Controller
 
         $user->update($input);
 
-        Session::flash('success','User Updated Successfully !');
+        Session::flash('message','User Updated Successfully !');
         return redirect('/profile');
     }
 
     public function updatePassword(Request $request){
         
-        $user = User::where('id',Auth::user()->id)->firstOrFail();;
+        $user = User::where('id',Auth::user()->id)->firstOrFail();
         $request->validate([
             'new_password' => 'required|min:6',
             'current_password' => 'required|min:6',
         ]);
-       
-        if($user->password == Hash::make($request->current_password) || $user->password == ""){
+             
+        if(Hash::check($request->current_password, $user->password) || $user->password == ""){
             $input['password'] = Hash::make($request->new_password);
             $user->password= $input['password'];
-            $user->save();
+            User::where('id',Auth::user()->id)->update(['password'=>$input['password']]);
         }else{
+            Session::flash('message','Current Password does not match.');
             return redirect('/profile');
         }
+        Session::flash('message','Password Updated Successfully.');
         return redirect('/profile');
     }
 }

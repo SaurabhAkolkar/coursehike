@@ -75,7 +75,7 @@
           <li class="{{ Nav::isResource('currency') }}"><a href="{{url('currency')}}"> <i class="flaticon-wallet"></i><span>{{ __('adminstaticword.Currency') }}</span></a></li>
           -->
 
-          <li class="{{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('course') }} {{ Nav::isResource('bundle') }} {{ Nav::isResource('courselang') }} treeview">
+          <li class="@if(Request::segment(1) == 'category' || Request::segment(1) == 'subcategory' || Request::segment(1) == 'course' ) active menu-open @endif {{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('publishrequest') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('bundle') }} {{ Nav::isResource('courselang') }} treeview">
             <a href="#">
                 <i class="la-icon la-icon--lg icon-courses mr-4"></i>{{ __('adminstaticword.Course') }}
                 <span class="pull-right-container">
@@ -84,24 +84,24 @@
             </a>                            
 
             <ul class="treeview-menu">
-              <li class="{{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('courselang') }} {{ Nav::isResource('coursereview') }} treeview">
+              <li class="{{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('childcategory') }}  treeview">
                   <a href="#"><i class="la-icon la-icon--lg icon-categories mr-4"></i>{{ __('adminstaticword.Category') }}<i class="fa fa-angle-left pull-right"></i></a>
                   
                   <ul class="treeview-menu">
-                    <li class="{{ Nav::isResource('category') }}"><a href="{{url('category')}}"><i class="la-icon la-icon--lg icon-categories mr-4"></i>{{ __('adminstaticword.Category') }}</a></li>
-                    <li class="{{ Nav::isResource('subcategory') }}"><a href="{{url('subcategory')}}"><i class="la-icon la-icon--lg icon-sub-category mr-4"></i>{{ __('adminstaticword.SubCategory') }}</a></li>
+                    <li class="@if(Request::segment(1) == 'category') active @endif"><a href="{{url('category')}}"><i class="la-icon la-icon--lg icon-categories mr-4"></i>{{ __('adminstaticword.Category') }}</a></li>
+                    <li class="@if(Request::segment(1) == 'subcategory') active @endif"><a href="{{url('subcategory')}}"><i class="la-icon la-icon--lg icon-sub-category mr-4"></i>{{ __('adminstaticword.SubCategory') }}</a></li>
                     <li class="{{ Nav::isResource('childcategory') }}"><a href="{{url('childcategory')}}"><i class="la-icon la-icon--lg icon-child-category mr-4"></i>{{ __('adminstaticword.ChildCategory') }}</a></li>
                   </ul>
 
-                  <li class="{{ Nav::isResource('course') }}"><a href="{{url('course')}}"><i class="la-icon la-icon--lg icon-courses mr-4"></i><!--<i class="flaticon-document" aria-hidden="true"></i> --><span>{{ __('adminstaticword.Courses') }}</span></a></li>
+                  <li class="@if(Request::segment(1) == 'course') active @endif"><a href="{{url('course')}}"><i class="la-icon la-icon--lg icon-courses mr-4"></i><!--<i class="flaticon-document" aria-hidden="true"></i> --><span>{{ __('adminstaticword.Courses') }}</span></a></li>
 
                   <!-- <li class="{{ Nav::isResource('bundle') }}"><a href="{{url('bundle')}}"><i class="flaticon-interface" aria-hidden="true"></i><span>{{ __('adminstaticword.BundleCourse') }}</span></a></li> -->
 
                   <li class="{{ Nav::isResource('courselang') }}"><a href="{{url('courselang')}}"><i class="la-icon la-icon--lg icon-course-language mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.CourseLanguage') }}</span></a></li>
                   
-                  <li class="{{ Nav::isResource('publishrequest') }}"><a href="{{url('publishrequest')}}"><i class="la-icon la-icon--lg icon-course-request mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Publish') }} {{ __('adminstaticword.Review') }}</span></a></li>
+                  <li class="{{ Nav::isResource('publishrequest') }}"><a href="{{url('publishrequest')}}"><i class="la-icon la-icon--lg icon-course-request mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.PublishRequest') }}</span></a></li>
                   
-                  <li class="{{ Nav::isResource('coursereviewunpublish') }}"><a href="{{url('coursereviewunpublish')}}"><i class="la-icon la-icon--lg icon-course-request mr-4" aria-hidden="true"></i><span>Unpublish Review</span></a></li>
+                  <li class="{{ Nav::isResource('coursereviewunpublish') }}"><a href="{{url('coursereviewunpublish')}}"><i class="la-icon la-icon--lg icon-course-request mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.UnpublishRequest') }}</span></a></li>
 
                   {{-- @if($global_settings->assignment_enable == 1)
                     <li class="{{ Nav::isRoute('assignment.view') }}"><a href="{{route('assignment.view')}}"><i class="flaticon-computer" aria-hidden="true"></i><span>{{ __('adminstaticword.Assignment') }}</span></a></li>
@@ -139,7 +139,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="{{ Nav::isResource('faq') }}"><a href="{{url('faq')}}"><i class="la-icon la-icon--lg icon-learner-faq mr-3"></i> <span>{{ __('adminstaticword.FaqStudent') }}</span></a></li>
+              <li class="@if(Request::segment(1) == 'faq') active @endif"><a href="{{url('faq')}}"><i class="la-icon la-icon--lg icon-learner-faq mr-3"></i> <span>{{ __('adminstaticword.FaqStudent') }}</span></a></li>
               <li class="{{ Nav::isResource('faqinstructor') }}"><a href="{{url('faqinstructor')}}"><i class="la-icon la-icon--lg icon-mentor-faq mr-3"></i><span>{{ __('adminstaticword.FaqInstructor') }}</span></a></li>
             </ul>
           </li> 
@@ -174,7 +174,7 @@
             </ul>
           </li> -->
 
-          <li class="{{ Nav::isResource('slider') }} {{ Nav::isResource('facts') }} {{ Nav::isRoute('category.slider') }} {{ Nav::isResource('coursetext') }} {{ Nav::isResource('getstarted') }} {{ Nav::isResource('trusted') }} {{ Nav::isRoute('widget.setting') }} {{ Nav::isRoute('terms') }} {{ Nav::isResource('testimonial') }} treeview">
+          <li class="{{ Nav::isResource('slider') }} {{ Nav::isResource('facts') }} {{ Nav::isRoute('category.slider') }} {{ Nav::isResource('firstsection') }} {{Nav::isResource('featuredMentors')}} {{ Nav::isResource('coursetext') }} {{ Nav::isResource('getstarted') }} {{ Nav::isResource('trusted') }} {{ Nav::isRoute('widget.setting') }} {{ Nav::isRoute('terms') }} {{ Nav::isResource('testimonial') }} treeview">
            <a href="#">
              <i class="flaticon-optimization" aria-hidden="true"></i> <span>{{ __('adminstaticword.FrontSetting') }}</span>
               <span class="pull-right-container">
@@ -182,16 +182,16 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="{{ Nav::isResource('slider') }}"><a href="{{url('slider')}}"><i class="flaticon-slider-tool"></i><span>{{ __('adminstaticword.Slider') }}</span></a></li>
-              <li class="{{ Nav::isResource('facts') }}"><a href="{{url('facts')}}"><i class="flaticon-project-management"></i><span>{{ __('adminstaticword.FactsSlider') }}</span></a></li>
-              <li class="{{ Nav::isRoute('category.slider') }}"><a href="{{route('category.slider')}}"><i class="flaticon-interface"></i><span>{{ __('adminstaticword.CategorySlider') }}</span></a></li>
-              <li class="{{ Nav::isResource('coursetext') }}"><a href="{{url('coursetext')}}"><i class="flaticon-book"></i> {{ __('adminstaticword.CourseText') }}</a></li>
-              <li class="{{ Nav::isResource('getstarted') }}"><a href="{{url('getstarted')}}"><i class="flaticon-shuttle"></i>{{ __('adminstaticword.GetStarted') }}</a></li>
-              <li class="{{ Nav::isResource('trusted') }}"><a href="{{url('trusted')}}"><i class="flaticon-sliders"></i><span>{{ __('adminstaticword.TrustedSlider') }}</span></a></li>
-              <li class="{{ Nav::isRoute('widget.setting') }}"><a href="{{route('widget.setting')}}"><i class="flaticon-real-state"></i>{{ __('adminstaticword.WidgetSetting') }}</a></li>
-              <li class="{{ Nav::isResource('testimonial') }}"><a href="{{url('testimonial')}}"><i class="flaticon-customer-1"></i>{{ __('adminstaticword.Testimonial') }}</a></li>
-              <li class="{{ Nav::isResource('firstsection') }}"><a href="{{url('firstsection')}}"><i class="flaticon-customer-1"></i>{{ __('adminstaticword.FirstSection') }}</a></li>
-              <li class="{{ Nav::isResource('featuredMentors') }}"><a href="{{url('featuredMentors')}}"><i class="flaticon-customer-1"></i>{{ __('adminstaticword.FeaturedMentors') }}</a></li>
+              <li class="@if(Request::segment(1) == 'slider') active @endif"><a href="{{url('slider')}}"><i class="flaticon-slider-tool"></i><span>{{ __('adminstaticword.Slider') }}</span></a></li>
+              <li class="@if(Request::segment(1) == 'facts') active @endif"><a href="{{url('facts')}}"><i class="flaticon-project-management"></i><span>{{ __('adminstaticword.FactsSlider') }}</span></a></li>
+              <li class="@if(Request::segment(1) == 'frontslider') active @endif"><a href="{{route('category.slider')}}"><i class="flaticon-interface"></i><span>{{ __('adminstaticword.CategorySlider') }}</span></a></li>
+              <li class="@if(Request::segment(1) == 'coursetext') active @endif"><a href="{{url('coursetext')}}"><i class="flaticon-book"></i> {{ __('adminstaticword.CourseText') }}</a></li>
+              <li class="@if(Request::segment(1) == 'getstarted') active @endif"><a href="{{url('getstarted')}}"><i class="flaticon-shuttle"></i>{{ __('adminstaticword.GetStarted') }}</a></li>
+              <li class="@if(Request::segment(1) == 'trusted') active @endif"><a href="{{url('trusted')}}"><i class="flaticon-sliders"></i><span>{{ __('adminstaticword.TrustedSlider') }}</span></a></li>
+              <li class="@if(Request::segment(1) == 'widget') active @endif"><a href="{{route('widget.setting')}}"><i class="flaticon-real-state"></i>{{ __('adminstaticword.WidgetSetting') }}</a></li>
+              <li class="@if(Request::segment(1) == 'testimonial') active @endif"><a href="{{url('testimonial')}}"><i class="flaticon-customer-1"></i>{{ __('adminstaticword.Testimonial') }}</a></li>
+              <li class="@if(Request::segment(1) == 'firstsection') active @endif"><a href="{{url('firstsection')}}"><i class="flaticon-customer-1"></i>{{ __('adminstaticword.FirstSection') }}</a></li>
+              <li class="@if(Request::segment(1) == 'featuredMentors') active @endif"><a href="{{url('featuredMentors')}}"><i class="flaticon-customer-1"></i>{{ __('adminstaticword.FeaturedMentors') }}</a></li>
             </ul>
           </li>
           

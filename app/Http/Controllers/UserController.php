@@ -244,10 +244,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $cities = City::all();
+        
+        $user = User::findorfail($id);
+        $cities = Allcity::where(['state_id'=>$user->id])->get();
         $states = State::all();
         $countries = Country::all();
-        $user = User::findorfail($id);
+      
         return view('admin.user.edit',compact('cities','states','countries','user'));
 
     }
@@ -266,8 +268,18 @@ class UserController extends Controller
 
         $request->validate([
               'email' => 'required|email|unique:users,email,'.$user->id,
+              'mobile' => 'required|integer|min:10',
           ]);
 
+        if($request->dob){
+            $dob = Carbon::parse($request->dob);
+            $now = Carbon::now();
+
+            $diff = $dob->diffInDays($now);
+            if(round($diff/365) < 18){
+                return redirect()->back()->with('success','Date of birth is invalid.');
+            }
+        }
         $input = $request->all();
         
 
@@ -307,8 +319,13 @@ class UserController extends Controller
         }
 
         $user->update($input);
-
-        Session::flash('success','User Updated Successfully !');
+        if($user->id == Auth::user()->id)
+        {
+            Session::flash('success','Profile Updated Successfully !');
+            return redirect()->back();
+        }else{
+            Session::flash('success','User Updated Successfully !');
+        }
         return redirect()->route('user.index');
 
     }
@@ -422,7 +439,7 @@ class UserController extends Controller
         }else{
             $otherCategories = Categories::where('status',1)->get();
         }
-        
+     // dd($myInterests);
         return view('learners.pages.my-interests',compact('myInterests','otherCategories'));
     }
     

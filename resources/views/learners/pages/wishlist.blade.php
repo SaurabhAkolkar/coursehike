@@ -64,11 +64,11 @@
                           :id="$courses->course_id"
                           :img="$courses->courses->preview_image" 
                           :course="$courses->courses->title" 
-                          :url="$rating" 
+                          :url="$courses->courses->slug" 
                           :rating="$courses->courses->review->avg('rating')?$courses->courses->review->avg('rating'):'0'"
                           :creatorImg="$img"
                           :creatorName="$courses->courses->user->FullName"
-                          :creatorUrl="$courses"
+                          :creatorUrl="$courses->courses->user->id"
                           :addedToWhishList="$addedToWhishList"
                         />
                     </div>
