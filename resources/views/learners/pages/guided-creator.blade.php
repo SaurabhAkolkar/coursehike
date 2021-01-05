@@ -53,7 +53,7 @@
             <div class="la-gvline d-flex align-items-start flex-column mt-5 la-anim__wrap">
               <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5 la-anim__stagger-item">
                 <img class="img-fluid mx-auto d-block img-rounded mt-n5" src="./images/learners/creator/gcreator-1a.png" alt="Record a Video"></div>
-              <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-video-unfilled la-anim__stagger-item--x"></span></div>
+              <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-video-unfilled "></span></div>
               <div class="la-gcreator__video-content mt-5">
                 <h5 class="la-gcreator__video-title la-anim__stagger-item">We'll record a Video</h5>
                 <p class="la-gcreator__video-para pt-3 text-md la-anim__stagger-item">Stet clita kasd gubergen, no sea takimata sanctus est Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet.</p>
@@ -74,7 +74,7 @@
             </div>
             <div class="la-gvline d-flex align-items-start flex-column la-anim__wrap">
               <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5 la-anim__stagger-item"><img class="img-fluid mx-auto d-block img-rounded mt-n5" src="./images/learners/creator/gcreator-2a.png" alt="Edit a Video"></div>
-              <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-edit-image la-anim__stagger-item--x"></span></div>
+              <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-edit-image "></span></div>
               <div class="la-gcreator__video-content mt-5">
                 <h5 class="la-gcreator__video-title la-anim__stagger-item">We'll edit the Video</h5>
                 <p class="la-gcreator__video-para text-md pt-3 la-anim__stagger-item">Stet clita kasd gubergen, no sea takimata sanctus est Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet.</p>
@@ -86,8 +86,7 @@
                 </ul>
                 <div class="form-group pt-3 la-anim__stagger-item">
                   <label class="d-flex" for="editVideo">
-                    <input class="d-none" id="editVideo" type="checkbox" name=""><span class="gcheck position-relative">
-                      <div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                    <input class="d-none" id="editVideo" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                     <div class="pl-4 mt-n1 text-sm">Yes, I want you to edit for me!</div>
                   </label>
                 </div>
@@ -95,7 +94,7 @@
             </div>
             <div class="la-gvline-last d-flex align-items-start flex-column la-anim__wrap">
               <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5 la-anim__stagger-item"><img class="img-fluid mx-auto d-block img-rounded mt-n5" src="./images/learners/creator/gcreator-3a.png" alt="Share Video"></div>
-              <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-share-image la-anim__stagger-item--x"></span></div>
+              <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-share-image "></span></div>
               <div class="la-gcreator__video-content mt-5">
                 <h5 class="la-gcreator__video-title la-anim__stagger-item">Share it with the World</h5>
                 <p class="la-gcreator__video-para text-md pt-3 la-anim__stagger-item">Stet clita kasd gubergen, no sea takimata sanctus est Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet.</p>
@@ -126,7 +125,7 @@
           <div class="la-bgcreator__ad-content text-center text-white la-anim__stagger-item">
             <div class="px-5">
               <p class="la-bgcreator__ad-para la-anim__stagger-item">Ready to share your Creations?</p><br>
-              <a class="ad-btn la-btn__app text-white la-anim__stagger-item" role="button" href="/creator-signup">Get Started</a>
+              <a class="btn btn-link la-btn__app text-white la-anim__stagger-item" role="button" href="/creator-signup">Get Started</a>
             </div>
           </div>
         </div>

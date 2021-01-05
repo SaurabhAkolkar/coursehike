@@ -128,10 +128,9 @@ section.la-start-creating{
 	.la-icon__vline{
 		position:absolute;
 		left:0;
-		text-align: left;
+		top:0;
 		width:80px;
 		height:80px;
-		padding:38px;
 		background-color: #FFC516;
 		color:#fff;
 		border-radius:var(--rounded-full);
@@ -139,7 +138,9 @@ section.la-start-creating{
 		z-index:var(--z-1);
 	}
 	.la-icon__vline span{
-		margin:-24px 0 0 -22px;
+		position: relative;
+		top:10px;
+		left:10px;
 	}
 	.la-vicon__text{
 		font-family: var(--body-font);
@@ -337,7 +338,7 @@ section.la-bgcreator--ad-banner{
 		.la-arrow-link{
 			letter-spacing: .1rem;
 			color:#ffffff;
-			font-size:10px;
+			font-size:var(--text-xs);
 			span{
 				position:absolute;
 				bottom:-24px;
