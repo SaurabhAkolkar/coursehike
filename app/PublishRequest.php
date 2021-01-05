@@ -8,8 +8,8 @@ class PublishRequest extends Model
 {
     protected $fillable = ['user_id','course_id','request_type','status'];
 
-    public function courses()
+    public function course()
     {
-    	return $this->belongsTo('App\Course','course_id','id');
+    	return $this->hasOne('App\Course','id','course_id');
     }
 }
