@@ -1,9 +1,9 @@
 @extends('learners.layouts.app')
 
 @section('content')
-<section class="la-cbg--main">
+<section class="la-cbg--main la-section">
     <!-- Section Ongoing: Start-->
-    <section class="la-section">
+    <section class=" la-section__small">
       <div class="la-section__inner">
         <!-- Alert Message-->
         <div id="wishlist_alert_div" class="container"></div> 
@@ -202,7 +202,7 @@
     </section>
     <!-- Section Ongoing: End-->
     <!-- Section Yet to Start: Start-->
-    <section class="la-section">
+    <section class="la-section__small">
       <div class="la-section__inner">
         <div class="container la-anim__wrap">
           <div class="col-12 d-flex justify-content-between mb-6 la-anim__stagger-item--x">
@@ -360,7 +360,7 @@
     </section>
     <!-- Section Yet to Start: End-->
     <!-- Section Completed: Start-->
-    <section class="la-section">
+    <section class="la-section__small">
       <div class="la-section__inner">
         <div class="container la-anim__wrap">
           <div class="col-12 d-flex justify-content-between mb-6 la-anim__stagger-item--x">

@@ -125,7 +125,7 @@
           <div class="la-bgcreator__ad-content text-center text-white la-anim__stagger-item">
             <div class="px-5">
               <p class="la-bgcreator__ad-para la-anim__stagger-item">Ready to share your Creations?</p><br>
-              <a class="btn btn-link la-btn__app text-white la-anim__stagger-item" role="button" href="/creator-signup">Get Started</a>
+              <a class="la-btn__app text-white la-anim__stagger-item" role="button" href="/creator-signup">Get Started</a>
             </div>
           </div>
         </div>

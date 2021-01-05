@@ -136,7 +136,7 @@
             <div class="la-bgcreator__ad-content text-center text-white la-anim__stagger-item">
               <div class="py-2 px-5 ">
                 <div class="text-2xl font-weight-light pb-5 mb-5 la-anim__stagger-item">Start learning from the best mentors across the world!</div>
-                <a class="ad-btn la-btn la-btn-secondary text-white text-uppercase px-5 la-anim__stagger-item" role="button" href="#">Get Started</a>
+                <a class="la-btn la-btn-secondary text-white text-uppercase px-5 la-anim__stagger-item" role="button" href="#">Get Started</a>
               </div>
             </div>
           </div>
@@ -314,8 +314,8 @@
           <!-- Column: Start-->
           <div class="col-12 col-lg-8 px-0 px-lg-3"> 
             <div class="la-lp__test-rgt ">                  
-              <div class="la-lp__test-cards d-flex justify-content-end la-anim__stagger-item--x">
-                <div class="card la-lp__card-itm" id="testCard1">
+              <div class="la-lp__test-cards d-flex justify-content-end la-anim__stagger-item--x" id="testCard1">
+                <div class="card la-lp__card-itm" >
                   <div class="la-card__top d-flex justify-content-between">
                     <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle" src="https://picsum.photos/50/50" alt="Profile">
                       <div class="col">
@@ -337,8 +337,8 @@
                   </p>
                 </div>
               </div>
-              <div class="la-lp__test-cards d-flex justify-content-between la-anim__stagger-item--x">
-                <div class="card la-lp__card-itm" id="testCard2">
+              <div class="la-lp__test-cards d-flex justify-content-between la-anim__stagger-item--x" id="testCard2">
+                <div class="card la-lp__card-itm" >
                   <div class="la-card__top d-flex justify-content-between">
                     <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle" src="https://picsum.photos/50/50" alt="Profile">
                       <div class="col">
@@ -366,8 +366,8 @@
                   </ul>
                 </div>
               </div>
-              <div class="la-lp__test-cards d-flex justify-content-end la-anim__stagger-item--x">
-                <div class="card la-lp__card-itm" id="testCard3">
+              <div class="la-lp__test-cards d-flex justify-content-end la-anim__stagger-item--x" id="testCard3">
+                <div class="card la-lp__card-itm" >
                   <div class="la-card__top d-flex justify-content-between">
                     <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle" src="https://picsum.photos/50/50" alt="Profile">
                       <div class="col">

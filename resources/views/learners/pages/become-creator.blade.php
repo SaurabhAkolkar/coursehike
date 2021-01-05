@@ -345,7 +345,7 @@
           <div class="la-bgcreator__ad-content text-center text-white px-5 la-anim__stagger-item">
             <div class="px-5">
               <p class="la-bgcreator__ad-para la-anim__stagger-item">Start teaching Students for Life with your creations&#33;</p><br>
-              <a class="btn btn-link la-btn__app text-white text-uppercase la-anim__stagger-item" role="button" href="/creator-signup">Start Creating</a>
+              <a class=" la-btn__app text-white text-uppercase la-anim__stagger-item" role="button" href="/creator-signup">Start Creating</a>
               <div class="mt-8">
                 <a class="la-arrow-link text-uppercase position-relative la-anim__stagger-item" href="/guided-creator"> Learn More
                   <span class="la-icon la-icon--5xl icon-grey-arrow la-anim__stagger-item--x"></span>
