@@ -271,6 +271,7 @@
                 </div>
                 <!-- Single Purchase: End-->
               </div>
+
               <div class="panel-group la-lp__faq-group" id="accPPMain">
                 <!-- Premium Purchase: Start-->
                 <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
@@ -291,7 +292,38 @@
                 </div>
                 <!-- Premium Purchase: End -->
               </div>
-              <div class="faq-see-all text-right pt-4"><a href="#">See all                             </a></div>
+
+              <div class="collapse" id="lp_faq_collapse">
+                <div class="panel-group la-lp__faq-group" id="accPPMain2">
+                  <!-- Premium Purchase: Start-->
+                  <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
+                    <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqPP2">
+                      <span class="panel-title la-lp__faq-title mx-5">
+                        <a class="main-toggle collapsed" href="#faqPre2" data-toggle="collapse" aria-expanded="true">PURCHASE</a>
+                      </span>
+                    </div>
+                    <div class="panel-collapse collapse" id="faqPre2" aria-labelledby="faqPP2"  data-parent="#accPPMain2">
+                      <div class="panel-group la-lp__sub-group mx-2 mx-sm-5" id="accPP2"> 
+                        <div class="panel panel-default la-lp__faq-panel mt-2">
+                          <div class="panel-heading la-lp__faq-sub py-2" id="faqPP12"><span class="panel-title la-lp__faq-tag mx-3">
+                            <a class="accordion-toggle collapsed" href="#faqPPa2" data-toggle="collapse" aria-expanded="true">How much it cost?</a></span>
+                            <div class="panel-collapse collapse" id="faqPPa2" aria-labelledby="faqPP12" data-parent="#accPP2">
+                              <div class="panel-body py-4 px-5">
+                                <div class="panel-text">Something</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Premium Purchase: End -->
+                </div>
+              </div>
+
+              <div class="faq-see-all text-right pt-4">
+                <a class="collapsed" role="button" data-toggle="collapse" href="#lp_faq_collapse">See all</a>
+              </div>
             </div>
           </div>
           <!-- Column: End-->

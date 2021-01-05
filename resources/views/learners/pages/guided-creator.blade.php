@@ -186,8 +186,39 @@
                 </div>
               </div>
             </div>
+            
+               <!-- See all Collapse: Start -->
+               <div class="collapse" id="faq_collapse">
+              <div class="panel panel-default la-bgcreator__faq-panel la-anim__stagger-item">
+                <div class="panel-heading la-bgcreator__panel-head la-anim__stagger-item--x" id="faq5">
+                  <div class="panel-title la-bgcreator__panel-title ">
+                    <a class="accordion-toggle collapsed text-md" href="#faq_5" data-toggle="collapse" aria-expanded="false" aria-controls="#faq-redeem">How to redeem amount from my wallet ?</a>
+                  </div>
+                </div>
+                <div class="panel-collapse collapse" id="faq_5" aria-labelledby="faq5" data-parent="#accordion">
+                  <div class="panel-body la-bgcreator__panel-body">
+                    <p class="m-0 la-bgcreator__panel-para text-md panel-text">Something</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-default la-bgcreator__faq-panel la-anim__stagger-item">
+                <div class="panel-heading la-bgcreator__panel-head la-anim__stagger-item--x" id="faq6">
+                  <div class="panel-title la-bgcreator__panel-title ">
+                    <a class="accordion-toggle collapsed text-md" href="#faq_6" data-toggle="collapse" aria-expanded="false" aria-controls="#faq-redeem">What are the learning plans ?</a>
+                  </div>
+                </div>
+                <div class="panel-collapse collapse" id="faq_6" aria-labelledby="faq6" data-parent="#accordion">
+                  <div class="panel-body la-bgcreator__panel-body">
+                    <p class="m-0 la-bgcreator__panel-para text-md panel-text">Something</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+             <!-- See all Collapse: End -->
+            
             <div class="la-bgcreator__faq-all text-center text-sm-right pt-4 la-anim__stagger-item">
-              <a class= "text-sm" href=""><span class="la-bgcreator__all-link">See all</span></a>
+              <a class= "text-sm collapsed" data-toggle="collapse" href="#faq_collapse"><span class="la-bgcreator__all-link">See all</span></a>
             </div>
         </div>
         <!-- Column: End-->

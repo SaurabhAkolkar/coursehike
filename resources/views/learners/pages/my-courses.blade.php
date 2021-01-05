@@ -1,9 +1,9 @@
 @extends('learners.layouts.app')
 
 @section('content')
-<section class="la-cbg--main la-section">
+<section class="la-cbg--main">
     <!-- Section Ongoing: Start-->
-    <section class=" la-section__small">
+    <section class="la-section__small">
       <div class="la-section__inner">
         <!-- Alert Message-->
         <div id="wishlist_alert_div" class="container"></div> 
@@ -27,10 +27,10 @@
              <!-- Filters : Start -->
              <div class="la-courses__nav-filters d-flex align-items-start">
               <div class="la-courses__nav-props">
-                <a class="la-icon--3xl icon-list-layout la-courses__nav-filter d-none d-lg-block mr-3" id="showLayout" role="button"></a>
+                <a class="la-icon--2xl icon-list-layout la-courses__nav-filter mr-3" id="showLayout" role="button"></a>
               </div>
               <div class="la-courses__nav-props">
-                <a class="la-icon--3xl icon-sort la-courses__nav-filter d-none d-lg-block mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                <a class="la-icon--2xl icon-sort la-courses__nav-filter mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                 <!-- Sort Courses Dropdown -->
                 <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses"  style="border:none !important;">
                   <div class="la-form__input-wrap px-5">
@@ -54,7 +54,7 @@
               </div>
 
               <div class="la-courses__nav-props">
-                <a class="la-icon--3xl icon-filter la-courses__nav-filter d-none d-lg-block" id="filteredCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                <a class="la-icon--2xl icon-filter la-courses__nav-filter " id="filteredCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                   <!-- Filter Courses Dropdown -->
                   <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="filteredCourses"  style="border:none !important;">
                       <div class="la-form__input-wrap px-5">
@@ -210,10 +210,10 @@
              <!-- Filters : Start -->
              <div class="la-courses__nav-filters d-flex align-items-start">
               <div class="la-courses__nav-props">
-                <a class="la-icon--3xl icon-list-layout la-courses__nav-filter d-none d-lg-block mr-3" id="showLayout" role="button"></a>
+                <a class="la-icon--2xl icon-list-layout la-courses__nav-filter mr-3" id="showLayout" role="button"></a>
               </div>
               <div class="la-courses__nav-props">
-                <a class="la-icon--3xl icon-sort la-courses__nav-filter d-none d-lg-block mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                <a class="la-icon--2xl icon-sort la-courses__nav-filter mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                 <!-- Sort Courses Dropdown -->
                 <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses"  style="border:none !important;">
                   <div class="la-form__input-wrap px-5">
@@ -237,7 +237,7 @@
               </div>
 
               <div class="la-courses__nav-props">
-                <a class="la-icon--3xl icon-filter la-courses__nav-filter d-none d-lg-block" id="filteredCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                <a class="la-icon--2xl icon-filter la-courses__nav-filter" id="filteredCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                   <!-- Filter Courses Dropdown -->
                   <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="filteredCourses"  style="border:none !important;">
                       <div class="la-form__input-wrap px-5">
@@ -368,10 +368,10 @@
              <!-- Filters : Start -->
              <div class="la-courses__nav-filters d-flex align-items-start">
               <div class="la-courses__nav-props">
-                <a class="la-icon--3xl icon-list-layout la-courses__nav-filter d-none d-lg-block mr-3" id="showLayout" role="button"></a>
+                <a class="la-icon--2xl icon-list-layout la-courses__nav-filter mr-3" id="showLayout" role="button"></a>
               </div>
               <div class="la-courses__nav-props">
-                <a class="la-icon--3xl icon-sort la-courses__nav-filter d-none d-lg-block mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                <a class="la-icon--2xl icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                 <!-- Sort Courses Dropdown -->
                 <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses"  style="border:none !important;">
                   <div class="la-form__input-wrap px-5">
@@ -395,7 +395,7 @@
               </div>
 
               <div class="la-courses__nav-props">
-                <a class="la-icon--3xl icon-filter la-courses__nav-filter d-none d-lg-block" id="filteredCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                <a class="la-icon--2xl icon-filter la-courses__nav-filter" id="filteredCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                   <!-- Filter Courses Dropdown -->
                   <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="filteredCourses"  style="border:none !important;">
                       <div class="la-form__input-wrap px-5">

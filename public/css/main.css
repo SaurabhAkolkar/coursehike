@@ -9792,8 +9792,8 @@ a.text-dark:focus, a.text-dark:hover {
 }
 @font-face {
   font-family: "icomoon";
-  src: url(/fonts/icomoon.eot?b096aaa8936b22f7b3e49c13b44cf74c);
-  src: url(/fonts/icomoon.eot?b096aaa8936b22f7b3e49c13b44cf74c#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?b88d9fe966296de7bad0135a2c0d74e2) format("truetype"), url(/fonts/icomoon.woff?091b4b499b3d74d1c6ad018232584754) format("woff"), url(/fonts/icomoon.svg?ad17331765ea48e01564a8cbc6152507#icomoon) format("svg");
+  src: url(/fonts/icomoon.eot?6b7ed849733515ffb31ffe3c50988431);
+  src: url(/fonts/icomoon.eot?6b7ed849733515ffb31ffe3c50988431#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?7cd0152e5f93212eb9758c55960c33f2) format("truetype"), url(/fonts/icomoon.woff?e0aad280f0eeacfd011896ac75b36b1b) format("woff"), url(/fonts/icomoon.svg?eb8486ce719fb5022b7f9772b82de6b2#icomoon) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -10584,6 +10584,10 @@ ul, li {
 .la-btn.active, .la-btn:focus {
   background-color: var(--green) !important;
   border-color: var(--green) !important;
+}
+.la-btn.active:hover, .la-btn:focus:hover {
+  background: transparent !important;
+  color: var(--black) !important;
 }
 .la-btn__plain, .la-btn__arrow {
   font-weight: var(--font-bold);
@@ -17891,8 +17895,8 @@ a, a:hover {
   background-color: rgba(101, 101, 101, 0.34);
 }
 .la-vcourse__lesson-playbtn {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   background-color: var(--app-indigo-1);
   position: absolute;
   top: 0;
@@ -17911,9 +17915,10 @@ a, a:hover {
   z-index: 3;
   width: 0;
   height: 0;
-  border-left: 6px solid #C5C5C5;
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
+  margin-left: 2px;
+  border-left: 8px solid #C5C5C5;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
 }
 .la-vcourse__lesson-videothumb {
   position: relative;
@@ -17940,20 +17945,18 @@ a, a:hover {
 }
 .la-vcourse__access-wrap {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   top: 0;
   bottom: 0;
-  left: -9px;
+  left: -11px;
   margin: auto;
   border-radius: 100px;
   z-index: 1;
 }
 .la-vcourse__access-icon {
-  width: 0.1px;
-  height: 0.1px;
   position: absolute;
-  top: 3px;
+  top: 4px;
   left: 5px;
 }
 .la-vcourse__access-icon--white {
@@ -17961,7 +17964,8 @@ a, a:hover {
 }
 .la-vcourse__access-icon--danger {
   color: var(--danger);
-  left: 4px;
+  left: 4.5px;
+  top: 3px;
 }
 .la-vcourse__access-icon--green {
   color: var(--green);
@@ -18012,7 +18016,7 @@ a, a:hover {
   color: var(--green);
 }
 .la-vcourse__purchase-trial--lnk {
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   text-decoration: underline;
   font-weight: var(--font-medium);
 }
@@ -18059,6 +18063,12 @@ a, a:hover {
   font-size: var(--text-xl);
   line-height: var(--text-xl);
   font-weight: var(--font-semibold);
+}
+.la-creator__content-quote {
+  color: var(--gray6);
+  opacity: 0.25;
+  font-family: var(--head-font);
+  font-weight: var(--font-black);
 }
 .la-creator__content-title .la--icon img {
   height: 45px;
@@ -20997,7 +21007,7 @@ label.error {
   } */
 }
 .la-section__small {
-  padding-bottom: var(--size-14);
+  padding: var(--size-12) 0;
 }
 .la-section__title--big {
   font-family: var(--head-font);
