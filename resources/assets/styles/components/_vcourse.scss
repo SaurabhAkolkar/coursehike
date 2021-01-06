@@ -341,8 +341,8 @@
                         }
 
                         &playbtn {
-                            width: 24px;
-                            height: 24px;
+                            width: 22px;
+                            height: 22px;
                             background-color: var(--app-indigo-1);
                             position: absolute;
                             top: 0;
@@ -361,9 +361,10 @@
                                 z-index: 3;
                                 width: 0;
                                 height: 0;
-                                border-left: 6px solid #C5C5C5;
-                                border-top: 4px solid transparent;
-                                border-bottom: 4px solid transparent;
+                                margin-left:2px;
+                                border-left: 8px solid #C5C5C5;
+                                border-top: 5px solid transparent;
+                                border-bottom: 5px solid transparent;
                             }
                         }
 
@@ -402,20 +403,18 @@
                 &- {
                     &wrap {
                         position: absolute;
-                        width: 20px;
-                        height: 20px;
+                        width: 24px;
+                        height: 24px;
                         top: 0;
                         bottom: 0;
-                        left: -9px;
+                        left: -11px;
                         margin: auto;
                         border-radius: 100px;
                         z-index: 1;
                     }
                     &icon {
-                        width:0.1px;
-                        height:0.1px;
                         position: absolute;
-                        top:3px;
+                        top:4px;
                         left:5px;
                         // padding-left: 2px;
                         &-- {
@@ -424,7 +423,8 @@
                             }   
                             &danger {
                                 color: var(--danger);
-                                left:4px;
+                                left:4.5px;
+                                top:3px;
                             }
                             &green {
                                 color: var(--green);
@@ -496,7 +496,7 @@
                     &trial {
                         &-- {
                             &lnk {
-                                font-size: var(--text-xs);
+                                font-size: var(--text-sm);
                                 text-decoration: underline;
                                 font-weight: var(--font-medium);
                             }

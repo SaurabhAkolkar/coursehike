@@ -46,7 +46,7 @@
                     
                     <div class="modal-body la-cart__bill-mbody">
                         <div class="la-cart__bill-mapply">
-                            <form action="/apply-coupon" method="post" id="apply_coupon">
+                            <form action="/apply-coupon" method="post" id="apply_coupon" class="d-flex align-items-center">
                                 @csrf
                                 <input type="text" class="la-cart__bill-input" name="coupon_name" placeholder="Enter Coupon" required/>
                                 <button class="la-cart__bill-submit" onclick="$('#apply_coupon').submit()"> APPLY </button>

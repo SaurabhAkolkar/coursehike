@@ -17,7 +17,13 @@
         &.active, &:focus {
             background-color: var(--green) !important;
             border-color: var(--green) !important;
+
+            &:hover{
+                background:transparent !important;
+                color:var(--black)  !important;
+            }
         }
+        
 
         &__ {
             &plain, &arrow {

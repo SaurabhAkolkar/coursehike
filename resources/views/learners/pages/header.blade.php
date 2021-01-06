@@ -213,7 +213,7 @@ use App\Announcement;
 
                 <a class="dropdown-item la-header__dropdown-item text-sm" role="button" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                   <span>Logout</span>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                  <form id="logout-form" class="mb-0" action="{{ route('logout') }}" method="POST">
                     @csrf
                   </form>
                 </a>

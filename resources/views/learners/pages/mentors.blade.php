@@ -1,7 +1,7 @@
 @extends('learners.layouts.app')
 
 @section('content')
-<section class="la-section la-cbg--main">
+<section class="la-section__small la-cbg--main">
     <div class="la-section__inner">
       <div class="container ">
         <div class="mx-3 la-anim__wrap">

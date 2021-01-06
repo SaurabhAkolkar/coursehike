@@ -21,10 +21,13 @@
 
                 
 
-                <section class="la-section la-interests__sec">
+                <section class="la-interests__like la-interests__sec">
                     <div class="la-interests__inner la-anim__wrap">
-                        <div class="la-interests__title la-anim__stagger-item">Your Interests</div>
-                        <ul class="la-interests__list d-md-flex justify-content-start">
+                        <div class="la-interests__title la-anim__stagger-item">
+                            Your Interests
+                            <!--<a role="button" href="" class="text-sm ml-5" style="color:var(--app-indigo-1);font-weight:var(--font-medium)">Edit</a> -->
+                        </div>
+                        <ul class="row la-interests__list  pr-5">
                             
                             @if(count($myInterests))
                                 @php
@@ -46,7 +49,7 @@
 
                         <div class="la-interests__like la-anim__wrap">
                             <div class="la-interests__title la-anim__stagger-item">You might also like</div>
-                            <ul class="la-interests__list d-md-flex justify-content-start">
+                            <ul class="row la-interests__list pr-5">
                          
 
                                 @foreach ($otherCategories as $category)

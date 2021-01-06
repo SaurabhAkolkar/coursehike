@@ -37,6 +37,12 @@
 
             &content {
                 &- {
+                    &quote{
+                        color:var(--gray6);
+                        opacity:0.25;
+                        font-family: var(--head-font);
+                        font-weight: var(--font-black);
+                    }
                     &title {
                         & #{$ap}-- {
                             &icon {

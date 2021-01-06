@@ -41,6 +41,13 @@ $image-center: -30px;
 #{$ap}- {
     &playlist {
         &__ {
+            &add{
+                &-{
+                    &btn{
+                        height:200px;
+                    }
+                }
+            }
             &mobile{
                 color: var(--app-indigo-1);
                 letter-spacing: 1px;

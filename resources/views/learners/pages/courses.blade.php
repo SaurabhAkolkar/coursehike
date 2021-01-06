@@ -15,7 +15,7 @@
 <div id="wishlist_alert_div"></div> 
 @section('content')
 
-<section class="la-section la-cbg--main">
+<section class="la-section__small la-cbg--main">
     
     
     <div class="la-section__inner">
@@ -23,7 +23,8 @@
         
         <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
         <div class="d-flex justify-content-between la-anim__wrap">  
-          <h1 class="la-page__title mb-8 la-anim__stagger-item">Browse Courses</h1><a class="la-icon--3xl icon-filter d-block d-lg-none" id="filterCourses" role="button"></a>
+          <h1 class="la-page__title mb-8 la-anim__stagger-item">Browse Courses</h1>
+          <a class="la-icon--2xl icon-filter d-none d-lg-none" id="filterCourses" role="button"></a>
         </div>
         
         <!-- Global Search: Start-->
@@ -51,12 +52,12 @@
             </ul>
             
             <!-- Filters : Start -->
-            <div class="la-courses__nav-filters d-flex align-items-start">
+            <div class="la-courses__nav-filters d-flex align-items-start ml-6">
               <div class="la-courses__nav-props">
-                <a class="la-icon--3xl icon-list-layout la-courses__nav-filter d-none d-lg-block mr-3" id="showLayout" role="button"></a>
+                <a class="la-icon--2xl icon-list-layout la-courses__nav-filter  mr-3" id="showLayout" role="button"></a>
               </div>
               <div class="la-courses__nav-props">
-                <a class="la-icon--3xl icon-sort la-courses__nav-filter d-none d-lg-block mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                <a class="la-icon--2xl icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                 <!-- Sort Courses Dropdown -->
                 <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses"  style="border:none !important;">
                   <div class="la-form__input-wrap px-5">
@@ -80,7 +81,7 @@
               </div>
 
               <div class="la-courses__nav-props">
-                <a class="la-icon--3xl icon-filter la-courses__nav-filter d-none d-lg-block" id="filteredCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                <a class="la-icon--2xl icon-filter la-courses__nav-filter " id="filteredCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                   <!-- Filter Courses Dropdown -->
                   <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="filteredCourses"  style="border:none !important;">
                       <div class="la-form__input-wrap px-5">

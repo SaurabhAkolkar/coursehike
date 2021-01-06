@@ -11,7 +11,7 @@
 @php
 use Carbon\Carbon;
 @endphp
-<section class="la-section">
+<section class="la-section__small">
     <div class="la-vcourse">
       <div class="container">
         @if(Session('failed'))
@@ -31,7 +31,7 @@ use Carbon\Carbon;
         <div class="row  mb-12"> 
           <div class="col-12 col-lg-7">
             <div class="la-vcourse__header d-flex align-items-center">
-              <h1 class="la-vcourse__title mr-8">{{ $course->title }}</h1>
+              <h1 class="la-vcourse__title mr-8 text-capitalize">{{ $course->title }}</h1>
               {{-- <div class="la-vcourse__badges">
                 <img src="/images/learners/icons/badge.svg" alt="badge">
               </div> --}}
@@ -42,7 +42,7 @@ use Carbon\Carbon;
             <p class="la-vcourse__excerpt mb-5">{{ $course->short_detail }}</p>
             <div class="la-vcourse__creator d-flex align-items-center">
               <div class="la-vcourse__creator-avator"><img src="https://picsum.photos/200/200" alt=""></div>
-              <div class="la-vcourse__creator-name">{{ $course->user->fname }}</div>
+              <div class="la-vcourse__creator-name text-capitalize">{{ $course->user->fname }}</div>
             </div>
           </div>
           <div class="col-12 col-lg-5 d-flex flex-column justify-content-between">
@@ -116,7 +116,7 @@ use Carbon\Carbon;
                 </p>
               </video-js>
             </div>
-            <h2 class="la-vlesson__title m-0">{{ $course->title}} - Course Preview</h2><small class="la-vlesson__creator">{{ $course->user->fname }}</small>
+            <h2 class="la-vlesson__title m-0  text-capitalize">{{ $course->title}} - Course Preview</h2><small class="la-vlesson__creator text-capitalize">{{ $course->user->fname }}</small>
           </div>
           <div class="col-12 col-lg-6 la-vcourse__class-col">
             <div class="la-vcourse__curriculam pl-2 pl-lg-8">
@@ -125,7 +125,7 @@ use Carbon\Carbon;
                 <div class="la-vcourse__class-header d-flex mb-7 ml-5">
                   <div class="la-vcourse__class-thumb mr-3"><img class="img-fluid" src="{{$class->thumbnail}}"></div>
                   <div class="d-flex flex-column">
-                    <div class="la-vcourse__class-title leading-4 text-xl mb-1">{{$class->chapter_name}}</div><small class="la-vcourse__class-videoscount">{{$class->courseclass->count()}} Videos</small>
+                    <div class="la-vcourse__class-title leading-snug text-xl mb-1">{{$class->chapter_name}}</div><small class="la-vcourse__class-videoscount">{{$class->courseclass->count()}} Videos</small>
                   </div>
                 </div>
 
@@ -171,7 +171,7 @@ use Carbon\Carbon;
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  <section class="la-section">
+  <section class="la-section__small">
     <div class="la-section__inner">
       <div class="container">
         <div class="la-ctabs d-none d-sm-block">
@@ -190,9 +190,13 @@ use Carbon\Carbon;
                 <div class="col-12 col-lg px-0">
                   <div class="la-ctabs__about">
                     {!! $course->detail !!}
+                    <span class="la-ctabs__about-collapse collapse" id="about_collapse">
+                      {!! $course->detail !!}
+                    </span>
                   </div>
+                  
                   <div class="la-vcourse__btn-wrap text-right mt-3">
-                    <a class="la-btn__arrow-down la-vcourse__btn d-inline-block text-center" href="">
+                    <a class="la-btn__arrow-down la-vcourse__btn d-inline-block text-center collapsed" data-toggle="collapse" href="#about_collapse">
                       <span class="icon-down-arrow la-btn__icon la-btn__icon--grey"></span>
                       <div class="la-btn__text la-btn__text--purple">Read More</div>
                     </a>
@@ -294,7 +298,7 @@ use Carbon\Carbon;
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  <section class="la-section">
+  <section class="la-section__small">
     <div class="la-section__inner">
       <div class="container">
         <div class="la-cbenefits d-flex my-8">
@@ -332,10 +336,10 @@ use Carbon\Carbon;
   <!-- Section: Start-->
   @if($video_access || !auth()->check())
 
-  <section class="la-section la-section--grey la-vcourse__purchase">
+  <section class="la-section__small la-section--grey la-vcourse__purchase">
     <div class="la-vcourse__purchase-inwrap container">
       <div class="row la-vcourse__purchase-row">
-        <div class="col-md-6 la-vcourse__purchase-left">
+        <div class="col-md-7 la-vcourse__purchase-left">
           <div class="la-vcourse__purchase-prize mb-8">Purchase this Course @ <span class="la-vcourse__purchase-prize--amount"><b>${{$course->price}}</b></span></div>
           <form class="la-vcourse__purchase-form" id="add_to_cart_form" name="add_to_cart_form" method="post" action="/add-to-cart">
             <input type="hidden" name="course_id" value="{{$course->id}}" />
@@ -401,16 +405,16 @@ use Carbon\Carbon;
             </div>
             <div class="la-vcourse__purchase-actions d-flex flex-wrap align-items-center mt-8">
               <div class="la-vcourse__purchase-btn w-50">
-                <a class="btn btn-primary la-btn la-btn--primary w-100 text-center" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login" @endif >Buy course</a>
+                <a class="btn btn-primary la-btn w-100 text-center" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login" @endif >Buy course</a>
               </div>
               <div class="la-vcourse__purchase-btn w-50">
-                <a class="btn la-btn la-btn__plain text--green w-100 text-center" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login" @endif>ADD TO CART</a>
+                <a class="btn  la-btn__plain text--green w-100 text-center" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login" @endif>ADD TO CART</a>
               </div>
             </div>
           </form>
         </div>
-        <div class="col-md-6 la-vcourse__purchase-right">
-          <div class="la-vcourse__purchase-content offset-md-2">
+        <div class="col-md-3 offset-md-1 px-md-0 la-vcourse__purchase-right">
+          <div class="la-vcourse__purchase-content ">
             <div class="la-vcourse__purchase-prize mb-8">Subscribe for all Courses @ <span class="la-vcourse__purchase-prize--amount"><b>$39/month</b></span></div>
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam consetetur sadipscing</p>
             <div class="la-vcourse__purchase-actions d-inline-block text-center mt-8">
@@ -421,14 +425,14 @@ use Carbon\Carbon;
             </div>
           </div>
         </div>
-      </div>
+        <div class="col-md-1"></div>
     </div>
   </section>
   @endif
   <!-- Section: End-->
 
   <!-- Section: Start-->
-  <section class="la-section">
+  <section class="la-section__small">
     <div class="la-section__inner">
       <div class="container">
         <div class="row">
@@ -441,11 +445,11 @@ use Carbon\Carbon;
                       <div class="la-rtng__total body-font text-5xl mx-4 mx-md-0 px-5 px-md-0">{{$average_rating}}</div>
                       <div class="la-rtng__icons d-inline-flex">
                         @for($counter=1;$counter <= round($average_rating); $counter++)
-                            <div class="la-icon--xl icon-star la-rtng__fill"> </div>
+                            <div class="la-icon la-icon--2xl icon-star la-rtng__fill"> </div>
                         @endfor
 
                         @for($counter=1;$counter <= 5-round($average_rating); $counter++)
-                            <div class="la-icon--xl icon-star la-rtng__unfill"> </div>
+                            <div class="la-icon la-icon--2xl icon-star la-rtng__unfill"> </div>
                         @endfor                      
                         
                       </div>
@@ -602,13 +606,13 @@ use Carbon\Carbon;
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  <section class="la-section">
-    <div class="la-section__inner">
+  <section class="la-section__small">
+    <div class="la-section__inner pb-md-10">
       <div class="container">
         <h2 class="la-section__title mb-9">Creators</h2>
         <div class="row">
           <div class="col-md-5 la-creator pr-10">
-            <div class="la-creator__wrap position-relative pl-md-16">
+            <div class="la-creator__wrap position-relative">
               <div class="la-creator__inwrap d-flex align-items-end">
                 <div class="la-creator__img">
                 @php 
@@ -621,18 +625,18 @@ use Carbon\Carbon;
 
                   <span><img src="{{$course->user->user_img}}" alt=""></span>
                 </div>
-                <div class="la-creator__detail pl-8">
-                  <span class="la-creator__name">{{$course->user->fullName}}</span>
-                  <div class="la-creator__specialist mt-1">Design</div>
+                <div class="la-creator__detail pl-2 text-nowrap">
+                  <span class="la-creator__name text-capitalize">{{$course->user->fullName}}</span>
+                  <div class="la-creator__specialist mt-1 text-capitalize">Design</div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-7">
             <div class="la-creator__content offset-1 pt-14">
-              <div class="la-creator__content-title d-flex align-items-md-end mb-6">
-                <span class="la--icon"><img src="../../images/learners/course/icon-quote@2x.png" alt=""></span>
-                <span class="la--text pl-4">Stet clita kasd gubergren</span>
+              <div class="la-creator__content-title d-flex align-items-md-center">
+                <span class="la-creator__content-quote la--icon la-icon--8xl mt-n2">&#8220;</span>
+                <span class="la--text ml-n3">Stet clita kasd gubergren</span>
               </div>
               <div class="la-creator__para mb-6">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor 
                 invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</div>
@@ -650,7 +654,7 @@ use Carbon\Carbon;
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  <section class="la-section la-section--grey">
+  <section class="la-section__small la-section--grey">
     <div class="la-section__inner">
       <div class="container">
         <h2 class="la-section__title mb-9">More from Creators</h2>
@@ -723,8 +727,8 @@ use Carbon\Carbon;
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  <section class="la-section la-section--grey">
-    <div class="la-section__inner">
+  <section class="la-section__small la-section--grey">
+    <div class="la-section__inner pb-md-10">
       <div class="container">
         <h2 class="la-section__title mb-9">Looking for something else?</h2>
         <div class="row col-12 px-0 ">
