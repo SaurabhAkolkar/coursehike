@@ -618,6 +618,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
     Route::get('/watch_time', 'InstructorController@totalWatchTime');
     Route::get('/payoutCalculate', 'InstructorController@payoutCalculate');
     Route::get('/browse/courses','SearchController@index');
+    Route::get('/filter-courses','SearchController@applyFilter')->name('apply.filters');
     Route::get('/add-to-cart','CartController@addtocartAjax');
     Route::post('/add-to-cart','CartController@addToCart');
 
