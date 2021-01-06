@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'All Instructor - Admin')
+@section('title', 'Mentor Payouts - Admin')
 @section('body')
 
 <section class="content">
@@ -10,7 +10,7 @@
         <div class="box-header with-border">
           <h3 class="box-title pb-6">  {{ __('adminstaticword.CreatorPayout') }}</h3>
           <a class="btn btn-info btn-sm" href="{{url('admin/addpayout')}}">
-          + {{ __('adminstaticword.Add') }}
+          + {{ __('adminstaticword.Add') }} {{ __('adminstaticword.CreatorPayout') }}
         </a>
         </div>
         

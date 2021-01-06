@@ -1,7 +1,7 @@
 @extends('learners.layouts.app')
 
 @section('content')
-<section class="la-section la-cbg--main">
+<section class="la-section__small la-cbg--main">
     <div class="la-section__inner">
       <div class="container">
         <!-- Alert Message -->
@@ -18,13 +18,16 @@
         <!-- Wishlist Alert Message -->
         <div id="wishlist_alert_div"></div> 
         
-        <a class="la-icon--lg icon-arrow font-weight-bold my-5 d-block d-md-none" href="{{URL::previous()}}"></a>
-        <div class="d-flex justify-content-between">  
-          <h1 class="la-page__title mb-8">Search Courses</h1><a class="la-icon--3xl icon-filter d-block d-lg-none" id="filterCourses" role="button"></a>
+        <a class="la-icon la-icon--5xl icon-back-arrow ml-n1 mt-n2 mb-5 d-block d-md-none" href="{{URL::previous()}}"></a> 
+        
+        <div class="d-flex justify-content-between position-relative">  
+          <a href="{{URL::previous()}}" class="la-vcreator__back d-none d-md-block" style="top:-6px"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
+          <h1 class="la-page__title mb-8">Search Courses</h1>
+          <a class="la-icon--3xl icon-filter d-block d-lg-none" id="filterCourses" role="button"></a>
         </div>
         <!-- Global Search: Start-->
-        <div class="la-gsearch">
-          <form class="form-inline"  action="{{ url('/search-course/') }}">
+        <div class="la-gsearch mb-0">
+          <form class="form-inline "  action="{{ url('/search-course/') }}">
             <div class="form-group ">
               <input class="la-gsearch__input form-control" style="width:300px; background:transparent" value="{{$search_input}}" name="course_name" type="text" placeholder="What you want to learn today?">
             </div>
@@ -33,7 +36,7 @@
         </div>
         <!-- Global Search: End-->
 
-        <div class="la-courses mt-14">
+        <div class="la-courses py-4 py-md-16">
              
                    <x-add-to-playlist 
                       :playlists="$playlists"
@@ -62,16 +65,18 @@
 
                 </div>
                 @if(count($courses) == 0)
-                <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
-                      <div class="la-empty__inner">
-                          <h6 class="la-empty__course-title pb-2">No Courses Found.</h6>
-                      </div>
-                      <div class="la-empty__browse-courses">
-                          <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
-                              Browse Courses
-                              <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
-                          </a>
-                      </div>
+                <div class="col-12 px-0">
+                  <div class="la-empty__courses d-md-flex justify-content-between align-items-center">
+                        <div class="la-empty__inner">
+                            <h6 class="la-empty__course-title">No Courses Found.</h6>
+                        </div>
+                        <div class="la-empty__browse-courses mt-md-n4">
+                            <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
+                                Browse Courses
+                                <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
+                            </a>
+                        </div>
+                    </div>
                   </div>
                 @endif
         </div>

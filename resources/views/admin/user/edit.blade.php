@@ -25,7 +25,7 @@
       <div class="box box-primary">
         <div class="box-header with-border">
             @if(Auth::user()->id == $user->id)
-                <h3 class="box-title pb-6"> {{ __('adminstaticword.Profile') }}</h3>
+                <h3 class="box-title pb-6 pl-1"> {{ __('adminstaticword.Profile') }}</h3>
             @else
                 <h3 class="box-title pb-6"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Users') }}</h3>
             @endif
@@ -94,11 +94,13 @@
             <br>
 
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-8">
                   <label for="address">{{ __('adminstaticword.Address') }}:<sup class="redstar">*</sup> </label>
                   <textarea name="address" class="form-control" rows="1" required  placeholder="Enter adderss" value="">{{ $user->address }}</textarea>
               </div>
+            </div><br/>
 
+            <div class="row">
               <div class="col-md-4">
                 <label for="dob">{{ __('adminstaticword.DateofBirth') }}: </label>
                 <div class="input-group date">
@@ -109,19 +111,18 @@
                   <input type="date" id="date" name="dob" class="form-control" placeholder="" value="{{ $user->dob }}" max="{{Carbon\Carbon::now()->subYears(18)->format('Y-m-d')}}" >
                 </div>
               </div>
-            </div>
-            <br>
-
-            <div class="row">
+           
               <div class="col-md-4">
                <label for="gender">{{ __('adminstaticword.Gender') }}:</label>
                 <br>
-                <input type="radio" name="gender" id="ch1" value="m" {{ $user->gender == 'm' ? 'checked' : '' }}> <span class="mr-2"> {{ __('adminstaticword.Male') }} </span>
-                <input type="radio" name="gender" id="ch2" value="f" {{ $user->gender == 'f' ? 'checked' : '' }}> <span class="mr-2"> {{ __('adminstaticword.Female') }} </span>
-                <input type="radio" name="gender" id="ch3" value="o" {{ $user->gender == 'o' ? 'checked' : '' }}> <span class="mr-2"> {{ __('adminstaticword.Other') }} </span>
+                <label class="mr-2 font-weight-normal"><input type="radio" name="gender" id="ch1" value="m" {{ $user->gender == 'm' ? 'checked' : '' }}>  {{ __('adminstaticword.Male') }} </label>
+                <label class="mr-2 font-weight-normal"><input type="radio" name="gender" id="ch2" value="f" {{ $user->gender == 'f' ? 'checked' : '' }}>  {{ __('adminstaticword.Female') }} </label>
+                <label class="mr-2 font-weight-normal"><input type="radio" name="gender" id="ch3" value="o" {{ $user->gender == 'o' ? 'checked' : '' }}>  {{ __('adminstaticword.Other') }} </label>
               </div>
+            </div>
 
-              <div class="col-md-4">
+            <div class="row mt-6">
+              <div class="col-md-8">
                 <label for="role">{{ __('adminstaticword.SelectRole') }}:</label>
                   @if(Auth::User()->role=="admin")
                   <select class="form-control js-example-basic-single" name="role"   @if(Auth::user()->id == $user->id) disabled @endif >
@@ -229,9 +230,9 @@
 
             <div class="row">
               <div class="col-md-4">
-                <div class="update-password">
+                <div class="update-password d-flex align-items-center">
                   <label for="box1"> {{ __('adminstaticword.UpdatePassword') }}:</label>
-                  <input type="checkbox" id="myCheck" name="update_pass" onclick="myFunction()">
+                  <input type="checkbox" class="ml-2 " id="myCheck" name="update_pass" onclick="myFunction()">
                 </div>
 
                 <div class="row display-none" id="update-password">
@@ -269,8 +270,8 @@
             </div>
               
 
-            <div class="box-header with-border">
-              <h3 class="box-title">{{ __('adminstaticword.SocialProfile') }}</h3>
+            <div class="pt-10">
+              <h3 class="box-title mb-0 font-weight-bold text-2xl">{{ __('adminstaticword.SocialProfile') }}</h3>
             </div>
             <br>
 
@@ -310,7 +311,7 @@
 
             <div class="row">
               <div class="col-md-8">
-                <button type="submit" class="btn btn-md btn-primary">
+                <button type="submit" class="btn btn-md btn-primary px-20">
                    {{ __('adminstaticword.Save') }}
                 </button>
               </div>

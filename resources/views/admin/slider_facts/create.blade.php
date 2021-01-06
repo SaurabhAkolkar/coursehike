@@ -9,9 +9,8 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.Add') }} {{ __('adminstaticword.FactsSlider') }}</h3>
-        </div>
+        <h3 class="la-admin__section-title ml-3">{{ __('adminstaticword.Add') }} {{ __('adminstaticword.FactsSlider') }}</h3>
+        
         <div class="box-body">
           <div class="form-group">
             <form id="demo-form2" method="post" action="{{action('SliderfactsController@store')}}"vdata-parsley-validate 
@@ -20,23 +19,33 @@
                   
 
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                   <label for="icon">{{ __('adminstaticword.Icon') }}:<sup class="redstar">*</sup></label>
                   <input class="form-control icp-auto icp" type="text" name="icon" placeholder="Select Icon">
                 </div>
-                <div class="col-md-4">
+              </div><br/>
+
+              <div class="row">
+                <div class="col-md-6">
                   <label for="heading">{{ __('adminstaticword.Heading') }}:<sup class="redstar">*</sup></label>
                   <input class="form-control" type="text" name="heading" placeholder="Please Enter Your Heading">
                 </div>
-                <div class="col-md-4">
+              </div><br/>
+
+              <div class="row">
+                <div class="col-md-6">
                   <label for="sub_heading">{{ __('adminstaticword.SubHeading') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="sub_heading" id="sub_heading" placeholder="Please Enter Your Sub Heading">
                 </div>
               </div>
               <br>
               
-              <div class="box-footer">
-                <button type="submit" value="Add Slider" class="btn btn-md col-md-2 btn-primary">+ {{ __('adminstaticword.Save') }}</button>
+              <div class="row">
+                <div class="col-6">
+                  <div class="box-footer">
+                    <button type="submit" value="Add Slider" class="btn btn-md btn-primary px-14">{{ __('adminstaticword.Save') }}</button>
+                  </div>
+                </div>
               </div>
          
             </form>

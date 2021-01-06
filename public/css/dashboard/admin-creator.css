@@ -24,6 +24,117 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-trusted-sliders:before {
+  content: "\E995";
+}
+
+.icon-unpublished-course:before {
+  content: "\E996";
+}
+
+.icon-widget-settings:before {
+  content: "\E997";
+}
+
+.icon-category-sliders:before {
+  content: "\E998";
+}
+
+.icon-completed-payout:before {
+  content: "\E999";
+}
+
+.icon-course-text:before {
+  content: "\E99A";
+}
+
+.icon-fact-sliders:before {
+  content: "\E99B";
+}
+
+.icon-featured-mentor:before {
+  content: "\E99C";
+}
+
+.icon-first-section:before {
+  content: "\E99D";
+}
+
+.icon-front-Settings:before {
+  content: "\E99E";
+}
+
+.icon-get-started:before {
+  content: "\E99F";
+}
+
+.icon-mentor-payout:before {
+  content: "\E9A0";
+}
+
+.icon-my-revenue:before {
+  content: "\E9A1";
+}
+
+.icon-payout-settings:before {
+  content: "\E9A2";
+}
+
+.icon-pending-payout:before {
+  content: "\E9A3";
+}
+
+.icon-published-course:before {
+  content: "\E9A4";
+}
+
+.icon-sliders:before {
+  content: "\E9A5";
+}
+
+.icon-testimonials:before {
+  content: "\E9A6";
+}
+
+.icon-error:before {
+  content: "\E994";
+}
+
+.icon-copy-clipboard:before {
+  content: "\E990";
+}
+
+.icon-experience:before {
+  content: "\E991";
+}
+
+.icon-expert-in:before {
+  content: "\E992";
+}
+
+.icon-portfolio-link:before {
+  content: "\E993";
+}
+
+.icon-pinterest:before {
+  content: "\E98D";
+  color: #e60023;
+}
+
+.icon-twitter:before {
+  content: "\E98E";
+  color: #00acee;
+}
+
+.icon-whatsapp:before {
+  content: "\E98F";
+  color: #25d366;
+}
+
+.icon-awards:before {
+  content: "\E98B";
+}
+
 .icon-all-mentors:before {
   content: "\E986";
 }
@@ -225,6 +336,10 @@
   color: #e8e8e8;
 }
 
+.icon-interests:before {
+  content: "\E98C";
+}
+
 .icon-excel:before {
   content: "\E922";
 }
@@ -394,6 +509,14 @@
 
 .icon-lock:before {
   content: "\E900";
+}
+
+.icon-list-layout:before {
+  content: "\E9A7";
+}
+
+.icon-grid-layout:before {
+  content: "\E9A8";
 }
 
 .icon-percent-coupon:before {
@@ -707,13 +830,19 @@
   --rounded: 0.25rem;
   --rounded-full: 9999px;
   --app-indigo-1: #7322B7;
-  --gray: #faf9f7;
+  --gray: #F5F4F0;
   --gray2: #404040;
-  --gray3: #252525;
-  --gray4: #010101;
-  --gray5: #979797;
+  --gray3: #262626;
+  --gray4: #909090;
+  --gray5: #252525;
+  --gray6: #010101;
+  --gray7: #222222;
+  --gray8: #CCCCCC;
+  --gray9: #9E9E9E;
+  --gray10: #656565;
   --black: #000000;
   --white: #FFFFFF;
+  --danger: #EE4224;
   --skyblue: #1592E6;
   --z-1: 1;
   --z-2: 2;
@@ -730,6 +859,13 @@
   --z-3000: 3000;
   --z-4000: 4000;
   --z-5000: 5000;
+}
+
+.la-admin__section-title {
+  font-size: var(--text-2xl);
+  font-family: var(--head-font);
+  font-weight: var(--font-semibold);
+  margin: var(--size-4) 0 var(--size-6) 0;
 }
 
 .la-icon {

@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'Course Unpublish Review - Admin')
+@section('title', 'Course Unpublish Requests - Admin')
 @section('body')
 
 <section class="content">
@@ -75,8 +75,9 @@
                         </td>
 
                         <td>
-                          <a class="btn btn-primary btn-sm" href="{{ route('course.show',$r->course->id) }}">
-                          <i class="fa fa-edit"></i></a>
+                          <a class="btn btn-success la-admin__edit-btn" href="{{ route('course.show',$r->course->id) }}">
+                            <i class="la-icon la-icon--lg icon-edit"></i>
+                          </a>
                         </td>
                       </tr>
                     @endif

@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'View Childcategory - Admin')
+@section('title', 'Child Category - Admin')
 @section('body')
 
 <section class="content">

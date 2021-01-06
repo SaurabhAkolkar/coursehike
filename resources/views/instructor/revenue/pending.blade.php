@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'All Pending Payouts - Instructor')
+@section('title', 'Revenue - Instructor')
 @section('body')
 
 <section class="content">
@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 
-                <div class="col-md-2">
+                <div class="col-md-3">
                   <div class="la-admin__revenue-title">Total Earnings</div>
                   <div class="la-admin__revenue-info">
                       <span class="la-admin__revenue-price">$9.8k</span>

@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('body')
-@section('title', 'ADD User - Admin')
+@section('title', 'Add User - Admin')
 
 @if ($errors->any())
 <div class="alert alert-danger">

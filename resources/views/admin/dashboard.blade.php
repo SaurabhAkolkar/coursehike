@@ -16,8 +16,8 @@
 </section>
 <section class="content">
 	<!-- Main row -->
-    <div class="row mr-md-20">
-        <div class="col-lg-4 col-6 p-3">
+    <div class="row pr-md-20">
+        <div class="col-lg-4 col-6">
           <!-- small box -->
           <div class="small-box bg-aqua"> 
             <div class="inner">
@@ -47,7 +47,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-6 p-3">
+        <div class="col-lg-4 col-6">
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
@@ -77,7 +77,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-6 p-3">
+        <div class="col-lg-4 col-6">
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
@@ -107,9 +107,9 @@
         </div>
     </div>
 
-    <div class="row mr-5 pr-5">
+    <div class="row pr-md-20">
         <!-- ./col -->
-        <div class="col-lg-4 col-6 p-3">
+        <div class="col-lg-4 col-6 pt-8">
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
@@ -191,7 +191,7 @@
           </div>
         </div> -->
         <!-- ./col -->
-        <div class="col-lg-4 col-6 p-3">
+        <div class="col-lg-4 col-6 pt-8">
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
@@ -315,12 +315,11 @@
             <!-- /.users-list -->
           </ul>
           <!-- /.box-body -->
-          <div class="box-footer text-right ">
-            <a href="{{route('user.index')}}" class="uppercase"> <!--{{ __('adminstaticword.ViewAll') }} -->
-                  <!-- <i class="fa fa-long-arrow-right fa-2x" style="color:#777777"></i> -->
-                  <span class="la-icon la-icon--5xl icon-black-arrow"></span>
+          <div class="la-dash__recent-more text-right">
+            <a href="{{route('user.index')}}" class="la-dash__more-btn">
+                <span class="la-icon la-icon--5xl icon-black-arrow"></span>
             </a>
-          </div> 
+          </div>
           <!-- /.box-footer -->
       </div>
       <!--/.box -->
@@ -386,9 +385,9 @@
             <!-- </ul> -->
           </ul>
           <!-- /.box-body -->
-          <div class="box-footer text-right">
-            <a href="{{url('course')}}" class="uppercase"><!-- {{ __('adminstaticword.ViewAll') }} -->
-              <span class="la-icon la-icon--5xl icon-black-arrow"></span>
+          <div class="la-dash__recent-more text-right">
+            <a href="{{url('course')}}" class="la-dash__more-btn">
+                <span class="la-icon la-icon--5xl icon-black-arrow"></span>
             </a>
           </div>
           <!-- /.box-footer -->

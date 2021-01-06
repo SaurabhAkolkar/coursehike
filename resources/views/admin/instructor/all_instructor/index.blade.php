@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'All Instructor - Admin')
+@section('title', 'All Mentors - Admin')
 @section('body')
 
 <section class="content">
@@ -44,16 +44,19 @@
                       {{ __('adminstaticword.Pending') }}
                     @endif
                   </td>
-                  <td><a class="btn btn-primary btn-sm" href="{{route('requestinstructor.edit',$item->id)}}">{{ __('adminstaticword.View') }}</a></td>
+                  <td><a class="btn btn-success btn-sm" href="{{route('requestinstructor.edit',$item->id)}}">{{ __('adminstaticword.View') }}</a></td>
                   <td>
-                          <a class="text-dark" href="/user/edit/{{$item->id}}">
-                          <i class="la-icon la-icon--lg icon-edit"></i></a>
+                      <a class="text-dark la-admin__edit-btn" href="/user/edit/{{$item->id}}">
+                          <i class="la-icon la-icon--lg icon-edit"></i>
+                      </a>
                   </td>
                   <td><form  method="post" action="{{url('requestinstructor/'.$item->id)}}
                         "data-parsley-validate class="form-horizontal form-label-left">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                         <button  type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash-o"></i></button>
+                         <button  type="submit" class="btn btn-danger">
+                           <i class="la-icon la-icon--lg icon-delete"></i>
+                          </button>
                       </form>
                   </td>
 

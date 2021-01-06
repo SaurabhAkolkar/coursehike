@@ -57,7 +57,7 @@
                     $User = App\User::all();
                   @endphp
                   <label for="exampleInputSlug">{{ __('adminstaticword.Instructor') }}</label>
-                  <select name="user" class="form-control js-example-basic-single col-md-7 col-12">
+                  <select name="user" class="form-control js-example-basic-single ">
                     <option  value="{{ Auth::user()->id }}">{{ Auth::user()->fname }}</option>
                   </select>
                 </div>
@@ -65,12 +65,17 @@
               <br>
 
               <div class="row">
-                <div class="col-md-12"> 
+                <div class="col-md-6"> 
+                  <label for="exampleInputTit1e">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
+                  <input type="text" class="form-control" name="title" id="exampleInputTitle" value="{{ $cor->title }}">
+                </div>
+
+                <div class="col-md-6"> 
                   @php
                       $languages = App\CourseLanguage::all();
                   @endphp
                   <label for="exampleInputSlug">{{ __('adminstaticword.SelectLanguage') }}</label>
-                  <select name="language_id" class="form-control js-example-basic-single col-md-7 col-12">
+                  <select name="language_id" class="form-control js-example-basic-single col-12">
                     @foreach($languages as $cat)
                       <option {{ $cor->language_id == $cat->id ? 'selected' : "" }} value="{{ $cat->id }}">{{ $cat->name }}</option>
                     @endforeach
@@ -78,16 +83,7 @@
                 </div>
                 
               </div>
-              <br>
-
-              <div class="row">
-
-                <div class="col-md-12"> 
-                  <label for="exampleInputTit1e">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
-                  <input type="text" class="form-control" name="title" id="exampleInputTitle" value="{{ $cor->title }}">
-                </div>
-              </div>
-              <br>
+              <br/>
 
               <div class="row">
                 <div class="col-md-6">
@@ -128,7 +124,10 @@
                              <div class="la-admin__cp-circle">
                                 <span class="la-admin__cp-radio"></span>
                                 <span class="la-admin__cp-label">Subscription</span> 
-                                <small><i class="fa fa-info-circle px-2"></i> (Default)</small>
+                                <div class="mx-1 mt-1" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="There are many variations of passages of Lorem Ipsum available">
+                                  <span class="la-icon la-icon--md icon-details"> 
+                                </div>
+                                <small class=" text-xs mt-1">(Default)</small>
                              </div>
 
                               <div class="la-admin__cp-desc">
@@ -152,7 +151,9 @@
                                 <div class="la-admin__cp-circle">
                                   <span class="la-admin__cp-radio"></span>
                                   <span class="la-admin__cp-label">Premium </span>
-                                  <small><i class="fa fa-info-circle pl-1"></i> </small>
+                                  <div class="mx-1 mt-1" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="There are many variations of passages of Lorem Ipsum available">
+                                    <span class="la-icon la-icon--md icon-details"> 
+                                  </div>
                                 </div>
                                 <div class="la-admin__cp-desc">
                                     <p> This course is accessible only by exclusive purchase </p>
@@ -166,7 +167,9 @@
                               <div class="la-admin__cp-circle">
                                 <span class="la-admin__cp-radio"></span>
                                 <span class="la-admin__cp-label">Free</span> 
-                                <small><i class="fa fa-info-circle pl-1"></i> </small>
+                                <div class="mx-1 mt-1" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="There are many variations of passages of Lorem Ipsum available">
+                                  <span class="la-icon la-icon--md icon-details"> 
+                                </div>
                               </div>
 
                                 <div class="la-admin__cp-desc">
@@ -245,18 +248,7 @@
                   <input type="hidden" name="featured" value="{{ $cor->featured }}" id="f">
                   @endif
                 </div>
-                <div class="col-md-4">
-                  @if(Auth::User()->role == "admin")
-                  <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
-                      <div class="d-flex pt-2">
-                              <input type="radio" name="status" id="ch1" value="1" {{ $cor->status == 1 ? 'checked' : '' }}> <span class="mr-2"> {{ __('adminstaticword.Active') }} </span>
-                              <input type="radio" name="status" id="ch2" value="0" {{ $cor->status == 0 ? 'checked' : '' }}> <span class="mr-2"> {{ __('OnHold') }} </span>
-                              <input type="radio" name="status" id="ch3" value="2" {{ $cor->status == 2 ? 'checked' : '' }}> <span class="mr-2"> {{ __('Archive') }} </span>
-                        </div>
-                   
-                  @endif
-                </div> 
-              
+
                 <div class="col-md-2">
                   <label for="exampleInputDetails">Master Class:</label>
                   <li class="tg-list-item">              
@@ -266,8 +258,17 @@
                   <input type="hidden"  name="master_class"  for="master_class" id="master_class2" @if($check_master_class) value="1" @endif>
                 </div>
 
-
-
+                <div class="col-md-4">
+                  @if(Auth::User()->role == "admin")
+                  <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
+                      <div class="d-flex align-items-center">
+                          <label class="mr-3 font-weight-normal"><input type="radio" name="status" id="ch1" value="1" {{ $cor->status == 1 ? 'checked' : '' }}>  {{ __('adminstaticword.Active') }} </label>
+                          <label class="mr-3  font-weight-normal"><input type="radio" name="status" id="ch2" value="0" {{ $cor->status == 0 ? 'checked' : '' }}>  {{ __('OnHold') }} </label>
+                          <label class="mr-3  font-weight-normal"><input type="radio" name="status" id="ch3" value="2" {{ $cor->status == 2 ? 'checked' : '' }}>  {{ __('Archive') }} </label>
+                      </div>
+                   
+                  @endif
+                </div> 
               </div> 
               <br/>
 

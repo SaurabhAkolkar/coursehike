@@ -79,15 +79,18 @@
               <form enctype="multipart/form-data" id="demo-form2" method="post" action="{{ route('courseclass.store') }}" data-parsley-validate class="form-horizontal form-label-left">
                 {{ csrf_field() }}
                           
-
-                <select class="display-none" name="course_id" class="form-control">
-                  <option value="{{ $cor->id }}">{{ $cor->title }}</option>
-                </select>
+                <div class="row">
+                  <div class="col-md-12">
+                    <select class="display-none" name="course_id" class="form-control">
+                      <option value="{{ $cor->id }}">{{ $cor->title }}</option>
+                    </select>
+                  </div>
+                </div>
 
                 <div class="row">
                   <div class="col-md-12">
                     <label >{{ __('adminstaticword.ClassName') }}:<sup class="redstar">*</sup></label>
-                    <select name="course_chapters" class="form-control col-md-7 col-12 js-example-basic-single" required>
+                    <select name="course_chapters" class="form-control  col-12 js-example-basic-single" required>
                       @foreach($coursechapters as $c)
                       <option value="{{ $c->id }}">{{ $c->chapter_name }}</option>
                       @endforeach
@@ -113,8 +116,8 @@
                 <div class="row mt-3">
                   <div class="col-12">
                         <div class="la-admin__preview">
-                          <label for="" class="la-admin__preview-label p-0">Thumbnail Image<sup class="redstar">*</sup></label>
-                          <div class="la-admin__preview-img la-admin__course-imgvid" >
+                          <label for="" class="la-admin__preview-label p-0">Thumbnail Image:<sup class="redstar">*</sup></label>
+                          <div class="la-admin__preview-img la-admin__course-imgvid la-admin__course-modal-imgvid" >
                                <div class="la-admin__preview-text">
                                     <p class="la-admin__preview-size">Thumbnail | 500x350</p>
                                     <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
@@ -136,7 +139,7 @@
                 <div class="row mt-3">
                   <div class="col-12">
                         <div class="la-admin__preview">
-                          <label for="" class="la-admin__preview-label p-0">Video Upload<sup class="redstar">*</sup></label>
+                          <label for="" class="la-admin__preview-label p-0">Video Upload:<sup class="redstar">*</sup></label>
                           <div class="la-admin__preview-img la-admin__course-imgvid" >
                                <div class="la-admin__preview-text">
                                     <p class="la-admin__preview-size">Video | 2G</p>
@@ -205,7 +208,7 @@
               <!--  ADD CLASS STATUS: START -->
               <div class="row">
                 <div class="col-12">
-                  <label class="la-admin__preview-label"> Status<sup class="redstar">*</sup></label>
+                  <label class="la-admin__preview-label"> Status:<sup class="redstar">*</sup></label>
                   <div class="la-admin__class-status d-flex justify-content-start">
                     <div class="la-admin__class-active pr-5">
                         <input type="radio" name="status" id="addVideo-active" value="2" class="la-admin__cp-input" >

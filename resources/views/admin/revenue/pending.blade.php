@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'All Pending Payout - Instructor')
+@section('title', 'Pending Payouts - Instructor')
 @section('body')
 
 <section class="content">

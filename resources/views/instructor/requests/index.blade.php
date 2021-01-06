@@ -62,7 +62,7 @@
                             <td>20-20-2020</td>
 
                             <td>
-                                <a href="" role="button">
+                                <a class="la-admin__edit-btn" href="" role="button">
                                     <span class="la-icon la-icon--xl icon-edit" style="color:#000"></span>
                                 </a>
                             </td>

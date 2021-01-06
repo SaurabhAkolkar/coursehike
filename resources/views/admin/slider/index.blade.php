@@ -19,8 +19,10 @@
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{ __('adminstaticword.Slider') }}</h3>
-          <a class="btn btn-info btn-sm" href="{{url('slider/create')}}">
-              <i class="glyphicon glyphicon">+</i> {{ __('adminstaticword.Add') }}</a>
+            <a class="btn btn-info btn-sm" href="{{url('slider/create')}}">
+              <span class="la-icon la-icon--sm icon-plus"></span> 
+              <span>{{ __('adminstaticword.Add') }} {{ __('adminstaticword.Slider') }}</span>
+            </a>
         </div>
         <!-- /.box-header -->
         <div class="box-body">

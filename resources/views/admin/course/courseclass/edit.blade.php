@@ -5,7 +5,7 @@
 <section class="content">
   
   <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-6">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title pb-6">{{ __('adminstaticword.Edit') }} {{ __('adminstaticword.CourseClass') }}</h3>
@@ -71,7 +71,7 @@
               </div>
               
               <div class="row">
-                <div  class="col-md-12" id="duration">
+                <div  class="col-md-12 mt-4" id="duration">
                   <label for="">{{ __('adminstaticword.Duration') }} :</label>
                   <input type="text" name="duration" value="{{ $cate->duration }}" class="form-control" placeholder="Enter class duration in (mins) Eg:160">
                 </div>
@@ -103,14 +103,14 @@
               <div class="row">
                 <div class="col-12">
                   <div class="la-admin__preview">
-                      <label for="" class="la-admin__preview-label"> Class Thumbnail<sup class="redstar">*</sup></label>
+                      <label for="" class="la-admin__preview-label"> Class Thumbnail:<sup class="redstar">*</sup></label>
                   </div>
                 </div>
 
                 <div class="col-6">
                   <div class="la-admin__preview">
-                      <h6 class="la-admin__editing-title mb-2" > Current </h6>
-                      <div class="la-admin__preview-img la-admin__editclass-preview" >
+                      <h6 class="la-admin__editing-title mb-2" > Current: </h6>
+                      <div class="la-admin__preview-img la-admin__preview-img2 la-admin__editclass-preview" >
                           <img src="{{ $cate->image }}" alt="">
                       </div>
                   </div>
@@ -118,8 +118,8 @@
 
                 <div class="col-6">
                       <div class="la-admin__preview">
-                          <h6 class="la-admin__editing-title  mb-2" > Update new </h6>
-                          <div class="la-admin__preview-img la-admin__course-imgvid" >
+                          <h6 class="la-admin__editing-title  mb-2" > Update New: </h6>
+                          <div class="la-admin__preview-img la-admin__preview-img2 la-admin__course-imgvid" >
                                <div class="la-admin__preview-text d-block">
                                   <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase text-center">Choose a File</p>
                                   <p class="la-admin__preview-size text-center">Thumbnail | 500x350</p>
@@ -139,12 +139,12 @@
               <!--  ADD CLASS STATUS: START -->
               <div class="row">
                 <div class="col-12">
-                  <label for="" class="la-admin__preview-label"> Status<sup class="redstar">*</sup></label>
-                  <div class="la-admin__class-status d-flex justify-content-start">
+                  <label for="" class="la-admin__preview-label"> Status:<sup class="redstar">*</sup></label>
+                  <div class="la-admin__class-status d-flex justify-content-start align-items-center">
                     <div class="la-admin__class-active pr-5">
                         <input type="radio" name="editClass-status" id="editClass-active" value="active" class="la-admin__cp-input" {{ $cate->status == '2' ? 'checked' : '' }} >
                         <label for="editClass-active" > 
-                          <div class="la-admin__cp-circle">
+                          <div class="la-admin__cp-circle d-flex align-items-center">
                             <span class="la-admin__cp-radio"></span>
                             <span class="la-admin__cp-label">Active</span> 
                           </div>
@@ -154,7 +154,7 @@
                     <div class="la-admin__class-hold pr-5">
                       <input type="radio" name="editClass-status" id="editClass-hold" value="hold" class="la-admin__cp-input" {{ $cate->status == '0' ? 'checked' : '' }} >
                       <label for="editClass-hold" > 
-                        <div class="la-admin__cp-circle">
+                        <div class="la-admin__cp-circle d-flex align-items-center">
                           <span class="la-admin__cp-radio"></span>
                           <span class="la-admin__cp-label">On hold</span> 
                         </div>
@@ -164,7 +164,7 @@
                     <div class="la-admin__class-archive pr-5">
                       <input type="radio" name="editClass-status" id="editClass-archive" value="archive" class="la-admin__cp-input" {{ $cate->status == '1' ? 'checked' : '' }} >
                       <label for="editClass-archive" > 
-                        <div class="la-admin__cp-circle">
+                        <div class="la-admin__cp-circle d-flex align-items-center">
                           <span class="la-admin__cp-radio"></span>
                           <span class="la-admin__cp-label">Archive</span> 
                         </div>
@@ -198,18 +198,16 @@
       </div>
     </div>
 
-    <div class="col-md-5">
-
+    <div class="col-md-5 offset-md-1">
         <!-- SUBTITLE SECTION: START -->
 
-        <div class="row">
+        <div class="row pr-10">
           <div class="box box-primary">
-            <div class="box-header">
-              <h3 class="box-title "> {{ __('adminstaticword.Subtitle') }}</h3>
+            <div class="box-header d-flex align-items-center">
+              <h3 class="box-title"> {{ __('adminstaticword.Subtitle') }}</h3>
+              <a data-toggle="modal" data-target="#myModalSubtitle" href="#" class="btn btn-info btn-sm ml-auto">+  {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Subtitle') }}</a>
             </div>
             <div class="box-body p-0">
-              <a data-toggle="modal" data-target="#myModalSubtitle" href="#" class="btn btn-info btn-sm">+  {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Subtitle') }}</a>
-    
               <!--Model start-->
               <div class="modal fade" id="myModalSubtitle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog modal-lg" role="document">
@@ -239,7 +237,7 @@
         
                                     <td>
                                       {{-- <input type="text" name="sub_lang[]" placeholder="Subtitle Language" class="form-control name_list" /> --}}
-                                      <select name="sub_lang[]">
+                                      <select name="sub_lang[]" class="form-control">
                                         @foreach ($languages as $language)
                                           <option value="{{$language->iso_code}}">{{$language->name}}</option>
                                         @endforeach
@@ -268,9 +266,9 @@
                   </div>
                 </div>
               </div>
+
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                  <br>
                   <br>
                   <tr>
                     <th>#</th>

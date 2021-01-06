@@ -10,503 +10,598 @@
     font-display: block;
   }
   
-[class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
-  speak: never;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
 
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-all-mentors:before {
-  content: "\e986";
-}
-.icon-learner-faq:before {
-  content: "\e984";
-}
-.icon-mentor-faq:before {
-  content: "\e985";
-}
-.icon-child-category:before {
-  content: "\e980";
-}
-.icon-sub-category:before {
-  content: "\e981";
-}
-.icon-course-request:before {
-  content: "\e989";
-}
-.icon-course-language:before {
-  content: "\e98a";
-}
-.icon-faq:before {
-  content: "\e982";
-}
-.icon-pages:before {
-  content: "\e983";
-}
-.icon-facebook-colored:before {
-  content: "\e976";
-  color: #3b5999;
-}
-.icon-google-colored .path1:before {
-  content: "\e979";
-  color: rgb(255, 255, 255);
-}
-.icon-google-colored .path2:before {
-  content: "\e97b";
-  margin-left: -1em;
-  color: rgb(84, 125, 191);
-}
-.icon-google-colored .path3:before {
-  content: "\e97c";
-  margin-left: -1em;
-  color: rgb(51, 168, 82);
-}
-.icon-google-colored .path4:before {
-  content: "\e97d";
-  margin-left: -1em;
-  color: rgb(249, 188, 21);
-}
-.icon-google-colored .path5:before {
-  content: "\e97e";
-  margin-left: -1em;
-  color: rgb(234, 68, 53);
-}
-.icon-linkedin-colored:before {
-  content: "\e97f";
-  color: #1076a8;
-}
-.icon-mail:before {
-  content: "\e974";
-}
-.icon-dollar:before {
-  content: "\e973";
-}
-.icon-address:before {
-  content: "\e939";
-}
-.icon-card-filled:before {
-  content: "\e96f";
-}
-.icon-black-arrow:before {
-  content: "\e975";
-}
-.icon-learner-dropdown-down-arrow:before {
-  content: "\e977";
-}
-.icon-learner-dropdown-up-arrow:before {
-  content: "\e978";
-}
-.icon-grey-arrow:before {
-  content: "\e97a";
-  color: #9e9e9e;
-}
-.icon-confirm-password:before {
-  content: "\e970";
-}
-.icon-google:before {
-  content: "\e971";
-}
-.icon-linkedin:before {
-  content: "\e972";
-}
-.icon-video-unfilled:before {
-  content: "\e937";
-}
-.icon-upload-unfilled:before {
-  content: "\e940";
-}
-.icon-courses:before {
-  content: "\e91b";
-}
-.icon-right-arrow:before {
-  content: "\e92f";
-}
-.icon-portfolio:before {
-  content: "\e930";
-}
-.icon-badge .path1:before {
-  content: "\e932";
-  color: rgb(116, 0, 215);
-}
-.icon-badge .path2:before {
-  content: "\e933";
-  margin-left: -1em;
-  color: rgb(253, 151, 29);
-}
-.icon-badge .path3:before {
-  content: "\e934";
-  margin-left: -1em;
-  color: rgb(255, 185, 58);
-}
-.icon-badge .path4:before {
-  content: "\e935";
-  margin-left: -1em;
-  color: rgb(253, 151, 29);
-}
-.icon-badge .path5:before {
-  content: "\e911";
-  margin-left: -1em;
-  color: rgb(255, 185, 58);
-}
-.icon-categories:before {
-  content: "\e936";
-}
-.icon-preview-image .path1:before {
-  content: "\e942";
-  color: rgb(225, 225, 225);
-}
-.icon-preview-image .path2:before {
-  content: "\e94e";
-  margin-left: -1em;
-  color: rgb(232, 232, 232);
-}
-.icon-pdf:before {
-  content: "\e954";
-}
-.icon-classes-purchased:before {
-  content: "\e955";
-}
-.icon-help-filled:before {
-  content: "\e956";
-}
-.icon-preview-video:before {
-  content: "\e957";
-  color: #e8e8e8;
-}
-.icon-excel:before {
-  content: "\e922";
-}
-.icon-badge-purple .path1:before {
-  content: "\e958";
-  color: rgb(116, 0, 215);
-}
-.icon-badge-purple .path2:before {
-  content: "\e959";
-  margin-left: -1em;
-  color: rgb(253, 151, 29);
-}
-.icon-badge-purple .path3:before {
-  content: "\e95a";
-  margin-left: -1em;
-  color: rgb(255, 185, 58);
-}
-.icon-badge-purple .path4:before {
-  content: "\e95b";
-  margin-left: -1em;
-  color: rgb(253, 151, 29);
-}
-.icon-badge-purple .path5:before {
-  content: "\e916";
-  margin-left: -1em;
-  color: rgb(255, 185, 58);
-}
-.icon-badge-green .path1:before {
-  content: "\e95c";
-  color: rgb(76, 210, 11);
-}
-.icon-badge-green .path2:before {
-  content: "\e95d";
-  margin-left: -1em;
-  color: rgb(253, 151, 29);
-}
-.icon-badge-green .path3:before {
-  content: "\e95e";
-  margin-left: -1em;
-  color: rgb(255, 185, 58);
-}
-.icon-badge-green .path4:before {
-  content: "\e95f";
-  margin-left: -1em;
-  color: rgb(253, 151, 29);
-}
-.icon-badge-green .path5:before {
-  content: "\e924";
-  margin-left: -1em;
-  color: rgb(255, 185, 58);
-}
-.icon-badge-yellow .path1:before {
-  content: "\e960";
-  color: rgb(255, 197, 22);
-}
-.icon-badge-yellow .path2:before {
-  content: "\e961";
-  margin-left: -1em;
-  color: rgb(253, 151, 29);
-}
-.icon-badge-yellow .path3:before {
-  content: "\e962";
-  margin-left: -1em;
-  color: rgb(255, 185, 58);
-}
-.icon-badge-yellow .path4:before {
-  content: "\e963";
-  margin-left: -1em;
-  color: rgb(253, 151, 29);
-}
-.icon-badge-yellow .path5:before {
-  content: "\e92b";
-  margin-left: -1em;
-  color: rgb(255, 185, 58);
-}
-.icon-badge-red .path1:before {
-  content: "\e964";
-  color: rgb(209, 5, 0);
-}
-.icon-badge-red .path2:before {
-  content: "\e965";
-  margin-left: -1em;
-  color: rgb(253, 151, 29);
-}
-.icon-badge-red .path3:before {
-  content: "\e966";
-  margin-left: -1em;
-  color: rgb(255, 185, 58);
-}
-.icon-badge-red .path4:before {
-  content: "\e967";
-  margin-left: -1em;
-  color: rgb(253, 151, 29);
-}
-.icon-badge-red .path5:before {
-  content: "\e931";
-  margin-left: -1em;
-  color: rgb(255, 185, 58);
-}
-.icon-insta:before {
-  content: "\e968";
-}
-.icon-youtube:before {
-  content: "\e969";
-}
-.icon-facebook:before {
-  content: "\e96a";
-}
-.icon-star-unfilled:before {
-  content: "\e96b";
-  color: #d5d5d5;
-}
-.icon-star-filled:before {
-  content: "\e96c";
-  color: #ffc516;
-}
-.icon-revenue:before {
-  content: "\e920";
-}
-.icon-coupon:before {
-  content: "\e921";
-}
-.icon-browse-courses .path1:before {
-  content: "\e901";
-  color: rgb(65, 65, 65);
-}
-.icon-browse-courses .path2:before {
-  content: "\e905";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
-}
-.icon-browse-courses .path3:before {
-  content: "\e909";
-  margin-left: -1em;
-  color: rgb(65, 65, 65);
-}
-.icon-lock:before {
-  content: "\e900";
-}
-.icon-percent-coupon:before {
-  content: "\e987";
-}
-.icon-fixed-coupon:before {
-  content: "\e988";
-}
-.icon-down-arrow:before {
-  content: "\e96d";
-}
-.icon-back-arrow:before {
-  content: "\e96e";
-}
-.icon-play:before {
-  content: "\e902";
-}
-.icon-hide-Password:before {
-  content: "\e903";
-}
-.icon-menu:before {
-  content: "\e904";
-}
-.icon-profile:before {
-  content: "\e906";
-}
-.icon-show-password:before {
-  content: "\e907";
-}
-.icon-wallet:before {
-  content: "\e908";
-}
-.icon-learning-plans:before {
-  content: "\e90a";
-}
-.icon-about:before {
-  content: "\e90b";
-}
-.icon-download:before {
-  content: "\e90c";
-}
-.icon-arrow:before {
-  content: "\e90d";
-}
-.icon-search:before {
-  content: "\e90e";
-}
-.icon-file-export:before {
-  content: "\e90f";
-}
-.icon-users:before {
-  content: "\e910";
-}
-.icon-filter:before {
-  content: "\e912";
-}
-.icon-cart-filled:before {
-  content: "\e913";
-}
-.icon-help:before {
-  content: "\e914";
-}
-.icon-details:before {
-  content: "\e915";
-}
-.icon-share:before {
-  content: "\e917";
-}
-.icon-settings:before {
-  content: "\e918";
-}
-.icon-drop-down:before {
-  content: "\e919";
-}
-.icon-assessment:before {
-  content: "\e91a";
-}
-.icon-messages:before {
-  content: "\e91c";
-}
-.icon-dashboard:before {
-  content: "\e91d";
-}
-.icon-delete:before {
-  content: "\e91e";
-}
-.icon-edit:before {
-  content: "\e91f";
-}
-.icon-hamburger-menu:before {
-  content: "\e923";
-}
-.icon-question-answer:before {
-  content: "\e925";
-}
-.icon-sort:before {
-  content: "\e926";
-}
-.icon-logout:before {
-  content: "\e927";
-}
-.icon-plus:before {
-  content: "\e928";
-}
-.icon-cancel:before {
-  content: "\e929";
-}
-.icon-announcement:before {
-  content: "\e92a";
-}
-.icon-contact:before {
-  content: "\e92c";
-}
-.icon-purchase-history:before {
-  content: "\e92d";
-}
-.icon-request:before {
-  content: "\e92e";
-}
-.icon-tick:before {
-  content: "\e938";
-}
-.icon-star:before {
-  content: "\e93a";
-}
-.icon-birthday:before {
-  content: "\e93b";
-}
-.icon-calender-filled:before {
-  content: "\e93c";
-}
-.icon-password:before {
-  content: "\e93d";
-}
-.icon-contact-number:before {
-  content: "\e93e";
-}
-.icon-mail-id:before {
-  content: "\e93f";
-}
-.icon-calender:before {
-  content: "\e941";
-}
-.icon-become-creator:before {
-  content: "\e943";
-}
-.icon-playlist:before {
-  content: "\e944";
-}
-.icon-edit-learner-profile:before {
-  content: "\e945";
-}
-.icon-notification:before {
-  content: "\e946";
-}
-.icon-wishlist:before {
-  content: "\e947";
-}
-.icon-cart:before {
-  content: "\e948";
-}
-.icon-caption:before {
-  content: "\e949";
-}
-.icon-collapse-video:before {
-  content: "\e94a";
-}
-.icon-expand-video:before {
-  content: "\e94b";
-}
-.icon-volume:before {
-  content: "\e94c";
-}
-.icon-next-playlist:before {
-  content: "\e94d";
-}
-.icon-edit-image:before {
-  content: "\e94f";
-}
-.icon-inspire-image:before {
-  content: "\e950";
-}
-.icon-recognition-image:before {
-  content: "\e951";
-}
-.icon-earnings-image:before {
-  content: "\e952";
-}
-.icon-share-image:before {
-  content: "\e953";
-}
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-trusted-sliders:before {
+    content: "\e995";
+  }
+  .icon-unpublished-course:before {
+    content: "\e996";
+  }
+  .icon-widget-settings:before {
+    content: "\e997";
+  }
+  .icon-category-sliders:before {
+    content: "\e998";
+  }
+  .icon-completed-payout:before {
+    content: "\e999";
+  }
+  .icon-course-text:before {
+    content: "\e99a";
+  }
+  .icon-fact-sliders:before {
+    content: "\e99b";
+  }
+  .icon-featured-mentor:before {
+    content: "\e99c";
+  }
+  .icon-first-section:before {
+    content: "\e99d";
+  }
+  .icon-front-Settings:before {
+    content: "\e99e";
+  }
+  .icon-get-started:before {
+    content: "\e99f";
+  }
+  .icon-mentor-payout:before {
+    content: "\e9a0";
+  }
+  .icon-my-revenue:before {
+    content: "\e9a1";
+  }
+  .icon-payout-settings:before {
+    content: "\e9a2";
+  }
+  .icon-pending-payout:before {
+    content: "\e9a3";
+  }
+  .icon-published-course:before {
+    content: "\e9a4";
+  }
+  .icon-sliders:before {
+    content: "\e9a5";
+  }
+  .icon-testimonials:before {
+    content: "\e9a6";
+  }
+  .icon-error:before {
+    content: "\e994";
+  }
+  .icon-copy-clipboard:before {
+    content: "\e990";
+  }
+  .icon-experience:before {
+    content: "\e991";
+  }
+  .icon-expert-in:before {
+    content: "\e992";
+  }
+  .icon-portfolio-link:before {
+    content: "\e993";
+  }
+  .icon-pinterest:before {
+    content: "\e98d";
+    color: #e60023;
+  }
+  .icon-twitter:before {
+    content: "\e98e";
+    color: #00acee;
+  }
+  .icon-whatsapp:before {
+    content: "\e98f";
+    color: #25d366;
+  }
+  .icon-awards:before {
+    content: "\e98b";
+  }
+  .icon-all-mentors:before {
+    content: "\e986";
+  }
+  .icon-learner-faq:before {
+    content: "\e984";
+  }
+  .icon-mentor-faq:before {
+    content: "\e985";
+  }
+  .icon-child-category:before {
+    content: "\e980";
+  }
+  .icon-sub-category:before {
+    content: "\e981";
+  }
+  .icon-course-request:before {
+    content: "\e989";
+  }
+  .icon-course-language:before {
+    content: "\e98a";
+  }
+  .icon-faq:before {
+    content: "\e982";
+  }
+  .icon-pages:before {
+    content: "\e983";
+  }
+  .icon-facebook-colored:before {
+    content: "\e976";
+    color: #3b5999;
+  }
+  .icon-google-colored .path1:before {
+    content: "\e979";
+    color: rgb(255, 255, 255);
+  }
+  .icon-google-colored .path2:before {
+    content: "\e97b";
+    margin-left: -1em;
+    color: rgb(84, 125, 191);
+  }
+  .icon-google-colored .path3:before {
+    content: "\e97c";
+    margin-left: -1em;
+    color: rgb(51, 168, 82);
+  }
+  .icon-google-colored .path4:before {
+    content: "\e97d";
+    margin-left: -1em;
+    color: rgb(249, 188, 21);
+  }
+  .icon-google-colored .path5:before {
+    content: "\e97e";
+    margin-left: -1em;
+    color: rgb(234, 68, 53);
+  }
+  .icon-linkedin-colored:before {
+    content: "\e97f";
+    color: #1076a8;
+  }
+  .icon-mail:before {
+    content: "\e974";
+  }
+  .icon-dollar:before {
+    content: "\e973";
+  }
+  .icon-address:before {
+    content: "\e939";
+  }
+  .icon-card-filled:before {
+    content: "\e96f";
+  }
+  .icon-black-arrow:before {
+    content: "\e975";
+  }
+  .icon-learner-dropdown-down-arrow:before {
+    content: "\e977";
+  }
+  .icon-learner-dropdown-up-arrow:before {
+    content: "\e978";
+  }
+  .icon-grey-arrow:before {
+    content: "\e97a";
+    color: #9e9e9e;
+  }
+  .icon-confirm-password:before {
+    content: "\e970";
+  }
+  .icon-google:before {
+    content: "\e971";
+  }
+  .icon-linkedin:before {
+    content: "\e972";
+  }
+  .icon-video-unfilled:before {
+    content: "\e937";
+  }
+  .icon-upload-unfilled:before {
+    content: "\e940";
+  }
+  .icon-courses:before {
+    content: "\e91b";
+  }
+  .icon-right-arrow:before {
+    content: "\e92f";
+  }
+  .icon-portfolio:before {
+    content: "\e930";
+  }
+  .icon-badge .path1:before {
+    content: "\e932";
+    color: rgb(116, 0, 215);
+  }
+  .icon-badge .path2:before {
+    content: "\e933";
+    margin-left: -1em;
+    color: rgb(253, 151, 29);
+  }
+  .icon-badge .path3:before {
+    content: "\e934";
+    margin-left: -1em;
+    color: rgb(255, 185, 58);
+  }
+  .icon-badge .path4:before {
+    content: "\e935";
+    margin-left: -1em;
+    color: rgb(253, 151, 29);
+  }
+  .icon-badge .path5:before {
+    content: "\e911";
+    margin-left: -1em;
+    color: rgb(255, 185, 58);
+  }
+  .icon-categories:before {
+    content: "\e936";
+  }
+  .icon-preview-image .path1:before {
+    content: "\e942";
+    color: rgb(225, 225, 225);
+  }
+  .icon-preview-image .path2:before {
+    content: "\e94e";
+    margin-left: -1em;
+    color: rgb(232, 232, 232);
+  }
+  .icon-pdf:before {
+    content: "\e954";
+  }
+  .icon-classes-purchased:before {
+    content: "\e955";
+  }
+  .icon-help-filled:before {
+    content: "\e956";
+  }
+  .icon-preview-video:before {
+    content: "\e957";
+    color: #e8e8e8;
+  }
+  .icon-interests:before {
+    content: "\e98c";
+  }
+  .icon-excel:before {
+    content: "\e922";
+  }
+  .icon-badge-purple .path1:before {
+    content: "\e958";
+    color: rgb(116, 0, 215);
+  }
+  .icon-badge-purple .path2:before {
+    content: "\e959";
+    margin-left: -1em;
+    color: rgb(253, 151, 29);
+  }
+  .icon-badge-purple .path3:before {
+    content: "\e95a";
+    margin-left: -1em;
+    color: rgb(255, 185, 58);
+  }
+  .icon-badge-purple .path4:before {
+    content: "\e95b";
+    margin-left: -1em;
+    color: rgb(253, 151, 29);
+  }
+  .icon-badge-purple .path5:before {
+    content: "\e916";
+    margin-left: -1em;
+    color: rgb(255, 185, 58);
+  }
+  .icon-badge-green .path1:before {
+    content: "\e95c";
+    color: rgb(76, 210, 11);
+  }
+  .icon-badge-green .path2:before {
+    content: "\e95d";
+    margin-left: -1em;
+    color: rgb(253, 151, 29);
+  }
+  .icon-badge-green .path3:before {
+    content: "\e95e";
+    margin-left: -1em;
+    color: rgb(255, 185, 58);
+  }
+  .icon-badge-green .path4:before {
+    content: "\e95f";
+    margin-left: -1em;
+    color: rgb(253, 151, 29);
+  }
+  .icon-badge-green .path5:before {
+    content: "\e924";
+    margin-left: -1em;
+    color: rgb(255, 185, 58);
+  }
+  .icon-badge-yellow .path1:before {
+    content: "\e960";
+    color: rgb(255, 197, 22);
+  }
+  .icon-badge-yellow .path2:before {
+    content: "\e961";
+    margin-left: -1em;
+    color: rgb(253, 151, 29);
+  }
+  .icon-badge-yellow .path3:before {
+    content: "\e962";
+    margin-left: -1em;
+    color: rgb(255, 185, 58);
+  }
+  .icon-badge-yellow .path4:before {
+    content: "\e963";
+    margin-left: -1em;
+    color: rgb(253, 151, 29);
+  }
+  .icon-badge-yellow .path5:before {
+    content: "\e92b";
+    margin-left: -1em;
+    color: rgb(255, 185, 58);
+  }
+  .icon-badge-red .path1:before {
+    content: "\e964";
+    color: rgb(209, 5, 0);
+  }
+  .icon-badge-red .path2:before {
+    content: "\e965";
+    margin-left: -1em;
+    color: rgb(253, 151, 29);
+  }
+  .icon-badge-red .path3:before {
+    content: "\e966";
+    margin-left: -1em;
+    color: rgb(255, 185, 58);
+  }
+  .icon-badge-red .path4:before {
+    content: "\e967";
+    margin-left: -1em;
+    color: rgb(253, 151, 29);
+  }
+  .icon-badge-red .path5:before {
+    content: "\e931";
+    margin-left: -1em;
+    color: rgb(255, 185, 58);
+  }
+  .icon-insta:before {
+    content: "\e968";
+  }
+  .icon-youtube:before {
+    content: "\e969";
+  }
+  .icon-facebook:before {
+    content: "\e96a";
+  }
+  .icon-star-unfilled:before {
+    content: "\e96b";
+    color: #d5d5d5;
+  }
+  .icon-star-filled:before {
+    content: "\e96c";
+    color: #ffc516;
+  }
+  .icon-revenue:before {
+    content: "\e920";
+  }
+  .icon-coupon:before {
+    content: "\e921";
+  }
+  .icon-browse-courses .path1:before {
+    content: "\e901";
+    color: rgb(65, 65, 65);
+  }
+  .icon-browse-courses .path2:before {
+    content: "\e905";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+  .icon-browse-courses .path3:before {
+    content: "\e909";
+    margin-left: -1em;
+    color: rgb(65, 65, 65);
+  }
+  .icon-lock:before {
+    content: "\e900";
+  }
+  .icon-list-layout:before {
+    content: "\e9a7";
+  }
+  .icon-grid-layout:before {
+    content: "\e9a8";
+  }
+  .icon-percent-coupon:before {
+    content: "\e987";
+  }
+  .icon-fixed-coupon:before {
+    content: "\e988";
+  }
+  .icon-down-arrow:before {
+    content: "\e96d";
+  }
+  .icon-back-arrow:before {
+    content: "\e96e";
+  }
+  .icon-play:before {
+    content: "\e902";
+  }
+  .icon-hide-Password:before {
+    content: "\e903";
+  }
+  .icon-menu:before {
+    content: "\e904";
+  }
+  .icon-profile:before {
+    content: "\e906";
+  }
+  .icon-show-password:before {
+    content: "\e907";
+  }
+  .icon-wallet:before {
+    content: "\e908";
+  }
+  .icon-learning-plans:before {
+    content: "\e90a";
+  }
+  .icon-about:before {
+    content: "\e90b";
+  }
+  .icon-download:before {
+    content: "\e90c";
+  }
+  .icon-arrow:before {
+    content: "\e90d";
+  }
+  .icon-search:before {
+    content: "\e90e";
+  }
+  .icon-file-export:before {
+    content: "\e90f";
+  }
+  .icon-users:before {
+    content: "\e910";
+  }
+  .icon-filter:before {
+    content: "\e912";
+  }
+  .icon-cart-filled:before {
+    content: "\e913";
+  }
+  .icon-help:before {
+    content: "\e914";
+  }
+  .icon-details:before {
+    content: "\e915";
+  }
+  .icon-share:before {
+    content: "\e917";
+  }
+  .icon-settings:before {
+    content: "\e918";
+  }
+  .icon-drop-down:before {
+    content: "\e919";
+  }
+  .icon-assessment:before {
+    content: "\e91a";
+  }
+  .icon-messages:before {
+    content: "\e91c";
+  }
+  .icon-dashboard:before {
+    content: "\e91d";
+  }
+  .icon-delete:before {
+    content: "\e91e";
+  }
+  .icon-edit:before {
+    content: "\e91f";
+  }
+  .icon-hamburger-menu:before {
+    content: "\e923";
+  }
+  .icon-question-answer:before {
+    content: "\e925";
+  }
+  .icon-sort:before {
+    content: "\e926";
+  }
+  .icon-logout:before {
+    content: "\e927";
+  }
+  .icon-plus:before {
+    content: "\e928";
+  }
+  .icon-cancel:before {
+    content: "\e929";
+  }
+  .icon-announcement:before {
+    content: "\e92a";
+  }
+  .icon-contact:before {
+    content: "\e92c";
+  }
+  .icon-purchase-history:before {
+    content: "\e92d";
+  }
+  .icon-request:before {
+    content: "\e92e";
+  }
+  .icon-tick:before {
+    content: "\e938";
+  }
+  .icon-star:before {
+    content: "\e93a";
+  }
+  .icon-birthday:before {
+    content: "\e93b";
+  }
+  .icon-calender-filled:before {
+    content: "\e93c";
+  }
+  .icon-password:before {
+    content: "\e93d";
+  }
+  .icon-contact-number:before {
+    content: "\e93e";
+  }
+  .icon-mail-id:before {
+    content: "\e93f";
+  }
+  .icon-calender:before {
+    content: "\e941";
+  }
+  .icon-become-creator:before {
+    content: "\e943";
+  }
+  .icon-playlist:before {
+    content: "\e944";
+  }
+  .icon-edit-learner-profile:before {
+    content: "\e945";
+  }
+  .icon-notification:before {
+    content: "\e946";
+  }
+  .icon-wishlist:before {
+    content: "\e947";
+  }
+  .icon-cart:before {
+    content: "\e948";
+  }
+  .icon-caption:before {
+    content: "\e949";
+  }
+  .icon-collapse-video:before {
+    content: "\e94a";
+  }
+  .icon-expand-video:before {
+    content: "\e94b";
+  }
+  .icon-volume:before {
+    content: "\e94c";
+  }
+  .icon-next-playlist:before {
+    content: "\e94d";
+  }
+  .icon-edit-image:before {
+    content: "\e94f";
+  }
+  .icon-inspire-image:before {
+    content: "\e950";
+  }
+  .icon-recognition-image:before {
+    content: "\e951";
+  }
+  .icon-earnings-image:before {
+    content: "\e952";
+  }
+  .icon-share-image:before {
+    content: "\e953";
+  }
+  

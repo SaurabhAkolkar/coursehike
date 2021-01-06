@@ -1,5 +1,5 @@
 @extends("admin/layouts.master")
-@section('title','Edit Coupon ')
+@section('title','Edit Coupons - Admin')
 @section('body')
 
 <section class="content">

@@ -10,7 +10,7 @@
         <div class="box-header with-border">
           <h3 class="box-title">{{ __('adminstaticword.FactsSlider') }}</h3>
           <a class="btn btn-info btn-sm" href="{{url('facts/create')}}">
-              <i class="glyphicon glyphicon">+</i> {{ __('adminstaticword.Add') }}</a>
+              <i class="la-icon la-icon--sm icon-plus"></i> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.FactsSlider') }}</a>
         </div>
         <!-- /.box-header -->
         <div class="box-body">

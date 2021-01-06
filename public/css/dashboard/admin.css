@@ -133,8 +133,8 @@ sup.redstar,
 
 .update-password input,
 .social-profile input {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
 }
 
 .box-body video {
@@ -156,6 +156,7 @@ sup.redstar,
 .language .btn-primary:hover {
   border: none;
   border-radius: none;
+  color: var(--app-indigo-1);
 }
 
 td form .btn-danger,
@@ -164,6 +165,14 @@ td .btn-success {
   display: inline-block;
   float: left;
   margin-right: var(--size-2);
+}
+
+td form .btn-danger:hover,
+td .btn-primary:hover,
+td .btn-success:hover {
+  border: none;
+  border-radius: none;
+  color: var(--app-indigo-1) !important;
 }
 
 .sidebar {
@@ -243,6 +252,10 @@ td .btn-success {
 
 td form .btn-danger {
   background-color: #f9616d !important;
+}
+
+td form .btn-danger:hover {
+  color: var(--danger) !important;
 }
 
 .tgl-skewed + .tgl-btn {
@@ -636,6 +649,10 @@ div.dataTables_wrapper div.dataTables_filter label {
   margin-top: 13px;
 }
 
+div.dataTables_wrapper div.dataTables_filter input {
+  margin-left: var(--size-6) !important;
+}
+
 .skin-blue .sidebar-menu .treeview-menu > li.active > a,
 .skin-blue .sidebar-menu .treeview-menu > li > a:hover {
   color: var(--app-indigo-1) !important;
@@ -802,6 +819,18 @@ a.dt-button {
   color: #777777;
 }
 
+.la-dash__recent-section .la-dash__recent-more a span {
+  transition: all 0.25s linear;
+  -webkit-transition: all 0.25s linear;
+}
+
+.la-dash__recent-section .la-dash__recent-more a span:hover {
+  transform: translateX(6px);
+  transition: all 0.25s linear;
+  -webkit-transition: all 0.25s linear;
+  color: var(--app-indigo-1);
+}
+
 /* ===== RECENT SUBSCRIPTIONS AND BOUGHT COURSES: END ===== */
 
 /* ===== ADMIN PENDING COURSES REQUESTS: START ======= */
@@ -933,7 +962,7 @@ a.dt-button {
 }
 
 .la-admin__course-package .la-admin__cp-desc {
-  padding-left: var(--size-4);
+  padding-left: var(--size-6);
 }
 
 .la-admin__course-package .la-admin__cp-subscription .la-admin__cp-desc p,
@@ -983,10 +1012,17 @@ a.dt-button {
 }
 
 .la-admin__course-imgvid img {
-  width: 200px;
-  height: 130px;
-  margin: -160px 0 0 95px;
+  width: 160px;
+  height: 150px;
+  margin: -160px 0 0 130px;
   position: absolute;
+  background-color: var(--white);
+}
+
+.la-admin__course-modal-imgvid img {
+  width: 135px;
+  height: 135px;
+  margin-left: 150px !important;
 }
 
 .la-admin__course-imgvid video {
@@ -1031,6 +1067,10 @@ a.dt-button {
   color: var(--black);
   font-size: var(--text-md);
   z-index: 0;
+}
+
+.la-admin__preview .la-admin__preview-img2 {
+  width: 200px;
 }
 
 .la-admin__preview .la-admin__preview-img .la-admin__preview-text,
@@ -1104,16 +1144,16 @@ a.dt-button {
   border-radius: var(--rounded-full);
   border: 1px solid rgba(21, 146, 230, 0.7);
   position: relative;
-  margin-right: var(--size-3);
+  margin-right: var(--size-2);
 }
 
 .la-admin__cp-radio::before {
   content: "";
   position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 6px;
-  height: 6px;
+  top: 2px;
+  left: 2px;
+  width: 8px;
+  height: 8px;
   border-radius: var(--rounded-full);
   background-color: var(--skyblue);
   transform: scale(0);
@@ -1147,7 +1187,7 @@ a.dt-button {
   display: inline-block;
   width: 60px;
   height: 24px;
-  background-color: #EEEEEE;
+  background-color: var(--gray8);
 }
 
 .la-admin__toggle-label::after {
@@ -1182,7 +1222,7 @@ a.dt-button {
 }
 
 .la-admin__toggle-switch:checked + .la-admin__toggle-label {
-  background-color: #EEEEEE;
+  background-color: var(--gray8);
 }
 
 .la-admin__toggle-switch:checked + .la-admin__toggle-label::after {
@@ -1213,8 +1253,10 @@ a.dt-button {
 }
 
 .la-admin__editclass-preview img {
-  width: 300px !important;
-  height: 200px !important;
+  width: 190px !important;
+  height: 190px !important;
+  background: var(--white);
+  margin: 3px 5px;
 }
 
 /* ==== EDIT COURSE CLASS: END ===== */
@@ -1460,6 +1502,11 @@ a.dt-button {
   border: 1px dashed #606060;
 }
 
+.la-admin__img-upload:hover {
+  border: 1px solid var(--gray6);
+  transition: all 0.25s ease;
+}
+
 .la-admin__img-upload a {
   font-size: var(--text-sm);
   color: #1592E6;
@@ -1592,6 +1639,12 @@ a.dt-button {
 
 /* ============ PUBLISH PAGE IN CREATOR COURSES: END ======== */
 
+/* ============ EDIT AND DELETE BUTTONS IN ADMIN & CREATOR: START ======== */
+
+a.la-admin__edit-btn:hover {
+  color: var(--app-indigo-1) !important;
+}
+
 /* =========== ALERT SUCCESS & DANGER: START =========== */
 
 .la-btn__alert-success {
@@ -1650,4 +1703,33 @@ a.dt-button {
 }
 
 /* =========== ALERT SUCCESS & DANGER: END =========== */
+
+.popover {
+  width: 200px;
+  height: 120px;
+  background-color: #fff;
+  padding: var(--size-3);
+  border: none;
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+.popover-header {
+  background-color: #fff;
+  color: var(--app-indigo-1);
+  font-size: 14px;
+  border-bottom: none;
+  text-align: center;
+  font-weight: var(--font-bold);
+}
+
+.popover-body {
+  background-color: #fff;
+  text-align: center;
+  font-size: 13px;
+  padding-top: var(--size-2);
+}
+
+.arrow {
+  display: none !important;
+}
 

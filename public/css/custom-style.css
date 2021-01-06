@@ -69,12 +69,12 @@ html, body{
     padding: 6px 16px;
     display: block;
     position:relative;
-    border:none;
+    border:none !important;
 }
 
 /* == Sidebar Menu Links border-left == */
-.sidebar-menu>li.active>a {
-    border-left-color:transparent !important;
+.skin-blue .sidebar-menu>li.active>a {
+    border-left:none !important;
 }
 
 .skin-blue .sidebar-menu>li>.treeview-menu{
@@ -218,6 +218,14 @@ html, body{
     text-decoration: none;
     text-align:right;
     padding:0 8px;
+}
+.small-box-footer>span{
+    transition:all 0.25s linear;-webkit-transition:all 0.25s linear;
+}
+.small-box-footer>span:hover{
+    transform:translateX(6px);
+    transition:all 0.25s linear;-webkit-transition:all 0.25s linear;
+    color:var(--app-indigo-1);
 }
 .small-box>.small-box-footer:hover {
   background:var(--white);
@@ -516,7 +524,7 @@ td .btn-success:focus, td form .btn-danger:focus{
 }
 /* == form select spacing == */
 .select2-container--default .select2-selection--single, .select2-selection .select2-selection--single {
-    padding: 10px 0 0 25px;
+    padding: 10px 0 0 12px;
     height: 40px;
 }
 /* ==form form-control css == */
@@ -765,4 +773,31 @@ button.close:focus{
 
 .ui-datepicker-calendar{
     border-spacing : 0px !important;
+}
+
+/* Popover for Course Pages */
+.popover{
+  width:200px;
+  height:120px;
+  background-color:#fff;
+  padding:var(--size-3);
+  border:none;
+  box-shadow: 0px 3px 6px #00000029;
+}
+.popover-header{
+  background-color:#fff;
+  color: var(--app-indigo-1);
+  font-size:14px;
+  border-bottom:none;
+  text-align:center;
+  font-weight:var(--font-bold);
+}
+.popover-body{
+  background-color:#fff;
+  text-align:center;
+  font-size:13px;
+  padding-top:var(--size-2);
+}
+.arrow{
+  display:none !important;
 }

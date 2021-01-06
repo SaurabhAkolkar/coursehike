@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'All Faq - Admin')
+@section('title', 'FAQ Learners - Admin')
 @section('body')
 
 <section class="content">
@@ -43,8 +43,10 @@
                     </button>
                   </form>
                 </td>
-                <td><a class="btn btn-success btn-sm" href="{{url('faq/'.$p->id.'/edit')}}">
-                    <i class="la-icon la-icon--lg icon-edit"></i></a>
+                <td>
+                  <a class="btn btn-success la-admin__edit-btn" role="button" href="{{url('faq/'.$p->id.'/edit')}}">
+                    <i class="la-icon la-icon--lg icon-edit"></i>
+                  </a>
                 </td>
                 <td>
                   <form  method="post" action="{{url('faq/'.$p->id)}}"
@@ -52,7 +54,7 @@
                       {{ csrf_field() }}
                       {{ method_field('DELETE') }}
                     <button type="submit" class="btn btn-danger">
-                      <i class="la-icon la-icon--lg icon-delete"></i>
+                      <span class="la-icon la-icon--lg icon-delete"></span>
                     </button>
                   </form>
                 </td>

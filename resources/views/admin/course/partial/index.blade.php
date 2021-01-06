@@ -131,7 +131,7 @@
                         </td>
 
                         <td>
-                          <a class="text-dark" href="{{ route('course.show',$cor->id) }}">
+                          <a class="text-dark la-admin__edit-btn" href="{{ route('course.show',$cor->id) }}">
                           <i class="la-icon la-icon--lg icon-edit"></i></a>
                         </td>
 
@@ -140,7 +140,7 @@
                             "data-parsley-validate class="form-horizontal form-label-left">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                            <button onclick="return confirm('Are you sure you want to delete?')"  type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash-o"></i></button>
+                            <button onclick="return confirm('Are you sure you want to delete?')"  type="submit" class="btn btn-danger la-admin__delete-btn"><i class="la-icon la-icon--lg icon-delete"></i></button>
                           </form>
                         </td>
                       </tr>

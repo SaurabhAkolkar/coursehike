@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'View Order - Admin')
+@section('title', 'View Revenue - Admin')
 @section('body')
  
 <section class="content">

@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'Facts Slider - Admin')
+@section('title', 'Featured Mentors - Admin')
 @section('body')
 
 <section class="content">
@@ -7,10 +7,12 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.FeaturedMentors') }}</h3>
-          <a class="btn btn-info btn-sm" href="{{url('featuredMentors/create')}}">
-              <i class="glyphicon glyphicon">+</i> {{ __('adminstaticword.Add') }}</a>
+        <div class="d-flex justify-content-between align-items-center">
+          <h3 class="la-admin__section-title">{{ __('adminstaticword.FeaturedMentors') }}</h3>
+            <a class="btn btn-info btn-sm" href="{{url('featuredMentors/create')}}">
+              <i class="la-icon la-icon--sm icon-plus"></i> 
+              <span>{{ __('adminstaticword.Add') }} {{ __('adminstaticword.FeaturedMentors') }}</span>
+            </a>
         </div>
         <!-- /.box-header -->
         <div class="box-body">

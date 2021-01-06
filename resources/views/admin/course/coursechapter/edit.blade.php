@@ -29,12 +29,16 @@
               {{ csrf_field() }}
               {{ method_field('PUT') }}
 
-              <label class="">{{ __('adminstaticword.SelectCourse') }}</label>
-              <select name="course_id" class=" form-control  col-12 display-none">
-                @foreach($courses as $cou)
-                  <option value="{{ $cou->id }}" {{$cate->courses->id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
-                @endforeach
-              </select>
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <label class="">{{ __('adminstaticword.SelectCourse') }}:</label>
+                  <select name="course_id" class=" form-control  col-12 display-none">
+                    @foreach($courses as $cou)
+                      <option value="{{ $cou->id }}" {{$cate->courses->id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
 
               <div class="row">
                 <div class="col-md-12">
@@ -48,8 +52,8 @@
               <div class="row">
                 <div class="col-12">
                       <div class="la-admin__preview">
-                        <label for="" class="la-admin__preview-label"> Class Thumbnail<sup class="redstar">*</sup></label>
-                        <div class="la-admin__preview-img la-admin__course-imgvid" >
+                        <label for="" class="la-admin__preview-label"> Class Thumbnail:<sup class="redstar">*</sup></label>
+                        <div class="la-admin__preview-img la-admin__course-imgvid la-admin__course-modal-imgvid" >
                               <div class="la-admin__preview-text">
                                   <p class="la-admin__preview-size">Thumbnail | 500x350</p>
                                   <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
@@ -69,7 +73,7 @@
               <br>
 
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 mb-2">
                   <label>One-Time Purchase Cost:<span class="redstar">*</span> </label>
                   <input type="text" placeholder="Enter Your Class Price" class="form-control " name="price" value="{{$cate->price}}">
                 </div>
@@ -95,7 +99,7 @@
                 <!--  ADD CLASS STATUS: START -->
                 <div class="row mt-3">
                   <div class="col-12">
-                    <label class="la-admin__preview-label"> Status<sup class="redstar">*</sup></label>
+                    <label class="la-admin__preview-label"> Status:<sup class="redstar">*</sup></label>
                     <div class="la-admin__class-status d-flex justify-content-start">
                       <div class="la-admin__class-active pr-5">
                           <input type="radio" name="status" id="addClass-active" value="2" class="la-admin__cp-input" {{ $cate->status == '2' ? 'checked' : '' }} >

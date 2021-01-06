@@ -34,7 +34,7 @@
                   <div class="col-md-6">
                     <label  for="exampleInputTit1e"> {{ __('adminstaticword.Select') }} {{ __('adminstaticword.Question') }}:<sup class="redstar">*</sup></label>
                     <br>
-                    <select name="question_id" required class="form-control col-md-7 col-12 js-example-basic-single">
+                    <select name="question_id" required class="form-control  js-example-basic-single">
                       <option value="none" selected disabled hidden> 
                          {{ __('adminstaticword.SelectanOption') }}
                       </option>
@@ -73,7 +73,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="box-footer">
-                      <button type="submit" value="Add Answer" class="btn btn-md col-md-4 btn-primary">{{ __('adminstaticword.Save') }}</button>
+                      <button type="submit" value="Add Answer" class="btn btn-md px-10 btn-primary">{{ __('adminstaticword.Save') }}</button>
                     </div>
                   </div>
                 </div>

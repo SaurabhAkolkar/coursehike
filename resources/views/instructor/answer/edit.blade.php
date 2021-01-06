@@ -47,8 +47,12 @@
                 <br>
                 <br>
                 
-                <div class="box-footer">
-                  <button value="" type="submit"  class="btn btn-md col-md-2 btn-primary">{{ __('adminstaticword.Save') }}</button>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="box-footer">
+                      <button value="" type="submit"  class="btn btn-md btn-primary">{{ __('adminstaticword.Save') }}</button>
+                    </div>
+                  </div>
                 </div>
 
             </form>

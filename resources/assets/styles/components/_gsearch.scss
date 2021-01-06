@@ -9,11 +9,15 @@
                 border-left: 1px solid rgba(#000, 0.48);
                 border-radius: 0;
                 font-weight: var(--font-light);
-                font-size: var(--text-xl);
+                font-size: var(--text-md);
                 color: rgba(#000, 0.48);
                 &:focus, &:hover {
                     border-color: #7400d7;
-                }               
+                }    
+                
+                @include respond-above(md){
+                    font-size:var(--text-xl);
+                }
             }
             &submit {
 

@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'Course Review - Admin')
+@section('title', 'Course Publish Requests - Admin')
 @section('body')
 
 <section class="content">

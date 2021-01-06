@@ -22,13 +22,14 @@
               {{ method_field('PUT') }}
 
             <div class="row">
-              <div class="col-md-9">
+              <div class="col-md-6">
                 <label >{{ __('adminstaticword.Name') }}: <sup class="redstar">*</sup></label>
                 <input type="text" class="form-control" name="name" value="{{ $language->name }}" placeholder="Please Enter Your  Language Name">
               </div>
-            </div>
+            </div><br/>
+
             <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-3">
                 <label >ISO Code: <sup class="redstar">*</sup></label>
                 <input type="text" class="form-control" name="iso_code" value="{{ $language->iso_code }}" placeholder="Please Enter Your  Language Name">
               </div>
@@ -42,10 +43,14 @@
               </div>
             </div>
             <br>
-            <div class="box-footer">
-              <button type="submit" class="btn btn-md col-md-2 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="box-footer">
+                  <button type="submit" class="btn btn-md btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                </div>
+              </div>
             </div>
-            </div>
+          </div>
           <!-- /.box-body -->
           
         </form>

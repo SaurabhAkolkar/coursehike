@@ -127,8 +127,8 @@ sup.redstar, .redstar {
   }
 
   input {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
   }
 }
 
@@ -150,6 +150,7 @@ sup.redstar, .redstar {
   &:hover {
     border: none;
     border-radius: none;
+    color:var(--app-indigo-1);
   }
 }
 
@@ -158,6 +159,12 @@ td {
     display: inline-block;
     float: left;
     margin-right: var(--size-2);
+
+    &:hover {
+      border: none;
+      border-radius: none;
+      color:var(--app-indigo-1) !important;
+    }
   }
 }
 
@@ -246,6 +253,10 @@ td {
 
 td form .btn-danger {
   background-color: #f9616d !important;
+
+  &:hover{
+    color:var(--danger) !important;
+  }
 }
 
 .tgl-skewed {
@@ -635,6 +646,9 @@ div {
   &.dataTables_wrapper div.dataTables_filter label {
     margin-top: 13px;
   }
+  &.dataTables_wrapper div.dataTables_filter input{
+    margin-left:var(--size-6) !important;
+  }
 }
 
 .skin-blue {
@@ -800,6 +814,15 @@ button.dt-button, div.dt-button, a.dt-button {
 
     a {
       color: #777777;
+      span{
+        transition:all 0.25s linear;-webkit-transition:all 0.25s linear;
+      }
+
+      span:hover{
+        transform:translateX(6px);
+        transition:all 0.25s linear;-webkit-transition:all 0.25s linear;
+        color:var(--app-indigo-1);
+      }
     }
   }
 }
@@ -921,7 +944,7 @@ button.dt-button, div.dt-button, a.dt-button {
   }
 
   .la-admin__cp-desc {
-    padding-left: var(--size-4);
+    padding-left: var(--size-6);
   }
 
   .la-admin__cp-subscription .la-admin__cp-desc p, .la-admin__cp-premium .la-admin__cp-desc p, .la-admin__cp-free .la-admin__cp-desc p {
@@ -970,10 +993,16 @@ button.dt-button, div.dt-button, a.dt-button {
   height:200px;
 }
 .la-admin__course-imgvid img{
-  width:200px;
-  height:130px;
-  margin:-160px 0 0 95px;
+  width:160px;
+  height:150px;
+  margin:-160px 0 0 130px;
   position: absolute;
+  background-color:var(--white);
+}
+.la-admin__course-modal-imgvid img{
+  width:135px;
+  height:135px;
+  margin-left:150px !important;
 }
 .la-admin__course-imgvid video{
   height:130px;
@@ -1016,6 +1045,9 @@ button.dt-button, div.dt-button, a.dt-button {
     color: var(--black);
     font-size: var(--text-md);
     z-index: 0;
+  }
+  .la-admin__preview-img2{
+    width:200px;
   }
 
   .la-admin__preview-img .la-admin__preview-text, .la-admin__preview-video .la-admin__preview-text {
@@ -1086,15 +1118,15 @@ button.dt-button, div.dt-button, a.dt-button {
   border-radius: var(--rounded-full);
   border: 1px solid rgba(21, 146, 230, 0.7);
   position: relative;
-  margin-right: var(--size-3);
+  margin-right: var(--size-2);
 
   &::before {
     content: "";
     position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 6px;
-    height: 6px;
+    top: 2px;
+    left: 2px;
+    width: 8px;
+    height: 8px;
     border-radius: var(--rounded-full);
     background-color: var(--skyblue);
     transform: scale(0);-webkit-transform: scale(0);-moz-transform: scale(0);-ms-transform: scale(0);-o-transform: scale(0);
@@ -1117,7 +1149,7 @@ button.dt-button, div.dt-button, a.dt-button {
   display: inline-block;
   width: 60px;
   height: 24px;
-  background-color: #EEEEEE;
+  background-color: var(--gray8);
 
   &::after {
     content: "";
@@ -1160,7 +1192,7 @@ button.dt-button, div.dt-button, a.dt-button {
       border: 1px solid var(--white);
       z-index: var(--z-1);
     }
-    background-color: #EEEEEE;
+    background-color: var(--gray8);
   }
 
   display: none;
@@ -1178,8 +1210,10 @@ button.dt-button, div.dt-button, a.dt-button {
 }
 
 .la-admin__editclass-preview img{
-  width: 300px !important;
-  height:200px !important;
+  width: 190px !important;
+  height:190px !important;
+  background:var(--white);
+  margin:3px 5px;
 }
 
 /* ==== EDIT COURSE CLASS: END ===== */
@@ -1427,6 +1461,11 @@ button.dt-button, div.dt-button, a.dt-button {
   padding: var(--size-4);
   background: none !important;
   border: 1px dashed #606060;
+
+  &:hover{
+    border:1px solid var(--gray6);
+    transition:all 0.25s ease;
+  }
 }
 .la-admin__img-upload a {
   font-size: var(--text-sm);
@@ -1544,6 +1583,12 @@ button.dt-button, div.dt-button, a.dt-button {
 }
 /* ============ PUBLISH PAGE IN CREATOR COURSES: END ======== */
 
+/* ============ EDIT AND DELETE BUTTONS IN ADMIN & CREATOR: START ======== */
+a.la-admin__edit-btn{
+  &:hover{
+    color:var(--app-indigo-1) !important;
+  }
+}
 
 /* =========== ALERT SUCCESS & DANGER: START =========== */
 .la-btn__alert-success{
@@ -1577,3 +1622,30 @@ button.dt-button, div.dt-button, a.dt-button {
   opacity:1;                       
 }
 /* =========== ALERT SUCCESS & DANGER: END =========== */
+
+// Popover for Course Pages
+.popover{
+  width:200px;
+  height:120px;
+  background-color:#fff;
+  padding:var(--size-3);
+  border:none;
+  box-shadow: 0px 3px 6px #00000029;
+}
+.popover-header{
+  background-color:#fff;
+  color: var(--app-indigo-1);
+  font-size:14px;
+  border-bottom:none;
+  text-align:center;
+  font-weight:var(--font-bold);
+}
+.popover-body{
+  background-color:#fff;
+  text-align:center;
+  font-size:13px;
+  padding-top:var(--size-2);
+}
+.arrow{
+  display:none !important;
+}

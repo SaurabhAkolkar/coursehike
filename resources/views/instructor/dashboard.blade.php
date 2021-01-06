@@ -78,7 +78,7 @@
             <div class="icon">
               <span class="la-icon la-icon--5xl icon-revenue"></span>
             </div>
-            <p class="m-0"> Earnings</p>
+            <p class="m-0"> Revenue</p>
             <h3 class="m-0">
               0
             </h3>

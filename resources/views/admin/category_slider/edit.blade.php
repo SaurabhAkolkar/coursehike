@@ -17,9 +17,8 @@
 	<div class="row">
         <div class="col-md-12">
         	<div class="box box-primary">
-	           	<div class="box-header with-border">
-              		<h3 class="box-title">{{ __('adminstaticword.CategorySlider') }} </h3>
-           		</div>
+              	<h3 class="la-admin__section-title mb-10">{{ __('adminstaticword.CategorySlider') }} </h3>
+           		
 	          	<div class="panel-body">
 	          		<form action="{{ action('CategorySliderController@update') }}" method="POST" enctype="multipart/form-data">
 		                {{ csrf_field() }}
@@ -51,9 +50,13 @@
 		              	</div>
 		              	<br>
 						
-						<div class="box-footer">
-		              		<button value="" type="submit"  class="btn btn-md col-md-2 btn-primary">{{ __('adminstaticword.Save') }}</button>
-		              	</div>
+						<div class="row">
+		                  <div class="col-md-6">
+							<div class="box-footer">
+								<button value="" type="submit"  class="btn btn-md btn-primary px-14">{{ __('adminstaticword.Save') }}</button>
+							</div>
+						</div>
+						</div>
 		          	</form>
 	          	</div>
 	      	</div>

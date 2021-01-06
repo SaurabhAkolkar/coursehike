@@ -72,19 +72,22 @@
               <form id="demo-form2" method="post" action="{{ route('coursechapter.store') }}" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
-              
-                <select name="course_id" class=" form-control  display-none">
-                  <option value="{{ $cor->id }}">{{ $cor->title }}</option>
-                </select> <br/> 
+                <div class="row">
+                  <div class="col-md-12"> 
+                  <label>Course Name:<span class="redstar">*</span> </label>
+                    <select name="course_id" class=" form-control  display-none ">
+                      <option value="{{ $cor->id }}">{{ $cor->title }}</option>
+                    </select> <br/> 
+                  </div>
+                </div>
+
 
                 <div class="row">
                   <div class="col-md-12">
                     <label for="exampleInputTit1e">{{ __('adminstaticword.ClassName') }}:<span class="redstar">*</span> </label>
                     <input type="text" placeholder="Enter Your Class Name" class="form-control " name="chapter_name" id="exampleInputTitle" value="">
                   </div>
-                  <div class="col-md-6"> 
-                   
-                  </div>
+                  
                 </div>
                 <br>
 
@@ -92,8 +95,8 @@
                 <div class="row">
                   <div class="col-12">
                         <div class="la-admin__preview">
-                          <label for="" class="la-admin__preview-label"> Class Thumbnail<sup class="redstar">*</sup></label>
-                          <div class="la-admin__preview-img la-admin__course-imgvid" >
+                          <label for="" class="la-admin__preview-label"> Class Thumbnail:<sup class="redstar">*</sup></label>
+                          <div class="la-admin__preview-img la-admin__course-imgvid la-admin__course-modal-imgvid" >
                                <div class="la-admin__preview-text">
                                     <p class="la-admin__preview-size">Thumbnail | 500x350</p>
                                     <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
@@ -126,7 +129,7 @@
                 <!--  ADD CLASS STATUS: START -->
                 <div class="row">
                     <div class="col-12">
-                      <label class="la-admin__preview-label"> Status<sup class="redstar">*</sup></label>
+                      <label class="la-admin__preview-label"> Status:<sup class="redstar">*</sup></label>
                       <div class="la-admin__class-status d-flex justify-content-start">
                         <div class="la-admin__class-active pr-5">
                             <input type="radio" name="status" id="addClass-active" value="2" class="la-admin__cp-input" >

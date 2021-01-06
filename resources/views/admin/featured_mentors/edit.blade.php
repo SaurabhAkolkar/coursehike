@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'Add Featured Mentor - Admin')
+@section('title', 'Edit Featured Mentor - Admin')
 @section('body')
 
 <section class="content">
@@ -8,7 +8,7 @@
     <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.Add') }} {{ __('adminstaticword.FeaturedMentors') }}</h3>
+          <h3 class="box-title">{{ __('adminstaticword.Edit') }} {{ __('adminstaticword.FeaturedMentors') }}</h3>
         </div>
         <div class="box-body">
           <div class="form-group">

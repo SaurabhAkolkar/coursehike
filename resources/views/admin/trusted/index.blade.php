@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'View Trusted - Admin')
+@section('title', 'Trusted Sliders - Admin')
 @section('body')
 
 <section class="content">
@@ -10,7 +10,9 @@
             <div class="box-header with-border">
               <h3 class="box-title">{{ __('adminstaticword.TrustedSlider') }}</h3>
               <a class="btn btn-info btn-sm" href="{{url('trusted/create')}}">
-                    <i class="glyphicon glyphicon-th-l">+</i> {{ __('adminstaticword.Add') }}</a>
+                  <i class="la-icon la-icon--sm icon-plus"></i> 
+                  <span>{{ __('adminstaticword.Add') }} {{ __('adminstaticword.TrustedSlider') }}</span>
+              </a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

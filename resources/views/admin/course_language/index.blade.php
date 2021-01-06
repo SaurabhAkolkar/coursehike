@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'View Course Language - Admin')
+@section('title', 'Course Language - Admin')
 @section('body')
 
 <section class="content">
@@ -84,6 +84,8 @@
                         <input type="text" class="form-control" name="name" placeholder="Please Enter Your  Language Name" value="">
                       </div>
                     </div>
+                    <br/>
+
                     <div class="row">
                       <div class="col-md-6">
                         <label for="exampleInputSlug">ISO Code:<sup class="redstar">*</sup></label>
@@ -100,7 +102,7 @@
                     </div>
                     <br>
                     <div class="box-footer">
-                     <button type="submit" class="btn btn-lg col-md-6 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                     <button type="submit" class="btn btn-lg col-md-4 btn-primary">{{ __('adminstaticword.Submit') }}</button>
                     </div>
                   </form>
                 </div>
