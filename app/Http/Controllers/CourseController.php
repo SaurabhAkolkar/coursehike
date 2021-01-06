@@ -264,6 +264,7 @@ class CourseController extends Controller
           ]);
 
         $course->update($input);
+        
         return back()->with('success', 'Updated Successfully !');;
     }
 

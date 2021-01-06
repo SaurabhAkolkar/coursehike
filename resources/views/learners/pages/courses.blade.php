@@ -87,100 +87,79 @@
                   <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="filteredCourses"  style="border:none !important;">
                       <div class="la-form__input-wrap px-5">
                           <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
-                          <div class="form-group pt-2">
-                            <label class="glabel-main" > Course Duration</label>
-                            <label class="glabel d-flex" for="dur_hr">
-                              <input class="d-none" id="dur_hr" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">less than an hr</div>
-                            </label>
+                            <form action="{{route('apply.filters')}}" method="get" id="filter_form">
+                                <a onclick="$('#filter_form').submit()" class="la-rtng__review text-uppercase text-center text-md-right">Apply</a> 
+                                <div class="form-group pt-2">
+                                  <label class="glabel-main" > Course Duration</label>
+                                  <label class="glabel d-flex" for="dur_hr">
+                                    <input class="d-none" id="dur_hr" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <div class="pl-2 mt-n1">less than an hr</div>
+                                  </label>
 
-                            <label class="glabel d-flex" for="dur_hrs">
-                              <input class="d-none" id="dur_hrs" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">1 hr - 5 hr</div>
-                            </label>
+                                  <label class="glabel d-flex" for="dur_hrs">
+                                    <input class="d-none" id="dur_hrs" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <div class="pl-2 mt-n1">1 hr - 5 hr</div>
+                                  </label>
 
-                            <label class="glabel d-flex" for="dur_more">
-                              <input class="d-none" id="dur_more" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">more than 5 hrs</div>
-                            </label>
-                          </div>
-
-                          <div class="form-group pt-2">
-                            <label class="glabel-main" > Category</label>
-                            <label class="glabel d-flex" for="course_1">
-                              <input class="d-none" id="course_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Tattoo 
-                                  <ul class="d-flex flex-column">
-                                    <li>
-                                      <label class="glabel d-flex pt-1" for="sub_course_1">
-                                        <input class="d-none" id="sub_course_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                        <div class="pl-2 mt-n1">Abstract</div>
-                                      </label>
-                                    </li>
-
-                                    <li>
-                                      <label class="glabel d-flex" for="sub_course_2">
-                                        <input class="d-none" id="sub_course_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                        <div class="pl-2 mt-n1">3D Tattoo</div>
-                                      </label>
-                                    </li>
-
-                                    <li>
-                                      <label class="glabel d-flex" for="sub_course_3">
-                                        <input class="d-none" id="sub_course_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                        <div class="pl-2 mt-n1">Blast Over</div>
-                                      </label>
-                                    </li>
-                                  </ul>
+                                  <label class="glabel d-flex" for="dur_more">
+                                    <input class="d-none" id="dur_more" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <div class="pl-2 mt-n1">more than 5 hrs</div>
+                                  </label>
                                 </div>
-                            </label>
 
-                            <label class="glabel d-flex" for="course_2">
-                              <input class="d-none" id="course_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Design</div>
-                            </label>
+                                <div class="form-group pt-2">
+                                  <label class="glabel-main" > Category</label>
+                                    @foreach($categories as $c)
+                                      <label class="glabel d-flex" for="course_1">
+                                        <input class="d-none" type="checkbox" name="categories[]" value="{{$c->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                        <div class="pl-2 mt-n1">{{$c->title}}
+                                            @if($c->subcategory != null)
+                                              <ul class="d-flex flex-column">
+                                                @foreach($c->subcategory as $sc)
+                                                  <li>
+                                                    <label class="glabel d-flex" for="sub_course_3">
+                                                      <input class="d-none" id="sub_course_3" type="checkbox" name="sub_categories[]" value="{{$sc->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                                      <div class="pl-2 mt-n1">{{$sc->title}}</div>
+                                                    </label>
+                                                  </li>
+                                                @endforeach
+                                              </ul>
+                                            @endif
+                                            
+                                          </div>
+                                      </label>
+                                    @endforeach
+                                </div>
 
-                            <label class="glabel d-flex" for="course_3">
-                              <input class="d-none" id="course_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Photography</div>
-                            </label>
-                          </div>
+                                <div class="form-group pt-2">
+                                  <label class="glabel-main" > Language</label>
+                                  @foreach($langauges as $l)
+                                    <label class="glabel d-flex" for="lang_1">
+                                      <input class="d-none" id="lang_1" type="checkbox" name="languages[]" value="{{$l->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                      <div class="pl-2 mt-n1">{{$l->name}}</div>
+                                    </label>
+                                  @endforeach
+                               
+                                </div>
 
-                          <div class="form-group pt-2">
-                            <label class="glabel-main" > Language</label>
-                            <label class="glabel d-flex" for="lang_1">
-                              <input class="d-none" id="lang_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">English</div>
-                            </label>
+                                <div class="form-group pt-2">
+                                  <label class="glabel-main" >Level</label>
+                                  <label class="glabel d-flex" for="level_1">
+                                    <input class="d-none" id="level_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <div class="pl-2 mt-n1">Beginner</div>
+                                  </label>
 
-                            <label class="glabel d-flex" for="lang_2">
-                              <input class="d-none" id="lang_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Hindi</div>
-                            </label>
+                                  <label class="glabel d-flex" for="level_2">
+                                    <input class="d-none" id="level_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <div class="pl-2 mt-n1">Intermediate</div>
+                                  </label>
 
-                            <label class="glabel d-flex" for="lang_3">
-                              <input class="d-none" id="lang_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Japanese</div>
-                            </label>
-                          </div>
-
-                          <div class="form-group pt-2">
-                            <label class="glabel-main" >Level</label>
-                            <label class="glabel d-flex" for="level_1">
-                              <input class="d-none" id="level_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Beginner</div>
-                            </label>
-
-                            <label class="glabel d-flex" for="level_2">
-                              <input class="d-none" id="level_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Intermediate</div>
-                            </label>
-
-                            <label class="glabel d-flex" for="level_3">
-                              <input class="d-none" id="level_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Advanced</div>
-                            </label>
-                          </div>
+                                  <label class="glabel d-flex" for="level_3">
+                                    <input class="d-none" id="level_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <div class="pl-2 mt-n1">Advanced</div>
+                                  </label>
+                                </div>
+                            </form>
                       </div>
                   </div>
               </div>
@@ -215,9 +194,6 @@
               <div class="tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
                 <div class="row row-cols-lg-3 la-anim__stagger-item">
                       @foreach($category->courses as $course)
-                        @if ($course->featured == 0)
-                            @continue
-                        @endif
                         <x-course 
                             :id="$course->id"
                             :img="$course->preview_image"

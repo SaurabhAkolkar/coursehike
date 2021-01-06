@@ -11,6 +11,7 @@ use App\Playlist;
 use Auth;
 use App\ReviewRating;
 use App\UserPurchasedCourse;
+use App\CourseLanguage;
 
 class SearchController extends Controller
 {
@@ -20,9 +21,11 @@ class SearchController extends Controller
 		if(Auth::check()){
 			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
 		}	
-		
-		$categories = Categories::with('courses')->where('featured','1')->orderBy('position','ASC')->get();
-		return view('learners.pages.courses', compact('categories','playlists'));
+		$langauges = CourseLanguage::where(['status'=>1])->get();
+		$categories = Categories::with('courses','subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+		// dd($categories);
+
+		return view('learners.pages.courses', compact('categories','playlists','langauges'));
 
         // if(isset($searchTerm))
         // {
@@ -34,6 +37,10 @@ class SearchController extends Controller
     	// 	return back()->with('delete','No Search Value Found');
     	// }
         
+	}
+
+	public function applyFilter(Request $request){
+		dd($request);
 	}
 	
     public function search(Request $request) 
