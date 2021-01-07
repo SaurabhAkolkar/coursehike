@@ -7,11 +7,8 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">  {{ __('adminstaticword.InstructorRevenue') }}</h3>
-        </div>
+          <h3 class="la-admin__section-title ml-2 mb-0">  {{ __('adminstaticword.InstructorRevenue') }}</h3>
         
-        <!-- /.box-header -->
         <div class="box-body">
           <div class="la-admin__revenue-stats">
             <!-- TOTAL WATCH TIME SECTION: START -->

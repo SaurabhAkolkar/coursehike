@@ -3,8 +3,8 @@
 @section('body')
 
 <div class="box">
-  <div class="box-header ">
-    <h3 class="box-title pl-6 pt-4">Requests</h3>
+  <div class="box-header ml-7 ">
+    <h3 class=" la-admin__section-title">Requests</h3>
   </div>
   @if($errors->any())
   <div class="box-body">
@@ -62,14 +62,14 @@
                             <td>20-20-2020</td>
 
                             <td>
-                                <a class="la-admin__edit-btn" href="" role="button">
-                                    <span class="la-icon la-icon--xl icon-edit" style="color:#000"></span>
+                                <a class="btn btn-success la-admin__edit-btn" href="" role="button">
+                                    <span class="la-icon la-icon--lg icon-edit" style="color:#000"></span>
                                 </a>
                             </td>
 
                             <td>
                                 <form  method="post" action="" data-parsley-validate  class="form-horizontal form-label-left">
-                                    <button  type="submit" class="btn btn-danger mt-1"><span class="la-icon la-icon--xl icon-delete"></span></button>
+                                    <button  type="submit" class="btn btn-danger mt-1"><span class="la-icon la-icon--lg icon-delete"></span></button>
                                 </form>
                             </td>
                         </tr>

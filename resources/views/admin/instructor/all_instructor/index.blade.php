@@ -7,9 +7,8 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title pb-6">{{ __('adminstaticword.AllInstructor') }}</h3>
-        </div>
+          <h3 class="la-admin__section-title ml-2 mb-0">{{ __('adminstaticword.AllInstructor') }}</h3>
+        
         <!-- /.box-header -->
         <div class="box-body">
             <div class="la-admin__filter-icons text-right" style="position:relative; top:50px;z-index:0;">

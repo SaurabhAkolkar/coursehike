@@ -7,9 +7,8 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.CreatorPayout') }}</h3>
-        </div>
+          <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.CreatorPayout') }}</h3>
+        
         <!-- /.box-header -->
         <div class="box-body">
           <div class="form-group">
@@ -18,7 +17,8 @@
               {{ method_field('PUT') }}
               <input type="hidden" name="payout_id" value="{{$payout->id}}" />
               <div class="row">
-                <div class="col-md-6">
+
+                <div class="col-md-4">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Instructor') }}:<sup class="redstar">*</sup></label>
                   <select name="user_id" class="form-control js-example-basic-single col-md-7 col-12">
                         <option disabled selected>Choose Option</option>
@@ -28,7 +28,7 @@
                   </select>
                 </div>
           
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Month') }}:<sup class="redstar">*</sup></label>
                   <input class="form-control month" name="month" id="exampleInputTitle" readonly value="{{$payout->month}}">
                 </div>
@@ -36,11 +36,11 @@
               <br> 
 
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.SubscriptionAmount') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="subscription_amount" id="exampleInputTitle" value="{{$payout->subscription_amount}}">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.CourseAmount') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="course_amount" id="exampleInputTitle" value="{{$payout->course_amount}}">
                 </div>
@@ -48,18 +48,22 @@
               <br>    
 
                <div class="row">
-                <div class="col-md-6">
-                        <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
-                            <div class="d-flex">
-                                    <input type="radio" name="status" value="pending" {{ $payout->status == 'pending' ? 'checked' : '' }}> <span class="mr-2"> {{ __('adminstaticword.Pending') }} </span>
-                                    <input type="radio" name="status" value="paid" {{ $payout->status == 'paid' ? 'checked' : '' }}> <span class="mr-2"> {{ __('Paid') }} </span>
-                            </div>
-                </div>
+                  <div class="col-md-4">
+                      <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
+                      <div class="d-flex align-items-center">
+                          <label class="mr-3"><input type="radio" name="status" value="pending" {{ $payout->status == 'pending' ? 'checked' : '' }}> <span> {{ __('adminstaticword.Pending') }} </span></label>
+                          <label class="mr-3"><input type="radio" name="status" value="paid" {{ $payout->status == 'paid' ? 'checked' : '' }}> <span> {{ __('Paid') }} </span></label>
+                      </div>
+                  </div>
               </div>
               <br>    
 
-              <div class="box-footer">
-                <button type="submit" class="btn btn-lg col-md-2 btn-primary">+ {{ __('adminstaticword.Save') }}</button>
+              <div class="row">
+                  <div class="col-md-8">
+                    <div class="box-footer">
+                      <button type="submit" class="btn btn-primary px-16"> {{ __('adminstaticword.Save') }}</button>
+                    </div>
+                  </div>
               </div>
             </form>
           </div>

@@ -35,7 +35,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="la-admin__preview">
-                      <label for="exampleInputSlug">{{ __('adminstaticword.Image') }}:</label>
+                      <label for="exampleInputSlug">{{ __('adminstaticword.Image') }}:<sup class="redstar">*</sup></label>
                       <br>
                       <div class="la-admin__preview-img la-admin__course-imgvid" >
                         <div class="la-admin__preview-text">

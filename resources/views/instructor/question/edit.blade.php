@@ -8,10 +8,8 @@
     <div class="col-12">
       <!-- general form elements -->
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">Edit Question</h3>
-        </div>
-        <!-- /.box-header -->
+          <h3 class="la-admin__section-title ml-3">Edit Question</h3>
+        
         <div class="box-body">
           <div class="form-group">
             <form id="demo-form" method="post" action="{{url('instructorquestion/'.$que->id)}}" data-parsley-validate class="form-horizontal form-label-left">

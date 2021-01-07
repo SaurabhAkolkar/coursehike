@@ -7,9 +7,8 @@
   	<div class="row">
         <div class="col-md-12">
         	<div class="box box-primary ">
-	           	<div class="box-header ">
-              		<h3 class="box-title pb-6 ">{{ __('adminstaticword.Setuppaymentinformations') }}</h3>
-           		</div>
+              	<h3 class="la-admin__section-title ml-2 ">{{ __('adminstaticword.Setuppaymentinformations') }}</h3>
+           		
 	          	<div class="panel-body pl-4">
 	          		<form action="{{ route('instructor.payout', $user->id) }}" method="POST">
 		                {{ csrf_field() }}

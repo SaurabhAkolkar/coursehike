@@ -40,15 +40,15 @@
                 <td> <img src="{{ $d->user_thumbnail }}" class="img-fluid"></td>
                 <td>{{$d->status == 1 ? 'Active' : 'Inactive'}}</td>
                 <td>
-                  <a class="btn btn-primary btn-sm" href="{{route('featuredmentor.edit',$d->id)}}">
-                  <i class="fa fa-edit"></i></a>
+                  <a class="btn btn-success la-admin__edit-btn" href="{{route('featuredmentor.edit',$d->id)}}">
+                  <i class="la-icon la-icon--lg icon-edit"></i></a>
                 </td>
 
                 <td><form  method="post" action="{{url('featuredMentors/'.$d->id)}}
                       "data-parsley-validate class="form-horizontal form-label-left">
                       {{ csrf_field() }}
                       {{ method_field('DELETE') }}
-                       <button  type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash-o"></i></button>
+                       <button  type="submit" class="btn btn-danger"><i class="la-icon la-icon--lg icon-delete"></i></button>
                   </form>
                 </td>
 

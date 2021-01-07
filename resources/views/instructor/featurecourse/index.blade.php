@@ -43,7 +43,7 @@
 
                       
 
-                      <td><a class="btn btn-primary btn-sm" href="{{route('featurecourse.show',$feature->id)}}">{{ __('adminstaticword.View') }}</a>
+                      <td><a class="btn btn-success btn-sm" href="{{route('featurecourse.show',$feature->id)}}">{{ __('adminstaticword.View') }}</a>
                       </td>
                       
                       <td>
@@ -52,7 +52,7 @@
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                           <button type="submit" class="btn btn-danger btn-sm">
-                                <i class="fa fa-fw fa-trash-o"></i>
+                                <i class="la-icon la-icon--lg icon-delete"></i>
                           </button>
                         </form>
                       </td>

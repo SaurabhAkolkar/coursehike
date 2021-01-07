@@ -236,7 +236,7 @@ td .btn-success:hover {
 }
 
 .main-footer {
-  background-color: #FFF;
+  background-color: var(--white);
   color: #8A98AC;
   border-top: 1px solid rgba(0, 0, 0, 0.03);
 }
@@ -267,7 +267,7 @@ td form .btn-danger:hover {
 }
 
 .inputfile-1 + label {
-  color: #FFF;
+  color: var(--white);
   background-color: #f9616d !important;
 }
 
@@ -294,7 +294,7 @@ td form .btn-danger:hover {
 }
 
 .skin-blue .main-header li.user-header {
-  background-color: #FFF;
+  background-color: var(--white);
 }
 
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header > p {
@@ -302,7 +302,7 @@ td form .btn-danger:hover {
 }
 
 .navbar-nav > .user-menu > .dropdown-menu > .user-footer {
-  background-color: #FFF !important;
+  background-color: var(--white) !important;
   padding: 10px;
 }
 
@@ -377,7 +377,7 @@ td form .btn-danger:hover {
 }
 
 .skin-blue .main-header .logo:hover {
-  background-color: #FFF;
+  background-color: var(--white);
 }
 
 .language .btn-primary {
@@ -388,7 +388,7 @@ td form .btn-danger:hover {
 
 .language .btn-primary:hover {
   background-color: #506FE4;
-  color: #FFF;
+  color: var(--white);
 }
 
 .skin-blue .main-header .navbar .nav > li > a {
@@ -422,7 +422,7 @@ td form .btn-danger:hover {
 .btn.btn-flat,
 .bg-navy,
 .btn-info {
-  background-color: #FFF !important;
+  background-color: var(--white) !important;
   color: #506FE4 !important;
   border-color: #506FE4;
   border-radius: 3px;
@@ -433,7 +433,7 @@ td form .btn-danger:hover {
 .bg-navy:hover,
 .btn-info:hover {
   background-color: #506FE4 !important;
-  color: #FFF !important;
+  color: var(--white) !important;
   border-color: #506FE4;
 }
 
@@ -443,7 +443,7 @@ td form .btn-danger:hover {
 }
 
 .navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default:hover {
-  color: #FFF;
+  color: var(--white);
   border-radius: 3px;
 }
 
@@ -593,7 +593,7 @@ h6 small {
 .btn-success.active.focus,
 .btn-success.active:focus,
 .btn-success.active:hover {
-  color: #FFF;
+  color: var(--white);
   background-color: #43d187;
   border-color: #43d187;
 }
@@ -601,7 +601,7 @@ h6 small {
 .btn-success:active.focus,
 .btn-success:active:focus,
 .btn-success:active:hover {
-  color: #FFF;
+  color: var(--white);
   background-color: #43d187;
   border-color: #43d187;
 }
@@ -609,7 +609,7 @@ h6 small {
 .open > .dropdown-toggle.btn-success.focus,
 .open > .dropdown-toggle.btn-success:focus,
 .open > .dropdown-toggle.btn-success:hover {
-  color: #FFF;
+  color: var(--white);
   background-color: #43d187;
   border-color: #43d187;
 }
@@ -781,17 +781,18 @@ a.dt-button {
 }
 
 .la-dash__recent-section .la-dash__recent-title {
-  font-family: var(--body-font);
+  font-family: var(--head-font);
   font-weight: var(--font-normal);
   font-size: var(--text-sm);
-  color: var(--gray4);
+  color: var(--gray5);
+  text-transform: capitalize;
 }
 
 .la-dash__recent-section .la-dash__recent-tag {
   font-family: var(--body-font);
-  font-weight: var(--font-normal);
+  font-weight: var(--font-medium);
   font-size: var(--text-xxs);
-  color: var(--gray5);
+  color: var(--gray4);
   text-transform: uppercase;
 }
 
@@ -807,7 +808,7 @@ a.dt-button {
   font-family: var(--body-font);
   font-weight: var(--font-normal);
   font-size: var(--text-xs);
-  color: var(--gray5);
+  color: var(--gray4);
 }
 
 .la-dash__recent-section .la-dash__recent-more {
@@ -847,7 +848,7 @@ a.dt-button {
 
 .la-dash__pending-section .la-dash__pending-head .la-dash__pending-title {
   font-family: var(--body-font);
-  font-weight: var(--font-normal);
+  font-weight: var(--font-medium);
   font-size: var(--text-md);
   color: var(--gray5);
   text-align: center;
@@ -863,7 +864,7 @@ a.dt-button {
   font-family: var(--body-font);
   font-weight: var(--font-normal);
   font-size: var(--text-sm);
-  color: var(--gray4);
+  color: var(--gray5);
   text-align: center;
 }
 
@@ -959,6 +960,7 @@ a.dt-button {
   font-weight: var(--font-light);
   font-size: var(--text-lg);
   color: var(--black);
+  cursor: pointer;
 }
 
 .la-admin__course-package .la-admin__cp-desc {
@@ -1055,6 +1057,7 @@ a.dt-button {
   border: none !important;
   text-align: center;
   padding: 23px;
+  background-color: var(--gray) !important;
 }
 
 .la-admin__preview .la-admin__preview-img,
@@ -1188,6 +1191,7 @@ a.dt-button {
   width: 60px;
   height: 24px;
   background-color: var(--gray8);
+  cursor: pointer;
 }
 
 .la-admin__toggle-label::after {
@@ -1195,7 +1199,7 @@ a.dt-button {
   position: absolute;
   width: 30px;
   height: 23px;
-  background-color: #2B2B2B;
+  background-color: var(--gray3);
   top: 1px;
   left: 1px;
   transition: all 0.3s;
@@ -1212,7 +1216,7 @@ a.dt-button {
   left: 15px;
   width: 1px;
   height: 15px;
-  border: 1px solid var(--white);
+  border-left: 2px solid var(--white);
   box-shadow: 0px 0px 2px #0000003D;
   z-index: var(--z-1);
 }
@@ -1237,7 +1241,7 @@ a.dt-button {
   left: 45px;
   width: 1px;
   height: 15px;
-  border: 1px solid var(--white);
+  border-left: 2px solid var(--white);
   z-index: var(--z-1);
 }
 
@@ -1509,13 +1513,13 @@ a.dt-button {
 
 .la-admin__img-upload a {
   font-size: var(--text-sm);
-  color: #1592E6;
+  color: var(--skyblue);
   font-weight: var(--font-semibold);
   margin-bottom: var(--size-4);
 }
 
 .la-admin__img-info {
-  color: #BCBCBC;
+  color: var(--gray8);
   font-size: var(--text-sm);
   font-weight: var(--font-light);
 }
@@ -1641,6 +1645,10 @@ a.dt-button {
 
 /* ============ EDIT AND DELETE BUTTONS IN ADMIN & CREATOR: START ======== */
 
+a.la-admin__edit-btn {
+  color: var(--gray6);
+}
+
 a.la-admin__edit-btn:hover {
   color: var(--app-indigo-1) !important;
 }
@@ -1707,23 +1715,23 @@ a.la-admin__edit-btn:hover {
 .popover {
   width: 200px;
   height: 120px;
-  background-color: #fff;
+  background-color: var(--white);
   padding: var(--size-3);
   border: none;
   box-shadow: 0px 3px 6px #00000029;
 }
 
 .popover-header {
-  background-color: #fff;
+  background-color: var(--white);
   color: var(--app-indigo-1);
-  font-size: 14px;
+  font-size: var(--text-sm);
   border-bottom: none;
   text-align: center;
   font-weight: var(--font-bold);
 }
 
 .popover-body {
-  background-color: #fff;
+  background-color: var(--white);
   text-align: center;
   font-size: 13px;
   padding-top: var(--size-2);

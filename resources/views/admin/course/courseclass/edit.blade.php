@@ -7,9 +7,8 @@
   <div class="row">
     <div class="col-md-6">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title pb-6">{{ __('adminstaticword.Edit') }} {{ __('adminstaticword.CourseClass') }}</h3>
-        </div>
+          <h3 class="la-admin__section-title ml-3">{{ __('adminstaticword.Edit') }} {{ __('adminstaticword.CourseClass') }}</h3>
+        
         <div class="box-body">
           <div class="form-group">
             <form enctype="multipart/form-data" id="demo-form" method="post" action="{{url('courseclass/'.$cate->id)}}"data-parsley-validate class="form-horizontal form-label-left">
@@ -237,7 +236,7 @@
         
                                     <td>
                                       {{-- <input type="text" name="sub_lang[]" placeholder="Subtitle Language" class="form-control name_list" /> --}}
-                                      <select name="sub_lang[]" class="form-control">
+                                      <select name="sub_lang[]" class="">
                                         @foreach ($languages as $language)
                                           <option value="{{$language->iso_code}}">{{$language->name}}</option>
                                         @endforeach
@@ -249,7 +248,7 @@
                                       </select>
                                     </td>  
                                     {{-- <td><button type="button" name="add" id="add" class="btn btn-xs btn-success">
-                                      <i class="fa fa-plus"></i>
+                                      <i class="la-icon la-icon--sm icon-plus"></i>
                                     </button></td>   --}}
                                 </tr>  
                               </table>
@@ -290,7 +289,7 @@
                           {{ csrf_field() }}
       
                           <button type="submit" class="btn btn-danger d-inline">
-                            <i class="fa fa-fw fa-trash-o"></i>
+                            <i class="la-icon la-icon--lg icon-delete"></i>
                           </button>
                         </form>
                       </td>

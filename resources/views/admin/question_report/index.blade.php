@@ -40,15 +40,15 @@
                     <td>{{$item->email}}</td>
                     <td>{{ str_limit($item->detail, $limit=50, $end="...")}}</td>
                     <td>
-                      <a class="btn btn-primary btn-sm" href="{{url('user/question/report/'.$item->id)}}">
-                      <i class="fa fa-edit"></i></a>
+                      <a class="btn btn-success la-admin__edit-btn" href="{{url('user/question/report/'.$item->id)}}">
+                      <i class="la-icon la-icon--lg icon-edit"></i></a>
                     </td>
                     <td>
                       <form  method="post" action="{{url('user/question/report'. $item->id)}}
                         "data-parsley-validate class="form-horizontal form-label-left">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                         <button type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash-o"></i></button>
+                         <button type="submit" class="btn btn-danger"><i class="la-icon la-icon--lg icon-delete"></i></button>
                       </form>
                     </td>
                   </tr>

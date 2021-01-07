@@ -7,9 +7,8 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Slider') }}</h3>
-        </div>
+          <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Slider') }}</h3>
+        
         <!-- /.box-header -->
         <div class="box-body">
           <div class="form-group">
@@ -20,12 +19,12 @@
            
 
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-3">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Heading') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="heading" id="exampleInputTitle" value="{{$cate->heading}}">
                 </div>
           
-                <div class="col-md-6">
+                <div class="col-md-3">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.SubHeading') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="sub_heading" id="exampleInputTitle" value="{{$cate->sub_heading}}">
                 </div>
@@ -37,7 +36,7 @@
                   <label for="exampleInputTit1e">{{ __('adminstaticword.SearchText') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="search_text" id="exampleInputTitle" value="0">
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-6">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="detail" id="exampleInputTitle" value="{{$cate->detail}}">
                 </div>
@@ -46,10 +45,26 @@
 
               <div class="row">
                 <div class="col-md-6">
-                  <label>{{ __('adminstaticword.Image') }}</label>
-                    <input type="file" name="image"  id="image"><img src="{{ url('/images/slider/'.$cate->image) }}"/>
-                  </br>
+                  <div class="la-admin__preview">
+                    <label>{{ __('adminstaticword.Image') }}:<sup class="redstar">*</sup></label>
+                    <br>
+                    <div class="la-admin__preview-img la-admin__course-imgvid" >
+                      <div class="la-admin__preview-text">
+                          <p class="la-admin__preview-size">Preview Image</p>
+                          <p class="la-admin__preview-file text-uppercase">Choose a File</p>
+                      </div>
+                      <div class="text-center pr-20 mr-10">
+                        <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:160px;">
+                            <span class="path1"><span class="path2"></span></span>
+                        </span>
+                      </div>
+                      <input type="file" name="image"  id="image"><img src="{{ url('/images/slider/'.$cate->image) }}"/>
+                    </div>
+                  </div>
                 </div>
+              </div><br/>
+
+              <div class="row">
                 <div class="col-md-6">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                   <li class="tg-list-item">              
@@ -61,8 +76,12 @@
               </div>
               <br> 
            
-              <div class="box-footer">
-                <button type="submit" class="btn btn-lg col-md-2 btn-primary">+ {{ __('adminstaticword.Save') }}</button>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-primary px-14"> {{ __('adminstaticword.Save') }}</button>
+                  </div>
+                </div>
               </div>
             </form>
           </div>

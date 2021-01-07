@@ -48,7 +48,7 @@
                         <td><i class="fa {{ $order->currency_icon }}"></i>{{ $order->total_amount }}</td>
                       @endif
 
-                      <td><a class="btn btn-primary btn-sm" href="{{route('view.order',$order->id)}}">{{ __('adminstaticword.View') }}</a>
+                      <td><a class="btn btn-success btn-sm" href="{{route('view.order',$order->id)}}">{{ __('adminstaticword.View') }}</a>
                       </td>
                       
                       <td>
@@ -57,7 +57,7 @@
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                           <button type="submit" class="btn btn-danger">
-                                <i class="fa fa-fw fa-trash-o"></i>
+                                <i class="la-icon la-icon--lg icon-delete"></i>
                           </button>
                         </form>
                       </td>

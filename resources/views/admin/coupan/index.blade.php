@@ -7,8 +7,8 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.Coupon') }}</h3>
+        <div class="d-flex justify-content-between align-items-center">
+          <h3 class="la-admin__section-title ml-2">{{ __('adminstaticword.Coupon') }}</h3>
           <a title="Create new Coupon" href="{{ route('coupon.create') }}" class="btn btn-sm btn-info">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Coupon') }}</a>
         </div>
 
@@ -58,7 +58,7 @@
                     <td>{{ $cpn->maxusage }}</td>
                     
                     <td>
-                      <a title="Edit coupon" href="{{ route('coupon.edit',$cpn->id) }}" class="btn btn-success btn-sm">
+                      <a title="Edit coupon" href="{{ route('coupon.edit',$cpn->id) }}" class="btn btn-success la-admin__edit-btn">
                         <i class="la-icon la-icon--lg icon-edit"></i>
                       </a>
                     </td>

@@ -7,11 +7,11 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.FAQInstructor') }}</h3>
+        <div class="d-flex justify-content-between align-items-center">
+          <h3 class="la-admin__section-title ml-2">{{ __('adminstaticword.FAQInstructor') }}</h3>
           <a href="{{url('faqinstructor/create')}}" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.FAQInstructor') }}</a>
         </div>
-        <!-- /.box-header -->
+       
         <div class="box-body">
           <table id="example1" class="table table-bordered table-striped">
             <thead>

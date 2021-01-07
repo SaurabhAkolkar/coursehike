@@ -7,8 +7,8 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title pb-6"> {{ __('adminstaticword.Order') }}</h3>
+        <div class="d-flex justify-content-between align-items-center ml-2">
+          <h3 class="la-admin__section-title"> {{ __('adminstaticword.Order') }}</h3>
           {{-- @if(Auth::User()->role == "admin")
             <a class="btn btn-info btn-md" href="{{route('order.create')}}">+ Enroll&nbsp; {{ __('adminstaticword.User') }}</a>
           @endif --}}
@@ -151,7 +151,7 @@
                     </form>
                   </td>
 
-                  <td><a class="text-dark" href="{{route('view.order',$order->id)}}">{{ __('adminstaticword.View') }}</a>
+                  <td><a class="text-dark btn btn-success la-admin__edit-btn" href="{{route('view.order',$order->id)}}">{{ __('adminstaticword.View') }}</a>
                   </td>
                   
                   <td>

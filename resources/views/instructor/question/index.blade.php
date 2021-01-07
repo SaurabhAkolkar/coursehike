@@ -7,9 +7,11 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">Course Questions</h3>
-          <a class="btn btn-info btn-sm" href="{{ url('instructorquestion/create') }}">+ Add Question</a>
+        <div class="d-flex justify-content-between align-items-center">
+          <h3 class="la-admin__section-title ml-2">Course Questions</h3>
+          <a class="btn btn-info btn-sm" href="{{ url('instructorquestion/create') }}">
+              <span class="la-icon la-icon--sm icon-plus"></span> Add Question
+          </a>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -42,7 +44,7 @@
                       </form>
                     </td>
                     <td>
-                      <a class="btn btn-success btn-sm" href="{{url('instructorquestion/'.$que->id)}}">
+                      <a class="btn btn-success btn-sm la-admin__edit-btn" href="{{url('instructorquestion/'.$que->id)}}">
                       <span class="la-icon la-icon--lg icon-edit"></span>
                       </a>
                     </td>

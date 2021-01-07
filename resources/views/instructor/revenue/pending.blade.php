@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'Revenue - Instructor')
+@section('title', 'Pending Payout - Instructor')
 @section('body')
 
 <section class="content">
@@ -7,11 +7,8 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">  {{ __('adminstaticword.PendingPayout') }}</h3>
-        </div>
+          <h3 class="la-admin__section-title ml-2">  {{ __('adminstaticword.PendingPayout') }}</h3>
         
-        <!-- /.box-header -->
         <div class="box-body">
           <div class="la-admin__revenue-stats">
             <!-- TOTAL WATCH TIME SECTION: START -->
@@ -64,7 +61,7 @@
                           "data-parsley-validate class="form-horizontal form-label-left">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                            <button  type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash-o"></i></button>
+                            <button  type="submit" class="btn btn-danger"><i class="la-icon la-icon--lg icon-delete"></i></button>
                         </form>
                       </td>
                     </tr>

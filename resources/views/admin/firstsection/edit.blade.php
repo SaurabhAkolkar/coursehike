@@ -18,26 +18,26 @@
                             <div class="row">
                                 <div class="col-md-3">
                                 <label for="exampleInputTit1e">{{ __('adminstaticword.Heading') }}:<sup class="redstar">*</sup></label>
-                                <input type="text" class="form-control" name="heading" id="exampleInputTitle" value="{{$show['heading']}}">
+                                <input type="text" class="form-control" name="heading" id="exampleInputTitle" value="{{$show['heading']}}" placeholder="Enter Section Heading">
                                 </div>
                             
                                 <div class="col-md-3">
                                 <label for="exampleInputTit1e">{{ __('adminstaticword.SubHeading') }}:<sup class="redstar">*</sup></label>
-                                <input type="text" class="form-control" name="sub_heading" id="exampleInputTitle" value="{{$show['sub_heading']}}">
+                                <input type="text" class="form-control" name="sub_heading" id="exampleInputTitle" value="{{$show['sub_heading']}}" placeholder="Enter Section Sub Heading">
                                 </div>
                             </div>
                             
                             <div class="row">
                                 <div class="col-md-6 mt-4">
                                     <label for="exampleInputTit1e">{{ __('adminstaticword.ImageText') }}:<sup class="redstar">*</sup></label>
-                                    <input type="text" class="form-control" name="image_text" id="exampleInputTitle" value="{{$show['image_text']}}">
+                                    <input type="text" class="form-control" name="image_text" id="exampleInputTitle" value="{{$show['image_text']}}" placeholder="Enter Image Text">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6 mt-4">
                                     <div class="la-admin__preview">
-                                        <label>{{ __('adminstaticword.Image') }}:</label><br/>
+                                        <label>{{ __('adminstaticword.Image') }}:<sup class="redstar">*</sup></label><br/>
                                         <div class="la-admin__preview-img la-admin__course-imgvid" >
                                             <div class="la-admin__preview-text">
                                                 <p class="la-admin__preview-size">Preview Image</p>

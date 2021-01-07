@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'View User - Admin')
+@section('title', 'User Subscripion - Admin')
 @section('body')
 
 <section class="content">
@@ -7,9 +7,9 @@
   <div class="row">
     <div class="col-md-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.Subscription') }}</h3>
-          <a class="btn btn-info btn-sm" href="{{route('create.subscription', $user_id)}}"><span class="la-icon icon-plus"></span>{{ __('adminstaticword.Add') }} {{ __('adminstaticword.Subscription') }}</a>
+        <div class="d-flex justify-content-between align-items-center ml-2">
+          <h3 class="la-admin__section-title">{{ __('adminstaticword.Subscription') }}</h3>
+          <a class="btn btn-info btn-sm" href="{{route('create.subscription', $user_id)}}"><span class="la-icon la-icon--sm icon-plus"></span> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Subscription') }}</a>
         </div>
        
         <!-- /.box-header -->
@@ -51,11 +51,11 @@
     </div>
 
 
-    <div class="col-md-12">
+    <div class="col-md-12 mt-10">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.Courses') }}</h3>
-          <a class="btn btn-info btn-sm" href="/user/subscriptions/add-course/{{$user_id}}"><span class="la-icon icon-plus"></span>{{ __('adminstaticword.Add') }} {{ __('adminstaticword.Courses') }}</a>
+        <div class="d-flex justify-content-between align-items-center ml-2">
+          <h3 class="la-admin__section-title">{{ __('adminstaticword.Courses') }}</h3>
+          <a class="btn btn-info btn-sm" href="/user/subscriptions/add-course/{{$user_id}}"><span class="la-icon la-icon--sm icon-plus"></span> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Courses') }}</a>
         </div>
        
         <!-- /.box-header -->

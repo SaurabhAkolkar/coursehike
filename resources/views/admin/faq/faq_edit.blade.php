@@ -16,9 +16,8 @@
     <!-- left column -->
     <div class="col-md-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title pb-6"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.FAQ') }}</h3>
-        </div>
+        <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.FAQ') }}</h3>
+        
         <div class="box-body">
             <div class="form-group col-8 p-0">              
           <form id="demo-form2" method="post" action="{{url('faq/'.$find->id)}}" data-parsley-validate class="form-horizontal form-label-left"  enctype="multipart/form-data">

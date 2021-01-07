@@ -7,9 +7,8 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Course') }}</h3>
-        </div>
+          <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Course') }}</h3>
+       
         <!-- /.box-header -->
         <div class="box-body">
           <div class="form-group">
@@ -26,36 +25,42 @@
                         @endforeach
                   </select>
                 </div>
+              </div>
 
-                <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-6 mt-4">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.CourseAmount') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="amount" id="exampleInputTitle" >
                 </div>
               </div>
-              <br> 
-
+            
               <div class="row">
-
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3">
                     <label for="exampleInputTit1e">{{ __('adminstaticword.PurchaseType') }}:<sup class="redstar">*</sup></label>
-                    <select name="purchase_type" id="purchase_type" class="form-control js-example-basic-single col-md-7 col-12">
+                    <select name="purchase_type" id="purchase_type" class="form-control js-example-basic-single col-12">
                         <option disabled selected>Choose Option</option>
                         <option value="all_classes">All Classes</option>
                         <option value="selected_classes">Selected Classes</option>
                     </select>
                 </div>
+              </div>
 
-                <div class="col-md-6" id="class_id_div">
+              <div class="row">
+                <div class="col-md-6 mt-4" id="class_id_div">
                     <label for="exampleInputTit1e">{{ __('adminstaticword.Classes') }}:<sup class="redstar">*</sup></label>
-                    <select name="class_id[]" id="class_id"  class="form-control js-example-basic-single col-md-7 col-12" multiple>
+                    <select name="class_id[]" id="class_id"  class="form-control js-example-basic-single  col-12" multiple>
                             <option disabled selected>Please Choose</option>
-
                     </select>
                 </div>               
               </div>
-              <br>            
-              <div class="box-footer">
-                <button type="submit" class="btn btn-lg col-md-2 btn-primary">+ {{ __('adminstaticword.Save') }}</button>
+              <br> <br>      
+
+              <div class="row">
+                  <div class="col-md-6">      
+                    <div class="box-footer">
+                      <button type="submit" class="btn btn-lg btn-primary px-14"> {{ __('adminstaticword.Save') }}</button>
+                    </div>
+                  </div>
               </div>
             </form>
           </div>

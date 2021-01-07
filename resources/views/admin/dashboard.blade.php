@@ -5,10 +5,10 @@
 @if(Auth::User()->role == "admin")
 
 <section class="content-header">
-  <h1 class="m-0 pt-6">
+  <h3 class="la-admin__section-title mb-0">
     {{ __('adminstaticword.Dashboard') }}
-    <small>LILA</small>
-  </h1>
+    <span class="text-xs">LILA</span>
+  </h3>
   <!-- <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i>{{ __('adminstaticword.Home') }}</a></li>
     <li class="active">{{ __('adminstaticword.Dashboard') }}</li>

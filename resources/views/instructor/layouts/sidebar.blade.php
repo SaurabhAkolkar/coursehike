@@ -54,7 +54,8 @@
                     <li class="{{ Nav::isResource('subcategory') }}"><a class="d-flex align-items-center" href="{{url('subcategory')}}"> <i class="la-icon la-icon--lg icon-sub-category mr-4"></i>{{ __('adminstaticword.SubCategory') }}</a></li>
                     <li class="{{ Nav::isResource('childcategory') }}"><a class="d-flex align-items-center" href="{{url('childcategory')}}"> <i class="la-icon la-icon--lg icon-child-category mr-4"></i>{{ __('adminstaticword.ChildCategory') }}</a></li>
                   </ul>
-                  @endif                            --}}
+                  @endif                            
+                  --}}
 
                   <li class="{{ Nav::isResource('course') }}"><a class="d-flex align-items-center" href="{{url('course')}}"> <i class="la-icon la-icon--lg icon-courses mr-4"></i><span>{{ __('adminstaticword.Course') }}</span></a></li>
 

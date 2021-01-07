@@ -42,7 +42,7 @@
 			                  <td><form  method="post" action="{{url('admin/city/'.$city->id)}}" data-parsley-validate class="form-horizontal form-label-left">
 			                      {{ csrf_field() }}
 			                      {{ method_field('DELETE') }}
-			                       <button  type="submit" class="btn btn-danger" onclick="return confirm('Delete This City..?)" ><i class="fa fa-fw fa-trash-o"></i></button></td>
+			                       <button  type="submit" class="btn btn-danger" onclick="return confirm('Delete This City..?)" ><i class="la-icon la-icon--lg icon-delete"></i></button></td>
 			                      </form>
 			                  </td>
 			                </tr>

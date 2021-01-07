@@ -4,7 +4,7 @@
 
 <div class="box">
   <div class="pl-8 pt-8">
-    <h3 >{{$cor->title }}</h3>
+      <h3 class="la-admin__section-titl ml-1">{{$cor->title }}</h3>
   </div>
   @if($errors->any())
   <div class="box-body">
