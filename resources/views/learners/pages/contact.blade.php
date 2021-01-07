@@ -13,6 +13,18 @@
               <span class="la-icon la-icon--5xl icon-back-arrow"></span>
             </a>
           </div>
+
+          @if(session('success'))
+          <div class="la-btn__alert position-relative">
+            <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible" role="alert">
+                <h6 class="la-btn__alert-msg">{{session('success')}}</h6>
+                <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true" style="color:#56188C">&times;</span>
+                </button>
+            </div>
+          </div>
+          @endif
+
           <!-- Column: End-->
           <!-- Column: Start-->
           <div class="col-12 d-none d-sm-block ">
@@ -64,29 +76,30 @@
               <h1 class="la-anim__fade-in-top la-anim__A">CONTACT</h1>
             </div>
             <div class="la-contact__rgt">
-              <form class="la-contact__form" action="#" method="post" onsubmit="">
+              <form class="la-contact__form" action="/contact" method="post" onsubmit="" id="contactForm">
+                @csrf
                 <div class="form-group mb-5 la-anim__stagger-item--x">
                   <label class="text-sm m-0" for="contName">Full Name</label>
-                  <input class="form-control p-0" id="contName" type="text" name="contName" placeholder="Enter your name">
+                  <input class="form-control p-0" id="contName" type="text" name="fname" placeholder="Enter your name" required >
                 </div>
                 <div class="form-group mb-5 la-anim__stagger-item--x">
                   <label class="text-sm m-0" for="contEmail">Email</label>
-                  <input class="form-control p-0" id="contEmail" type="email" name="contEmail" placeholder="Enter your email id">
+                  <input class="form-control p-0" id="contEmail" type="email" name="email" placeholder="Enter your email id" required>
                 </div>
                 <div class="form-group mb-5 la-anim__stagger-item--x">
                   <label class="text-sm m-0" for="contPhone">Contact Number</label>
-                  <input class="form-control p-0" id="contPhone" type="tel" name="contPhone" placeholder="XXXXXXXXXX">
+                  <input class="form-control p-0" id="contPhone" type="tel" name="mobile" placeholder="XXXXXXXXXX" required>
                 </div>
                 <div class="form-group mb-5 la-anim__stagger-item--x">
                   <label class="text-sm" for="contMsg">Message</label>
-                  <textarea class="form-control text-msg p-2" id="contMsg" rows="5" cols="50" name="contMsg" placeholder="Type here"></textarea>
+                  <textarea class="form-control text-msg p-2" id="contMsg" rows="5" cols="50" name="message" placeholder="Type here" required></textarea>
                 </div>
                 <div class="la-contact__btn text-right d-none d-sm-block la-anim__stagger-item--x">
-                  <div class="btn btn-desktop text-lg text-center" type="submit">SEND</div>
+                  <div class="btn btn-desktop text-lg text-center" type="submit" onclick="$('#contactForm').submit()">SEND</div>
                 </div>
                 <!-- Mobile Button: Start-->
                 <div class="la-contact__btn text-center pt-5 d-block d-sm-none la-anim__stagger-item">
-                  <div class="btn btn-mobile btn-block text-lg text-center" type="submit">SEND</div>
+                  <div class="btn btn-mobile btn-block text-lg text-center" type="submit" onclick="$('#contactForm').submit()">SEND</div>
                 </div>
                 <!-- Mobile Button: End-->
               </form>

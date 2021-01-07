@@ -618,6 +618,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
     Route::get('/watch_time', 'InstructorController@totalWatchTime');
     Route::get('/payoutCalculate', 'InstructorController@payoutCalculate');
     Route::get('/browse/courses','SearchController@index');
+
     Route::get('/filter-courses','SearchController@applyFilter')->name('apply.filters');
     Route::get('/add-to-cart','CartController@addtocartAjax');
     Route::post('/add-to-cart','CartController@addToCart');
@@ -698,6 +699,8 @@ Route::get("/search-course","LearnController@searchCourse");
 
 Route::get('/activestatus', 'WatchCourseController@active');
 
+Route::post('/contact', 'ContactUsController@contactUs');
+
 
 
 Route::get('active/courses', 'WatchCourseController@watchlist')->name('active.courses');
@@ -728,8 +731,9 @@ Route::view('/signin','learners.auth.signin');
 Route::get('/mentors','InstructorController@allMentors');
 Route::post('/search-mentor','InstructorController@searchMentor');
 Route::get('/creator/{id}','InstructorController@creator');
+Route::get('/user-dashboard','UserDashboardController@index');
 
-Route::view('/user-dashboard','learners.pages.user-dashboard');
+//Route::view('/user-dashboard','learners.pages.user-dashboard');
 // Route::get('/browse/courses','HomeController@browseCourses');
 // Route::view('/learn/course/{id}/{slug}','learners.pages.course');
 // Route::view('/my-courses','learners.pages.my-courses');

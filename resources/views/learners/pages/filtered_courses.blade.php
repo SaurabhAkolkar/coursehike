@@ -42,14 +42,7 @@
 
         <div class="la-courses mt-6 mt-md-14 la-anim__wrap">
           <nav class="la-courses__nav d-flex justify-content-between">
-            <ul class="nav nav-pills la-courses__nav-tabs " id="nav-tab" role="tablist">
-              {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"> <span class="position-relative">Tattoo</span></a></li>
-              <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
-              <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
-              @foreach ($categories as $category)
-                <li class="nav-item la-courses__nav-item la-anim__stagger-item--x"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative text-nowrap">{{ $category->title}}</span></a></li>
-              @endforeach
-            </ul>
+           
             
             <!-- Filters : Start -->
             <div class="la-courses__nav-filters d-flex align-items-start ml-6">
@@ -87,10 +80,6 @@
                       <div class="la-form__input-wrap px-5">
                           <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
                             <form action="{{route('apply.filters')}}" method="get" id="filter_form">
-                                <input type="hidden" name="categories[]" id="filter_categories" />
-                                <input type="hidden" name="sub_categories[]" id="filter_sub_categories" />
-                                <input type="hidden" name="languages[]" id="filter_languages" />
-
                                 <a onclick="$('#filter_form').submit()" class="la-rtng__review text-uppercase text-center text-md-right">Apply</a> 
                                 <div class="form-group pt-2">
                                   <label class="glabel-main" > Course Duration</label>
@@ -114,14 +103,14 @@
                                   <label class="glabel-main" > Category</label>
                                     @foreach($filter_categories as $c)
                                       <label class="glabel d-flex" for="course_{{$c->id}}">
-                                        <input class="d-none" type="checkbox" id="course_{{$c->id}}" onclick="addToCategory({{$c->id}})" value="{{$c->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                        <input class="d-none" type="checkbox" id="course_{{$c->id}}" name="categories[]" value="{{$c->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                         <div class="pl-2 mt-n1">{{$c->title}}
                                             @if($c->subcategory != null)
                                               <ul class="d-flex flex-column">
                                                 @foreach($c->subcategory as $sc)
                                                   <li>
                                                     <label class="glabel d-flex" for="sub_course_{{$sc->id}}">
-                                                      <input class="d-none" id="sub_course_{{$sc->id}}" type="checkbox" name="sub_categories" value="{{$sc->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                                      <input class="d-none" id="sub_course_{{$sc->id}}" type="checkbox" name="sub_categories[]" value="{{$sc->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                                       <div class="pl-2 mt-n1">{{$sc->title}}</div>
                                                     </label>
                                                   </li>
@@ -138,7 +127,7 @@
                                   <label class="glabel-main" > Language</label>
                                   @foreach($langauges as $l)
                                     <label class="glabel d-flex" for="lang_{{$l->id}}">
-                                      <input class="d-none" id="lang_{{$l->id}}" type="checkbox" name="languages" value="{{$l->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                      <input class="d-none" id="lang_{{$l->id}}" type="checkbox" name="languages[]" value="{{$l->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                       <div class="pl-2 mt-n1">{{$l->name}}</div>
                                     </label>
                                   @endforeach
@@ -177,12 +166,8 @@
                   
 
           <!-- Tattoo Art Tab: Start -->
-          <div class="tab-content la-courses__content la-anim__wrap position-relative" id="nav-tabContent">
-
-            @foreach ($categories as $category)
-              <div class="tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
                 <div class="row row-cols-lg-3 la-anim__stagger-item">
-                      @foreach($category->courses as $course)
+                      @foreach($courses as $course)
                         <x-course 
                             :id="$course->id"
                             :img="$course->preview_image"
@@ -196,69 +181,20 @@
                       @endforeach
 
                 </div>
-              </div>
-            @endforeach
-            {{-- <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-              <div class="row row-cols-lg-3">
-      
-                    @foreach($tattoos as $tattoo)
-                      
-                      <x-course 
-                          :id="$tattoo->id"
-                          :img="$tattoo->img" 
-                          :course="$tattoo->course" 
-                          :url="$tattoo->url" 
-                          :rating="$tattoo->rating"
-                          :creatorImg="$tattoo->creatorImg"
-                          :creatorName="$tattoo->creatorName"
-                          :creatorUrl="$tattoo->creatorUrl"
-                        />
-                    @endforeach
-                
-              </div>
-            </div>
-            <!-- Tattoo Art Tab: End -->
-            
-            <!-- Rangoli Tab: Start -->
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-              <div class="row row-cols-lg-3">
+                @if(count($courses) == 0)
+                <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
+                      <div class="la-empty__inner">
+                          <h6 class="la-empty__course-title pb-2">No Courses Found.</h6>
+                      </div>
+                      <div class="la-empty__browse-courses">
+                          <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
+                              Browse Courses
+                              <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
+                          </a>
+                      </div>
+                  </div>
+                @endif
 
-                  @foreach($tattoos as $tattoo)
-                    <x-course 
-                        :id="$tattoo->id"
-                        :img="$tattoo->img" 
-                        :course="$tattoo->course" 
-                        :url="$tattoo->url" 
-                        :rating="$tattoo->rating"
-                        :creatorImg="$tattoo->creatorImg"
-                        :creatorName="$tattoo->creatorName"
-                        :creatorUrl="$tattoo->creatorUrl"
-                      />
-                  @endforeach
-
-              </div>
-            </div>
-             <!-- Rangoli Tab: End -->
-
-             <!-- Design Tab: Start -->
-            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-              <div class="row row-cols-lg-3">
-
-                  @foreach($tattoos as $tattoo)
-                    <x-course 
-                        :id="$tattoo->id"
-                        :img="$tattoo->img" 
-                        :course="$tattoo->course" 
-                        :url="$tattoo->url" 
-                        :rating="$tattoo->rating"
-                        :creatorImg="$tattoo->creatorImg"
-                        :creatorName="$tattoo->creatorName"
-                        :creatorUrl="$tattoo->creatorUrl"
-                      />
-                  @endforeach
-                  
-              </div>
-            </div> --}}
              <!-- Rangoli Tab: End -->
 
           </div>
@@ -267,31 +203,3 @@
     </div>
   </section>
   @endsection
-
-  @section('footerScripts')
-  <script>
-    function addToCategory(id){
-        let input = $('#filter_categories').val();
-        console.log(input);
-       
-        if(input){
-          arr = [];
-          arr.from(input);
-          if(arr.includes(id)){
-            alert('wait');
-            var index = arr.indexOf(id);
-            arr.splice(index, 1);
-          }else{
-            arr.push(id);
-          }
-          $('#filter_categories').val(arr);
-        }else{
-          input = [];
-          input.push(id);
-          $('#filter_categories').val(input);
-        }
-       
-        
-    }
-  </script>
-@endsection

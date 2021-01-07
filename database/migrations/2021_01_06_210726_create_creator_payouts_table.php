@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatorPayoutsTable extends Migration
+class CreateCreatorPayoutsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,7 @@ class CreatorPayoutsTable extends Migration
         Schema::create('creator_payouts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('month');
+            $table->date('month');
             $table->integer('subscription_amount');
             $table->integer('course_amount');
             $table->string('status');
