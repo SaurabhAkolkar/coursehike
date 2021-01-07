@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('body')
-@section('title', 'ADD User - Admin')
+@section('title', 'Add User - Admin')
 
 @if ($errors->any())
 <div class="alert alert-danger">
@@ -16,9 +16,8 @@
   <div class="row">
     <div class="col-md-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title pb-6"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.User') }}</h3>
-        </div>
+        <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.User') }}</h3>
+       
         <div class="panel-body pl-3">
           <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
@@ -150,10 +149,8 @@
               <div class="col-md-2 display-none">
                 <label for="exampleInputDetails">{{ __('adminstaticword.Verified') }}:</label> 
                 <li class="tg-list-item">
-                
-                <input class="la-admin__toggle-switch" id="jeet1"   type="checkbox"/>
-                <label class="la-admin__toggle-label" data-tg-off="Off" data-tg-on="On" for="jeet1"></label>
-                
+                  <input class="la-admin__toggle-switch" id="jeet1"   type="checkbox"/>
+                  <label class="la-admin__toggle-label" data-tg-off="Off" data-tg-on="On" for="jeet1"></label>
                 </li>
                 <input type="hidden" name="verified" value="0" id="jeet11"> 
            
@@ -198,16 +195,14 @@
                 <textarea id="detail" name="detail" rows="3"  class="form-control" placeholder="Enter your detail"></textarea>
               </div>
             </div>
-            <br>
-            <br>
+            
 
             
-            <div class="box-header with-border">
-              <h3 class="box-title">{{ __('adminstaticword.SocialProfile') }}</h3>
-            </div>
-            <br>
+            <div class="row mt-10">
+              <div class="col-12">
+                <h3 class="la-admin__section-title">{{ __('adminstaticword.SocialProfile') }}</h3>
+              </div>
 
-            <div class="row">
               <div class="col-md-4">
                 <label for="fb_url">
                 {{ __('adminstaticword.FacebookUrl') }}:
@@ -243,7 +238,7 @@
 
           <div class="row">
             <div class="col-md-8 box-footer">
-              <button type="submit" class="btn btn-md btn-primary">
+              <button type="submit" class="btn btn-primary px-14">
                  {{ __('adminstaticword.AddUser') }}
               </button>
             </form>

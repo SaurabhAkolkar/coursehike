@@ -127,8 +127,8 @@ sup.redstar, .redstar {
   }
 
   input {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
   }
 }
 
@@ -150,6 +150,7 @@ sup.redstar, .redstar {
   &:hover {
     border: none;
     border-radius: none;
+    color:var(--app-indigo-1);
   }
 }
 
@@ -158,6 +159,12 @@ td {
     display: inline-block;
     float: left;
     margin-right: var(--size-2);
+
+    &:hover {
+      border: none;
+      border-radius: none;
+      color:var(--app-indigo-1) !important;
+    }
   }
 }
 
@@ -235,7 +242,7 @@ td {
 }
 
 .main-footer {
-  background-color: #FFF;
+  background-color: var(--white);
   color: #8A98AC;
   border-top: 1px solid rgba(0, 0, 0, 0.03);
 }
@@ -246,6 +253,10 @@ td {
 
 td form .btn-danger {
   background-color: #f9616d !important;
+
+  &:hover{
+    color:var(--danger) !important;
+  }
 }
 
 .tgl-skewed {
@@ -259,7 +270,7 @@ td form .btn-danger {
 }
 
 .inputfile-1 + label {
-  color: #FFF;
+  color: var(--white);
   background-color: #f9616d !important;
 }
 
@@ -284,7 +295,7 @@ td form .btn-danger {
 }
 
 .skin-blue .main-header li.user-header {
-  background-color: #FFF;
+  background-color: var(--white);
 }
 
 .navbar-nav > .user-menu > .dropdown-menu > {
@@ -293,7 +304,7 @@ td form .btn-danger {
   }
 
   .user-footer {
-    background-color: #FFF !important;
+    background-color: var(--white) !important;
     padding: 10px;
   }
 }
@@ -372,7 +383,7 @@ td form .btn-danger {
   }
 
   .main-header .logo:hover {
-    background-color: #FFF;
+    background-color: var(--white);
   }
 }
 
@@ -383,7 +394,7 @@ td form .btn-danger {
 
   &:hover {
     background-color: #506FE4;
-    color: #FFF;
+    color: var(--white);
   }
 }
 
@@ -414,7 +425,7 @@ td form .btn-danger {
 }
 
 .btn-default, .btn.btn-flat, .bg-navy, .btn-info {
-  background-color: #FFF !important;
+  background-color: var(--white) !important;
   color: #506FE4 !important;
   border-color: #506FE4;
   border-radius: 3px;
@@ -422,7 +433,7 @@ td form .btn-danger {
 
 .btn-default:hover, .btn.btn-flat:hover, .bg-navy:hover, .btn-info:hover {
   background-color: #506FE4 !important;
-  color: #FFF !important;
+  color: var(--white) !important;
   border-color: #506FE4;
 }
 
@@ -431,7 +442,7 @@ td form .btn-danger {
   border-radius: 3px;
 
   &:hover {
-    color: #FFF;
+    color: var(--white);
     border-radius: 3px;
   }
 }
@@ -577,7 +588,7 @@ h6 {
 .btn-success {
   &.active {
     &.focus, &:focus, &:hover {
-      color: #FFF;
+      color: var(--white);
       background-color: #43d187;
       border-color: #43d187;
     }
@@ -585,7 +596,7 @@ h6 {
 
   &:active {
     &.focus, &:focus, &:hover {
-      color: #FFF;
+      color: var(--white);
       background-color: #43d187;
       border-color: #43d187;
     }
@@ -594,7 +605,7 @@ h6 {
 
 .open > .dropdown-toggle.btn-success {
   &.focus, &:focus, &:hover {
-    color: #FFF;
+    color: var(--white);
     background-color: #43d187;
     border-color: #43d187;
   }
@@ -634,6 +645,9 @@ div {
 
   &.dataTables_wrapper div.dataTables_filter label {
     margin-top: 13px;
+  }
+  &.dataTables_wrapper div.dataTables_filter input{
+    margin-left:var(--size-6) !important;
   }
 }
 
@@ -766,17 +780,18 @@ button.dt-button, div.dt-button, a.dt-button {
   }
 
   .la-dash__recent-title {
-    font-family: var(--body-font);
+    font-family: var(--head-font);
     font-weight: var(--font-normal);
     font-size: var(--text-sm);
-    color: var(--gray4);
+    color: var(--gray5);
+    text-transform: capitalize;
   }
 
   .la-dash__recent-tag {
     font-family: var(--body-font);
-    font-weight: var(--font-normal);
+    font-weight: var(--font-medium);
     font-size: var(--text-xxs);
-    color: var(--gray5);
+    color: var(--gray4);
     text-transform: uppercase;
   } 
   .la-dash__recent-price{
@@ -791,7 +806,7 @@ button.dt-button, div.dt-button, a.dt-button {
     font-family: var(--body-font);
     font-weight: var(--font-normal);
     font-size: var(--text-xs);
-    color: var(--gray5);
+    color: var(--gray4);
   }
   
   .la-dash__recent-more {
@@ -800,6 +815,15 @@ button.dt-button, div.dt-button, a.dt-button {
 
     a {
       color: #777777;
+      span{
+        transition:all 0.25s linear;-webkit-transition:all 0.25s linear;
+      }
+
+      span:hover{
+        transform:translateX(6px);
+        transition:all 0.25s linear;-webkit-transition:all 0.25s linear;
+        color:var(--app-indigo-1);
+      }
     }
   }
 }
@@ -818,7 +842,7 @@ button.dt-button, div.dt-button, a.dt-button {
 
     .la-dash__pending-title {
       font-family: var(--body-font);
-      font-weight: var(--font-normal);
+      font-weight: var(--font-medium);
       font-size: var(--text-md);
       color: var(--gray5);
       text-align: center;
@@ -834,7 +858,7 @@ button.dt-button, div.dt-button, a.dt-button {
       font-family: var(--body-font);
       font-weight: var(--font-normal);
       font-size: var(--text-sm);
-      color: var(--gray4);
+      color: var(--gray5);
       text-align: center;
     }
 
@@ -918,10 +942,11 @@ button.dt-button, div.dt-button, a.dt-button {
     font-weight: var(--font-light);
     font-size: var(--text-lg);
     color:var(--black);
+    cursor:pointer;
   }
 
   .la-admin__cp-desc {
-    padding-left: var(--size-4);
+    padding-left: var(--size-6);
   }
 
   .la-admin__cp-subscription .la-admin__cp-desc p, .la-admin__cp-premium .la-admin__cp-desc p, .la-admin__cp-free .la-admin__cp-desc p {
@@ -970,10 +995,16 @@ button.dt-button, div.dt-button, a.dt-button {
   height:200px;
 }
 .la-admin__course-imgvid img{
-  width:200px;
-  height:130px;
-  margin:-160px 0 0 95px;
+  width:160px;
+  height:150px;
+  margin:-160px 0 0 130px;
   position: absolute;
+  background-color:var(--white);
+}
+.la-admin__course-modal-imgvid img{
+  width:135px;
+  height:135px;
+  margin-left:150px !important;
 }
 .la-admin__course-imgvid video{
   height:130px;
@@ -1004,6 +1035,7 @@ button.dt-button, div.dt-button, a.dt-button {
   border: none !important;
   text-align: center;
   padding: 23px;
+  background-color: var(--gray) !important;
 }
 
 .la-admin__preview {
@@ -1016,6 +1048,9 @@ button.dt-button, div.dt-button, a.dt-button {
     color: var(--black);
     font-size: var(--text-md);
     z-index: 0;
+  }
+  .la-admin__preview-img2{
+    width:200px;
   }
 
   .la-admin__preview-img .la-admin__preview-text, .la-admin__preview-video .la-admin__preview-text {
@@ -1086,15 +1121,15 @@ button.dt-button, div.dt-button, a.dt-button {
   border-radius: var(--rounded-full);
   border: 1px solid rgba(21, 146, 230, 0.7);
   position: relative;
-  margin-right: var(--size-3);
+  margin-right: var(--size-2);
 
   &::before {
     content: "";
     position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 6px;
-    height: 6px;
+    top: 2px;
+    left: 2px;
+    width: 8px;
+    height: 8px;
     border-radius: var(--rounded-full);
     background-color: var(--skyblue);
     transform: scale(0);-webkit-transform: scale(0);-moz-transform: scale(0);-ms-transform: scale(0);-o-transform: scale(0);
@@ -1117,14 +1152,15 @@ button.dt-button, div.dt-button, a.dt-button {
   display: inline-block;
   width: 60px;
   height: 24px;
-  background-color: #EEEEEE;
+  background-color: var(--gray8);
+  cursor:pointer;
 
   &::after {
     content: "";
     position: absolute;
     width: 30px;
     height: 23px;
-    background-color: #2B2B2B;
+    background-color: var(--gray3);
     top: 1px;
     left: 1px;
     transition: all 0.3s;-webkit-transition: all 0.3s;-moz-transition: all 0.3s;-ms-transition: all 0.3s;-o-transition: all 0.3s;
@@ -1137,7 +1173,7 @@ button.dt-button, div.dt-button, a.dt-button {
     left: 15px;
     width: 1px;
     height: 15px;
-    border: 1px solid var(--white);
+    border-left: 2px solid var(--white);
     box-shadow: 0px 0px 2px #0000003D;
     z-index: var(--z-1);
   }
@@ -1157,10 +1193,10 @@ button.dt-button, div.dt-button, a.dt-button {
       left: 45px;
       width: 1px;
       height: 15px;
-      border: 1px solid var(--white);
+      border-left: 2px solid var(--white);
       z-index: var(--z-1);
     }
-    background-color: #EEEEEE;
+    background-color: var(--gray8);
   }
 
   display: none;
@@ -1178,8 +1214,10 @@ button.dt-button, div.dt-button, a.dt-button {
 }
 
 .la-admin__editclass-preview img{
-  width: 300px !important;
-  height:200px !important;
+  width: 190px !important;
+  height:190px !important;
+  background:var(--white);
+  margin:3px 5px;
 }
 
 /* ==== EDIT COURSE CLASS: END ===== */
@@ -1427,15 +1465,20 @@ button.dt-button, div.dt-button, a.dt-button {
   padding: var(--size-4);
   background: none !important;
   border: 1px dashed #606060;
+
+  &:hover{
+    border:1px solid var(--gray6);
+    transition:all 0.25s ease;
+  }
 }
 .la-admin__img-upload a {
   font-size: var(--text-sm);
-  color: #1592E6;
+  color: var(--skyblue);
   font-weight: var(--font-semibold);
   margin-bottom: var(--size-4);
 }
 .la-admin__img-info {
-  color: #BCBCBC;
+  color: var(--gray8);
   font-size: var(--text-sm);
   font-weight: var(--font-light);
 }
@@ -1544,6 +1587,13 @@ button.dt-button, div.dt-button, a.dt-button {
 }
 /* ============ PUBLISH PAGE IN CREATOR COURSES: END ======== */
 
+/* ============ EDIT AND DELETE BUTTONS IN ADMIN & CREATOR: START ======== */
+a.la-admin__edit-btn{
+  color:var(--gray6);
+  &:hover{
+    color:var(--app-indigo-1) !important;
+  }
+}
 
 /* =========== ALERT SUCCESS & DANGER: START =========== */
 .la-btn__alert-success{
@@ -1577,3 +1627,30 @@ button.dt-button, div.dt-button, a.dt-button {
   opacity:1;                       
 }
 /* =========== ALERT SUCCESS & DANGER: END =========== */
+
+// Popover for Course Pages
+.popover{
+  width:200px;
+  height:120px;
+  background-color:var(--white);
+  padding:var(--size-3);
+  border:none;
+  box-shadow: 0px 3px 6px #00000029;
+}
+.popover-header{
+  background-color:var(--white);
+  color: var(--app-indigo-1);
+  font-size:var(--text-sm);
+  border-bottom:none;
+  text-align:center;
+  font-weight:var(--font-bold);
+}
+.popover-body{
+  background-color:var(--white);
+  text-align:center;
+  font-size:13px;
+  padding-top:var(--size-2);
+}
+.arrow{
+  display:none !important;
+}

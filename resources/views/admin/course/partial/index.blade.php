@@ -2,10 +2,10 @@
 <div class="row">
   <div class="col-12">
     <div class="box box-primary">
-      <div class="box-header with-border">
-        <h3 class="box-title ">{{ __('adminstaticword.Course') }}</h3>
+      <div class="d-flex justify-content-between align-items-center ml-2">
+        <h3 class="la-admin__section-title">{{ __('adminstaticword.Course') }}</h3>
         <a class="btn btn-info btn-sm" href="{{url('course/create')}}">
-          + {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Course') }}
+          <span class="la-icon la-icon--sm icon-plus"></span> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Course') }}
         </a>
       </div>
      
@@ -131,7 +131,7 @@
                         </td>
 
                         <td>
-                          <a class="text-dark" href="{{ route('course.show',$cor->id) }}">
+                          <a class="text-dark la-admin__edit-btn" href="{{ route('course.show',$cor->id) }}">
                           <i class="la-icon la-icon--lg icon-edit"></i></a>
                         </td>
 
@@ -140,7 +140,7 @@
                             "data-parsley-validate class="form-horizontal form-label-left">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                            <button onclick="return confirm('Are you sure you want to delete?')"  type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash-o"></i></button>
+                            <button onclick="return confirm('Are you sure you want to delete?')"  type="submit" class="btn btn-danger la-admin__delete-btn"><i class="la-icon la-icon--lg icon-delete"></i></button>
                           </form>
                         </td>
                       </tr>

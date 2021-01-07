@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'Course Unpublish Review - Admin')
+@section('title', 'Course Unpublish Requests - Admin')
 @section('body')
 
 <section class="content">
@@ -8,10 +8,8 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.Course') }} Unpublish Request</h3>
-        </div>
-       
+          <h3 class="la-admin__section-title ml-2">{{ __('adminstaticword.Course') }} Unpublish Request</h3>
+               
         <!-- /.box-header -->
           <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
@@ -75,8 +73,9 @@
                         </td>
 
                         <td>
-                          <a class="btn btn-primary btn-sm" href="{{ route('course.show',$r->course->id) }}">
-                          <i class="fa fa-edit"></i></a>
+                          <a class="btn btn-success la-admin__edit-btn" href="{{ route('course.show',$r->course->id) }}">
+                            <i class="la-icon la-icon--lg icon-edit"></i>
+                          </a>
                         </td>
                       </tr>
                     @endif

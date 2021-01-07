@@ -32,7 +32,7 @@
             </td>
             
             <td>
-              <a class="px-0 text-dark" href="{{route('courseanswer.edit',$ans->id)}}"><i class="la-icon la-icon--lg icon-edit"></i></a>
+              <a class="px-0 text-dark btn btn-success la-admin__edit-btn" href="{{route('courseanswer.edit',$ans->id)}}"><i class="la-icon la-icon--lg icon-edit"></i></a>
             </td>
 
             <td><form  method="post" action="{{url('courseanswer/'.$ans->id)}}

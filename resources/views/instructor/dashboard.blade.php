@@ -5,10 +5,10 @@
 @if(Auth::User()->role == "mentors")
 
 <section class="content-header">
-  <h1 class="m-0 pt-6">
+  <h3 class="la-admin__section-title">
     {{ __('adminstaticword.Dashboard') }}
-    <small>{{ __('adminstaticword.Instructor') }}</small>
-  </h1>
+    <span class="text-sm font-weight-normal">{{ __('adminstaticword.Instructor') }}</span>
+  </h3>
   <!-- <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> {{ __('adminstaticword.Home') }}</a></li>
     <li class="active">{{ __('adminstaticword.Dashboard') }}</li>
@@ -78,7 +78,7 @@
             <div class="icon">
               <span class="la-icon la-icon--5xl icon-revenue"></span>
             </div>
-            <p class="m-0"> Earnings</p>
+            <p class="m-0"> Revenue</p>
             <h3 class="m-0">
               0
             </h3>

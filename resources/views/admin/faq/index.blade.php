@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'All Faq - Admin')
+@section('title', 'FAQ Learners - Admin')
 @section('body')
 
 <section class="content">
@@ -7,8 +7,8 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.FAQStudent') }}</h3>
+        <div class="d-flex justify-content-between align-items-center">
+          <h3 class="la-admin__section-title ml-2">{{ __('adminstaticword.FAQStudent') }}</h3>
           <a href="{{url('faq/create')}}" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.FAQStudent') }}</a>
         </div>
         <!-- /.box-header -->
@@ -43,8 +43,10 @@
                     </button>
                   </form>
                 </td>
-                <td><a class="btn btn-success btn-sm" href="{{url('faq/'.$p->id.'/edit')}}">
-                    <i class="la-icon la-icon--lg icon-edit"></i></a>
+                <td>
+                  <a class="btn btn-success la-admin__edit-btn" role="button" href="{{url('faq/'.$p->id.'/edit')}}">
+                    <i class="la-icon la-icon--lg icon-edit"></i>
+                  </a>
                 </td>
                 <td>
                   <form  method="post" action="{{url('faq/'.$p->id)}}"
@@ -52,7 +54,7 @@
                       {{ csrf_field() }}
                       {{ method_field('DELETE') }}
                     <button type="submit" class="btn btn-danger">
-                      <i class="la-icon la-icon--lg icon-delete"></i>
+                      <span class="la-icon la-icon--lg icon-delete"></span>
                     </button>
                   </form>
                 </td>

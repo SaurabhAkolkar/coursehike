@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'All Faq Instructor - Admin')
+@section('title', 'FAQ Mentors - Admin')
 @section('body')
 
 <section class="content">
@@ -7,19 +7,19 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.FAQInstructor') }}</h3>
+        <div class="d-flex justify-content-between align-items-center">
+          <h3 class="la-admin__section-title ml-2">{{ __('adminstaticword.FAQInstructor') }}</h3>
           <a href="{{url('faqinstructor/create')}}" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.FAQInstructor') }}</a>
         </div>
-        <!-- /.box-header -->
+       
         <div class="box-body">
           <table id="example1" class="table table-bordered table-striped">
             <thead>
               
               <tr>
                 <th>#</th>
-                <th>{{ __('adminstaticword.Title') }}</th>
-                <th>{{ __('adminstaticword.Detail') }}</th>
+                <th>{{ __('adminstaticword.Question') }}</th>
+                <th>{{ __('adminstaticword.Answer') }}</th>
                 <th>{{ __('adminstaticword.Status') }}</th>
                 <th>{{ __('adminstaticword.Edit') }}</th>
                 <th>{{ __('adminstaticword.Delete') }}</th>
@@ -43,15 +43,17 @@
                     </button>
                   </form>
                 </td>
-                <td><a class="btn btn-success btn-sm" href="{{url('faqinstructor/'.$p->id.'/edit')}}">
-                    <i class="la-icon la-icon--lg icon-edit"></i></a>
+                <td>
+                    <a class="btn btn-success la-admin__edit-btn" href="{{url('faqinstructor/'.$p->id.'/edit')}}">
+                      <i class="la-icon la-icon--lg icon-edit"></i>
+                    </a>
                 </td>
                 <td>
                   <form  method="post" action="{{url('faqinstructor/'.$p->id)}}"
                       data-parsley-validate class="form-horizontal form-label-left">
                       {{ csrf_field() }}
                       {{ method_field('DELETE') }}
-                    <button type="submit" class="btn btn-danger">
+                    <button type="submit" class="btn btn-danger la-admin__delete-btn">
                           <i class="la-icon la-icon--lg icon-delete"></i>
                     </button>
                   </form>

@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'Instructor Request - Admin')
+@section('title', 'Mentors Request - Admin')
 @section('body')
 
 <section class="content">
@@ -7,9 +7,8 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title pb-6">{{ __('adminstaticword.InstructorRequest') }}</h3>
-        </div>
+          <h3 class="la-admin__section-title ml-2 mb-0">{{ __('adminstaticword.InstructorRequest') }}</h3>
+        
         <!-- /.box-header -->
         <div class="box-body">
             <div class="la-admin__filter-icons text-right" style="position:relative; top:50px;z-index:0;">
@@ -44,13 +43,13 @@
                         {{ __('adminstaticword.Pending') }}
                       @endif
                     </td>
-                    <td><a class="btn btn-primary btn-sm" href="{{route('requestinstructor.edit',$item->id)}}">{{ __('adminstaticword.View') }}</a></td>
+                    <td><a class="btn btn-success la-admin__edit-btn" href="{{route('requestinstructor.edit',$item->id)}}">{{ __('adminstaticword.View') }}</a></td>
 
                     <td><form  method="post" action="{{url('requestinstructor/'.$item->id)}}
                           "data-parsley-validate class="form-horizontal form-label-left">
                           {{ csrf_field() }}
                           {{ method_field('DELETE') }}
-                           <button type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash-o"></i></button>
+                           <button type="submit" class="btn btn-danger"><i class="la-icon la-icon--lg icon-delete"></i></button>
                         </form>
                     </td>
                   @endif

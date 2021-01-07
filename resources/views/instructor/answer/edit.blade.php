@@ -8,10 +8,8 @@
     <div class="col-12">
       <!-- general form elements -->
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Answer') }}</h3>
-        </div>
-        <!-- /.box-header -->
+          <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Answer') }}</h3>
+        
         <div class="box-body">
           <div class="form-group">
             <form action="{{url('instructoranswer/'.$answer->id)}}" method="POST" enctype="multipart/form-data">
@@ -47,8 +45,12 @@
                 <br>
                 <br>
                 
-                <div class="box-footer">
-                  <button value="" type="submit"  class="btn btn-md col-md-2 btn-primary">{{ __('adminstaticword.Save') }}</button>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="box-footer">
+                      <button value="" type="submit"  class="btn btn-md btn-primary">{{ __('adminstaticword.Save') }}</button>
+                    </div>
+                  </div>
                 </div>
 
             </form>

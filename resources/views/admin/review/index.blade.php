@@ -63,8 +63,8 @@
                       </form>
                     </td>
                   
-                    <td><a class="btn btn-primary btn-sm" href="{{action('ReviewController@show',$item->id)}}">
-                      <i class="fa fa-edit"></i></a>
+                    <td><a class="btn btn-success la-admin__edit-btn" href="{{action('ReviewController@show',$item->id)}}">
+                      <i class="la-icon la-icon--lg icon-edit"></i></a>
                     </td>
                     @endforeach
                  

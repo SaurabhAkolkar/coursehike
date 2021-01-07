@@ -18,10 +18,9 @@
     <div class="col-12"> 
       <!-- general form elements -->
       <div class="box box-primary">
-        <div class="box-header ">
-          <h3 class="box-title">Add Question</h3>
-        </div>
-        <br>
+          <h3 class="la-admin__section-title ml-3">Add Question</h3>
+      
+        
         <div class="box-body">
           <div class="form-group">
             <form id="demo-form2" method="post" action="{{ route('instructorquestion.store') }}" data-parsley-validate class="form-horizontal form-label-left">

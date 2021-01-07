@@ -1,5 +1,5 @@
 @if ($errors->any())
-<div class="alert alert-danger">
+<div class="alert alert-danger la-btn__alert-danger col-12 animated fadeInDown" role="alert">
   <ul>
     @foreach ($errors->all() as $error)
     <li>{{ $error }}</li>

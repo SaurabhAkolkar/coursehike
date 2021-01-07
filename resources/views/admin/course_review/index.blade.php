@@ -8,9 +8,8 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.Course') }} {{ __('adminstaticword.Request') }}</h3>
-        </div>
+          <h3 class="la-admin__section-title ml-2">{{ __('adminstaticword.Course') }} {{ __('adminstaticword.Request') }}</h3>
+        
        
         <!-- /.box-header -->
           <div class="box-body">
@@ -76,8 +75,8 @@
                         </td>
 
                         <td>
-                          <a role="button" class="btn btn-success btn-sm" href="{{ route('course.show',$cat->id) }}">
-                          <i class="fa fa-edit"></i></a>
+                          <a role="button" class="btn btn-success la-admin__edit-btn" href="{{ route('course.show',$cat->id) }}">
+                          <i class="la-icon la-icon--lg icon-edit"></i></a>
                         </td>
 
                         <td>
@@ -85,7 +84,7 @@
                             "data-parsley-validate class="form-horizontal form-label-left">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                            <button onclick="return confirm('Are you sure you want to delete?')"  type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash-o"></i></button>
+                            <button onclick="return confirm('Are you sure you want to delete?')"  type="submit" class="btn btn-danger"><i class="la-icon la-icon--lg icon-delete"></i></button>
                           </form>
                         </td>
                       </tr>

@@ -7,9 +7,12 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.Testimonial') }}</h3>
-          <a href="{{url('testimonial/create')}}" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }}</a>
+          <div class="d-flex justify-content-between align-items-center">
+            <h3 class="la-admin__section-title ml-3">{{ __('adminstaticword.Testimonial') }}</h3>
+            <a href="{{url('testimonial/create')}}" class="btn btn-info btn-sm">
+              <span class="la-icon la-icon--sm icon-plus"></span>
+              <span>{{ __('adminstaticword.Add') }} {{ __('adminstaticword.Testimonial') }}</span>
+            </a>
           </div>
           <!-- /.box-header -->
             <div class="box-body">
@@ -49,15 +52,15 @@
                   </form>
               </td>           
 
-              <td><a class="btn btn-success btn-sm" href="{{url('testimonial/'.$p->id.'/edit')}}">
-                <i class="fa fa-edit"></i></a>
+              <td><a class="btn btn-success la-admin__edit-btn" href="{{url('testimonial/'.$p->id.'/edit')}}">
+                <i class="la-icon la-icon--lg icon-edit"></i></a>
               </td>
               <td><form  method="post" action="{{url('testimonial/'.$p->id)}}
                "data-parsley-validate class="form-horizontal form-label-left">
                   {{ csrf_field() }}
                   {{ method_field('DELETE') }}
 
-                  <button  type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash-o"></i></button>
+                  <button  type="submit" class="btn btn-danger"><i class="la-icon la-icon--lg icon-delete"></i></button>
                 </form>
               </td>
               @endforeach

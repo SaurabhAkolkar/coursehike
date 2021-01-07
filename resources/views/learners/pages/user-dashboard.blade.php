@@ -8,7 +8,7 @@
       <div class="la-cdashboard__inner pt-5">
         <div class="container pt-0 pt-sm-3">
           <div class="row d-flex flex-row justify-content-between">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 la-anim__wrap">
               <div class="la-cdashboard__page">
                 <h1 class="text-4xl">Welcome <span>{{Auth::user()->fname}}!</span></h1>
                 <p class="text-sm">Let's explore something extraordinary and <br> learn it like aliens.</p>
@@ -19,41 +19,41 @@
               <div class="la-cbadges__item pb-5 mb-5">
                 <div class="row no-gutters px-2 px-sm-0 py-5 py-sm-2">
                   <div class="col d-flex flex-row justify-content-start justify-content-lg-center">
-                    <div class="la-cbadge">
-                        <div class="la-cbadge__thumbnail" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "EXCLUSIVITY" data-content="A Badge you earn when you finish an exclusive course." > 
+                    <div class="la-cbadge la-anim__wrap">
+                        <div class="la-cbadge__thumbnail la-anim__stagger-item" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "EXCLUSIVITY" data-content="A Badge you earn when you finish an exclusive course." > 
                             <span class="la-icon la-icon--6xl icon-badge-purple">
                               <span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span>
                             </span>
-                                <sup class="badge la-badge__count py-1">5</sup>
+                            <sup class="badge la-badge__count py-1 la-anim__fade-in-top la-anim__D">5</sup>
                         </div>
                     </div>
                   </div>
                   <div class="col d-flex flex-row justify-content-start justify-content-lg-center">
-                    <div class="la-cbadge">
-                        <div class="la-cbadge__thumbnail" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "SINCERE LEARNER" data-content="A Badge you earn when learn consistently." > 
+                    <div class="la-cbadge la-anim__wrap">
+                        <div class="la-cbadge__thumbnail la-anim__stagger-item" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "SINCERE LEARNER" data-content="A Badge you earn when learn consistently." > 
                           <span class="la-icon la-icon--6xl icon-badge-green">
                             <span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span>
                           </span>   
-                          <sup class="badge la-badge__count py-1">3</sup>
+                          <sup class="badge la-badge__count py-1 la-anim__fade-in-top la-anim__D">3</sup>
                         </div>
                     </div>
                   </div>
                   <div class="col d-flex flex-row justify-content-start justify-content-lg-center">
-                    <div class="la-cbadge">
-                        <div class="la-cbadge__thumbnail" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "FAST LEARNER" data-content="A Badge you earn when learn at a fast pace." > 
+                    <div class="la-cbadge la-anim__wrap ">
+                        <div class="la-cbadge__thumbnail la-anim__stagger-item" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "FAST LEARNER" data-content="A Badge you earn when learn at a fast pace." > 
                           <span class="la-icon la-icon--6xl icon-badge-yellow">
                             <span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span>
                           </span>
-                              <sup class="badge la-badge__count py-1">8</sup>
+                              <sup class="badge la-badge__count py-1 la-anim__fade-in-top la-anim__D">8</sup>
                         </div>
                     </div>
                   </div>
                   <div class="col d-flex flex-row justify-content-start justify-content-lg-center">
-                    <div class="la-cbadge">
-                        <div class="la-cbadge__thumbnail" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "MENTOR'S FAVOURITE" data-content="A Badge gifted by your mentor when you finish assignments well." > 
+                    <div class="la-cbadge la-anim__wrap ">
+                        <div class="la-cbadge__thumbnail la-anim__stagger-item" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "MENTOR'S FAVOURITE" data-content="A Badge gifted by your mentor when you finish assignments well." > 
                           <span class="la-icon la-icon--6xl icon-badge-red">
                             <span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span>
-                          </span>   <sup class="badge la-badge__count py-1">1</sup>
+                          </span>   <sup class="badge la-badge__count py-1 la-anim__fade-in-top la-anim__D">1</sup>
                         </div>
                     </div>
                   </div>
@@ -64,12 +64,12 @@
           
           <div class="row la-lastview-card">
             <div class="col-12 col-md-6 col-lg-4 d-flex flex-column justify-content-end">
-              <div class="la-course__tile-title">
-                <h5 class="text-xl font-weight-bold mb-4">Last Viewed</h5>
+              <div class="la-course__tile-title la-anim__wrap">
+                <h5 class="text-xl font-weight-bold mb-4 la-anim__stagger-item">Last Viewed</h5>
               </div>
               <div class="la-course__tile-card d-block">
                 <div class="row no-gutters">
-                  <div class="col">
+                  <div class="col la-anim__wrap">
                       @php
                           $tile = new stdClass;
                           $tile->img = "./images/learners/dashboard/card-tile.png";
@@ -95,14 +95,14 @@
             <div class="col"></div>
             <div class="col-12 col-md-5 col-lg-4">
               <div class="la-course__alien-ad">
-                <div class="card la-course__ad-card">
+                <div class="card la-course__ad-card la-anim__wrap">
                   <div class="card-body la-course__ad-card_body my-0 position-relative">
-                    <p class="text-sm text-white">Got something different then<br>share it with the world.</p>
-                    <h2 class="text-5xl text-white">become an <br><span>Alien mentor</span></h2>
+                    <p class="text-sm text-white la-anim__stagger-item">Got something different then<br>share it with the world.</p>
+                    <h2 class="text-5xl text-white la-anim__stagger-item--x">become an <br><span>Alien mentor</span></h2>
                   
-                    <div class="la-course__ad-learn-more text-right mr-md-n4">
-                      <a class="text-uppercase" href="#">Learn More
-                        <span class="la-icon la-icon--5xl icon-black-arrow"></span>
+                    <div class="la-course__ad-learn-more text-right mr-md-n4 la-anim__fade-in-left">
+                      <a class="text-uppercase " href="#">Learn More
+                        <span class="la-icon la-icon--5xl icon-black-arrow la-anim__stagger-item--x"></span>
                       </a>
                     </div>
                   </div>
@@ -117,9 +117,9 @@
     <!-- Section: Start-->
     <section class="la-empty">
       <div class="container">
-        <div class="row" style="width:100%;height:248px;background:#eee;margin:80px 0">  
-          <div class="col-12 text-center">
-            <h1 class="text-light">1080 x 248   </h1>
+        <div class="row la-anim__wrap">  
+          <div class="col-12 text-center la-anim__stagger-item">
+            <h1 class="text-light"  style="width:100%;height:248px;background:#eee;margin:80px 0">1080 x 248   </h1>
           </div>
         </div>
       </div>
@@ -129,18 +129,18 @@
     <section class="la-pcourses-section">
       <div class="container">
         <div class="row">  
-          <div class="col-12">
-            <h5 class="la-pcourses__title  text-2xl text-md-3xl">Pending Courses</h5>
+          <div class="col-12 la-anim__wrap">
+            <h5 class="la-pcourses__title  text-2xl text-md-3xl la-anim__stagger-item">Pending Courses</h5>
             
             <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
-                <div class="la-empty__inner">
+                <div class="la-empty__inner la-anim__stagger-item">
                     <h6 class="la-empty__course-title pb-2">No Courses</h6>
                     <p class="la-empty__course-desc m-0">You currently don't have any pending course, start new course</p>
                 </div>
                 <div class="la-empty__browse-courses">
-                    <a href="/browse/courses" class="la-empty__browse">
+                    <a href="/browse/courses" class="la-empty__browse la-anim__fade-in-left">
                         Browse Courses
-                        <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
+                        <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow la-anim__stagger-item--x"></span>
                     </a>
                 </div>
             </div>
@@ -155,8 +155,8 @@
       <div class="container px-5 px-sm-0">
         <div class="row">
           <div class="col-12 px-2">
-            <div class="la-hp__inner">
-              <h5 class="text-2xl text-md-3xl la-hp__title m-0 pb-4">Hand Picked for you! </h5>
+            <div class="la-hp__inner la-anim__wrap">
+              <h5 class="text-2xl text-md-3xl la-hp__title m-0 pb-4 la-anim__stagger-item">Hand Picked for you! </h5>
               <div class="la-hp__data">
                 <div class="row">
                     <!-- Hand Picked: Start -->
@@ -178,16 +178,16 @@
           $users = $courses->groupBy('user_id');
          
      @endphp
-    <section class="la-section">
+    <section class="la-section__small">
       <div class="la-section__inner">
         <div class="container">
             <div class="row no-gutters">
-              <div class="col-12">
-                <h5 class="text-2xl text-md-3xl pb-5">Alien Mentors</h5>
+              <div class="col-12 la-anim__wrap">
+                <h5 class="text-2xl text-md-3xl pb-5 la-anim__stagger-item">Alien Mentors</h5>
               </div>
           
               <div class="la-mentors">
-                <div class="row">
+                <div class="row la-anim__wrap">
 
                     @foreach($users as $u)
                         <x-mentor :img="asset('images/user_img/'.$u[0]->user->user_img)" :name="$u[0]->user->fullName" :skill="$u[0]->category->title" id="1" />
@@ -203,8 +203,8 @@
     <!-- Section: Start-->
     <section class="la-empty">
       <div class="container">
-        <div class="row">  
-          <div class="col-12 text-center" style="width:100%;height:132px;background:#eee;margin:80px 0">
+        <div class="row la-anim__wrap">  
+          <div class="col-12 text-center la-anim__stagger-item" style="width:100%;height:132px;background:#eee;margin:80px 0">
             <h1 class="text-light">1080 x 132</h1>
           </div>
         </div>

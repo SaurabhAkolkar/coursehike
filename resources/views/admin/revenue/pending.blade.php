@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'All Pending Payout - Instructor')
+@section('title', 'Pending Payouts - Instructor')
 @section('body')
 
 <section class="content">
@@ -7,8 +7,8 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title pb-6">  {{ __('adminstaticword.PendingPayout') }}</h3>
+        <div class="d-flex justify-content-between align-items-center">
+          <h3 class="la-admin__section-title ml-2">  {{ __('adminstaticword.PendingPayout') }}</h3>
         </div>
 
         <div class="box-header">

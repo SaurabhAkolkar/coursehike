@@ -421,7 +421,7 @@ use Carbon\Carbon;
               <div class="la-vcourse__purchase-btn">
                 <a class="btn btn-primary active la-btn la-btn--primary text-center"  href="/learning-plans">SUBSCRIBE NOW</a>
               </div>
-              <a @if(Auth::check()) href="#" @else data-toggle="modal" data-target="#locked_login" @endif  class="la-vcourse__purchase-trial--lnk mt-8">Start free 7 Days trial</a>
+              <a href="/learning-plans"  class="la-vcourse__purchase-trial--lnk mt-8">Start free 7 Days trial</a>
             </div>
           </div>
         </div>

@@ -17,10 +17,8 @@
     <div class="col-12"> 
       <!-- general form elements -->
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Answer') }}</h3>
-        </div>
-        <br>
+          <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Answer') }}</h3>
+        
         <div class="box-body">
           <div class="form-group">
             <form id="demo-form2" method="post" action="{{url('instructoranswer/')}}" data-parsley-validate class="form-horizontal form-label-left">
@@ -34,7 +32,7 @@
                   <div class="col-md-6">
                     <label  for="exampleInputTit1e"> {{ __('adminstaticword.Select') }} {{ __('adminstaticword.Question') }}:<sup class="redstar">*</sup></label>
                     <br>
-                    <select name="question_id" required class="form-control col-md-7 col-12 js-example-basic-single">
+                    <select name="question_id" required class="form-control  js-example-basic-single">
                       <option value="none" selected disabled hidden> 
                          {{ __('adminstaticword.SelectanOption') }}
                       </option>
@@ -73,7 +71,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="box-footer">
-                      <button type="submit" value="Add Answer" class="btn btn-md col-md-4 btn-primary">{{ __('adminstaticword.Save') }}</button>
+                      <button type="submit" value="Add Answer" class="btn btn-md px-10 btn-primary">{{ __('adminstaticword.Save') }}</button>
                     </div>
                   </div>
                 </div>

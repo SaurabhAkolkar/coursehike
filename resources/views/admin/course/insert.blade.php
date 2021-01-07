@@ -19,16 +19,15 @@
     <div class="col-md-12">
       <!-- general form elements -->
       <div class="box box-primary">
-        <div class="box-header ">
-          <div class="row pb-8">
-            <div class="col-md-10">
-              <h3 class="box-title"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Course') }}</h3>
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Course') }}</h3>
             </div>
             <div  class="col-md-2">
                 <!--<div><h4 class="admin-form-text"><a href="{{url('course')}}" data-toggle="tooltip" data-original-title="Go back" class="btn-floating"><i class="material-icons"><button class="btn btn-xs btn-success abc"> << {{ __('adminstaticword.Back') }}</button> </i></a></h4></div> -->
             </div>
           </div>
-        </div> 
+       
          
         <div class="box-body">
           <div class="form-group">
@@ -56,7 +55,7 @@
                 </div>
                 <div class="col-md-3">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Instructor') }}</label>
-                    <select name="user_id" class="form-control js-example-basic-single col-md-7 col-12">
+                    <select name="user_id" class="form-control js-example-basic-single ">
                         <option value="{{Auth::user()->id}}">{{Auth::user()->fname}}</option>
                     </select>
                 </div>
@@ -64,7 +63,11 @@
               <br>
 
               <div class="row">
-                <div class="col-md-12"> 
+                <div class="col-md-6">
+                  <label for="exampleInputTit1e">{{ __('adminstaticword.Title') }}: <sup class="redstar">*</sup></label>
+                  <input type="title" class="form-control" name="title" id="exampleInputTitle" placeholder="Please Enter Your Title" value="" required>
+                </div>
+                <div class="col-md-6"> 
                   <label>{{ __('adminstaticword.Language') }}: <span class="redstar">*</span></label>
                   <select name="language_id" class="form-control js-example-basic-single">
                     @php
@@ -79,10 +82,6 @@
               <br>
 
               <div class="row">
-                <div class="col-md-12">
-                  <label for="exampleInputTit1e">{{ __('adminstaticword.Title') }}: <sup class="redstar">*</sup></label>
-                  <input type="title" class="form-control" name="title" id="exampleInputTitle" placeholder="Please Enter Your Title" value="" required>
-                </div>
                 {{-- <div class="col-md-6">
                   <label for="exampleInputSlug">{{ __('adminstaticword.Slug') }}: <sup class="redstar">*</sup></label>
                   <input pattern="[/^\S*$/]+"  type="text" class="form-control" name="slug" id="exampleInputPassword1" placeholder="Please Enter Your Slug" required>
@@ -177,8 +176,11 @@
                            <label for="subPaid"> 
                              <div class="la-admin__cp-circle">
                                 <span class="la-admin__cp-radio"></span>
-                                <span class="la-admin__cp-label">Subscription</span> 
-                                <small><i class="fa fa-info-circle px-2"></i> (Default)</small>
+                                <span class="la-admin__cp-label">Subscription</span>
+                                <div class="mx-1 mt-1" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="There are many variations of passages of Lorem Ipsum available">
+                                  <span class="la-icon la-icon--md icon-details"> 
+                                </div>
+                                <small class=" text-xs mt-1">(Default)</small>
                              </div>
 
                               <div class="la-admin__cp-desc">
@@ -202,7 +204,9 @@
                                 <div class="la-admin__cp-circle">
                                   <span class="la-admin__cp-radio"></span>
                                   <span class="la-admin__cp-label">Premium </span>
-                                  <small><i class="fa fa-info-circle pl-1"></i> </small>
+                                  <div class="mx-1 mt-1" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="There are many variations of passages of Lorem Ipsum available">
+                                    <span class="la-icon la-icon--md icon-details"> 
+                                  </div>
                                 </div>
                                 <div class="la-admin__cp-desc">
                                     <p> This course is accessible only by exclusive purchase </p>
@@ -216,7 +220,9 @@
                               <div class="la-admin__cp-circle">
                                 <span class="la-admin__cp-radio"></span>
                                 <span class="la-admin__cp-label">Free</span> 
-                                <small><i class="fa fa-info-circle pl-1"></i> </small>
+                                <div class="mx-1 mt-1" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="There are many variations of passages of Lorem Ipsum available">
+                                  <span class="la-icon la-icon--md icon-details"> 
+                                </div>
                               </div>
 
                                 <div class="la-admin__cp-desc">
@@ -496,5 +502,7 @@ $(document).on("change", ".preview_video", function(evt) {
 });
 
 </script>
+
+
   
 @endsection

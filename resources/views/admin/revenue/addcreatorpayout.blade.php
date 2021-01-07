@@ -7,9 +7,8 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.CreatorPayout') }}</h3>
-        </div>
+        <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.CreatorPayout') }}</h3>
+        
         <!-- /.box-header -->
         <div class="box-body">
           <div class="form-group">
@@ -17,9 +16,9 @@
               {{ csrf_field() }}         
 
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-3">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Instructor') }}:<sup class="redstar">*</sup></label>
-                  <select name="user_id" class="form-control js-example-basic-single col-md-7 col-12">
+                  <select name="user_id" class="form-control js-example-basic-single ">
                         <option disabled selected>Choose Option</option>
                         @foreach($creators as $c)
                             <option value="{{$c->id}}">{{$c->fullName}}</option>
@@ -27,7 +26,7 @@
                   </select>
                 </div>
           
-                <div class="col-md-6">
+                <div class="col-md-3">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Month') }}:<sup class="redstar">*</sup></label>
                   <input class="form-control month" name="month" id="exampleInputTitle" readonly>
                 </div>
@@ -35,18 +34,23 @@
               <br> 
 
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-3">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.SubscriptionAmount') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="subscription_amount" id="exampleInputTitle" >
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-3">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.CourseAmount') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="course_amount" id="exampleInputTitle" >
                 </div>
               </div>
-              <br>            
-              <div class="box-footer">
-                <button type="submit" class="btn btn-lg col-md-2 btn-primary">+ {{ __('adminstaticword.Save') }}</button>
+              <br> 
+                
+              <div class="row">
+                <div class="col-md-6 text-right">
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-primary px-14">{{ __('adminstaticword.Save') }}</button>
+                  </div>
+                </div>
               </div>
             </form>
           </div>

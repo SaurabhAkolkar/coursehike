@@ -30,10 +30,11 @@
         <!-- Global Search: Start-->
         <div class="la-gsearch la-anim__wrap">
           <form class="form-inline la-anim__stagger-item"  action="{{ url('/search-course/') }}">
-            <div class="form-group ">
-              <input class="la-gsearch__input form-control" style="width:300px; background:transparent" name="course_name" type="text" placeholder="What you want to learn today?">
+            <div class="form-group d-flex align-items-center">
+              <input class="la-gsearch__input form-control" style="width:290px; background:transparent" name="course_name" type="text" placeholder="What you want to learn today?">
+              <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--3xl icon icon-search"></i></button>
             </div>
-            <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--3xl icon icon-search"></i></button>
+            
           </form>
         </div>
         <!-- Global Search: End-->

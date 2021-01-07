@@ -3,8 +3,8 @@
 @section('body')
 
 <div class="box">
-  <div class="pl-4 pt-4">
-    <h3 >{{$cor->title }}</h3>
+  <div class="pl-8 pt-8">
+      <h3 class="la-admin__section-titl ml-1">{{$cor->title }}</h3>
   </div>
   @if($errors->any())
   <div class="box-body">
@@ -28,8 +28,8 @@
           <div class="nav-tabs-custom">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" id="nav-tab" role="tablist">
-              <li role="presentation" class="active"><a href="#a" aria-controls="home" role="tab" data-toggle="tab">{{ __('adminstaticword.Course') }}</a></li>
-              {{-- <!-- <li class=""  role="presentation"><a href="#b" aria-controls="profile" role="tab" data-toggle="tab">{{ __('adminstaticword.CourseInclude') }}</a></li> --}}
+              <li role="presentation" class="active"><a href="#a" aria-controls="home" role="tab" data-toggle="tab">{{ __('adminstaticword.CourseDetail') }}</a></li>
+              {{--  <li class=""  role="presentation"><a href="#b" aria-controls="profile" role="tab" data-toggle="tab">{{ __('adminstaticword.CourseInclude') }}</a></li> --}}
               {{-- <li  class=""  role="presentation"><a href="#c" aria-controls="messages" role="tab" data-toggle="tab">{{ __('adminstaticword.WhatLearns') }}</a></li> --}}
               <li  class=""  role="presentation"><a href="#d" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.CourseChapter') }}</a></li>
               <li  class=""  role="presentation"><a href="#e" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.CourseClass') }}</a></li>
@@ -45,7 +45,8 @@
 
               {{-- @if($gsetting->appointment_enable == 1)
               <li  class=""  role="presentation"><a href="#appoint" aria-controls="Appointment" role="tab" data-toggle="tab">{{ __('adminstaticword.Appointment') }}</a></li>
-              @endif --}}
+              @endif  --}}
+             
            
             </ul>
             

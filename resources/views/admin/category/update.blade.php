@@ -8,9 +8,8 @@
     <div class="col-12">
 
       <div class="box box-primary">
-        <div class="box-header with-border ">
-          <h3 class="box-title pb-6">{{ __('adminstaticword.EditCategory') }}</h3>
-        </div>
+          <h3 class="la-admin__section-title ml-3">{{ __('adminstaticword.EditCategory') }}</h3>
+        
        
         <div class="panel-body pl-3">
 
@@ -58,7 +57,7 @@
             <div class="row">
               <div class="col-md-6 text-right">
                 <div class=" box-footer">
-                  <button type="submit" class="btn btn-md col-md-4 btn-primary">{{ __('adminstaticword.Save') }}</button>
+                  <button type="submit" class="btn btn-md btn-primary px-14">{{ __('adminstaticword.Save') }}</button>
                 </div>
               </div>
             </div>

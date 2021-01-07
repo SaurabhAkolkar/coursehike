@@ -37,15 +37,14 @@
                     <td>{{ $country->iso }}</td>
                     <td>{{ $country->iso3 }}</td>
                     <td>
-                      <a class="btn btn-success btn-sm" href="{{url('admin/country/'.$country->id. '/edit')}}">
-
-                        <i class="glyphicon glyphicon-pencil"></i></a>
+                      <a class="btn btn-success btn-sm la-admin__edit-btn" href="{{url('admin/country/'.$country->id. '/edit')}}">
+                        <i class="la-icon la-icon--lg icon-edit"></i></a>
                     </td>
                     <td><form  method="post" action="{{url('admin/country/'.$country->id)}}
                         "data-parsley-validate class="form-horizontal form-label-left">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                         <button  type="submit" class="btn btn-danger" onclick="return confirm('Delete This User..?)" ><i class="fa fa-fw fa-trash-o"></i></button></td>
+                         <button  type="submit" class="btn btn-danger" onclick="return confirm('Delete This User..?)" ><i class="la-icon la-icon--lg icon-delete"></i></button></td>
                         </form>
                     </td>
                   </tr>

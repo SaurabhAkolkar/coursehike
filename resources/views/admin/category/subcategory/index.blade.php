@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'View Subcategory - Admin')
+@section('title', 'Sub Category - Admin')
 @section('body')
 
 <section class="content">
@@ -7,15 +7,12 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="d-flex justify-content-between">
-          <div class="box-header with-border">
-            <h3 class="box-title">{{ __('adminstaticword.SubCategory') }}</h3>
-          </div>
-          <div class="box-header">
+
+        <div class="d-flex justify-content-between align-items-center ml-2">
+            <h3 class="la-admin__section-title">{{ __('adminstaticword.SubCategory') }}</h3>
             <a class="btn btn-info btn-sm" href="{{url('subcategory/create')}}">
-              + {{ __('adminstaticword.AddSubCategory') }}</a>
-            <br>
-          </div>
+              <span class="la-icon la-icon--sm icon-plus"></span> {{ __('adminstaticword.AddSubCategory') }}
+            </a>
         </div>
         <!-- /.box-header -->
         <div class="box-body">

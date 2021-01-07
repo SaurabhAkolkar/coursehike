@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'View Trusted - Admin')
+@section('title', 'Trusted Sliders - Admin')
 @section('body')
 
 <section class="content">
@@ -7,10 +7,12 @@
   <div class="row">
       <div class="col-md-12">
         <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">{{ __('adminstaticword.TrustedSlider') }}</h3>
+            <div class="d-flex justify-content-between align-items-center">
+              <h3 class="la-admin__section-title ml-2">{{ __('adminstaticword.TrustedSlider') }}</h3>
               <a class="btn btn-info btn-sm" href="{{url('trusted/create')}}">
-                    <i class="glyphicon glyphicon-th-l">+</i> {{ __('adminstaticword.Add') }}</a>
+                  <i class="la-icon la-icon--sm icon-plus"></i> 
+                  <span>{{ __('adminstaticword.Add') }} {{ __('adminstaticword.TrustedSlider') }}</span>
+              </a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -45,8 +47,8 @@
                     @endif
                   </td>
                   <td>              
-                    <a class="btn btn-sm btn-info" href="{{url('trusted/'.$trusted->id)}}">
-                    <i class="fa fa-pencil"></i></a>
+                    <a class="btn btn-success la-admin__edit-btn" href="{{url('trusted/'.$trusted->id)}}">
+                    <i class="la-icon la-icon--lg icon-edit"></i></a>
                   </td>
                   <td>
 
@@ -54,7 +56,7 @@
                         "data-parsley-validate class="form-horizontal form-label-left">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                        <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                        <button type="submit" class="btn btn-sm btn-danger"><i class="la-icon la-icon--lg icon-delete"></i></button>
                     </form>
                   </td>
                 </tr>

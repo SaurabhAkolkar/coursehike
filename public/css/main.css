@@ -19458,11 +19458,16 @@ a, a:hover {
   border-left: 1px solid rgba(0, 0, 0, 0.48);
   border-radius: 0;
   font-weight: var(--font-light);
-  font-size: var(--text-xl);
+  font-size: var(--text-md);
   color: rgba(0, 0, 0, 0.48);
 }
 .la-gsearch__input:focus, .la-gsearch__input:hover {
   border-color: #7400d7;
+}
+@media (min-width: 992px) {
+  .la-gsearch__input {
+    font-size: var(--text-xl);
+  }
 }
 .la-cmenu {
   --cmenuW: 248px;
@@ -20975,7 +20980,7 @@ label.error {
 }
 .la-locked__modal-info {
   color: var(--gray9);
-  font-size: 8px !important;
+  font-size: var(--text-sm);
 }
 .la-locked__modal-link {
   color: var(--app-indigo-1);
