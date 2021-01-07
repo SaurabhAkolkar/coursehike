@@ -27,10 +27,10 @@
               <p class="m-0">{{ __('adminstaticword.Users') }}</p>
               <h3 class="m-0">
                   @php
-                    $user = App\User::all();
-                    if(count($user)>0){
+                   
+                    if($users>0){
 
-                      echo count($user);
+                      echo $users;
                     }
                     else{
 
@@ -59,10 +59,10 @@
             <p>{{ __('adminstaticword.Categories') }}</p>
               <h3  class="m-0">
               	@php
-              		$cat = App\Categories::all();
-              		if(count($cat)>0){
+              	
+              		if($categories != null){
 
-              			echo count($cat);
+              			echo $categories;
               		}
               		else{
 
@@ -120,14 +120,12 @@
               <p>{{ __('adminstaticword.Orders') }}</p>
               <h3  class="m-0">
               	@php
-              		$page = App\Order::all();
-              		if(count($page)>0){
-
-              			echo count($page);
+              	
+              		if($total != null){
+                    echo '$'.$total;
               		}
               		else{
-
-              			echo "0";
+                    echo '0';
               		}
               	@endphp
               </h3>
@@ -203,10 +201,10 @@
               <p>{{ __('adminstaticword.Instructors') }}</p>
               <h3  class="m-0">
                 @php
-              		$review = App\Instructor::all();
-              		if(count($review)>0){
+              	
+              		if($mentor != null ){
 
-              			echo count($review);
+              			echo $mentor;
               		}
               		else{
 
@@ -349,7 +347,7 @@
                 <div class="la-dash__recent-info">
                   <div class="la-dash__recent-img">
                     @if($course['preview_image'] !== NULL && $course['preview_image'] !== '')
-                      <img class="img-fluid d-block" src="images/course/<?php echo $course['preview_image'];  ?>" alt="Course Image">
+                      <img class="img-fluid d-block" src="<?php echo $course['preview_image'];  ?>" alt="Course Image">
                     @else
                       <img class="img-fluid d-block" src="{{ Avatar::create($course->title)->toBase64() }}" alt="Course Image">
                     @endif
@@ -404,46 +402,13 @@
             <h4 class="la-dash__recent-htitle">Recent Subscriptions</h4>
           </div>
               <ul class="la-dash__recent-list">
-                  @php
-                      $user1 = new stdClass;
-                      $user1->userImg = "https://picsum.photos/50/50";
-                      $user1->userName = "Nathan Spark";
-                      $user1->userTag = "Creator";
-                      $user1->userDate = "July 16, 2020";
-
-                      $user2 = new stdClass;
-                      $user2->userImg = "https://picsum.photos/50/50";
-                      $user2->userName = "Amy D'souza";
-                      $user2->userTag = "Learner";
-                      $user2->userDate = "July 14, 2020";
-
-                      $user3 = new stdClass;
-                      $user3->userImg = "https://picsum.photos/50/50";
-                      $user3->userName = "Natalia";
-                      $user3->userTag = "Creator";
-                      $user3->userDate = "July 12, 2020";
-
-                      $user4 = new stdClass;
-                      $user4->userImg = "https://picsum.photos/50/50";
-                      $user4->userName = "Amy Dyana";
-                      $user4->userTag = "Learner";
-                      $user4->userDate = "July 10, 2020";
-
-                      $user5 = new stdClass;
-                      $user5->userImg = "https://picsum.photos/50/50";
-                      $user5->userName = "Amy Dyana";
-                      $user5->userTag = "Learner";
-                      $user5->userDate = "July 10, 2020";
-
-                      $users = array($user1, $user2, $user3, $user4, $user5);
-                  @endphp
-
-                  @foreach ($users as $user)
+                
+                  @foreach ($recent_subscriptions as $recent)
                       <x-admin-recent-subscription 
-                          :userImg="$user->userImg"
-                          :userName="$user->userName"
-                          :userTag="$user->userTag"
-                          :userDate="$user->userDate"
+                          :userImg="asset('/images/user_img/'.$recent->user->user_img)"
+                          :userName="$recent->user->fullName"
+                          :userTag="$recent->user->role=='admin'||$recent->user->role=='mentors'?'Creator':'Learner'"
+                          :userDate="Carbon\Carbon::parse($recent->created_at)->format('M d Y')"
                       />
                   @endforeach
               </ul>
@@ -464,53 +429,13 @@
             <h4 class="la-dash__recent-htitle">Recently Bought Courses</h4>
           </div>
               <ul class="la-dash__recent-list">
-                @php
-                  $course1 = new stdClass;
-                  $course1->courseImg = "https://picsum.photos/50/50";
-                  $course1->courseName = "Photography";
-                  $course1->courseTag = "Creator Name";
-                  $course1->courseDate = "July 14, 2020";
-                  $course1->coursePrice = 65;
-
-                  $course2 = new stdClass;
-                  $course2->courseImg = "https://picsum.photos/50/50";
-                  $course2->courseName = "Styling";
-                  $course2->courseTag = "Creator Name";
-                  $course2->courseDate = "July 13, 2020";
-                  $course2->coursePrice = 85;
-
-                  $course3 = new stdClass;
-                  $course3->courseImg = "https://picsum.photos/50/50";
-                  $course3->courseName = "Designer";
-                  $course3->courseTag = "Creator Name";
-                  $course3->courseDate = "July 12, 2020";
-                  $course3->coursePrice = 65;
-
-                  $course4 = new stdClass;
-                  $course4->courseImg = "https://picsum.photos/50/50";
-                  $course4->courseName = "Developer";
-                  $course4->courseTag = "Creator Name";
-                  $course4->courseDate = "July 10, 2020";
-                  $course4->coursePrice = 95;
-
-                  $course5 = new stdClass;
-                  $course5->courseImg = "https://picsum.photos/50/50";
-                  $course5->courseName = "Developer";
-                  $course5->courseTag = "Creator Name";
-                  $course5->courseDate = "July 10, 2020";
-                  $course5->coursePrice = 95;
-
-
-                  $courses = array($course1, $course2, $course3, $course4, $course5);
-                @endphp
-
-                  @foreach ($courses as $course)
+                  @foreach ($recent_courses as $rc)
                       <x-admin-recent-bought-course 
-                          :courseImg="$course->courseImg"
-                          :courseName="$course->courseName"
-                          :courseTag="$course->courseTag"
-                          :courseDate="$course->courseDate"
-                          :coursePrice="$course->coursePrice"
+                          :courseImg="$rc->course->preview_image"
+                          :courseName="$rc->course->title"
+                          :courseTag="$rc->course->category_id"
+                          :courseDate="Carbon\Carbon::parse($rc->course->created_at)->format('M d Y')"
+                          :coursePrice="$rc->price"
                       />
                   @endforeach
               </ul>

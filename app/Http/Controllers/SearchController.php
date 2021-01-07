@@ -22,10 +22,11 @@ class SearchController extends Controller
 			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
 		}	
 		$langauges = CourseLanguage::where(['status'=>1])->get();
+		$filter_categories = Categories::with('subcategory')->where(['status'=>1])->get();
 		$categories = Categories::with('courses','subcategory')->where('featured','1')->orderBy('position','ASC')->get();
 		// dd($categories);
 
-		return view('learners.pages.courses', compact('categories','playlists','langauges'));
+		return view('learners.pages.courses', compact('categories','playlists','langauges','filter_categories'));
 
         // if(isset($searchTerm))
         // {
@@ -40,7 +41,30 @@ class SearchController extends Controller
 	}
 
 	public function applyFilter(Request $request){
+		$courses = Course::with('user')->where('status',1)->get();
 		dd($request);
+		$playlists = [];
+		if(Auth::check()){
+			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
+		}	
+
+		$langauges = CourseLanguage::where(['status'=>1])->get();
+		$filter_categories = Categories::with('subcategory')->where(['status'=>1])->get();
+		
+		if(isset($request->categories)){
+			$courses = $courses->whereIn('category_id',$request->categories);
+		
+		}
+		
+		if(isset($request->sub_categories)){
+			$courses = $courses->whereIn('subcategory_id',$request->sub_categories);
+		}	
+
+		if(isset($request->languages)){
+			$courses = $courses->whereIn('language_id',$request->languages);
+		}
+
+		return view('learners.pages.filtered_courses', compact('filter_categories','playlists','langauges','courses'));	
 	}
 	
     public function search(Request $request) 

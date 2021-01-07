@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use App\admin;
 use Illuminate\Http\Request;
 use Auth;
+use App\User;
+use App\Categories;
+use App\Course;
+use App\UserInvoiceDetail;
+use App\InvoiceDetail;
+use App\UserSubscriptionInvoice;
 
 class AdminController extends Controller
 {
@@ -21,7 +27,23 @@ class AdminController extends Controller
     {   
         if(Auth::User()->role == "admin")
         {
-            return view('admin.dashboard');
+            $users = User::where(['status'=>1])->count();
+            $categories = Categories::where(['status'=>1])->count();
+            $courses = Course::where(['status'=>1])->count();
+            $mentor = User::where(['role'=>'mentors'])->count();
+            $recent_subscriptions = UserSubscriptionInvoice::with('user')->where(['status'=>'successful'])->groupBy('user_id')->get();
+            $recent_courses = InvoiceDetail::with('invoice','course','course.user')
+                                                    ->whereHas('invoice', function ($query) {
+                                                        $query->where(['status'=>'successful']);
+                                                    })
+                                                    ->limit(6)
+                                                    ->get();
+                                                   
+            $course_amount = UserInvoiceDetail::where(['status'=>'successful'])->sum('total');
+            $subscription_amount = UserSubscriptionInvoice::where(['status'=>'successful'])->sum('invoice_paid');
+            $total = $course_amount + $subscription_amount;
+
+            return view('admin.dashboard', compact('users','categories','courses','recent_courses','mentor','total','recent_subscriptions'));
         }
         elseif(Auth::User()->role == "mentors")
         {

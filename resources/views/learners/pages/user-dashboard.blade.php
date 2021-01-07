@@ -10,8 +10,8 @@
           <div class="row d-flex flex-row justify-content-between">
             <div class="col-12 col-md-6 la-anim__wrap">
               <div class="la-cdashboard__page">
-                <h1 class="text-4xl la-anim__stagger-item">Welcome <span>Nathan!</span></h1>
-                <p class="text-sm la-anim__stagger-item--x">Let's explore something extraordinary and <br> learn it like aliens.</p>
+                <h1 class="text-4xl">Welcome <span>{{Auth::user()->fname}}!</span></h1>
+                <p class="text-sm">Let's explore something extraordinary and <br> learn it like aliens.</p>
               </div>
             </div>
             <div class="col"></div>
@@ -151,35 +151,7 @@
     <!-- Section: End-->
     <!-- Section: Start-->
 
-    @php
-        $hp1 = new stdClass;
-        $hp1->hpImg = "./images/learners/dashboard/hp1.png";
-        $hp1->hpCourse = "Digital Art";
-        $hp1->hpCname = "Lillan";
-        $hp1->hpUrl = "";
-
-        $hp2 = new stdClass;
-        $hp2->hpImg = "./images/learners/dashboard/hp2.png";
-        $hp2->hpCourse = "UI Design";
-        $hp2->hpCname = "Dartin";
-        $hp2->hpUrl = "";
-
-        $hp3 = new stdClass;
-        $hp3->hpImg = "./images/learners/dashboard/hp3.png";
-        $hp3->hpCourse = "Line Art";
-        $hp3->hpCname = "Nathan Frank";
-        $hp3->hpUrl = "";
-
-        $hp4 = new stdClass;
-        $hp4->hpImg = "./images/learners/dashboard/hp1.png";
-        $hp4->hpCourse = "Digital Art";
-        $hp4->hpCname = "Lillan";
-        $hp4->hpUrl = "";
-
-        $hps = array($hp1, $hp2, $hp3, $hp4);
-    @endphp
-
-    <section class="la-hp-section">
+    <section class="la-hp-section py-md-5 my-md-5">
       <div class="container px-5 px-sm-0">
         <div class="row">
           <div class="col-12 px-2">
@@ -188,8 +160,8 @@
               <div class="la-hp__data">
                 <div class="row">
                     <!-- Hand Picked: Start -->
-                    @foreach ($hps as $hp)
-                        <x-handpicked :hpImg="$hp->hpImg" :hpCourse="$hp->hpCourse" :hpCname="$hp->hpCname" :hpUrl="$hp->hpUrl" />
+                    @foreach ($courses as $c)
+                        <x-handpicked :hpImg="$c->preview_image" :hpCourse="$c->title" :hpCname="$c->user->fullName" :hpUrl="'/learn/course/'.$c->id.'/'.$c->slug" />
                     @endforeach
                     <!-- Hand Picked: End -->
                 </div>
@@ -203,11 +175,8 @@
 
     <!-- Section: Start-->
       @php  
-        $mentor1 = new stdClass;$mentor1->name="Alton Crew";$mentor1->img="https://picsum.photos/400";$mentor1->skill="Photography";
-        $mentor2 = new stdClass; $mentor2->name="Alton"; $mentor2->img="https://picsum.photos/400"; $mentor2->skill="Design";
-        $mentor3 = new stdClass;$mentor3->name="Amy D'souza";$mentor3->img="https://picsum.photos/400";$mentor3->skill="Tattoo";
-      
-        $mentors = array($mentor1, $mentor2, $mentor3);
+          $users = $courses->groupBy('user_id');
+         
      @endphp
     <section class="la-section__small">
       <div class="la-section__inner">
@@ -220,8 +189,8 @@
               <div class="la-mentors">
                 <div class="row la-anim__wrap">
 
-                    @foreach($mentors as $mentor)
-                        <x-mentor :img="$mentor->img" :name="$mentor->name" :skill="$mentor->skill" id="1" />
+                    @foreach($users as $u)
+                        <x-mentor :img="asset('images/user_img/'.$u[0]->user->user_img)" :name="$u[0]->user->fullName" :skill="$u[0]->category->title" id="1" />
                     @endforeach
 
                   </div>

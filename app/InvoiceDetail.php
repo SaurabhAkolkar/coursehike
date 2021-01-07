@@ -14,6 +14,10 @@ class InvoiceDetail extends Model
     {
         return $this->hasOne('App\Course','id','course_id');
     }
+    public function invoice()
+    {
+        return $this->belongsTo('App\UserInvoiceDetail','invoice_id','id');
+    }
 
     public function chapter()
     {

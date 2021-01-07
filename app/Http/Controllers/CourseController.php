@@ -194,10 +194,10 @@ class CourseController extends Controller
         }else{
             MasterClass::where('course_id', $id)->delete(); 
         }
-          
+        
         $course = Course::findOrFail($id);
         $input = $request->all();
-
+  
         $course->package_type = $request->package_type;
 
         
@@ -255,6 +255,16 @@ class CourseController extends Controller
             }
 
         }
+        
+        
+        if(($course->status == '0' || $course->status == '2') && $input['status'] == '1' ){
+            PublishRequest::where(['status'=>'1', 'request_type' => 'publish','course_id'=> $id ])->update(['status'=>0]);
+            
+         }
+         if(($input['status'] == '0' || $input['status'] == '2') && $course->status == '1' ){
+             PublishRequest::where(['status'=>1, 'request_type' => 'unpublish','course_id'=> $id ])->update(['status'=>0]);
+     
+         }  
 
        
         CartItem::where('course_id', $id)

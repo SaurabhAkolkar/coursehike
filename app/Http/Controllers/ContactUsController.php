@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Contact;
+use Auth;
 
 class ContactUsController extends Controller
 {
@@ -35,7 +36,7 @@ class ContactUsController extends Controller
 	}
 
     public function usermessage(Request $request)
-    {
+    {	
     	$data = $this->validate($request,[
             'user_id' => 'required',
             'fname' => 'required',
@@ -50,5 +51,28 @@ class ContactUsController extends Controller
         
         
         return back()->with('success','Message send successfully!');
-    }
+	}
+	
+	public function contactUs(Request $request)
+    {	
+
+    	$data = $this->validate($request,[
+            'fname' => 'required',
+            'email' => 'required',
+            'mobile' => 'required',
+            'message' => 'required',
+		]);
+
+		if(Auth::check()){	
+			$request->user_id = Auth::user()->id;
+		}
+
+        $input = $request->all();
+        $data = Contact::create($input);
+        $data->save();
+        
+        
+        return back()->with('success','Message send successfully!');
+	}
+	
 }
