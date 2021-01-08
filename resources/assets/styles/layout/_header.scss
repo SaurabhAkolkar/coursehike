@@ -10,6 +10,26 @@ $sidemenuWidth: 300px;
         background: var(--white);
         z-index: var(--header-z);
         &__ {
+            &gsearch{
+                &-{
+                    &input[type=text]{
+                        width:0;
+                        border-left:none;
+                        transition:all 0.35s ease-out;
+                        
+                        &::-webkit-input-placeholder{
+                            font-size:var(--text-sm);
+                        }
+
+                        &:focus{
+                            width:100%;
+                            border-left:1px solid var(--gray9);
+                            transform:translateX(-10px);
+                            transition:all 0.35s ease-in;
+                        }
+                    }
+                }
+            }
             &inner {
 
             }
@@ -169,7 +189,7 @@ $sidemenuWidth: 300px;
             &menu {
                 &- {
                     &item {
-                        margin-left: var(--size-8);
+                        margin-left: var(--size-6);
                     }
                     &link {
                         font-size: var(--text-lg);

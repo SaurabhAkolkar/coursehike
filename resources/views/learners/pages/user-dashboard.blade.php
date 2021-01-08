@@ -181,18 +181,20 @@
     <section class="la-section__small">
       <div class="la-section__inner">
         <div class="container">
-            <div class="row no-gutters">
+            <div class="row ">
               <div class="col-12 la-anim__wrap">
-                <h5 class="text-2xl text-md-3xl pb-5 la-anim__stagger-item">Alien Mentors</h5>
+                <h5 class="text-2xl text-md-3xl pb-5 la-anim__stagger-item px-0">Alien Mentors</h5>
               </div>
           
-              <div class="la-mentors">
-                <div class="row la-anim__wrap">
-
+              <div class=" la-mentors">
+                <div class="row  la-anim__wrap">
+                    <div class="col-12">
                     @foreach($users as $u)
+                    
                         <x-mentor :img="asset('images/user_img/'.$u[0]->user->user_img)" :name="$u[0]->user->fullName" :skill="$u[0]->category->title" id="1" />
+                       
                     @endforeach
-
+                   </div>
                   </div>
               </div> 
           </div>            

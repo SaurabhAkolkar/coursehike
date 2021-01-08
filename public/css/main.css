@@ -9793,7 +9793,7 @@ a.text-dark:focus, a.text-dark:hover {
 @font-face {
   font-family: "icomoon";
   src: url(/fonts/icomoon.eot?6b7ed849733515ffb31ffe3c50988431);
-  src: url(/fonts/icomoon.eot?6b7ed849733515ffb31ffe3c50988431#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?7cd0152e5f93212eb9758c55960c33f2) format("truetype"), url(/fonts/icomoon.woff?e0aad280f0eeacfd011896ac75b36b1b) format("woff"), url(/fonts/icomoon.svg?501e39d58e0e94d51c07601c6abceb12#icomoon) format("svg");
+  src: url(/fonts/icomoon.eot?6b7ed849733515ffb31ffe3c50988431#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?7cd0152e5f93212eb9758c55960c33f2) format("truetype"), url(/fonts/icomoon.woff?e0aad280f0eeacfd011896ac75b36b1b) format("woff"), url(/fonts/icomoon.svg?eb8486ce719fb5022b7f9772b82de6b2#icomoon) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -17103,6 +17103,20 @@ a, a:hover {
   background: var(--white);
   z-index: var(--header-z);
 }
+.la-header__gsearch-input[type=text] {
+  width: 0;
+  border-left: none;
+  transition: all 0.35s ease-out;
+}
+.la-header__gsearch-input[type=text]::-webkit-input-placeholder {
+  font-size: var(--text-sm);
+}
+.la-header__gsearch-input[type=text]:focus {
+  width: 100%;
+  border-left: 1px solid var(--gray9);
+  transform: translateX(-10px);
+  transition: all 0.35s ease-in;
+}
 .la-header__brand {
   margin-right: var(--size-9);
 }
@@ -17218,7 +17232,7 @@ a, a:hover {
   z-index: 10;
 }
 .la-header__menu-item {
-  margin-left: var(--size-8);
+  margin-left: var(--size-6);
 }
 .la-header__menu-link {
   font-size: var(--text-lg);
@@ -17550,6 +17564,69 @@ a, a:hover {
 }
 .la-courses__nav-filter:hover {
   color: var(--app-indigo-1);
+}
+.la-courses__nav-filterdropdown {
+  width: 180px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: var(--z-60);
+  background-color: var(--gray);
+  margin-top: var(--size-14);
+  overflow-y: scroll;
+  display: none;
+  transition: all 0.25s ease;
+}
+.la-courses__nav-filterdropdown.active {
+  -webkit-animation: slideRight 0.5s ease 1;
+          animation: slideRight 0.5s ease 1;
+  transition: all 0.25s ease;
+}
+@-webkit-keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.la-courses__nav-filterdropdown.inactive {
+  -webkit-animation: slideLeft 0.5s ease 1;
+          animation: slideLeft 0.5s ease 1;
+  transition: all 0.25s ease;
+}
+@-webkit-keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-100px);
+  }
+}
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-100px);
+  }
 }
 .la-course__inner {
   position: relative;
@@ -22094,14 +22171,28 @@ section.la-hp-section .la-hp__inner .la-hp__title {
   font-weight: var(--font-semibold);
 }
 section.la-hp-section .la-hp__inner .la-hp__data .la-hp__item {
-  width: 100%;
-  height: 241px;
+  width: 250px;
+  height: 200px;
   overflow: hidden;
+  border-radius: 10px;
+}
+@media (max-width: 1199px) {
+  section.la-hp-section .la-hp__inner .la-hp__data .la-hp__item {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-width: 991px) {
+  section.la-hp-section .la-hp__inner .la-hp__data .la-hp__item {
+    width: 100%;
+    height: 100%;
+  }
 }
 section.la-hp-section .la-hp__inner .la-hp__data .la-hp__item .la-hp__thumbnail img {
   width: 100%;
   height: 100%;
   box-shadow: 1px 1px 2px #eee;
+  background: var(--gray9);
   border-radius: 10px;
   overflow: hidden;
   transform: scale(1);
@@ -22127,6 +22218,12 @@ section.la-hp-section .la-hp__inner .la-hp__data .la-hp__item .la-hp__thumbnail 
   -moz-transition: all 0.24s ease-in;
   -ms-transition: all 0.24s ease-in;
   -o-transition: all 0.24s ease-in;
+}
+@media (max-width: 1199px) {
+  section.la-hp-section .la-hp__inner .la-hp__data .la-hp__item .la-hp__thumbnail img:hover {
+    transform: none;
+    border-radius: none;
+  }
 }
 section.la-hp-section .la-hp__inner .la-hp__data .la-hp__btm {
   top: -50px;

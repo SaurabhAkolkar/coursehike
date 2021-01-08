@@ -92,10 +92,10 @@
                 </div>
               </div>
 
-              <div class="la-courses__nav-props">
-              <a class="la-icon--2xl icon-filter la-courses__nav-filter d-none d-lg-block" id="filteredCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+              <div class="la-courses__nav-filterprops">
+              <a class="la-icon--2xl icon-filter la-courses__nav-filter d-none d-lg-block" id="filteredCourses"  role="button"></a>
                 <!-- Filter Courses Dropdown -->
-                <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="filteredCourses"  style="border:none !important;">
+                <div class="la-courses__nav-filterdropdown" id="filtered_sidebar">
                     <div class="la-form__input-wrap px-5">
                         <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
                         <div class="form-group pt-2">

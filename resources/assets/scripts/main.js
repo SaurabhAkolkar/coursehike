@@ -27,6 +27,18 @@ $(function(){
     console.log(value)
   });
 
+
+  //- Homepage Filter Sidebar
+  $("#filteredCourses").on('click', function(){
+    $('#filtered_sidebar').toggle(); 
+    $('#filtered_sidebar').toggleClass('active'); 
+
+    if($('#filtered_sidebar').hasClass('active')) {
+      $('body').css('overflow','hidden');
+    } else {
+      $('body').css('overflow','auto');
+    }
+  });
   
   
   //Swiper Js for Login & Register page
