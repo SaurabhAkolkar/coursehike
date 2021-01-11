@@ -45,7 +45,7 @@
                         <td><?php echo $i;?></td>
                         <td>
                           @if($user->user_img != null || $user->user_img !='')
-                            <img src="{{ url('/images/user_img/'.$user->user_img) }}" class="img-fluid">
+                            <img src="{{ $user->user_img }}" class="img-fluid">
                           @else
                             <img src="{{ asset('images/default/user.jpg')}}" class="img-fluid" alt="User Image">
                           @endif

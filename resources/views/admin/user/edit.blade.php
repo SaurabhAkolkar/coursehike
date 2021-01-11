@@ -42,7 +42,7 @@
                 <div class="la-admin__profile-label pb-2">Current:</div>
                 @if($user->user_img != null || $user->user_img !='')
                   <div class="edit-user-img la-admin__profile">
-                    <img src="{{ url('/images/user_img/'.$user->user_img) }}" class="img-fluid la-admin__profile-img" alt="User Image" class="img-fluid">
+                    <img src="{{ $user->user_img }}" class="img-fluid la-admin__profile-img" alt="User Image" class="img-fluid">
                   </div>
                 @else
                   <div class="edit-user-img la-admin__profile">

@@ -29,7 +29,7 @@
                           <div class="col-6 la-anim__stagger-item--x">
                             <div class="la-form__img-wrap">
                               <div class="la-form__img-title">Current</div>
-                              <div class="la-form__img d-inline-block d-flex justify-content-center content-fit"><img src="{{asset('images/user_img/'.Auth::user()->user_img)}}" alt="" class="mw-100 mh-100"></div>
+                              <div class="la-form__img d-inline-block d-flex justify-content-center content-fit"><img src="{{Auth::user()->user_img}}" alt="" class="mw-100 mh-100"></div>
                             </div>
                           </div>
                           <div class="col-6 la-anim__stagger-item--x">
