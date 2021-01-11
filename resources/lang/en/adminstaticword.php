@@ -512,5 +512,7 @@ return [
     'PurchaseType'=>'Purchase Type',
     'PublishRequest'=>'Published Requests',
     'UnpublishRequest'=>'Unpublished Requests',
+    'PurchaseDate'=>'Purchase Date',
+    'level'=>'Level',
 
 ];

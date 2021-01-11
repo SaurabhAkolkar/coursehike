@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CreatorPayout extends Model
 {
-    protected $fillable = ['user_id','month','subscription_amount','course_amount','status','created_at','updated_at'];
+    protected $fillable = ['user_id','start_date', 'end_date','subscription_amount','course_amount','status','created_at','updated_at'];
 
     public function user()
     {

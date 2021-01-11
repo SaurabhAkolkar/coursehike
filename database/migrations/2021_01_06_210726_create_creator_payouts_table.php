@@ -16,7 +16,8 @@ class CreateCreatorPayoutsTable extends Migration
         Schema::create('creator_payouts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->date('month');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->integer('subscription_amount');
             $table->integer('course_amount');
             $table->string('status');

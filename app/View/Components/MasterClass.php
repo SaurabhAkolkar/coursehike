@@ -17,13 +17,18 @@ class MasterClass extends Component
     public $profileImg;
     public $profileName;
     public $learners;
-    public function __construct($img, $title, $profileImg, $profileName, $learners)
+    public $id;
+    public $slug;
+
+    public function __construct($img, $title, $profileImg, $profileName, $learners, $id, $slug)
     {
         $this->img = $img;
         $this->title = $title;
         $this->profileImg = $profileImg;
         $this->profileName = $profileName;
         $this->learners = $learners;
+        $this->slug = $slug;
+        $this->id = $id;
     }
 
     /**

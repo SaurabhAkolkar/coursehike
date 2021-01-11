@@ -93,8 +93,8 @@ class UserController extends Controller
       ]);
          
         $check = UserPurchasedCourse::where(['course_id'=>$request->course_id, 'user_id'=>$request->user_id])->get();
-
-        if($check){
+        
+        if(count($check) > 0){
             return redirect()->back()->with('delete','Course is already added for the User.');
         }
         if($request->purchase_type == 'selected_classes'){

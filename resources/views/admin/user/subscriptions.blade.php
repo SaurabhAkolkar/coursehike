@@ -83,7 +83,7 @@
                         <td>{{count(json_decode($cp->class_id))}}</td>                 
                         <td>{{$cp->purchase_type=='all_classes'?'All Classes':'Selected Classes'}}</td>                 
                         <td>{{Carbon\Carbon::parse($cp->created_at)->format('d-M-Y')}}</td>                 
-                    </tr>
+                      </tr>
                   @endforeach
 
                 </tbody>
