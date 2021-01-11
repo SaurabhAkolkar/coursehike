@@ -204,7 +204,7 @@
                                         <div class="input-group-prepend la-admin__subinput-prepend" >
                                             <span class="fa fa-dollar input-group-text la-admin__subinput-text"></span> 
                                         </div>
-                                        <input type="text" class="form-control la-admin__subform-input" name="price" style="width:160px"/>
+                                        <input type="number" class="form-control la-admin__subform-input" name="price" style="width:160px"/>
                                       </div>
                                   </div>
                               </div>
@@ -326,8 +326,6 @@
 @endsection
 
 @section('scripts')
-
-
 <script>
 (function($) {
   "use strict";
@@ -516,6 +514,4 @@ $(document).on("change", ".preview_video", function(evt) {
 
 </script>
 
-
-  
 @endsection

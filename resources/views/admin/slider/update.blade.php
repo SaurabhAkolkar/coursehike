@@ -49,7 +49,7 @@
                     <label>{{ __('adminstaticword.Image') }}:<sup class="redstar">*</sup></label>
                     <br>
                     <div class="la-admin__preview-img la-admin__course-imgvid" >
-                      <div class="la-admin__preview-text">
+                      <div class="la-admin__preview-text" onclick="$('#image').click()" >
                           <p class="la-admin__preview-size">Preview Image</p>
                           <p class="la-admin__preview-file text-uppercase">Choose a File</p>
                       </div>
@@ -58,7 +58,7 @@
                             <span class="path1"><span class="path2"></span></span>
                         </span>
                       </div>
-                      <input type="file" name="image"  id="image"><img src="{{ url('/images/slider/'.$cate->image) }}"/>
+                      <input type="file" class="d-none" name="image"  id="image"><img src="{{ url('/images/slider/'.$cate->image) }}"/>
                     </div>
                   </div>
                 </div>

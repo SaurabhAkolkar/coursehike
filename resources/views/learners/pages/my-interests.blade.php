@@ -44,6 +44,14 @@
                                         />
                                     @endif
                                 @endforeach
+                            @else
+                                <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
+                                    <div class="la-empty__browse-courses">
+                                        <a class="la-empty__browse">
+                                            Please Add Interests For better experience.
+                                        </a>
+                                    </div>
+                                </div>
                             @endif
                         </ul>
 

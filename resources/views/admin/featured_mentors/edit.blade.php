@@ -44,7 +44,7 @@
                             <label>{{ __('adminstaticword.UserImage') }}:<sup class="redstar">*</sup></label>
                             <br>
                             <div class="la-admin__preview-img la-admin__course-imgvid la-admin__course-modal-imgvid" >
-                              <div class="la-admin__preview-text">
+                              <div class="la-admin__preview-text" onclick="$('#user_image').click()">
                                 <p class="la-admin__preview-size">Preview Image</p>
                                 <p class="la-admin__preview-file text-uppercase">Choose a File</p>
                               </div>
@@ -53,7 +53,7 @@
                                   <span class="path1"><span class="path2"></span></span>
                                 </span>
                               </div>
-                                <input type="file" name="user_image"  id="user_image">
+                                <input type="file" name="user_image"  id="user_image" class="d-none">
                                 @if($data['user_thumbnail'])<img height="200" src="{{ $data['user_image'] }}"/>@endif
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                             <label>{{ __('adminstaticword.ImageThumbnail') }}:<sup class="redstar">*</sup></label>
                             <br>
                             <div class="la-admin__preview-img la-admin__course-imgvid la-admin__course-modal-imgvid" >
-                              <div class="la-admin__preview-text">
+                              <div class="la-admin__preview-text" onclick="$('#image_thumbnail').click()">
                                 <p class="la-admin__preview-size">Preview Image</p>
                                 <p class="la-admin__preview-file text-uppercase">Choose a File</p>
                               </div>
@@ -73,7 +73,7 @@
                                   <span class="path1"><span class="path2"></span></span>
                                 </span>
                               </div>
-                                <input type="file" name="image_thumbnail"  id="image_thumbnail">
+                                <input type="file" name="image_thumbnail"  id="image_thumbnail" class="d-none">
                                 @if($data['user_thumbnail'])<img height="200" src="{{ $data['user_thumbnail'] }}"/>@endif
                             </div>
                         </div>

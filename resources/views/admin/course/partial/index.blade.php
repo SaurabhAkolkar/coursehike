@@ -22,7 +22,7 @@
                   <th>#</th>
                   <th>{{ __('adminstaticword.Image') }}</th>
                   <th>{{ __('adminstaticword.Title') }}</th>
-                  <th>{{ __('adminstaticword.Instructor') }}</th>
+                  @if(Auth::User()->role == "admin")<th>{{ __('adminstaticword.Instructor') }}</th>@endif
                   <th>{{ __('adminstaticword.Slug') }}</th>
                   <th>{{ __('adminstaticword.Featured') }}</th>
                   <th>{{ __('adminstaticword.Status') }}</th>
@@ -108,7 +108,6 @@
                           @endif
                         </td>
                         <td>{{$cor->title}}</td>
-                        <td>{{ $cor->user['fname'] }}</td>
                         <td>{{$cor->slug}}</td>
                         <td>
                          
