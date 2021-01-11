@@ -43,6 +43,7 @@
 
         <div class="la-courses mt-6 mt-md-14 la-anim__wrap">
           <nav class="la-courses__nav d-flex justify-content-between">
+            @if(!$filtres_applied)
             <ul class="nav nav-pills la-courses__nav-tabs " id="nav-tab" role="tablist">
               {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"> <span class="position-relative">Tattoo</span></a></li>
               <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
@@ -51,6 +52,7 @@
                 <li class="nav-item la-courses__nav-item la-anim__stagger-item--x"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative text-nowrap">{{ $category->title}}</span></a></li>
               @endforeach
             </ul>
+            @endif
             
             <!-- Filters : Start -->
             <div class="la-courses__nav-filters d-flex align-items-start ml-6">
@@ -88,11 +90,12 @@
                   <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="filteredCourses"  style="border:none !important;">
                       <div class="la-form__input-wrap px-5">
                           <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
-                            <form action="{{route('apply.filters')}}" method="get" id="filter_form">
-                                <input type="hidden" name="categories" id="filter_categories" />
-                                <input type="hidden" name="sub_categories" id="filter_sub_categories" />
-                                <input type="hidden" name="languages" id="filter_languages" />
-                                <input type="hidden" name="level" id="filter_level" />
+                            <form action="{{ url()->current() }}" method="get" id="filter_form">
+                                <input type="hidden" name="categories" id="filter_categories" value="{{implode(',',$selected_categories)}}"/>
+                                <input type="hidden" name="sub_categories" id="filter_sub_categories" value="{{implode(',',$selected_subcategories)}}"/>
+                                <input type="hidden" name="languages" id="filter_languages" value="{{implode(',',$selected_language)}}"/>
+                                <input type="hidden" name="level" id="filter_level" value="{{implode(',',$selected_level)}}"/>
+                                <input type="hidden" name="filters" value="applied" />
 
                                 <a onclick="$('#filter_form').submit()" class="la-rtng__review text-uppercase text-center text-md-right">Apply</a> 
                                 <div class="form-group pt-2">
@@ -117,14 +120,14 @@
                                   <label class="glabel-main" > Category</label>
                                     @foreach($filter_categories as $c)
                                       <label class="glabel d-flex" for="course_{{$c->id}}">
-                                        <input class="d-none" type="checkbox" id="course_{{$c->id}}" onclick="addToCategory({{$c->id}})" value="{{$c->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                        <input class="d-none" type="checkbox" id="course_{{$c->id}}" @if(in_array($c->id, $selected_categories)) checked @endif onclick="addToCategory({{$c->id}})" value="{{$c->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                         <div class="pl-2 mt-n1">{{$c->title}}
                                             @if($c->subcategory != null)
                                               <ul class="d-flex flex-column">
                                                 @foreach($c->subcategory as $sc)
                                                   <li>
                                                     <label class="glabel d-flex" for="sub_course_{{$sc->id}}">
-                                                      <input class="d-none" id="sub_course_{{$sc->id}}" type="checkbox" onclick="addToSubCategory({{$sc->id}})"  value="{{$sc->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                                      <input class="d-none" id="sub_course_{{$sc->id}}" type="checkbox" @if(in_array($sc->id, $selected_subcategories)) checked @endif onclick="addToSubCategory({{$sc->id}})"  value="{{$sc->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                                       <div class="pl-2 mt-n1">{{$sc->title}}</div>
                                                     </label>
                                                   </li>
@@ -141,7 +144,7 @@
                                   <label class="glabel-main" > Language</label>
                                   @foreach($langauges as $l)
                                     <label class="glabel d-flex" for="lang_{{$l->id}}">
-                                      <input class="d-none" id="lang_{{$l->id}}" type="checkbox" onclick="addToLanguage({{$l->id}})" value="{{$l->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                      <input class="d-none" id="lang_{{$l->id}}" @if(in_array($l->id, $selected_language)) checked @endif type="checkbox" onclick="addToLanguage({{$l->id}})" value="{{$l->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                       <div class="pl-2 mt-n1">{{$l->name}}</div>
                                     </label>
                                   @endforeach
@@ -151,17 +154,17 @@
                                 <div class="form-group pt-2">
                                   <label class="glabel-main" >Level</label>
                                   <label class="glabel d-flex" for="level_1">
-                                    <input class="d-none" id ="level_1" type="checkbox" name="" onclick="addToLevel(1)"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <input class="d-none" id ="level_1" type="checkbox" name="" onclick="addToLevel(1)" @if(in_array(1, $selected_level)) checked @endif><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                     <div class="pl-2 mt-n1">Beginner</div>
                                   </label>
 
                                   <label class="glabel d-flex" for="level_2">
-                                    <input class="d-none" id="level_2"  type="checkbox" name="" onclick="addToLevel(2)"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <input class="d-none" id="level_2"  type="checkbox" name="" onclick="addToLevel(2)" @if(in_array(2, $selected_level)) checked @endif><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                     <div class="pl-2 mt-n1">Intermediate</div>
                                   </label>
 
                                   <label class="glabel d-flex" for="level_3">
-                                    <input class="d-none" id="level_3"  type="checkbox" name="" onclick="addToLevel(3)"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <input class="d-none" id="level_3"  type="checkbox" name="" onclick="addToLevel(3)" @if(in_array(3, $selected_level)) checked @endif><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                     <div class="pl-2 mt-n1">Advanced</div>
                                   </label>
                                 </div>
@@ -177,92 +180,123 @@
                       :playlists="$playlists"
                     />
                   <!-- Add to Playlist Modal -->
-                  
-
-          <!-- Tattoo Art Tab: Start -->
-          <div class="tab-content la-courses__content la-anim__wrap position-relative" id="nav-tabContent">
-
-            @foreach ($categories as $category)
-              <div class="tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
-                <div class="row row-cols-lg-3 la-anim__stagger-item">
-                      @foreach($category->courses as $course)
-                        <x-course 
-                            :id="$course->id"
-                            :img="$course->preview_image"
-                            :course="$course->title"
-                            :url="$course->slug"
-                            :rating="$course->review->avg('rating')"
-                            :creatorImg="$course->user->user_img"
-                            :creatorName="$course->user->fname"
-                            :creatorUrl="$course->user->id"
-                          />
-                      @endforeach
-
-                </div>
-              </div>
-            @endforeach
-            {{-- <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-              <div class="row row-cols-lg-3">
       
-                    @foreach($tattoos as $tattoo)
-                      
-                      <x-course 
-                          :id="$tattoo->id"
-                          :img="$tattoo->img" 
-                          :course="$tattoo->course" 
-                          :url="$tattoo->url" 
-                          :rating="$tattoo->rating"
-                          :creatorImg="$tattoo->creatorImg"
-                          :creatorName="$tattoo->creatorName"
-                          :creatorUrl="$tattoo->creatorUrl"
-                        />
-                    @endforeach
+          @if($filtres_applied)
+                  <div class="row row-cols-lg-3 la-anim__stagger-item">
+                              @foreach($courses as $course)
+                                <x-course 
+                                    :id="$course->id"
+                                    :img="$course->preview_image"
+                                    :course="$course->title"
+                                    :url="$course->slug"
+                                    :rating="$course->review->avg('rating')"
+                                    :creatorImg="$course->user->user_img"
+                                    :creatorName="$course->user->fname"
+                                    :creatorUrl="$course->user->id"
+                                  />
+                              @endforeach
+
+                        </div>
+                        @if(count($courses) == 0)
+                        <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
+                              <div class="la-empty__inner">
+                                  <h6 class="la-empty__course-title pb-2">No Courses Found.</h6>
+                              </div>
+                              <div class="la-empty__browse-courses">
+                                  <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
+                                      Browse Courses
+                                      <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
+                                  </a>
+                              </div>
+                          </div>
+                        @endif
+          @else
+                    <!-- Tattoo Art Tab: Start -->
+                    <div class="tab-content la-courses__content la-anim__wrap position-relative" id="nav-tabContent">
+
+                      @foreach ($categories as $category)
+                        <div class="tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
+                          <div class="row row-cols-lg-3 la-anim__stagger-item">
+                                @foreach($category->courses as $course)
+                                  <x-course 
+                                      :id="$course->id"
+                                      :img="$course->preview_image"
+                                      :course="$course->title"
+                                      :url="$course->slug"
+                                      :rating="$course->review->avg('rating')"
+                                      :creatorImg="$course->user->user_img"
+                                      :creatorName="$course->user->fname"
+                                      :creatorUrl="$course->user->id"
+                                    />
+                                @endforeach
+
+                          </div>
+                        </div>
+                      @endforeach
+                      {{-- <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="row row-cols-lg-3">
                 
-              </div>
-            </div>
-            <!-- Tattoo Art Tab: End -->
-            
-            <!-- Rangoli Tab: Start -->
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-              <div class="row row-cols-lg-3">
+                              @foreach($tattoos as $tattoo)
+                                
+                                <x-course 
+                                    :id="$tattoo->id"
+                                    :img="$tattoo->img" 
+                                    :course="$tattoo->course" 
+                                    :url="$tattoo->url" 
+                                    :rating="$tattoo->rating"
+                                    :creatorImg="$tattoo->creatorImg"
+                                    :creatorName="$tattoo->creatorName"
+                                    :creatorUrl="$tattoo->creatorUrl"
+                                  />
+                              @endforeach
+                          
+                        </div>
+                      </div>
+                      <!-- Tattoo Art Tab: End -->
+                      
+                      <!-- Rangoli Tab: Start -->
+                      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="row row-cols-lg-3">
 
-                  @foreach($tattoos as $tattoo)
-                    <x-course 
-                        :id="$tattoo->id"
-                        :img="$tattoo->img" 
-                        :course="$tattoo->course" 
-                        :url="$tattoo->url" 
-                        :rating="$tattoo->rating"
-                        :creatorImg="$tattoo->creatorImg"
-                        :creatorName="$tattoo->creatorName"
-                        :creatorUrl="$tattoo->creatorUrl"
-                      />
-                  @endforeach
+                            @foreach($tattoos as $tattoo)
+                              <x-course 
+                                  :id="$tattoo->id"
+                                  :img="$tattoo->img" 
+                                  :course="$tattoo->course" 
+                                  :url="$tattoo->url" 
+                                  :rating="$tattoo->rating"
+                                  :creatorImg="$tattoo->creatorImg"
+                                  :creatorName="$tattoo->creatorName"
+                                  :creatorUrl="$tattoo->creatorUrl"
+                                />
+                            @endforeach
 
-              </div>
-            </div>
-             <!-- Rangoli Tab: End -->
+                        </div>
+                      </div>
+                      <!-- Rangoli Tab: End -->
 
-             <!-- Design Tab: Start -->
-            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-              <div class="row row-cols-lg-3">
+                      <!-- Design Tab: Start -->
+                      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                        <div class="row row-cols-lg-3">
 
-                  @foreach($tattoos as $tattoo)
-                    <x-course 
-                        :id="$tattoo->id"
-                        :img="$tattoo->img" 
-                        :course="$tattoo->course" 
-                        :url="$tattoo->url" 
-                        :rating="$tattoo->rating"
-                        :creatorImg="$tattoo->creatorImg"
-                        :creatorName="$tattoo->creatorName"
-                        :creatorUrl="$tattoo->creatorUrl"
-                      />
-                  @endforeach
-                  
-              </div>
-            </div> --}}
-             <!-- Rangoli Tab: End -->
+                            @foreach($tattoos as $tattoo)
+                              <x-course 
+                                  :id="$tattoo->id"
+                                  :img="$tattoo->img" 
+                                  :course="$tattoo->course" 
+                                  :url="$tattoo->url" 
+                                  :rating="$tattoo->rating"
+                                  :creatorImg="$tattoo->creatorImg"
+                                  :creatorName="$tattoo->creatorName"
+                                  :creatorUrl="$tattoo->creatorUrl"
+                                />
+                            @endforeach
+                            
+                        </div>
+                      </div> --}}
+                      <!-- Rangoli Tab: End -->
+
+            @endif
 
           </div>
         </div>

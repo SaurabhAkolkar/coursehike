@@ -128,7 +128,7 @@
                   <select class="form-control js-example-basic-single" name="role"   @if(Auth::user()->id == $user->id) disabled @endif >
                     <option {{ $user->role == 'user' ? 'selected' : ''}} value="user">{{ __('adminstaticword.User') }}</option>
                     <option {{ $user->role == 'admin' ? 'selected' : ''}} value="admin">{{ __('adminstaticword.Admin') }}</option>
-                    <option {{ $user->role == 'instructor' ? 'selected' : ''}} value="instructor">{{ __('adminstaticword.Instructor') }}</option>
+                    <option {{ $user->role == 'mentors' ? 'selected' : ''}} value="mentors">{{ __('adminstaticword.Instructor') }}</option>
                   </select>
                   @endif
                   @if(Auth::User()->role=="instructor")

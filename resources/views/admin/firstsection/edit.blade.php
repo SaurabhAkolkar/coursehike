@@ -39,7 +39,7 @@
                                     <div class="la-admin__preview">
                                         <label>{{ __('adminstaticword.Image') }}:<sup class="redstar">*</sup></label><br/>
                                         <div class="la-admin__preview-img la-admin__course-imgvid" >
-                                            <div class="la-admin__preview-text">
+                                            <div class="la-admin__preview-text" onclick="$('#image').click()">
                                                 <p class="la-admin__preview-size">Preview Image</p>
                                                 <p class="la-admin__preview-file text-uppercase">Choose a File</p>
                                             </div>
@@ -49,7 +49,7 @@
                                                 </span>
                                             </div>
                                                                                    
-                                            <input type="file" name="image"  id="image">@if($show['image'])<img height="200" src="{{ $show['image'] }}"/>@endif
+                                            <input type="file" name="image"  id="image" class="d-none">@if($show['image'])<img height="200" src="{{ $show['image'] }}"/>@endif
                                         </div>
                                     </div>
                                 </div>

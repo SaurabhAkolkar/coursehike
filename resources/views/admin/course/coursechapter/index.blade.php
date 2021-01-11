@@ -98,7 +98,7 @@
                           <label for="" class="la-admin__preview-label"> Class Thumbnail:<sup class="redstar">*</sup></label>
                           <div class="la-admin__preview-img la-admin__course-imgvid la-admin__course-modal-imgvid" >
                                <div class="la-admin__preview-text">
-                                    <p class="la-admin__preview-size">Thumbnail | 500x350</p>
+                                    <p class="la-admin__preview-size">Thumbnail | 500x35</p>
                                     <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
                               </div>
                               <div class="text-center pr-20 mr-20">

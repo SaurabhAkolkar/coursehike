@@ -8,12 +8,14 @@
         </div>
     </div>
     <!-- Delete Icon -->
+    @if($alreadyAdded) 
     <a class="la-interests__item-remove badge badge-light" role="button">
         <span>x</span>
     </a>
-
+    @else
     <!-- Add Icon -->
     <a class="la-interests__item-add badge badge-light" role="button">
         <span>+</span>
     </a>
+    @endif
 </li>

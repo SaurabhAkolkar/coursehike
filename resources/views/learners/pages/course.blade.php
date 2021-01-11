@@ -619,7 +619,7 @@ use Carbon\Carbon;
                       if($course->user->user_img == ""){
                           $course->user->user_img = "https://picsum.photos/400";
                       }else{
-                          $course->user->user_img = asset('/images/user_img/'.$mentor->user_img);
+                          $course->user->user_img = asset('/images/user_img/'.$course->user->user_img);
                       }
                 @endphp
 
