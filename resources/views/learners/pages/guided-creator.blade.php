@@ -86,7 +86,10 @@
                 </ul>
                 <div class="form-group pt-3 la-anim__stagger-item">
                   <label class="d-flex" for="editVideo">
-                    <input class="d-none" id="editVideo" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                    <input class="d-none" id="editVideo" type="checkbox" name="">
+					<span class="gcheck position-relative">
+					<div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div>
+					</span>
                     <div class="pl-4 mt-n1 text-sm">Yes, I want you to edit for me!</div>
                   </label>
                 </div>

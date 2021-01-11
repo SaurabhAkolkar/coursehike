@@ -22,24 +22,21 @@
       <div class="container">
         
         <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
-        <div class="d-flex justify-content-between la-anim__wrap">  
+        <div class="la-anim__wrap">  
           <h1 class="la-page__title mb-8 la-anim__stagger-item">Browse Courses</h1>
-          <a class="la-icon--2xl icon-filter d-none d-lg-none" id="filterCourses" role="button"></a>
         </div>
         
-        <!-- Global Search: Start-->
-        <div class="la-gsearch la-anim__wrap">
-          <form class="form-inline la-anim__stagger-item"  action="{{ url('/search-course/') }}">
-            <div class="form-group d-flex align-items-center">
-              <input class="la-gsearch__input form-control" style="width:290px; background:transparent" name="course_name" type="text" placeholder="What you want to learn today?">
-              <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--3xl icon icon-search"></i></button>
+        <div class="d-flex justify-content-between align-items-start ">
+            <!-- Global Search: Start-->
+            <div class="la-gsearch la-anim__wrap">
+              <form class="form-inline la-anim__stagger-item"  action="{{ url('/search-course/') }}">
+                <div class="form-group d-flex align-items-center">
+                  <input class="la-gsearch__input form-control la-gsearch__input-bcourses" style="background:transparent" name="course_name" type="text" placeholder="What you want to learn today?">
+                  <button class="la-gsearch__submit btn" type="submit"><i class="la-icon icon icon-search la-gsearch__input-icon"></i></button>
+                </div>
+              </form>
             </div>
-            
-          </form>
-        </div>
-        <!-- Global Search: End-->
-
-        
+            <!-- Global Search: End-->
 
         <div class="la-courses mt-6 mt-md-14 la-anim__wrap">
           <nav class="la-courses__nav d-flex justify-content-between">
@@ -82,13 +79,14 @@
                   </div>
                 </div>
               </div>
-
-             
-              <div class="la-courses__nav-props">
-                <a class="la-icon--2xl icon-filter la-courses__nav-filter " id="filteredCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                
+              <div class="la-courses__nav-filterprops">
+               <a class="la-icon--2xl icon-filter la-courses__nav-filter " id="filteredCourses"  role="button"></a>
+              
                   <!-- Filter Courses Dropdown -->
-                  <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="filteredCourses"  style="border:none !important;">
+                  <div class="la-courses__nav-filterdropdown" id="filtered_sidebar">
                       <div class="la-form__input-wrap px-5">
+                        <div class="d-flex justify-content-between align-items-center">
                           <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
                             <form action="{{ url()->current() }}" method="get" id="filter_form">
                                 <input type="hidden" name="categories" id="filter_categories" value="{{implode(',',$selected_categories)}}"/>
@@ -97,7 +95,7 @@
                                 <input type="hidden" name="level" id="filter_level" value="{{implode(',',$selected_level)}}"/>
                                 <input type="hidden" name="filters" value="applied" />
 
-                                <a onclick="$('#filter_form').submit()" class="la-rtng__review text-uppercase text-center text-md-right">Apply</a> 
+                                
                                 <div class="form-group pt-2">
                                   <label class="glabel-main" > Course Duration</label>
                                   <label class="glabel d-flex" for="dur_hr">
@@ -168,12 +166,31 @@
                                     <div class="pl-2 mt-n1">Advanced</div>
                                   </label>
                                 </div>
+
+                                <button onclick="$('#filter_form').submit()" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Apply</button> 
                             </form>
                       </div>
                   </div>
               </div>
             </div>
             <!-- Filters : End -->
+
+        </div>
+
+        
+
+        <div class="la-courses mt-6 mt-md-14 la-anim__wrap">
+          <nav class="la-courses__nav d-flex justify-content-between">
+            <ul class="nav nav-pills la-courses__nav-tabs " id="nav-tab" role="tablist">
+              {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"> <span class="position-relative">Tattoo</span></a></li>
+              <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
+              <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
+              @foreach ($categories as $category)
+                <li class="nav-item la-courses__nav-item la-anim__stagger-item--x"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative text-nowrap">{{ $category->title}}</span></a></li>
+              @endforeach
+            </ul>
+            
+           
           </nav>
              
                    <x-add-to-playlist 

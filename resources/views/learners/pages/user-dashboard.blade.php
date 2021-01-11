@@ -181,18 +181,31 @@
     <section class="la-section__small">
       <div class="la-section__inner">
         <div class="container">
-            <div class="row no-gutters">
+            <div class="row ">
               <div class="col-12 la-anim__wrap">
-                <h5 class="text-2xl text-md-3xl pb-5 la-anim__stagger-item">Alien Mentors</h5>
+                <h5 class="text-2xl text-md-3xl pb-5 la-anim__stagger-item px-0">Alien Mentors</h5>
               </div>
+            </div>
           
-              <div class="la-mentors">
-                <div class="row la-anim__wrap">
-
+            <div class="row">
+              <div class="col-12 la-mentors">
+                  <div class="row">
                     @foreach($users as $u)
-                        <x-mentor :img="asset('images/user_img/'.$u[0]->user->user_img)" :name="$u[0]->user->fullName" :skill="$u[0]->category->title" id="1" />
+                      <div class="col-lg-4 la-mentor la-anim__wrap ">
+                        <div class="la-mentor__profile la-anim__stagger-item">
+                            <img class="img-fluid" src="{{asset('images/user_img/'.$u[0]->user->user_img)}}" alt="{{$u[0]->user->fullName}}">
+                        </div>
+                        <div class="la-mentor__btm d-flex justify-content-between align-items-center">
+                          <div class="la-mentor__info la-anim__stagger-item la-anim__B">
+                            <h3 class="la-mentor__name">{{$u[0]->user->fullName}}</h3>
+                            <p class="la-mentor__skill">{{$u[0]->category->title}}</p>
+                          </div>
+                          <a class="la-mentor__detailview la-anim__stagger-item--x la-anim__D" href="/creator/{{1}}">
+                            <span class="la-icon la-icon--6xl icon-grey-arrow mt-n2"></span>
+                          </a>
+                        </div>
+                      </div>                
                     @endforeach
-
                   </div>
               </div> 
           </div>            

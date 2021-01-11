@@ -45,7 +45,7 @@
               </div>
               <div class="la-contact__btm d-none d-sm-block">
                 <div class="la-contact__details la-anim__stagger-item"><span class="la-icon--xl icon-contact-number mr-3"></span><a  href="tel:+91 9999999999">+91 9999999999</a></div>
-                <div class="la-contact__details la-anim__stagger-item"><span class="la-icon--xl icon-mail-id mr-3"></span><a  href="mailto:ask@learnitlikealiens.com">ask@learnitlikealiens.com</a></div>
+                <div class="la-contact__details d-flex align-items-center la-anim__stagger-item"><span class="la-icon--xl icon-mail-id mr-3"></span><a  href="mailto:ask@learnitlikealiens.com">ask@learnitlikealiens.com</a></div>
                 <div class="la-contact__smedia mt-6">
                   <a class="la-anim__stagger-item" href="#"><span class="la-icon la-icon--6xl icon-facebook"></a>
                   <a class="la-anim__stagger-item" href="#"><span class="la-icon la-icon--6xl icon-insta"></a>
@@ -59,8 +59,8 @@
           <!-- Mobile Column: Start-->
           <div class="col order-3 order-sm-none my-5 py-5 px-5 mx-4 d-block d-sm-none"> 
             <div class="la-contact__btm-mobile py-5 my-5">
-              <div class="la-contact__details la-anim__stagger-item"><span class="la-icon--lg icon-contact-number mr-3"></span><a class="text-md" href="tel:+91 9999999999">+91 9999999999</a></div>
-              <div class="la-contact__details la-anim__stagger-item"><span class="la-icon--lg icon-mail-id mr-3"></span><a class="text-md" href="mailto:ask@learnitlikealiens.com">ask@learnitlikealiens.com</a></div>
+              <div class="la-contact__details la-anim__stagger-item"><span class="la-icon--lg icon-contact-number mr-3"></span><a class="text-md" href="tel:">+91 9999999999</a></div>
+              <div class="la-contact__details d-flex align-items-center la-anim__stagger-item"><span class="la-icon--lg icon-mail-id mr-3"></span><a class="text-md" href="mailto:ask@learnitlikealiens.com">ask@learnitlikealiens.com</a></div>
               <div class="la-contact__smedia mt-8">
                 <a class="mr-6 la-anim__stagger-item" href="#"><span class="la-icon la-icon--5xl icon-facebook"></span></a>
                 <a class="mr-6 la-anim__stagger-item" href="#"><span class="la-icon la-icon--5xl icon-insta"></span></a>

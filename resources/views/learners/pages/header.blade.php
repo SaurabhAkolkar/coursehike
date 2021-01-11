@@ -25,17 +25,24 @@ use App\Announcement;
         
         <div class="la-header__rht ml-auto">
           <div class="la-header__menu d-inline-flex align-items-center position-relative">
+            
             <div class="la-header__menu-item d-none d-md-block">
               <!-- Global Search: Start-->
               <div class="la-gsearch  mb-0" >
-                <form class="form-inline" action="{{ url('/search-course/') }}" method="get">
-                  <div class="form-group">
-                    <input class="la-gsearch__input form-control text-md pr-0" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Search Courses and Classes..." required>
+                <form class="form-inline mb-0" action="{{ url('/search-course/') }}" method="get">
+                  <div class="form-group la-header__gsearch" >
+                    <input class="la-gsearch__input form-control text-md pr-0 la-header__gsearch-input" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Search Courses and Classes..." required>
                   </div>
-                  <button class="la-gsearch__submit btn pr-0" type="submit"><i class="la-icon la-icon--xl icon icon-search"></i></button>
+                  <button class="la-gsearch__submit btn px-0" type="submit" >
+                    <i class="la-icon la-icon--xl icon icon-search"></i>
+                  </button>
                 </form>
               </div>
               <!-- Global Search: End-->
+            </div>
+
+            <div class="la-header__menu-item d-none d-lg-block @if(Request::segment(1) == 'admins') active @endif">
+                <a class="la-header__menu-link la-header__menu-icon la-icon la-icon--xl icon-admin" role="button" target="_blank" href="/admins"></a>
             </div>
 
             <div class="la-header__menu-item d-none d-lg-block @if(Request::segment(1) == 'profile') active @endif">
@@ -252,12 +259,14 @@ use App\Announcement;
           <div class="la-header__menu-item d-none d-md-block">
             <!-- Global Search: Start-->
             <div class="la-gsearch  mb-0" >
-              <form class="form-inline" action="">
-                <div class="form-group">
-                  <input class="la-gsearch__input form-control text-md pr-0" type="text"  placeholder="Search Courses...">
-                </div>
-                <button class="la-gsearch__submit btn pr-0" type="submit"><i class="la-icon la-icon--xl icon icon-search"></i></button>
-              </form>
+              <form class="form-inline mb-0" action="{{ url('/search-course/') }}" method="get">
+                  <div class="form-group la-header__gsearch" >
+                    <input class="la-gsearch__input form-control text-md pr-0 la-header__gsearch-input" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Search Courses and Classes..." required>
+                  </div>
+                  <button class="la-gsearch__submit btn px-0 mt-1" type="submit" >
+                    <i class="la-icon la-icon--xl icon icon-search"></i>
+                  </button>
+                </form>
             </div>
             <!-- Global Search: End-->
           </div>

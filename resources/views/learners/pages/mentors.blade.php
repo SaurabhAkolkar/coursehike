@@ -34,18 +34,20 @@
           //$mentors = array($mentor1, $mentor2, $mentor3, $mentor4, $mentor5, $mentor6, $mentor7, $mentor8, $mentor9);
         @endphp
 
-        <div class="la-mentors la-anim__wrap">
-          <div class="row no-gutters ">
-              @foreach($mentors as $mentor)
-                  @php 
-                        if($mentor->user_img == ""){
-                            $mentor->user_img = "https://picsum.photos/400";
-                        }else{
-                            $mentor->user_img = asset('/images/user_img/'.$mentor->user_img);
-                        }
-                  @endphp
-                  <x-mentor :img="$mentor->user_img" :id="$mentor->id" :name="$mentor->fname.' '.$mentor->lname" :skill="$mentor->skill" />
-               @endforeach
+        <div class="la-mentors ">
+          <div class="row la-anim__wrap">
+              <div class="col-12 d-inline-flex">
+                @foreach($mentors as $mentor)
+                    @php 
+                          if($mentor->user_img == ""){
+                              $mentor->user_img = "https://picsum.photos/400";
+                          }else{
+                              $mentor->user_img = asset('/images/user_img/'.$mentor->user_img);
+                          }
+                    @endphp
+                    <x-mentor :img="$mentor->user_img" :id="$mentor->id" :name="$mentor->fname.' '.$mentor->lname" :skill="$mentor->skill" />
+                @endforeach
+               </div>
             </div>
         </div>
       </div>
