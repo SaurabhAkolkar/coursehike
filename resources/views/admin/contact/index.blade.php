@@ -8,7 +8,7 @@
     <div class="col-12">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">{{ __('adminstaticword.AllMessage') }}</h3>
+          <h3 class="box-title">{{ __('adminstaticword.AllMessages') }}</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -33,7 +33,7 @@
                   <td>{{$item->mobile}}</td>
                   <td>{{$item->email}}</td>
                   <td>{{ str_limit($item->message, $limit = 50, $end = '...') }}</td>
-                  <td><a class="btn btn-success btn-sm" href="{{route('usermessage.edit',$item->id)}}">{{ __('adminstaticword.View') }}</a></td>
+                  <td><a class="btn btn-success btn-sm la-admin__edit-btn" href="{{route('usermessage.edit',$item->id)}}">{{ __('adminstaticword.View') }}</a></td>
 
                   <td>
                     <form  method="post" action="{{url('usermessage/'.$item->id)}}

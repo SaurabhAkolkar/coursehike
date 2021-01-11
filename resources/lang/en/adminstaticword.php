@@ -119,7 +119,7 @@ return [
     'Phone' => 'Phone',
     'Email' => 'Email',
     'Message' => 'Message',
-    'AllMessage' => 'All Message',
+    'AllMessages' => 'All Messages',
     'AddCountry' => 'Add Country',
     'ChooseCountry' => 'Choose Country',
     'Country' => 'Country',

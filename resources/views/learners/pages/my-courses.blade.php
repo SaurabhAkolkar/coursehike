@@ -56,7 +56,7 @@
               </div>
                 
               <div class="la-courses__nav-filterprops">
-               <a class="la-icon--2xl icon-filter la-courses__nav-filter d-none d-lg-block" id="filteredCourses"  role="button"></a>
+               <a class="la-icon--2xl icon-filter la-courses__nav-filter" id="filteredCourses"  role="button"></a>
               
                   <!-- Filter Courses Dropdown -->
                   <div class="la-courses__nav-filterdropdown" id="filtered_sidebar">
@@ -226,7 +226,7 @@
                   </div>
                     
                   <div class="la-courses__nav-filterprops">
-                  <a class="la-icon--2xl icon-filter la-courses__nav-filter d-none d-lg-block" id="filteredCourses2"  role="button"></a>
+                  <a class="la-icon--2xl icon-filter la-courses__nav-filter" id="filteredCourses2"  role="button"></a>
                   
                       <!-- Filter Courses Dropdown -->
                       <div class="la-courses__nav-filterdropdown" id="filtered_sidebar2">
@@ -375,7 +375,7 @@
                 </div>
                   
                 <div class="la-courses__nav-filterprops">
-                    <a class="la-icon--2xl icon-filter la-courses__nav-filter d-none d-lg-block" id="filteredCourses3"  role="button"></a>
+                    <a class="la-icon--2xl icon-filter la-courses__nav-filter" id="filteredCourses3"  role="button"></a>
                 
                     <!-- Filter Courses Dropdown -->
                     <div class="la-courses__nav-filterdropdown" id="filtered_sidebar3">

@@ -9,19 +9,42 @@
                 border-left: 1px solid rgba(#000, 0.48);
                 border-radius: 0;
                 font-weight: var(--font-light);
-                font-size: var(--text-md);
+                font-size: var(--text-sm);
                 color: rgba(#000, 0.48);
                 &:focus, &:hover {
                     border-color: #7400d7;
-                }    
-                
+                }
                 @include respond-above(md){
                     font-size:var(--text-xl);
                 }
-            }
-            &submit {
 
-            }
+                    &-{
+                        //- Browse Courses Page
+                        &bcourses{
+                            width:290px !important;
+
+                            @include respond-below(md){
+                                width:170px !important;
+                            }
+                        }
+
+                        //- Search Course Page
+                        &searchcourses{
+                            width:300px !important;
+
+                            @include respond-below(md){
+                                width:150px !important;
+                            }
+                        }
+                        &icon{
+                            font-size:var(--text-3xl);
+
+                            @include respond-below(md){
+                                font-size:var(--text-xl);
+                            }
+                        }
+                    }
+            }                        
         }
     }
     // Global Search: End

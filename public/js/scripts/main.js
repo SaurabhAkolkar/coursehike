@@ -557,3 +557,23 @@ function addToLanguage(id){
     $('#filter_languages').val(lan);
   }
 }
+
+function addToLevel(id){
+  var level = $('#filter_level').val();
+
+  if(level){
+      arr = JSON.parse("[" + level + "]");
+      if(arr.includes(id)){
+          index = arr.indexOf(id);
+          arr.splice(index, 1);
+      }else{
+        arr.push(id);
+      }
+    $('#filter_level').val(arr);
+  }else{
+    level = [];
+    level.push(id);
+    $('#filter_level').val(level);
+  }
+}
+

@@ -93,7 +93,7 @@
               </div>
 
               <div class="la-courses__nav-filterprops">
-              <a class="la-icon--2xl icon-filter la-courses__nav-filter d-none d-lg-block" id="filteredCourses"  role="button"></a>
+              <a class="la-icon--2xl icon-filter la-courses__nav-filter " id="filteredCourses"  role="button"></a>
                 <!-- Filter Courses Dropdown -->
                 <div class="la-courses__nav-filterdropdown" id="filtered_sidebar">
                     <div class="la-form__input-wrap px-5">
@@ -101,6 +101,7 @@
                         <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
                         <button class="la-courses__nav-filterclose close text-4xl mt-1" type="button" id="filter_close">&times;</button>
                       </div>
+                      <from action="" method="">
                         <div class="form-group pt-2">
                           <label class="glabel-main" > Course Duration</label>
                           <label class="glabel d-flex" for="dur_hr">
@@ -195,6 +196,9 @@
                             <div class="pl-2 mt-n1">Advanced</div>
                           </label>
                         </div>
+
+                        <button onclick="" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-5">Apply</button> 
+                      </form>
                     </div>
                 </div>
               </div>

@@ -23,8 +23,21 @@
         <div class="d-flex justify-content-between position-relative">  
           <a href="{{URL::previous()}}" class="la-vcreator__back d-none d-md-block" style="top:-6px"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
           <h1 class="la-page__title mb-8">Search Courses</h1>
-          <a class="la-icon--3xl icon-filter d-block d-lg-none" id="filterCourses" role="button"></a>
-           <!-- Filters : Start -->
+        </div>
+
+        <div class="d-flex justify-content-between align-items-start">
+            <!-- Global Search: Start-->
+            <div class="la-gsearch mb-0">
+              <form class="form-inline "  action="{{ url('/search-course/') }}">
+                <div class="form-group d-flex align-items-center">
+                  <input class="la-gsearch__input form-control la-gsearch__input-searchcourses" style=" background:transparent" value="{{$search_input}}" name="course_name" type="text" placeholder="What you want to learn today?">
+                  <button class="la-gsearch__submit btn" type="submit"><i class="la-icon icon icon-search la-gsearch__input-icon"></i></button>
+                </div>
+              </form>
+            </div>
+            <!-- Global Search: End-->
+
+            <!-- Filters : Start -->
            <div class="la-courses__nav-filters d-flex align-items-start ml-6">
               <div class="la-courses__nav-props ">
                 <a class="la-icon--2xl icon-list-layout la-courses__nav-filter mr-3 " id="showLayout" role="button"></a>
@@ -54,7 +67,7 @@
               </div>
                 
               <div class="la-courses__nav-filterprops">
-               <a class="la-icon--2xl icon-filter la-courses__nav-filter d-none d-lg-block" id="filteredCourses"  role="button"></a>
+               <a class="la-icon--2xl icon-filter la-courses__nav-filter" id="filteredCourses"  role="button"></a>
               
                   <!-- Filter Courses Dropdown -->
                   <div class="la-courses__nav-filterdropdown" id="filtered_sidebar">
@@ -144,16 +157,6 @@
             </div>
             <!-- Filters : End -->
         </div>
-        <!-- Global Search: Start-->
-        <div class="la-gsearch mb-0">
-          <form class="form-inline "  action="{{ url('/search-course/') }}">
-            <div class="form-group ">
-              <input class="la-gsearch__input form-control" style="width:300px; background:transparent" value="{{$search_input}}" name="course_name" type="text" placeholder="What you want to learn today?">
-            </div>
-            <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--3xl icon icon-search"></i></button>
-          </form>
-        </div>
-        <!-- Global Search: End-->
 
         <div class="la-courses py-4 py-md-16">
              
