@@ -12,6 +12,7 @@ use Auth;
 use App\ReviewRating;
 use App\UserPurchasedCourse;
 use App\CourseLanguage;
+use App\MasterClass;
 
 class SearchController extends Controller
 {
@@ -21,11 +22,25 @@ class SearchController extends Controller
 		if(Auth::check()){
 			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
 		}	
+
+		if(isset($request->sort_by)){
+			if($request->sort_by == 'latest'){
+				$categories = Categories::with(array('courses' => function($query) {$query->orderBy('created_at', 'DESC');}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+			}else if($request->sort_by=='highest_rated'){
+				$categories = Categories::with(array('courses' => function($query) {$query->orderBy('created_at', 'DESC');}),'courses','subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+			}else if($request->sort_by=='most_popular'){
+				$categories = Categories::with(array('courses' => function($query) {$query->orderBy('created_at', 'DESC');}),'courses','subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+			}else{
+				$categories = Categories::with('courses','subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+			}
+		
+		}else{
+				$categories = Categories::with('courses','subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+		}
 		$langauges = CourseLanguage::where(['status'=>1])->get();
 		$filter_categories = Categories::with('subcategory')->where(['status'=>1])->get();
-		$categories = Categories::with('courses','subcategory')->where('featured','1')->orderBy('position','ASC')->get();
 		// dd($categories);
-
+		
 		return view('learners.pages.courses', compact('categories','playlists','langauges','filter_categories'));
 
         // if(isset($searchTerm))
@@ -41,8 +56,17 @@ class SearchController extends Controller
 	}
 
 	public function applyFilter(Request $request){
-		$courses = Course::with('user')->where('status',1)->get();
-		dd($request);
+
+		if(isset($request->sort_by)){
+			if($request->sort_by == 'latest'){
+				$courses = Course::with('user')->where('status',1)->orderBy('created_at')->get();
+			}else{
+				$courses = Course::with('user')->where('status',1)->orderBy('created_at')->get();
+			}		
+		}else{
+			$courses = Course::with('user')->where('status',1)->get();
+		}
+
 		$playlists = [];
 		if(Auth::check()){
 			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
@@ -51,19 +75,35 @@ class SearchController extends Controller
 		$langauges = CourseLanguage::where(['status'=>1])->get();
 		$filter_categories = Categories::with('subcategory')->where(['status'=>1])->get();
 		
-		if(isset($request->categories)){
-			$courses = $courses->whereIn('category_id',$request->categories);
+		if(isset($request->categories) && $request->categories != null){
+
+			$categories = array_map('intval', explode(',',$request->categories));
+			
+			$courses = $courses->whereIn('category_id',$categories);
 		
 		}
-		
-		if(isset($request->sub_categories)){
-			$courses = $courses->whereIn('subcategory_id',$request->sub_categories);
+	
+		if(isset($request->sub_categories ) && $request->categories != null){
+
+			$sub_categories = array_map('intval', explode(',',$request->sub_categories));
+			
+			$courses = $courses->whereIn('subcategory_id',$sub_categories);
 		}	
 
-		if(isset($request->languages)){
-			$courses = $courses->whereIn('language_id',$request->languages);
+		if(isset($request->languages) && $request->categories != null){
+
+			$languages = array_map('intval', explode(',',$request->languages));
+
+			$courses = $courses->whereIn('language_id',$languages);
 		}
 
+		if(isset($request->level) && $request->level != null){
+
+			$level = array_map('intval', explode(',',$request->level));
+
+			$courses = $courses->level('level',$level);
+		}
+		
 		return view('learners.pages.filtered_courses', compact('filter_categories','playlists','langauges','courses'));	
 	}
 	
@@ -108,6 +148,11 @@ class SearchController extends Controller
 		$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
 		$courses = UserPurchasedCourse::with('course','course.user','course.review')->where(['user_id'=>Auth::User()->id])->get();
 		return view('learners.pages.my-courses',compact('playlists','courses'));
+	}
+
+	public function masterClasses(){
+        $master_classes = MasterClass::with('courses','courses.user')->get();
+		return view('learners.pages.master_classes', compact('master_classes'));
 	}
 
    

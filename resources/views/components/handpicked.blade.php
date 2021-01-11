@@ -1,7 +1,7 @@
 <div class="col-6 col-lg-3 p-1 p-sm-1 p-md-3">
-    <div class="la-hp__item">
-        <a class="la-hp__thumbnail w-100" href="{{ $hpUrl }}">
-            <img class="img-fluid" src="{{ $hpImg }}" alt="{{ $hpCourse }}">
+    <div class="la-hp__item la-anim__stagger-item--x la-anim__B">
+        <a class="la-hp__thumbnail w-100" href={{ $hpUrl }}>
+            <img class="img-fluid" src={{ $hpImg }} alt={{ $hpCourse }}>
         </a>
 
         <div class="la-hp__btm px-3 position-relative">

@@ -96,6 +96,20 @@
               <br>
 
               <div class="row">
+                <div class="col-md-6">
+                  <label for="exampleInputDetails">{{ __('adminstaticword.level') }}:<sup class="redstar">*</sup></label>
+                  <select name="level" class="form-control js-example-basic-single">
+                    <option disabled selected > Select Level</option>
+                    <option value="1" @if($cor->level == 1) selected @endif> Begginer</option>
+                    <option value="2" @if($cor->level == 2) selected @endif > Intermediate</option>
+                    <option value="3" @if($cor->level == 3) selected @endif> Advanced</option>
+                  </select> 
+                </div>
+              </div>
+              <br>
+
+
+              <div class="row">
                 <div class="col-md-12">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
                   <textarea id="detail" name="detail" rows="3" class="form-control">{!! $cor->detail !!}</textarea>

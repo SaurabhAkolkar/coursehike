@@ -92,9 +92,10 @@
                           <button class="la-courses__nav-filterclose close text-4xl mt-1" type="button" id="filter_close">&times;</button>
                         </div>
                             <form action="{{route('apply.filters')}}" method="get" id="filter_form">
-                                <input type="hidden" name="categories[]" id="filter_categories" />
-                                <input type="hidden" name="sub_categories[]" id="filter_sub_categories" />
-                                <input type="hidden" name="languages[]" id="filter_languages" />
+                                <input type="hidden" name="categories" id="filter_categories" />
+                                <input type="hidden" name="sub_categories" id="filter_sub_categories" />
+                                <input type="hidden" name="languages" id="filter_languages" />
+                                <input type="hidden" name="level" id="filter_level" />
 
                                 
                                 <div class="form-group pt-2">
@@ -126,7 +127,7 @@
                                                 @foreach($c->subcategory as $sc)
                                                   <li>
                                                     <label class="glabel d-flex" for="sub_course_{{$sc->id}}">
-                                                      <input class="d-none" id="sub_course_{{$sc->id}}" type="checkbox" name="sub_categories" value="{{$sc->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                                      <input class="d-none" id="sub_course_{{$sc->id}}" type="checkbox" onclick="addToSubCategory({{$sc->id}})"  value="{{$sc->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                                       <div class="pl-2 mt-n1">{{$sc->title}}</div>
                                                     </label>
                                                   </li>
@@ -143,7 +144,7 @@
                                   <label class="glabel-main" > Language</label>
                                   @foreach($langauges as $l)
                                     <label class="glabel d-flex" for="lang_{{$l->id}}">
-                                      <input class="d-none" id="lang_{{$l->id}}" type="checkbox" name="languages" value="{{$l->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                      <input class="d-none" id="lang_{{$l->id}}" type="checkbox" onclick="addToLanguage({{$l->id}})" value="{{$l->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                       <div class="pl-2 mt-n1">{{$l->name}}</div>
                                     </label>
                                   @endforeach
@@ -153,17 +154,17 @@
                                 <div class="form-group pt-2">
                                   <label class="glabel-main" >Level</label>
                                   <label class="glabel d-flex" for="level_1">
-                                    <input class="d-none" id="level_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <input class="d-none" id ="level_1" type="checkbox" name="" onclick="addToLevel(1)"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                     <div class="pl-2 mt-n1">Beginner</div>
                                   </label>
 
                                   <label class="glabel d-flex" for="level_2">
-                                    <input class="d-none" id="level_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <input class="d-none" id="level_2"  type="checkbox" name="" onclick="addToLevel(2)"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                     <div class="pl-2 mt-n1">Intermediate</div>
                                   </label>
 
                                   <label class="glabel d-flex" for="level_3">
-                                    <input class="d-none" id="level_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <input class="d-none" id="level_3"  type="checkbox" name="" onclick="addToLevel(3)"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                     <div class="pl-2 mt-n1">Advanced</div>
                                   </label>
                                 </div>
@@ -274,31 +275,11 @@
     </div>
   </section>
   @endsection
-
   @section('footerScripts')
-  <script>
-    function addToCategory(id){
-        let input = $('#filter_categories').val();
-        console.log(input);
-       
-        if(input){
-          arr = [];
-          arr.from(input);
-          if(arr.includes(id)){
-            alert('wait');
-            var index = arr.indexOf(id);
-            arr.splice(index, 1);
-          }else{
-            arr.push(id);
-          }
-          $('#filter_categories').val(arr);
-        }else{
-          input = [];
-          input.push(id);
-          $('#filter_categories').val(input);
-        }
-       
-        
-    }
-  </script>
-@endsection
+      <script>
+          $('input[type=radio][name=sort_by]').change(function() {
+             window.location.href= '{{url()->current()}}?sort_by='+this.value;
+
+          });
+      </script>
+  @endsection

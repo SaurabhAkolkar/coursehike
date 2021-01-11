@@ -473,6 +473,8 @@
                   :profileImg="'https://picsum.photos/100/100'"
                   :profileName="$master->courses->user->fullName"
                   :learners="'300'"
+                  :id="$master->courses->id"
+                  :slug="$master->courses->slug"
                 />
               @endforeach
              
@@ -480,7 +482,7 @@
         </div>
         <div class="la-mccourse__view-more position-relative text-right la-anim__wrap">
           <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8 la-anim__fade-in-right">
-            <a href="" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
+            <a href="/master-classes" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
           </div>
         </div>
       </div>

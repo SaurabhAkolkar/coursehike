@@ -498,3 +498,62 @@ function addToCart(id='1', classes='all') {
     alert('Something went wrong');
   }
 }
+
+
+
+function addToCategory(id){
+  var input = $('#filter_categories').val();
+
+  if(input){
+      arr = JSON.parse("[" + input + "]");
+      if(arr.includes(id)){
+          index = arr.indexOf(id);
+          arr.splice(index, 1);
+      }else{
+        arr.push(id);
+      }
+    $('#filter_categories').val(arr);
+  }else{
+    input = [];
+    input.push(id);
+    $('#filter_categories').val(input);
+  }
+}
+
+function addToSubCategory(id){
+  var sub = $('#filter_sub_categories').val();
+
+  if(sub){
+      arr = JSON.parse("[" + sub + "]");
+      if(arr.includes(id)){
+          index = arr.indexOf(id);
+          arr.splice(index, 1);
+      }else{
+        arr.push(id);
+      }
+    $('#filter_sub_categories').val(arr);
+  }else{
+    sub = [];
+    sub.push(id);
+    $('#filter_sub_categories').val(sub);
+  }
+}
+
+function addToLanguage(id){
+  var lan = $('#filter_languages').val();
+
+  if(lan){
+      arr = JSON.parse("[" + lan + "]");
+      if(arr.includes(id)){
+          index = arr.indexOf(id);
+          arr.splice(index, 1);
+      }else{
+        arr.push(id);
+      }
+    $('#filter_languages').val(arr);
+  }else{
+    lan = [];
+    lan.push(id);
+    $('#filter_languages').val(lan);
+  }
+}

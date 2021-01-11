@@ -80,6 +80,11 @@
                       <div class="la-form__input-wrap px-5">
                           <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
                             <form action="{{route('apply.filters')}}" method="get" id="filter_form">
+                                <input type="hidden" name="categories" id="filter_categories" />
+                                <input type="hidden" name="sub_categories" id="filter_sub_categories" />
+                                <input type="hidden" name="languages" id="filter_languages" />
+                                <input type="hidden" name="level" id="filter_level" />
+
                                 <a onclick="$('#filter_form').submit()" class="la-rtng__review text-uppercase text-center text-md-right">Apply</a> 
                                 <div class="form-group pt-2">
                                   <label class="glabel-main" > Course Duration</label>
@@ -103,14 +108,14 @@
                                   <label class="glabel-main" > Category</label>
                                     @foreach($filter_categories as $c)
                                       <label class="glabel d-flex" for="course_{{$c->id}}">
-                                        <input class="d-none" type="checkbox" id="course_{{$c->id}}" name="categories[]" value="{{$c->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                        <input class="d-none" type="checkbox" id="course_{{$c->id}}" onclick="addToCategory({{$c->id}})" value="{{$c->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                         <div class="pl-2 mt-n1">{{$c->title}}
                                             @if($c->subcategory != null)
                                               <ul class="d-flex flex-column">
                                                 @foreach($c->subcategory as $sc)
                                                   <li>
                                                     <label class="glabel d-flex" for="sub_course_{{$sc->id}}">
-                                                      <input class="d-none" id="sub_course_{{$sc->id}}" type="checkbox" name="sub_categories[]" value="{{$sc->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                                      <input class="d-none" id="sub_course_{{$sc->id}}" type="checkbox" onclick="addToSubCategory({{$sc->id}})"  value="{{$sc->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                                       <div class="pl-2 mt-n1">{{$sc->title}}</div>
                                                     </label>
                                                   </li>
@@ -127,7 +132,7 @@
                                   <label class="glabel-main" > Language</label>
                                   @foreach($langauges as $l)
                                     <label class="glabel d-flex" for="lang_{{$l->id}}">
-                                      <input class="d-none" id="lang_{{$l->id}}" type="checkbox" name="languages[]" value="{{$l->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                      <input class="d-none" id="lang_{{$l->id}}" type="checkbox" onclick="addToLanguage({{$l->id}})" value="{{$l->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                       <div class="pl-2 mt-n1">{{$l->name}}</div>
                                     </label>
                                   @endforeach
@@ -137,17 +142,17 @@
                                 <div class="form-group pt-2">
                                   <label class="glabel-main" >Level</label>
                                   <label class="glabel d-flex" for="level_1">
-                                    <input class="d-none" id="level_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <input class="d-none" id ="level_1" type="checkbox" name="" onclick="addToLevel(1)"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                     <div class="pl-2 mt-n1">Beginner</div>
                                   </label>
 
                                   <label class="glabel d-flex" for="level_2">
-                                    <input class="d-none" id="level_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <input class="d-none" id="level_2"  type="checkbox" name="" onclick="addToLevel(2)"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                     <div class="pl-2 mt-n1">Intermediate</div>
                                   </label>
 
                                   <label class="glabel d-flex" for="level_3">
-                                    <input class="d-none" id="level_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <input class="d-none" id="level_3"  type="checkbox" name="" onclick="addToLevel(3)"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                     <div class="pl-2 mt-n1">Advanced</div>
                                   </label>
                                 </div>

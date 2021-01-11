@@ -80,6 +80,19 @@
                 </div>
               </div>
               <br>
+              <div class="row">
+                <div class="col-md-6"> 
+                  <label>{{ __('adminstaticword.level') }}: <span class="redstar">*</span></label>
+                  <select name="level" class="form-control js-example-basic-single">
+                    <option selected disabled > Select Level</option>
+                    <option value="1" > Begginer</option>
+                    <option value="2" > Intermediate</option>
+                    <option value="3" > Advanced</option>
+                  </select> 
+                </div>
+              </div>
+
+              <br>
 
               <div class="row">
                 {{-- <div class="col-md-6">
