@@ -97,7 +97,10 @@
                 <!-- Filter Courses Dropdown -->
                 <div class="la-courses__nav-filterdropdown" id="filtered_sidebar">
                     <div class="la-form__input-wrap px-5">
+                      <div class="d-flex justify-content-between align-items-center">
                         <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
+                        <button class="la-courses__nav-filterclose close text-4xl mt-1" type="button" id="filter_close">&times;</button>
+                      </div>
                         <div class="form-group pt-2">
                           <label class="glabel-main" > Course Duration</label>
                           <label class="glabel d-flex" for="dur_hr">

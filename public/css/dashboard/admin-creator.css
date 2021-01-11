@@ -2,8 +2,8 @@
 
 @font-face {
   font-family: "icomoon";
-  src: url(/fonts/icomoon.eot?6b7ed849733515ffb31ffe3c50988431);
-  src: url(/fonts/icomoon.eot?6b7ed849733515ffb31ffe3c50988431) format("embedded-opentype"), url(/fonts/icomoon.ttf?7cd0152e5f93212eb9758c55960c33f2) format("truetype"), url(/fonts/icomoon.woff?e0aad280f0eeacfd011896ac75b36b1b) format("woff"), url(/fonts/icomoon.svg?eb8486ce719fb5022b7f9772b82de6b2) format("svg");
+  src: url(/fonts/icomoon.eot?2df6e2f5508bfa8527a8729b78916733);
+  src: url(/fonts/icomoon.eot?2df6e2f5508bfa8527a8729b78916733) format("embedded-opentype"), url(/fonts/icomoon.ttf?8cd9a272ef67223fd2f3adcd07866d87) format("truetype"), url(/fonts/icomoon.woff?9cdf8ae371799328bc658b8a616a071d) format("woff"), url(/fonts/icomoon.svg?be2ca4832183dd1e088cea2fc7569ae0) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -22,6 +22,10 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-admin:before {
+  content: "\E9A9";
 }
 
 .icon-trusted-sliders:before {

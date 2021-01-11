@@ -28,19 +28,50 @@ $(function(){
   });
 
 
-  //- Homepage Filter Sidebar
-  $("#filteredCourses").on('click', function(){
-    $('#filtered_sidebar').toggle(); 
-    $('#filtered_sidebar').toggleClass('active'); 
+  //- Filter Sidebar
+  $("#filteredCourses").on('click', function(event){
+    event.stopPropagation();
+    $('#filtered_sidebar').show(); 
+    $('#filtered_sidebar').addClass('active'); 
+    $("body").css('overflow','hidden');
+  });
 
-    if($('#filtered_sidebar').hasClass('active')) {
-      $('body').css('overflow','hidden');
-    } else {
-      $('body').css('overflow','auto');
-    }
+  $("#filter_close").on('click', function(event){
+    event.stopPropagation();
+    $('#filtered_sidebar').hide();
+    $("body").css('overflow','auto');
   });
   
   
+  //- Filter Sidebar in My Courses Page
+  $("#filteredCourses2").on('click', function(event){
+    event.stopPropagation();
+    $('#filtered_sidebar2').show(); 
+    $('#filtered_sidebar2').addClass('active'); 
+    $("body").css('overflow','hidden');
+  });
+
+  $("#filter_close2").on('click', function(event){
+    event.stopPropagation();
+    $('#filtered_sidebar2').hide();
+    $("body").css('overflow','auto');
+  });
+  
+ //- Filter Sidebar in My Courses Page
+  $("#filteredCourses3").on('click', function(event){
+    event.stopPropagation();
+    $('#filtered_sidebar3').show(); 
+    $('#filtered_sidebar3').addClass('active'); 
+    $("body").css('overflow','hidden');
+  });
+
+  $("#filter_close3").on('click', function(event){
+    event.stopPropagation();
+    $('#filtered_sidebar3').hide();
+    $("body").css('overflow','auto');
+  });
+
+
   //Swiper Js for Login & Register page
   var swiper = new Swiper('.entry-swiper-container', {
       fadeEffect: { crossFade: true },

@@ -7,6 +7,7 @@
       <div class="la-section__inner">
         <!-- Alert Message-->
         <div id="wishlist_alert_div" class="container"></div> 
+
         <div class="container">
           <div class="col-12 la-anim__wrap">
             <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
@@ -22,137 +23,123 @@
             </div>
             <!-- Global Search: End-->
           </div>
+
           <div class="col-12 d-flex justify-content-between align-items-center mb-8 la-anim__wrap ">
             <div class="la-mycourses__subtitle text-2xl head-font la-anim__stagger-item--x">Ongoing</div>
              <!-- Filters : Start -->
-             <div class="la-courses__nav-filters d-flex align-items-start">
+           <div class="la-courses__nav-filters d-flex align-items-start ml-6 ">
               <div class="la-courses__nav-props">
-                <a class="la-icon--2xl icon-list-layout la-courses__nav-filter mr-3" id="showLayout" role="button"></a>
+                <a class="la-icon--2xl icon-list-layout la-courses__nav-filter  mr-3" id="showLayout" role="button"></a>
               </div>
               <div class="la-courses__nav-props">
-                <a class="la-icon--2xl icon-sort la-courses__nav-filter mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                <a class="la-icon--2xl icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                 <!-- Sort Courses Dropdown -->
                 <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses"  style="border:none !important;">
                   <div class="la-form__input-wrap px-5">
                       <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-2 text-dark">Sort by</div>
                       <div class=" pt-2">
                           <div class="la-form__radio-wrap mr-5">
-                                <input class="la-form__radio d-none" type="radio" value="most_popular" name="sort_by" id="most_popular">
-                                <label class="d-flex align-items-center text-sm" for="most_popular"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Most Popular</span></label>
+                                <input class="la-form__radio d-none" type="radio" value="most_popular" name="sort_by" id="most_popular1">
+                                <label class="d-flex align-items-center text-sm" for="most_popular1"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Most Popular</span></label>
                           </div>
                           <div class="la-form__radio-wrap mr-5">
-                              <input class="la-form__radio d-none" type="radio" value="highest_rated" name="sort_by" id="highest_rated">
-                              <label class="d-flex align-items-center text-sm" for="highest_rated"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Highest Rated</span></label>
+                              <input class="la-form__radio d-none" type="radio" value="highest_rated" name="sort_by" id="highest_rated1">
+                              <label class="d-flex align-items-center text-sm" for="highest_rated1"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Highest Rated</span></label>
                           </div>
                           <div class="la-form__radio-wrap mr-5">
-                              <input class="la-form__radio d-none" type="radio" value="latest" name="sort_by" id="latest">
-                              <label class="d-flex align-items-center text-sm" for="latest"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Latest</span></label>
+                              <input class="la-form__radio d-none" type="radio" value="latest" name="sort_by" id="latest1">
+                              <label class="d-flex align-items-center text-sm" for="latest1"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Latest</span></label>
                           </div>
                       </div>
                   </div>
                 </div>
               </div>
-
-              <div class="la-courses__nav-props">
-                <a class="la-icon--2xl icon-filter la-courses__nav-filter " id="filteredCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                
+              <div class="la-courses__nav-filterprops">
+               <a class="la-icon--2xl icon-filter la-courses__nav-filter d-none d-lg-block" id="filteredCourses"  role="button"></a>
+              
                   <!-- Filter Courses Dropdown -->
-                  <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="filteredCourses"  style="border:none !important;">
+                  <div class="la-courses__nav-filterdropdown" id="filtered_sidebar">
                       <div class="la-form__input-wrap px-5">
+                        <div class="d-flex justify-content-between align-items-center">
                           <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
-                          <div class="form-group pt-2">
-                            <label class="glabel-main" > Course Duration</label>
-                            <label class="glabel d-flex" for="dur_hr">
-                              <input class="d-none" id="dur_hr" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">less than an hr</div>
-                            </label>
+                          <button class="la-courses__nav-filterclose close text-4xl mt-1" type="button" id="filter_close">&times;</button>
+                        </div>
+                            <form action="" method="" id="">
+                                                                
+                                <div class="form-group pt-2">
+                                  <label class="glabel-main" > Course Duration</label>
+                                  <label class="glabel d-flex" for="dur_hr1">
+                                    <input class="d-none" id="dur_hr1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <div class="pl-2 mt-n1">less than an hr</div>
+                                  </label>
 
-                            <label class="glabel d-flex" for="dur_hrs">
-                              <input class="d-none" id="dur_hrs" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">1 hr - 5 hr</div>
-                            </label>
+                                  <label class="glabel d-flex" for="dur_hrs1">
+                                    <input class="d-none" id="dur_hrs1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <div class="pl-2 mt-n1">1 hr - 5 hr</div>
+                                  </label>
 
-                            <label class="glabel d-flex" for="dur_more">
-                              <input class="d-none" id="dur_more" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">more than 5 hrs</div>
-                            </label>
-                          </div>
-
-                          <div class="form-group pt-2">
-                            <label class="glabel-main" > Category</label>
-                            <label class="glabel d-flex" for="course_1">
-                              <input class="d-none" id="course_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Tattoo 
-                                  <ul class="d-flex flex-column">
-                                    <li>
-                                      <label class="glabel d-flex pt-1" for="sub_course_1">
-                                        <input class="d-none" id="sub_course_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                        <div class="pl-2 mt-n1">Abstract</div>
-                                      </label>
-                                    </li>
-
-                                    <li>
-                                      <label class="glabel d-flex" for="sub_course_2">
-                                        <input class="d-none" id="sub_course_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                        <div class="pl-2 mt-n1">3D Tattoo</div>
-                                      </label>
-                                    </li>
-
-                                    <li>
-                                      <label class="glabel d-flex" for="sub_course_3">
-                                        <input class="d-none" id="sub_course_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                        <div class="pl-2 mt-n1">Blast Over</div>
-                                      </label>
-                                    </li>
-                                  </ul>
+                                  <label class="glabel d-flex" for="dur_more1">
+                                    <input class="d-none" id="dur_more1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <div class="pl-2 mt-n1">more than 5 hrs</div>
+                                  </label>
                                 </div>
-                            </label>
 
-                            <label class="glabel d-flex" for="course_2">
-                              <input class="d-none" id="course_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Design</div>
-                            </label>
+                                <div class="form-group pt-2">
+                                  <label class="glabel-main" > Category</label>
+                                   
+                                      <label class="glabel d-flex" for="">
+                                        <input class="d-none" type="checkbox" id="" onclick="" value=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                        <div class="pl-2 mt-n1">
+                                            
+                                              <ul class="d-flex flex-column">
+                                                
+                                                  <li>
+                                                    <label class="glabel d-flex" for="">
+                                                      <input class="d-none" id="" type="checkbox" name="sub_categories" value=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                                      <div class="pl-2 mt-n1"></div>
+                                                    </label>
+                                                  </li>
+                                               
+                                              </ul>
+                                            
+                                            
+                                          </div>
+                                      </label>
+                                    
+                                </div>
 
-                            <label class="glabel d-flex" for="course_3">
-                              <input class="d-none" id="course_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Photography</div>
-                            </label>
-                          </div>
+                                <div class="form-group pt-2">
+                                  <label class="glabel-main" > Language</label>
+                                
+                                    <label class="glabel d-flex" for="">
+                                      <input class="d-none" id="" type="checkbox" name="languages" value=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                      <div class="pl-2 mt-n1"></div>
+                                    </label>
+                                 
+                               
+                                </div>
 
-                          <div class="form-group pt-2">
-                            <label class="glabel-main" > Language</label>
-                            <label class="glabel d-flex" for="lang_1">
-                              <input class="d-none" id="lang_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">English</div>
-                            </label>
+                                <div class="form-group pt-2">
+                                  <label class="glabel-main" >Level</label>
+                                  <label class="glabel d-flex" for="level_11">
+                                    <input class="d-none" id="level_11" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <div class="pl-2 mt-n1">Beginner</div>
+                                  </label>
 
-                            <label class="glabel d-flex" for="lang_2">
-                              <input class="d-none" id="lang_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Hindi</div>
-                            </label>
+                                  <label class="glabel d-flex" for="level_21">
+                                    <input class="d-none" id="level_21" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <div class="pl-2 mt-n1">Intermediate</div>
+                                  </label>
 
-                            <label class="glabel d-flex" for="lang_3">
-                              <input class="d-none" id="lang_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Japanese</div>
-                            </label>
-                          </div>
+                                  <label class="glabel d-flex" for="level_31">
+                                    <input class="d-none" id="level_31" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                    <div class="pl-2 mt-n1">Advanced</div>
+                                  </label>
+                                </div>
 
-                          <div class="form-group pt-2">
-                            <label class="glabel-main" >Level</label>
-                            <label class="glabel d-flex" for="level_1">
-                              <input class="d-none" id="level_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Beginner</div>
-                            </label>
-
-                            <label class="glabel d-flex" for="level_2">
-                              <input class="d-none" id="level_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Intermediate</div>
-                            </label>
-
-                            <label class="glabel d-flex" for="level_3">
-                              <input class="d-none" id="level_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Advanced</div>
-                            </label>
-                          </div>
+                                <button onclick="" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Apply</button> 
+                            </form>
                       </div>
                   </div>
               </div>
@@ -205,144 +192,281 @@
     <section class="la-section__small">
       <div class="la-section__inner">
         <div class="container la-anim__wrap">
-          <div class="col-12 d-flex justify-content-between mb-6 la-anim__stagger-item--x">
-            <div class="la-mycourses__subtitle text-2xl head-font ">Yet to Start</div>
-             <!-- Filters : Start -->
-             <div class="la-courses__nav-filters d-flex align-items-start">
-              <div class="la-courses__nav-props">
-                <a class="la-icon--2xl icon-list-layout la-courses__nav-filter mr-3" id="showLayout" role="button"></a>
-              </div>
-              <div class="la-courses__nav-props">
-                <a class="la-icon--2xl icon-sort la-courses__nav-filter mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
-                <!-- Sort Courses Dropdown -->
-                <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses"  style="border:none !important;">
-                  <div class="la-form__input-wrap px-5">
-                      <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-2 text-dark">Sort by</div>
-                      <div class=" pt-2">
-                          <div class="la-form__radio-wrap mr-5">
-                                <input class="la-form__radio d-none" type="radio" value="most_popular" name="sort_by" id="most_popular">
-                                <label class="d-flex align-items-center text-sm" for="most_popular"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Most Popular</span></label>
+          <div class="row">
+            <div class="col-12">
+              <div class=" d-flex justify-content-between mb-6">
+                <div class="la-mycourses__subtitle text-2xl head-font  la-anim__stagger-item--x">Yet to Start</div>
+                  <!-- Filters : Start -->
+                <div class="la-courses__nav-filters d-flex align-items-start ml-6">
+                  <div class="la-courses__nav-props">
+                    <a class="la-icon--2xl icon-list-layout la-courses__nav-filter  mr-3" id="showLayout2" role="button"></a>
+                  </div>
+                  <div class="la-courses__nav-props">
+                    <a class="la-icon--2xl icon-sort la-courses__nav-filter  mr-3" id="sortCourses2" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                    <!-- Sort Courses Dropdown -->
+                    <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses2"  style="border:none !important;">
+                      <div class="la-form__input-wrap px-5">
+                          <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-2 text-dark">Sort by</div>
+                          <div class=" pt-2">
+                              <div class="la-form__radio-wrap mr-5">
+                                    <input class="la-form__radio d-none" type="radio" value="most_popular" name="sort_by" id="most_popular2">
+                                    <label class="d-flex align-items-center text-sm" for="most_popular2"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Most Popular</span></label>
+                              </div>
+                              <div class="la-form__radio-wrap mr-5">
+                                  <input class="la-form__radio d-none" type="radio" value="highest_rated" name="sort_by" id="highest_rated2">
+                                  <label class="d-flex align-items-center text-sm" for="highest_rated2"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Highest Rated</span></label>
+                              </div>
+                              <div class="la-form__radio-wrap mr-5">
+                                  <input class="la-form__radio d-none" type="radio" value="latest" name="sort_by" id="latest2">
+                                  <label class="d-flex align-items-center text-sm" for="latest2"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Latest</span></label>
+                              </div>
                           </div>
-                          <div class="la-form__radio-wrap mr-5">
-                              <input class="la-form__radio d-none" type="radio" value="highest_rated" name="sort_by" id="highest_rated">
-                              <label class="d-flex align-items-center text-sm" for="highest_rated"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Highest Rated</span></label>
-                          </div>
-                          <div class="la-form__radio-wrap mr-5">
-                              <input class="la-form__radio d-none" type="radio" value="latest" name="sort_by" id="latest">
-                              <label class="d-flex align-items-center text-sm" for="latest"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Latest</span></label>
+                      </div>
+                    </div>
+                  </div>
+                    
+                  <div class="la-courses__nav-filterprops">
+                  <a class="la-icon--2xl icon-filter la-courses__nav-filter d-none d-lg-block" id="filteredCourses2"  role="button"></a>
+                  
+                      <!-- Filter Courses Dropdown -->
+                      <div class="la-courses__nav-filterdropdown" id="filtered_sidebar2">
+                          <div class="la-form__input-wrap px-5">
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
+                              <button class="la-courses__nav-filterclose close text-4xl mt-1" type="button" id="filter_close2">&times;</button>
+                            </div>
+                                <form action="" method="" id="">
+                                                                    
+                                    <div class="form-group pt-2">
+                                      <label class="glabel-main" > Course Duration</label>
+                                      <label class="glabel d-flex" for="dur_hr2">
+                                        <input class="d-none" id="dur_hr2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                        <div class="pl-2 mt-n1">less than an hr</div>
+                                      </label>
+
+                                      <label class="glabel d-flex" for="dur_hrs2">
+                                        <input class="d-none" id="dur_hrs2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                        <div class="pl-2 mt-n1">1 hr - 5 hr</div>
+                                      </label>
+
+                                      <label class="glabel d-flex" for="dur_more2">
+                                        <input class="d-none" id="dur_more2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                        <div class="pl-2 mt-n1">more than 5 hrs</div>
+                                      </label>
+                                    </div>
+
+                                    <div class="form-group pt-2">
+                                      <label class="glabel-main" > Category</label>
+                                      
+                                          <label class="glabel d-flex" for="">
+                                            <input class="d-none" type="checkbox" id="" onclick="" value=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                            <div class="pl-2 mt-n1">
+                                                
+                                                  <ul class="d-flex flex-column">
+                                                    
+                                                      <li>
+                                                        <label class="glabel d-flex" for="">
+                                                          <input class="d-none" id="" type="checkbox" name="sub_categories" value=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                                          <div class="pl-2 mt-n1"></div>
+                                                        </label>
+                                                      </li>
+                                                  
+                                                  </ul>
+                                                
+                                                
+                                              </div>
+                                          </label>
+                                        
+                                    </div>
+
+                                    <div class="form-group pt-2">
+                                      <label class="glabel-main" > Language</label>
+                                    
+                                        <label class="glabel d-flex" for="">
+                                          <input class="d-none" id="" type="checkbox" name="languages" value=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                          <div class="pl-2 mt-n1"></div>
+                                        </label>
+                                    
+                                  
+                                    </div>
+
+                                    <div class="form-group pt-2">
+                                      <label class="glabel-main" >Level</label>
+                                      <label class="glabel d-flex" for="level_12">
+                                        <input class="d-none" id="level_12" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                        <div class="pl-2 mt-n1">Beginner</div>
+                                      </label>
+
+                                      <label class="glabel d-flex" for="level_22">
+                                        <input class="d-none" id="level_22" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                        <div class="pl-2 mt-n1">Intermediate</div>
+                                      </label>
+
+                                      <label class="glabel d-flex" for="level_32">
+                                        <input class="d-none" id="level_32" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                        <div class="pl-2 mt-n1">Advanced</div>
+                                      </label>
+                                    </div>
+
+                                    <button onclick="" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Apply</button> 
+                                </form>
                           </div>
                       </div>
                   </div>
                 </div>
-              </div>
-
-              <div class="la-courses__nav-props">
-                <a class="la-icon--2xl icon-filter la-courses__nav-filter" id="filteredCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
-                  <!-- Filter Courses Dropdown -->
-                  <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="filteredCourses"  style="border:none !important;">
-                      <div class="la-form__input-wrap px-5">
-                          <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
-                          <div class="form-group pt-2">
-                            <label class="glabel-main" > Course Duration</label>
-                            <label class="glabel d-flex" for="dur_hr">
-                              <input class="d-none" id="dur_hr" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">less than an hr</div>
-                            </label>
-
-                            <label class="glabel d-flex" for="dur_hrs">
-                              <input class="d-none" id="dur_hrs" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">1 hr - 5 hr</div>
-                            </label>
-
-                            <label class="glabel d-flex" for="dur_more">
-                              <input class="d-none" id="dur_more" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">more than 5 hrs</div>
-                            </label>
-                          </div>
-
-                          <div class="form-group pt-2">
-                            <label class="glabel-main" > Category</label>
-                            <label class="glabel d-flex" for="course_1">
-                              <input class="d-none" id="course_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Tattoo 
-                                  <ul class="d-flex flex-column">
-                                    <li>
-                                      <label class="glabel d-flex pt-1" for="sub_course_1">
-                                        <input class="d-none" id="sub_course_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                        <div class="pl-2 mt-n1">Abstract</div>
-                                      </label>
-                                    </li>
-
-                                    <li>
-                                      <label class="glabel d-flex" for="sub_course_2">
-                                        <input class="d-none" id="sub_course_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                        <div class="pl-2 mt-n1">3D Tattoo</div>
-                                      </label>
-                                    </li>
-
-                                    <li>
-                                      <label class="glabel d-flex" for="sub_course_3">
-                                        <input class="d-none" id="sub_course_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                        <div class="pl-2 mt-n1">Blast Over</div>
-                                      </label>
-                                    </li>
-                                  </ul>
-                                </div>
-                            </label>
-
-                            <label class="glabel d-flex" for="course_2">
-                              <input class="d-none" id="course_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Design</div>
-                            </label>
-
-                            <label class="glabel d-flex" for="course_3">
-                              <input class="d-none" id="course_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Photography</div>
-                            </label>
-                          </div>
-
-                          <div class="form-group pt-2">
-                            <label class="glabel-main" > Language</label>
-                            <label class="glabel d-flex" for="lang_1">
-                              <input class="d-none" id="lang_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">English</div>
-                            </label>
-
-                            <label class="glabel d-flex" for="lang_2">
-                              <input class="d-none" id="lang_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Hindi</div>
-                            </label>
-
-                            <label class="glabel d-flex" for="lang_3">
-                              <input class="d-none" id="lang_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Japanese</div>
-                            </label>
-                          </div>
-
-                          <div class="form-group pt-2">
-                            <label class="glabel-main" >Level</label>
-                            <label class="glabel d-flex" for="level_1">
-                              <input class="d-none" id="level_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Beginner</div>
-                            </label>
-
-                            <label class="glabel d-flex" for="level_2">
-                              <input class="d-none" id="level_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Intermediate</div>
-                            </label>
-
-                            <label class="glabel d-flex" for="level_3">
-                              <input class="d-none" id="level_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Advanced</div>
-                            </label>
-                          </div>
-                      </div>
-                  </div>
+                <!-- Filters : End -->
               </div>
             </div>
-            <!-- Filters : End -->
-          </div>
+            
             <div class="col-12">
+                <div class="la-empty__courses d-md-flex justify-content-between align-items-start ">
+                    <div class="la-empty__inner">
+                        <h6 class="la-empty__course-title pb-2 la-anim__stagger-item">No Courses</h6>
+                        <p class="la-empty__course-desc m-0 la-anim__stagger-item">You have not finished any course yet.</p>
+                    </div>
+                    <div class="la-empty__browse-courses">
+                        <a href="/browse/courses" class="la-empty__browse la-anim__stagger-item">
+                            Browse Courses
+                            <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow la-anim__stagger-item--x"></span>
+                        </a>
+                    </div>
+              </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section Yet to Start: End-->
+
+  <!-- Section Completed: Start-->
+    <section class="la-section__small">
+      <div class="la-section__inner">
+        <div class="container la-anim__wrap">
+          <div class="row">
+            <div class="col-12 d-flex justify-content-between mb-6 ">
+              <div class="la-mycourses__subtitle text-2xl head-font la-anim__stagger-item--x">Completed</div>
+                  <!-- Filters : Start -->
+              <div class="la-courses__nav-filters d-flex align-items-start ml-6">
+                <div class="la-courses__nav-props ">
+                  <a class="la-icon--2xl icon-list-layout la-courses__nav-filter  mr-3" id="showLayout3" role="button"></a>
+                </div>
+                <div class="la-courses__nav-props">
+                  <a class="la-icon--2xl icon-sort la-courses__nav-filter  mr-3" id="sortCourses3" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                  <!-- Sort Courses Dropdown -->
+                  <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses3"  style="border:none !important;">
+                    <div class="la-form__input-wrap px-5">
+                        <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-2 text-dark">Sort by</div>
+                        <div class=" pt-2">
+                            <div class="la-form__radio-wrap mr-5">
+                                  <input class="la-form__radio d-none" type="radio" value="most_popular" name="sort_by" id="most_popular3">
+                                  <label class="d-flex align-items-center text-sm" for="most_popular3"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Most Popular</span></label>
+                            </div>
+                            <div class="la-form__radio-wrap mr-5">
+                                <input class="la-form__radio d-none" type="radio" value="highest_rated" name="sort_by" id="highest_rated3">
+                                <label class="d-flex align-items-center text-sm" for="highest_rated3"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Highest Rated</span></label>
+                            </div>
+                            <div class="la-form__radio-wrap mr-5">
+                                <input class="la-form__radio d-none" type="radio" value="latest" name="sort_by" id="latest3">
+                                <label class="d-flex align-items-center text-sm" for="latest3"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Latest</span></label>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                  
+                <div class="la-courses__nav-filterprops">
+                    <a class="la-icon--2xl icon-filter la-courses__nav-filter d-none d-lg-block" id="filteredCourses3"  role="button"></a>
+                
+                    <!-- Filter Courses Dropdown -->
+                    <div class="la-courses__nav-filterdropdown" id="filtered_sidebar3">
+                        <div class="la-form__input-wrap px-5">
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
+                            <button class="la-courses__nav-filterclose close text-4xl mt-1" type="button" id="filter_close3">&times;</button>
+                          </div>
+                              <form action="" method="" id="">
+                                                                  
+                                  <div class="form-group pt-2">
+                                    <label class="glabel-main" > Course Duration</label>
+                                    <label class="glabel d-flex" for="dur_hr3">
+                                      <input class="d-none" id="dur_hr3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                      <div class="pl-2 mt-n1">less than an hr</div>
+                                    </label>
+
+                                    <label class="glabel d-flex" for="dur_hrs3">
+                                      <input class="d-none" id="dur_hrs3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                      <div class="pl-2 mt-n1">1 hr - 5 hr</div>
+                                    </label>
+
+                                    <label class="glabel d-flex" for="dur_more3">
+                                      <input class="d-none" id="dur_more3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                      <div class="pl-2 mt-n1">more than 5 hrs</div>
+                                    </label>
+                                  </div>
+
+                                  <div class="form-group pt-2">
+                                    <label class="glabel-main" > Category</label>
+                                    
+                                        <label class="glabel d-flex" for="">
+                                          <input class="d-none" type="checkbox" id="" onclick="" value=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                          <div class="pl-2 mt-n1">
+                                              
+                                                <ul class="d-flex flex-column">
+                                                  
+                                                    <li>
+                                                      <label class="glabel d-flex" for="">
+                                                        <input class="d-none" id="" type="checkbox" name="sub_categories" value=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                                        <div class="pl-2 mt-n1"></div>
+                                                      </label>
+                                                    </li>
+                                                
+                                                </ul>
+                                              
+                                              
+                                            </div>
+                                        </label>
+                                      
+                                  </div>
+
+                                  <div class="form-group pt-2">
+                                    <label class="glabel-main" > Language</label>
+                                  
+                                      <label class="glabel d-flex" for="">
+                                        <input class="d-none" id="" type="checkbox" name="languages" value=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                        <div class="pl-2 mt-n1"></div>
+                                      </label>
+                                  
+                                
+                                  </div>
+
+                                  <div class="form-group pt-2">
+                                    <label class="glabel-main" >Level</label>
+                                    <label class="glabel d-flex" for="level_1">
+                                      <input class="d-none" id="level_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                      <div class="pl-2 mt-n1">Beginner</div>
+                                    </label>
+
+                                    <label class="glabel d-flex" for="level_2">
+                                      <input class="d-none" id="level_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                      <div class="pl-2 mt-n1">Intermediate</div>
+                                    </label>
+
+                                    <label class="glabel d-flex" for="level_3">
+                                      <input class="d-none" id="level_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                      <div class="pl-2 mt-n1">Advanced</div>
+                                    </label>
+                                  </div>
+
+                                  <button onclick="" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Apply</button> 
+                              </form>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <!-- Filters : End -->
+            </div>
+
+              <div class="col-12">
                 <div class="la-empty__courses d-md-flex justify-content-between align-items-start ">
                   <div class="la-empty__inner">
                       <h6 class="la-empty__course-title pb-2 la-anim__stagger-item">No Courses</h6>
@@ -354,165 +478,8 @@
                           <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow la-anim__stagger-item--x"></span>
                       </a>
                   </div>
-              </div> 
-        </div>
-      </div>
-    </section>
-    <!-- Section Yet to Start: End-->
-    <!-- Section Completed: Start-->
-    <section class="la-section__small">
-      <div class="la-section__inner">
-        <div class="container la-anim__wrap">
-          <div class="col-12 d-flex justify-content-between mb-6 la-anim__stagger-item--x">
-            <div class="la-mycourses__subtitle text-2xl head-font">Completed</div>
-             <!-- Filters : Start -->
-             <div class="la-courses__nav-filters d-flex align-items-start">
-              <div class="la-courses__nav-props">
-                <a class="la-icon--2xl icon-list-layout la-courses__nav-filter mr-3" id="showLayout" role="button"></a>
-              </div>
-              <div class="la-courses__nav-props">
-                <a class="la-icon--2xl icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
-                <!-- Sort Courses Dropdown -->
-                <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses"  style="border:none !important;">
-                  <div class="la-form__input-wrap px-5">
-                      <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-2 text-dark">Sort by</div>
-                      <div class=" pt-2">
-                          <div class="la-form__radio-wrap mr-5">
-                                <input class="la-form__radio d-none" type="radio" value="most_popular" name="sort_by" id="most_popular">
-                                <label class="d-flex align-items-center text-sm" for="most_popular"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Most Popular</span></label>
-                          </div>
-                          <div class="la-form__radio-wrap mr-5">
-                              <input class="la-form__radio d-none" type="radio" value="highest_rated" name="sort_by" id="highest_rated">
-                              <label class="d-flex align-items-center text-sm" for="highest_rated"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Highest Rated</span></label>
-                          </div>
-                          <div class="la-form__radio-wrap mr-5">
-                              <input class="la-form__radio d-none" type="radio" value="latest" name="sort_by" id="latest">
-                              <label class="d-flex align-items-center text-sm" for="latest"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Latest</span></label>
-                          </div>
-                      </div>
-                  </div>
                 </div>
               </div>
-
-              <div class="la-courses__nav-props">
-                <a class="la-icon--2xl icon-filter la-courses__nav-filter" id="filteredCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
-                  <!-- Filter Courses Dropdown -->
-                  <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="filteredCourses"  style="border:none !important;">
-                      <div class="la-form__input-wrap px-5">
-                          <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
-                          <div class="form-group pt-2">
-                            <label class="glabel-main" > Course Duration</label>
-                            <label class="glabel d-flex" for="dur_hr">
-                              <input class="d-none" id="dur_hr" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">less than an hr</div>
-                            </label>
-
-                            <label class="glabel d-flex" for="dur_hrs">
-                              <input class="d-none" id="dur_hrs" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">1 hr - 5 hr</div>
-                            </label>
-
-                            <label class="glabel d-flex" for="dur_more">
-                              <input class="d-none" id="dur_more" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">more than 5 hrs</div>
-                            </label>
-                          </div>
-
-                          <div class="form-group pt-2">
-                            <label class="glabel-main" > Category</label>
-                            <label class="glabel d-flex" for="course_1">
-                              <input class="d-none" id="course_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Tattoo 
-                                  <ul class="d-flex flex-column">
-                                    <li>
-                                      <label class="glabel d-flex pt-1" for="sub_course_1">
-                                        <input class="d-none" id="sub_course_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                        <div class="pl-2 mt-n1">Abstract</div>
-                                      </label>
-                                    </li>
-
-                                    <li>
-                                      <label class="glabel d-flex" for="sub_course_2">
-                                        <input class="d-none" id="sub_course_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                        <div class="pl-2 mt-n1">3D Tattoo</div>
-                                      </label>
-                                    </li>
-
-                                    <li>
-                                      <label class="glabel d-flex" for="sub_course_3">
-                                        <input class="d-none" id="sub_course_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                        <div class="pl-2 mt-n1">Blast Over</div>
-                                      </label>
-                                    </li>
-                                  </ul>
-                                </div>
-                            </label>
-
-                            <label class="glabel d-flex" for="course_2">
-                              <input class="d-none" id="course_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Design</div>
-                            </label>
-
-                            <label class="glabel d-flex" for="course_3">
-                              <input class="d-none" id="course_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Photography</div>
-                            </label>
-                          </div>
-
-                          <div class="form-group pt-2">
-                            <label class="glabel-main" > Language</label>
-                            <label class="glabel d-flex" for="lang_1">
-                              <input class="d-none" id="lang_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">English</div>
-                            </label>
-
-                            <label class="glabel d-flex" for="lang_2">
-                              <input class="d-none" id="lang_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Hindi</div>
-                            </label>
-
-                            <label class="glabel d-flex" for="lang_3">
-                              <input class="d-none" id="lang_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Japanese</div>
-                            </label>
-                          </div>
-
-                          <div class="form-group pt-2">
-                            <label class="glabel-main" >Level</label>
-                            <label class="glabel d-flex" for="level_1">
-                              <input class="d-none" id="level_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Beginner</div>
-                            </label>
-
-                            <label class="glabel d-flex" for="level_2">
-                              <input class="d-none" id="level_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Intermediate</div>
-                            </label>
-
-                            <label class="glabel d-flex" for="level_3">
-                              <input class="d-none" id="level_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                              <div class="pl-2 mt-n1">Advanced</div>
-                            </label>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-            </div>
-            <!-- Filters : End -->
-          </div>
-            <div class="col-12">
-              <div class="la-empty__courses d-md-flex justify-content-between align-items-start ">
-                <div class="la-empty__inner">
-                    <h6 class="la-empty__course-title pb-2 la-anim__stagger-item">No Courses</h6>
-                    <p class="la-empty__course-desc m-0 la-anim__stagger-item">You have not finished any course yet.</p>
-                </div>
-                <div class="la-empty__browse-courses">
-                    <a href="/browse/courses" class="la-empty__browse la-anim__stagger-item">
-                        Browse Courses
-                        <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow la-anim__stagger-item--x"></span>
-                    </a>
-                </div>
-            </div>
           </div>
         </div>
       </div>
