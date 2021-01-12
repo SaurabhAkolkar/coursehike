@@ -96,7 +96,7 @@ class SearchController extends Controller
 		}
 		
 		
-		return view('learners.pages.courses', compact('categories','filtres_applied','selected_language','selected_categories','selected_subcategories','selected_level','playlists','langauges','filter_categories'));
+		return view('learners.pages.courses', compact('categories','filtres_applied','selected_languages','selected_categories','selected_subcategories','selected_level','playlists','langauges','filter_categories'));
 
         // if(isset($searchTerm))
         // {

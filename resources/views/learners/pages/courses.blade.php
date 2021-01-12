@@ -81,7 +81,7 @@
                             <form action="{{ url()->current() }}" method="get" id="filter_form">
                                 <input type="hidden" name="categories" id="filter_categories" value="{{implode(',',$selected_categories)}}"/>
                                 <input type="hidden" name="sub_categories" id="filter_sub_categories" value="{{implode(',',$selected_subcategories)}}"/>
-                                <input type="hidden" name="languages" id="filter_languages" value="{{implode(',',$selected_languagess)}}"/>
+                                <input type="hidden" name="languages" id="filter_languages" value="{{implode(',',$selected_languages)}}"/>
                                 <input type="hidden" name="level" id="filter_level" value="{{implode(',',$selected_level)}}"/>
                                 <input type="hidden" name="filters" value="applied" />
 
