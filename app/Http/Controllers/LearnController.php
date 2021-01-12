@@ -418,7 +418,7 @@ class LearnController extends Controller
 		$selected_categories = [];
 		$selected_subcategories = [];
 		$selected_level = [];
-		$selected_language = [];
+		$selected_languages = [];
         $filtres_applied = false;
         
         if(isset($request->sort_by)){
@@ -471,7 +471,7 @@ class LearnController extends Controller
         }	
         $search_input = $input['course_name'];
         
-        return view('learners.pages.search_courses', compact('selected_language','selected_categories','selected_subcategories','selected_level','filtres_applied','courses','playlists','langauges','filter_categories','search_input'));
+        return view('learners.pages.search_courses', compact('selected_languages','selected_categories','selected_subcategories','selected_level','filtres_applied','courses','playlists','langauges','filter_categories','search_input'));
     }
 
    

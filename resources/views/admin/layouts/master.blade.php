@@ -120,7 +120,7 @@ $global_settings = App\Setting::first();
                 <!-- User image -->
                 <li class="user-header">
                   @if(Auth::User()->user_img != null || Auth::User()->user_img !='')
-                    <img src="{{ asset('images/user_img/'.Auth::User()->user_img)}}" class="img-circle" alt="User Image">
+                    <img src="{{ Auth::User()->user_img }}" class="img-circle" alt="User Image">
                   @else
                     <img src="{{ asset('images/default/user.jpg')}}" class="img-circle" alt="User Image">
                   @endif
