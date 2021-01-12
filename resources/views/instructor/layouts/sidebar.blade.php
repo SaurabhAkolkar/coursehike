@@ -5,7 +5,7 @@
       <div class="user-panel">
         <div class="pull-left image">
           @if(Auth::User()->user_img != null || Auth::User()->user_img !='')
-          <img src="{{ asset('images/user_img/'.Auth::User()->user_img)}}" class="img-circle img-fluid d-block rounded-circle" alt="User Image">
+          <img src="{{ Auth::User()->user_img }}" class="img-circle img-fluid d-block rounded-circle" alt="User Image">
 
           @else
           <img src="{{ asset('images/default/user.jpg') }}" class="img-circle img-fluid d-block rounded-circle" alt="User Image">
@@ -117,7 +117,7 @@
           @endif --}}
 
 
-          <li class="{{ Nav::isResource('pending.payout') }} {{ Nav::isRoute('admin.completed') }} treeview">
+          <li class="{{ Nav::isRoute('pending.payout') }} {{ Nav::isRoute('instructor.revenue') }} {{ Nav::isRoute('admin.completed') }} treeview">
             <a class="d-flex align-items-center" href="#">
               <i class="la-icon la-icon--lg icon-my-revenue mr-5"></i> {{ __('adminstaticword.MyRevenue') }}
               <span class="pull-right-container">
@@ -129,7 +129,7 @@
               
               <li class="{{ Nav::isRoute('instructor.revenue') }}"><a class="d-flex align-items-center" href="{{route('instructor.revenue')}}"><i class="la-icon la-icon--lg icon-revenue mr-4"></i>{{ __('adminstaticword.Revenue') }}</a></li>
 
-              <li class="{{ Nav::isResource('pending.payout') }}"><a class="d-flex align-items-center" href="{{route('pending.payout')}}"><i class="la-icon la-icon--lg icon-pending-payout mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.PendingPayout') }}</span></a></li>
+              <li class="{{ Nav::isRoute('pending.payout') }}"><a class="d-flex align-items-center" href="{{route('pending.payout')}}"><i class="la-icon la-icon--lg icon-pending-payout mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.PendingPayout') }}</span></a></li>
 
               <li class="{{ Nav::isRoute('admin.completed') }}"><a class="d-flex align-items-center" href="{{route('admin.completed')}}"><i class="la-icon la-icon--lg icon-completed-payout mr-4"></i>{{ __('adminstaticword.CompletedPayout') }}</a></li>
             </ul>

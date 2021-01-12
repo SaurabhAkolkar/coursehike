@@ -174,13 +174,13 @@
               </div>
             </div>
             <!-- Filters : End -->
-
         </div>
 
         
 
         <div class="la-courses mt-6 mt-md-14 la-anim__wrap">
           <nav class="la-courses__nav d-flex justify-content-between">
+          @if(!$filtres_applied)
             <ul class="nav nav-pills la-courses__nav-tabs " id="nav-tab" role="tablist">
               {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"> <span class="position-relative">Tattoo</span></a></li>
               <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
@@ -189,7 +189,7 @@
                 <li class="nav-item la-courses__nav-item la-anim__stagger-item--x"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative text-nowrap">{{ $category->title}}</span></a></li>
               @endforeach
             </ul>
-            
+          @endif
            
           </nav>
              
@@ -250,68 +250,9 @@
                           </div>
                         </div>
                       @endforeach
-                      {{-- <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <div class="row row-cols-lg-3">
-                
-                              @foreach($tattoos as $tattoo)
-                                
-                                <x-course 
-                                    :id="$tattoo->id"
-                                    :img="$tattoo->img" 
-                                    :course="$tattoo->course" 
-                                    :url="$tattoo->url" 
-                                    :rating="$tattoo->rating"
-                                    :creatorImg="$tattoo->creatorImg"
-                                    :creatorName="$tattoo->creatorName"
-                                    :creatorUrl="$tattoo->creatorUrl"
-                                  />
-                              @endforeach
-                          
-                        </div>
-                      </div>
-                      <!-- Tattoo Art Tab: End -->
-                      
-                      <!-- Rangoli Tab: Start -->
-                      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        <div class="row row-cols-lg-3">
 
-                            @foreach($tattoos as $tattoo)
-                              <x-course 
-                                  :id="$tattoo->id"
-                                  :img="$tattoo->img" 
-                                  :course="$tattoo->course" 
-                                  :url="$tattoo->url" 
-                                  :rating="$tattoo->rating"
-                                  :creatorImg="$tattoo->creatorImg"
-                                  :creatorName="$tattoo->creatorName"
-                                  :creatorUrl="$tattoo->creatorUrl"
-                                />
-                            @endforeach
-
-                        </div>
-                      </div>
-                      <!-- Rangoli Tab: End -->
-
-                      <!-- Design Tab: Start -->
-                      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                        <div class="row row-cols-lg-3">
-
-                            @foreach($tattoos as $tattoo)
-                              <x-course 
-                                  :id="$tattoo->id"
-                                  :img="$tattoo->img" 
-                                  :course="$tattoo->course" 
-                                  :url="$tattoo->url" 
-                                  :rating="$tattoo->rating"
-                                  :creatorImg="$tattoo->creatorImg"
-                                  :creatorName="$tattoo->creatorName"
-                                  :creatorUrl="$tattoo->creatorUrl"
-                                />
-                            @endforeach
-                            
-                        </div>
-                      </div> --}}
-                      <!-- Rangoli Tab: End -->
+                    </div>
+                    </div>
 
             @endif
 
@@ -321,11 +262,11 @@
     </div>
   </section>
   @endsection
-  @section('footerScripts')
-      <script>
-          $('input[type=radio][name=sort_by]').change(function() {
-             window.location.href= '{{url()->current()}}?sort_by='+this.value;
+    @section('footerScripts')
+        <script>
+            $('input[type=radio][name=sort_by]').change(function() {
+              window.location.href= '{{url()->current()}}?sort_by='+this.value;
 
-          });
-      </script>
-  @endsection
+            });
+        </script>
+    @endsection

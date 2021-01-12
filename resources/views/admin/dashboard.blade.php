@@ -292,7 +292,7 @@
                   <div class="la-dash__recent-info">
                     <div class="la-dash__recent-img">
                       @if($user['user_img'] != null || $user['user_img'] !='')
-                        <img src="{{ asset('/images/user_img/'.$user['user_img']) }}" class="img-fluid d-block" alt="User Image">
+                        <img src="{{ $user['user_img'] }}" class="img-fluid d-block" alt="User Image">
                       @else
                         <img src="{{ asset('images/default/user.jpg')}}" class="img-fluid d-block" alt="User Image">
                       @endif
@@ -405,7 +405,7 @@
                 
                   @foreach ($recent_subscriptions as $recent)
                       <x-admin-recent-subscription 
-                          :userImg="asset('/images/user_img/'.$recent->user->user_img)"
+                          :userImg="$recent->user->user_img"
                           :userName="$recent->user->fullName"
                           :userTag="$recent->user->role=='admin'||$recent->user->role=='mentors'?'Creator':'Learner'"
                           :userDate="Carbon\Carbon::parse($recent->created_at)->format('M d Y')"
