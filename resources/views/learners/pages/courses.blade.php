@@ -81,7 +81,7 @@
                             <form action="{{ url()->current() }}" method="get" id="filter_form">
                                 <input type="hidden" name="categories" id="filter_categories" value="{{implode(',',$selected_categories)}}"/>
                                 <input type="hidden" name="sub_categories" id="filter_sub_categories" value="{{implode(',',$selected_subcategories)}}"/>
-                                <input type="hidden" name="languages" id="filter_languages" value="{{implode(',',$selected_language)}}"/>
+                                <input type="hidden" name="languages" id="filter_languages" value="{{implode(',',$selected_languages)}}"/>
                                 <input type="hidden" name="level" id="filter_level" value="{{implode(',',$selected_level)}}"/>
                                 <input type="hidden" name="filters" value="applied" />
 
@@ -132,7 +132,7 @@
                                   <label class="glabel-main" > Language</label>
                                   @foreach($langauges as $l)
                                     <label class="glabel d-flex" for="lang_{{$l->id}}">
-                                      <input class="d-none" id="lang_{{$l->id}}" @if(in_array($l->id, $selected_language)) checked @endif type="checkbox" onclick="addToLanguage({{$l->id}})" value="{{$l->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                      <input class="d-none" id="lang_{{$l->id}}" @if(in_array($l->id, $selected_languages)) checked @endif type="checkbox" onclick="addToLanguage({{$l->id}})" value="{{$l->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                       <div class="pl-2 mt-n1">{{$l->name}}</div>
                                     </label>
                                   @endforeach
@@ -169,6 +169,7 @@
 
         <div class="la-courses mt-6 mt-md-14 la-anim__wrap">
           <nav class="la-courses__nav d-flex justify-content-between">
+          @if(!$filtres_applied)
             <ul class="nav nav-pills la-courses__nav-tabs " id="nav-tab" role="tablist">
               {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"> <span class="position-relative">Tattoo</span></a></li>
               <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
@@ -236,68 +237,9 @@
                           </div>
                         </div>
                       @endforeach
-                      {{-- <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <div class="row row-cols-lg-3">
-                
-                              @foreach($tattoos as $tattoo)
-                                
-                                <x-course 
-                                    :id="$tattoo->id"
-                                    :img="$tattoo->img" 
-                                    :course="$tattoo->course" 
-                                    :url="$tattoo->url" 
-                                    :rating="$tattoo->rating"
-                                    :creatorImg="$tattoo->creatorImg"
-                                    :creatorName="$tattoo->creatorName"
-                                    :creatorUrl="$tattoo->creatorUrl"
-                                  />
-                              @endforeach
-                          
-                        </div>
-                      </div>
-                      <!-- Tattoo Art Tab: End -->
-                      
-                      <!-- Rangoli Tab: Start -->
-                      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        <div class="row row-cols-lg-3">
 
-                            @foreach($tattoos as $tattoo)
-                              <x-course 
-                                  :id="$tattoo->id"
-                                  :img="$tattoo->img" 
-                                  :course="$tattoo->course" 
-                                  :url="$tattoo->url" 
-                                  :rating="$tattoo->rating"
-                                  :creatorImg="$tattoo->creatorImg"
-                                  :creatorName="$tattoo->creatorName"
-                                  :creatorUrl="$tattoo->creatorUrl"
-                                />
-                            @endforeach
-
-                        </div>
-                      </div>
-                      <!-- Rangoli Tab: End -->
-
-                      <!-- Design Tab: Start -->
-                      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                        <div class="row row-cols-lg-3">
-
-                            @foreach($tattoos as $tattoo)
-                              <x-course 
-                                  :id="$tattoo->id"
-                                  :img="$tattoo->img" 
-                                  :course="$tattoo->course" 
-                                  :url="$tattoo->url" 
-                                  :rating="$tattoo->rating"
-                                  :creatorImg="$tattoo->creatorImg"
-                                  :creatorName="$tattoo->creatorName"
-                                  :creatorUrl="$tattoo->creatorUrl"
-                                />
-                            @endforeach
-                            
-                        </div>
-                      </div> --}}
-                      <!-- Rangoli Tab: End -->
+                    </div>
+                    </div>
 
             @endif
 
@@ -307,11 +249,11 @@
     </div>
   </section>
   @endsection
-  @section('footerScripts')
-      <script>
-          $('input[type=radio][name=sort_by]').change(function() {
-             window.location.href= '{{url()->current()}}?sort_by='+this.value;
+    @section('footerScripts')
+        <script>
+            $('input[type=radio][name=sort_by]').change(function() {
+              window.location.href= '{{url()->current()}}?sort_by='+this.value;
 
-          });
-      </script>
-  @endsection
+            });
+        </script>
+    @endsection

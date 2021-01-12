@@ -120,21 +120,21 @@
                 <label class="mr-2 font-weight-normal"><input type="radio" name="gender" id="ch3" value="o" {{ $user->gender == 'o' ? 'checked' : '' }}>  {{ __('adminstaticword.Other') }} </label>
               </div>
             </div>
-
+            
+            @if(Auth::User()->role=="admin")
             <div class="row mt-6">
               <div class="col-md-8">
                 <label for="role">{{ __('adminstaticword.SelectRole') }}:</label>
-                  @if(Auth::User()->role=="admin")
                   <select class="form-control js-example-basic-single" name="role"   @if(Auth::user()->id == $user->id) disabled @endif >
                     <option {{ $user->role == 'user' ? 'selected' : ''}} value="user">{{ __('adminstaticword.User') }}</option>
                     <option {{ $user->role == 'admin' ? 'selected' : ''}} value="admin">{{ __('adminstaticword.Admin') }}</option>
                     <option {{ $user->role == 'mentors' ? 'selected' : ''}} value="mentors">{{ __('adminstaticword.Instructor') }}</option>
                   </select>
-                  @endif
-                  @if(Auth::User()->role=="instructor")
+                 
+                  @if(Auth::User()->role=="mentors")
                   <select class="form-control js-example-basic-single" name="role">
                     <option {{ $user->role == 'user' ? 'selected' : ''}} value="user">{{ __('adminstaticword.User') }}</option>
-                    <option {{ $user->role == 'instructor' ? 'selected' : ''}} value="instructor">{{ __('adminstaticword.Instructor') }}</option>
+                    <option {{ $user->role == 'mentors' ? 'selected' : ''}} value="instructor">{{ __('adminstaticword.Instructor') }}</option>
                   </select>
                   @endif
                   @if(Auth::User()->role=="user")
@@ -145,6 +145,7 @@
               </div>
             </div>
             <br>
+            @endif
 
             <div class="row">
               <div class="col-md-4">

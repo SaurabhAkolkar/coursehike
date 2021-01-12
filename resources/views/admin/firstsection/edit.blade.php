@@ -55,6 +55,35 @@
                                 </div>
                             </div>
                             <br>
+
+                        <!-- VIDEO: START -->
+                            <div class="row mt-3">
+                            <div class="col-6">
+                                    <div class="la-admin__preview">
+                                    <label for="" class="la-admin__preview-label p-0">Video Upload:<sup class="redstar">*</sup></label>
+                                    <div class="la-admin__preview-img la-admin__course-imgvid" >
+                                        <div class="la-admin__preview-text">
+                                                <p class="la-admin__preview-size">Video | 100MB</p>
+                                                <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
+                                        </div>
+                                        <div class="text-center pr-20 mr-20">
+                                            <span class="la-icon la-icon--8xl icon-preview-video" style="font-size:150px;">
+                                            <span class="path1"><span class="path2"></span></span>
+                                            </span>
+                                        </div>
+                                        <input type="file" class="form-control la-admin__preview-input preview_video" name="preview_video" />
+                                        @if($show['video_url'] != null)
+                                        <video controls  class="preview-video w-100">
+                                            <source src="{{$show['video_url']}}">
+                                            Your browser does not support HTML5 video.
+                                        </video>
+                                        @endif
+                                    </div>
+                                    </div>
+                            </div>
+                            </div>
+                        <!-- VIDEO: END -->
+                            <br>
                             
                             <div class="row">
                                 <div class="col-6">

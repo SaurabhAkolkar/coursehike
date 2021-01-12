@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\CreatorPayout;
 use App\User;
-
+use Carbon\Carbon;
 class CreatorPayoutController extends Controller
 {
     public function index(){
@@ -15,6 +15,7 @@ class CreatorPayoutController extends Controller
     }
 
     public function create(){
+
         $creators = User::where(['role'=>'mentors', 'status'=>1])->get();
         return view('admin.revenue.addcreatorpayout', compact('creators'));
     }
@@ -28,15 +29,20 @@ class CreatorPayoutController extends Controller
               'course_amount' => 'required',
         ]);
 
+        $date = Carbon::parse($request->month);
+        $startDate = $date->format('Y-m-d');
+        $endDate = $date->endOfMonth()->format('Y-m-d');
+            
         
-        $check = CreatorPayout::where(['user_id'=>$request->id, 'month'=>$request->month])->first();
+        $check = CreatorPayout::where(['user_id'=>$request->id, 'start_date'=>$startDate ])->first();
 
         if($check){
             return back()->with('delete', 'Payout already exist.');
         }
 
         $input['user_id'] = $request->user_id;
-        $input['month'] = $request->month;
+        $input['start_date'] = $startDate;
+        $input['end_date'] = $endDate;
         $input['subscription_amount'] = $request->subscription_amount;
         $input['course_amount'] = $request->course_amount;
         $input['status'] = 'pending';
@@ -59,7 +65,13 @@ class CreatorPayoutController extends Controller
         $payout = CreatorPayout::findorfail($request->payout_id);
         if($payout){
             $payout->user_id = $request->user_id;
-            $payout->month = $request->month;
+            
+            $date = Carbon::parse($request->month);
+            $startDate = $date->format('Y-m-d');
+            $endDate = $date->endOfMonth()->format('Y-m-d');
+            
+            $payout->start_date = $startDate;
+            $payout->end_date = $endDate;
             $payout->subscription_amount = $request->subscription_amount;
             $payout->course_amount = $request->course_amount;
             $payout->status = $request->status;

@@ -27,7 +27,7 @@ class SearchController extends Controller
 		$selected_categories = [];
 		$selected_subcategories = [];
 		$selected_level = [];
-		$selected_language = [];
+		$selected_languages = [];
 		$filtres_applied = false;
 		if(Auth::check()){
 			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
@@ -75,7 +75,7 @@ class SearchController extends Controller
 				$courses = $courses->level('level',$level);
 			}
 
-			return view('learners.pages.courses', compact('categories','selected_language','selected_categories','selected_subcategories','selected_level','filtres_applied','courses','playlists','langauges','filter_categories'));
+			return view('learners.pages.courses', compact('categories','selected_languages','selected_categories','selected_subcategories','selected_level','filtres_applied','courses','playlists','langauges','filter_categories'));
 
 		}
 
@@ -96,7 +96,7 @@ class SearchController extends Controller
 		}
 		
 		
-		return view('learners.pages.courses', compact('categories','filtres_applied','selected_language','selected_categories','selected_subcategories','selected_level','playlists','langauges','filter_categories'));
+		return view('learners.pages.courses', compact('categories','filtres_applied','selected_languages','selected_categories','selected_subcategories','selected_level','playlists','langauges','filter_categories'));
 
         // if(isset($searchTerm))
         // {
@@ -148,9 +148,20 @@ class SearchController extends Controller
 	}
 	
 	public function myCourses(){
+		$langauges = CourseLanguage::where(['status'=>1])->get();
+		$filter_categories = Categories::with('subcategory')->where(['status'=>1])->get();
+		$courses =[];
+		$categories = [];
+		$playlists = [];
+		$selected_categories = [];
+		$selected_subcategories = [];
+		$selected_level = [];
+		$selected_languages = [];
+
 		$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
 		$courses = UserPurchasedCourse::with('course','course.user','course.review')->where(['user_id'=>Auth::User()->id])->get();
-		return view('learners.pages.my-courses',compact('playlists','courses'));
+		
+		return view('learners.pages.my-courses',compact('playlists','courses','filter_categories', 'langauges','selected_categories','selected_subcategories', 'selected_level', 'selected_languages'));
 	}
 
 	public function masterClasses(){

@@ -31,11 +31,12 @@
               <tbody>
                 <?php $i=0;?>
                 @foreach($payouts as $payout)
+              
                 <tr>
                   <?php $i++;?>
                     <td><?php echo $i;?></td>
                     <td>{{$payout->user->fullName}}</td>
-                    <td>{{$payout->month}}</td>
+                    <td>{{Carbon\Carbon::parse($payout->start_date)->format('M Y')}}</td>
                     <td>$ {{$payout->subscription_amount}}</td>
                     <td>$ {{$payout->course_amount}}</td>
                     <td>$ {{$payout->subscription_amount+$payout->course_amount}}</td>
