@@ -81,7 +81,7 @@
                             <form action="{{ url()->current() }}" method="get" id="filter_form">
                                 <input type="hidden" name="categories" id="filter_categories" value="{{implode(',',$selected_categories)}}"/>
                                 <input type="hidden" name="sub_categories" id="filter_sub_categories" value="{{implode(',',$selected_subcategories)}}"/>
-                                <input type="hidden" name="languages" id="filter_languages" value="{{implode(',',$selected_language)}}"/>
+                                <input type="hidden" name="languages" id="filter_languages" value="{{implode(',',$selected_languagess)}}"/>
                                 <input type="hidden" name="level" id="filter_level" value="{{implode(',',$selected_level)}}"/>
                                 <input type="hidden" name="filters" value="applied" />
 
@@ -132,7 +132,7 @@
                                   <label class="glabel-main" > Language</label>
                                   @foreach($langauges as $l)
                                     <label class="glabel d-flex" for="lang_{{$l->id}}">
-                                      <input class="d-none" id="lang_{{$l->id}}" @if(in_array($l->id, $selected_language)) checked @endif type="checkbox" onclick="addToLanguage({{$l->id}})" value="{{$l->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                      <input class="d-none" id="lang_{{$l->id}}" @if(in_array($l->id, $selected_languages)) checked @endif type="checkbox" onclick="addToLanguage({{$l->id}})" value="{{$l->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                       <div class="pl-2 mt-n1">{{$l->name}}</div>
                                     </label>
                                   @endforeach

@@ -65,19 +65,22 @@
                   </div>
                 </div>
               </div>
-                
-              <div class="la-courses__nav-filterprops">
-               <a class="la-icon--2xl icon-filter la-courses__nav-filter " id="filteredCourses"  role="button"></a>
-              
+                <!-- filter div -->
+                <div class="la-courses__nav-filterprops">
+                <a class="la-icon--2xl icon-filter la-courses__nav-filter " id="filteredCourses"  role="button"></a>
+
                   <!-- Filter Courses Dropdown -->
                   <div class="la-courses__nav-filterdropdown" id="filtered_sidebar">
                       <div class="la-form__input-wrap px-5">
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
+                            <button class="la-courses__nav-filterclose close text-4xl mt-1" type="button" id="filter_close">&times;</button>
+                          </div>
+
                             <form action="{{ url()->current() }}" method="get" id="filter_form">
                                 <input type="hidden" name="categories" id="filter_categories" value="{{implode(',',$selected_categories)}}"/>
                                 <input type="hidden" name="sub_categories" id="filter_sub_categories" value="{{implode(',',$selected_subcategories)}}"/>
-                                <input type="hidden" name="languages" id="filter_languages" value="{{implode(',',$selected_language)}}"/>
+                                <input type="hidden" name="languages" id="filter_languages" value="{{implode(',',$selected_languages)}}"/>
                                 <input type="hidden" name="level" id="filter_level" value="{{implode(',',$selected_level)}}"/>
                                 <input type="hidden" name="filters" value="applied" />
 
@@ -126,13 +129,14 @@
 
                                 <div class="form-group pt-2">
                                   <label class="glabel-main" > Language</label>
+                              
                                   @foreach($langauges as $l)
                                     <label class="glabel d-flex" for="lang_{{$l->id}}">
-                                      <input class="d-none" id="lang_{{$l->id}}" @if(in_array($l->id, $selected_language)) checked @endif type="checkbox" onclick="addToLanguage({{$l->id}})" value="{{$l->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                      <input class="d-none" id="lang_{{$l->id}}" @if(in_array($l->id, $selected_languages)) checked @endif type="checkbox" onclick="addToLanguage({{$l->id}})" value="{{$l->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                       <div class="pl-2 mt-n1">{{$l->name}}</div>
                                     </label>
                                   @endforeach
-                               
+                              
                                 </div>
 
                                 <div class="form-group pt-2">
@@ -157,11 +161,12 @@
                             </form>
                       </div>
                   </div>
-              </div>
-            </div>
-            <!-- Filters : End -->
-            </div>
-        </div>
+                </div>
+                </div>
+                <!-- Filters : End -->
+                </div>
+                <!-- filter div : END -->
+
 
         <div class="la-courses py-4 py-md-16">
              
