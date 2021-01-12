@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Storage;
 use Debugbar;
 use PDF;
 use Carbon\Carbon;
+use App\CourseLanguage;
+use App\Categories;
 
 class LearnController extends Controller
 {
@@ -408,13 +410,68 @@ class LearnController extends Controller
         
         $input['course_name'] = $request->course_name;
 
-        $courses = Course::where('title','like','%'.$input['course_name'].'%')->where('featured',1)->get();
-        $playlists = [];
+        $langauges = CourseLanguage::where(['status'=>1])->get();
+		$filter_categories = Categories::with('subcategory')->where(['status'=>1])->get();
+		$courses =[];
+		$categories = [];
+		$playlists = [];
+		$selected_categories = [];
+		$selected_subcategories = [];
+		$selected_level = [];
+		$selected_language = [];
+        $filtres_applied = false;
+        
+        if(isset($request->sort_by)){
+            if($request->sort_by == 'latest'){
+                $courses = Course::with('user')->where('status',1)->where('title','like','%'.$input['course_name'].'%')->orderBy('created_at')->get();
+            }else{
+                $courses = Course::with('user')->where('status',1)->where('title','like','%'.$input['course_name'].'%')->orderBy('created_at')->get();
+            }		
+        }else{
+            $courses = Course::with('user')->where('title','like','%'.$input['course_name'].'%')->where('status',1)->get();
+        }
+
+        if($request->filters == 'applied'){
+            $filtres_applied = true;
+            
+			if(isset($request->categories) && $request->categories != null){
+
+				$categories = array_map('intval', explode(',',$request->categories));
+				$selected_categories =$categories;
+				$courses = $courses->whereIn('category_id',$categories);
+			
+			}
+		
+			if(isset($request->sub_categories ) && $request->categories != null){
+	
+				$sub_categories = array_map('intval', explode(',',$request->sub_categories));
+				$selected_subcategories =$sub_categories;
+				
+				$courses = $courses->whereIn('subcategory_id',$sub_categories);
+			}	
+	
+			if(isset($request->languages) && $request->categories != null){
+	
+				$languages = array_map('intval', explode(',',$request->languages));
+				$selected_languages =$languages;
+				$courses = $courses->whereIn('language_id',$languages);
+			}
+	
+			if(isset($request->level) && $request->level != null){
+	
+				$level = array_map('intval', explode(',',$request->level));
+				$selected_level =$level;
+				$courses = $courses->level('level',$level);
+			}
+        }
+        
+
 		if(Auth::check()){
 			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
         }	
         $search_input = $input['course_name'];
-        return view('learners.pages.search_courses', compact('courses','playlists','search_input'));
+        
+        return view('learners.pages.search_courses', compact('selected_language','selected_categories','selected_subcategories','selected_level','filtres_applied','courses','playlists','langauges','filter_categories','search_input'));
     }
 
    
