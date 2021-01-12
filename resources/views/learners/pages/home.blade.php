@@ -66,10 +66,10 @@
             <!-- Filters : Start -->
             <div class="la-courses__nav-filters d-flex align-items-start">
               <div class="la-courses__nav-props">
-                <a class="la-icon--2xl icon-list-layout la-courses__nav-filter d-none d-lg-block mr-3" id="showLayout" role="button"></a>
+                <a class="la-icon--2xl icon-list-layout la-courses__nav-filter mr-3" id="showLayout" role="button"></a>
               </div>
               <div class="la-courses__nav-props">
-                <a class="la-icon--2xl icon-sort la-courses__nav-filter d-none d-lg-block mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                <a class="la-icon--2xl icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                 <!-- Sort Courses Dropdown -->
                 <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses"  style="border:none !important;">
                   <div class="la-form__input-wrap px-5">
@@ -580,7 +580,7 @@
             </div>
             <div class="la-price__slide la-anim__slide">
               <div class="la-price__row row">
-                <div class="col-12 col-lg-5 pt-20">
+                <div class="col-12 col-lg-5 py-10 pt-md-20">
                   <h3 class="la-section__subtitle">How does subscription works?</h3>
                   <p class="la-section__text">Through our Radical team, we strive everyday to make knowledge Affordable, Accessible for all the individuals who have limited or no access to the Real knowledge.<br><br>So, you can subscribe to all the courses and classes. Or rent them to learn whenever you want.</p>
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8">

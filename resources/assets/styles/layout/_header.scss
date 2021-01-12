@@ -135,6 +135,10 @@ $sidemenuWidth: 300px;
                     &item {
                         margin-right: var(--size-12);
                         z-index:10;
+
+                        @include respond-below(lg){
+                            margin-right: var(--size-6);
+                        }
                     }
                     &link {
                         font-size: var(--text-lg);
@@ -143,6 +147,10 @@ $sidemenuWidth: 300px;
                         border-radius: 0 !important;
                         background: none !important;
                         position: relative;
+
+                        @include respond-below(lg){
+                            font-size:var(--text-md);
+                        }
                        
                         &:before {
                             content: '';

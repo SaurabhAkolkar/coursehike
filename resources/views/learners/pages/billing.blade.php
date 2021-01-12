@@ -16,7 +16,7 @@
 
                     <!-- PERSONAL BILLING DETAILS: START -->
                     <div class="row">                        
-                        <div class="col-md-4 ">
+                        <div class="col-md-6 col-lg-4 ">
                             <div class="la-personal__billing-card la-anim__stagger-item--x">
                                 <p class="la-personal__card-title m-0 la-anim__stagger-item--x">Current Monthly Bill</p>
                                 <h6 class="la-personal__card-bill m-0 la-anim__stagger-item--x">$ 45</h6>
@@ -28,7 +28,7 @@
                             </div>
                         </div>
     
-                        <div class="col-md-4">
+                        <div class="col-md-6 col-lg-4">
                             <div class="la-personal__billing-card la-anim__stagger-item--x">
                                 <p class="la-personal__card-title m-0 la-anim__stagger-item--x">Next Payment Due</p>
                                 <h6 class="la-personal__card-bill m-0 la-anim__stagger-item--x">Today</h6>
@@ -40,7 +40,7 @@
                             </div>
                         </div>
     
-                        <div class="col-md-4">
+                        <div class="col-md-12 col-lg-4">
                             <div class="la-personal__billing-card la-anim__stagger-item--x">
                                 <p class="la-personal__card-title m-0 la-anim__stagger-item--x">Frequent actions</p>
                                 <div class="la-personal__card-update">

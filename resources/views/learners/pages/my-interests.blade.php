@@ -27,7 +27,7 @@
                             Your Interests
                             <!--<a role="button" href="" class="text-sm ml-5" style="color:var(--app-indigo-1);font-weight:var(--font-medium)">Edit</a> -->
                         </div>
-                        <ul class="row la-interests__list  pr-5">
+                        <ul class="row la-interests__list pr-5">
                             
                             @if(count($myInterests))
                                 @php
@@ -45,11 +45,11 @@
                                     @endif
                                 @endforeach
                             @else
-                                <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
+                                <div class="col-12 mx-4 la-empty__courses">
                                     <div class="la-empty__browse-courses">
-                                        <a class="la-empty__browse">
-                                            Please Add Interests For better experience.
-                                        </a>
+                                        <h6 class="la-empty__browse leading-tight text-lg" style="text-transform:none; letter-spacing:1px">
+                                            Please Add Interests for better experience.
+                                        </h6>
                                     </div>
                                 </div>
                             @endif
