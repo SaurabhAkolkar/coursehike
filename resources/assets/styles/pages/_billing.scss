@@ -55,6 +55,10 @@
 .la-personal__info-title{
     font-size: var(--text-2xl);
     color: var(--gray5);
+
+    @include respond-below(md){
+        padding-top:var(--size-14);
+    }
 }
 .la-personal__info{
     padding: var(--size-6) 0;

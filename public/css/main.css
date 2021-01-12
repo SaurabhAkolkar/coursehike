@@ -19655,8 +19655,14 @@ a, a:hover {
   left: 0;
 }
 .la-mccourse__tag img {
-  width: 140px;
+  width: 100px;
   height: 80px;
+}
+@media (min-width: 768px) {
+  .la-mccourse__tag img {
+    width: 140px;
+    height: 80px;
+  }
 }
 .la-mccourse__type {
   position: absolute;
@@ -19673,10 +19679,15 @@ a, a:hover {
 }
 .la-mccourse__title {
   margin-top: auto;
-  font-size: var(--text-2xl);
+  font-size: var(--text-xl);
   font-weight: var(--font-light);
   margin-right: var(--size-2);
   margin-bottom: 5px;
+}
+@media (min-width: 768px) {
+  .la-mccourse__title {
+    font-size: var(--text-2xl);
+  }
 }
 .la-mccourse__btm {
   display: flex;
@@ -19695,11 +19706,17 @@ a, a:hover {
   overflow: hidden;
 }
 .la-mccourse__cprofile-name {
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   font-weight: var(--font-bold);
 }
+@media (min-width: 768px) {
+  .la-mccourse__cprofile-name {
+    font-size: var(--text-xl);
+  }
+}
 .la-mccourse__learners {
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
+  font-weight: var(--font-normal);
 }
 .la-mccourse__view-more {
   z-index: 99;
@@ -20763,14 +20780,19 @@ label.error {
     height: calc(var(--size-10) + 5px);
   }
 }
+@media (max-width: 767px) {
+  .la-artist__specialist {
+    font-size: var(--text-sm);
+  }
+}
 .la-artist__company-name {
-  font-size: var(--text-xl);
+  font-size: var(--text-sm);
   font-family: var(--head-font);
   font-weight: var(--font-semibold);
 }
 @media (min-width: 992px) {
   .la-artist__company-name {
-    font-size: var(--text-4xl);
+    font-size: var(--text-2xl);
   }
 }
 .la-artist__img {
@@ -20870,7 +20892,12 @@ label.error {
   }
 }
 .la-price__box-inner {
-  padding: var(--size-16);
+  padding: var(--size-12);
+}
+@media (min-width: 768px) {
+  .la-price__box-inner {
+    padding: var(--size-16);
+  }
 }
 .la-price__box-para {
   font-weight: var(--font-light);
@@ -22080,9 +22107,6 @@ section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__tiles 
   -ms-transition: all 0.2s ease-in;
   -o-transition: all 0.2s ease-in;
 }
-section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__tiles:hover {
-  border-radius: 0;
-}
 section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__tiles:hover .la-courses__tile-thumbnail img {
   border-radius: 0;
   transform: scale(1.1);
@@ -23078,6 +23102,11 @@ section.la-section .la-section__inner .la-mycourses__more:hover:after {
 .la-section__card-payments .la-payment__details {
   margin: var(--size-10) 0;
 }
+@media (max-width: 767px) {
+  .la-section__card-payments .la-payment__details {
+    margin: var(--size-4) 0 var(--size-12);
+  }
+}
 .la-section__card-payments .la-payment__details .la-payment__details-title {
   font-family: var(--head-font);
   font-weight: var(--font-normal);
@@ -23213,6 +23242,11 @@ section.la-section .la-section__inner .la-mycourses__more:hover:after {
   font-size: var(--text-2xl);
   color: var(--gray5);
 }
+@media (max-width: 991px) {
+  .la-personal__info-title {
+    padding-top: var(--size-14);
+  }
+}
 
 .la-personal__info {
   padding: var(--size-6) 0;
@@ -23253,7 +23287,12 @@ section.la-section .la-section__inner .la-mycourses__more:hover:after {
 }
 
 .la-payment__add-card {
-  padding: var(--size-18) 0;
+  padding: var(--size-14) 0;
+}
+@media (min-width: 768px) {
+  .la-payment__add-card {
+    padding: var(--size-18) 0;
+  }
 }
 
 .la-payment__add-subtitle {
@@ -23273,9 +23312,23 @@ section.la-section .la-section__inner .la-mycourses__more:hover:after {
 }
 
 .la-payment__add-desc {
-  font-size: 16px;
+  font-size: var(--text-md);
   color: var(--gray3);
   opacity: 0.7;
+}
+@media (max-width: 767px) {
+  .la-payment__add-desc {
+    padding-bottom: var(--size-10);
+  }
+}
+
+@media (max-width: 767px) {
+  .la-payment__history-tablelayout {
+    overflow-x: scroll;
+    width: 320px;
+    height: 500px;
+    margin: 0 auto;
+  }
 }
 
 .la-payment__history-table {
@@ -23285,16 +23338,18 @@ section.la-section .la-section__inner .la-mycourses__more:hover:after {
   background-color: var(--gray2);
 }
 .la-payment__history-table th {
-  font-size: 16px;
+  font-size: var(--text-md);
   font-weight: var(--font-bold);
   color: var(--gray3);
   vertical-align: middle !important;
+  white-space: nowrap;
 }
 .la-payment__history-table td {
   font-size: 15px;
   color: #333333;
   font-weight: var(--font-normal);
   vertical-align: middle !important;
+  white-space: nowrap;
 }
 
 .la-payment__history-success {
@@ -23303,7 +23358,7 @@ section.la-section .la-section__inner .la-mycourses__more:hover:after {
 }
 
 .la-payment__history-danger {
-  color: #d9534f;
+  color: var(--danger);
 }
 
 .la-payment__history-invoice {

@@ -12,7 +12,7 @@
         <div class="la-profile__main pb-md-20">
             <div class="container">
                 <div class="la-profile__main-inner pb-md-20">
-                    <h1 class="la-profile__title text-4xl pb-8">Billing Addresses</h1>
+                    <h1 class="la-profile__title text-2xl text-lg-4xl  pb-8">Billing Addresses</h1>
                     <div class="row">
                       <div class="col-md-7">
                         <div class="la-form" name="saved-addresss">

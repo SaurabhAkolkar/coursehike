@@ -12,7 +12,7 @@
         <div class="la-profile__main pb-md-20">
             <div class="container la-anim__wrap">
                 <div class="la-profile__main-inner ">
-                    <h1 class="la-profile__title text-4xl la-anim__stagger-item">Billing</h1>
+                    <h1 class="la-profile__title  text-2xl text-lg-4xl la-anim__stagger-item">Billing</h1>
 
                     <!-- PERSONAL BILLING DETAILS: START -->
                     <div class="row">                        

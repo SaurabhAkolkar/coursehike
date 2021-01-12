@@ -153,10 +153,11 @@
                             </form>
                       </div>
                   </div>
+                  
               </div>
-            </div>
+          </div>
             <!-- Filters : End -->
-        </div>
+      </div>
 
         <div class="la-courses py-4 py-md-16">
              

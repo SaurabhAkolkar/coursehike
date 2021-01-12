@@ -3,7 +3,11 @@
     color: var(--gray5);
 }
 .la-payment__add-card{
-    padding: var(--size-18) 0;
+    padding:var(--size-14) 0;
+
+    @include respond-above(sm){
+        padding: var(--size-18) 0;
+    }
 }
 .la-payment__add-subtitle {
     color: var(--gray3);
@@ -21,7 +25,11 @@
     padding: var(--size-4) 0;
 }
 .la-payment__add-desc{
-    font-size:16px;
+    font-size:var(--text-md);
     color:var(--gray3);
     opacity: 0.7;
+
+    @include respond-below(sm){
+        padding-bottom:var(--size-10);
+    }
 }

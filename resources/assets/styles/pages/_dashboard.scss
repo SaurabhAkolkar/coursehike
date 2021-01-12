@@ -78,14 +78,13 @@ section.la-cdashboard{
                     }
                 }
                 .la-course__tile-bars{
-                    bottom:32% ;
+                    bottom:32%;
                     left:1px;
                 }
                 .la-course__tile-more{
                     transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-moz-transition:all .2s ease-in;-ms-transition:all .2s ease-in;-o-transition:all .2s ease-in;
                 }
                 &:hover{
-                    border-radius:0;
                     .la-courses__tile-thumbnail img{
                         border-radius:0;
                         transform:scale(1.10);-webkit-transform:scale(1.10);-moz-transform:scale(1.10);-ms-transform:scale(1.10);-o-transform:scale(1.10);
