@@ -38,20 +38,7 @@
             </div>
             <!-- Global Search: End-->
 
-        <div class="la-courses mt-6 mt-md-14 la-anim__wrap">
-          <nav class="la-courses__nav d-flex justify-content-between">
-            @if(!$filtres_applied)
-            <ul class="nav nav-pills la-courses__nav-tabs " id="nav-tab" role="tablist">
-              {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"> <span class="position-relative">Tattoo</span></a></li>
-              <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
-              <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
-              @foreach ($categories as $category)
-                <li class="nav-item la-courses__nav-item la-anim__stagger-item--x"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative text-nowrap">{{ $category->title}}</span></a></li>
-              @endforeach
-            </ul>
-            @endif
-            
-            <!-- Filters : Start -->
+              <!-- Filters : Start -->
             <div class="la-courses__nav-filters d-flex align-items-start ml-6">
               <div class="la-courses__nav-props">
                 <a class="la-icon--2xl icon-list-layout la-courses__nav-filter  mr-3" id="showLayout" role="button"></a>
@@ -86,8 +73,11 @@
                   <!-- Filter Courses Dropdown -->
                   <div class="la-courses__nav-filterdropdown" id="filtered_sidebar">
                       <div class="la-form__input-wrap px-5">
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
+                            <button class="la-courses__nav-filterclose close text-4xl mt-1" type="button" id="filter_close">&times;</button>
+                          </div>
+
                             <form action="{{ url()->current() }}" method="get" id="filter_form">
                                 <input type="hidden" name="categories" id="filter_categories" value="{{implode(',',$selected_categories)}}"/>
                                 <input type="hidden" name="sub_categories" id="filter_sub_categories" value="{{implode(',',$selected_subcategories)}}"/>
@@ -175,8 +165,7 @@
             </div>
             <!-- Filters : End -->
         </div>
-
-        
+              
 
         <div class="la-courses mt-6 mt-md-14 la-anim__wrap">
           <nav class="la-courses__nav d-flex justify-content-between">

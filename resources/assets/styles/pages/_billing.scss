@@ -8,6 +8,10 @@
     box-shadow: 0px 0px 20px #00000014;
     width:100%;
     height:200px;
+
+    @include respond-below(md){
+        margin:var(--size-4) 0;
+    }
 }
 .la-personal__card-title{
     font-size: var(--text-xl);

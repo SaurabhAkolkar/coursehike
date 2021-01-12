@@ -264,7 +264,7 @@ $(function(){
       pin: true,
       pinSpacing: false,
       start: "top 20%",
-      end: "+=800",
+      end: "+=1000",
     }, opacity: 1
   });
   
