@@ -9,7 +9,7 @@
       <!-- Side Navbar: End -->
       <div class="la-profile__main">
         <div class="container la-anim__wrap">
-          <div class="la-profile__main-inner">
+          <div class="la-profile__main-inner pb-6 pb-md-20">
             <!-- SECTION PURCHASED: START -->
             <section class="la-purchase--history">
                 <div class="container px-0 la-anim__stagger-item">
@@ -59,7 +59,7 @@
                 @else
                   <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
                         <div class="la-empty__inner">
-                            <h6 class="la-empty__course-title pb-2">No Purchase History.</h6>
+                            <h6 class="la-empty__course-title">No Purchase History.</h6>
                         </div>
           
                     </div>
