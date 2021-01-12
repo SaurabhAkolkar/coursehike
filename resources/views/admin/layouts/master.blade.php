@@ -110,7 +110,7 @@ $global_settings = App\Setting::first();
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 @if(Auth::User()->user_img != null || Auth::User()->user_img !='')
-                  <img src="{{ asset('images/user_img/'.Auth::User()->user_img)}}" class="user-image" alt="">
+                  <img src="{{ Auth::User()->user_img}}" class="user-image" alt="">
                 @else
                   <img src="{{ asset('images/default/user.jpg')}}" class="user-image" alt="">
                 @endif

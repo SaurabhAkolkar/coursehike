@@ -7,6 +7,8 @@ use Rinvex\Subscriptions\Traits\HasSubscriptions;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Storage;
+
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -81,6 +83,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany('App\Wishlist','user_id');
     }  
+
+    public function getUserImgAttribute($value)
+    {
+        return Storage::url(config('path.profile'). $value);
+    }
+
 
     public function blogs()
     {

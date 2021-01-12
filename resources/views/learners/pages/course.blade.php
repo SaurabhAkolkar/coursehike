@@ -618,12 +618,10 @@ use Carbon\Carbon;
                 @php 
                       if($course->user->user_img == ""){
                           $course->user->user_img = "https://picsum.photos/400";
-                      }else{
-                          $course->user->user_img = asset('/images/user_img/'.$course->user->user_img);
                       }
                 @endphp
 
-                  <span><img src="{{$course->user->user_img}}" alt=""></span>
+                  <span><img src="{{$course->user->user_img==""?'https://picsum.photos/400':$course->user->user_img}}" alt=""></span>
                 </div>
                 <div class="la-creator__detail pl-2 text-nowrap">
                   <span class="la-creator__name text-capitalize">{{$course->user->fullName}}</span>

@@ -35,6 +35,8 @@ use Illuminate\Support\Str;
 use App\UserInvoiceDetail;
 use Carbon\Carbon;
 use App\UserSubscriptionInvoice;
+use Illuminate\Support\Facades\Storage;
+
 
 class UserController extends Controller
 {
@@ -203,14 +205,13 @@ class UserController extends Controller
 
 
         $input = $request->all();
-        if ($file = $request->file('user_img')) 
-        {            
-            $optimizeImage = Image::make($file);
-            $optimizePath = public_path().'/images/user_img/';
-            $image = time().$file->getClientOriginalName();
-            $optimizeImage->save($optimizePath.$image, 72);
-            $input['user_img'] = $image;
-            
+
+        if ($file = $request->file('user_img')) {
+            $photo = Image::make($file);
+
+            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+            Storage::put(config('path.profile').$file_name, $photo->stream() );
+            $input['user_img'] = $file_name;
         }
 
         $input['password'] = Hash::make($request->password);
@@ -281,23 +282,20 @@ class UserController extends Controller
             }
         }
         $input = $request->all();
-        
 
         if ($file = $request->file('user_img')) {
 
-            if($user->user_img != null) {
-                $content = @file_get_contents(public_path().'/images/user_img/'.$user->user_img);
-                if ($content) {
-                  unlink(public_path().'/images/user_img/'.$user->user_img);
-                }
+            if ($user->user_img != null) {
+                $exists = Storage::exists(config('path.profile').$user->user_img);
+                if ($exists)
+                    Storage::delete(config('path.profile').$user->user_img);
             }
 
-            $optimizeImage = Image::make($file);
-            $optimizePath = public_path().'/images/user_img/';
-            $image = time().$file->getClientOriginalName();
-            $optimizeImage->save($optimizePath.$image, 72);
-            $input['user_img'] = $image;
-          
+            $photo = Image::make($file);
+
+            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+            Storage::put(config('path.profile').$file_name, $photo->stream() );
+            $input['user_img'] = $file_name;
         }
 
 
