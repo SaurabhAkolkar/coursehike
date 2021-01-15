@@ -433,7 +433,7 @@
              <!-- See all Collapse: End -->
             
             <div class="la-bgcreator__faq-all text-center text-sm-right pt-4 la-anim__stagger-item">
-              <a class= "text-sm collapsed" data-toggle="collapse" href="#faq_collapse"><span class="la-bgcreator__all-link">See all</span></a>
+              <a class= "text-sm collapsed" data-toggle="collapse" href="#faq_collapse"><span class="la-bgcreator__all-link"></span></a>
             </div>
             
           </div>

@@ -100,9 +100,9 @@
                     <p class="text-sm text-white la-anim__stagger-item">Got something different then<br>share it with the world.</p>
                     <h2 class="text-5xl text-white la-anim__stagger-item--x">become an <br><span>Alien mentor</span></h2>
                   
-                    <div class="la-course__ad-learn-more text-right mr-md-n4 la-anim__fade-in-left">
-                      <a class="text-uppercase " href="#">Learn More
-                        <span class="la-icon la-icon--5xl icon-black-arrow la-anim__stagger-item--x"></span>
+                    <div class="la-course__ad-learn-more text-right mr-md-n4 la-anim__stagger-item--x">
+                      <a class="text-uppercase " href="/become-creator">Learn More
+                        <span class="la-icon la-icon--5xl icon-black-arrow "></span>
                       </a>
                     </div>
                   </div>
@@ -137,10 +137,10 @@
                     <h6 class="la-empty__course-title pb-2">No Courses</h6>
                     <p class="la-empty__course-desc m-0">You currently don't have any pending course, start new course</p>
                 </div>
-                <div class="la-empty__browse-courses">
-                    <a href="/browse/courses" class="la-empty__browse la-anim__fade-in-left">
+                <div class="la-empty__browse-courses la-anim__stagger-item--x">
+                    <a href="/browse/courses" class="la-empty__browse">
                         Browse Courses
-                        <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow la-anim__stagger-item--x"></span>
+                        <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
                     </a>
                 </div>
             </div>
@@ -189,7 +189,7 @@
           
             <div class="row">
               <div class="col-12 la-mentors">
-                  <div class="row">
+                  <div class="row ">
                     @foreach($users as $u)
                       <div class="col-lg-4 la-mentor la-anim__wrap ">
                         <div class="la-mentor__profile la-anim__stagger-item">

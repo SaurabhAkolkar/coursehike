@@ -53,11 +53,14 @@
                         }
                     }
                     &name {
-                        font-size: var(--text-xl);
                         font-weight: var(--font-bold);
                         word-wrap: break-word;
                         line-height: 1.2;
                         margin-right:var(--size-2);
+
+                        @include respond-above(sm){
+                            font-size:var(--text-xl);
+                        }
                     }
 
                     &author {
@@ -80,7 +83,7 @@
                         }
 
                         & a {
-                            font-size: var(--text-xs);
+                            font-size: var(--text-sm);
                             color: var(--app-indigo-1);
                             position: relative;
                             padding: 0 10px;

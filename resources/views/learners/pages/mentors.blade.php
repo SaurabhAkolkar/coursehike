@@ -12,7 +12,7 @@
             <form class="form-inline" action="/search-mentor" method="post">
               @csrf
               <div class="form-group">
-                <input class="la-gsearch__input w-100 form-control" name="name" type="text" style="background:transparent" placeholder="Search Alien Mentor">
+                <input class="la-gsearch__input w-100 form-control" name="name" type="text" style="background:transparent" placeholder="Search Alien Mentors">
               </div>
               <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--3xl icon icon-search"></i></button>
             </form>
@@ -36,7 +36,7 @@
 
         <div class="la-mentors ">
           <div class="row la-anim__wrap">
-              <div class="col-12 d-inline-flex">
+              <div class="col-12 d-md-inline-flex">
                 @foreach($mentors as $mentor)
                     @php 
                           if($mentor->user_img == ""){

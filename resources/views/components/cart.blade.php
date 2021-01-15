@@ -13,14 +13,9 @@
         // dd($classes_id);
     @endphp
     <div class="la-cart__items ">
-        <div class="la-anim__wrap">
-            <h2 class="la-cart__title text-2xl d-block d-md-none pt-14 pb-3 la-anim__stagger-item">
-                Courses in the Cart
-            </h2>
-        </div>
         <div class="la-cart__items mb-8">
             <div class="la-cart__item row">
-                <div class="la-cart__item-course col-7 col-md-7 pr-0">
+                <div class="la-cart__item-course col-7 col-md-8 col-lg-7 pr-0">
                     <div class="la-anim__wrap">
                         <div class="la-cart__item-label mb-4 la-anim__stagger-item">Course</div>
                     </div>
@@ -156,7 +151,7 @@
                 </div>
                 
 
-                <div class="col-5 col-md-5 pl-0 la-cart__item-info d-flex align-items-start la-anim__wrap">
+                <div class="col-5 col-md-4 col-lg-5 pl-0 la-cart__item-info d-flex align-items-start la-anim__wrap">
                     <div class="la-cart__item-classes  ">
                         <div class="la-cart__item-label mb-4 la-anim__stagger-item">Classes</div>
                         <div class="la-cart__item-content la-anim__stagger-item"><span>@if($classType == 'all_classes') All Classes @else Selected Classes @endif</span></div>

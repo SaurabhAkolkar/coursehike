@@ -164,6 +164,7 @@
             &input {
                 position: relative;
                 padding-left: 64px;
+                padding-right: 40px;
                 &- {
                     &wrap  {
                         position: relative;
@@ -176,6 +177,7 @@
                         display: flex;
                         align-items: start;
                         justify-content: center;
+                        z-index:var(--z-1);
 
                         &:before {
                             content: "";
@@ -186,6 +188,18 @@
                             top:6px;
                             right: 0;
                         }
+                    }
+                    &picon{
+                        position: absolute;
+                        top:0;
+                        right: 0;
+                        height: 100%;
+                        width: 50px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index:var(--z-1);
+                        color:var(--gray4);
                     }
                 }
             }

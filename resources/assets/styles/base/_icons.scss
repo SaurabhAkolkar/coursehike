@@ -25,6 +25,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-guided-creator:before {
+  content: "\e9aa";
+}
+.icon-my-courses:before {
+  content: "\e9ab";
+}
 .icon-admin:before {
   content: "\e9a9";
 }

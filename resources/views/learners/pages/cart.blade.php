@@ -13,9 +13,9 @@
           <div class="la-profile__main-inner">
               @if(session('message'))
               <div class="la-btn__alert position-relative">
-                <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible" role="alert">
+                <div class="la-btn__alert-success col-md-4 offset-md-2  alert alert-success alert-dismissible" role="alert">
                     <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
-                    <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                    <button type="button" class="close mt-3" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true" style="color:#56188C">&times;</span>
                     </button>
                 </div>
@@ -39,7 +39,12 @@
                     @endphp
 
                     <div class="col-lg-8 col-xl-9">
-                  
+                      <div class="la-anim__wrap">
+                        <h2 class="la-cart__title text-2xl d-block d-md-none pt-14 pb-3 la-anim__stagger-item">
+                            Courses in the Cart
+                        </h2>
+                      </div>
+
                       @if(count($carts) > 0)
                         @foreach ($carts as $cart)
                             <x-cart
@@ -66,6 +71,7 @@
                               <h2 class="text-center my-20 py-10 la-anim__stagger-item" style="color: var(--gray8);">Cart is empty</h2>
                           </div>
                       @endif
+                      
                     </div>
                     <!-- Cousre Cart:  End -->
 
@@ -194,9 +200,10 @@
                 </div>
 
                 <div class="col-md-6 col-lg-3 la-anim__stagger-item--x">
-                    <div class="la-cart__product-btm la-btn__plain text--burple text-md h-75 d-flex align-items-center justify-content-center justify-content-md-start">
-                      <a class="text-uppercase la-cart__product-explore" href="/browse/courses">explore more</a>
-                        <span class="la-cart__product-icon la-icon la-icon--5xl icon-grey-arrow"></span>
+                    <div class=" la-btn__plain text--burple text-md h-75 d-flex align-items-center justify-content-center justify-content-md-start">
+                      <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8 la-anim__fade-in-right">
+                        <a href="/master-classes" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
+                      </div>
                     </div>
                 </div>
               </div>

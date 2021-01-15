@@ -32,6 +32,14 @@
             &title {
                 top: 15%;
                 left: 26%;
+
+                @include respond-below(md){
+                    top:50%;
+                }
+                @include respond-below(sm){
+                    top:80%;
+                    font-size:var(--text-6xl) !important;
+                }
                 
                 &-- {
                     &purple {

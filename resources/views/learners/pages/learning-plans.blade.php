@@ -322,7 +322,7 @@
               </div>
 
               <div class="faq-see-all text-right pt-4">
-                <a class="collapsed" role="button" data-toggle="collapse" href="#lp_faq_collapse">See all</a>
+                <a class="collapsed" role="button" data-toggle="collapse" href="#lp_faq_collapse"></a>
               </div>
             </div>
           </div>

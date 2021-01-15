@@ -105,7 +105,7 @@ $sidemenuWidth: 300px;
                             animation: meneItemShowOut 0.1s ease 0s forwards;
                         }
                         &name {
-                            margin-left: 10px;
+                            margin-left: var(--size-5);
                             font-weight: var(--font-medium);
                         }
                         &icon {
@@ -119,6 +119,25 @@ $sidemenuWidth: 300px;
                             align-items: center;
                             color: #404040;
                             padding: 10px;
+
+                            &--{
+                                &collapsed{
+                                    position:relative;
+                                    &:after{
+                                        font-family:'icomoon';
+                                        content:'\e977';
+                                        position:absolute;
+                                        right:-9px;
+                                        top:11px;
+                                        transition:all 0.25s ease;
+                                    }
+                                    &.collapsed:after{
+                                        content:'\e977';
+                                        transform:rotate(-180deg);
+                                        transition:all 0.25s ease;
+                                    }
+                                }
+                            }
                         }
                     }
                 }

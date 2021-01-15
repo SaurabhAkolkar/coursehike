@@ -13,9 +13,9 @@
         <div class="container la-anim__wrap">
         @if(session('success'))
             <div class="la-btn__alert position-relative">
-              <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible" role="alert">
+              <div class="la-btn__alert-success col-md-4 offset-md-2 alert alert-success alert-dismissible" role="alert">
                   <h6 class="la-btn__alert-msg">{{session('success')}}</h6>
-                  <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                  <button type="button" class="close mt-3" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true" style="color:#56188C">&times;</span>
                   </button>
               </div>
@@ -125,9 +125,8 @@
                       </div>
                     </div>
                 </div>
-
-
                 <!-- Edit Playlist Popup: End -->
+                
                 <!-- Share Playlist Pop UP -->
                     <div class="modal fade la-playlist__modal" id="share_playlist">
                         <div class="modal-dialog la-playlist__modal-dialog">

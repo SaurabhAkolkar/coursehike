@@ -36,6 +36,7 @@ use Carbon\Carbon;
                 <img src="/images/learners/icons/badge.svg" alt="badge">
               </div> --}}
             </div>
+
             <div class="la-vcourse__rating mb-2">
               <div id="rateYo"></div>
             </div>
@@ -45,8 +46,9 @@ use Carbon\Carbon;
               <div class="la-vcourse__creator-name text-capitalize">{{ $course->user->fname }}</div>
             </div>
           </div>
-          <div class="col-12 col-lg-5 d-flex flex-column justify-content-between">
-            <div class="la-vcourse__buy text-right mb-2">
+          
+          <div class="col-12 col-lg-5 pt-10 pt-md-1 d-flex flex-column justify-content-start align-items-center align-items-md-end">
+            <div class="la-vcourse__buy text-right mb-6 mb-md-12">
               <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end" href="/learning-plans">Subscribe Now</a>
             </div>
             <div class="la-vcourse__info-items d-flex align-items-center justify-content-end">
@@ -65,6 +67,7 @@ use Carbon\Carbon;
             </div>
           </div>
         </div>
+
         <div class="row">
           <div class="col">
             <ul class="list-unstyled d-block d-lg-flex mb-6">

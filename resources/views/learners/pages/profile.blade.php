@@ -38,7 +38,7 @@
                               <input class="d-none" id="file-upload" type="file" name="user_img">
                               <label class="la-form__img la-form__img-upload d-inline-block text-center" for="file-upload"><a class="d-inline-block" href="#" onclick="$('#file-upload').click()">CHOOSE A FILE </a> <br/><span class="la-form__img-info">Thumbnail | 500x500</span><img src="" alt=""></label>
                               @error('user_img')
-                                          <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="alert alert-danger">{{ $message }}</div>
                               @enderror
                             </div>
                           </div>
@@ -226,9 +226,9 @@
                     </div>
                     <div class="la-password__update-actions d-flex">
                       <div class="la-btn__plain text--burple text-right mr-5"> 
-                        <a onclick = "$('#change_password_form').submit();" role="button" type="submit" class="text-uppercase"> Change Password</a>
+                        <button onclick = "$('#change_password_form').submit();" type="submit" class="text-uppercase la-btn__plain text--burple text-right mr-5"> Change Password</button>
                       </div>
-                      <div class="la-btn__plain text--danger text-right"><a class="text-uppercase"> Cancel</a></div>
+                      <button class="la-btn__plain text--danger text-right"><a class="text-uppercase"> Cancel</a></button>
                     </div>
                   </form>
                 </div>
@@ -332,14 +332,14 @@
     },
     // Specify validation error messages
     messages: {
-      first_name: "Please enter your Firstname.",
-      last_name: "Please enter your Lastname.",
+      first_name: "Please enter your First Name.",
+      last_name: "Please enter your Last Name.",
       mobile: {
         required: "Please provide a Contact Number.",
         minlength: "Your Contact Number must be at least 10 digits long."
       },
       email: {
-        required: "Please provide a Email.",
+        required: "Please provide an Email.",
         email: "Please provide a correct Email."
       },
       dob : "Date Of Birth is required.",
@@ -347,7 +347,7 @@
       gender : "Gender is required.",
       city : "Please select a City",
       state : "Please select a State",
-      country : "Plesae select a country",
+      country : "Plesae select a Country",
       user_img: "Please upload image with following formats .jpg, .jpeg and .png."
     },
     // Make sure the form is submitted to the destination defined

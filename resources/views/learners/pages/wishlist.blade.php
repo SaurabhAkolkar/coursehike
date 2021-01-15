@@ -34,9 +34,9 @@
           <!-- Alert Message  -->
           @if(session('message'))
             <div class="la-btn__alert position-relative">
-                <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" role="alert">
+                <div class="la-btn__alert-success col-md-4 offset-md-2 alert alert-success alert-dismissible fade show" role="alert">
                     <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
-                    <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                    <button type="button" class="close mt-3" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true" style="color:#56188C">&times;</span>
                     </button>
                 </div>
@@ -75,7 +75,7 @@
                     @endforeach
                 
                     <div class="col-md-4 col-lg-4 d-none d-md-block">
-                      <a class="la-btn__add d-flex justify-content-center align-items-center" href="/browse/courses">
+                      <a class="la-btn__add la-playlist__add-btn d-flex justify-content-center align-items-center" href="/browse/courses">
                         <span class="la-btn__add-icon">+</span>
                       </a>
                     </div>

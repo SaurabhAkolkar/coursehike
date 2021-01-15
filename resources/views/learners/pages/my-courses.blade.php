@@ -29,10 +29,10 @@
              <!-- Filters : Start -->
            <div class="la-courses__nav-filters d-flex align-items-start ml-6 ">
               <div class="la-courses__nav-props">
-                <a class="la-icon--2xl icon-list-layout la-courses__nav-filter  mr-3" id="showLayout" role="button"></a>
+                <a class="la-icon icon-list-layout la-courses__nav-filter  mr-3" id="showLayout" role="button"></a>
               </div>
               <div class="la-courses__nav-props">
-                <a class="la-icon--2xl icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                <a class="la-icon icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                 <!-- Sort Courses Dropdown -->
                 <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses"  style="border:none !important;">
                   <div class="la-form__input-wrap px-5">
@@ -56,7 +56,7 @@
               </div>
                 
               <div class="la-courses__nav-filterprops">
-               <a class="la-icon--2xl icon-filter la-courses__nav-filter " id="filteredCourses"  role="button"></a>
+               <a class="la-icon icon-filter la-courses__nav-filter " id="filteredCourses"  role="button"></a>
               
                   <!-- Filter Courses Dropdown -->
                   <div class="la-courses__nav-filterdropdown" id="filtered_sidebar">
@@ -181,10 +181,10 @@
                         <h6 class="la-empty__course-title pb-2 la-anim__stagger-item">No Courses</h6>
                         <p class="la-empty__course-desc m-0 la-anim__stagger-item">You have not finished any course yet.</p>
                     </div>
-                    <div class="la-empty__browse-courses">
-                        <a href="/browse/courses" class="la-empty__browse la-anim__stagger-item">
+                    <div class="la-empty__browse-courses la-anim__stagger-item--x">
+                        <a href="/browse/courses" class="la-empty__browse">
                             Browse Courses
-                            <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow la-anim__stagger-item--x"></span>
+                            <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
                         </a>
                     </div>
                 </div> 
@@ -206,10 +206,10 @@
                   <!-- Filters : Start -->
                 <div class="la-courses__nav-filters d-flex align-items-start ml-6">
                   <div class="la-courses__nav-props">
-                    <a class="la-icon--2xl icon-list-layout la-courses__nav-filter  mr-3" id="showLayout2" role="button"></a>
+                    <a class="la-icon icon-list-layout la-courses__nav-filter  mr-3" id="showLayout2" role="button"></a>
                   </div>
                   <div class="la-courses__nav-props">
-                    <a class="la-icon--2xl icon-sort la-courses__nav-filter  mr-3" id="sortCourses2" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                    <a class="la-icon icon-sort la-courses__nav-filter  mr-3" id="sortCourses2" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                     <!-- Sort Courses Dropdown -->
                     <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses2"  style="border:none !important;">
                       <div class="la-form__input-wrap px-5">
@@ -234,7 +234,7 @@
 
 
               <div class="la-courses__nav-filterprops">
-               <a class="la-icon--2xl icon-filter la-courses__nav-filter " id="filteredCourses2"  role="button"></a>
+               <a class="la-icon icon-filter la-courses__nav-filter " id="filteredCourses2"  role="button"></a>
               
                   <!-- Filter Courses Dropdown -->
                   <div class="la-courses__nav-filterdropdown" id="filtered_sidebar2">
@@ -338,10 +338,10 @@
                         <h6 class="la-empty__course-title pb-2 la-anim__stagger-item">No Courses</h6>
                         <p class="la-empty__course-desc m-0 la-anim__stagger-item">You have not finished any course yet.</p>
                     </div>
-                    <div class="la-empty__browse-courses">
-                        <a href="/browse/courses" class="la-empty__browse la-anim__stagger-item">
+                    <div class="la-empty__browse-courses la-anim__stagger-item--x">
+                        <a href="/browse/courses" class="la-empty__browse ">
                             Browse Courses
-                            <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow la-anim__stagger-item--x"></span>
+                            <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
                         </a>
                     </div>
               </div> 
@@ -362,10 +362,10 @@
                   <!-- Filters : Start -->
               <div class="la-courses__nav-filters d-flex align-items-start ml-6">
                 <div class="la-courses__nav-props ">
-                  <a class="la-icon--2xl icon-list-layout la-courses__nav-filter  mr-3" id="showLayout3" role="button"></a>
+                  <a class="la-icon icon-list-layout la-courses__nav-filter  mr-3" id="showLayout3" role="button"></a>
                 </div>
                 <div class="la-courses__nav-props">
-                  <a class="la-icon--2xl icon-sort la-courses__nav-filter  mr-3" id="sortCourses3" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                  <a class="la-icon icon-sort la-courses__nav-filter  mr-3" id="sortCourses3" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                   <!-- Sort Courses Dropdown -->
                   <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses3"  style="border:none !important;">
                     <div class="la-form__input-wrap px-5">
@@ -389,7 +389,7 @@
                 </div>
                   
                 <div class="la-courses__nav-filterprops">
-               <a class="la-icon--2xl icon-filter la-courses__nav-filter " id="filteredCourses3"  role="button"></a>
+               <a class="la-icon icon-filter la-courses__nav-filter " id="filteredCourses3"  role="button"></a>
               
                   <!-- Filter Courses Dropdown -->
                   <div class="la-courses__nav-filterdropdown" id="filtered_sidebar3">
@@ -493,10 +493,10 @@
                       <h6 class="la-empty__course-title pb-2 la-anim__stagger-item">No Courses</h6>
                       <p class="la-empty__course-desc m-0 la-anim__stagger-item">You have not finished any course yet.</p>
                   </div>
-                  <div class="la-empty__browse-courses">
-                      <a href="/browse/courses" class="la-empty__browse la-anim__stagger-item">
+                  <div class="la-empty__browse-courses la-anim__stagger-item--x">
+                      <a href="/browse/courses" class="la-empty__browse ">
                           Browse Courses
-                          <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow la-anim__stagger-item--x"></span>
+                          <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
                       </a>
                   </div>
                 </div>
