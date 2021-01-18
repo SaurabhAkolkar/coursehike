@@ -26,10 +26,10 @@
                 }
             }
             &view-more{
-                transition:all 0.3s ease-in;-webkit-transition:all 0.3s ease-in;-moz-transition:all 0.3s ease-in;-ms-transition:all 0.3s ease-in;-o-transition:all 0.3s ease-in;
+                transition:all 0.2s ease-in;-webkit-transition:all 0.2s ease-in;-moz-transition:all 0.2s ease-in;-ms-transition:all 0.2s ease-in;-o-transition:all 0.2s ease-in;
                 &:hover{
-                    transition:all 0.3s ease-out;-webkit-transition:all 0.3s ease-out;-moz-transition:all 0.3s ease-out;-ms-transition:all 0.3s ease-out;-o-transition:all 0.3s ease-out;
-                    padding-right:var(--size-2);
+                    transition:all 0.2s ease-out;-webkit-transition:all 0.2s ease-out;-moz-transition:all 0.2s ease-out;-ms-transition:all 0.2s ease-out;-o-transition:all 0.2s ease-out;
+                    transform:translateX(16px);-webkit-transform:translateX(16px);-moz-transform:translateX(16px);-ms-transform:translateX(16px);-o-transform:translateX(16px);
                 }
             }
             &item{  

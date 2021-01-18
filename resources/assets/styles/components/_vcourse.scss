@@ -147,6 +147,26 @@
 
             &btn {
                 cursor: pointer;
+                &-{
+                    &collapse{
+                        position: relative;
+                
+                        &:after{
+                            font-family: 'icomoon';
+                            position:absolute;
+                            content:'\e977';
+                            top:0;
+                            left:30px;
+                            color:var(--gray4);
+                            transition:all 0.25s linear;-webkit-transition:all 0.25s linear;-moz-transition:all 0.25s linear;-ms-transition:all 0.25s linear;-o-transition:all 0.25s linear;
+                        }
+                        &.collapsed:after{
+                            content:'\e977';
+                            transition:all 0.25s linear;-webkit-transition:all 0.25s linear;-moz-transition:all 0.25s linear;-ms-transition:all 0.25s linear;-o-transition:all 0.25s linear;
+                            transform:rotate(-180deg);-webkit-transform:rotate(-180deg);-moz-transform:rotate(-180deg);-ms-transform:rotate(-180deg);-o-transform:rotate(-180deg);
+                        }
+                    }
+                }
             }
 
             &class {
@@ -221,7 +241,7 @@
                                         width: 100% !important;
                                         max-width: 100% !important;
                                         flex: 0 0 100% !important;
-                                        transition: all 0.4s ease;
+                                        transition: all 0.4s ease;-webkit-transition: all 0.4s ease;-moz-transition: all 0.4s ease;
                                     }
                                     &video {
                                         height: calc(var(--playerH) * 2);
@@ -294,7 +314,7 @@
                     padding-bottom: var(--size-3);
                     padding-left: var(--size-6);
                     padding-right: var(--size-6);
-                    transition: all 0.2s ease;
+                    transition: all 0.2s ease;-webkit-transition: all 0.2s ease;-moz-transition: all 0.2s ease;
 
                     &:hover {
                         background: var(--gray);
@@ -305,7 +325,7 @@
                                     &access {
                                         &:before {
                                             opacity: 1;
-                                            transform: scale(1.6) rotate(0);
+                                            transform: scale(1.6) rotate(0);-webkit-transform: scale(1.6) rotate(0);-moz-transform: scale(1.6) rotate(0);
                                         }
                                     }
                                 }
@@ -448,8 +468,8 @@
                     border-radius: 100%;
                     border: 1px dotted #000000;
                     opacity: 0;
-                    transform: scale(1) rotate(10deg);
-                    transition: all 0.1s ease;
+                    transform: scale(1) rotate(10deg);-webkit-transform: scale(1) rotate(10deg);-moz-transform: scale(1) rotate(10deg);
+                    transition: all 0.1s ease;-webkit-transition: all 0.1s ease;-moz-transition: all 0.1s ease;
                     z-index: -1;
                 }
 

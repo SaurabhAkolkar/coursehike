@@ -6,11 +6,11 @@ section.la-new--releases{
         position: relative;
         top:45px;
         left:-60px;
-        transition:all 0.25s ease-in;
+        transition:all 0.25s ease-in;-webkit-transition:all 0.25s ease-in;-moz-transition:all 0.25s ease-in;
 
         &:hover{
-            transform: translateX(-10px);
-            transition:all 0.25s ease-in;
+            transform: translateX(-10px);-webkit-transform: translateX(-10px);-moz-transform: translateX(-10px);
+            transition:all 0.25s ease-in;-webkit-transition:all 0.25s ease-in;-moz-transition:all 0.25s ease-in;
         }
     }
 

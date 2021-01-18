@@ -13,7 +13,7 @@
               <div class="la-gcbanner__inner">
                 <h1 class="la-gcbanner__title m-0 leading-none la-anim__stagger-item">Your Knowledge. </h1>
                 <h2 class="la-gcbanner__tag la-anim__stagger-item"> Our Expertise.</h2>
-                <p class="la-gcbanner__para mt-2 mt-md-6 mb-12 mb-md-14 la-anim__stagger-item">Get guidance for whatever and <br/>whenever you want</p>
+                <p class="la-gcbanner__para mt-2 mt-md-6 mb-12 mb-md-14 la-anim__stagger-item">Get guidance to build exceptional coursework,<br/> the way you need!</p>
                 
                 <a class="la-btn__app text-uppercase la-anim__stagger-item" role="button" href="/creator-signup">Get Started</a>
               </div>
@@ -56,7 +56,7 @@
               <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-video-unfilled "></span></div>
               <div class="la-gcreator__video-content mt-5">
                 <h5 class="la-gcreator__video-title la-anim__stagger-item">We'll record a Video</h5>
-                <p class="la-gcreator__video-para pt-3 text-md la-anim__stagger-item">Stet clita kasd gubergen, no sea takimata sanctus est Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet.</p>
+                <p class="la-gcreator__video-para pt-3 text-md la-anim__stagger-item">Our team of expert videographers will help you with shooting exemplary videos for a well-explained coursework</p>
                 <ul class="la-gcreator__list text-sm la-anim__stagger-item">
                   <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
                   <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
@@ -77,7 +77,7 @@
               <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-edit-image "></span></div>
               <div class="la-gcreator__video-content mt-5">
                 <h5 class="la-gcreator__video-title la-anim__stagger-item">We'll edit the Video</h5>
-                <p class="la-gcreator__video-para text-md pt-3 la-anim__stagger-item">Stet clita kasd gubergen, no sea takimata sanctus est Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet.</p>
+                <p class="la-gcreator__video-para text-md pt-3 la-anim__stagger-item">Our in-house editors will aid you with video editing to create the most spectacular videos for your coursework, to help you give your students the best learning experience</p>
                 <ul class="la-gcreator__list text-sm la-anim__stagger-item">
                   <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
                   <li ><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
@@ -100,7 +100,7 @@
               <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-share-image "></span></div>
               <div class="la-gcreator__video-content mt-5">
                 <h5 class="la-gcreator__video-title la-anim__stagger-item">Share it with the World</h5>
-                <p class="la-gcreator__video-para text-md pt-3 la-anim__stagger-item">Stet clita kasd gubergen, no sea takimata sanctus est Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet.</p>
+                <p class="la-gcreator__video-para text-md pt-3 la-anim__stagger-item">Share your wisdom. With LILA’s global reach, we assure that your content in your art of expertise will reach students beyond borders, helping them hone their skills through your knowledge</p>
                 <ul class="la-gcreator__list text-sm la-anim__stagger-item"> 
                   <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
                   <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>

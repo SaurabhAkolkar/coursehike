@@ -20,7 +20,11 @@
             <p class="text-sm pt-1">Get access to all the Courses</p><a class="la-choose__subscribe-trial text-sm" href="@if(Auth::check()) # @else /login @endif">Start free 7 Days trial</a>
           </div>
           <hr>
-          <div class="la-choose__content mb-3"><i class="la-icon--sm mr-5 icon-tick"></i><span class="text-sm">Through our Radical team</span><br><i class="la-icon--sm mr-5 icon-tick"></i><span class="text-sm">Through our Radical team</span><br><i class="la-icon--sm mr-5 icon-tick"></i><span class="text-sm">Through our Radical team</span></div>
+          <div class="la-choose__content mb-3 text-left px-8 px-md-12">
+            <i class="la-icon--sm mr-5 icon-tick "></i><span class="text-sm">Global, experienced mentors</span><br>
+            <i class="la-icon--sm mr-5 icon-tick"></i><span class="text-sm">Vast array of courses</span><br>
+            <i class="la-icon--sm mr-5 icon-tick"></i><span class="text-sm">Flexible modes of learning</span>
+          </div>
         </div>
       </div>
     </div>

@@ -21,11 +21,11 @@
 
             <a class="la-bcreator__back-link position-absolute la-anim__stagger-item--x" href="{{URL::previous()}}"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
             <div class="la-bcreator__content">
-              <strong class=" text-white text-uppercase m-0 la-anim__stagger-item--x">Lorem Ipsum</strong>
+              <strong class=" text-white text-uppercase m-0 la-anim__stagger-item--x">Design your own course!</strong>
               <h1 class="la-bcreator__title text-white text-uppercase d-none d-md-block la-anim__stagger-item--x">Become a Creator</h1>
               <h1 class="la-bcreator__title text-white text-uppercase d-block d-md-none la-anim__stagger-item--x">Become <br/> a Creator</h1>
-              <h6 class="la-bcreator__tag  leading-tight d-none d-md-block la-anim__stagger-item--x ">Join Inspiring Community and start earning for <br/> your values</h6>
-              <h6 class="la-bcreator__tag  leading-tight d-block d-md-none la-anim__stagger-item--x">Join Inspiring Community and start earning for your values</h6>
+              <h6 class="la-bcreator__tag  leading-tight d-none d-md-block la-anim__stagger-item--x ">Join LILA’s inspiring community, <br/> share knowledge and start earning for your values</h6>
+              <h6 class="la-bcreator__tag  leading-tight d-block d-md-none la-anim__stagger-item--x">Join LILA’s inspiring community, share knowledge and start earning for your values</h6>
             </div>
             <div class="la-bcreator__content-btn la-anim__stagger-item--x"><a class="la-btn__app text-white text-uppercase" role="button" href="/creator-signup">Start Teaching</a></div>
           </div>
@@ -163,7 +163,7 @@
               <div class="la-icon__vline la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-dollar position-absolute pl-1 "></span></div>
               <div class="la-vicon__text">
                 <h5 class="la-vicon__title la-anim__stagger-item">Earn with your Creations</h5>
-                <p class="la-vicon__desc pt-2 la-anim__stagger-item">Values aren't the only takeaway for a creator. Earn for your life of dreams while helping other follow theirs!</p>
+                <p class="la-vicon__desc pt-2 la-anim__stagger-item">Values aren't the only takeaway for a creator. Earn for your life of dreams while helping others follow theirs!</p>
                 <a class="la-vicon__link text-uppercase position-absolute la-anim__stagger-item" href="#how_you_earn">Learn More<span class="la-vicon__arrow la-icon la-icon--5xl icon-grey-arrow"></span></a>
               </div>
             </div>
@@ -197,7 +197,7 @@
           <!-- Column: Start-->
           <div class="col-sm-12 py-5 my-5 px-0 px-lg-5  la-anim__wrap">
             <div class="la-bcreator__calc text-center px-lg-4">
-              <p class="la-bcreator__calc-title text-2xl pb-6 la-anim__stagger-item">How we calculate it for you..</p>
+              <p class="la-bcreator__calc-title text-2xl pb-6 la-anim__stagger-item">How do we calculate your earnings?</p>
               <div class="row la-bcreator__calc-inner d-flex flex-row justify-content-center">
                 <div class="col-3 col-lg la-bcreator__calc-itm px-0">
                   <span class="text-sm text-sm-md la-anim__stagger-item--x">Total watch time</span>
@@ -245,7 +245,7 @@
             <div class="la-bcreator__stats-item la-anim__wrap">
               <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">80 M</h4>
               <p class="la-bcreator__stats-desc  text-uppercase la-anim__stagger-item">Students</p>
-              <span class="la-bcreator__stats-text text-sm la-anim__stagger-item">Lorem Ipsum</span>
+              <span class="la-bcreator__stats-text text-sm la-anim__stagger-item"></span>
             </div>
           </div>
         </div>
@@ -255,7 +255,7 @@
           <div class="la-bcreator__stats-item la-anim__wrap">
             <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">20 &#43;</h4>
             <p class="la-bcreator__stats-desc text-uppercase la-anim__stagger-item">Courses</p>
-            <span class="la-bcreator__stats-text text-sm la-anim__stagger-item">Lorem Ipsum</span>
+            <span class="la-bcreator__stats-text text-sm la-anim__stagger-item"></span>
           </div>
         </div>
         <!-- Column: End-->
@@ -264,7 +264,7 @@
           <div class="la-bcreator__stats-item la-anim__wrap">
             <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">100 &#43;</h4>
             <p class="la-bcreator__stats-desc text-uppercase la-anim__stagger-item">Countries</p>
-            <span class="la-bcreator__stats-text text-sm la-anim__stagger-item">Lorem Ipsum</span>
+            <span class="la-bcreator__stats-text text-sm la-anim__stagger-item"></span>
           </div>
         </div>
         <!-- Column: End-->
@@ -344,9 +344,9 @@
         <div class="col-sm-12 px-0 px-sm-3 la-anim__wrap">
           <div class="la-bgcreator__ad-content text-center text-white px-5 la-anim__stagger-item">
             <div class="px-5">
-              <p class="la-bgcreator__ad-para la-anim__stagger-item">Start teaching Students for Life with your creations&#33;</p><br>
+              <p class="la-bgcreator__ad-para la-anim__stagger-item">Broaden your reach! Help students hone their skills through your courses</p><br>
               <a class=" la-btn__app text-white text-uppercase la-anim__stagger-item" role="button" href="/creator-signup">Start Creating</a>
-              <div class="mt-8">
+              <div class="mt-4">
                 <a class="la-arrow-link text-uppercase position-relative la-anim__stagger-item" href="/guided-creator"> Learn More
                   <span class="la-icon la-icon--5xl icon-grey-arrow la-anim__stagger-item--x"></span>
                 </a>

@@ -66,10 +66,11 @@
                 }
 
                 &detailview {
-                    transition:all 0.25s ease;
+                    transition:all 0.25s ease;-webkit-transition:all 0.25s ease;-moz-transition:all 0.25s ease;
+                    
                     &:hover{
-                        transform:translateX(10px);
-                        transition:all 0.25s ease;
+                        transform:translateX(10px);-webkit-transform:translateX(10px);-moz-transform:translateX(10px);
+                        transition:all 0.25s ease;-webkit-transition:all 0.25s ease;-moz-transition:all 0.25s ease;
                     }
                 }
             }

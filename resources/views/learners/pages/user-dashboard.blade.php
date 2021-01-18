@@ -8,14 +8,13 @@
       <div class="la-cdashboard__inner pt-5">
         <div class="container pt-0 pt-sm-3">
           <div class="row d-flex flex-row justify-content-between">
-            <div class="col-12 col-md-6 la-anim__wrap">
+            <div class="col-12 col-md-6 col-lg-4 la-anim__wrap">
               <div class="la-cdashboard__page">
                 <h1 class="text-4xl">Welcome <span>{{Auth::user()->fname}}!</span></h1>
-                <p class="text-sm">Let's explore something extraordinary and <br> learn it like aliens.</p>
+                <p class="text-md">Share your knowledge, Be the change.<br/> The kind that enables everyone to reach their full potential & more!</p>
               </div>
             </div>
-            <div class="col"></div>
-            <div class="col-12 col-md-5 col-lg-4 px-0">
+            <div class="col-12 col-md-5 offset-md-1 col-lg-4 offset-lg-4 px-0">
               <div class="la-cbadges__item pb-5 mb-5">
                 <div class="row no-gutters px-2 px-sm-0 py-5 py-sm-2">
                   <div class="col d-flex flex-row justify-content-start justify-content-lg-center">
@@ -97,8 +96,8 @@
               <div class="la-course__alien-ad">
                 <div class="card la-course__ad-card la-anim__wrap">
                   <div class="card-body la-course__ad-card_body my-0 position-relative">
-                    <p class="text-sm text-white la-anim__stagger-item">Got something different then<br>share it with the world.</p>
-                    <h2 class="text-5xl text-white la-anim__stagger-item--x">become an <br><span>Alien mentor</span></h2>
+                    <p class="text-sm text-white la-anim__stagger-item">Got something different? <br/> Let’s share it with the world!</p>
+                    <h2 class="text-4xl text-white la-anim__stagger-item--x">become an <br><span>Alien Mentor, today!</span></h2>
                   
                     <div class="la-course__ad-learn-more text-right mr-md-n4 la-anim__stagger-item--x">
                       <a class="text-uppercase " href="/become-creator">Learn More

@@ -11,10 +11,10 @@
           <div class="la-gsearch la-anim__stagger-item">
             <form class="form-inline" action="/search-mentor" method="post">
               @csrf
-              <div class="form-group">
-                <input class="la-gsearch__input w-100 form-control" name="name" type="text" style="background:transparent" placeholder="Search Alien Mentors">
+              <div class="form-group d-flex align-items-center">
+                <input class="la-gsearch__input w-100 form-control la-gsearch__input-browsecourses" name="name" type="text" style="background:transparent" placeholder="Looking for your favourite Alien mentor?">
               </div>
-              <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--3xl icon icon-search"></i></button>
+              <button class="la-gsearch__submit btn" type="submit"><i class="la-icon icon-search la-gsearch__input-icon"></i></button>
             </form>
           </div>
           <!-- Global Search: End-->

@@ -179,7 +179,7 @@
                 <div class="la-empty__courses d-md-flex justify-content-between align-items-start ">
                     <div class="la-empty__inner">
                         <h6 class="la-empty__course-title pb-2 la-anim__stagger-item">No Courses</h6>
-                        <p class="la-empty__course-desc m-0 la-anim__stagger-item">You have not finished any course yet.</p>
+                        <p class="la-empty__course-desc m-0 la-anim__stagger-item">You have not started any course yet</p>
                     </div>
                     <div class="la-empty__browse-courses la-anim__stagger-item--x">
                         <a href="/browse/courses" class="la-empty__browse">
@@ -336,7 +336,7 @@
                 <div class="la-empty__courses d-md-flex justify-content-between align-items-start ">
                     <div class="la-empty__inner">
                         <h6 class="la-empty__course-title pb-2 la-anim__stagger-item">No Courses</h6>
-                        <p class="la-empty__course-desc m-0 la-anim__stagger-item">You have not finished any course yet.</p>
+                        <p class="la-empty__course-desc m-0 la-anim__stagger-item">You have not bought or subscribed to any course yet</p>
                     </div>
                     <div class="la-empty__browse-courses la-anim__stagger-item--x">
                         <a href="/browse/courses" class="la-empty__browse ">

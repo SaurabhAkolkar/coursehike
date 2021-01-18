@@ -16,11 +16,8 @@
 @section('content')
 
 <section class="la-section__small la-cbg--main">
-    
-    
     <div class="la-section__inner">
       <div class="container">
-        
         <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
         <div class="d-flex justify-content-between la-anim__wrap">  
           <h1 class="la-page__title mb-8 la-anim__stagger-item">Master Classes</h1>
@@ -29,9 +26,9 @@
 
             <section class="la-section la-section--classes la-section--grey position-relative la-anim__wrap">
                 <div class="la-section__inner">
-                <div class="container">
+                <div class="container px-0">
                     <div class="la-mccourses py-4">
-                    <div class="row justify-content-center px-lg-5 la-anim__stagger la-anim__A">
+                    <div class="row justify-content-center px-0 la-anim__stagger la-anim__A">
                     
                         @foreach ($master_classes as $master)
                             <x-master-class

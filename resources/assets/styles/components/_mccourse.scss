@@ -41,7 +41,7 @@
         &:hover & {
             &__ {
                 &imgwrap {
-                    transform: scale(1.1)
+                    transform: scale(1.1);-webkit-transform: scale(1.1);-moz-transform: scale(1.1);
                 }
                 &overlay {
                     // background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);;
@@ -51,7 +51,7 @@
 
         &__ {
             &imgwrap, &overlay {
-                transition: all 0.24s ease-out;
+                transition: all 0.24s ease-out;-webkit-transition: all 0.24s ease-out;-moz-transition: all 0.24s ease-out;
                 
             }
             
@@ -64,6 +64,8 @@
                 top: 0;
                 left: 0;
                 background: transparent linear-gradient(rgba(0, 0, 0, 0.54) 0%, rgba(152, 152, 152, 0.25) 49.54%, rgba(0, 0, 0, 0.79) 100%);
+                -webkit-background: transparent linear-gradient(rgba(0, 0, 0, 0.54) 0%, rgba(152, 152, 152, 0.25) 49.54%, rgba(0, 0, 0, 0.79) 100%);
+                -moz-background: transparent linear-gradient(rgba(0, 0, 0, 0.54) 0%, rgba(152, 152, 152, 0.25) 49.54%, rgba(0, 0, 0, 0.79) 100%);
                 // opacity: 0.66;
                 padding: var(--size-3);
                 color: #fff;
