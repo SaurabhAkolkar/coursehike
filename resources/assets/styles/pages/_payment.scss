@@ -131,6 +131,10 @@ background: var(--gray);
 
     .la-payment__details{
         margin:var(--size-10) 0;
+
+        @include respond-below(sm){
+            margin:var(--size-4) 0 var(--size-12);
+        }
         .la-payment__details-title{
             font-family:var(--head-font);
             font-weight:var(--font-normal);

@@ -12,7 +12,7 @@
         <div class="la-profile__main pb-md-20">
             <div class="container la-anim__wrap">
                 <div class="la-profile__main-inner ">
-                    <h1 class="la-profile__title la-anim__stagger-item">
+                    <h1 class="la-profile__title  text-2xl text-lg-4xl la-anim__stagger-item">
                         <a href="/billing" role="button" style="color: var(--app-indigo-1)">Billing</a>/
                             Payment Cards
                     </h1>

@@ -477,7 +477,7 @@ function addToCart(id='1', classes='all') {
         let successAlert = `<div class="la-btn__alert position-relative">
                               <div class="la-btn__alert-success col-md-4 offset-md-4 alert alert-success alert-dismissible" id="wishlist_alert" role="alert">
                                 <h6 id="wishlist_alert_message" class="la-btn__alert-msg">${data}</h6>
-                                <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
+                                <button type="button" class="close mt-3" data-dismiss="alert" aria-label="Close">
                                   <span aria-hidden="true" style="color:#56188C">&times;</span>
                                 </button>
                               </div>

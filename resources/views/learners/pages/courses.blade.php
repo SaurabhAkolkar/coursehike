@@ -41,10 +41,10 @@
               <!-- Filters : Start -->
             <div class="la-courses__nav-filters d-flex align-items-start ml-6">
               <div class="la-courses__nav-props">
-                <a class="la-icon--2xl icon-list-layout la-courses__nav-filter  mr-3" id="showLayout" role="button"></a>
+                <a class="la-icon icon-list-layout la-courses__nav-filter  mr-3" id="showLayout" role="button"></a>
               </div>
               <div class="la-courses__nav-props">
-                <a class="la-icon--2xl icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                <a class="la-icon icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                 <!-- Sort Courses Dropdown -->
                 <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses"  style="border:none !important;">
                   <div class="la-form__input-wrap px-5">
@@ -68,7 +68,7 @@
               </div>
                 
               <div class="la-courses__nav-filterprops">
-               <a class="la-icon--2xl icon-filter la-courses__nav-filter " id="filteredCourses"  role="button"></a>
+               <a class="la-icon icon-filter la-courses__nav-filter " id="filteredCourses"  role="button"></a>
               
                   <!-- Filter Courses Dropdown -->
                   <div class="la-courses__nav-filterdropdown" id="filtered_sidebar">
@@ -178,8 +178,6 @@
                 <li class="nav-item la-courses__nav-item la-anim__stagger-item--x"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative text-nowrap">{{ $category->title}}</span></a></li>
               @endforeach
             </ul>
-          @endif
-           
           </nav>
              
                    <x-add-to-playlist 
@@ -244,6 +242,7 @@
                     </div>
 
             @endif
+            @endif
 
           </div>
         </div>
@@ -251,11 +250,11 @@
     </div>
   </section>
   @endsection
-    @section('footerScripts')
-        <script>
+  @section('footerScripts')
+      <script>
             $('input[type=radio][name=sort_by]').change(function() {
               window.location.href= '{{url()->current()}}?sort_by='+this.value;
 
             });
-        </script>
-    @endsection
+      </script>
+  @endsection

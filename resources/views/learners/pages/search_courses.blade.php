@@ -9,7 +9,7 @@
           <div class="la-btn__alert position-relative">
             <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" role="alert">
               <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
-              <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+              <button type="button" class="close mt-3" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true" style="color:#56188C">&times;</span>
               </button>
             </div>
@@ -40,10 +40,10 @@
             <!-- Filters : Start -->
            <div class="la-courses__nav-filters d-flex align-items-start ml-6">
               <div class="la-courses__nav-props ">
-                <a class="la-icon--2xl icon-list-layout la-courses__nav-filter mr-3 " id="showLayout" role="button"></a>
+                <a class="la-icon icon-list-layout la-courses__nav-filter mr-3 " id="showLayout" role="button"></a>
               </div>
               <div class="la-courses__nav-props">
-                <a class="la-icon--2xl icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                <a class="la-icon icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                 <!-- Sort Courses Dropdown -->
                 <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses"  style="border:none !important;">
                   <div class="la-form__input-wrap px-5">
@@ -67,7 +67,7 @@
               </div>
                 <!-- filter div -->
                 <div class="la-courses__nav-filterprops">
-                <a class="la-icon--2xl icon-filter la-courses__nav-filter " id="filteredCourses"  role="button"></a>
+                <a class="la-icon icon-filter la-courses__nav-filter " id="filteredCourses"  role="button"></a>
 
                   <!-- Filter Courses Dropdown -->
                   <div class="la-courses__nav-filterdropdown" id="filtered_sidebar">

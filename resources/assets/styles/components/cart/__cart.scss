@@ -26,8 +26,8 @@
                     &amount {
                         & .text {
                             color: var(--app-indigo-1);
-                            font-size: var(--text-xs);
-                            font-weight: var(--font-bold);
+                            font-size: var(--text-sm);
+                            font-weight: var(--font-semibold);
 
                             &:hover{
                                 color:var(--gray6);
@@ -39,7 +39,7 @@
                         top:15%;
                     }
                     &mdialog{
-                        width:340px;
+                        width:360px;
                         height:200px;
                         box-shadow: 0px 6px 12px #00000029;
                         border-radius: 10px;
@@ -67,7 +67,7 @@
                         border-bottom:1px dashed var(--gray2);
                     }
                     &input{
-                        border: 1px solid var(--gray5);
+                        border: 1px solid var(--gray4);
                         border-radius: 10px 0px 0px 10px;
                         padding: var(--size-2) var(--size-3);
                     }
@@ -85,12 +85,11 @@
                         letter-spacing: 2.8px;
                         color: var(--gray6);
                         background-color: var(--white);
-                        padding: var(--size-2) var(--size-4);
+                        padding: 9px var(--size-4);
 
                         &:hover{
                             background: var(--app-indigo-1);
                             color: var(--white);
-                            border-radius: 0;
                         }
                     }
                     &coupons{
@@ -136,23 +135,6 @@
                                 color: var(--gray5)
                             }
                         }
-                    }
-                    &btm{
-                        transition: all 0.25s ease-in;
-                        &:hover{
-                            transform: scale(1.1);
-                            transition: all 0.25s ease-in;
-                        }
-                    }
-                    &explore{
-                        position:relative;
-                        letter-spacing: 3.2px;
-                        font-size: var(--text-md);
-                    }
-                    &icon{
-                        position: relative;
-                        bottom:-10px;
-                        left:-30px;
                     }
                 }
             }

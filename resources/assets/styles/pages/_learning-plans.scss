@@ -199,8 +199,19 @@ section.la-lp--sub-faq{
             font-size:var(--text-sm);
             color:var(--app-indigo-1);
 
-            &:hover{
-                font-size:var(--text-md);
+            &:after{
+                position:absolute;
+                content:'Collapse all';
+                right:14px;
+                color:var(--app-indigo-1);
+            }
+            &:hover:after{
+                color:var(--gray6);
+                text-decoration:underline;
+            }
+            &.collapsed:after{
+                position:absolute;
+                content:'See all';
             }
         }
     }
@@ -213,15 +224,7 @@ section.la-lp--sub-faq{
 
         .la-lp__rgt-content{
             padding-top: var(--size-12);
-            .la-lp__faq-panel{
-                .la-lp__faq-main{
-                    .la-lp__faq-title{                                       
-                    
-                    }
-                }
-            }
         }
-
     }
 }
 // Section FAQ End

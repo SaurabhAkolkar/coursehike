@@ -64,12 +64,12 @@
               <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
             </ul>
             <!-- Filters : Start -->
-            <div class="la-courses__nav-filters d-flex align-items-start">
+            <div class="la-courses__nav-filters mt-2">
               <div class="la-courses__nav-props">
-                <a class="la-icon--2xl icon-list-layout la-courses__nav-filter mr-3" id="showLayout" role="button"></a>
+                <a class="la-icon icon-list-layout la-courses__nav-filter mr-3" id="showLayout" role="button"></a>
               </div>
               <div class="la-courses__nav-props">
-                <a class="la-icon--2xl icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                <a class="la-icon icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                 <!-- Sort Courses Dropdown -->
                 <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses"  style="border:none !important;">
                   <div class="la-form__input-wrap px-5">
@@ -93,7 +93,7 @@
               </div>
 
               <div class="la-courses__nav-filterprops">
-              <a class="la-icon--2xl icon-filter la-courses__nav-filter " id="filteredCourses"  role="button"></a>
+              <a class="la-icon icon-filter la-courses__nav-filter " id="filteredCourses"  role="button"></a>
                 <!-- Filter Courses Dropdown -->
                 <div class="la-courses__nav-filterdropdown" id="filtered_sidebar">
                     <div class="la-form__input-wrap px-5">
@@ -445,7 +445,7 @@
           <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-4.png" alt=""></div>
           <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-5.png" alt=""></div>
           <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-6.png" alt=""></div>
-          <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-1.png" alt=""></div>
+          <!-- <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-1.png" alt=""></div>
           <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-2.png" alt=""></div>
           <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-3.png" alt=""></div>
           <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-4.png" alt=""></div>
@@ -456,7 +456,7 @@
           <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-3.png" alt=""></div>
           <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-4.png" alt=""></div>
           <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-5.png" alt=""></div>
-          <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-6.png" alt=""></div>
+          <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-6.png" alt=""></div> -->
         </div>
       </div>
     </div>
@@ -467,7 +467,7 @@
     <div class="la-section__inner">
       <div class="container">
         <h2 class="la-section__title la-section__title--big position-relative la-anim__fade-in-top la-anim__A">Master <span>classes</span></h2>
-        <div class="la-mccourses py-4">
+        <div class="la-mccourses py-14 py-md-4">
           <div class="row justify-content-center px-lg-5 la-anim__stagger la-anim__A">
            
               @foreach ($master_classes as $master)

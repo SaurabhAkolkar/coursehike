@@ -78,14 +78,13 @@ section.la-cdashboard{
                     }
                 }
                 .la-course__tile-bars{
-                    bottom:32% ;
+                    bottom:32%;
                     left:1px;
                 }
                 .la-course__tile-more{
                     transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-moz-transition:all .2s ease-in;-ms-transition:all .2s ease-in;-o-transition:all .2s ease-in;
                 }
                 &:hover{
-                    border-radius:0;
                     .la-courses__tile-thumbnail img{
                         border-radius:0;
                         transform:scale(1.10);-webkit-transform:scale(1.10);-moz-transform:scale(1.10);-ms-transform:scale(1.10);-o-transform:scale(1.10);
@@ -124,7 +123,7 @@ section.la-cdashboard{
                 font-family:var(--body-font);
                 font-weight:var(--font-medium);
                 font-size:var(--text-sm);
-                transition:all 0.2s ease-in;-webkit-transition:all 0.2s ease-in;-moz-transition:all 0.2s ease-in;-ms-transition:all 0.2s ease-in;-o-transition:all 0.2s ease-in;
+                
                 a{
                     letter-spacing:2.8px;
                     color:#000000;   
@@ -133,11 +132,12 @@ section.la-cdashboard{
                         top:25px;
                         left:-35px;
                         font-weight: var(--font-normal);
+                        transition:all 0.2s ease-in;-webkit-transition:all 0.2s ease-in;-moz-transition:all 0.2s ease-in;-ms-transition:all 0.2s ease-in;-o-transition:all 0.2s ease-in;
                     }
-                }
-                &:hover{
-                    transform:scale(1.1);-webkit-transform:scale(1.1);-moz-transform:scale(1.1);-ms-transform:scale(1.1);-o-transform:scale(1.1);
-                    transition:all 0.2s ease-out;-webkit-transition:all 0.2s ease-out;-moz-transition:all 0.2s ease-out;-ms-transition:all 0.2s ease-out;-o-transition:all 0.2s ease-out;
+                    &:hover span{
+                       transform:translateX(10px);-webkit-transform:translateX(10px);-moz-transform:translateX(10px);-ms-transform:translateX(10px);-o-transform:translateX(10px);
+                        transition:all 0.2s ease-out;-webkit-transition:all 0.2s ease-out;-moz-transition:all 0.2s ease-out;-ms-transition:all 0.2s ease-out;-o-transition:all 0.2s ease-out;
+                    }
                 }
             }
         }
@@ -317,9 +317,7 @@ section.la-dash-mentors-list{
             font-weight: var(--font-bold);
             letter-spacing: 2.8px;
 
-            &:hover{
-                color:var(--gray3);
-            }
+            
             @media(max-width:767px){
                 text-align: center;
                 font-size: var(--text-md);
@@ -329,6 +327,12 @@ section.la-dash-mentors-list{
             position:relative;
             bottom:-25px;
             right:32px;
+            transition:all 0.2s linear;-webkit-transition:all 0.2s linear;-moz-transition:all 0.2s linear;-ms-transition:all 0.2s linear;-o-transition:all 0.2s linear;
+        }
+
+        .la-empty__browse:hover>.la-empty__browse-icon{
+            transform:translateX(10px);-webkit-transform:translateX(10px);-moz-transform:translateX(10px);-ms-transform:translateX(10px);-o-transform:translateX(10px);
+            transition:all 0.2s linear;-webkit-transition:all 0.2s linear;-moz-transition:all 0.2s linear;-ms-transition:all 0.2s linear;-o-transition:all 0.2s linear;
         }
         
     }

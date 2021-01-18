@@ -43,6 +43,14 @@
                             background: none !important;
                             text-transform: uppercase;
                             position: relative;
+                            
+                            &:first-child{
+                                margin-left:var(--size-2);
+                            }
+
+                            @include respond-below(md){
+                                white-space: nowrap;
+                            }
 
                             &:before {
                                 content: '';
@@ -69,10 +77,23 @@
                                 }
                             }
                         }
-                        &filter{
+                        &filters{
+                            display:flex;
+                            align-items:start;
 
+                            @include respond-below(md){
+                                margin-left:var(--size-8);
+                            }
+                        }
+                        &filter{
+                            font-size:var(--text-2xl);
+                            
                             &:hover{
                                 color:var(--app-indigo-1);
+                            }
+
+                            @include respond-above(sm){
+                                font-size:var(--text-3xl);
                             }
                         }
                         &filterdropdown{
@@ -116,6 +137,9 @@
             &inner {
                 position: relative;
                 // height: var(--courseH);
+                &:hover>#{$ap}-course__imgwrap img {
+                    transform: scale(1.1);
+                }
             }
             &imgwrap {
                 border-radius: var(--size-2);
@@ -142,10 +166,6 @@
                     cursor: pointer;
                 }
                 // opacity: 0.51;
-                &:hover + #{$ap}-course__imgwrap img {
-                    transform: scale(1.1);
-                }
-
             }
             &option {
                 &:hover{
@@ -166,11 +186,9 @@
             }
             &learners {
                 margin-top: auto;
-                // font: Bold 11px/13px Roboto;
-                // font-weight: var(--font-bold);
                 font-size: var(--text-xs);
-                letter-spacing: 1.1px;
-                color: #FFF;
+                letter-spacing: 1.05px;
+                color: var(--white);
                 align-self: flex-end;
 
                 /*&:after{
@@ -185,15 +203,16 @@
                 } */
             }
             &btm {
-                padding: var(--size-4) var(--size-5);
+                padding: var(--size-3) var(--size-2);
                 padding-bottom: 0;
             }
             &info {
-                margin-bottom: var(--size-3);
+                margin-bottom: var(--size-2);
             }
             &title {
                 font-weight: var(--font-bold);
                 font-size: var(--text-xl);
+                text-transform: capitalize;
                 color: #252525;
 
                 &:hover{
@@ -211,7 +230,7 @@
                         height: var(--size-10);
                         border-radius: var(--rounded-full);
                         overflow: hidden;
-                        margin-right: var(--size-3);
+                        margin-right: var(--size-2);
 
                         &:hover{
                             box-shadow:0px 0px 30px #D4D4D47A;
@@ -220,6 +239,7 @@
                     &name {
                         font-size: var(--text-sm);
                         color: #010101;
+                        text-transform: capitalize;
 
                         &:hover{
                             color:var(--app-indigo-1);

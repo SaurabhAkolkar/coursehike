@@ -54,15 +54,19 @@
                         font-family: var(--head-font);
                         font-weight: var(--font-black);
                         text-transform: uppercase;
-                        font-size: var(--text-8xl);
                         color: var(--gray2);
                         
                         @include respond-above(md) {
                             font-size: var(--text-abnormal);
                         }
-
-                        @media(max-width:991px){
+                        @include respond-below(md) {
                             text-align:center;
+                            font-size: calc(var(--text-5xl) * 2);
+                            margin-bottom:var(--size-8);
+                        }
+                        @include respond-below(sm){
+                            font-size:var(--text-5xl);
+                            margin-bottom:var(--size-4);
                         }
                     }
                 }

@@ -78,7 +78,8 @@
                                         <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
                                         <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-password"></span></span>
                                         <input id="password" type="password" class="la-form__input la-entry__input{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Enter Your Password" name="password" required>
-                                       
+                                        <span class="la-entry__input-picon"><span class="la-icon la-icon--xl icon-hide-Password"></span></span>
+                                        <span class="la-entry__input-picon"><span class="la-icon la-icon--xl icon-show-password"></span></span>
 
                                         @if ($errors->has('password'))
                                             <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
@@ -99,7 +100,7 @@
                                         </div> -->
                                         <div class="form-group ml-auto">
                                             <div class="forgot-password la-btn__plain text--burple text-right mb-md-8">
-                                                <a class="text-xs" href="{{ 'password/reset' }}" title="sign-up">{{ __('frontstaticword.ForgotPassword') }} ?</a>
+                                                <a class="text-sm" href="{{ 'password/reset' }}" title="sign-up">{{ __('frontstaticword.ForgotPassword') }} ?</a>
                                             </div>
                                         </div>
                                     </div>

@@ -272,7 +272,7 @@ use App\Announcement;
           </div>
           
           <div class="la-header__menu-item">
-            <a class="la-header__nav-link text-sm" href="/login">Login</a>
+            <a class="la-header__nav-link " href="/login">Login</a>
           </div>
           
           <div class="la-header__menu-item dropdown">

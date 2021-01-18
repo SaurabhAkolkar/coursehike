@@ -76,7 +76,7 @@
               <h1 class="la-anim__fade-in-top la-anim__A">CONTACT</h1>
             </div>
             <div class="la-contact__rgt">
-              <form class="la-contact__form" action="/contact" method="post" onsubmit="" id="contactForm">
+              <form class="la-contact__form" action="/contact" method="post"  id="contactForm">
                 @csrf
                 <div class="form-group mb-5 la-anim__stagger-item--x">
                   <label class="text-sm m-0" for="contName">Full Name</label>
@@ -95,11 +95,11 @@
                   <textarea class="form-control text-msg p-2" id="contMsg" rows="5" cols="50" name="message" placeholder="Type here" required></textarea>
                 </div>
                 <div class="la-contact__btn text-right d-none d-sm-block la-anim__stagger-item--x">
-                  <div class="btn btn-desktop text-lg text-center" type="submit" onclick="$('#contactForm').submit()">SEND</div>
+                  <button class="btn btn-desktop text-lg text-center" type="submit" onclick="$('#contactForm').submit()">SEND</button>
                 </div>
                 <!-- Mobile Button: Start-->
                 <div class="la-contact__btn text-center pt-5 d-block d-sm-none la-anim__stagger-item">
-                  <div class="btn btn-mobile btn-block text-lg text-center" type="submit" onclick="$('#contactForm').submit()">SEND</div>
+                  <button class="btn btn-mobile btn-block text-lg text-center" type="submit" onclick="$('#contactForm').submit()">SEND</button>
                 </div>
                 <!-- Mobile Button: End-->
               </form>

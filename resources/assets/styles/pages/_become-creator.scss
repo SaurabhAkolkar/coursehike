@@ -451,14 +451,23 @@ section.la-bgcreator--faq{
 		font-weight:var(--font-light);
 		font-size:16px !important;
 	}
-	.la-bgcreator__faq-all {
-		.la-bgcreator__all-link{
+}
+.la-bgcreator__faq-all {
+	a{
+		&:after{
+			position:absolute;
+			content:'Collapse all';
+			right:0;
 			color:var(--app-indigo-1);
-			&:hover{
-				color:var(--gray6);
-				text-decoration:underline;
-			}
 		}
-	}
+		&:hover:after{
+			color:var(--gray6);
+			text-decoration:underline;
+		}
+		&.collapsed:after{
+			position:absolute;
+			content:'See all';
+		}
+	}		
 }
 // FAQ section End
