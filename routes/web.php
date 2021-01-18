@@ -210,7 +210,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::get('/firstsection', 'FirstSectionController@index');
       Route::put('firstsection/update', 'FirstSectionController@update');
-
+      
       Route::get('/featuredMentors', 'FeaturedMentorController@index');
       Route::get('/featuredMentors/create', 'FeaturedMentorController@create');
       Route::post('/featuredMentors/store', 'FeaturedMentorController@store');

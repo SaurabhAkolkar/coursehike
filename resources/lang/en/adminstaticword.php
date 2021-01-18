@@ -514,5 +514,6 @@ return [
     'UnpublishRequest'=>'Unpublished Requests',
     'PurchaseDate'=>'Purchase Date',
     'level'=>'Level',
+    'Advertisement'=>'Advertisement',
 
 ];

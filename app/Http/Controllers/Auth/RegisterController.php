@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Mail\WelcomeUser;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\ZohoController;
 use App\Setting;
 use Carbon\Carbon;
 use Redirect;
@@ -40,8 +41,9 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(ZohoController $ZohoController)
     {
+        $this->ZohoController = $ZohoController;
         $this->middleware('guest');
     }
 
@@ -107,7 +109,12 @@ class RegisterController extends Controller
         // {
         //     $verified = NULL;
         // }
-        
+        $zohoData = [];
+        $zohoData['email'] = $data['email'];
+        $zohoData['mobile'] = $data['mobile'];
+        $zohoData['name'] = $data['fname'].' '.$data['lname'];
+        $response = $this->ZohoController->createRecords($zohoData);
+
                 
         $user = User::create([
 
@@ -121,6 +128,7 @@ class RegisterController extends Controller
         ]);
         
 
+      
         if($setting->w_email_enable == 1){
             try{
                
