@@ -167,6 +167,7 @@ section.la-start-creating{
 			right:-18px;
 			transition:.2s ease-in;
 			-webkit-transition:.2s ease-in;
+			-moz-transition:.2s ease-in;
 		}
 	}
 	.la-vicon__link:hover>span{
@@ -345,6 +346,7 @@ section.la-bgcreator--ad-banner{
 				right:-18px;
 				transition:.2s ease-in;
 				-webkit-transition:.2s ease-in;
+				-moz-transition:.2s ease-in;
 			}	
 		}
 		.la-arrow-link:hover>span{

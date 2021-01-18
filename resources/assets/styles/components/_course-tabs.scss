@@ -18,17 +18,7 @@
                 color:var(--gray5);
                 font-weight:var(--font-normal);
             }
-            &readmore{
-                color:var(--app-indigo-1);
-                font-size:var(--text-sm);
-                transition:all .3s ease-in;-webkit-transition:all .3s ease-in;-moz-transition:all .3s ease-in;-ms-transition:all .3s ease-in;-o-transition:all .3s ease-in;
-                &:hover{
-                    color:var(--app-indigo-1);
-                    font-size:var(--text-md);
-                    transition:all .3s ease-out;-webkit-transition:all .3s ease-out;-moz-transition:all .3s ease-out;-ms-transition:all .3s ease-out;-o-transition:all .3s ease-out;
-                }
-            }
-
+            
             &resource-title, &certificate-title{
                 color:var(--gray7);
                 font-weight:var(--font-bold);

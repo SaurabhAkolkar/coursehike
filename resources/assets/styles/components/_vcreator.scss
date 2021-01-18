@@ -6,11 +6,11 @@
                 left:-60px;
                 top:35px;
                 opacity:0.5;
-                transition: all 0.25s ease-in;
+                transition: all 0.25s ease-in;-webkit-transition: all 0.25s ease-in;-moz-transition: all 0.25s ease-in;
 
                 &:hover{
-                    transform:translateX(-10px);
-                    transition: all 0.25s ease-in;
+                    transform:translateX(-10px);-webkit-transform:translateX(-10px);-moz-transform:translateX(-10px);
+                    transition: all 0.25s ease-in;-webkit-transition: all 0.25s ease-in;-moz-transition: all 0.25s ease-in;
                 }
 
                 @media(max-width:767px){
@@ -18,7 +18,7 @@
                     top:5px;
 
                     &:hover{
-                        transform:none;
+                        transform:none;-webkit-transform:none;-moz-transform:none;
                     }
                 }
             }
@@ -39,6 +39,8 @@
                 top:0;
                 left:0;
                 background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9));
+                -webkit-background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9));
+                -moz-background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9));
             }
             &name {
                 font-size: calc(var(--text-6xl) * 2);

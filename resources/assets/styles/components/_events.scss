@@ -50,7 +50,7 @@
                     right:25px;
                     color: var(--gray9) !important;
                     font-weight: var(--font-normal);
-                    transform:rotate(180deg);
+                    transform:rotate(180deg);-webkit-transform:rotate(180deg);-moz-transform:rotate(180deg);
                     transition: all 0.25s ease-in;-webkit-transition: all 0.25s ease-in;-moz-transition: all 0.25s ease-in;-ms-transition: all 0.25s ease-in;-o-transition: all 0.25s ease-in;
                 }
                   

@@ -199,9 +199,8 @@ use Carbon\Carbon;
                   </div>
                   
                   <div class="la-vcourse__btn-wrap text-right mt-3">
-                    <a class="la-btn__arrow-down la-vcourse__btn d-inline-block text-center collapsed" data-toggle="collapse" href="#about_collapse">
-                      <span class="icon-down-arrow la-btn__icon la-btn__icon--grey"></span>
-                      <div class="la-btn__text la-btn__text--purple">Read More</div>
+                    <a class="la-btn__arrow-down la-vcourse__btn-collapse d-inline-block text-center collapsed" data-toggle="collapse" href="#about_collapse">
+                      <div class="la-vcourse__btn-text la-btn__text la-btn__text--purple pt-4">Read More</div>
                     </a>
                   </div>
                 </div>
@@ -248,7 +247,16 @@ use Carbon\Carbon;
                 <div class="col-12 col-lg px-0">
                   <div class="la-ctabs__about">
                     {!! $course->detail !!}
-                  </div><a class="la-ctabs__readmore d-flex justify-content-center justify-content-md-end mt-lg-3" role="button" href="#readmore" data-toggle="collapse" aria-expanded="true">Read More</a>
+                    <span class="la-ctabs__about-collapse collapse" id="read_more">
+                      {!! $course->detail !!}
+                    </span>
+                  </div>
+                 
+                  <div class="la-vcourse__btn-wrap text-center">
+                    <a class="la-btn__arrow-down la-vcourse__btn-collapse d-inline-block text-center collapsed" data-toggle="collapse" href="#read_more">
+                      <div class="la-vcourse__btn-text la-btn__text la-btn__text--purple pt-4">Read More</div>
+                    </a>
+                  </div>
                 </div>
             </div>
             <div class="col-12 mb-4">

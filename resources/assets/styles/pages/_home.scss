@@ -1,7 +1,7 @@
 .la-hero__top{
     .la-hero{
         .la-hero__tag{
-            font-size:var(--text-2xl);
+            font-size:var(--text-xl);
         }
         .la-hero__title{
             font-size:calc(var(--text-5xl) * 2);
@@ -11,7 +11,7 @@
             color: var(--app-indigo-1);
         }
         .la-hero__lead{
-            font-size:var(--text-2xl);
+            font-size:var(--text-xl);
             line-height:1.2;
         }
     }
@@ -20,9 +20,6 @@
 @media (max-width:991px){
     .la-hero__top{
         .la-hero{
-            .la-hero__tag{
-                font-size: var(--text-xl);
-            }
             .la-hero__title{
                 font-size:var(--text-6xl);
                 line-height: var(--text-6xl);

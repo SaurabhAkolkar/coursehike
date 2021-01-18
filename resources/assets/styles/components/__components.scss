@@ -141,6 +141,10 @@
                 border-left: 0.5px solid #FFC516;
                 opacity: 0.5;
                 transform: rotate(-55deg) translate(-140px, 570px);
+                -webkit-transform: rotate(-55deg) translate(-140px, 570px);
+                -moz-transform: rotate(-55deg) translate(-140px, 570px);
+                -ms-transform: rotate(-55deg) translate(-140px, 570px);
+                -o-transform: rotate(-55deg) translate(-140px, 570px);
                 bottom: 0px;
                 right: 0;
                 position: absolute;
@@ -333,6 +337,10 @@
                 top: -243px;
                 left: 640px;
                 background: transparent linear-gradient(233deg, #FFC516 0%, #FFE598 100%) 0% 0% no-repeat padding-box;
+                -webkit-background: transparent linear-gradient(233deg, #FFC516 0%, #FFE598 100%) 0% 0% no-repeat padding-box;
+                -moz-background: transparent linear-gradient(233deg, #FFC516 0%, #FFE598 100%) 0% 0% no-repeat padding-box;
+                -ms-background: transparent linear-gradient(233deg, #FFC516 0%, #FFE598 100%) 0% 0% no-repeat padding-box;
+                -o-background: transparent linear-gradient(233deg, #FFC516 0%, #FFE598 100%) 0% 0% no-repeat padding-box;
                 opacity: 1;
                 position: absolute;
             }

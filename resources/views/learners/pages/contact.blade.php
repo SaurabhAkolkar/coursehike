@@ -41,7 +41,7 @@
               <div class="la-contact__connect order-first">
                 <h6 class="m-0 text-xl text-md-2xl la-anim__stagger-item">Feel free to reach us</h6>
                 <h2 class="text-5xl text-md-6xl la-anim__stagger-item">Let's Connect </h2>
-                <p class="text-sm pt-2 la-anim__stagger-item">Stet clita kasd gubergen, no sea takimata sanctus est Lorem Ipsum dolor sit amet. Lorem ipsum dolor sit amet.                            </p>
+                <p class="text-sm pt-2 la-anim__stagger-item">Your search for world-class mentors, loyal student base, ends with LILA. Holler at us! Let’s get talking!</p>
               </div>
               <div class="la-contact__btm d-none d-sm-block">
                 <div class="la-contact__details la-anim__stagger-item"><span class="la-icon--xl icon-contact-number mr-3"></span><a  href="tel:+91 9999999999">+91 9999999999</a></div>

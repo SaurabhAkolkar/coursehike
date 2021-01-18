@@ -253,7 +253,7 @@ $(function(){
       pin: true,
       pinSpacing: false,
       start: "top 15%",
-      end: "+=1130px",
+      end: "+=1000px",
     }, opacity: 0.2
   });
 
@@ -264,7 +264,7 @@ $(function(){
       pin: true,
       pinSpacing: false,
       start: "top 20%",
-      end: "+=1000",
+      end: "+=500",
     }, opacity: 1
   });
   

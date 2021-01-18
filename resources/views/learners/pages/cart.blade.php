@@ -202,7 +202,7 @@
                 <div class="col-md-6 col-lg-3 la-anim__stagger-item--x">
                     <div class=" la-btn__plain text--burple text-md h-75 d-flex align-items-center justify-content-center justify-content-md-start">
                       <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8 la-anim__fade-in-right">
-                        <a href="/master-classes" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
+                        <a href="/browse/courses" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
                       </div>
                     </div>
                 </div>
