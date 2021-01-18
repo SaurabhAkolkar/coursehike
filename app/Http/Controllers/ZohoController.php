@@ -11,27 +11,40 @@ use zcrmsdk\crm\bulkcrud\ZCRMBulkCallBack;
 use zcrmsdk\crm\bulkcrud\ZCRMBulkCriteria;
 use zcrmsdk\crm\bulkcrud\ZCRMBulkQuery;
 use zcrmsdk\crm\bulkcrud\ZCRMBulkRead;
+//use zcrmsdk\oauth\ZohoOAuth;
+use zcrmsdk\oauth\ZohoOAuthClient;
+
 
 class ZohoController extends Controller
 {
     public function __construct()
     {
-        $configuration = array("client_id" => "1000.P15TJJ3B5PQJF7CXZPMMOJLH1HT50P", 'scope' => 'ZohoCRM.modules.all',"client_secret" => "f5ed8a0d0e7f1a58e4f2a0d265d9784da5cb0be984", "redirect_uri" => "/", "currentUserEmail" => "vikram@earningdesigns.com");
+        $configuration = array("client_id" => "1000.P15TJJ3B5PQJF7CXZPMMOJLH1HT50P",
+                                "client_secret" => "f5ed8a0d0e7f1a58e4f2a0d265d9784da5cb0be984",
+                                "redirect_uri" => "http://localhost:8000/",
+                                "currentUserEmail" => "vikram@earningdesigns.com", 
+                                "apiBaseUrl"=>"www.zohoapis.in",
+                                "apiVersion"=>"v2",
+                                "access_type"=>"offline",
+                                "persistence_handler_class"=>"ZohoOAuthPersistenceHandler",
+                                "accounts_url"=>"https://accounts.zoho.in",
+                                "token_persistence_path" => 'C:\xampp\htdocs\lila-laravel\public\files\token' );
+
         ZCRMRestClient::initialize($configuration);
-        //  dd($object);
-        $oAuthClient = ZohoOAuth::getClientInstance();
        
-        $grantToken = "1000.70bf4c4a3f1e4bd53a56cccde1b023fd.2373ad4460fd8a23c652d7a1dd3a33de";
-        $oAuthTokens = $oAuthClient->generateAccessToken($grantToken);
-        dd($oAuthTokens);
-        // dd($oAuthTokens);
+        $oAuthClient = ZohoOAuth::getClientInstance();
+
+        // $grantToken = "1000.cde740fef5cac544990a28528a45f22c.38df68148ac9cd6b96f69a5a5b981a4f";
+        // $oAuthTokens = $oAuthClient->generateAccessToken($grantToken);
+       // dd($oAuthTokens);
+        // dd($oAuthTokens);ZohoCRM.modules.all
     }
 
-    public function oAuth($grantToken)
-    {
-        $oAuthClient = ZohoOAuth::getClientInstance();
-        $oAuthClient->generateAccessToken($grantToken);
-    }
+    // public function oAuth($grantToken)
+    // {
+    //     $oAuthClient = ZohoOAuth::getClientInstance();
+    //     $oAuthClient->generateAccessToken($grantToken);
+    // }
 
     public function createUser()
     {
@@ -98,16 +111,21 @@ class ZohoController extends Controller
         }
     }
 
-    public function createRecords()
+    public function createRecords($data)
     {
-        $moduleIns = ZCRMRestClient::getInstance()->getModuleInstance("LILA_Subscribers_DEVs"); //to get the instance of the module
+        $moduleIns = ZCRMRestClient::getInstance()->getModuleInstance("LILASubscribersDEVs"); //to get the instance of the module
         $records = array();
-        $record = ZCRMRecord::getInstance("LILA_Subscribers_DEVs", null);  //To get ZCRMRecord instance
+        $record = ZCRMRecord::getInstance("LILASubscribersDEVs", null);  //To get ZCRMRecord instance
         
-        $record->setFieldValue("Email", "harish4@example.com");
-        $record->setFieldValue("Name", "harish");
-        $record->setFieldValue("Phone", "81900657820");
-        $record->setFieldValue("Plan", "Monthly");
+        if(!isset($data)){
+            $data['email'] = 'harish@earningdesigns.com'; 
+            $data['name'] = 'harish'; 
+            $data['mobile'] = '8698108190'; 
+        }
+        $record->setFieldValue("Email", $data['email']);
+        $record->setFieldValue("Name", $data['name']);
+        $record->setFieldValue("Phone", $data['mobile']);
+        $record->setFieldValue("Plan", 'monthly');
         $record->setFieldValue("Subscription_Status", "Free Trial");
         /** Following methods are being used only by Inventory modules **/
        
