@@ -18,7 +18,7 @@
               <div class="la-cbadges__item pb-5 mb-5">
                 <div class="row no-gutters px-2 px-sm-0 py-5 py-sm-2">
                   <div class="col d-flex flex-row justify-content-start justify-content-lg-center">
-                    <div class="la-cbadge la-anim__wrap">
+                    <div class="la-cbadge la-anim__wrap position-relative">
                         <div class="la-cbadge__thumbnail la-anim__stagger-item" data-toggle="popover" data-trigger="hover" data-placement="bottom" title= "EXCLUSIVITY" data-content="A Badge you earn when you finish an exclusive course." > 
                             <span class="la-icon la-icon--6xl icon-badge-purple">
                               <span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span>

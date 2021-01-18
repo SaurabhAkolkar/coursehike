@@ -79,16 +79,16 @@
               <form class="la-contact__form" action="/contact" method="post"  id="contactForm">
                 @csrf
                 <div class="form-group mb-5 la-anim__stagger-item--x">
-                  <label class="text-sm m-0" for="contName">Full Name</label>
+                  <label class="text-sm m-0" for="contName">Full Name <span style="color:var(--danger)">*</span></label>
                   <input class="form-control p-0" id="contName" type="text" name="fname" placeholder="Enter your name" required >
                 </div>
                 <div class="form-group mb-5 la-anim__stagger-item--x">
-                  <label class="text-sm m-0" for="contEmail">Email</label>
+                  <label class="text-sm m-0" for="contEmail">Email <span style="color:var(--danger)">*</span></label>
                   <input class="form-control p-0" id="contEmail" type="email" name="email" placeholder="Enter your email id" required>
                 </div>
                 <div class="form-group mb-5 la-anim__stagger-item--x">
-                  <label class="text-sm m-0" for="contPhone">Contact Number</label>
-                  <input class="form-control p-0" id="contPhone" type="tel" name="mobile" placeholder="XXXXXXXXXX" required>
+                  <label class="text-sm m-0" for="contPhone">Contact Number <span style="color:var(--danger)">*</span></label>
+                  <input class="form-control p-0" id="contPhone" type="tel" name="mobile" placeholder="Enter your phone number" required>
                 </div>
                 <div class="form-group mb-5 la-anim__stagger-item--x">
                   <label class="text-sm" for="contMsg">Message</label>

@@ -12,13 +12,13 @@
               <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">COURSES & CLASSES BY</p>
               <h1 class="la-hero__title la-anim__stagger-item">World’s best <span class="la-hero__subtitle">Creators</span></h1>
               <p class="la-hero__lead pr-5 la-anim__stagger-item">{{$firstSection->sub_heading}}</p>
-              <div class="la-hero__actions d-lg-flex align-items-center la-anim__stagger-item">
-                <div>
+              <div class="la-hero__actions d-md-flex align-items-center la-anim__stagger-item">
+                <div class="col-md-7 px-0">
                     <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary d-none d-lg-block">Subscribe Now</a>
                     <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary btn-block d-block d-lg-none">Subscribe Now</a>
-                    <p class="m-0 pt-1 pl-1 text-center text-sm-left">Instant access to all courses at nominal monthly fees</p>
+                    <p class="m-0 pt-1 pl-1 text-center text-md-left">Instant access to all courses at nominal monthly fees</p>
                 </div>
-                <div class="la-soffer d-flex d-lg-block justify-content-center  my-lg-0">
+                <div class="col-md-5 px-0 la-soffer d-flex d-lg-block justify-content-center  mb-lg-auto">
                   <div class="la-soffer__bestprice"> <sup><small>$</small></sup>  39 / Month</div>
                   <div class="la-soffer__realprice"> <sup><small>$</small></sup>  49 / Month</div>
                 </div>
