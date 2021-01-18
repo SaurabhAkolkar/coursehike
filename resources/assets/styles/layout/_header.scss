@@ -174,7 +174,7 @@ $sidemenuWidth: 300px;
                         &:before {
                             content: '';
                             position: absolute;
-                            top: -4px;
+                            top: -6px;
                             left: calc(-1 * var(--size-2));
                             width: var(--size-5);
                             height: var(--size-5);

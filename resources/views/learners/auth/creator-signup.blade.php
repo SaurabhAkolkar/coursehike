@@ -30,7 +30,7 @@
                           </div>
                           
                             @error('display_name')
-                                <span class="alert alert-danger" >{{ $message }}</span>
+                                <span class="alert alert-danger" style="margin-left:">{{ $message }}</span>
                             @enderror 
                           
 

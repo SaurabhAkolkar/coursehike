@@ -1,5 +1,5 @@
 
-<div class="col-md-4 la-playlist__item mb-6 mb-md-10 la-anim__stagger-item" role="button">
+<div class="col-md-4 la-playlist__item mb-6 mb-md-10 la-anim__stagger-item" >
     <div class="la-playlist__item-top position-relative mb-4">
         <div class="la-playlist__option-more la-playlist__option-more--white position-absolute">
             <a class="dropdown-toggle d-inline-block la-course__menubtn p-2" id="playlist_menu" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
