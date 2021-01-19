@@ -22,9 +22,10 @@ class Course extends Component
     public $creatorUrl;
     public $addedToWhishList;
     public $removeFromPlaylist;
+    public $learnerCount;
 
 
-    public function __construct($id, $img, $course, $rating, $url, $creatorImg, $creatorName, $creatorUrl, $addedToWhishList=false, $removeFromPlaylist = false)
+    public function __construct($id, $img, $course, $learnerCount, $rating, $url, $creatorImg, $creatorName, $creatorUrl, $addedToWhishList=false, $removeFromPlaylist = false)
     // public function __construct()
     {
         $this->id = $id;
@@ -39,6 +40,7 @@ class Course extends Component
         $this->addedToWhishList = $addedToWhishList;
         $this->removeFromPlaylist = false;
         $this->removeFromPlaylist = $removeFromPlaylist;
+        $this->learnerCount = $learnerCount;
     }
 
     /**

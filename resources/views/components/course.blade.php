@@ -35,7 +35,7 @@
 
                         </ul>
 
-                        <div class="la-course__learners"><strong>300</strong>  Learners</div>
+                        <div class="la-course__learners"><strong>{{$learnerCount}}</strong>  Learners</div>
                        
                     </div>
                 </a>

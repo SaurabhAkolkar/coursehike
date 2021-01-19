@@ -96,7 +96,6 @@ class LearnController extends Controller
         $three_rating_percentage = round(100*$course->review->where('rating',3)->count()/$total_rating);
         $two_rating_percentage = round(100*$course->review->where('rating',2)->count()/$total_rating);
         $one_rating_percentage = round(100*$course->review->where('rating',1)->count()/$total_rating);
-        
 
         $data = array(
             'video_access'=> $video_access,
@@ -115,6 +114,8 @@ class LearnController extends Controller
             'order_type'=>$order_type
 
         );
+
+
         return view('learners.pages.course')->with($data);
 
     }

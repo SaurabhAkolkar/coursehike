@@ -40,10 +40,11 @@ use App\Announcement;
               </div>
               <!-- Global Search: End-->
             </div>
-
-            <div class="la-header__menu-item d-none d-lg-block @if(Request::segment(1) == 'admins') active @endif">
-                <a class="la-header__menu-link la-header__menu-icon la-icon la-icon--xl icon-admin" role="button" target="_blank" href="/admins"></a>
-            </div>
+            @if(Auth::user()->role == 'mentors' || Auth::user()->role == 'admin')
+              <div class="la-header__menu-item d-none d-lg-block @if(Request::segment(1) == 'admins') active @endif">
+                  <a class="la-header__menu-link la-header__menu-icon la-icon la-icon--xl icon-admin" role="button" target="_blank" href="/admins"></a>
+              </div>
+            @endif
 
             <div class="la-header__menu-item d-none d-lg-block @if(Request::segment(1) == 'profile') active @endif">
               <a class="la-header__menu-link la-header__menu-icon la-icon icon-profile" href="/profile"></a>
