@@ -4,6 +4,16 @@
  <!-- Section: Start-->
  <section class="la-page--gcreator">
     <div class="container-fluid la-anim__wrap">
+    @if(session('message'))
+              <div class="la-btn__alert position-relative">
+                <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" role="alert">
+                    <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
+                    <button type="button" class="close mt-3" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true" style="color:#56188C">&times;</span>
+                    </button>
+                </div>
+              </div>
+     @endif
       <div class="row">
         <!-- Column: Start-->
         <div class="col-12 col-lg-12 la-gc__banner">

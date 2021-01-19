@@ -156,9 +156,12 @@
                                     <div class="pl-2 mt-n1">Advanced</div>
                                   </label>
                                 </div>
-                                <a href="/browse/courses" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">RemoveFilters</a> 
+        
                                 
                                 <button onclick="$('#filter_form').submit()" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Apply</button> 
+                                <div class="mt-6">
+                                  <a href="/browse/courses" role="button" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Clear</a> 
+                                </div>
                             </form>
                       </div>
                   </div>
