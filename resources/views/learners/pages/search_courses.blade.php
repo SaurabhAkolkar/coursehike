@@ -189,6 +189,7 @@
                             :creatorImg="$course->user->user_img"
                             :creatorName="$course->user->fname"
                             :creatorUrl="$course->user->id"
+                            :learnerCount="$course->learnerCount"
                           />
                       @endforeach                  
                   @endif
