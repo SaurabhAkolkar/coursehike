@@ -61,6 +61,7 @@
                                     :creatorName="$course->courses[0]->title"
                                     :creatorUrl="$course_url"
                                     :removeFromPlaylist="$removeFromPlaylist"
+                                    :learnerCount="$course->learnerCount"
                                 />
                               </div>
                               @endforeach

@@ -69,6 +69,7 @@
                           :creatorImg="$course->user->user_img"
                           :creatorName="$course->user->FullName"
                           :creatorUrl="$course->user->id"
+                          :learnerCount="$course->learnerCount"
                         />
                     </div>
                   @endif
