@@ -70,6 +70,7 @@
                           :creatorName="$courses->courses->user->FullName"
                           :creatorUrl="$courses->courses->user->id"
                           :addedToWhishList="$addedToWhishList"
+                          :learnerCount="$courses->courses->leanerCount"
                         />
                     </div>
                     @endforeach

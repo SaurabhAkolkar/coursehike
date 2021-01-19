@@ -226,6 +226,7 @@
                             :creatorImg="$course->user->user_img"
                             :creatorName="$course->user->fname"
                             :creatorUrl="$course->user->fname"
+                            :learnerCount="$course->learnerCount"
                           />
                       @endforeach
 
@@ -244,6 +245,7 @@
                         :creatorImg="$tattoo->creatorImg"
                         :creatorName="$tattoo->creatorName"
                         :creatorUrl="$tattoo->creatorUrl"
+                        :learnerCount="$tattoo->learnerCount"
                       />
                   @endforeach
 
@@ -261,6 +263,7 @@
                           :creatorImg="$tattoo->creatorImg"
                           :creatorName="$tattoo->creatorName"
                           :creatorUrl="$tattoo->creatorUrl"
+                          :learnerCount="$tattoo->learnerCount"
                         />
                     @endforeach
               </div>
@@ -277,6 +280,7 @@
                         :creatorImg="$tattoo->creatorImg"
                         :creatorName="$tattoo->creatorName"
                         :creatorUrl="$tattoo->creatorUrl"
+                        :learnerCount="$tattoo->learnerCount"
                       />
                   @endforeach
               </div>
