@@ -156,7 +156,8 @@
                                     <div class="pl-2 mt-n1">Advanced</div>
                                   </label>
                                 </div>
-
+                                <a href="/browse/courses" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">RemoveFilters</a> 
+                                
                                 <button onclick="$('#filter_form').submit()" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Apply</button> 
                             </form>
                       </div>
@@ -178,7 +179,9 @@
                 <li class="nav-item la-courses__nav-item la-anim__stagger-item--x"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative text-nowrap">{{ $category->title}}</span></a></li>
               @endforeach
             </ul>
+          @endif
           </nav>
+         
              
                    <x-add-to-playlist 
                       :playlists="$playlists"
@@ -197,6 +200,7 @@
                                     :creatorImg="$course->user->user_img"
                                     :creatorName="$course->user->fname"
                                     :creatorUrl="$course->user->id"
+                                    :learnerCount="$course->learnerCount"
                                   />
                               @endforeach
 
@@ -231,6 +235,7 @@
                                       :creatorImg="$course->user->user_img"
                                       :creatorName="$course->user->fname"
                                       :creatorUrl="$course->user->id"
+                                      :learnerCount="$course->learnerCount"
                                     />
                                 @endforeach
 
@@ -242,8 +247,7 @@
                     </div>
 
             @endif
-            @endif
-
+  
           </div>
         </div>
       </div>

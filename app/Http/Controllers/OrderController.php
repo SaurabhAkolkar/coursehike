@@ -59,7 +59,7 @@ class OrderController extends Controller
         // $orders = Order::all();
 
         // UserPurchasedCourse::
-        $total_purchase = UserInvoiceDetail::with('user')->where('status','paid')->get();
+        $total_purchase = UserInvoiceDetail::with('user')->where('status','successful')->get();
         $courses_count = $total_purchase->where('purchase_type','all_classes')->count();
         $classes_count = $total_purchase->where('purchase_type','selected_classes')->count();
         $total_earning = $total_purchase->sum('total');

@@ -6,6 +6,8 @@ use Firebase\JWT\JWT;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
+use App\UserPurchasedCourse;
+use App\UserWatchTimelog;
 
 class Course extends Model
 {
@@ -139,6 +141,25 @@ class Course extends Model
     {
         return Storage::url(config('path.course.img'). $value);
     }
+
+    public function getLearnerCountAttribute()
+    {
+        $count = 0;
+        $purchased_courses = UserPurchasedCourse::where(['course_id' => $this->id])->groupBy('user_id')->pluck('user_id');
+        
+        if($purchased_courses !=null){
+            $subscribers = UserWatchTimelog::where(['course_id'=>$this->id])->whereNotIn('user_id', $purchased_courses)->groupBy('course_id')->count();
+
+            $count = $count + $subscribers;
+            $count = $count + count($purchased_courses);
+        }else{
+
+            $subscribers = UserWatchTimelog::where(['course_id'=>$this->id])->groupBy('course_id')->count();
+            $count = $count + $subscribers;
+        }
+        return $count;
+    }
+
 
     public function getPreviewVideoAttribute($value)
     {

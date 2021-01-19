@@ -57,12 +57,28 @@ use Carbon\Carbon;
                 <span class="la--label mt-1">Videos</span>
               </div>
               <div class="la-vcourse__info-item la-vcourse__info--learners d-flex flex-column align-items-center justify-content-end mx-10">
-                <div class="la--count">300</div>
+                <div class="la--count">{{$course->learnerCount}}</div>
                 <span class="la--label mt-1">Learners</span>
               </div>
               <div class="la-vcourse__info-item la-vcourse__info--level d-flex flex-column align-items-center justify-content-end">
-                <div class="la--icon"><img src="/images/learners/icons/level-beginner.svg" alt="beginner"></div>
-                <span class="la--label mt-1">Beginner</span>
+                <div class="la--icon">
+                  @if($course->level == 1)
+                    <img src="/images/learners/icons/level-beginner.svg" alt="beginner">
+                  @elseif($course->level == 2)
+                    <img src="/images/learners/icons/level-beginner.svg" alt="beginner">
+                  @else
+                    <img src="/images/learners/icons/level-beginner.svg" alt="beginner">
+                  @endif
+                </div>
+                <span class="la--label mt-1">
+                  @if($course->level == 1)
+                    Beginner
+                  @elseif($course->level == 2)
+                    Intermidiate
+                  @else
+                    Advanced
+                  @endif
+                </span>
               </div>
             </div>
           </div>
@@ -297,7 +313,7 @@ use Carbon\Carbon;
                 <div class="la-ctabs__certificate d-flex">
                   <div class="la-ctabs__certificate-pdf"><i class="la-icon--5xl icon-download mr-8"></i></div>
                   <div class="la-ctabs__certificate-desc">
-                    <div class="la-ctabs__certificate-title text-lg head-font text-uppercase">Water Color</div><a class="la-ctabs__certificate-file text-sm" href="">watercolor_certificate.pdf</a>
+                    <div class="la-ctabs__certificate-title text-lg head-font text-uppercase">{{$course->title}}</div><a class="la-ctabs__certificate-file text-sm" href="">{{$course->title}}.pdf</a>
                   </div>
                 </div>
               </div>
@@ -776,7 +792,7 @@ use Carbon\Carbon;
                                       </li>
                                   </ul>
 
-                                  <div class="la-course__learners"><strong>300</strong>  Learners</div>
+                                  <div class="la-course__learners"><strong>{{$course->learnerCount}}</strong>  Learners</div>
                           </div>
                       
                           <div class="la-course__imgwrap">
@@ -998,6 +1014,19 @@ use Carbon\Carbon;
                     } 
                   
                 });
+
+                $('.selected_classes').change(function(){
+                  
+                    if($('.selected_classes').not(":checked"))
+                    {
+                      $('#selectClasses').prop('checked', true);
+                    }
+
+                    if ($('.selected_classes:checked').length == $('.selected_classes').length) {
+                      $('#allClasses').prop('checked', true);
+                    }
+                });
+              
 
 
   </script>
