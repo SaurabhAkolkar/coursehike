@@ -756,6 +756,8 @@ Route::view('/learning-plans','learners.pages.learning-plans');
 Route::view('/become-creator','learners.pages.become-creator');
 Route::view('/guided-creator','learners.pages.guided-creator');
 Route::view('/contact','learners.pages.contact');
+Route::view('/about', 'learners.pages.about');
+Route::view('/cancellations-refund', 'learners.pages.cancellations-refund');
 
 //- Payment Info of Learners
 Route::view('/payment-cards', 'learners.pages.payment-cards');

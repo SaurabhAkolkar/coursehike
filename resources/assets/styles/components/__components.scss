@@ -69,6 +69,16 @@
                             margin-bottom:var(--size-4);
                         }
                     }
+                    &medium{
+                        font-family: var(--head-font);
+                        font-weight: var(--font-black);
+                        text-transform: uppercase;
+                        color: var(--gray2);
+                        
+                        @include respond-above(md){
+                            font-size:calc(var(--text-6xl) + var(--text-2xl));
+                        }
+                    }
                 }
 
             }
@@ -131,6 +141,22 @@
                         @media(max-width:767px){
                             display:none;
                         }
+                    }
+
+                    &right2{
+                        left:20%;
+                        z-index:0;
+                        border:3px solid var(--yellow);
+
+                        @include respond-above(sm){
+                            top:-200px !important;
+                            left:55%;
+                        }
+                        @include respond-above(md){
+                            top:-500px !important;
+                            left:25%;
+                        }
+                        
                     }
                 }
             }

@@ -217,6 +217,7 @@ use App\Announcement;
                 <a class="dropdown-item la-header__dropdown-item text-sm" href="/learning-plans">Learning Plans</a>
                 <a class="dropdown-item la-header__dropdown-item text-sm" href="/become-creator">Become a Creator</a>
                 <a class="dropdown-item la-header__dropdown-item text-sm" href="/guided-creator">Guided Creator</a>
+                <a class="dropdown-item la-header__dropdown-item text-sm" href="/about">About Us</a>
                 <a class="dropdown-item la-header__dropdown-item text-sm" href="/contact">Contact Us</a>
 
                 <a class="dropdown-item la-header__dropdown-item text-sm" role="button" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -340,6 +341,7 @@ use App\Announcement;
             <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="profileBeforeLogin" style="border:none;">
               <a class="dropdown-item la-header__dropdown-item text-sm" href="/become-creator">Become a Creator</a>
               <a class="dropdown-item la-header__dropdown-item text-sm" href="/guided-creator">Guided Creator</a>
+              <a class="dropdown-item la-header__dropdown-item text-sm" href="/about">About Us</a>
               <a class="dropdown-item la-header__dropdown-item text-sm" href="/contact">Contact Us</a>
             </div>
           </div>

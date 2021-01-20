@@ -16,8 +16,6 @@
 @section('content')
 
 <section class="la-section__small la-cbg--main">
-    
-    
     <div class="la-section__inner">
       <div class="container">
         
@@ -110,7 +108,7 @@
                                       <label class="glabel d-flex" for="course_{{$c->id}}">
                                         <input class="d-none" type="checkbox" id="course_{{$c->id}}" @if(in_array($c->id, $selected_categories)) checked @endif onclick="addToCategory({{$c->id}})" value="{{$c->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                         <div class="pl-2 mt-n1">{{$c->title}}
-                                            @if($c->subcategory != null)
+                                            <!-- @if($c->subcategory != null)
                                               <ul class="d-flex flex-column">
                                                 @foreach($c->subcategory as $sc)
                                                   <li>
@@ -121,8 +119,7 @@
                                                   </li>
                                                 @endforeach
                                               </ul>
-                                            @endif
-                                            
+                                            @endif -->                                            
                                           </div>
                                       </label>
                                     @endforeach
@@ -156,9 +153,12 @@
                                     <div class="pl-2 mt-n1">Advanced</div>
                                   </label>
                                 </div>
-                                <a href="/browse/courses" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">RemoveFilters</a> 
+        
                                 
                                 <button onclick="$('#filter_form').submit()" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Apply</button> 
+                                <div class="mt-6">
+                                  <a href="/browse/courses" role="button" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Clear</a> 
+                                </div>
                             </form>
                       </div>
                   </div>

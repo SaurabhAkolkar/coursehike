@@ -197,6 +197,7 @@ $global_settings = App\Setting::first();
   <script src="{{url('js/jquery.min.js')}}"></script>
   <script src="{{ url('js/select2.min.js')}}"></script>
   <script src="{{ asset('/installer/js/jquery.validate.min.js') }} "></script>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
   <!-- Bootstrap 3.3.7 -->
   <script src="{{url('js/dashboard/bootstrap.min.js')}}"></script> <!-- DataTables -->
   <script src="{{url('js/dashboard/jquery.dataTables.min.js')}}"></script>

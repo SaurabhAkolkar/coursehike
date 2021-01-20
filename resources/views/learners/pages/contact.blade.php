@@ -45,9 +45,9 @@
                 <div class="la-contact__details la-anim__stagger-item"><span class="la-icon--xl icon-contact-number mr-3"></span><a  href="tel:+91 9999999999">+91 9999999999</a></div>
                 <div class="la-contact__details d-flex align-items-center la-anim__stagger-item"><span class="la-icon--xl icon-mail-id mr-3"></span><a  href="mailto:ask@learnitlikealiens.com">ask@learnitlikealiens.com</a></div>
                 <div class="la-contact__smedia mt-6">
-                  <a class="la-anim__stagger-item" href="#"><span class="la-icon la-icon--6xl icon-facebook"></a>
-                  <a class="la-anim__stagger-item" href="#"><span class="la-icon la-icon--6xl icon-insta"></a>
-                  <a class="la-anim__stagger-item" href="#"><span class="la-icon la-icon--6xl icon-youtube"></a>
+                  <a class="la-anim__stagger-item" href="https://www.facebook.com/learnitlikealiens" target="_blank"><span class="la-icon la-icon--6xl icon-facebook"></a>
+                  <a class="la-anim__stagger-item" href="https://www.instagram.com/learnitlikealiens/" target="_blank"><span class="la-icon la-icon--6xl icon-insta"></a>
+                  <a class="la-anim__stagger-item" href="https://www.youtube.com/channel/UC1LRPWR4rltOLKiR7e-pWEg" target="_blank"><span class="la-icon la-icon--6xl icon-youtube"></a>
                 </div>
               </div>
             </div>
@@ -60,9 +60,9 @@
               <div class="la-contact__details la-anim__stagger-item"><span class="la-icon--lg icon-contact-number mr-3"></span><a class="text-md" href="tel:">+91 9999999999</a></div>
               <div class="la-contact__details d-flex align-items-center la-anim__stagger-item"><span class="la-icon--lg icon-mail-id mr-3"></span><a class="text-md" href="mailto:ask@learnitlikealiens.com">ask@learnitlikealiens.com</a></div>
               <div class="la-contact__smedia mt-8">
-                <a class="mr-6 la-anim__stagger-item" href="#"><span class="la-icon la-icon--5xl icon-facebook"></span></a>
-                <a class="mr-6 la-anim__stagger-item" href="#"><span class="la-icon la-icon--5xl icon-insta"></span></a>
-                <a class="mr-6 la-anim__stagger-item" href="#"><span class="la-icon la-icon--5xl icon-youtube"></span></a>
+                <a class="mr-6 la-anim__stagger-item" href="https://www.facebook.com/learnitlikealiens" target="_blank"><span class="la-icon la-icon--5xl icon-facebook"></span></a>
+                <a class="mr-6 la-anim__stagger-item" href="https://www.instagram.com/learnitlikealiens/" target="_blank"><span class="la-icon la-icon--5xl icon-insta"></span></a>
+                <a class="mr-6 la-anim__stagger-item" href="https://www.youtube.com/channel/UC1LRPWR4rltOLKiR7e-pWEg" target="_blank"><span class="la-icon la-icon--5xl icon-youtube"></span></a>
               </div>
             </div>
           </div>
@@ -77,16 +77,16 @@
               <form class="la-contact__form" action="/contact" method="post"  id="contactForm">
                 @csrf
                 <div class="form-group mb-5 la-anim__stagger-item--x">
-                  <label class="text-sm m-0" for="contName">Full Name</label>
+                  <label class="text-sm m-0" for="contName">Full Name <span style="color:var(--danger)">*</span></label>
                   <input class="form-control p-0" id="contName" type="text" name="fname" placeholder="Enter your name" required >
                 </div>
                 <div class="form-group mb-5 la-anim__stagger-item--x">
-                  <label class="text-sm m-0" for="contEmail">Email</label>
+                  <label class="text-sm m-0" for="contEmail">Email <span style="color:var(--danger)">*</span></label>
                   <input class="form-control p-0" id="contEmail" type="email" name="email" placeholder="Enter your email id" required>
                 </div>
                 <div class="form-group mb-5 la-anim__stagger-item--x">
-                  <label class="text-sm m-0" for="contPhone">Contact Number</label>
-                  <input class="form-control p-0" id="contPhone" type="tel" name="mobile" placeholder="XXXXXXXXXX" required>
+                  <label class="text-sm m-0" for="contPhone">Contact Number <span style="color:var(--danger)">*</span></label>
+                  <input class="form-control p-0" id="contPhone" type="tel" name="mobile" placeholder="Enter your phone number" required>
                 </div>
                 <div class="form-group mb-5 la-anim__stagger-item--x">
                   <label class="text-sm" for="contMsg">Message</label>

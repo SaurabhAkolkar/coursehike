@@ -122,14 +122,14 @@
                 </a>
             </div>
 
-            <!-- <div class="la-header__nav-item d-lg-none">   
-                <a class="la-header__nav-link @if(Request::segment(1) == 'about') active @endif" href="/">
+            <div class="la-header__nav-item d-lg-none">   
+                <a class="la-header__nav-link @if(Request::segment(1) == 'about') active @endif" href="/about">
                     <div class="la-header__nav-icon">
-                        <span class="la-icon--md icon-about"></span>
+                        <span class="la-icon--lg icon-about"></span>
                     </div>
                     <span class="la-header__nav-name">About LILA</span>
                 </a>
-            </div> -->
+            </div>
             
             <div class="la-header__nav-item d-lg-none">   
                 <a class="la-header__nav-link @if(Request::segment(1) == 'contact') active @endif" href="/contact">
@@ -158,14 +158,14 @@
                     <span class="la-header__nav-name">Guided Creator</span>
                 </a>
             </div>
-            <div class="la-header__nav-item">   
+            <!--<div class="la-header__nav-item">   
                 <a class="la-header__nav-link @if(Request::segment(1) == 'help') active @endif" href="/">
                     <div class="la-header__nav-icon">
                         <span class="la-icon--lg icon-help-filled"></span>
                     </div>
                     <span class="la-header__nav-name">Help</span>
                 </a>
-            </div>
+            </div>-->
             <div class="la-header__nav-item">   
                 <a class="la-header__nav-link" role="button" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <div class="la-header__nav-icon">
@@ -193,7 +193,7 @@
             <div class="la-header__nav-item">
                 <a class="la-header__nav-link @if(Request::segment(1) == 'browse') active @endif" href="/browse/courses">
                     <div class="la-header__nav-icon">
-                        <span class="la-icon--md icon-help-filled"></span>
+                        <span class="la-icon--md icon-courses"></span>
                     </div>
                     <span class="la-header__nav-name">Courses</span>
                 </a>
@@ -218,9 +218,9 @@
             </div>
 
             <div class="la-header__nav-item d-lg-none">   
-                <a class="la-header__nav-link @if(Request::segment(1) == 'about') active @endif" href="/learning-plans">
+                <a class="la-header__nav-link @if(Request::segment(1) == 'about') active @endif" href="/about">
                     <div class="la-header__nav-icon">
-                    <span class="icon-about"></span>
+                    <span class="la-icon--lg icon-about"></span>
                     </div>
                     <span class="la-header__nav-name">About LILA</span>
                 </a>
@@ -236,7 +236,7 @@
             </div>
         </div>
 
-        <div class="la-header__nav-bottom d-lg-none">
+        <!-- <div class="la-header__nav-bottom d-lg-none">
             <div class="la-header__nav-item">   
                 <a class="la-header__nav-link @if(Request::segment(1) == 'help') active @endif" href="/help">
                     <div class="la-header__nav-icon">
@@ -245,7 +245,7 @@
                     <span class="la-header__nav-name">Help</span>
                 </a>
             </div>
-        </div>
+        </div> -->
     @endif
     
 

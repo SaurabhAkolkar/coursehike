@@ -4,16 +4,16 @@
 <section class="la-entry__sec">
     <div class="container-fluid la-entry__sec-inner">
       <div class="row la-entry__row h-100">
-        <div class="col-md-7 la-entry__col la-entry__col-left h-100 d-none d-md-block">
-                      <div class="la-entry__slider-wrap d-flex align-items-center">
-                        <div class="swiper-container entry-swiper-container h-100 la-entry__slider">
-                          <div class="swiper-wrapper">
-                            <div class="swiper-slide" style="width: 60vh;height: 60vh;background-image:url(./images/learners/login-register/slide1.png)"></div>
-                            <div class="swiper-slide" style="width: 60vh;height: 60vh;background-image:url(./images/learners/creator/earn.png)"></div>
-                          </div>
-                          <div class="swiper-pagination swiper-pagination-black"></div>
-                        </div>
-                      </div>
+        <div class="col-md-7  la-entry__col la-entry__col-left h-100 d-none d-md-block">
+              <div class="la-entry__slider-wrap d-flex align-items-center">
+                  <div class="swiper-container entry-swiper-container h-100 la-entry__slider">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide" style="width: 80vw;height: 80vh;background-image:url(./images/learners/creator/creator-signup1.svg)"></div>
+                      <div class="swiper-slide" style="width: 80vw;height: 80vh;background-image:url(./images/learners/creator/creator-signup2.svg)"></div>
+                    </div>
+                    <div class="swiper-pagination swiper-pagination-black"></div>
+                </div>
+              </div>
         </div>
         <div class="col-md-5 la-entry__col la-entry__col-right h-100">
           <div class="la-entry__content-wrap d-flex flex-column justify-content-center">
@@ -30,7 +30,7 @@
                           </div>
                           
                             @error('display_name')
-                                <span class="alert alert-danger" >{{ $message }}</span>
+                                <span class="alert alert-danger" style="margin-left:">{{ $message }}</span>
                             @enderror 
                           
 

@@ -12,15 +12,15 @@
               <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">COURSES & CLASSES BY</p>
               <h1 class="la-hero__title la-anim__stagger-item">World’s best <span class="la-hero__subtitle">Creators</span></h1>
               <p class="la-hero__lead pr-5 la-anim__stagger-item">{{$firstSection->sub_heading}}</p>
-              <div class="la-hero__actions d-lg-flex align-items-center la-anim__stagger-item">
-                <div>
+              <div class="la-hero__actions d-md-flex align-items-center la-anim__stagger-item">
+                <div class="col-md-7 px-0">
                     <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary d-none d-lg-block">Subscribe Now</a>
                     <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary btn-block d-block d-lg-none">Subscribe Now</a>
-                    <p class="m-0 pt-1 pl-1 text-center text-sm-left">Instant access to all courses at nominal monthly fees</p>
+                    <p class="m-0 pt-1 pl-1 text-center text-md-left">Instant access to all courses at nominal monthly fees</p>
                 </div>
-                <div class="la-soffer d-flex d-lg-block justify-content-center  my-lg-0">
+                <div class="col-md-5 px-0 la-soffer d-flex d-lg-block justify-content-center  mb-lg-auto">
                   <div class="la-soffer__bestprice"> <sup><small>$</small></sup>  39 / Month</div>
-                  <div class="la-soffer__realprice"> <sup><small>$</small></sup>  49 / Month</div>
+                  <div class="la-soffer__realprice"> <sup><small>$</small></sup>  99 (USD)</div>
                 </div>
               </div>
              
@@ -39,9 +39,9 @@
         </div>
         <!-- Row: Start-->
         <div class="la-anim__wrap">
-          <div class="la-hero__bottom d-flex justify-content-center justify-content-lg-between align-items-center pt-6 pb-14 la-anim__fade-in">
-            <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing"><a href="/learning-plans">Start free trial<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"> </span></a></div>
-            <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text--burple text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block"><a href="/browse/courses">BROWSE COURSES</a><span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span></div>
+          <div class="la-hero__bottom d-flex justify-content-center justify-content-lg-between align-items-center  pb-14 la-anim__fade-in">
+            <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing"><a href="/login">Start free trial</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"> </span></div>
+            <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text--burple text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block"><a href="#home_courses">BROWSE COURSES</a><span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span></div>
           </div>
         </div>
         <!-- Row: End-->
@@ -50,8 +50,8 @@
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  <section class="la-section la-section--grey la-section--art-categories position-relative">
-    <div class="la-section__inner la-anim__wrap">
+  <section class="la-section la-section--grey la-section--art-categories position-relative"  id="home_courses">
+    <div class="la-section__inner la-anim__wrap" >
       <div class="container"><span class="la-section__cross-line"></span>
         <div class="la-courses">
           <nav class="la-courses__nav d-flex justify-content-between">
@@ -124,30 +124,7 @@
                           <label class="glabel-main" > Category</label>
                           <label class="glabel d-flex" for="course_1">
                             <input class="d-none" id="course_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                            <div class="pl-2 mt-n1">Tattoo 
-                                <ul class="d-flex flex-column">
-                                  <li>
-                                    <label class="glabel d-flex pt-1" for="sub_course_1">
-                                      <input class="d-none" id="sub_course_1" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                      <div class="pl-2 mt-n1">Abstract</div>
-                                    </label>
-                                  </li>
-
-                                  <li>
-                                    <label class="glabel d-flex" for="sub_course_2">
-                                      <input class="d-none" id="sub_course_2" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                      <div class="pl-2 mt-n1">3D Tattoo</div>
-                                    </label>
-                                  </li>
-
-                                  <li>
-                                    <label class="glabel d-flex" for="sub_course_3">
-                                      <input class="d-none" id="sub_course_3" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                      <div class="pl-2 mt-n1">Blast Over</div>
-                                    </label>
-                                  </li>
-                                </ul>
-                              </div>
+                            <div class="pl-2 mt-n1">Tattoo</div>
                           </label>
 
                           <label class="glabel d-flex" for="course_2">
@@ -206,8 +183,8 @@
             <!-- Filters : End -->
           </nav>          
           <x-add-to-playlist 
-                      :playlists="$playlists"
-                    />
+              :playlists="$playlists"
+          />
 
           <div class="tab-content la-courses__content" id="nav-tabContent">
             @foreach ($categories as $category)
@@ -334,7 +311,7 @@
     <div class="la-section__inner">
       <div class="container">
         <h2 class="la-section__title la-section__title--big position-relative la-anim__fade-in-top la-anim__A">Master <span>classes</span></h2>
-        <div class="la-mccourses py-14 py-md-4">
+        <div class="la-mccourses pt-14 pt-md-4">
           <div class="row justify-content-center px-lg-5 la-anim__stagger la-anim__A">
            
               @foreach ($master_classes as $master)
@@ -352,7 +329,7 @@
           </div>
         </div>
         <div class="la-mccourse__view-more position-relative text-right la-anim__wrap">
-          <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8 la-anim__fade-in-right">
+          <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-md-8 mr-5 mr-md-1 la-anim__fade-in-right">
             <a href="/master-classes" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
           </div>
         </div>
@@ -383,7 +360,7 @@
             <div class="la-trail__right d-flex align-items-end ">
               <div class="la-trail__content-wrap pr-md-20 la-anim__stagger">
                 <div class="la-trail__para pb-10 pr-md-20 la-anim__stagger-item la-anim__B">We strongly believe observation is integral to honing art. Learn from masters in their respective fields with consistent practice, and become a pro yourself!</div>
-                <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item la-anim__B" href="/learning-plans">Start free trail</a>
+                <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item la-anim__B" href="/login">Start free trail</a>
               </div>
             </div>
             
@@ -412,10 +389,10 @@
                   <div class="la-anim__wrap la-anim__wrap-pin2">
                   <div class="la-price__box la-anim__pin2 ">
                     <div class="la-price__box-inner "><a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
-                      <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">20% savings </span>on Annual Plan</p>
+                      <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">35% savings </span>on Annual Plan</p>
                       <div class="la-price__box-soffer la-soffer ml-0">
                         <div class="la-soffer__bestprice la-soffer__bestprice--black"> <sup><small>$</small></sup>  39 / Month</div>
-                        <div class="la-soffer__realprice"> <sup><small>$</small></sup>  49 / Month</div>
+                        <div class="la-soffer__realprice"> <sup><small>$</small></sup>  99 (USD) </div>
                       </div>
                     </div>
                   </div>
@@ -431,7 +408,7 @@
                       Through our Radical team, we strive every day to make knowledge Affordable, Accessible for everyone regardless of who or where they are
                   </p>
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8">
-                    <a href="/learning-plans">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
+                    <a href="/about">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                   </div>
                 </div>
                 <!--<div class="col-12 offset-lg-1 col-lg-5 pt-20 la-anim__slide-box ">
