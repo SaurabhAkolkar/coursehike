@@ -30,7 +30,7 @@ class LearnController extends Controller
 {
     public function show($id, $slug)
     {
-               
+        $playlists = [];       
         $course = Course::with('chapter', 'courseclass', 'review','review.user')->where('id', $id)->first();
 
         $related_courses =  Course::whereHas('category', function($query) use($course) 
@@ -83,7 +83,9 @@ class LearnController extends Controller
         }
 
         $reviews = $course->review->sortByDesc('rating');
-
+        if(Auth::check()){
+			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
+		}
         $average_rating = $course->review->average('rating');
         $total_rating = $course->review->count() > 0 ? $course->review->count() : 1 ;
         // dd($total_rating);
@@ -111,8 +113,8 @@ class LearnController extends Controller
             'two_rating_percentage' => $two_rating_percentage,
             'one_rating_percentage' => $one_rating_percentage,
             'in_cart'=>$in_cart,
-            'order_type'=>$order_type
-
+            'order_type'=>$order_type,
+            'playlists'=>$playlists
         );
 
 

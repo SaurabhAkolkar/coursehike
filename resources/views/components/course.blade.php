@@ -5,17 +5,31 @@
                     <div class="la-course__overlay">
                         <ul class="la-course__options list-unstyled text-white" id="la-course__nested-links">
                             <li class="la-course__option">
-                                <span class="d-inline-block la-course__addtocart" onclick="addToCart({{$id}})">
-                                    <i class="la-icon la-icon--2xl icon icon-cart"></i>
-                                </span>
+                                @if(Auth::check())
+                                    <span class="d-inline-block la-course__addtocart" onclick="addToCart({{$id}})">
+                                        <i class="la-icon la-icon--2xl icon icon-cart"></i>
+                                    </span>
+                                @else
+                                    <span class="d-inline-block la-course__addtocart" data-toggle="modal" data-target="#locked_login">
+                                        <i class="la-icon la-icon--2xl icon icon-cart"></i>
+                                    </span>
+                                @endif
                             </li>
 
                             <li class="la-course__option">
-                                <span @if($addedToWhishList) onclick="location.href='/remove-from-wishlist/{{$id}}'" @else onclick="addToWishList({{$id}})" @endif  >
-                                    <span class="d-inline-block la-course__like">
-                                        <i class="la-icon la-icon--2xl icon icon-wishlist @if($addedToWhishList) text-warning @endif"></i>
+                                @if(Auth::check())
+                                    <span @if($addedToWhishList) onclick="location.href='/remove-from-wishlist/{{$id}}'" @else onclick="addToWishList({{$id}})" @endif  >
+                                        <span class="d-inline-block la-course__like">
+                                            <i class="la-icon la-icon--2xl icon icon-wishlist @if($addedToWhishList) text-warning @endif"></i>
+                                        </span>
                                     </span>
-                                </span>
+                                @else
+                                    <span data-toggle="modal" data-target="#locked_login">
+                                        <span class="d-inline-block la-course__like">
+                                            <i class="la-icon la-icon--2xl icon icon-wishlist"></i>
+                                        </span>
+                                    </span>
+                                @endif
                             </li>
 
                             <li class="la-course__option">
@@ -24,9 +38,17 @@
                                             <i class="la-icon la-icon--2xl icon icon-menu"></i>
                                         </span>
                                         <div class="la-cmenu dropdown-menu py-0">
-                                            <span class="dropdown-item la-cmenu__item d-inline-flex" @if($removeFromPlaylist) onclick="location.href='{{url()->current()}}/{{$id}}'"  @else onclick="showAddToPlaylist({{$id}})" @endif><i class="icon icon-playlist la-icon la-cmenu__item-icon mr-2"></i> @if($removeFromPlaylist) Remove from Playlist  @else Add to Playlist @endif</span>
-                                            <span class="dropdown-item la-cmenu__item d-inline-flex" @if($addedToWhishList) onclick="location.href='/remove-from-wishlist/{{$id}}'" @else onclick="addToWishList({{$id}})" @endif><i class="icon icon-wishlist la-icon la-cmenu__item-icon mr-2"></i> @if($addedToWhishList) Remove from Wishlist @else Add to Wishlist @endif </span>
-                                            <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToCart({{$id}})"><i class="icon icon-cart la-icon la-cmenu__item-icon mr-2"></i>  Add to Cart</span>
+                                            @if(Auth::check())
+                                                <span class="dropdown-item la-cmenu__item d-inline-flex" @if($removeFromPlaylist) onclick="location.href='{{url()->current()}}/{{$id}}'"  @else onclick="showAddToPlaylist({{$id}})" @endif><i class="icon icon-playlist la-icon la-cmenu__item-icon mr-2"></i> @if($removeFromPlaylist) Remove from Playlist  @else Add to Playlist @endif</span>
+                                                <span class="dropdown-item la-cmenu__item d-inline-flex" @if($addedToWhishList) onclick="location.href='/remove-from-wishlist/{{$id}}'" @else onclick="addToWishList({{$id}})" @endif><i class="icon icon-wishlist la-icon la-cmenu__item-icon mr-2"></i> @if($addedToWhishList) Remove from Wishlist @else Add to Wishlist @endif </span>
+                                                <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToCart({{$id}})"><i class="icon icon-cart la-icon la-cmenu__item-icon mr-2"></i>  Add to Cart</span>
+                                            @else   
+
+                                                <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login"><i class="icon icon-playlist la-icon la-cmenu__item-icon mr-2"></i>  Add to Playlist</span>
+                                                <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login"><i class="icon icon-wishlist la-icon la-cmenu__item-icon mr-2"></i> Add to Wishlist </span>
+                                                <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login"><i class="icon icon-cart la-icon la-cmenu__item-icon mr-2"></i>  Add to Cart</span>
+
+                                            @endif
                                         </div>
                                     </div>
                                 </li>

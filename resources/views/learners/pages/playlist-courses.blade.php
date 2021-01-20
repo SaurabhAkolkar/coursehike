@@ -33,33 +33,27 @@
               <div class="la-playlist__wrap">
                 
                     @php  
-                    $tattoo1 = new stdClass;$tattoo1->id=1;$tattoo1->img= "https://picsum.photos/600/400";$tattoo1->course= "Tattoo Art";$tattoo1->rating= "4";$tattoo1->url= "/course";$tattoo1->creatorImg= "https://picsum.photos/100";$tattoo1->creatorName= "Joseph Phill";$tattoo1->creatorUrl= "/creator";
-                    $tattoo2 = new stdClass;$tattoo2->id=2;$tattoo2->img= "https://picsum.photos/600/400"; $tattoo2->course= "Tattoo Art";$tattoo2->rating= "4";$tattoo2->url= "/course";$tattoo2->creatorImg= "https://picsum.photos/100";$tattoo2->creatorName= "Amy D'souza";$tattoo2->creatorUrl= "/creator";
-                    $tattoo7 = new stdClass;$tattoo7->id=7;$tattoo7->img= "https://picsum.photos/600/400"; $tattoo7->course= "Tattoo Art";$tattoo7->rating= "4"; $tattoo7->url= "/course";$tattoo7->creatorImg= "https://picsum.photos/100";$tattoo7->creatorName= "Remo Joseph"; $tattoo7->creatorUrl= "/creator";
-                    $img = "https://picsum.photos/600/400";
-                    $creatorImg = "https://picsum.photos/100";
-                    $course_rating = 4;
-                    $course_type = "Tattoo Art";
-                    $course_url = "/creator";
-                    $tattoos = array($tattoo1, $tattoo2, $tattoo7);
                     $removeFromPlaylist = true;
                     @endphp
 
 
                         <div class="row la-playlist__items">
 
-                            @if(count($courses) > 0)
-                              @foreach($courses as $course)
+                            @if(count($courses) > 0)                              
+                              @foreach($courses as $c)
+                              @php
+                                $course = $c->courses;
+                              @endphp
                               <div class="col-md-4 px-0">
                                 <x-course   
-                                    :id="$course->courses[0]->id"
-                                    :img="$img" 
-                                    :course="$course_type" 
-                                    :url="$course_url" 
-                                    :rating="$course_rating"
-                                    :creatorImg="$creatorImg"
-                                    :creatorName="$course->courses[0]->title"
-                                    :creatorUrl="$course_url"
+                                    :id="$course->id"
+                                    :img="$course->preview_image" 
+                                    :course="$course->title" 
+                                    :url="$course->slug" 
+                                    :rating="round($course->average_rating, 2)"
+                                    :creatorImg="$course->user->user_img"
+                                    :creatorName="$course->user->fullName"
+                                    :creatorUrl="$course->user->id"
                                     :removeFromPlaylist="$removeFromPlaylist"
                                     :learnerCount="$course->learnerCount"
                                 />

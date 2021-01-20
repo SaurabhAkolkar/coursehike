@@ -124,8 +124,8 @@
                                 <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
                                 <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-password"></span></span>
                                 <input type="password" class="la-form__input la-entry__input{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" id="password" placeholder="Password">
-                                <span class="la-entry__input-picon"><span class="la-icon la-icon--xl icon-hide-Password"></span></span>
-                                <span class="la-entry__input-picon"><span class="la-icon la-icon--xl icon-show-password"></span></span>
+                                <span class="la-entry__input-picon" id="password_hide_icon"><span class="la-icon la-icon--xl icon-hide-Password"></span></span>
+                                <span class="la-entry__input-picon" id="password_show_icon"><span class="la-icon la-icon--xl icon-show-password"></span></span>
 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
@@ -233,3 +233,18 @@
 {{-- @include('theme.scripts') --}}
 <!-- end jquery -->
 
+@section('footerScripts')
+<script>
+    $('#password_show_icon').click(function(){
+        $(this).addClass('d-none');
+        $('#password_hide_icon').removeClass('d-none');
+        $('#password').prop('type', 'text');
+    });
+
+    $('#password_hide_icon').click(function(){
+        $(this).addClass('d-none');
+        $('#password_show_icon').removeClass('d-none');
+        $('#password').prop('type', 'password');
+    });
+</script>
+@endsection

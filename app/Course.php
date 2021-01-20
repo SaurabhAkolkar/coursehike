@@ -160,6 +160,12 @@ class Course extends Model
         return $count;
     }
 
+    public function getAverageRatingAttribute()
+    {
+        $rating = 0;
+        $avgRating = ReviewRating::where(['course_id' => $this->id])->avg('rating');
+        return $avgRating;
+    }
 
     public function getPreviewVideoAttribute($value)
     {

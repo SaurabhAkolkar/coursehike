@@ -56,7 +56,7 @@
                   @endphp
                   <label for="exampleInputSlug">{{ __('adminstaticword.Instructor') }}</label>
                   <select name="user" class="form-control js-example-basic-single ">
-                    <option  value="{{ Auth::user()->id }}">{{ Auth::user()->fname }}</option>
+                    <option  value="{{ $cor->id }}">{{ $cor->user->fullName }}</option>
                   </select>
                 </div>
               </div>
@@ -105,6 +105,12 @@
                     <option value="3" @if($cor->level == 3) selected @endif> Advanced</option>
                   </select> 
                 </div>
+
+                <div class="col-md-6">
+                  <label for="exampleInputSlug">Course Duration(in Hours)</label>
+                  <input min="1" class="form-control" name="duration" type="number" id="duration" value="{{ $cor->duration }}" placeholder="Enter Duration in hours">
+                </div>
+
               </div>
               <br>
 
@@ -116,15 +122,7 @@
                 </div>
               </div>
               <br>
-              
-              {{-- <div class="row">
-                <div class="col-md-3">
-                  <label for="exampleInputSlug">Course Expire Duration</label>
-                  <p class="inline info"> - Please enter duration in month</p>
-                  <input min="1" class="form-control" name="duration" type="number" id="duration" value="{{ $cor->duration }}" placeholder="Enter Duration in months">
-                </div>
-              </div> --}}
-
+            
               <!-- COURSE PACKAGE TYPE: START -->
               <div class="row">
                 <div class="col-md-12">

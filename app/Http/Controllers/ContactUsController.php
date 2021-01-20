@@ -70,9 +70,8 @@ class ContactUsController extends Controller
         $input = $request->all();
         $data = Contact::create($input);
         $data->save();
-        
-        
-        return back()->with('success','Message send successfully!');
+    
+        return back()->with('success','We will get back to you!');
 	}
 	
 }

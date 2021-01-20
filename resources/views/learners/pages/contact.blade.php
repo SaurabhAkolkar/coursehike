@@ -2,6 +2,16 @@
 
 @section('content')
  <!-- Main Section: Start-->
+ @if(session('success'))
+  <div class="la-btn__alert position-relative">
+    <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible" role="alert">
+        <h6 class="la-btn__alert-msg">{{session('success')}}</h6>
+        <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true" style="color:#56188C">&times;</span>
+        </button>
+    </div>
+  </div>
+  @endif
  <section class="la-cbg--main">
     <!-- Section: Strat-->
     <section class="la-contact--page">
@@ -13,18 +23,6 @@
               <span class="la-icon la-icon--5xl icon-back-arrow"></span>
             </a>
           </div>
-
-          @if(session('success'))
-          <div class="la-btn__alert position-relative">
-            <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible" role="alert">
-                <h6 class="la-btn__alert-msg">{{session('success')}}</h6>
-                <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true" style="color:#56188C">&times;</span>
-                </button>
-            </div>
-          </div>
-          @endif
-
           <!-- Column: End-->
           <!-- Column: Start-->
           <div class="col-12 d-none d-sm-block ">
@@ -95,11 +93,11 @@
                   <textarea class="form-control text-msg p-2" id="contMsg" rows="5" cols="50" name="message" placeholder="Type here" required></textarea>
                 </div>
                 <div class="la-contact__btn text-right d-none d-sm-block la-anim__stagger-item--x">
-                  <button class="btn btn-desktop text-lg text-center" type="submit" onclick="$('#contactForm').submit()">SEND</button>
+                  <button class="btn btn-desktop text-lg text-center" type="submit" >SEND</button>
                 </div>
                 <!-- Mobile Button: Start-->
                 <div class="la-contact__btn text-center pt-5 d-block d-sm-none la-anim__stagger-item">
-                  <button class="btn btn-mobile btn-block text-lg text-center" type="submit" onclick="$('#contactForm').submit()">SEND</button>
+                  <button class="btn btn-mobile btn-block text-lg text-center" type="submit">SEND</button>
                 </div>
                 <!-- Mobile Button: End-->
               </form>

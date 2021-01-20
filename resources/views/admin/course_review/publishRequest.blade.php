@@ -33,7 +33,7 @@
                   <?php $i=0;?>
 
                     @foreach($requests as $r)
-                   
+                      @if($r)
                         @if($r->course->status != 1)
                           <?php $i++;?>
                           <tr>
@@ -80,6 +80,7 @@
                             </td>
                           </tr>
                         @endif
+                      @endif
                  
                     @endforeach
                       
