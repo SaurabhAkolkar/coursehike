@@ -443,7 +443,7 @@ use Carbon\Carbon;
         <div class="col-md-3 offset-md-1 px-md-0 la-vcourse__purchase-right">
           <div class="la-vcourse__purchase-content ">
             <div class="la-vcourse__purchase-prize mb-8">Subscribe for all Courses @ <span class="la-vcourse__purchase-prize--amount"><b>$39/month</b></span></div>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam consetetur sadipscing</p>
+            <p>Access all the current and future courses at the tiny monthly subscription payment</p>
             <div class="la-vcourse__purchase-actions d-inline-block text-center mt-8">
               <div class="la-vcourse__purchase-btn">
                 <a class="btn btn-primary active la-btn la-btn--primary text-center"  href="/learning-plans">SUBSCRIBE NOW</a>

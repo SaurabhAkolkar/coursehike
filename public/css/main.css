@@ -17419,13 +17419,14 @@ a, a:hover {
 }
 .la-footer__title {
   font-weight: var(--font-medium);
-  font-size: var(--text-xs);
+  text-transform: Capitalize;
+  font-size: var(--text-sm);
   letter-spacing: 2.4px;
   color: rgba(255, 255, 255, 0.6);
   margin-bottom: var(--size-3);
 }
 .la-footer__contact {
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
 }
 .la-footer__contact-address {
   font-weight: var(--font-light);
@@ -17444,10 +17445,16 @@ a, a:hover {
   line-height: normal;
 }
 .la-footer__nav-link {
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   font-weight: var(--font-bold);
   text-transform: uppercase;
   letter-spacing: 2.4px;
+  transition: all 0.24s ease-out;
+  -webkit-transition: all 0.24s ease-out;
+  -moz-transition: all 0.24s ease-out;
+}
+.la-footer__nav-link:hover {
+  color: var(--app-indigo-1);
 }
 .la-footer__list {
   display: flex;
@@ -17460,9 +17467,12 @@ a, a:hover {
   margin-bottom: var(--size-1);
 }
 .la-footer__list-link {
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
+  text-transform: Capitalize;
   font-weight: var(--font-light);
   transition: all 0.24s ease-out;
+  -webkit-transition: all 0.24s ease-out;
+  -moz-transition: all 0.24s ease-out;
 }
 .la-footer__list-link:hover {
   color: #7400D7;
@@ -17492,7 +17502,7 @@ a, a:hover {
   -moz-transition: all 0.25s ease;
 }
 .la-footer__copyright {
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   color: #fff;
   opacity: 0.5;
   font-weight: var(--font-light);
@@ -19775,6 +19785,12 @@ a, a:hover {
   .la-gsearch__input-bcourses {
     width: 170px !important;
   }
+}
+.la-gsearch__input-footersearch {
+  width: 280px !important;
+}
+.la-gsearch__input-footersubmit {
+  padding: 0;
 }
 .la-gsearch__input-searchcourses {
   width: 300px !important;

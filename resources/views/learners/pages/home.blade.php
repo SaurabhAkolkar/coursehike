@@ -545,7 +545,7 @@
                       Through our Radical team, we strive every day to make knowledge Affordable, Accessible for everyone regardless of who or where they are
                   </p>
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8">
-                    <a href="/learning-plans">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
+                    <a href="/about">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                   </div>
                 </div>
                 <!--<div class="col-12 offset-lg-1 col-lg-5 pt-20 la-anim__slide-box ">

@@ -14,7 +14,7 @@
                                 <span>Learn it </span> <br/>
                                 <span style="color:#c0c0c0;">like aliens</span>
                             </h1>
-                            <p class="la-about__tag la-anim__stagger-item--x">Embracing Self learning</p>
+                            <p class="la-about__tag la-anim__stagger-item--x">Embracing Self Learning</p>
 
                             <div class="la-about__info pt-6 pt-md-16">
                                 <h5 class="la-about__info-title la-anim__stagger-item ">About Lila</h5>
@@ -23,7 +23,7 @@
                             </div>
 
                             <div class="la-about__info-cta  mt-12 la-anim__stagger-item la-anim__B">
-                                <a class="la-btn__app text-uppercase" role="button" href="/">Get Started</a>
+                                <a class="la-btn__app text-uppercase" role="button" href="/browse/courses">Start Learning</a>
                             </div>
                         </div>
                     </div>
@@ -95,7 +95,9 @@
                                     Our mission is to Encourage, Empower and Embrace Self-Learning among all the curious individuals who wish to learn, expand their potential and make a mark in the world irrespective of the circumstances, if you have the desire, you will learn.
                                 </p>
                             </div>
+                            <!--
                             <a class="btn btn-primary la-btn la-btn--primary text-uppercase la-about__mvt-cta la-anim__stagger-item--x" role="button" href="/login">Start Free Trial</a>
+                            -->
                         </div>
                     </div>
                     <div class="col-md-5 col-lg-7 my-auto">
@@ -120,7 +122,9 @@
                                     From the ones who seek to express their creativity to the ones who are yet to explore their creativity, we want to build the most comprehensive platform for learning in the world.
                                 </p>
                             </div>
+                            <!--
                             <a class="btn btn-primary la-btn la-btn--primary text-uppercase la-about__mvt-cta  la-anim__stagger-item--x" role="button" href="/login">Start Free Trial</a>
+                            -->
                         </div>
                     </div>
                     <div class="col-md-5 col-lg-7 my-auto">
@@ -148,7 +152,9 @@
                                     With one hour of one class to learn one skill at a time, you learn it and become a Pro eventually.
                                 </p>
                             </div>
+                            <!--
                             <a class="btn btn-primary la-btn la-btn--primary text-uppercase la-about__mvt-cta  la-anim__stagger-item--x" role="button" href="/login">Start Free Trial</a>
+                            -->
                         </div>
                     </div>
                     <div class="col-md-5 col-lg-7 my-auto">
