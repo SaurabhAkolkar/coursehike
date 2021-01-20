@@ -74,20 +74,21 @@
               </div>
               <ul class="la-footer__nav">
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li> -->
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Testimonials</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Aliens Tatto School</a></li>
+                <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Testimonials</a></li> -->
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Aliens Tattoo School</a></li>
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Learning Plans</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Become a Creator</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Guided Creator</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Request a Tutorial</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Teaching Techniques</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Start Free Trial</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/become-creator">Become a Creator</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/guided-creator">Guided Creator</a></li>
+                <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Request a Tutorial</a></li> -->
+                <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Teaching Techniques</a></li> -->
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/login">Start Free Trial</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/contact">Contact Us</a></li>
               </ul>
 
               <div class="la-footer__social mt-md-14">
-                  <a class="la-footer__social-link mr-2" href=""><span class="la-icon la-icon--5xl icon-facebook"></span></a>
-                  <a class="la-footer__social-link mr-2" href=""><span class="la-icon la-icon--5xl icon-insta"></span></a>
-                  <a class="la-footer__social-link mr-2" href=""><span class="la-icon la-icon--5xl icon-youtube"></span></a>
+                  <a class="la-footer__social-link mr-2" href="https://www.facebook.com/learnitlikealiens" target="_blank"><span class="la-icon la-icon--5xl icon-facebook"></span></a>
+                  <a class="la-footer__social-link mr-2" href="https://www.instagram.com/learnitlikealiens/" target="_blank"><span class="la-icon la-icon--5xl icon-insta"></span></a>
+                  <a class="la-footer__social-link mr-2" href="https://www.youtube.com/channel/UC1LRPWR4rltOLKiR7e-pWEg" target="_blank"><span class="la-icon la-icon--5xl icon-youtube"></span></a>
               </div>
             </div>
             <!-- Column: End-->

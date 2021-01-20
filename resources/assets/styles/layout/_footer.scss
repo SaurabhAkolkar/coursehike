@@ -14,6 +14,13 @@
                 padding-left: calc(var(--size-base) * 21);
                 padding-bottom: var(--size-4);
                 padding-right: calc(var(--size-base) * 33);
+
+                @include respond-below(sm){
+                    padding-top: calc(var(--size-base) * 6);
+                    padding-left: calc(var(--size-base) * 4);
+                    padding-bottom: var(--size-4);
+                    padding-right: calc(var(--size-base) * 4);
+                }
             }
             &btm {
 
@@ -92,6 +99,17 @@
                     color: #fff;
                 }
             }
+            &social{
+                &-{
+                    &link{
+                        transition: all 0.25s ease;-webkit-transition: all 0.25s ease;-moz-transition: all 0.25s ease;
+                        &:hover{
+                            color:#000;
+                            transition: all 0.25s ease;-webkit-transition: all 0.25s ease;-moz-transition: all 0.25s ease;
+                        }
+                    }
+                }
+            }
 
             &copyright {
                 font-size: var(--text-xs);
@@ -102,20 +120,4 @@
         }
     }
     // Footer: End
-}
-
-@media (max-width:576px){
-    #{$ap}- {
-        // Footer: Start
-        &footer {
-           &__ {
-               &inner {
-                   padding-top: calc(var(--size-base) * 6);
-                   padding-left: calc(var(--size-base) * 4);
-                   padding-bottom: var(--size-4);
-                   padding-right: calc(var(--size-base) * 4);
-               }
-           }
-        }
-    }
 }

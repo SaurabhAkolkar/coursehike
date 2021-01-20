@@ -54,23 +54,23 @@ use Carbon\Carbon;
             <div class="la-vcourse__info-items d-flex align-items-center justify-content-end">
               <div class="la-vcourse__info-item la-vcourse__info--videos d-flex flex-column align-items-center justify-content-end">
                 <div class="la--count">{{ $course->courseclass->count() }}</div>
-                <span class="la--label mt-1">Videos</span>
+                <span class="la--label mt-2">Videos</span>
               </div>
               <div class="la-vcourse__info-item la-vcourse__info--learners d-flex flex-column align-items-center justify-content-end mx-10">
                 <div class="la--count">{{$course->learnerCount}}</div>
-                <span class="la--label mt-1">Learners</span>
+                <span class="la--label mt-2">Learners</span>
               </div>
               <div class="la-vcourse__info-item la-vcourse__info--level d-flex flex-column align-items-center justify-content-end">
-                <div class="la--icon">
+                <div class="la--icon mt-n3">
                   @if($course->level == 1)
-                    <img src="/images/learners/icons/level-beginner.svg" alt="beginner">
+                    <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-beginner"></span>
                   @elseif($course->level == 2)
-                    <img src="/images/learners/icons/level-beginner.svg" alt="beginner">
+                  <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-intermediate"></span>
                   @else
-                    <img src="/images/learners/icons/level-beginner.svg" alt="beginner">
+                  <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-advanced"></span>
                   @endif
                 </div>
-                <span class="la--label mt-1">
+                <div class="la--label mt-n2">
                   @if($course->level == 1)
                     Beginner
                   @elseif($course->level == 2)
@@ -78,7 +78,7 @@ use Carbon\Carbon;
                   @else
                     Advanced
                   @endif
-                </span>
+                </div>
               </div>
             </div>
           </div>
@@ -87,9 +87,9 @@ use Carbon\Carbon;
         <div class="row">
           <div class="col">
             <ul class="list-unstyled d-block d-lg-flex mb-6">
-              <li class="la-vcourse__duration mr-14"><span class="la-text-gray4">Duration </span>  {{ $course->duration }}</li>
-              <li class="la-vcourse__updatedon mr-14"><span class="la-text-gray4">Last Updated </span>  {{ $course->updated_at->format('d-M Y') }}</li>
-              <li class="la-vcourse__languages mr-14"> <span class="la-text-gray4">Languages </span>  {{$course->language->name}} </li>
+              <li class="la-vcourse__duration mr-14"><span class="la-text-gray4">Duration: </span>  {{ $course->duration }}</li>
+              <li class="la-vcourse__updatedon mr-14"><span class="la-text-gray4">Last Updated: </span>  {{ $course->updated_at->format('d-M Y') }}</li>
+              <li class="la-vcourse__languages mr-14"> <span class="la-text-gray4">Languages: </span>  {{$course->language->name}} </li>
             </ul>
           </div>
           <div class="col-12 la-vcourse__primary-info d-flex mb-2">
@@ -336,21 +336,21 @@ use Carbon\Carbon;
                   <img class="img-fluid d-block" src="/images/learners/course-benefits/video.svg" />
                 </div>
                 <h4 class="la-cbenefits__item-title mb-3">Unlimited Learning</h4>
-                <p class="la-cbenefits__item-desc m-0">One plan - All subscribed content</p>
+                <p class="la-cbenefits__item-desc m-0 text-center">Access to numerous courses of varied art skills</p>
               </div>
             </div>
             <div class="col">
               <div class="la-cbenefits__item d-flex flex-column align-items-center">
                 <div class="mb-7"><img class="img-fluid d-block" src="/images/learners/course-benefits/certificate.svg"></div>
                 <h4 class="la-cbenefits__item-title mb-3">Certification</h4>
-                <p class="la-cbenefits__item-desc m-0">Course completion certificate</p>
+                <p class="la-cbenefits__item-desc m-0 text-center">Certificates as proof of course completion</p>
               </div>
             </div>
             <div class="col">
               <div class="la-cbenefits__item d-flex flex-column align-items-center">
                 <div class="mb-7"><img class="img-fluid d-block" src="/images/learners/course-benefits/online-course.svg"></div>
-                <h4 class="la-cbenefits__item-title mb-3">Assignments &amp; QUiz</h4>
-                <p class="la-cbenefits__item-desc m-0">Test your progress</p>
+                <h4 class="la-cbenefits__item-title mb-3">Resources</h4>
+                <p class="la-cbenefits__item-desc m-0 text-center">Extra resources to practice and hone your skills</p>
               </div>
             </div>
           </div>
@@ -448,7 +448,7 @@ use Carbon\Carbon;
               <div class="la-vcourse__purchase-btn">
                 <a class="btn btn-primary active la-btn la-btn--primary text-center"  href="/learning-plans">SUBSCRIBE NOW</a>
               </div>
-              <a href="/learning-plans"  class="la-vcourse__purchase-trial--lnk mt-8">Start free 7 Days trial</a>
+              <a href="/login"  class="la-vcourse__purchase-trial--lnk mt-8">Start free 7 Days trial</a>
             </div>
           </div>
         </div>

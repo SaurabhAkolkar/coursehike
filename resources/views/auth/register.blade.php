@@ -42,9 +42,9 @@
                 <div class="la-entry__slider-wrap d-flex align-items-center">
                    <div class="swiper-container entry-swiper-container h-100 la-entry__slider">
                        <div class="swiper-wrapper">
-                           <div class="swiper-slide" style="width: 60vh;height: 60vh;background-image:url(../images/learners/login-register/slide1.png)"></div>
-                               <div class="swiper-slide" style="width: 60vh;height: 60vh;background-image:url(../images/learners/creator/earn.png)"></div>
-                           </div>
+                           <div class="swiper-slide" style="width: 80vw;height: 80vh;background-image:url(../images/learners/login-register/login-slide1.svg)"></div>
+                            <div class="swiper-slide" style="width: 80vw;height: 80vh;background-image:url(../images/learners/login-register/login-slide2.svg)"></div>
+                        </div>
                        <div class="swiper-pagination swiper-pagination-black"></div>
                    </div>
                </div> 
