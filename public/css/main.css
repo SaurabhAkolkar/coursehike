@@ -18436,6 +18436,14 @@ a, a:hover {
 .la-playlist__add-btn {
   height: 200px;
 }
+.la-playlist__add-wishlist {
+  height: 210px;
+}
+@media (max-width: 991px) {
+  .la-playlist__add-wishlist {
+    height: 120px;
+  }
+}
 .la-playlist__mobile {
   color: var(--app-indigo-1);
   letter-spacing: 1px;
@@ -19787,10 +19795,10 @@ a, a:hover {
   }
 }
 .la-gsearch__input-footersearch {
-  width: 280px !important;
+  width: 260px !important;
 }
-.la-gsearch__input-footersubmit {
-  padding: 0;
+.la-gsearch__input-footericon {
+  font-size: var(--text-2xl);
 }
 .la-gsearch__input-searchcourses {
   width: 300px !important;
@@ -22916,6 +22924,11 @@ section.la-contact--page .la-contact--info {
   padding: var(--size-20);
   position: relative;
   z-index: var(--z-10);
+}
+@media (max-width: 991px) {
+  section.la-contact--page .la-contact--info {
+    padding: var(--size-12);
+  }
 }
 section.la-contact--page .la-contact__lft .la-contact__connect h6 {
   font-family: var(--body-font);

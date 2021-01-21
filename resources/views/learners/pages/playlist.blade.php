@@ -62,7 +62,7 @@
                           />
                        
                     @endforeach
-                    <div class="col-md-4 d-none d-md-block la-anim__stagger-item">
+                    <div class="col-md-6 col-lg-4 d-none d-md-block la-anim__stagger-item">
                         <a class="la-btn__add la-playlist__add-btn d-flex justify-content-center align-items-center"  data-toggle="modal" data-target="#create_playlist" >
                           <span class="la-btn__add-icon">+</span>
                         </a>
