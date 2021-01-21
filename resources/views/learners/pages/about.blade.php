@@ -30,7 +30,7 @@
 
                     <div class="col-lg-5 offset-lg-2 my-auto position-relative py-10 py-md-1 px-0 px-2">
                         <div class="la-about__reach position-relative d-flex justify-content-between align-items-center la-anim__wrap">
-                            <span class="la-section__circle la-section__circle--right2 la-anim__stagger-item "></span>
+                            <span class="la-section__circle la-section__circle--right2 la-anim__stagger-item--x la-anim__E"></span>
                             <div class="col">
                                 <div class="la-bcreator__stats la-about__stats la-anim__stagger-item">
                                     <div class="la-bcreator__stats-item ">

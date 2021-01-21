@@ -44,6 +44,10 @@ section.la-contact--page{
         padding:var(--size-20);
         position: relative;
         z-index: var(--z-10);
+
+        @include respond-below(md){
+            padding:var(--size-12);
+        }
     }
     .la-contact__lft{
         .la-contact__connect{ 

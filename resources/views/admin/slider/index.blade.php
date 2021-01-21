@@ -53,7 +53,7 @@
                 <td>
                    <form action="{{ route('slider.quick',$cat->id) }}" method="POST">
                       {{ csrf_field() }}
-                      <button  type="Submit" class="btn btn-xs {{ $cat->status ==1 ? 'btn-success' : 'btn-danger' }}">
+                      <button  type="Submit" class=" btn btn-xs {{ $cat->status ==1 ? 'btn-success' : 'btn-danger' }}">
                         @if($cat->status ==1)
                         {{ __('adminstaticword.Active') }}
                         @else
@@ -63,8 +63,11 @@
                     </form>
                 </td>
               
-                <th><a class="btn btn-success la-admin__edit-btn" href="{{url('slider/'.$cat->id)}}">
-                  <i class="la-icon la-icon--lg icon-edit"></i></a></th>
+                <td>
+                    <a class="btn btn-sm la-admin__edit-btn"  href="{{url('slider/'.$cat->id)}}">
+                      <i class="la-icon la-icon--lg icon-edit"></i>
+                    </a>
+                </td>
 
                 <td>
                   <form  method="post" action="{{url('slider/'.$cat->id)}}

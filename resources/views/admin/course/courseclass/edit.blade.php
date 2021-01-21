@@ -123,7 +123,7 @@
                                   <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase text-center">Choose a File</p>
                                   <p class="la-admin__preview-size text-center">Thumbnail | 500x350</p>
                               </div>
-                              <div class="text-center mr-20">
+                              <div class="text-center mr-10">
                                 <span class="la-icon la-icon--5xl icon-preview-image" style="font-size:100px;">
                                   <span class="path1"><span class="path2"></span></span>
                                 </span>

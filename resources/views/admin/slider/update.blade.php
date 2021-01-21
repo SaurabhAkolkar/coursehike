@@ -58,7 +58,7 @@
                             <span class="path1"><span class="path2"></span></span>
                         </span>
                       </div>
-                      <input type="file" class="d-none" name="image"  id="image"><img src="{{ url('/images/slider/'.$cate->image) }}"/>
+                      <input type="file" class="d-none" name="image"  id="image"><img src="{{ url('/images/slider/'.$cate->image) }}" style="margin-left:200px;/>
                     </div>
                   </div>
                 </div>

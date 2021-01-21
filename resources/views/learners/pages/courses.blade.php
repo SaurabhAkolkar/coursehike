@@ -223,7 +223,7 @@
 
                       @foreach ($categories as $category)
                         <div class="tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
-                          <div class="row row-cols-lg-3 la-anim__stagger-item">
+                          <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item">
                                 @php
                                     $courses = $category->courses;
                                     if($sort_type == 'highest_rated')
