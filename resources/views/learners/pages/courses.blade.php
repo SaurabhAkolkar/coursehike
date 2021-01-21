@@ -16,8 +16,6 @@
 @section('content')
 
 <section class="la-section__small la-cbg--main">
-    
-    
     <div class="la-section__inner">
       <div class="container">
         
@@ -51,15 +49,15 @@
                       <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-2 text-dark">Sort by</div>
                       <div class=" pt-2">
                           <div class="la-form__radio-wrap mr-5">
-                                <input class="la-form__radio d-none" type="radio" value="most_popular" name="sort_by" id="most_popular">
+                                <input class="la-form__radio d-none" type="radio" value="most_popular" name="sort_by" id="most_popular" @if($sort_type =='most_popular') checked @endif>
                                 <label class="d-flex align-items-center text-sm" for="most_popular"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Most Popular</span></label>
                           </div>
                           <div class="la-form__radio-wrap mr-5">
-                              <input class="la-form__radio d-none" type="radio" value="highest_rated" name="sort_by" id="highest_rated">
+                              <input class="la-form__radio d-none" type="radio" value="highest_rated" name="sort_by" id="highest_rated" @if($sort_type =='highest_rated') checked @endif>
                               <label class="d-flex align-items-center text-sm" for="highest_rated"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Highest Rated</span></label>
                           </div>
                           <div class="la-form__radio-wrap mr-5">
-                              <input class="la-form__radio d-none" type="radio" value="latest" name="sort_by" id="latest">
+                              <input class="la-form__radio d-none" type="radio" value="latest" name="sort_by" id="latest" @if($sort_type =='latest') checked @endif>
                               <label class="d-flex align-items-center text-sm" for="latest"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Latest</span></label>
                           </div>
                       </div>
@@ -110,7 +108,7 @@
                                       <label class="glabel d-flex" for="course_{{$c->id}}">
                                         <input class="d-none" type="checkbox" id="course_{{$c->id}}" @if(in_array($c->id, $selected_categories)) checked @endif onclick="addToCategory({{$c->id}})" value="{{$c->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                         <div class="pl-2 mt-n1">{{$c->title}}
-                                            @if($c->subcategory != null)
+                                            <!-- @if($c->subcategory != null)
                                               <ul class="d-flex flex-column">
                                                 @foreach($c->subcategory as $sc)
                                                   <li>
@@ -121,8 +119,7 @@
                                                   </li>
                                                 @endforeach
                                               </ul>
-                                            @endif
-                                            
+                                            @endif -->                                            
                                           </div>
                                       </label>
                                     @endforeach
@@ -184,11 +181,10 @@
             </ul>
           @endif
           </nav>
-         
              
-                   <x-add-to-playlist 
-                      :playlists="$playlists"
-                    />
+          <x-add-to-playlist 
+            :playlists="$playlists"
+          />
                   <!-- Add to Playlist Modal -->
       
           @if($filtres_applied)
@@ -199,7 +195,7 @@
                                     :img="$course->preview_image"
                                     :course="$course->title"
                                     :url="$course->slug"
-                                    :rating="$course->review->avg('rating')"
+                                    :rating="round($course->average_rating, 2)"
                                     :creatorImg="$course->user->user_img"
                                     :creatorName="$course->user->fname"
                                     :creatorUrl="$course->user->id"
@@ -228,13 +224,20 @@
                       @foreach ($categories as $category)
                         <div class="tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
                           <div class="row row-cols-lg-3 la-anim__stagger-item">
-                                @foreach($category->courses as $course)
+                                @php
+                                    $courses = $category->courses;
+                                    if($sort_type == 'highest_rated')
+                                    {
+                                      $courses = $category->courses->sortByDesc('average_rating');
+                                    }                
+                                @endphp
+                                @foreach($courses as $course)
                                   <x-course 
                                       :id="$course->id"
                                       :img="$course->preview_image"
                                       :course="$course->title"
                                       :url="$course->slug"
-                                      :rating="$course->review->avg('rating')"
+                                      :rating="round($course->average_rating, 2)"
                                       :creatorImg="$course->user->user_img"
                                       :creatorName="$course->user->fname"
                                       :creatorUrl="$course->user->id"

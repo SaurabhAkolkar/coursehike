@@ -30,7 +30,12 @@
                         padding: 30px 0;
                         // margin-bottom: 80px;
 
-                        @include respond-above(sm) {
+                        @include respond-above(md) {
+                            width: 300px;
+                            margin: 0 auto;
+                            padding: 50px 0;
+                        }
+                        @include respond-above(lg) {
                             width: 340px;
                             margin: 0 auto;
                             padding: 50px 0;

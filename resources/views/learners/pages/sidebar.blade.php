@@ -73,9 +73,9 @@
           </a>
         </li>
         <li class="la-profile__sidebar-item la-anim__stagger-item ">
-          <a class="la-profile__sidebar-link d-flex align-items-center @if(Request::segment(1) == 'help') active @endif " href="">
-            <span class="la-icon la-icon--xl icon-help-filled"></span>
-            <span class="la-profile__sidebar-text pl-2">Help</span>
+          <a class="la-profile__sidebar-link d-flex align-items-center @if(Request::segment(1) == 'contact') active @endif " href="/contact">
+            <span class="la-icon la-icon--xl icon-contact-number"></span>
+            <span class="la-profile__sidebar-text pl-2">Contact Us</span>
           </a>
         </li>
         <li class="la-profile__sidebar-item la-anim__stagger-item ">

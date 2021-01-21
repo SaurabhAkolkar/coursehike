@@ -2,6 +2,16 @@
 
 @section('content')
  <!-- Main Section: Start-->
+ @if(session('success'))
+  <div class="la-btn__alert position-relative">
+    <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible" role="alert">
+        <h6 class="la-btn__alert-msg">{{session('success')}}</h6>
+        <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true" style="color:#56188C">&times;</span>
+        </button>
+    </div>
+  </div>
+  @endif
  <section class="la-cbg--main">
     <!-- Section: Strat-->
     <section class="la-contact--page">
@@ -13,18 +23,6 @@
               <span class="la-icon la-icon--5xl icon-back-arrow"></span>
             </a>
           </div>
-
-          @if(session('success'))
-          <div class="la-btn__alert position-relative">
-            <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible" role="alert">
-                <h6 class="la-btn__alert-msg">{{session('success')}}</h6>
-                <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true" style="color:#56188C">&times;</span>
-                </button>
-            </div>
-          </div>
-          @endif
-
           <!-- Column: End-->
           <!-- Column: Start-->
           <div class="col-12 d-none d-sm-block ">
@@ -47,9 +45,9 @@
                 <div class="la-contact__details la-anim__stagger-item"><span class="la-icon--xl icon-contact-number mr-3"></span><a  href="tel:+91 9999999999">+91 9999999999</a></div>
                 <div class="la-contact__details d-flex align-items-center la-anim__stagger-item"><span class="la-icon--xl icon-mail-id mr-3"></span><a  href="mailto:ask@learnitlikealiens.com">ask@learnitlikealiens.com</a></div>
                 <div class="la-contact__smedia mt-6">
-                  <a class="la-anim__stagger-item" href="#"><span class="la-icon la-icon--6xl icon-facebook"></a>
-                  <a class="la-anim__stagger-item" href="#"><span class="la-icon la-icon--6xl icon-insta"></a>
-                  <a class="la-anim__stagger-item" href="#"><span class="la-icon la-icon--6xl icon-youtube"></a>
+                  <a class="la-anim__stagger-item" href="https://www.facebook.com/learnitlikealiens" target="_blank"><span class="la-icon la-icon--6xl icon-facebook"></a>
+                  <a class="la-anim__stagger-item" href="https://www.instagram.com/learnitlikealiens/" target="_blank"><span class="la-icon la-icon--6xl icon-insta"></a>
+                  <a class="la-anim__stagger-item" href="https://www.youtube.com/channel/UC1LRPWR4rltOLKiR7e-pWEg" target="_blank"><span class="la-icon la-icon--6xl icon-youtube"></a>
                 </div>
               </div>
             </div>
@@ -62,9 +60,9 @@
               <div class="la-contact__details la-anim__stagger-item"><span class="la-icon--lg icon-contact-number mr-3"></span><a class="text-md" href="tel:">+91 9999999999</a></div>
               <div class="la-contact__details d-flex align-items-center la-anim__stagger-item"><span class="la-icon--lg icon-mail-id mr-3"></span><a class="text-md" href="mailto:ask@learnitlikealiens.com">ask@learnitlikealiens.com</a></div>
               <div class="la-contact__smedia mt-8">
-                <a class="mr-6 la-anim__stagger-item" href="#"><span class="la-icon la-icon--5xl icon-facebook"></span></a>
-                <a class="mr-6 la-anim__stagger-item" href="#"><span class="la-icon la-icon--5xl icon-insta"></span></a>
-                <a class="mr-6 la-anim__stagger-item" href="#"><span class="la-icon la-icon--5xl icon-youtube"></span></a>
+                <a class="mr-6 la-anim__stagger-item" href="https://www.facebook.com/learnitlikealiens" target="_blank"><span class="la-icon la-icon--5xl icon-facebook"></span></a>
+                <a class="mr-6 la-anim__stagger-item" href="https://www.instagram.com/learnitlikealiens/" target="_blank"><span class="la-icon la-icon--5xl icon-insta"></span></a>
+                <a class="mr-6 la-anim__stagger-item" href="https://www.youtube.com/channel/UC1LRPWR4rltOLKiR7e-pWEg" target="_blank"><span class="la-icon la-icon--5xl icon-youtube"></span></a>
               </div>
             </div>
           </div>
@@ -95,11 +93,11 @@
                   <textarea class="form-control text-msg p-2" id="contMsg" rows="5" cols="50" name="message" placeholder="Type here" required></textarea>
                 </div>
                 <div class="la-contact__btn text-right d-none d-sm-block la-anim__stagger-item--x">
-                  <button class="btn btn-desktop text-lg text-center" type="submit" onclick="$('#contactForm').submit()">SEND</button>
+                  <button class="btn btn-desktop text-lg text-center" type="submit" >SEND</button>
                 </div>
                 <!-- Mobile Button: Start-->
                 <div class="la-contact__btn text-center pt-5 d-block d-sm-none la-anim__stagger-item">
-                  <button class="btn btn-mobile btn-block text-lg text-center" type="submit" onclick="$('#contactForm').submit()">SEND</button>
+                  <button class="btn btn-mobile btn-block text-lg text-center" type="submit">SEND</button>
                 </div>
                 <!-- Mobile Button: End-->
               </form>

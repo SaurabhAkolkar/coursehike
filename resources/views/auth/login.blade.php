@@ -45,9 +45,9 @@
                     <div class="la-entry__slider-wrap d-flex align-items-center">
                         <div class="swiper-container entry-swiper-container h-100 la-entry__slider">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide" style="width: 60vh;height: 60vh;background-image:url(../images/learners/login-register/slide1.png)"></div>
-                                    <div class="swiper-slide" style="width: 60vh;height: 60vh;background-image:url(../images/learners/creator/earn.png)"></div>
-                                </div>
+                                <div class="swiper-slide" style="width: 80vw;height: 80vh;background-image:url(../images/learners/login-register/login-slide1.svg)"></div>
+                                <div class="swiper-slide" style="width: 80vw;height: 80vh;background-image:url(../images/learners/login-register/login-slide2.svg)"></div>
+                            </div>
                             <div class="swiper-pagination swiper-pagination-black"></div>
                         </div>
                     </div> 
@@ -78,8 +78,8 @@
                                         <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
                                         <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-password"></span></span>
                                         <input id="password" type="password" class="la-form__input la-entry__input{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Enter Your Password" name="password" required>
-                                        <span class="la-entry__input-picon"><span class="la-icon la-icon--xl icon-hide-Password"></span></span>
-                                        <span class="la-entry__input-picon"><span class="la-icon la-icon--xl icon-show-password"></span></span>
+                                        <span class="la-entry__input-picon d-none" id="password_hide_icon"><span class="la-icon la-icon--xl icon-hide-Password "></span></span>
+                                        <span class="la-entry__input-picon" id="password_show_icon"><span class="la-icon la-icon--xl icon-show-password "></span></span>
 
                                         @if ($errors->has('password'))
                                             <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
@@ -192,10 +192,21 @@
 <!-- jquery -->
 {{-- @include('theme.scripts') --}}
 <!-- end jquery -->
+@section('footerScripts')
+<script>
+    $('#password_show_icon').click(function(){
+        $(this).addClass('d-none');
+        $('#password_hide_icon').removeClass('d-none');
+        $('#password').prop('type', 'text');
+    });
 
-
-
-
+    $('#password_hide_icon').click(function(){
+        $(this).addClass('d-none');
+        $('#password_show_icon').removeClass('d-none');
+        $('#password').prop('type', 'password');
+    });
+</script>
+@endsection
 
 
 

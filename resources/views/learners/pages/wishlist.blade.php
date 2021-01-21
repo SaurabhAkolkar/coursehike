@@ -65,7 +65,7 @@
                           :img="$courses->courses->preview_image" 
                           :course="$courses->courses->title" 
                           :url="$courses->courses->slug" 
-                          :rating="$courses->courses->review->avg('rating')?$courses->courses->review->avg('rating'):'0'"
+                          :rating="round($courses->courses->average_rating, 2)"
                           :creatorImg="$img"
                           :creatorName="$courses->courses->user->FullName"
                           :creatorUrl="$courses->courses->user->id"

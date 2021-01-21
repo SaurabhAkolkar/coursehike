@@ -1,0 +1,123 @@
+//- About Top Section
+.la-about__us{
+    @include respond-below(md){
+        margin-bottom:var(--size-16);
+    }
+}
+.la-about__top{
+    background-color:var(--white);
+}
+.la-about__title{
+    @include respond-below(md){
+        margin-bottom:0;
+    }
+}
+.la-about__tag{
+    color:var(--yellow);
+    font-size:var(--text-2xl);
+}
+.la-about__info-title{
+    color:var(--gray6);
+    margin-bottom:var(--size-6);
+}
+.la-about__info-desc{
+    color:var(--gray5);
+}
+
+//- Stats Section
+.la-about__reach{
+    z-index:var(--z-20);
+
+    @include respond-below(sm){
+        flex-wrap: wrap;
+    }
+}
+.la-about__stats{
+    width:130px;
+    background-color:var(--white);
+    box-shadow: 0px 0px 40px #E4E4E475;
+    border-radius: 10px;
+    padding:var(--size-10) var(--size-4);
+
+    @include respond-below(md){
+        width:100%;
+        margin-bottom:var(--size-4);
+    }
+}
+//- Motto Section
+.la-about__motto{
+    @include respond-above(md){
+        margin-top:var(--size-20);
+    }
+}
+.la-about__motto-sq{
+    width:200px;
+    height:200px;
+    background-color:var(--gray2);
+    border-radius: 10px;
+    position:absolute;
+    top:-50px;
+    left:10px;
+
+    @include respond-below(sm){
+        display:none;
+    }
+}
+.la-about__motto-box{
+    background-color:var(--yellow);
+    border-radius: 10px;
+    padding:calc(var(--size-20) + var(--size-4)) calc(var(--size-20) * 3);
+    margin:0 var(--size-20);
+    position:relative;
+    z-index:var(--z-2);
+
+    @include respond-below(md){
+        padding:var(--size-14);
+        margin:0 var(--size-16);
+    }
+    @include respond-below(sm){
+        padding:var(--size-6);
+        margin:0 var(--size-4);
+    }
+}
+.la-about__motto-text{
+    font-family: var(--head-font);
+    font-size:var(--text-5xl);
+    color:var(--gray6);
+    font-weight: var(--font-semibold);
+
+    @include respond-below(sm){
+        font-size:var(--text-3xl);
+    }
+}
+.la-about__motto-author{
+    color:var(--gray5);
+}
+
+//- About Bottom Section
+.la-about__btm{
+    background-color:var(--gray);
+}
+.la-about__mvt-tag{
+    font-weight: var(--font-semibold);
+    font-size:var(--text-xl);
+}
+.la-about__mvt-title{
+    color:var(--app-indigo-1);
+    font-family: var(--body-font);
+    font-weight: var(--font-extrabold);
+}
+.la-about__mvt-text{
+    padding:var(--size-6) 0;
+}
+.la-about__mvt-desc{
+    color:var(--gray5);
+}
+.la-about__mvt-cta{
+    background-color:transparent !important;
+}
+.la-about__mvt-rgt{
+    @include respond-below(sm){
+        margin-top:var(--size-10);
+    }
+}

@@ -18,9 +18,9 @@
 <section class="la-section__small la-cbg--main">
     <div class="la-section__inner">
       <div class="container">
-        <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
+        <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2" href="{{URL::previous()}}"></a>
         <div class="d-flex justify-content-between la-anim__wrap">  
-          <h1 class="la-page__title mb-8 la-anim__stagger-item">Master Classes</h1>
+          <h1 class="la-page__title mb-16 mb-md-8 la-anim__stagger-item">Master Classes</h1>
           <a class="la-icon--2xl icon-filter d-none d-lg-none" id="filterCourses" role="button"></a>
         </div>  
 

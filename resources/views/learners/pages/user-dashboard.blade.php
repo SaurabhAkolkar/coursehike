@@ -10,7 +10,7 @@
           <div class="row d-flex flex-row justify-content-between">
             <div class="col-12 col-md-6 col-lg-4 la-anim__wrap">
               <div class="la-cdashboard__page">
-                <h1 class="text-4xl">Welcome <span>{{Auth::user()->fname}}!</span></h1>
+                <h1 class="text-3xl text-md-4xl text-capitalize">Welcome <span>{{Auth::user()->fname}}!</span></h1>
                 <p class="text-md">Share your knowledge, Be the change.<br/> The kind that enables everyone to reach their full potential & more!</p>
               </div>
             </div>

@@ -32,7 +32,7 @@ class PlaylistController extends Controller
 
     public function show($id)
     {   
-      $courses = PlaylistCourse::with('courses')
+      $courses = PlaylistCourse::with('courses','courses.user')
                                 ->where('playlist_id', $id)
                                 ->get();
                                

@@ -11,23 +11,36 @@
 @php
 use Carbon\Carbon;
 @endphp
+
+@if(session('success'))
+  <div class="la-btn__alert position-relative">
+    <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible" role="alert">
+        <h6 class="la-btn__alert-msg">{{session('success')}}</h6>
+        <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true" style="color:#56188C">&times;</span>
+        </button>
+    </div>
+  </div>
+@endif
+
+@if(session('message'))
+  <div class="la-btn__alert position-relative">
+    <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible" role="alert">
+        <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
+        <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true" style="color:#56188C">&times;</span>
+        </button>
+    </div>
+  </div>
+@endif
+
+<x-add-to-playlist 
+  :playlists="$playlists"
+/>
+
 <section class="la-section__small">
     <div class="la-vcourse">
       <div class="container">
-        @if(Session('failed'))
-          <h5>Review Already Added for this course by you.</h5>
-        @endif
-         @if(session('message'))
-          <div class="la-btn__alert position-relative">
-            <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible" role="alert">
-                <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
-                <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true" style="color:#56188C">&times;</span>
-                </button>
-            </div>
-          </div>
-        @endif
-        <div id="wishlist_alert_div"></div> 
         <div class="row  mb-12"> 
           <div class="col-12 col-lg-7">
             <div class="la-vcourse__header d-flex align-items-center">
@@ -54,23 +67,23 @@ use Carbon\Carbon;
             <div class="la-vcourse__info-items d-flex align-items-center justify-content-end">
               <div class="la-vcourse__info-item la-vcourse__info--videos d-flex flex-column align-items-center justify-content-end">
                 <div class="la--count">{{ $course->courseclass->count() }}</div>
-                <span class="la--label mt-1">Videos</span>
+                <span class="la--label mt-2">Videos</span>
               </div>
               <div class="la-vcourse__info-item la-vcourse__info--learners d-flex flex-column align-items-center justify-content-end mx-10">
                 <div class="la--count">{{$course->learnerCount}}</div>
-                <span class="la--label mt-1">Learners</span>
+                <span class="la--label mt-2">Learners</span>
               </div>
               <div class="la-vcourse__info-item la-vcourse__info--level d-flex flex-column align-items-center justify-content-end">
-                <div class="la--icon">
+                <div class="la--icon mt-n3">
                   @if($course->level == 1)
-                    <img src="/images/learners/icons/level-beginner.svg" alt="beginner">
+                    <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-beginner"></span>
                   @elseif($course->level == 2)
-                    <img src="/images/learners/icons/level-beginner.svg" alt="beginner">
+                  <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-intermediate"></span>
                   @else
-                    <img src="/images/learners/icons/level-beginner.svg" alt="beginner">
+                  <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-advanced"></span>
                   @endif
                 </div>
-                <span class="la--label mt-1">
+                <div class="la--label mt-n2">
                   @if($course->level == 1)
                     Beginner
                   @elseif($course->level == 2)
@@ -78,7 +91,7 @@ use Carbon\Carbon;
                   @else
                     Advanced
                   @endif
-                </span>
+                </div>
               </div>
             </div>
           </div>
@@ -87,7 +100,7 @@ use Carbon\Carbon;
         <div class="row">
           <div class="col">
             <ul class="list-unstyled d-block d-lg-flex mb-6">
-              <li class="la-vcourse__duration mr-14"><span class="la-text-gray4">Duration </span>  {{ $course->duration }}</li>
+              <li class="la-vcourse__duration mr-14"><span class="la-text-gray4">Duration </span>  {{ $course->duration }} Hrs</li>
               <li class="la-vcourse__updatedon mr-14"><span class="la-text-gray4">Last Updated </span>  {{ $course->updated_at->format('d-M Y') }}</li>
               <li class="la-vcourse__languages mr-14"> <span class="la-text-gray4">Languages </span>  {{$course->language->name}} </li>
             </ul>
@@ -336,21 +349,21 @@ use Carbon\Carbon;
                   <img class="img-fluid d-block" src="/images/learners/course-benefits/video.svg" />
                 </div>
                 <h4 class="la-cbenefits__item-title mb-3">Unlimited Learning</h4>
-                <p class="la-cbenefits__item-desc m-0">One plan - All subscribed content</p>
+                <p class="la-cbenefits__item-desc m-0 text-center">Access to numerous courses of varied art skills</p>
               </div>
             </div>
             <div class="col">
               <div class="la-cbenefits__item d-flex flex-column align-items-center">
                 <div class="mb-7"><img class="img-fluid d-block" src="/images/learners/course-benefits/certificate.svg"></div>
                 <h4 class="la-cbenefits__item-title mb-3">Certification</h4>
-                <p class="la-cbenefits__item-desc m-0">Course completion certificate</p>
+                <p class="la-cbenefits__item-desc m-0 text-center">Certificates as proof of course completion</p>
               </div>
             </div>
             <div class="col">
               <div class="la-cbenefits__item d-flex flex-column align-items-center">
                 <div class="mb-7"><img class="img-fluid d-block" src="/images/learners/course-benefits/online-course.svg"></div>
-                <h4 class="la-cbenefits__item-title mb-3">Assignments &amp; QUiz</h4>
-                <p class="la-cbenefits__item-desc m-0">Test your progress</p>
+                <h4 class="la-cbenefits__item-title mb-3">Resources</h4>
+                <p class="la-cbenefits__item-desc m-0 text-center">Extra resources to practice and hone your skills</p>
               </div>
             </div>
           </div>
@@ -443,12 +456,12 @@ use Carbon\Carbon;
         <div class="col-md-3 offset-md-1 px-md-0 la-vcourse__purchase-right">
           <div class="la-vcourse__purchase-content ">
             <div class="la-vcourse__purchase-prize mb-8">Subscribe for all Courses @ <span class="la-vcourse__purchase-prize--amount"><b>$39/month</b></span></div>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam consetetur sadipscing</p>
+            <p>Access all the current and future courses at the tiny monthly subscription payment</p>
             <div class="la-vcourse__purchase-actions d-inline-block text-center mt-8">
               <div class="la-vcourse__purchase-btn">
                 <a class="btn btn-primary active la-btn la-btn--primary text-center"  href="/learning-plans">SUBSCRIBE NOW</a>
               </div>
-              <a href="/learning-plans"  class="la-vcourse__purchase-trial--lnk mt-8">Start free 7 Days trial</a>
+              <a href="/login"  class="la-vcourse__purchase-trial--lnk mt-8">Start free 7 Days trial</a>
             </div>
           </div>
         </div>
@@ -667,8 +680,8 @@ use Carbon\Carbon;
                 invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</div>
                 <div class="la-creator__content-btn">
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold">
-                    <a href="/creator/{{$course->user->id}}">read about</a>
-                    <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
+                    <a href="/creator/{{$course->user->id}}">read about
+                    <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
                   </div>
                 </div>
             </div>
@@ -683,67 +696,19 @@ use Carbon\Carbon;
     <div class="la-section__inner">
       <div class="container">
         <h2 class="la-section__title mb-9">More from Creators</h2>
-        <div class="row col-12 px-0">
-          @foreach ($mentor_other_courses as $related_course)
-              
-          <div class="col-md-4" >
-              <div class="la-course">
-                  <div class="la-course__inner">
-                      <a href= {{ '/learn/course/'.$related_course->id.'/'.$related_course->slug }}>
-                            <div class="la-course__overlay" id="la-course__nested-links">
-                              
-                                  <ul class="la-course__options list-unstyled text-white">
-                                      <li class="la-course__option">
-                                          <span class="d-inline-block la-course__addtocart" onclick="addToCart({{$related_course->id}})">
-                                              <i class="la-icon la-icon--2xl icon icon-cart"></i>
-                                          </span>
-                                      </li>
-
-                                      <li class="la-course__option">
-                                          <span class="d-inline-block la-course__like">
-                                              <i class="la-icon la-icon--2xl icon icon-wishlist"></i>
-                                          </span>
-                                      </li>
-
-                                      <li class="la-course__option">
-                                          <div class="dropdown">
-                                              <span class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);">
-                                                  <i class="la-icon la-icon--2xl icon icon-menu"></i>
-                                              </span>
-                                              <div class="la-cmenu dropdown-menu py-0">
-                                                  <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="showAddToPlaylist({{$related_course->id}})" ><i class="icon icon-playlist la-icon la-icon--2xl mr-2"></i> Add to Playlist </span>
-                                                  <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToWishList({{$related_course->id}})"><i class="icon icon-wishlist la-icon la-icon--2xl mr-2"></i>  Add to Wishlist  </span>
-                                                  <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToCart({{$related_course->id}})"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</span>
-                                              </div>
-                                          </div>
-                                      </li>
-                                  </ul>
-
-                                  <div class="la-course__learners"><strong>300</strong>  Learners</div>
-                          </div>
-                      
-                          <div class="la-course__imgwrap">
-                              <img class="img-fluid" src="{{$related_course->preview_image}}" alt= {{ $related_course->title }} />
-                          </div>
-                      </a>
-                  </div>
-
-                  <div class="la-course__btm">
-                      <div class="la-course__info d-flex align-items-center mb-1">
-                          <a class="la-course__title" > {{ $related_course->title }} </a>
-                          <div class="la-course__rating ml-auto"> 4 </div>
-                      </div>
-                      
-                      <a class="la-course__creator d-inline-flex align-items-center"  >
-                          <div class="la-course__creator-imgwrap">
-                              <img class="img-fluid" src="https://picsum.photos/200/200" alt={{ $related_course->user->fullName }} />
-                           
-                          </div>
-                          <div class="la-course__creator-name">{{ $related_course->user->fullName }}</div>
-                      </a>
-                  </div>
-              </div>
-          </div>              
+        <div class="row row-cols-lg-3">
+          @foreach ($mentor_other_courses as $course)
+                <x-course 
+                :id="$course->id"
+                :img="$course->preview_image"
+                :course="$course->title"
+                :url="$course->slug"
+                :rating="round($course->average_rating, 2)"
+                :creatorImg="$course->user->user_img"
+                :creatorName="$course->user->fname"
+                :creatorUrl="$course->user->id"
+                :learnerCount="$course->learnerCount"
+              />
           @endforeach
           
         </div>
@@ -756,69 +721,19 @@ use Carbon\Carbon;
     <div class="la-section__inner pb-md-10">
       <div class="container">
         <h2 class="la-section__title mb-9">Looking for something else?</h2>
-        <div class="row col-12 px-0 ">
-          @foreach ($related_courses as $related_course)
-          <div class="col-md-4" >
-              <div class="la-course">
-                  <div class="la-course__inner">
-                      <a href= {{ '/learn/course/'.$related_course->id.'/'.$related_course->slug }}>
-                          <div class="la-course__overlay">
-
-                                  <ul class="la-course__options list-unstyled text-white">
-                                      <li class="la-course__option">
-                                          <span class="d-inline-block la-course__addtocart" onclick="addToCart({{$related_course->id}})">
-                                              <i class="la-icon la-icon--2xl icon icon-cart"></i>
-                                          </span>
-                                      </li>
-
-                                      <li class="la-course__option">
-                                          <span class="d-inline-block la-course__like">
-                                              <i class="la-icon la-icon--2xl icon icon-wishlist"></i>
-                                          </span>
-                                      </li>
-
-                                      <li class="la-course__option">
-                                          <div class="dropdown">
-                                              <span class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);">
-                                                  <i class="la-icon la-icon--2xl icon icon-menu"></i>
-                                              </span>
-                                              <div class="la-cmenu dropdown-menu py-0">
-                                                  <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="showAddToPlaylist({{$related_course->id}})" ><i class="icon icon-playlist la-icon la-icon--2xl mr-2"></i> Add to Playlist </span>
-                                                  <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToWishList({{$related_course->id}})"><i class="icon icon-wishlist la-icon la-icon--2xl mr-2"></i>  Add to Wishlist  </span>
-                                                  <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToCart({{$related_course->id}})"><i class="icon icon-cart la-icon la-icon--2xl mr-2"></i>  Add to Cart</span>
-                                                  
-                                              </div>
-                                          </div>
-                                      </li>
-                                  </ul>
-
-                                  <div class="la-course__learners"><strong>{{$course->learnerCount}}</strong>  Learners</div>
-                          </div>
-                      
-                          <div class="la-course__imgwrap">
-                              <img class="img-fluid" src="{{$related_course->preview_image}}" alt= {{ $related_course->title }} />
-                          </div>
-                      </a>
-                  </div>
-
-                  <div class="la-course__btm">
-                      <div class="la-course__info d-flex align-items-center mb-1">
-                          <a class="la-course__title" > {{ $related_course->title }} </a>
-                          <div class="la-course__rating ml-auto"> 4 </div>
-                      </div>
-                      
-                      <a class="la-course__creator d-inline-flex align-items-center"  >
-                          <div class="la-course__creator-imgwrap">
-                              <img class="img-fluid" src="https://picsum.photos/200/200" alt={{ $related_course->user->fullName }} />
-                           
-                          </div>
-                          <div class="la-course__creator-name">{{ $related_course->user->fullName }}</div>
-                      </a>
-                  </div>
-              </div>
-          </div>
-
-          
+        <div class="row row-cols-lg-3">
+          @foreach ($related_courses as $course)
+              <x-course 
+                  :id="$course->id"
+                  :img="$course->preview_image"
+                  :course="$course->title"
+                  :url="$course->slug"
+                  :rating="round($course->average_rating, 2)"
+                  :creatorImg="$course->user->user_img"
+                  :creatorName="$course->user->fname"
+                  :creatorUrl="$course->user->id"
+                  :learnerCount="$course->learnerCount"
+              />
           @endforeach
 
         </div>
@@ -827,96 +742,6 @@ use Carbon\Carbon;
   </section>
   <!-- Section: End-->
 
-  <!-- ==== Popup Section: Start ===== -->
-  <section>
-    <div class="container">
-      <div class="row">
-        <!-- Locked Login Popup: Start -->
-        <div class="col-12">
-          <!-- <a class="" data-toggle="modal" data-target="#locked_login">Locked Course Login</a>-->
-                
-            <div class="modal fade  la-locked__modal" id="locked_login">
-              <div class="modal-dialog  la-locked__modal-dialog">
-                  <div class="modal-content  la-locked__modal-content px-6">
-                      <div class="modal-header  la-locked__modal-header">
-                          <button type="button" class="close text-4xl" data-dismiss="modal">&times;</button> <br/>
-                      </div>
-                    
-                      <div class="modal-body  la-locked__modal-body text-center">
-                          <h5 class="modal-title la-locked__modal-title ">Login Required</h5>
-                          <img src="/images/learners/status/locked-login.svg" alt="Login" class="img-fluid mx-auto d-block la-locked__modal-img">
-                          <p class="la-locked__modal-desc px-6">Please login & subscribe to gain full access to courses.</p>
-
-                          <a href="/login"><button class="la-btn__app py-3 w-100 la-locked__modal-btn" type="button">Login</button></a>
-
-                          <div class="la-locked__modal-register pt-3">
-                              <span class="la-locked__modal-info pr-1">Don't have an account?</span>
-                              <a href="/register" role="button" class="la-locked__modal-link">Register</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-            </div>
-        </div>
-          <!-- Locked Login Popup: End -->
-
-        <!-- Locked Subscribe Popup: Start -->
-        <div class="col-12">
-          <!--<a class="" data-toggle="modal" data-target="#locked_subscribe">Locked Course Subscribe</a> -->
-        
-            <div class="modal fade  la-locked__modal" id="locked_subscribe">
-              <div class="modal-dialog  la-locked__modal-dialog">
-                  <div class="modal-content  la-locked__modal-content px-6">
-                      <div class="modal-header  la-locked__modal-header">
-                          <button type="button" class="close text-4xl" data-dismiss="modal">&times;</button> <br/>
-                      </div>
-                    
-                      <div class="modal-body  la-locked__modal-body text-center">
-                          <h5 class="modal-title la-locked__modal-title ">Subscription Required!</h5>
-                          <img src="/images/learners/status/locked-subscribe.svg" alt="Subscribe" class="img-fluid mx-auto d-block la-locked__modal-img">
-                          <p class="la-locked__modal-desc">Please subscribe & continue to enjoy courses from you favourite mentors.</p>
-
-                          <button class="la-btn__app py-3 w-100 la-locked__modal-btn" type="button">Subscribe Now</button>
-
-                          <div class="la-locked__modal-register pt-3">
-                              <span class="la-locked__modal-info pr-1">We have differents plans for you, check</span> <br/>
-                              <a href="/learning-plans" role="button" class="la-locked__modal-link">Learning Plans</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-            </div>
-            <!-- Locked Subscribe Popup: End -->
-        </div>
-
-        <!-- Locked Signup Popup: Start -->
-        <div class="col-12">
-          <!--<a class="" data-toggle="modal" data-target="#locked_trial">Locked Course Signup</a>-->
-                
-            <div class="modal fade  la-locked__modal" id="locked_trial">
-              <div class="modal-dialog  la-locked__modal-dialog">
-                  <div class="modal-content  la-locked__modal-content px-6">
-                      <div class="modal-header  la-locked__modal-header">
-                          <button type="button" class="close text-4xl" data-dismiss="modal">&times;</button> <br/>
-                      </div>
-                    
-                      <div class="modal-body  la-locked__modal-body text-center">
-                          <h5 class="modal-title la-locked__modal-title ">We have a gift for you!</h5>
-                          <img src="/images/learners/status/locked-signup.svg" alt="Gift for You" class="img-fluid mx-auto d-block la-locked__modal-img">
-                          <p class="la-locked__modal-desc px-14">Access premium courses for free for first 7 days.</p>
-
-                          <button class="la-btn__app py-3 w-100 la-locked__modal-btn" type="button">Signup Now</button>
-                      </div>
-                  </div>
-              </div>
-            </div>
-        </div>
-        <!-- Locked Signup Popup: End -->
-
-      </div>
-    </div>
-  </section>
-  <!-- ===== Popup Section: End ====== -->
 
 
 @endsection

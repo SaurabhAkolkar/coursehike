@@ -10,6 +10,6 @@ class PlaylistCourse extends Model
 
     public function courses()
     {
-        return $this->hasMany('App\Course','id','course_id');
+        return $this->hasOne('App\Course','id','course_id');
     }
 }

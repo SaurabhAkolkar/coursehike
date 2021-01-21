@@ -114,8 +114,8 @@
                   <div class="col ">
                     <div class="la-cbenefits__item  bg-white d-flex flex-column align-items-center la-anim__stagger-item--x">
                       <div class="mb-7"><img class="img-fluid" src="./images/learners/course-benefits/online-course.svg"></div>
-                      <h4 class="la-cbenefits__item-title mb-3">Assignments &amp; QUiz</h4>
-                      <p class="la-cbenefits__item-desc text-center">Fun assignments & quizzes practice and hone skills</p>
+                      <h4 class="la-cbenefits__item-title mb-3">Resources</h4>
+                      <p class="la-cbenefits__item-desc text-center">Extra resources to practice and hone your skills</p>
                     </div>
                   </div>
                                  
@@ -152,13 +152,21 @@
           <!-- Column: Start-->
           <div class="col-12 col-lg-5 la-anim__stagger-item">
             <div class="la-lp__lft-content">
-              <h4 class=" text-4xl text-md-5xl head-font mb-3">How does <br>subscription works?</h4>
-              <p class="text-md">
-                Through our Radical team, we strive everyday to make knowledge Affordable, Accessible for all the individuals
-                who have limited or no access to the Real knowledge.
+              <h4 class="la-lp__lft-title text-4xl text-md-5xl head-font mb-3">Manual Payment <br/> Option</h4>
+              <p class="la-lp__lft-desc">If you have trouble making payment through all the available options, you can choose to do the manual payment to get started with LILA.</p>
+              <p class="la-lp__lft-desc">Please write to us at
+                    <a class="la-lp__lft-link" href="mailto:lila@learnitlikealiens.com"> lila@learnitlikealiens.com</a>
               </p>
-              <p class="text-md">
-                So, you can subscribe to all the courses and classes.Or rent them to learn whenever you want.</p>
+
+              <div class="pt-8">
+                  <p  class="la-lp__lft-desc">Learn it like Aliens is not responsible or liable for any refunds for Membership, workshops, Webinars or other purchases on the Service. Please read the
+                    <a class="la-lp__lft-link" href="/cancellations-refund">Cancellations & refunds</a> policy carefully.
+                  </p>
+              </div>
+                
+              <div class="pt-4">
+                <a  class="la-lp__lft-link"  href="mailto:lila@learnitlikealiens.com" class="mt-4">Have more queries?</a>
+              </div>
             </div>
           </div>
           <!-- Column: End-->
@@ -169,14 +177,45 @@
               <div class="panel-group la-lp__faq-group" id="accFreeMain">
                 <!-- Free Trial: Start-->
                 <div class="panel panel-default la-lp__faq-panel mt-2">
-                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqFree"><span class="panel-title la-lp__faq-title text-md mx-5"><a class="main-toggle collapsed" href="#faqFT" data-toggle="collapse" aria-expanded="true">FREE TRIAL</a></span></div>
-                  <div class="panel-collapse collapse" id="faqFT" aria-labelledby="faqFree" data-parent="#accordion">
+                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqFree"><span class="panel-title la-lp__faq-title text-md mx-5"><a class="main-toggle collapsed text-uppercase" href="#faqFT" data-toggle="collapse" aria-expanded="true">Payment</a></span></div>
+                  <div class="panel-collapse collapse show" id="faqFT" aria-labelledby="faqFree" data-parent="#accordion">
                     <div class="panel-group la-lp__sub-group my-2 mx-2 mx-sm-5" id="accFree">
                       <div class="panel panel-default la-lp__faq-panel mt-2">
-                        <div class="panel-heading la-lp__faq-sub py-2" id="faqF"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqFa" data-toggle="collapse" aria-expanded="true">How much it cost?</a></span>
+                        <div class="panel-heading la-lp__faq-sub py-2" id="faqF"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqFa" data-toggle="collapse" aria-expanded="true">My debit card doesn't work</a></span>
                           <div class="panel-collapse collapse" id="faqFa" aria-labelledby="faqF" data-parent="#accFree">
                             <div class="panel-body py-4 px-5">
-                              <div class="panel-text">Something</div>
+                              <div class="panel-text">
+                                <p>As per the recent RBI rules, the debit card cannot be used for monthly subscription payment, you will need to enable that feature from your bank. Please call your bank and enable the feature</p>
+                                <p>Or, you can select an annual payment mode and pay through the debit card.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="panel panel-default la-lp__faq-panel mt-2">
+                        <div class="panel-heading la-lp__faq-sub py-2" id="faq_f2"><span class="panel-title la-lp__faq-tag mx-3">
+                          <a class="accordion-toggle collapsed" href="#faq_fa2" data-toggle="collapse" aria-expanded="true">How does the trial work?</a>
+                        </span>
+                          <div class="panel-collapse collapse" id="faq_fa2" aria-labelledby="faq_f2" data-parent="#accFree">
+                            <div class="panel-body py-4 px-5">
+                              <div class="panel-text">
+                                <p>We offer 7 Days free trial. To get the free trial you will have to subscribe using one of the 2 modes of payment. There will be no charge for the first 7 days. You will be only charged after 7 days. If you do not like the program you can opt-out anytime with the first 7 days.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="panel panel-default la-lp__faq-panel mt-2">
+                        <div class="panel-heading la-lp__faq-sub py-2" id="faq_f3"><span class="panel-title la-lp__faq-tag mx-3">
+                          <a class="accordion-toggle collapsed" href="#faq_fa3" data-toggle="collapse" aria-expanded="true">How do I cancel the subscription?</a>
+                        </span>
+                          <div class="panel-collapse collapse" id="faq_fa3" aria-labelledby="faq_f3" data-parent="#accFree">
+                            <div class="panel-body py-4 px-5">
+                              <div class="panel-text">
+                                <p>It is simple :) goto your accounts page and click the button Unsubscribe.</p>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -188,9 +227,9 @@
               </div>
               <div class="panel-group la-lp__faq-group" id="accSubMain">
                 <!-- Subscription: Start-->
-                <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
+                <!--<div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
                   <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSub"><span class="panel-title la-lp__faq-title mx-5"><a class="main-toggle collapsed" href="#faqSubs" data-toggle="collapse" aria-expanded="true">SUBSCRIPTION</a></span></div>
-                  <div class="panel-collapse collapse show" id="faqSubs" aria-labelledby="faqSub" data-parent="#accordion">
+                  <div class="panel-collapse collapse" id="faqSubs" aria-labelledby="faqSub" data-parent="#accordion">
                     <div class="panel-group la-lp__sub-group mx-2 mx-sm-5" id="accSub"> 
                       <div class="panel panel-default la-lp__faq-panel mt-2">
                         <div class="panel-heading la-lp__faq-sub py-2" id="faqS1"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqSa" data-toggle="collapse" aria-expanded="true">Lorem Ipsum dolor sit amet, consectur adispicing elit?</a></span>
@@ -248,12 +287,12 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <!-- Subscription: End-->
               </div>
               <div class="panel-group la-lp__faq-group" id="accSPMain">
                 <!-- Single Purchase: Start-->
-                <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
+                <!-- <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
                   <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSP"><span class="panel-title la-lp__faq-title mx-5"><a class="main-toggle collapsed" href="#faqSing" data-toggle="collapse" aria-expanded="true">SINGLE PURCHASE</a></span></div>
                   <div class="panel-collapse collapse" id="faqSing" aria-labelledby="faqSP"  data-parent="#accordion">
                     <div class="panel-group la-lp__sub-group mx-2 mx-sm-5" id="accSP"> 
@@ -268,13 +307,13 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <!-- Single Purchase: End-->
               </div>
 
               <div class="panel-group la-lp__faq-group" id="accPPMain">
                 <!-- Premium Purchase: Start-->
-                <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
+                <!-- <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
                   <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqPP"><span class="panel-title la-lp__faq-title mx-5"><a class="main-toggle collapsed" href="#faqPre" data-toggle="collapse" aria-expanded="true">PREMIUM PURCHASE</a></span></div>
                   <div class="panel-collapse collapse" id="faqPre" aria-labelledby="faqPP"  data-parent="#accordion">
                     <div class="panel-group la-lp__sub-group mx-2 mx-sm-5" id="accPP"> 
@@ -289,7 +328,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <!-- Premium Purchase: End -->
               </div>
 

@@ -29,6 +29,7 @@
             <div class="la-main__inner">
                 @yield('content')
             </div>
+            @include('learners.layouts.popups')               
         </main>
     </div>
 

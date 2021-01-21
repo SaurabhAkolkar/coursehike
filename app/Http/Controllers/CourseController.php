@@ -155,7 +155,7 @@ class CourseController extends Controller
     public function show($id)
     {
         $cor = Course::find($id);
-
+        
         return view('admin.course.editcor', compact('cor'));
     }
 
@@ -351,7 +351,7 @@ class CourseController extends Controller
     {
         $course = Course::all();
         
-        $cor = Course::findOrFail($id);
+        $cor = Course::with('user')->findOrFail($id);
         $categories = Categories::where('status',1)->pluck('title','id');
         $publisRequest = PublishRequest::where(['status' => 1, 'course_id' => $id, 'user_id' => Auth::User()->id])->first();
 

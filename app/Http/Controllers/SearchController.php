@@ -28,6 +28,7 @@ class SearchController extends Controller
 		$selected_subcategories = [];
 		$selected_level = [];
 		$selected_languages = [];
+		$sort_type = "";
 		$filtres_applied = false;
 		if(Auth::check()){
 			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
@@ -36,9 +37,10 @@ class SearchController extends Controller
 		if($request->filters == 'applied'){
 			$filtres_applied = true;
 			if(isset($request->sort_by)){
+				$sort_type = $request->sort_by;
 				if($request->sort_by == 'latest'){
 					$courses = Course::with('user')->where('status',1)->orderBy('created_at')->get();
-				}else{
+				}else if($request->sort_by == 'highest_rated'){		
 					$courses = Course::with('user')->where('status',1)->orderBy('created_at')->get();
 				}		
 			}else{
@@ -80,11 +82,14 @@ class SearchController extends Controller
 		}
 
 		if(isset($request->sort_by)){
-		
+			$sort_type = $request->sort_by;
+
 			if($request->sort_by == 'latest'){
 				$categories = Categories::with(array('courses' => function($query) {$query->orderBy('created_at', 'DESC');}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
 			}else if($request->sort_by=='highest_rated'){
-				$categories = Categories::with(array('courses' => function($query) {$query->orderBy('created_at', 'DESC');}),'courses','subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+
+				$categories = Categories::with('courses','courses','subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+
 			}else if($request->sort_by=='most_popular'){
 				$categories = Categories::with(array('courses' => function($query) {$query->orderBy('created_at', 'DESC');}),'courses','subcategory')->where('featured','1')->orderBy('position','ASC')->get();
 			}else{
@@ -96,7 +101,7 @@ class SearchController extends Controller
 		}
 		
 		
-		return view('learners.pages.courses', compact('categories','filtres_applied','selected_languages','selected_categories','selected_subcategories','selected_level','playlists','langauges','filter_categories'));
+		return view('learners.pages.courses', compact('categories','filtres_applied', 'sort_type','selected_languages','selected_categories','selected_subcategories','selected_level','playlists','langauges','filter_categories'));
 
         // if(isset($searchTerm))
         // {
@@ -140,7 +145,7 @@ class SearchController extends Controller
 		$input['price'] = 0;
 		$check_review = ReviewRating::where(['user_id'=>$input['user_id'], 'course_id'=>$input['course_id']])->get();
 		if(count($check_review) > 0){
-			return redirect()->back()->with('failed','You have already reviewed the course');
+			return redirect()->back()->with('success','You have already reviewed the course');
 		}
 		ReviewRating::create($input);
 		

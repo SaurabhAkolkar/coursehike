@@ -25,6 +25,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-advanced:before {
+  content: "\e9ac";
+}
+.icon-beginner:before {
+  content: "\e9ad";
+}
+.icon-intermediate:before {
+  content: "\e9ae";
+}
 .icon-guided-creator:before {
   content: "\e9aa";
 }
