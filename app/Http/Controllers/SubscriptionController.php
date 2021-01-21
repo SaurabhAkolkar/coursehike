@@ -14,7 +14,9 @@ use Auth;
 use App\Course;
 use App\Search;
 use App\Question;
+use App\User;
 use App\UserSubscription;
+use App\UserSubscriptionInvoice;
 use Illuminate\Support\Facades\Log;
 
 class SubscriptionController extends Controller
@@ -253,5 +255,120 @@ class SubscriptionController extends Controller
 		$end = $invoiceObject->period_end;
 		$paid = $invoiceObject->paid;
 		$status = $invoiceObject->status;
+	}
+
+	public function billing()
+	{
+		$user = Auth::User();
+		$active_plan = app('rinvex.subscriptions.plan_subscription')->ofUser($user)->latest()->first(); 
+		
+		$subscription = UserSubscription::where('user_id', $user->id)->first();
+		$card = $this->stripe->paymentMethods()->find($subscription->payment_id)['card'];
+		
+		$last_payment = UserSubscriptionInvoice::where('user_id', $user->id)->latest()->first();
+		// dd($last_payment);
+		return view('learners.pages.billing', compact('active_plan','card','last_payment'));
+	}
+
+	public function payment_history()
+	{
+		$user = Auth::User();
+		$payments = UserSubscriptionInvoice::where('user_id', $user->id)->latest()->get();
+		
+		return view('learners.pages.payment-history', compact('payments'));
+	}
+
+	public function payment_update()
+	{
+		$countries = DB::table('allcountry')->get();		
+		return view('learners.pages.payment-details', compact('countries'));
+	}
+
+	public function update_payment_card(Request $request)
+	{
+		$validator = Validator::make($request->all(), [
+			'stripeToken' => 'required',
+			'subscription_plan' => 'required',
+
+			'street_name' => 'required',
+			'zipcode' => 'required',
+			'city' => 'required',
+			'state' => 'required',
+			'country' => 'required',
+		]);
+
+		if ($validator->fails()) {
+			return redirect()->back()
+				->withErrors($validator)
+				->withInput();
+		}
+
+		try {
+
+			if (Auth::user()->stripe_id != null)
+				$stripe_id = Auth::user()->stripe_id;
+			else{
+				$customer = $this->stripe->customers()->create([
+					'email' => Auth::user()->email,
+					'name' => Auth::user()->fname,
+					'address' => [
+						'line1' => $request->street_name,
+						'postal_code' => $request->zipcode,
+						'city' => $request->city,
+						'state' => $request->state,
+						'country' => $request->country,
+					],
+				]);
+				$user = Auth::user();
+				$user->stripe_id = $customer['id'];
+				$user->save();
+				$stripe_id = $customer['id'];
+			}
+
+
+			$token = $request->stripeToken;
+			$paymentMethod = $this->stripe->paymentMethods()->create([
+				'type' => 'card',
+				'card' => [
+					'token' => $token
+				],
+				'billing_details' => [
+					'email' => Auth::user()->email,
+					'name' => Auth::user()->fname,
+					'address' => [
+						'line1' => $request->street_name,
+						'postal_code' => $request->zipcode,
+						'city' => $request->city,
+						'state' => $request->state,
+						'country' => $request->country,
+					],
+				]
+			]);
+
+			$paymentMethodattach = $this->stripe->paymentMethods()->attach($paymentMethod['id'], $stripe_id);
+
+			$updated = $this->stripe->customers()->update($stripe_id, [
+				// 'email' => Auth::user()->email,
+				'invoice_settings' => [
+					'default_payment_method' => $paymentMethodattach['id']
+				]
+			]);
+
+			if ($updated) {
+				return view('learners.messages.subscription-successful');
+			} else {
+				Session::flash('errors', 'Something went wrong');
+				// return redirect()->back();
+			}
+		} catch (Exception $e) {
+			Session::flash('errors', $e->getMessage());
+			return redirect()->back()->withInput();
+		} catch (\Cartalyst\Stripe\Exception\CardErrorException $e) {
+			Session::flash('errors', $e->getMessage());
+			return redirect()->back()->withInput();
+		} catch (\Cartalyst\Stripe\Exception\MissingParameterException $e) {
+			Session::flash('errors', $e->getMessage());
+			return redirect()->back()->withInput();
+		}
 	}
 }

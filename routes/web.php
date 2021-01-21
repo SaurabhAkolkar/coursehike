@@ -609,10 +609,11 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::get('/my-courses','SearchController@myCourses');
 
       //- Payment Info of Learners
-      Route::view('/billing', 'learners.pages.billing');
-      Route::view('/payment-cards', 'learners.pages.payment-cards');
-      Route::view('/payment-details', 'learners.pages.payment-details');
-      Route::view('/payment-history', 'learners.pages.payment-history');
+      Route::get('/billing', 'SubscriptionController@billing');
+      Route::get('/payment-history', 'SubscriptionController@payment_history');
+      // Route::view('/payment-cards', 'learners.pages.payment-cards');
+      Route::get('/payment-details', 'SubscriptionController@payment_update');
+      Route::post('/payment-details/update', 'SubscriptionController@payment_update');
       
 
     });
