@@ -53,12 +53,25 @@
                   <label>{{ __('adminstaticword.ChildCategory') }}:</label>
                   <select name="childcategory_id" id="grand" class="form-control js-example-basic-single"></select>
                 </div>
+                @if(Auth::user()->role == 'admin')
+                  <div class="col-md-3">
+                    <label for="exampleInputTit1e">{{ __('adminstaticword.Instructor') }}</label>
+                      <select name="user_id" class="form-control js-example-basic-single ">
+                      @foreach($user as $u)
+                          <option value="{{$u->id}}">{{$u->fullName}}</option>
+                      @endforeach
+                      </select>
+                  </div>
+                @endif
+                @if(Auth::user()->role == 'mentors')
                 <div class="col-md-3">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Instructor') }}</label>
                     <select name="user_id" class="form-control js-example-basic-single ">
                         <option value="{{Auth::user()->id}}">{{Auth::user()->fname}}</option>
                     </select>
                 </div>
+                @endif
+
               </div>
               <br>
 
@@ -89,6 +102,11 @@
                     <option value="2" > Intermediate</option>
                     <option value="3" > Advanced</option>
                   </select> 
+                </div>
+
+                <div class="col-md-6">
+                      <label for="exampleInputSlug">Course Duration(in Hours)</label>
+                      <input min="1" class="form-control" name="duration" type="number" id="duration"  placeholder="Enter Duration in hours">
                 </div>
               </div>
 
@@ -171,11 +189,7 @@
                 <br> 
 
               {{-- <div class="row">
-                  <div class="col-md-3">
-                    <label for="exampleInputSlug">Course Expire Duration</label>
-                    <p class="inline info"> - Please enter duration in month</p>
-                    <input min="1" class="form-control" name="duration" type="number" id="duration"  placeholder="Enter Duration in months">
-                  </div> 
+                 
               </div>
               <br/> --}}
 
