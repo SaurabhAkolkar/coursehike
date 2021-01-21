@@ -1598,8 +1598,8 @@ a.la-admin__edit-btn{
 /* =========== ALERT SUCCESS & DANGER: START =========== */
 .la-btn__alert-success{
   position:relative;
-  background-color: rgba(146, 61, 216, 0.7) !important;
-  color: var(--white);
+  background-color: #EBD3FF !important;
+  color:#56188C !important;
   border:none;
   animation: fadeAlert 0.5s ease 1;
   transition: all 0.1s ease;
@@ -1607,8 +1607,8 @@ a.la-admin__edit-btn{
 }
 .la-btn__alert-danger{
   position:relative;
-  background-color: rgba(248, 93, 106, 0.7) !important;
-  color: var(--white);
+  background-color:#FFD3D9 !important;
+  color:#C52A2E !important;
   border:none;
   animation: fadeAlert 0.5s ease 1;
   transition: all 0.1s ease;

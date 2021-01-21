@@ -49,7 +49,7 @@
                                                 </span>
                                             </div>
                                                                                    
-                                            <input type="file" name="image"  id="image" class="d-none">@if($show['image'])<img height="200" src="{{ $show['image'] }}"/>@endif
+                                            <input type="file" name="image"  id="image" class="d-none ">@if($show['image'])<img height="200"  src="{{ $show['image'] }}" style="margin-left:200px;"/>@endif
                                         </div>
                                     </div>
                                 </div>

@@ -53,7 +53,7 @@
 									</div>
 									<input type="file" name="image" id="image" class="d-none">
 									@if($show)
-									<img src="{{ url('/images/getstarted/'.$show['image']) }}" class="img-fluid"/>
+									<img src="{{ url('/images/getstarted/'.$show['image']) }}" class="img-fluid" style="margin-left:200px;"/>
 									@endif
 								</div>
 							</div>
