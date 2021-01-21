@@ -14,6 +14,10 @@ class UserPurchasedCourse extends Model
     {
         return $this->belongsTo('App\User','user_id','id');
     }
+    public function user_invoice_details()
+    {
+        return $this->belongsTo('App\UserInvoiceDetail','order_id','id');
+    }
 
     public function course()
     {

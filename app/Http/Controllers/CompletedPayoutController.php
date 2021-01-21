@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\CompletedPayout;
 use App\User;
+use App\UserPurchasedCourse;
 use App\UserSubscriptionInvoice;
 use App\UserWatchTime;
 use Auth;
@@ -38,29 +39,32 @@ class CompletedPayoutController extends Controller
         $creators = array();
         foreach ($mentors as $mentor) {
 
-            $mentor->push($this->payoutCalculate($mentor->id));
+            // $mentor->push($this->payoutCalculate($mentor->id));
 
-            $creator = collect([
+            $creator = [
                 'id' => $mentor->id,
                 'name' => $mentor->fname,
-                'payout' => $this->payoutCalculate($mentor->id),
-            ]);
+                'email' => $mentor->email,
+                'payout' => $this->payoutCalculate($mentor),
+                'month' => Carbon::now()->subMonth()->format('F'),
+                'year' => Carbon::now()->subMonth()->format('Y'),
+            ];
 
             $creators[] = $creator;
 
         }
-        dd($creators);
-    	return view('admin.revenue.revenue_analytics', compact('payout'));
+
+        // dd($creators);
+        
+    	return view('admin.revenue.revenue_analytics', compact('creators'));
     }
 
 
-
-
-    public function payoutCalculate($creator_userid)
+    public function payoutCalculate($creator)
     {
-        
-        $start = new Carbon('first day of this month');
-        $end = new Carbon('last day of this month');
+        $creator_userid = $creator->id;
+        $start = new Carbon('first day of last month');
+        $end = new Carbon('last day of last month');
 
         $watch_logs =  UserWatchTime::whereHas('courses', function($query) use($creator_userid){
             $query->where('user_id', $creator_userid ?? 1);
@@ -68,8 +72,6 @@ class CompletedPayoutController extends Controller
 
         $learners = $watch_logs->unique('user_id')->pluck('user_id')->all();
         $creator_courses = $watch_logs->unique('course_id')->pluck('course_id')->all();
-
-        dd($creator_userid);
 
         $learners_grouped = UserWatchTime::whereIn('user_id', $learners)
         ->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get()
@@ -85,7 +87,7 @@ class CompletedPayoutController extends Controller
 
             // If user didn't paid/subscribed last month then skip calculating it...
             $checkUserSubscribedLastMonth = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid']])->whereBetween('end_date', [$start->startOfMonth(), $end->endOfMonth()])->exists();
-            dd($checkUserSubscribedLastMonth);
+            
             if(!$checkUserSubscribedLastMonth)
                 continue;
 
@@ -106,19 +108,49 @@ class CompletedPayoutController extends Controller
 
             $total_income += $creator_per_income;
 
-            // echo "User:".$learner.
-            //         " userTotaltime:".$totalWatchtime.
-            //         " creatorCourseWatchtime:".$creatorCourseWatchtime.
-            //         " creator_watch_share:".round($creator_watch_share, 1)."%".
-            //         " creatorPoolShare:".round($creatorPoolShare, 1)."%".
-            //         " creator_per_income: $".round($creator_per_income, 1).
-            //          "<br/>";
         }
         $watch_time = $watch_logs->count() * 3;
+
         return [
             'learners' => $learners,
             'watch_time' => $this->formatSecondsToWord($watch_time),
+            'subscribers_total_income' => $total_income,
+            'course_sale' => $this->payoutCalculateCoursePurchase($creator),
+        ];
+    }
+
+    public function payoutCalculateCoursePurchase($creator)
+    {
+        
+        $creator_userid = $creator->id;
+        $start = new Carbon('first day of last month');
+        $end = new Carbon('last day of last month');
+
+        $purchase_logs =  UserPurchasedCourse::whereHas('course', function($query) use($creator_userid){
+            $query->where('user_id', $creator_userid ?? 1);
+        })->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get();
+
+        $purchase_logs = $purchase_logs->unique('order_id')->all();
+
+        $total_income = 0;
+        foreach($purchase_logs as $purchase){
+
+            // If user didn't paid/subscribed last month then skip calculating it...
+            $purchase_order = $purchase->user_invoice_details;
+            // dd($purchase_order);
+            if($purchase_order->status != "paid")
+                continue;
+
+            $order_total = $purchase_order->total;
+
+            $CREATOR_SHARE = InstructorRevenueController::$CREATOR_COMMISSION * ($order_total / 100);
+
+            $total_income += $CREATOR_SHARE;
+
+        }
+        return [
             'total_income' => $total_income,
+            'count' => count($purchase_logs),
         ];
     }
 

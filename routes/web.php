@@ -21,7 +21,6 @@ use Barryvdh\DomPDF\Facade as PDF;
 
 Route::middleware(['web'])->group(function () {
     Route::view('/accessdenied','accessdenied')->name('inactive');
-    Route::get('/offline','GuestController@offlineview');
     Route::get('/install/proceed/Eula','InstallerController@eula')->name('installer');
     Route::post('/install/proceed/Eula','InstallerController@storeeula')->name('store.eula');
     Route::get('/install/proceed/servercheck','InstallerController@serverCheck')->name('servercheck');
@@ -274,46 +273,46 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
     Route::middleware(['web', 'is_active', 'auth', 'admin_instructor', 'switch_languages'])->group(function () {      
 
-      if(\DB::connection()->getDatabaseName()){
-          if(env('IS_INSTALLED') == 1){
-              $zoom_enable = Setting::first()->zoom_enable;
+      // if(\DB::connection()->getDatabaseName()){
+      //     if(env('IS_INSTALLED') == 1){
+      //         $zoom_enable = Setting::first()->zoom_enable;
 
-              $bbl_enable  = Setting::first()->bbl_enable;
+      //         $bbl_enable  = Setting::first()->bbl_enable;
               
-              if(isset($zoom_enable) && $zoom_enable == 1){
+      //         if(isset($zoom_enable) && $zoom_enable == 1){
                   
-                  Route::prefix('zoom')->group(function (){
-                      Route::get('setting','ZoomController@setting')->name('zoom.setting');
-                      Route::get('dashboard','ZoomController@dashboard')->name('zoom.index');
-                      Route::post('token/update','ZoomController@updateToken')->name('updateToken');
-                      Route::get('create/meeting','ZoomController@create')->name('meeting.create');
-                      Route::delete('delete/meeting/{id}','ZoomController@delete')->name('zoom.delete');
-                      Route::post('store/new/meeting','ZoomController@store')->name('zoom.store');
-                      Route::get('edit/meeting/{meetingid}','ZoomController@edit')->name('zoom.edit');
-                      Route::post('update/meeting/{meetingid}','ZoomController@updatemeeting')->name('zoom.update');
-                      Route::get('show/meeting/{meetingid}','ZoomController@show')->name('zoom.show');
-                  });
-              }
+      //             Route::prefix('zoom')->group(function (){
+      //                 Route::get('setting','ZoomController@setting')->name('zoom.setting');
+      //                 Route::get('dashboard','ZoomController@dashboard')->name('zoom.index');
+      //                 Route::post('token/update','ZoomController@updateToken')->name('updateToken');
+      //                 Route::get('create/meeting','ZoomController@create')->name('meeting.create');
+      //                 Route::delete('delete/meeting/{id}','ZoomController@delete')->name('zoom.delete');
+      //                 Route::post('store/new/meeting','ZoomController@store')->name('zoom.store');
+      //                 Route::get('edit/meeting/{meetingid}','ZoomController@edit')->name('zoom.edit');
+      //                 Route::post('update/meeting/{meetingid}','ZoomController@updatemeeting')->name('zoom.update');
+      //                 Route::get('show/meeting/{meetingid}','ZoomController@show')->name('zoom.show');
+      //             });
+      //         }
 
-              if(isset($bbl_enable) && $bbl_enable == 1){
-                  Route::prefix('bigblue')->group(function (){
-                      Route::view('setting','bbl.setting')->name('bbl.setting');
-                      Route::post('setting','BigBlueController@setting')->name('bbl.update.setting');
-                      Route::get('meetings','BigBlueController@index')->name('bbl.all.meeting');
-                      Route::view('meeting/create','bbl.create')->name('bbl.create');
-                      Route::post('meeting/store','BigBlueController@store')->name('bbl.store');
-                      Route::get('meeting/edit/{meetingid}','BigBlueController@edit')->name('bbl.edit');
-                      Route::post('meeting/update/{meetingid}','BigBlueController@update')->name('bbl.update');
-                      Route::delete('meeting/delete/{id}','BigBlueController@delete')->name('bbl.delete');
-                      Route::get('api/create/meeting/{id}','BigBlueController@apiCreate')->name('api.create.meeting');
+      //         if(isset($bbl_enable) && $bbl_enable == 1){
+      //             Route::prefix('bigblue')->group(function (){
+      //                 Route::view('setting','bbl.setting')->name('bbl.setting');
+      //                 Route::post('setting','BigBlueController@setting')->name('bbl.update.setting');
+      //                 Route::get('meetings','BigBlueController@index')->name('bbl.all.meeting');
+      //                 Route::view('meeting/create','bbl.create')->name('bbl.create');
+      //                 Route::post('meeting/store','BigBlueController@store')->name('bbl.store');
+      //                 Route::get('meeting/edit/{meetingid}','BigBlueController@edit')->name('bbl.edit');
+      //                 Route::post('meeting/update/{meetingid}','BigBlueController@update')->name('bbl.update');
+      //                 Route::delete('meeting/delete/{id}','BigBlueController@delete')->name('bbl.delete');
+      //                 Route::get('api/create/meeting/{id}','BigBlueController@apiCreate')->name('api.create.meeting');
 
                       
-                  });
-              }
+      //             });
+      //         }
 
 
-          }
-        }
+      //     }
+      //   }
 
       Route::prefix('user')->group(function (){
         Route::get('edit/{id}','UserController@edit')->name('user.edit');
@@ -381,7 +380,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::get('/revenue-excel', 'OrderController@getExcel');
 
-      Route::get('payout/analytics', 'CompletedPayoutController@analytics');
+      Route::get('payout/analytics', 'CompletedPayoutController@analytics')->name('admin.creatorpayoutanalytics');;
 
       Route::resource('featurecourse', 'FeatureCourseController');
 
@@ -537,8 +536,6 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::get('finish/{id}','QuizStartController@show')->name('start.quiz.show');
 
-      
-
       Route::get('invoice/download/{id}', 'OrderController@pdfdownload')->name('invoice.download');
 
       Route::get('watch/lightbox/{id}', 'WatchController@lightbox')->name('lightbox');
@@ -610,6 +607,12 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::post('appointment/delete/{id}', 'AppointmentController@delete');
       
       Route::get('/my-courses','SearchController@myCourses');
+
+      //- Payment Info of Learners
+      Route::view('/billing', 'learners.pages.billing');
+      Route::view('/payment-cards', 'learners.pages.payment-cards');
+      Route::view('/payment-details', 'learners.pages.payment-details');
+      Route::view('/payment-history', 'learners.pages.payment-history');
       
 
     });
@@ -749,7 +752,6 @@ Route::view('/creator','learners.pages.creator');
 
 
 Route::view('/payment-successful','learners.pages.payment-successful');
-Route::view('/billing', 'learners.pages.billing');
 // Route::view('billing-address', 'learners.pages.billing-address');
 
 // Route::view('/releases','learners.pages.new-releases');
@@ -760,11 +762,6 @@ Route::view('/guided-creator','learners.pages.guided-creator');
 Route::view('/contact','learners.pages.contact');
 Route::view('/about', 'learners.pages.about');
 Route::view('/cancellations-refund', 'learners.pages.cancellations-refund');
-
-//- Payment Info of Learners
-Route::view('/payment-cards', 'learners.pages.payment-cards');
-Route::view('/payment-details', 'learners.pages.payment-details');
-Route::view('/payment-history', 'learners.pages.payment-history');
 
 //- Subscription Status for Learners
 Route::view('/subscription-successful', 'learners.pages.subscription-successful');

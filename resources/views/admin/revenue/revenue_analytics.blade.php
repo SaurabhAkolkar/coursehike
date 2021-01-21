@@ -16,44 +16,39 @@
 
               <thead>
               
-                <th>#</th>
-                <th>{{ __('adminstaticword.User') }}</th>
-                <th>{{ __('adminstaticword.Payer') }}</th>
-                <th>{{ __('adminstaticword.PayTotal') }}</th>
-                <th>{{ __('adminstaticword.OrderId') }}</th>
-                <th>{{ __('adminstaticword.PayStatus') }}</th>
-                <th>{{ __('adminstaticword.View') }}</th>
+                <th>Creator ID</th>
+                <th>Creator Name</th>
+                <th>Email</th>
+                <th>No. of Learners</th>
+                <th>Total watch time</th>
+                <th>Subscribers Total Revenue</th>
+                <th>Courses & Classes Purchased</th>
+                <th>Purchase Revenue</th>
+                <th>Month</th>
+                <th>Year</th>
+                {{-- <th>Actions</th> --}}
+              
               </tr>
               </thead>
 
               <tbody>
-                <?php $i=0;?>
-                @foreach($payout as $pay)
+                @foreach($creators as $creator)
                 <tr>
-                  <?php $i++;?>
-                    <td><?php echo $i;?></td>
-                    <td>{{$pay->user->fname}}</td>
-                    <td>{{$pay->payer_id}}</td>
-                    <td><i class="fa {{$pay->currency_icon}}"></i> {{$pay->pay_total}}</td>
-                    <td>
-                      @foreach($pay->order_id as $order)
-                        @php
-                            $id= App\Order::find($order);
-                        @endphp
-                        {{ $id['order_id'] }},
-                        
-                      @endforeach
-                    <td>
-                      @if($pay->pay_status ==1)
-                        {{ __('adminstaticword.Recieved') }}
-                      @else
-                        {{ __('adminstaticword.Pending') }}
-                      @endif
-                    </td>
+                  {{-- {{dd($creator)}} --}}
+                  <td>{{$creator['id']}}</td>
+                  <td>{{$creator['name']}}</td>
+                  <td>{{$creator['email']}}</td>
+                  <td>{{count($creator['payout']['learners'])}}</td>
+                  <td>{{$creator['payout']['watch_time']}}</td>
+                  <td>${{$creator['payout']['subscribers_total_income']}}</td>
+                  <td>{{$creator['payout']['course_sale']['count']}}</td>
+                  <td>${{$creator['payout']['course_sale']['total_income']}}</td>
+                  <td>{{$creator['month']}}</td>
+                  <td>{{$creator['year']}}</td>
 
-                    <td>
-                      <a class="btn btn-primary btn-sm" href="{{ route('completed.view', $pay->id) }}">{{ __('adminstaticword.View') }}</a>
-                    </td>
+                  {{-- <td>
+                    <a class="btn btn-primary btn-sm" href="">{{ __('adminstaticword.View') }}</a>
+                  </td> --}}
                     
                   
 
