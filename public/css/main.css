@@ -20151,10 +20151,6 @@ a, a:hover {
   margin-bottom: var(--size-1);
 }
 
-label.error {
-  margin-left: 0 !important;
-}
-
 @media (max-width: 767px) {
   .la-cart__item {
     padding-top: var(--size-8);
@@ -21043,7 +21039,7 @@ label.error {
 
 label.error {
   color: var(--danger);
-  margin-left: 65px !important;
+  margin-left: 0;
   margin-bottom: 0 !important;
   font-size: var(--text-sm);
 }

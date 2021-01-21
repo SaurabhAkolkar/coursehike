@@ -38,18 +38,18 @@
                                 <div class="col-md-6 mt-4">
                                     <div class="la-admin__preview">
                                         <label>{{ __('adminstaticword.Image') }}:<sup class="redstar">*</sup></label><br/>
-                                        <div class="la-admin__preview-img la-admin__course-imgvid" >
+                                        <div class="la-admin__preview-img la-admin__course-frontimg" >
                                             <div class="la-admin__preview-text" onclick="$('#image').click()">
                                                 <p class="la-admin__preview-size">Preview Image</p>
                                                 <p class="la-admin__preview-file text-uppercase">Choose a File</p>
                                             </div>
-                                            <div class="text-center pr-20 mr-10">
-                                                <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:160px;">
+                                            <div class="la-admin__preview-icon text-center mr-10">
+                                                <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:140px;">
                                                     <span class="path1"><span class="path2"></span></span>
                                                 </span>
                                             </div>
                                                                                    
-                                            <input type="file" name="image"  id="image" class="d-none ">@if($show['image'])<img height="200"  src="{{ $show['image'] }}" style="margin-left:200px;"/>@endif
+                                            <input type="file" name="image"  id="image" class="d-none ">@if($show['image'])<img height="200"  src="{{ $show['image'] }}" />@endif
                                         </div>
                                     </div>
                                 </div>
