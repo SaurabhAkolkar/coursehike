@@ -374,6 +374,7 @@ return [
     'PendingPayout' => 'Pending Payout',
     'CompletedPayout' => 'Completed Payout',
     'Revenue' => 'Revenue',
+    'CreatorPayoutAnalytics' => 'Creator Payout Revenue Analytics',
     'PaytmEnable' => 'Paytm Enable',
     'PaypalEnable' => 'Paypal Enable',
     'BankTransferEnable' => 'Bank Transfer Enable',

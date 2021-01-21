@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\CourseProgress;
 use App\CourseChapter;
+use App\UserPurchasedCourse;
 use App\UserWatchTime;
 use Auth;
 
@@ -52,21 +53,33 @@ class CourseProgressController extends Controller
 
     public function progress_log(Request $request, $course_id, $class_id)
 	{
-		// print_r($course_id);
 		if(!Auth::check())
 			return;
-		$logs = array();
-		foreach ($request->all() as $log) {
-			$logs[] = [
-				'user_id' => Auth::User()->id ?? 0,
-				'course_id' => $course_id,
-				'class_id' => $class_id,
-				'time' => $log["time"],
-				'position' => $log["position"],
-				'created_at'  => \Carbon\Carbon::now()->toDateTimeString()
-			];
+		
+		$order = UserPurchasedCourse::where('user_id', Auth::User()->id)->where('course_id', $course_id)->first();
+		
+		if( Auth::User()->role == "admin" || 
+			(Auth::User()->subscription('main') && Auth::User()->subscription('main')->active() && !Auth::User()->subscription('main')->onTrial()) ||
+			(!empty( $order) && ( $order->purchase_type == 'all_classes' || in_array($class_id, json_decode($order->class_id))) ) )
+		{
+			// TODO: Verify the Order Purchased and Subscription area
+
+				$logs = array();
+				foreach ($request->all() as $log) {
+					$logs[] = [
+						'user_id' => Auth::User()->id ?? 0,
+						'course_id' => $course_id,
+						'class_id' => $class_id,
+						'time' => $log["time"],
+						'position' => $log["position"],
+						'created_at'  => \Carbon\Carbon::now()->toDateTimeString()
+					];
+				}
+				UserWatchTime::insert($logs);
+			
 		}
-		UserWatchTime::insert($logs);
+			
+		
 		// $response = array(
 		// 	'status' => 'success',
 		// );

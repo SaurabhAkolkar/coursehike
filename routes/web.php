@@ -381,6 +381,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::get('/revenue-excel', 'OrderController@getExcel');
 
+      Route::get('payout/analytics', 'CompletedPayoutController@analytics');
+
       Route::resource('featurecourse', 'FeatureCourseController');
 
       Route::post('/paywithpaytm', 'FeatureCourseController@order')->name('paywithpaytm');
