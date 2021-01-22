@@ -534,6 +534,7 @@ td .btn-success:focus, td form .btn-danger:focus{
 .select2-container--default .select2-selection--single, .select2-selection .select2-selection--single {
     padding: 10px 0 0 12px;
     height: 40px;
+    background-color:var(--white) !important;
 }
 /* ==form form-control css == */
 .form-control {

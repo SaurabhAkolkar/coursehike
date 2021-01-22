@@ -14,11 +14,11 @@ $(function(){
   // Navbar Dropdown Toggle: End
 
   // Global Alert Animation for Learners
-  window.setTimeout(function() {
+  /*window.setTimeout(function() {
     $(".alert").fadeTo(500, 0).slideUp(500, function() {
         $(this).remove();
     });
-  }, 3000);
+  }, 3000);*/
 
   // Nested Links in Browse Courses
   $('#la-course__nested-links li').on('click', function(e) {
@@ -42,7 +42,7 @@ $(function(){
     $("body").css('overflow','auto');
   });
   
-  
+  /*
   //- Filter Sidebar in My Courses Page
   $("#filteredCourses2").on('click', function(event){
     event.stopPropagation();
@@ -69,7 +69,7 @@ $(function(){
     event.stopPropagation();
     $('#filtered_sidebar3').hide();
     $("body").css('overflow','auto');
-  });
+  });*/
 
 
   //Swiper Js for Login & Register page
@@ -397,8 +397,8 @@ function addToWishList(id){
         $('#alert_div').html(' ');
         let successAlert = `<div class="la-btn__alert position-relative">
                               <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
-                                <h6 id="wishlist_alert_message" class="la-btn__alert-msg">${data}</h6>
-                                <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+                                <span id="wishlist_alert_message" class="la-btn__alert-msg">${data}</span>
+                                <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
                                   <span aria-hidden="true" style="color:#56188C">&times;</span>
                                 </button>
                               </div>
@@ -435,8 +435,8 @@ function removeFromWishList(id){
         $('#course_'+id).remove(); 
         let successAlert = `<div class="la-btn__alert position-relative">
                               <div class="la-btn__alert-success col-md-4 offset-md-4 alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
-                                <h6 id="wishlist_alert_message" class="la-btn__alert-msg">${data}</h6>
-                                <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
+                                <span id="wishlist_alert_message" class="la-btn__alert-msg">${data}</span>
+                                <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
                                   <span aria-hidden="true" style="color:#56188C">&times;</span>
                                 </button>
                               </div>
@@ -476,8 +476,8 @@ function addToCart(id='1', classes='all') {
      
         let successAlert = `<div class="la-btn__alert position-relative">
                               <div class="la-btn__alert-success col-md-4 offset-md-4 alert alert-success alert-dismissible" id="wishlist_alert" role="alert">
-                                <h6 id="wishlist_alert_message" class="la-btn__alert-msg">${data}</h6>
-                                <button type="button" class="close mt-3" data-dismiss="alert" aria-label="Close">
+                                <span id="wishlist_alert_message" class="la-btn__alert-msg">${data}</span>
+                                <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
                                   <span aria-hidden="true" style="color:#56188C">&times;</span>
                                 </button>
                               </div>

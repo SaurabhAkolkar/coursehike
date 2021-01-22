@@ -272,7 +272,7 @@ class CourseclassController extends Controller
                     'name' => $file_name
                 ],
                 "requireSignedURLs" => true,
-                "allowedorigins" => ["*.lila.com","localhost","*.thestudiohash.com"],
+                // "allowedorigins" => ["*.lila.com","localhost","*.thestudiohash.com", "*"],
             ]);
             
             if($response->successful()){

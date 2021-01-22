@@ -11,7 +11,9 @@
           <div class="row">
             <!-- Column: Start-->
             <div class="col-7 col-lg-2">
-              <div class="la-footer__brand mb-md-8"><img class="img-fluid" src="/images/learners/logo.svg" alt="Lila"></div>
+              <div class="la-footer__brand mb-md-8">
+                <a href="/"><img class="img-fluid" src="/images/learners/logo.svg" alt="Lila"></a>
+              </div>
               <div class="la-footer__contact">
                 <p class="la-footer__contact-address mb-2">K2, Old Sonal Industrial Est., Kanchpada, Malad Link Road, Malad West, Mumbai 400064. MH, India</p><a class="la-footer__contact-link" href="mailto:ask@learnitlikealiens.com"> <strong>ask@learnitlikealiens.com</strong></a>
               </div>
@@ -63,11 +65,13 @@
               <div class="la-footer__search">
                  <!-- Global Search: Start-->
                 <div class="la-gsearch mb-md-4">
-                  <form class="form-inline" action="{{ url('/search-course/') }}" method="get">
-                    <div class="form-group">
-                      <input class="la-gsearch__input w-100 form-control" style="border-left:1px solid rgba(229,229,229,0.2); background:transparent;font-size:15px" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" required placeholder="What you want to learn today?">
+                  <form class="form-inline d-flex align-items-start" action="{{ url('/search-course/') }}" method="get">
+                    <div class="form-group ">
+                      <input class="la-gsearch__input w-100 form-control la-gsearch__input-footersearch" style="border-left:1px solid rgba(229,229,229,0.2); background:transparent;font-size:15px" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" required placeholder="What you want to learn today?">
                     </div>
-                    <button class="la-gsearch__submit la-gsearch__input-footersubmit btn text-white" type="submit"><i class="la-icon la-icon--2xl icon icon-search"></i></button>
+                    <button class="la-gsearch__submit  btn text-white" type="submit">
+                      <i class="la-icon icon icon-search la-gsearch__input-footericon"></i>
+                    </button>
                   </form>
                 </div>
                 <!-- Global Search: End-->

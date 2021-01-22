@@ -236,8 +236,7 @@
       type:"POST",
       url: "/stripe-checkout",
       // data: {playlist_name: playlistName, ajax_request: true},
-      success:function(session){   
-        console.log(session);
+      success:function(session){
         stripe.redirectToCheckout({ sessionId: session.id });
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {

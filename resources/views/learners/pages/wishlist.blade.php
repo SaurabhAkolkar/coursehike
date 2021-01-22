@@ -59,7 +59,7 @@
               <div class="la-wishlist__inner">
                 <div class="row la-wishlist__row">
                     @foreach($wishlist_courses as $courses)
-                      <div class="col-md-4 px-0">
+                      <div class="col-md-6 col-lg-4 px-0">
                         <x-course 
                           :id="$courses->course_id"
                           :img="$courses->courses->preview_image" 
@@ -76,7 +76,7 @@
                     @endforeach
                 
                     <div class="col-md-4 col-lg-4 d-none d-md-block">
-                      <a class="la-btn__add la-playlist__add-btn d-flex justify-content-center align-items-center" href="/browse/courses">
+                      <a class="la-btn__add la-playlist__add-wishlist d-flex justify-content-center align-items-center" href="/browse/courses">
                         <span class="la-btn__add-icon">+</span>
                       </a>
                     </div>

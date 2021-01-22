@@ -25,72 +25,40 @@
                                             <th class="la-anim__stagger-item--x" scope="col">#</th>
                                             <th class="la-anim__stagger-item--x" scope="col">ID</th>
                                             <th class="la-anim__stagger-item--x" scope="col">Date</th>
-                                            <th class="la-anim__stagger-item--x" scope="col">Payment Method</th>
+                                            {{-- <th class="la-anim__stagger-item--x" scope="col">Payment Method</th> --}}
                                             <th class="la-anim__stagger-item--x" scope="col">Amount</th>
                                             <th class="la-anim__stagger-item--x" scope="col">Invoice</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <td class="la-anim__stagger-item--x"><span class="la-icon icon-tick la-payment__history-success"></span></td>
-                                            <td class="la-anim__stagger-item--x"><div>LYP128GS</div></td>
-                                            <td class="la-anim__stagger-item--x"><div>20-12-2020</div></td>
-                                            <td class="la-anim__stagger-item--x">
-                                                <div class="d-inline-flex align-items-center">
-                                                    <span class="la-icon la-icon--xl icon-card-filled"></span>
-                                                    <span class="pl-2">Visa ending with 5525</span>
-                                                </div>
-                                            </td>
-                                            <td class="la-anim__stagger-item--x"><div>$45.00</div></td>
-                                            <td class="la-anim__stagger-item--x">
-                                                <div class="text-center">
-                                                    <a href="" role="button">
-                                                        <span class="la-icon la-icon--lg icon-download la-payment__history-invoice"></span>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
 
-                                        <tr>
-                                            <td class="la-anim__stagger-item--x"><span class="la-icon icon-cancel la-payment__history-danger"></span></td>
-                                            <td class="la-anim__stagger-item--x"><div>LYP128GS</div></td>
-                                            <td class="la-anim__stagger-item--x"><div>20-12-2020</div></td>
-                                            <td class="la-anim__stagger-item--x">
-                                                <div class="d-inline-flex align-items-center">
-                                                    <span class="la-icon la-icon--xl icon-card-filled"></span>
-                                                    <span class="pl-2">Visa ending with 5525</span>
-                                                </div>
-                                            </td>
-                                            <td class="la-anim__stagger-item--x"><div>$45.00</div></td>
-                                            <td class="la-anim__stagger-item--x">
-                                                <div class="text-center">
-                                                    <a href="" role="button">
-                                                        <span class="la-icon la-icon--lg icon-download la-payment__history-invoice"></span>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td class="la-anim__stagger-item--x"><span class="la-icon icon-tick la-payment__history-success"></span></td>
-                                            <td class="la-anim__stagger-item--x"><div>LYP128GS</div></td>
-                                            <td class="la-anim__stagger-item--x"><div>20-12-2020</div></td>
-                                            <td class="la-anim__stagger-item--x">
-                                                <div class="d-inline-flex align-items-center">
-                                                    <span class="la-icon la-icon--xl icon-card-filled"></span>
-                                                    <span class="pl-2">Visa ending with 5525</span>
-                                                </div>
-                                            </td>
-                                            <td class="la-anim__stagger-item--x"><div>$45.00</div></td>
-                                            <td class="la-anim__stagger-item--x">
-                                                <div class="text-center">
-                                                    <a href="" role="button">
-                                                        <span class="la-icon la-icon--lg icon-download la-payment__history-invoice"></span>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        @foreach ($payments as $payment)
+                                            <tr>
+                                                @if ($payment->status == 'paid')
+                                                    <td class="la-anim__stagger-item--x"><span class="la-icon icon-tick la-payment__history-success"></span></td>
+                                                @else
+                                                    <td class="la-anim__stagger-item--x"><span class="la-icon icon-cancel la-payment__history-danger"></span></td>
+                                                @endif
+                                                
+                                                <td class="la-anim__stagger-item--x"><div>{{$payment->stripe_invoice_id}}</div></td>
+                                                <td class="la-anim__stagger-item--x"><div>{{\Carbon\Carbon::parse($payment->created_at)->format('d M Y')}}</div></td>
+                                                {{-- <td class="la-anim__stagger-item--x">
+                                                    <div class="d-inline-flex align-items-center">
+                                                        <span class="la-icon la-icon--xl icon-card-filled"></span>
+                                                        <span class="pl-2">Visa ending with 5525</span>
+                                                    </div>
+                                                </td> --}}
+                                                <td class="la-anim__stagger-item--x"><div>${{$payment->invoice_paid}}</div></td>
+                                                <td class="la-anim__stagger-item--x">
+                                                    <div class="text-center">
+                                                        <a href="" role="button">
+                                                            <span class="la-icon la-icon--lg icon-download la-payment__history-invoice"></span>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
 
                                         
                                     </tbody>

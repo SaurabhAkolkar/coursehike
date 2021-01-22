@@ -414,7 +414,7 @@
               </ul>
 
               <div class="la-dash__recent-more text-right">
-                  <a href="" class="la-dash__more-btn">
+                  <a href="{{url('order')}}" class="la-dash__more-btn">
                     <span class="la-icon la-icon--5xl icon-black-arrow"></span>
                   </a>
               </div>
@@ -441,7 +441,7 @@
               </ul>
 
               <div class="la-dash__recent-more text-right">
-                  <a href="" class="la-dash__more-btn">
+                  <a href="{{url('order')}}" class="la-dash__more-btn">
                     <span class="la-icon la-icon--5xl icon-black-arrow"></span>
                   </a>
               </div>
@@ -520,7 +520,7 @@
             </div>
 
             <div class="la-dash__recent-more text-right">
-              <a href="" class="la-dash__more-btn">
+              <a href="{{route('all.instructor')}}" class="la-dash__more-btn">
                 <span class="la-icon la-icon--5xl icon-black-arrow"></span>
               </a>
             </div>

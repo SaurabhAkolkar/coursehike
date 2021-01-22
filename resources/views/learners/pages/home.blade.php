@@ -69,7 +69,11 @@
           <nav class="la-courses__nav d-flex justify-content-between">
             <ul class="nav nav-pills la-courses__nav-tabs la-anim__stagger-x" id="nav-tab" role="tablist">
               @foreach ($categories as $category)
-                <li class="nav-item la-courses__nav-item la-anim__stagger-item--x"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative">{{ $category->title}}</span></a></li>
+                <li class="nav-item la-courses__nav-item la-anim__stagger-item--x">
+                  <a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> 
+                    <span class="position-relative">{{ $category->title}}</span>
+                  </a>
+                </li>
               @endforeach
               
               {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
@@ -201,7 +205,7 @@
           <div class="tab-content la-courses__content" id="nav-tabContent">
             @foreach ($categories as $category)
               <div class="tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
-                <div class="row row-cols-lg-3">
+                <div class="row row-cols-md-2 row-cols-lg-3">
                       @foreach($category->courses as $course)
                         @if ($course->featured == 0)
                             @continue
@@ -223,7 +227,7 @@
               </div>
             @endforeach
             {{-- <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-              <div class="row row-cols-lg-3">
+              <div class="row row-cols-md-2 row-cols-lg-3">
                             
                     @foreach($tattoos as $tattoo)
                     <x-course 
@@ -241,7 +245,7 @@
               </div>
             </div>
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-              <div class="row row-cols-lg-3">
+              <div class="row row-cols-md-2 row-cols-lg-3">
                      
                     @foreach($tattoos as $tattoo)
                       <x-course 
@@ -258,7 +262,7 @@
               </div>
             </div>
             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-              <div class="row row-cols-lg-3">
+              <div class="row row-cols-md-2 row-cols-lg-3">
                               
                     @foreach($tattoos as $tattoo)
                     <x-course 

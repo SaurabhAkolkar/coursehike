@@ -3,8 +3,8 @@
 @if(session('message'))
 <div class="la-btn__alert position-relative">
   <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible" role="alert">
-      <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
-      <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+      <span class="la-btn__alert-msg">{{session('message')}}</span>
+      <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true" style="color:#56188C">&times;</span>
       </button>
   </div>
@@ -223,7 +223,7 @@
 
                       @foreach ($categories as $category)
                         <div class="tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
-                          <div class="row row-cols-lg-3 la-anim__stagger-item">
+                          <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item">
                                 @php
                                     $courses = $category->courses;
                                     if($sort_type == 'highest_rated')

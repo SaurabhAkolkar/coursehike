@@ -57,17 +57,19 @@
                       @endforeach
                 </div>
                 @else
-                  <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
-                        <div class="la-empty__inner">
-                            <h6 class="la-empty__course-title">No Purchase History.</h6>
-                        </div>
-          
+                  <div class="d-none d-lg-block">
+                    <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
+                          <div class="la-empty__inner">
+                              <h6 class="la-empty__course-title">No Purchase History.</h6>
+                          </div>
+                      </div>
                     </div>
 
                 @endif
-                  <!-- Purchased Desktop Version: Start -->
+                  <!-- Purchased Desktop Version: End -->
 
                   <!-- Purchased Mobile Version: Start -->
+                @if(count($invoice) != 0 )
                 <div class="container ">
                   <div class="la-ph__mobile d-block d-lg-none la-anim__stagger-item">
                     <div class="la-ph__mobile-inner d-flex justify-content-between my-5">
@@ -94,6 +96,15 @@
                       @endforeach   
                     @endforeach        
                 </div>
+                @else
+                    <div class="d-block d-lg-none">
+                      <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
+                          <div class="la-empty__inner">
+                              <h6 class="la-empty__course-title">No Purchase History.</h6>
+                          </div>
+                      </div>
+                    </div>
+                @endif
                 <!-- Purchased Mobile Version: End -->
             </section>
             <!-- SECTION PURCHASED: END -->

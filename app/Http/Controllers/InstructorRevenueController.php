@@ -18,6 +18,9 @@ class InstructorRevenueController extends Controller
     public static $REVENUE_POOL = 40;
     public static $LEARNER_PAID = 39;
 
+    public static $CREATOR_COMMISSION = 30;
+
+
     public function instructorRevenue(){
         
         $courses = Course::where(['user_id'=>Auth()->user()->id])->pluck('id');

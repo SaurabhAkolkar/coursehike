@@ -10745,28 +10745,26 @@ ul, li {
 }
 .la-btn__alert-success {
   position: fixed;
-  top: 90px;
+  top: 85px;
   background-color: #EBD3FF !important;
   color: #56188C;
-  border: none;
+  border: 1px solid rgba(86, 24, 140, 0.15);
   -webkit-animation: fadeAlert 0.5s ease 1;
           animation: fadeAlert 0.5s ease 1;
   transition: all 0.1s ease;
-  padding: 0 !important;
   z-index: 101;
   overflow: hidden;
   display: inline-block;
 }
 .la-btn__alert-danger {
   position: fixed;
-  top: 90px;
+  top: 85px;
   background-color: #FFD3D9 !important;
   color: #C52A2E;
-  border: none;
+  border: 1px solid rgba(197, 42, 46, 0.15);
   -webkit-animation: fadeAlert 0.5s ease 1;
           animation: fadeAlert 0.5s ease 1;
   transition: all 0.1s ease;
-  padding: 0 !important;
   z-index: 101;
   overflow: hidden;
 }
@@ -10791,12 +10789,12 @@ ul, li {
   }
 }
 .la-btn__alert-msg {
-  padding: var(--size-5) var(--size-6);
-  font-size: var(--text-md);
   font-family: var(--font-body);
   font-weight: var(--font-medium);
-  margin: var(--size-base) 0;
   opacity: 1;
+}
+.la-btn__alert-close {
+  margin: 2px 0 !important;
 }
 
 :root {
@@ -18436,6 +18434,14 @@ a, a:hover {
 .la-playlist__add-btn {
   height: 200px;
 }
+.la-playlist__add-wishlist {
+  height: 210px;
+}
+@media (max-width: 991px) {
+  .la-playlist__add-wishlist {
+    height: 120px;
+  }
+}
 .la-playlist__mobile {
   color: var(--app-indigo-1);
   letter-spacing: 1px;
@@ -19787,10 +19793,10 @@ a, a:hover {
   }
 }
 .la-gsearch__input-footersearch {
-  width: 280px !important;
+  width: 260px !important;
 }
-.la-gsearch__input-footersubmit {
-  padding: 0;
+.la-gsearch__input-footericon {
+  font-size: var(--text-2xl);
 }
 .la-gsearch__input-searchcourses {
   width: 300px !important;
@@ -20149,10 +20155,6 @@ a, a:hover {
 .la-form__img-title {
   font-size: var(--text-sm);
   margin-bottom: var(--size-1);
-}
-
-label.error {
-  margin-left: 0 !important;
 }
 
 @media (max-width: 767px) {
@@ -21043,7 +21045,7 @@ label.error {
 
 label.error {
   color: var(--danger);
-  margin-left: 65px !important;
+  margin-left: 0;
   margin-bottom: 0 !important;
   font-size: var(--text-sm);
 }
@@ -22920,6 +22922,11 @@ section.la-contact--page .la-contact--info {
   padding: var(--size-20);
   position: relative;
   z-index: var(--z-10);
+}
+@media (max-width: 991px) {
+  section.la-contact--page .la-contact--info {
+    padding: var(--size-12);
+  }
 }
 section.la-contact--page .la-contact__lft .la-contact__connect h6 {
   font-family: var(--body-font);

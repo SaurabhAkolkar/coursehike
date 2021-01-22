@@ -12,12 +12,11 @@
         <div class="box-body">
           <div class="la-admin__revenue-stats">
             <!-- TOTAL WATCH TIME SECTION: START -->
-            <div class="row my-4">
+            {{-- <div class="row my-4">
                 <div class="col-md-3">
                     <div class="la-admin__revenue-title">Total Watch Time</div>
                     <div class="la-admin__revenue-info">
                         <span class="la-admin__revenue-total">15h:25m:00s</span>
-                        <!-- <span class="la-admin__revenue-per"></span> -->
                     </div>
                 </div>
                 
@@ -28,7 +27,7 @@
                       <span class="la-admin__revenue-per">( Last Month )</span>
                   </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- TOTAL WATCH TIME SECTION: END -->
           </div>
 

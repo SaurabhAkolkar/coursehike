@@ -15,7 +15,7 @@
               </div>
             </div>
             <div class="col-12 col-md-5 offset-md-1 col-lg-4 offset-lg-4 px-0">
-              <div class="la-cbadges__item pb-5 mb-5">
+              <!-- <div class="la-cbadges__item pb-5 mb-5">
                 <div class="row no-gutters px-2 px-sm-0 py-5 py-sm-2">
                   <div class="col d-flex flex-row justify-content-start justify-content-lg-center">
                     <div class="la-cbadge la-anim__wrap position-relative">
@@ -57,7 +57,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           

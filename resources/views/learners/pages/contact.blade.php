@@ -34,7 +34,7 @@
         </div>
         <div class="row la-contact--info d-flex flex-row justify-content-between la-anim__wrap">
           <!-- Column: Start-->
-          <div class="col-12 col-sm-5 col-md-4 col-lg-5 order-1 ">
+          <div class="col-12  col-md-7 col-lg-5 order-1 ">
             <div class="la-contact__lft">
               <div class="la-contact__connect order-first">
                 <h6 class="m-0 text-xl text-md-2xl la-anim__stagger-item">Feel free to reach us</h6>
@@ -69,7 +69,7 @@
           <!-- Mobile Column: End-->
 
           <!-- Column: Start-->
-          <div class="col-12 col-sm-7 col-lg-4 order-2 order-sm-3 px-0 px-md-3">
+          <div class="col-12 col-md-5 col-lg-4 order-2 order-sm-3 px-0 px-md-3">
             <div class="la-contact__title text-center pt-5 d-block d-sm-none">
               <h1 class="la-anim__fade-in-top la-anim__A">CONTACT</h1>
             </div>

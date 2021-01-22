@@ -1021,10 +1021,56 @@ a.dt-button {
   background-color: var(--white);
 }
 
+@media (min-width: 1920px) {
+  .la-admin__course-imgvid img {
+    margin: -160px 0 0 220px;
+  }
+}
+
+.la-admin__course-imgvid2 img {
+  width: 135px;
+  height: 135px;
+  position: absolute;
+  margin: -160px 0 0 190px;
+}
+
+@media (max-width: 1280px) {
+  .la-admin__course-imgvid2 img {
+    margin: -160px 0 0 130px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .la-admin__course-imgvid2 img {
+    margin: -160px 0 0 290px;
+  }
+}
+
 .la-admin__course-modal-imgvid img {
   width: 135px;
   height: 135px;
   margin-left: 150px !important;
+}
+
+.la-admin__course-frontimg img {
+  width: 160px;
+  height: 150px;
+  position: absolute;
+  top: 45px;
+  left: 220px;
+  background-color: var(--white);
+}
+
+@media (max-width: 1280px) {
+  .la-admin__course-frontimg img {
+    left: 180px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .la-admin__course-frontimg img {
+    left: 320px;
+  }
 }
 
 .la-admin__course-imgvid video {
@@ -1643,6 +1689,53 @@ a.dt-button {
 
 /* ============ PUBLISH PAGE IN CREATOR COURSES: END ======== */
 
+/* =========== MENTOR REQUESTS VIEW PAGE: START ============ */
+
+.la-admin__mentor-img {
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+}
+
+.la-admin__mentor-name {
+  color: var(--gray2);
+  font-weight: var(--font-bold);
+}
+
+.la-admin__mentor-contact {
+  color: var(--gray2);
+  opacity: 0.85;
+}
+
+.la-admin__mentor-vline {
+  border-right: 2px dashed var(--gray8);
+}
+
+.la-admin__mentor-item {
+  margin-bottom: var(--size-3);
+}
+
+.la-admin__mentor-info {
+  color: var(--gray6);
+  font-weight: var(--font-medium);
+}
+
+.la-admin__mentor-desc {
+  color: var(--gray5);
+  opacity: 0.85;
+}
+
+.la-admin__mentor-resume {
+  color: var(--app-indigo-1);
+}
+
+.la-admin__mentor-resume:hover {
+  color: var(--app-indigo-1);
+  opacity: 0.8;
+}
+
+/* =========== MENTOR REQUESTS VIEW PAGE: END ============ */
+
 /* ============ EDIT AND DELETE BUTTONS IN ADMIN & CREATOR: START ======== */
 
 a.la-admin__edit-btn {
@@ -1657,8 +1750,8 @@ a.la-admin__edit-btn:hover {
 
 .la-btn__alert-success {
   position: relative;
-  background-color: rgba(146, 61, 216, 0.7) !important;
-  color: var(--white);
+  background-color: #EBD3FF !important;
+  color: #56188C !important;
   border: none;
   -webkit-animation: fadeAlert 0.5s ease 1;
           animation: fadeAlert 0.5s ease 1;
@@ -1668,8 +1761,8 @@ a.la-admin__edit-btn:hover {
 
 .la-btn__alert-danger {
   position: relative;
-  background-color: rgba(248, 93, 106, 0.7) !important;
-  color: var(--white);
+  background-color: #FFD3D9 !important;
+  color: #C52A2E !important;
   border: none;
   -webkit-animation: fadeAlert 0.5s ease 1;
           animation: fadeAlert 0.5s ease 1;
