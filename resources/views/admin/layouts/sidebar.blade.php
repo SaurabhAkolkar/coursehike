@@ -152,10 +152,11 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="{{ Nav::isRoute('instructor.settings') }}"><a href="{{route('instructor.settings')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-payout-settings mr-3"></i>{{ __('adminstaticword.PayoutSettings') }}</a></li>
+              {{-- <li class="{{ Nav::isRoute('instructor.settings') }}"><a href="{{route('instructor.settings')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-payout-settings mr-3"></i>{{ __('adminstaticword.PayoutSettings') }}</a></li>
               <li class="{{ Nav::isRoute('admin.instructor') }}"><a href="{{route('admin.instructor')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-pending-payout mr-3"></i>{{ __('adminstaticword.PendingPayout') }}</a></li>
 
-              <li class="{{ Nav::isRoute('admin.completed') }}"><a href="{{route('admin.completed')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-completed-payout mr-3"></i>{{ __('adminstaticword.CompletedPayout') }}</a></li>
+              <li class="{{ Nav::isRoute('admin.completed') }}"><a href="{{route('admin.completed')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-completed-payout mr-3"></i>{{ __('adminstaticword.CompletedPayout') }}</a></li> --}}
+              <li class="{{ Nav::isRoute('admin.creatorpayoutanalytics') }}"><a href="{{route('admin.creatorpayoutanalytics')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-mentor-payout mr-3"></i>Payout Analytics</a></li>
               <li class="{{ Nav::isRoute('admin.creatorpayout') }}"><a href="{{route('admin.creatorpayout')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-mentor-payout mr-3"></i>{{ __('adminstaticword.CreatorPayout') }}</a></li>
             
             </ul>
