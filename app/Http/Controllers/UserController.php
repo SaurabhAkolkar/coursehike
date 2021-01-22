@@ -36,15 +36,18 @@ use App\UserInvoiceDetail;
 use Carbon\Carbon;
 use App\UserSubscriptionInvoice;
 use Illuminate\Support\Facades\Storage;
-
+use App\Mail\PasswordReset;
+use Illuminate\Support\Facades\Mail;
+use DB;
+use App\Setting;
 
 class UserController extends Controller
 {
 
-    public function __construct()
-    {
-        return $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     return $this->middleware('auth');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -439,6 +442,58 @@ class UserController extends Controller
         }
      // dd($myInterests);
         return view('learners.pages.my-interests',compact('myInterests','otherCategories'));
+    }
+
+
+    public function verifyEmail($id, $hash, Request $request){
+
+
+        $user = User::where([ 'id' => $id ,'token' => $hash])->first();  
+
+        if($user){
+            if(Carbon::createFromTimestamp($request->expiry)->gt(Carbon::now())){
+
+                $user->email_verified_at = Carbon::now()->format('Y-m-d h:i:s');
+                $user->token = null;
+                $user->save();
+
+                return redirect('/')->with('success','Email verified successfully.');
+
+            }else{
+                return redirect('/')->with('success','Email expired. Please send another one.');
+            }
+         
+        }
+        
+        return redirect('/')->with('success','Email expired. Please send another one.');
+        
+    }
+
+    public function resetPasswordMail(Request $request){
+
+        $token = sha1(uniqid(rand(), true));
+        $setting = Setting::first();
+        
+        DB::table('password_resets')->insert(['email'=>$request->email, 'token' => Hash::make($token), 'created_at' => Carbon::now()->toDateTimeString() ]);
+        $email = $request->email;
+
+        if($setting->w_email_enable == 1){
+            try{
+               
+                Mail::to($request->email)->send(new PasswordReset($email, $token));
+               
+            }
+            catch(\Swift_TransportException $e){
+
+                header( "refresh:5;url=./login" );
+                
+                dd("Your Registration is successfull ! but welcome email is not sent because your webmaster not updated the mail settings in admin dashboard ! Kindly go back and login");
+
+            }
+        }
+
+        return redirect()->back()->with('success','Password reset link sent successfully.');
+
     }
     
 }

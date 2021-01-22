@@ -283,7 +283,7 @@
              </div>  --}}
           <ul class="la-dash__recent-list">
             @php
-              $users = App\User::limit(8)->orderBy('id', 'DESC')->get();
+              $users = App\User::limit(5)->orderBy('id', 'DESC')->get();
             @endphp
             <!-- <div class="row users-list"> -->
               @foreach($users as $user)

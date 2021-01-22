@@ -58,10 +58,14 @@
                     <p class="la-reset__password-tag" style="color: var(--gray6)">Provide email id to receive password reset link</p>
 
                     <div class="la-reset__password-info">
-                       
-                        <form method="POST" action="{{ route('password.email') }}">
-                            @csrf
+                        @if (session('status'))
+                            <div class="la-btn__alert-success alert alert-success" role="alert">
+                                <h6 class="la-btn__alert-msg">{{ session('status') }}</h6>
+                            </div>
+                        @endif
 
+                        <form method="POST" action="/reset-passoword-mail">
+                            @csrf
                             <div class="form-group py-8 py-md-12">
                                 <div class="col-md-3 offset-md-2 text-left">
                                     <label for="email" class="la-form__lable" style="color: var(--gray6);font-weight:var(--font-medium);">Email ID</label><br/>

@@ -19,46 +19,38 @@
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
+                  <th>Sr#</th>
                 	<th>{{ __('adminstaticword.Image') }}</th>
                   <th>{{ __('adminstaticword.Name') }}</th>
                   <th>{{ __('adminstaticword.Email') }}</th>
                   <th>{{ __('adminstaticword.Detail') }}</th>
                   <th>{{ __('adminstaticword.Status') }}</th>
-                  <th>{{ __('adminstaticword.View') }}</th>
                   <th>{{ __('adminstaticword.Edit') }}</th>
-                  <th>{{ __('adminstaticword.Delete') }}</th>
                 </tr>
               </thead>
               <tbody>
+              @php
+                  $count = 0;
+              @endphp
                 @foreach($items as $item)
                 <tr>
-                	<td><img src="{{ asset('images/instructor/'.$item->image)}}" class="img-fluid"></td> 
+                  <td>{{++$count}}</td>
+                	<td><img src="{{ $item->userimg }}" class="img-fluid"></td> 
                   <td>{{$item->fname}}</td>
                   <td>{{$item->email}}</td>
-                  <td>{{ str_limit($item->detail, $limit= 50, $end = '...')}}</td>
+                  <td>{!! $item->detail !!}</td>
                   <td>
                     @if($item->status==1)
-                      {{ __('adminstaticword.Approved') }}
+                      {{ __('adminstaticword.Active') }}
                     @else
-                      {{ __('adminstaticword.Pending') }}
+                      {{ __('adminstaticword.Inactive') }}
                     @endif
                   </td>
-                  <td><a class="btn btn-success btn-sm" href="{{route('requestinstructor.edit',$item->id)}}">{{ __('adminstaticword.View') }}</a></td>
                   <td>
                       <a class="text-dark la-admin__edit-btn" href="/user/edit/{{$item->id}}">
                           <i class="la-icon la-icon--lg icon-edit"></i>
                       </a>
                   </td>
-                  <td><form  method="post" action="{{url('requestinstructor/'.$item->id)}}
-                        "data-parsley-validate class="form-horizontal form-label-left">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                         <button  type="submit" class="btn btn-danger">
-                           <i class="la-icon la-icon--lg icon-delete"></i>
-                          </button>
-                      </form>
-                  </td>
-
                   @endforeach
                
                 </tr>

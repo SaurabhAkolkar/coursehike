@@ -68,7 +68,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
     });
 
-    Auth::routes(['verify' => true]);
+    Auth::routes();
 
     Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
     Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
@@ -708,7 +708,9 @@ Route::get('/activestatus', 'WatchCourseController@active');
 
 Route::post('/contact', 'ContactUsController@contactUs');
 
+Route::get('/verify-user-email/{id}/{hash}','UserController@verifyEmail')->name('useremail.verify');
 
+Route::post('/reset-passoword-mail', 'UserController@resetPasswordMail');
 
 Route::get('active/courses', 'WatchCourseController@watchlist')->name('active.courses');
 Route::post('active/delete/{id}', 'WatchCourseController@delete')->name('active.delete');
@@ -760,7 +762,7 @@ Route::view('/learning-plans','learners.pages.learning-plans');
 // Route::view('/payment', 'learners.pages.payment');
 Route::view('/become-creator','learners.pages.become-creator');
 Route::view('/guided-creator','learners.pages.guided-creator');
-Route::view('/contact','learners.pages.contact');
+Route::view('/contact','learners.pages.contact')->name('contactus');
 Route::view('/about', 'learners.pages.about');
 Route::view('/cancellations-refund', 'learners.pages.cancellations-refund');
 
