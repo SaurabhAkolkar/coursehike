@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Setting;
 use Carbon\Carbon;
 use Redirect;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -108,17 +109,13 @@ class RegisterController extends Controller
 
         // if($setting->verify_enable == 0)
         // {
-            $verified = \Carbon\Carbon::now()->toDateTimeString();
+        //     $verified = \Carbon\Carbon::now()->toDateTimeString();
         // }
         // else
         // {
-        //     $verified = NULL;
+            $verified = NULL;
+            $token = sha1(uniqid(rand(), true));
         // }
-        // $zohoData = [];
-        // $zohoData['email'] = $data['email'];
-        // $zohoData['mobile'] = $data['mobile'];
-        // $zohoData['name'] = $data['fname'].' '.$data['lname'];
-        // $response = $this->ZohoController->createRecords($zohoData);
 
                 
         $user = User::create([
@@ -129,10 +126,15 @@ class RegisterController extends Controller
             'mobile' => $data['mobile'],
             'email_verified_at'  => $verified,
             'dob' => $data['dob'],
+            'token' => $token,
             'password' => Hash::make($data['password']),
         ]);
-        
 
+    // $zohoData = [];
+        // $zohoData['email'] = $data['email'];
+        // $zohoData['mobile'] = $data['mobile'];
+        // $zohoData['name'] = $data['fname'].' '.$data['lname'];
+        // $response = $this->ZohoController->createRecords($zohoData);
       
         if($setting->w_email_enable == 1){
             try{
@@ -143,12 +145,11 @@ class RegisterController extends Controller
             catch(\Swift_TransportException $e){
 
                 header( "refresh:5;url=./login" );
-
+                
                 dd("Your Registration is successfull ! but welcome email is not sent because your webmaster not updated the mail settings in admin dashboard ! Kindly go back and login");
 
             }
         }
-        
 
         return $user;
     }

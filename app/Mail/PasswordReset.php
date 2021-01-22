@@ -3,24 +3,25 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
-class WelcomeUser extends Mailable
+class PasswordReset extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
-
+    public $email;
+    public $token;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($email, $token)
     {
-        $this->user = $user;
+        $this->email = $email;
+        $this->token = $token;
     }
 
     /**
@@ -30,7 +31,6 @@ class WelcomeUser extends Mailable
      */
     public function build()
     {
-        return $this->markdown('email.learner.welcome')
-        ->with('user',$this->user);
+        return $this->markdown('email.learner.password-recovery')->with('email',$this->email);
     }
 }

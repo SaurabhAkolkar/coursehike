@@ -5,12 +5,12 @@ namespace App;
 use Rinvex\Subscriptions\Traits\HasSubscriptions;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Storage;
 
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable 
 {
     use Notifiable, HasSubscriptions;
 
@@ -23,7 +23,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $fillable = [
         'fname', 'email', 'password', 'lname', 'dob', 'doa', 'mobile', 'address', 'city_id',
-        'state_id', 'country_id', 'gender', 'pin_code', 'status', 'verified', 'role', 'married_status','user_img', 'detail', 'braintree_id', 'fb_url', 'twitter_url', 'youtube_url', 'linkedin_url', 'email_verified_at'
+        'state_id', 'country_id', 'gender', 'pin_code', 'status', 'verified', 'role', 'married_status','user_img', 'detail', 'braintree_id', 'fb_url', 'twitter_url', 'youtube_url', 'linkedin_url', 'token','email_verified_at'
     ];
 
     /**
@@ -86,7 +86,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getUserImgAttribute($value)
     {
-        return Storage::url(config('path.profile'). $value);
+        if($value){
+            return Storage::url(config('path.profile'). $value);
+        }else{
+            return asset('images/user_img/default.jpg');
+        }
     }
 
 

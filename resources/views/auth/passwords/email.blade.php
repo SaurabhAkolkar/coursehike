@@ -53,9 +53,8 @@
                             </div>
                         @endif
 
-                        <form method="POST" action="{{ route('password.email') }}">
+                        <form method="POST" action="/reset-passoword-mail">
                             @csrf
-
                             <div class="form-group py-8 py-md-12">
                                 <div class="col-md-3 offset-md-2 text-left">
                                     <label for="email" class="la-form__lable" style="color: var(--gray6)">Email ID</label><br/>
