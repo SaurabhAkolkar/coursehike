@@ -7,8 +7,8 @@
     @if(session('message'))
               <div class="la-btn__alert position-relative">
                 <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" role="alert">
-                    <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
-                    <button type="button" class="close mt-3" data-dismiss="alert" aria-label="Close">
+                    <span class="la-btn__alert-msg">{{session('message')}}</span>
+                    <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true" style="color:#56188C">&times;</span>
                     </button>
                 </div>
@@ -135,7 +135,7 @@
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col-md-6 col-lg-6 px-5 px-sm-0 py-8 py-sm-0 ml-6 la-vdot__class ">
+        <div class="col-md-6 col-lg-6 px-4 px-sm-0 py-8 py-sm-0 ml-6 la-vdot__class ">
           <div class="la-vdotted__bar position-relative px-4">
             <div class="la-vicon d-flex align-items-start la-anim__wrap">
               <div class="la-icon__vline la-anim__stagger-item"><span class="la-icon la-icon--7xl icon-video-unfilled position-absolute "></span></div>
@@ -240,31 +240,28 @@
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col col-sm-4 col-md-2">
+        <div class="col col-sm-4 col-md-2 my-auto">
           <div class="la-bcreator__stats">
             <div class="la-bcreator__stats-item la-anim__wrap">
               <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">80 M</h4>
               <p class="la-bcreator__stats-desc  text-uppercase la-anim__stagger-item">Students</p>
-              <span class="la-bcreator__stats-text text-sm la-anim__stagger-item"></span>
             </div>
           </div>
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col col-sm-4 col-md-2">   
+        <div class="col col-sm-4 col-md-2 my-auto">   
           <div class="la-bcreator__stats-item la-anim__wrap">
             <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">20 &#43;</h4>
             <p class="la-bcreator__stats-desc text-uppercase la-anim__stagger-item">Courses</p>
-            <span class="la-bcreator__stats-text text-sm la-anim__stagger-item"></span>
           </div>
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col col-sm-4 col-md-2">
+        <div class="col col-sm-4 col-md-2 my-auto">
           <div class="la-bcreator__stats-item la-anim__wrap">
             <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">100 &#43;</h4>
             <p class="la-bcreator__stats-desc text-uppercase la-anim__stagger-item">Countries</p>
-            <span class="la-bcreator__stats-text text-sm la-anim__stagger-item"></span>
           </div>
         </div>
         <!-- Column: End-->

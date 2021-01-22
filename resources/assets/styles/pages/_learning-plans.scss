@@ -74,7 +74,10 @@ section.la-lp--page{
 
 // Section All Include Start
 section.la-lp--include{
-    padding:var(--size-20);
+    padding-top:var(--size-10);
+    @include respond-above(md){
+        padding:var(--size-20) 0;
+    }
 
     .la-lp__benefits h3{
         color:var(--gray6);
@@ -82,11 +85,6 @@ section.la-lp--include{
     }
 }
 
-@media (max-width:767px){
-    section.la-lp--include{
-        padding:var(--size-18) var(--size-4);
-    }  
-}
 // Section All Include End
 
 // Section FAQ Start

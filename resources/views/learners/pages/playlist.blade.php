@@ -13,9 +13,9 @@
         <div class="container la-anim__wrap">
         @if(session('success'))
             <div class="la-btn__alert position-relative">
-              <div class="la-btn__alert-success col-md-4 offset-md-2 alert alert-success alert-dismissible" role="alert">
-                  <h6 class="la-btn__alert-msg">{{session('success')}}</h6>
-                  <button type="button" class="close mt-3" data-dismiss="alert" aria-label="Close">
+              <div class="la-btn__alert-success col-md-4 offset-md-2 alert alert-success alert-dismissible fade show" role="alert">
+                  <span class="la-btn__alert-msg">{{session('success')}}</span>
+                  <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true" style="color:#56188C">&times;</span>
                   </button>
               </div>

@@ -47,8 +47,8 @@
                     </div>
                     <div class="col-md-6 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
-                                      <div class="la-form__lable la-form__lable--medium mb-2">First Name</div>
-                                      <input class="la-form__input" type="text" value="{{Auth::user()->fname}}" name="first_name" placeholder="Jhon">
+                                      <div class="la-form__lable la-form__lable--medium mb-2">First Name <span style="color:var(--danger);">*</span></div>
+                                      <input class="la-form__input" type="text" value="{{Auth::user()->fname}}" name="first_name" placeholder="Enter your First Name">
                                       @error('first_name')
                                           <div class="alert alert-danger">{{ $message }}</div>
                                       @enderror
@@ -56,8 +56,8 @@
                     </div>
                     <div class="col-md-6 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
-                                      <div class="la-form__lable la-form__lable--medium mb-2">Last Name</div>
-                                      <input class="la-form__input" type="text" value="{{Auth::user()->lname}}" name="last_name" placeholder="Spark">
+                                      <div class="la-form__lable la-form__lable--medium mb-2">Last Name <span style="color:var(--danger);">*</span></div>
+                                      <input class="la-form__input" type="text" value="{{Auth::user()->lname}}" name="last_name" placeholder="Enter your Last Name">
                                       @error('last_name')
                                           <div class="alert alert-danger">{{ $message }}</div>
                                       @enderror
@@ -65,8 +65,8 @@
                     </div>
                     <div class="col-md-6 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
-                                      <div class="la-form__lable la-form__lable--medium mb-2">Email</div>
-                                      <input class="la-form__input" type="email" value="{{Auth::user()->email}}" name="email" placeholder="nathanspark@gmail.com">
+                                      <div class="la-form__lable la-form__lable--medium mb-2">Email <span style="color:var(--danger);">*</span></div>
+                                      <input class="la-form__input" type="email" value="{{Auth::user()->email}}" name="email" placeholder="Enter your Email ID">
                                       @error('email')
                                           <div class="alert alert-danger">{{ $message }}</div>
                                       @enderror
@@ -74,8 +74,8 @@
                     </div>
                     <div class="col-md-6 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
-                                      <div class="la-form__lable la-form__lable--medium mb-2">Contact Number</div>
-                                      <input class="la-form__input" type="tel" value="{{Auth::user()->mobile}}" name="mobile" placeholder="9999999999">
+                                      <div class="la-form__lable la-form__lable--medium mb-2">Contact Number <span style="color:var(--danger);">*</span></div>
+                                      <input class="la-form__input" type="tel" value="{{Auth::user()->mobile}}" name="mobile" placeholder="Enter your Mobile Number">
                                       @error('mobile')
                                           <div class="alert alert-danger">{{ $message }}</div>
                                       @enderror
@@ -83,8 +83,8 @@
                     </div>
                     <div class="col-md-6 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
-                                      <div class="la-form__lable la-form__lable--medium mb-2">Date of Birth</div>
-                                    <input class="la-form__input" type="date" value="{{Auth::user()->dob}}" name="dob" placeholder="July 16, 1996" min='1899-01-01' max='2000-01-01'>
+                                      <div class="la-form__lable la-form__lable--medium mb-2">Date of Birth <span style="color:var(--danger);">*</span></div>
+                                    <input class="la-form__input" type="date" value="{{Auth::user()->dob}}" name="dob" placeholder="Enter your Date of Birth" min='1899-01-01' max='2000-01-01'>
                                       @error('dob')
                                           <div class="alert alert-danger">{{ $message }}</div>
                                       @enderror
@@ -92,7 +92,7 @@
                     </div>
                     <div class="col-md-6 la-anim__stagger-item--x">
                       <div class="la-form__input-wrap">
-                        <div class="la-form__lable la-form__lable--medium mb-2">Gender</div>
+                        <div class="la-form__lable la-form__lable--medium mb-2">Gender <span style="color:var(--danger);">*</span></div>
                         <div class="d-flex pt-2">
                                         <div class="la-form__radio-wrap mr-5">
                                           <input class="la-form__radio d-none" type="radio" value="male" name="gender" id="male" @if(Auth::user()->gender == "male")checked @endif>
@@ -114,8 +114,8 @@
                     </div>
                     <div class="col-md-12 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
-                                      <div class="la-form__lable la-form__lable--medium mb-2">Residential Address</div>
-                                      <input class="la-form__input" type="text" value="{{Auth::user()->address}}" name="address" placeholder="F/64, Apmc Market-i, Phase Ii, Turbhe, Vashi">
+                                      <div class="la-form__lable la-form__lable--medium mb-2">Residential Address <span style="color:var(--danger);">*</span></div>
+                                      <input class="la-form__input" type="text" value="{{Auth::user()->address}}" name="address" placeholder="Enter your Residential Address">
                                       @error('address')
                                           <div class="alert alert-danger">{{ $message }}</div>
                                       @enderror
@@ -175,7 +175,7 @@
                     <div class="col-md-6 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Zip Code</div>
-                                      <input class="la-form__input" type="number" value="{{Auth::user()->pin_code}}" name="zipcode" placeholder="400703">
+                                      <input class="la-form__input" type="number" value="{{Auth::user()->pin_code}}" name="zipcode" placeholder="Enter Zipcode">
                                       @error('zipcode')
                                           <div class="alert alert-danger">{{ $message }}</div>
                                       @enderror
@@ -208,7 +208,7 @@
                       <div class="col-md-6">
                         <div class="la-form__input-wrap">
                           <div class="la-form__lable la-form__lable--medium mb-2">Current Password</div>
-                          <input class="la-form__input" type="password"  name="current_password" placeholder="">
+                          <input class="la-form__input" type="password"  name="current_password" placeholder="Enter Current Password">
                           @error('current_password')
                               <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
@@ -217,7 +217,7 @@
                       <div class="col-md-6">
                         <div class="la-form__input-wrap">
                           <div class="la-form__lable la-form__lable--medium mb-2">New Password</div>
-                          <input class="la-form__input" type="password"  name="new_password" placeholder="">
+                          <input class="la-form__input" type="password"  name="new_password" placeholder="Enter New Password">
                           @error('new_password')
                               <div class="alert alert-danger">{{ $message }}</div>
                           @enderror

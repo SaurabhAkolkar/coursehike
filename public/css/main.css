@@ -10613,6 +10613,9 @@ ul, li {
   background: transparent !important;
   color: var(--black) !important;
 }
+.la-btn.bg-transparent {
+  background-color: transparent !important;
+}
 .la-btn__plain, .la-btn__arrow {
   font-weight: var(--font-bold);
   cursor: pointer;
@@ -17932,7 +17935,13 @@ a, a:hover {
   border-bottom: 1px dashed var(--gray2);
   box-shadow: inset 0 0 10px 0 #00000014;
   overflow: auto;
-  padding: var(--size-5) 0;
+  padding: var(--size-5) 0 var(--size-5) var(--size-5);
+}
+@media (max-width: 767px) {
+  .la-vcourse__curriculam {
+    padding-left: var(--size-4);
+    margin-top: var(--size-10);
+  }
 }
 .la-vcourse__curriculam::-webkit-scrollbar {
   width: 5px;
@@ -18057,6 +18066,12 @@ a, a:hover {
   width: 35%;
   padding-right: 30px;
 }
+@media (max-width: 991px) {
+  .la-vcourse__class-row.full-view .la-vcourse__lesson-content {
+    width: 100%;
+    padding-right: var(--size-2);
+  }
+}
 .la-vcourse__class-row.full-view .la-vcourse__lesson-description {
   width: 65%;
 }
@@ -18097,6 +18112,11 @@ a, a:hover {
   -webkit-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
 }
+@media (max-width: 767px) {
+  .la-vcourse__lesson {
+    padding-right: var(--size-base);
+  }
+}
 .la-vcourse__lesson:hover {
   background: var(--gray);
 }
@@ -18110,6 +18130,12 @@ a, a:hover {
   width: 150px;
   border-radius: 10px;
   overflow: hidden;
+}
+@media (max-width: 767px) {
+  .la-vcourse__lesson-left {
+    height: 100px;
+    margin: auto 0;
+  }
 }
 .la-vcourse__lesson-right {
   width: calc(100% - 150px);
@@ -18245,6 +18271,16 @@ a, a:hover {
   font-family: var(--head-font);
   font-weight: 600;
 }
+@media (max-width: 991px) {
+  .la-vcourse__purchase-btn2 {
+    margin-top: var(--size-3);
+  }
+}
+@media (max-width: 767px) {
+  .la-vcourse__purchase-right {
+    padding-top: var(--size-10);
+  }
+}
 .la-vcourse__purchase-prize {
   font-size: var(--text-2xl);
 }
@@ -18278,13 +18314,27 @@ a, a:hover {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 82%;
+  height: 75%;
   background-color: #FFC516;
   border-radius: 10px;
   z-index: -1;
 }
+@media (max-width: 991px) {
+  .la-creator__inwrap:before {
+    width: 90%;
+    height: 70%;
+  }
+}
 .la-creator__img img {
-  height: 313px;
+  width: 280px;
+  height: 280px;
+  background-color: #FFC516;
+}
+@media (max-width: 991px) {
+  .la-creator__img img {
+    width: 200px;
+    height: 200px;
+  }
 }
 .la-creator__detail {
   margin-bottom: -2px;
@@ -18300,18 +18350,31 @@ a, a:hover {
   line-height: var(--text-xl);
   font-weight: var(--font-semibold);
 }
-.la-creator__content-quote {
+@media (max-width: 767px) {
+  .la-creator__content {
+    padding-top: var(--size-10);
+  }
+}
+.la-creator__content-icon {
+  font-size: var(--text-5xl);
   color: var(--gray6);
   opacity: 0.25;
   font-family: var(--head-font);
   font-weight: var(--font-black);
 }
-.la-creator__content-title .la--icon img {
-  height: 45px;
+@media (min-width: 992px) {
+  .la-creator__content-icon {
+    font-size: var(--text-8xl);
+  }
 }
 .la-creator__content-title .la--text {
   font-size: var(--text-3xl);
   font-weight: var(--font-light);
+}
+@media (max-width: 991px) {
+  .la-creator__content-title .la--text {
+    font-size: var(--text-xl);
+  }
 }
 
 .la-cbenefits__item {
@@ -18322,9 +18385,15 @@ a, a:hover {
 }
 @media (max-width: 991px) {
   .la-cbenefits__item {
-    margin-bottom: var(--size-8);
-    height: 240px;
+    margin-bottom: 0;
+    padding: var(--size-8) var(--size-4);
+    height: 260px;
     text-align: center;
+  }
+}
+@media (max-width: 767px) {
+  .la-cbenefits__item {
+    margin-bottom: var(--size-8);
   }
 }
 .la-cbenefits__item-title {
@@ -18616,7 +18685,12 @@ a, a:hover {
 .la-ctabs__about {
   border-bottom: 1px dashed var(--gray2);
 }
-.la-ctabs__about-descp {
+@media (max-width: 991px) {
+  .la-ctabs__about {
+    margin-bottom: var(--size-10);
+  }
+}
+.la-ctabs__about-desc p {
   font-weight: var(--font-normal);
   color: var(--gray6);
   font-family: var(--body-font);
@@ -18628,13 +18702,29 @@ a, a:hover {
   color: var(--gray5);
   font-weight: var(--font-normal);
 }
-.la-ctabs__resource-title, .la-ctabs__certificate-title {
+@media (max-width: 991px) {
+  .la-ctabs__resources {
+    margin-bottom: var(--size-10);
+  }
+}
+.la-ctabs__resources-title {
   color: var(--gray7);
   font-weight: var(--font-bold);
 }
-.la-ctabs__resource-file, .la-ctabs__certificate-file {
+.la-ctabs__resources-file {
   color: var(--app-indigo-1);
-  font-weight: var(--font-normal);
+}
+@media (max-width: 991px) {
+  .la-ctabs__certificate {
+    margin-bottom: var(--size-10);
+  }
+}
+.la-ctabs__certificate-title {
+  color: var(--gray7);
+  font-weight: var(--font-bold);
+}
+.la-ctabs__certificate-file {
+  color: var(--app-indigo-1);
 }
 .la-ctabs__download-all {
   color: var(--app-indigo-1);
@@ -18643,16 +18733,6 @@ a, a:hover {
   margin-top: var(--size-14);
 }
 
-@media (max-width: 991px) {
-  .la-ctabs__about, .la-ctabs__resources, .la-ctabs__certificate {
-    margin-bottom: var(--size-10);
-  }
-  .la-ctabs__title {
-    font-weight: var(--font-bold);
-    color: var(--gray5);
-    font-family: var(--head-font);
-  }
-}
 .la-notification__card {
   margin-top: var(--size-4);
   background: #ffffff;
@@ -18982,7 +19062,6 @@ a, a:hover {
 }
 .la-rtng__wrapper {
   padding-top: var(--size-14);
-  padding-bottom: var(--size-14);
 }
 .la-rtng__title {
   font-weight: var(--font-semibold);
@@ -19091,15 +19170,14 @@ a, a:hover {
   }
 }
 .la-lcreviews__item {
-  margin-top: var(--size-10);
   margin-bottom: var(--size-10);
 }
 .la-lcreviews__prfle {
   width: 75%;
 }
 .la-lcreviews__prfle-img img {
-  width: 70px;
-  height: 70px;
+  width: 65px;
+  height: 65px;
 }
 .la-lcreviews__prfle-info {
   padding-left: var(--size-4);
@@ -20252,6 +20330,7 @@ a, a:hover {
 @media (max-width: 767px) {
   .la-cart__item-action a {
     padding: 0 5px;
+    font-size: var(--text-xs);
   }
 }
 .la-cart__item-cartclasses {
@@ -21920,12 +21999,17 @@ section.la-start-creating {
 }
 section.la-start-creating .la-vdotted__bar {
   margin-left: 30px;
-  height: 600px;
+  height: 650px;
   border-left: 2px dotted #FFC516;
+}
+@media (max-width: 767px) {
+  section.la-start-creating .la-vdotted__bar {
+    margin-left: 10px;
+  }
 }
 section.la-start-creating .la-vicon {
   width: 100%;
-  min-height: 180px;
+  min-height: 200px;
   position: relative;
 }
 section.la-start-creating .la-icon__vline {
@@ -21949,8 +22033,18 @@ section.la-start-creating .la-vicon__text {
   font-family: var(--body-font);
   margin-left: 65px;
 }
+@media (max-width: 767px) {
+  section.la-start-creating .la-vicon__text {
+    margin-left: 40px;
+  }
+}
 section.la-start-creating .la-vicon__text .la-vicon__title {
   font-size: var(--text-2xl);
+}
+@media (max-width: 767px) {
+  section.la-start-creating .la-vicon__text .la-vicon__title {
+    font-size: var(--text-xl);
+  }
 }
 section.la-start-creating .la-vicon__text .la-vicon__desc {
   font-size: var(--text-md);
@@ -21983,7 +22077,7 @@ section.la-start-creating .la-vicon__link:hover > span {
 @media (max-width: 991px) {
   section.la-start-creating {
     margin: var(--size-10) 0;
-    padding: var(--size-14) 0 calc(var(--size-20) * 3) 0;
+    padding: var(--size-10) 0 calc(var(--size-20) * 2) 0;
   }
 }
 section.la-bcreator--earn .la-earn__blog {
@@ -22044,12 +22138,6 @@ section.la-bcreator-reach-stats {
   font-size: var(--text-lg);
   font-weight: var(--font-bold);
   color: var(--gray7);
-}
-
-.la-bcreator__stats-text {
-  font-family: var(--body-font);
-  color: var(--gray5);
-  opacity: 0.7;
 }
 
 .la-bcreator__stats-btn {
@@ -23117,18 +23205,18 @@ section.la-lp--page .la-lp__rgt-content {
   }
 }
 section.la-lp--include {
-  padding: var(--size-20);
+  padding-top: var(--size-10);
+}
+@media (min-width: 992px) {
+  section.la-lp--include {
+    padding: var(--size-20) 0;
+  }
 }
 section.la-lp--include .la-lp__benefits h3 {
   color: var(--gray6);
   font-weight: var(--font-semibold);
 }
 
-@media (max-width: 767px) {
-  section.la-lp--include {
-    padding: var(--size-18) var(--size-4);
-  }
-}
 section.la-lp--sub-faq {
   padding-top: calc(var(--size-20) *2);
 }

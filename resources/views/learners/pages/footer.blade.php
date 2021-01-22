@@ -28,7 +28,7 @@
                     @foreach ($footer_categories as $fc)
                       <li class="la-footer__list-item"><a class="la-footer__list-link" >{{$fc->title}}</a></li>
                     @endforeach
-                  </ul><a class="la-footer__more">See all</a>
+                  </ul><a class="la-footer__more" href="/browse/courses">See all</a>
                 </div>
                 <div class="col-12 col-sm-6 mb-5">
                   <div class="la-footer__title">Creators</div>
@@ -36,7 +36,7 @@
                     @foreach ($creators as $c)
                       <li class="la-footer__list-item"><a class="la-footer__list-link" href="/creator/{{$c->id}}">{{$c->fullName}}</a></li>
                     @endforeach
-                  </ul><a class="la-footer__more">See all</a>
+                  </ul><a class="la-footer__more" href="/mentors">See all</a>
                 </div>
                 <div class="col-12 col-sm-6 mb-5">
                   <div class="la-footer__title">Courses</div>
@@ -44,7 +44,7 @@
                     @foreach ($courses as $c)
                       <li class="la-footer__list-item"><a class="la-footer__list-link" href="/learn/course/{{$c->id}}/{{$c->slug}}">{{$c->title}}</a></li>
                     @endforeach
-                  </ul><a class="la-footer__more">See all</a>
+                  </ul><a class="la-footer__more" href="/browse/courses">See all</a>
                 </div>
                 <div class="col-12 col-sm-6 mb-5">
                   <div class="la-footer__title">Master Classes</div>
@@ -55,7 +55,7 @@
                     <li class="la-footer__list-item"><a class="la-footer__list-link">Rangoli Art</a></li>
                     <li class="la-footer__list-item"><a class="la-footer__list-link">UI Design</a></li>
                     <li class="la-footer__list-item"><a class="la-footer__list-link">Photography</a></li>
-                  </ul><a class="la-footer__more">See all</a>
+                  </ul><a class="la-footer__more" href="/master-classes">See all</a>
                 </div>
               </div>
             </div>
@@ -80,14 +80,14 @@
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li> -->
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Testimonials</a></li> -->
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Aliens Tattoo School</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Learning Plans</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/learning-plans">Learning Plans</a></li>
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/become-creator">Become a Creator</a></li>
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/guided-creator">Guided Creator</a></li>
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Request a Tutorial</a></li> -->
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Teaching Techniques</a></li> -->
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/about">About Us</a></li>
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/contact">Contact Us</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/login">Start Free Trial</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/learning-plans">Start Free Trial</a></li>
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/cancellations-refund">Cancellations & Refund</a></li>
               </ul>
 

@@ -5,8 +5,8 @@
  @if(session('success'))
   <div class="la-btn__alert position-relative">
     <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible" role="alert">
-        <h6 class="la-btn__alert-msg">{{session('success')}}</h6>
-        <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+        <span class="la-btn__alert-msg">{{session('success')}}</span>
+        <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true" style="color:#56188C">&times;</span>
         </button>
     </div>
@@ -89,7 +89,7 @@
                   <input class="form-control p-0" id="contPhone" type="tel" name="mobile" placeholder="Enter your phone number" required>
                 </div>
                 <div class="form-group mb-5 la-anim__stagger-item--x">
-                  <label class="text-sm" for="contMsg">Message</label>
+                  <label class="text-sm" for="contMsg">Message <span style="color:var(--danger)">*</span></label>
                   <textarea class="form-control text-msg p-2" id="contMsg" rows="5" cols="50" name="message" placeholder="Type here" required></textarea>
                 </div>
                 <div class="la-contact__btn text-right d-none d-sm-block la-anim__stagger-item--x">

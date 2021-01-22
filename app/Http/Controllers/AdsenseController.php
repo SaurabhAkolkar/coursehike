@@ -87,7 +87,7 @@ class AdsenseController extends Controller
           }
           else 
           {
-            return redirect()->route('adsense')->with('updated','Adsense is now Deactive !');
+            return redirect()->route('adsense')->with('updated','Adsense is now Inactive !');
               
           }
 
@@ -157,7 +157,7 @@ class AdsenseController extends Controller
           }
           else 
           {
-            return redirect()->route('adsense')->with('updated','Adsense is now Deactive !');
+            return redirect()->route('adsense')->with('updated','Adsense is now Inactive !');
               
           }
         }

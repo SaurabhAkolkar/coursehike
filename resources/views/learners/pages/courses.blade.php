@@ -2,7 +2,7 @@
 <!-- Playlist Alert Message-->
 @if(session('message'))
 <div class="la-btn__alert position-relative">
-  <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible" role="alert">
+  <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" role="alert">
       <span class="la-btn__alert-msg">{{session('message')}}</span>
       <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true" style="color:#56188C">&times;</span>

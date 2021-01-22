@@ -54,11 +54,11 @@
 
             <div class="row">
               <div class="col-md-4">
-                 <label for="mobile">{{ __('adminstaticword.Email') }}: <sup class="redstar">*</sup></label>
+                 <label for="mobile">{{ __('adminstaticword.Email') }}:<sup class="redstar">*</sup></label>
                   <input value="{{ old('email')}}" required type="email" name="email" placeholder="Enter your email" class="form-control">
               </div>
               <div class="col-md-4">
-                <label for="mobile">{{ __('adminstaticword.Mobile') }}: <sup class="redstar">*</sup></label>
+                <label for="mobile">{{ __('adminstaticword.Mobile') }}:<sup class="redstar">*</sup></label>
                 <input value="{{ old('mobile')}}" required type="text" name="mobile" placeholder="Enter your mobile number" class="form-control">
               </div>
             </div>
@@ -66,7 +66,7 @@
 
             <div class="row">
               <div class="col-md-4">
-                <label for="exampleInputDetails">{{ __('adminstaticword.Address') }}:<sup class="redstar">*</sup></label>
+                <label for="exampleInputDetails">{{ __('adminstaticword.Address') }}:</label>
                 <textarea name="address" rows="1"  class="form-control" placeholder="Enter your address"></textarea>
               </div>
               <div class="col-md-4">
@@ -84,7 +84,7 @@
 
             <div class="row">
               <div class="col-md-4">
-                <label for="gender">{{ __('adminstaticword.Gender') }}: <sup class="redstar">*</sup></label>
+                <label for="gender">{{ __('adminstaticword.Gender') }}:<sup class="redstar">*</sup></label>
                 
                 <br>
                 <input type="radio" name="gender" id="ch1" value="m" required> <span class="mr-3"> {{ __('adminstaticword.Male') }} </span>
@@ -92,7 +92,7 @@
                 <input type="radio" name="gender" id="ch3" value="o"> <span class="mr-3">{{ __('adminstaticword.Other') }}</span>
               </div>
               <div class="col-md-4">
-                <label for="mobile">{{ __('adminstaticword.Password') }}: <sup class="redstar">*</sup> </label>
+                <label for="mobile">{{ __('adminstaticword.Password') }}:<sup class="redstar">*</sup> </label>
                 <input required type="password" name="password" placeholder="Enter your password" class="form-control">
               </div>
             </div>
@@ -127,7 +127,7 @@
                 </select>
               </div>
               <div class="col-md-4"> 
-                <label for="pin_code">{{ __('adminstaticword.Pincode') }}:</sup></label>
+                <label for="pin_code">{{ __('adminstaticword.Pincode') }}:</label>
                 <input value="{{ old('pin_code')}}" placeholder="Enter your pincode" type="text" name="pin_code" class="form-control">
               </div>
             </div>
@@ -135,7 +135,7 @@
 
             <div class="row">
               <div class="col-md-4"> 
-                <label for="role">{{ __('adminstaticword.SelectRole') }}: <sup class="redstar">*</sup></label>
+                <label for="role">{{ __('adminstaticword.SelectRole') }}:<sup class="redstar">*</sup></label>
                 <select class="form-control js-example-basic-single" name="role" required>
                   <option value="none" selected disabled hidden> 
                    {{ __('adminstaticword.SelectanOption') }}

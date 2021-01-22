@@ -94,24 +94,26 @@
           <div class="col">
             <div class="la-lp__benefits la-anim__wrap">
               <h3 class="mb-7 head-font text-md-4xl la-anim__fade-in-bottom">All plans include</h3>
+             
               <div class="la-cbenefits d-flex my-8">
                 <div class="row">
-
-                  <div class="col ">
+                  <div class="col-md-4">
                     <div class="la-cbenefits__item bg-white d-flex flex-column align-items-center la-anim__stagger-item--x">
                       <div class="mb-7 "><img class="img-fluid" src="./images/learners/course-benefits/video.svg"></div>
                       <h4 class="la-cbenefits__item-title mb-3">Unlimited Learning</h4>
                       <p class="la-cbenefits__item-desc text-center">Access to numerous courses of varied art skills</p>
                     </div>
                   </div>
-                  <div class="col">
+
+                  <div class="col-md-4">
                     <div class="la-cbenefits__item bg-white d-flex flex-column align-items-center la-anim__stagger-item--x">
                       <div class="mb-7"><img class="img-fluid" src="./images/learners/course-benefits/certificate.svg"></div>
                       <h4 class="la-cbenefits__item-title mb-3">Certification</h4>
                       <p class="la-cbenefits__item-desc text-center">Certificates as proof of course completion</p>
                     </div>
                   </div>
-                  <div class="col ">
+
+                  <div class="col-md-4">
                     <div class="la-cbenefits__item  bg-white d-flex flex-column align-items-center la-anim__stagger-item--x">
                       <div class="mb-7"><img class="img-fluid" src="./images/learners/course-benefits/online-course.svg"></div>
                       <h4 class="la-cbenefits__item-title mb-3">Resources</h4>
@@ -121,6 +123,7 @@
                                  
                 </div>
               </div>
+
             </div>
           </div>
         </div>

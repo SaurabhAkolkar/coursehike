@@ -43,8 +43,16 @@ html, body{
     background:var(--white) !important;
     box-shadow: 0px 3px 6px #0000001A !important;
 }
+.user-header>img{
+    border-radius: 50%;
+}
 
 /* == Sidebar Toggler Menu Links == */
+.user-panel>.image>img{
+    max-width:50px !important;
+    height:50px !important;
+    background:var(--gray);
+}
 .user-panel > .info > p{
     color:var(--gray6) !important;
 }
@@ -455,7 +463,7 @@ table.dataTable thead>tr>th.sorting_asc{
 /* == Table Columns == */
 
 table.table-bordered.dataTable tbody td {
-    padding:12px 0;
+    padding:var(--size-6) 0;
     font-family:var(--body-font);
     font-weight:var(--font-normal);
     border:none;
@@ -463,7 +471,6 @@ table.table-bordered.dataTable tbody td {
     font-size:var(--text-sm);
     line-height:1 !important;
     vertical-align: middle;
-    text-transform: capitalize;
  }
  table.table-bordered.dataTable tbody td.sorting_1{
    padding:16px 25px;
@@ -784,6 +791,13 @@ button.close:focus{
     border-spacing : 0px !important;
 }
 
+/* Pagination */
+.paginate_button.previous{
+    padding-right:5px !important;
+}
+.paginate_button.next{
+    padding-left:5px !important;
+}
 /* Popover for Course Pages */
 .popover{
   width:200px;

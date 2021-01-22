@@ -7,8 +7,8 @@
     @if(session('message'))
               <div class="la-btn__alert position-relative">
                 <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" role="alert">
-                    <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
-                    <button type="button" class="close mt-3" data-dismiss="alert" aria-label="Close">
+                    <span class="la-btn__alert-msg">{{session('message')}}</span>
+                    <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true" style="color:#56188C">&times;</span>
                     </button>
                 </div>
@@ -97,9 +97,9 @@
                 <div class="form-group pt-3 la-anim__stagger-item">
                   <label class="d-flex" for="editVideo">
                     <input class="d-none" id="editVideo" type="checkbox" name="">
-					<span class="gcheck position-relative">
-					<div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div>
-					</span>
+                      <span class="gcheck position-relative">
+                      <div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div>
+                      </span>
                     <div class="pl-4 mt-n1 text-sm">Yes, I want you to edit for me!</div>
                   </label>
                 </div>

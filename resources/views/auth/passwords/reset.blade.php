@@ -37,58 +37,65 @@
 <!-- top-nav bar end-->
 
 @section('content')
-<section id="signup" class="signup-block-main-block">
+<section id="signup" class="signup-block-main-block py-14 py-md-20" style="background:var(--gray)">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('frontstaticword.ResetPassword') }}</div>
+                <div class="la-reset__password text-center">
+                    <h1 class="la-reset__password-title text-2xl text-md-4xl">Reset Password</h1>
+                    <p class="la-reset__password-tag mb-0" style="color: var(--gray6)">Get yourself a more secured Password!</p>
 
-                    <div class="card-body">
+                    <div class="la-reset__password-info py-10 py-md-16">
                         <form method="POST" action="{{ route('password.update') }}">
                             @csrf
 
                             <input type="hidden" name="token" value="{{ $token }}">
 
-                            <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('frontstaticword.E-MailAddress') }}</label>
+                            <div class="form-group">
+                                <div class="col-md-3 offset-md-2 text-left">
+                                    <label for="email" class="la-form__lable" style="color: var(--gray6);font-weight:var(--font-medium);">{{ __('frontstaticword.E-MailAddress') }}</label><br/>
+                                </div>
 
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email ?? old('email') }}" required autofocus>
+                                <div class="col-md-8 offset-md-2 text-center">
+                                    <input id="email" type="email" placeholder="Enter your Email ID" class="la-form__input{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email ?? old('email') }}" required autofocus>
 
                                     @if ($errors->has('email'))
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback text-right" role="alert">
                                             <strong>{{ $errors->first('email') }}</strong>
                                         </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('frontstaticword.Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                            <div class="form-group">
+                                <div class="col-md-3 offset-md-2 text-left">
+                                    <label for="email" class="la-form__lable" style="color: var(--gray6);font-weight:var(--font-medium);">{{ __('frontstaticword.Password') }}</label><br/>
+                                </div>
+                                
+                                <div class="col-md-8 offset-md-2 text-center">
+                                    <input id="password" type="password" placeholder="Enter New Password" class="la-form__input{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                     @if ($errors->has('password'))
-                                        <span class="invalid-feedback " role="alert">
+                                        <span class="invalid-feedback text-right" role="alert">
                                             <strong>{{ $errors->first('password') }}</strong>
                                         </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('frontstaticword.ConfirmPassword') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            <div class="form-group">
+                                <div class="col-md-3 offset-md-2 text-left">
+                                    <label for="email" class="la-form__lable" style="color: var(--gray6);font-weight:var(--font-medium);">{{ __('frontstaticword.ConfirmPassword') }}</label><br/>
+                                </div>
+                                
+                                <div class="col-md-8 offset-md-2 text-center">
+                                    <input id="password-confirm" type="password" placeholder="Confirm New Password" class="la-form__input" name="password_confirmation" required>
                                 </div>
                             </div>
 
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                            <div class="form-group row py-10">
+                                <div class="col-md-8 offset-md-2">
+                                    <button type="submit" class="la-btn__app ">
                                         {{ __('frontstaticword.ResetPassword') }}
                                     </button>
                                 </div>

@@ -1,9 +1,10 @@
 @extends('admin/layouts.master')
 @section('title', 'Add Child Category - Admin')
 @section('body')
-
+@include('admin.category.childcategory.child')
 <section class="content">
   @include('admin.message')
+  
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
@@ -89,7 +90,7 @@
     <!--/.col (right) -->
   </div>
   <!-- /.row -->
-  @include('admin.category.childcategory.child')
+
 </section>
 
 

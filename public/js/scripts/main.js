@@ -14,11 +14,11 @@ $(function(){
   // Navbar Dropdown Toggle: End
 
   // Global Alert Animation for Learners
-  /*window.setTimeout(function() {
+  window.setTimeout(function() {
     $(".alert").fadeTo(500, 0).slideUp(500, function() {
         $(this).remove();
     });
-  }, 3000);*/
+  }, 4000);
 
   // Nested Links in Browse Courses
   $('#la-course__nested-links li').on('click', function(e) {
@@ -41,35 +41,6 @@ $(function(){
     $('#filtered_sidebar').hide();
     $("body").css('overflow','auto');
   });
-  
-  /*
-  //- Filter Sidebar in My Courses Page
-  $("#filteredCourses2").on('click', function(event){
-    event.stopPropagation();
-    $('#filtered_sidebar2').show(); 
-    $('#filtered_sidebar2').addClass('active'); 
-    $("body").css('overflow','hidden');
-  });
-
-  $("#filter_close2").on('click', function(event){
-    event.stopPropagation();
-    $('#filtered_sidebar2').hide();
-    $("body").css('overflow','auto');
-  });
-  
- //- Filter Sidebar in My Courses Page
-  $("#filteredCourses3").on('click', function(event){
-    event.stopPropagation();
-    $('#filtered_sidebar3').show(); 
-    $('#filtered_sidebar3').addClass('active'); 
-    $("body").css('overflow','hidden');
-  });
-
-  $("#filter_close3").on('click', function(event){
-    event.stopPropagation();
-    $('#filtered_sidebar3').hide();
-    $("body").css('overflow','auto');
-  });*/
 
 
   //Swiper Js for Login & Register page
@@ -475,7 +446,7 @@ function addToCart(id='1', classes='all') {
         $('#alert_div').html(' ');
      
         let successAlert = `<div class="la-btn__alert position-relative">
-                              <div class="la-btn__alert-success col-md-4 offset-md-4 alert alert-success alert-dismissible" id="wishlist_alert" role="alert">
+                              <div class="la-btn__alert-success col-md-4 offset-md-4 alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
                                 <span id="wishlist_alert_message" class="la-btn__alert-msg">${data}</span>
                                 <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
                                   <span aria-hidden="true" style="color:#56188C">&times;</span>

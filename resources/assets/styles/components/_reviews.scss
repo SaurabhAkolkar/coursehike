@@ -2,21 +2,23 @@
     &lcreviews{
         &__{
             &item{
-                margin-top:var(--size-10);
                 margin-bottom:var(--size-10);
             }
             &prfle{
                 width:75%;
-            }
-            &prfle-img{
-                img{
-                    width:70px;
-                    height:70px;
+
+                &-{
+                    &img{
+                        img{
+                            width:65px;
+                            height:65px;
+                        }
+                    }
+                    &info{
+                        padding-left:var(--size-4);
+                        margin-top:var(--size-3);
+                    }
                 }
-            }
-            &prfle-info{
-                padding-left:var(--size-4);
-                margin-top:var(--size-3);
             }
             &timestamp{
                 font-weight:var(--font-normal);

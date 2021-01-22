@@ -12,9 +12,10 @@
 
           @endif
         </div>
+
         <div class="pull-left info">
-          <p class="mb-1">{{ Auth::User()->fname }}</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> {{ __('adminstaticword.Admin') }}</a>
+            <p class="mb-1">{{ Auth::User()->fname }}</p>
+            <a href="#"><i class="fa fa-circle text-success"></i> {{ __('adminstaticword.Admin') }}</a>
         </div>
       </div>
 
@@ -29,9 +30,9 @@
           @if(isset($zoom_enable) && $zoom_enable == 1)
           <li class="{{ Nav::isRoute('meeting.create') }} {{ Nav::isRoute('zoom.show') }} {{ Nav::isRoute('zoom.edit') }} {{ Nav::isRoute('zoom.setting') }} {{ Nav::isRoute('zoom.index') }} {{ Nav::isRoute('meeting.show') }} treeview">
             <a href="#">
-             <i class="flaticon-live-1" aria-hidden="true"></i> <span>{{ __('Zoom Live Meetings') }}</span>
+              <i class="flaticon-live-1" aria-hidden="true"></i> <span>{{ __('Zoom Live Meetings') }}</span>
               <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
+                  <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
@@ -45,9 +46,9 @@
           @if(isset($global_settings) && $global_settings->bbl_enable == 1)
               <li class="{{ Nav::isRoute('bbl.setting') }} {{ Nav::isRoute('bbl.all.meeting') }} {{ Nav::isRoute('download.meeting') }} treeview">
                 <a href="#">
-                <i class="flaticon-honesty" aria-hidden="true"></i> <span>{{ __('Big Blue Meetings') }}</span>
+                  <i class="flaticon-honesty" aria-hidden="true"></i> <span>{{ __('Big Blue Meetings') }}</span>
                   <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
+                    <i class="fa fa-angle-left pull-right"></i>
                   </span>
                 </a>
                 <ul class="treeview-menu">
@@ -93,7 +94,7 @@
                     <li class="{{ Nav::isResource('childcategory') }}"><a href="{{url('childcategory')}}" class="d-flex align-items-center"><i class="la-icon la-icon--sm icon-child-category mr-4"></i>{{ __('adminstaticword.ChildCategory') }}</a></li>
                   </ul>
 
-                  <li class="@if(Request::segment(1) == 'course') active @endif"><a href="{{url('course')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-courses mr-4"></i><!--<i class="flaticon-document" aria-hidden="true"></i> --><span>{{ __('adminstaticword.Courses') }}</span></a></li>
+                  <li class="@if(Request::segment(1) == 'course') active @endif"><a href="{{url('course')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-courses mr-4"></i><span>{{ __('adminstaticword.Courses') }}</span></a></li>
 
                   <!-- <li class="{{ Nav::isResource('bundle') }}"><a href="{{url('bundle')}}"><i class="flaticon-interface" aria-hidden="true"></i><span>{{ __('adminstaticword.BundleCourse') }}</span></a></li> -->
 

@@ -28,7 +28,7 @@
     <div class="la-vcourse__lesson-right d-flex">
         <div class="la-vcourse__lesson-content d-flex flex-wrap flex-column">
             <div class="la-vcourse__lesson-title"> {{ $title ?? '' }} </div>
-            <div class="la-vcourse__lesson-creator pl-4"> {{ $author ?? '' }} </div>
+            <div class="la-vcourse__lesson-creator pl-md-4"> {{ $author ?? '' }} </div>
             <div class="la-vcourse__lesson-learnt mt-auto"> {{ $statusPercentage ?? '' }} </div>
             <div class="la-vcourse__lesson-status"></div>
         </div>

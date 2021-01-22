@@ -116,12 +116,16 @@ section.la-start-creating{
 	margin:100px 0;
 	.la-vdotted__bar{
 		margin-left:30px;
-		height:600px;
+		height:650px;
 		border-left: 2px dotted #FFC516;
+
+		@include respond-below(sm){
+			margin-left:10px;
+		}
 	}
 	.la-vicon{
 		width:100%;
-		min-height:180px;
+		min-height:200px;
 		position:relative;
 	}	
 	.la-icon__vline{
@@ -145,8 +149,16 @@ section.la-start-creating{
 		font-family: var(--body-font);
 		margin-left:65px;
 
+		@include respond-below(sm){
+			margin-left:40px;
+		}
+
 		.la-vicon__title{
 			font-size: var(--text-2xl);
+
+			@include respond-below(sm){
+				font-size:var(--text-xl);
+			}
 		}
 		.la-vicon__desc{
 			font-size: var(--text-md);
@@ -182,7 +194,7 @@ section.la-start-creating{
 @media (max-width:991px){
 	section.la-start-creating{
 		margin:var(--size-10) 0;
-		padding:var(--size-14) 0 calc(var(--size-20) * 3) 0;
+		padding:var(--size-10) 0 calc(var(--size-20) * 2) 0;
 	}
 }
 // Vertical Dotted line b/w Icons End
@@ -249,11 +261,6 @@ section.la-bcreator-reach-stats{
 	font-size: var(--text-lg);
 	font-weight: var(--font-bold);
 	color: var(--gray7);
-}
-.la-bcreator__stats-text{
-	font-family:var(--body-font);
-	color:var(--gray5);
-	opacity:0.7;
 }
 .la-bcreator__stats-btn{
 	margin-top:var(--size-14);

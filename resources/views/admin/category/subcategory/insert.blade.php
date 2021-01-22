@@ -92,7 +92,7 @@
   <!-- /.row -->
 </section>
 
-@include('admin.category.subcategory.cat') 
+{{-- @include('admin.category.subcategory.cat')  --}}
 
 @endsection
 

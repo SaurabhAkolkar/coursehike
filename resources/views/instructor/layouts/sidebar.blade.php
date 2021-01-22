@@ -12,6 +12,7 @@
 
           @endif
         </div>
+
         <div class="pull-left info">
           <p class="mb-1">{{ Auth::User()->fname }}</p>
           <a href="#" style="font-size:10px;"><i class="fa fa-circle text-success"></i> {{ __('adminstaticword.Instructor') }}</a>
@@ -32,15 +33,15 @@
           </li>
           
           <li class="{{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('course') }} {{ Nav::isResource('courselang') }} treeview">
-            <a class="d-flex align-items-center" href="#">
-                <i class="la-icon la-icon--lg icon-courses mr-5"></i>{{ __('adminstaticword.Course') }}
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-            </a>
+              <a class="d-flex align-items-center" href="#">
+                  <i class="la-icon la-icon--lg icon-courses mr-5"></i>{{ __('adminstaticword.Course') }}
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+              </a>
 
-            <ul class="treeview-menu">
-              <li class="{{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('course') }} {{ Nav::isResource('courselang') }} treeview">
+              <ul class="treeview-menu">
+                <li class="{{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('course') }} {{ Nav::isResource('courselang') }} treeview">
                  
                   {{-- @if($gsetting->cat_enable == 1)
                   <a class="d-flex align-items-center" href="#"> <i class="la-icon la-icon--lg icon-categories mr-4"></i>{{ __('adminstaticword.Category') }}

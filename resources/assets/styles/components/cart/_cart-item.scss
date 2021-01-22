@@ -102,8 +102,9 @@
                                 background-color: var(--app-indigo-1);
                             }
 
-                            @media(max-width:767px){
+                            @include respond-below(sm){
                                 padding: 0 5px;
+                                font-size:var(--text-xs);
                             }
                         }
                     }

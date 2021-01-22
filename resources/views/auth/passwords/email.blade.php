@@ -39,33 +39,39 @@
 
 @section('content')
 <section id="signup" class="signup-block-main-block py-14 py-md-20" style="background:var(--gray)">
+    @if (session('status'))
+        <div class="la-btn__alert position-relative">
+            <div class="la-btn__alert-success col-md-4 offset-md-4 alert alert-success alert-dismissible fade show" role="alert">
+                <span class="la-btn__alert-msg">{{session('status')}}</span>
+                <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" style="color:#56188C">&times;</span>
+                </button>
+            </div>
+        </div>
+    @endif
+
     <div class="container">
         <div class="row justify-content-center align-items-center">
             <div class="col-md-8 ">
                 <div class="la-reset__password text-center">
-                    <h1 class="la-reset__password-title text-5xl">{{ __('frontstaticword.ResetPassword') }}</h1>
-                    <p class="la-reset__password-tag text-md" style="color: var(--gray6)">Provide email id to receive password reset link</p>
+                    <h1 class="la-reset__password-title text-2xl text-md-4xl">Forgot Password</h1>
+                    <p class="la-reset__password-tag" style="color: var(--gray6)">Provide email id to receive password reset link</p>
 
                     <div class="la-reset__password-info">
-                        @if (session('status'))
-                            <div class="la-btn__alert-success alert alert-success" role="alert">
-                                <h6 class="la-btn__alert-msg">{{ session('status') }}</h6>
-                            </div>
-                        @endif
-
+                       
                         <form method="POST" action="{{ route('password.email') }}">
                             @csrf
 
                             <div class="form-group py-8 py-md-12">
                                 <div class="col-md-3 offset-md-2 text-left">
-                                    <label for="email" class="la-form__lable" style="color: var(--gray6)">Email ID</label><br/>
+                                    <label for="email" class="la-form__lable" style="color: var(--gray6);font-weight:var(--font-medium);">Email ID</label><br/>
                                 </div>
 
                                 <div class="col-md-8 offset-md-2 text-center">
                                     <input id="email" type="email" class="la-form__input {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Enter your Email ID" required>
 
                                     @if ($errors->has('email'))
-                                        <span class="invalid-feedback" role="alert" >
+                                        <span class="invalid-feedback text-right" role="alert" >
                                             <strong>{{ $errors->first('email') }}</strong>
                                         </span>
                                     @endif

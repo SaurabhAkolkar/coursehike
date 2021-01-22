@@ -37,7 +37,7 @@ class QuickUpdateController extends Controller
     	else
     	{
     		DB::table('courses')->where('id','=',$id)->update(['status' => "0"]);
-    		return back()->with('delete','Status changed to Deactive !');
+    		return back()->with('delete','Status changed to Inactive !');
     	}
     }
 
@@ -53,7 +53,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('users')->where('id','=',$id)->update(['status' => "0"]);
-            return back()->with('delete','Status changed to Deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
 
@@ -69,7 +69,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('sliders')->where('id','=',$id)->update(['status' => "0"]);
-            return back()->with('delete','Status changed to Deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
 
@@ -103,7 +103,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('categories')->where('id','=',$id)->update(['status' => "0"]);
-            return back()->with('delete','Status changed to deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
 
@@ -119,7 +119,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('pages')->where('id','=',$id)->update(['status' => "0"]);
-            return back()->with('delete','Status changed to deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
 
@@ -136,7 +136,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('what_learns')->where('id','=',$id)->update(['status' => "0"]);
-            return back()->with('delete','Status changed to deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
     public function ChapterQuick($id)
@@ -151,7 +151,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('course_chapters')->where('id','=',$id)->update(['status' => "0"]);
-            return back()->with('delete','Status changed to deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
 
@@ -167,7 +167,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('questions')->where('id','=',$id)->update(['status' => "0"]);
-            return back()->with('delete','Status changed to deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
      public function faqQuick($id)
@@ -182,7 +182,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('faq_students')->where('id','=',$id)->update(['status' => "0"]);
-            return back()->with('delete','Status changed to deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
 
@@ -198,7 +198,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('faq_instructors')->where('id','=',$id)->update(['status' => "0"]);
-            return back()->with('delete','Status changed to deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
 
@@ -215,7 +215,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('testimonials')->where('id','=',$id)->update(['status' => "0"]);
-            return back()->with('delete','Status changed to deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
 
@@ -232,7 +232,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('course_languages')->where('id','=',$id)->update(['status' => "0"]);
-            return back()->with('delete','Status changed to deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
 
@@ -249,7 +249,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('sub_categories')->where('id','=',$id)->update(['status' => "0"]);
-            return back()->with('delete','Status changed to deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
 
@@ -265,7 +265,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('child_categories')->where('id','=',$id)->update(['status' => "0"]);
-            return back()->with('delete','Status changed to deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
 
@@ -282,7 +282,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('categories')->where('id','=',$id)->update(['featured' => "0"]);
-            return back()->with('delete','featured changed to deactive !');
+            return back()->with('delete','featured changed to Inactive !');
         }
     }
 
@@ -298,7 +298,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('blogs')->where('id','=',$id)->update(['status' => "0"]);
-            return back()->with('delete','Status changed to Deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
 
@@ -314,7 +314,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('blogs')->where('id','=',$id)->update(['approved' => "0"]);
-            return back()->with('delete','Status changed to Deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
 
@@ -330,7 +330,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('review_ratings')->where('id','=',$id)->update(['status' => "0"]);
-            return back()->with('delete','Status changed to Deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
 
@@ -346,7 +346,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('review_ratings')->where('id','=',$id)->update(['approved' => "0"]);
-            return back()->with('delete','Status changed to Deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
 
@@ -362,7 +362,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('review_ratings')->where('id','=',$id)->update(['featured' => "0"]);
-            return back()->with('delete','Status changed to Deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
 
@@ -378,7 +378,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('orders')->where('id','=',$id)->update(['status' => "0"]);
-            return back()->with('delete','Status changed to Deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
 }
