@@ -12,6 +12,19 @@ class PlansTableSeeder extends Seeder
     public function run()
     {
         $plan = app('rinvex.subscriptions.plan')->create([
+            'name' => 'Trial Plan',
+            'description' => 'Trial Plan',
+            'price' => 0,
+            'signup_fee' => 0.00,
+            'invoice_period' => 0,
+            'invoice_interval' => 'day',
+            'trial_period' => 7,
+            'trial_interval' => 'day',
+            'sort_order' => 1,
+            'currency' => 'USD',
+        ]);
+
+        $plan = app('rinvex.subscriptions.plan')->create([
             'name' => 'Monthly Plan',
             'description' => 'Monthly Plan',
             'price' => 20,
