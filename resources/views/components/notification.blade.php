@@ -13,5 +13,4 @@
         <div class="la-notification__timestamp text-right text-xs font-normal"> {{ $timestamp }}</div>
     </a>
 </li>
-<div class="la-notification__hline"></div>
 

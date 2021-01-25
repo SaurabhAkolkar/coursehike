@@ -52,7 +52,7 @@ use App\Announcement;
             
             <div class="la-header__menu-item dropdown"><a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-notification " id="notificationPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
               <div class="dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="notificationPanel" style="border:none !important;">
-                <div class="card la-notification__card">
+                  <ul class="card la-notification__card">
                     <!-- Notification Panel: Start -->
                     @php
                     $user = Auth::user();
@@ -107,7 +107,7 @@ use App\Announcement;
                       @endif
                     @endforeach         
                     <!-- Notification Panel: End -->
-                </div>
+                  </ul>
                 <a class="la-notification__clear-all position-fixed" href="#">
                   <div class="text-center">CLEAR ALL</div>
                 </a>
@@ -229,7 +229,7 @@ use App\Announcement;
               </div>
             </div>
 
-            <div id="" class="d-lg-none position-relative la-header__menu-item la-header__sidemenu-btn">
+            <div class="d-lg-none position-relative la-header__menu-item la-header__sidemenu-btn">
                 <span class="la-icon la-icon--xl icon-hamburger-menu"></span>
             </div>
 
@@ -346,7 +346,7 @@ use App\Announcement;
             </div>
           </div>
 
-          <div id="" class="d-lg-none position-relative la-header__menu-item la-header__sidemenu-btn">
+          <div class="d-lg-none position-relative la-header__menu-item la-header__sidemenu-btn">
             <span class="la-icon la-icon--xl icon-hamburger-menu"></span>
           </div>
 

@@ -17862,6 +17862,79 @@ a, a:hover {
 .la-course__menubtn:after {
   display: none;
 }
+.la-course__list-cimgtop {
+  width: 160px;
+  height: 80px;
+  border-radius: 10px;
+  background: var(--white);
+  overflow: hidden;
+}
+.la-course__list-cimgtop:hover > .la-course__list-cimg img {
+  transform: scale(1.06);
+  -webkit-transform: scale(1.06);
+  -moz-transform: scale(1.06);
+  -ms-transform: scale(1.06);
+  -o-transform: scale(1.06);
+  transition: all 0.25s ease;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+}
+@media (max-width: 767px) {
+  .la-course__list-cimgtop {
+    width: 110px;
+    height: 60px;
+  }
+}
+.la-course__list-cimg img {
+  width: 160px;
+  height: 80px;
+  background: var(--white);
+  transition: all 0.25s ease;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+}
+@media (max-width: 767px) {
+  .la-course__list-cimg img {
+    width: 110px;
+    height: 60px;
+  }
+}
+.la-course__list-cname {
+  font-weight: var(--font-bold);
+}
+@media (max-width: 767px) {
+  .la-course__list-cname {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+}
+.la-course__list-cauthor {
+  color: var(--gray4);
+}
+@media (max-width: 767px) {
+  .la-course__list-crht {
+    margin-top: -40px;
+  }
+}
+.la-course__list-clearners {
+  font-weight: var(--font-medium);
+  text-align: center;
+}
+.la-course__list-clearners--text {
+  font-size: var(--text-xs);
+}
+@media (min-width: 992px) {
+  .la-course__list-clearners--text {
+    font-size: var(--text-md);
+  }
+}
 
 .la-vcourse {
   --playerW: 528px;
@@ -18752,6 +18825,7 @@ a, a:hover {
 }
 .la-notification__item {
   padding: var(--size-2) var(--size-6);
+  border-bottom: 1px solid rgba(158, 158, 158, 0.15);
 }
 .la-notification__item:hover {
   border-right: 3px solid #707070;
@@ -18803,11 +18877,6 @@ a, a:hover {
   -ms-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
 }
-.la-notification__hline {
-  margin-left: var(--size-4);
-  margin-right: var(--size-4);
-  border-bottom: 1px solid rgba(158, 158, 158, 0.15);
-}
 
 .la-announcement__card {
   margin-top: var(--size-4);
@@ -18854,6 +18923,7 @@ a, a:hover {
 }
 .la-announcement__item {
   padding: var(--size-2) var(--size-6);
+  border-bottom: 1px solid rgba(158, 158, 158, 0.15);
 }
 .la-announcement__item:hover {
   border-right: 3px solid #707070;
@@ -18870,11 +18940,6 @@ a, a:hover {
 }
 .la-announcement__timestamp {
   color: #FFCE31;
-}
-.la-announcement__hline {
-  margin-left: var(--size-4);
-  margin-right: var(--size-4);
-  border-bottom: 1px solid rgba(158, 158, 158, 0.15);
 }
 
 .la-news__item {
@@ -22570,14 +22635,32 @@ section.la-cdashboard-main {
   background-color: var(--gray);
 }
 
-section.la-cdashboard .la-cdashboard__inner .la-cdashboard__page h1 {
-  font-family: var(--head-font);
-  font-weight: var(--font-semibold);
+.la-cbadge:hover .la-cbadge__thumbnail img {
+  transform: scale(1.3);
+  -webkit-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  -o-transform: scale(1.3);
+  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
 }
-section.la-cdashboard .la-cdashboard__inner .la-cdashboard__page h1 span {
-  color: var(--app-indigo-1);
+.la-cbadge:hover .la-badge__count {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
 }
-section.la-cdashboard .la-cdashboard__inner .la-cbadge .la-cbadge__thumbnail img {
+
+.la-cbadge__thumbnail img {
   width: 50px;
   height: 50px;
   transition: all 0.2s ease-in;
@@ -22586,13 +22669,13 @@ section.la-cdashboard .la-cdashboard__inner .la-cbadge .la-cbadge__thumbnail img
   -ms-transition: all 0.2s ease-in;
   -o-transition: all 0.2s ease-in;
 }
-section.la-cdashboard .la-cdashboard__inner .la-cbadge .la-badge__count {
+
+.la-badge__count {
   position: relative;
   left: -25px;
   top: -38px;
   width: 23px;
   height: 23px;
-  font-family: var(--body-font);
   font-weight: var(--font-medium);
   font-size: var(--text-sm);
   color: #FFB93A;
@@ -22608,45 +22691,23 @@ section.la-cdashboard .la-cdashboard__inner .la-cbadge .la-badge__count {
   -o-transition: all 0.2s ease-in;
 }
 @media (max-width: 1199px) {
-  section.la-cdashboard .la-cdashboard__inner .la-cbadge .la-badge__count {
+  .la-badge__count {
     left: 32px;
     top: -65px;
   }
 }
 @media (max-width: 767px) {
-  section.la-cdashboard .la-cdashboard__inner .la-cbadge .la-badge__count {
+  .la-badge__count {
     top: -40px;
     left: -28px;
   }
 }
-section.la-cdashboard .la-cdashboard__inner .la-cbadge:hover .la-cbadge__thumbnail img {
-  transform: scale(1.3);
-  -webkit-transform: scale(1.3);
-  -moz-transform: scale(1.3);
-  -ms-transform: scale(1.3);
-  -o-transform: scale(1.3);
-  transition: all 0.2s linear;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -ms-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
+
+.la-course__tile-title {
+  font-weight: var(--font-bold);
 }
-section.la-cdashboard .la-cdashboard__inner .la-cbadge:hover .la-badge__count {
-  transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  -o-transform: scale(1.1);
-  transition: all 0.2s linear;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -ms-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-}
-section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__tile-title h5 {
-  font-family: var(--head-font);
-}
-section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__tiles {
+
+.la-course__tiles {
   height: 100px;
   background: #ffffff;
   box-shadow: 0px 3px 6px #00000029;
@@ -22654,35 +22715,7 @@ section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__tiles 
   overflow: hidden;
   display: block;
 }
-section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__tiles .la-courses__tile-thumbnail img {
-  width: 100%;
-  height: 100px;
-  overflow: hidden;
-  border-radius: 10px 0 0 0;
-  transition: all 0.2s ease-in;
-  -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
-  -ms-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-}
-section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__tiles .la-course__tile-rating .la-tile__rtng {
-  color: #FFB93A;
-}
-section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__tiles .la-course__tile-rating .la-tile__urtng {
-  color: var(--gray2);
-}
-section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__tiles .la-course__tile-bars {
-  bottom: 34%;
-  left: 1px;
-}
-section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__tiles .la-course__tile-more {
-  transition: all 0.2s ease-in;
-  -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
-  -ms-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-}
-section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__tiles:hover .la-courses__tile-thumbnail img {
+.la-course__tiles:hover .la-courses__tile-thumbnail img {
   border-radius: 0;
   transform: scale(1.1);
   -webkit-transform: scale(1.1);
@@ -22695,15 +22728,63 @@ section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__tiles:
   -ms-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
 }
-section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__tiles:hover .la-course__tile-more {
-  padding-left: 20px;
+.la-course__tiles:hover .la-course__tile-more {
+  padding-left: 25px;
   transition: all 0.2s linear;
   -webkit-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
   -ms-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
 }
-section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__alien-ad .la-course__ad-card {
+@media (max-width: 767px) {
+  .la-course__tiles {
+    margin-bottom: 50px;
+  }
+}
+
+.la-courses__tile-thumbnail img {
+  width: 120px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 10px 0 0 0;
+  transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.la-course__tile-subtitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.la-course__tile-rating .la-tile__rtng {
+  color: #FFB93A;
+}
+.la-course__tile-rating .la-tile__urtng {
+  color: var(--gray2);
+}
+
+.la-course__tile-bars {
+  bottom: 34%;
+  left: 1px;
+  text-shadow: 1px 2px 3px #000;
+}
+
+.la-course__tile-more {
+  transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+}
+
+.la-course__ad-card {
   width: 100%;
   height: 100%;
   background-image: radial-gradient(circle, #d39fff, #be7ff5, #a75eec, #8f3be1, #7400d7);
@@ -22713,25 +22794,33 @@ section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__alien-
   -o-background-image: radial-gradient(circle, #d39fff, #be7ff5, #a75eec, #8f3be1, #7400d7);
   border-radius: 10px;
 }
-section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__ad-card_body h2 {
+
+.la-course__ad-tag {
+  color: var(--white);
+}
+
+.la-course__ad-title {
   font-family: var(--head-font);
   font-weight: var(--font-light);
+  color: var(--white);
 }
-section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__ad-card_body span {
+.la-course__ad-title span {
   font-family: var(--head-font);
   font-weight: var(--font-bold);
-  color: #000000;
+  color: var(--gray6);
 }
-section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__ad-learn-more {
+
+.la-course__ad-learnmore {
   font-family: var(--body-font);
   font-weight: var(--font-medium);
   font-size: var(--text-sm);
 }
-section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__ad-learn-more a {
+
+.la-course__ad-learn {
   letter-spacing: 2.8px;
   color: #000000;
 }
-section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__ad-learn-more a span {
+.la-course__ad-learn span {
   position: relative;
   top: 25px;
   left: -35px;
@@ -22742,7 +22831,7 @@ section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__ad-lea
   -ms-transition: all 0.2s ease-in;
   -o-transition: all 0.2s ease-in;
 }
-section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__ad-learn-more a:hover span {
+.la-course__ad-learn:hover span {
   transform: translateX(10px);
   -webkit-transform: translateX(10px);
   -moz-transform: translateX(10px);
@@ -22755,11 +22844,6 @@ section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__ad-lea
   -o-transition: all 0.2s linear;
 }
 
-@media (max-width: 767px) {
-  section.la-cdashboard .la-cdashboard__inner .la-lastview-card .la-course__tiles {
-    margin-bottom: 50px;
-  }
-}
 .popover {
   width: 200px;
   height: 120px;
@@ -23252,9 +23336,8 @@ section.la-lp--sub-faq {
 
 .la-lp__faq-panel {
   background: #ffffff;
-  box-shadow: 0px 6px 15px #A4A4A412;
   border-radius: 10px;
-  padding: var(--size-base);
+  padding: var(--size-base) var(--size-3);
 }
 
 .la-lp__faq-title a {
@@ -23303,13 +23386,6 @@ section.la-lp--sub-faq {
   color: var(--app-indigo-1);
   font-size: var(--text-lg);
   font-weight: var(--font-normal);
-}
-
-.la-lp__sub-group {
-  height: 300px;
-  overflow-y: scroll;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
 }
 
 .la-lp__faq-tag a {

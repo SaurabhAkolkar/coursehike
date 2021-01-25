@@ -4,9 +4,9 @@
 
 @if(session('success'))
   <div class="la-btn__alert position-relative">
-    <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible" role="alert">
-        <h6 class="la-btn__alert-msg">{{session('success')}}</h6>
-        <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+    <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" role="alert">
+        <span class="la-btn__alert-msg">{{session('success')}}</span>
+        <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true" style="color:#56188C">&times;</span>
         </button>
     </div>
@@ -39,18 +39,29 @@
             </div>
           </div>
           <!-- Column: End-->
+          
           <!-- Column: Start-->
           <div class="col-12 col-lg-7 la-anim__item la-anim__item--right">
-            <div class="la-hero__img position-relative d-flex align-items-center la-anim__fade-in-right">
-              <!-- <span class="la-section__crossline"></span> -->
-              <h2 class="la-section__title la-section__title--big"><div class="la-anim__text-move--content">{{$firstSection->image_text}}</div></h2>
+            <!-- <div class="la-hero__img position-relative d-flex align-items-center la-anim__fade-in-right">
+              <h2 class="la-section__title la-section__title--big">
+                <span class="la-anim__text-move--content">{{$firstSection->image_text}}</span>
+              </h2>
               <img class="img-fluid" src="{{$firstSection->image}}" alt="{{$firstSection->image_text}}">
+            </div> -->
+
+            <!-- Video Section: Start -->
+            <div class="la-hero__video">
+                <video width="100%" height="100%" autoplay='' playsinline muted='muted' loop='loop'>
+                    <source src='../images/learners/home/home-demo.mp4'  type='video/mp4' />
+                </video>
             </div>
+            <!-- Video Section: End -->
           </div>
           <!-- Column: End-->
         </div>
+
         <!-- Row: Start-->
-        <div class="la-anim__wrap">
+        <div class="pt-10 la-anim__wrap">
           <div class="la-hero__bottom d-flex justify-content-center justify-content-lg-between align-items-center  pb-14 la-anim__fade-in">
             <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing"><a href="/learning-plans">Start free trial<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a></div>
             <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text--burple text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block"><a href="#home_courses">BROWSE COURSES</a><span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span></div>
@@ -61,6 +72,7 @@
     </div>
   </section>
   <!-- Section: End-->
+
   <!-- Section: Start-->
   <section class="la-section  la-section--grey la-section--art-categories position-relative"  id="home_courses">
     <div class="la-section__inner la-anim__wrap" >
@@ -117,7 +129,7 @@
                         <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
                         <button class="la-courses__nav-filterclose close text-4xl mt-1" type="button" id="filter_close">&times;</button>
                       </div>
-                      <from action="" method="">
+                      <form action="" method="">
                         <div class="form-group pt-2">
                           <label class="glabel-main" > Course Duration</label>
                           <label class="glabel d-flex" for="dur_hr">
@@ -284,6 +296,7 @@
     </div>
   </section>
   <!-- Section: End-->
+
   <!-- Section: Start-->
   <section class="la-section  la-section--artists position-relative la-anim__wrap">
     <div class="la-section__inner">
@@ -295,20 +308,19 @@
         </div>
 
         <div class="swiper-wrapper">
-        @foreach ($featuredMentor as $feat)
-              <x-artist 
-                :artistName="ucfirst($feat->user->fullName)"
-                :artistImage="$feat->user_image"
-                :artistCategory="$feat->courses->category->title"
-                :artistCampany="$feat->courses->title"
-                :course="$feat->courses"
-                :artistId="$feat->user->id"
-              />
-        @endforeach
-
-       
+            @foreach ($featuredMentor as $feat)
+                <x-artist 
+                  :artistName="ucfirst($feat->user->fullName)"
+                  :artistImage="$feat->user_image"
+                  :artistCategory="$feat->courses->category->title"
+                  :artistCampany="$feat->courses->title"
+                  :course="$feat->courses"
+                  :artistId="$feat->user->id"
+                />
+            @endforeach
         </div>
       </div>
+
       <div class="swiper-container gallery-thumbs la-artist__thumbnails-wrap la-anim__fade-in-right">
         <div class="swiper-wrapper la-artist__thumbnails">
           <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-1.png" alt=""></div>
@@ -319,9 +331,11 @@
           <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-6.png" alt=""></div>
         </div>
       </div>
+
     </div>
   </section>
   <!-- Section: End-->
+
   <!-- Section: Start-->
   <section class="la-section  la-section--classes la-section--grey position-relative la-anim__wrap">
     <div class="la-section__inner">
@@ -344,15 +358,18 @@
              
           </div>
         </div>
+
         <div class="la-mccourse__view-more position-relative text-right la-anim__wrap">
-          <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-md-8 mr-5 mr-md-1 la-anim__fade-in-right">
-            <a href="/master-classes" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
-          </div>
+            <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-md-8 mr-5 mr-md-1 la-anim__fade-in-right">
+              <a href="/master-classes" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
+            </div>
         </div>
+
       </div>
     </div>
   </section>
   <!-- Section: End-->
+
   <!-- Section: Start-->
   <section class="la-section la-section--trail position-relative la-anim__wrap">
     <div class="la-section__inner">
@@ -364,14 +381,15 @@
             <div class="la-trail__title la-trail__title-out la-trail__title--black la-section__title la-section__title--big position-absolute la-anim__text-move">Observe.</div>
             <div class="la-trail__img-wrap la-anim__fade-in-right la-anim__B">
               <div class="la-trail__img position-relative">
-                <img class="w-100" src="./images/learners/home/observe.jpg" alt="observe">
+                <img class="w-100" src="./images/learners/home/observe.png" alt="observe">
               </div>
               <div class="la-trail__title la-trail__title-in la-trail__title--purple la-section__title la-section__title--big position-absolute la-anim__text-move la-anim__text-move--z1">Observe.</div>
             </div>
           </div>
+
           <div class="col-12 col-md-7 pl-md-0">
             <div class="la-trail__btn la-btn__plain d-flex justify-content-center la-anim__fade-in-left">
-              <a href="" class="d-none d-md-block">ALIENS WAY OF TEACHING</a>
+              <a href="/about" class="d-none d-md-block">ALIENS WAY OF TEACHING</a>
             </div>
             <div class="la-trail__right d-flex align-items-end ">
               <div class="la-trail__content-wrap pr-md-20 la-anim__stagger">
@@ -379,13 +397,14 @@
                 <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item la-anim__B" href="/login">Start free trail</a>
               </div>
             </div>
-            
           </div>
+
         </div>
       </div>
     </div>
   </section>
   <!-- Section: End-->
+
   <!-- Section: Start-->
   <section class="la-section la-section--price la-anim__wrap la-anim__wrap-pin">
     <div class="la-section__inner ">

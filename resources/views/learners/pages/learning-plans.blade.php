@@ -173,16 +173,18 @@
             </div>
           </div>
           <!-- Column: End-->
+
           <!-- Column: Start-->
           <div class="col-12 col-lg-6 la-anim__stagger-item">
             <div class="la-lp__rgt-content" id="accordion">
               <h4 class="faq-title  text-4xl">FAQ's</h4>
               <div class="panel-group la-lp__faq-group" id="accFreeMain">
                 <!-- Free Trial: Start-->
-                <div class="panel panel-default la-lp__faq-panel mt-2">
+                <!-- <div class="panel panel-default la-lp__faq-panel mt-2">
                   <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqFree"><span class="panel-title la-lp__faq-title text-md mx-5"><a class="main-toggle collapsed text-uppercase" href="#faqFT" data-toggle="collapse" aria-expanded="true">Payment</a></span></div>
-                  <div class="panel-collapse collapse show" id="faqFT" aria-labelledby="faqFree" data-parent="#accordion">
-                    <div class="panel-group la-lp__sub-group my-2 mx-2 mx-sm-5" id="accFree">
+                  <div class="panel-collapse collapse show" id="faqFT" aria-labelledby="faqFree" data-parent="#accordion"> -->
+                    
+                  <div class="panel-group la-lp__sub-group my-2 " id="accFree">
                       <div class="panel panel-default la-lp__faq-panel mt-2">
                         <div class="panel-heading la-lp__faq-sub py-2" id="faqF"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqFa" data-toggle="collapse" aria-expanded="true">My debit card doesn't work</a></span>
                           <div class="panel-collapse collapse" id="faqFa" aria-labelledby="faqF" data-parent="#accFree">
@@ -224,13 +226,14 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
+                  <!-- </div>
+                </div> -->
                 <!-- Free Trial: End-->
               </div>
-              <div class="panel-group la-lp__faq-group" id="accSubMain">
-                <!-- Subscription: Start-->
-                <!--<div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
+
+              <!-- Subscription: Start-->
+              <!--<div class="panel-group la-lp__faq-group" id="accSubMain">
+                <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
                   <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSub"><span class="panel-title la-lp__faq-title mx-5"><a class="main-toggle collapsed" href="#faqSubs" data-toggle="collapse" aria-expanded="true">SUBSCRIPTION</a></span></div>
                   <div class="panel-collapse collapse" id="faqSubs" aria-labelledby="faqSub" data-parent="#accordion">
                     <div class="panel-group la-lp__sub-group mx-2 mx-sm-5" id="accSub"> 
@@ -290,12 +293,14 @@
                       </div>
                     </div>
                   </div>
-                </div> -->
+                </div> 
+              </div> -->
                 <!-- Subscription: End-->
-              </div>
-              <div class="panel-group la-lp__faq-group" id="accSPMain">
-                <!-- Single Purchase: Start-->
-                <!-- <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
+
+
+              <!-- Single Purchase: Start-->
+              <!-- <div class="panel-group la-lp__faq-group" id="accSPMain">
+                <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
                   <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSP"><span class="panel-title la-lp__faq-title mx-5"><a class="main-toggle collapsed" href="#faqSing" data-toggle="collapse" aria-expanded="true">SINGLE PURCHASE</a></span></div>
                   <div class="panel-collapse collapse" id="faqSing" aria-labelledby="faqSP"  data-parent="#accordion">
                     <div class="panel-group la-lp__sub-group mx-2 mx-sm-5" id="accSP"> 
@@ -310,13 +315,13 @@
                       </div>
                     </div>
                   </div>
-                </div> -->
-                <!-- Single Purchase: End-->
-              </div>
+                </div> 
+              </div> -->
+               <!-- Single Purchase: End-->
 
-              <div class="panel-group la-lp__faq-group" id="accPPMain">
-                <!-- Premium Purchase: Start-->
-                <!-- <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
+              <!-- Premium Purchase: Start-->
+              <!--<div class="panel-group la-lp__faq-group" id="accPPMain">
+                <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
                   <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqPP"><span class="panel-title la-lp__faq-title mx-5"><a class="main-toggle collapsed" href="#faqPre" data-toggle="collapse" aria-expanded="true">PREMIUM PURCHASE</a></span></div>
                   <div class="panel-collapse collapse" id="faqPre" aria-labelledby="faqPP"  data-parent="#accordion">
                     <div class="panel-group la-lp__sub-group mx-2 mx-sm-5" id="accPP"> 
@@ -331,13 +336,13 @@
                       </div>
                     </div>
                   </div>
-                </div> -->
-                <!-- Premium Purchase: End -->
-              </div>
+                </div>
+              </div> -->
+               <!-- Premium Purchase: End -->
 
-              <div class="collapse" id="lp_faq_collapse">
-                <div class="panel-group la-lp__faq-group" id="accPPMain2">
-                  <!-- Premium Purchase: Start-->
+              <!-- Premium Purchase: Start-->
+              <!-- <div class="collapse" id="lp_faq_collapse">
+                <div class="panel-group la-lp__faq-group" id="accPPMain2">  
                   <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
                     <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqPP2">
                       <span class="panel-title la-lp__faq-title mx-5">
@@ -359,13 +364,13 @@
                       </div>
                     </div>
                   </div>
-                  <!-- Premium Purchase: End -->
                 </div>
-              </div>
+              </div> -->
+               <!-- Premium Purchase: End -->
 
-              <div class="faq-see-all text-right pt-4">
+              <!-- <div class="faq-see-all text-right pt-4">
                 <a class="collapsed" role="button" data-toggle="collapse" href="#lp_faq_collapse"></a>
-              </div>
+              </div> -->
             </div>
           </div>
           <!-- Column: End-->

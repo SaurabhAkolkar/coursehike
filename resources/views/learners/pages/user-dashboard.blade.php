@@ -10,7 +10,7 @@
           <div class="row d-flex flex-row justify-content-between">
             <div class="col-12 col-md-6 col-lg-4 la-anim__wrap">
               <div class="la-cdashboard__page">
-                <h1 class="text-3xl text-md-4xl text-capitalize">Welcome <span>{{Auth::user()->fname}}!</span></h1>
+                <h1 class="la-cdashboard__user-name text-3xl text-md-4xl text-capitalize">Welcome <span style="color:var(--app-indigo-1);">{{Auth::user()->fname}}!</span></h1>
                 <p class="text-md">Share your knowledge, Be the change.<br/> The kind that enables everyone to reach their full potential & more!</p>
               </div>
             </div>
@@ -63,8 +63,8 @@
           
           <div class="row la-lastview-card">
             <div class="col-12 col-md-6 col-lg-4 d-flex flex-column justify-content-end">
-              <div class="la-course__tile-title la-anim__wrap">
-                <h5 class="text-xl font-weight-bold mb-4 la-anim__stagger-item">Last Viewed</h5>
+              <div class="la-anim__wrap">
+                <h5 class="la-course__tile-title text-xl mb-4 la-anim__stagger-item">Last Viewed</h5>
               </div>
               <div class="la-course__tile-card d-block">
                 <div class="row no-gutters">
@@ -90,7 +90,7 @@
                         />
                       @else
 
-                      <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
+                      <div class="la-empty__courses text-center">
                           <div class="la-empty__inner la-anim__stagger-item">
                               <p class="la-empty__course-desc m-0">You don't have any last viewed course.</p>
                           </div>
@@ -105,12 +105,12 @@
             <div class="col-12 col-md-5 col-lg-4">
               <div class="la-course__alien-ad">
                 <div class="card la-course__ad-card la-anim__wrap">
-                  <div class="card-body la-course__ad-card_body my-0 position-relative">
-                    <p class="text-sm text-white la-anim__stagger-item">Got something different? <br/> Let’s share it with the world!</p>
-                    <h2 class="text-4xl text-white la-anim__stagger-item--x">become an <br><span>Alien Mentor, today!</span></h2>
+                  <div class="card-body la-course__ad-body my-0 position-relative">
+                    <p class="la-course__ad-tag text-sm  la-anim__stagger-item">Got something different? <br/> Let’s share it with the world!</p>
+                    <h2 class="la-course__ad-title text-4xl la-anim__stagger-item--x">become an <br><span>Alien Mentor, today!</span></h2>
                   
-                    <div class="la-course__ad-learn-more text-right mr-md-n4 la-anim__stagger-item--x">
-                      <a class="text-uppercase " href="/become-creator">Learn More
+                    <div class="la-course__ad-learnmore text-right mr-md-n4 la-anim__stagger-item--x">
+                      <a class="la-course__ad-learn text-uppercase " href="/become-creator">Learn More
                         <span class="la-icon la-icon--5xl icon-black-arrow "></span>
                       </a>
                     </div>

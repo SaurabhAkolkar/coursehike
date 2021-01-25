@@ -34,6 +34,7 @@
             }
             &item{  
                 padding:var(--size-2) var(--size-6);
+                border-bottom: 1px solid rgba(158,158,158,0.15);
 
                 &:hover{
                     border-right:3px solid #707070;
@@ -53,11 +54,6 @@
             }
             &timestamp{
                 color:#FFCE31;
-            }
-            &hline{
-                margin-left:var(--size-4);  
-                margin-right:var(--size-4);
-                border-bottom: 1px solid rgba(158,158,158,0.15);
             }
         }
     }

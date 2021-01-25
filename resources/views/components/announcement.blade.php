@@ -9,6 +9,5 @@
         <div class="la-announcement__timestamp text-right text-xs font-normal"> {{ $timestamp }} </div>
     </a>
 </li>
-<div class="la-announcement__hline"></div>
 
 

@@ -119,9 +119,9 @@ section.la-lp--sub-faq{
 }
 .la-lp__faq-panel{
     background:#ffffff;
-    box-shadow: 0px 6px 15px #A4A4A412;
+    //box-shadow: 0px 6px 15px #A4A4A412;
     border-radius: 10px;
-    padding:var(--size-base);
+    padding:var(--size-base) var(--size-3);
 }
 .la-lp__faq-title a{
     font-weight:var(--font-medium);
@@ -154,10 +154,10 @@ section.la-lp--sub-faq{
 }
 
 .la-lp__sub-group{
-    height:300px;
-    overflow-y:scroll;
-    scrollbar-width: none; 
-    -ms-overflow-style: none; 
+    //height:300px;
+    //overflow-y:scroll;
+    //scrollbar-width: none; 
+    //-ms-overflow-style: none; 
 }       
 .la-lp__faq-tag a{
     font-weight:var(--font-light);
