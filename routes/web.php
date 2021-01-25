@@ -445,7 +445,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::get('delete/notifications', 'NotificationController@delete')
       ->name('deleteNotification');
 
-      Route::get('/view', 'DownloadController@getDownload');
+      Route::get('/view', 'DownloadController@getDownload'); 
 
       Route::get('/download/{id}', 'DownloadController@getDownload')->name('downloadPdf')->middleware('auth');
 
@@ -727,7 +727,8 @@ Route::get('view/assignment/{id}', 'AssignmentController@assignment')->name('lis
 
 Route::get("zoho/module","ZohoController@createRecords");
 
-Route::view('/requests', 'instructor.requests.index');
+Route::get('/requests', 'CourseReviewController@instructorRequests');
+Route::post('/delete-course-request', 'CourseReviewController@deleteCourseRequest');
 // Route for Learner's View
 
 

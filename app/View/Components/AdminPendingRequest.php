@@ -11,19 +11,16 @@ class AdminPendingRequest extends Component
      *
      * @return void
      */
-
-    public $creatorId;
+    public $sr;
     public $creatorName;
-    public $courseId;
     public $courseName;
     public $dateOn;
     public $requestType;
 
-    public function __construct($creatorId, $creatorName, $courseId, $courseName, $dateOn, $requestType)
+    public function __construct($sr, $creatorName, $courseName, $dateOn, $requestType)
     {
-        $this->creatorId = $creatorId;
+        $this->sr = $sr;
         $this->creatorName = $creatorName;
-        $this->courseId = $courseId;
         $this->courseName = $courseName;
         $this->dateOn = $dateOn;
         $this->requestType = $requestType;

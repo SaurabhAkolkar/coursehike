@@ -19,6 +19,11 @@
                 <div class="col-md-6">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.StartDate') }}:<sup class="redstar">*</sup></label>
                   <input name="start_date" type="date" class="form-control"/>
+                    @error('start_date')
+                        <div class="alert alert-danger">
+                            {{$message}}
+                        </div>
+                    @enderror
                 </div>
               </div>
 
@@ -26,6 +31,11 @@
                 <div class="col-md-6 mt-4">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.EndDate') }}:<sup class="redstar">*</sup></label>
                   <input name="end_date" type="date" class="form-control"/>
+                      @error('end_date')
+                          <div class="alert alert-danger">
+                              {{$message}}
+                          </div>
+                      @enderror
                 </div>
               </div>
 
@@ -33,6 +43,11 @@
                 <div class="col-md-6 mt-4">
                     <label for="exampleInputTit1e">{{ __('adminstaticword.Amount') }}:<sup class="redstar">*</sup></label>
                     <input name="amount" type="text" class="form-control"/>
+                    @error('amount')
+                        <div class="alert alert-danger">
+                            {{$message}}
+                        </div>
+                    @enderror
                 </div>            
               </div>
               

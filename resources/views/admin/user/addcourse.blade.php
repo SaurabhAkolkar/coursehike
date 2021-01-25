@@ -24,6 +24,11 @@
                             <option value="{{$c->id}}">{{$c->title}}</option>
                         @endforeach
                   </select>
+                  @error('course_id')
+                          <div class="alert alert-danger">  
+                              {{$message}}
+                          </div>
+                    @enderror
                 </div>
               </div>
 
@@ -31,6 +36,11 @@
                 <div class="col-md-6 mt-4">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.CourseAmount') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="amount" id="exampleInputTitle" >
+                    @error('amount')
+                          <div class="alert alert-danger">  
+                              {{$message}}
+                          </div>
+                    @enderror
                 </div>
               </div>
             
@@ -42,6 +52,11 @@
                         <option value="all_classes">All Classes</option>
                         <option value="selected_classes">Selected Classes</option>
                     </select>
+                    @error('purchase_type')
+                          <div class="alert alert-danger">  
+                              {{$message}}
+                          </div>
+                    @enderror
                 </div>
               </div>
 
@@ -51,6 +66,11 @@
                     <select name="class_id[]" id="class_id"  class="form-control js-example-basic-single  col-12" multiple>
                             <option disabled selected>Please Choose</option>
                     </select>
+                    @error('class_id')
+                          <div class="alert alert-danger">  
+                              {{$message}}
+                          </div>
+                    @enderror
                 </div>               
               </div>
               <br> <br>      

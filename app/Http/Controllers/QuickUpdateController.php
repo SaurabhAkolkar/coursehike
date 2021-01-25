@@ -53,7 +53,7 @@ class QuickUpdateController extends Controller
         else
         {
             DB::table('users')->where('id','=',$id)->update(['status' => "0"]);
-            return back()->with('delete','Status changed to Deactive !');
+            return back()->with('delete','Status changed to Inactive !');
         }
     }
 

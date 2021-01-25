@@ -2,6 +2,7 @@
 @section('title', 'Course Language - Admin')
 @section('body')
 
+
 <section class="content">
   @include('admin.message')
   <div class="row">
@@ -84,6 +85,11 @@
                       <div class="col-md-12">
                         <label>{{ __('adminstaticword.Name') }}:<sup class="redstar">*</sup></label>
                         <input type="text" class="form-control" name="name" placeholder="Please Enter Your  Language Name" value="">
+                          @error('name')
+                              <div class="alert alert-danger">
+                                    {{$message}}
+                              </div>
+                          @enderror
                       </div>
                     </div>
                     <br/>
@@ -92,6 +98,11 @@
                       <div class="col-md-6">
                         <label for="exampleInputSlug">ISO Code:<sup class="redstar">*</sup></label>
                         <input type="text" class="form-control" name="iso_code" placeholder="Eg, en, hi, ta, etc,." value="">
+                          @error('iso_code')
+                              <div class="alert alert-danger">
+                                    {{$message}}
+                              </div>
+                          @enderror
                       </div>
                       <div class="col-md-6">
                         <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
@@ -116,5 +127,14 @@
       <!--Model close -->
   </div>
 </section> 
+
+
+@if($errors->all())
+  @section('script')
+    <script>
+      $('#myModaljjh').modal('show');
+    </script>
+  @endsection
+@endif
 
 @endsection

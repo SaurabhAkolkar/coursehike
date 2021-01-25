@@ -9,7 +9,7 @@
             <span class="la-profile__sidebar-img">
               <img src="https://picsum.photos/24/24" alt="profile image">
             </span>
-            <span class="la-profile__sidebar-text la-profile__sidebar-text--name pl-2">Nathan Spark</span>
+            <span class="la-profile__sidebar-text la-profile__sidebar-text--name pl-2">{{Auth::user()->fullName}}</span>
           </a>
           <div href="" class="la-profile__sidebar-btn active"><span class="la-icon la-icon--xl icon-hamburger-menu"></span></div>
         </li>

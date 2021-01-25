@@ -79,14 +79,24 @@
 
                           $tiles = array($tile);
                       @endphp
+                      
+                      @if($lastViewed != null)
+                        <x-last-viewed
+                            :img="$lastViewed->course->preview_image"
+                            :progress="'30'"
+                            :desc="$lastViewed->course->title"
+                            :name="$lastViewed->course->user->fullName"
+                            :rating="$lastViewed->course->average_rating"
+                        />
+                      @else
 
-                      <x-last-viewed
-                          :img="$tile->img"
-                          :progress="$tile->progress"
-                          :desc="$tile->desc"
-                          :name="$tile->name"
-                          :rating="$tile->rating"
-                      />
+                      <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
+                          <div class="la-empty__inner la-anim__stagger-item">
+                              <p class="la-empty__course-desc m-0">You don't have any last viewed course.</p>
+                          </div>
+                      </div>
+                      
+                      @endif
                   </div>
                 </div>
               </div>

@@ -29,6 +29,12 @@
                       <option {{ $cate->category_id == $caat->id ? 'selected' : "" }} value="{{ $caat->id }}">{{ $caat->title }}</option>
                     @endforeach 
                   </select>
+
+                  @error('category_id')
+                          <div class="alert alert-danger">
+                              {{$message}}
+                          </div>
+                    @enderror
                 </div>
               </div>
               <br>
@@ -44,6 +50,12 @@
                       <option {{ $cate->subcategory_id == $caat->id ? 'selected' : "" }} value="{{ $caat->id }}">{{ $caat->title }}</option>
                     @endforeach 
                   </select>
+
+                  @error('subcategory_id')
+                          <div class="alert alert-danger">
+                              {{$message}}
+                          </div>
+                    @enderror
                 </div>
               </div>
               <br>
@@ -52,6 +64,12 @@
                 <div class="col-md-12">
                   <label for="title">{{ __('adminstaticword.Title') }}:<span class="redstar">*</span></label>
                   <input type="text" class="form-control" name="title" id="exampleInputTitle" value="{{$cate->title}}">
+                  
+                  @error('title')
+                          <div class="alert alert-danger">
+                              {{$message}}
+                          </div>
+                    @enderror
                 </div>
               </div>
               <br>

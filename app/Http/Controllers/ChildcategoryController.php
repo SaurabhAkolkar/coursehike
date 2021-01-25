@@ -38,8 +38,8 @@ class ChildcategoryController extends Controller
     {
 
         $category = Categories::all();
-        $childcategory = SubCategory::all();
-        return view('admin.category.childcategory.insert',compact('category','childcategory')); 
+        $subcategory = SubCategory::all();
+        return view('admin.category.childcategory.insert',compact('category','subcategory')); 
     }
 
     /**
@@ -52,6 +52,8 @@ class ChildcategoryController extends Controller
     {
         $data = $this->validate($request,[
             "title"=>"required|unique:child_categories,title",
+            "category_id"=>"required",
+            "subcategories"=>"required",
             "title.required"=>"Please enter category title !",
             "title.unique" => "This Category name is already exist !"
         ]);
@@ -115,6 +117,8 @@ class ChildcategoryController extends Controller
     {
         $data = $this->validate($request,[
             "title"=>"required|unique:child_categories,title",
+            "category_id"=>"required",
+            "subcategories"=>"required",
             "title.required"=>"Please enter category title !",
             "title.unique" => "This Category name is already exist !"
         ]);

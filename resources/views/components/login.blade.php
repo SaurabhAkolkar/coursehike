@@ -7,7 +7,7 @@
                     <div class="la-header__profile-img">
                         <img src="https://picsum.photos/25/25" alt="">
                     </div>
-                    <span class="la-header__nav-name">Nathan Spark</span>
+                    <span class="la-header__nav-name">{{Auth::user()->fullName}}</span>
                 </a>
             </div>
 

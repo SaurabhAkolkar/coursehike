@@ -50,6 +50,7 @@ class InstructorQuestionController extends Controller
     public function update(Request $request, $id)
     {
         $data = $this->validate($request,[
+            'course_id' => 'required',
             'question' => 'required',
         ]);
         

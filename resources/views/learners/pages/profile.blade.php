@@ -29,7 +29,7 @@
                           <div class="col-6 la-anim__stagger-item--x">
                             <div class="la-form__img-wrap">
                               <div class="la-form__img-title">Current</div>
-                              <div class="la-form__img d-inline-block d-flex justify-content-center content-fit"><img src="{{Auth::user()->user_img}}" alt="" class="mw-100 mh-100"></div>
+                              <div class="la-form__img d-inline-block d-flex justify-content-center content-fit"><img src="{{Auth::user()->user_img}}" id="user_image" alt="" class="mw-100 mh-100"></div>
                             </div>
                           </div>
                           <div class="col-6 la-anim__stagger-item--x">
@@ -388,6 +388,22 @@
         form.submit();
       }
       
+    });
+
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        
+        reader.onload = function(e) {
+          $('#user_image').attr('src', e.target.result);
+        }
+        
+        reader.readAsDataURL(input.files[0]); // convert to base64 string
+      }
+    }
+
+    $("#file-upload").change(function() {
+      readURL(this);
     });
 
   </script>

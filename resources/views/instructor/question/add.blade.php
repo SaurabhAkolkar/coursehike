@@ -1,15 +1,7 @@
 @extends('admin/layouts.master')
 @section('title', 'Add Question - Instructor')
 @section('body')
-@if ($errors->any())
-<div class="alert alert-danger">
-  <ul>
-    @foreach ($errors->all() as $error)
-    <li>{{ $error }}</li>
-    @endforeach
-  </ul>
-</div>
-@endif
+
 
 <section class="content">
   @include('admin.message')
@@ -40,6 +32,12 @@
                           <option value="{{ $cor->id }}">{{ $cor->title }}</option>
                       @endforeach
                     </select>
+
+                    @error('course_id')
+                      <div class="alert alert-danger">  
+                          {{$message}}
+                      </div>
+                      @enderror
                   </div>
                 </div><br/>
 
@@ -48,6 +46,12 @@
                     <select name="user_id" class="display-none">
                       <option  value="{{ Auth::user()->id }}">{{ Auth::user()->fname }}</option>
                     </select>
+
+                    @error('user_id')
+                      <div class="alert alert-danger">  
+                          {{$message}}
+                      </div>
+                      @enderror
                   </div>
                 </div>
                 
@@ -55,6 +59,11 @@
                   <div class="col-md-6">
                     <label for="exampleInputDetails">Question:<sup class="redstar">*</sup></label>
                     <textarea name="question" rows="3" class="form-control" placeholder="Enter Your quetion"></textarea>
+                    @error('question')
+                      <div class="alert alert-danger">  
+                          {{$message}}
+                      </div>
+                      @enderror
                   </div>
                 </div>
                 <br>

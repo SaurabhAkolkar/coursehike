@@ -2,6 +2,7 @@
 @section('title', 'Add Faq Instructor - Admin')
 @section('body')
 
+
 @if ($errors->any())
 <div class="alert alert-danger">
   <ul>
@@ -11,6 +12,7 @@
   </ul>
 </div>
 @endif
+
 <section class="content">
   <div class="row">
     <!-- left column -->
@@ -28,6 +30,13 @@
                 <div class="col-md-8">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="title" placeholder=" Enter Your Title" id="exampleInputTitle" value="">
+
+                  @error('title')
+                    <div class="alert alert-danger">
+                          {{$message}}
+                    </div>
+                  @enderror
+
                 </div>
               </div>
               <br>
@@ -36,6 +45,11 @@
                 <div class="col-md-8">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
                   <textarea name="details" class="form-control" rows="5" placeholder="Enter Your Details" value=""></textarea>
+                  @error('details')
+                    <div class="alert alert-danger">
+                          {{$message}}
+                    </div>
+                  @enderror
                 </div>
               </div>
               <br>
@@ -44,11 +58,12 @@
                 <div class="col-md-8">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                   <br>
-                  <li class="tg-list-item">              
+                  <li class="tg-list-item">
                     <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" >
-                    <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
+                    <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label> 
+
                   </li>
-                  <input type="hidden"  name="free" value="0" for="status" id="status">
+                  
                 </div>
               </div>
               <br>

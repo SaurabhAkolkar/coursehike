@@ -36,24 +36,18 @@ class CourseReviewController extends Controller
         return view('admin.course_review.unpublishRequest',compact('course','requests'));
     }
 
-    public function publishRequestApproval(Request $request){
-      
-        PublishRequest::where(['status'=>1, 'course_id'=>$request->course_id])->update(['status'=>0]);
-        $course = Course::findorfail($request->course_id);
-        $course->published = 1;
-        $course->updated_at = Carbon::now();
-        $course->save();
+    public function instructorRequests(){
 
-        return redirect()->back()->with('success','Course Published');
+        $publishRequest = PublishRequest::with('course')->where(['status'=> 1, 'user_id' => Auth::User()->id])->get();
+        $publishRequestResolved = PublishRequest::with('course')->where(['status'=> 0, 'user_id' => Auth::User()->id])->get();
+
+        return view('instructor.requests.index', compact('publishRequest', 'publishRequestResolved'));
     }
 
-    public function unpublishCourse(Request $request){
-      
-        $course = Course::findorfail($request->course_id);
-        $course->published = 0;
-        $course->updated_at = Carbon::now();
-        $course->save();
+    public function deleteCourseRequest(Request $request){
 
-        return redirect()->back()->with('success','Course unpublished.');
+        $request = PublishRequest::where(['user_id'=>Auth::User()->id, 'id'=>$request->request_id])->delete();
+        
+        return redirect()->back()->with('success','Course request delete successfully.');
     }
 }

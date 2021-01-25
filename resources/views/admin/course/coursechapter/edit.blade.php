@@ -63,7 +63,7 @@
                               </span>
                             </div>
                             <input type="file" class="form-control la-admin__preview-input preview_img" name="preview_image" />
-                            <img src="/images/course/{{$cate->thumbnail}}" alt="" class="preview-img"/>
+                            <img src="{{$cate->thumbnail}}" alt="" class="preview-img"/>
                         </div>
                       </div>
                 </div>

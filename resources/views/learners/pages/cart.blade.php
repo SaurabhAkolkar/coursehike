@@ -115,94 +115,30 @@
                 <h2>You might also like</h2>
               </div>
 
-              <div class="row">
-                <div class="col-md-6 col-lg-3">
-                  <div class="la-course la-anim__stagger-item--x">
-                    <div class="la-course__inner">
-                      <div class="la-course__overlay" href="">
-                        <ul class="la-course__options list-unstyled text-white">
-                          <li class="la-course__option"><a class="d-inline-block la-course__addtocart"><i class="la-icon la-icon--xl icon icon-cart"></i></a></li>
-                          <li class="la-course__option"><a class="d-inline-block la-course__like"><i class="la-icon la-icon--xl icon icon-wishlist"></i></a></li>
-                          <li class="la-course__option">
-                            <div class="dropdown"><a class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);"><i class="la-icon la-icon--xl icon icon-menu"></i></a>
-                              <div class="la-cmenu dropdown-menu py-0"><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-playlist la-icon la-icon--xl mr-2"></i>  Add to Playlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-wishlist la-icon la-icon--xl mr-2"></i>  Add to Wishlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--xl mr-2"></i>  Add to Cart</a></div>
-                            </div>
-                          </li>
-                        </ul>
-                        <div class="la-course__learners"><strong>300</strong>  Learners</div>
-                      </div>
-                      <div class="la-course__imgwrap"><img class="img-fluid" src="https://picsum.photos/600/400" alt="Tattoo Art"></div>
-                    </div>
-                    <div class="la-course__btm">
-                      <div class="la-course__info d-flex align-items-center"><a class="la-course__title" href="">Tattoo Art</a>
-                        <div class="la-course__rating ml-auto">4</div>
-                      </div>
-                      <a class="la-course__creator d-inline-flex align-items-center " href="">
-                        <div class="la-course__creator-imgwrap "><img class="img-fluid rounded-circle px-1 " src="https://picsum.photos/100/100" alt="Jospeh Phill"></div>
-                        <div class="la-course__creator-name">Jospeh Phill</div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
+              <!-- playlist : Start  -->
+                <x-add-to-playlist 
+                  :playlists="$playlists"
+                />
+              <!-- Playlist : End -->
 
-                <div class="col-md-6 col-lg-3">
-                  <div class="la-course la-anim__stagger-item--x">
-                    <div class="la-course__inner">
-                      <div class="la-course__overlay" href="">
-                        <ul class="la-course__options list-unstyled text-white">
-                          <li class="la-course__option"><a class="d-inline-block la-course__addtocart"><i class="la-icon la-icon--xl icon icon-cart"></i></a></li>
-                          <li class="la-course__option"><a class="d-inline-block la-course__like"><i class="la-icon la-icon--xl icon icon-wishlist"></i></a></li>
-                          <li class="la-course__option">
-                            <div class="dropdown"><a class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);"><i class="la-icon la-icon--xl icon icon-menu"></i></a>
-                              <div class="la-cmenu dropdown-menu py-0"><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-playlist la-icon la-icon--xl mr-2"></i>  Add to Playlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-wishlist la-icon la-icon--xl mr-2"></i>  Add to Wishlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--xl mr-2"></i>  Add to Cart</a></div>
-                            </div>
-                          </li>
-                        </ul>
-                        <div class="la-course__learners"><strong>300</strong>  Learners</div>
-                      </div>
-                      <div class="la-course__imgwrap"><img class="img-fluid" src="https://picsum.photos/600/400" alt="Tattoo Art"></div>
-                    </div>
-                    <div class="la-course__btm">
-                      <div class="la-course__info d-flex align-items-center"><a class="la-course__title" href="">Tattoo Art</a>
-                        <div class="la-course__rating ml-auto">4</div>
-                      </div><a class="la-course__creator d-inline-flex align-items-center" href="">
-                        <div class="la-course__creator-imgwrap"><img class="img-fluid rounded-circle px-1 " src="https://picsum.photos/100/100" alt="Jospeh Phill"></div>
-                        <div class="la-course__creator-name">Jospeh Phill</div></a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                  <div class="la-course la-anim__stagger-item--x">
-                    <div class="la-course__inner">
-                      <div class="la-course__overlay" href="">
-                        <ul class="la-course__options list-unstyled text-white">
-                          <li class="la-course__option"><a class="d-inline-block la-course__addtocart"><i class="la-icon la-icon--xl icon icon-cart"></i></a></li>
-                          <li class="la-course__option"><a class="d-inline-block la-course__like"><i class="la-icon la-icon--xl icon icon-wishlist"></i></a></li>
-                          <li class="la-course__option">
-                            <div class="dropdown"><a class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);"><i class="la-icon la-icon--xl icon icon-menu"></i></a>
-                              <div class="la-cmenu dropdown-menu py-0"><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-playlist la-icon la-icon--xl mr-2"></i>  Add to Playlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-wishlist la-icon la-icon--xl mr-2"></i>  Add to Wishlist</a><a class="dropdown-item la-cmenu__item d-inline-flex"><i class="icon icon-cart la-icon la-icon--xl mr-2"></i>  Add to Cart</a></div>
-                            </div>
-                          </li>
-                        </ul>
-                        <div class="la-course__learners"><strong>300</strong>  Learners</div>
-                      </div>
-                      <div class="la-course__imgwrap"><img class="img-fluid" src="https://picsum.photos/600/400" alt="Tattoo Art"></div>
-                    </div>
-                    <div class="la-course__btm">
-                      <div class="la-course__info d-flex align-items-center"><a class="la-course__title" href="">Tattoo Art</a>
-                        <div class="la-course__rating ml-auto">4</div>
-                      </div><a class="la-course__creator d-inline-flex align-items-center" href="">
-                        <div class="la-course__creator-imgwrap"><img class="img-fluid rounded-circle px-1 " src="https://picsum.photos/100/100" alt="Jospeh Phill"></div>
-                        <div class="la-course__creator-name">Jospeh Phill</div></a>
-                    </div>
-                  </div>
-                </div>
-
+              <div class="row row-cols-lg-4 la-anim__stagger-item">
+                @foreach($suggested_courses as $sc)
+                    <x-course 
+                        :id="$sc->id"
+                        :img="$sc->preview_image"
+                        :course="$sc->title"
+                        :url="$sc->slug"
+                        :rating="round($sc->average_rating, 2)"
+                        :creatorImg="$sc->user->user_img"
+                        :creatorName="$sc->user->fname"
+                        :creatorUrl="$sc->user->id"
+                        :learnerCount="$sc->learnerCount"
+                      />
+                @endforeach       
                 <div class="col-md-6 col-lg-3 la-anim__stagger-item--x">
                     <div class=" la-btn__plain text--burple text-md h-75 d-flex align-items-center justify-content-center justify-content-md-start">
                       <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8 la-anim__fade-in-right">
-                        <a href="/browse/courses" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
+                        <a href="/browse/courses" >explore more<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
                       </div>
                     </div>
                 </div>

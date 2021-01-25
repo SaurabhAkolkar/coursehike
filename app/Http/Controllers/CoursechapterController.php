@@ -80,6 +80,7 @@ class CoursechapterController extends Controller
     {
         $cate = CourseChapter::find($id);
         $courses = Course::all();
+        // dd($cate);
         return view('admin.course.coursechapter.edit',compact('cate','courses'));
     }
 

@@ -103,7 +103,9 @@ class UserController extends Controller
             return redirect()->back()->with('delete','Course is already added for the User.');
         }
         if($request->purchase_type == 'selected_classes'){
-         
+            if($request->class_id ==  null){
+                return back()->withErrors(['class_id'=> 'classes are required']);
+            }
         }
         else if($request->purchase_type == 'all_classes'){
             $request->class_id = CourseChapter::where(['course_id'=>$request->course_id])->pluck(['id']);

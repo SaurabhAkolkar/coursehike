@@ -41,6 +41,15 @@ class CouponController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'code' => 'required',
+            'distype' => 'required',
+            'amount' => 'required',
+            'maxusage' => 'required',
+            'expirydate' => 'required',
+            'minamount' => 'required',
+        ]);
+
 
         $input = $request->all();
         $newc = new Coupon;
@@ -75,6 +84,15 @@ class CouponController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'code' => 'required',
+            'distype' => 'required',
+            'amount' => 'required',
+            'maxusage' => 'required',
+            'expirydate' => 'required',
+            'minamount' => 'required',
+        ]);
+
         $input = $request->all();
         $newc = Coupon::find($id);
 
