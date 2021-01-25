@@ -768,6 +768,6 @@ Route::view('/about', 'learners.pages.about');
 Route::view('/cancellations-refund', 'learners.pages.cancellations-refund');
 
 //- Subscription Status for Learners
-Route::view('/subscription-successful', 'learners.pages.subscription-successful');
-Route::view('/subscription-failure', 'learners.pages.subscription-failure');
+// Route::view('/subscription-successful', 'learners.pages.subscription-successful');
+// Route::view('/subscription-failure', 'learners.pages.subscription-failure');
 Route::view('/subscription-trial', 'learners.pages.subscription-trial');

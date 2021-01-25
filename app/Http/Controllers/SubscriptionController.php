@@ -30,7 +30,12 @@ class SubscriptionController extends Controller
 
 	public function plans($slug)
 	{
-		$plan = app('rinvex.subscriptions.plan')->where("slug", $slug)->first();
+		// $plan = app('rinvex.subscriptions.plan')->where("slug", $slug)->first();
+		$plan_subscription = app('rinvex.subscriptions.plan_subscription')->where("user_id", Auth::user()->id)->latest()->first();
+		// $plan_subscribed = UserSubscriptionInvoice::where([["subscription_id", $plan_subscription->plan->id], ["user_id", Auth::user()->id] ])->latest()->first();
+
+		return view('learners.messages.subscription-trial', compact('plan_subscription'));
+		
 		$countries = DB::table('allcountry')->get();
 		if($plan)
 			return view('learners.pages.payment')->withPlan($plan)->withCountries($countries);
@@ -145,7 +150,7 @@ class SubscriptionController extends Controller
 
 			if ($subscription['status'] == 'trialing' || $subscription['status'] == 'active') {
 
-				$plan = app('rinvex.subscriptions.plan')->where("slug", $request->subscription_plan)->first();
+				$plan = app('rinvex.subscriptions.plan')->where("slug", $request->subscription_plan)->latest()->first();
 				Auth::user()->newSubscription('main', $plan);
 
 				$userSubscription = new UserSubscription();
@@ -154,8 +159,10 @@ class SubscriptionController extends Controller
 				$userSubscription->stripe_subscription_id = $subscription['id'];
 				$userSubscription->save();
 
-
-				return view('learners.messages.subscription-successful', compact('userSubscription'));
+				// if($subscription['status'] == 'trialing')
+				// 	return view('learners.messages.subscription-successful', compact('userSubscription'));
+				// else
+					return view('learners.messages.subscription-trial', compact('userSubscription', 'plan'));
 			} else {
 				Session::flash('errors', 'Something went wrong');
 				// return redirect()->back();
