@@ -17592,17 +17592,33 @@ a, a:hover {
 .la-course {
   margin-bottom: var(--size-9);
 }
+.la-courses__nav {
+  transition: all 0.5s linear;
+  scroll-behavior: smooth;
+}
+.la-courses__nav:hover > .la-courses__nav-tabs::-webkit-scrollbar-thumb {
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  height: 8px;
+  background: #c5c5c5;
+  border-radius: 10px;
+}
 .la-courses__nav-tabs {
-  margin-bottom: var(--size-12);
+  width: 100%;
+  height: 100%;
   flex-wrap: nowrap;
   overflow-x: scroll;
+  scroll-behavior: smooth;
+  margin-bottom: var(--size-12);
+  padding-bottom: var(--size-2);
+  transition: all 0.5s linear;
 }
 .la-courses__nav-tabs::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
-}
-.la-courses__nav-tabs::-webkit-scrollbar-thumb {
-  background: transparent;
+  height: 8px;
+  width: 8px;
+  background: rgba(229, 229, 229, 0.25);
+  border-radius: 10px;
+  visibility: hidden;
 }
 .la-courses__nav-item {
   margin-right: var(--size-14);

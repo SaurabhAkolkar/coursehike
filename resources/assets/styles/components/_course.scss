@@ -17,18 +17,33 @@
         &s {
             &__ {
                 &nav {
+                    transition:all 0.5s linear;
+                    scroll-behavior: smooth;
+                    
+                    &:hover > .la-courses__nav-tabs::-webkit-scrollbar-thumb{
+                        transition:all 0.5s linear;
+                        height:8px;
+                        background:rgb(197, 197, 197);
+                        border-radius:10px;
+                    }
+
                     &- {
                         &tabs {
-                            margin-bottom: var(--size-12);
+                            width:100%;
+                            height:100%;
                             flex-wrap:nowrap;
                             overflow-x:scroll;
+                            scroll-behavior: smooth;
+                            margin-bottom: var(--size-12);
+                            padding-bottom:var(--size-2);
+                            transition:all 0.5s linear;
                         }
                         &tabs::-webkit-scrollbar {
-                            width:0;
-                            background:transparent;
-                        }
-                        &tabs::-webkit-scrollbar-thumb {
-                            background: transparent;
+                            height:8px;
+                            width:8px;
+                            background:rgba(229,229,229,0.25);
+                            border-radius:10px;
+                            visibility: hidden;
                         }
                         &item {
                             margin-right: var(--size-14);

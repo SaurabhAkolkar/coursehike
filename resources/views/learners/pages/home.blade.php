@@ -80,12 +80,12 @@
     <div class="la-section__inner la-anim__wrap" >
       <div class="container"><span class="la-section__cross-line"></span>
         <div class="la-courses">
-          <nav class="la-courses__nav d-flex justify-content-between">
-            <ul class="nav nav-pills la-courses__nav-tabs la-anim__stagger-x" id="nav-tab" role="tablist">
+          <nav class="la-courses__nav d-flex justify-content-between align-items-start">
+            <ul class="nav nav-pills la-courses__nav-tabs la-anim__stagger-x" id="nav-tab" role="tablist" tabindex="0">
               @foreach ($categories as $category)
                 <li class="nav-item la-courses__nav-item la-anim__stagger-item--x">
                   <a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> 
-                    <span class="position-relative">{{ $category->title}}</span>
+                    <span class="position-relative text-nowrap">{{ $category->title}}</span>
                   </a>
                 </li>
               @endforeach
@@ -93,8 +93,9 @@
               {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
               <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
             </ul>
+            
             <!-- Filters : Start -->
-            <div class="la-courses__nav-filters mt-2">
+            <div class="la-courses__nav-filters ml-10 mt-2">
               <!-- <div class="la-courses__nav-props">
                 <a class="la-icon icon-list-layout la-courses__nav-filter mr-3" id="showLayout" role="button"></a>
               </div> -->
