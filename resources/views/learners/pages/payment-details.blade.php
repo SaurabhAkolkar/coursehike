@@ -84,10 +84,10 @@
                                               </div>
                                           @endforeach
                 
-                                          <div class="col-12 col-md-12">
+                                          <div class="col-12 col-md-6">
                                               <div class="la-payment__card la-anim__stagger-item--x">
-                                                  <label class="la-payment__card-label text-sm">Country</label>
-                                                  <select name="country" class="col-sm-9 form-control select2">
+                                                  <label class="la-payment__card-label text-sm">Country:</label>
+                                                  <select name="country" class="form-control select2 la-form__input px-0">
                                                       @foreach ($countries as $country)
                                                       <option value="{{ $country->iso }}" {{ (old("country") == $country->iso ? "selected":"") }}>
                                                           {{ $country->nicename }}</option>
@@ -112,15 +112,15 @@
                                     <div class="form-row la-payment__form-row">
                                           <div class="col-12 col-md-6">
                                             <div class="la-payment__card la-anim__stagger-item--x">
-                                              <label class="la-payment__card-label text-sm">Card Number</label>
-                                              <div id="card-number"></div>
+                                              <label class="la-payment__card-label text-sm">Card Number:</label>
+                                              <div id="card-number" class="la-form__input pt-3"></div>
                                             </div>
                                           </div>
                 
                                           <div class="col-12 col-md-6">
                                             <div class="la-payment__card la-anim__stagger-item--x">
-                                              <label class="la-payment__card-label text-sm">Expiry Date</label>
-                                              <div id="card-expiry"></div>
+                                              <label class="la-payment__card-label text-sm">Expiry Date:</label>
+                                              <div id="card-expiry" class="la-form__input pt-3"></div>
                                             </div>
                                           </div>
                                     </div>
@@ -128,8 +128,8 @@
                                     <div class="form-row la-payment__form-row">
                                           <div class="col-12 col-md-6">
                                             <div class="la-payment__card la-anim__stagger-item--x">
-                                                <label class="la-payment__card-label text-sm">Card Holder's Name</label>
-                                                    <input class="form-control la-payment__card-input" 
+                                                <label class="la-payment__card-label text-sm">Card Holder's Name:</label>
+                                                    <input class="form-control la-payment__card-input la-form__input" 
                                                         type="text"
                                                         name="card-owner"
                                                         placeholder="Enter Card Holder's Name"
@@ -139,8 +139,8 @@
                 
                                           <div class="col-12 col-md-6">
                                             <div class="la-payment__card la-anim__stagger-item--x">
-                                              <label class="la-payment__card-label text-sm">CVV/CVC</label>
-                                              <div id="card-cvc"></div>
+                                              <label class="la-payment__card-label text-sm">CVV/CVC:</label>
+                                              <div id="card-cvc" class="la-form__input pt-1"></div>
                                             </div>
                                           </div>
                 
@@ -189,12 +189,14 @@
   var style = {
   base: {
     color: '#32325d',
-    lineHeight: '18px',
+    lineHeight: '32px',
     fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
     fontSmoothing: 'antialiased',
     fontSize: '16px',
     '::placeholder': {
-      color: '#aab7c4'
+      color: '#cccccc',
+      fontSize: '14px',
+      fontWeight: '300'
     }
   },
   invalid: {
