@@ -1,15 +1,7 @@
 @extends('admin/layouts.master')
 @section('title', 'Edit Faq Instructor - Admin')
 @section('body')
-@if($errors->any())
-  <div class="alert alert-danger">
-    <ul>
-      @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-      @endforeach
-    </ul>
-  </div>
-@endif
+
 
 <section class="content">
   <div class="row">
@@ -29,6 +21,11 @@
                 <div class="col-md-8">
                   <label for="exampleInputName">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="title" id="exampleInputTitle"value="{{$find->title}}">
+                    @error('title')
+                      <div class="alert alert-danger">
+                          {{$message}}
+                      </div>
+                    @enderror
                 </div>
               </div>
               <br>
@@ -37,6 +34,11 @@
                 <div class="col-md-8">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
                   <textarea class="form-control" name="details"> {{$find->details}}</textarea>
+                          @error('details')
+                            <div class="alert alert-danger">
+                                {{$message}}
+                            </div>
+                          @enderror
                 </div>
               </div>
               <br>

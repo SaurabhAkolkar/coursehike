@@ -30,6 +30,7 @@ class SearchController extends Controller
 		$selected_languages = [];
 		$sort_type = "";
 		$filtres_applied = false;
+
 		if(Auth::check()){
 			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
 		}	
@@ -77,7 +78,7 @@ class SearchController extends Controller
 				$courses = $courses->whereIn('level',$level);
 			}
 			
-			return view('learners.pages.courses', compact('categories','selected_languages','selected_categories','selected_subcategories','selected_level','filtres_applied','courses','playlists','langauges','filter_categories'));
+			return view('learners.pages.courses', compact('categories','sort_type','selected_languages','selected_categories','selected_subcategories','selected_level','filtres_applied','courses','playlists','langauges','filter_categories'));
 
 		}
 

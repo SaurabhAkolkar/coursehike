@@ -41,9 +41,8 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Course ID</th>
+                            <th>Sr#</th>
                             <th>Course Name</th>
-                            <th>Request ID</th>
                             <th>Request Type</th>
                             <th>Request Date</th>
                             <th>Edit</th>
@@ -51,28 +50,34 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <img src="https://picsum.photos/80/60" alt="" />
-                            </td>
-                            <td>01</td>
-                            <td>Photography</td>
-                            <td>R01</td>
-                            <td>Publish Course</td>
-                            <td>20-20-2020</td>
+                        @php
+                            $i = 0;
+                        @endphp
+                        @foreach($publishRequest as $pr)
+                          <tr>
+                              <td>{{++$i}}</td>
+                              <td>
+                                  <img src="{{$pr->course->preview_image}}" alt="" />
+                              </td>
+                              <td>{{$pr->course->title}}</td>
+                              <td>@if($pr->request_type == 'publish') Publish Request @else Unpublish Request @endif</td>
+                              <td>{{Carbon\Carbon::parse($pr->created_at)->format('d-m-Y')}}</td>
 
-                            <td>
-                                <a class="btn btn-success la-admin__edit-btn" href="" role="button">
-                                    <span class="la-icon la-icon--lg icon-edit" style="color:#000"></span>
-                                </a>
-                            </td>
+                              <td>
+                                  <a class="btn btn-success la-admin__edit-btn" href="/course/create/{{$pr->course_id}}" role="button">
+                                      <span class="la-icon la-icon--lg icon-edit" style="color:#000"></span>
+                                  </a>
+                              </td>
 
-                            <td>
-                                <form  method="post" action="" data-parsley-validate  class="form-horizontal form-label-left">
-                                    <button  type="submit" class="btn btn-danger mt-1"><span class="la-icon la-icon--lg icon-delete"></span></button>
-                                </form>
-                            </td>
-                        </tr>
+                              <td>
+                                  <form  method="post" action="/delete-course-request" data-parsley-validate  class="form-horizontal form-label-left">
+                                      @csrf
+                                      <input type="hidden" name="request_id" value = "{{$pr->id}}" />
+                                      <button  type="submit" class="btn btn-danger mt-1"><span class="la-icon la-icon--lg icon-delete"></span></button>
+                                  </form>
+                              </td>
+                          </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -86,26 +91,29 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Course ID</th>
+                            <th>Sr#</th>
                             <th>Course Name</th>
-                            <th>Request ID</th>
                             <th>Request Type</th>
                             <th>Request Date</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <img src="https://picsum.photos/80/60" alt="" />
-                            </td>
-                            <td>01</td>
-                            <td>Photography</td>
-                            <td>R01</td>
-                            <td>Publish Course</td>
-                            <td>20-20-2020</td>
-                            <td>Resolved</td>
-                        </tr>
+                        @php
+                            $i = 0;
+                        @endphp
+                        @foreach($publishRequestResolved as $pr)
+                          <tr>
+                              <td>{{++$i}}</td>
+                              <td>
+                                  <img src="{{$pr->course->preview_image}}" alt="" />
+                              </td>
+                              <td>{{$pr->course->title}}</td>
+                              <td>@if($pr->request_type == 'publish') Publish Request @else Unpublish Request @endif</td>
+                              <td>{{Carbon\Carbon::parse($pr->created_at)->format('d-m-Y')}}</td>
+                              <td>Resolved</td>
+                          </tr>
+                        @endforeach
                     </tbody>
                 </table>
               </div>

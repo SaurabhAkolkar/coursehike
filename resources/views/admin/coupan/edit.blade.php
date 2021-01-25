@@ -19,6 +19,11 @@
               <div class="col-md-4">
                 <label>{{ __('adminstaticword.CouponCode') }}: <span class="redstar">*</span></label>
                 <input value="{{ $coupan->code }}" type="text" class="form-control" name="code">
+                @error('code')
+                  <div class="alert alert-danger">
+                      {{$message}}
+                  </div>
+              @enderror
               </div>
 
               <div class="col-md-4">
@@ -27,6 +32,12 @@
                     <option {{ $coupan->distype == 'fix' ? "selected" : ""}} value="fix">{{ __('adminstaticword.FixAmount') }}</option>
                     <option {{ $coupan->distype == 'per' ? "selected" : ""}} value="per">% {{ __('adminstaticword.Percentage') }}</option>  
                   </select>
+                  @error('distype')
+                  <div class="alert alert-danger">
+                      {{$message}}
+                  </div>
+              @enderror
+
               </div>
             </div>
 
@@ -34,6 +45,11 @@
               <div class="col-md-8">
                   <label>{{ __('adminstaticword.Amount') }}: <span class="redstar">*</span></label>
                   <input type="text" value="{{ $coupan->amount }}"  class="form-control" name="amount">
+                  @error('amount')
+                  <div class="alert alert-danger">
+                      {{$message}}
+                  </div>
+              @enderror
               </div>
             </div>
 
@@ -41,6 +57,11 @@
               <div class="col-md-4">
                   <label>{{ __('adminstaticword.MaxUsageLimit') }}: <span class="redstar">*</span></label>
                   <input value="{{ $coupan->maxusage }}" type="number" min="1" class="form-control" name="maxusage">
+                  @error('maxusage')
+                  <div class="alert alert-danger">
+                      {{$message}}
+                  </div>
+              @enderror
               </div>
 
               <div class="col-md-4">
@@ -48,6 +69,11 @@
                 <div class="input-group">
                   <span class="input-group-addon pt-2 px-2 border"><i class="la-icon la-icon--md icon-calender-filled"></i></span>
                   <input value="{{ date('Y-m-d',strtotime($coupan->expirydate)) }}" id="expirydate" type="text" class="form-control" name="expirydate">
+                  @error('expirydate')
+                    <div class="alert alert-danger">
+                      {{$message}}
+                    </div>
+                    @enderror
                 </div>
               </div>
             </div>
@@ -61,6 +87,11 @@
                     <option {{ $coupan->link_by == 'cart' ? "selected" : ""}} value="cart">{{ __('adminstaticword.LinktoCart') }}</option>
                     <option {{ $coupan->link_by == 'category' ? "selected" : ""}} value="category">{{ __('adminstaticword.LinktoCategory') }}</option>
                   </select>
+                  @error('link_by')
+                  <div class="alert alert-danger">
+                    {{$message}}
+                  </div>
+                  @enderror
               </div>
 
                 <div class="col-md-4" style="{{ $coupan->link_by == 'course' ? "" : "display: none"}}" id="probox" >
@@ -76,6 +107,11 @@
                           @endif
                         @endforeach
                     </select>
+                    @error('course_id')
+                  <div class="alert alert-danger">
+                    {{$message}}
+                  </div>
+                  @enderror
                   </div>
                        
                   <div class="col-md-4" style="{{ $coupan->link_by == 'category' ? "" : "display: none"}}" id="catbox" >
@@ -89,6 +125,12 @@
                           <option {{ $coupan->category_id == $category->id ? 'selected' : "" }} value="{{ $category->id }}">{{ $category['title'] }}</option>
                         @endforeach
                     </select>
+
+                    @error('category_id')
+                  <div class="alert alert-danger">
+                    {{$message}}
+                  </div>
+                  @enderror
                   </div>
               </div>
             
@@ -103,6 +145,12 @@
                     <span class="input-group-addon pt-1 px-3 border"><i class="{{ $currency->icon }}"></i></span>
                     <input value="{{ $coupan->minamount }}" type="number" min="0.0" value="0.00" step="0.1" class="form-control" name="minamount">
                   </div>
+                  @error('minamount')
+                  <div class="alert alert-danger">
+                    {{$message}}
+                  </div>
+                  @enderror
+                  
               </div>
             </div>
 

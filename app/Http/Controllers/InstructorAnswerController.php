@@ -28,7 +28,7 @@ class InstructorAnswerController extends Controller
     public function store(Request $request)
     {
     	$data = $this->validate($request,[
-            'course_id' => 'required',
+            'question_id' => 'required',
             'answer' => 'required',
         ]);
 
@@ -46,12 +46,15 @@ class InstructorAnswerController extends Controller
         $answer = Answer::find($id);
         $user =  User::all();
         $courses = Course::all();
-        return view('instructor.answer.edit',compact('answer','courses','user'));
+        $questions = Question::where('user_id', Auth::User()->id)->get();
+
+        return view('instructor.answer.edit',compact('answer','courses','user','questions'));
     }
 
     public function update(Request $request, $id)
     {
         $data = $this->validate($request,[
+            'question_id' => 'required',
             'answer' => 'required',
         ]);
         

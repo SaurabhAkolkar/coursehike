@@ -6,7 +6,7 @@
                         <div class="col-12">
                         <!-- <a class="" data-toggle="modal" data-target="#locked_login">Locked Course Login</a>-->
                                 
-                            <div class="modal fade  la-locked__modal" id="locked_login">
+                            <div class="modal fade  la-locked__modal" id="locked_login_modal">
                             <div class="modal-dialog  la-locked__modal-dialog">
                                 <div class="modal-content  la-locked__modal-content px-6">
                                     <div class="modal-header  la-locked__modal-header">

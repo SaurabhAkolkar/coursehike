@@ -24,6 +24,11 @@
               <div class="col-md-6">
                 <label >{{ __('adminstaticword.Name') }}: <sup class="redstar">*</sup></label>
                 <input type="text" class="form-control" name="name" value="{{ $language->name }}" placeholder="Please Enter Your  Language Name">
+                @error('name')
+                    <div class="alert alert-danger">
+                          {{$message}}
+                    </div>
+                @enderror
               </div>
             </div><br/>
 
@@ -31,6 +36,11 @@
               <div class="col-md-3">
                 <label >ISO Code: <sup class="redstar">*</sup></label>
                 <input type="text" class="form-control" name="iso_code" value="{{ $language->iso_code }}" placeholder="Please Enter Your  Language Name">
+                @error('iso_code')
+                    <div class="alert alert-danger">
+                          {{$message}}
+                    </div>
+                @enderror
               </div>
               <div class="col-md-3">
                 <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>

@@ -15,18 +15,58 @@
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
 
+               
                   <div class="row">
-                    <div class="col-md-6">
-                      <label class="display-none" for="exampleInputSlug">{{ __('adminstaticword.SelectCourse') }}</label>
-                      <input value="{{ $answer->course_id }}" autofocus name="course_id" type="text" class="form-control display-none" >
-                    </div>
-                  </div><br>
-
-                    <div class="row">
-                      <div class="col-md-6">
-                        <label for="exampleInput"> {{ __('adminstaticword.Answer') }}:<sup class="redstar">*</sup></label>
-                        <textarea name="answer" rows="4" class="form-control" placeholder="Please Enter Your Answer">{{ $answer->answer }}</textarea>
+                    <div class="col-md-12">
+                      <label  for="exampleInputTit1e"> {{ __('adminstaticword.Select') }} {{ __('adminstaticword.Question') }}:<sup class="redstar">*</sup></label>
+                      <br>
+                      <select name="question_id" required class="form-control  js-example-basic-single">
+                        @foreach($questions as $ques)
+                          <option value="{{ $ques->id }}" @if($answer->question_id == $ques->id) selected @endif >{{ $ques->question}}</option>
+                        @endforeach
+                      </select>
+                      @error('question_id')
+                      <div class="alert alert-danger">  
+                          {{$message}}
                       </div>
+                      @enderror
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label for="exampleInput"> {{ __('adminstaticword.Answer') }}:<sup class="redstar">*</sup></label>
+                      <textarea name="answer" rows="4" class="form-control" placeholder="Please Enter Your Answer">{{ $answer->answer }}</textarea>
+                      @error('answer')
+                      <div class="alert alert-danger">  
+                          {{$message}}
+                      </div>
+                      @enderror
+                    </div>
+                  </div>
+                
+                  <br><br>
+
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                    <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
+                    <li class="tg-list-item">
+                    <input class="la-admin__toggle-switch" id="cb10111" type="checkbox" {{ $answer->status==1 ? 'checked' : '' }}>
+                    <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="cb10111"></label>
+                    </li>
+                    <input type="hidden" name="status" value="{{ $answer->status }}" id="jjjj">
+                </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                
+                <div class="row">
+                  <div class="col-12">
+                    <div class="box-footer">
+                      <button value="" type="submit"  class="btn btn-md btn-primary">{{ __('adminstaticword.Save') }}</button>
                     </div>
                     <br>
 

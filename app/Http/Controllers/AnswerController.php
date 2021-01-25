@@ -25,6 +25,7 @@ class AnswerController extends Controller
 
     public function store(Request $request)
     {
+
         $data = $this->validate($request,[
             'answer' => 'required',
             'question_id' => 'required'
@@ -47,6 +48,11 @@ class AnswerController extends Controller
     public function update(Request $request, $id)
     {
         
+        $data = $this->validate($request,[
+            'answer' => 'required',
+            'question_id' => 'required'
+        ]);
+
         $data = Answer::findorfail($id);
         $input = $request->all();
         $data->update($input);

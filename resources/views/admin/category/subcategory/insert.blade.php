@@ -2,16 +2,6 @@
 @section('title', 'Add Subcategory - Admin')
 @section('body')
 
-@if ($errors->any())
-<div class="alert alert-danger">
-  <ul>
-    @foreach ($errors->all() as $error)
-    <li>{{ $error }}</li>
-    @endforeach
-  </ul>
-</div>
-@endif
-
 
 <section class="content">
   @include('admin.message')
@@ -49,6 +39,12 @@
                 <div class="col-md-6">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.SubCategory') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="title" id="exampleInputTitle" placeholder="Enter Your subcategory" value="">
+                  @error('title')
+                    <div class="alert alert-danger">
+                      {{$message}}
+                    </div>
+                  @enderror
+
                 </div>
               </div><br>
 

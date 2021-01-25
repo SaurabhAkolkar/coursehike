@@ -470,57 +470,30 @@
                 <div class="la-dash__pending-body">
                   <ul class="la-dash__pending-list">
                       @php
-                          $pending1 = new stdClass;
-                          $pending1->creatorId = "AD103";
-                          $pending1->creatorName = "Anna D'cruz";
-                          $pending1->courseId = "ADC03";
-                          $pending1->courseName = "Advance Sketching";
-                          $pending1->dateOn = "July 10, 2020";
-                          $pending1->requestType = "Publish";
-
-                          $pending2 = new stdClass;
-                          $pending2->creatorId = "AD103";
-                          $pending2->creatorName = "Anna D'cruz";
-                          $pending2->courseId = "ADC03";
-                          $pending2->courseName = "Advance Sketching";
-                          $pending2->dateOn = "July 10, 2020";
-                          $pending2->requestType = "On hold";
-
-                          $pending3 = new stdClass;
-                          $pending3->creatorId = "AD103";
-                          $pending3->creatorName = "Anna D'cruz";
-                          $pending3->courseId = "ADC03";
-                          $pending3->courseName = "Advance Sketching";
-                          $pending3->dateOn = "July 10, 2020";
-                          $pending3->requestType = "Archive";
-
-                          $pending4 = new stdClass;
-                          $pending4->creatorId = "AD103";
-                          $pending4->creatorName = "Anna D'cruz";
-                          $pending4->courseId = "ADC03";
-                          $pending4->courseName = "Advance Sketching";
-                          $pending4->dateOn = "July 10, 2020";
-                          $pending4->requestType = "Publish";
-
-                          $pendings = array($pending1, $pending2, $pending3, $pending4);
+                          $requests = App\PublishRequest::with('user','course')->where(['status'=>1])->limit(5)->get();
+                          $i = 0;
                       @endphp
 
-                      @foreach ($pendings as $pending)
+                      @foreach ($requests as $r)
                           <x-admin-pending-request
-                            :creatorId="$pending->creatorId"
-                            :creatorName="$pending->creatorName"
-                            :courseId="$pending->courseId"
-                            :courseName="$pending->courseName"
-                            :dateOn="$pending->dateOn"
-                            :requestType="$pending->requestType"
+                            :sr="++$i"
+                            :creatorName="$r->user->fullName"
+                            :courseName="$r->course->title"
+                            :dateOn="Carbon\Carbon::parse($r->created_at)->format('M d Y')"
+                            :requestType="$r->request_type=='publish'?'Publish':'Unpublish'"
                           />
                       @endforeach 
+                      @if(count($requests) > 0)
+                        <li class="row no-gutters d-flex justify-content-between la-dash__pending-item ">
+                          No Requests Found
+                        </li>
+                      @endif
                   </ul>
                 </div>
             </div>
 
             <div class="la-dash__recent-more text-right">
-              <a href="{{route('all.instructor')}}" class="la-dash__more-btn">
+              <a href="{{url('publishrequest')}}" class="la-dash__more-btn">
                 <span class="la-icon la-icon--5xl icon-black-arrow"></span>
               </a>
             </div>

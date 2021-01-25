@@ -10,7 +10,7 @@
                                         <i class="la-icon la-icon--2xl icon icon-cart"></i>
                                     </span>
                                 @else
-                                    <span class="d-inline-block la-course__addtocart" data-toggle="modal" data-target="#locked_login">
+                                    <span class="d-inline-block la-course__addtocart" data-toggle="modal" data-target="#locked_login_modal">
                                         <i class="la-icon la-icon--2xl icon icon-cart"></i>
                                     </span>
                                 @endif
@@ -24,7 +24,7 @@
                                         </span>
                                     </span>
                                 @else
-                                    <span data-toggle="modal" data-target="#locked_login">
+                                    <span data-toggle="modal" data-target="#locked_login_modal">
                                         <span class="d-inline-block la-course__like">
                                             <i class="la-icon la-icon--2xl icon icon-wishlist"></i>
                                         </span>
@@ -44,9 +44,9 @@
                                                 <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToCart({{$id}})"><i class="icon icon-cart la-icon la-cmenu__item-icon mr-2"></i>  Add to Cart</span>
                                             @else   
 
-                                                <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login"><i class="icon icon-playlist la-icon la-cmenu__item-icon mr-2"></i>  Add to Playlist</span>
-                                                <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login"><i class="icon icon-wishlist la-icon la-cmenu__item-icon mr-2"></i> Add to Wishlist </span>
-                                                <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login"><i class="icon icon-cart la-icon la-cmenu__item-icon mr-2"></i>  Add to Cart</span>
+                                                <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login_modal"><i class="icon icon-playlist la-icon la-cmenu__item-icon mr-2"></i>  Add to Playlist</span>
+                                                <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login_modal"><i class="icon icon-wishlist la-icon la-cmenu__item-icon mr-2"></i> Add to Wishlist </span>
+                                                <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login_modal"><i class="icon icon-cart la-icon la-cmenu__item-icon mr-2"></i>  Add to Cart</span>
 
                                             @endif
                                         </div>

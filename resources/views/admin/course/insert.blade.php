@@ -84,7 +84,7 @@
                   <label>{{ __('adminstaticword.Language') }}: <span class="redstar">*</span></label>
                   <select name="language_id" class="form-control js-example-basic-single">
                     @php
-                    $languages = App\CourseLanguage::all();
+                    $languages = App\CourseLanguage::where(['status'=>1])->get();
                     @endphp  
                     @foreach($languages as $caat)
                       <option {{ $caat->language_id == $caat->id ? 'selected' : "" }} value="{{ $caat->id }}">{{ $caat->name }}</option>

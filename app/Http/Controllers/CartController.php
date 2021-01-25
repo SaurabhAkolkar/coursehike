@@ -20,6 +20,7 @@ use App\InvoiceDetail;
 use Stripe\Stripe;
 use Debugbar;
 use Illuminate\Support\Str;
+use App\Playlist;
 
 class CartController extends Controller
 {
@@ -60,10 +61,11 @@ class CartController extends Controller
             $insert['course_id'] = $request->course_id;
             $insert['class_id'] = 0;
             $insert['category_id'] = $course->category_id;
-            $insert['price'] = $course->price;
+            $insert['price'] = $course->price?$course->price:0;
             $insert['offer_price'] = $course->offer_price;
             $insert['purchase_type'] = 'all_classes';
             $insert['cart_id'] = $cart->id;
+           
             CartItem::insert($insert);
 
             return 'Course added to cart';
@@ -158,7 +160,15 @@ class CartController extends Controller
         $total = 0;
         $coupon = Null;
         $coupons = [];
-   
+        $suggested_courses = [];
+        $playlists = [];
+
+        if(Auth::check()){
+			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
+        }
+        
+        $suggested_courses = Course::with('user')->where(['status'=>1])->limit(3)->get();
+
         if($carts){
             // $cartItem = CartItem::with('courses','courses.user')->where('cart_id', $carts->id)->get();
             // $discount = $cartItem->sum('offer_price');
@@ -189,7 +199,7 @@ class CartController extends Controller
             }
         }     
 
-        return view('learners.pages.cart', compact('carts','discount','total','coupons','coupon'));
+        return view('learners.pages.cart', compact('carts','discount','playlists','suggested_courses','total','coupons','coupon'));
     }
 
     public function applyCoupon($id){
@@ -300,7 +310,7 @@ class CartController extends Controller
         CartItem::where(['cart_id' =>  $id ])->delete();
 
         Session::forget('appliedCoupon');
-        return back()->with('delete','Course is removed from your cart');
+        return back()->with('message','Course is removed from your cart');
     }
 
     public function cartCheckout(Request $request){

@@ -65,7 +65,7 @@
             </h3>
           </div>
           <a href="{{url('userenroll')}}" class="small-box-footer"> {{-- {{ __('adminstaticword.Moreinfo') }} --}}
-            <!--<i class="fa fa-arrow-circle-right"></i> -->
+            
             <span class="la-icon la-icon--5xl icon-black-arrow"></span>
           </a>
         </div>
@@ -83,7 +83,7 @@
               0
             </h3>
           </div>
-          <a href="" class="small-box-footer"> 
+          <a href="{{route('instructor.revenue')}}" class="small-box-footer"> 
             <span class="la-icon la-icon--5xl icon-black-arrow"></span>
           </a>
         </div>
@@ -148,45 +148,18 @@
           </div>
               <ul class="la-dash__recent-list">
                   @php
-                      $user1 = new stdClass;
-                      $user1->userImg = "https://picsum.photos/50/50";
-                      $user1->userName = "Nathan Spark";
-                      $user1->userTag = "Creator";
-                      $user1->userDate = "July 16, 2020";
-
-                      $user2 = new stdClass;
-                      $user2->userImg = "https://picsum.photos/50/50";
-                      $user2->userName = "Amy D'souza";
-                      $user2->userTag = "Learner";
-                      $user2->userDate = "July 14, 2020";
-
-                      $user3 = new stdClass;
-                      $user3->userImg = "https://picsum.photos/50/50";
-                      $user3->userName = "Natalia";
-                      $user3->userTag = "Creator";
-                      $user3->userDate = "July 12, 2020";
-
-                      $user4 = new stdClass;
-                      $user4->userImg = "https://picsum.photos/50/50";
-                      $user4->userName = "Amy Dyana";
-                      $user4->userTag = "Learner";
-                      $user4->userDate = "July 10, 2020";
-
-                      $user5 = new stdClass;
-                      $user5->userImg = "https://picsum.photos/50/50";
-                      $user5->userName = "Amy Dyana";
-                      $user5->userTag = "Learner";
-                      $user5->userDate = "July 10, 2020";
-
-                      $users = array($user1, $user2, $user3, $user4, $user5);
+                    if($course){
+                        $courses_id = $course->pluck('id');
+                        $users = App\UserPurchasedCourse::with('user')->whereIn('course_id', $courses_id)->groupBy('user_id')->limit(5)->get();
+                    }
                   @endphp
 
                   @foreach ($users as $user)
                       <x-admin-recent-subscription 
-                          :userImg="$user->userImg"
-                          :userName="$user->userName"
-                          :userTag="$user->userTag"
-                          :userDate="$user->userDate"
+                          :userImg="$user->user->userImg"
+                          :userName="$user->user->fullName"
+                          :userTag="$user->user->role=='mentors'?'Creator':'Learner'"
+                          :userDate="Carbon\Carbon::parse($user->crated_at)->format('M d, Y')"
                       />
                   @endforeach
               </ul>
@@ -208,52 +181,19 @@
           </div>
               <ul class="la-dash__recent-list">
                 @php
-                  $course1 = new stdClass;
-                  $course1->courseImg = "https://picsum.photos/50/50";
-                  $course1->courseName = "Photography";
-                  $course1->courseTag = "Creator Name";
-                  $course1->courseDate = "July 14, 2020";
-                  $course1->coursePrice = 65;
-
-                  $course2 = new stdClass;
-                  $course2->courseImg = "https://picsum.photos/50/50";
-                  $course2->courseName = "Styling";
-                  $course2->courseTag = "Creator Name";
-                  $course2->courseDate = "July 13, 2020";
-                  $course2->coursePrice = 85;
-
-                  $course3 = new stdClass;
-                  $course3->courseImg = "https://picsum.photos/50/50";
-                  $course3->courseName = "Designer";
-                  $course3->courseTag = "Creator Name";
-                  $course3->courseDate = "July 12, 2020";
-                  $course3->coursePrice = 65;
-
-                  $course4 = new stdClass;
-                  $course4->courseImg = "https://picsum.photos/50/50";
-                  $course4->courseName = "Developer";
-                  $course4->courseTag = "Creator Name";
-                  $course4->courseDate = "July 10, 2020";
-                  $course4->coursePrice = 95;
-
-                  $course5 = new stdClass;
-                  $course5->courseImg = "https://picsum.photos/50/50";
-                  $course5->courseName = "Developer";
-                  $course5->courseTag = "Creator Name";
-                  $course5->courseDate = "July 10, 2020";
-                  $course5->coursePrice = 95;
-
-
-                  $courses = array($course1, $course2, $course3, $course4, $course5);
+                    if($course){
+                      $courses_id = $course->pluck('id');
+                      $courses = App\UserPurchasedCourse::with('course','course.user')->whereIn('course_id', $courses_id)->groupBy('course_id')->limit(5)->get();
+                    }
                 @endphp
 
                   @foreach ($courses as $course)
                       <x-admin-recent-bought-course 
-                          :courseImg="$course->courseImg"
-                          :courseName="$course->courseName"
-                          :courseTag="$course->courseTag"
-                          :courseDate="$course->courseDate"
-                          :coursePrice="$course->coursePrice"
+                          :courseImg="$course->course->preview_image"
+                          :courseName="$course->course->title"
+                          :courseTag="$course->course->user->fullName"
+                          :courseDate="Carbon\Carbon::parse($course->course->created_at)->format('M d, Y')"
+                          :coursePrice="$course->course->price"
                       />
                   @endforeach
               </ul>

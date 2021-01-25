@@ -18,6 +18,11 @@
             <div class="col-md-4">
               <label>{{ __('adminstaticword.CouponCode') }}:<span class="redstar">*</span></label>
               <input required="" type="text" class="form-control" name="code">
+              @error('code')
+                  <div class="alert alert-danger">
+                      {{$message}}
+                  </div>
+              @enderror
             </div>
 
             <div class="col-md-4">
@@ -26,6 +31,11 @@
                   <option value="fix">{{ __('adminstaticword.FixAmount') }}</option>
                   <option value="per">% {{ __('adminstaticword.Percentage') }}</option>
                 </select>
+                @error('distype')
+                  <div class="alert alert-danger">
+                      {{$message}}
+                  </div>
+              @enderror
             </div>
           </div>
 
@@ -33,6 +43,11 @@
             <div class="col-md-8">
                 <label>{{ __('adminstaticword.Amount') }}:<span class="redstar">*</span></label>
                 <input required="" type="text"  class="form-control" name="amount">
+                @error('amount')
+                  <div class="alert alert-danger">
+                      {{$message}}
+                  </div>
+              @enderror
             </div>
           </div>
           
@@ -40,6 +55,11 @@
               <div class="col-md-4">
                 <label>{{ __('adminstaticword.MaxUsageLimit') }}:<span class="redstar">*</span></label>
                 <input required="" type="number" min="1" class="form-control" name="maxusage">
+                @error('maxusage')
+                  <div class="alert alert-danger">
+                      {{$message}}
+                  </div>
+              @enderror
               </div>
 
               <div class="col-md-4">
@@ -47,6 +67,11 @@
                 <div class="input-group">
                   <span class="input-group-addon pt-1 px-3 border"><i class="la-icon la-icon--md icon-calender-filled"></i></span>
                   <input required="" id="expirydate" type="text" class="form-control" name="expirydate">
+                    @error('expirydate')
+                    <div class="alert alert-danger">
+                      {{$message}}
+                    </div>
+                    @enderror
                 </div>
               </div>
           </div>
@@ -63,7 +88,12 @@
                   <option value="cart">{{ __('adminstaticword.LinktoCart') }}</option>
                   <option value="category">{{ __('adminstaticword.LinktoCategory') }}</option>
                 </select>
-            
+                @error('link_by')
+                  <div class="alert alert-danger">
+                    {{$message}}
+                  </div>
+                  @enderror
+
                 <div id="probox" class="col-md-12 px-0 mt-4 display-none">
                   <label>{{ __('adminstaticword.SelectCourse') }}:<span class="redstar">*</span> </label>
                   <br>
@@ -77,6 +107,11 @@
                         @endif
                       @endforeach
                   </select>
+                  @error('course_id')
+                  <div class="alert alert-danger">
+                    {{$message}}
+                  </div>
+                  @enderror
                 </div>
             
                 <div id="catbox" class="col-md-12  px-0 mt-4 display-none">
@@ -90,6 +125,11 @@
                         <option value="{{ $category->id }}">{{ $category['title'] }}</option>
                       @endforeach
                   </select>
+                  @error('category_id')
+                  <div class="alert alert-danger">
+                    {{$message}}
+                  </div>
+                  @enderror
                 </div>
             </div>
 
@@ -101,6 +141,11 @@
                   @endphp
                   <span class="input-group-addon pt-1 px-4 border"><i class="{{ $currency->icon }}"></i></span>
                   <input type="number" min="0.0" value="0.00" step="0.1" class="form-control" name="minamount">
+                  @error('minamount')
+                  <div class="alert alert-danger">
+                    {{$message}}
+                  </div>
+                  @enderror
                 </div>
               </div>
           </div><br/>

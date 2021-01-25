@@ -40,6 +40,13 @@
                         <option value="{{ $ques->id }}">{{ $ques->question}}</option>
                       @endforeach
                     </select>
+
+                    @error('question_id')
+                      <div class="alert alert-danger">  
+                          {{$message}}
+                      </div>
+                      @enderror
+
                   </div>
                   @foreach($questions as $ques)
                   <input type="hidden" name="ques_user_id"  value="{{$ques->user_id}}" />
@@ -52,6 +59,11 @@
                   <div class="col-md-6">
                     <label for="exampleInput">{{ __('adminstaticword.Answer') }}:<sup class="redstar">*</sup></label>
                     <textarea name="answer" rows="4" class="form-control" placeholder="Please Enter Your Answer"></textarea>
+                    @error('answer')
+                      <div class="alert alert-danger">  
+                          {{$message}}
+                      </div>
+                      @enderror
                   </div>
                 </div>
                 <br>

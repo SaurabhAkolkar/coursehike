@@ -86,12 +86,16 @@ class CourseController extends Controller
 
     public function store(Request $request)
     {
+        dd($request);
         $this->validate($request, [
             'category_id' => 'required',
             'subcategory_id' => 'required',
             'title' => 'required',
             'short_detail' => 'required',
             'detail' => 'required',
+            'preview_image'=>'required',
+            'language_id'=>'required',
+            'requirement'=>'required',
             'video' => 'mimes:mp4,avi,wmv',
             // 'slug' => 'required|unique:courses,slug',
         ]);

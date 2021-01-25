@@ -70,7 +70,7 @@
 
                 <div class="col-md-6"> 
                   @php
-                      $languages = App\CourseLanguage::all();
+                      $languages = App\CourseLanguage::where(['status'=>1])->get();
                   @endphp
                   <label for="exampleInputSlug">{{ __('adminstaticword.SelectLanguage') }}</label>
                   <select name="language_id" class="form-control js-example-basic-single col-12">

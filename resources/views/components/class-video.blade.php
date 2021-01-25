@@ -5,14 +5,14 @@
             @if ($access == "free")
                 <span class="icon-play la-vcourse__access-icon la-vcourse__access-icon--white"></span>
             @elseif ($access == "locked")
-                <span class="icon-lock la-vcourse__access-icon la-vcourse__access-icon--danger"></span>
+                <span class="icon-lock la-vcourse__access-icon la-vcourse__access-icon--danger"  @if(Auth::check()) data-target="#locked_subscribe"  @else data-target="#locked_login_modal"  @endif></span>
             @else
                 <span class="icon-tick la-vcourse__access-icon la-vcourse__access-icon--green"></span>
             @endif
         </div>
     </div>
     <div class="la-vcourse__lesson-left position-relative">
-        <div class="la-vcourse__lesson-thumbnail">
+        <div class="la-vcourse__lesson-thumbnail"  @if($access == "locked") data-toggle="modal" @if(Auth::check()) data-target="#locked_subscribe"  @else data-target="#locked_login_modal"  @endif @endif>
             <img class="img-fluid" src= {{ $thumbnail ?? '' }} alt= {{ $title ?? '' }}>
         </div>
         <div class="la-vcourse__lesson-playbtn">

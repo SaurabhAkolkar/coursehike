@@ -25,6 +25,13 @@
                   <option class="display-none" value="{{ $cou->id }}" {{$que->courses->id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
                   @endforeach
                   </select> 
+
+                  @error('course_id')
+                    <div class="alert alert-danger">  
+                        {{$message}}
+                    </div>
+                    @enderror
+
                 </div>
               </div>
               <br/>
@@ -36,6 +43,12 @@
                       <option class="display-none" value="{{ $cu->id }}" {{$que->courses->id == $cu->id  ? 'selected' : ''}}>{{ $cu->fname}}</option>
                     @endforeach
                   </select>
+                  @error('user_id')
+                    <div class="alert alert-danger">  
+                        {{$message}}
+                    </div>
+                    @enderror
+
                 </div>
               </div> <br/>
                    
@@ -43,6 +56,12 @@
                 <div class="col-md-5">
                   <label for="exampleInputTit1e">Question:<span class="redstar">*</span></label>
                   <textarea name="question" rows="3" class="form-control" placeholder="Enter Your quetion">{{$que->question}}</textarea>
+                  @error('question')
+                    <div class="alert alert-danger">  
+                        {{$message}}
+                    </div>
+                    @enderror
+
                 </div>
               
                 <div class="col-md-1">

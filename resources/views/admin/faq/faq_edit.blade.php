@@ -26,6 +26,14 @@
 
               <label for="exampleInputName">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
               <input type="text" class="form-control" name="title" id="exampleInputTitle"value="{{$find->title}}">
+              @if ($errors['title'])
+              <div class="alert alert-danger">
+                <ul>
+                      <li>{{ $error['title'] }}</li>
+                </ul>
+              </div>
+              @endif
+            
             </div>
             <div class="form-group col-8 p-0">
               <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>

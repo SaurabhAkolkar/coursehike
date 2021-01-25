@@ -22,6 +22,11 @@
               <div class="col-md-6">
                 <label for="exampleInputTit1e">{{ __('adminstaticword.Category') }}:<sup class="redstar">*</sup></label>
                 <input type="text" class="form-control" name="title" id="exampleInputTitle" value="{{$cate->title}}">
+                @error('title')
+                      <div class="alert alert-danger">
+                          {{$message}}
+                      </div>
+                @enderror
               </div>
             </div><br/>
 

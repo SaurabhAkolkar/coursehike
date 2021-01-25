@@ -26,11 +26,23 @@
                             <option value="{{$c->id}}" @if($payout->user_id == $c->id) selected @endif>{{$c->fullName}}</option>
                         @endforeach
                   </select>
+
+                  @error('user_id')
+                    <div class="alert alert-danger">  
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
           
                 <div class="col-md-4">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Month') }}:<sup class="redstar">*</sup></label>
                   <input class="form-control month" name="month" id="exampleInputTitle" readonly value="{{$payout->month}}">
+
+                  @error('month')
+                    <div class="alert alert-danger">  
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
               </div>
               <br> 
@@ -39,10 +51,20 @@
                 <div class="col-md-4">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.SubscriptionAmount') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="subscription_amount" id="exampleInputTitle" value="{{$payout->subscription_amount}}">
+                  @error('subscription_amount')
+                    <div class="alert alert-danger">  
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
                 <div class="col-md-4">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.CourseAmount') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="course_amount" id="exampleInputTitle" value="{{$payout->course_amount}}">
+                  @error('course_amount')
+                    <div class="alert alert-danger">  
+                        {{$message}}
+                    </div>
+                  @enderror
                 </div>
               </div>
               <br>    

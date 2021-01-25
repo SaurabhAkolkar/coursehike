@@ -112,6 +112,12 @@ class SubcategoryController extends Controller
     public function update(Request $request,$id)
     {
 
+        $data = $this->validate($request,[
+            "title"=>"required",
+                 ],[
+            "title.required"=>"Please enter subcategory title !",
+        ]);
+        
         $data = SubCategory::findorfail($id);
         $input = $request->all();
         

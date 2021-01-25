@@ -24,6 +24,12 @@
                       <option value="{{$cat->id}}">{{$cat->title}}</option>
                     @endforeach
                   </select>
+
+                  @error('category_id')
+                          <div class="alert alert-danger">
+                              {{$message}}
+                          </div>
+                    @enderror
                 </div>
               </div><br>
 
@@ -32,6 +38,12 @@
                   <label for="exampleInputTit1e">{{ __('adminstaticword.SubCategory') }}</label>
                   <select name="subcategories" id="upload_id" class="form-control js-example-basic-single col-md-7 col-xs-12">
                   </select>
+
+                  @error('subcategories')
+                          <div class="alert alert-danger">
+                              {{$message}}
+                          </div>
+                    @enderror
                 </div>
               </div><br>
 
@@ -40,6 +52,7 @@
                   <label for="exampleInputTit1e">{{ __('adminstaticword.SubCategory') }}</label>
                   <br>
                   <button type="button" data-dismiss="modal" data-toggle="modal" data-target="#myModal7" title="AddCategory" class="btn btn-md btn-primary">{{ __('adminstaticword.Add') }}</button>
+
                 </div>
               </div>
                   
@@ -48,6 +61,11 @@
                 <div class="col-md-6">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="title" id="exampleInputTitle" placeholder="Enter your childcategory" value="">
+                  @error('title')
+                          <div class="alert alert-danger">
+                              {{$message}}
+                          </div>
+                    @enderror
                 </div>
               </div><br>
               
