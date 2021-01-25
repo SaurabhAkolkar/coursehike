@@ -145,7 +145,7 @@ class SubscriptionController extends Controller
 
 			if ($subscription['status'] == 'trialing' || $subscription['status'] == 'active') {
 
-				$plan = app('rinvex.subscriptions.plan')->where("slug", $request->subscription_plan)->first();
+				$plan = app('rinvex.subscriptions.plan')->where("slug", $request->subscription_plan)->latest()->first();
 				Auth::user()->newSubscription('main', $plan);
 
 				$userSubscription = new UserSubscription();
@@ -154,8 +154,14 @@ class SubscriptionController extends Controller
 				$userSubscription->stripe_subscription_id = $subscription['id'];
 				$userSubscription->save();
 
+				// if($subscription['status'] == 'trialing')
+				// 	return view('learners.messages.subscription-successful', compact('userSubscription'));
+				// else
 
-				return view('learners.messages.subscription-successful', compact('userSubscription'));
+				$plan_subscription = app('rinvex.subscriptions.plan_subscription')->where("user_id", Auth::user()->id)->latest()->first();
+				return view('learners.messages.subscription-trial', compact('plan_subscription'));
+
+					// return view('learners.messages.subscription-trial', compact('userSubscription', 'plan'));
 			} else {
 				Session::flash('errors', 'Something went wrong');
 				// return redirect()->back();
