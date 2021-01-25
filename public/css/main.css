@@ -21611,6 +21611,9 @@ label.error {
     padding: var(--size-8) 0;
   }
 }
+.la-section--trail {
+  overflow-x: hidden;
+}
 .la-section__ {
   /*&crossline {
       width: 791px;

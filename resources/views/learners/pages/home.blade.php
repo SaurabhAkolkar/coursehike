@@ -14,7 +14,7 @@
 @endif
 
 <!-- Section: Start-->
-<section class="la-section la-section--hero clearfix p-0">
+<section class="la-section  la-section--hero clearfix p-0">
     <div class="la-section__inner">
       <div class="container">
         <div class="la-hero__top row align-items-center la-anim__wrap la-anim__wrap--hero">
@@ -42,7 +42,7 @@
           <!-- Column: Start-->
           <div class="col-12 col-lg-7 la-anim__item la-anim__item--right">
             <div class="la-hero__img position-relative d-flex align-items-center la-anim__fade-in-right">
-              <span class="la-section__crossline"></span>
+              <!-- <span class="la-section__crossline"></span> -->
               <h2 class="la-section__title la-section__title--big"><div class="la-anim__text-move--content">{{$firstSection->image_text}}</div></h2>
               <img class="img-fluid" src="{{$firstSection->image}}" alt="{{$firstSection->image_text}}">
             </div>
@@ -62,7 +62,7 @@
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  <section class="la-section la-section--grey la-section--art-categories position-relative"  id="home_courses">
+  <section class="la-section  la-section--grey la-section--art-categories position-relative"  id="home_courses">
     <div class="la-section__inner la-anim__wrap" >
       <div class="container"><span class="la-section__cross-line"></span>
         <div class="la-courses">
@@ -285,7 +285,7 @@
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  <section class="la-section la-section--artists position-relative la-anim__wrap">
+  <section class="la-section  la-section--artists position-relative la-anim__wrap">
     <div class="la-section__inner">
       <span class="la-section__circle"></span>
       <div class="swiper-container gallery-top la-artist__slider container">
@@ -323,7 +323,7 @@
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  <section class="la-section la-section--classes la-section--grey position-relative la-anim__wrap">
+  <section class="la-section  la-section--classes la-section--grey position-relative la-anim__wrap">
     <div class="la-section__inner">
       <div class="container">
         <h2 class="la-section__title la-section__title--big position-relative la-anim__fade-in-top la-anim__A">Master <span>classes</span></h2>
@@ -389,79 +389,51 @@
   <!-- Section: Start-->
   <section class="la-section la-section--price la-anim__wrap la-anim__wrap-pin">
     <div class="la-section__inner ">
-      <div class="container la-price__container">
-        <h2 class="la-section__title la-section__title--big leading-none la-anim__pin"> <span style="color: var(--gray);">Learn it </span><br><span>like aliens</span></h2>
-        <div class="la-price__slider la-anim__slider">
-            <div class="la-price__slide la-anim__slide">
-              <div class="la-price__row row mb-16">
-                <div class="col-12 col-lg-5 pt-20">
-                  <h3 class="la-section__subtitle">How does subscription works?</h3>
-                  <p class="la-section__text">Learning need not be expensive. At LILA, our subscription model gives you the benefit to choose from any number of courses or individual classes, as you please.<br/><br/> All at nominal fees! So, learn away! </p>
-                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8">
-                    <a href="/learning-plans">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
+      <div class="container ">
+        <div class="la-price__container">
+          <h2 class="la-section__title la-section__title--big leading-none la-anim__pin"> <span style="color: var(--gray);">Learn it </span><br><span>like aliens</span></h2>
+          <div class="la-price__slider la-anim__slider">
+              <div class="la-price__slide la-anim__slide">
+                <div class="la-price__row row mb-16">
+                  <div class="col-lg-5 pt-20">
+                    <h3 class="la-section__subtitle">How does subscription works?</h3>
+                    <p class="la-section__text">Learning need not be expensive. At LILA, our subscription model gives you the benefit to choose from any number of courses or individual classes, as you please.<br/><br/> All at nominal fees! So, learn away! </p>
+                    <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8">
+                      <a href="/learning-plans">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
+                    </div>
                   </div>
+
+                  <div class="col-lg-5  offset-lg-1  pt-20  ">
+                    <div class="la-anim__wrap la-anim__wrap-pin2">
+                        <div class="la-price__box la-anim__pin2 ">
+                          <div class="la-price__box-inner "><a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
+                            <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">35% savings </span>on Annual Plan</p>
+                            <div class="la-price__box-soffer la-soffer ml-0">
+                              <div class="la-soffer__bestprice la-soffer__bestprice--black"> <sup><small>$</small></sup>  39 / Month</div>
+                              <div class="la-soffer__realprice"> <sup><small>$</small></sup>  99 (USD) </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                  </div> 
                 </div>
-                <div class="col-12 offset-lg-1 col-lg-5 pt-20  ">
-                  <div class="la-anim__wrap la-anim__wrap-pin2">
-                  <div class="la-price__box la-anim__pin2 ">
-                    <div class="la-price__box-inner "><a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
-                      <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">35% savings </span>on Annual Plan</p>
-                      <div class="la-price__box-soffer la-soffer ml-0">
-                        <div class="la-soffer__bestprice la-soffer__bestprice--black"> <sup><small>$</small></sup>  39 / Month</div>
-                        <div class="la-soffer__realprice"> <sup><small>$</small></sup>  99 (USD) </div>
-                      </div>
+              </div>
+
+              <div class="la-price__slide la-anim__slide">
+                <div class="la-price__row row mb-16">
+                  <div class="col-lg-5 pt-20">
+                    <h3 class="la-section__subtitle">What’s LILA for you ?</h3>
+                    <p class="la-section__text">Our mission is to Encourage, Empower and Embrace self-learning among all curious individuals who wish to learn, expand their potential and make a mark in the world.<br/><br/> 
+                        Through our Radical team, we strive every day to make knowledge Affordable, Accessible for everyone regardless of who or where they are
+                    </p>
+                    <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8">
+                      <a href="/about">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                     </div>
                   </div>
                 </div>
-                </div> 
               </div>
-            </div>
-            <div class="la-price__slide la-anim__slide">
-              <div class="la-price__row row mb-16">
-                <div class="col-12 col-lg-5 pt-20">
-                  <h3 class="la-section__subtitle">What’s LILA for you ?</h3>
-                  <p class="la-section__text">Our mission is to Encourage, Empower and Embrace self-learning among all curious individuals who wish to learn, expand their potential and make a mark in the world.<br/><br/> 
-                      Through our Radical team, we strive every day to make knowledge Affordable, Accessible for everyone regardless of who or where they are
-                  </p>
-                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8">
-                    <a href="/about">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
-                  </div>
-                </div>
-                <!--<div class="col-12 offset-lg-1 col-lg-5 pt-20 la-anim__slide-box ">
-                  <div class="la-price__box ">
-                    <div class="la-price__box-inner"><a  href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
-                      <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">20% savings </span>on Annual Plan</p>
-                      <div class="la-price__box-soffer la-soffer ml-0">
-                        <div class="la-soffer__bestprice la-soffer__bestprice--black"> <sup><small>$</small></sup>  39 / Month</div>
-                        <div class="la-soffer__realprice"> <sup><small>$</small></sup>  49 / Month</div>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
-              </div>
-            </div>
-            <!-- <div class="la-price__slide la-anim__slide">
-              <div class="la-price__row row">
-                <div class="col-12 col-lg-5 py-10 pt-md-20">
-                  <h3 class="la-section__subtitle">How does subscription works?</h3>
-                  <p class="la-section__text">Through our Radical team, we strive everyday to make knowledge Affordable, Accessible for all the individuals who have limited or no access to the Real knowledge.<br><br>So, you can subscribe to all the courses and classes. Or rent them to learn whenever you want.</p>
-                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8">
-                    <a href="/learning-plans">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
-                  </div>
-                </div>
-                 <div class="col-12 offset-lg-1 col-lg-5 pt-20 la-anim__slide-box">
-                  <div class="la-price__box">
-                    <div class="la-price__box-inner"><a  href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
-                      <p class="la-price__box-para mt-8 mb-2">Get <span class="la-color--primary">20% savings </span>on Annual Plan</p>
-                      <div class="la-price__box-soffer la-soffer ml-0">
-                        <div class="la-soffer__bestprice la-soffer__bestprice--black"> <sup><small>$</small></sup>  39 / Month</div>
-                        <div class="la-soffer__realprice"> <sup><small>$</small></sup>  49 / Month</div>
-                      </div>
-                    </div>
-                  </div>
-                </div> 
-              </div>
-            </div> -->
+
+          </div>
         </div>
       </div>
     </div>

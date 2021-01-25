@@ -44,6 +44,11 @@
         @media(max-width:767px){
             padding: var(--size-8) 0;
         }
+        &--{
+            &trail{
+                overflow-x:hidden;
+            }
+        }
         &__ {
             &small{
                 padding:var(--size-12) 0;

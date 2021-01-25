@@ -2,7 +2,7 @@ $(function(){
   // Global Dropdown Toggle: Start
   $('.dropdown-toggle').dropdown()
   // Global Dropdown Toggle: End
-
+  
   // Navbar Dropdown Toggle: Start
   $("#profileMenu").on('click', function(){
     $(this).toggleClass("la-header__menu-rotate"); 
