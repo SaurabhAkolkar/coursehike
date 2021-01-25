@@ -81,5 +81,5 @@
       </div>
     </div>
 </section>
-{{dd($plan_subscription)}}
+{{-- {{dd($plan_subscription)}} --}}
 @endsection
