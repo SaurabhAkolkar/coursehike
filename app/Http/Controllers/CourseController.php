@@ -86,7 +86,7 @@ class CourseController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+ 
         $this->validate($request, [
             'category_id' => 'required',
             'subcategory_id' => 'required',
