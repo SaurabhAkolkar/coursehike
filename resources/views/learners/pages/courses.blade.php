@@ -38,9 +38,9 @@
 
               <!-- Filters : Start -->
             <div class="la-courses__nav-filters d-flex align-items-start ml-6">
-              <div class="la-courses__nav-props">
+              <!-- <div class="la-courses__nav-props">
                 <a class="la-icon icon-list-layout la-courses__nav-filter  mr-3" id="showLayout" role="button"></a>
-              </div>
+              </div> -->
               <div class="la-courses__nav-props">
                 <a class="la-icon icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                 <!-- Sort Courses Dropdown -->

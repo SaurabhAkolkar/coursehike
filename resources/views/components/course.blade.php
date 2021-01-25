@@ -90,7 +90,7 @@
 
 
 <!-- Course Card List View: Start -->
-<div class="col-12">
+<div class="col-12 d-none">
     <div class="la-course__list d-flex justify-content-between align-items-center">
         <div class="la-course__list-clft d-md-flex align-items-center">
             <div class="la-course__list-cimgtop">
