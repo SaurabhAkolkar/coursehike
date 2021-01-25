@@ -1,4 +1,4 @@
-<div class="col-12 " @if($addedToWhishList) id="course_{{$id}}" @endif>
+<div class="col-12 grid-view" @if($addedToWhishList) id="course_{{$id}}" @endif>
     <div class="la-course">
             <div class="la-course__inner">
                 <a class="la-course__inner-link" role="button" href= "{{ '/learn/course/'.$id.'/'.$url }}" >
@@ -90,7 +90,7 @@
 
 
 <!-- Course Card List View: Start -->
-<div class="col-12 d-none">
+<div class="col-12 list-view d-none">
     <div class="la-course__list d-flex justify-content-between align-items-center">
         <div class="la-course__list-clft d-md-flex align-items-center">
             <div class="la-course__list-cimgtop">
