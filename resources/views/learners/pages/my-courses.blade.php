@@ -46,6 +46,7 @@
                       :creatorImg="$course->course->user->img"
                       :creatorName="$course->course->user->fullName"
                       :creatorUrl="$course->course->user->id"
+                      :learnerCount="$course->course->learnerCount"
                     />
                   @endforeach
                 </div>
