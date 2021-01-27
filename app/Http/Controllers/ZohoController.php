@@ -13,12 +13,18 @@ use zcrmsdk\crm\bulkcrud\ZCRMBulkQuery;
 use zcrmsdk\crm\bulkcrud\ZCRMBulkRead;
 //use zcrmsdk\oauth\ZohoOAuth;
 use zcrmsdk\oauth\ZohoOAuthClient;
-
+use Illuminate\Support\Facades\Storage;
 
 class ZohoController extends Controller
 {
     public function __construct()
     {
+
+        $exists = Storage::disk('local')->exists('/token/zcrm_oauthtokens.txt');
+        if(!$exists){
+            Storage::disk('local')->put('/token/zcrm_oauthtokens.txt', '');
+        }
+
         $configuration = array("client_id" => "1000.P15TJJ3B5PQJF7CXZPMMOJLH1HT50P",
                                 "client_secret" => "f5ed8a0d0e7f1a58e4f2a0d265d9784da5cb0be984",
                                 "redirect_uri" => "http://localhost:8000/",
@@ -28,7 +34,7 @@ class ZohoController extends Controller
                                 "access_type"=>"offline",
                                 "persistence_handler_class"=>"ZohoOAuthPersistenceHandler",
                                 "accounts_url"=>"https://accounts.zoho.in",
-                                "token_persistence_path" => 'C:\xampp\htdocs\lila-laravel\public\files\token' );
+                                "token_persistence_path" => storage_path('app\token') );
 
         ZCRMRestClient::initialize($configuration);
        
@@ -111,13 +117,14 @@ class ZohoController extends Controller
         }
     }
 
-    public function createRecords($data)
+    public function createRecords()
     {
         $moduleIns = ZCRMRestClient::getInstance()->getModuleInstance("LILASubscribersDEVs"); //to get the instance of the module
         $records = array();
         $record = ZCRMRecord::getInstance("LILASubscribersDEVs", null);  //To get ZCRMRecord instance
         
         if(!isset($data)){
+            $data= [];
             $data['email'] = 'harish@earningdesigns.com'; 
             $data['name'] = 'harish'; 
             $data['mobile'] = '8698108190'; 
