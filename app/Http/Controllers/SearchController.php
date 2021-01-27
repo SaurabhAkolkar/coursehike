@@ -183,6 +183,7 @@ class SearchController extends Controller
 		$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
 		$courses = UserPurchasedCourse::with('course','course.user','course.review')->where(['user_id'=>Auth::User()->id])->get();
 		
+		
 		return view('learners.pages.my-courses',compact('playlists','courses','filter_categories', 'langauges','selected_categories','selected_subcategories', 'selected_level', 'selected_languages'));
 	}
 
