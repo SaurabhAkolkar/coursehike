@@ -53,7 +53,7 @@
             <div class="position-relative">
               <div class="la-hero__video ">
                   <video height="480" autoplay='' playsinline muted='muted' loop='loop'>
-                      <source src='../images/learners/home/home-demo.mp4'  type='video/mp4' />
+                      <source src='{{$firstSection->video_url}}'  type='video/mp4' />
                   </video>
               </div>
             </div>
