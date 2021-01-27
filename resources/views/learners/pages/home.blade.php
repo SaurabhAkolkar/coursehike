@@ -52,7 +52,7 @@
             <!-- Video Section: Start -->
             <div class="la-hero__video">
                 <video width="100%" height="100%" autoplay='' playsinline muted='muted' loop='loop'>
-                    <source src='../images/learners/home/home-demo.mp4'  type='video/mp4' />
+                    <source src='{{$firstSection->video_url}}'  type='video/mp4' />
                 </video>
             </div>
             <!-- Video Section: End -->
