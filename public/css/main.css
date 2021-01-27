@@ -10887,8 +10887,9 @@ ul, li {
   --z-60: 60;
 }
 
-body {
+html, body {
   font-family: var(--body-font);
+  overflow-x: hidden !important;
 }
 
 h1, .h1,
@@ -17123,7 +17124,7 @@ a, a:hover {
 }
 .la-header {
   position: fixed;
-  width: 100%;
+  width: 100vw;
   top: 0;
   left: 0;
   background: var(--white);
@@ -17593,6 +17594,7 @@ a, a:hover {
   margin-bottom: var(--size-9);
 }
 .la-courses__nav {
+  width: 100%;
   transition: all 0.5s linear;
   scroll-behavior: smooth;
 }
@@ -21282,6 +21284,11 @@ label.error {
   font-size: var(--text-sm);
   font-family: var(--head-font);
   font-weight: var(--font-semibold);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 @media (min-width: 992px) {
   .la-artist__company-name {
@@ -21689,6 +21696,10 @@ label.error {
   color: var(--gray6);
 }
 
+.modal-open {
+  padding-right: 0 !important;
+}
+
 .la-section {
   padding: calc(var(--size-16) + 40px) 0;
 }
@@ -21696,9 +21707,6 @@ label.error {
   .la-section {
     padding: var(--size-8) 0;
   }
-}
-.la-section--trail {
-  overflow-x: hidden;
 }
 .la-section__ {
   /*&crossline {
@@ -21777,6 +21785,11 @@ label.error {
   .la-section__circle {
     width: 797px;
     height: 797px;
+  }
+}
+@media (max-width: 767px) {
+  .la-section__circle {
+    display: none;
   }
 }
 .la-section__circle--right {
@@ -21943,12 +21956,29 @@ label.error {
 }
 
 .la-hero__video {
-  width: 500px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
+}
+@media (min-width: 1200px) {
+  .la-hero__video {
+    width: 500px;
+    height: 400px;
+  }
 }
 
 .la-hero__video video {
-  width: 820px;
+  width: 100%;
+  height: 100%;
+}
+@media (min-width: 1200px) {
+  .la-hero__video video {
+    width: 820px;
+  }
+}
+@media (max-width: 991px) {
+  .la-hero__video video {
+    margin: var(--size-10) 0;
+  }
 }
 
 @media (max-width: 991px) {

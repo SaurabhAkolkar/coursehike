@@ -3,6 +3,7 @@
         &__{
             &modal{
                 top:6% !important;
+        
                 &-{
                     &content{
                         width:400px !important;
@@ -48,4 +49,8 @@
             }
         }
     }
+}
+
+.modal-open{
+    padding-right:0 !important;
 }

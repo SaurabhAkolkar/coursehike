@@ -78,7 +78,8 @@
   <!-- Section: Start-->
   <section class="la-section  la-section--grey la-section--art-categories position-relative"  id="home_courses">
     <div class="la-section__inner la-anim__wrap" >
-      <div class="container"><span class="la-section__cross-line"></span>
+      <div class="container position-relative">
+        <span class="la-section__cross-line"></span>
         <div class="la-courses">
           <nav class="la-courses__nav d-flex justify-content-between align-items-start">
             <ul class="nav nav-pills la-courses__nav-tabs la-anim__stagger-x" id="nav-tab" role="tablist" tabindex="0">
@@ -302,7 +303,7 @@
 
   <!-- Section: Start-->
   <section class="la-section  la-section--artists position-relative la-anim__wrap">
-    <div class="la-section__inner">
+    <div class="la-section__inner position-relative">
       <span class="la-section__circle"></span>
       <div class="swiper-container gallery-top la-artist__slider container">
 

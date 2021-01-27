@@ -46,7 +46,7 @@
         }
         &--{
             &trail{
-                overflow-x:hidden;
+                //overflow-x:hidden;
             }
         }
         &__ {
@@ -129,6 +129,10 @@
                 @include respond-above(md) {
                     width: 797px;
                     height: 797px;
+                }
+
+                @include respond-below(sm){
+                    display:none;
                 }
 
                

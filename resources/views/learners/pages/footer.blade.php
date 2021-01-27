@@ -30,7 +30,8 @@
                     @endforeach
                   </ul><a class="la-footer__more" href="/browse/courses">See all</a>
                 </div>
-                <div class="col-12 col-sm-6 mb-5">
+
+                <div class="col-12 col-sm-6  mb-8 mb-md-5">
                   <div class="la-footer__title">Creators</div>
                   <ul class="la-footer__list">
                     @foreach ($creators as $c)
@@ -38,7 +39,8 @@
                     @endforeach
                   </ul><a class="la-footer__more" href="/mentors">See all</a>
                 </div>
-                <div class="col-12 col-sm-6 mb-5">
+
+                <div class="col-12 col-sm-6 mb-8 mb-md-5">
                   <div class="la-footer__title">Courses</div>
                   <ul class="la-footer__list">
                     @foreach ($courses as $c)
@@ -46,7 +48,8 @@
                     @endforeach
                   </ul><a class="la-footer__more" href="/browse/courses">See all</a>
                 </div>
-                <div class="col-12 col-sm-6 mb-5">
+
+                <div class="col-12 col-sm-6 mb-8 mb-md-5">
                   <div class="la-footer__title">Master Classes</div>
                   <ul class="la-footer__list">
                     <li class="la-footer__list-item"><a class="la-footer__list-link">Master in UI Design</a></li>
@@ -57,14 +60,15 @@
                     <li class="la-footer__list-item"><a class="la-footer__list-link">Photography</a></li>
                   </ul><a class="la-footer__more" href="/master-classes">See all</a>
                 </div>
+
               </div>
             </div>
             <!-- Column: End-->
             <!-- Column: Start-->
             <div class="col-12 col-lg-4">
-              <div class="la-footer__search">
+              <!-- <div class="la-footer__search"> -->
                  <!-- Global Search: Start-->
-                <div class="la-gsearch mb-md-4">
+                <!-- <div class="la-gsearch mb-md-4">
                   <form class="form-inline d-flex align-items-start" action="{{ url('/search-course/') }}" method="get">
                     <div class="form-group ">
                       <input class="la-gsearch__input w-100 form-control la-gsearch__input-footersearch" style="border-left:1px solid rgba(229,229,229,0.2); background:transparent;font-size:15px" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" required placeholder="What you want to learn today?">
@@ -73,10 +77,10 @@
                       <i class="la-icon icon icon-search la-gsearch__input-footericon"></i>
                     </button>
                   </form>
-                </div>
+                </div> -->
                 <!-- Global Search: End-->
-              </div>
-              <ul class="la-footer__nav">
+              <!-- </div> -->
+              <ul class="la-footer__nav mt-md-18">
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li> -->
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Testimonials</a></li> -->
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Aliens Tattoo School</a></li>
