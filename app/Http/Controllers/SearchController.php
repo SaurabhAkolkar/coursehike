@@ -30,6 +30,7 @@ class SearchController extends Controller
 		$selected_languages = [];
 		$sort_type = "";
 		$filtres_applied = false;
+		$selected_duration = "";
 
 		if(Auth::check()){
 			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
@@ -46,6 +47,21 @@ class SearchController extends Controller
 				}		
 			}else{
 				$courses = Course::with('user')->where('status',1)->get();
+			}
+			
+			
+			if(isset($request->duration) && $request->duration != null){
+				$selected_duration =$request->duration;
+				if($selected_duration == 'lessthan1'){
+					$courses = $courses->where('duration','<=',1);
+				}
+				if($selected_duration == 'lessthan5'){
+					$courses = $courses->where('duration','<=',5);
+				}
+				if($selected_duration == 'morethan5'){
+					$courses = $courses->where('duration','>',5);
+				}
+			
 			}
 
 			if(isset($request->categories) && $request->categories != null){
@@ -78,7 +94,7 @@ class SearchController extends Controller
 				$courses = $courses->whereIn('level',$level);
 			}
 			
-			return view('learners.pages.courses', compact('categories','sort_type','selected_languages','selected_categories','selected_subcategories','selected_level','filtres_applied','courses','playlists','langauges','filter_categories'));
+			return view('learners.pages.courses', compact('categories','selected_duration','sort_type','selected_languages','selected_categories','selected_subcategories','selected_level','filtres_applied','courses','playlists','langauges','filter_categories'));
 
 		}
 
@@ -102,7 +118,7 @@ class SearchController extends Controller
 		}
 		
 		
-		return view('learners.pages.courses', compact('categories','filtres_applied', 'sort_type','selected_languages','selected_categories','selected_subcategories','selected_level','playlists','langauges','filter_categories'));
+		return view('learners.pages.courses', compact('categories','filtres_applied', 'selected_duration','sort_type','selected_languages','selected_categories','selected_subcategories','selected_level','playlists','langauges','filter_categories'));
 
         // if(isset($searchTerm))
         // {
