@@ -21310,11 +21310,6 @@ label.error {
 .la-artist__slide-content {
   padding-right: 30px;
 }
-@media (min-width: 992px) {
-  .la-artist__slide-content {
-    padding-right: 100px;
-  }
-}
 .la-artist__thumbnail {
   width: 90px !important;
   cursor: pointer;

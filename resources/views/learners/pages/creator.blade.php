@@ -53,7 +53,7 @@
 
           <div class="row py-6 py-md-20">   
             <div class="col-12 p-md-0">
-              <h4 class="text-3xl head-font font-weight-bold pb-6">Courses from {{ucfirst($creator->FullName)}}</h4>
+              <h4 class="text-3xl head-font font-weight-bold pb-6">Courses from <span class="text-capitalize">{{ucfirst($creator->FullName)}}</span></h4>
               <div class="la-courses__creator-courses row col-12 px-0">
 
 

@@ -108,9 +108,6 @@
                 &- {
                     &content {
                         padding-right: 30px;
-                        @include respond-above(md) {
-                            padding-right: 100px;
-                        }
                     }
                 }
             }

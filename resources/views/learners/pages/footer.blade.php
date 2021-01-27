@@ -83,7 +83,7 @@
               <ul class="la-footer__nav mt-md-18">
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li> -->
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Testimonials</a></li> -->
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Aliens Tattoo School</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="https://www.alienstattooschool.com/" target="_blank">Aliens Tattoo School</a></li>
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/learning-plans">Learning Plans</a></li>
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/become-creator">Become a Creator</a></li>
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/guided-creator">Guided Creator</a></li>
