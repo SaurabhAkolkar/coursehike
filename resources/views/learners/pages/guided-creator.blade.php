@@ -6,7 +6,7 @@
     <div class="container-fluid la-anim__wrap">
     @if(session('message'))
               <div class="la-btn__alert position-relative">
-                <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" role="alert">
+                <div class="la-btn__alert-success col-lg-4 offset-lg-4  alert alert-success alert-dismissible fade show" role="alert">
                     <span class="la-btn__alert-msg">{{session('message')}}</span>
                     <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true" style="color:#56188C">&times;</span>
@@ -75,8 +75,10 @@
                 </ul>
                 <div class="form-group pt-3 la-anim__stagger-item">
                   <label class="d-flex" for="recordVideo">
-                    <input class="d-none" id="recordVideo" type="checkbox" name=""><span class="gcheck position-relative">
-                      <div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                    <input class="d-none" id="recordVideo" type="checkbox" name="">
+                    <span class="gcheck position-relative">
+                      <div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div>
+                    </span>
                     <div class="pl-4 mt-n1 text-sm">Yes, I want you to record for me!</div>
                   </label>
                 </div>

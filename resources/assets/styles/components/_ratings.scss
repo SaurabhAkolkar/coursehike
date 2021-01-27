@@ -64,6 +64,11 @@
                         height:auto;
                         box-shadow: 0px 6px 12px #00000029;
                         border-radius: 10px;
+
+                        @include respond-below(sm){
+                            width:100% !important;
+                            margin:0;
+                        }
                     }
                     &header{
                         border:none !important;

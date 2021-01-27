@@ -4,7 +4,7 @@
 
 @if(session('success'))
   <div class="la-btn__alert position-relative">
-    <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" role="alert">
+    <div class="la-btn__alert-success col-lg-4 offset-lg-4  alert alert-success alert-dismissible fade show" role="alert">
         <span class="la-btn__alert-msg">{{session('success')}}</span>
         <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true" style="color:#56188C">&times;</span>
@@ -223,10 +223,10 @@
               :playlists="$playlists"
           />
 
-          <div class="tab-content la-courses__content" id="nav-tabContent">
+          <div class="tab-content la-courses__content la-anim__wrap" id="nav-tabContent">
             @foreach ($categories as $category)
               <div class="tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
-                <div class="row row-cols-md-2 row-cols-lg-3">
+                <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item la-anim__C">
                       @foreach($category->courses as $course)
                         @if ($course->featured == 0)
                             @continue
@@ -419,7 +419,7 @@
     <div class="la-section__inner ">
       <div class="container ">
         <div class="la-price__container">
-          <h2 class="la-section__title la-section__title--big leading-none la-anim__pin"> <span style="color: var(--gray);">Learn it </span><br><span>like aliens</span></h2>
+          <h2 class="la-section__title la-section__title--big leading-none la-anim__pin"> <span style="color: var(--gray);" class="la-anim__fade-in-top">Learn it </span><br><span class="la-anim__stagger-item">like aliens</span></h2>
           <div class="la-price__slider la-anim__slider">
               <div class="la-price__slide la-anim__slide">
                 <div class="la-price__row row mb-16">

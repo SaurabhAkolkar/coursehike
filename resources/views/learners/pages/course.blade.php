@@ -14,7 +14,7 @@ use Carbon\Carbon;
 
 @if(session('success'))
   <div class="la-btn__alert position-relative">
-    <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" role="alert">
+    <div class="la-btn__alert-success col-lg-4 offset-lg-4  alert alert-success alert-dismissible fade show" role="alert">
         <span class="la-btn__alert-msg">{{session('success')}}</span>
         <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true" style="color:#56188C">&times;</span>
@@ -25,7 +25,7 @@ use Carbon\Carbon;
 
 @if(session('message'))
   <div class="la-btn__alert position-relative">
-    <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" role="alert">
+    <div class="la-btn__alert-success col-lg-4 offset-lg-4  alert alert-success alert-dismissible fade show" role="alert">
         <span class="la-btn__alert-msg">{{session('message')}}</span>
         <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true" style="color:#56188C">&times;</span>
@@ -42,9 +42,9 @@ use Carbon\Carbon;
     <div class="la-vcourse">
       <div class="container">
         <div class="row  mb-12"> 
-          <div class="col-12 col-lg-7 la-anim__wrap">
+          <div class="col-12 col-md-7 col-lg-7 la-anim__wrap">
             <div class="la-vcourse__header d-flex align-items-center ">
-              <h1 class="la-vcourse__title mr-8 text-capitalize la-anim__fade-in-top">{{ $course->title }}</h1>
+              <h1 class="la-vcourse__title  text-capitalize la-anim__fade-in-top">{{ $course->title }}</h1>
               {{-- <div class="la-vcourse__badges la-anim__stagger-item">
                 <img src="/images/learners/icons/badge.svg" alt="badge">
               </div> --}}
@@ -60,7 +60,7 @@ use Carbon\Carbon;
             </div>
           </div>
           
-          <div class="col-12 col-lg-5 pt-10 pt-md-1 d-flex flex-column justify-content-start align-items-center align-items-md-end la-anim__wrap">
+          <div class="col-12 col-md-5 col-lg-5 pt-10 pt-md-1 d-flex flex-column justify-content-start align-items-center align-items-md-end la-anim__wrap">
             <div class="la-vcourse__buy text-right mb-6 mb-md-12 la-anim__stagger-item--x">
               <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end" href="/learning-plans">Subscribe Now</a>
             </div>
@@ -124,7 +124,7 @@ use Carbon\Carbon;
           </div>
         </div>
         <div id="vcourse_row" class="row la-vcourse__class-row ">
-          <div class="col-12 col-lg-6 la-vcourse__class-col la-anim__wrap">
+          <div class="col-12 col-lg-6 la-vcourse__class-col px-0 px-md-4 la-anim__wrap">
             <div class="la-player la-vcourse__video-wrap mb-3  la-anim__stagger-item">
               <video-js
                 id="lila-video"
@@ -223,7 +223,7 @@ use Carbon\Carbon;
               <div class="col-lg-9 px-0">
                 <div class="col-12 col-lg px-0 la-anim__wrap">
                   <div class="la-ctabs__about la-anim__stagger-item la-anim__C">
-                    {!! $course->detail !!}
+                    <span>{!! $course->detail !!}</span>
                     <span class="la-ctabs__about-collapse collapse" id="about_collapse">
                       {!! $course->detail !!}
                     </span>
@@ -590,7 +590,7 @@ use Carbon\Carbon;
                 </div>
 
                 <div class="la-rtng__review-popup la-anim__wrap">
-                  <a class="la-rtng__review text-uppercase text-center text-md-right la-anim__stagger-item" data-toggle="modal" data-target="#leave_rating">Leave a Review</a>
+                  <a class="la-rtng__review text-uppercase text-center text-md-right text-nowrap la-anim__stagger-item" data-toggle="modal" data-target="#leave_rating">Leave a Review</a>
 
                   <!-- Leave a Rating Popup: Start -->
                   <div class="modal fade la-rtng__review-modal" id="leave_rating">
@@ -737,7 +737,7 @@ use Carbon\Carbon;
                 </div>         
             @else
 
-            <div class="row row-cols-lg-3 la-anim__stagger-item--x la-anim__B">
+            <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item--x la-anim__B">
               @foreach ($mentor_other_courses as $course)
                     <x-course 
                     :id="$course->id"
@@ -765,7 +765,7 @@ use Carbon\Carbon;
       <div class="container la-anim__wrap">
         <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">Looking for something else?</h2>
        
-        <div class="row row-cols-lg-3 la-anim__stagger-item--x la-anim__B">
+        <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item--x la-anim__B">
           @foreach ($related_courses as $course)
               <x-course 
                   :id="$course->id"

@@ -14,6 +14,11 @@
                         color: var(--gray5);
                         opacity: 0.6;
                     }
+                    &content{
+                        @include respond-below(sm){
+                            font-size:var(--text-sm);
+                        }
+                    }
                 
                     &img {
                         width: 160px;
@@ -124,7 +129,7 @@
                             content: "\e96d";
                             position:absolute;
                             top:0;
-                            right:3px;
+                            left:138px;
                             font-size: var(--text-md);
                             transform: rotate(180deg);-webkit-transform: rotate(180deg);-moz-transform: rotate(180deg);-ms-transform: rotate(180deg);-o-transform: rotate(180deg);
                             transition: all 0.25s ease-in;-webkit-transition: all 0.25s ease-in;-moz-transition: all 0.25s ease-in;-ms-transition: all 0.25s ease-in;-o-transition: all 0.25s ease-in;
@@ -154,6 +159,10 @@
                         font-size: var(--text-md);
                         color:var(--gray6);
                         padding-top:2px;
+
+                        @include respond-below(sm){
+                            font-size: var(--text-sm);
+                        }
                     }
                 }
             }

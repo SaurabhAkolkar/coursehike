@@ -19,8 +19,8 @@
                   <h5 class="la-course__tile-title text-xl mb-4 la-anim__stagger-item">Last Viewed</h5>
                 </div>
                 <div class="la-course__tile-card d-block">
-                  <div class="row no-gutters">
-                    <div class="col la-anim__wrap">
+                  <div class="row no-gutters la-anim__wrap">
+                    <div class="col la-anim__stagger-item">
                         @php
                             $tile = new stdClass;
                             $tile->img = "./images/learners/dashboard/card-tile.png";
@@ -56,9 +56,9 @@
 
             </div>
 
-            <div class="col-12 col-md-5 col-lg-4">
+            <div class="col-12 col-md-5 col-lg-4 la-anim__wrap">
               <div class="la-course__alien-ad">
-                <div class="card la-course__ad-card la-anim__wrap">
+                <div class="card la-course__ad-card la-anim__stagger-item--x">
                   <div class="card-body la-course__ad-body my-0 position-relative">
                     <p class="la-course__ad-tag leading-snug text-sm pt-4 la-anim__stagger-item">Got something different? <br/> Let’s share it with the world!</p>
                     <h2 class="la-course__ad-title text-4xl la-anim__stagger-item--x">become an <br><span>Alien Mentor, today!</span></h2>
@@ -204,12 +204,12 @@
           <div class="col-12 la-anim__wrap">
             <h5 class="la-pcourses__title  text-2xl text-md-3xl la-anim__stagger-item">Pending Courses</h5>
             
-            <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
-                <div class="la-empty__inner la-anim__stagger-item">
+            <div class="la-empty__courses  d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                <div class="col la-empty__inner la-anim__stagger-item">
                     <h6 class="la-empty__course-title">No Courses</h6>
                     <p class="la-empty__course-desc leading-snug m-0">You currently don't have any pending course, start new course</p>
                 </div>
-                <div class="la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
+                <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
                     <a href="/browse/courses" class="la-empty__browse">
                         Browse Courses
                         <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
@@ -255,24 +255,24 @@
         <div class="container">
             <div class="row ">
               <div class="col-12 la-anim__wrap">
-                <h5 class="text-2xl text-md-3xl pb-5 la-anim__stagger-item px-0">Alien Mentors</h5>
+                <h5 class="text-2xl text-md-3xl mb-6 px-0 la-anim__stagger-item ">Alien Mentors</h5>
               </div>
             </div>
           
             <div class="row">
               <div class="col-12 la-mentors">
-                  <div class="row ">
+                  <div class="row la-anim__wrap ">
                     @foreach($users as $u)
-                      <div class="col-md-6 col-lg-4 la-mentor la-anim__wrap ">
-                        <div class="la-mentor__profile la-anim__stagger-item">
-                            <img class="img-fluid" src="{{asset('images/user_img/'.$u[0]->user->user_img)}}" alt="{{$u[0]->user->fullName}}">
-                        </div>
-                        <div class="la-mentor__btm d-flex justify-content-between align-items-center">
-                          <div class="la-mentor__info la-anim__stagger-item la-anim__B">
-                            <h3 class="la-mentor__name">{{$u[0]->user->fullName}}</h3>
-                            <p class="la-mentor__skill">{{$u[0]->category->title}}</p>
+                      <div class="col-md-6 col-lg-4">
+                        <div class="la-mentor">
+                          <div class="la-mentor__profile la-mentor__dprofile la-anim__stagger-item">
+                              <img class="img-fluid" src="{{asset('images/user_img/'.$u[0]->user->user_img)}}" alt="{{$u[0]->user->fullName}}">
                           </div>
-                          <div class="la-anim__stagger-item--x la-anim__C">
+                          <div class="la-mentor__btm d-flex justify-content-between align-items-center la-anim__stagger-item la-anim__B">
+                            <div class="la-mentor__info ">
+                              <h3 class="la-mentor__name">{{$u[0]->user->fullName}}</h3>
+                              <p class="la-mentor__skill">{{$u[0]->category->title}}</p>
+                            </div>
                             <a class="la-mentor__detailview " href="/creator/{{1}}">
                               <span class="la-icon la-icon--6xl icon-grey-arrow mt-n2"></span>
                             </a>

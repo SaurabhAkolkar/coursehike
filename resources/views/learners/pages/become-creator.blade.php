@@ -6,7 +6,7 @@
     <div class="container-fluid">
     @if(session('message'))
               <div class="la-btn__alert position-relative">
-                <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" role="alert">
+                <div class="la-btn__alert-success col-lg-4 offset-lg-4  alert alert-success alert-dismissible fade show" role="alert">
                     <span class="la-btn__alert-msg">{{session('message')}}</span>
                     <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true" style="color:#56188C">&times;</span>
@@ -213,8 +213,9 @@
                   <span class="text-sm text-sm-md la-anim__stagger-item--x">Slab rate</span>
                   <p class="text-sm text-sm-lg la-anim__stagger-item--x">$ x</p>
                 </div>
-                <div class="la-bcreator-calcs text-2xl text-sm-5xl font-weight-bold mt-2 la-anim__stagger-item--x"> &#x3d;</div>
+                <div class="d-none d-lg-block la-bcreator-calcs text-2xl text-sm-5xl font-weight-bold mt-2 la-anim__stagger-item--x"> &#x3d;</div>
                 <div class="col-12 col-lg la-bcreator__calc-itm">
+                  <div class="d-block d-lg-none la-bcreator-calcs text-2xl text-sm-5xl font-weight-bold my-2 la-anim__stagger-item--x"> &#x3d;</div>
                   <span class="text-sm text-sm-md la-anim__stagger-item--x">Total Earnings</span>
                   <p class="text-sm text-sm-lg la-anim__stagger-item--x" style="color:#1EC812; ">$ xxx</p>
                 </div>

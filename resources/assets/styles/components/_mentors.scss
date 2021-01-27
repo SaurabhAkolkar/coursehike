@@ -23,17 +23,14 @@
                     overflow: hidden;
                     position:relative;
                     background-color: var(--white);
-
-                   
+                      
                     img{
                         width: calc(var(--mentor-profileW) - var(--size-6));
                         transition: all 0.25s ease-out;
                         -webkit-transition: all 0.25s ease-out;
                         -moz-transition: all 0.25s ease-out;
                         -ms-transition: all 0.25s ease-out;
-                        -o-transition: all 0.25s ease-out;
-
-                        
+                        -o-transition: all 0.25s ease-out;                        
                     }
                     img:hover{
                         position:absolute;
@@ -43,6 +40,12 @@
                         -moz-transition: all 0.25s ease-in;
                         -ms-transition: all 0.25s ease-in;
                         -o-transition: all 0.25s ease-in;
+                    }
+                }
+                // Dashboard Page
+                &dprofile{
+                    @include respond-below(md){
+                        width:100%;
                     }
                 }
 
