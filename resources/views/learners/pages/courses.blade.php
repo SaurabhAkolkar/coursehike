@@ -81,26 +81,41 @@
                                 <input type="hidden" name="sub_categories" id="filter_sub_categories" value="{{implode(',',$selected_subcategories)}}"/>
                                 <input type="hidden" name="languages" id="filter_languages" value="{{implode(',',$selected_languages)}}"/>
                                 <input type="hidden" name="level" id="filter_level" value="{{implode(',',$selected_level)}}"/>
-                                <input type="hidden" name="level" id="filter_duration" value=""/>
                                 <input type="hidden" name="filters" value="applied" />
 
                                 
                                 <div class="form-group pt-2">
                                   <label class="glabel-main" > Course Duration</label>
                                   <label class="glabel d-flex" for="dur_hr">
-                                    <input class="d-none" id="dur_hr" type="checkbox" value="1" onclick="addToDuration(1)"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                    <div class="pl-2 mt-n1">less than an hr</div>
+                                      <!-- <input class="d-none" id="dur_hr" type="checkbox" value="1" onclick="addToDuration(1)"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span> -->
+                                      
+                                      <input class="la-form__radio d-none la-vcourse__purchase-input" @if($selected_duration == "lessthan1") checked @endif type="radio" name="duration" id="lessthan1" value="lessthan1">
+                                      <label for="lessthan1"><span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2" for="lessthan1"></span></label>
+                                      <div class="pl-2 mt-n1"> 
+                                        less than an hr
+                                      </div>
                                   </label>
 
-                                  <label class="glabel d-flex" for="dur_hrs">
-                                    <input class="d-none" id="dur_hrs" type="checkbox" value="2" onclick="addToDuration(2)"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                    <div class="pl-2 mt-n1">1 hr - 5 hr</div>
+                                  <label class="glabel d-flex" for="dur_hr">
+                                      <!-- <input class="d-none" id="dur_hr" type="checkbox" value="1" onclick="addToDuration(1)"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span> -->
+                                      
+                                      <input class="la-form__radio d-none la-vcourse__purchase-input" @if($selected_duration == "lessthan5") checked @endif type="radio" name="duration" id="lessthan5" value="lessthan5">
+                                      <label for="lessthan5"><span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2" for="lessthan5"></span></label>
+                                      <div class="pl-2 mt-n1"> 
+                                        1hr - 5hr
+                                      </div>
                                   </label>
 
-                                  <label class="glabel d-flex" for="dur_more">
-                                    <input class="d-none" id="dur_more" type="checkbox" value="3" onclick="addToDuration(3)"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                    <div class="pl-2 mt-n1">more than 5 hrs</div>
+                                  <label class="glabel d-flex" for="dur_hr">
+                                      <!-- <input class="d-none" id="dur_hr" type="checkbox" value="1" onclick="addToDuration(1)"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span> -->
+                                      
+                                      <input class="la-form__radio d-none la-vcourse__purchase-input" @if($selected_duration == "morethan5") checked @endif type="radio" name="duration" id="morethan5" value="morethan5">
+                                      <label for="morethan5"><span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2" for="morethan5"></span></label>
+                                      <div class="pl-2 mt-n1"> 
+                                        More than 5hr
+                                      </div>
                                   </label>
+                              
                                 </div>
 
                                 <div class="form-group pt-2">
