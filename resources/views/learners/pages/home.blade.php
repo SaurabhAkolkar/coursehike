@@ -19,8 +19,8 @@
       <div class="container">
         <div class="la-hero__top row align-items-center la-anim__wrap la-anim__wrap--hero">
           <!-- Column: Start-->
-          <div class="col-12 col-lg-5 la-anim__item la-anim__item--left">
-            <div class="la-hero py-6 py-md-0 la-anim__stagger">
+          <div class="col-12 col-lg-5 la-anim__item la-anim__item--left my-auto">
+            <div class="la-hero py-6 py-md-2 la-anim__stagger">
               <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">COURSES & CLASSES BY</p>
               <h1 class="la-hero__title la-anim__stagger-item">World’s best <span class="la-hero__subtitle">Creators</span></h1>
               <p class="la-hero__lead pr-5 la-anim__stagger-item">{{$firstSection->sub_heading}}</p>
@@ -50,10 +50,12 @@
             </div> -->
 
             <!-- Video Section: Start -->
-            <div class="la-hero__video">
-                <video width="100%" height="100%" autoplay='' playsinline muted='muted' loop='loop'>
-                    <source src='{{$firstSection->video_url}}'  type='video/mp4' />
-                </video>
+            <div class="position-relative">
+              <div class="la-hero__video ">
+                  <video height="480" autoplay='' playsinline muted='muted' loop='loop'>
+                      <source src='{{$firstSection->video_url}}'  type='video/mp4' />
+                  </video>
+              </div>
             </div>
             <!-- Video Section: End -->
           </div>
@@ -61,7 +63,7 @@
         </div>
 
         <!-- Row: Start-->
-        <div class="pt-10 la-anim__wrap">
+        <div class="pt-md-20 la-anim__wrap">
           <div class="la-hero__bottom d-flex justify-content-center justify-content-lg-between align-items-center  pb-14 la-anim__fade-in">
             <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing"><a href="/learning-plans">Start free trial<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a></div>
             <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text--burple text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block"><a href="#home_courses">BROWSE COURSES</a><span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span></div>
@@ -78,12 +80,12 @@
     <div class="la-section__inner la-anim__wrap" >
       <div class="container"><span class="la-section__cross-line"></span>
         <div class="la-courses">
-          <nav class="la-courses__nav d-flex justify-content-between">
-            <ul class="nav nav-pills la-courses__nav-tabs la-anim__stagger-x" id="nav-tab" role="tablist">
+          <nav class="la-courses__nav d-flex justify-content-between align-items-start">
+            <ul class="nav nav-pills la-courses__nav-tabs la-anim__stagger-x" id="nav-tab" role="tablist" tabindex="0">
               @foreach ($categories as $category)
                 <li class="nav-item la-courses__nav-item la-anim__stagger-item--x">
                   <a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> 
-                    <span class="position-relative">{{ $category->title}}</span>
+                    <span class="position-relative text-nowrap">{{ $category->title}}</span>
                   </a>
                 </li>
               @endforeach
@@ -91,11 +93,12 @@
               {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
               <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
             </ul>
+            
             <!-- Filters : Start -->
-            <div class="la-courses__nav-filters mt-2">
-              <div class="la-courses__nav-props">
+            <div class="la-courses__nav-filters ml-10 mt-2">
+              <!-- <div class="la-courses__nav-props">
                 <a class="la-icon icon-list-layout la-courses__nav-filter mr-3" id="showLayout" role="button"></a>
-              </div>
+              </div> -->
               <div class="la-courses__nav-props">
                 <a class="la-icon icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                 <!-- Sort Courses Dropdown -->

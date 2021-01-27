@@ -17592,17 +17592,33 @@ a, a:hover {
 .la-course {
   margin-bottom: var(--size-9);
 }
+.la-courses__nav {
+  transition: all 0.5s linear;
+  scroll-behavior: smooth;
+}
+.la-courses__nav:hover > .la-courses__nav-tabs::-webkit-scrollbar-thumb {
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  height: 8px;
+  background: #c5c5c5;
+  border-radius: 10px;
+}
 .la-courses__nav-tabs {
-  margin-bottom: var(--size-12);
+  width: 100%;
+  height: 100%;
   flex-wrap: nowrap;
   overflow-x: scroll;
+  scroll-behavior: smooth;
+  margin-bottom: var(--size-12);
+  padding-bottom: var(--size-2);
+  transition: all 0.5s linear;
 }
 .la-courses__nav-tabs::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
-}
-.la-courses__nav-tabs::-webkit-scrollbar-thumb {
-  background: transparent;
+  height: 8px;
+  width: 8px;
+  background: rgba(229, 229, 229, 0.25);
+  border-radius: 10px;
+  visibility: hidden;
 }
 .la-courses__nav-item {
   margin-right: var(--size-14);
@@ -20354,6 +20370,11 @@ a, a:hover {
   word-wrap: break-word;
   line-height: 1.2;
   margin-right: var(--size-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 @media (min-width: 768px) {
   .la-cart__item-name {
@@ -21921,6 +21942,15 @@ label.error {
   line-height: 1.2;
 }
 
+.la-hero__video {
+  width: 500px;
+  height: 400px;
+}
+
+.la-hero__video video {
+  width: 820px;
+}
+
 @media (max-width: 991px) {
   .la-hero__top .la-hero .la-hero__title {
     font-size: var(--text-6xl);
@@ -22703,6 +22733,15 @@ section.la-cdashboard-main {
   }
 }
 
+.la-course__last-view {
+  margin-top: var(--size-12);
+}
+@media (max-width: 767px) {
+  .la-course__last-view {
+    margin-top: var(--size-10);
+  }
+}
+
 .la-course__tile-title {
   font-weight: var(--font-bold);
 }
@@ -22786,7 +22825,7 @@ section.la-cdashboard-main {
 
 .la-course__ad-card {
   width: 100%;
-  height: 100%;
+  height: 300px;
   background-image: radial-gradient(circle, #d39fff, #be7ff5, #a75eec, #8f3be1, #7400d7);
   -webkit-background-image: radial-gradient(circle, #d39fff, #be7ff5, #a75eec, #8f3be1, #7400d7);
   -moz-background-image: radial-gradient(circle, #d39fff, #be7ff5, #a75eec, #8f3be1, #7400d7);
@@ -22803,6 +22842,7 @@ section.la-cdashboard-main {
   font-family: var(--head-font);
   font-weight: var(--font-light);
   color: var(--white);
+  padding: var(--size-6) 0;
 }
 .la-course__ad-title span {
   font-family: var(--head-font);
@@ -22886,7 +22926,7 @@ section.la-cdashboard-main {
   display: inline-block;
 }
 
-.la-hp__card:hover .la-hp__thumbnail-img {
+.la-hp__card:hover .la-hp__card-thumbnail--img {
   transform: scale(1.1);
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
@@ -22899,31 +22939,31 @@ section.la-cdashboard-main {
   -o-transition: all 0.24s ease-in;
 }
 @media (max-width: 1199px) {
-  .la-hp__card:hover .la-hp__thumbnail-img {
+  .la-hp__card:hover .la-hp__card-thumbnail--img {
     transform: none;
   }
 }
 
-.la-hp__item {
+.la-hp__card-item {
   width: 250px;
   height: 200px;
   overflow: hidden;
   border-radius: 10px;
 }
 @media (max-width: 1199px) {
-  .la-hp__item {
+  .la-hp__card-item {
     width: 100%;
     height: auto;
   }
 }
 @media (max-width: 991px) {
-  .la-hp__item {
+  .la-hp__card-item {
     width: 100%;
     height: 100%;
   }
 }
 
-.la-hp__thumbnail-img {
+.la-hp__card-thumbnail--img {
   width: 250px;
   height: 200px;
   box-shadow: 1px 1px 2px #eee;
@@ -22941,7 +22981,7 @@ section.la-cdashboard-main {
   -o-transition: all 0.24s linear;
 }
 
-.la-hp__overlay {
+.la-hp__card-overlay {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -22951,15 +22991,22 @@ section.la-cdashboard-main {
   box-shadow: 1px 1px 2px #eee;
 }
 
-.la-hp__btm {
+.la-hp__card-btm {
   bottom: 0px;
   line-height: 18px;
 }
-.la-hp__btm strong {
+
+.la-hp__card-title {
   font-family: var(--body-font);
   color: var(--white);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
-.la-hp__btm p {
+
+.la-hp__card-author {
   color: var(--white);
 }
 
@@ -22968,7 +23015,7 @@ section.la-cdashboard-main {
     padding: 0 12px;
   }
 
-  .la-hp__item, .la-hp__thumbnail img {
+  .la-hp__card-item, .la-hp__card-thumbnail--img {
     height: auto !important;
   }
 }
@@ -22977,7 +23024,7 @@ section.la-cdashboard-main {
     padding: 0 12px;
   }
 
-  .la-hp__item, .la-hp__thumbnail img {
+  .la-hp__card-item, .la-hp__card-thumbnail--img {
     height: 140px !important;
   }
 }

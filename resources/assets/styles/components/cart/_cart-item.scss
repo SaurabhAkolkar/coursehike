@@ -57,6 +57,11 @@
                         word-wrap: break-word;
                         line-height: 1.2;
                         margin-right:var(--size-2);
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 1; 
+                        -webkit-box-orient: vertical;
 
                         @include respond-above(sm){
                             font-size:var(--text-xl);

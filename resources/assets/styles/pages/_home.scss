@@ -16,6 +16,13 @@
         }
     }
 }
+.la-hero__video{
+    width:500px;
+    height:400px;
+}
+.la-hero__video video{
+   width:820px;
+}
 
 @media (max-width:991px){
     .la-hero__top{

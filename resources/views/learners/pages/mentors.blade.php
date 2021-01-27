@@ -4,7 +4,7 @@
 <section class="la-section__small la-cbg--main">
     <div class="la-section__inner">
       <div class="container ">
-        <div class="mx-3 la-anim__wrap">
+        <div class="mx-3 la-anim__wrap d-md-flex justify-content-between align-items-center">
           <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
           <h1 class="la-page__title mb-8 la-anim__stagger-item">Alien Mentors</h1>
           <!-- Global Search: Start-->
@@ -34,7 +34,7 @@
           //$mentors = array($mentor1, $mentor2, $mentor3, $mentor4, $mentor5, $mentor6, $mentor7, $mentor8, $mentor9);
         @endphp
 
-        <div class="la-mentors ">
+        <div class="la-mentors pt-md-10">
           <div class="row la-anim__wrap">
               <div class="col-12 d-md-inline-flex">
                 @foreach($mentors as $mentor)
