@@ -27,7 +27,7 @@
                         </div>
                         <div class="la-cart__item-right ">
                             <div class="la-cart__item-name la-anim__stagger-item">{{ $course }}</div>
-                            <div class="la-cart__item-author mb-2 la-anim__stagger-item">by <span>{{ $creator}}</span></div>
+                            <div class="la-cart__item-author mb-2 mb-md-4 la-anim__stagger-item">by <span>{{ $creator}}</span></div>
                             <div class="la-cart__item-actions d-flex">
                                 <div class="la-cart__item-action remove la-anim__stagger-item"> 
                                     <a href= {{ $removeUrl }}>{{ $remove }}</a>

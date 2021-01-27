@@ -26,6 +26,10 @@
                         height:8px;
                         background:rgb(197, 197, 197);
                         border-radius:10px;
+
+                        @include respond-below(sm){
+                            height:4px;
+                        }
                     }
 
                     &- {
@@ -45,6 +49,10 @@
                             background:rgba(229,229,229,0.25);
                             border-radius:10px;
                             visibility: hidden;
+
+                            @include respond-below(sm){
+                                height:4px;
+                            }
                         }
                         &item {
                             margin-right: var(--size-14);
@@ -66,6 +74,7 @@
 
                             @include respond-below(md){
                                 white-space: nowrap;
+                                font-size:var(--text-2xl);
                             }
 
                             &:before {
@@ -248,6 +257,11 @@
                 font-size: var(--text-xl);
                 text-transform: capitalize;
                 color: #252525;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 1; 
+                -webkit-box-orient: vertical;
 
                 &:hover{
                     color:var(--app-indigo-1);

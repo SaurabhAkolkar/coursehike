@@ -7,8 +7,9 @@
       <div class="container">
       <div class="row">
           <div class="col-12 ">
+            <div class="d-md-flex justify-content-between align-items-center">
               <a class="la-icon la-icon--5xl icon-back-arrow ml-n1 mt-n2 mb-5 d-block d-md-none" href="{{URL::previous()}}"></a> 
-              <a href="{{URL::previous()}}" class="la-vcreator__back d-none d-md-block" style="margin-top:-40px;"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
+              <a href="{{URL::previous()}}" class="la-vcreator__back d-none d-md-block" style="margin-top:-28px;"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
               <h1 class="la-page__title mb-8">Alien Mentors</h1>
               <!-- Global Search: Start-->
               <div class="la-gsearch">
@@ -21,6 +22,7 @@
                 </form>
               </div>
               <!-- Global Search: End-->
+            </div>
             
             <div class="la-mentors">
               <div class="row no-gutters">

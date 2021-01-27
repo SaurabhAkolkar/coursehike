@@ -722,22 +722,39 @@ use Carbon\Carbon;
     <div class="la-section__inner">
       <div class="container la-anim__wrap">
         <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">More from Creators</h2>
-        <div class="row row-cols-lg-3 la-anim__stagger-item--x la-anim__B">
-          @foreach ($mentor_other_courses as $course)
-                <x-course 
-                :id="$course->id"
-                :img="$course->preview_image"
-                :course="$course->title"
-                :url="$course->slug"
-                :rating="round($course->average_rating, 2)"
-                :creatorImg="$course->user->user_img"
-                :creatorName="$course->user->fname"
-                :creatorUrl="$course->user->id"
-                :learnerCount="$course->learnerCount"
-              />
-          @endforeach
-          
-        </div>
+        
+          @if(count($mentor_other_courses) == 0)
+               <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6">
+                    <div class="col la-empty__inner">
+                        <h6 class="la-empty__course-title text-xl la-anim__stagger-item">No more Courses from this Creator</h6>
+                    </div>
+                    <div class="col text-md-right la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
+                        <a href="/browse/courses" class="la-empty__browse">
+                            Browse Courses
+                            <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                        </a>
+                    </div>
+                </div>         
+            @else
+
+            <div class="row row-cols-lg-3 la-anim__stagger-item--x la-anim__B">
+              @foreach ($mentor_other_courses as $course)
+                    <x-course 
+                    :id="$course->id"
+                    :img="$course->preview_image"
+                    :course="$course->title"
+                    :url="$course->slug"
+                    :rating="round($course->average_rating, 2)"
+                    :creatorImg="$course->user->user_img"
+                    :creatorName="$course->user->fname"
+                    :creatorUrl="$course->user->id"
+                    :learnerCount="$course->learnerCount"
+                  />
+              @endforeach
+            </div>
+
+            @endif
+                  
       </div>
     </div>
   </section>
@@ -747,6 +764,7 @@ use Carbon\Carbon;
     <div class="la-section__inner pb-md-10">
       <div class="container la-anim__wrap">
         <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">Looking for something else?</h2>
+       
         <div class="row row-cols-lg-3 la-anim__stagger-item--x la-anim__B">
           @foreach ($related_courses as $course)
               <x-course 

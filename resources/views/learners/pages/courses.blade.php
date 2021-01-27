@@ -18,9 +18,8 @@
 <section class="la-section__small la-cbg--main">
     <div class="la-section__inner">
       <div class="container">
-        
-        <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
         <div class="la-anim__wrap">  
+          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5 la-anim__stagger-item--x" href="{{URL::previous()}}"></a>
           <h1 class="la-page__title mb-8 la-anim__stagger-item">Browse Courses</h1>
         </div>
         
@@ -29,8 +28,8 @@
             <div class="la-gsearch la-anim__wrap">
               <form class="form-inline la-anim__stagger-item"  action="{{ url('/search-course/') }}">
                 <div class="form-group d-flex align-items-center">
-                  <input class="la-gsearch__input form-control la-gsearch__input-browsecourses" style="background:transparent" name="course_name" type="text" placeholder="What can we interest you in learning today?">
-                  <button class="la-gsearch__submit btn" type="submit"><i class="la-icon icon icon-search la-gsearch__input-icon"></i></button>
+                  <input class="la-gsearch__input form-control la-gsearch__input-searchcourses " style="background:transparent" name="course_name" type="text" placeholder="What can we interest you in learning today?">
+                  <button class="la-gsearch__submit btn mt-0" type="submit"><i class="la-icon icon icon-search la-gsearch__input-icon"></i></button>
                 </div>
               </form>
             </div>
@@ -86,34 +85,34 @@
                                 
                                 <div class="form-group pt-2">
                                   <label class="glabel-main" > Course Duration</label>
-                                  <label class="glabel d-flex" for="dur_hr">
+                                  <label class="glabel d-flex  align-items-center m-0" for="dur_hr">
                                       <!-- <input class="d-none" id="dur_hr" type="checkbox" value="1" onclick="addToDuration(1)"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span> -->
                                       
                                       <input class="la-form__radio d-none la-vcourse__purchase-input" @if($selected_duration == "lessthan1") checked @endif type="radio" name="duration" id="lessthan1" value="lessthan1">
-                                      <label for="lessthan1"><span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2" for="lessthan1"></span></label>
-                                      <div class="pl-2 mt-n1"> 
-                                        less than an hr
-                                      </div>
+                                      <label class="d-flex align-items-center" for="lessthan1">
+                                        <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center" for="lessthan1"></span>
+                                        <strong class="pl-2" style="color:var(--gray6);opacity:1;"> Less than an hrs</strong>
+                                      </label>
                                   </label>
 
-                                  <label class="glabel d-flex" for="dur_hr">
+                                  <label class="glabel d-flex  align-items-center m-0" for="dur_hr">
                                       <!-- <input class="d-none" id="dur_hr" type="checkbox" value="1" onclick="addToDuration(1)"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span> -->
                                       
                                       <input class="la-form__radio d-none la-vcourse__purchase-input" @if($selected_duration == "lessthan5") checked @endif type="radio" name="duration" id="lessthan5" value="lessthan5">
-                                      <label for="lessthan5"><span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2" for="lessthan5"></span></label>
-                                      <div class="pl-2 mt-n1"> 
-                                        1hr - 5hr
-                                      </div>
+                                      <label class="d-flex align-items-center" for="lessthan5">
+                                        <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center" for="lessthan5"></span>
+                                        <strong class="pl-2" style="color:var(--gray6);opacity:1;">  1hr - 5hrs</strong>
+                                      </label>
                                   </label>
 
-                                  <label class="glabel d-flex" for="dur_hr">
+                                  <label class="glabel d-flex  align-items-center m-0" for="dur_hr">
                                       <!-- <input class="d-none" id="dur_hr" type="checkbox" value="1" onclick="addToDuration(1)"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span> -->
                                       
                                       <input class="la-form__radio d-none la-vcourse__purchase-input" @if($selected_duration == "morethan5") checked @endif type="radio" name="duration" id="morethan5" value="morethan5">
-                                      <label for="morethan5"><span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2" for="morethan5"></span></label>
-                                      <div class="pl-2 mt-n1"> 
-                                        More than 5hr
-                                      </div>
+                                      <label class="d-flex align-items-center" for="morethan5">
+                                        <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex  justify-content-center align-items-center" for="morethan5"></span>
+                                        <strong class="pl-2" style="color:var(--gray6);opacity:1;"> More than 5hrs</strong>
+                                      </label>
                                   </label>
                               
                                 </div>
@@ -123,7 +122,7 @@
                                     @foreach($filter_categories as $c)
                                       <label class="glabel d-flex" for="course_{{$c->id}}">
                                         <input class="d-none" type="checkbox" id="course_{{$c->id}}" @if(in_array($c->id, $selected_categories)) checked @endif onclick="addToCategory({{$c->id}})" value="{{$c->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                        <div class="pl-2 mt-n1">{{$c->title}}
+                                        <div class="pl-2 mt-n1 text-capitalize">{{$c->title}}
                                             <!-- @if($c->subcategory != null)
                                               <ul class="d-flex flex-column">
                                                 @foreach($c->subcategory as $sc)
@@ -146,7 +145,7 @@
                                   @foreach($langauges as $l)
                                     <label class="glabel d-flex" for="lang_{{$l->id}}">
                                       <input class="d-none" id="lang_{{$l->id}}" @if(in_array($l->id, $selected_languages)) checked @endif type="checkbox" onclick="addToLanguage({{$l->id}})" value="{{$l->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                      <div class="pl-2 mt-n1">{{$l->name}}</div>
+                                      <div class="pl-2 mt-n1 text-capitalize">{{$l->name}}</div>
                                     </label>
                                   @endforeach
                                
@@ -220,12 +219,14 @@
                               @endforeach
 
                         </div>
+
                         @if(count($courses) == 0)
+
                         <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
                               <div class="la-empty__inner">
-                                  <h6 class="la-empty__course-title pb-2">No Courses Found.</h6>
+                                  <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
                               </div>
-                              <div class="la-empty__browse-courses">
+                              <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
                                   <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
                                       Browse Courses
                                       <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
