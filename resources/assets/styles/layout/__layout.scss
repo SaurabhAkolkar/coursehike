@@ -20,6 +20,10 @@
                 color: #252525;
                 // margin-bottom: var(--size-9);
                 // margin-top: var(--size-16);
+
+                @include respond-below(sm){
+                    font-size:var(--text-3xl);
+                }
                 &-- {
                     &black {
                         color: var(--gray6);

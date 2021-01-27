@@ -21,9 +21,9 @@
                 </div>
               </div>
             @endif
-            <div class="la-profile__title-wrap">
-              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
-              <h1 class="la-profile__title">Cart</h1>
+            <div class="la-profile__title-wrap la-anim__wrap">
+              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5 la-anim__stagger-item--x" href="{{URL::previous()}}"></a>
+              <h1 class="la-profile__title la-anim__stagger-item">Cart</h1>
             </div>
 
             <section class="la-section la-cart__sec pt-0">

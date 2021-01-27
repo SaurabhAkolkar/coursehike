@@ -18,9 +18,8 @@
 <section class="la-section__small la-cbg--main">
     <div class="la-section__inner">
       <div class="container">
-        
-        <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
         <div class="la-anim__wrap">  
+          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5 la-anim__stagger-item--x" href="{{URL::previous()}}"></a>
           <h1 class="la-page__title mb-8 la-anim__stagger-item">Browse Courses</h1>
         </div>
         
@@ -29,8 +28,8 @@
             <div class="la-gsearch la-anim__wrap">
               <form class="form-inline la-anim__stagger-item"  action="{{ url('/search-course/') }}">
                 <div class="form-group d-flex align-items-center">
-                  <input class="la-gsearch__input form-control la-gsearch__input-browsecourses" style="background:transparent" name="course_name" type="text" placeholder="What can we interest you in learning today?">
-                  <button class="la-gsearch__submit btn" type="submit"><i class="la-icon icon icon-search la-gsearch__input-icon"></i></button>
+                  <input class="la-gsearch__input form-control la-gsearch__input-searchcourses " style="background:transparent" name="course_name" type="text" placeholder="What can we interest you in learning today?">
+                  <button class="la-gsearch__submit btn mt-0" type="submit"><i class="la-icon icon icon-search la-gsearch__input-icon"></i></button>
                 </div>
               </form>
             </div>
@@ -205,12 +204,14 @@
                               @endforeach
 
                         </div>
+
                         @if(count($courses) == 0)
+
                         <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
                               <div class="la-empty__inner">
-                                  <h6 class="la-empty__course-title pb-2">No Courses Found.</h6>
+                                  <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
                               </div>
-                              <div class="la-empty__browse-courses">
+                              <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
                                   <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
                                       Browse Courses
                                       <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>

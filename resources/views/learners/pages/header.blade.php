@@ -31,7 +31,7 @@ use App\Announcement;
               <div class="la-gsearch  mb-0" >
                 <form class="form-inline mb-0" action="{{ url('/search-course/') }}" method="get">
                   <div class="form-group la-header__gsearch" >
-                    <input class="la-gsearch__input form-control text-md pr-0 la-header__gsearch-input" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Search Courses and Classes..." required>
+                    <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Search Courses and Classes..." required>
                   </div>
                   <button class="la-gsearch__submit btn px-0" type="submit" >
                     <i class="la-icon la-icon--xl icon icon-search"></i>

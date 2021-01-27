@@ -2,9 +2,9 @@
 <!-- Playlist Alert Message-->
 @if(session('message'))
 <div class="la-btn__alert position-relative">
-  <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible" role="alert">
-      <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
-      <button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close">
+  <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" role="alert">
+      <span class="la-btn__alert-msg">{{session('message')}}</span>
+      <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true" style="color:#56188C">&times;</span>
       </button>
   </div>
@@ -28,21 +28,38 @@
                 <div class="la-section__inner">
                 <div class="container px-0">
                     <div class="la-mccourses py-4">
-                    <div class="row justify-content-center px-0 la-anim__stagger la-anim__A">
-                    
-                        @foreach ($master_classes as $master)
-                            <x-master-class
-                            :img="$master->courses->preview_image"
-                            :title="$master->courses->title"
-                            :profileImg="'https://picsum.photos/100/100'"
-                            :profileName="$master->courses->user->fullName"
-                            :learners="'300'"
-                            :id="$master->courses->id"
-                            :slug="$master->courses->slug"
-                            />
-                        @endforeach
-                        
-                    </div>
+                      <div class="row justify-content-center px-0 la-anim__stagger la-anim__A">
+
+                      @if(count($master_classes) == 0)
+                      <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mx-5 mt-0 mt-md-6">
+                          <div class="la-empty__inner">
+                              <h6 class="col la-empty__course-title text-xl la-anim__stagger-item">No Master Classes</h6>
+                          </div>
+                          <div class="col text-md-right la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
+                              <a href="/browse/courses" class="la-empty__browse">
+                                  Browse Courses
+                                  <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                              </a>
+                          </div>
+                      </div>  
+
+                      @else
+                      
+                          @foreach ($master_classes as $master)
+                              <x-master-class
+                              :img="$master->courses->preview_image"
+                              :title="$master->courses->title"
+                              :profileImg="'https://picsum.photos/100/100'"
+                              :profileName="$master->courses->user->fullName"
+                              :learners="'300'"
+                              :id="$master->courses->id"
+                              :slug="$master->courses->slug"
+                              />
+                          @endforeach
+
+                      @endif
+                          
+                      </div>
                     </div>
                 </div>
                 </div>

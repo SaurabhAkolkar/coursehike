@@ -8,8 +8,8 @@
         @if(session('message'))
           <div class="la-btn__alert position-relative">
             <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" role="alert">
-              <h6 class="la-btn__alert-msg">{{session('message')}}</h6>
-              <button type="button" class="close mt-3" data-dismiss="alert" aria-label="Close">
+              <span class="la-btn__alert-msg">{{session('message')}}</span>
+              <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true" style="color:#56188C">&times;</span>
               </button>
             </div>
@@ -31,7 +31,7 @@
               <form class="form-inline "  action="{{ url('/search-course/') }}">
                 <div class="form-group d-flex align-items-center">
                   <input class="la-gsearch__input form-control la-gsearch__input-searchcourses" style=" background:transparent" value="{{$search_input}}" name="course_name" type="text" placeholder="What you want to learn today?">
-                  <button class="la-gsearch__submit btn" type="submit"><i class="la-icon icon icon-search la-gsearch__input-icon"></i></button>
+                  <button class="la-gsearch__submit btn mt-0" type="submit"><i class="la-icon icon icon-search la-gsearch__input-icon"></i></button>
                 </div>
               </form>
             </div>
@@ -201,7 +201,7 @@
                         <div class="la-empty__inner">
                             <h6 class="la-empty__course-title">No Courses Found.</h6>
                         </div>
-                        <div class="la-empty__browse-courses mt-md-n4">
+                        <div class="la-empty__browse-courses mt-n4">
                             <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
                                 Browse Courses
                                 <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>

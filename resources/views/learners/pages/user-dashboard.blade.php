@@ -8,10 +8,10 @@
       <div class="la-cdashboard__inner pt-5">
         <div class="container pt-0 pt-sm-3">
           <div class="row d-flex flex-row justify-content-between">
-            <div class="col-12 col-md-6 col-lg-5  la-anim__wrap">
-              <div class="la-cdashboard__page">
-                <h1 class="la-cdashboard__user-name text-3xl text-md-4xl text-capitalize">Welcome <span style="color:var(--app-indigo-1);">{{Auth::user()->fname}}!</span></h1>
-                <p class="text-md">Share your knowledge, Be the change.<br/> The kind that enables everyone to reach their full potential & more!</p>
+            <div class="col-12 col-md-6 col-lg-5 ">
+              <div class="la-cdashboard__page  la-anim__wrap">
+                <h1 class="la-cdashboard__user-name text-3xl text-md-4xl text-capitalize  la-anim__fade-in-top">Welcome <span style="color:var(--app-indigo-1);">{{Auth::user()->fname}}!</span></h1>
+                <p class="text-md  la-anim__stagger-item--x">Share your knowledge, Be the change.<br/> The kind that enables everyone to reach their full potential & more!</p>
               </div>
 
               <div class="la-course__last-view la-lastview-card d-flex flex-column justify-content-end">
@@ -44,7 +44,7 @@
 
                         <div class="la-empty__courses text-center mt-0 mb-10 mb-md-1 py-6 py-md-10 px-12 px-md-14">
                             <div class="la-empty__inner la-anim__stagger-item">
-                                <p class="la-empty__course-desc m-0">You don't have any last viewed course.</p>
+                                <p class="la-empty__course-desc leading-snug m-0">You don't have any last viewed course.</p>
                             </div>
                         </div>
                         
@@ -206,10 +206,10 @@
             
             <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
                 <div class="la-empty__inner la-anim__stagger-item">
-                    <h6 class="la-empty__course-title pb-2">No Courses</h6>
-                    <p class="la-empty__course-desc m-0">You currently don't have any pending course, start new course</p>
+                    <h6 class="la-empty__course-title">No Courses</h6>
+                    <p class="la-empty__course-desc leading-snug m-0">You currently don't have any pending course, start new course</p>
                 </div>
-                <div class="la-empty__browse-courses la-anim__stagger-item--x">
+                <div class="la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
                     <a href="/browse/courses" class="la-empty__browse">
                         Browse Courses
                         <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
@@ -263,7 +263,7 @@
               <div class="col-12 la-mentors">
                   <div class="row ">
                     @foreach($users as $u)
-                      <div class="col-lg-4 la-mentor la-anim__wrap ">
+                      <div class="col-md-6 col-lg-4 la-mentor la-anim__wrap ">
                         <div class="la-mentor__profile la-anim__stagger-item">
                             <img class="img-fluid" src="{{asset('images/user_img/'.$u[0]->user->user_img)}}" alt="{{$u[0]->user->fullName}}">
                         </div>

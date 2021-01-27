@@ -56,7 +56,7 @@ class HomeController extends Controller
                 $firstSection->sub_heading = 'Observe, learn and converse with creators to master your arts';
                 $firstSection->image = asset('images/learners/home/design-a@2x.png');
                 $firstSection->image_text = 'DESIGN';
-                $firstSection->video_url = 'https://static.wixstatic.com/media/86f3ff_12683ef001af42d593da862ef103a9b6f000.jpg/v1/fill/w_760,h_476,al_c,q_85,usm_0.33_1.00_0.00/86f3ff_12683ef001af42d593da862ef103a9b6f000.webp';
+                //- $firstSection->video_url = 'https://static.wixstatic.com/media/86f3ff_12683ef001af42d593da862ef103a9b6f000.jpg/v1/fill/w_760,h_476,al_c,q_85,usm_0.33_1.00_0.00/86f3ff_12683ef001af42d593da862ef103a9b6f000.webp';
                 
             }
 
