@@ -16,16 +16,16 @@
 
               <thead>
               
-                <th>Creator ID</th>
-                <th>Creator Name</th>
-                <th>Email</th>
-                <th>No. of Learners</th>
-                <th>Total watch time</th>
-                <th>Subscribers Total Revenue</th>
-                <th>Courses & Classes Purchased</th>
-                <th>Purchase Revenue</th>
-                <th>Month</th>
-                <th>Year</th>
+                <th><small>Creator ID</small></th>
+                <th><small>Creator Name</small></th>
+                <th><small>Email</small></th>
+                <th><small>No. of Learners</small></th>
+                <th><small>Total watch time</small></th>
+                <th><small>Subscribers Total Revenue</small></th>
+                <th><small>Courses & Classes Purchased</small></th>
+                <th><small>Purchase Revenue</small></th>
+                <th><small>Month</small></th>
+                <th><small>Year</small></th>
                 {{-- <th>Actions</th> --}}
               
               </tr>

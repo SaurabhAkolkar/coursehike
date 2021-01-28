@@ -459,11 +459,11 @@
               <h4 class="la-dash__recent-htitle">Pending Creator Requests</h4>
             </div>
       
-            <div class="la-dash__pending-section">
+            <div class="la-dash__pending-section px-20">
                 <div class="row no-gutters d-flex justify-content-between  la-dash__pending-head">
                     <div class="col la-dash__pending-title">Creator ID</div>
                     <div class="col la-dash__pending-title">Creator Name</div>
-                    <div class="col la-dash__pending-title">Crourse ID</div>
+                    <!-- <div class="col la-dash__pending-title">Crourse ID</div> -->
                     <div class="col la-dash__pending-title">Course Name</div>
                     <div class="col la-dash__pending-title">On</div>
                     <div class="col la-dash__pending-title">Request Type</div>
@@ -488,9 +488,9 @@
                           @endif
                       @endforeach 
                       @if(count($requests) == 0)
-                        <li class="row no-gutters d-flex justify-content-between la-dash__pending-item ">
-                          No Requests Found
-                        </li>
+                        <div class="text-center py-12">
+                            <h4 style="color:var(--gray8)">No Requests Found</h4>
+                        </div>
                       @endif
                   </ul>
                 </div>

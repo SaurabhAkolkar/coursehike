@@ -23,9 +23,9 @@
           @endif
           <div class="la-profile__main-inner">
             <div class="la-profile__title-wrap">
-                <h1 class="la-profile__title la-anim__stagger-item">
+                <h1 class="la-profile__title la-profile__title-crumbs la-anim__stagger-item">
                     <a href="/playlist" role="button" style="color:var(--app-indigo-1)">My Playlist</a> / 
-                    <span class="">{{$playlist->name}}</span>
+                    <span class="text-capitalize">{{$playlist->name}}</span>
                 </h1>
             </div>
             
@@ -60,16 +60,17 @@
                               </div>
                               @endforeach
                             @else
-                            <div class="col-12 col-md-8">
-                                <div class="la-playlist__course-nocourse text-center d-md-flex justify-content-between align-items-center">
-                                    <h4 class=" m-0">No Course In this Playlist</h4>
-                                    <div class="la-playlist__course-browse">
-                                      <a href="/browse/courses" class="la-playlist__course-view" role="button">
-                                          Browse Courses 
-                                          <span class="la-icon la-icon--5xl icon-grey-arrow"></span>
-                                      </a>
-                                    </div>
-                                </div>
+                            <div class="col-12 ">
+                            <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                              <div class="col la-empty__inner">
+                                  <h6 class="la-empty__course-title text-lg text-md-2xl m-0 la-anim__stagger-item">No Course in this Playlist</h6>
+                              </div>
+                              <div class="col text-md-right la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
+                                  <a href="/browse/courses" class="la-empty__browse ">
+                                      Browse Courses
+                                      <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                                  </a>
+                              </div>
                             </div>  
                             @endif
 

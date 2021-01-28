@@ -16,7 +16,7 @@
               {{ csrf_field() }}         
 
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Instructor') }}:<sup class="redstar">*</sup></label>
                   <select name="user_id" class="form-control js-example-basic-single ">
                         <option disabled selected>Choose Option</option>
@@ -32,7 +32,7 @@
                     @enderror
                 </div>
           
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Month') }}:<sup class="redstar">*</sup></label>
                   <input class="form-control month" name="month" id="exampleInputTitle" readonly>
                   @error('month')
@@ -45,7 +45,7 @@
               <br> 
 
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.SubscriptionAmount') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="subscription_amount" id="exampleInputTitle" >
                   @error('subscription_amount')
@@ -54,7 +54,7 @@
                     </div>
                     @enderror
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.CourseAmount') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="course_amount" id="exampleInputTitle" >
                   @error('course_amount')
@@ -66,10 +66,10 @@
               </div>
               <br> 
                 
-              <div class="row">
-                <div class="col-md-6 text-right">
+              <div class="row mt-6">
+                <div class="col-md-8 text-right">
                   <div class="box-footer">
-                    <button type="submit" class="btn btn-primary px-14">{{ __('adminstaticword.Save') }}</button>
+                    <button type="submit" class="btn btn-primary px-20">{{ __('adminstaticword.Save') }}</button>
                   </div>
                 </div>
               </div>

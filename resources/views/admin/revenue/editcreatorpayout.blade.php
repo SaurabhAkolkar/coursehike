@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-          <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.CreatorPayout') }}</h3>
+          <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.CreatorPayout') }}</h3>
         
         <!-- /.box-header -->
         <div class="box-body">
@@ -73,8 +73,22 @@
                   <div class="col-md-4">
                       <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                       <div class="d-flex align-items-center">
-                          <label class="mr-3"><input type="radio" name="status" value="pending" {{ $payout->status == 'pending' ? 'checked' : '' }}> <span> {{ __('adminstaticword.Pending') }} </span></label>
-                          <label class="mr-3"><input type="radio" name="status" value="paid" {{ $payout->status == 'paid' ? 'checked' : '' }}> <span> {{ __('Paid') }} </span></label>
+                            <input class="la-admin__cp-input" id="c_pending" type="radio" name="status" value="pending" {{ $payout->status == 'pending' ? 'checked' : '' }}> 
+                            <label class="mr-3 " for="c_pending">
+                              <div class="la-admin__cp-circle">
+                                <span class="la-admin__cp-radio"></span>
+                                <span class="la-admin__cp-label"> {{ __('adminstaticword.Pending') }} </span>
+                              </div>
+                            </label>
+
+
+                            <input class="la-admin__cp-input"  type="radio" name="status" id="c_paid" value="paid" {{ $payout->status == 'paid' ? 'checked' : '' }}> 
+                            <label class="mr-3" for="c_paid">
+                                <div class="la-admin__cp-circle">
+                                  <span class="la-admin__cp-radio"></span>
+                                  <span class="la-admin__cp-label">  {{ __('Paid') }}</span>
+                                </div>
+                            </label>
                       </div>
                   </div>
               </div>
@@ -83,7 +97,7 @@
               <div class="row">
                   <div class="col-md-8">
                     <div class="box-footer">
-                      <button type="submit" class="btn btn-primary px-16"> {{ __('adminstaticword.Save') }}</button>
+                      <button type="submit" class="btn btn-primary px-20"> {{ __('adminstaticword.Save') }}</button>
                     </div>
                   </div>
               </div>

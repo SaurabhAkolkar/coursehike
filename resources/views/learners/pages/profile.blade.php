@@ -14,9 +14,18 @@
               <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
               <h1 class="la-profile__title m-0">Edit Profile</h1><span class="la-profile__para la-profile__para--light">Feel free to edit you personal details.</span>
             </div>
+
             @if(session('message'))
-              <div class="alert alert-danger">{{ session('message') }}</div>
+            <div class="la-btn__alert position-relative">
+              <div class="la-btn__alert-success col-lg-4 offset-lg-2 alert alert-success alert-dismissible fade show" role="alert">
+                  <span class="la-btn__alert-msg">{{session('message')}}</span>
+                  <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" style="color:#56188C">&times;</span>
+                  </button>
+              </div>
+            </div>
             @endif
+
             <section class="la-profile__form">
               <div class="la-profile__form-inner">
                 <form class="la-form" action="" name="profile_name" method="post" enctype="multipart/form-data" id="profile_form">

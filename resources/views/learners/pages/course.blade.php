@@ -240,33 +240,44 @@ use Carbon\Carbon;
 
             @if($video_access == true)
               <div class="tab-pane fade" id="cnav-resource" role="tabpanel" aria-labelledby="cnav-resource-tab">
-                <div class="col-lg px-0 d-flex">
-                  @foreach ( $course->resources as $resource)
-                    <div class="col-12 col-md col-lg px-0">
-                      <div class="la-ctabs__resources d-flex">
-                        <div class="la-ctabs__resources-pdf"><i class="la-icon--5xl icon-download mr-8"></i></div>
-                        <div class="la-ctabs__resources-desc">
-                          <div class="la-ctabs__resources-title text-lg head-font text-uppercase">{{$resource->file_name}}</div><a class="la-ctabs__resources-file text-sm" href="{{$resource->file_url}}" target="_blank">Download Now</a>
-                        </div>
+                
+                  @if(count($course->resources) == 0)
+                      <div class=" la-anim__wrap text-center">
+                          <div class="la-empty__inner la-anim__stagger-item">
+                              <h6 class="la-empty__course-title text-2xl" style="color:var(--gray8);">No Resources available for this Course.</h6>
+                            </div>
                       </div>
+                  @else
+                    <div class="col-lg px-0 d-flex">
+                      @foreach ( $course->resources as $resource)
+                        <div class="col-12 col-md col-lg px-0">
+                          <div class="la-ctabs__resources d-flex">
+                            <div class="la-ctabs__resources-pdf"><i class="la-icon--5xl icon-download mr-8"></i></div>
+                            <div class="la-ctabs__resources-desc">
+                              <div class="la-ctabs__resources-title text-lg  text-uppercase">{{$resource->file_name}}</div><a class="la-ctabs__resources-file text-sm" href="{{$resource->file_url}}" target="_blank">Download Now</a>
+                            </div>
+                          </div>
+                        </div>
+                      @endforeach
                     </div>
-                  @endforeach
-
-                </div>
-                <div class="col-12 px-0 d-flex justify-content-end"> <a class="la-ctabs__download-all text-sm" href=""><span class="text-uppercase">DOWNLOAD ALL<span class="pl-1 la-icon icon-download"> </span></span></a></div>
+                    <div class="col-12 px-0 d-flex justify-content-end"> <a class="la-ctabs__download-all text-sm" href=""><span class="text-uppercase">DOWNLOAD ALL<span class="pl-1 la-icon icon-download"> </span></span></a></div>
+                  @endif
               </div>
+
+
               <div class="tab-pane fade" id="cnav-certificate" role="tabpanel" aria-labelledby="cnav-certificate-tab">
                 <div class="col-lg px-0 d-flex">
                   <div class="col-12 col-md-6 col-lg px-0">
                     <div class="la-ctabs__certificate d-flex">
                       <div class="la-ctabs__certificate-pdf"><i class="la-icon--5xl icon-download mr-8"></i></div>
                       <div class="la-ctabs__certificate-desc">
-                        <div class="la-ctabs__certificate-title text-lg head-font text-uppercase">Water Color</div><a target="_blank" class="la-ctabs__certificate-file text-sm" href="/download-certificate/{{$course->id}}">watercolor_certificate.pdf</a>
+                        <div class="la-ctabs__certificate-title text-lg text-uppercase">Water Color</div><a target="_blank" class="la-ctabs__certificate-file text-sm" href="/download-certificate/{{$course->id}}">watercolor_certificate.pdf</a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+
             @endif
           </div>
         </div>
@@ -276,7 +287,7 @@ use Carbon\Carbon;
           <div class="la-ctabs__content">
             <!-- About -->
             <div class="col-12 mb-6 px-0 la-anim__wrap">
-              <h4 class="la-ctabs__title mb-4 la-anim__stagger-item">About</h4>
+              <h5 class="la-ctabs__title mb-4 la-anim__stagger-item">About</h5>
                 <div class="col-12 col-lg px-0">
                   <div class="la-ctabs__about la-anim__stagger-item--x la-anim__B">
                     {!! $course->detail !!}
@@ -296,47 +307,39 @@ use Carbon\Carbon;
             <!-- Resources -->
             @if($video_access == true)
             <div class="col-12 mb-4 px-0 la-anim__wrap">
-              <h4 class="la-ctabs__title mb-4 la-anim__stagger-item">Resources</h4>
-              @foreach ( $course->resources as $resource)
-                  <div class="col-12 col-md col-lg px-0">
-                    <div class="la-ctabs__resources d-flex">
-                      <div class="la-ctabs__resources-pdf la-anim__stagger-item--x"><i class="la-icon--3xl icon-download mr-8"></i></div>
-                      <div class="la-ctabs__resources-desc la-anim__stagger-item--x">
-                        <div class="la-ctabs__resources-title text-lg head-font text-uppercase">{{$resource->file_name}}</div><a class="la-ctabs__resources-file text-sm" href="{{$resource->file_url}}" target="_blank">Download Now</a>
+              <h5 class="la-ctabs__title mb-4 la-anim__stagger-item">Resources</h5>
+
+              @if(count($course->resources) == 0)
+                  <div class=" la-anim__wrap text-center pt-4 pb-10">
+                    <div class="la-empty__inner la-anim__stagger-item">
+                      <h6 class="la-empty__course-title text-xl" style="color:var(--gray8);">No Resources available for this Course.</h6>
+                      </div>
+                  </div>
+              @else
+                  @foreach ( $course->resources as $resource)
+                    <div class="col-12 col-md col-lg px-0">
+                      <div class="la-ctabs__resources d-flex">
+                        <div class="la-ctabs__resources-pdf la-anim__stagger-item--x"><i class="la-icon--3xl icon-download mr-8"></i></div>
+                        <div class="la-ctabs__resources-desc la-anim__stagger-item--x">
+                          <div class="la-ctabs__resources-title text-lg  text-uppercase">{{$resource->file_name}}</div><a class="la-ctabs__resources-file text-sm" href="{{$resource->file_url}}" target="_blank">Download Now</a>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                @endforeach
-
-                
-                <!--<div class="col-12 col-md col-lg px-0">
-                  <div class="la-ctabs__resources d-flex">
-                    <div class="la-ctabs__resources-pdf"><i class="la-icon--3xl icon-download mr-8"></i></div>
-                    <div class="la-ctabs__resources-desc">
-                      <div class="la-ctabs__resources-title text-lg head-font text-uppercase">Daily Routine</div><a class="la-ctabs__resources-file text-sm" href="">daily_routine.pdf</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md col-lg px-0">
-                  <div class="la-ctabs__resources d-flex">
-                    <div class="la-ctabs__resources-pdf"><i class="la-icon--3xl icon-download mr-8"></i></div>
-                    <div class="la-ctabs__resources-desc">
-                      <div class="la-ctabs__resources-title text-lg head-font text-uppercase">Important Tips</div><a class="la-ctabs__resources-file text-sm" href="">important_tips.pdf</a>
-                    </div>
-                  </div>
-                </div> -->
+                  @endforeach
+                  <div class="col-12 mb-20 text-right la-anim__wrap"><a class="la-ctabs__download-all la-anim__stagger-item--x" href=""><span class="text-uppercase text-sm">DOWNLOAD ALL<span class="pl-1 la-icon icon-download"> </span></span></a></div>
+              @endif
             </div>
-            <div class="col-12 mb-20 text-right la-anim__wrap"><a class="la-ctabs__download-all la-anim__stagger-item--x" href=""><span class="text-uppercase text-sm">DOWNLOAD ALL<span class="pl-1 la-icon icon-download"> </span></span></a></div>
+            
             
 
             <!-- Certificate -->
             <div class="col-12 mb-4 px-0 la-anim__wrap">
-              <h4 class="la-ctabs__title mb-4 la-anim__stagger-item">Certificate</h4>
+              <h5 class="la-ctabs__title mb-4 la-anim__stagger-item">Certificate</h5>
               <div class="col-12 col-md-6 col-lg px-0">
                 <div class="la-ctabs__certificate d-flex">
                   <div class="la-ctabs__certificate-pdf la-anim__stagger-item--x"><i class="la-icon--3xl icon-download mr-8"></i></div>
                   <div class="la-ctabs__certificate-desc la-anim__stagger-item--x">
-                    <div class="la-ctabs__certificate-title text-lg head-font text-uppercase">{{$course->title}}</div><a class="la-ctabs__certificate-file text-sm" href="">{{$course->title}}.pdf</a>
+                    <div class="la-ctabs__certificate-title text-md-lg  text-uppercase">{{$course->title}}</div><a class="la-ctabs__certificate-file text-sm" href="">{{$course->title}}.pdf</a>
                   </div>
                 </div>
               </div>
@@ -466,7 +469,7 @@ use Carbon\Carbon;
               </div>
             </div>
             <div class="la-vcourse__purchase-actions d-flex flex-wrap align-items-center mt-8">
-              <div class="la-vcourse__purchase-btn w-50">
+              <div class="la-vcourse__purchase-btn1 w-50">
                 <a class="btn btn-primary la-btn w-100 text-center" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif >Buy course</a>
               </div>
               <div class="la-vcourse__purchase-btn w-50">

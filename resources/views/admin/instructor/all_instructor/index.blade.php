@@ -23,7 +23,7 @@
                 	<th>{{ __('adminstaticword.Image') }}</th>
                   <th>{{ __('adminstaticword.Name') }}</th>
                   <th>{{ __('adminstaticword.Email') }}</th>
-                  <th>{{ __('adminstaticword.Detail') }}</th>
+                  <th width="45%">{{ __('adminstaticword.Detail') }}</th>
                   <th>{{ __('adminstaticword.Status') }}</th>
                   <th>{{ __('adminstaticword.Edit') }}</th>
                 </tr>
@@ -38,7 +38,7 @@
                 	<td><img src="{{ $item->userimg }}" class="img-fluid"></td> 
                   <td>{{$item->fname}}</td>
                   <td>{{$item->email}}</td>
-                  <td>{!! $item->detail !!}</td>
+                  <td style="padding-right:30px;"><span  style="line-height:1.5;">{!! $item->detail !!} </span></td>
                   <td>
                     @if($item->status==1)
                       {{ __('adminstaticword.Active') }}

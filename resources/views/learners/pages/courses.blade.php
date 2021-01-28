@@ -223,7 +223,7 @@
 
                         @if(count($courses) == 0)
 
-                        <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
+                          <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
                               <div class="la-empty__inner">
                                   <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
                               </div>

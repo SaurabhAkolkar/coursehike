@@ -8,6 +8,10 @@
                     margin-bottom:var(--size-10);
                 }
 
+                @include respond-below(sm){
+                    margin-bottom:0;
+                }
+
                 &-{
                     &desc{
                         p{

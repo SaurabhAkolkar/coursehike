@@ -57,10 +57,10 @@
                       @endforeach
                 </div>
                 @else
-                  <div class="d-none d-lg-block">
-                    <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
-                          <div class="la-empty__inner">
-                              <h6 class="la-empty__course-title">No Purchase History.</h6>
+                  <div class="d-none d-lg-block la-anim__wrap">
+                    <div class=" d-md-flex justify-content-center align-items-start la-anim__stagger-item">
+                          <div class="la-empty__inner py-10">
+                              <h6 class="la-empty__course-title  text-3xl la-anim__stagger-item" style="color:var(--gray8);">No Purchase History.</h6>
                           </div>
                       </div>
                     </div>
@@ -97,10 +97,10 @@
                     @endforeach        
                 </div>
                 @else
-                    <div class="d-block d-lg-none">
-                      <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
-                          <div class="la-empty__inner">
-                              <h6 class="la-empty__course-title">No Purchase History.</h6>
+                    <div class="d-block d-lg-none la-anim__wrap">
+                      <div class="d-md-flex justify-content-between align-items-start  la-anim__stagger-item" >
+                          <div class="text-center py-6 la-empty__inner">
+                          <h6 class="la-empty__course-title text-xl la-anim__stagger-item" style="color:var(--gray8);">No Purchase History.</h6>
                           </div>
                       </div>
                     </div>

@@ -9,7 +9,7 @@
           <h1 class="la-page__title mb-8 la-anim__stagger-item">Alien Mentors</h1>
 
           <!-- Global Search: Start-->
-          <div class="la-gsearch la-anim__stagger-item">
+          <div class="la-gsearch la-anim__stagger-item--x">
             <form class="form-inline" action="/search-mentor" method="post">
               @csrf
               <div class="form-group d-flex align-items-center">

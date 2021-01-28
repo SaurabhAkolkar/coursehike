@@ -14,10 +14,10 @@
        
         <!-- /.box-header -->
         <div class="box-body">
-            <div class="la-admin__filter-icons text-right" style="position:relative; top:50px;z-index:0;">
+            <!-- <div class="la-admin__filter-icons text-right" style="position:relative; top:50px;z-index:0;">
               <a href="#" role="button"><span class="la-icon la-icon--3xl icon-sort mr-2" style="color:#000;"></span></a>
               <a href="#" role="button"><span class="la-icon la-icon--3xl icon-excel mr-2" style="color:#1D6F42"></span></a>
-            </div>
+            </div> -->
             
               <table id="example1" class="table table-bordered table-striped text-center display nowrap">
                 <thead>
@@ -25,7 +25,6 @@
                   <th>{{ __('adminstaticword.StartDate') }}</th>
                   <th>{{ __('adminstaticword.EndDate') }}</th>
                   <th>{{ __('adminstaticword.Amount') }}</th>
-                  <th></th>
                 </thead> 
 
                 <tbody>
@@ -51,7 +50,7 @@
     </div>
 
 
-    <div class="col-md-12 mt-10">
+    <div class="col-md-12 mt-20">
       <div class="box box-primary">
         <div class="d-flex justify-content-between align-items-center ml-2">
           <h3 class="la-admin__section-title">{{ __('adminstaticword.Courses') }}</h3>
@@ -67,7 +66,6 @@
                   <th>{{ __('adminstaticword.Classes') }}</th>
                   <th>{{ __('adminstaticword.PurchaseType') }}</th>
                   <th>{{ __('adminstaticword.PurchaseDate') }}</th>
-                  <th></th>
                 </thead> 
 
                 <tbody>

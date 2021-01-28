@@ -49,8 +49,8 @@
                 
                 &-- {
                     &purple {
-                        color: #5800a2 !important;
-                        opacity: 0.5 !important;
+                        color: var(--app-indigo-1) !important;
+                        opacity: 0.7 !important;
                     }
                     &black {
                         color: var(--gray5) !important;

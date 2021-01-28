@@ -10748,7 +10748,7 @@ ul, li {
 }
 .la-btn__alert-success {
   position: fixed;
-  top: 85px;
+  top: 80px;
   background-color: #EBD3FF !important;
   color: #56188C;
   border: 1px solid rgba(86, 24, 140, 0.15);
@@ -10761,7 +10761,7 @@ ul, li {
 }
 .la-btn__alert-danger {
   position: fixed;
-  top: 85px;
+  top: 80px;
   background-color: #FFD3D9 !important;
   color: #C52A2E;
   border: 1px solid rgba(197, 42, 46, 0.15);
@@ -18032,6 +18032,11 @@ a, a:hover {
   font-weight: var(--font-light);
   line-height: calc(var(--text-5xl) - 8px);
 }
+@media (max-width: 767px) {
+  .la-vcourse__info-item .la--count {
+    font-size: var(--text-3xl);
+  }
+}
 .la-vcourse__info-icon {
   color: var(--app-indigo-1);
 }
@@ -18409,6 +18414,11 @@ a, a:hover {
 .la-vcourse__purchase-label {
   font-family: var(--head-font);
   font-weight: 600;
+}
+@media (max-width: 767px) {
+  .la-vcourse__purchase-btn1 a {
+    padding: var(--size-3) var(--size-4);
+  }
 }
 @media (max-width: 991px) {
   .la-vcourse__purchase-btn2 {
@@ -18830,6 +18840,11 @@ a, a:hover {
 @media (max-width: 991px) {
   .la-ctabs__about {
     margin-bottom: var(--size-10);
+  }
+}
+@media (max-width: 767px) {
+  .la-ctabs__about {
+    margin-bottom: 0;
   }
 }
 .la-ctabs__about-desc p {
@@ -19924,6 +19939,11 @@ a, a:hover {
 }
 .la-profile__title-wrap {
   margin-bottom: var(--size-10);
+}
+@media (max-width: 991px) {
+  .la-profile__title-crumbs {
+    font-size: var(--text-2xl);
+  }
 }
 .la-profile__para {
   font-size: var(--text-sm);
@@ -21450,8 +21470,8 @@ label.error {
   }
 }
 .la-trail__title--purple {
-  color: #5800a2 !important;
-  opacity: 0.5 !important;
+  color: var(--app-indigo-1) !important;
+  opacity: 0.7 !important;
 }
 .la-trail__title--black {
   color: var(--gray5) !important;

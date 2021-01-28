@@ -14,7 +14,7 @@
             <h1 class="la-mycourses__title text-4xl mb-8 la-anim__stagger-item">My Courses</h1>
 
             <!-- Global Search: Start-->
-            <div class="la-gsearch la-anim__stagger-item">
+            <div class="la-gsearch la-anim__stagger-item--x">
               <form class="form-inline" action="{{ url('/search-course/') }}">
                 <div class="form-group d-flex align-items-center">
                   <input class="la-gsearch__input form-control w-75 la-gsearch__input-browsecourses" style="background:transparent" type="text" name="course_name" placeholder="Search your Courses and Classes">

@@ -35,10 +35,10 @@
                             <div class="la-admin__invoice-address text-right">
                                 <p style="font-size:15px;color:#252525">K2, Old Sonal Industrial Est, Kanchpada, <br/> Malad Link Road, Malad West, Mumbai <br/> 400064. MH, India </p> 
                                 <a  href="tel: +91 9999999999" class="d-flex justify-content-end align-items-center" style="color:#252525">
-									<span class="fa fa-phone" style="color:#656565"></span> <span class="pl-2" >+91 9999999999 </span>
+									<span>+91 9999999999 </span>
 								</a>
                                 <a href="mailto: ask@learnitlikealiens.com" class="d-flex justify-content-end align-items-center" style="color:#252525">
-									<span class="fas fa-envelope" style="color:#656565"></span> <span class="pl-2" >ask@learnitlikealiens.com </span>
+									<span>ask@learnitlikealiens.com </span>
 								</a>
                             </div>
                         </div>
@@ -51,10 +51,10 @@
                                 <div class="la-admin__cust-name" style="color:#252525;"> Joseph Phill </div>
                                 <div class="la-admin__cust-address" style="color:#252525;">Address: 7-23, Hyderabad<br></div>
                                 <a class="la-admin__cust-mobile d-flex align-items-center" href="tel:9999912345" style="color:#252525">
-									<span class="fa fa-phone" style="color:#656565"></span> <span class="pl-2" >+91 9999912345</span>
+									<span>+91 9999912345</span>
 								</a> 
                                 <a class="la-admin__cust-mail d-flex align-items-center" href="mailto: mail@example.com" style="color:#252525">
-									<span class="fas fa-envelope" style="color:#656565"></span> <span class="pl-2" > mail@example.com</span>
+									 <span> mail@example.com</span>
 								</a>
                             </div>
               

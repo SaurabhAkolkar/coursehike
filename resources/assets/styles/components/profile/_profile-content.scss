@@ -51,6 +51,11 @@
                     &wrap {
                         margin-bottom: var(--size-10);
                     }
+                    &crumbs{
+                        @include respond-below(md){
+                            font-size: var(--text-2xl);
+                        }
+                    }
                 }
             }
             &para {

@@ -70,6 +70,10 @@
                                 color: var(--app-indigo-1);
                                 font-weight: var(--font-light);
                                 line-height: calc(var(--text-5xl) - 8px);
+
+                                @include respond-below(sm){
+                                    font-size:var(--text-3xl);
+                                }
                             }
                         }
                     }
@@ -543,6 +547,13 @@
                     &label {
                         font-family: var(--head-font);
                         font-weight: 600;
+                    }
+                    &btn1{
+                        a{
+                            @include respond-below(sm){
+                                padding:var(--size-3) var(--size-4);
+                            }
+                        }
                     }
                     &btn2{
                         @include respond-below(md){

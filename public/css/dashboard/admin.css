@@ -851,7 +851,6 @@ a.dt-button {
   font-weight: var(--font-medium);
   font-size: var(--text-md);
   color: var(--gray5);
-  text-align: center;
 }
 
 .la-dash__pending-section .la-dash__pending-item {
@@ -865,7 +864,6 @@ a.dt-button {
   font-weight: var(--font-normal);
   font-size: var(--text-sm);
   color: var(--gray5);
-  text-align: center;
 }
 
 .la-dash__pending-section .la-dash__pending-item .la-dash__pending-date {
