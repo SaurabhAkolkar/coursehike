@@ -1,0 +1,63 @@
+// Section New Releases Start
+section.la-new--releases{
+    padding:var(--size-14) var(--size-base);
+   
+    .la-new__back{
+        position: relative;
+        top:52px;
+        left:-60px;
+        transition:all 0.25s ease-in;-webkit-transition:all 0.25s ease-in;-moz-transition:all 0.25s ease-in;
+
+        &:hover{
+            transform: translateX(-10px);-webkit-transform: translateX(-10px);-moz-transform: translateX(-10px);
+            transition:all 0.25s ease-in;-webkit-transition:all 0.25s ease-in;-moz-transition:all 0.25s ease-in;
+        }
+    }
+
+    .la-announcement__main-title{
+        h1{
+            padding-bottom:var(--size-4);
+            color:var(--gray5);
+            font-weight:var(--font-semibold);
+        }
+    }
+    .la-new__announcements{
+        margin-right:calc(var(--size-20)*3);
+        border-bottom:2px solid rgba(112,112,112,0.23);
+    }
+
+    .la-new__meet-events{
+        margin-right:calc(var(--size-20)*3);
+    }
+}
+// Section New Releases Start
+
+@media (max-width:1279px){
+    section.la-new--releases{
+        .la-new__back{
+            top:0;left:0 !important;
+        }
+        .la-new__announcements,.la-new__meet-events{
+            margin-right:0;
+        }
+    }
+}
+
+@media (max-width:991px){
+    section.la-new--releases{
+        padding:var(--size-10) var(--size-base);
+       
+        .la-new__announcements{
+            h1{ padding:var(--size-4) var(--size-base);}
+        }
+        .la-new__announcements,.la-new__meet-events{margin-right:0 !important;}
+    }
+}
+
+@media (max-width:575px){
+    section.la-new--releases{
+        .la-new__announcements{
+            h1{padding:var(--size-6);}
+        }
+    }
+}

@@ -1,0 +1,210 @@
+// Main Section
+section.la-cbg--main{
+    background: var(--gray);
+}
+
+// Contact Page Section
+section.la-contact--page{
+    a.la-back__page{
+        span{
+            position:absolute;
+            top:0;
+            left:-50px;
+            z-index:var(--z-1);
+            cursor: pointer;
+            transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-moz-transition:all .2s ease-in;-ms-transition:all .2s ease-in;-o-transition:all .2s ease-in;
+       
+            &:hover{
+                transform: translateX(-10px);
+                transition:all .2s ease-out;-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;-ms-transition:all .2s ease-out;-o-transition:all .2s ease-out;
+            }
+            @media(max-width:1279px){
+                left:0;
+                top:0px;
+                &:hover{
+                    transform:none;
+                }
+            }
+            @media(max-width:767px){
+                left:8px;
+            }
+        }       
+    }
+
+    .la-contact__title h1{
+        font-family:var(--head-font);
+        color:var(--gray2);
+        font-size:var(--text-abnormal);
+        font-weight:var(--font-black);
+    }
+    .la-contact--info{
+        background-color:rgba(245,244,240,0.6);
+        box-shadow: 0px 0px 20px #C5C5C529;
+        margin-top:-75px;
+        padding:var(--size-20);
+        position: relative;
+        z-index: var(--z-10);
+
+        @include respond-below(md){
+            padding:var(--size-12);
+        }
+    }
+    .la-contact__lft{
+        .la-contact__connect{ 
+            h6{
+                font-family: var(--body-font);
+                color: var(--gray6);
+                font-weight:var(--font-semibold);
+            }
+            h2{
+                font-family: var(--body-font);
+                color:#7400D7;
+                font-weight:var(--font-black);
+            }
+            p{
+                font-weight:var(--font-light);
+            }
+        }
+        .la-contact__btm{
+            margin-top:calc(16 * var(--size-3));
+            .la-contact__details{
+               font-family:var(--body-font);
+               font-size: 16px;
+                span{
+                   color:var(--gray6);
+                   font-weight:var(--font-normal);
+                }
+                a{
+                    color:var(--gray6);
+                    font-weight:var(--font-normal);
+                   &:hover{
+                    text-decoration: underline;
+                }
+               }
+            }
+            .la-contact__smedia a{
+                color:#000000;
+
+                &:hover{
+                    color:var(--app-indigo-1);
+                }
+            }
+        }
+    }
+    .la-contact__rgt{
+        .la-contact__form{
+            .form-group{
+                label{
+                    color:var(--gray6);
+                    font-weight:var(--font-normal);
+                }
+                .form-control{
+                    background:transparent;
+                    border:none;
+                    border-bottom:1px solid #E5E4E0;
+                    border-radius:0;
+                }
+                .text-msg{
+                    border:1px solid #E5E4E0 !important;
+                }
+                ::-webkit-input-placeholder{
+                    font-size:var(--text-sm);
+                    color:#CECECD;
+                    font-weight:var(--font-light);
+                }
+                ::-moz-placeholder{
+                    font-size:var(--text-sm);
+                    color:#CECECD;
+                    font-weight:var(--font-light);
+                }
+                :-ms-input-placeholder{
+                    font-size:var(--text-sm);
+                    color:#CECECD;
+                    font-weight:var(--font-light);
+                }
+            }
+            .la-contact__btn{
+                padding-top:var(--size-6);
+                .btn-desktop{
+                    width:160px;
+                    height:48px;
+                    border: 2px solid #7400D7;
+                    border-radius: 10px;
+                    font-family:var(--body-font);
+                    font-weight:var(--font-bold);
+                    letter-spacing: 3.2px;
+                    padding:10px 50px;
+                    color:#222222;
+
+                    &:hover{
+                        background-color:var(--app-indigo-1);
+                        color:#ffffff;
+                    }
+                }
+            }
+        }
+    }
+   
+}
+// Contact Section End
+
+@media (max-width:991px){
+    section.la-contact--page{
+        .la-contact__title h1{
+            font-size:var(--text-8xl);
+        }
+        .la-contact--info{
+            margin-top:-30px;
+        }
+    }
+}
+
+@media (max-width:767px){
+    section.la-contact--page{
+        .la-contact__title h1{
+            font-size:var(--text-8xl);
+        }
+        .la-contact--info{
+            padding:0;
+            margin-top:var(--size-12);
+            box-shadow: none;
+        }
+        .la-contact__lft{
+            padding:var(--size-4) 0;
+        }
+        .la-contact__rgt{
+            margin-top:-28px;
+            padding:var(--size-16) var(--size-8);
+            box-shadow: 0px 0px 20px #C5C5C529;
+            z-index:var(--z-10);
+            position: relative;
+            
+            .la-contact__form{
+                .form-group{
+                    .text-msg{
+                        border-radius:10px;
+                    }    
+                }
+                .la-contact__btn{
+                    .btn-mobile{
+                        width:100%;
+                        height:50px;
+                        border: 2px solid #7400D7;
+                        border-radius: 10px;
+                        font-family:var(--body-font);
+                        font-weight:var(--font-bold);
+                        letter-spacing: 3.2px;
+                        padding:10px 50px;
+                        color:#222222;
+
+                        &:hover{
+                            background-color:var(--app-indigo-1);
+                            color:#ffffff;
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}

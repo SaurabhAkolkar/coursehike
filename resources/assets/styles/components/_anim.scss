@@ -1,0 +1,113 @@
+#{$ap}- {
+    &anim {
+        &__ {
+            &A {
+                transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-moz-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+                transition-delay: 0.1s !important;-webkit-transition-delay: 0.1s !important;-moz-transition-delay: 0.1s !important;-ms-transition-delay: 0.1s !important;-o-transition-delay: 0.1s !important;
+            }
+            &B {
+                transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-moz-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+                transition-delay: 0.2s !important;-webkit-transition-delay: 0.2s !important;-moz-transition-delay: 0.2s !important;
+            }
+            &C {
+                transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-moz-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+                transition-delay: 0.3s !important;-webkit-transition-delay: 0.3s !important;-moz-transition-delay: 0.3s !important;
+            }
+            &D {
+                transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-moz-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+                transition-delay: 0.4s !important;-webkit-transition-delay: 0.4s !important;-moz-transition-delay: 0.4s !important;
+            }
+            &E {
+                transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-moz-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+                transition-delay: 0.5s !important;-webkit-transition-delay: 0.5s !important;-moz-transition-delay: 0.5s !important;
+            }
+            &F {
+                transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-moz-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+                transition-delay: 0.6s !important;-webkit-transition-delay: 0.6s !important;-moz-transition-delay: 0.6s !important;
+            }
+            &item {
+                // opacity: 0;
+                // transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+                &-- {
+                    &left {
+                        transform: translateY(10px);-webkit-transform: translateY(10px);-moz-transform: translateY(10px);
+                    }
+                    &right {
+                        // transition-delay: 0.2s;
+                    }
+                }
+            }
+            &stagger {
+                &- {
+                    &item {
+                        opacity: 0;
+                        transform: translateY(10px);-webkit-transform: translateY(10px);-moz-transform: translateY(10px);
+
+                        &-- {
+                            &x {
+                                opacity: 0;
+                                transform: translateX(10px);-webkit-transform: translateX(10px);-moz-transform: translateX(10px);
+                                transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-moz-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+                                transition-delay: 0.1s;-webkit-transition-delay: 0.1s;-moz-transition-delay: 0.1s;
+                            }
+                        }
+                    }
+                }
+            }
+            &text {
+                &- {
+                    &move {
+                        right: unset !important;
+                        opacity: 0;
+                        z-index: 0;
+                        transition: all 0.2s cubic-bezier(0.25, 0.1, 0.14, 1.05);-webkit-transition: all 0.2s cubic-bezier(0.25, 0.1, 0.14, 1.05);-moz-transition: all 0.2s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+
+                        &-- {
+                            &z1 {
+                                z-index: 1;
+                            }
+                        }
+
+                    //    & + img {
+                    //     transform: translateY(-30px);
+                    //    }
+                    }
+                }
+            }
+            &fade-in {
+                opacity: 0;
+
+                &- {
+                    &top {
+                        opacity: 0;
+                        transform: translateY(-10px);-webkit-transform: translateY(-10px);-moz-transform: translateY(-10px);
+                        transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-moz-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+                    }
+                    &bottom {
+                        opacity: 0;
+                        transform: translateY(10px);-webkit-transform: translateY(10px);-moz-transform: translateY(10px);
+                        transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-moz-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+                    }
+                    &left {
+                        opacity: 0;
+                        transform: translateX(-10px);-webkit-transform: translateX(-10px);-moz-transform: translateX(-10px);
+                        transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-moz-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+                    }
+                    &right {
+                        opacity: 0;
+                        transform: translateX(10px);-webkit-transform: translateX(10px);-moz-transform: translateX(10px);
+                        transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-moz-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+                    }
+                }
+            }
+            &slide {
+                &- {
+                    &box {
+                        opacity: 0;
+                        transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);-moz-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,154 @@
+#{$ap}- {
+    &artist {
+        &__ {
+            &slider {
+                &- {
+                    &row{
+                        @include respond-below(md) {
+                            align-items: flex-end;
+                        }
+                    }
+                    &col {
+                        @include respond-below(md) {
+                            width: 50%;
+                        }
+                    }
+                }
+                & .swiper-slide-active {
+                    #{$ap}- {
+                        &artist {
+                            &__ {
+                                &img {
+                                    opacity: 1;
+                                    transform: translateX(0);-webkit-transform: translateX(0);-moz-transform: translateX(0);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &designation {
+                top: 0;
+                bottom: 0;
+            }
+            &name {
+                font-family: var(--head-font);
+                font-size: var(--text-xl);
+                font-weight: var(--font-black);
+                color: #222222 !important;
+                border-radius: 0 !important;
+                padding: 0;
+                background: none !important;
+                position: relative;
+                text-transform: capitalize;
+
+                @include respond-above(md) {
+                    font-size: var(--text-6xl);
+                }
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: calc(-1 * var(--size-4));
+                    width: calc(var(--size-5) + 5px);
+                    height: calc(var(--size-5) + 5px);
+                    border: 2px solid transparent;
+                    border-color: #FFC516;
+                    transform: translateX(0);-webkit-transform: translateX(0);-moz-transform: translateX(0);
+                    opacity: 1;
+                    z-index: -1;
+                    border-radius: var(--rounded-full);
+
+                @include respond-above(md) {
+                    width: var(--size-10);
+                    height: var(--size-10);
+                }
+                    
+                }
+            }
+            &specialist{
+                @include respond-below(sm){
+                    font-size:var(--text-sm);
+                }
+            }
+
+            &company{
+                &-{
+                    &name{
+                        font-size: var(--text-sm);
+                        font-family: var(--head-font);
+                        font-weight: var(--font-semibold);
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 1; 
+                        -webkit-box-orient: vertical;
+
+                        @include respond-above(md) {
+                            font-size: var(--text-2xl);
+                        }
+                    }
+                }
+            }
+
+            &img {
+                transform: translateX(20px);-webkit-transform: translateX(20px);-moz-transform: translateX(20px);
+                opacity: 0;
+                transition: all 0.2s ease;-webkit-transition: all 0.2s ease;-moz-transition: all 0.2s ease;
+                transition-delay: 0.2s;-webkit-transition-delay: 0.2s;-moz-transition-delay: 0.2s;
+                // height: 60vh;
+
+                & img {
+                    // height: 100%;
+                }
+            }
+
+            &slide {
+                &- {
+                    &content {
+                        padding-right: 30px;
+                    }
+                }
+            }
+            
+            &thumbnail {
+                width: 90px !important;
+                cursor:pointer;
+                
+                &.swiper-slide-thumb-active {
+                    transform: scale(1.2);
+                    position: relative;
+                    z-index: var(--z-1);
+                    transition: all 0.2s ease-out;
+                    position: relative;
+
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        border: 3px solid var(--app-indigo-1);
+                    }
+                }
+
+                &:hover{
+                    position:relative;
+                    z-index: var(--z-2);
+                    transition: all 0.2s ease-out;
+                    transform: scale(1.2);
+                }
+                
+
+                &s {
+                    &- {
+                        &wrap {
+                            overflow: visible !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

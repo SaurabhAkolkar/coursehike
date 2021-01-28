@@ -1,0 +1,304 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.la-video__course-desc {
+	.la-video__title {
+		font-size: var(--text-6xl);
+		font-family: var(--head-font);
+		font-weight: var(--font-extrabold);
+	}
+
+	.la-video__rating {
+		color: #ffc517;
+		font-size: var(--text-md)
+	}
+
+	.la-video__course-text {
+		font-size: var(--text-sm);
+	}
+
+	.la-video__creator-snap {
+		width: 56px;
+		height: 56px;
+	}
+
+	.la-video__creator-name {
+		font-size: var(--text-md);
+		color: #252525;
+
+	}
+
+}
+
+.la-video__video-desc-info {
+	.title {
+		color: #909090;
+	}
+
+
+	.title-desc {
+		color: #252525;
+		margin-left: 5px;
+
+	}
+}
+
+.la-video__classes-videos {
+
+	.la-video__classes--num,
+	.la-video__classes--videos {
+		color: #1EC812;
+		font-size: var(--text-sm);
+	}
+
+	.la-video__classes--num span,
+	.la-video__classes--videos span {
+		color: #909090;
+		margin-left: 5px;
+	}
+
+
+}
+
+.la-video__subscribe {
+	.subscribe-info-item-number {
+		color: #6E1CCD;
+		font-size: var(--size-10);
+		font-family: var(--body-font);
+		font-weight: var(--font-light);
+	}
+
+	.subscribe-info-item-text {
+		margin-top: -23px;
+		font-size: var(--size-4);
+	}
+
+	.la-video__subscribe-info-video {
+		margin-left: 60px;
+		margin-top: 40px
+	}
+
+	.la-video__subscribe-info-video,
+	.la-video__subscribe-info-learners,
+	.la-video__subscribe-info-beginner {
+		margin-top: 30px
+	}
+}
+
+.la-video__about-course {
+	.la-video__about-course-title {
+		font-size: var(--text-4xl);
+		font-weight: bold;
+		font-family: var(--head-font);
+	}
+
+	.la-video__about-course-description {
+		font-size: 16px;
+		font-family: var(--body-font);
+		color: #010101;
+	}
+
+	ul li {
+		list-style-type: none;
+	}
+}
+
+.la-video__course-purchase {
+	background-color: #F5F4F0;
+
+	.la-video__course-purchase-subscribe-title,
+	.la-video__course-purchase-this-course-title {
+		font-size: var(--text-2xl);
+		font-family: var(--body-font);
+		font-weight: var(--font-normal);
+	}
+
+	.la-video__course-purchase-this-course-price,
+	.la-video__course-purchase-subscribe-price {
+		font-size: var(--text-2xl);
+		color: #1EC812;
+		font-family: var(--body-font);
+		font-weight: var(--font-bold);
+		margin-top: -10px;
+	}
+
+	.all-class label,
+	.select-class label {
+		font-size: var(--text-md);
+	}
+
+	.all-class input,
+	.select-class input {
+		color: #7400D7 !important;
+	}
+
+	.la-video__course-purchase-add-to-cart.d-inline {
+		color: #1EC812;
+		font-size: var(--text-md);
+		letter-spacing: 3.2px;
+		font-weight: var(--font-bold);
+	}
+
+	.la-video__course-purchase-subscribe-desc {
+		font-size: var(--text-md);
+		color: #010101;
+	}
+
+	.free-trial {
+		border-bottom: 1px solid #010101;
+		display: inline-block;
+		text-align: center;
+		font-size: var(--text-xs);
+		font-family: var(--body-font);
+		font-weight: var(--font-normal);
+
+	}
+}
+
+.col-lg-6.la-video__course-purchase-this-course,
+.la-video__course-purchase-subscribe {
+	padding: 20px 90px;
+}
+
+
+
+.la-video__reviews-rate {
+	padding: 70px;
+
+	.la-video__review-title-review {
+		font-size: 24px;
+		font-family: var(--head-font);
+		font-weight: var(--font-semibold);
+		color: #252525;
+	}
+
+	.la-video__review-title-leave-review.text-uppercase {
+		font-size: var(--text-md);
+		letter-spacing: 3.2px;
+		color: #7400D7;
+		font-weight: var(--font-bold);
+		font-family: var(--body-font);
+	}
+
+	.la-video__reviews-all-stats {
+		margin-top: 60px;
+	}
+
+	.bg-success {
+		background-color: #1EC812 !important;
+	}
+
+	.progress {
+		display: flex;
+		height: 13px !important;
+		overflow: hidden;
+		line-height: 0;
+		width: 171px !important;
+		font-size: .75rem;
+		background-color: #e9ecef;
+		border-radius: 1rem;
+	}
+
+	.la-video__rating-holder {
+		display: flex;
+		justify_content: space-between;
+		padding: 5px 0;
+	}
+
+	.la-icon.la-icon--lg.icon.icon-star {
+		color: #FFC516;
+
+	}
+
+	span.la-video__rating-consoludated i {
+		font-size: 24px;
+	}
+
+	.la-video__rating-info-number {
+		font-size: 50px;
+		color: #1EC812;
+		font-weight: var(--font-bold);
+		font-family: var(--body-font);
+	}
+
+	.la-video__rating-info-text {
+		font-size: var(--text-xxs);
+	}
+
+	.la-video__rating-holder {
+		margin-top: 0px;
+		margin-bottom: 3px;
+	}
+}
+
+.row.la-video__ratings-reviews-individuals-person {
+	margin-top: 80px;
+
+	img.la-video__ratings-reviews-individuals-person-info-snap {
+		height: 72px;
+		width: 72px;
+	}
+
+	.la-video__ratings-reviews-individuals-person-info-date {
+		color: #222222;
+		font-size: 14px;
+		font-weight: var(--font-semibold);
+		font-family: var(--head-font);
+	}
+
+	.la-video__ratings-reviews-individuals-person-info-name {
+		font-size: var(--text-2xl);
+		color: #222222;
+		font-family: var(--head-font);
+		font-weight: var(--font-bold);
+	}
+}
+
+.row.la-video__creator {
+	margin-top: 70px;
+
+	.la-video__creator-saying-title {
+		font-size: 28px;
+		color: #252525;
+		font-family: var(--body-font);
+		font-weight: var(--font-light);
+	}
+
+	.la-video__creator-snap {
+		background-color: #FFC516;
+	}
+
+	.la-video__creator-saying-desc {
+		font-size: var(--text-md);
+		font-family: var(--body-font);
+		font-weight: var(--font-normal);
+		color: #252525;
+	}
+
+	.read-more {
+		font-size: var(--text-md);
+		letter-spacing: 3.2px;
+		color: #7400D7;
+		font-weight: var(--font-bold);
+		font-family: var(--body-font);
+
+	}
+
+
+}
+
+.comment-pnum {
+	i.la-icon.la-icon--lg.icon.icon-arrow {
+		color: #7400D7;
+		font-size: 21px;
+	}
+
+	.active {
+		background-color: #7400D7;
+		border-radius: 10px;
+		color: white;
+		padding: 0;
+	}
+}

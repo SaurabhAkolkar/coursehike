@@ -1,0 +1,66 @@
+#{$ap}- {
+    &profile {
+        &__ {
+            &wrap {
+                background-color: var(--gray);
+                display: flex;
+            }
+            &main {
+                width: 100%;
+                padding-top: var(--size-12);
+
+                @include respond-below(lg){
+                    padding-top: var(--size-6);
+                    padding-left:var(--size-20);
+                }
+                @include respond-below(sm){
+                    padding-top: var(--size-6);
+                    padding-left:0;
+                }
+                &- {
+                    // &inner {
+                    //     @include respond-above(sm) {
+                    //         padding-left: 80px;
+                    //     }
+
+                    //     @include respond-above(lg) {
+                    //         padding-left: 80px;
+                    //     }
+                    // }
+                }
+            }
+            &form {
+                &- {
+                    &inner {
+
+                        @include respond-above(sm) {
+                            padding-right: 240px;
+                        }
+                        @include respond-above(md) {
+                            padding-right: 500px
+                        }
+                    }
+                }
+            }
+            &title {
+                font-size: var(--text-4xl);
+                font-family: var(--head-font);
+                font-weight: var(--font-semibold);
+
+                &- {
+                    &wrap {
+                        margin-bottom: var(--size-10);
+                    }
+                }
+            }
+            &para {
+                font-size: var(--text-sm);
+                &-- {
+                    &light {
+                        color: var(--gray8);
+                    }
+                }
+            }
+        }
+    }
+}

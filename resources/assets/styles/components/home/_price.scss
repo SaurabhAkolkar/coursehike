@@ -1,0 +1,64 @@
+#{$ap}- {
+    &section {
+        &-- {
+            &price {
+                // height: 100vh;
+            }
+        }
+    }
+    // Box: Start
+    &price {
+        &__ {
+            &row {
+                // height: 400px;
+            }
+            &box {
+                background: var(--white);
+                border: 1px solid #7400D7;
+                box-shadow: 0px 0px 30px #D4D4D47A;
+                border-radius: var(--size-3);
+                // margin-top: -100px;
+                
+               @include respond-below(md){
+                    transform:none !important;
+                    position:  relative !important;
+                    left:0 !important;
+                    top:0 !important;
+                    
+                }
+                &-{
+                    &inner{ 
+                        padding: var(--size-12);
+                        @include respond-above(sm){
+                            padding: var(--size-16);
+                        }
+                    }
+                    &para {
+                        font-weight: var(--font-light);
+                    }
+                }
+            }
+            &container{
+                z-index:1;
+                top:100px;
+            }
+            &slide {
+                height: auto;
+
+                &r {
+                    height: auto;
+                    margin-top: -70px;
+                    // padding-bottom: 50px;
+                    // overflow-y:scroll;
+                    // overflow-x:hidden;
+
+                    &::-webkit-scrollbar{
+                        width:0;
+                        background:transparent;
+                    }
+                }
+            }
+        }
+    }
+  
+}

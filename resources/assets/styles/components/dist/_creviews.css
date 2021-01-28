@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+}
+
+.la-lreview {
+  margin-top: 60px;
+}
+.la-lreview .la-lreview__author img {
+  width: var(--size-18);
+  height: var(--size-18);
+}
+.la-lreview .time {
+  font-size: var(--text-sm);
+  color: #222222;
+  font-family: var(--head-font);
+  font-weight: var(--font-semibold);
+}
+.la-lreview .name {
+  font-size: var(--text-2xl);
+  color: #222222;
+  font-family: var(--head-font);
+  font-weight: var(--font-bold);
+}
+.la-lreview .comment {
+  font-size: var(--text-md);
+  font-family: var(--body-font);
+  font-weight: var(--font-normal);
+  color: #222222;
+}
+
+.la-lreviews .la-lreviews__title {
+  font-size: var(--text-2xl);
+  font-family: var(--head-font);
+  font-weight: var(--font-semibold);
+}
+.la-lreviews .la-lareview__wreview {
+  font-size: var(--text--md);
+  font-family: var(--body-font);
+  font-weight: var(--font-bold);
+  letter-spacing: 3.2px;
+  color: #7400d7;
+}
+.la-lreviews i {
+  color: #7400d7;
+  margin-bottom: 10px;
+}
+.la-lreviews .active {
+  padding: 1px 5px;
+  color: white;
+  background-color: #7400d7;
+  border-radius: 10px;
+}
+.la-lreviews ul {
+  display: inline-block;
+  margin-left: -40px;
+}
+.la-lreviews li {
+  list-style: none;
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: var(--text-2xl);
+  font-family: var(--body-font);
+  font-weight: var(--font-normal);
+  margin: var(--size-2);
+}

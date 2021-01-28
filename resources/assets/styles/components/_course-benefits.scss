@@ -1,0 +1,38 @@
+#{$ap}- {
+    &cbenefits {
+        &__ {
+            &item {
+                background: rgba(#F5F4F0, 1);
+                border-radius: var(--size-2);
+                padding: var(--size-10);
+                height:240px;
+                
+                @include respond-below(md){
+                    margin-bottom:0;
+                    padding:var(--size-8) var(--size-4);
+                    height:260px;
+                    text-align: center;
+                }
+                @include respond-below(sm){
+                    margin-bottom: var(--size-8);
+                }
+               
+                &- {
+                    &title {
+                        font-family: var(--head-font);
+                        font-size: var(--text-lg);
+                        text-transform: uppercase;
+                        color: #222222;
+                        font-weight: var(--font-bold);
+                    }
+                    &icon {
+
+                    }
+                    &desc {
+                        color: #252525;
+                    }
+                }
+            }
+        }
+    }
+}

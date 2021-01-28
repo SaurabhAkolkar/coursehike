@@ -1,0 +1,66 @@
+#{$ap}- {
+    // Global Search: Start
+    &gsearch {
+        margin-bottom: var(--size-10);
+        
+        &__ {
+            &input {
+                border: 0;
+                border-left: 1px solid rgba(#000, 0.48);
+                border-radius: 0;
+                font-weight: var(--font-light);
+                font-size: var(--text-sm);
+                color: rgba(#000, 0.48);
+                
+                &:focus, &:hover {
+                    border-color: #7400d7;
+                }
+
+                @include respond-above(md){
+                    font-size:var(--text-xl);
+                }
+
+                    &-{
+                        //- Browse Courses Page
+                        &browsecourses{
+                            width:420px !important;
+
+                            @include respond-below(md){
+                                width:260px !important;
+                            }
+                        }
+
+                        //- Footer Search
+                        /*&footersearch{
+                            width:260px !important;
+                        }
+                        &footericon{
+                            font-size:var(--text-2xl);
+                        }*/
+
+                        //- Search Course Page
+                        &searchcourses{
+                            width:410px !important;
+
+                            @include respond-below(md){
+                                width:150px !important;
+                            }
+                        }
+                        &icon{
+                            font-size:var(--text-3xl);
+
+                            @include respond-below(md){
+                                font-size:var(--text-2xl);
+                            }
+                        }
+                    }
+            }
+            &submit{
+                @include respond-below(md){
+                    margin-top:-10px;
+                }
+            }                        
+        }
+    }
+    // Global Search: End
+}
