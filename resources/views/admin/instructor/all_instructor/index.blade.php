@@ -38,7 +38,7 @@
                 	<td><img src="{{ $item->userimg }}" class="img-fluid"></td> 
                   <td>{{$item->fname}}</td>
                   <td>{{$item->email}}</td>
-                  <td style="padding-right:30px;"><span  style="line-height:1.5;">{!! $item->detail !!} </span></td>
+                  <td>{!! str_limit($item->detail, 50) !!}</td>
                   <td>
                     @if($item->status==1)
                       {{ __('adminstaticword.Active') }}

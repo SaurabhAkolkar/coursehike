@@ -51,7 +51,7 @@
                               :title="$master->courses->title"
                               :profileImg="'https://picsum.photos/100/100'"
                               :profileName="$master->courses->user->fullName"
-                              :learners="'300'"
+                              :learners="$master->courses->learnerCount"
                               :id="$master->courses->id"
                               :slug="$master->courses->slug"
                               />

@@ -185,46 +185,20 @@
                   <div class="panel-collapse collapse show" id="faqFT" aria-labelledby="faqFree" data-parent="#accordion"> -->
                     
                   <div class="panel-group la-lp__sub-group my-2 " id="accFree">
-                      <div class="panel panel-default la-lp__faq-panel mt-2">
-                        <div class="panel-heading la-lp__faq-sub py-2" id="faqF"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqFa" data-toggle="collapse" aria-expanded="true">My debit card doesn't work</a></span>
-                          <div class="panel-collapse collapse" id="faqFa" aria-labelledby="faqF" data-parent="#accFree">
-                            <div class="panel-body py-4 px-5">
-                              <div class="panel-text">
-                                <p>As per the recent RBI rules, the debit card cannot be used for monthly subscription payment, you will need to enable that feature from your bank. Please call your bank and enable the feature</p>
-                                <p>Or, you can select an annual payment mode and pay through the debit card.</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
 
-                      <div class="panel panel-default la-lp__faq-panel mt-2">
-                        <div class="panel-heading la-lp__faq-sub py-2" id="faq_f2"><span class="panel-title la-lp__faq-tag mx-3">
-                          <a class="accordion-toggle collapsed" href="#faq_fa2" data-toggle="collapse" aria-expanded="true">How does the trial work?</a>
-                        </span>
-                          <div class="panel-collapse collapse" id="faq_fa2" aria-labelledby="faq_f2" data-parent="#accFree">
-                            <div class="panel-body py-4 px-5">
-                              <div class="panel-text">
-                                <p>We offer 7 Days free trial. To get the free trial you will have to subscribe using one of the 2 modes of payment. There will be no charge for the first 7 days. You will be only charged after 7 days. If you do not like the program you can opt-out anytime with the first 7 days.</p>
+                    @foreach($faqs as $f)
+                        <div class="panel panel-default la-lp__faq-panel mt-2">
+                          <div class="panel-heading la-lp__faq-sub py-2" id="faqF"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqFa_{{ $f->id }}" data-toggle="collapse" aria-expanded="true">{{ $f->title }}</a></span>
+                            <div class="panel-collapse collapse" id="faqFa_{{ $f->id }}" aria-labelledby="faqF" data-parent="#accFree">
+                              <div class="panel-body py-4 px-5">
+                                <div class="panel-text">
+                                  <p>{!! $f->details !!}</p>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-
-                      <div class="panel panel-default la-lp__faq-panel mt-2">
-                        <div class="panel-heading la-lp__faq-sub py-2" id="faq_f3"><span class="panel-title la-lp__faq-tag mx-3">
-                          <a class="accordion-toggle collapsed" href="#faq_fa3" data-toggle="collapse" aria-expanded="true">How do I cancel the subscription?</a>
-                        </span>
-                          <div class="panel-collapse collapse" id="faq_fa3" aria-labelledby="faq_f3" data-parent="#accFree">
-                            <div class="panel-body py-4 px-5">
-                              <div class="panel-text">
-                                <p>It is simple :) goto your accounts page and click the button Unsubscribe.</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                    @endforeach
                     </div>
                   <!-- </div>
                 </div> -->

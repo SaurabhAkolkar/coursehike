@@ -117,7 +117,7 @@
                                 <span class="la-entry__input-icon">
                                     <span class="la-icon la-icon--xl icon-birthday"></span>
                                 </span>
-                                <input class="la-form__input la-entry__input" type="text" value="" onfocus="(this.type='date')" name="dob" placeholder="Date of Birth(dd/mm/yyyy)">
+                                <input class="la-form__input la-entry__input" type="text" value="" onfocus="(this.type='date')" name="dob" min='1899-01-01' max='{{ Carbon\Carbon::now()->subYear(18)->format('Y-m-d') }}' placeholder="Date of Birth(dd/mm/yyyy)">
                             </div>
                            
                             <div class="la-form__input-wrap la-entry__input-wrap">

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Allstate;
 use App\Allcity;
-use App\Country;
+use App\Allcountry;
 use Auth;
 use Session;
 use Image;
@@ -30,7 +30,7 @@ class ProfileController extends Controller
     {   
         $cities = [];
         $states = Allstate::pluck('name','id')->all();
-        $countries = Country::pluck('name','country_id')->all();
+        $countries = Allcountry::pluck('name','id')->all();
 
         if(Auth::user()->state_id != null){
                $cities = Allcity::where('state_id', Auth::user()->state_id)->pluck('name','id')->all();

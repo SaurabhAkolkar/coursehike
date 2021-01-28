@@ -40,7 +40,6 @@ class FaqController extends Controller
         $data = $this->validate($request,[
             'title'=>'required',
             'details'=>'required',
-            'status'=>'required',
         ]);
         
         $input = $request->all();
@@ -92,6 +91,12 @@ class FaqController extends Controller
      */
     public function update(Request $request,$id)
     {
+
+        $data = $this->validate($request,[
+            'title'=>'required',
+            'details'=>'required',
+        ]);
+
         $data = FaqStudent::findorfail($id);
         $input = $request->all();
 

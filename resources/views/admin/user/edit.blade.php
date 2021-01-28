@@ -156,7 +156,7 @@
                     </option>
                   
                   @foreach ($countries as $coun)
-                    <option value="{{ $coun->country_id }}" {{ $user->country_id == $coun->country_id ? 'selected' : ''}}>{{ $coun->nicename }}
+                    <option value="{{ $coun->id }}" {{ $user->country_id == $coun->id ? 'selected' : ''}}>{{ $coun->nicename }}
                     </option>
                   @endforeach
                 </select>

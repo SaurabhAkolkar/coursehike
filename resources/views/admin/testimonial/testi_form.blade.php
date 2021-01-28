@@ -54,6 +54,18 @@
                   </div>
                 </div>
                 <br/>
+                
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="exampleInputDetails">{{ __('adminstaticword.Type') }}:<sup class="redstar">*</sup></label>
+                      <select name="type" class ="form-control js-example-basic-single">
+                          <option value="learner">Learner</option>
+                          <option value="mentor">Mentor</option>
+                      </select>
+                    <br>
+                  </div>
+                </div>
+                <br />
 
                 <div class="row">
                   <div class="col-md-6">

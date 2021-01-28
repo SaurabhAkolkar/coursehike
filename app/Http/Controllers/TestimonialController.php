@@ -43,6 +43,7 @@ class TestimonialController extends Controller
             'client_name'=>'required',
             'details'=>'required',
             'image'=>'required',
+            'type' => 'required',
         ]);
 
 
@@ -111,6 +112,14 @@ class TestimonialController extends Controller
 
     public function update(Request $request,$id)
     {
+
+        $data = $this->validate($request,[
+            'client_name'=>'required',
+            'details'=>'required',
+            'image'=>'required',
+            'type' => 'required',
+        ]);
+        
 
         $testimonial = Testimonial::findorfail($id);
 

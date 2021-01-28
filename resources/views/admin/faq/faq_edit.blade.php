@@ -2,15 +2,6 @@
 @section('title', 'Edit Faq - Admin')
 @section('body')
 
-@if ($errors->any())
-  <div class="alert alert-danger">
-      <ul>
-          @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-          @endforeach
-      </ul>
-  </div>
-@endif
 <section class="content">
   <div class="row">
     <!-- left column -->
@@ -25,19 +16,26 @@
               {{method_field('PATCH')}}
 
               <label for="exampleInputName">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
-              <input type="text" class="form-control" name="title" id="exampleInputTitle"value="{{$find->title}}">
-              @if ($errors['title'])
+              <input type="text" class="form-control" name="title" id="exampleInputTitle" value="{{$find->title}}">
+              @error('title')
               <div class="alert alert-danger">
                 <ul>
-                      <li>{{ $error['title'] }}</li>
+                      <li>{{ $message }}</li>
                 </ul>
               </div>
-              @endif
+              @enderror
             
             </div>
             <div class="form-group col-8 p-0">
               <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
               <textarea class="form-control" name="details"> {{$find->details}}</textarea>
+              @error('details')
+              <div class="alert alert-danger">
+                <ul>
+                      <li>{{ $message }}</li>
+                </ul>
+              </div>
+              @enderror
             </div>
             <div class="form-group col-8 p-0">
             <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>

@@ -28,7 +28,7 @@
               <div class="row">
                 <div class="col-md-8">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
-                  <input type="text" class="form-control" name="title" placeholder=" Enter Your Titie" id="exampleInputTitle" value="">
+                  <input type="text" class="form-control" name="title" placeholder=" Enter Your Titie" id="exampleInputTitle" value="{{ old('title') }}">
                 </div>
               </div>
               <br>
@@ -36,7 +36,7 @@
               <div class="row">
                 <div class="col-md-8">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
-                  <textarea name="details" class="form-control" rows="5" placeholder="Enter Your Details" value=""></textarea>
+                  <textarea name="details" class="form-control" rows="5" placeholder="Enter Your Details" value="{{ old('details') }}"></textarea>
                 </div>
               </div>
               <br>
@@ -46,7 +46,7 @@
                   <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                   <br>
                   <li class="tg-list-item">              
-                    <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" >
+                    <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" value="{{ old('status') }}">
                     <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
                   </li>
                   <input type="hidden"  name="free" value="0" for="status" id="status">

@@ -205,6 +205,7 @@
       
           @if($filtres_applied)
                   <div class="row row-cols-lg-3 la-anim__stagger-item">
+                              
                               @foreach($courses as $course)
                                 <x-course 
                                     :id="$course->id"
@@ -281,10 +282,7 @@
   @endsection
   @section('footerScripts')
       <script>
-            $('input[type=radio][name=sort_by]').change(function() {
-              window.location.href= '{{url()->current()}}?sort_by='+this.value;
-
-            });
+         
 
             function addToDuration(id){
               var level = $('#filter_duration').val();

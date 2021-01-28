@@ -106,7 +106,7 @@
                     {{ __('adminstaticword.SelectanOption') }} 
                   </option>
                   @foreach ($countries as $coun)
-                    <option value="{{ $coun->country_id }}" >{{ $coun->nicename }}</option>
+                    <option value="{{ $coun->id }}" >{{ $coun->nicename }}</option>
                   @endforeach
                 </select>
               </div>

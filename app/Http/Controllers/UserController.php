@@ -92,10 +92,10 @@ class UserController extends Controller
 
     public function addUserCourse(Request $request){
         $request->validate([
-            'course_id' => 'required',
-            'purchase_type' => 'required',
-            'amount' => 'required',
-      ]);
+                'course_id' => 'required',
+                'purchase_type' => 'required',
+                'amount' => 'required',
+        ]);
          
         $check = UserPurchasedCourse::where(['course_id'=>$request->course_id, 'user_id'=>$request->user_id])->get();
         
@@ -185,7 +185,8 @@ class UserController extends Controller
     {
         $cities = Allcity::all();
         $states = Allstate::all();
-        $countries = Country::all();
+        $countries = Allcountry::get();
+
         return view('admin.user.adduser')->with(['cities' => $cities, 'states' => $states, 'countries' => $countries]);
     }
 
@@ -254,7 +255,7 @@ class UserController extends Controller
         $user = User::findorfail($id);
         $cities = Allcity::where(['state_id'=>$user->id])->get();
         $states = State::all();
-        $countries = Country::all();
+        $countries = Allcountry::get();
       
         return view('admin.user.edit',compact('cities','states','countries','user'));
 

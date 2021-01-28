@@ -157,78 +157,38 @@
         <div class="col-12 px-5 px-sm-0 la-anim__wrap">
           <div class="panel-group" id="accordion">
             <h4 class="la-bgcreator__faq-title">FAQ&#39;s</h4>
-            <div class="panel panel-default la-bgcreator__faq-panel la-anim__stagger-item">
-              <div class="panel-heading la-bgcreator__panel-head " id="faqCalcHead">
-                <div class="panel-title la-bgcreator__panel-title la-anim__stagger-item--x">
-                  <a class="accordion-toggle collapsed text-md" href="#faqCalc" data-toggle="collapse" aria-expanded="true" aria-controls="#faq-calc">How amount is calculated ?</a>
-                </div>
-              </div>
-              <div class="panel-collapse collapse" id="faqCalc" aria-labelledby="faqCalcHead" data-parent="#accordion">
-                <div class="panel-body la-bgcreator__panel-body">
-                  <p class="la-bgcreator__panel-para panel-text text-md m-0">Something</p>
-                </div>
-              </div>
-            </div>
 
-            
-            <div class="panel panel-default la-bgcreator__faq-panel la-anim__stagger-item">
-              <div class="panel-heading la-bgcreator__panel-head " id="faqCommHead">
-                <div class="panel-title la-bgcreator__panel-title la-anim__stagger-item--x">
-                  <a class="accordion-toggle collapsed text-md" href="#faqCommission" data-toggle="collapse" aria-expanded="false" aria-controls="#faq-commission">What is LILA's Commission ?</a>
-                </div>
-              </div>
-              <div class="panel-collapse collapse" id="faqCommission" aria-labelledby="faqCommHead" data-parent="#accordion">
-                <div class="panel-body la-bgcreator__panel-body">
-                  <p class="m-0 la-bgcreator__panel-para text-md panel-text">Something</p>
-                </div>
-              </div>
-            </div>
-            <div class="panel panel-default la-bgcreator__faq-panel la-anim__stagger-item">
-              <div class="panel-heading la-bgcreator__panel-head " id="faqSlabHead">
-                <div class="panel-title la-bgcreator__panel-title la-anim__stagger-item--x"><a class="accordion-toggle collapsed text-md" href="#faqSlab" data-toggle="collapse" aria-expanded="false" aria-controls="#faq-slab-rate">How much is the slab rate ?</a></div></div>
-              <div class="panel-collapse collapse" id="faqSlab" aria-labelledby="faqSlabHead" data-parent="#accordion">
-                <div class="panel-body la-bgcreator__panel-body ">
-                  <p class="m-0 la-bgcreator__panel-para text-md panel-text">Ut enim ad minim veniam, quis nostrud exercitation ullamo</p>
-                </div>
-              </div>
-            </div>
-            <div class="panel panel-default la-bgcreator__faq-panel la-anim__stagger-item">
-              <div class="panel-heading la-bgcreator__panel-head " id="faqRedeemHead">
-                <div class="panel-title la-bgcreator__panel-title la-anim__stagger-item--x"><a class="accordion-toggle collapsed text-md" href="#faqRedeem" data-toggle="collapse" aria-expanded="false" aria-controls="#faq-redeem">How to redeem amount from my wallet ?</a></div></div>
-              <div class="panel-collapse collapse" id="faqRedeem" aria-labelledby="faqRedeemHead" data-parent="#accordion">
-                <div class="panel-body la-bgcreator__panel-body">
-                  <p class="m-0 la-bgcreator__panel-para text-md panel-text">Something</p>
-                </div>
-              </div>
-            </div>
-            
-               <!-- See all Collapse: Start -->
-               <div class="collapse" id="faq_collapse">
+            @foreach($faqs->take(3) as $f)
               <div class="panel panel-default la-bgcreator__faq-panel la-anim__stagger-item">
-                <div class="panel-heading la-bgcreator__panel-head la-anim__stagger-item--x" id="faq5">
-                  <div class="panel-title la-bgcreator__panel-title ">
-                    <a class="accordion-toggle collapsed text-md" href="#faq_5" data-toggle="collapse" aria-expanded="false" aria-controls="#faq-redeem">How to redeem amount from my wallet ?</a>
-                  </div>
+                <div class="panel-heading la-bgcreator__panel-head la-anim__stagger-item--x" id="faqCalcHead">
+                  <div class="panel-title la-bgcreator__panel-title"><a class="accordion-toggle collapsed text-md" href="#faq_{{ $f->id }}" data-toggle="collapse" aria-expanded="true" aria-controls="#faq_{{ $f->id }}">{{ $f->title }}</a></div>
                 </div>
-                <div class="panel-collapse collapse" id="faq_5" aria-labelledby="faq5" data-parent="#accordion">
+                <div class="panel-collapse collapse" id="faq_{{ $f->id }}" aria-labelledby="faqCalcHead" data-parent="#accordion">
                   <div class="panel-body la-bgcreator__panel-body">
-                    <p class="m-0 la-bgcreator__panel-para text-md panel-text">Something</p>
+                    <p class="m-0 la-bgcreator__panel-para panel-text text-md">{!! $f->details !!}</p>
                   </div>
                 </div>
               </div>
+            @endforeach
 
-              <div class="panel panel-default la-bgcreator__faq-panel la-anim__stagger-item">
-                <div class="panel-heading la-bgcreator__panel-head la-anim__stagger-item--x" id="faq6">
-                  <div class="panel-title la-bgcreator__panel-title ">
-                    <a class="accordion-toggle collapsed text-md" href="#faq_6" data-toggle="collapse" aria-expanded="false" aria-controls="#faq-redeem">What are the learning plans ?</a>
+
+            <!-- See all Collapse: Start -->
+            <div class="collapse" id="faq_collapse">
+
+              @foreach($faqs->skip(3) as $f)
+                  <div class="panel panel-default la-bgcreator__faq-panel la-anim__stagger-item">
+                    <div class="panel-heading la-bgcreator__panel-head la-anim__stagger-item--x" id="faqCalcHead">
+                      <div class="panel-title la-bgcreator__panel-title"><a class="accordion-toggle collapsed text-md" href="#faq_{{ $f->id }}" data-toggle="collapse" aria-expanded="true" aria-controls="#faq_{{ $f->id }}">{{ $f->title }}</a></div>
+                    </div>
+                    <div class="panel-collapse collapse" id="faq_{{ $f->id }}" aria-labelledby="faqCalcHead" data-parent="#accordion">
+                      <div class="panel-body la-bgcreator__panel-body">
+                        <p class="m-0 la-bgcreator__panel-para panel-text text-md">{!! $f->details !!}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div class="panel-collapse collapse" id="faq_6" aria-labelledby="faq6" data-parent="#accordion">
-                  <div class="panel-body la-bgcreator__panel-body">
-                    <p class="m-0 la-bgcreator__panel-para text-md panel-text">Something</p>
-                  </div>
-                </div>
-              </div>
+              @endforeach
+
+              
             </div>
              <!-- See all Collapse: End -->
             

@@ -17,6 +17,8 @@ class FirstSection extends Model
 
     public function getVideoUrlAttribute($value)
     {
+
         return Storage::url(config('path.firstsection_video'). $value);
+
     }
 }

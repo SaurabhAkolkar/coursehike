@@ -12,7 +12,7 @@ use App\InvoiceDetail;
 class PurchaseHistoryController extends Controller
 {
     public function index(){
-        $invoice = UserInvoiceDetail::with('details','details.course','details.course.user')->where([ ['user_id', Auth::user()->id] , ['status','paid'] ])->get();
+        $invoice = UserInvoiceDetail::with('details','details.course','details.course.user')->where(['user_id'=> Auth::user()->id , 'status'=>'paid' ])->get();
         return view('learners.pages.purchase-history',compact('invoice'));
     }
 

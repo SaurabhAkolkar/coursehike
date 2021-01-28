@@ -548,3 +548,7 @@ function addToLevel(id){
   }
 }
 
+$('input[type=radio][name=sort_by]').change(function() {
+  window.location.href= '?sort_by='+this.value;
+
+});

@@ -723,54 +723,28 @@ Route::post('admin/ipblock/update', 'IPBlockController@update')->name('ipblock.u
 Route::get('all/assignment', 'AssignmentController@view')->name('assignment.view');
 Route::get('view/assignment/{id}', 'AssignmentController@assignment')->name('list.assignment');
 
+Route::get('/become-creator','WebsiteController@becomeCreator');
+Route::get('/guided-creator','WebsiteController@guidedCreator');
+Route::get('/learning-plans','WebsiteController@learningPlans');
+
 
 // Harish Route's
-
 Route::get("zoho/module","ZohoController@createRecords");
-
+// Zoho module
 Route::get('/requests', 'CourseReviewController@instructorRequests');
 Route::post('/delete-course-request', 'CourseReviewController@deleteCourseRequest');
 // Route for Learner's View
-
-
-
-
 Route::view('/signup','learners.auth.signup');
 Route::view('/signin','learners.auth.signin');
-// Route::view('/interests','learners.auth.interests');
-
 Route::get('/mentors','InstructorController@allMentors');
 Route::post('/search-mentor','InstructorController@searchMentor');
 Route::get('/creator/{id}','InstructorController@creator');
 Route::get('/user-dashboard','UserDashboardController@index');
-
-//Route::view('/user-dashboard','learners.pages.user-dashboard');
-// Route::get('/browse/courses','HomeController@browseCourses');
-// Route::view('/learn/course/{id}/{slug}','learners.pages.course');
-// Route::view('/my-courses','learners.pages.my-courses');
-// Route::view('/mentors','learners.pages.mentors');
 Route::view('/creator','learners.pages.creator');
-
-
-// Route::view('/wishlist','learners.pages.wishlist');
-
-
-
 Route::view('/payment-successful','learners.pages.payment-successful');
-// Route::view('billing-address', 'learners.pages.billing-address');
-
-// Route::view('/releases','learners.pages.new-releases');
-Route::view('/learning-plans','learners.pages.learning-plans');
-// Route::view('/payment', 'learners.pages.payment');
-Route::view('/become-creator','learners.pages.become-creator');
-Route::view('/guided-creator','learners.pages.guided-creator');
 Route::view('/contact','learners.pages.contact')->name('contactus');
 Route::view('/about', 'learners.pages.about');
 Route::view('/cancellations-refund', 'learners.pages.cancellations-refund');
-
-//- Subscription Status for Learners
-// Route::view('/subscription-successful', 'learners.pages.subscription-successful');
-// Route::view('/subscription-failure', 'learners.pages.subscription-failure');
 Route::view('/subscription-trial', 'learners.pages.subscription-trial');
 
 Route::view('/invoice', 'learners.pages.invoicePDF');
