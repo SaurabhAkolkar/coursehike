@@ -79,7 +79,6 @@ class UserController extends Controller
     public function addCourse($id){
         $user_id = $id;
         $courses = Course::where(['status'=>1])->get();
-
         
         return view('admin.user.addcourse', compact('user_id','courses'));
     }
