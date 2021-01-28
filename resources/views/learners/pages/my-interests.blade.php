@@ -97,7 +97,7 @@
                 $('#course_'+id).remove(); 
                 console.log(data == 'Interest is already added.');
                 let successAlert = `<div class="la-btn__alert position-relative">
-                                        <div class="la-btn__alert-success col-md-4 offset-md-3 alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
+                                        <div class="la-btn__alert-success col-lg-4 offset-lg-3 alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
                                             <span id="wishlist_alert_message" class="la-btn__alert-msg">${data}</span>
                                             <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
                                                 <span aria-hidden="true" style="color:#56188C">&times;</span>
@@ -136,7 +136,7 @@
                 $('#course_'+id).remove(); 
                 console.log(data);
                 let successAlert = `<div class="la-btn__alert position-relative">
-                                        <div class="la-btn__alert-success col-md-4 offset-md-3 alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
+                                        <div class="la-btn__alert-success col-lg-4 offset-lg-3 alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
                                             <span id="wishlist_alert_message" class="la-btn__alert-msg">${data}</span>
                                             <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
                                                 <span aria-hidden="true" style="color:#56188C">&times;</span>

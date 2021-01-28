@@ -15,19 +15,19 @@
     <div class="la-cart__items ">
         <div class="la-cart__items mb-8">
             <div class="la-cart__item row">
-                <div class="la-cart__item-course col-7 col-md-8 col-lg-7 pr-0">
+                <div class="la-cart__item-course col-8 col-md-8 col-lg-7 pr-0">
                     <div class="la-anim__wrap">
                         <div class="la-cart__item-label mb-4 la-anim__stagger-item">Course</div>
                     </div>
                     <div class="la-cart__item-content d-md-flex la-anim__wrap">
-                        <div class="la-cart__item-left mr-4">
+                        <div class="la-cart__item-left  mr-md-4">
                             <div class="la-cart__item-img la-anim__stagger-item">
                                 <img src= "{{ $courseImg }}" class="img-fluid" alt= {{ $course }} />
                             </div>
                         </div>
                         <div class="la-cart__item-right ">
                             <div class="la-cart__item-name la-anim__stagger-item">{{ $course }}</div>
-                            <div class="la-cart__item-author mb-2 mb-md-4 la-anim__stagger-item">by <span>{{ $creator}}</span></div>
+                            <div class="la-cart__item-author mb-2 mb-md-4 la-anim__stagger-item">by <span class="text-capitalize ">{{ $creator}}</span></div>
                             <div class="la-cart__item-actions d-flex">
                                 <div class="la-cart__item-action remove la-anim__stagger-item"> 
                                     <a href= {{ $removeUrl }}>{{ $remove }}</a>
@@ -83,8 +83,15 @@
 
                                                     <div class="row la-cart__edit-info ">
                                                         @foreach($cart->courses->chapter as $class)
-                                                            <div class="col-2 col-md-2 text-center my-auto">
-                                                                <input type="checkbox" name="selected_classes[]" class="" @if(in_array($class->id, $classes_id->toArray())) checked @endif value="{{$class->id}}">
+                                                            <div class="col-2 col-md-2 text-center my-auto ">
+                                                                <div class="form-group m-0">
+                                                                    <label class="glabel d-flex justify-content-center m-0">
+                                                                        <input type="checkbox" name="selected_classes[]" class="d-none" @if(in_array($class->id, $classes_id->toArray())) checked @endif value="{{$class->id}}">
+                                                                        <span class="gcheck position-relative px-1">
+                                                                            <div class="gcheck-icon la-icon icon-tick text-xs position-absolute" style="margin-left:-6px;"></div>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
                                                             </div>
                                                             <div class="col-2 col-md-2 p-0 my-auto">
                                                                 <img class="la-cart__edit-img img-fluid d-block" src="https://picsum.photos/80/50" alt="" />
@@ -135,12 +142,12 @@
                     </div>
                     @if($classType != 'all_classes')
                         <div class="la-cart__item-cartclasses py-2 ">
-                            <div class="la-cart__item-carttoggler collapsed position-relative mx-2" data-toggle="collapse"  href="#cart_class_{{ $collapseId }}" aria-expanded="false">
+                            <div class="la-cart__item-carttoggler collapsed position-relative mx-md-2" data-toggle="collapse"  href="#cart_class_{{ $collapseId }}" aria-expanded="false">
                                 Classes in the Cart
                             </div>
                             
                             <div class="la-cart__item-cartclass collapse show mx-2 my-2" id="cart_class_{{ $collapseId }}">
-                                <ol class="la-cart__item-cartlist pl-7 mr-7">
+                                <ol class="la-cart__item-cartlist pl-6 pl-md-7 mr-md-7">
                                     @foreach($cart->cartItems as $class)
                                         <li class="la-cart__item-cartitem">{{ strlen($class->chapter->chapter_name) > 50? substr($class->chapter->chapter_name, 0, 45).'....': $class->chapter->chapter_name}}</li>
                                     @endforeach
@@ -151,13 +158,13 @@
                 </div>
                 
 
-                <div class="col-5 col-md-4 col-lg-5 pl-0 la-cart__item-info d-flex align-items-start la-anim__wrap">
+                <div class="col-4 col-md-4 col-lg-5 pl-0 la-cart__item-info d-flex align-items-start la-anim__wrap">
                     <div class="la-cart__item-classes  ">
                         <div class="la-cart__item-label mb-4 la-anim__stagger-item">Classes</div>
-                        <div class="la-cart__item-content la-anim__stagger-item"><span>@if($classType == 'all_classes') All Classes @else Selected Classes @endif</span></div>
+                        <div class="la-cart__item-content leading-snug la-anim__stagger-item"><span>@if($classType == 'all_classes') All Classes @else Selected Classes @endif</span></div>
                     </div>
 
-                    <div class="la-cart__item-price ml-8 ml-md-20  ">
+                    <div class="la-cart__item-price ml-4 ml-md-20  ">
                         <div class="la-cart__item-label mb-4 la-anim__stagger-item">Price</div>
                         <div class="la-cart__item-content">
                             <div class="la-soffer ml-0">

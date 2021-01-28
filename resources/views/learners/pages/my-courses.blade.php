@@ -53,7 +53,7 @@
 
                     @else
 
-                      <div class="la-empty__courses d-md-flex justify-content-between align-items-start ">
+                      <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
                           <div class="col la-empty__inner">
                               <h6 class="la-empty__course-title la-anim__stagger-item">No Courses</h6>
                               <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You have not started any course yet</p>
@@ -81,7 +81,7 @@
             <div class="col-12">
                 <div class="la-mycourses__subtitle text-2xl head-font  la-anim__stagger-item--x">Yet to Start</div>
               
-                <div class="la-empty__courses d-md-flex justify-content-between align-items-start ">
+                <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
                     <div class="col la-empty__inner">
                         <h6 class="la-empty__course-title la-anim__stagger-item">No Courses</h6>
                         <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You haven't bought or subscribed to any course yet</p>
@@ -108,7 +108,7 @@
             <div class="col-12 mb-6 ">
               <div class="la-mycourses__subtitle text-2xl head-font la-anim__stagger-item--x">Completed</div>
             
-                <div class="la-empty__courses d-md-flex justify-content-between align-items-start ">
+                <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
                   <div class="col la-empty__inner">
                       <h6 class="la-empty__course-title  la-anim__stagger-item">No Courses</h6>
                       <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You have not finished any course yet.</p>

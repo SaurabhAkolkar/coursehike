@@ -2,7 +2,7 @@
 <!-- Playlist Alert Message-->
 @if(session('message'))
 <div class="la-btn__alert position-relative">
-  <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" role="alert">
+  <div class="la-btn__alert-success col-lg-4 offset-lg-4  alert alert-success alert-dismissible fade show" role="alert">
       <span class="la-btn__alert-msg">{{session('message')}}</span>
       <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true" style="color:#56188C">&times;</span>
@@ -36,11 +36,11 @@
             <!-- Global Search: End-->
 
               <!-- Filters : Start -->
-            <div class="la-courses__nav-filters d-flex align-items-start ml-6">
+            <div class="la-courses__nav-filters  d-flex align-items-start ml-6 ">
               <!-- <div class="la-courses__nav-props">
                 <a class="la-icon icon-list-layout la-courses__nav-filter  mr-3" id="showLayout" role="button"></a>
               </div> -->
-              <div class="la-courses__nav-props">
+              <div class="la-courses__nav-props ">
                 <a class="la-icon icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                 <!-- Sort Courses Dropdown -->
                 <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses"  style="border:none !important;">
@@ -144,7 +144,8 @@
                                   <label class="glabel-main" > Language</label>
                                   @foreach($langauges as $l)
                                     <label class="glabel d-flex" for="lang_{{$l->id}}">
-                                      <input class="d-none" id="lang_{{$l->id}}" @if(in_array($l->id, $selected_languages)) checked @endif type="checkbox" onclick="addToLanguage({{$l->id}})" value="{{$l->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
+                                      <input class="d-none" id="lang_{{$l->id}}" @if(in_array($l->id, $selected_languages)) checked @endif type="checkbox" onclick="addToLanguage({{$l->id}})" value="{{$l->id}}">
+                                      <span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
                                       <div class="pl-2 mt-n1 text-capitalize">{{$l->name}}</div>
                                     </label>
                                   @endforeach
@@ -241,7 +242,7 @@
 
                       @foreach ($categories as $category)
                         <div class="tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
-                          <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item">
+                          <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item la-anim__C">
                                 @php
                                     $courses = $category->courses;
                                     if($sort_type == 'highest_rated')
@@ -250,6 +251,7 @@
                                     }                
                                 @endphp
                                 @foreach($courses as $course)
+                                
                                   <x-course 
                                       :id="$course->id"
                                       :img="$course->preview_image"

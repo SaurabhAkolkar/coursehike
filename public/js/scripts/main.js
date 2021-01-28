@@ -367,7 +367,7 @@ function addToWishList(id){
       success:function(data){   
         $('#alert_div').html(' ');
         let successAlert = `<div class="la-btn__alert position-relative">
-                              <div class="la-btn__alert-success col-md-4 offset-md-4  alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
+                              <div class="la-btn__alert-success col-lg-4 offset-lg-4  alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
                                 <span id="wishlist_alert_message" class="la-btn__alert-msg">${data}</span>
                                 <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
                                   <span aria-hidden="true" style="color:#56188C">&times;</span>
@@ -405,7 +405,7 @@ function removeFromWishList(id){
         $('#alert_div').html(' ');
         $('#course_'+id).remove(); 
         let successAlert = `<div class="la-btn__alert position-relative">
-                              <div class="la-btn__alert-success col-md-4 offset-md-4 alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
+                              <div class="la-btn__alert-success col-lg-4 offset-lg-4 alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
                                 <span id="wishlist_alert_message" class="la-btn__alert-msg">${data}</span>
                                 <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
                                   <span aria-hidden="true" style="color:#56188C">&times;</span>
@@ -446,7 +446,7 @@ function addToCart(id='1', classes='all') {
         $('#alert_div').html(' ');
      
         let successAlert = `<div class="la-btn__alert position-relative">
-                              <div class="la-btn__alert-success col-md-4 offset-md-4 alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
+                              <div class="la-btn__alert-success col-lg-4 offset-lg-4 alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
                                 <span id="wishlist_alert_message" class="la-btn__alert-msg">${data}</span>
                                 <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
                                   <span aria-hidden="true" style="color:#56188C">&times;</span>

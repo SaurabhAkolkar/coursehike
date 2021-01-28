@@ -3,6 +3,11 @@
         --playerW: 528px;
         --playerH: 308px;
 
+        @include respond-below(sm){
+            --playerW: 100%;
+            --playerH: 296px;
+        }
+
         &__ {
             &header {
 
@@ -13,6 +18,10 @@
                 font-weight: var(--font-extrabold);
                 font-family: var(--head-font);
                 color: var(--gray5);
+
+                @include respond-below(md){
+                    font-size:var(--text-4xl);
+                }
             }
 
             &badge {
@@ -31,11 +40,20 @@
                         height: var(--size-14);
                         border-radius: var(--rounded-full);
                         overflow: hidden;
+
+                        @include respond-below(sm){
+                            width: var(--size-12);
+                            height: var(--size-12);
+                        }
                     }
                     &name {
                         margin-left: var(--size-4);
                         font-size: var(--text-2xl);
                         color: var(--gray5);
+
+                        @include respond-below(sm){
+                            font-size:var(--text-xl);
+                        }
                     }
                 }
             }
@@ -119,7 +137,7 @@
                 overflow: auto;
                 padding:var(--size-5) 0 var(--size-5) var(--size-5);
 
-                @include respond-below(sm){
+                @include respond-below(md){
                     padding-left:var(--size-4);
                     margin-top:var(--size-10);
                 }
@@ -563,24 +581,16 @@
             &title {
                 font-size: var(--text-2xl);
                 color: var(--gray5);
+
+                @include respond-below(sm){
+                    font-size:var(--text-xl);
+                    padding:0 var(--size-4);
+                }
             }
 
             &creator {
-
-            }
-        }
-    }
-}
-
-@media (max-width:991px){
-    #{$ap}- {
-        &vcourse {
-            --playerW: 100%;
-            --playerH: 296px;
-
-            &__{
-                &title {
-                    font-size: var(--text-5xl);
+                @include respond-below(sm){
+                    padding:0 var(--size-4);
                 }
             }
         }
