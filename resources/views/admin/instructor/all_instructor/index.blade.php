@@ -16,45 +16,52 @@
               <!-- <a href="#" role="button"><span class="la-icon la-icon--3xl icon-excel mr-2" style="color:#1D6F42"></span></a> -->
             </div>
             
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="example1" class="table table-bordered table-striped pt-8">
               <thead>
                 <tr>
-                  <th>Sr#</th>
+                  <th>#</th>
                 	<th>{{ __('adminstaticword.Image') }}</th>
                   <th>{{ __('adminstaticword.Name') }}</th>
                   <th>{{ __('adminstaticword.Email') }}</th>
-                  <th width="45%">{{ __('adminstaticword.Detail') }}</th>
+                  <th >{{ __('adminstaticword.Detail') }}</th>
                   <th>{{ __('adminstaticword.Status') }}</th>
                   <th>{{ __('adminstaticword.Edit') }}</th>
                 </tr>
               </thead>
+
               <tbody>
-              @php
-                  $count = 0;
-              @endphp
+                @php
+                    $count = 0;
+                @endphp
+
                 @foreach($items as $item)
                 <tr>
                   <td>{{++$count}}</td>
                 	<td><img src="{{ $item->userimg }}" class="img-fluid"></td> 
                   <td>{{$item->fname}}</td>
                   <td>{{$item->email}}</td>
-                  <td>{!! str_limit($item->detail, 50) !!}</td>
-                  <td>
-                    @if($item->status==1)
-                      {{ __('adminstaticword.Active') }}
-                    @else
-                      {{ __('adminstaticword.Inactive') }}
-                    @endif
+
+                  <td style="padding-right:30px;">
+                    <span style="line-height:1.5;">{!! str_limit($item->detail, 50) !!}</span>
                   </td>
+
+                  <td>
+                      @if($item->status==1)
+                        {{ __('adminstaticword.Active') }}
+                      @else
+                        {{ __('adminstaticword.Inactive') }}
+                      @endif
+                  </td>
+
                   <td>
                       <a class="text-dark la-admin__edit-btn" href="/user/edit/{{$item->id}}">
                           <i class="la-icon la-icon--lg icon-edit"></i>
                       </a>
                   </td>
-                  @endforeach
-               
+                
                 </tr>
-              </tfoot>
+                @endforeach
+              </tbody>
             </table>
         </div>
         <!-- /.box-body -->
