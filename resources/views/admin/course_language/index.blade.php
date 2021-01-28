@@ -20,7 +20,7 @@
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th>#{{ __('adminstaticword.Free') }}</th>
+                  <th>#</th>
                   <th>{{ __('adminstaticword.Language') }}</th>
                   <th>{{ __('adminstaticword.Status') }}</th>
                   <th>{{ __('adminstaticword.Edit') }}</th>
@@ -38,11 +38,11 @@
                       <td>
                         <form action="{{ route('language.quick',$cat->id) }}" method="POST">
                           {{ csrf_field() }}
-                          <button type="Submit" class="btn btn-xs {{ $cat->status ==1 ? 'btn-success' : 'btn-danger' }}">
+                          <button type="Submit" class="m-0 btn btn-xs {{ $cat->status ==1 ? 'btn-success' : 'btn-danger' }}">
                             @if($cat->status ==1)
                             {{ __('adminstaticword.Active') }}
                             @else
-                            {{ __('adminstaticword.Deactive') }}
+                            {{ __('adminstaticword.Deactive') }} 
                             @endif
                           </button>
                         </form>
@@ -54,7 +54,7 @@
                             "data-parsley-validate class="form-horizontal form-label-left">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                            <button  type="submit" class="btn btn-danger"><i class="la-icon la-icon--lg icon-delete"></i></button>
+                            <button  type="submit" class="btn btn-danger m-0"><i class="la-icon la-icon--lg icon-delete"></i></button>
                           </form>
                       </td>
                     </tr>
@@ -86,7 +86,7 @@
                         <label>{{ __('adminstaticword.Name') }}:<sup class="redstar">*</sup></label>
                         <input type="text" class="form-control" name="name" placeholder="Please Enter Your  Language Name" value="">
                           @error('name')
-                              <div class="alert alert-danger">
+                              <div class="la-btn__alert-danger alert alert-danger">
                                     {{$message}}
                               </div>
                           @enderror
@@ -99,7 +99,7 @@
                         <label for="exampleInputSlug">ISO Code:<sup class="redstar">*</sup></label>
                         <input type="text" class="form-control" name="iso_code" placeholder="Eg, en, hi, ta, etc,." value="">
                           @error('iso_code')
-                              <div class="alert alert-danger">
+                              <div class="la-btn__alert-danger alert alert-danger">
                                     {{$message}}
                               </div>
                           @enderror

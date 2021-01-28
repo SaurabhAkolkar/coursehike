@@ -31,7 +31,7 @@
                   </select>
 
                   @error('category_id')
-                          <div class="alert alert-danger">
+                          <div class="la-btn__alert-danger alert alert-danger">
                               {{$message}}
                           </div>
                     @enderror
@@ -52,7 +52,7 @@
                   </select>
 
                   @error('subcategory_id')
-                          <div class="alert alert-danger">
+                          <div class="la-btn__alert-danger alert alert-danger">
                               {{$message}}
                           </div>
                     @enderror
@@ -66,7 +66,7 @@
                   <input type="text" class="form-control" name="title" id="exampleInputTitle" value="{{$cate->title}}">
                   
                   @error('title')
-                          <div class="alert alert-danger">
+                          <div class="la-btn__alert-danger alert alert-danger">
                               {{$message}}
                           </div>
                     @enderror

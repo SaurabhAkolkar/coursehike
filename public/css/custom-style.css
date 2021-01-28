@@ -234,6 +234,7 @@ html, body{
     text-decoration: none;
     text-align:right;
     padding:0 8px;
+    outline:0;
 }
 .small-box-footer>span{
     transition:all 0.25s linear;-webkit-transition:all 0.25s linear;
@@ -481,6 +482,15 @@ table.table-bordered.dataTable tbody td {
     height: 50px;
     display:block;
     border-radius:10px;
+    background-color: var(--gray);
+}
+img[alt]{
+    border:none;
+    text-align: center;
+    font-size:var(--text-sm);
+}
+.table td a{
+    outline:0;
 }
 td .btn-success, td form .btn-danger{
     background-color:transparent !important;
@@ -491,7 +501,7 @@ td .btn-success, td form .btn-danger{
 }
 td .btn-success:hover, td form .btn-danger:hover{
     background-color:transparent ;
-    color:var(--gray6);
+    color:var(--danger);
 }
 td .btn-success:focus, td form .btn-danger:focus{
     outline:0 !important;
@@ -499,16 +509,25 @@ td .btn-success:focus, td form .btn-danger:focus{
     box-shadow:none !important;
     color:var(--gray6) !important;
 }
+td a:hover{
+    color:var(--danger) !important;
+}
+td a:focus{
+    color:var(--gray2) !important;
+}
 .btn-danger{
   background-color:transparent !important;
   border:transparent !important;
   color:var(--gray2);
 }
 .btn-danger:hover{
-  color:var(--gray2);
-
+  color:var(--danger);
 }
-
+.btn-danger:focus{
+    outline:0 !important;
+    border:none !important;
+    box-shadow:none !important;
+}
 /* === Preview Video ==*/
 .box-body video{
   outline:0;
@@ -712,6 +731,7 @@ label{
 }
 .nav-tabs-custom>.nav-tabs>li{
     border-top:none !important;
+    margin-right:var(--size-5);
 }
 .nav-tabs-custom>.nav-tabs>li>a.active{
     background-color:var(--white) !important;
@@ -720,9 +740,6 @@ label{
     outline:0;
     border-bottom:2px solid var(--app-indigo-1) !important;
     outline:0;
-}
-.nav-tabs-custom>.nav-tabs>li.active>a{
-  background:transparent !important;
 }
 .nav-tabs-custom>.nav-tabs>li>a:hover{
     background-color:var(--white) !important;

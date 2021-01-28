@@ -36,7 +36,7 @@
                     <label for="exampleInputTit1e">{{ __('adminstaticword.SubCategory') }}:<span class="redstar">*</span></label>
                     <input type="title" class="form-control" name="title" id="exampleInputTitle" value="{{$cate->title}}">
                     @error('title')
-                          <div class="alert alert-danger">
+                          <div class="la-btn__alert-danger alert alert-danger">
                               {{$message}}
                           </div>
                     @enderror

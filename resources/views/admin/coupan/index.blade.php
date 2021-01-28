@@ -77,16 +77,16 @@
                               <div class="delete-icon"></div>
                             </div>
                             <div class="modal-body text-center">
-                              <h4 class="modal-heading">Are You Sure ?</h4>
-                              <p>Do you really want to delete this Coupon ? This process cannot be undone.</p>
+                              <h4 class="modal-heading" style="color:var(--app-indigo-1)">Are You Sure ?</h4>
+                              <p class="pt-6">Do you really want to delete this Coupon ? <br/> This process cannot be undone.</p>
                             </div>
-                            <div class="modal-footer">
-                                 <form method="post" action="{{route('coupon.destroy',$cpn->id)}}" class="pull-right">
+                            <div class="modal-footer text-center" >
+                                 <form method="post" action="{{route('coupon.destroy',$cpn->id)}}" >
                                     {{csrf_field()}}
                                     {{method_field("DELETE")}}
                                           
-                                 <button type="reset" class="btn btn-gray translate-y-3" data-dismiss="modal">No</button>
-                                <button type="submit" class="btn btn-danger">Yes</button>
+                                <button type="reset" class="btn la-btn--danger translate-y-3" data-dismiss="modal">No</button>
+                                <button type="submit" class="btn btn-primary">Yes</button>
                               </form>
                             </div>
                           </div>

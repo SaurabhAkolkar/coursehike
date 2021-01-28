@@ -28,7 +28,7 @@
           <div class="nav-tabs-custom">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" id="nav-tab" role="tablist">
-              <li role="presentation" class="active"><a href="#a" aria-controls="home" role="tab" data-toggle="tab">{{ __('adminstaticword.CourseDetail') }}</a></li>
+              <li role="presentation" ><a href="#a" aria-controls="home" role="tab" data-toggle="tab">{{ __('adminstaticword.CourseDetail') }}</a></li>
               {{--  <li class=""  role="presentation"><a href="#b" aria-controls="profile" role="tab" data-toggle="tab">{{ __('adminstaticword.CourseInclude') }}</a></li> --}}
               {{-- <li  class=""  role="presentation"><a href="#c" aria-controls="messages" role="tab" data-toggle="tab">{{ __('adminstaticword.WhatLearns') }}</a></li> --}}
               <li  class=""  role="presentation"><a href="#d" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.CourseChapter') }}</a></li>

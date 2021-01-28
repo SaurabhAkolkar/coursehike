@@ -40,8 +40,8 @@
                   <label for="exampleInputTit1e">{{ __('adminstaticword.SubCategory') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="title" id="exampleInputTitle" placeholder="Enter Your subcategory" value="">
                   @error('title')
-                    <div class="alert alert-danger">
-                      {{$message}}
+                    <div class="la-btn__alert-danger alert alert-danger" role="alert">
+                        <span class="la-btn__alert-msg">{{$message}}</span>
                     </div>
                   @enderror
 

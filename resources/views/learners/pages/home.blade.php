@@ -54,8 +54,8 @@
 
             @else
             <!-- Video Section: Start -->
-            <div class="position-relative la-anim__wrap">
-              <div class="la-hero__video">
+            <div class="position-relative la-anim__stagger-item--x la-anim__C">
+              <div class="la-hero__video ">
                   <video height="480" autoplay='' playsinline muted='muted' loop='loop'>
                       <source src='{{$firstSection->video_url}}'  type='video/mp4' />
                   </video>

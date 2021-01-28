@@ -26,7 +26,7 @@
                   </select>
 
                   @error('category_id')
-                          <div class="alert alert-danger">
+                          <div class="la-btn__alert-danger alert alert-danger">
                               {{$message}}
                           </div>
                     @enderror
@@ -40,7 +40,7 @@
                   </select>
 
                   @error('subcategories')
-                          <div class="alert alert-danger">
+                          <div class="la-btn__alert-danger alert alert-danger">
                               {{$message}}
                           </div>
                     @enderror
@@ -62,7 +62,7 @@
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="title" id="exampleInputTitle" placeholder="Enter your childcategory" value="">
                   @error('title')
-                          <div class="alert alert-danger">
+                          <div class="la-btn__alert-danger alert alert-danger">
                               {{$message}}
                           </div>
                     @enderror

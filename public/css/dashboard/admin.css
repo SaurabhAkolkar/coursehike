@@ -776,6 +776,7 @@ a.dt-button {
 .la-dash__recent-section .la-dash__recent-img img {
   width: 32px;
   height: 32px;
+  background-color: var(--gray);
   border-radius: 50%;
   margin-right: var(--size-6);
 }
@@ -818,6 +819,7 @@ a.dt-button {
 
 .la-dash__recent-section .la-dash__recent-more a {
   color: #777777;
+  outline: 0;
 }
 
 .la-dash__recent-section .la-dash__recent-more a span {
@@ -1537,6 +1539,7 @@ a.dt-button {
 .la-admin__profile .la-admin__profile-img {
   width: 180px;
   height: 180px;
+  background-color: var(--gray8);
 }
 
 .la-admin__profile-new {
@@ -1744,7 +1747,19 @@ a.la-admin__edit-btn:hover {
   color: var(--app-indigo-1) !important;
 }
 
-/* =========== ALERT SUCCESS & DANGER: START =========== */
+/* =========== BUTTONS AND  ALERT SUCCESS & DANGER: START =========== */
+
+.la-btn--danger {
+  border: 2px solid var(--danger);
+  padding: 10px 30px;
+  border-radius: 10px;
+  color: var(--gray6);
+}
+
+.la-btn--danger:hover {
+  background: var(--danger);
+  color: var(--white);
+}
 
 .la-btn__alert-success {
   position: relative;
