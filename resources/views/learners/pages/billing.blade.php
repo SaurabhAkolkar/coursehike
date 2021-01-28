@@ -32,7 +32,11 @@
         
                             <div class="col-md-6 col-lg-4">
                                 <div class="la-personal__billing-card la-anim__stagger-item--x">
-                                    <p class="la-personal__card-title m-0 la-anim__stagger-item--x">Next Payment Due</p>
+                                    @if ($canceled_subscription)
+                                        <p class="la-personal__card-title m-0 la-anim__stagger-item--x">Subscription ends on</p>
+                                    @else
+                                        <p class="la-personal__card-title m-0 la-anim__stagger-item--x">Next Payment Due</p>
+                                    @endif
                                     <h6 class="la-personal__card-bill m-0 la-anim__stagger-item--x">{{\Carbon\Carbon::parse($active_plan->ends_at)->format('d M Y')}}</h6>
                                     <div class="la-personal__card-action text-right la-anim__stagger-item--x">
                                         <a role="button" href="/payment-history" class="la-personal__card-cta"> 
@@ -100,6 +104,7 @@
                             </div>
                         </div>
 
+                        @if ($last_payment)
                         <div class="col-md-4">
                             <div class="la-personal__info">
                                 <div class="d-flex align-items-center">
@@ -114,15 +119,49 @@
                                 <div class="la-personal__info-card">
                                     <div class="la-personal__info-desc">
                                         <p class="la-personal__info-desc m-0 la-anim__stagger-item--x"><strong>${{$last_payment->invoice_paid}}</strong> {{$last_payment->status}}</p>
-                                        <p class="la-personal__info-desc m-0 la-anim__stagger-item--x">On <strong>{{\Carbon\Carbon::parse($last_payment->created_at)->format('d M Y')}}</strong></p>
+                                        <p class="la-personal__info-desc m-0 la-anim__stagger-item--x">On <strong>{{\Carbon\Carbon::parse($last_payment->created_at)->format('d M Y')}}</strong></p>                                            
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
                 <!-- PAYMENT INFORMATION: END -->
 
+
+                <!-- CANCEL SUBSCRIPTION: START -->
+                <div class="container la-anim__wrap">
+                    <div class="row">
+                        <div class="col-12 la-anim__stagger-item">
+                            <h1 class="la-personal__info-title">Pause / Cancel Subscription</h1>
+                        </div>
+
+                        @if ($canceled_subscription)
+                            <div class="col-md-6">
+                                <div class="la-personal__info">
+                                    <p class="la-personal__info-desc m-0 text-danger la-anim__stagger-item--x">You have already canceled the current subscription plan. You won't be charged in the future</p>
+                                </div>
+                            </div>
+                        @else
+                            <div class="col-md-4">
+                                <div class="la-personal__info">
+                                    <p class="la-personal__info-desc m-0 la-anim__stagger-item--x">If you want to <strong>switch/pause/cancel</strong> a plan</p>
+                                    <div class="la-personal__info-card">
+                                        <form method="POST" action="/subscription/cancel">
+                                            @csrf
+                                            <button class="la-btn__app la-status__info-cta py-3" type="submit">Cancel Future Billing</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        @endif
+                        
+
+                    </div>
+                </div>
+                <!-- CANCEL SUBSCRIPTION: END -->
              @else
                     <div class="container la-anim__wrap">
                         <div class="la-profile__main-inner ">
