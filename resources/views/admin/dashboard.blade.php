@@ -430,13 +430,15 @@
           </div>
               <ul class="la-dash__recent-list">
                   @foreach ($recent_courses as $rc)
-                      <x-admin-recent-bought-course 
+                    @if ($rc->course)
+                        <x-admin-recent-bought-course 
                           :courseImg="$rc->course->preview_image"
                           :courseName="$rc->course->title"
                           :courseTag="$rc->course->category_id"
                           :courseDate="Carbon\Carbon::parse($rc->course->created_at)->format('M d Y')"
                           :coursePrice="$rc->price"
-                      />
+                           />
+                    @endif
                   @endforeach
               </ul>
 
@@ -475,6 +477,7 @@
                       @endphp
 
                       @foreach ($requests as $r)
+                        @if ($r->course)
                           <x-admin-pending-request
                             :sr="++$i"
                             :creatorName="$r->user->fullName"
@@ -482,8 +485,9 @@
                             :dateOn="Carbon\Carbon::parse($r->created_at)->format('M d Y')"
                             :requestType="$r->request_type=='publish'?'Publish':'Unpublish'"
                           />
+                          @endif
                       @endforeach 
-                      @if(count($requests) > 0)
+                      @if(count($requests) == 0)
                         <li class="row no-gutters d-flex justify-content-between la-dash__pending-item ">
                           No Requests Found
                         </li>

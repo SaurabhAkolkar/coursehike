@@ -17,6 +17,7 @@ use App\Question;
 use App\User;
 use App\UserSubscription;
 use App\UserSubscriptionInvoice;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
 class SubscriptionController extends Controller
@@ -32,9 +33,10 @@ class SubscriptionController extends Controller
 	{
 		$plan = app('rinvex.subscriptions.plan')->where("slug", $slug)->first();
 		$countries = DB::table('allcountry')->get();
-		if($plan)
-			return view('learners.pages.payment')->withPlan($plan)->withCountries($countries);
-		else
+		if($plan){
+			$has_trial = !app('rinvex.subscriptions.plan_subscription')->where("user_id", Auth::user()->id)->exists();
+			return view('learners.pages.payment', compact('plan','countries','has_trial'));
+		}else
 			return redirect('learning-plans');
 	}
 
@@ -70,9 +72,8 @@ class SubscriptionController extends Controller
 		// 		- https://stripe.com/docs/billing/subscriptions/billing-cycle
 		try {
 
-			if (Auth::user()->stripe_id != null)
-				$stripe_id = Auth::user()->stripe_id;
-			else{
+			$stripe_id = Auth::user()->stripe_id;
+			if ($stripe_id == null){
 				$customer = $this->stripe->customers()->create([
 					'email' => Auth::user()->email,
 					'name' => Auth::user()->fname,
@@ -125,9 +126,14 @@ class SubscriptionController extends Controller
 				$plan_id = 'price_1HyL7FE6m1twc6cGxmT4KI6G';
 			else if($request->subscription_plan == 'yearly-plan')
 				$plan_id = 'price_1Hk3Q8E6m1twc6cGJjmdFY17';
-
+			
+			//Check if user already subscribed and got the 7 days trial
+			$already_subscribed = app('rinvex.subscriptions.plan_subscription')->where("user_id", Auth::user()->id)->exists();
+			$trial_period = $already_subscribed == false ? Carbon::now()->addDays(7)->timestamp : 0;
+			
 			$subscription = $this->stripe->subscriptions()->create($stripe_id, [
-				'plan' => $plan_id
+				'plan' => $plan_id,
+				'trial_end' => $trial_period,
 			]);
 
 			
@@ -146,7 +152,7 @@ class SubscriptionController extends Controller
 			if ($subscription['status'] == 'trialing' || $subscription['status'] == 'active') {
 
 				$plan = app('rinvex.subscriptions.plan')->where("slug", $request->subscription_plan)->latest()->first();
-				Auth::user()->newSubscription('main', $plan);
+				Auth::user()->newSubscription('main', $plan, !$already_subscribed);
 
 				$userSubscription = new UserSubscription();
 				$userSubscription->user_id = Auth::user()->id;
@@ -180,7 +186,11 @@ class SubscriptionController extends Controller
 
 	public function cancelSubscription(Request $request)
 	{
-		$subscription = $this->stripe->subscriptions()->cancel(Auth::user()->stripe_id, $request->subscription_id, true);
+		$user = Auth::user();
+		$userSubscription = UserSubscription::where('user_id', $user->id)->latest()->first();
+		$this->stripe->subscriptions()->cancel($user->stripe_id, $userSubscription->stripe_subscription_id, true);
+		$user->subscription('main')->cancel();
+		return redirect()->back();
 	}
 
 	public function hooks(Request $request)
@@ -267,13 +277,16 @@ class SubscriptionController extends Controller
 	{
 		$user = Auth::User();
 		$active_plan = app('rinvex.subscriptions.plan_subscription')->ofUser($user)->latest()->first(); 
-		
-		$subscription = UserSubscription::where('user_id', $user->id)->first();
-		$card = $this->stripe->paymentMethods()->find($subscription->payment_id)['card'];
-		
+		$card = null;
+		if($active_plan){
+			$subscription = UserSubscription::where('user_id', $user->id)->first();
+			if($subscription)
+				$card = $this->stripe->paymentMethods()->find($subscription->payment_method_id)['card'];
+		}
+		$canceled_subscription = $user->subscription('main')->canceled();
+
 		$last_payment = UserSubscriptionInvoice::where('user_id', $user->id)->latest()->first();
-		// dd($last_payment);
-		return view('learners.pages.billing', compact('active_plan','card','last_payment'));
+		return view('learners.pages.billing', compact('active_plan','card','last_payment', 'canceled_subscription'));
 	}
 
 	public function payment_history()

@@ -19,10 +19,22 @@
             <div class="col-lg-5 la-anim__wrap">
               <div class="la-payment__subscription d-flex justify-content-between">
                 <div class="la-payment__plan">
+                  @if ($has_trial)
+                    <div class="text-sm la-payment__plan-selected mb-2 la-anim__stagger-item--x">Free Trial Period</div>
+                    <div class="text-sm la-payment__plan-selected mb-2 la-anim__stagger-item--x">Trial Ends on</div>                  
+                  @endif
                   <div class="text-sm la-payment__plan-selected la-anim__stagger-item--x">Plan Selected</div>
-                  <div class="text-sm la-payment__plan-amount mt-2 la-anim__stagger-item--x">Amount </div>
+                  <div class="text-sm la-payment__plan-amount mt-2 la-anim__stagger-item--x">Amount to be Paid after trial</div>
                 </div>
+                {{-- <div class="la-payment__plan">
+                  <div class="text-sm la-payment__plan-selected la-anim__stagger-item--x">Free Trial Period</div>
+                  <div class="text-sm la-payment__plan-amount mt-2 la-anim__stagger-item--x">7 days </div>
+                </div> --}}
                 <div class="la-payment__amount">
+                  @if ($has_trial)
+                    <div class="text-md la-payment__type mb-2 la-anim__stagger-item--x">7 days</div>
+                    <div class="text-md la-payment__type mb-2 la-anim__stagger-item--x">{{\Carbon\Carbon::now()->addDays(7)->toFormattedDateString()}}</div>
+                  @endif
                   <div class="text-md la-payment__type la-anim__stagger-item--x">{{$plan->name}} Subscription</div>
                   <div class="text-md la-payment__amount mt-2 la-anim__stagger-item--x">${{$plan->price}} </div>
                 </div>

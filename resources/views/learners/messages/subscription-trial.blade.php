@@ -30,18 +30,13 @@
                                   </div>
 
                                   <div class="la-status__info-item d-flex align-items-center">
-                                    <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">Amount Paid</div>
-                                    <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x"><strong>$ 0</strong></div>
+                                    <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">Trial Start from</div>
+                                    <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">Today</div>
                                   </div>
                                   
                                   <div class="la-status__info-item d-flex align-items-center">
                                     <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">Trial ends on</div>
-                                    <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">{{$plan_subscription->trial_ends_at}}</div>
-                                  </div>
-
-                                  <div class="la-status__info-item d-flex align-items-center">
-                                    <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">Trial Start</div>
-                                    <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">Today</div>
+                                    <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">{{(new \Carbon\Carbon($plan_subscription->trial_ends_at))->toDayDateTimeString()}} </div>
                                   </div>
 
                                   {{-- <div class="la-status__info-item d-flex align-items-center">
@@ -50,8 +45,13 @@
                                   </div> --}}
 
                                   <div class="la-status__info-item d-flex align-items-center">
+                                    <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">Amount to be Paid after trial</div>
+                                    <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x"><strong>$ {{$plan_subscription->plan->price}}</strong></div>
+                                  </div>
+
+                                  <div class="la-status__info-item d-flex align-items-center">
                                     <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">Next Billing</div>
-                                    <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">{{$plan_subscription->trial_ends_at}}</div>
+                                    <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">{{(new \Carbon\Carbon($plan_subscription->trial_ends_at))->toDayDateTimeString()}} </div>
                                   </div>
 
                                   {{-- <div class="la-status__info-item d-flex align-items-center">
@@ -63,7 +63,9 @@
                               <div class="la-status__info-btm">
                                   <div class="la-status__info-moto la-anim__stagger-item--x">Start learning from the best mentors across the globe!</div>
                                   <div class="la-status__info-browse la-anim__stagger-item--x">
-                                      <button href="/browse/courses" class="la-btn__app la-status__info-cta py-3" type="button">Browse Courses</button>
+                                    <a href="/browse/courses">
+                                      <button class="la-btn__app la-status__info-cta py-3" type="button">Browse Courses</button>
+                                    </a>
                                   </div>
                               </div>
                           </div>

@@ -8,7 +8,8 @@ use Illuminate\Notifications\Notifiable;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Storage;
-
+use Rinvex\Subscriptions\Services\Period;
+use Rinvex\Subscriptions\Models\Plan;
 
 class User extends Authenticatable 
 {
@@ -141,6 +142,20 @@ class User extends Authenticatable
     public function getFullNameAttribute()
     {
         return ucfirst("{$this->fname} {$this->lname}");
-    }   
+    }  
+    
+    public function newSubscription($subscription, Plan $plan, $isTrial = TRUE)
+    {
+        $trial = new Period($plan->trial_interval, $plan->trial_period, now());
+            $period = new Period($plan->invoice_interval, $plan->invoice_period, $trial->getEndDate());
+
+            return $this->subscriptions()->create([
+                'name' => $subscription,
+                'plan_id' => $plan->getKey(),
+                'trial_ends_at' => $isTrial ? $trial->getEndDate() : now(),
+                'starts_at' => $period->getStartDate(),
+                'ends_at' => $period->getEndDate(),
+            ]);
+    }
 }
 
