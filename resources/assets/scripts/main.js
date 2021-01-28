@@ -44,80 +44,93 @@ $(function(){
 
 
   //Swiper Js for Login & Register page
-  var swiper = new Swiper('.entry-swiper-container', {
-      fadeEffect: { crossFade: true },
-      virtualTranslate: true,
-      slideToClickedSlide: true,
-      mousewheelControl: true,
-      autoplayDisableOnInteraction: true,
-      pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-      },
-      autoplay: {
-          delay: 3000,
-          disableOnInteraction: false
-      },
-      speed: 1000, 
-      slidersPerView: 1,
-      effect: "fade"
-  });
+  if($('.entry-swiper-container')[0]){
+      var swiper = new Swiper('.entry-swiper-container', {
+        fadeEffect: { crossFade: true },
+        virtualTranslate: true,
+        slideToClickedSlide: true,
+        mousewheelControl: true,
+        autoplayDisableOnInteraction: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+        },
+        speed: 1000, 
+        slidersPerView: 1,
+        effect: "fade"
+    });
+  }
+  
 
 
   //Swiper Js for Artist gallery
-  var galleryThumbs = new Swiper('.gallery-thumbs', {
-      // spaceBetween: 10,
-      slidesPerView: 13,
-      freeMode: true,
-      watchSlidesVisibility: true,
-      watchSlidesProgress: true,
-    });
-    var galleryTop = new Swiper('.gallery-top', {
-      effect: 'fade',
-      fadeEffect: { crossFade: true },
-      virtualTranslate: true,
-      spaceBetween: 10,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      thumbs: {
-        swiper: galleryThumbs
-      }
-    });
+  if($('.gallery-thumbs')[0]){
+      var galleryThumbs = new Swiper('.gallery-thumbs', {
+        // spaceBetween: 10,
+        slidesPerView: 13,
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+      });
+      var galleryTop = new Swiper('.gallery-top', {
+        effect: 'fade',
+        fadeEffect: { crossFade: true },
+        virtualTranslate: true,
+        spaceBetween: 10,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        thumbs: {
+          swiper: galleryThumbs
+        }
+      });
+  }
+
 
   //Swiper Js for Become Creator
-  var swiper = new Swiper('.la-mcard__container', {
-    slidesPerView: 'auto',
-    spaceBetween: 30,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-  });
+
+  if($('.la-mcard__container')[0]){
+    var swiper = new Swiper('.la-mcard__container', {
+      slidesPerView: 'auto',
+      spaceBetween: 30,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  }
+  
 
   //Swiper Js for Learning Plans
-  var swiper = new Swiper('.la-choose__slider', {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-  breakpoints: {  
-      // when window width is <= 480px     
-      480: {       
-         slidesPerView: 1,       
-         spaceBetween: 20     
-      },       
-      767: {       
-         slidesPerView: 2,       
-         spaceBetween: 30     
+  if($('.la-choose__slider')[0]){
+      var swiper = new Swiper('.la-choose__slider', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      breakpoints: {  
+          // when window width is <= 480px     
+          480: {       
+            slidesPerView: 1,       
+            spaceBetween: 20     
+          },       
+          767: {       
+            slidesPerView: 2,       
+            spaceBetween: 30     
+          } 
+      
       } 
-  
-   } 
+    
+      });
+  }
 
-  });
 
 
   // Rating 
