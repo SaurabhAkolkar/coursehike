@@ -21,7 +21,7 @@
                   <select name="course_id" id="course_id" class="form-control js-example-basic-single col-md-7 col-12">
                         <option disabled selected>Choose Option</option>
                         @foreach($courses as $c)
-                            <option value="{{$c->id}}">{{$c->title}}</option>
+                            <option value="{{$c->id}}" @if($c->id == old('course_id')) selected @endif>{{$c->title}}</option>
                         @endforeach
                   </select>
                   @error('course_id')
@@ -35,7 +35,7 @@
               <div class="row">
                 <div class="col-md-6 mt-4">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.CourseAmount') }}:<sup class="redstar">*</sup></label>
-                  <input type="text" class="form-control" name="amount" id="exampleInputTitle" >
+                  <input type="text" class="form-control" name="amount" id="exampleInputTitle" value="{{ old('amount') }}" >
                     @error('amount')
                           <div class="alert alert-danger">  
                               {{$message}}
@@ -49,8 +49,8 @@
                     <label for="exampleInputTit1e">{{ __('adminstaticword.PurchaseType') }}:<sup class="redstar">*</sup></label>
                     <select name="purchase_type" id="purchase_type" class="form-control js-example-basic-single col-12">
                         <option disabled selected>Choose Option</option>
-                        <option value="all_classes">All Classes</option>
-                        <option value="selected_classes">Selected Classes</option>
+                        <option value="all_classes" @if(old('purchase_type') == 'all_classes') selected @endif>All Classes</option>
+                        <option value="selected_classes" @if(old('purchase_type') == 'selected_classes') selected @endif>Selected Classes</option>
                     </select>
                     @error('purchase_type')
                           <div class="alert alert-danger">  
