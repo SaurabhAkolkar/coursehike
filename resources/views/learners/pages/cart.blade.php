@@ -120,29 +120,40 @@
                   :playlists="$playlists"
                 />
               <!-- Playlist : End -->
+              
+              @if(count($suggested_courses) == 0)
 
-              <div class="row row-cols-lg-4 la-anim__stagger-item">
-                @foreach($suggested_courses as $sc)
-                    <x-course 
-                        :id="$sc->id"
-                        :img="$sc->preview_image"
-                        :course="$sc->title"
-                        :url="$sc->slug"
-                        :rating="round($sc->average_rating, 2)"
-                        :creatorImg="$sc->user->user_img"
-                        :creatorName="$sc->user->fname"
-                        :creatorUrl="$sc->user->id"
-                        :learnerCount="$sc->learnerCount"
-                      />
-                @endforeach       
-                <div class="col-md-6 col-lg-3 la-anim__stagger-item--x">
-                    <div class=" la-btn__plain text--burple text-md h-75 d-flex align-items-center justify-content-center justify-content-md-start">
-                      <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8 la-anim__fade-in-right">
-                        <a href="/browse/courses" >explore more<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
+                <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6 la-anim__stagger-item">
+                  <div class="col la-empty__inner">
+                    <h6 class="la-empty__course-title text-xl la-anim__stagger-item--x">No more courses available right now!</h6>
+                  </div>
+                </div>  
+              @else
+
+                <div class="row row-cols-lg-4 la-anim__stagger-item">
+                  @foreach($suggested_courses as $sc)
+                      <x-course 
+                          :id="$sc->id"
+                          :img="$sc->preview_image"
+                          :course="$sc->title"
+                          :url="$sc->slug"
+                          :rating="round($sc->average_rating, 2)"
+                          :creatorImg="$sc->user->user_img"
+                          :creatorName="$sc->user->fname"
+                          :creatorUrl="$sc->user->id"
+                          :learnerCount="$sc->learnerCount"
+                        />
+                  @endforeach       
+                  <div class="col-md-6 col-lg-3 la-anim__stagger-item--x">
+                      <div class=" la-btn__plain text--burple text-md h-75 d-flex align-items-center justify-content-center justify-content-md-start">
+                        <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8 la-anim__fade-in-right">
+                          <a href="/browse/courses" >explore more<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
+                        </div>
                       </div>
-                    </div>
+                  </div>
                 </div>
-              </div>
+
+              @endif
             </section>
           </div>
         </div>

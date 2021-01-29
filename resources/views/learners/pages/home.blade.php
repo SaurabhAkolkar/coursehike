@@ -246,10 +246,10 @@
           />
           {{-- Categories Tab :Start --}}
             @if(!$filtres_applied)
-              <div class="tab-content la-courses__content" id="nav-tabContent">
+              <div class="tab-content la-courses__content la-anim__wrap" id="nav-tabContent">
                 @foreach ($categories as $category)
-                  <div class="tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
-                    <div class="row row-cols-md-2 row-cols-lg-3">
+                  <div class=" tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
+                    <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item la-anim__C">
                           @php
 
                             $courses = $category->courses;
@@ -284,7 +284,7 @@
               </div>
               {{-- Categories Tab : END --}}
             @else
-              <div class="row row-cols-md-2 row-cols-lg-3">
+              <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item la-anim__C">
                   @php
                   if($sort_type == 'highest_rated')
                   {
@@ -307,7 +307,7 @@
                     @endforeach
 
                     @if(count($courses) == 0)
-                      <div class="la-empty__courses d-md-flex justify-content-between align-items-start">
+                      <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
                           <div class="la-empty__inner">
                               <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
                           </div>

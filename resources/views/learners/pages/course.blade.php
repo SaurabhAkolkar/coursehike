@@ -701,10 +701,10 @@ use Carbon\Carbon;
           </div>
           <div class="col-md-6 col-lg-7 my-auto">
             <div class="la-creator__content offset-lg-1 la-anim__wrap">
-              <div class="la-creator__content-title d-flex align-items-center la-anim__stagger-item--x">
+              <!-- <div class="la-creator__content-title d-flex align-items-center la-anim__stagger-item--x">
                 <span class="la-creator__content-icon la-icon">&#8220;</span>
                 <span class="la--text pl-3">Stet clita kasd gubergren</span>
-              </div>
+              </div> -->
               <div class="la-creator__para mb-6 la-anim__stagger-item--x">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor 
                 invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</div>
                 <div class="la-creator__content-btn ">
@@ -727,7 +727,7 @@ use Carbon\Carbon;
         <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">More from Creators</h2>
         
           @if(count($mentor_other_courses) == 0)
-               <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6">
+               <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6 la-anim__stagger-item">
                     <div class="col la-empty__inner">
                         <h6 class="la-empty__course-title text-xl la-anim__stagger-item">No more Courses from this Creator</h6>
                     </div>
@@ -767,23 +767,34 @@ use Carbon\Carbon;
     <div class="la-section__inner pb-md-10">
       <div class="container la-anim__wrap">
         <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">Looking for something else?</h2>
-       
-        <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item--x la-anim__B">
-          @foreach ($related_courses as $course)
-              <x-course 
-                  :id="$course->id"
-                  :img="$course->preview_image"
-                  :course="$course->title"
-                  :url="$course->slug"
-                  :rating="round($course->average_rating, 2)"
-                  :creatorImg="$course->user->user_img"
-                  :creatorName="$course->user->fname"
-                  :creatorUrl="$course->user->id"
-                  :learnerCount="$course->learnerCount"
-              />
-          @endforeach
+                
+          @if(count($related_courses) == 0)
 
-        </div>
+            <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6 la-anim__stagger-item">
+                <div class="col la-empty__inner">
+                  <h6 class="la-empty__course-title text-xl la-anim__stagger-item--x">No more courses available right now!</h6>
+                </div>
+            </div>   
+
+          @else
+
+            <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item--x la-anim__B">
+              @foreach ($related_courses as $course)
+                  <x-course 
+                      :id="$course->id"
+                      :img="$course->preview_image"
+                      :course="$course->title"
+                      :url="$course->slug"
+                      :rating="round($course->average_rating, 2)"
+                      :creatorImg="$course->user->user_img"
+                      :creatorName="$course->user->fname"
+                      :creatorUrl="$course->user->id"
+                      :learnerCount="$course->learnerCount"
+                  />
+              @endforeach
+            </div>
+          @endif
+
       </div>
     </div>
   </section>

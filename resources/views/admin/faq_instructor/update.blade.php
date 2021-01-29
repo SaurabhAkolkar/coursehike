@@ -22,7 +22,7 @@
                   <label for="exampleInputName">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="title" id="exampleInputTitle"value="{{$find->title}}">
                     @error('title')
-                      <div class="alert alert-danger">
+                      <div class="la-btn__alert-danger alert alert-danger">
                           {{$message}}
                       </div>
                     @enderror
@@ -35,7 +35,7 @@
                   <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
                   <textarea class="form-control" name="details"> {{$find->details}}</textarea>
                           @error('details')
-                            <div class="alert alert-danger">
+                            <div class="la-btn__alert-danger alert alert-danger">
                                 {{$message}}
                             </div>
                           @enderror

@@ -18704,7 +18704,7 @@ a, a:hover {
   margin-top: -30px;
 }
 .la-playlist__thumbnails--three .la-playlist__thumbnail:nth-child(1) {
-  height: 134px;
+  height: 100px;
 }
 .la-playlist__thumbnails--three .la-playlist__thumbnail:nth-child(2), .la-playlist__thumbnails--three .la-playlist__thumbnail:nth-child(3) {
   width: 50%;

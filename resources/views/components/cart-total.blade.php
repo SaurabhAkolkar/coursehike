@@ -1,34 +1,34 @@
-<div class="la-cart__bill ">
-    <div class="la-cart__bill-title mb-4  la-anim__stagger-item--x">Total</div>
+<div class="la-cart__bill la-anim__stagger-item--x">
+    <div class="la-cart__bill-title mb-4  ">Total</div>
     <div class="la-cart__bill-items mb-4">
-        <div class="la-cart__bill-item d-flex justify-content-between mb-2 la-anim__stagger-item--x">
+        <div class="la-cart__bill-item d-flex justify-content-between mb-2 ">
             <div class="la-cart__bill-label">Total Price</div>
             <div class="la-cart__bill-amount">$ {{ $totalAmount }}</div>
         </div>
-        {{-- <div class="la-cart__bill-item d-flex justify-content-between mb-2 la-anim__stagger-item--x">
+        {{-- <div class="la-cart__bill-item d-flex justify-content-between mb-2">
             <div class="la-cart__bill-label">Taxes</div>
             <div class="la-cart__bill-amount"> 5%</div>
         </div> --}}
-        <div class="la-cart__bill-item d-flex justify-content-between mb-2 la-anim__stagger-item--x">
+        <div class="la-cart__bill-item d-flex justify-content-between mb-2">
             <div class="la-cart__bill-label">Sub Total</div>
             <div class="la-cart__bill-amount">$ {{ $totalAmount }}</div>
         </div>
-        {{-- <div class="la-cart__bill-item d-flex justify-content-between mb-2 la-anim__stagger-item--x">
+        {{-- <div class="la-cart__bill-item d-flex justify-content-between mb-2">
             <div class="la-cart__bill-label">Original Price</div>
             <div class="la-cart__bill-amount"><strike>$ {{ $totalAmount + $offerAmount }}</strike></div>
         </div> --}}
-        <div class="la-cart__bill-item d-flex justify-content-between mb-2 la-anim__stagger-item--x">
+        <div class="la-cart__bill-item d-flex justify-content-between mb-2">
             <div class="la-cart__bill-label">Offer Discount</div>
             <div class="la-cart__bill-amount">$ {{ $offerAmount }}</div>
         </div>
         <div class="la-cart__bill-item d-flex justify-content-between mb-2 ">
-            <div class="la-cart__bill-label la-anim__stagger-item--x">Coupon Discount</div>
+            <div class="la-cart__bill-label">Coupon Discount</div>
             @if($totalAmount == 0 )
-                <a class="la-cart__bill-amount la-anim__stagger-item--x" role="button" disabled > 
+                <a class="la-cart__bill-amount" role="button" disabled > 
                 <span class="text text-secondary"> {{ $applyCoupon }} </span>
                 </a>
             @else
-                <a class="la-cart__bill-amount la-anim__stagger-item--x" role="button" data-toggle="modal" data-target="#cartCoupons"> 
+                <a class="la-cart__bill-amount" role="button" data-toggle="modal" data-target="#cartCoupons"> 
                     <span class="text text--purble"> {{ $applyCoupon }} </span>
                 </a>
             @endif
@@ -65,7 +65,7 @@
             <!-- Apply Coupon Popup: End -->
         </div>
 
-        <div class="la-cart__bill-item d-flex justify-content-between la-anim__stagger-item--x">
+        <div class="la-cart__bill-item d-flex justify-content-between">
             <div class="la-cart__bill-label">Discount Percent</div>
             <div class="la-cart__bill-amount"> {{ round(($offerAmount/($totalAmount+$offerAmount+1))*100, 2 ) }} %</div>
         </div>

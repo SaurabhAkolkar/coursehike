@@ -14,25 +14,25 @@
     @endphp
     <div class="la-cart__items ">
         <div class="la-cart__items mb-8">
-            <div class="la-cart__item row">
-                <div class="la-cart__item-course col-8 col-md-8 col-lg-7 pr-0">
-                    <div class="la-anim__wrap">
-                        <div class="la-cart__item-label mb-4 la-anim__stagger-item">Course</div>
+            <div class="la-cart__item row la-anim__wrap">
+                <div class="la-cart__item-course col-8 col-md-8 col-lg-7 pr-0 la-anim__stagger-item">
+                    <div class="">
+                        <div class="la-cart__item-label mb-4 ">Course</div>
                     </div>
                     <div class="la-cart__item-content d-md-flex la-anim__wrap">
                         <div class="la-cart__item-left  mr-md-4">
-                            <div class="la-cart__item-img la-anim__stagger-item">
+                            <div class="la-cart__item-img">
                                 <img src= "{{ $courseImg }}" class="img-fluid" alt= {{ $course }} />
                             </div>
                         </div>
                         <div class="la-cart__item-right ">
-                            <div class="la-cart__item-name la-anim__stagger-item">{{ $course }}</div>
-                            <div class="la-cart__item-author mb-2 mb-md-4 la-anim__stagger-item">by <span class="text-capitalize ">{{ $creator}}</span></div>
+                            <div class="la-cart__item-name">{{ $course }}</div>
+                            <div class="la-cart__item-author mb-2 mb-md-4">by <span class="text-capitalize ">{{ $creator}}</span></div>
                             <div class="la-cart__item-actions d-flex">
-                                <div class="la-cart__item-action remove la-anim__stagger-item"> 
+                                <div class="la-cart__item-action remove"> 
                                     <a href= {{ $removeUrl }}>{{ $remove }}</a>
                                 </div>
-                                <div class="la-cart__item-action wishlist la-anim__stagger-item">
+                                <div class="la-cart__item-action wishlist">
                                     <a href={{ $wishlistUrl }}>{{ $wishlist }}</a>
                                 </div>
                                 <div class="la-cart__item-action edit ">
@@ -159,19 +159,19 @@
                 
 
                 <div class="col-4 col-md-4 col-lg-5 pl-0 la-cart__item-info d-flex align-items-start la-anim__wrap">
-                    <div class="la-cart__item-classes  ">
-                        <div class="la-cart__item-label mb-4 la-anim__stagger-item">Classes</div>
-                        <div class="la-cart__item-content leading-snug la-anim__stagger-item"><span>@if($classType == 'all_classes') All Classes @else Selected Classes @endif</span></div>
+                    <div class="la-cart__item-classes la-anim__stagger-item ">
+                        <div class="la-cart__item-label mb-4 ">Classes</div>
+                        <div class="la-cart__item-content leading-snug "><span>@if($classType == 'all_classes') All Classes @else Selected Classes @endif</span></div>
                     </div>
 
-                    <div class="la-cart__item-price ml-4 ml-md-20  ">
-                        <div class="la-cart__item-label mb-4 la-anim__stagger-item">Price</div>
+                    <div class="la-cart__item-price ml-4 ml-md-20 la-anim__stagger-item ">
+                        <div class="la-cart__item-label mb-4 ">Price</div>
                         <div class="la-cart__item-content">
                             <div class="la-soffer ml-0">
-                                <div class="la-soffer__bestprice la-anim__stagger-item"> 
+                                <div class="la-soffer__bestprice "> 
                                     <sup><small>$</small></sup><span>{{ $cart->cartItems->sum('price')}}</span>
                                 </div>
-                                <div class="la-soffer__realprice la-anim__stagger-item"> 
+                                <div class="la-soffer__realprice "> 
                                     <sup><small>$</small></sup><span>{{ $cart->cartItems->sum('offer_price') }}</span>
                                 </div>
                             </div>

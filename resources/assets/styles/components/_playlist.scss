@@ -121,7 +121,7 @@ $image-center: -30px;
                                     &__ {
                                         &thumbnail {
                                             &:nth-child(1) {
-                                                height: $height-half;
+                                                height: 100px;
                                                 & img {
                                                     //margin-top: $image-center;
                                                 }

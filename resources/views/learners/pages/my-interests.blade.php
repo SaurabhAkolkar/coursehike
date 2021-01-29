@@ -45,8 +45,8 @@
                                     @endif
                                 @endforeach
                             @else
-                                <div class="col-12 mx-4 la-empty__courses">
-                                    <div class="la-empty__browse-courses">
+                                <div class="col-md-8 mt-2 mx-4 la-empty__courses la-anim__stagger-item--x">
+                                    <div class="la-empty__browse-courses ">
                                         <h6 class="la-empty__browse leading-tight text-lg" style="text-transform:none; letter-spacing:1px">
                                             Please Add Interests for better experience.
                                         </h6>
@@ -59,15 +59,26 @@
                             <div class="la-interests__title la-anim__stagger-item">You might also like</div>
                             <ul class="row la-interests__list pr-5">
                          
+                                @if(count($otherCategories) == 0)
+                                    <div class="col-md-8 mt-2 mx-4 la-empty__courses la-anim__stagger-item--x">
+                                        <div class="la-empty__browse-courses ">
+                                            <h6 class="la-empty__browse leading-tight text-lg" style="text-transform:none; letter-spacing:1px">
+                                                No more Interests available.
+                                            </h6>
+                                        </div>
+                                    </div>
+                                @else
 
-                                @foreach ($otherCategories as $category)
-                                    <x-my-interest
-                                        :img="'https://picsum.photos/100/100'"
-                                        :name="$category->title"
-                                        :id="$category->id"
-                                        :alreadyAdded="false"
-                                    />
-                                @endforeach
+                                    @foreach ($otherCategories as $category)
+                                        <x-my-interest
+                                            :img="'https://picsum.photos/100/100'"
+                                            :name="$category->title"
+                                            :id="$category->id"
+                                            :alreadyAdded="false"
+                                        />
+                                    @endforeach
+
+                                @endif
                             </ul>   
                         </div>
                     </div>

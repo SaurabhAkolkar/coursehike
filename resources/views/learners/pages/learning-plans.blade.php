@@ -192,7 +192,7 @@
                             <div class="panel-collapse collapse" id="faqFa_{{ $f->id }}" aria-labelledby="faqF" data-parent="#accFree">
                               <div class="panel-body py-4 px-5">
                                 <div class="panel-text">
-                                  <p>{!! $f->details !!}</p>
+                                  <span>{!! $f->details !!}</span>
                                 </div>
                               </div>
                             </div>

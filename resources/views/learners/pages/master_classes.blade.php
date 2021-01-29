@@ -33,7 +33,7 @@
                       @if(count($master_classes) == 0)
                       <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mx-5 mt-0 mt-md-6">
                           <div class="la-empty__inner">
-                              <h6 class="col la-empty__course-title text-xl la-anim__stagger-item">No Master Classes</h6>
+                              <h6 class="col la-empty__course-title text-xl la-anim__stagger-item">No master classes uploaded yet! </h6>
                           </div>
                           <div class="col text-md-right la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
                               <a href="/browse/courses" class="la-empty__browse">
