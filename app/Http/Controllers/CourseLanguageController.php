@@ -27,7 +27,6 @@ class CourseLanguageController extends Controller
         $data = $this->validate($request,[
             'name' => 'required',
             'iso_code' => 'required',
-            'status' => 'required',
         ]);
 
 

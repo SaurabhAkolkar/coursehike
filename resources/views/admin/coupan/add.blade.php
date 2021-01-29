@@ -17,7 +17,7 @@
           <div class="row">
             <div class="col-md-4">
               <label>{{ __('adminstaticword.CouponCode') }}:<span class="redstar">*</span></label>
-              <input required="" type="text" class="form-control" name="code">
+              <input required="" type="text" class="form-control" name="code" value="{{ old('code') }}">
               @error('code')
                   <div class="alert alert-danger">
                       {{$message}}
@@ -28,8 +28,8 @@
             <div class="col-md-4">
               <label>{{ __('adminstaticword.DiscountType') }}:<span class="redstar">*</span></label>
                 <select required="" name="distype" id="distype" class="form-control js-example-basic-single">
-                  <option value="fix">{{ __('adminstaticword.FixAmount') }}</option>
-                  <option value="per">% {{ __('adminstaticword.Percentage') }}</option>
+                  <option value="fix" @if(old('distype') == 'fix') selected @endif>{{ __('adminstaticword.FixAmount') }}</option>
+                  <option value="per" @if(old('distype') == 'per') selected @endif>% {{ __('adminstaticword.Percentage') }}</option>
                 </select>
                 @error('distype')
                   <div class="alert alert-danger">
@@ -42,7 +42,7 @@
           <div class="row  mt-3">
             <div class="col-md-8">
                 <label>{{ __('adminstaticword.Amount') }}:<span class="redstar">*</span></label>
-                <input required="" type="text"  class="form-control" name="amount">
+                <input required="" type="text"  class="form-control" name="amount" value="{{ old('amount') }}">
                 @error('amount')
                   <div class="alert alert-danger">
                       {{$message}}
@@ -54,7 +54,7 @@
           <div class="row mt-3">
               <div class="col-md-4">
                 <label>{{ __('adminstaticword.MaxUsageLimit') }}:<span class="redstar">*</span></label>
-                <input required="" type="number" min="1" class="form-control" name="maxusage">
+                <input required="" type="number" min="1" class="form-control" name="maxusage" value="{{ old('maxusage') }}">
                 @error('maxusage')
                   <div class="alert alert-danger">
                       {{$message}}
@@ -63,10 +63,10 @@
               </div>
 
               <div class="col-md-4">
-                <label>{{ __('adminstaticword.ExpiryDate') }}: </label>
+                <label>{{ __('adminstaticword.ExpiryDate') }}:<span class="redstar">*</span></label>
                 <div class="input-group">
                   <span class="input-group-addon pt-1 px-3 border"><i class="la-icon la-icon--md icon-calender-filled"></i></span>
-                  <input required="" id="expirydate" type="text" class="form-control" name="expirydate">
+                  <input required="" id="expirydate" type="text" class="form-control" name="expirydate" value="{{ old('expirydate') }}">
                     @error('expirydate')
                     <div class="alert alert-danger">
                       {{$message}}

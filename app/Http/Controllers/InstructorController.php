@@ -201,7 +201,7 @@ class InstructorController extends Controller
 
             Instructor::create($input);
 
-            return 1;
+            return 'Your request has been sent to Admin. Out team will contact you soon.';
     }
 
     public function allMentors(){

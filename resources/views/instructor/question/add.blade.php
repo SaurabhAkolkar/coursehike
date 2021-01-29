@@ -29,7 +29,7 @@
                         Select an Option 
                       </option>
                       @foreach($course as $cor)
-                          <option value="{{ $cor->id }}">{{ $cor->title }}</option>
+                          <option value="{{ $cor->id }}" @if(old('course_id') == $cor->id) selected @endif>{{ $cor->title }}</option>
                       @endforeach
                     </select>
 
@@ -44,7 +44,7 @@
                 <div class="row"> 
                   <div class="col-md-6">
                     <select name="user_id" class="display-none">
-                      <option  value="{{ Auth::user()->id }}">{{ Auth::user()->fname }}</option>
+                      <option  value="{{ Auth::user()->id }}"  @if(old('user_id') == Auth::user()->id) selected @endif >{{ Auth::user()->fname }}</option>
                     </select>
 
                     @error('user_id')
@@ -58,7 +58,7 @@
                 <div class="row">  
                   <div class="col-md-6">
                     <label for="exampleInputDetails">Question:<sup class="redstar">*</sup></label>
-                    <textarea name="question" rows="3" class="form-control" placeholder="Enter Your quetion"></textarea>
+                    <textarea name="question" rows="3" class="form-control" placeholder="Enter Your quetion">{{ old('question') }}</textarea>
                     @error('question')
                       <div class="alert alert-danger">  
                           {{$message}}

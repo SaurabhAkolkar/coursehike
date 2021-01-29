@@ -48,7 +48,6 @@ class SubcategoryController extends Controller
      */
     public function store(Request $request)
     {
-
         $data = $this->validate($request,[
             "title"=>"required",
                  ],[

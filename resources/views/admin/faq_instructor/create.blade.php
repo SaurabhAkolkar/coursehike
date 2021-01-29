@@ -33,7 +33,7 @@
               <div class="row">
                 <div class="col-md-8">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
-                  <textarea name="details" class="form-control" rows="5" placeholder="Enter Your Details" value="{{ old('details') }}"></textarea>
+                  <textarea name="details" class="form-control" rows="5" placeholder="Enter Your Details" >{{ old('details') }}</textarea>
                   @error('details')
                     <div class="alert alert-danger">
                           {{$message}}
