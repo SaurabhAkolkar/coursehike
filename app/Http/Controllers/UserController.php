@@ -96,20 +96,25 @@ class UserController extends Controller
                 'purchase_type' => 'required',
                 'amount' => 'required',
         ]);
+        
          
         $check = UserPurchasedCourse::where(['course_id'=>$request->course_id, 'user_id'=>$request->user_id])->get();
-        
+      
         if(count($check) > 0){
             return redirect()->back()->with('delete','Course is already added for the User.');
         }
+       
         if($request->purchase_type == 'selected_classes'){
+           
             if($request->class_id ==  null){
                 return back()->withErrors(['class_id'=> 'classes are required']);
             }
         }
         else if($request->purchase_type == 'all_classes'){
-            $request->class_id = CourseChapter::where(['course_id'=>$request->course_id])->pluck(['id']);
+            $request->class_id = CourseChapter::where(['course_id'=>$request->course_id])->pluck('id');
+            
         }   
+        dd(array_values($request->class_id));
 
                 $random = Str::of(Str::orderedUuid())->upper()->explode('-');
                
