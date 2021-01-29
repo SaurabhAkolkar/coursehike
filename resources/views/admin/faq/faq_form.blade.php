@@ -28,7 +28,7 @@
               <div class="row">
                 <div class="col-md-8">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
-                  <input type="text" class="form-control" name="title" placeholder=" Enter Your Titie" id="exampleInputTitle" value="{{ old('title') }}">
+                  <input type="text" class="form-control" name="title" placeholder=" Enter Your Title" id="exampleInputTitle" value="{{ old('title') }}">
                 </div>
               </div>
               <br>
@@ -79,7 +79,9 @@
 <script>
 (function($) {
 "use strict";
-  tinymce.init({selector:'textarea'});
+  tinymce.init({
+    selector:'textarea'
+  });
 })(jQuery);
 </script>
 

@@ -41,8 +41,8 @@
                   <td>{{$item->fname}}</td>
                   <td>{{$item->email}}</td>
 
-                  <td style="padding-right:30px;">
-                    <span style="line-height:1.5;">{!! str_limit($item->detail, 50) !!}</span>
+                  <td>
+                    <span>{!! str_limit(strip_tags($item->detail), 50) !!}</span>
                   </td>
 
                   <td>

@@ -30,7 +30,7 @@
               <tr>
                 <td>{{$key+1}}</td>
                 <td>{{$p->title}}</td>                 
-                <td>{{ str_limit(strip_tags($p->details), $limit = 50, $end = '...') }}</td>
+                <td>{{ str_limit(strip_tags($p->details), $limit = 60, $end = '...') }}</td>
                 <td>
                   <form action="{{ route('faqInstructor.quick',$p->id) }}" method="POST">
                     {{ csrf_field() }}

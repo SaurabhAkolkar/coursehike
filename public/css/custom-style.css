@@ -421,7 +421,10 @@ div.dt-buttons {
  /* == Table == */
  div.dataTables_wrapper div.dataTables_filter{
      z-index:0;
+     height:100%;
+     position: relative;
  }
+
  table {
     border-collapse: seperate !important;
     border-spacing: 0 25px !important; 
@@ -581,6 +584,7 @@ td a:focus{
 }
 .tox-tinymce{
     border:none !important;
+    height:200px !important;
 }
 /* == tox tox-menubar names of menubar == */
 .tox .tox-menubar {
