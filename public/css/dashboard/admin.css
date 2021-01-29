@@ -1019,6 +1019,8 @@ a.dt-button {
   margin: -160px 0 0 130px;
   position: absolute;
   background-color: var(--white);
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (min-width: 1920px) {
@@ -1032,6 +1034,8 @@ a.dt-button {
   height: 135px;
   position: absolute;
   margin: -160px 0 0 190px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (max-width: 1280px) {
@@ -1050,15 +1054,19 @@ a.dt-button {
   width: 135px;
   height: 135px;
   margin-left: 150px !important;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .la-admin__course-frontimg img {
-  width: 160px;
-  height: 150px;
+  width: 200px;
+  height: 152px;
   position: absolute;
   top: 45px;
   left: 220px;
   background-color: var(--white);
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (max-width: 1280px) {
@@ -1540,6 +1548,10 @@ a.dt-button {
   width: 180px;
   height: 180px;
   background-color: var(--gray8);
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
 .la-admin__profile-new {

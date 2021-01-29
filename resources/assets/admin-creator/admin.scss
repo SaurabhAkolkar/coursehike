@@ -1001,6 +1001,7 @@ button.dt-button, div.dt-button, a.dt-button {
   margin:-160px 0 0 130px;
   position: absolute;
   background-color:var(--white);
+  object-fit: cover;
 
   @media(min-width:1920px){
     margin:-160px 0 0 220px;
@@ -1013,6 +1014,7 @@ button.dt-button, div.dt-button, a.dt-button {
   height:135px;
   position: absolute;
   margin:-160px 0 0 190px;
+  object-fit: cover;
 
   @media(max-width:1280px){
     margin:-160px 0 0 130px; 
@@ -1027,18 +1029,20 @@ button.dt-button, div.dt-button, a.dt-button {
   width:135px;
   height:135px;
   margin-left:150px !important;
+  object-fit: cover;
   
 }
 
 //- Front Settings images
 .la-admin__course-frontimg img{
-  width:160px;
-  height:150px;
+  width:200px;
+  height:152px;
   //margin:-160px 0 0 130px;
   position: absolute;
   top:45px;
   left:220px;
   background-color:var(--white);
+  object-fit: cover;
 
   @media(max-width:1280px){
     left:180px;
@@ -1498,6 +1502,8 @@ button.dt-button, div.dt-button, a.dt-button {
     width:180px;
     height:180px;
     background-color: var(--gray8);
+    object-fit: cover;
+    object-position: center;
   }
 }
 .la-admin__profile-new{

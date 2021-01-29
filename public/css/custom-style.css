@@ -43,8 +43,19 @@ html, body{
     background:var(--white) !important;
     box-shadow: 0px 3px 6px #0000001A !important;
 }
+.user-image{
+    width:25px;
+    height:25px;
+    object-fit: cover;
+    object-position: center;
+    background-color: var(--gray);
+}
 .user-header>img{
     border-radius: 50%;
+    border:none;
+    object-fit:cover;
+    object-position: center;
+    background-color: var(--gray);
 }
 
 /* == Sidebar Toggler Menu Links == */
@@ -52,6 +63,7 @@ html, body{
     max-width:50px !important;
     height:50px !important;
     background:var(--gray);
+    object-fit: cover;
 }
 .user-panel > .info > p{
     color:var(--gray6) !important;
@@ -395,7 +407,8 @@ html, body{
 }
 .btn-info:hover{
     background-color:transparent !important;
-    color:var(--app-indigo-1) !important;
+    color:var(--gray6) !important;
+    font-weight: var(--font-medium);
 }
 .glyphicon{
     top:0;
@@ -486,6 +499,8 @@ table.table-bordered.dataTable tbody td {
     display:block;
     border-radius:10px;
     background-color: var(--gray);
+    object-fit: cover;
+    border:1px solid var(--gray);
 }
 img[alt]{
     border:none;
@@ -505,15 +520,13 @@ td .btn-success, td form .btn-danger{
 td .btn-success:hover, td form .btn-danger:hover{
     background-color:transparent ;
     color:var(--danger);
+    font-weight: var(--font-medium);
 }
 td .btn-success:focus, td form .btn-danger:focus{
     outline:0 !important;
     border:none !important;
     box-shadow:none !important;
     color:var(--gray6) !important;
-}
-td a:hover{
-    color:var(--danger) !important;
 }
 td a:focus{
     color:var(--gray2) !important;

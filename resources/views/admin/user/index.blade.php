@@ -62,7 +62,7 @@
                           @endif
                         </td>
                         <td class="text-center">
-                          <a class="" href="{{ route('user.subscriptions',$user->id) }}">View</a>
+                          <a class="btn btn-info text-capitalize font-weight-normal" href="{{ route('user.subscriptions',$user->id) }}">View</a>
                         </td>
                         <td>
                           <form action="{{ route('user.quick',$user->id) }}" method="POST">

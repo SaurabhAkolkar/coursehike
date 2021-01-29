@@ -25,6 +25,7 @@
                     width:280px;
                     height: 280px;
                     background-color:#FFC516;
+                    object-fit: cover;
 
                     @include respond-below(md){
                         width:200px;

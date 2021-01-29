@@ -28,7 +28,7 @@
           <div class="nav-tabs-custom" >
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" id="nav-tab" role="tablist" style="overflow-x:hidden !important;">
-              <li role="presentation" class="active"><a href="#pending" aria-controls="home" role="tab" data-toggle="tab">Pending</a></li>
+              <li role="presentation" class=""><a href="#pending" aria-controls="home" role="tab" data-toggle="tab">Pending</a></li>
               <li  class=""  role="presentation"><a href="#resolved" aria-controls="settings" role="tab" data-toggle="tab">Resolved</a></li>           
             </ul>
 

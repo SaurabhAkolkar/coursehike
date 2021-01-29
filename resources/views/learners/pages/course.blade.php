@@ -223,7 +223,7 @@ use Carbon\Carbon;
               <div class="col-lg-9 px-0">
                 <div class="col-12 col-lg px-0 la-anim__wrap">
                   <div class="la-ctabs__about la-anim__stagger-item la-anim__C">
-                    <span>{!! $course->detail !!}</span>
+                    <p>{{ $course->short_detail }}</p>
                     <span class="la-ctabs__about-collapse collapse" id="about_collapse">
                       {!! $course->detail !!}
                     </span>
