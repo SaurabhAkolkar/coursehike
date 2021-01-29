@@ -24,7 +24,7 @@
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Category') }}</label>
                   <select name="category_id" class="form-control js-example-basic-single col-md-7 col-12">
                     @foreach($category as $cate)
-                    <option value="{{$cate->id}}">{{$cate->title}}</option>
+                    <option value="{{$cate->id}}" @if(old('category_id') == $cate->id) selected @endif>{{$cate->title}}</option>
                     @endforeach
                   </select>
                 </div>
@@ -63,7 +63,6 @@
                     <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" >
                     <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
                   </li>
-                  <input type="hidden"  name="free" value="0" for="status" id="status">
                 </div>
               </div>
               <br>

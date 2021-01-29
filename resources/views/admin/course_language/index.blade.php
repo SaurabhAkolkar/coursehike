@@ -84,7 +84,7 @@
                     <div class="row">
                       <div class="col-md-12">
                         <label>{{ __('adminstaticword.Name') }}:<sup class="redstar">*</sup></label>
-                        <input type="text" class="form-control" name="name" placeholder="Please Enter Your  Language Name" value="">
+                        <input type="text" class="form-control" name="name" placeholder="Please Enter Your  Language Name" value="" required>
                           @error('name')
                               <div class="la-btn__alert-danger alert alert-danger">
                                     {{$message}}
@@ -97,7 +97,7 @@
                     <div class="row">
                       <div class="col-md-6">
                         <label for="exampleInputSlug">ISO Code:<sup class="redstar">*</sup></label>
-                        <input type="text" class="form-control" name="iso_code" placeholder="Eg, en, hi, ta, etc,." value="">
+                        <input type="text" class="form-control" name="iso_code" placeholder="Eg, en, hi, ta, etc,." value="" required> 
                           @error('iso_code')
                               <div class="la-btn__alert-danger alert alert-danger">
                                     {{$message}}

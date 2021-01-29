@@ -2,6 +2,7 @@
   $creators = App\User::where(['role'=>'mentors', 'status'=>1])->limit(6)->get();
   $footer_categories = App\Categories::where(['status'=>1])->orderBy('featured','DESC')->limit(6)->get();
   $courses = App\Course::where(['status'=>1])->limit(6)->get();
+  $master_classes = App\MasterClass::with('courses')->limit(6)->get();
 @endphp
 <!-- Footer: Start-->
 <footer class="la-footer">
@@ -26,7 +27,7 @@
                   <div class="la-footer__title">Categories</div>
                   <ul class="la-footer__list">
                     @foreach ($footer_categories as $fc)
-                      <li class="la-footer__list-item"><a class="la-footer__list-link" >{{$fc->title}}</a></li>
+                      <li class="la-footer__list-item"><a href="#" class="la-footer__list-link" >{{$fc->title}}</a></li>
                     @endforeach
                   </ul><a class="la-footer__more" href="/browse/courses">See all</a>
                 </div>
@@ -52,12 +53,9 @@
                 <div class="col-12 col-sm-6 mb-8 mb-md-5">
                   <div class="la-footer__title">Master Classes</div>
                   <ul class="la-footer__list">
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Master in UI Design</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Master in Photography</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Master in Dance</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Rangoli Art</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">UI Design</a></li>
-                    <li class="la-footer__list-item"><a class="la-footer__list-link">Photography</a></li>
+                    @foreach($master_classes as $mc)
+                    <li class="la-footer__list-item"><a href="/learn/course/{{ $mc->courses->id }}/{{ $mc->courses->slug }}" class="la-footer__list-link">{{ $mc->courses->title }}</a></li>
+                    @endforeach
                   </ul><a class="la-footer__more" href="/master-classes">See all</a>
                 </div>
 

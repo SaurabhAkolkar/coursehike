@@ -1,15 +1,7 @@
 @extends('admin/layouts.master')
 @section('title', 'Add Answer - Instructor')
 @section('body')
-@if ($errors->any())
-<div class="alert alert-danger">
-  <ul>
-    @foreach ($errors->all() as $error)
-    <li>{{ $error }}</li>
-    @endforeach
-  </ul>
-</div>
-@endif
+
 <section class="content">
   @include('admin.message')
   <div class="row">
@@ -37,7 +29,7 @@
                          {{ __('adminstaticword.SelectanOption') }}
                       </option>
                       @foreach($questions as $ques)
-                        <option value="{{ $ques->id }}">{{ $ques->question}}</option>
+                        <option value="{{ $ques->id }}" @if(old('question_id') == $ques->id) selected @endif>{{ $ques->question}}</option>
                       @endforeach
                     </select>
 
@@ -58,7 +50,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <label for="exampleInput">{{ __('adminstaticword.Answer') }}:<sup class="redstar">*</sup></label>
-                    <textarea name="answer" rows="4" class="form-control" placeholder="Please Enter Your Answer"></textarea>
+                    <textarea name="answer" rows="4" class="form-control" placeholder="Please Enter Your Answer">{{ old('answer') }}</textarea>
                     @error('answer')
                       <div class="alert alert-danger">  
                           {{$message}}

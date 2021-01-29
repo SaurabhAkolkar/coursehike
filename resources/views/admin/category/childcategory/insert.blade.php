@@ -20,16 +20,10 @@
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Category') }}</label>
                   <select name="category_id" id="category_id" class="form-control js-example-basic-single col-md-7 col-12">
                     <option value="0">{{ __('adminstaticword.PleaseSelect') }}</option>
-                    @foreach($category as $cat)
-                      <option value="{{$cat->id}}">{{$cat->title}}</option>
-                    @endforeach
+                      @foreach($category as $cat)
+                        <option value="{{$cat->id}}" @if(old('category_id') == $cat->id) selected @endif>{{$cat->title}}</option>
+                      @endforeach
                   </select>
-
-                  @error('category_id')
-                          <div class="la-btn__alert-danger alert alert-danger">
-                              {{$message}}
-                          </div>
-                    @enderror
                 </div>
               </div><br>
 
@@ -38,12 +32,6 @@
                   <label for="exampleInputTit1e">{{ __('adminstaticword.SubCategory') }}</label>
                   <select name="subcategories" id="upload_id" class="form-control js-example-basic-single col-md-7 col-xs-12">
                   </select>
-
-                  @error('subcategories')
-                          <div class="la-btn__alert-danger alert alert-danger">
-                              {{$message}}
-                          </div>
-                    @enderror
                 </div>
               </div><br>
 
@@ -60,12 +48,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
-                  <input type="text" class="form-control" name="title" id="exampleInputTitle" placeholder="Enter your childcategory" value="">
-                  @error('title')
-                          <div class="la-btn__alert-danger alert alert-danger">
-                              {{$message}}
-                          </div>
-                    @enderror
+                  <input type="text" class="form-control" name="title" id="exampleInputTitle" placeholder="Enter your childcategory" value="{{ old('title') }}">
                 </div>
               </div><br>
               
@@ -82,7 +65,7 @@
                   <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                   <br>
                   <li class="tg-list-item">              
-                    <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" >
+                    <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" @if(old('status')) checked @endif>
                     <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
                   </li>
                   <input type="hidden"  name="free" value="0" for="status" id="status">
