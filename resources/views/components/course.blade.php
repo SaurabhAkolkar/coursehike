@@ -112,7 +112,7 @@
             
             <a class="la-course__creator d-inline-flex align-items-center" href= "/creator/{{ $creatorUrl }}" >
                 <div class="la-course__creator-imgwrap">
-                    <img class="img-fluid" src="https://picsum.photos/200/200" alt={{ $creatorName }} />
+                    <img class="img-fluid" src="{{ $creatorImg }}" alt={{ $creatorName }} />
                     {{-- <img class="img-fluid" src={{ $creatorImg }} alt={{ $creatorName }} /> --}}
                 </div>
                 <div class="la-course__creator-name">{{ $creatorName }}</div>

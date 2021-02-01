@@ -50,12 +50,19 @@ use Carbon\Carbon;
               </div> --}}
             </div>
 
-            <div class="la-vcourse__rating mb-2 la-anim__stagger-item">
-              <div id="rateYo"></div>
+            <div class="la-rtng__icons d-inline-flex">
+              @for($counter=1;$counter <= round($average_rating); $counter++)
+                  <div class="la-icon la-icon--2xl icon-star la-rtng__fill"> </div>
+              @endfor
+
+              @for($counter=1;$counter <= 5-round($average_rating); $counter++)
+                  <div class="la-icon la-icon--2xl icon-star la-rtng__unfill"> </div>
+              @endfor                      
+              
             </div>
             <p class="la-vcourse__excerpt mb-5 la-anim__stagger-item">{{ $course->short_detail }}</p>
             <div class="la-vcourse__creator d-flex align-items-center">
-              <div class="la-vcourse__creator-avator la-anim__fade-in-left"><img src="https://picsum.photos/200/200" alt=""></div>
+              <div class="la-vcourse__creator-avator la-anim__fade-in-left"><img src="{{ $course->user->user_img }}" class="img-fluid" alt=""></div>
               <div class="la-vcourse__creator-name text-capitalize la-anim__stagger-item--x">{{ $course->user->fname }}</div>
             </div>
           </div>
@@ -643,7 +650,7 @@ use Carbon\Carbon;
                 <div class="la-lcreviews__inner">
                   <div class="la-lcreviews__wrapper d-flex flex-column flex-md-row justify-content-between">
                     <div class="la-lcreviews__prfle d-inline-flex la-anim__wrap">
-                      <div class="la-lcreviews__prfle-img la-anim__fade-in-left"><img class="img-fluid rounded-circle d-block" src="https://picsum.photos/70" alt="Amish Patel"></div>
+                      <div class="la-lcreviews__prfle-img la-anim__fade-in-left"><img class="img-fluid rounded-circle d-block" src="{{ $review->user->user_img }}" alt="Amish Patel"></div>
                       <div class="la-lcreviews__prfle-info la-anim__stagger-item--x">
                           <div class="la-reviews__timestamp text-sm">
                                     @if($review->created_at->diffInWeeks(Carbon::now())> 0) 
@@ -684,13 +691,7 @@ use Carbon\Carbon;
             <div class="la-creator__wrap position-relative">
               <div class="la-creator__inwrap d-flex align-items-end la-anim__wrap">
                 <div class="la-creator__img la-anim__fade-in-top">
-                @php 
-                      if($course->user->user_img == ""){
-                          $course->user->user_img = "https://picsum.photos/400";
-                      }
-                @endphp
-
-                  <span><img src="{{$course->user->user_img==""?'https://picsum.photos/400':$course->user->user_img}}" alt=""></span>
+                  <span><img src="{{$course->user->user_img}}" alt=""></span>
                 </div>
                 <div class="la-creator__detail pl-2 text-nowrap">
                   <span class="la-creator__name text-capitalize la-anim__stagger-item--x la-anim__C">{{$course->user->fullName}}</span>
@@ -705,8 +706,7 @@ use Carbon\Carbon;
                 <span class="la-creator__content-icon la-icon">&#8220;</span>
                 <span class="la--text pl-3">Stet clita kasd gubergren</span>
               </div> -->
-              <div class="la-creator__para mb-6 la-anim__stagger-item--x">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor 
-                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</div>
+              <div class="la-creator__para mb-6 la-anim__stagger-item--x">{{ $course->user->deatail }}</div>
                 <div class="la-creator__content-btn ">
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold la-anim__stagger-item--x la-anim__B">
                     <a href="/creator/{{$course->user->id}}">read about

@@ -39,13 +39,7 @@
           <div class="row la-anim__wrap">
               <div class="col-12 d-md-inline-flex">
                 @foreach($mentors as $mentor)
-                    @php 
-                          if($mentor->user_img == ""){
-                              $mentor->user_img = "https://picsum.photos/400";
-                          }else{
-                              $mentor->user_img = asset('/images/user_img/'.$mentor->user_img);
-                          }
-                    @endphp
+                  
                     <x-mentor :img="$mentor->user_img" :id="$mentor->id" :name="$mentor->fname.' '.$mentor->lname" :skill="$mentor->skill" />
                 @endforeach
                </div>

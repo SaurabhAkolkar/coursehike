@@ -13,12 +13,6 @@
           </div>
 
           @php
-
-             if($creator->user_img){
-                  $creator->user_img = asset('/images/user_img/'.$creator->user_img);
-             }else{
-                  $creator->user_img = "https://picsum.photos/1200/600";
-             } 
              if(!$rating){
                 $rating = 0;
              }

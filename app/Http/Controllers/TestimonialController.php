@@ -116,7 +116,6 @@ class TestimonialController extends Controller
         $data = $this->validate($request,[
             'client_name'=>'required',
             'details'=>'required',
-            'image'=>'required',
             'type' => 'required',
         ]);
         
