@@ -38,18 +38,16 @@
               <div class="la-playlist__wrap">
 
               @php
-                      $playlistItem1 = new stdClass;
-                      $playlistItem1->courseName = "Photography";
-                      $playlistItem1->classesCount = "2";
-                      
+                  $playlistItem1 = new stdClass;
+                  $playlistItem1->courseName = "Photography";
+                  $playlistItem1->classesCount = "2";
 
-                      $playlistItem2 = new stdClass;
-                      $playlistItem2->courseName = "Dance";
-                      $playlistItem2->classesCount = "5";
-                     
+                  $playlistItem2 = new stdClass;
+                  $playlistItem2->courseName = "Dance";
+                  $playlistItem2->classesCount = "5";
 
-                      $playlist = array($playlistItem1, $playlistItem2);
-                  @endphp
+                  $playlist = array($playlistItem1, $playlistItem2);
+              @endphp
 
                 <div class="row la-playlist__items">
                     @foreach ($playlists as $item)

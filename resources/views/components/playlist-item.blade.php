@@ -11,28 +11,31 @@
                 <a class="dropdown-item la-cmenu__item d-inline-flex" href="/playlist/{{$id}}"><i class="icon icon-courses la-icon la-icon--lg mr-4"></i>See Courses</a>
             </div>
         </div>
-        
+        @php
+            $courses = App\PlaylistCourse::where(['playlist_id'=>$id])->get();
+        @endphp
+
         <div class="la-playlist__thumbnails  la-playlist__thumbnails--three d-flex flex-wrap">
             @if($classesCount <= 1)    
-            <div class="la-playlist__thumbnail">
-                <img class="img-fluid" src="https://picsum.photos/600/500" alt="thumbnail">
-            </div>
+                <div class="la-playlist__thumbnail">
+                    <img class="img-fluid" src="{{ $courses[0]->courses->preview_image  }}" alt="thumbnail">
+                </div>
             @elseif($classesCount == 2)
                 <div class="la-playlist__thumbnail">
-                    <img class="img-fluid" src="https://picsum.photos/600/500" alt="thumbnail">
+                    <img class="img-fluid" src="{{ $courses[0]->courses->preview_image }}" alt="thumbnail">
                 </div>
                 <div class="la-playlist__thumbnail">
-                    <img class="img-fluid" src="https://picsum.photos/600/500" alt="thumbnail" width="100%">
+                    <img class="img-fluid" src="{{ $courses[1]->courses->preview_image }}" alt="thumbnail" width="100%">
                 </div>
             @else
                 <div class="la-playlist__thumbnail">
-                    <img class="img-fluid" src="https://picsum.photos/600/500" alt="thumbnail">
+                    <img class="img-fluid" src="{{ $courses[0]->courses->preview_image }}" alt="thumbnail">
                 </div>
                 <div class="la-playlist__thumbnail">
-                    <img class="img-fluid" src="https://picsum.photos/600/500" alt="thumbnail">
+                    <img class="img-fluid" src="{{ $courses[1]->courses->preview_image }}" alt="thumbnail">
                 </div>
                 <div class="la-playlist__thumbnail">
-                    <img class="img-fluid" src="https://picsum.photos/600/500" alt="thumbnail">
+                    <img class="img-fluid" src="{{ $courses[2]->courses->preview_image }}" alt="thumbnail">
                 </div>
             @endif
         </div>

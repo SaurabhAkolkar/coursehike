@@ -366,81 +366,83 @@
           <!-- Column: End-->
           <!-- Column: Start-->
           <div class="col-12 col-lg-8 px-0 px-lg-3"> 
-            <div class="la-lp__test-rgt ">                  
-              <div class="la-lp__test-cards d-flex justify-content-end la-anim__stagger-item--x" id="testCard1">
-                <div class="card la-lp__card-itm" >
-                  <div class="la-card__top d-flex justify-content-between">
-                    <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle" src="https://picsum.photos/50/50" alt="Profile">
-                      <div class="col">
-                        <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">Nathan Spark</h5><span class="la-lp__desg text-sm">Tattoo Artist</span>
+            <div class="la-lp__test-rgt ">      
+                @foreach($testimonial as $test)            
+                    <div class="la-lp__test-cards d-flex justify-content-end la-anim__stagger-item--x" id="testCard1">
+                      <div class="card la-lp__card-itm" >
+                        <div class="la-card__top d-flex justify-content-between">
+                          <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle" src="{{ asset('images/testimonial/'.$test->image) }}" alt="Profile">
+                            <div class="col">
+                              <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">{{ $test->client_name }}</h5><span class="la-lp__desg text-sm"></span>
+                            </div>
+                          </div>
+                          <div class="la-lp__test-rating d-flex flex-row">
+                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
+                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
+                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
+                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
+                            <div class="la-icon--xl icon-star la-lp__urtng"></div>
+                          </div>
+                        </div>
+                        <p class="la-lp__test-review mt-5 body-font text-sm">{!! $test->details !!}
+                        </p>
                       </div>
                     </div>
-                    <div class="la-lp__test-rating d-flex flex-row">
-                      <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                      <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                      <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                      <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                      <div class="la-icon--xl icon-star la-lp__urtng"></div>
-                    </div>
-                  </div>
-                  <p class="la-lp__test-review mt-5 body-font text-sm">
-                    &#8220; Lorem Ipsum dolor sit amet, consectur sadipscing elit,sed diam nonumy elrmod tempor invidunt ut labore et 
-                    dolore magna aliquaqm erat, sed diam voluptna.
-                    At vero eos et accusam et justo duo dolories et ea rebum. &#8221;
-                  </p>
-                </div>
-              </div>
-              <div class="la-lp__test-cards d-flex justify-content-between la-anim__stagger-item--x" id="testCard2">
-                <div class="card la-lp__card-itm" >
-                  <div class="la-card__top d-flex justify-content-between">
-                    <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle" src="https://picsum.photos/50/50" alt="Profile">
-                      <div class="col">
-                        <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">Charolette</h5><span class="la-lp__desg text-sm">UI Designer</span>
+                @endforeach
+
+                    {{-- <div class="la-lp__test-cards d-flex justify-content-between la-anim__stagger-item--x" id="testCard2">
+                      <div class="card la-lp__card-itm" >
+                        <div class="la-card__top d-flex justify-content-between">
+                          <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle" src="https://picsum.photos/50/50" alt="Profile">
+                            <div class="col">
+                              <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">Charolette</h5><span class="la-lp__desg text-sm">UI Designer</span>
+                            </div>
+                          </div>
+                          <div class="la-lp__test-rating d-flex flex-row">
+                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
+                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
+                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
+                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
+                            <div class="la-icon--xl icon-star la-lp__urtng"></div>
+                          </div>
+                        </div>
+                        <p class="la-lp__test-review body-font mt-5 text-sm">
+                          &#8220; Lorem Ipsum dolor sit amet, consectur sadipscing elit,sed diam nonumy elrmod tempor invidunt ut labore et 
+                          dolore magna aliquaqm erat, sed diam voluptna. &#8221;
+                        </p>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <ul class="la-lp__card-list d-none d-sm-block">
+                          <li> <a role="button" href="#testCard1"></a></li>
+                          <li><a role="button" href="#testCard2"></a></li>
+                          <li><a role="button" href="#testCard3"></a></li>
+                        </ul>
                       </div>
                     </div>
-                    <div class="la-lp__test-rating d-flex flex-row">
-                      <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                      <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                      <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                      <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                      <div class="la-icon--xl icon-star la-lp__urtng"></div>
-                    </div>
-                  </div>
-                  <p class="la-lp__test-review body-font mt-5 text-sm">
-                    &#8220; Lorem Ipsum dolor sit amet, consectur sadipscing elit,sed diam nonumy elrmod tempor invidunt ut labore et 
-                    dolore magna aliquaqm erat, sed diam voluptna. &#8221;
-                  </p>
-                </div>
-                <div class="d-flex align-items-center">
-                  <ul class="la-lp__card-list d-none d-sm-block">
-                    <li> <a role="button" href="#testCard1"></a></li>
-                    <li><a role="button" href="#testCard2"></a></li>
-                    <li><a role="button" href="#testCard3"></a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="la-lp__test-cards d-flex justify-content-end la-anim__stagger-item--x" id="testCard3">
-                <div class="card la-lp__card-itm" >
-                  <div class="la-card__top d-flex justify-content-between">
-                    <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle" src="https://picsum.photos/50/50" alt="Profile">
-                      <div class="col">
-                        <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">Natalia</h5><span class="la-lp__desg text-sm">Photographer</span>
+
+
+                  <div class="la-lp__test-cards d-flex justify-content-end la-anim__stagger-item--x" id="testCard3">
+                    <div class="card la-lp__card-itm" >
+                      <div class="la-card__top d-flex justify-content-between">
+                        <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle" src="https://picsum.photos/50/50" alt="Profile">
+                          <div class="col">
+                            <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">Natalia</h5><span class="la-lp__desg text-sm">Photographer</span>
+                          </div>
+                        </div>
+                        <div class="la-lp__test-rating d-flex flex-row">
+                          <div class="la-icon--xl icon-star la-lp__rtng"></div>
+                          <div class="la-icon--xl icon-star la-lp__rtng"></div>
+                          <div class="la-icon--xl icon-star la-lp__rtng"></div>
+                          <div class="la-icon--xl icon-star la-lp__rtng"></div>
+                          <div class="la-icon--xl icon-star la-lp__urtng"></div>
+                        </div>
                       </div>
+                      <p class="la-lp__test-review body-font mt-5 text-sm">
+                        &#8220; Lorem Ipsum dolor sit amet, consectur sadipscing elit,sed diam nonumy elrmod tempor invidunt ut labore et 
+                        dolore magna aliquaqm erat, sed diam voluptna. &#8221;
+                      </p>
                     </div>
-                    <div class="la-lp__test-rating d-flex flex-row">
-                      <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                      <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                      <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                      <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                      <div class="la-icon--xl icon-star la-lp__urtng"></div>
-                    </div>
-                  </div>
-                  <p class="la-lp__test-review body-font mt-5 text-sm">
-                    &#8220; Lorem Ipsum dolor sit amet, consectur sadipscing elit,sed diam nonumy elrmod tempor invidunt ut labore et 
-                    dolore magna aliquaqm erat, sed diam voluptna. &#8221;
-                  </p>
-                </div>
-              </div>
+                  </div> --}}
             </div>
           </div>
           <!-- Column: End                -->

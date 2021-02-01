@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\FaqInstructor;
 use App\FaqStudent;
+use App\Testimonial;
 
 class WebsiteController extends Controller
 {
@@ -23,7 +24,7 @@ class WebsiteController extends Controller
     public function learningPlans(){
 
         $faqs = FaqStudent::where(['status'=>1])->get();
-        
-        return view('learners.pages.learning-plans', compact('faqs'));
+        $testimonial = Testimonial::where(['status'=>1])->get();
+        return view('learners.pages.learning-plans', compact('faqs','testimonial'));
     }
 }

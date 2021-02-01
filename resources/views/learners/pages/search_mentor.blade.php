@@ -28,15 +28,6 @@
               <div class="row no-gutters">
                   @if(count($mentors))
                   @foreach($mentors as $mentor)
-                      @php 
-                            if($mentor->user_img == ""){
-                                $mentor->user_img = "https://picsum.photos/400";
-                            }else{
-                                $mentor->user_img = asset('/images/user_img/'.$mentor->user_img);
-                            }
-                          
-                      @endphp
-
                       <x-mentor :img="$mentor->user_img" :id="$mentor->id" :name="$mentor->fname.' '.$mentor->lname" :skill="$mentor->skill" />
                   @endforeach
                 </div>

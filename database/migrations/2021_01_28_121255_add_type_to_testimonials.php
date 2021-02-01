@@ -14,7 +14,7 @@ class AddTypeToTestimonials extends Migration
     public function up()
     {
         Schema::table('testimonials', function (Blueprint $table) {
-            $table->string('type')->nullable();
+            $table->string('type')->nullable()->after('details');
         });
     }
 

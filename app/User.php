@@ -87,7 +87,7 @@ class User extends Authenticatable
 
     public function getUserImgAttribute($value)
     {
-        if($value){
+        if($value != null){
             return Storage::url(config('path.profile'). $value);
         }else{
             return asset('images/user_img/default.jpg');

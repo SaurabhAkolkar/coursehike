@@ -382,7 +382,7 @@
                 <x-master-class
                   :img="$master->courses->preview_image"
                   :title="$master->courses->title"
-                  :profileImg="'https://picsum.photos/100/100'"
+                  :profileImg="$master->courses->user->user_img"
                   :profileName="$master->courses->user->fullName"
                   :learners="$master->courses->learnerCount"
                   :id="$master->courses->id"
