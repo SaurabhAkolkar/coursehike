@@ -33,36 +33,6 @@
                 </a>
             @endif
           
-
-            <!-- Apply Coupon Popup: Start -->
-            <div class="modal fade la-cart__bill-modal" id="cartCoupons">
-                <div class="modal-dialog la-cart__bill-mdialog">
-                  <div class="modal-content la-cart__bill-mcontent">
-                  
-                    <div class="modal-header la-cart__bill-mheader">
-                      <h4 class="modal-title la-cart__bill-mtitle">Add Coupon</h4>
-                      <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
-                    </div>
-                    
-                    <div class="modal-body la-cart__bill-mbody">
-                        <div class="la-cart__bill-mapply">
-                            <form action="/apply-coupon" method="post" id="apply_coupon" class="d-flex align-items-center">
-                                @csrf
-                                <input type="text" class="la-cart__bill-input" name="coupon_name" placeholder="Enter Coupon" required/>
-                                <button class="la-cart__bill-submit" onclick="$('#apply_coupon').submit()"> APPLY </button>
-                            </form>
-                        </div>
-
-                        <ul class="la-cart__bill-coupons">
-                            @foreach($coupons as $coupon)
-                                <li class="la-cart__bill-coupon"><a href="/apply-coupon/{{$coupon->id}}">{{$coupon->code}}</a></li>
-                            @endforeach
-                        </ul>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <!-- Apply Coupon Popup: End -->
         </div>
 
         <div class="la-cart__bill-item d-flex justify-content-between">
@@ -93,3 +63,34 @@
         </div>
     </div>
 </div>
+
+
+ <!-- Apply Coupon Popup: Start -->
+ <div class="modal fade la-cart__bill-modal" id="cartCoupons">
+                <div class="modal-dialog la-cart__bill-mdialog">
+                  <div class="modal-content la-cart__bill-mcontent">
+                  
+                    <div class="modal-header la-cart__bill-mheader">
+                      <h4 class="modal-title la-cart__bill-mtitle">Add Coupon</h4>
+                      <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
+                    </div>
+                    
+                    <div class="modal-body la-cart__bill-mbody">
+                        <div class="la-cart__bill-mapply">
+                            <form action="/apply-coupon" method="post" id="apply_coupon" class="d-flex align-items-center">
+                                @csrf
+                                <input type="text" class="la-cart__bill-input" name="coupon_name" placeholder="Enter Coupon" required/>
+                                <button class="la-cart__bill-submit" onclick="$('#apply_coupon').submit()"> APPLY </button>
+                            </form>
+                        </div>
+
+                        <ul class="la-cart__bill-coupons">
+                            @foreach($coupons as $coupon)
+                                <li class="la-cart__bill-coupon"><a href="/apply-coupon/{{$coupon->id}}">{{$coupon->code}}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <!-- Apply Coupon Popup: End -->

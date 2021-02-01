@@ -17793,7 +17793,9 @@ a, a:hover {
   overflow: hidden;
 }
 .la-course__imgwrap img {
-  height: 220px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
   transition: transform 0.24s ease-out;
   -webkit-transition: transform 0.24s ease-out;
   -moz-transition: transform 0.24s ease-out;
