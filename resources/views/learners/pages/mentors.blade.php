@@ -4,7 +4,7 @@
 <section class="la-section__small la-cbg--main">
     <div class="la-section__inner">
       <div class="container ">
-        <div class="mx-3 la-anim__wrap d-md-flex justify-content-between align-items-center">
+        <div class="la-anim__wrap d-md-flex justify-content-between align-items-center">
           <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5 la-anim__stagger-item--x" href="{{URL::previous()}}"></a>
           <h1 class="la-page__title mb-8 la-anim__stagger-item">Alien Mentors</h1>
 
@@ -37,7 +37,7 @@
 
         <div class="la-mentors pt-md-10">
           <div class="row la-anim__wrap">
-              <div class="col-12 d-md-inline-flex">
+              <div class="row row-cols-lg-3">
                 @foreach($mentors as $mentor)
                     @php 
                           if($mentor->user_img == ""){

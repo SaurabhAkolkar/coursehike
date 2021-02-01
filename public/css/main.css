@@ -17874,6 +17874,14 @@ a, a:hover {
   overflow: hidden;
   margin-right: var(--size-2);
 }
+.la-course__creator-imgwrap img {
+  width: var(--size-10);
+  height: var(--size-10);
+  border-radius: var(--rounded-full);
+  background-color: var(--white);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .la-course__creator-imgwrap:hover {
   box-shadow: 0px 0px 30px #D4D4D47A;
 }
@@ -21311,7 +21319,6 @@ a, a:hover {
   border-radius: 6px;
   padding: var(--size-2) var(--size-3);
   margin: 0 0 var(--size-3) var(--size-2);
-  text-transform: capitalize;
 }
 
 label.error {
@@ -22884,7 +22891,7 @@ section.la-cdashboard-main {
   display: block;
 }
 .la-course__tiles:hover .la-courses__tile-thumbnail img {
-  border-radius: 0;
+  border-radius: 10px;
   transform: scale(1.1);
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
@@ -22911,6 +22918,8 @@ section.la-cdashboard-main {
 }
 
 .la-courses__tile-thumbnail img {
+  -o-object-fit: cover;
+     object-fit: cover;
   width: 150px;
   height: 100px;
   overflow: hidden;
@@ -23098,6 +23107,8 @@ section.la-cdashboard-main {
 }
 
 .la-hp__card-thumbnail--img {
+  -o-object-fit: cover;
+     object-fit: cover;
   width: 250px;
   height: 200px;
   box-shadow: 1px 1px 2px #eee;
