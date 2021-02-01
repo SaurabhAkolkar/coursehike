@@ -133,6 +133,16 @@
                         margin-right: var(--size-2);
                         border-radius: var(--rounded-full);
                         overflow: hidden;
+                        background-color: var(--white);
+
+                        img{
+                            width: var(--size-12);
+                            height: var(--size-12);
+                            object-fit: cover;
+                            object-position: center;
+                            border-radius: var(--rounded-full);
+                            background-color: var(--white);
+                        }
                     }
                     &name {
                         font-size: var(--text-lg);

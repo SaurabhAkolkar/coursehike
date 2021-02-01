@@ -16,7 +16,7 @@
             <div class="la-mccourse__btm">
                 <div class="la-mccourse__cprofile">
                     <div class="la-mccourse__cprofile-imgwrap">
-                        <img class="img-fluid" src= "{{ $profileImg }}"   alt= {{ $profileName }} />
+                        <img class="img-fluid" src= "{{ $profileImg }}"   alt= "{{ $profileName }}" />
                     </div>
                     <div class="la-mccourse__cprofile-name">{{ $profileName }} </div>
                 </div>

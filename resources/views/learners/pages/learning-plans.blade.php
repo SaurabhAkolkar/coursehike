@@ -371,9 +371,11 @@
                     <div class="la-lp__test-cards d-flex justify-content-end la-anim__stagger-item--x" id="testCard1">
                       <div class="card la-lp__card-itm" >
                         <div class="la-card__top d-flex justify-content-between">
-                          <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle" src="{{ asset('images/testimonial/'.$test->image) }}" alt="Profile">
+                          <div class="la-lp__profile d-flex justify-content-start">
+                            <img class="img-fluid d-block rounded-circle" src="{{ asset('images/testimonial/'.$test->image) }}" alt="{{ $test->client_name }}">
                             <div class="col">
-                              <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">{{ $test->client_name }}</h5><span class="la-lp__desg text-sm"></span>
+                              <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">{{ $test->client_name }}</h5>
+                              <span class="la-lp__desg text-sm"></span>
                             </div>
                           </div>
                           <div class="la-lp__test-rating d-flex flex-row">
