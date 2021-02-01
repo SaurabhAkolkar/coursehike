@@ -42,6 +42,10 @@
                             margin-bottom: var(--size-12);
                             padding-bottom:var(--size-2);
                             transition:all 0.5s linear;
+
+                            @include respond-below(sm){
+                                margin-bottom: var(--size-5);
+                            }
                         }
                         &tabs::-webkit-scrollbar {
                             height:8px;

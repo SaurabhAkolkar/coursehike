@@ -2,6 +2,10 @@
     // Global Search: Start
     &gsearch {
         margin-bottom: var(--size-10);
+
+        @include respond-below(sm){
+            margin-bottom: var(--size-3);
+        }
         
         &__ {
             &input {

@@ -175,7 +175,7 @@
           <!-- Column: End-->
 
           <!-- Column: Start-->
-          <div class="col-12 col-lg-6 la-anim__stagger-item">
+          <div class="col-12 col-lg-6 px-3 la-anim__stagger-item">
             <div class="la-lp__rgt-content" id="accordion">
               <h4 class="faq-title  text-4xl">FAQ's</h4>
               <div class="panel-group la-lp__faq-group" id="accFreeMain">

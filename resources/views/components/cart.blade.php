@@ -129,8 +129,9 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="row la-cart__edit-info ">
+                                                    
                                                         @foreach($cart->courses->chapter as $class)
+                                                        <div class="row la-cart__edit-info ">
                                                             <div class="col-2 col-md-2 text-center my-auto ">
                                                                 <div class="form-group m-0">
                                                                     <label class="glabel d-flex justify-content-center m-0">
@@ -145,16 +146,17 @@
                                                                 <img class="la-cart__edit-img img-fluid d-block" src="https://picsum.photos/80/50" alt="" />
                                                             </div>
                                                             <div class="col-3 col-md-3 my-auto">
-                                                                <div class="la-cart__edit-submain text-sm">{{$class->chapter_name}}</div>
+                                                                <div class="la-cart__edit-submain">{{$class->chapter_name}}</div>
                                                             </div>
                                                             <div class="col-3 col-md-3 my-auto">
-                                                                <div class="la-cart__edit-submain  text-sm">{{ $creator }}</div>
+                                                                <div class="la-cart__edit-submain text-capitalize">{{ $creator }}</div>
                                                             </div>
                                                             <div class=" col-2 col-md-2 my-auto">
                                                                 <div class="la-cart__edit-submain  text-sm">$ {{ $class->price }}</div>
                                                             </div>
+                                                        </div>
                                                         @endforeach
-                                                    </div>
+                                                    
                                                     <!-- 
                                                     <div class="row la-cart__edit-info">
                                                         <div class="col-2 col-md-2 text-center my-auto">
