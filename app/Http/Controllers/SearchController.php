@@ -13,6 +13,7 @@ use App\ReviewRating;
 use App\UserPurchasedCourse;
 use App\CourseLanguage;
 use App\MasterClass;
+use App\UserWatchTimelog;
 
 class SearchController extends Controller
 {
@@ -170,21 +171,17 @@ class SearchController extends Controller
 	}
 	
 	public function myCourses(){
-		$langauges = CourseLanguage::where(['status'=>1])->get();
-		$filter_categories = Categories::with('subcategory')->where(['status'=>1])->get();
-		$courses =[];
-		$categories = [];
+		
 		$playlists = [];
-		$selected_categories = [];
-		$selected_subcategories = [];
-		$selected_level = [];
-		$selected_languages = [];
-
+		
 		$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
-		$courses = UserPurchasedCourse::with('course','course.user','course.review')->where(['user_id'=>Auth::User()->id])->get();
-		
-		
-		return view('learners.pages.my-courses',compact('playlists','courses','filter_categories', 'langauges','selected_categories','selected_subcategories', 'selected_level', 'selected_languages'));
+		$course_ids = UserPurchasedCourse::with('course','course.user','course.review')->where(['user_id'=>Auth::User()->id])->pluck('course_id')->toArray();
+		$on_going_courses = UserWatchTimelog::with('course')->whereIn('course_id', $course_ids)->groupBy('course_id')->get()->take(4);
+
+		$yet_to_start = array_diff($course_ids, $on_going_courses->pluck('course_id')->toArray());
+		$yet_to_start_courses = Course::whereIn('id', $yet_to_start)->get()->take(4);
+
+		return view('learners.pages.my-courses',compact('playlists','on_going_courses','yet_to_start_courses'));
 	}
 
 	public function masterClasses(){

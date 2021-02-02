@@ -38,7 +38,7 @@
                                     @if($interest->category != null)
                                         <x-my-interest
                                             :id="$interest->category_id"
-                                            :img="'https://picsum.photos/100/100'"
+                                            :img="$interest->category->image"
                                             :name="$interest->category['title']"
                                             :alreadyAdded="$alreadyAdded"
                                         />
@@ -73,7 +73,7 @@
                                     <ul class="row la-interests__list pr-5">
                                     @foreach ($otherCategories as $category)
                                         <x-my-interest
-                                            :img="'https://picsum.photos/100/100'"
+                                            :img="$category->image"
                                             :name="$category->title"
                                             :id="$category->id"
                                             :alreadyAdded="false"
