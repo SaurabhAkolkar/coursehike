@@ -77,10 +77,10 @@
                         &:before {
                             content: '';
                             position: absolute;
-                            top: -3px;
-                            left: calc(-1 * var(--size-2));
-                            width: var(--size-4);
-                            height: var(--size-4);
+                            top: -5px;
+                            left: -5px;
+                            width: var(--size-5);
+                            height: var(--size-5);
                             border: 2px solid transparent;
                             border-radius: var(--rounded-full);
                             z-index: calc(-1 * var(--z-1));

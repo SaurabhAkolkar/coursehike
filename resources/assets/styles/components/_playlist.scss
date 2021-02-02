@@ -252,7 +252,7 @@ $image-center: -30px;
                             padding-left: var(--size-2);
                         }
                         &:focus{
-                            color: var(--grey6);
+                            color: var(--gray6);
                             opacity: 1;
                             padding-left:var(--size-2);
                         }
@@ -262,7 +262,7 @@ $image-center: -30px;
                         border-left:1px solid var(--gray6);
                     }
                     &search{
-                        color:var(--grey9);
+                        color:var(--gray9);
                     }
                     &update{
                         color: var(--app-indigo-1);

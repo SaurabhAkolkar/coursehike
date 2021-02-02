@@ -2,8 +2,12 @@
     &news{
         &__{
             &item{
-                padding-top:var(--size-10);
-                padding-bottom:var(--size-10);
+                padding:var(--size-10) 0;
+                border-bottom:2px solid var(--gray8);
+
+                @include respond-below(md){
+                    margin-right:0;
+                }
             }
             &eimg{
                 img{
@@ -11,16 +15,19 @@
                     height:280px;
                     border-radius:10px;
                     background-color: var(--white);
+                    object-fit: cover;
                 }
             }
             &etitle{
-                padding-left:var(--size-12);
-                padding-right:var(--size-12);
-                h6{
-                    color:var(--gray7);
-                    font-weight:var(--font-semibold);  
-                } 
+                padding:0 var(--size-12);
+
+                @include respond-below(md){
+                    padding:var(--size-6) 0;
+                }
             }
+            &title{
+                color:var(--gray7);
+            } 
             &timestamp{
                 color:#FFCE31;
                 font-weight:var(--font-normal);
@@ -67,8 +74,7 @@
         &news{
             &__{
                 &item{
-                    margin-right:0;
-                    padding:var(--size-4) var(--size-base);
+                    
                 }
                 &eimg{
                     img{
@@ -77,9 +83,7 @@
                         margin:0;
                     }
                 }
-                &etitle{
-                    padding:var(--size-4) var(--size-6);
-                }
+                
                 &readmore{   
                     &:before{
                         top:-15px;
@@ -92,34 +96,6 @@
             }
         }
     }
-}
-
-@media (max-width:767px){
-    #{$ap}- {
-        &news{
-            &__{
-                &etitle{
-                    padding-left:0;
-                    padding-right:0;
-                }
-            }
-        }
-    }  
-}
-
-@media (max-width:575px){
-    #{$ap}- {
-        &news{
-            &__{
-                &item{
-                    margin-right:0;
-                }
-                &etitle{
-                    padding:var(--size-4);
-                }
-            }
-        }
-    } 
 }
 
 .la-news__readmore.collapsed:before{
