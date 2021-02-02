@@ -17,7 +17,7 @@
 <section class="la-section  la-section--hero clearfix p-0">
     <div class="la-section__inner">
       <div class="container">
-        <div class="la-hero__top row align-items-center la-anim__wrap la-anim__wrap--hero py-md-10">
+        <div class="la-hero__top row align-items-center la-anim__wrap la-anim__wrap--hero ">
           <!-- Column: Start-->
           <div class="col-12 col-lg-5 la-anim__item la-anim__item--left my-auto">
             <div class="la-hero py-6 py-md-2 la-anim__stagger">
@@ -55,7 +55,7 @@
             @else
             <!-- Video Section: Start -->
             <div class="position-relative la-anim__stagger-item--x la-anim__C">
-              <div class="la-hero__video ">
+              <div class="la-hero__video" style="mask-image:url('../../images/learners/home/home-mask.png'); -webkit-mask-image:url('../../images/learners/home/home-mask.png');">
                   <video autoplay='' playsinline muted='muted' loop='loop'>
                       <source src='{{$firstSection->video_url}}'  type='video/mp4' />
                   </video>
@@ -68,7 +68,7 @@
         </div>
 
         <!-- Row: Start-->
-        <div class="pt-md-10 la-anim__wrap">
+        <div class="la-anim__wrap">
           <div class="la-hero__bottom d-flex justify-content-center justify-content-lg-between align-items-center  pb-14 la-anim__fade-in">
             <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing"><a href="/learning-plans">Start free trial<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a></div>
             <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text--burple text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block"><a href="#home_courses">BROWSE COURSES</a><span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span></div>
