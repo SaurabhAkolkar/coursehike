@@ -31,13 +31,35 @@
                     <h4 class="modal-title" id="myModalLabel">{{ __('adminstaticword.AddCategory') }}</h4>
                   </div>
                   <div class="modal-body">
-                    <form id="demo-form2" method="post" action="{{url('category/')}}" data-parsley-validate class="form-horizontal form-label-left" autocomplete="off">
+                    <form id="demo-form2" method="post" action="{{url('category/')}}" data-parsley-validate class="form-horizontal form-label-left" autocomplete="off" enctype="multipart/form-data">
                       {{ csrf_field() }}
 
                       <div class="row">
                         <div class="col-md-12">
                           <label for="c_name">{{ __('adminstaticword.Name') }}:<sup class="redstar">*</sup></label>
                           <input placeholder="Enter your category" type="text" class="form-control" name="title" required="">
+                        </div>
+                      </div>
+                      <br>
+
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="la-admin__preview">
+                            <label for="" class="la-admin__preview-label">{{ __('adminstaticword.Image') }}:</label>
+                            <div class="la-admin__preview-img la-admin__course-imgvid" >
+                                 <div class="la-admin__preview-text">
+                                      <p class="la-admin__preview-size">Preview Image size: 250x150</p>
+                                      <p class="la-admin__preview-file text-uppercase">Choose a File</p>
+                                </div>
+                                <div class="text-center pr-20 mr-10">
+                                  <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:160px;">
+                                    <span class="path1"><span class="path2"></span></span>
+                                  </span>
+                                </div>
+                                <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="image" id="image" />
+                                <img src="" alt="" class="d-none preview-img" required/>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <br>
@@ -85,6 +107,7 @@
                 <tr>
                   <th>#</th>
                   <th>{{ __('adminstaticword.Category') }}</th>
+                  <th>{{ __('adminstaticword.Image') }}</th>
                   {{-- <th>{{ __('adminstaticword.Icon') }}</th> --}}
                   <th>{{ __('adminstaticword.Slug') }}</th>
                   <th>{{ __('adminstaticword.Featured') }}</th>
@@ -100,6 +123,7 @@
                   <tr class="sortable" id="id-{{ $cat->id }}">
                     <td><?php echo $i;?></td>
                     <td>{{$cat->title}}</td>
+                    <td><img src="{{$cat->image}}" class="img-thumbnail"/></td>
                     {{-- <td><i class="fa {{$cat->icon}}"></i></td> --}}
                     <td>{{$cat->slug}}</td>
                     <td>
@@ -176,6 +200,40 @@
   }
 
 });
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();    
+    reader.onload = function(e) {
+      $(input).siblings('.preview-img').attr('src', e.target.result).removeClass('d-none');
+    }
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
+}
+
+$(".preview_img").change(function() {
+  readURL(this);
+});
+
+$(document).on("change", ".preview_video", function(evt) {
+  var $source = $(this).siblings('.preview-video');
+  $source.find("source").attr("src", URL.createObjectURL(this.files[0]));
+  $source.load();
+  $($source).removeClass('d-none');
+});
+
+$('#preview').on('change',function(){
+
+if($('#preview').is(':checked')){
+  $('#document1').show('fast');
+  $('#document2').hide('fast');
+}else{
+  $('#document2').show('fast');
+  $('#document1').hide('fast');
+}
+
+});
+
   </script>
 
 @endsection

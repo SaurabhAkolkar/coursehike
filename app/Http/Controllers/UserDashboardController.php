@@ -19,7 +19,7 @@ class UserDashboardController extends Controller
             $courses = Course::with('user','category')->where(['status'=>1])->whereIn('category_id', $userInterest)->get();
             
         }else{
-            $courses = Course::with('user','category')->where(['status'=>1])->get()->limit(6);
+            $courses = Course::with('user','category')->where(['status'=>1])->get();
         }
        
         return view('learners.pages.user-dashboard', compact('courses','lastViewed'));

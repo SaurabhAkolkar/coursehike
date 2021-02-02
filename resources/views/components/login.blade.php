@@ -5,7 +5,7 @@
             <div class="la-header__nav-item d-flex align-items-center d-lg-none ">
                 <a class="la-header__nav-link @if(Request::segment(1) == 'login') active @endif la-header__nav-link--collapsed collapsed" href="/login" data-toggle="collapse" data-target="#profileItems">
                     <div class="la-header__profile-img">
-                        <img src="https://picsum.photos/25/25" alt="">
+                        <img class="img-fluid" src="{{ Auth::user()->user_img }}" alt="">
                     </div>
                     <span class="la-header__nav-name">{{Auth::user()->fullName}}</span>
                 </a>

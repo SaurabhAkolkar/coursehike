@@ -17,11 +17,55 @@
         <p class="text-xs"> {{ $name }} </p>
 
         <div class="la-course__tile-rating pt-2">
-            <div class="la-tile__rtng"> {{ $rating  }}</div>
+            <div class="la-tile__rtng">
+                <div class="la-course__rating ml-auto">
+                    <div class="la-rtng__pg-rtng d-inline-flex pl-3">
+                        @if($rating == 5)
+                            <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                        @elseif($rating >= 4)
+                            <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                        @elseif($rating >= 3)
+                            <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                        @elseif($rating >= 2)
+                        
+                            <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                        @elseif($rating >= 1)
+                            <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                        @else
+                            <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                            <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                        @endif
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <a class="col-3 la-course__tile-more d-flex align-items-center la-anim__stagger-item--x" href="">
+    <a class="col-3 la-course__tile-more d-flex align-items-center la-anim__stagger-item--x" href="/learn/course/{{ $id }}/{{ $slug }}">
         <span class="la-icon la-icon--7xl icon-grey-arrow "></span> 
     </a>
 </div>

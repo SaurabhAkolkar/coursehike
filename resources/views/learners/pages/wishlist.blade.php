@@ -9,16 +9,6 @@
       <!-- Side Navbar: End -->
 
       @php  
-      $tattoo1 = new stdClass;$tattoo1->img= "https://picsum.photos/600/400";$tattoo1->course= "Tattoo Art";$tattoo1->rating= "4";$tattoo1->url= "";$tattoo1->creatorImg= "https://picsum.photos/100";$tattoo1->creatorName= "Joseph Phill";$tattoo1->creatorUrl= "/creator";
-      $tattoo2 = new stdClass;$tattoo2->img= "https://picsum.photos/600/400"; $tattoo2->course= "Tattoo Art";$tattoo2->rating= "4";$tattoo2->url= "";$tattoo2->creatorImg= "https://picsum.photos/100";$tattoo2->creatorName= "Amy D'souza";$tattoo2->creatorUrl= "/creator";
-      $tattoo3 = new stdClass;$tattoo3->img= "https://picsum.photos/600/400";$tattoo3->course= "Tattoo Art";$tattoo3->rating= "4";$tattoo3->url= "";$tattoo3->creatorImg= "https://picsum.photos/100";$tattoo3->creatorName= "Alton Crew";$tattoo3->creatorUrl= "/creator";
-     
-        $tattoos = array($tattoo1, $tattoo2, $tattoo3);
-        $creatorURL = "/creator";
-        $rating = "4";
-
-        $img = "https://picsum.photos/600/400";
-        $course_name = "Tatto Art";
         $addedToWhishList = true;
       @endphp
       
@@ -66,7 +56,7 @@
                           :course="$courses->courses->title" 
                           :url="$courses->courses->slug" 
                           :rating="round($courses->courses->average_rating, 2)"
-                          :creatorImg="$img"
+                          :creatorImg="$courses->courses->user->user_img"
                           :creatorName="$courses->courses->user->FullName"
                           :creatorUrl="$courses->courses->user->id"
                           :addedToWhishList="$addedToWhishList"

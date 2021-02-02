@@ -15,6 +15,7 @@ return array(
     'profile' => 'img/userprofile/',
     'firstsection' => 'img/firstsection/',
     'firstsection_video' => 'assets/video/first_section/',
+    'category' => 'img/category/',
     'course' => [
         'img' => 'images/course/',
         'class_thumnail' => 'images/class_thumnail/',
