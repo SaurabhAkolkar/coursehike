@@ -21,24 +21,18 @@
                 <div class="la-course__tile-card d-block">
                   <div class="row no-gutters la-anim__wrap">
                     <div class="col la-anim__stagger-item">
-                        @php
-                            $tile = new stdClass;
-                            $tile->img = "./images/learners/dashboard/card-tile.png";
-                            $tile->progress = 37;
-                            $tile->desc = "At verso eos";
-                            $tile->name = "Amy D'souza";
-                            $tile->rating= 4;
-
-                            $tiles = array($tile);
-                        @endphp
+                      
                         
                         @if($lastViewed != null)
+                      
                           <x-last-viewed
                               :img="$lastViewed->course->preview_image"
                               :progress="'30'"
                               :desc="$lastViewed->course->title"
                               :name="$lastViewed->course->user->fullName"
                               :rating="$lastViewed->course->average_rating"
+                              :id="$lastViewed->course->id"
+                              :slug="$lastViewed->course->slug"
                           />
                         @else
 
@@ -130,34 +124,11 @@
               <div class="la-course__tile-card d-block">
                 <div class="row no-gutters">
                   <div class="col la-anim__wrap">
-                      @php
-                          $tile = new stdClass;
-                          $tile->img = "./images/learners/dashboard/card-tile.png";
-                          $tile->progress = 37;
-                          $tile->desc = "At verso eos";
-                          $tile->name = "Amy D'souza";
-                          $tile->rating= 4;
-
-                          $tiles = array($tile);
-                      @endphp
+                   
                       
-                      @if($lastViewed != null)
-                        <x-last-viewed
-                            :img="$lastViewed->course->preview_image"
-                            :progress="'30'"
-                            :desc="$lastViewed->course->title"
-                            :name="$lastViewed->course->user->fullName"
-                            :rating="$lastViewed->course->average_rating"
-                        />
-                      @else
+                    
 
-                      <div class="la-empty__courses text-center mt-0 mb-10 mb-md-1 py-10 py-md-6 px-12 px-md-10">
-                          <div class="la-empty__inner la-anim__stagger-item">
-                              <p class="la-empty__course-desc m-0">You don't have any last viewed course.</p>
-                          </div>
-                      </div>
-                      
-                      @endif
+                    
                   </div>
                 </div>
               </div>
@@ -232,7 +203,7 @@
               <div class="la-hp__data">
                 <div class="row">
                     <!-- Hand Picked: Start -->
-                    @foreach ($courses as $c)
+                    @foreach ($courses->take(4) as $c)
                         <x-handpicked :hpImg="$c->preview_image" :hpCourse="$c->title" :hpCname="$c->user->fullName" :hpUrl="'/learn/course/'.$c->id.'/'.$c->slug" />
                     @endforeach
                     <!-- Hand Picked: End -->
@@ -247,7 +218,7 @@
 
     <!-- Section: Start-->
       @php  
-          $users = $courses->groupBy('user_id');
+          $users = $courses->take(3)->groupBy('user_id');
          
      @endphp
     <section class="la-section__small">
@@ -266,7 +237,7 @@
                       <div class="col-md-6 col-lg-4">
                         <div class="la-mentor">
                           <div class="la-mentor__profile la-mentor__dprofile la-anim__stagger-item">
-                              <img class="img-fluid" src="{{asset('images/user_img/'.$u[0]->user->user_img)}}" alt="{{$u[0]->user->fullName}}">
+                              <img class="img-fluid" src="{{ $u[0]->user->user_img }}" alt="{{$u[0]->user->fullName}}">
                           </div>
                           <div class="la-mentor__btm d-flex justify-content-between align-items-center la-anim__stagger-item la-anim__B">
                             <div class="la-mentor__info ">

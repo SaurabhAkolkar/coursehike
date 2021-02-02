@@ -6,7 +6,7 @@
   @include('admin.message')
   <div class="row">
     <div class="col-12">
-
+      
       <div class="box box-primary">
           <h3 class="la-admin__section-title ml-3">{{ __('adminstaticword.EditCategory') }}</h3>
         
@@ -14,7 +14,7 @@
         <div class="panel-body pl-3">
 
           <form id="demo-form" method="post" action="{{url('category/'.$cate->id)}}
-              "data-parsley-validate class="form-horizontal form-label-left" autocomplete="off">
+              "data-parsley-validate class="form-horizontal form-label-left" autocomplete="off" enctype="multipart/form-data">
               {{ csrf_field() }}
               {{ method_field('PUT') }}
 
@@ -29,6 +29,29 @@
                 @enderror
               </div>
             </div><br/>
+
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="la-admin__preview">
+                  <label for="" class="la-admin__preview-label">{{ __('adminstaticword.Image') }}:</label>
+                  <div class="la-admin__preview-img la-admin__course-imgvid" >
+                       <div class="la-admin__preview-text">
+                            <p class="la-admin__preview-size">Preview Image size: 250x150</p>
+                            <p class="la-admin__preview-file text-uppercase">Choose a File</p>
+                      </div>
+                      <div class="text-center pr-20 mr-10">
+                        <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:160px;">
+                          <span class="path1"><span class="path2"></span></span>
+                        </span>
+                      </div>
+                      <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="image" id="image" />
+                      <img src="" alt="" class="d-none preview-img" required/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
 
             {{-- <div class="row">
               <div class="col-md-6">
@@ -75,4 +98,45 @@
   </div>
   <!-- /.row -->
 </section>
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+      
+        $(document).on("change", ".preview_video", function(evt) {
+          var $source = $(this).siblings('.preview-video');
+          $source.find("source").attr("src", URL.createObjectURL(this.files[0]));
+          $source.load();
+          $($source).removeClass('d-none');
+        });
+
+        
+        function readURL(input) {
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();    
+            reader.onload = function(e) {
+              $(input).siblings('.preview-img').attr('src', e.target.result).removeClass('d-none');
+            }
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
+          }
+        }
+
+        
+        $(".preview_img").change(function() {
+          readURL(this);
+        });
+        
+
+        $('#preview').on('change',function(){
+
+        if($('#preview').is(':checked')){
+          $('#document1').show('fast');
+          $('#document2').hide('fast');
+        }else{
+          $('#document2').show('fast');
+          $('#document1').hide('fast');
+        }
+
+        });
+    </script>
 @endsection

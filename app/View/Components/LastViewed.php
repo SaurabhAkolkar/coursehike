@@ -17,14 +17,18 @@ class LastViewed extends Component
     public $desc;
     public $name;
     public $rating;
+    public $id;
+    public $slug;
 
-    public function __construct($img, $progress, $desc, $name, $rating)
+    public function __construct($img, $progress, $desc, $name, $rating, $id, $slug)
     {
         $this->img = $img;
         $this->progress = $progress;
         $this->desc = $desc;
         $this->name = $name;
         $this->rating = $rating;
+        $this->id = $id;
+        $this->slug = $slug;
     }
 
     /**

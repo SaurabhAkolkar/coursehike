@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
+use Storage;
 
 class Categories extends Model
 {
@@ -30,7 +31,7 @@ class Categories extends Model
     protected $table = 'categories';  
 
     protected $fillable = [
-        'title','icon','slug','featured','status', 'position'
+        'title','icon','slug','featured','image','status', 'position'
     ]; 
 
     public function subcategory()
@@ -42,4 +43,14 @@ class Categories extends Model
     {   
         return $this->hasMany('App\Course','category_id');
     }
+
+    public function getImageAttribute($value)
+    {
+        if($value != null){
+            return Storage::url(config('path.category'). $value);
+        }else{
+            return asset('images/category/category.jpg');
+        }
+    }
+
 }

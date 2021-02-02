@@ -7,7 +7,7 @@
         <li id="sidebar_menu_btn" class="la-profile__sidebar-item d-flex align-items-center ">
           <a href="/profile" class="la-profile__sidebar-link la-profile__sidebar-link--name d-flex align-items-center">
             <span class="la-profile__sidebar-img">
-              <img src="https://picsum.photos/30/30" alt="{{Auth::user()->fullName}}">
+              <img src="{{ Auth::user()->user_img }}" class="img-fluid" alt="{{Auth::user()->fullName}}">
             </span>
             <span class="la-profile__sidebar-text la-profile__sidebar-text--name pl-2">{{Auth::user()->fullName}}</span>
           </a>

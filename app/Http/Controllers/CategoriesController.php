@@ -9,8 +9,9 @@ use Auth;
 use App\SubCategory;
 use App\ChildCategory;
 use Session;
+use Storage;
 use App\Course;
-
+use Image;
 class CategoriesController extends Controller
 {   
    
@@ -48,6 +49,19 @@ class CategoriesController extends Controller
         $slug = str_slug($input['title'],'-');
         $input['slug'] = $slug;
         $input['position'] = (Categories::count()+1);
+
+        if ($file = $request->file('image')) {
+                           
+                $photo = Image::make($file);
+                
+                $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+                
+                // $input['preview_image'] = Storage::putFile(config('path.course.img'), $photo );
+                Storage::put(config('path.category').$file_name, $photo->stream() );
+                // Storage::put(config('path.course.img').$file_name, $photo->getEncoded());
+                $input['image'] = $file_name;
+        }
+
         $data = Categories::create($input);
 
         if(isset($request->status))
@@ -117,6 +131,25 @@ class CategoriesController extends Controller
 
         $data = Categories::findorfail($id);
         $input = $request->all();
+
+        if ($file = $request->file('image')) {
+            if($data)
+                if ($data->image != null) {
+                    $exists = Storage::exists(config('path.category').$data->image);
+                    if ($exists)
+                        Storage::delete(config('path.category').$data->image);
+                }
+                
+                $photo = Image::make($file);
+                
+                $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+                
+                // $input['preview_image'] = Storage::putFile(config('path.course.img'), $photo );
+                Storage::put(config('path.category').$file_name, $photo->stream() );
+                // Storage::put(config('path.course.img').$file_name, $photo->getEncoded());
+                $input['image'] = $file_name;
+
+        }
 
         $slug = str_slug($input['title'],'-');
         $input['slug'] = $slug;
