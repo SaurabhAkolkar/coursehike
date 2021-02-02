@@ -36,8 +36,8 @@
         
 
           <div class="row py-6 py-md-20">   
-            <div class="col-12 px-md-0">
-              <h4 class="text-3xl head-font font-weight-bold pb-6">Courses from <span class="text-capitalize">{{ucfirst($creator->FullName)}}</span></h4>
+            <div class="col-12 px-0">
+              <h4 class="text-2xl text-md-3xl px-3 px-md-1 pb-8">Courses from <span class="text-capitalize">{{ucfirst($creator->FullName)}}</span></h4>
               <div class="la-courses__creator-courses d-md-flex">
 
               @if(count($courses) == 0)
@@ -57,7 +57,7 @@
 
                   @foreach($courses as $course)
                     @if($course->status == 1)
-                      <div class="col-md-4 px-0">
+                      <div class="col-md-4 px-0 ">
                         <x-course 
                             :id="$course->id"
                             :img="$course->preview_image" 

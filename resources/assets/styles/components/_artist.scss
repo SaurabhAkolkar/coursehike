@@ -19,6 +19,7 @@
                         &artist {
                             &__ {
                                 &img {
+                                    object-fit: cover;
                                     opacity: 1;
                                     transform: translateX(0);-webkit-transform: translateX(0);-moz-transform: translateX(0);
                                 }
@@ -50,9 +51,9 @@
                     content: '';
                     position: absolute;
                     top: 0;
-                    left: calc(-1 * var(--size-4));
-                    width: calc(var(--size-5) + 5px);
-                    height: calc(var(--size-5) + 5px);
+                    left: calc(-1 * var(--size-2));
+                    width: var(--size-5);
+                    height: var(--size-5);
                     border: 2px solid transparent;
                     border-color: #FFC516;
                     transform: translateX(0);-webkit-transform: translateX(0);-moz-transform: translateX(0);
@@ -60,11 +61,12 @@
                     z-index: -1;
                     border-radius: var(--rounded-full);
 
-                @include respond-above(md) {
-                    width: var(--size-10);
-                    height: var(--size-10);
-                }
-                    
+                    @include respond-above(md) {
+                        width: var(--size-10);
+                        height: var(--size-10);
+                        left: calc(-1 * var(--size-4));
+                    }
+                  
                 }
             }
             &specialist{
@@ -99,8 +101,9 @@
                 transition-delay: 0.2s;-webkit-transition-delay: 0.2s;-moz-transition-delay: 0.2s;
                 // height: 60vh;
 
-                & img {
+                img {
                     // height: 100%;
+                    object-fit: cover;
                 }
             }
 
@@ -108,6 +111,10 @@
                 &- {
                     &content {
                         padding-right: 30px;
+
+                        @include respond-below(md){
+                            padding-right:15px;
+                        }
                     }
                 }
             }
@@ -115,6 +122,18 @@
             &thumbnail {
                 width: 90px !important;
                 cursor:pointer;
+
+                @include respond-below(md){
+                    width:60px !important;
+                }
+
+                img{
+                    object-fit: cover;
+                    background-color: var(--gray);
+                    @include respond-below(md){
+                        width:60px;
+                    }
+                }
                 
                 &.swiper-slide-thumb-active {
                     transform: scale(1.2);

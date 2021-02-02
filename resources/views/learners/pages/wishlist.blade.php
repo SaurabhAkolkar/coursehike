@@ -75,7 +75,7 @@
                     </div>
                     @endforeach
                 
-                    <div class="col-md-4 col-lg-4 d-none d-md-block  la-anim__stagger-item">
+                    <div class="col-md-6 col-lg-4 d-none d-md-block  la-anim__stagger-item">
                       <a class="la-btn__add la-playlist__add-wishlist d-flex justify-content-center align-items-center" href="/browse/courses">
                         <span class="la-btn__add-icon">+</span>
                       </a>

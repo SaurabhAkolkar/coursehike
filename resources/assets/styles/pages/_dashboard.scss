@@ -280,7 +280,7 @@ section.la-cdashboard-main{
 }
 @media (max-width:767px){
     .la-hp__inner{
-        padding:0 12px;
+        padding:0;
     }         
     .la-hp__card-item,.la-hp__card-thumbnail--img{
         height:140px !important; 
@@ -309,7 +309,7 @@ section.la-dash-mentors-list{
     line-height: 1.6;
 
     @include respond-below(sm){
-        padding: var(--size-12) var(--size-8);
+        padding: var(--size-12) var(--size-4);
     }
 
     .la-empty__inner{

@@ -126,6 +126,9 @@
                         color:var(--gray6);
                         opacity:0.9;
                     }
+                    &filterlabel{
+                        cursor: pointer;
+                    }
                 }
             }
 

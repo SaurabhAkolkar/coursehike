@@ -20,7 +20,7 @@ $(function(){
     });
   }, 4000);
 
-  // Nested Links in Browse Courses
+  // Nested Links in Course Cards
   $('#la-course__nested-links li').on('click', function(e) {
     var value = $(this).children('a').attr('value');
     e.preventDefault();
@@ -93,7 +93,6 @@ $(function(){
 
 
   //Swiper Js for Become Creator
-
   if($('.la-mcard__container')[0]){
     var swiper = new Swiper('.la-mcard__container', {
       slidesPerView: 'auto',
@@ -105,7 +104,6 @@ $(function(){
     });
   }
   
-
   //Swiper Js for Learning Plans
   if($('.la-choose__slider')[0]){
       var swiper = new Swiper('.la-choose__slider', {

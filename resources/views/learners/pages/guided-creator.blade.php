@@ -17,13 +17,14 @@
       <div class="row">
         <!-- Column: Start-->
         <div class="col-12 col-lg-12 la-gc__banner">
-          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-lg-none pl-2 pt-5 mb-6" href="{{URL::previous()}}"></a>
+          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-lg-none pl-2 pt-5 mb-6 la-anim__stagger-item--x" href="{{URL::previous()}}"></a>
           <div class="la-gc__banner-itm d-flex flex-column flex-lg-row justify-content-lg-between">
             <div class="col-12 col-lg la-gcbanner__content d-flex flex-row align-items-center p-0">
               <div class="la-gcbanner__inner">
                 <h1 class="la-gcbanner__title m-0 leading-none la-anim__stagger-item">Your Knowledge. </h1>
                 <h2 class="la-gcbanner__tag la-anim__stagger-item"> Our Expertise.</h2>
-                <p class="la-gcbanner__para mt-2 mt-md-6 mb-12 mb-md-14 la-anim__stagger-item">Get guidance to build exceptional coursework,<br/> the way you need!</p>
+                <p class="d-none d-md-block la-gcbanner__para mt-md-6 mb-md-14 la-anim__stagger-item">Get guidance to build exceptional coursework,<br/> the way you need!</p>
+                <p class="d-block d-md-none la-gcbanner__para mt-2 mb-12 la-anim__stagger-item">Get guidance to build exceptional coursework, the way you need!</p>
                 
                 <a class="la-btn__app text-uppercase la-anim__stagger-item" role="button" href="/creator-signup">Get Started</a>
               </div>
@@ -52,13 +53,13 @@
       <div class="row px-2 px-md-5 ">
         <!-- Column: Start-->
         <div class="col-12 col-lg-5 d-none d-lg-block la-anim__wrap">
-          <div class="la-gcreator__works mt-n5 "><img class="img-fluid mx-auto d-block img-rounded la-anim__stagger-item" src="./images/learners/creator/gcreator-1a.png" alt="Record a Video"></div>
-          <div class="la-gcreator__works mt-2 "><img class="img-fluid mx-auto d-block img-rounded la-anim__stagger-item" src="./images/learners/creator/gcreator-2a.png" alt="Edit a Video"></div>
-          <div class="la-gcreator__works mt-n5 "><img class="img-fluid mx-auto d-block img-rounded la-anim__stagger-item" src="./images/learners/creator/gcreator-3a.png" alt="Share Video"></div>
+          <div class="la-gcreator__works mt-n5 "><img class="img-fluid mx-auto d-block img-rounded la-anim__stagger-item" src="../images/learners/creator/gcreator-1a.png" alt="Record a Video"></div>
+          <div class="la-gcreator__works mt-2 "><img class="img-fluid mx-auto d-block img-rounded la-anim__stagger-item" src="../images/learners/creator/gcreator-2a.png" alt="Edit a Video"></div>
+          <div class="la-gcreator__works mt-n5 "><img class="img-fluid mx-auto d-block img-rounded la-anim__stagger-item" src="../images/learners/creator/gcreator-3a.png" alt="Share Video"></div>
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col-12 col-lg-5 px-0 px-xl-3 mt-5 pt-5 ">
+        <div class="col-12 col-lg-6 px-0 px-xl-3 mt-5 pt-5 ">
           <div class="la-gcreator__video-content position-relative">
             <div class="la-gvline d-flex align-items-start flex-column mt-5 la-anim__wrap">
               <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5 la-anim__stagger-item">
@@ -66,14 +67,14 @@
               <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-video-unfilled "></span></div>
               <div class="la-gcreator__video-content mt-5">
                 <h5 class="la-gcreator__video-title la-anim__stagger-item">We'll record a Video</h5>
-                <p class="la-gcreator__video-para pt-3 text-md la-anim__stagger-item">Our team of expert videographers will help you with shooting exemplary videos for a well-explained coursework</p>
+                <p class="la-gcreator__video-para pt-3 la-anim__stagger-item">Our team of expert videographers will help you with shooting exemplary videos for a well-explained coursework</p>
                 <ul class="la-gcreator__list text-sm la-anim__stagger-item">
-                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
-                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
-                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
-                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
+                  <li class="la-gcreator__list-item d-flex align-items-start"><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span> <span>Assistance with staging & set preparation</span></li>
+                  <li class="la-gcreator__list-item d-flex align-items-start"><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span> <span>Get help with sound & lighting</span></li>
+                  <li class="la-gcreator__list-item d-flex align-items-start"><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span> <span>Execution of concept through to completion as per original brief</span></li>
                 </ul>
-                <div class="form-group pt-3 la-anim__stagger-item">
+
+                <div class="form-group pt-6 la-anim__stagger-item">
                   <label class="d-flex" for="recordVideo">
                     <input class="d-none" id="recordVideo" type="checkbox" name="">
                     <span class="gcheck position-relative">
@@ -84,19 +85,22 @@
                 </div>
               </div>
             </div>
+
             <div class="la-gvline d-flex align-items-start flex-column la-anim__wrap">
-              <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5 la-anim__stagger-item"><img class="img-fluid mx-auto d-block img-rounded mt-n5" src="./images/learners/creator/gcreator-2a.png" alt="Edit a Video"></div>
+              <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5 la-anim__stagger-item">
+                <img class="img-fluid mx-auto d-block img-rounded mt-n5" src="./images/learners/creator/gcreator-2a.png" alt="Edit a Video">
+              </div>
               <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-edit-image "></span></div>
               <div class="la-gcreator__video-content mt-5">
                 <h5 class="la-gcreator__video-title la-anim__stagger-item">We'll edit the Video</h5>
-                <p class="la-gcreator__video-para text-md pt-3 la-anim__stagger-item">Our in-house editors will aid you with video editing to create the most spectacular videos for your coursework, to help you give your students the best learning experience</p>
+                <p class="la-gcreator__video-para pt-3 la-anim__stagger-item">Our in-house editors will aid you with video editing to create the most spectacular videos for your coursework, to help you give your students the best learning experience</p>
                 <ul class="la-gcreator__list text-sm la-anim__stagger-item">
-                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
-                  <li ><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
-                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
-                  <li ><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
+                  <li class="la-gcreator__list-item d-flex align-items-start"><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Give your tutorial the perfect flow with cuts, pace & sound to create the perfect output</li>
+                  <li class="la-gcreator__list-item d-flex align-items-start"><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Make the transitions smooth and elegant to avoid jumpy & fast-paced mess that no one wants to watch</li>
+                  <li class="la-gcreator__list-item d-flex align-items-start"><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Add voice overs and audio at the right junctions to ensure the tutorial is engaging for students</li>
                 </ul>
-                <div class="form-group pt-3 la-anim__stagger-item">
+
+                <div class="form-group pt-6 la-anim__stagger-item">
                   <label class="d-flex" for="editVideo">
                     <input class="d-none" id="editVideo" type="checkbox" name="">
                       <span class="gcheck position-relative">
@@ -107,20 +111,21 @@
                 </div>
               </div>
             </div>
+
             <div class="la-gvline-last d-flex align-items-start flex-column la-anim__wrap">
               <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5 la-anim__stagger-item"><img class="img-fluid mx-auto d-block img-rounded mt-n5" src="./images/learners/creator/gcreator-3a.png" alt="Share Video"></div>
               <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-share-image "></span></div>
               <div class="la-gcreator__video-content mt-5">
                 <h5 class="la-gcreator__video-title la-anim__stagger-item">Share it with the World</h5>
-                <p class="la-gcreator__video-para text-md pt-3 la-anim__stagger-item">Share your wisdom. With LILA’s global reach, we assure that your content in your art of expertise will reach students beyond borders, helping them hone their skills through your knowledge</p>
+                <p class="la-gcreator__video-para pt-3 la-anim__stagger-item">Share your wisdom. With LILA’s global reach, we assure that your content in your art of expertise will reach students beyond borders, helping them hone their skills through your knowledge</p>
                 <ul class="la-gcreator__list text-sm la-anim__stagger-item"> 
-                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
-                  <li><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
-                  <li ><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
-                  <li ><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Lorem Ipsum dolor sit amet, consetetur</li>
+                  <li class="la-gcreator__list-item d-flex align-items-start"><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Create unique tutorials that make a difference to budding tattoo artists</li>
+                  <li class="la-gcreator__list-item d-flex align-items-start"><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Use the power of digital media to connect with artists all over the globe</li>
+                  <li class="la-gcreator__list-item d-flex align-items-start"><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Build a community of passionate artists and help each other grow</li>
                 </ul>
               </div>
             </div>
+
           </div>
         </div>
         <!-- Column: End-->
@@ -138,7 +143,7 @@
         <!-- Column: Start-->
         <div class="col-sm-12 px-0 px-sm-0 la-anim__wrap">
           <div class="la-bgcreator__ad-content text-center text-white la-anim__stagger-item">
-            <div class="px-5">
+            <div class="">
               <p class="la-bgcreator__ad-para la-anim__stagger-item">Ready to share your Creations?</p><br>
               <a class="la-btn__app text-white la-anim__stagger-item" role="button" href="/creator-signup">Get Started</a>
             </div>

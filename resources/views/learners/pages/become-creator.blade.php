@@ -14,6 +14,7 @@
                 </div>
               </div>
      @endif
+
       <div class="row la-anim__wrap">
         <!-- Column: Start-->
         <div class="col-12 col-sm-12 la-bcreator__banner " style="background:url('../images/learners/creator/bcreator-banner.png') no-repeat bottom rgba(0, 0, 0, 0.5); background-size:cover;">
@@ -21,9 +22,9 @@
 
             <a class="la-bcreator__back-link position-absolute la-anim__stagger-item--x" href="{{URL::previous()}}"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
             <div class="la-bcreator__content">
-              <strong class=" text-white text-uppercase m-0 la-anim__stagger-item--x">Design your own course!</strong>
-              <h1 class="la-bcreator__title text-white text-uppercase d-none d-md-block la-anim__stagger-item--x">Become a Creator</h1>
-              <h1 class="la-bcreator__title text-white text-uppercase d-block d-md-none la-anim__stagger-item--x">Become <br/> a Creator</h1>
+              <strong class=" la-bcreator__title--mini  text-uppercase m-0 la-anim__stagger-item--x">Design your own course!</strong>
+              <h1 class="la-bcreator__title text-uppercase d-none d-md-block la-anim__stagger-item--x">Become a Creator</h1>
+              <h1 class="la-bcreator__title text-uppercase d-block d-md-none la-anim__stagger-item--x">Become <br/> a Creator</h1>
               <h6 class="la-bcreator__tag  leading-tight d-none d-md-block la-anim__stagger-item--x ">Join LILA’s inspiring community, <br/> share knowledge and start earning for your values</h6>
               <h6 class="la-bcreator__tag  leading-tight d-block d-md-none la-anim__stagger-item--x">Join LILA’s inspiring community, share knowledge and start earning for your values</h6>
             </div>
@@ -33,13 +34,14 @@
         <!-- Column: End-->
       </div>
     </div>
+
     <div class="container-fluid px-0 la-anim__wrap">
       <div class="row la-bcreator__banner-btm py-5">
         <!-- Column: Start-->
         <div class="col-12 col-lg-4 py-5 py-sm-0">
           <div class="la-bcreator__left-text la-anim__stagger-item--x">
-            <h4 class="text-white pb-5">Make a difference, <br>Start Creating at LILA</h4>
-            <p class="pt-3 pt-sm-8">
+            <h4 class="la-bcreator__left-title pb-5">Make a difference, <br>Start Creating at LILA</h4>
+            <p class="la-bcreator__left-para pt-3 pt-sm-8">
               We're on a mission to help hobbies flourish into something more than just a past time activity. Join us.
               Lead the movement. This is your chance to inspire 
               someone &#38; be the wind benath their wings&#33;
@@ -128,8 +130,8 @@
       <div class="row">
         <!-- Column: Start-->
         <div class="col-md-5 col-lg-5 py-5 py-sm-2 px-5 px-sm-2 d-flex flex-row align-items-center la-anim__wrap">
-          <div class="la-start-btn mb-8 la-anim__stagger-item"><span class="text-4xl m-0 font-weight-bold">Easy steps to start</span>
-            <h2 class="text-6xl font-weight-bold la-anim__stagger-item">Sharing Values</h2><br>
+          <div class="mb-8 la-anim__stagger-item"><span class="la-vdotted__lft-tag text-2xl text-md-3xl">Easy steps to start</span>
+            <h2 class="la-vdotted__lft-title text-4xl text-md-5xl la-anim__stagger-item">Sharing Values</h2><br>
             <a class="la-btn__app text-uppercase la-anim__stagger-item" role="button" href="/creator-signup">Start Creating</a>
           </div>
         </div>
@@ -184,43 +186,39 @@
         <!-- Column: Start-->
         <div class="col-sm-12" id="how_you_earn">
           <div class="la-earn__blog la-anim__wrap">
-            <h3 class="la-earn__blog-title la-anim__stagger-item" >How you earn?</h3>
+            <h3 class="la-earn__blog-title la-anim__stagger-item text-4xl text-md-5xl" >How you earn?</h3>
             <img class="img-fluid mx-auto d-block la-anim__stagger-item--x la-anim__D" src="../images/learners/creator/earn.svg" alt="How you Earn?">
           </div>
         </div>
         <!-- Column: End-->
       </div>
     </div>
-    <div class="container-fluid la-bcreator--calc-wrapper my-5">
-      <div class="container py-0 py-sm-3 px-0 px-lg-5">
-        <div class="row my-5 px-0 px-lg-5">
+    
+    <div class="container-fluid la-bcreator--calc-wrapper la-section__small">
+      <div class="container ">
+        <div class="row ">
           <!-- Column: Start-->
-          <div class="col-sm-12 py-5 my-5 px-0 px-lg-5  la-anim__wrap">
-            <div class="la-bcreator__calc text-center px-lg-4">
-              <p class="la-bcreator__calc-title text-2xl pb-6 la-anim__stagger-item">How do we calculate your earnings?</p>
-              <div class="row la-bcreator__calc-inner d-flex flex-row justify-content-center">
-                <div class="col-3 col-lg la-bcreator__calc-itm px-0">
-                  <span class="text-sm text-sm-md la-anim__stagger-item--x">Total watch time</span>
-                  <p class="text-sm text-sm-lg la-anim__stagger-item--x">xxx<span class="pl-2">minutes</span></p>
-                </div>
-                <div class="la-bcreator-calcs text-2xl text-sm-5xl font-weight-bold mt-2 la-anim__stagger-item--x">&#xd7;</div>
-                <div class="col-3 col-lg la-bcreator__calc-itm px-0">
-                  <span class="text-sm text-sm-md la-anim__stagger-item--x">Earnings per minute</span>
-                  <p class="text-sm text-sm-lg la-anim__stagger-item--x">$ xxx <span>  / minute</span></p>
-                </div>
-                <div class="la-bcreator-calcs text-2xl text-sm-5xl font-weight-bold mt-2 la-anim__stagger-item--x">&#x2212;</div>
-                <div class="col-3 col-lg la-bcreator__calc-itm px-0">
-                  <span class="text-sm text-sm-md la-anim__stagger-item--x">Slab rate</span>
-                  <p class="text-sm text-sm-lg la-anim__stagger-item--x">$ x</p>
-                </div>
-                <div class="d-none d-lg-block la-bcreator-calcs text-2xl text-sm-5xl font-weight-bold mt-2 la-anim__stagger-item--x"> &#x3d;</div>
-                <div class="col-12 col-lg la-bcreator__calc-itm">
-                  <div class="d-block d-lg-none la-bcreator-calcs text-2xl text-sm-5xl font-weight-bold my-2 la-anim__stagger-item--x"> &#x3d;</div>
-                  <span class="text-sm text-sm-md la-anim__stagger-item--x">Total Earnings</span>
-                  <p class="text-sm text-sm-lg la-anim__stagger-item--x" style="color:#1EC812; ">$ xxx</p>
-                </div>
+          <div class="col-lg-8 offset-lg-2 la-anim__wrap py-8">
+              <h6 class="la-bcreator__calc-title text-center text-xl text-md-2xl pb-md-6 la-anim__stagger-item">How do we calculate your earnings?</h6>
+              
+              <div class="pt-8 la-bcreator__calc-inner d-flex justify-content-between align-items-start flex-wrap">
+                  <p class="la-bcreator__calc-itm  la-anim__stagger-item--x">Revenue</p>
+                  <div class="la-bcreator-calcs text-md-xl la-anim__stagger-item--x" style="color:#1EC812;font-weight:var(--font-bold);">&#x2212;</div>
+                  <p class="la-bcreator__calc-itm la-anim__stagger-item--x">Tax</p>
+                  <div class="la-bcreator-calcs text-md-xl la-anim__stagger-item--x" style="color:#1EC812;font-weight:var(--font-bold);">&#247;</div>
+                  <p class="la-bcreator__calc-itm la-anim__stagger-item--x">Total Number of Play</p>
+                  <div class="la-bcreator-calcs text-md-xl la-anim__stagger-item--x" style="color:#1EC812;font-weight:var(--font-bold);">&#x3d;</div>
+                  <p class="la-bcreator__calc-itm la-anim__stagger-item--x">Per Play Cost</p>
               </div>
-            </div>
+
+              <div class="pt-8 pt-md-3 la-bcreator__calc-inner d-flex justify-content-between align-items-start flex-wrap">
+                  <p class="la-bcreator__calc-itm  la-anim__stagger-item--x">Per Play Cost</p>
+                  <div class="la-bcreator-calcs text-md-xl  la-anim__stagger-item--x" style="color:#1EC812;font-weight:var(--font-bold);">&#215;</div>
+                  <p class="la-bcreator__calc-itm la-anim__stagger-item--x">Channel Plays</p>
+                  <div class="la-bcreator-calcs text-md-xl la-anim__stagger-item--x" style="color:#1EC812;font-weight:var(--font-bold);">&#x3d;</div>
+                  <p class="la-bcreator__calc-itm la-anim__stagger-item--x">Mentor's Revenue</p>
+              </div>
+           
           </div>
           <!-- Column: End       -->
         </div>
@@ -234,7 +232,7 @@
       <div class="row my-5">
         <!-- Column: Start-->
         <div class="col-sm-12 col-md-5">
-          <div class="la-bcreator__reach-main pb-5 pb-sm-0 la-anim__wrap">
+          <div class="la-bcreator__reach-main pb-10 pb-sm-4 la-anim__wrap">
             <span class="la-bcreator__reach-tag la-anim__stagger-item">LILA&#39;s </span><br>
             <h3 class="la-bcreator__reach-title la-anim__stagger-item--x">Reach</h3>
           </div>
@@ -244,8 +242,8 @@
         <div class="col col-sm-4 col-md-2 my-auto">
           <div class="la-bcreator__stats">
             <div class="la-bcreator__stats-item la-anim__wrap">
-              <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">80 M</h4>
-              <p class="la-bcreator__stats-desc  text-uppercase la-anim__stagger-item">Students</p>
+              <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">150 &#43;</h4>
+              <p class="la-bcreator__stats-desc  text-uppercase la-anim__stagger-item">Learners</p>
             </div>
           </div>
         </div>
@@ -253,7 +251,7 @@
         <!-- Column: Start-->
         <div class="col col-sm-4 col-md-2 my-auto">   
           <div class="la-bcreator__stats-item la-anim__wrap">
-            <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">20 &#43;</h4>
+            <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">60 &#43;</h4>
             <p class="la-bcreator__stats-desc text-uppercase la-anim__stagger-item">Courses</p>
           </div>
         </div>
@@ -261,7 +259,7 @@
         <!-- Column: Start-->
         <div class="col col-sm-4 col-md-2 my-auto">
           <div class="la-bcreator__stats-item la-anim__wrap">
-            <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">100 &#43;</h4>
+            <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">15 &#43;</h4>
             <p class="la-bcreator__stats-desc text-uppercase la-anim__stagger-item">Countries</p>
           </div>
         </div>
@@ -270,7 +268,7 @@
         <div class="col col-sm-12 col-md-1"></div>
         <!-- Column: End-->
       </div>
-      <div class="row mt-5">
+      <div class="row">
         <!-- Column: Start-->
         <div class="col col-sm-12 mt-2 mt-sm-14 la-anim__wrap">
           <div class="la-bcreator__stats-btn text-center d-none d-sm-block la-anim__stagger-item">
@@ -340,8 +338,8 @@
       <div class="row">
         <!-- Column: Start-->
         <div class="col-sm-12 px-0 px-sm-3 la-anim__wrap">
-          <div class="la-bgcreator__ad-content text-center text-white px-5 la-anim__stagger-item">
-            <div class="px-5">
+          <div class="la-bgcreator__ad-content text-center text-white la-anim__stagger-item">
+            <div class="">
               <p class="la-bgcreator__ad-para la-anim__stagger-item">Broaden your reach! Help students hone their skills through your courses</p><br>
               <a class=" la-btn__app text-white text-uppercase la-anim__stagger-item" role="button" href="/creator-signup">Start Creating</a>
               <div class="mt-4">
