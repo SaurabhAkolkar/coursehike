@@ -22170,24 +22170,37 @@ label.error {
 }
 
 .la-hero__video {
-  width: 100%;
-  height: auto;
   overflow: hidden;
-}
-@media (min-width: 1200px) {
-  .la-hero__video video {
-    max-width: 100%;
-    height: 520px !important;
-    -o-object-fit: cover !important;
-       object-fit: cover !important;
-  }
+  width: 600px;
+  height: 600px;
+  display: block;
+  margin: 0 auto;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  mask-clip: border-box;
+  -webkit-mask-clip: border-box;
+  mask-size: 600px 600px;
+  -webkit-mask-size: 600px 600px;
 }
 @media (max-width: 1199px) {
-  .la-hero__video video {
-    margin: var(--size-10) 0;
-    width: 100%;
-    height: auto;
+  .la-hero__video {
+    width: 350px;
+    height: 350px;
+    mask-size: 350px 350px;
+    -webkit-mask-size: 350px 350px;
+    margin: var(--size-10) auto;
   }
+}
+
+.la-hero__video video {
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  pointer-events: none !important;
 }
 
 @media (max-width: 991px) {
