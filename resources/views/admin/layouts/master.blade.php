@@ -110,9 +110,9 @@ $global_settings = App\Setting::first();
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 @if(Auth::User()->user_img != null || Auth::User()->user_img !='')
-                  <img src="{{ Auth::User()->user_img}}" class="user-image" alt="">
+                  <img width="25" height="25" src="{{ Auth::User()->user_img}}" class="user-image" alt="">
                 @else
-                  <img src="{{ asset('images/default/user.jpg')}}" class="user-image" alt="">
+                  <img width="25" height="25" src="{{ asset('images/default/user.jpg')}}" class="user-image" alt="">
                 @endif
                 <span class="hidden-xs">Hi ! {{ Auth::User()->fname }}</span>
               </a>
@@ -120,7 +120,7 @@ $global_settings = App\Setting::first();
                 <!-- User image -->
                 <li class="user-header">
                   @if(Auth::User()->user_img != null || Auth::User()->user_img !='')
-                    <img src="{{ Auth::User()->user_img }}" class="img-circle" alt="User Image">
+                    <img width="90" height="90" src="{{ Auth::User()->user_img }}" class="img-circle" alt="User Image">
                   @else
                     <img src="{{ asset('images/default/user.jpg')}}" class="img-circle" alt="User Image">
                   @endif

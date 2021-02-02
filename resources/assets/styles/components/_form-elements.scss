@@ -126,6 +126,9 @@
                         color:var(--gray6);
                         opacity:0.9;
                     }
+                    &filterlabel{
+                        cursor: pointer;
+                    }
                 }
             }
 
@@ -156,12 +159,18 @@
                 width: 130px;
                 height: 130px;
                 background-color: var(--gray2);
+                object-fit: cover;
 
                 @include respond-above(sm) {
                     width: 170px;
                     height: 150px;
                 }
-
+                
+                img{
+                    object-fit: cover;
+                    background-color: var(--gray2);
+                }
+                
                 &- {
                     &upload {
                         padding: var(--size-4);

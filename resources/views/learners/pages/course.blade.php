@@ -230,7 +230,7 @@ use Carbon\Carbon;
               <div class="col-lg-9 px-0">
                 <div class="col-12 col-lg px-0 la-anim__wrap">
                   <div class="la-ctabs__about la-anim__stagger-item la-anim__C">
-                    <span>{!! $course->detail !!}</span>
+                    <p>{{ $course->short_detail }}</p>
                     <span class="la-ctabs__about-collapse collapse" id="about_collapse">
                       {!! $course->detail !!}
                     </span>
@@ -650,13 +650,14 @@ use Carbon\Carbon;
                 <div class="la-lcreviews__inner">
                   <div class="la-lcreviews__wrapper d-flex flex-column flex-md-row justify-content-between">
                     <div class="la-lcreviews__prfle d-inline-flex la-anim__wrap">
-                      <div class="la-lcreviews__prfle-img la-anim__fade-in-left"><img class="img-fluid rounded-circle d-block" src="{{ $review->user->user_img }}" alt="Amish Patel"></div>
+                      <div class="la-lcreviews__prfle-img la-anim__fade-in-left">
+                      <img class="img-fluid rounded-circle d-block" src="{{ $review->user->user_img }}" alt="{{$review->user->fname}}"></div>
                       <div class="la-lcreviews__prfle-info la-anim__stagger-item--x">
                           <div class="la-reviews__timestamp text-sm">
                                     @if($review->created_at->diffInWeeks(Carbon::now())> 0) 
-                                        {{$review->created_at->diffInWeeks(Carbon::now())}} Weeks Ago
+                                        {{$review->created_at->diffInWeeks(Carbon::now())}} weeks ago
                                     @elseif($review->created_at->diffInDays(Carbon::now())>0)
-                                        {{$review->created_at->diffInDays(Carbon::now())}} Days ago 
+                                        {{$review->created_at->diffInDays(Carbon::now())}} days ago 
                                     @else
                                         Today                                      
                                     @endif
@@ -691,7 +692,7 @@ use Carbon\Carbon;
             <div class="la-creator__wrap position-relative">
               <div class="la-creator__inwrap d-flex align-items-end la-anim__wrap">
                 <div class="la-creator__img la-anim__fade-in-top">
-                  <span><img src="{{$course->user->user_img}}" alt=""></span>
+                  <span><img src="{{$course->user->user_img}}" alt="{{$course->user->fullName}}"></span>
                 </div>
                 <div class="la-creator__detail pl-2 text-nowrap">
                   <span class="la-creator__name text-capitalize la-anim__stagger-item--x la-anim__C">{{$course->user->fullName}}</span>

@@ -68,7 +68,7 @@ section.la-cdashboard-main{
 
     &:hover{
         .la-courses__tile-thumbnail img{
-            border-radius:0;
+            border-radius:10px;
             transform:scale(1.10);-webkit-transform:scale(1.10);-moz-transform:scale(1.10);-ms-transform:scale(1.10);-o-transform:scale(1.10);
             transition:all .2s linear;-webkit-transition:all .2s linear;-moz-transition:all .2s linear;-ms-transition:all .2s linear;-o-transition:all .2s linear;
         }
@@ -83,6 +83,7 @@ section.la-cdashboard-main{
     }
 }            
 .la-courses__tile-thumbnail img{
+    object-fit: cover;
     width:150px;
     height:100px;
     overflow:hidden;
@@ -232,6 +233,7 @@ section.la-cdashboard-main{
     }
 }
 .la-hp__card-thumbnail--img{
+    object-fit: cover;
     width:250px;
     height:200px;
     box-shadow:1px 1px 2px #eee;
@@ -278,7 +280,7 @@ section.la-cdashboard-main{
 }
 @media (max-width:767px){
     .la-hp__inner{
-        padding:0 12px;
+        padding:0;
     }         
     .la-hp__card-item,.la-hp__card-thumbnail--img{
         height:140px !important; 
@@ -307,7 +309,7 @@ section.la-dash-mentors-list{
     line-height: 1.6;
 
     @include respond-below(sm){
-        padding: var(--size-12) var(--size-8);
+        padding: var(--size-12) var(--size-4);
     }
 
     .la-empty__inner{

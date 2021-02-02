@@ -26,7 +26,7 @@
         <div class="d-flex justify-content-between align-items-start ">
             <!-- Global Search: Start-->
             <div class="la-gsearch la-anim__wrap">
-              <form class="form-inline la-anim__stagger-item"  action="{{ url('/search-course/') }}">
+              <form class="form-inline m-0 la-anim__stagger-item"  action="{{ url('/search-course/') }}">
                 <div class="form-group d-flex align-items-center">
                   <input class="la-gsearch__input form-control la-gsearch__input-searchcourses " style="background:transparent" name="course_name" type="text" placeholder="What can we interest you in learning today?">
                   <button class="la-gsearch__submit btn mt-0" type="submit"><i class="la-icon icon icon-search la-gsearch__input-icon"></i></button>
@@ -49,15 +49,15 @@
                       <div class=" pt-2">
                           <div class="la-form__radio-wrap mr-5">
                                 <input class="la-form__radio d-none" type="radio" value="most_popular" name="sort_by" id="most_popular" @if($sort_type =='most_popular') checked @endif>
-                                <label class="d-flex align-items-center text-sm" for="most_popular"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Most Popular</span></label>
+                                <label class="la-form__radio-filterlabel d-flex align-items-center text-sm" for="most_popular"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Most Popular</span></label>
                           </div>
                           <div class="la-form__radio-wrap mr-5">
                               <input class="la-form__radio d-none" type="radio" value="highest_rated" name="sort_by" id="highest_rated" @if($sort_type =='highest_rated') checked @endif>
-                              <label class="d-flex align-items-center text-sm" for="highest_rated"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Highest Rated</span></label>
+                              <label class="la-form__radio-filterlabel d-flex align-items-center text-sm" for="highest_rated"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Highest Rated</span></label>
                           </div>
                           <div class="la-form__radio-wrap mr-5">
                               <input class="la-form__radio d-none" type="radio" value="latest" name="sort_by" id="latest" @if($sort_type =='latest') checked @endif>
-                              <label class="d-flex align-items-center text-sm" for="latest"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Latest</span></label>
+                              <label class="la-form__radio-filterlabel d-flex align-items-center text-sm" for="latest"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Latest</span></label>
                           </div>
                       </div>
                   </div>

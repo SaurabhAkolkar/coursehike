@@ -40,10 +40,18 @@
                         height: var(--size-14);
                         border-radius: var(--rounded-full);
                         overflow: hidden;
+                        background-color: var(--gray);
 
                         @include respond-below(sm){
                             width: var(--size-12);
                             height: var(--size-12);
+                        }
+
+                        img{
+                            width: var(--size-14);
+                            height: var(--size-14);
+                            object-fit: cover;
+                            background-color: var(--gray);
                         }
                     }
                     &name {

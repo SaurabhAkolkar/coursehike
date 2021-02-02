@@ -5,8 +5,8 @@
     <div class="la-section__inner">
         <section class="la-about__top la-section__small">
             <div class="container">
-                <div class="row">
-                    <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-3 mt-n4 mb-5" href="{{URL::previous()}}"></a>
+                <div class="row la-anim__wrap">
+                    <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-3 mt-n4 mb-5 la-anim__stagger-item--x" href="{{URL::previous()}}"></a>
 
                     <div class="col-lg-5">
                         <div class="la-about__us la-anim__wrap">
@@ -17,7 +17,7 @@
                             <p class="la-about__tag la-anim__stagger-item--x">Embracing Self Learning</p>
 
                             <div class="la-about__info pt-6 pt-md-16">
-                                <h5 class="la-about__info-title la-anim__stagger-item ">About Lila</h5>
+                                <h5 class="la-about__info-title la-anim__stagger-item la-anim__A">About Lila</h5>
                                 <p class="la-about__info-desc la-anim__stagger-item la-anim__A">Learn It Like Aliens is a brainchild of Sunny Bhanushali, the founder and CEO at LILA. His belief in serving people with knowledge led to the establishment of this comprehensive Online Learning Platform. </p>
                                 <p class="la-about__info-desc la-anim__stagger-item la-anim__A">LILA, at present is in pursuit of bringing mentors from around the world to teach varied skills in the most simplest ways to everybody who wish to learn.</p>
                             </div>
@@ -34,15 +34,15 @@
                             <div class="col">
                                 <div class="la-bcreator__stats la-about__stats la-anim__stagger-item">
                                     <div class="la-bcreator__stats-item ">
-                                        <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">80 M</h4>
-                                        <p class="la-bcreator__stats-desc  text-uppercase  mb-0 la-anim__stagger-item">Students</p>
+                                        <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">150 +</h4>
+                                        <p class="la-bcreator__stats-desc  text-uppercase  mb-0 la-anim__stagger-item">Learners</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="la-bcreator__stats la-about__stats la-anim__stagger-item">
                                     <div class="la-bcreator__stats-item ">
-                                        <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">20 +</h4>
+                                        <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">60 +</h4>
                                         <p class="la-bcreator__stats-desc  text-uppercase  mb-0 la-anim__stagger-item">Courses</p>
                                     </div>
                                 </div>
@@ -51,7 +51,7 @@
                             <div class="col ">
                                 <div class="la-bcreator__stats la-about__stats la-anim__stagger-item">
                                     <div class="la-bcreator__stats-item ">
-                                        <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">100 +</h4>
+                                        <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">15 +</h4>
                                         <p class="la-bcreator__stats-desc  text-uppercase mb-0 la-anim__stagger-item">Countries</p>
                                     </div>
                                 </div>

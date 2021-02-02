@@ -45,7 +45,7 @@
                         margin-bottom: var(--size-14);
                     }
                     &title {
-                        color: var(--grey-7);
+                        color: var(--gray7);
                         font-size: var(--text-2xl);
                         font-family: var(--head-font);
                         font-weight: var(--font-bold);
@@ -287,7 +287,6 @@
                 border-radius:6px;
                 padding: var(--size-2) var(--size-3);
                 margin:0 0 var(--size-3) var(--size-2);
-                text-transform: capitalize;
             }
         }
     }

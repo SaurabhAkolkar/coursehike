@@ -13,8 +13,8 @@
                     transition: all 0.25s ease-in;-webkit-transition: all 0.25s ease-in;-moz-transition: all 0.25s ease-in;
                 }
 
-                @media(max-width:767px){
-                    left:10px;
+                @include respond-below(lg){
+                    left:5px;
                     top:5px;
 
                     &:hover{
@@ -52,7 +52,7 @@
                 left:-5px;
                 z-index: 99;
 
-                @media(max-width:767px){
+                @include respond-below(md){
                     font-size:var(--text-6xl);
                     bottom:-18px;
                     left:0;

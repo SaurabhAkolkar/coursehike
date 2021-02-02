@@ -3,7 +3,7 @@
         &__ {
             &item {
                 @media(max-width:767px){
-                    padding-top: var(--size-8);
+                    padding-top: var(--size-4);
                 }
                 &- {
                     &info{
@@ -220,8 +220,13 @@
                         opacity:0.6;
                     }
                     &submain{
-                        font-size: var(--text-sm);
+                        font-size: var(--text-xs);
                         color: var(--gray5);
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2; 
+                        -webkit-box-orient: vertical;
                     }
                     &img{
                         width:80px;

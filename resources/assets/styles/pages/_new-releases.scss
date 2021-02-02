@@ -1,6 +1,6 @@
 // Section New Releases Start
 section.la-new--releases{
-    padding:var(--size-14) var(--size-base);
+    padding:var(--size-4) var(--size-base);
    
     .la-new__back{
         position: relative;
@@ -15,11 +15,9 @@ section.la-new--releases{
     }
 
     .la-announcement__main-title{
-        h1{
-            padding-bottom:var(--size-4);
-            color:var(--gray5);
-            font-weight:var(--font-semibold);
-        }
+        padding-bottom:var(--size-4);
+        color:var(--gray5);
+        font-weight:var(--font-semibold);
     }
     .la-new__announcements{
         margin-right:calc(var(--size-20)*3);

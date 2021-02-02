@@ -11,7 +11,7 @@
           <!-- Column: Start-->
           <div class="col-12 col-lg-6">
             <div class="la-lp__title la-anim__stagger-item"><span class="text-2xl text-md-3xl">The right plans</span>
-              <h2 class="text-5xl text-md-6xl la-anim__stagger-item">for all your interests.</h2>
+              <h2 class="text-4xl text-md-6xl la-anim__stagger-item">for all your interests.</h2>
               <p class="text-lg text-sm-xl py-3 la-anim__stagger-item">Whether you want to dabble with new art forms or hone your skills, we have got you covered!</p>
             </div>
           </div>
@@ -88,7 +88,7 @@
     </section>
     <!-- Section: End-->
     <!-- Course Benefits Section: Start-->
-    <section class="la-lp--include">
+    <section class="la-lp--include la-section__small">
       <div class="container ">
         <div class="row">
           <div class="col">
@@ -175,7 +175,7 @@
           <!-- Column: End-->
 
           <!-- Column: Start-->
-          <div class="col-12 col-lg-6 la-anim__stagger-item">
+          <div class="col-12 col-lg-6 px-3 la-anim__stagger-item">
             <div class="la-lp__rgt-content" id="accordion">
               <h4 class="faq-title  text-4xl">FAQ's</h4>
               <div class="panel-group la-lp__faq-group" id="accFreeMain">
@@ -360,7 +360,7 @@
           <div class="col-12 col-lg-4">
             <div class="la-lp__test-lft la-anim__stagger-item--x">
               <h4 class=" text-4xl text-md-5xl head-font mb-3">What people say<br>about us?</h4>
-              <p class="text-md body-font pr-5"> LILA has happy clients all over the world. And we're proud to share some of those experiences!</p>
+              <p class="text-md body-font pr-md-5"> LILA has happy clients all over the world. And we're proud to share some of those experiences!</p>
             </div>
           </div>
           <!-- Column: End-->
@@ -371,9 +371,11 @@
                     <div class="la-lp__test-cards d-flex justify-content-end la-anim__stagger-item--x" id="testCard1">
                       <div class="card la-lp__card-itm" >
                         <div class="la-card__top d-flex justify-content-between">
-                          <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle" src="{{ asset('images/testimonial/'.$test->image) }}" alt="Profile">
+                          <div class="la-lp__profile d-flex justify-content-start">
+                            <img class="img-fluid d-block rounded-circle" src="{{ asset('images/testimonial/'.$test->image) }}" alt="{{ $test->client_name }}">
                             <div class="col">
-                              <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">{{ $test->client_name }}</h5><span class="la-lp__desg text-sm"></span>
+                              <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">{{ $test->client_name }}</h5>
+                              <span class="la-lp__desg text-sm"></span>
                             </div>
                           </div>
                           <div class="la-lp__test-rating d-flex flex-row">
@@ -411,6 +413,7 @@
                           dolore magna aliquaqm erat, sed diam voluptna. &#8221;
                         </p>
                       </div>
+                      
                       <div class="d-flex align-items-center">
                         <ul class="la-lp__card-list d-none d-sm-block">
                           <li> <a role="button" href="#testCard1"></a></li>

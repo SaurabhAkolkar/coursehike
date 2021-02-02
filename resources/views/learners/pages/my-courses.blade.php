@@ -9,7 +9,7 @@
         <div id="wishlist_alert_div" class="container"></div> 
 
         <div class="container">
-          <div class="col-12 la-anim__wrap d-md-flex justify-content-between align-items-center px-md-0 pb-md-12">
+          <div class="col-12 la-anim__wrap d-md-flex justify-content-between align-items-center px-0 pb-md-12">
             <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5 la-anim__stagger-item" href="{{URL::previous()}}"></a>
             <h1 class="la-mycourses__title text-4xl mb-8 la-anim__stagger-item">My Courses</h1>
 

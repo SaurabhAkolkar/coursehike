@@ -26,11 +26,15 @@
                       
                     img{
                         width: calc(var(--mentor-profileW) - var(--size-6));
+                        height:var(--mentor-profileH);
                         transition: all 0.25s ease-out;
                         -webkit-transition: all 0.25s ease-out;
                         -moz-transition: all 0.25s ease-out;
                         -ms-transition: all 0.25s ease-out;
-                        -o-transition: all 0.25s ease-out;                        
+                        -o-transition: all 0.25s ease-out;   
+                        object-fit: cover;
+                        object-position: center;
+                        background-color:var(--white);                     
                     }
                     img:hover{
                         position:absolute;

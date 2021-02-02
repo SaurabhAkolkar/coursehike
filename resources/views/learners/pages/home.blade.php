@@ -17,18 +17,18 @@
 <section class="la-section  la-section--hero clearfix p-0">
     <div class="la-section__inner">
       <div class="container">
-        <div class="la-hero__top row align-items-center la-anim__wrap la-anim__wrap--hero">
+        <div class="la-hero__top row align-items-center la-anim__wrap la-anim__wrap--hero py-md-10">
           <!-- Column: Start-->
           <div class="col-12 col-lg-5 la-anim__item la-anim__item--left my-auto">
             <div class="la-hero py-6 py-md-2 la-anim__stagger">
               <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">COURSES & CLASSES BY</p>
               <h1 class="la-hero__title la-anim__stagger-item">World’s best <span class="la-hero__subtitle">Creators</span></h1>
-              <p class="la-hero__lead pr-5 la-anim__stagger-item">{{$firstSection->sub_heading}}</p>
+              <p class="la-hero__lead la-anim__stagger-item">{{$firstSection->sub_heading}}</p>
               <div class="la-hero__actions d-md-flex align-items-center la-anim__stagger-item">
                 <div class="col-md-7 px-0">
-                    <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary d-none d-lg-block">Subscribe Now</a>
-                    <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary btn-block d-block d-lg-none">Subscribe Now</a>
-                    <p class="m-0 pt-1 pl-1 text-center text-md-left">Instant access to all courses at nominal monthly fees</p>
+                    <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary d-none d-lg-block">Subscribe Now</a>
+                    <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary btn-block d-block d-lg-none">Subscribe Now</a>
+                    <p class="m-0 pt-1 pl-1 text-sm text-center text-md-left">Instant access to all courses at nominal monthly fees</p>
                 </div>
                 <div class="col-md-5 px-0 la-soffer d-flex d-lg-block justify-content-center  mb-lg-auto">
                   <div class="la-soffer__bestprice"> <sup><small>$</small></sup>  39 / Month</div>
@@ -41,7 +41,7 @@
           <!-- Column: End-->
           
           <!-- Column: Start-->
-          <div class="col-12 col-lg-7 la-anim__item la-anim__item--right">
+          <div class="col-12 col-lg-6 offset-lg-1 la-anim__item la-anim__item--right">
 
             @if($firstSection->video_url == null)
 
@@ -56,7 +56,7 @@
             <!-- Video Section: Start -->
             <div class="position-relative la-anim__stagger-item--x la-anim__C">
               <div class="la-hero__video ">
-                  <video height="480" autoplay='' playsinline muted='muted' loop='loop'>
+                  <video autoplay='' playsinline muted='muted' loop='loop'>
                       <source src='{{$firstSection->video_url}}'  type='video/mp4' />
                   </video>
               </div>
@@ -68,7 +68,7 @@
         </div>
 
         <!-- Row: Start-->
-        <div class="pt-md-20 la-anim__wrap">
+        <div class="pt-md-10 la-anim__wrap">
           <div class="la-hero__bottom d-flex justify-content-center justify-content-lg-between align-items-center  pb-14 la-anim__fade-in">
             <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing"><a href="/learning-plans">Start free trial<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a></div>
             <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text--burple text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block"><a href="#home_courses">BROWSE COURSES</a><span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span></div>
@@ -121,15 +121,15 @@
                         <div class=" pt-2">
                             <div class="la-form__radio-wrap mr-5">
                                   <input class="la-form__radio d-none" type="radio" value="most_popular" name="sort_by" id="most_popular" @if($sort_type =='most_popular') checked @endif>
-                                  <label class="d-flex align-items-center text-sm" for="most_popular"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Most Popular</span></label>
+                                  <label class="la-form__radio-filterlabel d-flex align-items-center text-sm" for="most_popular"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Most Popular</span></label>
                             </div>
                             <div class="la-form__radio-wrap mr-5">
                                 <input class="la-form__radio d-none" type="radio" value="highest_rated" name="sort_by" id="highest_rated" @if($sort_type =='highest_rated') checked @endif>
-                                <label class="d-flex align-items-center text-sm" for="highest_rated"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Highest Rated</span></label>
+                                <label class="la-form__radio-filterlabel d-flex align-items-center text-sm" for="highest_rated"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Highest Rated</span></label>
                             </div>
                             <div class="la-form__radio-wrap mr-5">
                                 <input class="la-form__radio d-none" type="radio" value="latest" name="sort_by" id="latest" @if($sort_type =='latest') checked @endif>
-                                <label class="d-flex align-items-center text-sm" for="latest"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Latest</span></label>
+                                <label class="la-form__radio-filterlabel d-flex align-items-center text-sm" for="latest"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Latest</span></label>
                             </div>
                         </div>
                     </div>
@@ -375,7 +375,7 @@
     <div class="la-section__inner">
       <div class="container">
         <h2 class="la-section__title la-section__title--big position-relative la-anim__fade-in-top la-anim__A">Master <span>classes</span></h2>
-        <div class="la-mccourses pt-14 pt-md-4">
+        <div class="la-mccourses pt-20 pt-md-4">
           <div class="row justify-content-center px-lg-5 la-anim__stagger la-anim__A">
            
               @foreach ($master_classes as $master)

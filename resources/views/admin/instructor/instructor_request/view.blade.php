@@ -31,7 +31,7 @@
 					<div class="la-admin__mentor-vline h-100"></div>
 				</div>
 
-				<div class="col-6 offset-1 h-100 px-0">
+				<div class="col-5 offset-1 h-100 px-0">
 					<div class="la-admin__mentor-rgt">
 						<div class="la-admin__mentor-list">
 							<div class="la-admin__mentor-item d-flex align-items-start">
@@ -88,7 +88,7 @@
 			</div>
 
 			<div class="row">
-				<div class="col-8 ">
+				<div class="col-10">
 					<form action="{{route('requestinstructor.update',$show->id)}}" method="POST" enctype="multipart/form-data">
 						{{ csrf_field() }}
 						{{ method_field('PUT') }}
@@ -102,7 +102,7 @@
 						<input type="hidden" value="{{ $show->image }}" name="image" class="form-control">
 
 						<div class="row">
-							<div class="col-md-2 py-4 text-center">
+							<div class="col-md-2 pt-2 text-center">
 								<label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
 								<br>
 								<li class="tg-list-item">
@@ -116,7 +116,7 @@
 						<br>
 						
 						<div class="row">
-							<div class="col-12 mb-6">
+							<div class="col-12 text-right mb-6">
 								<button value="" type="submit"  class="btn btn-lg btn-primary px-20">{{ __('adminstaticword.Save') }}</button>
 							</div>
 						</div>

@@ -1,43 +1,40 @@
 #{$ap}- {
     &news{
         &__{
-            &app-item{
-                padding-top:var(--size-10);
-                padding-bottom:var(--size-10);
-                margin-right:var(--size-12);
-            }
-            &app-title{
-                color:var(--gray7);
-                font-weight:var(--font-semibold);  
-            }
-            &app-timestamp{
-                color:#FFCE31;
-                font-weight:var(--font-normal);
-            }
-            &app-content{
-                color:var(--gray5);
-                font-weight:var(--font-normal);
-                padding-bottom:var(--size-4);
-                span{
-                    color:var(--gray5);
-                    font-weight:var(--font-normal);
-                }
-            }
-        }
-    }
-}
+            &app{
+                &-{
+                    &item{
+                        padding:var(--size-10) 0;
+                        margin-right:var(--size-12);
+                        border-bottom:2px solid var(--gray8);
 
-@media (max-width:991px){
-    #{$ap}- {
-        &news{
-            &__{
-                &app-item{
-                    margin-right:0;
-                    padding:var(--size-8);
+                        @include respond-below(md){
+                            margin-right:0;
+                        }
+                    }
+                    &title{
+                        color:var(--gray7);
+                        font-weight:var(--font-semibold);  
+                    }
+                    &timestamp{
+                        color:#FFCE31;
+                        font-weight:var(--font-normal);
+                    }
+                    &content{
+                        color:var(--gray5);
+                        font-weight:var(--font-normal);
+                        padding-bottom:var(--size-4);
+
+                        @include respond-below(md){
+                            border-bottom:1px dashed var(--gray8);
+                        }
+                    }
+                    &desc{
+                        color:var(--gray5);
+                        font-weight:var(--font-normal);
+                    }
                 }
-                &app-content{
-                    border-bottom:1px dashed var(--grey8);
-                }
+                
             }
         }
     }

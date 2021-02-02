@@ -27,13 +27,13 @@
                             Your Interests
                             <!--<a role="button" href="" class="text-sm ml-5" style="color:var(--app-indigo-1);font-weight:var(--font-medium)">Edit</a> -->
                         </div>
-                        <ul class="row la-interests__list pr-5">
-                            
+                        
                             @if(count($myInterests))
                                 @php
                                 $alreadyAdded = true;
                                 @endphp 
 
+                                <ul class="row la-interests__list pr-5">
                                 @foreach ($myInterests as $interest)
                                     @if($interest->category != null)
                                         <x-my-interest
@@ -44,24 +44,25 @@
                                         />
                                     @endif
                                 @endforeach
+                                </ul>
                             @else
-                                <div class="col-md-8 mt-2 mx-4 la-empty__courses la-anim__stagger-item--x">
-                                    <div class="la-empty__browse-courses ">
+                                <div class="col-lg-8 mt-2 la-empty__courses la-anim__stagger-item--x">
+                                    <div class="la-empty__browse-courses text-center text-md-left">
                                         <h6 class="la-empty__browse leading-tight text-lg" style="text-transform:none; letter-spacing:1px">
                                             Please Add Interests for better experience.
                                         </h6>
                                     </div>
                                 </div>
                             @endif
-                        </ul>
+                        
 
                         <div class="la-interests__like la-anim__wrap">
                             <div class="la-interests__title la-anim__stagger-item">You might also like</div>
-                            <ul class="row la-interests__list pr-5">
+                            
                          
                                 @if(count($otherCategories) == 0)
-                                    <div class="col-md-8 mt-2 mx-4 la-empty__courses la-anim__stagger-item--x">
-                                        <div class="la-empty__browse-courses ">
+                                    <div class="col-lg-8 mt-2 la-empty__courses la-anim__stagger-item--x">
+                                        <div class="la-empty__browse-courses  text-center text-md-left">
                                             <h6 class="la-empty__browse leading-tight text-lg" style="text-transform:none; letter-spacing:1px">
                                                 No more Interests available.
                                             </h6>
@@ -69,6 +70,7 @@
                                     </div>
                                 @else
 
+                                    <ul class="row la-interests__list pr-5">
                                     @foreach ($otherCategories as $category)
                                         <x-my-interest
                                             :img="'https://picsum.photos/100/100'"
