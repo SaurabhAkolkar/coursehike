@@ -63,8 +63,9 @@
                                     <label for="" class="la-admin__preview-label p-0">Video Upload:<sup class="redstar">*</sup></label>
                                     <div class="la-admin__preview-img la-admin__course-imgvid" >
                                         <div class="la-admin__preview-text">
-                                                <p class="la-admin__preview-size">Video | 100MB</p>
-                                                <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
+                                            <p class="la-admin__preview-size">Video | 100MB</p>
+                                            <p class=" la-admin__preview-delete text-uppercase">Delete Video</p>
+                                            <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
                                         </div>
                                         <div class="text-center pr-20 mr-20">
                                             <span class="la-icon la-icon--8xl icon-preview-video" style="font-size:150px;">

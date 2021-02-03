@@ -34,9 +34,9 @@
 
                             <li class="la-course__option">
                                     <div class="dropdown">
-                                        <div class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);">
+                                        <span class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);">
                                             <i class="la-icon la-icon--2xl icon icon-menu"></i>
-                                        </div>
+                                        </span>
                                         <div class="la-cmenu dropdown-menu py-0">
                                             @if(Auth::check())
                                                 <span class="dropdown-item la-cmenu__item d-inline-flex" @if($removeFromPlaylist) onclick="location.href='{{url()->current()}}/{{$id}}'"  @else onclick="showAddToPlaylist({{$id}})" @endif><i class="icon icon-playlist la-icon la-cmenu__item-icon mr-2"></i> @if($removeFromPlaylist) Remove from Playlist  @else Add to Playlist @endif</span>

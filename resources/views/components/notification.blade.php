@@ -1,6 +1,6 @@
 <li class="la-notification__item">
     <a class="la-notification__link" href= {{ $url }}>
-        <div class="la-notification__link-inner d-flex flex-row justify-content-between">
+        <div class="la-notification__link-inner d-flex flex-row align-items-start">
             <div class="la-notification__prfle">
                 <img class="d-block" src= {{ $img }} alt= {{ $name }}>
             </div>

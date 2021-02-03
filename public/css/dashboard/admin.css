@@ -1169,6 +1169,16 @@ a.dt-button {
   padding: 10px 20px;
 }
 
+.la-admin__preview-delete {
+  background-color: var(--danger);
+  box-shadow: 0px 3px 6px #00000029;
+  color: var(--white);
+  letter-spacing: 1.2px;
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  padding: 10px 20px;
+}
+
 /* === EDIT COURSES PREVIEW IMAGE AND VIDEO FILES: END ==== */
 
 /* ==================== EDIT COURSE PAGE: END ============================== */

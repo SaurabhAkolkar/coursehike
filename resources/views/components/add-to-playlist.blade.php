@@ -30,10 +30,10 @@
                             </div>
 
                             <div class="la-playlist__modal-btm">
-                                <h4 class="modal-title la-playlist__modal-title" data-toggle="collapse" href="#addPlaylistCollapes" role="button">
-                                    <span class="la-icon icon-plus la-icon--md mr-2"></span>
+                                <a class="modal-title la-playlist__modal-title d-flex align-items-center" data-toggle="collapse" href="#addPlaylistCollapes" role="button">
+                                    <span class="la-icon icon-plus la-icon--sm mr-2"></span>
                                     Create New Playlist
-                                </h4>
+                                </a>
                             </div>
                             
                             <div class="collapse" id="addPlaylistCollapes">

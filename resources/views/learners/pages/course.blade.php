@@ -50,7 +50,7 @@ use Carbon\Carbon;
               </div> --}}
             </div>
 
-            <div class="la-rtng__icons d-inline-flex">
+            <div class="la-rtng__icons d-inline-flex la-anim__stagger-item">
               @for($counter=1;$counter <= round($average_rating); $counter++)
                   <div class="la-icon la-icon--2xl icon-star la-rtng__fill"> </div>
               @endfor

@@ -1,6 +1,6 @@
 <li class="la-announcement__item">
     <a class="la-announcement__link" href="/releases/{{ $url }}">
-        <div class="la-announcement__link-inner d-flex flex-row justify-content-between">
+        <div class="la-announcement__link-inner d-flex flex-row align-items-start">
             <div class="la-announcement__eprfle">
                 <img class="d-block" src= "{{ $img }}" alt= {{ $event }} />
             </div>
