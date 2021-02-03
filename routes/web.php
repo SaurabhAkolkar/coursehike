@@ -208,6 +208,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::put('widget/update', 'WidgetController@update');
 
       Route::get('/firstsection', 'FirstSectionController@index');
+      Route::get('/firstsection/remove-video', 'FirstSectionController@removeVideo');
       Route::put('firstsection/update', 'FirstSectionController@update');
       
       Route::get('/featuredMentors', 'FeaturedMentorController@index');

@@ -76,6 +76,16 @@
                     <br>
                   </div>
                 </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="la-rtng__review-stars">
+                      <div class="starRatingContainer">
+                          <div class="rate2"></div>
+                          <input id="input2" type="hidden" name="rating_value" type="text"></div>
+                    </div>
+                  </div>
+                </div>
                    
                 <div class="row">
                   <div class="col-md-12">
@@ -114,12 +124,22 @@
 @endsection
 
 @section('scripts')
-
+<script src="{{asset('/js/rater.min.js')}}" charset="utf-8"></script>
 <script>
 (function($) {
   "use strict";
   tinymce.init({selector:'textarea'});
 })(jQuery);
+
+var options = {
+                max_value: 5,
+                step_size: 1,
+                url: '/',
+                initial_value: 3,
+                update_input_field_name: $("#input2"),
+            };
+
+$(".rate2").rate(options);
 </script>
 
 @endsection
