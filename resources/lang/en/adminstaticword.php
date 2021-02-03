@@ -516,5 +516,6 @@ return [
     'PurchaseDate'=>'Purchase Date',
     'level'=>'Level',
     'Advertisement'=>'Advertisement',
+    'Rating'=>'Rating',
 
 ];

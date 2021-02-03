@@ -1,13 +1,11 @@
-@extends('learners.layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <!-- Main Section: Start-->
 <section class="la-cbg--main la-lp__section">
     <!-- Section: Start-->
     <section class="la-lp--page">
       <div class="container la-anim__wrap">
         <div class="row ">
-          <a class="la-icon--5xl icon-back-arrow d-block d-lg-none my-6 px-3" href="{{URL::previous()}}"></a>
+          <a class="la-icon--5xl icon-back-arrow d-block d-lg-none my-6 px-3" href="<?php echo e(URL::previous()); ?>"></a>
           <!-- Column: Start-->
           <div class="col-12 col-lg-6">
             <div class="la-lp__title la-anim__stagger-item"><span class="text-2xl text-md-3xl">The right plans</span>
@@ -18,7 +16,7 @@
           <!-- Column: End-->
         </div>
 
-        @php
+        <?php
             $plan1 = new stdClass;
             $plan1->plan = "Monthly";
             $plan1->discount = 39;
@@ -44,7 +42,7 @@
             $plan3->slug = "yearly-plan";
 
             $plans = array($plan1, $plan3);
-        @endphp
+        ?>
         <div class="row la-lp__choose-main">
           <!-- Column: Start-->
           <div class="col-12">
@@ -58,9 +56,19 @@
               <div class="d-none d-lg-block">
                 <div class="row d-flex flex-row justify-content-center">
                     <!-- Choose Plans: Start -->
-                    @foreach ($plans as $plan)
-                        <x-chooseplan :plan="$plan->plan" :discount="$plan->discount" :oldPrice="$plan->oldPrice" :class="$plan->class" :saving="$plan->saving" :slug="$plan->slug" />
-                    @endforeach
+                    <?php $__currentLoopData = $plans; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $plan): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                         <?php if (isset($component)) { $__componentOriginalc704f8bbb3c0f90bdc8efbfb2705c0274b993d44 = $component; } ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Chooseplan::class, ['plan' => $plan->plan,'discount' => $plan->discount,'oldPrice' => $plan->oldPrice,'class' => $plan->class,'saving' => $plan->saving,'slug' => $plan->slug]); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes([]); ?>
+<?php if (isset($__componentOriginalc704f8bbb3c0f90bdc8efbfb2705c0274b993d44)): ?>
+<?php $component = $__componentOriginalc704f8bbb3c0f90bdc8efbfb2705c0274b993d44; ?>
+<?php unset($__componentOriginalc704f8bbb3c0f90bdc8efbfb2705c0274b993d44); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <!-- Choose Plans: End -->
                 </div>
               </div>
@@ -69,13 +77,31 @@
               <div class="swiper-container h-100 la-choose__slider mt-4 d-block d-lg-none">
                 <div class="swiper-wrapper la-choose__wrapper la-anim__stagger-item">
                   <div class="swiper-slide la-choose__slide">
-                    <x-chooseplan :plan="$plan1->plan" :discount="$plan1->discount" :oldPrice="$plan1->oldPrice"  :class="$plan1->class" :saving="$plan1->saving" :slug="$plan1->slug" />                  
+                     <?php if (isset($component)) { $__componentOriginalc704f8bbb3c0f90bdc8efbfb2705c0274b993d44 = $component; } ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Chooseplan::class, ['plan' => $plan1->plan,'discount' => $plan1->discount,'oldPrice' => $plan1->oldPrice,'class' => $plan1->class,'saving' => $plan1->saving,'slug' => $plan1->slug]); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes([]); ?>
+<?php if (isset($__componentOriginalc704f8bbb3c0f90bdc8efbfb2705c0274b993d44)): ?>
+<?php $component = $__componentOriginalc704f8bbb3c0f90bdc8efbfb2705c0274b993d44; ?>
+<?php unset($__componentOriginalc704f8bbb3c0f90bdc8efbfb2705c0274b993d44); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>                  
                   </div>
-                  {{-- <div class="swiper-slide la-choose__slide">
-                    <x-chooseplan :plan="$plan2->plan" :discount="$plan2->discount" :oldPrice="$plan2->oldPrice" :class="$plan2->class" :saving="$plan2->saving" :slug="$plan2->slug" />                                     
-                  </div> --}}
+                  
                   <div class="swiper-slide la-choose__slide">
-                    <x-chooseplan :plan="$plan3->plan" :discount="$plan3->discount" :oldPrice="$plan3->oldPrice" :class="$plan3->class" :saving="$plan3->saving" :slug="$plan3->slug" />                                                       
+                     <?php if (isset($component)) { $__componentOriginalc704f8bbb3c0f90bdc8efbfb2705c0274b993d44 = $component; } ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Chooseplan::class, ['plan' => $plan3->plan,'discount' => $plan3->discount,'oldPrice' => $plan3->oldPrice,'class' => $plan3->class,'saving' => $plan3->saving,'slug' => $plan3->slug]); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes([]); ?>
+<?php if (isset($__componentOriginalc704f8bbb3c0f90bdc8efbfb2705c0274b993d44)): ?>
+<?php $component = $__componentOriginalc704f8bbb3c0f90bdc8efbfb2705c0274b993d44; ?>
+<?php unset($__componentOriginalc704f8bbb3c0f90bdc8efbfb2705c0274b993d44); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>                                                       
                   </div>
                 </div>
               </div>
@@ -186,19 +212,20 @@
                     
                   <div class="panel-group la-lp__sub-group my-2 " id="accFree">
 
-                    @foreach($faqs as $f)
+                    <?php $__currentLoopData = $faqs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $f): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="panel panel-default la-lp__faq-panel mt-2">
-                          <div class="panel-heading la-lp__faq-sub py-2" id="faqF"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqFa_{{ $f->id }}" data-toggle="collapse" aria-expanded="true">{{ $f->title }}</a></span>
-                            <div class="panel-collapse collapse" id="faqFa_{{ $f->id }}" aria-labelledby="faqF" data-parent="#accFree">
+                          <div class="panel-heading la-lp__faq-sub py-2" id="faqF"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqFa_<?php echo e($f->id); ?>" data-toggle="collapse" aria-expanded="true"><?php echo e($f->title); ?></a></span>
+                            <div class="panel-collapse collapse" id="faqFa_<?php echo e($f->id); ?>" aria-labelledby="faqF" data-parent="#accFree">
                               <div class="panel-body py-4 px-5">
                                 <div class="panel-text">
-                                    {!! $f->details !!}
+                                    <?php echo $f->details; ?>
+
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                   <!-- </div>
                 </div> -->
@@ -367,19 +394,19 @@
           <!-- Column: Start-->
           <div class="col-12 col-lg-8 px-0 px-lg-3"> 
             <div class="la-lp__test-rgt ">      
-                @foreach($testimonial as $test)            
-                    <div class="la-lp__test-cards d-flex @if($loop->index == 1) justify-content @else justify-content-end @endif la-anim__stagger-item--x" id="testCard_{{ $loop->index }}">
+                <?php $__currentLoopData = $testimonial; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $test): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>            
+                    <div class="la-lp__test-cards d-flex <?php if($loop->index == 1): ?> justify-content <?php else: ?> justify-content-end <?php endif; ?> la-anim__stagger-item--x" id="testCard_<?php echo e($loop->index); ?>">
                       <div class="card la-lp__card-itm" >
                         <div class="la-card__top d-flex justify-content-between">
                           <div class="la-lp__profile d-flex justify-content-start">
-                            <img class="img-fluid d-block rounded-circle" src="{{ asset('images/testimonial/'.$test->image) }}" alt="{{ $test->client_name }}">
+                            <img class="img-fluid d-block rounded-circle" src="<?php echo e(asset('images/testimonial/'.$test->image)); ?>" alt="<?php echo e($test->client_name); ?>">
                             <div class="col">
-                              <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">{{ $test->client_name }}</h5>
+                              <h5 class="la-lp__name head-font m-0 text-md text-sm-lg"><?php echo e($test->client_name); ?></h5>
                               <span class="la-lp__desg text-sm"></span>
                             </div>
                           </div>
                           <div class="la-lp__test-rating d-flex flex-row">
-                              @if($test->rating == 5)
+                              <?php if($test->rating == 5): ?>
 
                                   <div class="la-icon--lg icon-star la-rtng__fill"></div>
                                   <div class="la-icon--lg icon-star la-rtng__fill"></div>
@@ -387,7 +414,7 @@
                                   <div class="la-icon--lg icon-star la-rtng__fill"></div>
                                   <div class="la-icon--lg icon-star la-rtng__fill"></div>
 
-                              @elseif($test->rating >= 4)
+                              <?php elseif($test->rating >= 4): ?>
 
                                   <div class="la-icon--lg icon-star la-rtng__fill"></div>
                                   <div class="la-icon--lg icon-star la-rtng__fill"></div>
@@ -395,7 +422,7 @@
                                   <div class="la-icon--lg icon-star la-rtng__fill"></div>
                                   <div class="la-icon--lg icon-star la-rtng__unfill"></div>
 
-                              @elseif($test->rating >= 3)
+                              <?php elseif($test->rating >= 3): ?>
 
                                   <div class="la-icon--lg icon-star la-rtng__fill"></div>
                                   <div class="la-icon--lg icon-star la-rtng__fill"></div>
@@ -403,7 +430,7 @@
                                   <div class="la-icon--lg icon-star la-rtng__unfill"></div>
                                   <div class="la-icon--lg icon-star la-rtng__unfill"></div>
 
-                              @elseif($test->rating >= 2)
+                              <?php elseif($test->rating >= 2): ?>
 
                                   <div class="la-icon--lg icon-star la-rtng__fill"></div>
                                   <div class="la-icon--lg icon-star la-rtng__fill"></div>
@@ -411,7 +438,7 @@
                                   <div class="la-icon--lg icon-star la-rtng__unfill"></div>
                                   <div class="la-icon--lg icon-star la-rtng__unfill"></div>
 
-                              @elseif($rating >= 1)
+                              <?php elseif($rating >= 1): ?>
 
                                   <div class="la-icon--lg icon-star la-rtng__fill"></div>
                                   <div class="la-icon--lg icon-star la-rtng__unfill"></div>
@@ -419,7 +446,7 @@
                                   <div class="la-icon--lg icon-star la-rtng__unfill"></div>
                                   <div class="la-icon--lg icon-star la-rtng__unfill"></div>
 
-                              @else
+                              <?php else: ?>
 
                                   <div class="la-icon--lg icon-star la-rtng__unfill"></div>
                                   <div class="la-icon--lg icon-star la-rtng__unfill"></div>
@@ -427,73 +454,27 @@
                                   <div class="la-icon--lg icon-star la-rtng__unfill"></div>
                                   <div class="la-icon--lg icon-star la-rtng__unfill"></div>
 
-                              @endif
+                              <?php endif; ?>
                           </div>
                         </div>
-                        <p class="la-lp__test-review mt-5 body-font text-sm">{!! $test->details !!}
+                        <p class="la-lp__test-review mt-5 body-font text-sm"><?php echo $test->details; ?>
+
                         </p>
                       </div>
 
-                        @if($loop->index == 1)
+                        <?php if($loop->index == 1): ?>
                             <div class="d-flex align-items-center justify-content-end">
                               <ul class="la-lp__card-list d-none d-sm-block">
-                                @foreach($testimonial as $t)
-                                <li> <a role="button" href="#testCard_{{ $loop->index }}"></a></li>
-                                @endforeach
+                                <?php $__currentLoopData = $testimonial; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $t): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <li> <a role="button" href="#testCard_<?php echo e($loop->index); ?>"></a></li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                               </ul>
                             </div>
-                        @endif
+                        <?php endif; ?>
                     </div>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-                    {{-- <div class="la-lp__test-cards d-flex justify-content-between la-anim__stagger-item--x" id="testCard2">
-                      <div class="card la-lp__card-itm" >
-                        <div class="la-card__top d-flex justify-content-between">
-                          <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle" src="https://picsum.photos/50/50" alt="Profile">
-                            <div class="col">
-                              <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">Charolette</h5><span class="la-lp__desg text-sm">UI Designer</span>
-                            </div>
-                          </div>
-                          <div class="la-lp__test-rating d-flex flex-row">
-                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                            <div class="la-icon--xl icon-star la-lp__urtng"></div>
-                          </div>
-                        </div>
-                        <p class="la-lp__test-review body-font mt-5 text-sm">
-                          &#8220; Lorem Ipsum dolor sit amet, consectur sadipscing elit,sed diam nonumy elrmod tempor invidunt ut labore et 
-                          dolore magna aliquaqm erat, sed diam voluptna. &#8221;
-                        </p>
-                      </div>
-                      
-                      
-                    </div>
-
-
-                  <div class="la-lp__test-cards d-flex justify-content-end la-anim__stagger-item--x" id="testCard3">
-                    <div class="card la-lp__card-itm" >
-                      <div class="la-card__top d-flex justify-content-between">
-                        <div class="la-lp__profile d-flex justify-content-start"><img class="img-fluid d-block rounded-circle" src="https://picsum.photos/50/50" alt="Profile">
-                          <div class="col">
-                            <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">Natalia</h5><span class="la-lp__desg text-sm">Photographer</span>
-                          </div>
-                        </div>
-                        <div class="la-lp__test-rating d-flex flex-row">
-                          <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                          <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                          <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                          <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                          <div class="la-icon--xl icon-star la-lp__urtng"></div>
-                        </div>
-                      </div>
-                      <p class="la-lp__test-review body-font mt-5 text-sm">
-                        &#8220; Lorem Ipsum dolor sit amet, consectur sadipscing elit,sed diam nonumy elrmod tempor invidunt ut labore et 
-                        dolore magna aliquaqm erat, sed diam voluptna. &#8221;
-                      </p>
-                    </div>
-                  </div> --}}
+                    
             </div>
           </div>
           <!-- Column: End                -->
@@ -503,4 +484,5 @@
     <!-- Section: End-->
   </section>
   <!-- Main Section: End-->
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('learners.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\lila-laravel\resources\views/learners/pages/learning-plans.blade.php ENDPATH**/ ?>

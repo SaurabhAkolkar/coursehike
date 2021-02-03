@@ -42,6 +42,7 @@ class CartController extends Controller
     public function addtocartAjax(Request $request)
     {
 
+        $courseCheck = 
         $cart = Cart::firstOrCreate(
             ['user_id' => Auth::User()->id, 'course_id' => $request->course_id, 'status' => 1]
         );

@@ -306,39 +306,73 @@
                             {
                               $courses = $courses->sortByDesc('average_rating');
                             }                
-                            @endphp
-                            <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item la-anim__C">
-                              @foreach($courses as $course)
-                                <x-course 
-                                    :id="$course->id"
-                                    :img="$course->preview_image"
-                                    :course="$course->title"
-                                    :url="$course->slug"
-                                    :rating="$course->review->avg('rating')"
-                                    :creatorImg="$course->user->user_img"
-                                    :creatorName="$course->user->fname"
-                                    :creatorUrl="$course->user->fname"
-                                    :learnerCount="$course->learnerCount"
-                                  />
-                              @endforeach
-                              </div>
+                          @endphp
 
-                              @if(count($courses) == 0)
-                                <div class="col-12 la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
-                                    <div class="la-empty__inner">
-                                        <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
-                                    </div>
-                                    <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
-                                        <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
-                                            Browse Courses
-                                            <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                              @endif
-                      @endif
-            </nav>
-          </div>
+                          @foreach($courses as $course)
+                            @if ($course->featured == 0)
+                                @continue
+                            @endif
+                            <x-course 
+                                :id="$course->id"
+                                :img="$course->preview_image"
+                                :course="$course->title"
+                                :url="$course->slug"
+                                :rating="$course->review->avg('rating')"
+                                :creatorImg="$course->user->user_img"
+                                :creatorName="$course->user->fname"
+                                :creatorUrl="$course->user->id"
+                                :learnerCount="$course->learnerCount"
+                              />
+                          @endforeach
+
+                          
+                    </div>
+                  </div>
+                @endforeach
+              </div>
+              {{-- Categories Tab : END --}}
+            @else
+              <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item la-anim__C">
+                  @php
+                  if($sort_type == 'highest_rated')
+                  {
+                    $courses = $courses->sortByDesc('average_rating');
+                  }                
+                  @endphp
+
+                    @foreach($courses as $course)
+                      <x-course 
+                          :id="$course->id"
+                          :img="$course->preview_image"
+                          :course="$course->title"
+                          :url="$course->slug"
+                          :rating="$course->review->avg('rating')"
+                          :creatorImg="$course->user->user_img"
+                          :creatorName="$course->user->fname"
+                          :creatorUrl="$course->user->id"
+                          :learnerCount="$course->learnerCount"
+                        />
+                    @endforeach
+
+                    @if(count($courses) == 0)
+                      <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
+                          <div class="la-empty__inner">
+                              <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
+                          </div>
+                          <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
+                              <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
+                                  Browse Courses
+                                  <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
+                              </a>
+                          </div>
+                      </div>
+                    @endif
+
+
+              </div>
+            @endif
+         
+
         </div>
       </div>
   </section>
