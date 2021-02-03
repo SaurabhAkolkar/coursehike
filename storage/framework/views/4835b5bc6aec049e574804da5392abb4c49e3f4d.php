@@ -1,26 +1,24 @@
-@extends('learners.layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
   <!-- Section: Start-->
   <section class="la-page--bcreator ">
     <div class="container-fluid">
-    @if(session('message'))
+    <?php if(session('message')): ?>
               <div class="la-btn__alert position-relative">
                 <div class="la-btn__alert-success col-lg-4 offset-lg-4  alert alert-success alert-dismissible fade show" role="alert">
-                    <span class="la-btn__alert-msg">{{session('message')}}</span>
+                    <span class="la-btn__alert-msg"><?php echo e(session('message')); ?></span>
                     <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true" style="color:#56188C">&times;</span>
                     </button>
                 </div>
               </div>
-     @endif
+     <?php endif; ?>
           
       <div class="row la-anim__wrap">
         <!-- Column: Start-->
         <div class="col-12 col-sm-12 la-bcreator__banner " style="background:url('../images/learners/creator/bcreator-banner.png') no-repeat bottom rgba(0, 0, 0, 0.5); background-size:cover;">
           <div class="la-bcreator text-left text-sm-center px-6">
 
-            <a class="la-bcreator__back-link position-absolute la-anim__stagger-item--x" href="{{URL::previous()}}"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
+            <a class="la-bcreator__back-link position-absolute la-anim__stagger-item--x" href="<?php echo e(URL::previous()); ?>"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
             <div class="la-bcreator__content">
               <strong class=" la-bcreator__title--mini  text-uppercase m-0 la-anim__stagger-item--x">Design your own course!</strong>
               <h1 class="la-bcreator__title text-uppercase d-none d-md-block la-anim__stagger-item--x">Become a Creator</h1>
@@ -54,15 +52,15 @@
           <div class="la-mcard__slider-wrap">
             <div class="swiper-container h-100 la-mcard__container">
               <div class="swiper-wrapper la-mcard__wrapper">                    
-                    @foreach($testimonial as $t)
+                    <?php $__currentLoopData = $testimonial; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $t): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="swiper-slide la-mcard__slider mb-16">
                       <div class="la-mcard__item p-4 p-lg-5">
                         <div class="la-mcard__info d-flex align-items-center">
-                          <div class="li-mcard__prfle mr-4 mr-lg-10 la-anim__stagger-item--x"><img class="rounded-circle d-block la-mcard__img" src="{{ asset('images/testimonial/'.$t->image) }}" alt="Mentor Name"></div>
+                          <div class="li-mcard__prfle mr-4 mr-lg-10 la-anim__stagger-item--x"><img class="rounded-circle d-block la-mcard__img" src="<?php echo e(asset('images/testimonial/'.$t->image)); ?>" alt="Mentor Name"></div>
                           <div class="la-mcard__details">
-                            <div class="la-mcard__name text-lg text-lg-xl la-anim__stagger-item--x">{{ $t->client_name }}</div>
+                            <div class="la-mcard__name text-lg text-lg-xl la-anim__stagger-item--x"><?php echo e($t->client_name); ?></div>
                                 <div class="la-lp__test-rating d-flex flex-row">
-                                  @if($t->rating == 5)
+                                  <?php if($t->rating == 5): ?>
 
                                       <div class="la-icon--lg icon-star la-rtng__fill"></div>
                                       <div class="la-icon--lg icon-star la-rtng__fill"></div>
@@ -70,7 +68,7 @@
                                       <div class="la-icon--lg icon-star la-rtng__fill"></div>
                                       <div class="la-icon--lg icon-star la-rtng__fill"></div>
 
-                                  @elseif($t->rating >= 4)
+                                  <?php elseif($t->rating >= 4): ?>
 
                                       <div class="la-icon--lg icon-star la-rtng__fill"></div>
                                       <div class="la-icon--lg icon-star la-rtng__fill"></div>
@@ -78,7 +76,7 @@
                                       <div class="la-icon--lg icon-star la-rtng__fill"></div>
                                       <div class="la-icon--lg icon-star la-rtng__unfill"></div>
 
-                                  @elseif($t->rating >= 3)
+                                  <?php elseif($t->rating >= 3): ?>
 
                                       <div class="la-icon--lg icon-star la-rtng__fill"></div>
                                       <div class="la-icon--lg icon-star la-rtng__fill"></div>
@@ -86,7 +84,7 @@
                                       <div class="la-icon--lg icon-star la-rtng__unfill"></div>
                                       <div class="la-icon--lg icon-star la-rtng__unfill"></div>
 
-                                  @elseif($t->rating >= 2)
+                                  <?php elseif($t->rating >= 2): ?>
 
                                       <div class="la-icon--lg icon-star la-rtng__fill"></div>
                                       <div class="la-icon--lg icon-star la-rtng__fill"></div>
@@ -94,7 +92,7 @@
                                       <div class="la-icon--lg icon-star la-rtng__unfill"></div>
                                       <div class="la-icon--lg icon-star la-rtng__unfill"></div>
 
-                                  @elseif($t->rating >= 1)
+                                  <?php elseif($t->rating >= 1): ?>
 
                                       <div class="la-icon--lg icon-star la-rtng__fill"></div>
                                       <div class="la-icon--lg icon-star la-rtng__unfill"></div>
@@ -102,7 +100,7 @@
                                       <div class="la-icon--lg icon-star la-rtng__unfill"></div>
                                       <div class="la-icon--lg icon-star la-rtng__unfill"></div>
 
-                                  @else
+                                  <?php else: ?>
 
                                       <div class="la-icon--lg icon-star la-rtng__unfill"></div>
                                       <div class="la-icon--lg icon-star la-rtng__unfill"></div>
@@ -110,18 +108,18 @@
                                       <div class="la-icon--lg icon-star la-rtng__unfill"></div>
                                       <div class="la-icon--lg icon-star la-rtng__unfill"></div>
 
-                                  @endif
+                                  <?php endif; ?>
                               </div>
-                            <div class="la-mcard__skill text-sm d-block d-lg-none la-anim__stagger-item--x">{{ ucfirst($t->type) }}</div>
-                            <div class="la-mcard__desc text-md d-none d-lg-block la-anim__stagger-item--x">{!! $t->details !!}</div>
+                            <div class="la-mcard__skill text-sm d-block d-lg-none la-anim__stagger-item--x"><?php echo e(ucfirst($t->type)); ?></div>
+                            <div class="la-mcard__desc text-md d-none d-lg-block la-anim__stagger-item--x"><?php echo $t->details; ?></div>
                           </div>
                         </div>
                         <div class="la-mcard__desc d-block d-lg-none pt-3">
-                          <div class="la-mcard__desc text-md la-anim__stagger-item--x">{{ $t->details }}</div>
+                          <div class="la-mcard__desc text-md la-anim__stagger-item--x"><?php echo e($t->details); ?></div>
                         </div>
                       </div>
                     </div>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               </div>
             </div>
             <div class="swiper-pagination swiper-pagination-custom la-mcard__pagination"></div>
@@ -372,35 +370,35 @@
           <div class="panel-group" id="accordion">
             <h4 class="la-bgcreator__faq-title la-anim__stagger-item">FAQ&#39;s</h4>
 
-              @foreach($faqs->take(3) as $f)
+              <?php $__currentLoopData = $faqs->take(3); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $f): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="panel panel-default la-bgcreator__faq-panel la-anim__stagger-item">
                   <div class="panel-heading la-bgcreator__panel-head la-anim__stagger-item--x" id="faqCalcHead">
-                    <div class="panel-title la-bgcreator__panel-title"><a class="accordion-toggle collapsed text-md" href="#faq_{{ $f->id }}" data-toggle="collapse" aria-expanded="true" aria-controls="#faq_{{ $f->id }}">{{ $f->title }}</a></div>
+                    <div class="panel-title la-bgcreator__panel-title"><a class="accordion-toggle collapsed text-md" href="#faq_<?php echo e($f->id); ?>" data-toggle="collapse" aria-expanded="true" aria-controls="#faq_<?php echo e($f->id); ?>"><?php echo e($f->title); ?></a></div>
                   </div>
-                  <div class="panel-collapse collapse" id="faq_{{ $f->id }}" aria-labelledby="faqCalcHead" data-parent="#accordion">
+                  <div class="panel-collapse collapse" id="faq_<?php echo e($f->id); ?>" aria-labelledby="faqCalcHead" data-parent="#accordion">
                     <div class="panel-body la-bgcreator__panel-body">
-                      <p class="m-0 la-bgcreator__panel-para panel-text text-md">{!! $f->details !!}</p>
+                      <p class="m-0 la-bgcreator__panel-para panel-text text-md"><?php echo $f->details; ?></p>
                     </div>
                   </div>
                 </div>
-              @endforeach
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
             <!-- See all Collapse: Start -->
             <div class="collapse" id="faq_collapse">
 
-              @foreach($faqs->skip(3) as $f)
+              <?php $__currentLoopData = $faqs->skip(3); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $f): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <div class="panel panel-default la-bgcreator__faq-panel la-anim__stagger-item">
                     <div class="panel-heading la-bgcreator__panel-head la-anim__stagger-item--x" id="faqCalcHead">
-                      <div class="panel-title la-bgcreator__panel-title"><a class="accordion-toggle collapsed text-md" href="#faq_{{ $f->id }}" data-toggle="collapse" aria-expanded="true" aria-controls="#faq_{{ $f->id }}">{{ $f->title }}</a></div>
+                      <div class="panel-title la-bgcreator__panel-title"><a class="accordion-toggle collapsed text-md" href="#faq_<?php echo e($f->id); ?>" data-toggle="collapse" aria-expanded="true" aria-controls="#faq_<?php echo e($f->id); ?>"><?php echo e($f->title); ?></a></div>
                     </div>
-                    <div class="panel-collapse collapse" id="faq_{{ $f->id }}" aria-labelledby="faqCalcHead" data-parent="#accordion">
+                    <div class="panel-collapse collapse" id="faq_<?php echo e($f->id); ?>" aria-labelledby="faqCalcHead" data-parent="#accordion">
                       <div class="panel-body la-bgcreator__panel-body">
-                        <p class="m-0 la-bgcreator__panel-para panel-text text-md">{!! $f->details !!}</p>
+                        <p class="m-0 la-bgcreator__panel-para panel-text text-md"><?php echo $f->details; ?></p>
                       </div>
                     </div>
                   </div>
-              @endforeach
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
               
             </div>
@@ -417,4 +415,5 @@
     </div>
   </section>
   <!-- Section: End-->
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('learners.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\lila-laravel\resources\views/learners/pages/become-creator.blade.php ENDPATH**/ ?>

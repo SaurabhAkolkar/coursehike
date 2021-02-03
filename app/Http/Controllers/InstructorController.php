@@ -214,7 +214,7 @@ class InstructorController extends Controller
 
     public function creator($id){
         $creator = User::findorfail($id);
-        $courses = Course::with('user','review')->where('user_id', $id)->get();
+        $courses = Course::with('user','review')->where(['user_id' => $id, 'status' => 1])->get();
         $courses_ids = Course::where('user_id', $id)->pluck('id');
         $rating = ReviewRating::whereIn('course_id', $courses_ids)->avg('rating');
         $awards = count(Instructor::where('user_id', $id)->pluck('awards'));

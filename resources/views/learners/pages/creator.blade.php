@@ -34,14 +34,10 @@
                   :google="$creator->google_id"
               />
         
+          @if(count($courses) == 0) 
 
-          <div class="row py-6 py-md-20">   
-            <div class="col-12 px-0">
-              <h4 class="text-2xl text-md-3xl px-3 px-md-1 pb-8">Courses from <span class="text-capitalize">{{ucfirst($creator->FullName)}}</span></h4>
-              <div class="la-courses__creator-courses d-md-flex">
-
-              @if(count($courses) == 0)
-                <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6">
+              <div class="row">
+                  <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6">
                     <div class="la-empty__inner">
                         <h6 class="la-empty__course-title text-xl la-anim__stagger-item">No more Courses from {{ucfirst($creator->FullName)}}</h6>
                     </div>
@@ -51,33 +47,38 @@
                             <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
                         </a>
                     </div>
-                </div>    
-
-                @else
-
-                  @foreach($courses as $course)
-                    @if($course->status == 1)
-                      <div class="col-md-4 px-0 ">
-                        <x-course 
-                            :id="$course->id"
-                            :img="$course->preview_image" 
-                            :course="$course->title" 
-                            :url="$course->title" 
-                            :rating="$course->review->avg('rating')"
-                            :creatorImg="$course->user->user_img"
-                            :creatorName="$course->user->FullName"
-                            :creatorUrl="$course->user->id"
-                            :learnerCount="$course->learnerCount"
-                          />
-                      </div>
-                    @endif
-                  @endforeach
-
-              @endif
-
+                  </div>    
               </div>
-            </div>
-          </div>
+
+          @else
+                  <div class="row py-6 py-md-20">   
+                    <div class="col-12 px-0">
+                      <h4 class="text-2xl text-md-3xl px-3 px-md-1 pb-8">Courses from <span class="text-capitalize">{{ucfirst($creator->FullName)}}</span></h4>
+                      <div class="la-courses__creator-courses d-md-flex">
+
+                        
+                      @foreach($courses as $course)
+                      
+                          <div class="col-md-4 px-0 ">
+                            <x-course 
+                                :id="$course->id"
+                                :img="$course->preview_image" 
+                                :course="$course->title" 
+                                :url="$course->title" 
+                                :rating="$course->review->avg('rating')"
+                                :creatorImg="$course->user->user_img"
+                                :creatorName="$course->user->FullName"
+                                :creatorUrl="$course->user->id"
+                                :learnerCount="$course->learnerCount"
+                              />
+                          </div>
+                  
+                      @endforeach
+                  </div>
+                </div>
+              </div>
+
+          @endif
         </div>
       </div>
     </div>

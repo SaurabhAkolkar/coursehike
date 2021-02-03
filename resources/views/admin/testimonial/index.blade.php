@@ -22,7 +22,9 @@
             <tr>
               <th>#</th>
               <th>{{ __('adminstaticword.Image') }}</th>
+              <th>{{ __('adminstaticword.Type') }}</th>
               <th>{{ __('adminstaticword.Name') }}</th>
+              <th>{{ __('adminstaticword.Rating') }}</th>
               <th>{{ __('adminstaticword.Detail') }}</th>
               <th>{{ __('adminstaticword.Status') }}</th>
               <th>{{ __('adminstaticword.Update') }}</th>
@@ -36,7 +38,51 @@
               <td>
                 <img src="images/testimonial/<?php echo $p['image']; ?>">
               </td>
+              <td>{{ucfirst($p->type)}}</td>
               <td>{{$p->client_name}}</td>
+              <td> <div class="la-course__rating ml-auto">
+                <div class="la-rtng__pg-rtng d-inline-flex pl-3">
+                    @if($p->rating == 5)
+                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow "></div>
+                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow "></div>
+                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
+                    @elseif($p->rating >= 4)
+                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                    @elseif($p->rating >= 3)
+                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                    @elseif($p->rating >= 2)
+                    
+                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                    @elseif($p->rating >= 1)
+                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                    @else
+                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                    @endif
+                </div>
+            </div></td>
               <td>{{ strip_tags($p->details) }}</td>
              
               <td>

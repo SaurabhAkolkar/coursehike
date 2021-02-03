@@ -35,20 +35,21 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="la-admin__preview">
-                      <label for="exampleInputSlug">{{ __('adminstaticword.Image') }}:<sup class="redstar">*</sup></label>
-                      <br>
-                      <div class="la-admin__preview-img la-admin__course-imgvid" >
-                        <div class="la-admin__preview-text" onclick="$('#image').click()">
-                          <p class="la-admin__preview-size">Preview Image</p>
-                          <p class="la-admin__preview-file text-uppercase">Choose a File</p>
+                      <div class="la-admin__preview">
+                        <label for="" class="la-admin__preview-label">{{ __('adminstaticword.Image') }}:</label>
+                        <div class="la-admin__preview-img la-admin__course-imgvid" >
+                             <div class="la-admin__preview-text">
+                                  <p class="la-admin__preview-size">Preview Image size: 250x150</p>
+                                  <p class="la-admin__preview-file text-uppercase">Choose a File</p>
+                            </div>
+                            <div class="text-center pr-20 mr-10">
+                              <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:160px;">
+                                <span class="path1"><span class="path2"></span></span>
+                              </span>
+                            </div>
+                            <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="image" id="image" />
+                            <img src="" alt="" class="d-none preview-img" required/>
                         </div>
-                        <div class="text-center pr-20 mr-10">
-                          <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:160px;">
-                            <span class="path1"><span class="path2"></span></span>
-                          </span>
-                        </div>
-                        <input type="file" name="image" id="image" class="inputfile inputfile-1 d-none"  value="{{ old('image') }}"/>
-                        <label for="image"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>{{ __('adminstaticword.Chooseafile') }}&hellip;</span>
                       </div>
                     </div>
                   </div>
@@ -81,8 +82,9 @@
                   <div class="col-md-6">
                     <div class="la-rtng__review-stars">
                       <div class="starRatingContainer">
+                          <label for="exampleInputDetails">Rating:<sup class="redstar">*</sup></label>
                           <div class="rate2"></div>
-                          <input id="input2" type="hidden" name="rating_value" type="text"></div>
+                          <input id="input2" type="hidden" name="rating" value="3"></div>
                     </div>
                   </div>
                 </div>
@@ -140,6 +142,40 @@ var options = {
             };
 
 $(".rate2").rate(options);
+
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();    
+    reader.onload = function(e) {
+      $(input).siblings('.preview-img').attr('src', e.target.result).removeClass('d-none');
+    }
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
+}
+
+$(".preview_img").change(function() {
+  readURL(this);
+});
+
+$(document).on("change", ".preview_video", function(evt) {
+  var $source = $(this).siblings('.preview-video');
+  $source.find("source").attr("src", URL.createObjectURL(this.files[0]));
+  $source.load();
+  $($source).removeClass('d-none');
+});
+
+$('#preview').on('change',function(){
+
+if($('#preview').is(':checked')){
+  $('#document1').show('fast');
+  $('#document2').hide('fast');
+}else{
+  $('#document2').show('fast');
+  $('#document1').hide('fast');
+}
+
+});
 </script>
 
 @endsection
