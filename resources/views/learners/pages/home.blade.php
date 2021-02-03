@@ -289,7 +289,7 @@
                                           :rating="$course->review->avg('rating')"
                                           :creatorImg="$course->user->user_img"
                                           :creatorName="$course->user->fname"
-                                          :creatorUrl="$course->user->fname"
+                                          :creatorUrl="$course->user->id"
                                           :learnerCount="$course->learnerCount"
                                         />
                                     @endforeach
@@ -317,7 +317,7 @@
                                     :rating="$course->review->avg('rating')"
                                     :creatorImg="$course->user->user_img"
                                     :creatorName="$course->user->fname"
-                                    :creatorUrl="$course->user->fname"
+                                    :creatorUrl="$course->user->id"
                                     :learnerCount="$course->learnerCount"
                                   />
                               @endforeach
