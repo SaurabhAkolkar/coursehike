@@ -114,4 +114,25 @@ class FirstSectionController extends Controller
 
        
     }
+
+    public function removeVideo(){
+        $firstSection = FirstSection::first();
+
+        if ($firstSection->video_url != "") {
+            $exists = Storage::exists(config('path.firstsection_video').$firstSection->video_url);
+            if ($exists){
+                Storage::delete(config('path.firstsection_video').$firstSection->video_url);
+
+                Http::withHeaders([
+                    'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
+                    'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
+                ])->delete('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/'.$firstSection->video_url);
+            }
+        }
+
+        $firstSection->video_url = null;
+        $firstSection->save();
+        return redirect()->back()->with('success', 'Video removed successfully.');
+
+    }
 }

@@ -64,6 +64,7 @@
                                     <div class="la-admin__preview-img la-admin__course-imgvid" >
                                         <div class="la-admin__preview-text">
                                                 <p class="la-admin__preview-size">Video | 100MB</p>
+                                                <a href="/firstsection/remove-video" class="la-admin__preview-file la-admin__preview-filebg bg-danger text-uppercase">Remove</a>
                                                 <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
                                         </div>
                                         <div class="text-center pr-20 mr-20">
