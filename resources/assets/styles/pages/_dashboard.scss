@@ -68,8 +68,8 @@ section.la-cdashboard-main{
 
     &:hover{
         .la-courses__tile-thumbnail img{
-            border-radius:10px;
-            transform:scale(1.10);-webkit-transform:scale(1.10);-moz-transform:scale(1.10);-ms-transform:scale(1.10);-o-transform:scale(1.10);
+            border-radius:0;
+            transform:scale(1.06);-webkit-transform:scale(1.06);-moz-transform:scale(1.06);-ms-transform:scale(1.06);-o-transform:scale(1.06);
             transition:all .2s linear;-webkit-transition:all .2s linear;-moz-transition:all .2s linear;-ms-transition:all .2s linear;-o-transition:all .2s linear;
         }
         .la-course__tile-more{
@@ -81,7 +81,8 @@ section.la-cdashboard-main{
     @include respond-below(sm){
         margin-bottom:50px;
     }
-}            
+}    
+        
 .la-courses__tile-thumbnail img{
     object-fit: cover;
     width:150px;
@@ -98,6 +99,13 @@ section.la-cdashboard-main{
     -webkit-line-clamp: 1; 
     -webkit-box-orient: vertical;
 }
+.la-course__tile-creator{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; 
+    -webkit-box-orient: vertical;
+}
 .la-course__tile-rating{
     .la-tile__rtng{
          color:#FFB93A;
@@ -107,9 +115,21 @@ section.la-cdashboard-main{
     }
 }
 .la-course__tile-bars{
-    bottom:34%;
+    bottom:14%;
     left:1px;
-    text-shadow: 1px 2px 3px #000;
+    //text-shadow: 1px 2px 3px #000;
+}
+.la-course__tile-indicator{
+    color:var(--green);
+    font-weight:var(--font-semibold);
+
+    span{
+        color:var(--gray6);
+        font-weight:var(--font-normal);
+    }
+} 
+.la-course__title-progress--bar{
+    background-color:var(--green);
 }
 .la-course__tile-more{
     transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-moz-transition:all .2s ease-in;-ms-transition:all .2s ease-in;-o-transition:all .2s ease-in;

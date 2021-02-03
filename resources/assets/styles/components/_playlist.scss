@@ -123,6 +123,7 @@ $image-center: -30px;
                                                 height: 100px;
                                                 & img {
                                                     //margin-top: $image-center;
+                                                    width:100%;
                                                     object-fit: cover;
                                                 }
                                             }

@@ -30,7 +30,7 @@
               <i class="la-icon la-icon--5xl icon-youtube"></i>
             </a>
             @endif
-            <a class="la-vcreator__social-link" href="{{$email}}">
+            <a class="la-vcreator__social-link" href="mailto:{{$email}}">
               <i class="la-icon la-icon--5xl icon-mail"></i>
             </a>
           </div>

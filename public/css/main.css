@@ -18744,6 +18744,7 @@ a, a:hover {
   height: 100px;
 }
 .la-playlist__thumbnails--three .la-playlist__thumbnail:nth-child(1) img {
+  width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -22195,7 +22196,6 @@ label.error {
 .la-hero__img img {
   width: 100%;
   height: 100%;
-  background-color: var(--gray);
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -23124,12 +23124,12 @@ section.la-cdashboard-main {
   display: block;
 }
 .la-course__tiles:hover .la-courses__tile-thumbnail img {
-  border-radius: 10px;
-  transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  -o-transform: scale(1.1);
+  border-radius: 0;
+  transform: scale(1.06);
+  -webkit-transform: scale(1.06);
+  -moz-transform: scale(1.06);
+  -ms-transform: scale(1.06);
+  -o-transform: scale(1.06);
   transition: all 0.2s linear;
   -webkit-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
@@ -23173,6 +23173,14 @@ section.la-cdashboard-main {
   -webkit-box-orient: vertical;
 }
 
+.la-course__tile-creator {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
 .la-course__tile-rating .la-tile__rtng {
   color: #FFB93A;
 }
@@ -23181,9 +23189,21 @@ section.la-cdashboard-main {
 }
 
 .la-course__tile-bars {
-  bottom: 34%;
+  bottom: 14%;
   left: 1px;
-  text-shadow: 1px 2px 3px #000;
+}
+
+.la-course__tile-indicator {
+  color: var(--green);
+  font-weight: var(--font-semibold);
+}
+.la-course__tile-indicator span {
+  color: var(--gray6);
+  font-weight: var(--font-normal);
+}
+
+.la-course__title-progress--bar {
+  background-color: var(--green);
 }
 
 .la-course__tile-more {

@@ -1173,10 +1173,15 @@ a.dt-button {
   background-color: var(--danger);
   box-shadow: 0px 3px 6px #00000029;
   color: var(--white);
-  letter-spacing: 1.2px;
-  font-size: var(--text-sm);
-  font-weight: var(--font-bold);
+  letter-spacing: 1px;
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
   padding: 10px 20px;
+}
+
+.la-admin__preview-delete:hover,
+.la-admin__preview-delete:focus {
+  color: var(--white);
 }
 
 /* === EDIT COURSES PREVIEW IMAGE AND VIDEO FILES: END ==== */
