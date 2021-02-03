@@ -1,17 +1,15 @@
-@extends('learners.layouts.app')
+<?php $__env->startSection('content'); ?>
 
-@section('content')
-
-@if(session('success'))
+<?php if(session('success')): ?>
   <div class="la-btn__alert position-relative">
     <div class="la-btn__alert-success col-lg-4 offset-lg-4  alert alert-success alert-dismissible fade show" role="alert">
-        <span class="la-btn__alert-msg">{{session('success')}}</span>
+        <span class="la-btn__alert-msg"><?php echo e(session('success')); ?></span>
         <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true" style="color:#56188C">&times;</span>
         </button>
     </div>
   </div>
-@endif
+<?php endif; ?>
 
 <!-- Section: Start-->
 <section class="la-section  la-section--hero clearfix p-0">
@@ -23,7 +21,7 @@
             <div class="la-hero pt-6 pt-lg-2 la-anim__stagger">
               <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">COURSES & CLASSES BY</p>
               <h1 class="la-hero__title la-anim__stagger-item">World’s best <span class="la-hero__subtitle">Creators</span></h1>
-              <p class="la-hero__lead la-anim__stagger-item">{{$firstSection->sub_heading}}</p>
+              <p class="la-hero__lead la-anim__stagger-item"><?php echo e($firstSection->sub_heading); ?></p>
 
               <div class="d-none d-lg-block">
                 <div class="la-hero__actions d-md-flex align-items-center la-anim__stagger-item">
@@ -45,26 +43,26 @@
           <!-- Column: Start-->
           <div class="col-12 col-lg-6 offset-lg-1 la-anim__item la-anim__item--right">
 
-            @if($firstSection->video_url == null)
+            <?php if($firstSection->video_url == null): ?>
 
             <div class="la-hero__img position-relative d-flex align-items-center la-anim__fade-in-right">
               <h2 class="la-section__title la-section__title--big">
-                <span class="la-anim__text-move--content">{{$firstSection->image_text}}</span>
+                <span class="la-anim__text-move--content"><?php echo e($firstSection->image_text); ?></span>
               </h2>
-              <img class="img-fluid" src="{{$firstSection->image}}" alt="{{$firstSection->image_text}}">
+              <img class="img-fluid" src="<?php echo e($firstSection->image); ?>" alt="<?php echo e($firstSection->image_text); ?>">
             </div> 
 
-            @else
+            <?php else: ?>
             <!-- Video Section: Start -->
             <div class="position-relative la-anim__stagger-item--x la-anim__C">
               <div class="la-hero__video" style="mask-image:url('../../images/learners/home/home-mask.png'); -webkit-mask-image:url('../../images/learners/home/home-mask.png');">
                   <video autoplay='' playsinline muted='muted' loop='loop'>
-                      <source src='{{$firstSection->video_url}}'  type='video/mp4' />
+                      <source src='<?php echo e($firstSection->video_url); ?>'  type='video/mp4' />
                   </video>
               </div>
             </div>
              <!-- Video Section: End -->
-            @endif
+            <?php endif; ?>
 
             <div class="d-block d-lg-none">
               <div class="la-hero__actions pb-8 pb-md-10 d-md-flex align-items-start  la-anim__stagger-item la-anim__C">
@@ -104,17 +102,16 @@
         <div class="la-courses">
           <nav class="la-courses__nav d-flex justify-content-between align-items-start">
               <ul class="nav nav-pills la-courses__nav-tabs la-anim__stagger-x" id="nav-tab" role="tablist" tabindex="0">
-              @if($filtres_applied == null)
-                @foreach ($categories as $category)
+              <?php if($filtres_applied == null): ?>
+                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <li class="nav-item la-courses__nav-item la-anim__stagger-item--x">
-                    <a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> 
-                      <span class="position-relative text-nowrap">{{ $category->title}}</span>
+                    <a class="nav-link la-courses__nav-link <?php if($loop->first): ?> active <?php endif; ?> " id="nav-<?php echo e($category->slug); ?>-tab" data-toggle="tab" href="#nav-<?php echo e($category->slug); ?>" role="tab" aria-controls="nav-<?php echo e($category->slug); ?>" aria-selected="true"> 
+                      <span class="position-relative text-nowrap"><?php echo e($category->title); ?></span>
                     </a>
                   </li>
-                @endforeach
-                {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
-                <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
-                @endif
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                
+                <?php endif; ?>
               </ul>
            
             
@@ -137,15 +134,15 @@
                             <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-2 text-dark">Sort by</div>
                             <div class=" pt-2">
                                 <div class="la-form__radio-wrap mr-5">
-                                      <input class="la-form__radio d-none" type="radio" value="most_popular" name="sort_by" id="most_popular" @if($sort_type =='most_popular') checked @endif>
+                                      <input class="la-form__radio d-none" type="radio" value="most_popular" name="sort_by" id="most_popular" <?php if($sort_type =='most_popular'): ?> checked <?php endif; ?>>
                                       <label class="la-form__radio-filterlabel d-flex align-items-center text-sm" for="most_popular"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Most Popular</span></label>
                                 </div>
                                 <div class="la-form__radio-wrap mr-5">
-                                    <input class="la-form__radio d-none" type="radio" value="highest_rated" name="sort_by" id="highest_rated" @if($sort_type =='highest_rated') checked @endif>
+                                    <input class="la-form__radio d-none" type="radio" value="highest_rated" name="sort_by" id="highest_rated" <?php if($sort_type =='highest_rated'): ?> checked <?php endif; ?>>
                                     <label class="la-form__radio-filterlabel d-flex align-items-center text-sm" for="highest_rated"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Highest Rated</span></label>
                                 </div>
                                 <div class="la-form__radio-wrap mr-5">
-                                    <input class="la-form__radio d-none" type="radio" value="latest" name="sort_by" id="latest" @if($sort_type =='latest') checked @endif>
+                                    <input class="la-form__radio d-none" type="radio" value="latest" name="sort_by" id="latest" <?php if($sort_type =='latest'): ?> checked <?php endif; ?>>
                                     <label class="la-form__radio-filterlabel d-flex align-items-center text-sm" for="latest"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Latest</span></label>
                                 </div>
                             </div>
@@ -164,17 +161,17 @@
                                   <button class="la-courses__nav-filterclose close text-4xl mt-1" type="button" id="filter_close">&times;</button>
                                 </div>
       
-                                  <form action="{{ url()->current() }}" method="get" id="filter_form">
-                                      <input type="hidden" name="categories" id="filter_categories" value="{{implode(',',$selected_categories)}}"/>
-                                      <input type="hidden" name="languages" id="filter_languages" value="{{implode(',',$selected_languages)}}"/>
-                                      <input type="hidden" name="level" id="filter_level" value="{{implode(',',$selected_level)}}"/>
+                                  <form action="<?php echo e(url()->current()); ?>" method="get" id="filter_form">
+                                      <input type="hidden" name="categories" id="filter_categories" value="<?php echo e(implode(',',$selected_categories)); ?>"/>
+                                      <input type="hidden" name="languages" id="filter_languages" value="<?php echo e(implode(',',$selected_languages)); ?>"/>
+                                      <input type="hidden" name="level" id="filter_level" value="<?php echo e(implode(',',$selected_level)); ?>"/>
                                       <input type="hidden" name="filters" value="applied" />
       
                                       
                                       <div class="form-group pt-2">
                                         <div class="glabel-main mb-1" > Course Duration</div>
                                         <div class="glabel d-flex  align-items-center m-0">
-                                            <input class="la-form__radio d-none la-vcourse__purchase-input" @if($selected_duration == "lessthan1") checked @endif type="radio" name="duration" id="lessthan1" value="lessthan1">
+                                            <input class="la-form__radio d-none la-vcourse__purchase-input" <?php if($selected_duration == "lessthan1"): ?> checked <?php endif; ?> type="radio" name="duration" id="lessthan1" value="lessthan1">
                                             <label class="d-flex align-items-center" for="lessthan1">
                                               <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center"></span>
                                               <strong class="pl-2" style="color:var(--gray6);opacity:1;"> Less than an hr</strong>
@@ -182,7 +179,7 @@
                                         </div>
       
                                         <div class="glabel d-flex  align-items-center m-0">
-                                            <input class="la-form__radio d-none la-vcourse__purchase-input" @if($selected_duration == "lessthan5") checked @endif type="radio" name="duration" id="lessthan5" value="lessthan5">
+                                            <input class="la-form__radio d-none la-vcourse__purchase-input" <?php if($selected_duration == "lessthan5"): ?> checked <?php endif; ?> type="radio" name="duration" id="lessthan5" value="lessthan5">
                                             <label class="d-flex align-items-center" for="lessthan5">
                                               <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center"></span>
                                               <strong class="pl-2" style="color:var(--gray6);opacity:1;">  1hr - 5hrs</strong>
@@ -190,7 +187,7 @@
                                         </div>
       
                                         <div class="glabel d-flex  align-items-center m-0">
-                                            <input class="la-form__radio d-none la-vcourse__purchase-input" @if($selected_duration == "morethan5") checked @endif type="radio" name="duration" id="morethan5" value="morethan5">
+                                            <input class="la-form__radio d-none la-vcourse__purchase-input" <?php if($selected_duration == "morethan5"): ?> checked <?php endif; ?> type="radio" name="duration" id="morethan5" value="morethan5">
                                             <label class="d-flex align-items-center" for="morethan5">
                                               <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex  justify-content-center align-items-center"></span>
                                               <strong class="pl-2" style="color:var(--gray6);opacity:1;"> More than 5hrs</strong>
@@ -201,43 +198,43 @@
       
                                       <div class="form-group pt-2">
                                         <div class="glabel-main mb-2" > Category</div>
-                                          @foreach($filter_categories as $c)
-                                            <label class="glabel d-flex" for="course_{{$c->id}}">
-                                              <input class="d-none" type="checkbox" id="course_{{$c->id}}" @if(in_array($c->id, $selected_categories)) checked @endif onclick="addToCategory({{$c->id}})" value="{{$c->id}}">
+                                          <?php $__currentLoopData = $filter_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $c): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <label class="glabel d-flex" for="course_<?php echo e($c->id); ?>">
+                                              <input class="d-none" type="checkbox" id="course_<?php echo e($c->id); ?>" <?php if(in_array($c->id, $selected_categories)): ?> checked <?php endif; ?> onclick="addToCategory(<?php echo e($c->id); ?>)" value="<?php echo e($c->id); ?>">
                                                 <span class="gcheck position-relative"><span class="gcheck-icon la-icon icon-tick text-xs position-absolute"></span></span>
-                                                <span class="pl-2 mt-n1 text-capitalize">{{$c->title}}</span>
+                                                <span class="pl-2 mt-n1 text-capitalize"><?php echo e($c->title); ?></span>
                                             </label>
-                                          @endforeach
+                                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                       </div>
       
                                       <div class="form-group pt-2">
                                         <div class="glabel-main mb-2" > Language</div>
-                                        @foreach($langauges as $l)
-                                          <label class="glabel d-flex" for="lang_{{$l->id}}">
-                                            <input class="d-none" id="lang_{{$l->id}}" @if(in_array($l->id, $selected_languages)) checked @endif type="checkbox" onclick="addToLanguage({{$l->id}})" value="{{$l->id}}">
+                                        <?php $__currentLoopData = $langauges; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $l): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                          <label class="glabel d-flex" for="lang_<?php echo e($l->id); ?>">
+                                            <input class="d-none" id="lang_<?php echo e($l->id); ?>" <?php if(in_array($l->id, $selected_languages)): ?> checked <?php endif; ?> type="checkbox" onclick="addToLanguage(<?php echo e($l->id); ?>)" value="<?php echo e($l->id); ?>">
                                             <span class="gcheck position-relative"><span class="gcheck-icon la-icon icon-tick text-xs position-absolute"></span></span>
-                                            <span class="pl-2 mt-n1 text-capitalize">{{$l->name}}</span>
+                                            <span class="pl-2 mt-n1 text-capitalize"><?php echo e($l->name); ?></span>
                                           </label>
-                                        @endforeach
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     
                                       </div>
       
                                       <div class="form-group pt-2">
                                         <div class="glabel-main mb-2" >Level</div>
                                         <label class="glabel d-flex" for="level_1">
-                                          <input class="d-none" id ="level_1" type="checkbox" onclick="addToLevel(1)" @if(in_array(1, $selected_level)) checked @endif>
+                                          <input class="d-none" id ="level_1" type="checkbox" onclick="addToLevel(1)" <?php if(in_array(1, $selected_level)): ?> checked <?php endif; ?>>
                                           <span class="gcheck position-relative"><span class="gcheck-icon la-icon icon-tick text-xs position-absolute"></span></span>
                                           <span class="pl-2 mt-n1">Beginner</span>
                                         </label>
       
                                         <label class="glabel d-flex" for="level_2">
-                                          <input class="d-none" id="level_2"  type="checkbox" onclick="addToLevel(2)" @if(in_array(2, $selected_level)) checked @endif>
+                                          <input class="d-none" id="level_2"  type="checkbox" onclick="addToLevel(2)" <?php if(in_array(2, $selected_level)): ?> checked <?php endif; ?>>
                                           <span class="gcheck position-relative"><span class="gcheck-icon la-icon icon-tick text-xs position-absolute"></span></span>
                                           <span class="pl-2 mt-n1">Intermediate</span>
                                         </label>
       
                                         <label class="glabel d-flex" for="level_3">
-                                          <input class="d-none" id="level_3"  type="checkbox" onclick="addToLevel(3)" @if(in_array(3, $selected_level)) checked @endif>
+                                          <input class="d-none" id="level_3"  type="checkbox" onclick="addToLevel(3)" <?php if(in_array(3, $selected_level)): ?> checked <?php endif; ?>>
                                           <span class="gcheck position-relative"><span class="gcheck-icon la-icon icon-tick text-xs position-absolute"></span></span>
                                           <span class="pl-2 mt-n1">Advanced</span>
                                         </label>
@@ -258,16 +255,24 @@
             </div>   
         </nav> 
         <nav class="la-courses__nav">
-                    <x-add-to-playlist 
-                        :playlists="$playlists"
-                    />
-                    {{-- Categories Tab :Start --}}
-                      @if(!$filtres_applied)
+                     <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.add-to-playlist','data' => ['playlists' => $playlists]]); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes(['playlists' => $playlists]); ?>
+<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+                    
+                      <?php if(!$filtres_applied): ?>
                         <div class="tab-content la-courses__content la-anim__wrap" id="nav-tabContent">
-                          @foreach ($categories as $category)
-                            <div class=" tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
+                          <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <div class=" tab-pane fade show <?php if($loop->first): ?> active <?php endif; ?>" id="nav-<?php echo e($category->slug); ?>" role="tabpanel" aria-labelledby="nav-<?php echo e($category->slug); ?>-tab">
                               <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item la-anim__C">
-                                    @php
+                                    <?php
 
                                       $courses = $category->courses;
 
@@ -275,68 +280,68 @@
                                       {
                                         $courses = $courses->sortByDesc('average_rating');
                                       }                
-                                    @endphp
+                                    ?>
 
-                                    @foreach($courses as $course)
-                                      @if ($course->featured == 0)
-                                          @continue
-                                      @endif
-                                      <x-course 
-                                          :id="$course->id"
-                                          :img="$course->preview_image"
-                                          :course="$course->title"
-                                          :url="$course->slug"
-                                          :rating="$course->review->avg('rating')"
-                                          :creatorImg="$course->user->user_img"
-                                          :creatorName="$course->user->fname"
-                                          :creatorUrl="$course->user->fname"
-                                          :learnerCount="$course->learnerCount"
-                                        />
-                                    @endforeach
+                                    <?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                      <?php if($course->featured == 0): ?>
+                                          <?php continue; ?>
+                                      <?php endif; ?>
+                                       <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => $course->review->avg('rating'),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->fname,'learnerCount' => $course->learnerCount]); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes([]); ?>
+<?php if (isset($__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706)): ?>
+<?php $component = $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706; ?>
+<?php unset($__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                     
                               </div>
                             </div>
-                          @endforeach
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </div>
-                        {{-- Categories Tab : END --}}
-                      @else
-                            @php
+                        
+                      <?php else: ?>
+                            <?php
                             if($sort_type == 'highest_rated')
                             {
                               $courses = $courses->sortByDesc('average_rating');
                             }                
-                            @endphp
+                            ?>
                             <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item la-anim__C">
-                              @foreach($courses as $course)
-                                <x-course 
-                                    :id="$course->id"
-                                    :img="$course->preview_image"
-                                    :course="$course->title"
-                                    :url="$course->slug"
-                                    :rating="$course->review->avg('rating')"
-                                    :creatorImg="$course->user->user_img"
-                                    :creatorName="$course->user->fname"
-                                    :creatorUrl="$course->user->fname"
-                                    :learnerCount="$course->learnerCount"
-                                  />
-                              @endforeach
+                              <?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                 <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => $course->review->avg('rating'),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->fname,'learnerCount' => $course->learnerCount]); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes([]); ?>
+<?php if (isset($__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706)): ?>
+<?php $component = $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706; ?>
+<?php unset($__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                               </div>
 
-                              @if(count($courses) == 0)
+                              <?php if(count($courses) == 0): ?>
                                 <div class="col-12 la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
                                     <div class="la-empty__inner">
                                         <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
                                     </div>
                                     <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
-                                        <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
+                                        <a href="<?php echo e(Url('/browse/courses')); ?>" class="la-empty__browse">
                                             Browse Courses
                                             <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
                                         </a>
                                     </div>
                                 </div>
-                              @endif
-                      @endif
+                              <?php endif; ?>
+                      <?php endif; ?>
             </nav>
           </div>
         </div>
@@ -355,16 +360,19 @@
         </div>
 
         <div class="swiper-wrapper">
-            @foreach ($featuredMentor as $feat)
-                <x-artist 
-                  :artistName="ucfirst($feat->user->fullName)"
-                  :artistImage="$feat->user_image"
-                  :artistCategory="$feat->courses->category->title"
-                  :artistCampany="$feat->courses->title"
-                  :course="$feat->courses"
-                  :artistId="$feat->user->id"
-                />
-            @endforeach
+            <?php $__currentLoopData = $featuredMentor; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $feat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                 <?php if (isset($component)) { $__componentOriginal1d276d7bedbc2354be5995b653f6c253af81623d = $component; } ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Artist::class, ['artistName' => ucfirst($feat->user->fullName),'artistImage' => $feat->user_image,'artistCategory' => $feat->courses->category->title,'artistCampany' => $feat->courses->title,'course' => $feat->courses,'artistId' => $feat->user->id]); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes([]); ?>
+<?php if (isset($__componentOriginal1d276d7bedbc2354be5995b653f6c253af81623d)): ?>
+<?php $component = $__componentOriginal1d276d7bedbc2354be5995b653f6c253af81623d; ?>
+<?php unset($__componentOriginal1d276d7bedbc2354be5995b653f6c253af81623d); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
       </div>
 
@@ -391,17 +399,19 @@
         <div class="la-mccourses pt-20 pt-md-4">
           <div class="row justify-content-center px-lg-5 la-anim__stagger la-anim__A">
            
-              @foreach ($master_classes as $master)
-                <x-master-class
-                  :img="$master->courses->preview_image"
-                  :title="$master->courses->title"
-                  :profileImg="$master->courses->user->user_img"
-                  :profileName="$master->courses->user->fullName"
-                  :learners="$master->courses->learnerCount"
-                  :id="$master->courses->id"
-                  :slug="$master->courses->slug"
-                />
-              @endforeach
+              <?php $__currentLoopData = $master_classes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $master): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                 <?php if (isset($component)) { $__componentOriginal569f4b3c3d50580306a5cb083576611189fd5fee = $component; } ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\MasterClass::class, ['img' => $master->courses->preview_image,'title' => $master->courses->title,'profileImg' => $master->courses->user->user_img,'profileName' => $master->courses->user->fullName,'learners' => $master->courses->learnerCount,'id' => $master->courses->id,'slug' => $master->courses->slug]); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes([]); ?>
+<?php if (isset($__componentOriginal569f4b3c3d50580306a5cb083576611189fd5fee)): ?>
+<?php $component = $__componentOriginal569f4b3c3d50580306a5cb083576611189fd5fee; ?>
+<?php unset($__componentOriginal569f4b3c3d50580306a5cb083576611189fd5fee); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
              
           </div>
         </div>
@@ -507,5 +517,6 @@
     </div>
   </section>
   <!-- Section: End-->
-  @endsection
+  <?php $__env->stopSection(); ?>
   
+<?php echo $__env->make('learners.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\lila-laravel\resources\views/learners/pages/home.blade.php ENDPATH**/ ?>
