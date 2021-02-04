@@ -621,16 +621,16 @@ use Carbon\Carbon;
                                           <h6 class="la-rtng__review-title">Leave a rating</h6>
                                           <div class="la-rtng__review-stars">
                                               <div class="starRatingContainer">
-                                                  <div class="rate2"></div>
+                                                  <div class="rate2 text-2xl" style="color:#FFC516"></div>
                                                   <input id="rating_value_input" class="border-0">
                                                   <input type="hidden" name="course_id" value="<?php echo e($course->id); ?>" class="border-0">
                                                   <input id="input2" type="hidden" name="rating_value" type="text"></div>
                                           </div>
                                       </div>
 
-                                      <div class="la-rtng__review-btm py-4">
+                                      <div class="la-rtng__review-btm py-8">
                                           <h6 class="la-rtng__review-title">Review</h6>
-                                          <textarea cols="38" rows="5" class="la-rtng__review-msg" name="review" id="review_input" placeholder="Type here..."></textarea>
+                                          <textarea cols="38" rows="5" class="la-form__textarea" name="review" id="review_input" placeholder="Type your Review here..."></textarea>
                                       </div>
 
                                       <div class="text-right">
@@ -653,10 +653,10 @@ use Carbon\Carbon;
               <li class="la-lcreviews__item">
                 <div class="la-lcreviews__inner">
                   <div class="la-lcreviews__wrapper d-flex flex-column flex-md-row justify-content-between">
-                    <div class="la-lcreviews__prfle d-inline-flex la-anim__wrap">
+                    <div class="la-lcreviews__prfle d-inline-flex align-items-center la-anim__wrap">
                       <div class="la-lcreviews__prfle-img la-anim__fade-in-left">
                       <img class="img-fluid rounded-circle d-block" src="<?php echo e($review->user->user_img); ?>" alt="<?php echo e($review->user->fname); ?>"></div>
-                      <div class="la-lcreviews__prfle-info la-anim__stagger-item--x">
+                      <div class="la-lcreviews__prfle-info ml-4 la-anim__stagger-item--x">
                           <div class="la-reviews__timestamp text-sm">
                                     <?php if($review->created_at->diffInWeeks(Carbon::now())> 0): ?> 
                                         <?php echo e($review->created_at->diffInWeeks(Carbon::now())); ?> weeks ago
@@ -666,7 +666,7 @@ use Carbon\Carbon;
                                         Today                                      
                                     <?php endif; ?>
                           </div>
-                        <h4 class="la-lcreviews__uname text-lg text-uppercase "><?php echo e($review->user->fname.' '.$review->user->lname); ?></h4>
+                        <h4 class="la-lcreviews__uname text-md text-md-lg text-uppercase "><?php echo e($review->user->fname.' '.$review->user->lname); ?></h4>
                       </div>
                     </div>
                     <div class="la-lcreviews__content w-100 la-anim__wrap">

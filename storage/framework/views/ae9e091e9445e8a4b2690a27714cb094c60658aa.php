@@ -199,7 +199,7 @@
         <div class="row">
           <div class="col-12 px-2">
             <div class="la-hp__inner la-anim__wrap">
-              <h5 class="text-2xl text-md-3xl la-hp__title m-0 pb-4 la-anim__stagger-item">Hand Picked for you! </h5>
+              <h5 class="text-2xl text-md-3xl la-hp__title mb-8 la-anim__stagger-item">Hand Picked for you! </h5>
               <div class="la-hp__data">
                 <div class="row">
                     <!-- Hand Picked: Start -->
@@ -236,7 +236,7 @@
         <div class="container">
             <div class="row ">
               <div class="col-12 la-anim__wrap">
-                <h5 class="text-2xl text-md-3xl mb-6 px-0 la-anim__stagger-item ">Alien Mentors</h5>
+                <h5 class="text-2xl text-md-3xl mb-8 px-0 la-anim__stagger-item ">Alien Mentors</h5>
               </div>
             </div>
           

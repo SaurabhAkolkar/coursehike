@@ -464,13 +464,13 @@
                 
                   <div class="col-lg-5 pt-20 la-anim__wrap">
                     <h3 class="la-section__subtitle la-anim__stagger-item">How does subscription works?</h3>
-                    <p class="la-section__text la-anim__stagger-item--x">Learning need not be expensive. At LILA, our subscription model gives you the benefit to choose from any number of courses or individual classes, as you please.<br/><br/> All at nominal fees! So, learn away! </p>
-                    <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8 la-anim__stagger-item--x">
+                    <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x ">Learning need not be expensive. At LILA, our subscription model gives you the benefit to choose from any number of courses or individual classes, as you please.<br/><br/> All at nominal fees! So, learn away! </p>
+                    <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-4 pt-md-8 la-anim__stagger-item--x">
                       <a href="/learning-plans">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                     </div>
                   </div>
 
-                  <div class="col-lg-5  offset-lg-1  pt-20  ">
+                  <div class="col-lg-5  offset-lg-1 pt-12 pt-md-20 ">
                     <div class="la-anim__wrap la-anim__wrap-pin2">
                         <div class="la-price__box la-anim__pin2 ">
                           <div class="la-price__box-inner la-anim__stagger-item">
@@ -489,12 +489,12 @@
 
               <div class="la-price__slide la-anim__slide">
                 <div class="la-price__row row mb-16">
-                  <div class="col-lg-5 pt-20 la-anim__wrap">
+                  <div class="col-lg-5 pt-md-20 la-anim__wrap">
                     <h3 class="la-section__subtitle la-anim__stagger-item la-anim__B">What’s LILA for you ?</h3>
-                    <p class="la-section__text la-anim__stagger-item--x la-anim__B">Our mission is to Encourage, Empower and Embrace self-learning among all curious individuals who wish to learn, expand their potential and make a mark in the world.<br/><br/> 
+                    <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x la-anim__B">Our mission is to Encourage, Empower and Embrace self-learning among all curious individuals who wish to learn, expand their potential and make a mark in the world.<br/><br/> 
                         Through our Radical team, we strive every day to make knowledge Affordable, Accessible for everyone regardless of who or where they are
                     </p>
-                    <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8 la-anim__stagger-item--x la-anim__B">
+                    <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold  pt-4 pt-md-8  la-anim__stagger-item--x la-anim__B">
                       <a href="/about">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                     </div>
                   </div>
