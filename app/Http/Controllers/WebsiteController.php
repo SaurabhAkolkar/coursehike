@@ -12,7 +12,7 @@ class WebsiteController extends Controller
     public function becomeCreator(){
 
         $faqs = FaqInstructor::where(['status'=>1])->get();
-        $testimonial = Testimonial::where(['status'=>1, 'type'=>'learner'])->get();
+        $testimonial = Testimonial::where(['status'=>1, 'type'=>'learner'])->get()->take(3);
         
         return view('learners.pages.become-creator', compact('faqs', 'testimonial'));
     }
@@ -26,7 +26,7 @@ class WebsiteController extends Controller
     public function learningPlans(){
 
         $faqs = FaqStudent::where(['status'=>1])->get();
-        $testimonial = Testimonial::where(['status'=>1, 'type'=>'learner'])->get();
+        $testimonial = Testimonial::where(['status'=>1, 'type'=>'learner'])->get()->take(3);
         return view('learners.pages.learning-plans', compact('faqs','testimonial'));
     }
 }

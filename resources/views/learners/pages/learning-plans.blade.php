@@ -411,7 +411,7 @@
                                   <div class="la-icon--lg icon-star la-rtng__unfill"></div>
                                   <div class="la-icon--lg icon-star la-rtng__unfill"></div>
 
-                              @elseif($rating >= 1)
+                              @elseif($test->rating >= 1)
 
                                   <div class="la-icon--lg icon-star la-rtng__fill"></div>
                                   <div class="la-icon--lg icon-star la-rtng__unfill"></div>
