@@ -51,7 +51,7 @@
             <div class="icon">
               <span class="la-icon la-icon--5xl icon-users"></span>
             </div>
-            <p class="m-0"> Active {{ __('adminstaticword.Users') }}</p>
+            <p class="m-0"> Learners</p>
             <h3 class="m-0">
             	@php
             		$cat = App\Order::where('instructor_id', Auth::User()->id)->get();
@@ -199,7 +199,7 @@
               </ul>
 
               <div class="la-dash__recent-more text-right">
-                  <a href="" class="la-dash__more-btn">
+                  <a href="{{route('instructor.revenue')}}" class="la-dash__more-btn">
                     <span class="la-icon la-icon--5xl icon-black-arrow"></span>
                   </a>
               </div>

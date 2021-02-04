@@ -40,8 +40,8 @@
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>Sr#</th>
+                            <th>#</th>
+                            <th>Course Image</th>
                             <th>Course Name</th>
                             <th>Request Type</th>
                             <th>Request Date</th>
@@ -90,8 +90,8 @@
                 <table id="example2" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>Sr#</th>
+                            <th>#</th>
+                            <th>Course Image</th>
                             <th>Course Name</th>
                             <th>Request Type</th>
                             <th>Request Date</th>

@@ -2,8 +2,12 @@
     &rtng{
         &__{
             &item{
-                margin-top:var(--size-12);
-                margin-bottom:var(--size-12);
+                margin:var(--size-12) 0;
+
+                @include respond-below(md){
+                    margin:var(--size-6) 0;
+                }
+               
             }
             &wrapper{
                 padding-top:var(--size-14);
@@ -47,12 +51,10 @@
                 color:var(--app-indigo-1);
                 font-weight:var(--font-bold);   
                 letter-spacing: 3.2px;
-                transition:all 0.2s ease-in;-webkit-transition:all 0.2s ease-in;-moz-transition:all 0.2s ease-in;
-
+                cursor: pointer;
+               
                 &:hover{
-                    color:var(--app-indigo-1);
-                    font-size:var(--text-lg);
-                    transition:all 0.2s ease-out;-webkit-transition:all 0.2s ease-out;-moz-transition:all 0.2s ease-out;
+                    color:var(--gray6);
                 }
 
                 &-{
@@ -65,9 +67,9 @@
                         box-shadow: 0px 6px 12px #00000029;
                         border-radius: 10px;
 
-                        @include respond-below(sm){
+                        @include respond-below(md){
                             width:100% !important;
-                            margin:0;
+                            margin:0 auto;
                         }
                     }
                     &header{
@@ -76,19 +78,16 @@
                     }
                     &body{
                         padding: var(--size-6) var(--size-8);
+
+                        @include respond-below(sm){
+                            padding:var(--size-6) var(--size-4);
+                        }
                     }
                     &title{
-                        font-family: var(--body-font);
                         font-size: var(--text-lg);
                         color: var(--gray3);
                         font-weight: var(--font-medium);
-                        padding-bottom: var(--size-2);
-                    }
-                    &msg{
-                        &::-webkit-input-placeholder{
-                            color: var(--gray2);
-                            padding: var(--size-2);
-                        }
+                        padding-bottom: var(--size-base);
                     }
                     &btn{
                         text-transform: uppercase;
@@ -111,9 +110,7 @@
     #{$ap}- {
         &rtng{
             &__{
-                &item{
-                   margin:var(--size-12) var(--size-6);
-                }
+                
                 &wrapper{
                     padding-top:var(--size-4);
                     padding-bottom:var(--size-4);

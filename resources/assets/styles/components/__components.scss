@@ -115,6 +115,10 @@
                 font-size: var(--text-4xl);
                 font-family: var(--head-font);
                 margin-bottom: var(--size-5);
+
+                @include respond-below(sm){
+                    font-size: var(--text-3xl);
+                }
             }
 
             &text {

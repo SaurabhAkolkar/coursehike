@@ -3,6 +3,10 @@
         &__{
             &item{
                 margin-bottom:var(--size-10);
+
+                @include respond-below(md){
+                    margin:var(--size-8) 0;
+                }
             }
             &prfle{
                 width:75%;
@@ -14,11 +18,12 @@
                             height:65px;
                             object-fit: cover;
                             background-color: var(--gray);
+
+                            @include respond-below(sm){
+                                width:55px;
+                                height:55px;
+                            }
                         }
-                    }
-                    &info{
-                        padding-left:var(--size-4);
-                        margin-top:var(--size-3);
                     }
                 }
             }
@@ -31,32 +36,16 @@
                 color:var(--gray7);
             }
             &content{
-                margin-top:var(--size-2);
                 padding-left:var(--size-8);
+
+                @include respond-below(sm){
+                    padding-left:0;
+                    margin-top:var(--size-3);
+                }
             }
             &comment{
                 color:var(--gray5); 
                 font-weight:var(--font-normal);
-            }
-        }
-    }
-}
-
-@media (max-width:991px){
-    #{$ap}- {
-        &lcreviews{
-            &__{
-                &item{
-                    margin:var(--size-10) var(--size-6);
-                }
-                &prfle{
-                    width:100%;
-                    padding-bottom:var(--size-2);
-                }
-                &content{
-                    margin-top:0;
-                    padding-left:0;
-                }
             }
         }
     }

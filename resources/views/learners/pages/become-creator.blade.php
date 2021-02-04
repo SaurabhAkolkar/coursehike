@@ -55,12 +55,15 @@
             <div class="swiper-container h-100 la-mcard__container">
               <div class="swiper-wrapper la-mcard__wrapper">                    
                     @foreach($testimonial as $t)
-                    <div class="swiper-slide la-mcard__slider mb-16">
-                      <div class="la-mcard__item p-4 p-lg-5">
+                    <div class="swiper-slide la-mcard__slider mb-12">
+                      <div class="la-mcard__item">
                         <div class="la-mcard__info d-flex align-items-center">
-                          <div class="li-mcard__prfle mr-4 mr-lg-10 la-anim__stagger-item--x"><img class="rounded-circle d-block la-mcard__img" src="{{ asset('images/testimonial/'.$t->image) }}" alt="Mentor Name"></div>
-                          <div class="la-mcard__details">
+                          <div class="li-mcard__prfle mr-4 mr-lg-10 la-anim__stagger-item--x">
+                            <img class="rounded-circle d-block la-mcard__img" src="{{ asset('images/testimonial/'.$t->image) }}" alt="{{ $t->client_name }}">
+                          </div>
+                          <div class="la-mcard__details my-2">
                             <div class="la-mcard__name text-lg text-lg-xl la-anim__stagger-item--x">{{ $t->client_name }}</div>
+                            <div class="la-mcard__skill text-sm d-block d-lg-none la-anim__stagger-item--x">{{ ucfirst($t->type) }}</div>
                                 <div class="la-lp__test-rating d-flex flex-row">
                                   @if($t->rating == 5)
 
@@ -112,12 +115,12 @@
 
                                   @endif
                               </div>
-                            <div class="la-mcard__skill text-sm d-block d-lg-none la-anim__stagger-item--x">{{ ucfirst($t->type) }}</div>
-                            <div class="la-mcard__desc text-md d-none d-lg-block la-anim__stagger-item--x">{!! $t->details !!}</div>
+                            
+                            <div class="la-mcard__desc text-md d-none d-lg-block la-anim__stagger-item--x pt-2">{!! $t->details !!}</div>
                           </div>
                         </div>
                         <div class="la-mcard__desc d-block d-lg-none pt-3">
-                          <div class="la-mcard__desc text-md la-anim__stagger-item--x">{{ $t->details }}</div>
+                          <div class="la-mcard__desc text-md la-anim__stagger-item--x">{!! $t->details !!}</div>
                         </div>
                       </div>
                     </div>
@@ -209,24 +212,32 @@
           <div class="col-lg-8 offset-lg-2 la-anim__wrap py-8">
               <h6 class="la-bcreator__calc-title text-center text-xl text-md-2xl pb-md-6 la-anim__stagger-item">How do we calculate your earnings?</h6>
               
-              <div class="pt-8 la-bcreator__calc-inner d-flex justify-content-between align-items-start flex-wrap">
-                  <p class="la-bcreator__calc-itm  la-anim__stagger-item--x">Revenue</p>
-                  <div class="la-bcreator-calcs text-md-xl la-anim__stagger-item--x" style="color:#1EC812;font-weight:var(--font-bold);">&#x2212;</div>
-                  <p class="la-bcreator__calc-itm la-anim__stagger-item--x">Tax</p>
-                  <div class="la-bcreator-calcs text-md-xl la-anim__stagger-item--x" style="color:#1EC812;font-weight:var(--font-bold);">&#247;</div>
-                  <p class="la-bcreator__calc-itm la-anim__stagger-item--x">Total Number of Play</p>
-                  <div class="la-bcreator-calcs text-md-xl la-anim__stagger-item--x" style="color:#1EC812;font-weight:var(--font-bold);">&#x3d;</div>
-                  <p class="la-bcreator__calc-itm la-anim__stagger-item--x">Per Play Cost</p>
+              <div class="pt-14 pt-md-8 la-bcreator__calc-inner d-flex justify-content-between align-items-start flex-wrap">
+                  <div class="la-bcreator__calc-itm  la-anim__stagger-item--x">
+                      <div class="mb-2">Per Play Cost<sub class="text-4xl">*</sub></div>
+                      <div class="text-center text-lg" style="color:#1EC812;">$ xxx</div>
+                  </div>
+                  <div class="la-bcreator-calcs text-3xl text-md-5xl  la-anim__stagger-item--x mt-5" style="color:var(--gray6);">&#215;</div>
+                  <div class="la-bcreator__calc-itm la-anim__stagger-item--x">
+                      <div class="mb-2">Channel Plays</div>
+                      <div class="text-center text-lg" style="color:#1EC812;">xxx</div>
+                  </div>
+                  <div class="la-bcreator-calcs text-3xl text-md-5xl  la-anim__stagger-item--x  mt-5" style="color:var(--gray6);">&#x3d;</div>
+                  <div class="la-bcreator__calc-itm  la-anim__stagger-item--x">
+                      <div class="mb-2">Mentor's Revenue</div>
+                      <div class="text-center text-lg" style="color:#1EC812;">$ xxx</div>
+                  </div>
               </div>
 
-              <div class="pt-8 pt-md-3 la-bcreator__calc-inner d-flex justify-content-between align-items-start flex-wrap">
-                  <p class="la-bcreator__calc-itm  la-anim__stagger-item--x">Per Play Cost</p>
-                  <div class="la-bcreator-calcs text-md-xl  la-anim__stagger-item--x" style="color:#1EC812;font-weight:var(--font-bold);">&#215;</div>
-                  <p class="la-bcreator__calc-itm la-anim__stagger-item--x">Channel Plays</p>
-                  <div class="la-bcreator-calcs text-md-xl la-anim__stagger-item--x" style="color:#1EC812;font-weight:var(--font-bold);">&#x3d;</div>
-                  <p class="la-bcreator__calc-itm la-anim__stagger-item--x">Mentor's Revenue</p>
-              </div>
-           
+              <div class="pt-6 pt-md-8 la-bcreator__calc-inner text-center">
+                  <div class="la-bcreator__calc-itm text-sm la-anim__stagger-item--x">
+                      <span><sub class="text-3xl">*</sub> Per Play Cost</span>
+                      <span class="text-xl px-2">&#x3d;</span>
+                      <span>(Revenue &#x2212; Tax)</span>
+                      <span>/</span>
+                      <span>Total Number of Plays</span>
+                  </div>
+              </div>           
           </div>
           <!-- Column: End       -->
         </div>

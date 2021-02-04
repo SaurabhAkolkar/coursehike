@@ -288,12 +288,14 @@ $sidemenuWidth: 300px;
             &profile {
                 &- {
                     &img {
-                        width: 28px;
-                        height: 28px;
-                        border-radius: 100px;
-                        overflow: hidden;
-                        object-fit: cover;
-                        background-color: var(--gray);
+                        img{
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 100px;
+                            overflow: hidden;
+                            object-fit: cover;
+                            background-color: var(--gray);
+                        }
                     }
                 }
             }

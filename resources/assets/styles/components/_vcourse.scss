@@ -575,6 +575,10 @@
                     }
                     &prize {
                         font-size: var(--text-2xl);
+
+                        @include respond-below(sm){
+                            font-size:var(--text-xl);
+                        }
                         &-- {
                             &amount {
                                 color: var(--green);

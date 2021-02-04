@@ -111,8 +111,12 @@
                 margin-top: auto;
                 font-size: var(--text-xl);
                 font-weight: var(--font-light);
-                margin-right: var(--size-2);
                 margin-bottom: 5px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 1; 
+                -webkit-box-orient: vertical;
 
                 @include respond-above(sm){
                     font-size: var(--text-2xl);
@@ -135,6 +139,11 @@
                         overflow: hidden;
                         background-color: var(--white);
 
+                        @include respond-below(sm){
+                            width: var(--size-10);
+                            height: var(--size-10);
+                        }
+
                         img{
                             width: var(--size-12);
                             height: var(--size-12);
@@ -142,11 +151,21 @@
                             object-position: center;
                             border-radius: var(--rounded-full);
                             background-color: var(--white);
+
+                            @include respond-below(sm){
+                                width: var(--size-10);
+                                height: var(--size-10);
+                            }
                         }
                     }
                     &name {
-                        font-size: var(--text-lg);
+                        font-size: var(--text-md);
                         font-weight: var(--font-bold);
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 1; 
+                        -webkit-box-orient: vertical;
 
                         @include respond-above(sm){
                             font-size: var(--text-xl);
