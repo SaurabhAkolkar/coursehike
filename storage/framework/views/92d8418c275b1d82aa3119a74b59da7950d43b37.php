@@ -218,6 +218,24 @@
             </div>
 
             <div class="la-header__nav-item d-lg-none">   
+                <a class="la-header__nav-link <?php if(Request::segment(1) == 'become-creator'): ?> active <?php endif; ?>" href="/become-creator">
+                    <div class="la-header__nav-icon">
+                    <span class="la-icon--lg icon-become-creator"></span>
+                    </div>
+                    <span class="la-header__nav-name" style="text-transform:none">Become a Creator</span>
+                </a>
+            </div>
+
+            <div class="la-header__nav-item d-lg-none">   
+                <a class="la-header__nav-link <?php if(Request::segment(1) == 'guided-creator'): ?> active <?php endif; ?>" href="/guided-creator">
+                    <div class="la-header__nav-icon">
+                    <span class="la-icon--lg icon-guided-creator"></span>
+                    </div>
+                    <span class="la-header__nav-name">Guided Creator</span>
+                </a>
+            </div>
+
+            <div class="la-header__nav-item d-lg-none">   
                 <a class="la-header__nav-link <?php if(Request::segment(1) == 'about'): ?> active <?php endif; ?>" href="/about">
                     <div class="la-header__nav-icon">
                     <span class="la-icon--lg icon-about"></span>
