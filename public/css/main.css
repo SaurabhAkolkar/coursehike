@@ -17347,9 +17347,9 @@ a, a:hover {
   background-color: var(--app-indigo-1);
   color: #ffffff;
 }
-.la-header__profile-img {
-  width: 28px;
-  height: 28px;
+.la-header__profile-img img {
+  width: 30px;
+  height: 30px;
   border-radius: 100px;
   overflow: hidden;
   -o-object-fit: cover;

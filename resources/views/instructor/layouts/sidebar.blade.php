@@ -74,8 +74,8 @@
 
           {{-- <li class="{{ Nav::isResource('instructor/announcement') }}"><a class="d-flex align-items-center" href="{{url('instructor/announcement')}}"> <i class="la-icon la-icon--lg icon-announcement mr-4"></i><span>{{ __('adminstaticword.Announcement') }}</span></a></li> --}}
 
-          <li class="">
-            <a class="d-flex align-items-center" href="/requests">
+          <li class="{{ Nav::isResource('requests') }}">
+            <a class="d-flex align-items-center" href="{{url('requests')}}">
               <i class="la-icon la-icon--lg icon-request mr-5"></i>
               <span>Requests</span>
             </a>
