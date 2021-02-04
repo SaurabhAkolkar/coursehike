@@ -395,7 +395,7 @@
           <div class="col-12 col-lg-8 px-0 px-lg-3"> 
             <div class="la-lp__test-rgt ">      
                 <?php $__currentLoopData = $testimonial; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $test): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>            
-                    <div class="la-lp__test-cards d-flex justify-content-end la-anim__stagger-item--x" id="testCard1">
+                    <div class="la-lp__test-cards d-flex <?php if($loop->index == 1): ?> justify-content <?php else: ?> justify-content-end <?php endif; ?> la-anim__stagger-item--x" id="testCard_<?php echo e($loop->index); ?>">
                       <div class="card la-lp__card-itm" >
                         <div class="la-card__top d-flex justify-content-between">
                           <div class="la-lp__profile d-flex justify-content-start">
@@ -406,17 +406,71 @@
                             </div>
                           </div>
                           <div class="la-lp__test-rating d-flex flex-row">
-                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                            <div class="la-icon--xl icon-star la-lp__urtng"></div>
+                              <?php if($test->rating == 5): ?>
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+
+                              <?php elseif($test->rating >= 4): ?>
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              <?php elseif($test->rating >= 3): ?>
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              <?php elseif($test->rating >= 2): ?>
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              <?php elseif($rating >= 1): ?>
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              <?php else: ?>
+
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              <?php endif; ?>
                           </div>
                         </div>
                         <p class="la-lp__test-review mt-5 body-font text-sm"><?php echo $test->details; ?>
 
                         </p>
                       </div>
+
+                        <?php if($loop->index == 1): ?>
+                            <div class="d-flex align-items-center justify-content-end">
+                              <ul class="la-lp__card-list d-none d-sm-block">
+                                <?php $__currentLoopData = $testimonial; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $t): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <li> <a role="button" href="#testCard_<?php echo e($loop->index); ?>"></a></li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                              </ul>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 

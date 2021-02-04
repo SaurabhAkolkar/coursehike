@@ -12,7 +12,7 @@
                 </div>
               </div>
      <?php endif; ?>
-
+          
       <div class="row la-anim__wrap">
         <!-- Column: Start-->
         <div class="col-12 col-sm-12 la-bcreator__banner " style="background:url('../images/learners/creator/bcreator-banner.png') no-repeat bottom rgba(0, 0, 0, 0.5); background-size:cover;">
@@ -51,67 +51,78 @@
         <div class="col-12 col-lg-8 pl-lg-16 la-anim__stagger-item--x">
           <div class="la-mcard__slider-wrap">
             <div class="swiper-container h-100 la-mcard__container">
-              <div class="swiper-wrapper la-mcard__wrapper">
-                                        <div class="swiper-slide la-mcard__slider mb-16">
-                                          <div class="la-mcard__item p-4 p-lg-5">
-                                            <div class="la-mcard__info d-flex align-items-center">
-                                              <div class="li-mcard__prfle mr-4 mr-lg-10 la-anim__stagger-item--x"><img class="rounded-circle d-block la-mcard__img" src="https://picsum.photos/100" alt="Mentor Name"></div>
-                                              <div class="la-mcard__details">
-                                                <div class="la-mcard__name text-lg text-lg-xl la-anim__stagger-item--x">Mentor Name</div>
-                                                <div class="la-mcard__skill text-sm d-block d-lg-none la-anim__stagger-item--x">Expertise</div>
-                                                <div class="la-mcard__desc text-md d-none d-lg-block la-anim__stagger-item--x">So, you can subscribe to all the courses and classes. Or rent them to learn whenever you want.</div>
-                                              </div>
-                                            </div>
-                                            <div class="la-mcard__desc d-block d-lg-none pt-3">
-                                              <div class="la-mcard__desc text-md la-anim__stagger-item--x">So, you can subscribe to all the courses and classes. Or rent them to learn whenever you want.</div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="swiper-slide la-mcard__slider mb-16">
-                                          <div class="la-mcard__item p-4 p-lg-5">
-                                            <div class="la-mcard__info d-flex align-items-center">
-                                              <div class="li-mcard__prfle mr-4 mr-lg-10 la-anim__stagger-item--x"><img class="rounded-circle d-block la-mcard__img" src="https://picsum.photos/100" alt="Mentor Name"></div>
-                                              <div class="la-mcard__details">
-                                                <div class="la-mcard__name text-lg text-lg-xl la-anim__stagger-item--x">Mentor Name</div>
-                                                <div class="la-mcard__skill text-sm d-block d-lg-none la-anim__stagger-item--x">Expertise</div>
-                                                <div class="la-mcard__desc text-md d-none d-lg-block la-anim__stagger-item--x">So, you can subscribe to all the courses and classes. Or rent them to learn whenever you want.</div>
-                                              </div>
-                                            </div>
-                                            <div class="la-mcard__desc d-block d-lg-none pt-3">
-                                              <div class="la-mcard__desc text-md la-anim__stagger-item--x">So, you can subscribe to all the courses and classes. Or rent them to learn whenever you want.</div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="swiper-slide la-mcard__slider mb-16">
-                                          <div class="la-mcard__item p-4 p-lg-5">
-                                            <div class="la-mcard__info d-flex align-items-center">
-                                              <div class="li-mcard__prfle mr-4 mr-lg-10"><img class="rounded-circle d-block la-mcard__img" src="https://picsum.photos/100" alt="Mentor Name"></div>
-                                              <div class="la-mcard__details">
-                                                <div class="la-mcard__name text-lg text-lg-xl">Mentor Name</div>
-                                                <div class="la-mcard__skill text-sm d-block d-lg-none">Expertise</div>
-                                                <div class="la-mcard__desc text-md d-none d-lg-block">So, you can subscribe to all the courses and classes. Or rent them to learn whenever you want.</div>
-                                              </div>
-                                            </div>
-                                            <div class="la-mcard__desc d-block d-lg-none pt-3">
-                                              <div class="la-mcard__desc text-md">So, you can subscribe to all the courses and classes. Or rent them to learn whenever you want.</div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="swiper-slide la-mcard__slider mb-16">
-                                          <div class="la-mcard__item p-4 p-lg-5">
-                                            <div class="la-mcard__info d-flex align-items-center">
-                                              <div class="li-mcard__prfle mr-4 mr-lg-10"><img class="rounded-circle d-block la-mcard__img" src="https://picsum.photos/100" alt="Mentor Name"></div>
-                                              <div class="la-mcard__details">
-                                                <div class="la-mcard__name text-lg text-lg-xl">Mentor Name</div>
-                                                <div class="la-mcard__skill text-sm d-block d-lg-none">Expertise</div>
-                                                <div class="la-mcard__desc text-md d-none d-lg-block">So, you can subscribe to all the courses and classes. Or rent them to learn whenever you want.</div>
-                                              </div>
-                                            </div>
-                                            <div class="la-mcard__desc d-block d-lg-none pt-3">
-                                              <div class="la-mcard__desc text-md">So, you can subscribe to all the courses and classes. Or rent them to learn whenever you want.</div>
-                                            </div>
-                                          </div>
-                                        </div>
+              <div class="swiper-wrapper la-mcard__wrapper">                    
+                    <?php $__currentLoopData = $testimonial; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $t): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="swiper-slide la-mcard__slider mb-12">
+                      <div class="la-mcard__item">
+                        <div class="la-mcard__info d-flex align-items-center">
+                          <div class="li-mcard__prfle mr-4 mr-lg-10 la-anim__stagger-item--x">
+                            <img class="rounded-circle d-block la-mcard__img" src="<?php echo e(asset('images/testimonial/'.$t->image)); ?>" alt="<?php echo e($t->client_name); ?>">
+                          </div>
+                          <div class="la-mcard__details my-2">
+                            <div class="la-mcard__name text-lg text-lg-xl la-anim__stagger-item--x"><?php echo e($t->client_name); ?></div>
+                            <div class="la-mcard__skill text-sm d-block d-lg-none la-anim__stagger-item--x"><?php echo e(ucfirst($t->type)); ?></div>
+                                <div class="la-lp__test-rating d-flex flex-row">
+                                  <?php if($t->rating == 5): ?>
+
+                                      <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__fill"></div>
+
+                                  <?php elseif($t->rating >= 4): ?>
+
+                                      <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                                  <?php elseif($t->rating >= 3): ?>
+
+                                      <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                                  <?php elseif($t->rating >= 2): ?>
+
+                                      <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                                  <?php elseif($t->rating >= 1): ?>
+
+                                      <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                                  <?php else: ?>
+
+                                      <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                      <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                                  <?php endif; ?>
+                              </div>
+                            
+                            <div class="la-mcard__desc text-md d-none d-lg-block la-anim__stagger-item--x pt-2"><?php echo $t->details; ?></div>
+                          </div>
+                        </div>
+                        <div class="la-mcard__desc d-block d-lg-none pt-3">
+                          <div class="la-mcard__desc text-md la-anim__stagger-item--x"><?php echo $t->details; ?></div>
+                        </div>
+                      </div>
+                    </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               </div>
             </div>
             <div class="swiper-pagination swiper-pagination-custom la-mcard__pagination"></div>

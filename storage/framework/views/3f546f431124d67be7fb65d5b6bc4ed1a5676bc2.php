@@ -27,7 +27,7 @@
                 <div class="la-hero__actions d-md-flex align-items-center la-anim__stagger-item">
                   <div class="col-md-7 px-0">
                       <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary">Subscribe Now</a>
-                      <p class="m-0 pt-1 pl-1 text-sm text-center text-md-left">Instant access to all courses at nominal monthly fees</p>
+                      <p class="m-0 pt-1 pl-1 text-sm text-center text-md-left">Instant access to all courses <!-- at nominal monthly fees --></p>
                   </div>
                   <div class="col-md-5 px-0 la-soffer d-flex d-lg-block justify-content-center  mb-lg-auto">
                     <div class="la-soffer__bestprice"> <sup><small>$</small></sup>  39 / Month</div>
@@ -54,9 +54,9 @@
 
             <?php else: ?>
             <!-- Video Section: Start -->
-            <div class="position-relative la-anim__stagger-item--x la-anim__C">
+            <div class="la-hero__video-mainZposition-relative la-anim__stagger-item--x la-anim__C">
               <div class="la-hero__video" style="mask-image:url('../../images/learners/home/home-mask.png'); -webkit-mask-image:url('../../images/learners/home/home-mask.png');">
-                  <video autoplay='' playsinline muted='muted' loop='loop'>
+                  <video autoplay='' playsinline muted='muted' loop='loop' id="home_video">
                       <source src='<?php echo e($firstSection->video_url); ?>'  type='video/mp4' />
                   </video>
               </div>
@@ -68,7 +68,7 @@
               <div class="la-hero__actions pb-8 pb-md-10 d-md-flex align-items-start  la-anim__stagger-item la-anim__C">
                 <div class="col-md-6 px-0">
                       <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary btn-block">Subscribe Now</a>
-                      <p class="m-0 pt-2 pl-1 text-sm text-center text-md-left">Instant access to all courses at nominal monthly fees</p>
+                      <p class="m-0 pt-2 pl-1 text-sm text-center text-md-left">Instant access to all courses <!-- at nominal monthly fees --></p>
                 </div>
                 <div class="col-md-6 px-0 pt-4 la-soffer d-flex justify-content-center mx-0">
                     <div class="la-soffer__bestprice"> <sup><small>$</small></sup>  39 / Month</div>

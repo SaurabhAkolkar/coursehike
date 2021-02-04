@@ -276,10 +276,9 @@
                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                     </div>
-                    </div>
-
             <?php endif; ?>
-  
+            
+            </div>
           </div>
         </div>
       </div>

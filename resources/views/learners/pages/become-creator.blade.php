@@ -55,12 +55,15 @@
             <div class="swiper-container h-100 la-mcard__container">
               <div class="swiper-wrapper la-mcard__wrapper">                    
                     @foreach($testimonial as $t)
-                    <div class="swiper-slide la-mcard__slider mb-16">
-                      <div class="la-mcard__item p-4 p-lg-5">
+                    <div class="swiper-slide la-mcard__slider mb-12">
+                      <div class="la-mcard__item">
                         <div class="la-mcard__info d-flex align-items-center">
-                          <div class="li-mcard__prfle mr-4 mr-lg-10 la-anim__stagger-item--x"><img class="rounded-circle d-block la-mcard__img" src="{{ asset('images/testimonial/'.$t->image) }}" alt="Mentor Name"></div>
-                          <div class="la-mcard__details">
+                          <div class="li-mcard__prfle mr-4 mr-lg-10 la-anim__stagger-item--x">
+                            <img class="rounded-circle d-block la-mcard__img" src="{{ asset('images/testimonial/'.$t->image) }}" alt="{{ $t->client_name }}">
+                          </div>
+                          <div class="la-mcard__details my-2">
                             <div class="la-mcard__name text-lg text-lg-xl la-anim__stagger-item--x">{{ $t->client_name }}</div>
+                            <div class="la-mcard__skill text-sm d-block d-lg-none la-anim__stagger-item--x">{{ ucfirst($t->type) }}</div>
                                 <div class="la-lp__test-rating d-flex flex-row">
                                   @if($t->rating == 5)
 
@@ -112,12 +115,12 @@
 
                                   @endif
                               </div>
-                            <div class="la-mcard__skill text-sm d-block d-lg-none la-anim__stagger-item--x">{{ ucfirst($t->type) }}</div>
-                            <div class="la-mcard__desc text-md d-none d-lg-block la-anim__stagger-item--x">{!! $t->details !!}</div>
+                            
+                            <div class="la-mcard__desc text-md d-none d-lg-block la-anim__stagger-item--x pt-2">{!! $t->details !!}</div>
                           </div>
                         </div>
                         <div class="la-mcard__desc d-block d-lg-none pt-3">
-                          <div class="la-mcard__desc text-md la-anim__stagger-item--x">{{ $t->details }}</div>
+                          <div class="la-mcard__desc text-md la-anim__stagger-item--x">{!! $t->details !!}</div>
                         </div>
                       </div>
                     </div>

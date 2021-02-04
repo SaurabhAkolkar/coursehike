@@ -13,12 +13,25 @@ $(function(){
   });
   // Navbar Dropdown Toggle: End
 
-  // Global Alert Animation for Learners
+  // Home Video On scroll Pause/Play: Start
+  $(document).on("scroll",function(){
+    if($(document).scrollTop()>450){      
+       $('#home_video')[0].pause();
+     }
+     else
+     {
+       $('#home_video')[0].play();
+     }
+  });
+  // Home Video On scroll Pause/Play: End
+
+  // Global Alert Animation for Learners: Start
   window.setTimeout(function() {
     $(".alert").fadeTo(500, 0).slideUp(500, function() {
         $(this).remove();
     });
   }, 4000);
+  // Global Alert Animation for Learners: End
 
   // Nested Links in Course Cards
   $('#la-course__nested-links li').on('click', function(e) {

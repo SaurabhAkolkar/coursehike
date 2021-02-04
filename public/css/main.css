@@ -19449,9 +19449,31 @@ a, a:hover {
   width: 600px;
   opacity: 1;
 }
+@media (max-width: 991px) {
+  .la-mcard__slider {
+    width: 320px;
+  }
+}
+.la-mcard__item {
+  padding: var(--size-8) var(--size-10);
+}
+@media (max-width: 991px) {
+  .la-mcard__item {
+    padding: var(--size-6) var(--size-6);
+  }
+}
 .la-mcard__img {
   width: 100px;
   height: 100px;
+  background-color: var(--gray);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (max-width: 991px) {
+  .la-mcard__img {
+    width: 70px;
+    height: 70px;
+  }
 }
 .la-mcard__name {
   font-weight: var(--font-bold);
@@ -19463,15 +19485,6 @@ a, a:hover {
   opacity: 0.73;
 }
 
-@media (max-width: 991px) {
-  .la-mcard__slider {
-    width: 320px;
-  }
-  .la-mcard__img {
-    width: 50px;
-    height: 50px;
-  }
-}
 .la-choose__plan {
   margin: 0 var(--size-4);
 }

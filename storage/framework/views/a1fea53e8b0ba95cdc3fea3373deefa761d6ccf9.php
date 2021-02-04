@@ -166,6 +166,23 @@
 
 <?php $__env->startSection('footerScripts'); ?>
 <script src="https://js.stripe.com/v3/"></script>
+<script>    
+  function checkBoxs(type, id){
+        if(type == 'all'){
+            $('.selected_classes'+id).prop('checked', true);
+        }
+        if(type =='selected'){
+            $('.selected_classes'+id).prop('checked', false);
+        }
+
+  }
+
+  function changeInputs(){
+
+    $('.cart_radio_button').attr('name','classes');
+    
+  }
+  </script>
 
 <script>
     <?php if(session('couponModal')): ?> 

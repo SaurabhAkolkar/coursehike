@@ -47,24 +47,28 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="la-admin__preview">
-                    <label><?php echo e(__('adminstaticword.Image')); ?>:<sup class="redstar">*</sup></label>
-                      
-                    <div class="la-admin__preview-img la-admin__course-imgvid" >
-                        <div class="la-admin__preview-text" onclick="$('#image').click()" >
-                          <p class="la-admin__preview-size">Preview Image</p>
-                          <p class="la-admin__preview-file text-uppercase">Choose a File</p>
-                        </div>
-                        <div class="text-center pr-20 mr-10">
-                          <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:160px;">
-                            <span class="path1"><span class="path2"></span></span>
-                          </span>
-                        </div> 
-                        <input type="file" name="image" id="image" class="d-none"><img src="<?php echo e(url('/images/testimonial/'.$test->image)); ?>" class="img-fluid" />
+                    <div class="la-admin__preview">
+                      <label for="" class="la-admin__preview-label"><?php echo e(__('adminstaticword.Image')); ?>:</label>
+                      <div class="la-admin__preview-img la-admin__course-imgvid" >
+                           <div class="la-admin__preview-text">
+                                <p class="la-admin__preview-size">Preview Image size: 250x150</p>
+                                <p class="la-admin__preview-file text-uppercase">Choose a File</p>
+                          </div>
+                          <div class="text-center pr-20 mr-10">
+                            <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:160px;">
+                              <span class="path1"><span class="path2"></span></span>
+                            </span>
+                          </div>
+                          <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="image" id="image" />
+                          <img src="<?php echo e(asset('images/testimonial/'.$test->image)); ?>" alt="" class="preview-img" required/>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <br>
+              <br/>
+
+
 
               <div class="row">
                 <div class="col-md-6">
@@ -77,6 +81,18 @@
                 </div>
               </div>
               <br />
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="la-rtng__review-stars">
+                    <div class="starRatingContainer">
+                        <label for="exampleInputDetails">Rating:<sup class="redstar">*</sup></label>
+                        <div class="rate2"></div>
+                        <input id="input2" type="hidden" name="rating" value="<?php echo e($test->rating); ?>"></div>
+                  </div>
+                </div>
+              </div>
+
 
 
               <div class="row">
@@ -113,12 +129,22 @@
 
 
 <?php $__env->startSection('scripts'); ?>
-
+<script src="<?php echo e(asset('/js/rater.min.js')); ?>" charset="utf-8"></script>
 <script>
 (function($) {
   "use strict";
   tinymce.init({selector:'textarea'});
 })(jQuery);
+
+var options = {
+                max_value: 5,
+                step_size: 1,
+                url: '/',
+                initial_value: <?php echo e($test->rating?$test->rating:0); ?>,
+                update_input_field_name: $("#input2"),
+            };
+
+$(".rate2").rate(options);
 </script>
 
 <?php $__env->stopSection(); ?>

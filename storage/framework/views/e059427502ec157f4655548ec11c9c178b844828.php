@@ -37,8 +37,6 @@
                                 </div>
                                 <div class="la-cart__item-action edit ">
                                     <a  data-toggle="modal" data-target="#edit_cart_<?php echo e($cartId); ?>"> <?php echo e($edit); ?></a>
-                                
-                                   
                                 </div>
                             </div>
                         </div>
@@ -94,20 +92,20 @@
                                                     <h4 class="modal-title la-cart__edit-title">Edit Selection</h4>
                                                     <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
                                                 </div>
-                                                <form action="/add-to-cart" method="post" id="update_cart_form" >
+                                                <form action="/add-to-cart" method="post" id="update_cart_form" onsubmit="return changeInputs()" >
                                                 <?php echo csrf_field(); ?>
                                                 <input type = "hidden" value="<?php echo e($courseId); ?>" name="course_id"/>
                                                 <div class="modal-body la-cart__edit-body">
                                                     <div class="la-form__radio-wrap pb-2">
-                                                        <input type="radio" name="classes" value="all-classes" id="all_classes" class="la-form__radio d-none" <?php if($classType == 'all_classes'): ?> checked <?php endif; ?>>
-                                                        <label for="all_classes" class="d-flex align-items-center">
+                                                        <input type="radio" name="classes_<?php echo e($courseId); ?>" onclick="checkBoxs('all', <?php echo e($courseId); ?>)" value="all-classes" id="all_classes_<?php echo e($courseId); ?>" class="la-form__radio d-none cart_radio_button" <?php if($classType == 'all_classes'): ?> checked <?php endif; ?>>
+                                                        <label for="all_classes_<?php echo e($courseId); ?>" class="d-flex align-items-center">
                                                             <span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span>
                                                             <span class="la-cart__edit-classes"> All Classes</span>
                                                         </label> 
                                                     </div>
                                                     <div class="la-form__radio-wrap">
-                                                        <input type="radio" name="classes" value="select-classes" id="select_classes" class="la-form__radio d-none" <?php if($classType  == 'selected_classes'): ?> checked <?php endif; ?> >
-                                                        <label for="select_classes" class="d-flex align-items-center">
+                                                        <input type="radio" name="classes_<?php echo e($courseId); ?>" onclick="checkBoxs('selected', <?php echo e($courseId); ?>)" value="select-classes" id="select_classes_<?php echo e($courseId); ?>" class="la-form__radio d-none cart_radio_button" <?php if($classType  == 'selected_classes'): ?> checked <?php endif; ?> >
+                                                        <label for="select_classes_<?php echo e($courseId); ?>" class="d-flex align-items-center">
                                                             <span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span>
                                                             <span class="la-cart__edit-classes"> Select Classes</span>
                                                         </label> 
@@ -135,7 +133,7 @@
                                                             <div class="col-2 col-md-2 text-center my-auto ">
                                                                 <div class="form-group m-0">
                                                                     <label class="glabel d-flex justify-content-center m-0">
-                                                                        <input type="checkbox" name="selected_classes[]" class="d-none" <?php if(in_array($class->id, $classes_id->toArray())): ?> checked <?php endif; ?> value="<?php echo e($class->id); ?>">
+                                                                        <input type="checkbox" name="selected_classes[]" class="d-none selected_classes<?php echo e($courseId); ?>" <?php if(in_array($class->id, $classes_id->toArray())): ?> checked <?php endif; ?> value="<?php echo e($class->id); ?>">
                                                                         <span class="gcheck position-relative px-1">
                                                                             <div class="gcheck-icon la-icon icon-tick text-xs position-absolute" style="margin-left:-6px;"></div>
                                                                         </span>
@@ -185,4 +183,5 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Edit Selection Popup: End --><?php /**PATH E:\lila-laravel\resources\views/components/cart.blade.php ENDPATH**/ ?>
+                                    <!-- Edit Selection Popup: End -->
+                                   <?php /**PATH E:\lila-laravel\resources\views/components/cart.blade.php ENDPATH**/ ?>
