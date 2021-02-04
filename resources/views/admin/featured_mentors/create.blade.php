@@ -43,20 +43,19 @@
               <div class="row">
                     <div class="col-md-4">
                       <div class="la-admin__preview">
-                        <label>{{ __('adminstaticword.MentorImage') }}:<sup class="redstar">*</sup></label>
-                        <br>
+                        <label for="" class="la-admin__preview-label">{{ __('adminstaticword.Image') }}:</label>
                         <div class="la-admin__preview-img la-admin__course-imgvid" >
-                          <div class="la-admin__preview-text" onclick="$('#user_image').click()">
-                            <p class="la-admin__preview-size">Preview Image</p>
-                            <p class="la-admin__preview-file text-uppercase">Choose a File</p>
-                          </div>
-                          <div class="text-center pr-20 mr-10">
-                            <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:160px;">
-                              <span class="path1"><span class="path2"></span></span>
-                            </span>
-                          </div>
-                          <input type="file" name="user_image"  id="user_image" class="d-none preview_img">
-                          <img src="" alt="" class="d-none preview-img" required/>
+                             <div class="la-admin__preview-text">
+                                  <p class="la-admin__preview-size">Preview Image size: 250x150</p>
+                                  <p class="la-admin__preview-file text-uppercase">Choose a File</p>
+                            </div>
+                            <div class="text-center pr-20 mr-10">
+                              <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:160px;">
+                                <span class="path1"><span class="path2"></span></span>
+                              </span>
+                            </div>
+                            <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="image" id="image" />
+                            <img src="" alt="" class="d-none preview-img" required/>
                         </div>
                       </div>
                     </div>

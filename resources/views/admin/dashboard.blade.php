@@ -299,8 +299,8 @@
                     </div>
                   
                     <div class="users-info la-dash__recent-desc ml-3 ">
-                      <div class="users-list-name m-0 la-dash__recent-title">{{ $user['fname'] }} {{ $user['lname'] }}</div>
-                      <div class="users-list-desc la-dash__recent-tag">CREATOR</div>
+                      <a class="users-list-name m-0 la-dash__recent-title" href="#">{{ $user['fname'] }} {{ $user['lname'] }}</a>
+                      <div class="users-list-desc la-dash__recent-tag">@if($user->role == 'user') {{ ucfirst($user->role) }} @else Creator @endif</div>
                     </div>
                   </div>
                   <!-- </div> -->

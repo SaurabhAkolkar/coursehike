@@ -255,7 +255,7 @@
                   
                     <div class="users-info la-dash__recent-desc ml-3 ">
                       <a class="users-list-name m-0 la-dash__recent-title" href="#"><?php echo e($user['fname']); ?> <?php echo e($user['lname']); ?></a>
-                      <div class="users-list-desc la-dash__recent-tag">CREATOR</div>
+                      <div class="users-list-desc la-dash__recent-tag"><?php if($user->role == 'user'): ?> <?php echo e(ucfirst($user->role)); ?> <?php else: ?> Creator <?php endif; ?></div>
                     </div>
                   </div>
                   <!-- </div> -->
