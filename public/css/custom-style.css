@@ -185,6 +185,7 @@ html, body{
     margin-bottom: 0px;
     box-shadow: none;
     padding:0;
+    background-color: var(--white);
 }
 
 .small-box .icon {
@@ -238,21 +239,20 @@ html, body{
 /* ==Content small-box small-box-footer section == */
 .small-box>.small-box-footer {
     position: relative;
-    text-align: center;
     color: var(--gray6);
     display: block;
     z-index: 10;
     background:var(--white);
     text-decoration: none;
     text-align:right;
-    padding:0 8px;
+    margin:0 20px;
     outline:0;
 }
 .small-box-footer>span{
     transition:all 0.25s linear;-webkit-transition:all 0.25s linear;
 }
 .small-box-footer>span:hover{
-    transform:translateX(6px);
+    transform:translateX(10px);
     transition:all 0.25s linear;-webkit-transition:all 0.25s linear;
     color:var(--app-indigo-1);
 }

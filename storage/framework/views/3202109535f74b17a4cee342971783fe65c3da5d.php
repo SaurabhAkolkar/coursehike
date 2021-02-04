@@ -22,9 +22,9 @@
                     <li class="col-4 la-entry__interest la-anim__stagger-item--x">
                       <div class="la-entry__interest-inner position-relative d-flex align-items-end">
                         <span class="la-entry__interest-thumbnail position-absolute z-0" role="button" onclick="addToInterest(<?php echo e($c->id); ?>)" id="interest_span_<?php echo e($c->id); ?>">
-                          <img class="img-fluid" src="https://picsum.photos/115/115" alt="" />
+                          <img class="img-fluid" src="<?php echo e($c->image); ?>" alt="" />
                         </span>
-                        <span class="la-entry__interest-name"><?php echo e($c->title); ?></span>
+                        <span class="la-entry__interest-name text-capitalize"><?php echo e($c->title); ?></span>
                       </div>
                     </li>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -50,8 +50,8 @@
   function addToInterest(id){
       let input = $('#interest_input').val();
      
-      if($('#interest_span_'+id).hasClass('border')){
-        $('#interest_span_'+id).removeClass('border border-success');
+      if($('#interest_span_'+id).hasClass('la-entry__interest-border')){
+        $('#interest_span_'+id).removeClass('la-entry__interest-border');
 
         let input = $('#interest_input').val();
         input = input.replace(id,'');
@@ -65,7 +65,7 @@
         }
 
         $('#interest_input').val(input);
-        $('#interest_span_'+id).addClass('border border-2 border-success');
+        $('#interest_span_'+id).addClass('la-entry__interest-border');
       }
       
   }

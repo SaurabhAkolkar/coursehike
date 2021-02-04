@@ -1,6 +1,12 @@
 <?php $__env->startSection('title', 'Add Featured Mentor - Admin'); ?>
 <?php $__env->startSection('body'); ?>
 
+<?php if(Session::has('success')): ?>
+    <div class="la-btn__alert-success col-md-6 offset-md-3 animated fadeInDown alert alert-success" role="alert">
+        <h6 class="la-btn__alert-msg"><?php echo e(Session::get('success')); ?></h6>
+    </div>
+<?php endif; ?>
+
 <section class="content">
   <?php echo $__env->make('admin.message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
   <div class="row">
@@ -49,7 +55,8 @@
                               <span class="path1"><span class="path2"></span></span>
                             </span>
                           </div>
-                          <input type="file" name="user_image"  id="user_image" class="d-none">
+                          <input type="file" name="user_image"  id="user_image" class="d-none preview_img">
+                          <img src="" alt="" class="d-none preview-img" required/>
                         </div>
                       </div>
                     </div>
@@ -144,6 +151,28 @@
         $('#f').val(+ $(this).prop('checked'))
       })
     })
+
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();    
+        reader.onload = function(e) {
+          $(input).siblings('.preview-img').attr('src', e.target.result).removeClass('d-none');
+        }
+        reader.readAsDataURL(input.files[0]); // convert to base64 string
+      }
+    }
+
+    $(".preview_img").change(function() {
+      readURL(this);
+    });
+
+    $(document).on("change", ".preview_video", function(evt) {
+      var $source = $(this).siblings('.preview-video');
+      $source.find("source").attr("src", URL.createObjectURL(this.files[0]));
+      $source.load();
+      $($source).removeClass('d-none');
+    });
+
 
 </script>
 <?php $__env->stopSection(); ?>

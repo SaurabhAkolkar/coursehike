@@ -17,9 +17,9 @@
 <section class="content">
 	<!-- Main row -->
     <div class="row pr-md-20">
-        <div class="col-lg-4 col-6">
+        <div class="col-lg-4">
           <!-- small box -->
-          <div class="small-box bg-aqua"> 
+          <div class="small-box"> 
             <div class="inner">
               <div class="icon">
                 <span class="la-icon la-icon--5xl icon-users"></span>
@@ -47,13 +47,13 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-6">
+        <div class="col-lg-4">
           <!-- small box -->
-          <div class="small-box bg-green">
+          <div class="small-box">
             <div class="inner">
-            <div class="icon">
+            <div class="icon py-2">
              <!--  <i class="flaticon-layout"></i> -->
-             <span class="la-icon la-icon--5xl icon-categories"></span>
+             <span class="la-icon la-icon--3xl icon-categories"></span>
             
             </div>
             <p><?php echo e(__('adminstaticword.Categories')); ?></p>
@@ -77,12 +77,12 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-6">
+        <div class="col-lg-4">
           <!-- small box -->
-          <div class="small-box bg-yellow">
+          <div class="small-box">
             <div class="inner">
-              <div class="icon">
-                <span class="la-icon la-icon--5xl icon-courses"></span>
+              <div class="icon py-1">
+                <span class="la-icon la-icon--4xl icon-courses"></span>
               </div>
               <p><?php echo e(__('adminstaticword.Courses')); ?></p>
               <h3  class="m-0">
@@ -109,9 +109,9 @@
 
     <div class="row pr-md-20">
         <!-- ./col -->
-        <div class="col-lg-4 col-6 pt-8">
+        <div class="col-lg-4 pt-8">
           <!-- small box -->
-          <div class="small-box bg-red">
+          <div class="small-box">
             <div class="inner">
               <div class="icon">
                 <!-- <i class="flaticon-shopping-cart-1"></i> -->
@@ -122,7 +122,7 @@
               	<?php
               	
               		if($total != null){
-                    echo '$'.$total;
+                    echo ' $ '.$total;
               		}
               		else{
                     echo '0';
@@ -189,9 +189,9 @@
           </div>
         </div> -->
         <!-- ./col -->
-        <div class="col-lg-4 col-6 pt-8">
+        <div class="col-lg-4 pt-8">
           <!-- small box -->
-          <div class="small-box bg-green">
+          <div class="small-box">
             <div class="inner">
               <div class="icon">
               <!-- <i class="flaticon-teacher"></i>-->
@@ -247,14 +247,14 @@
                   <div class="la-dash__recent-info">
                     <div class="la-dash__recent-img">
                       <?php if($user['user_img'] != null || $user['user_img'] !=''): ?>
-                        <img src="<?php echo e($user['user_img']); ?>" class="img-fluid d-block" alt="User Image">
+                        <img src="<?php echo e($user['user_img']); ?>" class="img-fluid d-block" alt="<?php echo e($user['fname']); ?>">
                       <?php else: ?>
-                        <img src="<?php echo e(asset('images/default/user.jpg')); ?>" class="img-fluid d-block" alt="User Image">
+                        <img src="<?php echo e(asset('images/default/user.jpg')); ?>" class="img-fluid d-block" alt="<?php echo e($user['fname']); ?>">
                       <?php endif; ?>
                     </div>
                   
                     <div class="users-info la-dash__recent-desc ml-3 ">
-                      <a class="users-list-name m-0 la-dash__recent-title" href="#"><?php echo e($user['fname']); ?> <?php echo e($user['lname']); ?></a>
+                      <div class="users-list-name m-0 la-dash__recent-title"><?php echo e($user['fname']); ?> <?php echo e($user['lname']); ?></div>
                       <div class="users-list-desc la-dash__recent-tag">CREATOR</div>
                     </div>
                   </div>
@@ -416,17 +416,17 @@
     <div class="col-md-12">
         <div class="la-dash__recent-section">
             <div class="la-dash__recent-head">
-              <h4 class="la-dash__recent-htitle">Pending Creator Requests</h4>
+              <h4 class="la-dash__recent-htitle pb-4">Pending Creator Requests</h4>
             </div>
       
-            <div class="la-dash__pending-section px-20">
+            <div class="la-dash__pending-section px-10">
                 <div class="row no-gutters d-flex justify-content-between  la-dash__pending-head">
-                    <div class="col la-dash__pending-title">Creator ID</div>
-                    <div class="col la-dash__pending-title">Creator Name</div>
+                    <div class="col-1 la-dash__pending-title">#</div>
+                    <div class="col-3 la-dash__pending-title">Creator Name</div>
                     <!-- <div class="col la-dash__pending-title">Crourse ID</div> -->
-                    <div class="col la-dash__pending-title">Course Name</div>
-                    <div class="col la-dash__pending-title">On</div>
-                    <div class="col la-dash__pending-title">Request Type</div>
+                    <div class="col-4 la-dash__pending-title">Course Name</div>
+                    <div class="col-2 la-dash__pending-title">On</div>
+                    <div class="col-2 la-dash__pending-title">Request Type</div>
                 </div>
 
                 <div class="la-dash__pending-body">

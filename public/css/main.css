@@ -21310,14 +21310,22 @@ a, a:hover {
   opacity: 0.25;
 }
 .la-entry__interest-thumbnail img {
+  width: 100%;
   height: 120px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .la-entry__interest-name {
   position: relative;
   color: #F5F4F0;
-  bottom: -3px;
+  bottom: -2px;
   left: 0;
   line-height: 1;
+}
+.la-entry__interest-border {
+  border: 3px solid var(--green);
 }
 .la-entry__interest-next {
   font-size: var(--text-xl);
@@ -22523,8 +22531,8 @@ section.la-start-creating .la-vicon__link:hover > span {
 }
 
 .la-bcreator__calc-title {
-  color: var(--gray4);
-  font-weight: var(--font-medium);
+  color: var(--gray7);
+  font-weight: var(--font-normal);
 }
 
 @media (max-width: 767px) {
@@ -22536,12 +22544,15 @@ section.la-start-creating .la-vicon__link:hover > span {
 .la-bcreator__calc-itm {
   font-family: var(--head-font);
   color: var(--gray4);
-  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
 }
 @media (max-width: 767px) {
   .la-bcreator__calc-itm {
-    margin: 0 var(--size-3);
+    margin: 0 var(--size-7);
     font-size: var(--text-md);
+  }
+  .la-bcreator__calc-itm:last-child {
+    padding-top: var(--size-4);
   }
 }
 
