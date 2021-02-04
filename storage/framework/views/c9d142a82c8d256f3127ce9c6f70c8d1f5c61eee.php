@@ -1,39 +1,39 @@
-@extends('admin/layouts.master')
-@section('title', 'Add Featured Mentor - Admin')
-@section('body')
+<?php $__env->startSection('title', 'Add Featured Mentor - Admin'); ?>
+<?php $__env->startSection('body'); ?>
 
-@if (Session::has('success'))
+<?php if(Session::has('success')): ?>
     <div class="la-btn__alert-success col-md-6 offset-md-3 animated fadeInDown alert alert-success" role="alert">
-        <h6 class="la-btn__alert-msg">{{Session::get('success')}}</h6>
+        <h6 class="la-btn__alert-msg"><?php echo e(Session::get('success')); ?></h6>
     </div>
-@endif
+<?php endif; ?>
 
 <section class="content">
-  @include('admin.message')
+  <?php echo $__env->make('admin.message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-          <h3 class="la-admin__section-title ml-3">{{ __('adminstaticword.Add') }} {{ __('adminstaticword.FeaturedMentors') }}</h3>
+          <h3 class="la-admin__section-title ml-3"><?php echo e(__('adminstaticword.Add')); ?> <?php echo e(__('adminstaticword.FeaturedMentors')); ?> Test</h3>
         
         <div class="box-body">
           <div class="form-group">
-            <form id="demo-form2" method="post" action="{{action('FeaturedMentorController@store')}}"vdata-parsley-validate 
+            <form id="demo-form2" method="post" action="<?php echo e(action('FeaturedMentorController@store')); ?>"vdata-parsley-validate 
               class="form-horizontal form-label-left"enctype="multipart/form-data">
-              {{ csrf_field() }}
+              <?php echo e(csrf_field()); ?>
+
                   
 
               <div class="row">
                     <div class="col-md-4">
-                        <label for="Mentor">{{ __('adminstaticword.Mentor') }}:<sup class="redstar">*</sup></label>
+                        <label for="Mentor"><?php echo e(__('adminstaticword.Mentor')); ?>:<sup class="redstar">*</sup></label>
                         <select name="mentor" id="mentor" class="form-control js-example-basic-single" >
                             <option selected disabled >Select Mentor</option>
-                            @foreach($users as $u)
-                                <option value="{{$u->id}}" >{{$u->fullName}}</option>
-                            @endforeach
+                            <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $u): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($u->id); ?>" ><?php echo e($u->fullName); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <label for="Course">{{ __('adminstaticword.Course') }}:<sup class="redstar">*</sup></label>
+                        <label for="Course"><?php echo e(__('adminstaticword.Course')); ?>:<sup class="redstar">*</sup></label>
                         <select name="course" id="courses" class="form-control js-example-basic-single">
                             <option selected disabled>Select User First</option>
                         </select>
@@ -43,7 +43,7 @@
               <div class="row">
                     <div class="col-md-4">
                       <div class="la-admin__preview">
-                        <label>{{ __('adminstaticword.MentorImage') }}:<sup class="redstar">*</sup></label>
+                        <label><?php echo e(__('adminstaticword.MentorImage')); ?>:<sup class="redstar">*</sup></label>
                         <br>
                         <div class="la-admin__preview-img la-admin__course-imgvid" >
                           <div class="la-admin__preview-text" onclick="$('#user_image').click()">
@@ -55,15 +55,14 @@
                               <span class="path1"><span class="path2"></span></span>
                             </span>
                           </div>
-                          <input type="file" name="user_image"  id="user_image" class="d-none preview_img">
-                          <img src="" alt="" class="d-none preview-img" required/>
+                          <input type="file" name="user_image"  id="user_image" class="d-none">
                         </div>
                       </div>
                     </div>
 
                     <div class="col-md-4">
                         <div class="la-admin__preview">
-                          <label>{{ __('adminstaticword.ImageThumbnail') }}:<sup class="redstar">*</sup></label>
+                          <label><?php echo e(__('adminstaticword.ImageThumbnail')); ?>:<sup class="redstar">*</sup></label>
                           <br>
                           <div class="la-admin__preview-img la-admin__course-imgvid" >
                             <div class="la-admin__preview-text" onclick="$('#user_image').click()">
@@ -84,7 +83,7 @@
 
               <div class="row">
                 <div class="col-md-4">
-                    <label>{{ __('adminstaticword.Status') }}</label>
+                    <label><?php echo e(__('adminstaticword.Status')); ?></label>
                     <li class="tg-list-item">
                       <input class="la-admin__toggle-switch" id="cb1" type="checkbox" name="status" value="1" >
                        <label class="la-admin__toggle-label" data-tg-off="No" data-tg-on="Yes" for="cb1"></label>
@@ -97,7 +96,7 @@
               <div class="row">
                 <div class="col-8">
                   <div class="box-footer">
-                    <button type="submit" value="Add Slider" class="btn btn-primary px-14"> {{ __('adminstaticword.Save') }}</button>
+                    <button type="submit" value="Add Slider" class="btn btn-primary px-14"> <?php echo e(__('adminstaticword.Save')); ?></button>
                   </div>
                 </div>
               </div>
@@ -114,13 +113,13 @@
   <!-- /.row -->
 </section> 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@section('script')
+<?php $__env->startSection('script'); ?>
 <script>
 
-    var urlLike = '{{ url('featuredMentors/getcourses') }}';
+    var urlLike = '<?php echo e(url('featuredMentors/getcourses')); ?>';
     $('#mentor').change(function() {
       var up = $('#courses').empty();
       var user_id = $(this).val();    
@@ -152,27 +151,6 @@
       })
     })
 
-    function readURL(input) {
-      if (input.files && input.files[0]) {
-        var reader = new FileReader();    
-        reader.onload = function(e) {
-          $(input).siblings('.preview-img').attr('src', e.target.result).removeClass('d-none');
-        }
-        reader.readAsDataURL(input.files[0]); // convert to base64 string
-      }
-    }
-
-    $(".preview_img").change(function() {
-      readURL(this);
-    });
-
-    $(document).on("change", ".preview_video", function(evt) {
-      var $source = $(this).siblings('.preview-video');
-      $source.find("source").attr("src", URL.createObjectURL(this.files[0]));
-      $source.load();
-      $($source).removeClass('d-none');
-    });
-
-
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin/layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\lila-laravel\resources\views/admin/featured_mentors/create.blade.php ENDPATH**/ ?>
