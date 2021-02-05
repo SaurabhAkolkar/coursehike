@@ -17347,11 +17347,19 @@ a, a:hover {
   background-color: var(--app-indigo-1);
   color: #ffffff;
 }
-.la-header__profile-img img {
+.la-header__profile-img {
   width: 30px;
   height: 30px;
   border-radius: 100px;
   overflow: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-color: var(--gray);
+}
+.la-header__profile-img img {
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
   -o-object-fit: cover;
      object-fit: cover;
   background-color: var(--gray);

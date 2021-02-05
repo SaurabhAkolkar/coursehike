@@ -109,7 +109,7 @@
                       <td>{{ $invoice->status }}</td>   
                       <td>{{ $invoice->created_at }}</td>            
 
-                      <td><a class="btn btn-info text-capitalize font-weight-normal" href="{{route('view.order',$invoice->id)}}">{{ __('adminstaticword.View') }}</a>
+                      <td><a class="btn btn-info text-capitalize font-weight-normal px-0" href="{{route('view.order',$invoice->id)}}">{{ __('adminstaticword.View') }}</a>
                       </td>
                     
                     </tr>

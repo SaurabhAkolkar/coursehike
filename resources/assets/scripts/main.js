@@ -303,7 +303,7 @@ $(function(){
       trigger: ".la-header",
       start: "80px top",
       toggleActions: "restart none reset none"
-    }, boxShadow:"rgba(202, 202, 202, 0.10) 0px 0px 10px 10px"
+    }, boxShadow:"rgba(202, 202, 202, 0.40) 0px 0px 10px 10px"
   })
 
   
