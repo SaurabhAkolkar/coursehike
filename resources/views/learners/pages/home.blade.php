@@ -86,7 +86,7 @@
         <!-- Row: Start-->
         <div class="la-anim__wrap">
           <div class="la-hero__bottom d-flex justify-content-center justify-content-lg-between align-items-center pt-4 pb-14 la-anim__fade-in-bottom la-anim__D">
-            <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing">@if(Auth::user()->subscription('main')->active() || Auth::user()->subscription('main')->onTrial()) @else<a href="/learning-plans">Start free trial<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>@endif</div>
+            <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing"><!-- @if(Auth::user()->subscription('main')->active() || Auth::user()->subscription('main')->onTrial()) @else --><a href="/learning-plans">Start free trial<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a><!--@endif --></div>
             <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text--burple text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block"><a href="#home_courses">BROWSE COURSES</a><span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span></div>
           </div>
         </div>
@@ -428,7 +428,7 @@
             <div class="la-trail__title la-trail__title-out la-trail__title--black la-section__title la-section__title--big position-absolute la-anim__text-move">Observe.</div>
             <div class="la-trail__img-wrap la-anim__fade-in-right la-anim__B">
               <div class="la-trail__img position-relative">
-                <img class="w-100" src="./images/learners/home/observe.png" alt="observe">
+                <img class="w-100" src="./images/learners/home/observe.jpg" alt="observe">
               </div>
               <div class="la-trail__title la-trail__title-in la-trail__title--purple la-section__title la-section__title--big position-absolute la-anim__text-move la-anim__text-move--z1">Observe.</div>
             </div>
