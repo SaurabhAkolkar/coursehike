@@ -62,7 +62,7 @@
 
                           <?php endif; ?>
                         </td>
-                        <td class="text-center">
+                        <td class="text-left">
                           <a class="btn btn-info text-capitalize font-weight-normal" href="<?php echo e(route('user.subscriptions',$user->id)); ?>">View</a>
                         </td>
                         <td>
@@ -86,7 +86,8 @@
                             <i class="la-icon la-icon--lg icon-edit"></i></a>
                         </td>
                               
-                        <td><form  method="post" action="<?php echo e(route('user.delete',$user->id)); ?>
+                        <td>
+                          <form  method="post" action="<?php echo e(route('user.delete',$user->id)); ?>
 
                             "data-parsley-validate class="form-horizontal form-label-left">
                             <?php echo e(csrf_field()); ?>

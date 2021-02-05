@@ -101,7 +101,7 @@
                       <td><?php echo e($invoice->status); ?></td>   
                       <td><?php echo e($invoice->created_at); ?></td>            
 
-                      <td><a class="btn btn-info text-capitalize font-weight-normal" href="<?php echo e(route('view.order',$invoice->id)); ?>"><?php echo e(__('adminstaticword.View')); ?></a>
+                      <td><a class="btn btn-info text-capitalize font-weight-normal px-0" href="<?php echo e(route('view.order',$invoice->id)); ?>"><?php echo e(__('adminstaticword.View')); ?></a>
                       </td>
                     
                     </tr>
