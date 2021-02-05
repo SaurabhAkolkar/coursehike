@@ -2,12 +2,6 @@
 @section('title', 'Add Featured Mentor - Admin')
 @section('body')
 
-@if (Session::has('success'))
-    <div class="la-btn__alert-success col-md-6 offset-md-3 animated fadeInDown alert alert-success" role="alert">
-        <h6 class="la-btn__alert-msg">{{Session::get('success')}}</h6>
-    </div>
-@endif
-
 <section class="content">
   @include('admin.message')
   <div class="row">
@@ -25,23 +19,34 @@
               <div class="row">
                     <div class="col-md-4">
                         <label for="Mentor">{{ __('adminstaticword.Mentor') }}:<sup class="redstar">*</sup></label>
-                        <select name="mentor" id="mentor" class="form-control js-example-basic-single" >
+                        <select name="mentor" id="mentor" class="form-control js-example-basic-single" required >
                             <option selected disabled >Select Mentor</option>
                             @foreach($users as $u)
-                                <option value="{{$u->id}}" >{{$u->fullName}}</option>
+                                <option value="{{$u->id}}" @if(old('mentor') == $u->id) selected @endif>{{$u->fullName}}</option>
                             @endforeach
                         </select>
+                        @error('mentor')
+                              <div class="la-btn__alert-danger col-md-6 offset-md-3 animated fadeInDown alert alert-danger" role="alert">
+                                <h6 class="la-btn__alert-msg">{{ $message }}</h6>
+                            </div>
+                        @enderror
                     </div>
                     <div class="col-md-4">
                         <label for="Course">{{ __('adminstaticword.Course') }}:<sup class="redstar">*</sup></label>
-                        <select name="course" id="courses" class="form-control js-example-basic-single">
+                        <select name="course" id="courses" class="form-control js-example-basic-single" required>
                             <option selected disabled>Select User First</option>
                         </select>
+
+                        @error('course')
+                              <div class="la-btn__alert-danger col-md-6 offset-md-3 animated fadeInDown alert alert-danger" role="alert">
+                                <h6 class="la-btn__alert-msg">{{ $message }}</h6>
+                            </div>
+                        @enderror
                     </div>
               </div>
             <br>
               <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                       <div class="la-admin__preview">
                         <label for="" class="la-admin__preview-label">{{ __('adminstaticword.Image') }}:</label>
                         <div class="la-admin__preview-img la-admin__course-imgvid" >
@@ -54,14 +59,23 @@
                                 <span class="path1"><span class="path2"></span></span>
                               </span>
                             </div>
-                            <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="image" id="image" />
-                            <img src="" alt="" class="d-none preview-img" required/>
+                            <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="user_img" value="{{ old('user_img') }}" id="image" />
+                            <img src="{{ old('user_img') }}" alt="" class="d-none preview-img img-fluid text-center" required/>
                         </div>
+
+                        @error('user_img')
+                              <div class="la-btn__alert-danger col-md-6 offset-md-3 animated fadeInDown alert alert-danger" role="alert">
+                                <h6 class="la-btn__alert-msg">{{ $message }}</h6>
+                            </div>
+                        @enderror
                       </div>
                     </div>
+                  </div>
 
-                    <div class="col-md-4">
-                        <div class="la-admin__preview">
+                <br />
+                  <div class="row">
+                    <div class="col-md-8">
+                        {{-- <div class="la-admin__preview">
                           <label>{{ __('adminstaticword.ImageThumbnail') }}:<sup class="redstar">*</sup></label>
                           <br>
                           <div class="la-admin__preview-img la-admin__course-imgvid" >
@@ -76,7 +90,30 @@
                             </div>
                             <input type="file" name="image_thumbnail"  id="image_thumbnail" class="d-none">
                           </div>
-                        </div>
+                        </div> --}}
+                        <div class="la-admin__preview">
+                          <label>{{ __('adminstaticword.ImageThumbnail') }}:<sup class="redstar">*</sup></label>
+                        <div class="la-admin__preview-img la-admin__course-imgvid" >
+                          <div class="la-admin__preview-text">
+                               <p class="la-admin__preview-size">Preview Image size: 250x150</p>
+                               <p class="la-admin__preview-file text-uppercase">Choose a File</p>
+                         </div>
+                         <div class="text-center pr-20 mr-10">
+                           <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:160px;">
+                             <span class="path1"><span class="path2"></span></span>
+                           </span>
+                         </div>
+                         <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" value="{{ old('image_thumbnail') }}" name="image_thumbnail" id="image" />
+                         <img src="{{ old('user_img') }}" alt="" class="d-none preview-img img-fluid text-center" required/>
+                     </div>
+
+                      @error('image_thumbnail')
+                            <div class="la-btn__alert-danger col-md-6 offset-md-3 animated fadeInDown alert alert-danger" role="alert">
+                              <h6 class="la-btn__alert-msg">{{ $message }}</h6>
+                          </div>
+                      @enderror
+                    </div>
+
                     </div>
               </div>
               <br>

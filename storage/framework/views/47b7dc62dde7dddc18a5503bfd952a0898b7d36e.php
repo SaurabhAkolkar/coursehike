@@ -184,7 +184,7 @@
             <div class="la-header__nav-item d-lg-none ">
                 <a class="la-header__nav-link <?php if(Request::segment(1) == 'login'): ?> active <?php endif; ?>" href="/login">
                     <div class="la-header__nav-icon">
-                        <span class="la-icon--md icon-profile"></span>
+                        <span class="la-icon--lg icon-profile"></span>
                     </div>
                     <span class="la-header__nav-name">Login</span>
                 </a>
@@ -193,16 +193,16 @@
             <div class="la-header__nav-item">
                 <a class="la-header__nav-link <?php if(Request::segment(1) == 'browse'): ?> active <?php endif; ?>" href="/browse/courses">
                     <div class="la-header__nav-icon">
-                        <span class="la-icon--md icon-courses"></span>
+                        <span class="la-icon--lg icon-courses"></span>
                     </div>
-                    <span class="la-header__nav-name">Courses</span>
+                    <span class="la-header__nav-name">Browse Courses</span>
                 </a>
             </div>
 
             <div class="la-header__nav-item"> 
                 <a class="la-header__nav-link <?php if(Request::segment(1) == 'mentors'): ?> active <?php endif; ?> "  href="/mentors">
                     <div class="la-header__nav-icon">
-                    <span class="icon-all-mentors"></span>
+                    <span class="la-icon--lg icon-all-mentors"></span>
                     </div> 
                     <span class="la-header__nav-name">Mentors</span>
                 </a>
@@ -211,7 +211,7 @@
             <div class="la-header__nav-item">   
                 <a class="la-header__nav-link <?php if(Request::segment(1) == 'learning-plans'): ?> active <?php endif; ?> " href="/learning-plans">
                     <div class="la-header__nav-icon">
-                    <span class="icon-learning-plans"></span>
+                    <span class="la-icon--lg icon-learning-plans"></span>
                     </div>
                     <span class="la-header__nav-name">Learning Plans</span>
                 </a>
@@ -229,7 +229,7 @@
             <div class="la-header__nav-item d-lg-none">   
                 <a class="la-header__nav-link <?php if(Request::segment(1) == 'contact'): ?> active <?php endif; ?> " href="/contact">
                     <div class="la-header__nav-icon">
-                    <span class="icon-contact"></span>
+                    <span class="la-icon--lg icon-contact"></span>
                     </div>
                     <span class="la-header__nav-name">Contact Us</span>
                 </a>

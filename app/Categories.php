@@ -49,7 +49,7 @@ class Categories extends Model
         if($value != null){
             return Storage::url(config('path.category'). $value);
         }else{
-            return asset('images/category/category.jpg');
+            return asset('images/default-images/interest-default.jpg');
         }
     }
 

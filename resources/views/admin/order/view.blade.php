@@ -2,6 +2,8 @@
 @section('title', 'View Revenue - Admin')
 @section('body')
  
+
+
 <section class="content">
    @include('admin.message')
     <!-- INVOICE PAGE: START -->
@@ -24,28 +26,28 @@
           <div class="la-admin__invoice-details d-flex justify-content-between py-5">
               <div class="la-admin__cust-info">
                   <h6>SOLD TO</h6> 
-                  <div class="la-admin__cust-name"> {{ $show->courses->user['fname'] }} </div>
-                  <div class="la-admin__cust-address">Address: {{ $show->courses->user['address'] }}<br>
-                    @if($show->courses->user['state_id'] == !NULL)
-                    {{ $show->courses->user->state['name'] }},
+                  <div class="la-admin__cust-name"> {{ $show->user->fullName }} </div>
+                  <div class="la-admin__cust-address">Address: {{ $show->user->address }}<br>
+                    @if($show->user->state_id == !NULL)
+                    {{ $show->user->state->name }},
                     @endif
-                    @if($show->courses->user['country_id'] == !NULL)
-                      {{ $show->courses->user->country['name'] }}
+                    @if($show->user->country_id == !NULL)
+                      {{ $show->user->country->name }}
                     @endif
                   </div>
-                  <a class="la-admin__cust-mobile d-flex align-items-center" href="tel: {{ $show->courses->user['mobile'] }}"><span class="la-icon--xl icon-contact-number"></span> <span class="pl-2"> +{{ $show->courses->user['mobile'] }} </span></a> 
-                  <a class="la-admin__cust-mail d-flex align-items-center" href="mailto: {{ $show->courses->user['email'] }}"><span class="la-icon--xl icon-mail-id"></span> <span class="pl-2"> {{ $show->courses->user['email'] }} </span></a>
+                  <a class="la-admin__cust-mobile d-flex align-items-center" href="tel: {{ $show->user->mobile }}"><span class="la-icon--xl icon-contact-number"></span> <span class="pl-2"> +{{ $show->user->mobile }} </span></a> 
+                  <a class="la-admin__cust-mail d-flex align-items-center" href="mailto: {{ $show->user->email }}"><span class="la-icon--xl icon-mail-id"></span> <span class="pl-2"> {{ $show->user->email }} </span></a>
               </div>
 
               <div class="la-admin__cust-invoice text-right">
                 <div>
                   <span class="la-admin__invoice-date">DATE</span> <br/>
-                  <span class="la-admin__date-format">{{ __('adminstaticword.Date') }}:&nbsp;{{ date('jS F Y', strtotime($show['created_at'])) }} </span>
+                  <span class="la-admin__date-format">{{ __('adminstaticword.Date') }}:&nbsp;{{ date('jS F Y', strtotime($show->created_at)) }} </span>
                 </div>
                   
                 <div>
                   <span class="la-admin__invoice-order">ORDER ID </span><br/>
-                  <span class="la-admin__invoice-id">{{ $show['order_id'] }}</span>
+                  <span class="la-admin__invoice-id">{{ $show->invoice_id }}</span>
                 </div>
               </div>
           </div>
@@ -54,61 +56,67 @@
       <div class="col-12">
           <div class="la-admin__invoice-solditems">
               <h6>Items</h6>
-              <ul class="la-admin__invoice-list">
-                  <x-admin-invoice
-                    :img="$show->courses['preview_image']"
-                    :course="$show->courses['title']"
-                    :profile="$show->courses->user['fname']"
-                    :price="$show['total_amount']"
-                    />
-              </ul>
-
-              @if($show->bundle_id != NULL)
+       
+              @if(count($show->details) > 0)
+               
                 <ul class="la-admin__invoice-list">
-
-
-                  @foreach($show->bundle_course_id as $bundle_course)
-                      @php
-                        $coursess = App\Course::where('id', $bundle_course)->first();
-                      @endphp
-
-                        <x-admin-invoice
-                          :img="$coursess->preview_image"
-                          :course="$coursess->title"
-                          :profile="$item->profile"
-                          :price="$item->price"
-                          />
-
-                      {{-- <div class="purchase-table table-responsive">
-                        <table class="table">
-
-                          <tbody>
-                            <tr>
-                              <td>
-                                <div class="purchase-history-course-img d-inline-flex">
-                                
-                                    @if($coursess['preview_image'] !== NULL && $coursess['preview_image'] !== '')
-                                        <img src="{{ asset('images/course/'. $coursess->preview_image) }}" class="img-fluid" alt="course">
-                                      @else
-                                        <img src="{{ Avatar::create($coursess->title)->toBase64() }}" class="img-fluid" alt="course">
-                                      @endif
-
-                                </div>
-                                <div class="purchase-history-course-title d-inline-flex" style="vertical-align: top;">
-                                  {{ $coursess->title }}
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div> --}}
-                  @endforeach
+                    <x-admin-invoice
+                      :img="$show->details[0]->course->preview_image"
+                      :course="$show->details[0]->course->title"
+                      :profile="$show->details[0]->course->user->fullName"
+                      :price="$show->details[0]->course->total_amount"
+                      />
                 </ul>
+              @else
+                    <h1>No Items Found</h1>
               @endif
+
+            {{-- @if($show->bundle_id != NULL)
+              <ul class="la-admin__invoice-list">
+
+
+                @foreach($show->bundle_course_id as $bundle_course)
+                    @php
+                      $coursess = App\Course::where('id', $bundle_course)->first();
+                    @endphp
+
+                      <x-admin-invoice
+                        :img="$coursess->preview_image"
+                        :course="$coursess->title"
+                        :profile="$item->profile"
+                        :price="$item->price"
+                        />
+
+                    {{-- <div class="purchase-table table-responsive">
+                      <table class="table">
+
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div class="purchase-history-course-img d-inline-flex">
+                              
+                                  @if($coursess['preview_image'] !== NULL && $coursess['preview_image'] !== '')
+                                      <img src="{{ asset('images/course/'. $coursess->preview_image) }}" class="img-fluid" alt="course">
+                                    @else
+                                      <img src="{{ Avatar::create($coursess->title)->toBase64() }}" class="img-fluid" alt="course">
+                                    @endif
+
+                              </div>
+                              <div class="purchase-history-course-title d-inline-flex" style="vertical-align: top;">
+                                {{ $coursess->title }}
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div> 
+                @endforeach
+              </ul>
+            @endif --}}
 
               <div class="la-admin__invoice-total d-flex justify-content-end">
                   <p class="la-admin__total-title mr-5"> Total </p>
-                  <p class="la-admin__total-price" > $ <span>{{$show['total_amount']}}</span> </p>
+                  <p class="la-admin__total-price" > $ <span>{{$show->total}}</span> </p>
               </div>
           </div>
       </div>
@@ -128,7 +136,7 @@
 
               <div class="la-admin__payment-id  d-flex flex-row no-gutters">
                 <span class="col mr-auto">Transaction Id</span>
-                <span class="col">dssxjshaldjkdhuhf</span>
+                <span class="col">{{ $show->invoice_id }}</span>
               </div>
           </div>
       </div>
