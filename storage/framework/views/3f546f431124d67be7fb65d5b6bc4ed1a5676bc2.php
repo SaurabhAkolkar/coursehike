@@ -438,7 +438,7 @@
             <div class="la-trail__title la-trail__title-out la-trail__title--black la-section__title la-section__title--big position-absolute la-anim__text-move">Observe.</div>
             <div class="la-trail__img-wrap la-anim__fade-in-right la-anim__B">
               <div class="la-trail__img position-relative">
-                <img class="w-100" src="./images/learners/home/observe.png" alt="observe">
+                <img class="w-100" src="./images/learners/home/observe.jpg" alt="observe">
               </div>
               <div class="la-trail__title la-trail__title-in la-trail__title--purple la-section__title la-section__title--big position-absolute la-anim__text-move la-anim__text-move--z1">Observe.</div>
             </div>

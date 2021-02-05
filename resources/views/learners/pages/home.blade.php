@@ -17,7 +17,7 @@
 <section class="la-section  la-section--hero clearfix p-0">
     <div class="la-section__inner">
       <div class="container">
-        <div class="la-hero__top row align-items-center la-anim__wrap la-anim__wrap--hero ">
+        <div class="la-hero__top row pt-3 align-items-center la-anim__wrap la-anim__wrap--hero ">
           <!-- Column: Start-->
           <div class="col-12 col-lg-5 la-anim__item la-anim__item--left my-auto">
             <div class="la-hero pt-6 pt-lg-2 la-anim__stagger">

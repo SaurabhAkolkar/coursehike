@@ -9,6 +9,7 @@ $sidemenuWidth: 300px;
         left: 0;
         background: var(--white);
         z-index: var(--header-z);
+        box-shadow:rgba(202, 202, 202, 0.40) 0px 0px 10px 10px;
         &__ {
             &gsearch{
                 &-{
