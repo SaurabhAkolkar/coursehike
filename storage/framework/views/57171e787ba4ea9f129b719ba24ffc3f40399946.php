@@ -254,8 +254,8 @@
                     </div>
                   
                     <div class="users-info la-dash__recent-desc ml-3 ">
-                      <div class="users-list-name m-0 la-dash__recent-title"><?php echo e($user['fname']); ?> <?php echo e($user['lname']); ?></div>
-                      <div class="users-list-desc la-dash__recent-tag">CREATOR</div>
+                      <div class="users-list-name m-0 la-dash__recent-title" ><?php echo e($user['fname']); ?> <?php echo e($user['lname']); ?></div>
+                      <div class="users-list-desc la-dash__recent-tag"><?php if($user->role == 'user'): ?> <?php echo e(ucfirst($user->role)); ?> <?php else: ?> Creator <?php endif; ?></div>
                     </div>
                   </div>
                   <!-- </div> -->
@@ -304,7 +304,7 @@
                   </div>
 
                   <div class="la-dash__recent-desc">
-                    <a href="javascript:void(0)" class=" la-dash__recent-title "><?php echo e(str_limit($course['title'], $limit = 25, $end = '...')); ?></a>
+                    <div class=" la-dash__recent-title "><?php echo e(str_limit($course['title'], $limit = 25, $end = '...')); ?></div>
                     <div class="product-description la-dash__recent-tag">
                         <?php echo e(str_limit($course->short_detail, $limit = 40, $end = '...')); ?>
 

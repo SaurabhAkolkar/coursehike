@@ -299,7 +299,7 @@
                     </div>
                   
                     <div class="users-info la-dash__recent-desc ml-3 ">
-                      <a class="users-list-name m-0 la-dash__recent-title" href="#">{{ $user['fname'] }} {{ $user['lname'] }}</a>
+                      <div class="users-list-name m-0 la-dash__recent-title" >{{ $user['fname'] }} {{ $user['lname'] }}</div>
                       <div class="users-list-desc la-dash__recent-tag">@if($user->role == 'user') {{ ucfirst($user->role) }} @else Creator @endif</div>
                     </div>
                   </div>
@@ -354,7 +354,7 @@
                   </div>
 
                   <div class="la-dash__recent-desc">
-                    <a href="javascript:void(0)" class=" la-dash__recent-title ">{{ str_limit($course['title'], $limit = 25, $end = '...') }}</a>
+                    <div class=" la-dash__recent-title ">{{ str_limit($course['title'], $limit = 25, $end = '...') }}</div>
                     <div class="product-description la-dash__recent-tag">
                         {{ str_limit($course->short_detail, $limit = 40, $end = '...') }}
                     </div>
