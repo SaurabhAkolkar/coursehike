@@ -17129,6 +17129,7 @@ a, a:hover {
   left: 0;
   background: var(--white);
   z-index: var(--header-z);
+  box-shadow: rgba(202, 202, 202, 0.4) 0px 0px 10px 10px;
 }
 .la-header__gsearch-input[type=text] {
   width: 0;
