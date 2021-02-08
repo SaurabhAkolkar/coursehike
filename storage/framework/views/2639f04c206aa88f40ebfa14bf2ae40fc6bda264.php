@@ -248,12 +248,12 @@
           <li class="<?php echo e(Nav::isResource('usermessage')); ?>"><a href="<?php echo e(url('usermessage')); ?>" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-messages mr-4" aria-hidden="true"></i><span><?php echo e(__('adminstaticword.AllMessages')); ?></span></a></li>
         
 
-         <li class="mt-md-20 pt-md-10">
+         <!-- <li class="mt-md-20 pt-md-10">
           <a href="" class="d-flex align-items-center">
             <i class="la-icon la-icon--lg icon-help-filled mr-4"></i>
             <span>Help</span>
           </a>
-        </li>
+        </li> -->
 
         <li class="">
           <a role="button" href="<?php echo e(route('logout')); ?>"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="d-flex align-items-center">

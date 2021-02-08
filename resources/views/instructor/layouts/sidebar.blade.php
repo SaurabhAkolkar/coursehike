@@ -27,14 +27,14 @@
           <li class="{{ Nav::isRoute('instructor.index') }}">
             <a class="d-flex align-items-center" href="{{route('instructor.index')}}">
               <!-- <i class="flaticon-web-browser" aria-hidden="true"></i> -->
-              <i class="la-icon la-icon--lg icon-dashboard mr-5"></i>
+              <i class="la-icon la-icon--md icon-dashboard mr-6"></i>
               <span>{{ __('adminstaticword.Dashboard') }}</span>
             </a>
           </li>
           
           <li class="{{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('course') }} {{ Nav::isResource('courselang') }} treeview">
               <a class="d-flex align-items-center" href="#">
-                  <i class="la-icon la-icon--lg icon-courses mr-5"></i>{{ __('adminstaticword.Course') }}
+                  <i class="la-icon la-icon--md icon-courses mr-6"></i>{{ __('adminstaticword.Course') }}
                   <span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
                   </span>
@@ -76,7 +76,7 @@
 
           <li class="{{ Nav::isResource('requests') }}">
             <a class="d-flex align-items-center" href="{{url('requests')}}">
-              <i class="la-icon la-icon--lg icon-request mr-5"></i>
+              <i class="la-icon la-icon--md icon-request mr-6"></i>
               <span>Requests</span>
             </a>
           </li>
@@ -153,7 +153,7 @@
             <ul class="treeview-menu">
               <li class="{{ Nav::isResource('instructorquestion') }}">
                 <a class="d-flex align-items-center" href="{{url('instructorquestion')}}">
-                  <i class="la-icon la-icon--lg icon-help-filled mr-4 mt-1"></i>
+                  <i class="la-icon la-icon--md icon-help-filled mr-4 "></i>
                   <span>{{ __('adminstaticword.Question') }}</span>
                 </a>
               </li>
@@ -167,9 +167,9 @@
           </li>
 
           <li class="mt-md-20 pt-md-20">
-            <a href="" class="d-flex align-items-center">
-              <i class="la-icon la-icon--lg icon-help-filled mr-4"></i>
-              <span>Help</span>
+            <a href="/contact" class="d-flex align-items-center">
+              <i class="la-icon la-icon--md icon-contact-number mr-4"></i>
+              <span class="mt-1">Contact Us</span>
             </a>
           </li>
 

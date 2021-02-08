@@ -1,16 +1,15 @@
-@extends('admin/layouts.master')
-@section('title', 'Create Course - Admin')
-@section('body')
+<?php $__env->startSection('title', 'Create Course - Admin'); ?>
+<?php $__env->startSection('body'); ?>
 
-@if ($errors->any())
+<?php if($errors->any()): ?>
 <div class="alert alert-danger">
   <ul>
-    @foreach ($errors->all() as $error)
-    <li>{{ $error }}</li>
-    @endforeach
+    <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <li><?php echo e($error); ?></li>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </ul>
 </div>
-@endif
+<?php endif; ?>
 
 
 <section class="content">
@@ -21,81 +20,81 @@
       <div class="box box-primary">
           <div class="row">
             <div class="col-md-12">
-              <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Course') }}</h3>
+              <h3 class="la-admin__section-title ml-3"> <?php echo e(__('adminstaticword.Add')); ?> <?php echo e(__('adminstaticword.Course')); ?></h3>
             </div>
             <div  class="col-md-2">
-                <!--<div><h4 class="admin-form-text"><a href="{{url('course')}}" data-toggle="tooltip" data-original-title="Go back" class="btn-floating"><i class="material-icons"><button class="btn btn-xs btn-success abc"> << {{ __('adminstaticword.Back') }}</button> </i></a></h4></div> -->
+                <!--<div><h4 class="admin-form-text"><a href="<?php echo e(url('course')); ?>" data-toggle="tooltip" data-original-title="Go back" class="btn-floating"><i class="material-icons"><button class="btn btn-xs btn-success abc"> << <?php echo e(__('adminstaticword.Back')); ?></button> </i></a></h4></div> -->
             </div>
           </div>
        
          
         <div class="box-body">
           <div class="form-group">
-            <form action="{{url('course/')}}" method="post" enctype="multipart/form-data">
-              {{ csrf_field() }} 
+            <form action="<?php echo e(url('course/')); ?>" method="post" enctype="multipart/form-data">
+              <?php echo e(csrf_field()); ?> 
   
               <div class="row">
                 <div class="col-md-3">
-                  <label>{{ __('adminstaticword.Category') }}:<span class="redstar">*</span></label>
+                  <label><?php echo e(__('adminstaticword.Category')); ?>:<span class="redstar">*</span></label>
                   <select name="category_id" id="category_id" class="form-control js-example-basic-single">
-                    <option value="0">{{ __('adminstaticword.SelectanOption') }}</option>
-                    @foreach($category as $cate)
-                      <option value="{{$cate->id}}">{{$cate->title}}</option>
-                    @endforeach
+                    <option value="0"><?php echo e(__('adminstaticword.SelectanOption')); ?></option>
+                    <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      <option value="<?php echo e($cate->id); ?>"><?php echo e($cate->title); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   </select>
                 </div>
                 <div class="col-md-3">
-                  <label>{{ __('adminstaticword.SubCategory') }}:<span class="redstar">*</span></label>
+                  <label><?php echo e(__('adminstaticword.SubCategory')); ?>:<span class="redstar">*</span></label>
                     <select name="subcategory_id" id="upload_id" class="form-control js-example-basic-single">
                     </select>
                 </div>
                 <div class="col-md-3">
-                  <label>{{ __('adminstaticword.ChildCategory') }}:</label>
+                  <label><?php echo e(__('adminstaticword.ChildCategory')); ?>:</label>
                   <select name="childcategory_id" id="grand" class="form-control js-example-basic-single"></select>
                 </div>
-                @if(Auth::user()->role == 'admin')
+                <?php if(Auth::user()->role == 'admin'): ?>
                   <div class="col-md-3">
-                    <label for="exampleInputTit1e">{{ __('adminstaticword.Instructor') }}</label>
+                    <label for="exampleInputTit1e"><?php echo e(__('adminstaticword.Instructor')); ?></label>
                       <select name="user_id" class="form-control js-example-basic-single ">
-                      @foreach($user as $u)
-                          <option value="{{$u->id}}">{{$u->fullName}}</option>
-                      @endforeach
+                      <?php $__currentLoopData = $user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $u): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <option value="<?php echo e($u->id); ?>"><?php echo e($u->fullName); ?></option>
+                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                       </select>
                   </div>
-                @endif
-                @if(Auth::user()->role == 'mentors')
+                <?php endif; ?>
+                <?php if(Auth::user()->role == 'mentors'): ?>
                 <div class="col-md-3">
-                  <label for="exampleInputTit1e">{{ __('adminstaticword.Instructor') }}</label>
+                  <label for="exampleInputTit1e"><?php echo e(__('adminstaticword.Instructor')); ?></label>
                     <select name="user_id" class="form-control js-example-basic-single ">
-                        <option value="{{Auth::user()->id}}">{{Auth::user()->fname}}</option>
+                        <option value="<?php echo e(Auth::user()->id); ?>"><?php echo e(Auth::user()->fname); ?></option>
                     </select>
                 </div>
-                @endif
+                <?php endif; ?>
 
               </div>
               <br>
 
               <div class="row">
                 <div class="col-md-6">
-                  <label for="exampleInputTit1e">{{ __('adminstaticword.Title') }}: <sup class="redstar">*</sup></label>
+                  <label for="exampleInputTit1e"><?php echo e(__('adminstaticword.Title')); ?>: <sup class="redstar">*</sup></label>
                   <input type="title" class="form-control" name="title" id="exampleInputTitle" placeholder="Please Enter Your Title" value="" required>
                 </div>
                 <div class="col-md-6"> 
-                  <label>{{ __('adminstaticword.Language') }}: <span class="redstar">*</span></label>
+                  <label><?php echo e(__('adminstaticword.Language')); ?>: <span class="redstar">*</span></label>
                   <select name="language_id" class="form-control js-example-basic-single">
-                    @php
+                    <?php
                     $languages = App\CourseLanguage::where(['status'=>1])->get();
-                    @endphp  
-                    @foreach($languages as $caat)
-                      <option {{ $caat->language_id == $caat->id ? 'selected' : "" }} value="{{ $caat->id }}">{{ $caat->name }}</option>
-                    @endforeach
+                    ?>  
+                    <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $caat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      <option <?php echo e($caat->language_id == $caat->id ? 'selected' : ""); ?> value="<?php echo e($caat->id); ?>"><?php echo e($caat->name); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   </select> 
                 </div>
               </div>
               <br>
               <div class="row">
                 <div class="col-md-6"> 
-                  <label>{{ __('adminstaticword.level') }}: <span class="redstar">*</span></label>
+                  <label><?php echo e(__('adminstaticword.level')); ?>: <span class="redstar">*</span></label>
                   <select name="level" class="form-control js-example-basic-single">
                     <option selected disabled > Select Level</option>
                     <option value="1" > Beginner</option>
@@ -113,20 +112,17 @@
               <br>
 
               <div class="row">
-                {{-- <div class="col-md-6">
-                  <label for="exampleInputSlug">{{ __('adminstaticword.Slug') }}: <sup class="redstar">*</sup></label>
-                  <input pattern="[/^\S*$/]+"  type="text" class="form-control" name="slug" id="exampleInputPassword1" placeholder="Please Enter Your Slug" required>
-                </div> --}}
+                
               </div>
               <br>
                  
               <div class="row">
                 <div class="col-md-6">
-                  <label for="exampleInputTit1e">{{ __('adminstaticword.ShortDetail') }}: <sup class="redstar">*</sup></label>
+                  <label for="exampleInputTit1e"><?php echo e(__('adminstaticword.ShortDetail')); ?>: <sup class="redstar">*</sup></label>
                   <textarea name="short_detail" rows="3"  class="form-control" placeholder="Enter Your Detail" required ></textarea>
                 </div>
                 <div class="col-md-6">
-                  <label for="exampleInputTit1e">{{ __('adminstaticword.Requirements') }}: <sup class="redstar">*</sup></label>
+                  <label for="exampleInputTit1e"><?php echo e(__('adminstaticword.Requirements')); ?>: <sup class="redstar">*</sup></label>
                   <textarea name="requirement" rows="3"  class="form-control" placeholder="Enter Requirements" required ></textarea>
                 </div>
               </div>           
@@ -134,64 +130,20 @@
 
               <div class="row">
                 <div class="col-md-12">
-                  <label for="exampleInputTit1e">{{ __('adminstaticword.Detail') }}: <sup class="redstar">*</sup></label>
+                  <label for="exampleInputTit1e"><?php echo e(__('adminstaticword.Detail')); ?>: <sup class="redstar">*</sup></label>
                   <textarea id="detail" name="detail" rows="3" class="form-control"></textarea>
                 </div>
               </div>
               <br>
 
               <div class="row">
-                {{-- <div class="col-md-3">
-          
-                    <label for="exampleInputSlug">{{ __('adminstaticword.Days') }}: <sup class="redstar">*</sup></label>
-                    <input type="number" min="1" class="form-control" name="day" id="exampleInputPassword1" placeholder="Please Your Enter day" value="">
-               
-                </div>  --}}
-
-                {{-- <div class="col-md-3">
-                  <label for="exampleInputDetails">{{ __('adminstaticword.Free') }}:</label>                 
-                  <li class="tg-list-item">
-                    <input name="type" class="la-admin__toggle-switch" id="cb111" type="checkbox"/>
-                    <label class="la-admin__toggle-label" data-tg-off="Free" data-tg-on="Paid" for="cb111"></label>
-                  </li>
-                  <br>
-                  <div class="display-none" id="pricebox">
-                    <label for="exampleInputSlug">{{ __('adminstaticword.Price') }}: <sup class="redstar">*</sup></label>
-                    <input type="text" class="form-control" name="price" id="priceMain" placeholder="Please Your Enter price" value="">
-        
-                    <label for="exampleInputSlug">{{ __('adminstaticword.DiscountPrice') }}: </label>
-                    <input type="text" class="form-control" name="discount_price" id="offerPrice" placeholder="Please Your Enter discount_price" value="">
-                  </div>
-                </div> 
-                <div class="col-md-3">
-                  @if(Auth::User()->role == "admin")
-                  <label for="exampleInputDetails">{{ __('adminstaticword.Featured') }}:</label>
-                  <li class="tg-list-item">
                 
-                    <input class="la-admin__toggle-switch" id="cb1"   type="checkbox"/>
-                    <label class="la-admin__toggle-label" data-tg-off="OFF" data-tg-on="ON" for="cb1"></label>
-                  </li>
-                  <input type="hidden" name="featured" value="0" id="j">
-                  @endif
-                </div> 
 
-                <div class="col-md-3">
-                  @if(Auth::User()->role == "admin")
-                  <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
-                  <li class="tg-list-item">  
-                    <input class="la-admin__toggle-switch" id="cb3"   type="checkbox"/>
-                    <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="cb3"></label>
-                  </li>
-                  <input type="hidden" name="status" value="0" id="test">
-                  @endif
-                </div>--}}
+                
                 </div>
                 <br> 
 
-              {{-- <div class="row">
-                 
-              </div>
-              <br/> --}}
+              
 
               <!-- COURSE PACKAGE TYPE: START -->
               <div class="row">
@@ -222,21 +174,7 @@
                           </label>
                       </div>
 
-                        {{-- <div class="la-admin__cp-premium ">
-                          <input type="radio" name="subscription" id="subPremium" value="Premium" class="la-admin__cp-input"> 
-                              <label for="subPremium" > 
-                                <div class="la-admin__cp-circle">
-                                  <span class="la-admin__cp-radio"></span>
-                                  <span class="la-admin__cp-label">Premium </span>
-                                  <div class="mx-1 mt-1" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="There are many variations of passages of Lorem Ipsum available">
-                                    <span class="la-icon la-icon--md icon-details"> 
-                                  </div>
-                                </div>
-                                <div class="la-admin__cp-desc">
-                                    <p> This course is accessible only by exclusive purchase </p>
-                                </div>
-                            </label>
-                        </div> <br/> --}}
+                        
 
                         <div class="la-admin__cp-free">
                             <input type="radio" id="subFree" name="package_type" value="0" class="la-admin__cp-input">
@@ -260,7 +198,7 @@
               <div class="row">
                 <div class="col-md-5">
                       <div class="la-admin__preview">
-                        <label for="" class="la-admin__preview-label">{{ __('adminstaticword.PreviewImage') }}:<sup class="redstar">*</sup></label>
+                        <label for="" class="la-admin__preview-label"><?php echo e(__('adminstaticword.PreviewImage')); ?>:<sup class="redstar">*</sup></label>
                         <div class="la-admin__preview-img la-admin__course-imgvid" >
                              <div class="la-admin__preview-text">
                                   <p class="la-admin__preview-size">Preview Image size: 250x150</p>
@@ -280,7 +218,7 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-5">
                       <div class="la-admin__preview">
-                        <label for="" class="la-admin__preview-label"> {{ __('adminstaticword.PreviewVideo') }}:</label>
+                        <label for="" class="la-admin__preview-label"> <?php echo e(__('adminstaticword.PreviewVideo')); ?>:</label>
                         <div class="la-admin__preview-video la-admin__course-imgvid">
                            <div class="la-admin__preview-text">
                                   <p class="la-admin__preview-size">Preview video size: 20MB</p>
@@ -317,7 +255,7 @@
               <br/>
 
               <div class="box-footer">
-                <button type="submit" class="btn btn-lg btn-primary col-md-3 ">{{ __('adminstaticword.Submit') }}</button>
+                <button type="submit" class="btn btn-lg btn-primary col-md-3 "><?php echo e(__('adminstaticword.Submit')); ?></button>
               </div>
 
             </form>
@@ -331,9 +269,9 @@
   <!-- /.row -->
 </section> 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('scripts')
+<?php $__env->startSection('scripts'); ?>
 <script>
 (function($) {
   "use strict";
@@ -443,7 +381,7 @@
   });
 
   $(function() {
-    var urlLike = '{{ url('admin/dropdown') }}';
+    var urlLike = '<?php echo e(url('admin/dropdown')); ?>';
     $('#category_id').on('change', function() {
       var up = $('#upload_id').empty();
       var cat_id = $(this).val();    
@@ -471,7 +409,7 @@
   });
 
   $(function() {
-    var urlLike = '{{ url('admin/gcat') }}';
+    var urlLike = '<?php echo e(url('admin/gcat')); ?>';
     $('#upload_id').on('change', function() {
       var up = $('#grand').empty();
       var cat_id = $(this).val();    
@@ -522,4 +460,6 @@ $(document).on("change", ".preview_video", function(evt) {
 
 </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin/layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\lila-laravel\resources\views/admin/course/insert.blade.php ENDPATH**/ ?>
