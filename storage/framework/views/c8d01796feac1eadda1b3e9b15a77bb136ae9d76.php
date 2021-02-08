@@ -15,7 +15,7 @@
 <section class="la-section  la-section--hero clearfix p-0">
     <div class="la-section__inner">
       <div class="container">
-        <div class="la-hero__top row align-items-center la-anim__wrap la-anim__wrap--hero ">
+        <div class="la-hero__top row pt-3 align-items-center la-anim__wrap la-anim__wrap--hero ">
           <!-- Column: Start-->
           <div class="col-12 col-lg-5 la-anim__item la-anim__item--left my-auto">
             <div class="la-hero pt-6 pt-lg-2 la-anim__stagger">
@@ -84,7 +84,7 @@
         <!-- Row: Start-->
         <div class="la-anim__wrap">
           <div class="la-hero__bottom d-flex justify-content-center justify-content-lg-between align-items-center pt-4 pb-14 la-anim__fade-in-bottom la-anim__D">
-            <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing"><?php if(Auth::check()): ?> <?php if(Auth::user()->subscription('main')->active() || Auth::user()->subscription('main')->onTrial()): ?> <?php endif; ?> <?php else: ?><a href="/learning-plans">Start free trial<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a><?php endif; ?></div>
+            <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing"><?php if(Auth::check()): ?> <?php if(Auth::user()->subscription('main')->active() || Auth::user()->subscription('main')->onTrial()): ?> <?php else: ?><a href="/learning-plans">Start free trial<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a> <?php endif; ?> <?php else: ?><a href="/learning-plans">Start free trial<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a><?php endif; ?></div>
             <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text--burple text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block"><a href="#home_courses">BROWSE COURSES</a><span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span></div>
           </div>
         </div>
@@ -438,7 +438,7 @@
             <div class="la-trail__title la-trail__title-out la-trail__title--black la-section__title la-section__title--big position-absolute la-anim__text-move">Observe.</div>
             <div class="la-trail__img-wrap la-anim__fade-in-right la-anim__B">
               <div class="la-trail__img position-relative">
-                <img class="w-100" src="./images/learners/home/observe.png" alt="observe">
+                <img class="w-100" src="./images/learners/home/observe.jpg" alt="observe">
               </div>
               <div class="la-trail__title la-trail__title-in la-trail__title--purple la-section__title la-section__title--big position-absolute la-anim__text-move la-anim__text-move--z1">Observe.</div>
             </div>
@@ -454,6 +454,8 @@
                 <?php if(Auth::check()): ?>
                   <?php if(Auth::user()->subscription('main')->active() || Auth::user()->subscription('main')->onTrial()): ?>
                     <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item la-anim__B" href="/login">Browse Course</a>
+                  <?php else: ?>
+                    <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item la-anim__B" href="/login">Start free trail</a>
                   <?php endif; ?>
                 <?php else: ?>
                   <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item la-anim__B" href="/login">Start free trail</a>
@@ -493,6 +495,13 @@
                             <?php if(Auth::check()): ?>
                               <?php if(Auth::user()->subscription('main')->active() || Auth::user()->subscription('main')->onTrial()): ?>
                                   <a href="/browse/courses" class="btn btn-primary la-btn la-btn--primary w-100">Browse Course</a>
+                              <?php else: ?>
+                                <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
+                                <p class="la-price__box-para mt-8 mb-2 la-anim__stagger-item--x">Get <span class="la-color--primary">35% savings </span>on Annual Plan</p>
+                                <div class="la-price__box-soffer la-soffer ml-0">
+                                  <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x"> <sup><small>$</small></sup>  39 / Month</div>
+                                  <div class="la-soffer__realprice la-anim__stagger-item--x"> <sup><small>$</small></sup>  99 (USD) </div>
+                                </div>
                               <?php endif; ?>
                             <?php else: ?>
                                 <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
