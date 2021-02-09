@@ -147,15 +147,15 @@ class User extends Authenticatable
     public function newSubscription($subscription, Plan $plan, $isTrial = TRUE)
     {
         $trial = new Period($plan->trial_interval, $plan->trial_period, now());
-            $period = new Period($plan->invoice_interval, $plan->invoice_period, $trial->getEndDate());
+        $period = new Period($plan->invoice_interval, $plan->invoice_period, $trial->getEndDate());
 
-            return $this->subscriptions()->create([
-                'name' => $subscription,
-                'plan_id' => $plan->getKey(),
-                'trial_ends_at' => $isTrial ? $trial->getEndDate() : now(),
-                'starts_at' => $period->getStartDate(),
-                'ends_at' => $period->getEndDate(),
-            ]);
+        return $this->subscriptions()->create([
+            'name' => $subscription,
+            'plan_id' => $plan->getKey(),
+            'trial_ends_at' => $isTrial ? $trial->getEndDate() : now(),
+            'starts_at' => $isTrial ? $trial->getStartDate() : $period->getStartDate(),
+            'ends_at' => $isTrial ? $trial->getEndDate() : $period->getEndDate(),
+        ]);
     }
 }
 
