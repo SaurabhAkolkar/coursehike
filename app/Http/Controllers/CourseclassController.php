@@ -59,8 +59,6 @@ class CourseclassController extends Controller
         //     'video_upld' => 'mimes:mp4,avi,wmv'
         // ]);
 
-        ini_set('max_execution_time', 400);
-
         $courseclass = new CourseClass;
         $courseclass->course_id = $request->course_id;
         $courseclass->coursechapter_id =  $request->course_chapters;
@@ -227,7 +225,7 @@ class CourseclassController extends Controller
             'video' => 'mimes:mp4,avi,wmv'
         ]);
 
-        ini_set('max_execution_time', 400);
+        // ini_set('max_execution_time', 400);
 
         $courseclass = CourseClass::findOrFail($id);
 

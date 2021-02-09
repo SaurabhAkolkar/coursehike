@@ -494,7 +494,7 @@ class CartController extends Controller
             'payment_method_types' => ['card'],
             'line_items' => [[
               'price_data' => [
-                'currency' => 'inr',
+                'currency' => 'usd',
                 'unit_amount' => $order->total * 100,
                 'product_data' => [
                   'name' => 'LILA Checkout',
