@@ -55,7 +55,6 @@ return [
     ],
 
      'linkedin' => [
-        
         'client_id'     => env('LINKEDIN_CLIENT_ID'),
         'client_secret' => env('LINKEDIN_CLIENT_SECRET'),
         'redirect'      => env('LINKEDIN_CALLBACK_URL'),
@@ -69,7 +68,6 @@ return [
     ],
 
     'instamojo' => [
-
         'api_key'       => env('IM_API_KEY'),
         'auth_token'    => env('IM_AUTH_TOKEN'),
         'url'           => env('IM_URL'),
