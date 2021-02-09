@@ -1,10 +1,8 @@
-@extends('learners.layouts.app')
+<?php $__env->startSection('content'); ?>
 
-@section('content')
-
-@if(Session::has('errors'))
-  <p class="alert alert-danger">{{ Session::get('errors') }}</p>
-@endif
+<?php if(Session::has('errors')): ?>
+  <p class="alert alert-danger"><?php echo e(Session::get('errors')); ?></p>
+<?php endif; ?>
 
 <section class="la-section__small la-section__payments-bg">
     <div class="la-section__inner">
@@ -19,34 +17,31 @@
             <div class="col-lg-6 la-anim__wrap">
               <div class="la-payment__subscription d-flex justify-content-between align-items-start">
                 <div class="la-payment__plan">
-                  @if ($has_trial)
+                  <?php if($has_trial): ?>
                     <div class="col px-0 text-sm text-md-md la-payment__plan-selected la-anim__stagger-item--x">Free Trial Period:</div>
                     <div class="col px-0  text-sm text-md-md la-payment__plan-selected mt-2 la-anim__stagger-item--x">Trial Ends on:</div>                  
-                  @endif
+                  <?php endif; ?>
                   <div class="col px-0  text-sm text-md-md la-payment__plan-selected la-anim__stagger-item--x">Plan Selected:</div>
                   <div class="col  px-0 text-sm text-md-md la-payment__plan-selected mt-2 la-anim__stagger-item--x">Amount to be Paid after trial:</div>
                 </div>
 
-                {{-- <div class="la-payment__plan">
-                  <div class="text-sm la-payment__plan-selected la-anim__stagger-item--x">Free Trial Period</div>
-                  <div class="text-sm la-payment__plan-amount mt-2 la-anim__stagger-item--x">7 days </div>
-                </div> --}}
+                
 
                 <div class="la-payment__amount">
-                  @if ($has_trial)
+                  <?php if($has_trial): ?>
                     <div class="col px-0  text-sm text-md-md la-payment__plan-type la-anim__stagger-item--x">7 days</div>
-                    <div class="col px-0  text-sm text-md-md la-payment__plan-amount mt-2 la-anim__stagger-item--x">{{\Carbon\Carbon::now()->addDays(7)->toFormattedDateString()}}</div>
-                  @endif
-                  <div class="col px-0  text-sm text-md-md la-payment__plan-type la-anim__stagger-item--x">{{$plan->name}} Subscription</div>
-                  <div class="col  px-0 text-sm text-md-md la-payment__plan-amount mt-2 la-anim__stagger-item--x">$ {{$plan->price}} </div>
+                    <div class="col px-0  text-sm text-md-md la-payment__plan-amount mt-2 la-anim__stagger-item--x"><?php echo e(\Carbon\Carbon::now()->addDays(7)->toFormattedDateString()); ?></div>
+                  <?php endif; ?>
+                  <div class="col px-0  text-sm text-md-md la-payment__plan-type la-anim__stagger-item--x"><?php echo e($plan->name); ?> Subscription</div>
+                  <div class="col  px-0 text-sm text-md-md la-payment__plan-amount mt-2 la-anim__stagger-item--x">$ <?php echo e($plan->price); ?> </div>
                 </div>
               </div>
             </div>
           </div>
 
           <form action="/subscription/plans" name="payment-details" id="payment-form" method="post" >
-            @csrf
-            <input type="hidden" name="subscription_plan" value="{{$plan->slug}}">
+            <?php echo csrf_field(); ?>
+            <input type="hidden" name="subscription_plan" value="<?php echo e($plan->slug); ?>">
             <!-- BILLING ADDRESS DETAILS: START -->
             <div class="row la-anim__wrap">
               <div class="col-lg-8">
@@ -54,7 +49,7 @@
                   <div class="la-payment__details-title text-2xl la-anim__stagger-item--x">Billing Address</div>
                   <div class="la-payment__form">
                       <div class="form-row la-payment__form-row">                        
-                          @php
+                          <?php
                               $address1 = new stdClass;
                               $address1->inputLabel = "House No./Street/Area";
                               $address1->inputType = "text";
@@ -85,38 +80,46 @@
                               $address5->inputId = "bill-zipcode";
 
                               $addresses = array( $address3, $address4, $address5);
-                          @endphp
+                          ?>
 
                           <div class="col-12 col-md-12">
-                              <x-payment 
-                                  :inputLabel="$address1->inputLabel"
-                                  :inputType="$address1->inputType"
-                                  :inputValue="$address1->inputValue"
-                                  :inputName="$address1->inputName"
-                                  :inputId="$address1->inputId"
-                              />
+                               <?php if (isset($component)) { $__componentOriginal641f81b69a265e38ea849a4e8e7658167b839d47 = $component; } ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Payment::class, ['inputLabel' => $address1->inputLabel,'inputType' => $address1->inputType,'inputValue' => $address1->inputValue,'inputName' => $address1->inputName,'inputId' => $address1->inputId]); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes([]); ?>
+<?php if (isset($__componentOriginal641f81b69a265e38ea849a4e8e7658167b839d47)): ?>
+<?php $component = $__componentOriginal641f81b69a265e38ea849a4e8e7658167b839d47; ?>
+<?php unset($__componentOriginal641f81b69a265e38ea849a4e8e7658167b839d47); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
                           </div>
 
-                          @foreach ($addresses as $address)
+                          <?php $__currentLoopData = $addresses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $address): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                               <div class="col-12 col-md-6">
-                                  <x-payment 
-                                      :inputLabel="$address->inputLabel"
-                                      :inputType="$address->inputType"
-                                      :inputValue="$address->inputValue"
-                                      :inputName="$address->inputName"
-                                      :inputId="$address->inputId"
-                                  />
+                                   <?php if (isset($component)) { $__componentOriginal641f81b69a265e38ea849a4e8e7658167b839d47 = $component; } ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Payment::class, ['inputLabel' => $address->inputLabel,'inputType' => $address->inputType,'inputValue' => $address->inputValue,'inputName' => $address->inputName,'inputId' => $address->inputId]); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes([]); ?>
+<?php if (isset($__componentOriginal641f81b69a265e38ea849a4e8e7658167b839d47)): ?>
+<?php $component = $__componentOriginal641f81b69a265e38ea849a4e8e7658167b839d47; ?>
+<?php unset($__componentOriginal641f81b69a265e38ea849a4e8e7658167b839d47); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
                               </div>
-                          @endforeach
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                           <div class="col-12 col-md-6">
                               <div class="la-payment__card la-anim__stagger-item--x">
                                   <label class="la-payment__card-label text-sm">Country <span style="color:var(--danger);">*</span></label>
                                   <select name="country" class="form-control select2 la-payment__card-input">
-                                      @foreach ($countries as $country)
-                                      <option value="{{ $country->iso }}" {{ (old("country") == $country->iso ? "selected":"") }}>
-                                          {{ $country->nicename }}</option>
-                                      @endforeach
+                                      <?php $__currentLoopData = $countries; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                      <option value="<?php echo e($country->iso); ?>" <?php echo e((old("country") == $country->iso ? "selected":"")); ?>>
+                                          <?php echo e($country->nicename); ?></option>
+                                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                   </select>
                               </div>
                           </div>
@@ -194,15 +197,15 @@
       </div>
     </div>
   </section>
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@section('footerScripts')
+<?php $__env->startSection('footerScripts'); ?>
 <script src="https://js.stripe.com/v3/"></script>
 
 <script>
   // Create a Stripe client.
-  var stripe = Stripe('{{ env("STRIPE_KEY") }}');
+  var stripe = Stripe('<?php echo e(env("STRIPE_KEY")); ?>');
 
   // Create an instance of Elements.
   var elements = stripe.elements();
@@ -283,4 +286,5 @@
 }
 </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('learners.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\lila-laravel\resources\views/learners/pages/payment.blade.php ENDPATH**/ ?>

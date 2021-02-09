@@ -24,7 +24,7 @@
           </div>
 
           <div class="mb-8 la-anim__wrap ">
-              <div class="la-mycourses__subtitle text-2xl head-font la-anim__stagger-item--x">Ongoing</div> 
+              <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Ongoing</div> 
                     
                <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.add-to-playlist','data' => ['playlists' => $playlists]]); ?>
@@ -40,7 +40,7 @@
 
               <div class="col-12 px-0 la-anim__wrap">
                   <?php if(count($on_going_courses) != 0): ?>
-                    <div class="row row-cols-lg-3 ">
+                    <div class="row row-cols-md-2 row-cols-lg-3 ">
                       <?php $__currentLoopData = $on_going_courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       
                        <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
@@ -85,7 +85,7 @@
         <div class="container la-anim__wrap">
           <div class="row">
             <div class="col-12">
-                <div class="la-mycourses__subtitle text-2xl head-font  la-anim__stagger-item--x">Yet to Start</div>
+                <div class="la-mycourses__subtitle text-2xl mb-6 head-font  la-anim__stagger-item--x">Yet to Start</div>
                 <?php if(count($yet_to_start_courses) != 0): ?>
                 <div class="row row-cols-lg-3 ">
                   <?php $__currentLoopData = $yet_to_start_courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -133,7 +133,7 @@
         <div class="container la-anim__wrap">
           <div class="row">
             <div class="col-12 mb-6 ">
-              <div class="la-mycourses__subtitle text-2xl head-font la-anim__stagger-item--x">Completed</div>
+              <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Completed</div>
             
                 <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
                   <div class="col la-empty__inner">
