@@ -24270,16 +24270,14 @@ section.la-section .la-section__inner .la-mycourses__more:hover:after {
   margin-bottom: var(--size-8);
 }
 
-.la-payment__plan-selected, .la-payment__plan-amount {
-  color: var(--gray6);
-  font-family: var(--body-font);
-  font-weight: var(--font-normal);
+.la-payment__plan-selected {
+  color: var(--gray5);
+  font-weight: var(--font-light);
 }
 
-.la-payment__type, .la-payment__amount {
+.la-payment__plan-type, .la-payment__plan-amount {
   color: var(--gray6);
-  font-family: var(--body-font);
-  font-weight: var(--font-light);
+  font-weight: var(--font-medium);
 }
 
 .la-payment__billing {

@@ -62,15 +62,13 @@ background: var(--gray);
     margin-bottom:var(--size-8);
 }
     
-.la-payment__plan-selected, .la-payment__plan-amount{
-    color:var(--gray6);
-    font-family:var(--body-font);
-    font-weight:var(--font-normal);
-}
-.la-payment__type, .la-payment__amount{
-    color:var(--gray6);
-    font-family:var(--body-font);
+.la-payment__plan-selected{
+    color:var(--gray5);
     font-weight:var(--font-light);
+}
+.la-payment__plan-type, .la-payment__plan-amount{
+    color:var(--gray6);
+    font-weight:var(--font-medium);
 }
 .la-payment__billing{
     margin:var(--size-10) 0;
