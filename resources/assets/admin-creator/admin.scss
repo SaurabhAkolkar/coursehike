@@ -1723,34 +1723,39 @@ a.la-admin__edit-btn{
   }
 }
 .la-btn__alert-success{
-  position:relative;
+  position:fixed;
+  top:80px;
   background-color: #EBD3FF !important;
   color:#56188C !important;
-  border:none;
+  border:1px solid rgba(#56188C, 0.15) ;
   animation: fadeAlert 0.5s ease 1;
   transition: all 0.1s ease;
-  padding:0 !important;
+  z-index:101;
+  overflow:hidden;
+  display:inline-block;
 }
 .la-btn__alert-danger{
-  position:relative;
+  position:fixed;
+  top:80px;
   background-color:#FFD3D9 !important;
   color:#C52A2E !important;
-  border:none;
+  border:1px solid rgba(#C52A2E, 0.15) ;;
   animation: fadeAlert 0.5s ease 1;
   transition: all 0.1s ease;
-  padding:0 !important;                       
+  z-index:101;
+  overflow:hidden;                       
 }
 @keyframes fadeAlert{
   from{transform:translateY(-30px); opacity:0;}
   to{transform:translateY(0px);opacity:1}
 }
 .la-btn__alert-msg{
-  padding:var(--size-5) var(--size-6);
-  font-size: var(--text-md);
   font-family: var(--font-body);
   font-weight: var(--font-medium);
-  margin:var(--size-base) 0;
-  opacity:1;                       
+  opacity:1;                     
+}
+.la-btn__alert-close{
+  margin:2px 0 !important;
 }
 /* =========== ALERT SUCCESS & DANGER: END =========== */
 
