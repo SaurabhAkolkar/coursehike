@@ -86,74 +86,74 @@
 
                                 
                                 <div class="form-group pt-2">
-                                  <label class="glabel-main" > Course Duration</label>
-                                  <label class="glabel d-flex" for="dur_hr">
-                                    <input class="d-none" id="dur_hr" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                    <div class="pl-2 mt-n1">less than an hr</div>
-                                  </label>
+                                  <div class="glabel-main mb-1"> Course Duration</div>
+                                    <div class="glabel d-flex  align-items-center m-0">
+                                        <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" name="duration" id="lessthan1" value="lessthan1">
+                                        <label class="d-flex align-items-center" for="lessthan1">
+                                          <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center" for="lessthan1"></span>
+                                          <strong class="pl-2" style="color:var(--gray6);opacity:1;"> Less than an hr</strong>
+                                        </label>
+                                    </div>
 
-                                  <label class="glabel d-flex" for="dur_hrs">
-                                    <input class="d-none" id="dur_hrs" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                    <div class="pl-2 mt-n1">1 hr - 5 hr</div>
-                                  </label>
+                                    <div class="glabel d-flex  align-items-center m-0">
+                                        <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" name="duration" id="lessthan5" value="lessthan5">
+                                        <label class="d-flex align-items-center" for="lessthan5">
+                                          <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center" for="lessthan5"></span>
+                                          <strong class="pl-2" style="color:var(--gray6);opacity:1;">  1hr - 5hrs</strong>
+                                        </label>
+                                    </div>
 
-                                  <label class="glabel d-flex" for="dur_more">
-                                    <input class="d-none" id="dur_more" type="checkbox" name=""><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                    <div class="pl-2 mt-n1">more than 5 hrs</div>
-                                  </label>
+                                    <div class="glabel d-flex  align-items-center m-0">
+                                        <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" name="duration" id="morethan5" value="morethan5">
+                                        <label class="d-flex align-items-center" for="morethan5">
+                                          <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex  justify-content-center align-items-center" for="morethan5"></span>
+                                          <strong class="pl-2" style="color:var(--gray6);opacity:1;"> More than 5hrs</strong>
+                                        </label>
+                                    </div>
                                 </div>
 
                                 <div class="form-group pt-2">
-                                  <label class="glabel-main" > Category</label>
+                                  <div class="glabel-main mb-2"> Category</div>
                                     @foreach($filter_categories as $c)
                                       <label class="glabel d-flex" for="course_{{$c->id}}">
-                                        <input class="d-none" type="checkbox" id="course_{{$c->id}}" @if(in_array($c->id, $selected_categories)) checked @endif onclick="addToCategory({{$c->id}})" value="{{$c->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                        <div class="pl-2 mt-n1">{{$c->title}}
-                                            @if($c->subcategory != null)
-                                              <ul class="d-flex flex-column">
-                                                @foreach($c->subcategory as $sc)
-                                                  <li>
-                                                    <label class="glabel d-flex" for="sub_course_{{$sc->id}}">
-                                                      <input class="d-none" id="sub_course_{{$sc->id}}" type="checkbox" @if(in_array($sc->id, $selected_subcategories)) checked @endif onclick="addToSubCategory({{$sc->id}})"  value="{{$sc->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                                      <div class="pl-2 mt-n1">{{$sc->title}}</div>
-                                                    </label>
-                                                  </li>
-                                                @endforeach
-                                              </ul>
-                                            @endif
-                                            
-                                          </div>
+                                        <input class="d-none" type="checkbox" id="course_{{$c->id}}" @if(in_array($c->id, $selected_categories)) checked @endif onclick="addToCategory({{$c->id}})" value="{{$c->id}}">
+                                        <span class="gcheck position-relative"><span class="gcheck-icon la-icon icon-tick text-xs position-absolute"></span></span>
+                                        <span class="pl-2 mt-n1 text-capitalize">{{$c->title}} </span>
                                       </label>
                                     @endforeach
                                 </div>
 
                                 <div class="form-group pt-2">
-                                  <label class="glabel-main" > Language</label>
+                                  <div class="glabel-main mb-2"> Language</div>
                               
                                   @foreach($langauges as $l)
                                     <label class="glabel d-flex" for="lang_{{$l->id}}">
-                                      <input class="d-none" id="lang_{{$l->id}}" @if(in_array($l->id, $selected_languages)) checked @endif type="checkbox" onclick="addToLanguage({{$l->id}})" value="{{$l->id}}"><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                      <div class="pl-2 mt-n1">{{$l->name}}</div>
+                                      <input class="d-none" id="lang_{{$l->id}}" @if(in_array($l->id, $selected_languages)) checked @endif type="checkbox" onclick="addToLanguage({{$l->id}})" value="{{$l->id}}">
+                                      <span class="gcheck position-relative"><span class="gcheck-icon la-icon icon-tick text-xs position-absolute"></span></span>
+                                      <span class="pl-2 mt-n1 text-capitalize">{{$l->name}}</span>
                                     </label>
                                   @endforeach
                               
                                 </div>
 
                                 <div class="form-group pt-2">
-                                  <label class="glabel-main" >Level</label>
+                                  <div class="glabel-main mb-2">Level</div>
                                   <label class="glabel d-flex" for="level_1">
-                                    <input class="d-none" id ="level_1" type="checkbox" name="" onclick="addToLevel(1)" @if(in_array(1, $selected_level)) checked @endif><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                    <div class="pl-2 mt-n1">Beginner</div>
+                                    <input class="d-none" id ="level_1" type="checkbox" name="" onclick="addToLevel(1)" @if(in_array(1, $selected_level)) checked @endif>
+                                    <span class="gcheck position-relative"><span class="gcheck-icon la-icon icon-tick text-xs position-absolute"></span></span>
+                                    <span class="pl-2 mt-n1">Beginner</span>
                                   </label>
 
                                   <label class="glabel d-flex" for="level_2">
-                                    <input class="d-none" id="level_2"  type="checkbox" name="" onclick="addToLevel(2)" @if(in_array(2, $selected_level)) checked @endif><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                    <div class="pl-2 mt-n1">Intermediate</div>
+                                    <input class="d-none" id="level_2"  type="checkbox" name="" onclick="addToLevel(2)" @if(in_array(2, $selected_level)) checked @endif>
+                                    <span class="gcheck position-relative"><span class="gcheck-icon la-icon icon-tick text-xs position-absolute"></span></span>
+                                    <span class="pl-2 mt-n1">Intermediate</span>
                                   </label>
 
                                   <label class="glabel d-flex" for="level_3">
-                                    <input class="d-none" id="level_3"  type="checkbox" name="" onclick="addToLevel(3)" @if(in_array(3, $selected_level)) checked @endif><span class="gcheck position-relative"><div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div></span>
-                                    <div class="pl-2 mt-n1">Advanced</div>
+                                    <input class="d-none" id="level_3"  type="checkbox" name="" onclick="addToLevel(3)" @if(in_array(3, $selected_level)) checked @endif>
+                                    <span class="gcheck position-relative"><span class="gcheck-icon la-icon icon-tick text-xs position-absolute"></span></span>
+                                    <span class="pl-2 mt-n1">Advanced</span>
                                   </label>
                                 </div>
 
@@ -168,40 +168,42 @@
                 <!-- filter div : END -->
 
 
-        <div class="la-courses py-4 py-md-16">
+        <div class="la-courses py-4 py-md-10">
              
                    <x-add-to-playlist 
                       :playlists="$playlists"
                     />
                   <!-- Add to Playlist Modal -->
-                
-              
-                <div class="row row-cols-lg-3">
-                  @if(count($courses) > 0)
-                      @foreach($courses as $course)
-                       
-                        <x-course 
-                            :id="$course->id"
-                            :img="$course->preview_image"
-                            :course="$course->title"
-                            :url="$course->slug"
-                            :rating="$course->review->avg('rating')"
-                            :creatorImg="$course->user->user_img"
-                            :creatorName="$course->user->fname"
-                            :creatorUrl="$course->user->id"
-                            :learnerCount="$course->learnerCount"
-                          />
-                      @endforeach                  
-                  @endif
+                                
+                @if(count($courses) > 0)
+                    <div class="la-anim__wrap">
+                      <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item">
+                        @foreach($courses as $course)
+                        
+                          <x-course 
+                              :id="$course->id"
+                              :img="$course->preview_image"
+                              :course="$course->title"
+                              :url="$course->slug"
+                              :rating="$course->review->avg('rating')"
+                              :creatorImg="$course->user->user_img"
+                              :creatorName="$course->user->fname"
+                              :creatorUrl="$course->user->id"
+                              :learnerCount="$course->learnerCount"
+                            />
+                        @endforeach 
+                      </div> 
+                    </div>                
+                @endif
 
-                </div>
+                
                 @if(count($courses) == 0)
-                <div class="col-12 px-0">
-                  <div class="la-empty__courses d-md-flex justify-content-between align-items-center">
+                <div class="col-12 px-0 la-anim__wrap">
+                  <div class="la-empty__courses d-md-flex justify-content-between align-items-center la-anim__stagger-item">
                         <div class="la-empty__inner">
-                            <h6 class="la-empty__course-title">No Courses Found.</h6>
+                            <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
                         </div>
-                        <div class="la-empty__browse-courses mt-n4">
+                        <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
                             <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
                                 Browse Courses
                                 <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>

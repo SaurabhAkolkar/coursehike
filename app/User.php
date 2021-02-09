@@ -90,7 +90,7 @@ class User extends Authenticatable
         if($value != null){
             return Storage::url(config('path.profile'). $value);
         }else{
-            return asset('images/user_img/default.jpg');
+            return asset('images/default-images/mentor-default.jpg');
         }
     }
 

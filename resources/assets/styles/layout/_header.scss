@@ -9,6 +9,7 @@ $sidemenuWidth: 300px;
         left: 0;
         background: var(--white);
         z-index: var(--header-z);
+        box-shadow:rgba(202, 202, 202, 0.40) 0px 0px 10px 10px;
         &__ {
             &gsearch{
                 &-{
@@ -109,7 +110,7 @@ $sidemenuWidth: 300px;
                             font-family: var(--head-font);
                             font-weight: var(--font-semibold);
                             font-size: 16px;
-                            margin-top:-5px;
+                            //margin-top:-5px;
                             text-transform: capitalize;
                         }
                         &icon {
@@ -288,12 +289,20 @@ $sidemenuWidth: 300px;
             &profile {
                 &- {
                     &img {
-                        width: 28px;
-                        height: 28px;
+                        width: 30px;
+                        height: 30px;
                         border-radius: 100px;
                         overflow: hidden;
                         object-fit: cover;
                         background-color: var(--gray);
+
+                        img{
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 100px;
+                            object-fit: cover;
+                            background-color: var(--gray);
+                        }
                     }
                 }
             }

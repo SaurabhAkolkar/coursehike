@@ -184,7 +184,7 @@
             <div class="la-header__nav-item d-lg-none ">
                 <a class="la-header__nav-link @if(Request::segment(1) == 'login') active @endif" href="/login">
                     <div class="la-header__nav-icon">
-                        <span class="la-icon--md icon-profile"></span>
+                        <span class="la-icon--lg icon-profile"></span>
                     </div>
                     <span class="la-header__nav-name">Login</span>
                 </a>
@@ -193,16 +193,16 @@
             <div class="la-header__nav-item">
                 <a class="la-header__nav-link @if(Request::segment(1) == 'browse') active @endif" href="/browse/courses">
                     <div class="la-header__nav-icon">
-                        <span class="la-icon--md icon-courses"></span>
+                        <span class="la-icon--lg icon-courses"></span>
                     </div>
-                    <span class="la-header__nav-name">Courses</span>
+                    <span class="la-header__nav-name">Browse Courses</span>
                 </a>
             </div>
 
             <div class="la-header__nav-item"> 
                 <a class="la-header__nav-link @if(Request::segment(1) == 'mentors') active @endif "  href="/mentors">
                     <div class="la-header__nav-icon">
-                    <span class="icon-all-mentors"></span>
+                    <span class="la-icon--lg icon-all-mentors"></span>
                     </div> 
                     <span class="la-header__nav-name">Mentors</span>
                 </a>
@@ -211,9 +211,27 @@
             <div class="la-header__nav-item">   
                 <a class="la-header__nav-link @if(Request::segment(1) == 'learning-plans') active @endif " href="/learning-plans">
                     <div class="la-header__nav-icon">
-                    <span class="icon-learning-plans"></span>
+                    <span class="la-icon--lg icon-learning-plans"></span>
                     </div>
                     <span class="la-header__nav-name">Learning Plans</span>
+                </a>
+            </div>
+
+            <div class="la-header__nav-item d-lg-none">   
+                <a class="la-header__nav-link @if(Request::segment(1) == 'become-creator') active @endif" href="/become-creator">
+                    <div class="la-header__nav-icon">
+                    <span class="la-icon--lg icon-become-creator"></span>
+                    </div>
+                    <span class="la-header__nav-name" style="text-transform:none">Become a Creator</span>
+                </a>
+            </div>
+
+            <div class="la-header__nav-item d-lg-none">   
+                <a class="la-header__nav-link @if(Request::segment(1) == 'guided-creator') active @endif" href="/guided-creator">
+                    <div class="la-header__nav-icon">
+                    <span class="la-icon--lg icon-guided-creator"></span>
+                    </div>
+                    <span class="la-header__nav-name">Guided Creator</span>
                 </a>
             </div>
 
@@ -229,7 +247,7 @@
             <div class="la-header__nav-item d-lg-none">   
                 <a class="la-header__nav-link @if(Request::segment(1) == 'contact') active @endif " href="/contact">
                     <div class="la-header__nav-icon">
-                    <span class="icon-contact"></span>
+                    <span class="la-icon--lg icon-contact"></span>
                     </div>
                     <span class="la-header__nav-name">Contact Us</span>
                 </a>

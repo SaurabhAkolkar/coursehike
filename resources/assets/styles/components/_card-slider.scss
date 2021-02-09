@@ -11,10 +11,28 @@
                 border-radius:2px;
                 width: 600px;
                 opacity:1;
+
+                @include respond-below(md){
+                    width: 320px;
+                }
+            }
+            &item{
+                padding:var(--size-8) var(--size-10);
+
+                @include respond-below(md){
+                    padding:var(--size-6) var(--size-6);
+                }
             }
             &img{
                 width:100px;
                 height:100px;
+                background-color: var(--gray);
+                object-fit: cover;
+
+                @include respond-below(md){
+                    width:70px;
+                    height:70px;
+                }
             }
             &name{
                 font-weight:var(--font-bold);
@@ -28,21 +46,3 @@
         }
     }
 }
-
-
-@media (max-width:991px){
-    #{$ap}- {
-        &mcard{
-            &__{
-                &slider{
-                    width: 320px;
-                }
-                &img{
-                    width:50px;
-                    height:50px;
-                }
-            }
-        }
-    } 
-}
-  

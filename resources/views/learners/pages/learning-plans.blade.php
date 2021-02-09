@@ -368,7 +368,7 @@
           <div class="col-12 col-lg-8 px-0 px-lg-3"> 
             <div class="la-lp__test-rgt ">      
                 @foreach($testimonial as $test)            
-                    <div class="la-lp__test-cards d-flex justify-content-end la-anim__stagger-item--x" id="testCard1">
+                    <div class="la-lp__test-cards d-flex @if($loop->index == 1) justify-content @else justify-content-end @endif la-anim__stagger-item--x" id="testCard_{{ $loop->index }}">
                       <div class="card la-lp__card-itm" >
                         <div class="la-card__top d-flex justify-content-between">
                           <div class="la-lp__profile d-flex justify-content-start">
@@ -379,16 +379,70 @@
                             </div>
                           </div>
                           <div class="la-lp__test-rating d-flex flex-row">
-                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                            <div class="la-icon--xl icon-star la-lp__rtng"></div>
-                            <div class="la-icon--xl icon-star la-lp__urtng"></div>
+                              @if($test->rating == 5)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+
+                              @elseif($test->rating >= 4)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @elseif($test->rating >= 3)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @elseif($test->rating >= 2)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @elseif($test->rating >= 1)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @else
+
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @endif
                           </div>
                         </div>
                         <p class="la-lp__test-review mt-5 body-font text-sm">{!! $test->details !!}
                         </p>
                       </div>
+
+                        @if($loop->index == 1)
+                            <div class="d-flex align-items-center justify-content-end">
+                              <ul class="la-lp__card-list d-none d-sm-block">
+                                @foreach($testimonial as $t)
+                                <li> <a role="button" href="#testCard_{{ $loop->index }}"></a></li>
+                                @endforeach
+                              </ul>
+                            </div>
+                        @endif
                     </div>
                 @endforeach
 
@@ -414,13 +468,7 @@
                         </p>
                       </div>
                       
-                      <div class="d-flex align-items-center">
-                        <ul class="la-lp__card-list d-none d-sm-block">
-                          <li> <a role="button" href="#testCard1"></a></li>
-                          <li><a role="button" href="#testCard2"></a></li>
-                          <li><a role="button" href="#testCard3"></a></li>
-                        </ul>
-                      </div>
+                      
                     </div>
 
 

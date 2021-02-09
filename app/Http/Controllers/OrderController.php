@@ -131,7 +131,7 @@ class OrderController extends Controller
     public function vieworder($id)
     {
         $setting = Setting::first();
-        $show = UserInvoiceDetail::with('details','details.course')->where('id', $id)->first();
+        $show = UserInvoiceDetail::with('details','details.course','details.course.user','user','user.state','user.country')->where('id', $id)->first();
        
         return view('admin.order.view', compact('show', 'setting'));
     }

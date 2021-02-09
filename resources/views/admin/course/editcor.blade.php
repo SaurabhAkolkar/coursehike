@@ -134,10 +134,7 @@
                              <div class="la-admin__cp-circle">
                                 <span class="la-admin__cp-radio"></span>
                                 <span class="la-admin__cp-label">Subscription</span> 
-                                <div class="mx-1 mt-1" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="There are many variations of passages of Lorem Ipsum available">
-                                  <span class="la-icon la-icon--md icon-details"> 
-                                </div>
-                                <small class=" text-xs mt-1">(Default)</small>
+                                <small class=" text-xs mt-1 pl-1">(Default)</small>
                              </div>
 
                               <div class="la-admin__cp-desc">
@@ -177,9 +174,6 @@
                               <div class="la-admin__cp-circle">
                                 <span class="la-admin__cp-radio"></span>
                                 <span class="la-admin__cp-label">Free</span> 
-                                <div class="mx-1 mt-1" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="There are many variations of passages of Lorem Ipsum available">
-                                  <span class="la-icon la-icon--md icon-details"> 
-                                </div>
                               </div>
 
                                 <div class="la-admin__cp-desc">

@@ -35,7 +35,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-6 mt-4">
+                                <div class="col-md-6 mt-5">
                                     <div class="la-admin__preview">
                                         <label>{{ __('adminstaticword.Image') }}:<sup class="redstar">*</sup></label><br/>
                                         <div class="la-admin__preview-img la-admin__course-frontimg" >
@@ -57,16 +57,21 @@
                             <br>
 
                         <!-- VIDEO: START -->
-                            <div class="row mt-3">
+                            <div class="row mt-5">
                             <div class="col-6">
                                     <div class="la-admin__preview">
-                                    <label for="" class="la-admin__preview-label p-0">Video Upload:<sup class="redstar">*</sup></label>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <label for="" class="la-admin__preview-label p-0">Video Upload:<sup class="redstar">*</sup></label>
+                                        <a href="/firstsection/remove-video" title="Delete Video" class="mb-3 la-admin__preview-delete text-uppercase ">Remove Video</a>
+                                    </div>
+
                                     <div class="la-admin__preview-img la-admin__course-imgvid" >
                                         <div class="la-admin__preview-text">
-                                                <p class="la-admin__preview-size">Video | 100MB</p>
-                                                <a href="/firstsection/remove-video" class="la-admin__preview-file la-admin__preview-filebg bg-danger text-uppercase">Remove</a>
-                                                <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
+                                            <p class="la-admin__preview-size">Video | 100MB</p>
+                                            <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
                                         </div>
+    
                                         <div class="text-center pr-20 mr-20">
                                             <span class="la-icon la-icon--8xl icon-preview-video" style="font-size:150px;">
                                             <span class="path1"><span class="path2"></span></span>

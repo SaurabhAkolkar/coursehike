@@ -39,14 +39,14 @@ class FeaturedMentorController extends Controller
         $data = $this->validate($request,[
             'mentor' => 'required',
             'course' => 'required',
-            'user_image' => 'required',
-            'image_thumbnail'=>'required',
+            'user_img' => 'required',
+            'image_thumbnail' => 'required',
         ]);
-            
-        $check = FeaturedMentor::where(['user_id'=>$request->user_id])->first();
+         
+        $check = FeaturedMentor::where(['user_id'=>$request->mentor])->first();
         if($check){
             Session::flash('success','User already in featured mentors.');
-            return redirect()->back();        
+            return redirect()->back()->withInput();        
         }
 
         if ($file = $request->file('user_image')) {

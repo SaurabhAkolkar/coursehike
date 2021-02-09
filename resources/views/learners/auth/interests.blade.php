@@ -26,7 +26,7 @@
                         <span class="la-entry__interest-thumbnail position-absolute z-0" role="button" onclick="addToInterest({{$c->id}})" id="interest_span_{{$c->id}}">
                           <img class="img-fluid" src="{{ $c->image }}" alt="" />
                         </span>
-                        <span class="la-entry__interest-name">{{$c->title}}</span>
+                        <span class="la-entry__interest-name text-capitalize">{{$c->title}}</span>
                       </div>
                     </li>
                 @endforeach
@@ -52,8 +52,8 @@
   function addToInterest(id){
       let input = $('#interest_input').val();
      
-      if($('#interest_span_'+id).hasClass('border')){
-        $('#interest_span_'+id).removeClass('border border-success');
+      if($('#interest_span_'+id).hasClass('la-entry__interest-border')){
+        $('#interest_span_'+id).removeClass('la-entry__interest-border');
 
         let input = $('#interest_input').val();
         input = input.replace(id,'');
@@ -67,7 +67,7 @@
         }
 
         $('#interest_input').val(input);
-        $('#interest_span_'+id).addClass('border border-2 border-success');
+        $('#interest_span_'+id).addClass('la-entry__interest-border');
       }
       
   }

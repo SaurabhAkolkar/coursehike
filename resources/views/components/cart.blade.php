@@ -37,8 +37,6 @@
                                 </div>
                                 <div class="la-cart__item-action edit ">
                                     <a  data-toggle="modal" data-target="#edit_cart_{{$cartId}}"> {{ $edit }}</a>
-                                
-                                   
                                 </div>
                             </div>
                         </div>
@@ -94,20 +92,20 @@
                                                     <h4 class="modal-title la-cart__edit-title">Edit Selection</h4>
                                                     <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
                                                 </div>
-                                                <form action="/add-to-cart" method="post" id="update_cart_form" >
+                                                <form action="/add-to-cart" method="post" id="update_cart_form" onsubmit="return changeInputs()" >
                                                 @csrf
                                                 <input type = "hidden" value="{{$courseId}}" name="course_id"/>
                                                 <div class="modal-body la-cart__edit-body">
                                                     <div class="la-form__radio-wrap pb-2">
-                                                        <input type="radio" name="classes" value="all-classes" id="all_classes" class="la-form__radio d-none" @if($classType == 'all_classes') checked @endif>
-                                                        <label for="all_classes" class="d-flex align-items-center">
+                                                        <input type="radio" name="classes_{{ $courseId }}" onclick="checkBoxs('all', {{ $courseId }})" value="all-classes" id="all_classes_{{ $courseId }}" class="la-form__radio d-none cart_radio_button" @if($classType == 'all_classes') checked @endif>
+                                                        <label for="all_classes_{{ $courseId }}" class="d-flex align-items-center">
                                                             <span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span>
                                                             <span class="la-cart__edit-classes"> All Classes</span>
                                                         </label> 
                                                     </div>
                                                     <div class="la-form__radio-wrap">
-                                                        <input type="radio" name="classes" value="select-classes" id="select_classes" class="la-form__radio d-none" @if($classType  == 'selected_classes') checked @endif >
-                                                        <label for="select_classes" class="d-flex align-items-center">
+                                                        <input type="radio" name="classes_{{ $courseId }}" onclick="checkBoxs('selected', {{ $courseId }})" value="select-classes" id="select_classes_{{ $courseId }}" class="la-form__radio d-none cart_radio_button" @if($classType  == 'selected_classes') checked @endif >
+                                                        <label for="select_classes_{{ $courseId }}" class="d-flex align-items-center">
                                                             <span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span>
                                                             <span class="la-cart__edit-classes"> Select Classes</span>
                                                         </label> 
@@ -135,7 +133,7 @@
                                                             <div class="col-2 col-md-2 text-center my-auto ">
                                                                 <div class="form-group m-0">
                                                                     <label class="glabel d-flex justify-content-center m-0">
-                                                                        <input type="checkbox" name="selected_classes[]" class="d-none" @if(in_array($class->id, $classes_id->toArray())) checked @endif value="{{$class->id}}">
+                                                                        <input type="checkbox" name="selected_classes[]" class="d-none selected_classes{{ $courseId }}" @if(in_array($class->id, $classes_id->toArray())) checked @endif value="{{$class->id}}">
                                                                         <span class="gcheck position-relative px-1">
                                                                             <div class="gcheck-icon la-icon icon-tick text-xs position-absolute" style="margin-left:-6px;"></div>
                                                                         </span>
@@ -186,3 +184,4 @@
                                         </div>
                                     </div>
                                     <!-- Edit Selection Popup: End -->
+                                   

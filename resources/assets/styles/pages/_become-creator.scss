@@ -227,8 +227,8 @@ section.la-start-creating{
 	background-color:var(--gray);
 }
 .la-bcreator__calc-title{
-	color:var(--gray4);
-	font-weight: var(--font-medium);
+	color:var(--gray7);
+	font-weight: var(--font-normal);
 }
 .la-bcreator__calc-inner{
 	@include respond-below(sm){
@@ -238,14 +238,17 @@ section.la-start-creating{
 .la-bcreator__calc-itm{
 	font-family:var(--head-font);
 	color:var(--gray4);
-	font-size: var(--text-lg);
+	font-weight: var(--font-semibold);
 
 	@include respond-below(sm){
-		margin:0 var(--size-3);
+		margin:0 var(--size-7);
 		font-size: var(--text-md);
+
+		&:last-child{
+			padding-top:var(--size-4);
+		}
 	}
 }
-
 
 
 //Lila Reach Stats Section Start

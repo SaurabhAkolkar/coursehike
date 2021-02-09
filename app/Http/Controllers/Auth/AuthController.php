@@ -34,7 +34,12 @@ class AuthController extends Controller
     public function handleProviderCallback($provider, Request $request)
     {
         try{
-            $user = Socialite::driver($provider)->user();
+            
+            if($provider == 'linkedin'){
+                $user = Socialite::driver($provider)->scopes(['r_liteprofile', 'r_emailaddress'])->user();
+            }else{
+                $user = Socialite::driver($provider)->user();
+            }
         }catch(\Exception $ex){
             if(!$request->has('code') || $request->has('denied')) {
                 return redirect('/');
