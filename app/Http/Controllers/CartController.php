@@ -156,6 +156,7 @@ class CartController extends Controller
     public function learnerCart(){
         // dd(Session::all());
         $carts = Cart::with('user','cartItems')->where(['user_id' => Auth::User()->id, 'status' => 1])->get();
+		$countries = DB::table('allcountry')->get();
         $cartItem = [];
         $discount = 0;
         $total = 0;
@@ -200,7 +201,7 @@ class CartController extends Controller
             }
         }     
 
-        return view('learners.pages.cart', compact('carts','discount','playlists','suggested_courses','total','coupons','coupon'));
+        return view('learners.pages.cart', compact('carts','discount','playlists','suggested_courses','total','coupons','coupon','countries'));
     }
 
     public function applyCoupon($id){
@@ -316,66 +317,66 @@ class CartController extends Controller
 
     public function cartCheckout(Request $request){
 
-            $cart = Cart::with('user','cartItems')->where(['user_id' => Auth::User()->id, 'status'=>1])->get();
-            // $cartItems = CartItem::where('cart_id', $check->id)->get();
-          
-            if(empty($cart) || count($cart) < 1){
-                return redirect()->back()->with('message','Your cart is empty.');
-            }
-            
-            // $price = $cartItems->sum('price');
-            $price = $cart->sum(function ($item) {
-                return array_sum(array_column($item['cartItems']->toArray(), 'price'));
-            });
-            
-            $random = Str::of(Str::orderedUuid())->upper()->explode('-');
-            $insert['invoice_id'] = '#LILA-'. date('m-d') . '-'. $random[0]. '-'. $random[1];
-            $insert['user_id'] =  Auth::User()->id;
-            $insert['taxes'] = 5;
+        $cart = Cart::with('user','cartItems')->where(['user_id' => Auth::User()->id, 'status'=>1])->get();
+        // $cartItems = CartItem::where('cart_id', $check->id)->get();
+        
+        if(empty($cart) || count($cart) < 1){
+            return redirect()->back()->with('message','Your cart is empty.');
+        }
+        
+        // $price = $cartItems->sum('price');
+        $price = $cart->sum(function ($item) {
+            return array_sum(array_column($item['cartItems']->toArray(), 'price'));
+        });
+        
+        $random = Str::of(Str::orderedUuid())->upper()->explode('-');
+        $insert['invoice_id'] = '#LILA-'. date('m-d') . '-'. $random[0]. '-'. $random[1];
+        $insert['user_id'] =  Auth::User()->id;
+        $insert['taxes'] = 5;
 
-            if(Session::has('appliedCoupon'))
-            {
-                $coupon = Coupon::findOrFail($request->coupon_id);
-                if($coupon){
-                    if($coupon->distype == 'fix'){
-                        $insert['discount'] = $coupon->amount;
-                    }else{
-                        $insert['discount'] = ( $price * $coupon->amount) / 100;
-                    }
-                    $insert['coupon_appied'] = $coupon->code;
-                    $insert['coupon_id'] = $request->coupon_id;
-                    $insert['discount_type'] = 'coupon_discount';
-                    $price = $price - $insert['discount'];
+        if(Session::has('appliedCoupon'))
+        {
+            $coupon = Coupon::findOrFail($request->coupon_id);
+            if($coupon){
+                if($coupon->distype == 'fix'){
+                    $insert['discount'] = $coupon->amount;
                 }else{
-                    $insert['discount_type'] = 'regular_discount';
+                    $insert['discount'] = ( $price * $coupon->amount) / 100;
                 }
+                $insert['coupon_appied'] = $coupon->code;
+                $insert['coupon_id'] = $request->coupon_id;
+                $insert['discount_type'] = 'coupon_discount';
+                $price = $price - $insert['discount'];
             }else{
                 $insert['discount_type'] = 'regular_discount';
             }
-            
-            $insert['sub_total'] = $price;
-            $insert['total'] = $price;
-            $insert['purchase_type'] = $cart->first()->cartItems->first()->purchase_type;
-            $insert['status'] = 'payment-pending';
+        }else{
+            $insert['discount_type'] = 'regular_discount';
+        }
+        
+        $insert['sub_total'] = $price;
+        $insert['total'] = $price;
+        $insert['purchase_type'] = $cart->first()->cartItems->first()->purchase_type;
+        $insert['status'] = 'payment-pending';
 
-            $info = UserInvoiceDetail::create($insert);
-            foreach($cart as $single_cart){
-                $insertDetails['invoice_id'] = $info->id;
-                foreach($single_cart->cartItems as $c){
-                    $insertDetails['course_id'] = $c->course_id;
-                    $insertDetails['class_id'] = $c->class_id;
-                    $insertDetails['purchase_type'] = $c->purchase_type;
-                    $insertDetails['price'] = $c->price;
-                    InvoiceDetail::create($insertDetails);
-                }
+        $info = UserInvoiceDetail::create($insert);
+        foreach($cart as $single_cart){
+            $insertDetails['invoice_id'] = $info->id;
+            foreach($single_cart->cartItems as $c){
+                $insertDetails['course_id'] = $c->course_id;
+                $insertDetails['class_id'] = $c->class_id;
+                $insertDetails['purchase_type'] = $c->purchase_type;
+                $insertDetails['price'] = $c->price;
+                InvoiceDetail::create($insertDetails);
             }
+        }
 
-            Session::forget('appliedCoupon');
-            // Cart::where(['user_id'=> Auth::User()->id])->update(['status'=>0]);
+        Session::forget('appliedCoupon');
+        // Cart::where(['user_id'=> Auth::User()->id])->update(['status'=>0]);
 
-            return $this->stripeCheckout($info);
+        return $this->stripeCheckout($info, $request);
 
-            // return redirect()->back()->with('message','Purchase Successful.');
+        // return redirect()->back()->with('message','Purchase Successful.');
     }
 
     public function cartpage(Request $request)
@@ -485,7 +486,7 @@ class CartController extends Controller
        
     }
 
-    public function stripeCheckout($order)
+    public function stripeCheckout($order, $request)
     {
 
         \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
@@ -502,6 +503,7 @@ class CartController extends Controller
                 ],
               ],
               'quantity' => 1,
+              'tax_rates' => ['txr_1IJEf2IdmI7AymqpVH6Bl2ai'],
             ]],
             'client_reference_id' => $order->id, // Cart ID
             'mode' => 'payment',
