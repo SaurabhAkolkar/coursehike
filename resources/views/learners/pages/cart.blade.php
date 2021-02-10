@@ -76,8 +76,8 @@
                     <!-- Cousre Cart:  End -->
 
                     <div class="col-lg-4 mb-5 mb-md-0 la-anim__wrap">
-                      <div class="la-profile__title body-font text-xl  la-anim__stagger-item--x">Billing Address</div>
-                      <form class="form-row la-payment__form-row pb-10">                        
+                      {{-- <div class="la-profile__title body-font text-xl  la-anim__stagger-item--x">Billing Address</div> --}}
+                        {{-- <form class="form-row la-payment__form-row pb-10">                        
                             @php
                                 $address1 = new stdClass;
                                 $address1->inputLabel = "House No./Street/Area";
@@ -108,8 +108,6 @@
                                 $address5->inputName = "zipcode";
                                 $address5->inputId = "bill-zipcode";
 
-
-                                $countries = [];
                                 $addresses = array( $address3, $address4, $address5);
                             @endphp
 
@@ -123,6 +121,18 @@
                                 />
                             </div>
 
+                            <div class="col-12 col-md-6">
+                                <div class="la-payment__card la-anim__stagger-item--x">
+                                    <label class="la-payment__card-label text-sm">Country <span style="color:var(--danger);">*</span></label>
+                                    <select name="country" class="form-control select2 la-payment__card-input">
+                                        @foreach ($countries as $country)
+                                        <option value="{{ $country->iso }}" {{ ($country->iso == "IN" ? "selected":"") }} {{ old("country") == $country->iso ? "selected":"" }} >
+                                            {{ $country->nicename }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
                             @foreach ($addresses as $address)
                                 <div class="col-12 col-md-6">
                                     <x-payment 
@@ -134,20 +144,8 @@
                                     />
                                 </div>
                             @endforeach
-
-                            <div class="col-12 col-md-6">
-                                <div class="la-payment__card la-anim__stagger-item--x">
-                                    <label class="la-payment__card-label text-sm">Country <span style="color:var(--danger);">*</span></label>
-                                    <select name="country" class="form-control select2 la-payment__card-input">
-                                        @foreach ($countries as $country)
-                                        <option value="{{ $country->iso }}" {{ (old("country") == $country->iso ? "selected":"") }}>
-                                            {{ $country->nicename }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
                             
-                        </form>
+                        </form> --}}
                       
 
                         <!-- Cart Checkout: Start -->
