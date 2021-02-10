@@ -19342,16 +19342,15 @@ a, a:hover {
 .la-rtng__review-modal {
   top: 15%;
 }
-.la-rtng__review-dialog {
+.la-rtng__review-content {
   width: 400px !important;
   height: auto;
   box-shadow: 0px 6px 12px #00000029;
   border-radius: 10px;
 }
-@media (max-width: 991px) {
-  .la-rtng__review-dialog {
+@media (max-width: 767px) {
+  .la-rtng__review-content {
     width: 100% !important;
-    margin: 0 auto;
   }
 }
 .la-rtng__review-header {
@@ -21935,6 +21934,11 @@ label.error {
   border-radius: 10px;
   padding: var(--size-6) var(--size-8) !important;
   margin: 0 auto;
+}
+@media (max-width: 767px) {
+  .la-locked__modal-content {
+    width: 100% !important;
+  }
 }
 .la-locked__modal-header {
   border-bottom: none !important;
