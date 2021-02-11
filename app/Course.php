@@ -143,13 +143,14 @@ class Course extends Model
         return Storage::url(config('path.course.img'). $value);
     }
 
-    public function getPriceAttribute(){
+    public function getPriceAttribute($value){
 
-        if ($position = Location::get()) {
+        if ($position = 'India') {
             // Successfully retrieved position.
-            dd($position->countryName);
+            return $value * 75;
+
         } else {
-            // Failed retrieving position.
+           return $value;
         }
 
         

@@ -217,7 +217,7 @@ class HomeController extends Controller
         ];
 
         //dd($featuredMentor);
-        dd($master_classes[0]->courses->price);
+        // dd($master_classes[0]->courses->price);
     
         return view('learners.pages.home')->with($data);
     }
