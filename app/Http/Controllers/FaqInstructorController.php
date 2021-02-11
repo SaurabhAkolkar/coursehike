@@ -29,7 +29,6 @@ class FaqInstructorController extends Controller
         
         $input = $request->all();
         $data = FaqInstructor::create($input);
-
         if(isset($request->status))
         {
             $data->status = '1';

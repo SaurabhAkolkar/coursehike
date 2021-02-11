@@ -44,16 +44,6 @@ class FaqController extends Controller
         
         $input = $request->all();
         $data = FaqStudent::create($input);
-
-        if(isset($request->status))
-        {
-            $data->status = '1';
-        }
-        else
-        {
-            $data->status = '0';
-        }
-
         $data->save();
 
         return redirect('faq');
@@ -99,15 +89,6 @@ class FaqController extends Controller
 
         $data = FaqStudent::findorfail($id);
         $input = $request->all();
-
-        if(isset($request->status))
-        {
-            $input['status'] = '1';
-        }
-        else
-        {
-            $input['status'] = '0';
-        }
         
         $data->update($input);
         

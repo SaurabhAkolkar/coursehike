@@ -493,8 +493,8 @@ class UserController extends Controller
             }
             catch(\Swift_TransportException $e){
 
-                header( "refresh:5;url=./login" );
-                
+                // header( "refresh:5;url=./login" );
+               // dd($e);
                 dd("Your Registration is successfull ! but welcome email is not sent because your webmaster not updated the mail settings in admin dashboard ! Kindly go back and login");
 
             }

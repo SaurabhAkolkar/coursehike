@@ -47,10 +47,10 @@ class SubscriptionController extends Controller
 
 	public function postPaymentStripe(Request $request)
 	{
+
 		$validator = Validator::make($request->all(), [
 			'stripeToken' => 'required',
 			'subscription_plan' => 'required',
-
 			'street_name' => 'required',
 			'zipcode' => 'required',
 			'city' => 'required',
@@ -278,12 +278,15 @@ class SubscriptionController extends Controller
 		$user = Auth::User();
 		$active_plan = app('rinvex.subscriptions.plan_subscription')->ofUser($user)->latest()->first(); 
 		$card = null;
+		$canceled_subscription = null;
 		if($active_plan){
 			$subscription = UserSubscription::where('user_id', $user->id)->first();
 			if($subscription)
 				$card = $this->stripe->paymentMethods()->find($subscription->payment_method_id)['card'];
 		}
-		$canceled_subscription = $user->subscription('main')->canceled();
+		if($user->subscription('main')){
+				$canceled_subscription = $user->subscription('main')->canceled();
+		}
 
 		$last_payment = UserSubscriptionInvoice::where('user_id', $user->id)->latest()->first();
 		return view('learners.pages.billing', compact('active_plan','card','last_payment', 'canceled_subscription'));

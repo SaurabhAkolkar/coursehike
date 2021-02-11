@@ -50,7 +50,7 @@
                   <li class="tg-list-item">
                     <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" value="{{ old('status') }}">
                     <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label> 
-
+                    <input type="hidden"  name="status" value="0" for="status" id="status_input">
                   </li>
                   
                 </div>
@@ -85,6 +85,12 @@
 "use strict";
   tinymce.init({selector:'textarea'});
 })(jQuery);
+
+$(function() {
+    $('#status').change(function() {
+      $('#status_input').val(+ $(this).prop('checked'))
+    })
+  })
 </script>
 
 @endsection

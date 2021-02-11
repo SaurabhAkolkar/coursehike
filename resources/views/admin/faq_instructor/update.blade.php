@@ -50,7 +50,7 @@
                       <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" {{ $find->status == '1' ? 'checked' : '' }} >
                       <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
                   </li>
-                  <input type="hidden"  name="free" value="0" for="status" id="status">
+                  <input type="hidden"  name="status" value="0" for="status" id="status_input">
                 </div>
               </div>
               <br>
@@ -83,6 +83,12 @@
 "use strict";
   tinymce.init({selector:'textarea'});
 })(jQuery);
+
+$(function() {
+    $('#status').change(function() {
+      $('#status_input').val(+ $(this).prop('checked'))
+    })
+  })
 </script>
 
 @endsection
