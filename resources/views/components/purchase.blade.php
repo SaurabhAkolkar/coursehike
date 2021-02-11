@@ -1,4 +1,4 @@
-<div class="la-puchaseh__items d-none d-lg-block">
+<div class="la-puchaseh__items">
     <div class="la-purchaseh__item row align-items-center pb-8 la-anim__stagger-item">           
         {{-- <div class="col-lg-4 ">
             <div class="la-purchaseh__item-info d-flex align-items-center">
@@ -11,30 +11,31 @@
                 </div>
             </div>
         </div> --}}
-        <div class="col-lg-4">
-            <div class="la-purchaseh__item-date text-md">{{ $invoice }}</div>
+        <div class="col-3 col-lg-4">
+            <div class="la-purchaseh__item-date text-sm text-md-md">{{ $invoice }}</div>
         </div>
-        <div class="col-lg-1"></div>
-        <div class="col-lg-1 text-center">
-            <div class="la-purchaseh__item-date text-md">{{ $date }}</div>
+        {{-- <div class="col-lg-1"></div> --}}
+
+        <div class="col-3 col-lg-2 ">
+            <div class="la-purchaseh__item-date text-xs text-md-md">{{ $date }}</div>
         </div>
 
-        <div class="col-lg-1"></div>
+        {{-- <div class="col-lg-1"></div> --}}
 
-        {{-- <div class="col-lg-1 text-center">
+        {{-- <div class="col-lg-1 ">
             <div class="la-purchaseh__item-paymode"> {{ $paymode }}</div>
         </div> --}}
 
-        <div class="col-lg-1 px-0 text-center">
-            <div class="la-purchaseh__item-total">$ {{ $total }}</div>
+        <div class="col-2 col-lg-1">
+            <div class="la-purchaseh__item-total text-sm text-md-md">$ {{ $total }}</div>
         </div>
 
-        <div class="col-lg-1 text-center">
-            <div class="la-purchaseh__item-paystatus">{{ $paystatus }}</div>
+        <div class="col-2 col-lg-1">
+            <div class="la-purchaseh__item-paystatus text-capitalize text-sm text-md-md">{{ $paystatus }}</div>
         </div>
 
-        <div class="col-lg-1 p-0 text-right">
-            <a class="la-purchaseh__item-invoice" role="button" target="_blank" href= {{ $invoiceUrl }}>Invoice
+        <div class="col-2 col-lg-2 ">
+            <a class="la-purchaseh__item-invoice text-xs text-md-md" role="button" target="_blank" href= {{ $invoiceUrl }}>Invoice
                 <span class="la-icon icon-download la-purchaseh__item-download" ></span>
             </a>
         </div>
