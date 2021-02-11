@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
 use App\UserPurchasedCourse;
 use App\UserWatchTimelog;
+use Stevebauman\Location\Facades\Location;
 
 class Course extends Model
 {
@@ -142,6 +143,17 @@ class Course extends Model
         return Storage::url(config('path.course.img'). $value);
     }
 
+    public function getPriceAttribute(){
+
+        if ($position = Location::get()) {
+            // Successfully retrieved position.
+            dd($position->countryName);
+        } else {
+            // Failed retrieving position.
+        }
+
+        
+    }
     public function getLearnerCountAttribute()
     {
         $count = 0;
