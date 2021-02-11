@@ -63,7 +63,7 @@
                             <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-portfolio-link"></span></span>
                             <input class="la-form__input la-entry__input"value="" id="portfolio_links" name="portfolio_links" placeholder="Portfolio Links (if any)"><span class="la-entry__input-icon" style="right:0;cursor:pointer;border:0" onclick="addToLinks();">+</span>
                           </div>
-                <button class="btn la-btn la-btn--secondary la-anim__stagger-item--x w-100" type="submit">CONTINUE</button>
+                <button class="btn la-btn la-btn__secondary la-anim__stagger-item--x w-100" type="submit">CONTINUE</button>
               </form>
               <!-- <div class="la-entry__other-option text-center mt-5">Already have an account? <span class="la-btn__plain text--burple text--md ml-2"><a href="">Login</a></span></div> -->
             </div>
@@ -166,7 +166,7 @@
               type: 'post',
               data: $(form).serialize(),
               success: function(response) {
-                  let message = `<h3>${response}</h3>`;
+                  let message = `<h3>${response}</h3> <a class="la-btn__app" href="/profile">Update Profile</a>`;
                   $('#creator_signup_div').html(message);
               }   
             });  

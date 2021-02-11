@@ -6,37 +6,39 @@
   <p class="alert alert-danger">{{ Session::get('errors') }}</p>
 @endif
 
-<section class="la-section la-section__payments-bg">
+<section class="la-section__small la-section__payments-bg">
     <div class="la-section__inner">
       <div class="la-section__card-payments">
         <div class="container px-lg-14">
           <div class="row la-anim__wrap">
             <div class="col-lg-6">
-              <h1 class="la-payment__title text-2xl text-md-4xl head-font la-anim__stagger-item">Payment Details</h1>
+              <h1 class="la-payment__title text-2xl text-md-4xl la-anim__stagger-item">Payment Details</h1>
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-5 la-anim__wrap">
-              <div class="la-payment__subscription d-flex justify-content-between">
+            <div class="col-lg-6 la-anim__wrap">
+              <div class="la-payment__subscription d-flex justify-content-between align-items-start">
                 <div class="la-payment__plan">
                   @if ($has_trial)
-                    <div class="text-sm la-payment__plan-selected mb-2 la-anim__stagger-item--x">Free Trial Period</div>
-                    <div class="text-sm la-payment__plan-selected mb-2 la-anim__stagger-item--x">Trial Ends on</div>                  
+                    <div class="col px-0 text-sm text-md-md la-payment__plan-selected la-anim__stagger-item--x">Free Trial Period:</div>
+                    <div class="col px-0  text-sm text-md-md la-payment__plan-selected mt-2 la-anim__stagger-item--x">Trial Ends on:</div>                  
                   @endif
-                  <div class="text-sm la-payment__plan-selected la-anim__stagger-item--x">Plan Selected</div>
-                  <div class="text-sm la-payment__plan-amount mt-2 la-anim__stagger-item--x">Amount to be Paid after trial</div>
+                  <div class="col px-0  text-sm text-md-md la-payment__plan-selected la-anim__stagger-item--x">Plan Selected:</div>
+                  <div class="col  px-0 text-sm text-md-md la-payment__plan-selected mt-2 la-anim__stagger-item--x">Amount to be Paid after trial:</div>
                 </div>
+
                 {{-- <div class="la-payment__plan">
                   <div class="text-sm la-payment__plan-selected la-anim__stagger-item--x">Free Trial Period</div>
                   <div class="text-sm la-payment__plan-amount mt-2 la-anim__stagger-item--x">7 days </div>
                 </div> --}}
+
                 <div class="la-payment__amount">
                   @if ($has_trial)
-                    <div class="text-md la-payment__type mb-2 la-anim__stagger-item--x">7 days</div>
-                    <div class="text-md la-payment__type mb-2 la-anim__stagger-item--x">{{\Carbon\Carbon::now()->addDays(7)->toFormattedDateString()}}</div>
+                    <div class="col px-0  text-sm text-md-md la-payment__plan-type la-anim__stagger-item--x">7 days</div>
+                    <div class="col px-0  text-sm text-md-md la-payment__plan-amount mt-2 la-anim__stagger-item--x">{{\Carbon\Carbon::now()->addDays(7)->toFormattedDateString()}}</div>
                   @endif
-                  <div class="text-md la-payment__type la-anim__stagger-item--x">{{$plan->name}} Subscription</div>
-                  <div class="text-md la-payment__amount mt-2 la-anim__stagger-item--x">${{$plan->price}} </div>
+                  <div class="col px-0  text-sm text-md-md la-payment__plan-type la-anim__stagger-item--x">{{$plan->name}} Subscription</div>
+                  <div class="col  px-0 text-sm text-md-md la-payment__plan-amount mt-2 la-anim__stagger-item--x">$ {{$plan->price}} </div>
                 </div>
               </div>
             </div>
@@ -47,7 +49,7 @@
             <input type="hidden" name="subscription_plan" value="{{$plan->slug}}">
             <!-- BILLING ADDRESS DETAILS: START -->
             <div class="row la-anim__wrap">
-              <div class="col-lg-6">
+              <div class="col-lg-8">
                 <div class="la-payment__details">
                   <div class="la-payment__details-title text-2xl la-anim__stagger-item--x">Billing Address</div>
                   <div class="la-payment__form">
@@ -107,10 +109,10 @@
                               </div>
                           @endforeach
 
-                          <div class="col-12 col-md-12">
+                          <div class="col-12 col-md-6">
                               <div class="la-payment__card la-anim__stagger-item--x">
-                                  <label class="la-payment__card-label text-sm">Country</label>
-                                  <select name="country" class="col-sm-9 form-control select2">
+                                  <label class="la-payment__card-label text-sm">Country <span style="color:var(--danger);">*</span></label>
+                                  <select name="country" class="form-control select2 la-payment__card-input">
                                       @foreach ($countries as $country)
                                       <option value="{{ $country->iso }}" {{ (old("country") == $country->iso ? "selected":"") }}>
                                           {{ $country->nicename }}</option>
@@ -128,22 +130,22 @@
             
             <!-- CARD PAYMENT DETAILS: START -->
             <div class="row la-anim__wrap">
-              <div class="col-lg-6">
+              <div class="col-lg-8">
                 <div class="la-payment__details">
                   <div class="la-payment__details-title text-2xl la-anim__stagger-item--x">Card Details</div>
                   <div class="la-payment__form">
                     <div class="form-row la-payment__form-row">
                           <div class="col-12 col-md-6">
                             <div class="la-payment__card la-anim__stagger-item--x">
-                              <label class="la-payment__card-label text-sm">Card Number</label>
-                              <div id="card-number"></div>
+                              <label class="la-payment__card-label text-sm">Card Number <span style="color:var(--danger);">*</span></label>
+                              <div id="card-number" class="la-payment__card-input la-payment__card-input--padding"></div>
                             </div>
                           </div>
 
                           <div class="col-12 col-md-6">
                             <div class="la-payment__card la-anim__stagger-item--x">
-                              <label class="la-payment__card-label text-sm">Expiry Date</label>
-                              <div id="card-expiry"></div>
+                              <label class="la-payment__card-label text-sm">Expiry Date <span style="color:var(--danger);">*</span></label>
+                              <div id="card-expiry" class="la-payment__card-input la-payment__card-input--padding"></div>
                             </div>
                           </div>
                     </div>
@@ -151,8 +153,8 @@
                     <div class="form-row la-payment__form-row">
                           <div class="col-12 col-md-6">
                             <div class="la-payment__card la-anim__stagger-item--x">
-                                <label class="la-payment__card-label text-sm">Card Holder's Name</label>
-                                    <input class="form-control la-payment__card-input" 
+                                <label class="la-payment__card-label text-sm">Card Holder's Name <span style="color:var(--danger);">*</span></label>
+                                    <input class="form-control la-payment__card-input la-payment__card-input--padding" 
                                         type="text"
                                         name="card-owner"
                                         placeholder="Enter Card Holder's Name"
@@ -162,23 +164,23 @@
 
                           <div class="col-12 col-md-6">
                             <div class="la-payment__card la-anim__stagger-item--x">
-                              <label class="la-payment__card-label text-sm">CVV/CVC</label>
-                              <div id="card-cvc"></div>
+                              <label class="la-payment__card-label text-sm">CVV/CVC <span style="color:var(--danger);">*</span></label>
+                              <div id="card-cvc" class="la-payment__card-input la-payment__card-input--padding"></div>
                             </div>
                           </div>
 
                     </div>
 
-                    <div class="form-row la-payment__form-row my-16">
-                      <div class="col-12 col-md">
-                          <div class="la-payment__card-check d-flex align-items-start mt-lg-1 la-anim__stagger-item--x">
-                              <label class="la-payment__card-label text-xs mt-n1">
-                                This card will be used for future transaction. Charges may apply.
-                              </label>
+                    <div class="form-row la-payment__form-row my-16 mr-1 mr-lg-3">
+                      <div class="col-12 col-md-6">
+                          <div class="la-payment__card-check text-center text-md-left mt-lg-1 la-anim__stagger-item--x">
+                              <div class="la-payment__card-label text-sm mt-n1">
+                                This card will be used for future transaction.<br/> Charges may apply.
+                              </div>
                           </div>
                       </div>
-                      <div class="col-12 col-md la-payment__pay la-anim__stagger-item--x">
-                        <button class="la-btn la-payment__pay-btn py-3 text-center" type="submit">Proceed to Pay</button>
+                      <div class="col-12 col-md-6 text-center text-md-right la-payment__pay la-anim__stagger-item--x">
+                        <button class="la-btn la-payment__pay-btn btn btn-block py-3 text-center" type="submit">Proceed to Pay</button>
                       </div>
                     </div>
 
@@ -215,7 +217,10 @@
     fontSmoothing: 'antialiased',
     fontSize: '16px',
     '::placeholder': {
-      color: '#aab7c4'
+      color: '#cccccc',
+      fontWeight: 'normal',
+      fontSize: '14px',
+      padding: '10px',
     }
   },
   invalid: {

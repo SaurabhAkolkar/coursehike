@@ -12,6 +12,10 @@
                         border-radius: 10px; 
                         padding: var(--size-6) var(--size-8) !important; 
                         margin:0 auto;
+
+                        @include respond-below(sm){
+                            width:100% !important;
+                        }
                     }
                     &header{
                         border-bottom:none !important;
