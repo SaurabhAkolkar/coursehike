@@ -80,6 +80,8 @@ class HomeController extends Controller
         $master_classes = MasterClass::with('courses','courses.user')->get();
         $featuredMentor = FeaturedMentor::with('user','courses','courses.category')->where(['status'=>'1'])->get();
 
+
+    
         if($request->filters == 'applied'){
 			$filtres_applied = true;
 			if(isset($request->sort_by)){
@@ -215,7 +217,7 @@ class HomeController extends Controller
         ];
 
         //dd($featuredMentor);
-        
+        dd($master_classes[0]->courses->price);
     
         return view('learners.pages.home')->with($data);
     }
