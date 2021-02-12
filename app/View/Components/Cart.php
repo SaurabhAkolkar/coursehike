@@ -47,7 +47,6 @@ class Cart extends Component
         $this->classType = $classType;
         $this->cartId = $cartId;
         $this->cart = $cart;
-
     }
 
     /**

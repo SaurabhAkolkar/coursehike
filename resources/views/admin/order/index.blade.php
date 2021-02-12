@@ -76,7 +76,6 @@
                       </div>
                   </div>
 
-                  
               </div>
               <!-- ONE TIME SUBSCRIPTION SECTION: END -->
             </div>

@@ -48,7 +48,9 @@ class CourseChapter extends Model
         return Storage::url(config('path.course.class_thumnail').$this->course_id. '/' . $value);
     }
 
-    public function getPriceAttribute($value){
+    public function getConvertedpriceAttribute(){
+
+        $value = $this->price;
         
         $setting = Setting::first();
         $dollar_price = null;
@@ -72,4 +74,5 @@ class CourseChapter extends Model
            
         }
     }
+
 }
