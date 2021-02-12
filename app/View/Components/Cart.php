@@ -28,8 +28,7 @@ class Cart extends Component
     public $classType;
     public $cartId;
     public $cart;
-
-
+  
     public function __construct($courseImg, $cart, $collapseId, $course, $creator, $remove, $removeUrl, $wishlist, $wishlistUrl, $edit, $allClasses, $bestPrice, $realPrice, $courseId, $classType, $cartId)
     {
         $this->courseImg = $courseImg;
@@ -58,6 +57,7 @@ class Cart extends Component
      */
     public function render()
     {
+
         return view('components.cart');
     }
 }

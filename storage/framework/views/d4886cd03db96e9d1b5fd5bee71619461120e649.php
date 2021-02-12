@@ -67,6 +67,17 @@
                         <span class="la-admin__revenue-price">$<?php echo e($total_earning); ?></span>
                       </div>
                   </div>
+
+                  <div class="col-md-2">
+                    <div class="la-admin__revenue-title">Dollar Price</div>
+                      <div class="la-admin__revenue-info">
+                        <form method="post" action="<?php echo e(route('update.dollar')); ?>">
+                          <?php echo csrf_field(); ?>
+                        <input type="number" class="form-control" name="price" required value="<?php echo e($settings->dollar_price); ?>" />
+                        <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                        </form>
+                      </div>
+                  </div>
               </div>
               <!-- ONE TIME SUBSCRIPTION SECTION: END -->
             </div>

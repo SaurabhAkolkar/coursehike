@@ -10,6 +10,7 @@
             $classes = App\CourseChapter::where('course_id', $courseId)->get(); 
 
         }
+        $location = 'India';
         // dd($classes_id);
     ?>
     <div class="la-cart__items ">
@@ -70,10 +71,10 @@
                         <div class="la-cart__item-content">
                             <div class="la-soffer ml-0">
                                 <div class="la-soffer__bestprice "> 
-                                    <sup><small>$</small></sup><span><?php echo e($cart->cartItems->sum('price')); ?></span>
+                                    <?php if($location == 'India'): ?> <sup><small>₹</small></sup> <?php else: ?> <sup><small>$</small></sup> <?php endif; ?><span><?php echo e($cart->cartItems->sum('price')); ?></span>
                                 </div>
                                 <div class="la-soffer__realprice "> 
-                                    <sup><small>$</small></sup><span><?php echo e($cart->cartItems->sum('offer_price')); ?></span>
+                                    <?php if($location == 'India'): ?> <sup><small>₹</small></sup> <?php else: ?> <sup><small>$</small></sup> <?php endif; ?><span><?php echo e($cart->cartItems->sum('offer_price')); ?></span>
                                 </div>
                             </div>
                         </div>

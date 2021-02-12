@@ -1,9 +1,12 @@
+@php
+$location = 'India';
+@endphp
 <div class="la-cart__bill la-anim__stagger-item--x">
     <div class="la-cart__bill-title mb-4  ">Total</div>
     <div class="la-cart__bill-items mb-4">
         <div class="la-cart__bill-item d-flex justify-content-between mb-2 ">
             <div class="la-cart__bill-label">Total Price</div>
-            <div class="la-cart__bill-amount">$ {{ $totalAmount }}</div>
+            <div class="la-cart__bill-amount">@if($location=='India') ₹ @else $ @endif {{ $totalAmount }}</div>
         </div>
         {{-- <div class="la-cart__bill-item d-flex justify-content-between mb-2">
             <div class="la-cart__bill-label">Taxes</div>
@@ -11,16 +14,27 @@
         </div> --}}
         <div class="la-cart__bill-item d-flex justify-content-between mb-2">
             <div class="la-cart__bill-label">Sub Total</div>
-            <div class="la-cart__bill-amount">$ {{ $totalAmount }}</div>
+            <div class="la-cart__bill-amount">@if($location=='India') ₹ @else $ @endif {{ $totalAmount }}</div>
         </div>
+        @if($location=='India')
+                <div class="la-cart__bill-item d-flex justify-content-between mb-2">
+                    <div class="la-cart__bill-label">CGST (9%)</div>
+                    <div class="la-cart__bill-amount"> ₹  {{ $cgst }}</div>
+                </div>
+                <div class="la-cart__bill-item d-flex justify-content-between mb-2">
+                    <div class="la-cart__bill-label">SGST (9%)</div>
+                    <div class="la-cart__bill-amount"> ₹  {{ $sgst }}</div>
+                </div>
+        @endif
         {{-- <div class="la-cart__bill-item d-flex justify-content-between mb-2">
             <div class="la-cart__bill-label">Original Price</div>
             <div class="la-cart__bill-amount"><strike>$ {{ $totalAmount + $offerAmount }}</strike></div>
         </div> --}}
         <div class="la-cart__bill-item d-flex justify-content-between mb-2">
             <div class="la-cart__bill-label">Offer Discount</div>
-            <div class="la-cart__bill-amount">$ {{ $offerAmount }}</div>
+            <div class="la-cart__bill-amount">@if($location=='India') ₹ @else $ @endif {{ $offerAmount }}</div>
         </div>
+
         <div class="la-cart__bill-item d-flex justify-content-between mb-2 ">
             <div class="la-cart__bill-label">Coupon Discount</div>
             @if($totalAmount == 0 )
@@ -32,7 +46,7 @@
                     <span class="text text--purble"> {{ $applyCoupon }} </span>
                 </a>
             @endif
-          
+                
         </div>
 
         <div class="la-cart__bill-item d-flex justify-content-between">

@@ -186,14 +186,14 @@
               <li class="<?php if(Request::segment(1) == 'coursetext'): ?> active <?php endif; ?>"><a href="<?php echo e(url('coursetext')); ?>" class="d-flex align-items-center"><i class="la-icon la-icon--xl icon-course-text mr-3"></i> <?php echo e(__('adminstaticword.CourseText')); ?></a></li>
               <li class="<?php if(Request::segment(1) == 'getstarted'): ?> active <?php endif; ?>"><a href="<?php echo e(url('getstarted')); ?>" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-get-started mr-4"></i><?php echo e(__('adminstaticword.GetStarted')); ?></a></li>
               <li class="<?php if(Request::segment(1) == 'trusted'): ?> active <?php endif; ?>"><a href="<?php echo e(url('trusted')); ?>" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-trusted-sliders mr-5"></i><span><?php echo e(__('adminstaticword.TrustedSlider')); ?></span></a></li>
-              <li class="<?php if(Request::segment(1) == 'widget'): ?> active <?php endif; ?>"><a href="<?php echo e(route('widget.setting')); ?>" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-widget-settings mr-4"></i><?php echo e(__('adminstaticword.WidgetSetting')); ?></a></li> -->
+              <li class="<?php if(Request::segment(1) == 'widget'): ?> active <?php endif; ?>"><a href="<?php echo e(route('widget.setting')); ?>" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-widget-settings mr-4"></i><?php echo e(__('adminstaticword.WidgetSetting')); ?></a></li>-->
               <li class="<?php if(Request::segment(1) == 'testimonial'): ?> active <?php endif; ?>"><a href="<?php echo e(url('testimonial')); ?>" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-testimonials mr-4"></i><?php echo e(__('adminstaticword.Testimonial')); ?></a></li>
               <li class="<?php if(Request::segment(1) == 'firstsection'): ?> active <?php endif; ?>"><a href="<?php echo e(url('firstsection')); ?>" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-first-section mr-4"></i><?php echo e(__('adminstaticword.FirstSection')); ?></a></li>
               <li class="<?php if(Request::segment(1) == 'featuredMentors'): ?> active <?php endif; ?>"><a href="<?php echo e(url('featuredMentors')); ?>" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-featured-mentor mr-4"></i><?php echo e(__('adminstaticword.FeaturedMentors')); ?></a></li>
             </ul>
           </li>
           
-          <!-- <li class="<?php echo e(Nav::isRoute('gen.set')); ?> <?php echo e(Nav::isRoute('api.setApiView')); ?> <?php echo e(Nav::isResource('blog')); ?> <?php echo e(Nav::isRoute('about.page')); ?> <?php echo e(Nav::isRoute('careers.page')); ?> <?php echo e(Nav::isRoute('comingsoon.page')); ?> <?php echo e(Nav::isRoute('termscondition')); ?> <?php echo e(Nav::isRoute('policy')); ?> <?php echo e(Nav::isRoute('bank.transfer')); ?> <?php echo e(Nav::isRoute('show.pwa')); ?> <?php echo e(Nav::isRoute('adsense')); ?> treeview">
+           <li class="<?php echo e(Nav::isRoute('gen.set')); ?> <?php echo e(Nav::isRoute('api.setApiView')); ?> <?php echo e(Nav::isResource('blog')); ?> <?php echo e(Nav::isRoute('about.page')); ?> <?php echo e(Nav::isRoute('careers.page')); ?> <?php echo e(Nav::isRoute('comingsoon.page')); ?> <?php echo e(Nav::isRoute('termscondition')); ?> <?php echo e(Nav::isRoute('policy')); ?> <?php echo e(Nav::isRoute('bank.transfer')); ?> <?php echo e(Nav::isRoute('show.pwa')); ?> <?php echo e(Nav::isRoute('adsense')); ?> treeview">
            <a href="#">
              <i class="flaticon-tools" aria-hidden="true"></i> <span><?php echo e(__('adminstaticword.SiteSetting')); ?></span>
               <span class="pull-right-container">
@@ -221,7 +221,7 @@
               <?php endif; ?>
 
             </ul>
-          </li> -->
+          </li> 
 
           <!-- <li class="<?php echo e(Nav::isRoute('player.set')); ?> <?php echo e(Nav::isRoute('ads')); ?> <?php echo e(Nav::isRoute('ad.setting')); ?> treeview">
            <a href="#">

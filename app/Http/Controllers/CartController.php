@@ -164,6 +164,9 @@ class CartController extends Controller
         $coupons = [];
         $suggested_courses = [];
         $playlists = [];
+        $cgst = Null;
+        $sgst = Null;
+        $location = 'India';
 
         if(Auth::check()){
 			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   

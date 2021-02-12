@@ -8,6 +8,7 @@ use DB;
 use App\User;
 use App\Mail\CreatorRequest;
 use App\Setting;
+use App\MentorDetail;
 
 class InstructorRequestController extends Controller
 {
@@ -107,6 +108,28 @@ class InstructorRequestController extends Controller
     public function instructorpage()
     {
         return view('front.instructor');
+    }
+
+    public function editMentorDetails($id)
+    {
+        $mentor_detail = MentorDetail::where('user_id',$id)->first();
+        $user_id = $id;
+        return view('admin.instructor.all_instructor.edit_mentor_details', compact('user_id', 'mentor_detail'));
+    }
+
+
+    public function updateDetails(Request $request){
+
+        $this->validate($request, [
+            'subscription_commission' => 'required',
+            'course_commission' => 'required',
+            'user_id'=>'required',
+        ]);
+           
+        MentorDetail::updateOrCreate(['user_id' => $request->user_id],
+                                    ['course_commission' => $request->course_commission, 'subscription_commission' => $request->subscription_commission]);    
+        
+        return back()->with('success','Details updated successfully.');
     }
 
 

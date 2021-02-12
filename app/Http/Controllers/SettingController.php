@@ -48,6 +48,7 @@ class SettingController extends Controller
 
     public function store(Request $request)
     {
+
       $request->validate([
           'project_title' => 'required',
           'APP_URL' => 'required',
@@ -59,6 +60,10 @@ class SettingController extends Controller
           'APP_URL.required' => 'App URL is required'
         ]
         );
+
+        $setting = Setting::first();
+        $setting->dollar_price = $request->price;
+        $setting->save();
 
         $active = @file_get_contents(public_path().'/config.txt');
 

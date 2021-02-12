@@ -75,6 +75,8 @@
                         <span class="la-admin__revenue-price">${{$total_earning}}</span>
                       </div>
                   </div>
+
+                  
               </div>
               <!-- ONE TIME SUBSCRIPTION SECTION: END -->
             </div>
