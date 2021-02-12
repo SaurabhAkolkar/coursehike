@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
 use App\Setting;
+use Stevebauman\Location\Facades\Location;
 
 class CourseChapter extends Model
 {
