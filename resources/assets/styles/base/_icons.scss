@@ -25,6 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-right-arrow2:before {
+  content: "\e9af";
+}
 .icon-advanced:before {
   content: "\e9ac";
 }

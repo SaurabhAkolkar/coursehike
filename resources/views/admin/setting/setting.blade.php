@@ -8,19 +8,21 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="box-header with-border">
-            <h1 class="box-title">{{ __('adminstaticword.SiteSetting') }}</h1>
-        </div>
-    	 <div class="box-body">
+          <h1 class="la-admin__section-title ml-2">General {{ __('adminstaticword.Setting') }}</h1>
+          
+
+
+        <div class="box-body">
+          @include('admin.setting.genral')
           <!-- Nav tabs -->
-          <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs" id="nav-tab" role="tablist">
+          {{--<div class="nav-tabs-custom">
+           <ul class="nav nav-tabs" id="nav-tab" role="tablist">
               <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><i class="flaticon-optimization" aria-hidden="true"></i> {{ __('adminstaticword.GeneralSetting') }}</a></li>
               <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><i class="flaticon-graduation" aria-hidden="true"></i> {{ __('adminstaticword.SeoSetting') }}</a></li>
               <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><i class="flaticon-email" aria-hidden="true"></i> {{ __('adminstaticword.MailSetting') }}</a></li>
               <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><i class="flaticon-test" aria-hidden="true"></i> {{ __('adminstaticword.CustomStyleandJS') }}</a></li>
               <li role="presentation"><a href="#soc-settings" aria-controls="settings" role="tab" data-toggle="tab"><i class="flaticon-share" aria-hidden="true"></i>&nbsp;&nbsp;{{ __('adminstaticword.SocialLoginSetting') }}</a></li>
-            </ul>
+            </ul> --}}
 
             <!-- Tab panes -->
             <div class="tab-content">
@@ -45,7 +47,7 @@
                  @include('admin.setting.sociallogin')
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
       </div>
     </div>

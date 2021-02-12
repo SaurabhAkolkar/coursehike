@@ -29,8 +29,8 @@
 
 .la-hero__img img{
     width:100%;
-    height:100%;
-    object-fit: cover;
+    height:auto;
+    //object-fit: cover;
 }
 
 .la-hero__video{
@@ -54,6 +54,7 @@
 }
 
 .la-hero__video video{
+    width:100%;
     height:100%;
     margin:0 auto;
     object-fit: cover;

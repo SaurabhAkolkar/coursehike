@@ -34,7 +34,7 @@
               <?php echo e(csrf_field()); ?> 
   
               <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <label><?php echo e(__('adminstaticword.Category')); ?>:<span class="redstar">*</span></label>
                   <select name="category_id" id="category_id" class="form-control js-example-basic-single">
                     <option value="0"><?php echo e(__('adminstaticword.SelectanOption')); ?></option>
@@ -43,17 +43,14 @@
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   </select>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <label><?php echo e(__('adminstaticword.SubCategory')); ?>:<span class="redstar">*</span></label>
                     <select name="subcategory_id" id="upload_id" class="form-control js-example-basic-single">
                     </select>
                 </div>
-                <div class="col-md-3">
-                  <label><?php echo e(__('adminstaticword.ChildCategory')); ?>:</label>
-                  <select name="childcategory_id" id="grand" class="form-control js-example-basic-single"></select>
-                </div>
+                
                 <?php if(Auth::user()->role == 'admin'): ?>
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                     <label for="exampleInputTit1e"><?php echo e(__('adminstaticword.Instructor')); ?></label>
                       <select name="user_id" class="form-control js-example-basic-single ">
                       <?php $__currentLoopData = $user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $u): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

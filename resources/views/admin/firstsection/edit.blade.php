@@ -16,29 +16,29 @@
 		                
 		              
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                 <label for="exampleInputTit1e">{{ __('adminstaticword.Heading') }}:<sup class="redstar">*</sup></label>
                                 <input type="text" class="form-control" name="heading" id="exampleInputTitle" value="{{$show['heading']}}" placeholder="Enter Section Heading">
                                 </div>
                             
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                 <label for="exampleInputTit1e">{{ __('adminstaticword.SubHeading') }}:<sup class="redstar">*</sup></label>
                                 <input type="text" class="form-control" name="sub_heading" id="exampleInputTitle" value="{{$show['sub_heading']}}" placeholder="Enter Section Sub Heading">
                                 </div>
                             </div>
                             
                             <div class="row">
-                                <div class="col-md-6 mt-4">
+                                <div class="col-md-8 mt-6">
                                     <label for="exampleInputTit1e">{{ __('adminstaticword.ImageText') }}:<sup class="redstar">*</sup></label>
                                     <input type="text" class="form-control" name="image_text" id="exampleInputTitle" value="{{$show['image_text']}}" placeholder="Enter Image Text">
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-6 mt-5">
+                            <div class="row mt-8">
+                                <div class="col-md-4 mt-5">
                                     <div class="la-admin__preview">
                                         <label>{{ __('adminstaticword.Image') }}:<sup class="redstar">*</sup></label><br/>
-                                        <div class="la-admin__preview-img la-admin__course-frontimg" >
+                                        <div class="la-admin__preview-img la-admin__course-imgvid" >
                                             <div class="la-admin__preview-text" onclick="$('#image').click()">
                                                 <p class="la-admin__preview-size">Preview Image</p>
                                                 <p class="la-admin__preview-file text-uppercase">Choose a File</p>
@@ -53,48 +53,44 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <br>
+                            
+                                <div class="col-4">
+                                        <div class="la-admin__preview">
 
-                        <!-- VIDEO: START -->
-                            <div class="row mt-5">
-                            <div class="col-6">
-                                    <div class="la-admin__preview">
-
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <label for="" class="la-admin__preview-label p-0">Video Upload:<sup class="redstar">*</sup></label>
-                                        <a href="/firstsection/remove-video" title="Delete Video" class="mb-3 la-admin__preview-delete text-uppercase ">Remove Video</a>
-                                    </div>
-
-                                    <div class="la-admin__preview-img la-admin__course-imgvid" >
-                                        <div class="la-admin__preview-text">
-                                            <p class="la-admin__preview-size">Video | 100MB</p>
-                                            <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <label for="" class="la-admin__preview-label p-0">Video Upload:<sup class="redstar">*</sup></label>
+                                            <a href="/firstsection/remove-video" title="Delete Video" class="mb-3 la-admin__preview-delete text-uppercase ">Remove Video</a>
                                         </div>
-    
-                                        <div class="text-center pr-20 mr-20">
-                                            <span class="la-icon la-icon--8xl icon-preview-video" style="font-size:150px;">
-                                            <span class="path1"><span class="path2"></span></span>
-                                            </span>
+
+                                        <div class="la-admin__preview-img la-admin__course-imgvid" >
+                                            <div class="la-admin__preview-text">
+                                                <p class="la-admin__preview-size">Video | 100MB</p>
+                                                <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
+                                            </div>
+        
+                                            <div class="text-center px-20 mr-20">
+                                                <span class="la-icon la-icon--8xl icon-preview-video" style="font-size:150px;">
+                                                <span class="path1"><span class="path2"></span></span>
+                                                </span>
+                                            </div>
+                                            <input type="file" class="form-control la-admin__preview-input preview_video" name="preview_video" />
+                                            @if($show['video_url'] != null)
+                                            <video controls  class="preview-video w-100">
+                                                <source src="{{$show['video_url']}}">
+                                                Your browser does not support HTML5 video.
+                                            </video>
+                                            @endif
                                         </div>
-                                        <input type="file" class="form-control la-admin__preview-input preview_video" name="preview_video" />
-                                        @if($show['video_url'] != null)
-                                        <video controls  class="preview-video w-100">
-                                            <source src="{{$show['video_url']}}">
-                                            Your browser does not support HTML5 video.
-                                        </video>
-                                        @endif
-                                    </div>
-                                    </div>
-                            </div>
+                                        </div>
+                                </div>
                             </div>
                         <!-- VIDEO: END -->
                             <br>
                             
-                            <div class="row">
-                                <div class="col-6">
+                            <div class="row mt-8">
+                                <div class="col-8">
                                     <div class="box-footer">
-                                        <button type="submit" class="btn btn-lg btn-primary px-14"> {{ __('adminstaticword.Save') }}</button>
+                                        <button type="submit" class="btn btn-lg btn-primary px-18"> {{ __('adminstaticword.Save') }}</button>
                                     </div>
                                 </div>
                             </div>

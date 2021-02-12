@@ -24,6 +24,7 @@
                   <th><?php echo e(__('adminstaticword.Email')); ?></th>
                   <th ><?php echo e(__('adminstaticword.Detail')); ?></th>
                   <th><?php echo e(__('adminstaticword.Status')); ?></th>
+                  <th><?php echo e(__('adminstaticword.Additional')); ?></th>
                   <th><?php echo e(__('adminstaticword.Edit')); ?></th>
                 </tr>
               </thead>
@@ -52,6 +53,11 @@
                         <?php echo e(__('adminstaticword.Inactive')); ?>
 
                       <?php endif; ?>
+                  </td>
+                  <td>
+                    <a class="text-dark la-admin__edit-btn" href="/instructor/edit-addition-details/<?php echo e($item->id); ?>">
+                        <i class="la-icon la-icon--lg icon-edit"></i>
+                    </a>
                   </td>
 
                   <td>

@@ -102,8 +102,10 @@
       <div class="container position-relative">
         <span class="la-section__cross-line"></span>
         <div class="la-courses">
-          <nav class="la-courses__nav d-flex justify-content-between align-items-start">
-              <ul class="nav nav-pills la-courses__nav-tabs la-anim__stagger-x" id="nav-tab" role="tablist" tabindex="0">
+          <nav class="la-courses__nav position-relative d-flex justify-content-between align-items-start">
+            
+              <ul class="nav nav-pills la-courses__nav-tabs" id="nav-tab" role="tablist" tabindex="0">
+              <div class="la-courses__nav-prev la-anim__fade-in-left"><span class="la-courses__nav-prev--icon la-icon icon-arrow"></span></div>
               @if($filtres_applied == null)
                 @foreach ($categories as $category)
                   <li class="nav-item la-courses__nav-item la-anim__stagger-item--x">
@@ -115,11 +117,13 @@
                 {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
                 <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
                 @endif
+
+                <div class="la-courses__nav-next la-anim__stagger-item--x"><span class="la-courses__nav-next--icon la-icon icon-right-arrow2"></span></div>
               </ul>
-           
+              
             
             <!-- Filters : Start -->
-            <div class="la-courses__nav-filters ml-10 mt-2">
+            {{--<div class="la-courses__nav-filters ml-10 mt-2">
               <!-- <div class="la-courses__nav-props">
                 <a class="la-icon icon-list-layout la-courses__nav-filter mr-3" id="showLayout" role="button"></a>
               </div> -->
@@ -255,7 +259,7 @@
                   </div>
                   <!-- Filters : End -->
               </div>  
-            </div>   
+            </div>  --}}
         </nav> 
         <nav class="la-courses__nav">
                     <x-add-to-playlist 

@@ -14,7 +14,7 @@
               {{ method_field('PUT') }}
              
               <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <label>{{ __('adminstaticword.Category') }}<span class="redstar">*</span></label>
                   <select name="category_id" id="category_id" class="form-control js-example-basic-single" required>
                     <option value="0">{{ __('adminstaticword.SelectanOption') }}</option>
@@ -27,7 +27,7 @@
                     @endforeach 
                   </select>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <label>{{ __('adminstaticword.SubCategory') }}:<span class="redstar">*</span></label>
                   <select name="subcategory_id" id="upload_id" class="form-control js-example-basic-single">
                     @php
@@ -38,7 +38,7 @@
                     @endforeach
                   </select>
                 </div>
-                <div class="col-md-3">
+                {{-- <div class="col-md-3">
                   <label>{{ __('adminstaticword.ChildCategory') }}:</label>
                   <select name="childcategory_id" id="grand" class="form-control js-example-basic-single">
                     @php
@@ -49,8 +49,8 @@
                       <option {{ $cor->childcategory_id == $caat->id ? 'selected' : "" }} value="{{ $caat->id }}">{{ $caat->title }}</option>
                     @endforeach
                   </select>
-                </div>     
-                <div class="col-md-3">
+                </div> --}}     
+                <div class="col-md-4">
                   @php
                     $User = App\User::all();
                   @endphp

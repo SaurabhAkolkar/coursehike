@@ -410,10 +410,6 @@ html, body{
     color:var(--gray6) !important;
     font-weight: var(--font-medium);
 }
-.glyphicon{
-    top:0;
-    font-size:var(--text-sm) !important;
-}
 
 th.sorting_asc, th.sorting{
     font-family: var(--body-font);
@@ -461,17 +457,25 @@ th.sorting {
     font-weight: var(--font-normal);
     font-size: var(--text-sm);
     color:var(--white) !important;
-    padding:var(--size-4) 0 !important;
+    /*padding:var(--size-4) 0 !important;*/
     opacity:1;
     text-align: left !important;
 }
 /* == Sorting Icons after the table head Content == */
 table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting:after{
-    content: "" !important;
-    display:none ;
+    font-family: 'icomoon';
+    content: "\e975" !important;
+    transform:rotate(270deg);
+    font-size: var(--text-xl);
+}
+table.dataTable thead .sorting_desc:after{
+    font-family: 'icomoon';
+    content:"\e975";
+    transform:rotate(90deg);
+    font-size: var(--text-xl);
 }
 table.dataTable thead>tr>th.sorting_asc{
-  padding:16px 25px !important;
+  /*padding:16px 25px !important;*/
   color:var(--white);
   opacity: 1;
   font-weight:var(--font-normal) !important;
@@ -494,8 +498,10 @@ table.table-bordered.dataTable tbody td {
     vertical-align: middle;
     text-align:left;
  }
- table.table-bordered.dataTable tbody td.sorting_1{
-   padding:16px 25px;
+ 
+ table.table-bordered.dataTable tbody td.sorting_1:first-child{
+   /*padding:16px 25px;*/
+   text-align: center;
  }
  
 /* == Table Column Course Image ==*/

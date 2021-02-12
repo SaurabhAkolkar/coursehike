@@ -91,7 +91,7 @@
                   <ul class="treeview-menu">
                     <li class="@if(Request::segment(1) == 'category') active @endif"><a href="{{url('category')}}" class="d-flex align-items-center"><i class="la-icon la-icon--sm icon-categories mr-4"></i>{{ __('adminstaticword.Category') }}</a></li>
                     <li class="@if(Request::segment(1) == 'subcategory') active @endif"><a href="{{url('subcategory')}}" class="d-flex align-items-center"><i class="la-icon la-icon--sm icon-sub-category mr-4"></i>{{ __('adminstaticword.SubCategory') }}</a></li>
-                    <li class="{{ Nav::isResource('childcategory') }}"><a href="{{url('childcategory')}}" class="d-flex align-items-center"><i class="la-icon la-icon--sm icon-child-category mr-4"></i>{{ __('adminstaticword.ChildCategory') }}</a></li>
+                    {{--<li class="{{ Nav::isResource('childcategory') }}"><a href="{{url('childcategory')}}" class="d-flex align-items-center"><i class="la-icon la-icon--sm icon-child-category mr-4"></i>{{ __('adminstaticword.ChildCategory') }}</a></li> --}}
                   </ul>
 
                   <li class="@if(Request::segment(1) == 'course') active @endif"><a href="{{url('course')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-courses mr-4"></i><span>{{ __('adminstaticword.Courses') }}</span></a></li>
@@ -155,8 +155,8 @@
             <ul class="treeview-menu">
               {{-- <li class="{{ Nav::isRoute('instructor.settings') }}"><a href="{{route('instructor.settings')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-payout-settings mr-3"></i>{{ __('adminstaticword.PayoutSettings') }}</a></li>
               <li class="{{ Nav::isRoute('admin.instructor') }}"><a href="{{route('admin.instructor')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-pending-payout mr-3"></i>{{ __('adminstaticword.PendingPayout') }}</a></li>
-
               <li class="{{ Nav::isRoute('admin.completed') }}"><a href="{{route('admin.completed')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-completed-payout mr-3"></i>{{ __('adminstaticword.CompletedPayout') }}</a></li> --}}
+              
               <li class="{{ Nav::isRoute('admin.creatorpayoutanalytics') }}"><a href="{{route('admin.creatorpayoutanalytics')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-mentor-payout mr-3"></i>Payout Analytics</a></li>
               <li class="{{ Nav::isRoute('admin.creatorpayout') }}"><a href="{{route('admin.creatorpayout')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-mentor-payout mr-3"></i>{{ __('adminstaticword.CreatorPayout') }}</a></li>
             
@@ -176,14 +176,15 @@
             </ul>
           </li> -->
 
-          <li class="{{ Nav::isResource('slider') }} {{ Nav::isResource('facts') }} {{ Nav::isRoute('category.slider') }} {{ Nav::isResource('firstsection') }} {{Nav::isResource('featuredMentors')}} {{ Nav::isResource('coursetext') }} {{ Nav::isResource('getstarted') }} {{ Nav::isResource('trusted') }} {{ Nav::isRoute('widget.setting') }} {{ Nav::isRoute('terms') }} {{ Nav::isResource('testimonial') }} treeview">
+          <li class="{{ Nav::isResource('slider') }} {{ Nav::isResource('settings') }} {{ Nav::isResource('facts') }} {{ Nav::isRoute('category.slider') }} {{ Nav::isResource('firstsection') }} {{Nav::isResource('featuredMentors')}} {{ Nav::isResource('coursetext') }} {{ Nav::isResource('getstarted') }} {{ Nav::isResource('trusted') }} {{ Nav::isRoute('widget.setting') }} {{ Nav::isRoute('terms') }} {{ Nav::isResource('testimonial') }} treeview">
            <a href="#" class="d-flex align-items-center">
-             <i class="la-icon la-icon--xl icon-front-Settings mr-3" aria-hidden="true"></i> <span>{{ __('adminstaticword.FrontSetting') }}</span>
+             <i class="la-icon la-icon--xl icon-front-Settings mr-3" aria-hidden="true"></i> <span>{{ __('adminstaticword.Setting') }}</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
+              <li class="@if(Request::segment(1) == 'settings') active @endif" ><a href="{{url('settings')}}"  class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-settings mr-4" aria-hidden="true"></i><span>General {{ __('adminstaticword.Setting') }}</span></a></li>
               <!-- <li class="@if(Request::segment(1) == 'slider') active @endif"><a href="{{url('slider')}}" class="d-flex align-items-center"><i class="la-icon la-icon--xl icon-sliders mr-3"></i><span>{{ __('adminstaticword.Slider') }}</span></a></li>
               <li class="@if(Request::segment(1) == 'facts') active @endif"><a href="{{url('facts')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-fact-sliders mr-4"></i><span>{{ __('adminstaticword.FactsSlider') }}</span></a></li>
               <li class="@if(Request::segment(1) == 'frontslider') active @endif"><a href="{{route('category.slider')}}" class="d-flex align-items-center"><i class="la-icon la-icon--xl icon-category-sliders mr-3"></i><span>{{ __('adminstaticword.CategorySlider') }}</span></a></li>
@@ -197,7 +198,7 @@
             </ul>
           </li>
           
-           <li class="{{ Nav::isRoute('gen.set') }} {{ Nav::isRoute('api.setApiView') }} {{ Nav::isResource('blog') }} {{ Nav::isRoute('about.page') }} {{ Nav::isRoute('careers.page') }} {{ Nav::isRoute('comingsoon.page') }} {{ Nav::isRoute('termscondition') }} {{ Nav::isRoute('policy') }} {{ Nav::isRoute('bank.transfer') }} {{ Nav::isRoute('show.pwa') }} {{ Nav::isRoute('adsense') }} treeview">
+           <!--<li class="{{ Nav::isRoute('gen.set') }} {{ Nav::isRoute('api.setApiView') }} {{ Nav::isResource('blog') }} {{ Nav::isRoute('about.page') }} {{ Nav::isRoute('careers.page') }} {{ Nav::isRoute('comingsoon.page') }} {{ Nav::isRoute('termscondition') }} {{ Nav::isRoute('policy') }} {{ Nav::isRoute('bank.transfer') }} {{ Nav::isRoute('show.pwa') }} {{ Nav::isRoute('adsense') }} treeview">
            <a href="#">
              <i class="flaticon-tools" aria-hidden="true"></i> <span>{{ __('adminstaticword.SiteSetting') }}</span>
               <span class="pull-right-container">
@@ -225,7 +226,7 @@
               @endif
 
             </ul>
-          </li> 
+          </li> -->
 
           <!-- <li class="{{ Nav::isRoute('player.set') }} {{ Nav::isRoute('ads') }} {{ Nav::isRoute('ad.setting') }} treeview">
            <a href="#">

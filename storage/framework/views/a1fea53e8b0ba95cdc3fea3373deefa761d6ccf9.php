@@ -91,7 +91,7 @@
                         <?php if(count($carts) > 0): ?>
                         
                              <?php if (isset($component)) { $__componentOriginal45365d94e67667781c0f00aa4c64f2e796633235 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\CartTotal::class, ['totalAmount' => $total,'offerAmount' => $discount,'applyCoupon' => $checkout->applyCoupon,'coupons' => $coupons,'discountAmount' => $checkout->discountAmount,'checkoutUrl' => $checkout->checkoutUrl]); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\CartTotal::class, ['totalAmount' => $total,'subTotal' => $subTotal,'offerAmount' => $discount,'applyCoupon' => $checkout->applyCoupon,'coupons' => $coupons,'discountAmount' => $checkout->discountAmount,'checkoutUrl' => $checkout->checkoutUrl,'location' => $location]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
