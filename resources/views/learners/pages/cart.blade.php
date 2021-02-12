@@ -169,11 +169,13 @@
                         
                             <x-cart-total 
                               :totalAmount="$total"
+                              :subTotal="$subTotal"
                               :offerAmount="$discount"
                               :applyCoupon="$checkout->applyCoupon"
                               :coupons="$coupons"
                               :discountAmount="$checkout->discountAmount"
                               :checkoutUrl="$checkout->checkoutUrl"
+                              :location="$location"
                             />
                         
                         <!-- Cart Checkout: End -->

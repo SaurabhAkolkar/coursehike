@@ -20,6 +20,7 @@ use App\InvoiceDetail;
 use Stripe\Stripe;
 use Debugbar;
 use Illuminate\Support\Str;
+use Stevebauman\Location\Facades\Location;
 use App\Playlist;
 
 class CartController extends Controller
@@ -62,7 +63,7 @@ class CartController extends Controller
             $insert['course_id'] = $request->course_id;
             $insert['class_id'] = 0;
             $insert['category_id'] = $course->category_id;
-            $insert['price'] = $course->price?$course->price:0;
+            $insert['price'] = $course->convertedprice?$course->convertedprice:0;
             $insert['offer_price'] = $course->offer_price;
             $insert['purchase_type'] = 'all_classes';
             $insert['cart_id'] = $cart->id;
@@ -107,7 +108,7 @@ class CartController extends Controller
             $insert['course_id'] = $request->course_id;
             $insert['class_id'] = 0;
             $insert['category_id'] = $course->category_id;
-            $insert['price'] = $course->price;
+            $insert['price'] = $course->convertedprice;
             $insert['offer_price'] = $course->offer_price;
             $insert['purchase_type'] = 'all_classes';
             $insert['cart_id'] = $cart->id;
@@ -138,7 +139,7 @@ class CartController extends Controller
             foreach($classes as $class){                
                 if($class){
                     $insert['class_id'] = $class->id;
-                    $insert['price'] = $class->price; 
+                    $insert['price'] = $class->convertedprice; 
                     $insert['created_at'] = Carbon::now();
                     $insert['updated_at'] = Carbon::now();              
                     CartItem::insert($insert);
@@ -164,6 +165,11 @@ class CartController extends Controller
         $coupons = [];
         $suggested_courses = [];
         $playlists = [];
+        $gst = Null;
+        $subTotal = Null;
+        $position = Location::get('2402:3a80:1443:b401:b903:6d28:6317:3efc');
+        $location = $position->countryName;
+        
 
         if(Auth::check()){
 			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
@@ -179,29 +185,41 @@ class CartController extends Controller
             $discount = $carts->sum(function ($item) {
                 return array_sum(array_column($item['cartItems']->toArray(), 'offer_price'));
             });
-            
-            // $total = $cartItem->sum('price');
-            $total = $carts->sum(function ($item) {
+
+            $subTotal = $carts->sum(function ($item) {
                 return array_sum(array_column($item['cartItems']->toArray(), 'price'));
             });
 
+         
+            // $total = $cartItem->sum('price');
+           
+
             $coupon = Null;
             $coupons = Coupon::where('expirydate', '>',  Carbon::now())->get();
+
             if(Session::get('appliedCoupon')){
                 $coupon = Coupon::findOrFail(Session::get('appliedCoupon'));
                 if($coupon){
                     if($coupon->distype == 'fix'){
-                        $total = $total - $coupon->amount; 
+                        $subTotal = $subTotal - $coupon->amount; 
                         $discount = $coupon->amount; 
                     }else{
-                        $discount = ($total * $coupon->amount) / 100;
-                        $total = $total - $discount;
+                        $discount = ($subTotal * $coupon->amount) / 100;
+                        $subTotal = $subTotal - $discount;
                     }
                 }
             }
+
+            if($location == 'India'){
+                $total = $subTotal + ($subTotal * 18) / 100;
+            }else{
+                $total = $subTotal;
+            }
+
+
         }     
 
-        return view('learners.pages.cart', compact('carts','discount','playlists','suggested_courses','total','coupons','coupon','countries'));
+        return view('learners.pages.cart', compact('carts','location','discount','gst','subTotal','playlists','suggested_courses','total','coupons','coupon','countries'));
     }
 
     public function applyCoupon($id){

@@ -9,6 +9,7 @@ use Spatie\Translatable\HasTranslations;
 use App\UserPurchasedCourse;
 use App\UserWatchTimelog;
 use Stevebauman\Location\Facades\Location;
+use App\Setting;
 
 class Course extends Model
 {
@@ -143,18 +144,30 @@ class Course extends Model
         return Storage::url(config('path.course.img'). $value);
     }
 
-    public function getPriceAttribute($value){
+    public function getConvertedpriceAttribute(){
 
-        if ($position = 'India') {
-            // Successfully retrieved position.
-            return $value * 75;
+        $value = $this->price;
 
+        $position = Location::get('2402:3a80:1443:b401:b903:6d28:6317:3efc');
+        
+        $setting = Setting::first();
+        $dollar_price = null;
+
+        if($setting && $setting->dollar_price){
+            $dollar_price = $setting->dollar_price;
+        }else{
+           $dollar_price = 70;
+        }
+        if ($position->countryName == 'India') {
+            return $value * $dollar_price;
         } else {
            return $value;
         }
-
         
     }
+
+  
+
     public function getLearnerCountAttribute()
     {
         $count = 0;

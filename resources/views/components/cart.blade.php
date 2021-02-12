@@ -10,7 +10,6 @@
             $classes = App\CourseChapter::where('course_id', $courseId)->get(); 
 
         }
-        // dd($classes_id);
     @endphp
     <div class="la-cart__items ">
         <div class="la-cart__items mb-8  ">
@@ -70,10 +69,10 @@
                         <div class="la-cart__item-content">
                             <div class="la-soffer ml-0">
                                 <div class="la-soffer__bestprice "> 
-                                    <sup><small>$</small></sup><span>{{ $cart->cartItems->sum('price')}}</span>
+                                   <sup><small>{{ getSymbol() }}</small></sup><span>{{ $cart->cartItems->sum('price')}}</span>
                                 </div>
                                 <div class="la-soffer__realprice "> 
-                                    <sup><small>$</small></sup><span>{{ $cart->cartItems->sum('offer_price') }}</span>
+                                   <sup><small>{{ getSymbol() }}</small></sup><span>{{ $cart->cartItems->sum('offer_price') }}</span>
                                 </div>
                             </div>
                         </div>

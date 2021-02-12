@@ -234,7 +234,13 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::resource('requestinstructor', 'InstructorRequestController');
 
       Route::resource('coupon','CouponController');
+
       Route::get('all/instructor', 'InstructorRequestController@allinstructor')->name('all.instructor');
+
+      Route::get('instructor/edit-addition-details/{id}', 'InstructorRequestController@editMentorDetails');
+
+      Route::post('instructor/update-addition-details','InstructorRequestController@updateDetails')->name('instructor.update.details');
+      
       Route::get('view/order/admin/{id}', 'OrderController@vieworder')->name('view.order');
 
       Route::resource('user/course/report','CourseReportController');
@@ -378,6 +384,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::resource('blog', 'BlogController');
 
       Route::resource('order', 'OrderController');
+
+      Route::post('update-dollar-price','OrderController@updateDollarPrice')->name('update.dollar');
 
       Route::get('/revenue-excel', 'OrderController@getExcel');
 
@@ -697,6 +705,8 @@ Route::middleware(['auth'])->group(function () {
   Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
   Route::post('/subscription/cancel', 'SubscriptionController@cancelSubscription')->name('subscription.cancel');
   Route::get('/download-certificate/{id}','LearnController@downloadCertificate');
+
+
 
 
 });

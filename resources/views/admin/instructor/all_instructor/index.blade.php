@@ -25,6 +25,7 @@
                   <th>{{ __('adminstaticword.Email') }}</th>
                   <th >{{ __('adminstaticword.Detail') }}</th>
                   <th>{{ __('adminstaticword.Status') }}</th>
+                  <th>{{ __('adminstaticword.Additional') }}</th>
                   <th>{{ __('adminstaticword.Edit') }}</th>
                 </tr>
               </thead>
@@ -51,6 +52,11 @@
                       @else
                         {{ __('adminstaticword.Inactive') }}
                       @endif
+                  </td>
+                  <td>
+                    <a class="text-dark la-admin__edit-btn" href="/instructor/edit-addition-details/{{$item->id}}">
+                        <i class="la-icon la-icon--lg icon-edit"></i>
+                    </a>
                   </td>
 
                   <td>

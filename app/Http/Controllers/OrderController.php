@@ -67,8 +67,8 @@ class OrderController extends Controller
         $monthly_subscriptions = app('rinvex.subscriptions.plan_subscription')->byPlanId(1)->count();
         $yearly_subscriptions = app('rinvex.subscriptions.plan_subscription')->byPlanId(2)->count();
         $trial_subscriptions = app('rinvex.subscriptions.plan_subscription')->findEndingTrial(7)->count();
-        
-        return view('admin.order.index', compact('trial_subscriptions', 'monthly_subscriptions', 'yearly_subscriptions','total_purchase','courses_count', 'classes_count','total_earning'));
+        $settings = Setting::first();
+        return view('admin.order.index', compact('trial_subscriptions', 'settings','monthly_subscriptions', 'yearly_subscriptions','total_purchase','courses_count', 'classes_count','total_earning'));
     }
 
     public function getExcel(){
@@ -134,6 +134,19 @@ class OrderController extends Controller
         $show = UserInvoiceDetail::with('details','details.course','details.course.user','user','user.state','user.country')->where('id', $id)->first();
        
         return view('admin.order.view', compact('show', 'setting'));
+    }
+
+    public function updateDollarPrice(Request $request){
+        
+        $this->validate($request, [
+            'price' => 'required',
+        ]);
+
+        $setting = Setting::first();
+        $setting->dollar_price = $request->price;
+        $setting->save();
+
+        return redirect()->back()->with('success','Dollar Price updated successfully.');
     }
 
     public function purchasehistory()

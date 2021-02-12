@@ -31,7 +31,7 @@
 
 					<label for=""><i class="fa fa-facebook-square"></i> {{ __('adminstaticword.EnableFacebookLogin') }}: </label>
 					&nbsp;&nbsp;
-					<input {{ $gsetting->fb_login_enable==1 ? 'checked' : '' }} class="la-admin__toggle-switch" name="fb_enable" id="fb_enable" type="checkbox"/>
+					<input {{ $setting->fb_login_enable==1 ? 'checked' : '' }} class="la-admin__toggle-switch" name="fb_enable" id="fb_enable" type="checkbox"/>
 		    		<label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="fb_enable"></label>
 					<br>
 				

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
+use App\Setting;
 
 class CourseChapter extends Model
 {
@@ -46,4 +47,32 @@ class CourseChapter extends Model
     {
         return Storage::url(config('path.course.class_thumnail').$this->course_id. '/' . $value);
     }
+
+    public function getConvertedpriceAttribute(){
+
+        $value = $this->price;
+        
+        $setting = Setting::first();
+        $dollar_price = null;
+
+        if($setting && $setting->dollar_price){
+
+            $dollar_price = $setting->dollar_price;
+
+        }else{
+
+            $dollar_price = 70;
+        }
+
+        if ($position = 'India') {
+
+            return $value * $dollar_price;
+
+        } else {
+
+           return $value;
+           
+        }
+    }
+
 }

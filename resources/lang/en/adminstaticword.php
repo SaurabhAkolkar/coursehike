@@ -517,5 +517,10 @@ return [
     'level'=>'Level',
     'Advertisement'=>'Advertisement',
     'Rating'=>'Rating',
+    'Additional'=>'Additional Details',
+    'SubscriptionCommission'=>'Subscription Commission',
+    'CourseCommission' => 'Course Commission',
+    'EditMentorDetail'=>'Edit Mentor Detail',
+    'CurrenyConversion'=>'Currency Conversion',
 
 ];

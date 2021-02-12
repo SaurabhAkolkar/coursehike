@@ -190,14 +190,14 @@
               <li class="@if(Request::segment(1) == 'coursetext') active @endif"><a href="{{url('coursetext')}}" class="d-flex align-items-center"><i class="la-icon la-icon--xl icon-course-text mr-3"></i> {{ __('adminstaticword.CourseText') }}</a></li>
               <li class="@if(Request::segment(1) == 'getstarted') active @endif"><a href="{{url('getstarted')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-get-started mr-4"></i>{{ __('adminstaticword.GetStarted') }}</a></li>
               <li class="@if(Request::segment(1) == 'trusted') active @endif"><a href="{{url('trusted')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-trusted-sliders mr-5"></i><span>{{ __('adminstaticword.TrustedSlider') }}</span></a></li>
-              <li class="@if(Request::segment(1) == 'widget') active @endif"><a href="{{route('widget.setting')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-widget-settings mr-4"></i>{{ __('adminstaticword.WidgetSetting') }}</a></li> -->
+              <li class="@if(Request::segment(1) == 'widget') active @endif"><a href="{{route('widget.setting')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-widget-settings mr-4"></i>{{ __('adminstaticword.WidgetSetting') }}</a></li>-->
               <li class="@if(Request::segment(1) == 'testimonial') active @endif"><a href="{{url('testimonial')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-testimonials mr-4"></i>{{ __('adminstaticword.Testimonial') }}</a></li>
               <li class="@if(Request::segment(1) == 'firstsection') active @endif"><a href="{{url('firstsection')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-first-section mr-4"></i>{{ __('adminstaticword.FirstSection') }}</a></li>
               <li class="@if(Request::segment(1) == 'featuredMentors') active @endif"><a href="{{url('featuredMentors')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-featured-mentor mr-4"></i>{{ __('adminstaticword.FeaturedMentors') }}</a></li>
             </ul>
           </li>
           
-          <!-- <li class="{{ Nav::isRoute('gen.set') }} {{ Nav::isRoute('api.setApiView') }} {{ Nav::isResource('blog') }} {{ Nav::isRoute('about.page') }} {{ Nav::isRoute('careers.page') }} {{ Nav::isRoute('comingsoon.page') }} {{ Nav::isRoute('termscondition') }} {{ Nav::isRoute('policy') }} {{ Nav::isRoute('bank.transfer') }} {{ Nav::isRoute('show.pwa') }} {{ Nav::isRoute('adsense') }} treeview">
+           <li class="{{ Nav::isRoute('gen.set') }} {{ Nav::isRoute('api.setApiView') }} {{ Nav::isResource('blog') }} {{ Nav::isRoute('about.page') }} {{ Nav::isRoute('careers.page') }} {{ Nav::isRoute('comingsoon.page') }} {{ Nav::isRoute('termscondition') }} {{ Nav::isRoute('policy') }} {{ Nav::isRoute('bank.transfer') }} {{ Nav::isRoute('show.pwa') }} {{ Nav::isRoute('adsense') }} treeview">
            <a href="#">
              <i class="flaticon-tools" aria-hidden="true"></i> <span>{{ __('adminstaticword.SiteSetting') }}</span>
               <span class="pull-right-container">
@@ -225,7 +225,7 @@
               @endif
 
             </ul>
-          </li> -->
+          </li> 
 
           <!-- <li class="{{ Nav::isRoute('player.set') }} {{ Nav::isRoute('ads') }} {{ Nav::isRoute('ad.setting') }} treeview">
            <a href="#">
