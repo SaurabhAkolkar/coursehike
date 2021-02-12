@@ -41,6 +41,28 @@ $(function(){
   });
 
 
+  //- Carousel Indiactors for Nav Tabs
+  (function($) {
+    $(".la-courses__nav-tabs").on('scroll', function() {
+      $val = $(this).scrollLeft();
+  
+      if($(this).scrollLeft() + $(this).innerWidth()>=$(this)[0].scrollWidth){
+          $(".la-courses__nav-next").show();
+      }
+    });
+
+    console.log( 'init-scroll: ' + $(".la-courses__nav-next").scrollLeft() );
+    $(".la-courses__nav-next").on("click", function(){
+      $(".la-courses__nav-tabs").animate( { scrollLeft: '+=250' }, 200);
+    });
+
+    $(".la-courses__nav-prev").on("click", function(){
+      $(".la-courses__nav-tabs").animate( { scrollLeft: '-=250' }, 200);
+    });
+
+  })(jQuery);
+  //- Carousel Indiactors for Nav Tabs
+
   //- Filter Sidebar
   $("#filteredCourses").on('click', function(event){
     event.stopPropagation();

@@ -2,8 +2,8 @@
 
 @font-face {
   font-family: "icomoon";
-  src: url(/fonts/icomoon.eot?427450e0e2e7cb29ea71c8b9a59cf4f4);
-  src: url(/fonts/icomoon.eot?427450e0e2e7cb29ea71c8b9a59cf4f4) format("embedded-opentype"), url(/fonts/icomoon.ttf?bf272f041f15f0d0e625d656b1770f63) format("truetype"), url(/fonts/icomoon.woff?5a53588a7882c9f5634a3dc5e1a8f5ea) format("woff"), url(/fonts/icomoon.svg?6f2d3e7193a867e0a3ffab2fb25cfdee) format("svg");
+  src: url(/fonts/icomoon.eot?d098826199392b2d72ada5755474c18a);
+  src: url(/fonts/icomoon.eot?d098826199392b2d72ada5755474c18a) format("embedded-opentype"), url(/fonts/icomoon.ttf?e2c6df6a4946dcb85cef47fa535fd3f8) format("truetype"), url(/fonts/icomoon.woff?4d91226b42f348c992fc02ea1e4b8d9f) format("woff"), url(/fonts/icomoon.svg?2780249fda03ca02572c5dff673b4026) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -22,6 +22,10 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-right-arrow2:before {
+  content: "\E9AF";
 }
 
 .icon-advanced:before {

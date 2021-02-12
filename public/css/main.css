@@ -9792,8 +9792,8 @@ a.text-dark:focus, a.text-dark:hover {
 }
 @font-face {
   font-family: "icomoon";
-  src: url(/fonts/icomoon.eot?427450e0e2e7cb29ea71c8b9a59cf4f4);
-  src: url(/fonts/icomoon.eot?427450e0e2e7cb29ea71c8b9a59cf4f4#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?bf272f041f15f0d0e625d656b1770f63) format("truetype"), url(/fonts/icomoon.woff?5a53588a7882c9f5634a3dc5e1a8f5ea) format("woff"), url(/fonts/icomoon.svg?6f2d3e7193a867e0a3ffab2fb25cfdee#icomoon) format("svg");
+  src: url(/fonts/icomoon.eot?d098826199392b2d72ada5755474c18a);
+  src: url(/fonts/icomoon.eot?d098826199392b2d72ada5755474c18a#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?e2c6df6a4946dcb85cef47fa535fd3f8) format("truetype"), url(/fonts/icomoon.woff?4d91226b42f348c992fc02ea1e4b8d9f) format("woff"), url(/fonts/icomoon.svg?2780249fda03ca02572c5dff673b4026#icomoon) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -9810,6 +9810,10 @@ a.text-dark:focus, a.text-dark:hover {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-right-arrow2:before {
+  content: "\E9AF";
 }
 
 .icon-advanced:before {
@@ -17628,44 +17632,101 @@ a, a:hover {
   width: 100%;
   transition: all 0.5s linear;
   scroll-behavior: smooth;
+  /*&:hover > .la-courses__nav-tabs::-webkit-scrollbar-thumb{
+      transition:all 0.5s linear;
+      height:8px;
+      background:rgb(197, 197, 197);
+      border-radius:10px;
+
+      @include respond-below(sm){
+          height:4px;
+      }
+  }*/
 }
-.la-courses__nav:hover > .la-courses__nav-tabs::-webkit-scrollbar-thumb {
-  -webkit-transition: all 0.5s linear;
-  transition: all 0.5s linear;
-  height: 8px;
-  background: #c5c5c5;
-  border-radius: 10px;
+.la-courses__nav-prev, .la-courses__nav-next {
+  width: 30px;
+  height: 30px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--gray2);
+  border-radius: var(--rounded-full);
+  color: var(--gray6);
+  position: absolute;
+  cursor: pointer;
+}
+.la-courses__nav-prev:hover, .la-courses__nav-next:hover {
+  background-color: var(--app-indigo-1);
+  color: var(--white);
+}
+.la-courses__nav-prev {
+  top: 5px;
+  left: -40px;
+}
+.la-courses__nav-prev--icon {
+  font-size: var(--text-xl);
+  padding: 5px 4px;
+}
+.la-courses__nav-next {
+  top: 5px;
+  right: -40px;
+}
+.la-courses__nav-next--icon {
+  font-size: var(--text-xl);
+  padding: 5px 6px;
+}
+@media (min-width: 1200px) {
+  .la-courses__nav-prev {
+    left: -50px;
+  }
+  .la-courses__nav-next {
+    right: -50px;
+  }
+}
+@media (max-width: 991px) {
+  .la-courses__nav-prev {
+    left: -30px;
+    top: 2px;
+  }
+  .la-courses__nav-next {
+    right: -30px;
+    top: 2px;
+  }
 }
 @media (max-width: 767px) {
-  .la-courses__nav:hover > .la-courses__nav-tabs::-webkit-scrollbar-thumb {
-    height: 4px;
+  .la-courses__nav-prev {
+    left: 0;
+    top: 2px;
+  }
+  .la-courses__nav-next {
+    right: 0;
+    top: 2px;
   }
 }
 .la-courses__nav-tabs {
   width: 100%;
   flex-wrap: nowrap;
   overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
   margin-bottom: var(--size-12);
   padding-bottom: var(--size-2);
   transition: all 0.5s linear;
 }
+@media (max-width: 991px) {
+  .la-courses__nav-tabs {
+    margin: 0 var(--size-2) var(--size-5);
+  }
+}
 @media (max-width: 767px) {
   .la-courses__nav-tabs {
-    margin-bottom: var(--size-5);
+    margin: 0 var(--size-10) var(--size-5);
   }
 }
 .la-courses__nav-tabs::-webkit-scrollbar {
-  height: 8px;
-  width: 8px;
-  background: rgba(229, 229, 229, 0.25);
-  border-radius: 10px;
-  visibility: hidden;
-}
-@media (max-width: 767px) {
-  .la-courses__nav-tabs::-webkit-scrollbar {
-    height: 4px;
-  }
+  display: none;
+  /*@include respond-below(sm){
+      height:4px;
+  }*/
 }
 .la-courses__nav-item {
   margin-right: var(--size-14);

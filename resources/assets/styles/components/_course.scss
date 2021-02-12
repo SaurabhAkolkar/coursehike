@@ -21,7 +21,7 @@
                     transition:all 0.5s linear;
                     scroll-behavior: smooth;
                     
-                    &:hover > .la-courses__nav-tabs::-webkit-scrollbar-thumb{
+                    /*&:hover > .la-courses__nav-tabs::-webkit-scrollbar-thumb{
                         transition:all 0.5s linear;
                         height:8px;
                         background:rgb(197, 197, 197);
@@ -30,33 +30,88 @@
                         @include respond-below(sm){
                             height:4px;
                         }
-                    }
+                    }*/
 
                     &- {
+                        &prev,&next{
+                            width:30px;
+                            height:30px;
+                            width:30px;
+                            height:30px;
+                            background-color: var(--gray2);
+                            border-radius: var(--rounded-full);
+                            color:var(--gray6);
+                            //box-shadow: 4px 6px 6px 4px rgba(0,0,0,0.1);
+                            position:absolute;
+                            cursor: pointer;
+    
+                            &:hover{
+                                background-color:var(--app-indigo-1);
+                                color:var(--white);
+                            }
+                        }
+                        &prev{
+                            top:5px;
+                            left:-40px;
+                            &--{
+                                &icon{
+                                    font-size:var(--text-xl);
+                                    padding:5px 4px;
+                                }
+                            }
+                        }
+                        &next{
+                            top:5px;
+                            right:-40px;
+                            &--{
+                                &icon{
+                                    font-size:var(--text-xl);
+                                    padding:5px 6px;
+                                }
+                            }
+                        }
+                        @include respond-above(lg){
+                            &prev{left:-50px;}
+                            &next{ right:-50px;}
+                        }
+                        @include respond-below(md){
+                            &prev{left:-30px;top:2px;}
+                            &next{right:-30px;top:2px;}
+                        }
+                        @include respond-below(sm){
+                            &prev{left:0;top:2px;}
+                            &next{right:0;top:2px;}
+                        }
+                                               
                         &tabs {
                             width:100%;
                             //height:100%;
                             flex-wrap:nowrap;
                             overflow-x:scroll;
+                            -webkit-overflow-scrolling: touch;
                             scroll-behavior: smooth;
                             margin-bottom: var(--size-12);
                             padding-bottom:var(--size-2);
                             transition:all 0.5s linear;
 
+                            @include respond-below(md){
+                                margin:0 var(--size-2) var(--size-5);
+                            }
                             @include respond-below(sm){
-                                margin-bottom: var(--size-5);
+                                margin:0 var(--size-10) var(--size-5);
                             }
                         }
                         &tabs::-webkit-scrollbar {
-                            height:8px;
-                            width:8px;
-                            background:rgba(229,229,229,0.25);
-                            border-radius:10px;
-                            visibility: hidden;
+                            //height:8px;
+                            //width:8px;
+                            //background:rgba(229,229,229,0.25);
+                            //border-radius:10px;
+                            //visibility: hidden;
+                            display: none;
 
-                            @include respond-below(sm){
+                            /*@include respond-below(sm){
                                 height:4px;
-                            }
+                            }*/
                         }
                         &item {
                             margin-right: var(--size-14);
