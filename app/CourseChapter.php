@@ -54,24 +54,17 @@ class CourseChapter extends Model
         
         $setting = Setting::first();
         $dollar_price = null;
+        $position = Location::get();
 
         if($setting && $setting->dollar_price){
-
             $dollar_price = $setting->dollar_price;
-
         }else{
-
             $dollar_price = 70;
         }
-
-        if ($position = 'India') {
-
+        if ($position->countryName == 'India') {
             return $value * $dollar_price;
-
         } else {
-
            return $value;
-           
         }
     }
 

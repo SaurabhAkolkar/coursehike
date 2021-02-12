@@ -16,12 +16,12 @@
                         <div class="row">
                             <div class="col-md-3">
                             <label for="exampleInputTit1e">{{ __('adminstaticword.SubscriptionCommission') }}:<sup class="redstar">*</sup></label>
-                            <input type="text" class="form-control" name="subscription_commission" value="{{ $mentor_detail->subscription_commission }}" placeholder="Subscription Commision">
+                            <input type="text" class="form-control" name="subscription_commission" value="{{ $mentor_detail['subscription_commission'] }}" placeholder="Subscription Commision">
                             </div>
                         
                             <div class="col-md-3">
-                            <label for="exampleInputTit1e">{{ __('adminstaticword.CourseCommission') }}:<sup class="redstar">*</sup></label>
-                            <input type="text" class="form-control" name="course_commission" value="{{ $mentor_detail->course_commission }}" placeholder="Course Commission">
+                            <label for="exampleInputTit1e">{{ __('adminstaticword.PurchaseCommission') }}:<sup class="redstar">*</sup></label>
+                            <input type="text" class="form-control" name="purchase_commission" value="{{ $mentor_detail['purchase_commission'] }}" placeholder="Purchase Commission">
                             </div>
                         </div>
                         

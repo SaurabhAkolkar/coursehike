@@ -17,7 +17,7 @@ class CreateMentorDetailsTable extends Migration
                 $table->bigIncrements('id');
                 $table->unsignedBigInteger('user_id');
                 $table->integer('subscription_commission')->nullable();
-                $table->integer('course_commission')->nullable();
+                $table->integer('purchase_commission')->nullable();
                 $table->timestamps();
         });
     }

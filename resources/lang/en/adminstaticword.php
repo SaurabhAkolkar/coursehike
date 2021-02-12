@@ -519,7 +519,7 @@ return [
     'Rating'=>'Rating',
     'Additional'=>'Additional Details',
     'SubscriptionCommission'=>'Subscription Commission',
-    'CourseCommission' => 'Course Commission',
+    'PurchaseCommission' => 'Purchase Commission',
     'EditMentorDetail'=>'Edit Mentor Detail',
     'CurrenyConversion'=>'Currency Conversion',
 

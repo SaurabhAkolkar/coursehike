@@ -113,6 +113,12 @@ class InstructorRequestController extends Controller
     public function editMentorDetails($id)
     {
         $mentor_detail = MentorDetail::where('user_id',$id)->first();
+        if($mentor_detail == null){
+            $mentor_detail = []; 
+            $mentor_detail['subscription_commission'] = null;
+            $mentor_detail['purchase_commission'] = null;
+        }
+       
         $user_id = $id;
         return view('admin.instructor.all_instructor.edit_mentor_details', compact('user_id', 'mentor_detail'));
     }
@@ -122,12 +128,12 @@ class InstructorRequestController extends Controller
 
         $this->validate($request, [
             'subscription_commission' => 'required',
-            'course_commission' => 'required',
+            'purchase_commission' => 'required',
             'user_id'=>'required',
         ]);
            
         MentorDetail::updateOrCreate(['user_id' => $request->user_id],
-                                    ['course_commission' => $request->course_commission, 'subscription_commission' => $request->subscription_commission]);    
+                                    ['purchase_commission' => $request->purchase_commission, 'subscription_commission' => $request->subscription_commission]);    
         
         return back()->with('success','Details updated successfully.');
     }

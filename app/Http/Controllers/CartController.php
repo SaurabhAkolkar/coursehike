@@ -167,7 +167,7 @@ class CartController extends Controller
         $playlists = [];
         $gst = Null;
         $subTotal = Null;
-        $position = Location::get('2402:3a80:1443:b401:b903:6d28:6317:3efc');
+        $position = Location::get();
         $location = $position->countryName;
         
 
