@@ -217,7 +217,11 @@ class HomeController extends Controller
         ];
 
         //dd($featuredMentor);
+<<<<<<< Updated upstream
         // dd($master_classes[0]->courses->price);
+=======
+        //dd($master_classes[0]->courses->price);
+>>>>>>> Stashed changes
     
         return view('learners.pages.home')->with($data);
     }
