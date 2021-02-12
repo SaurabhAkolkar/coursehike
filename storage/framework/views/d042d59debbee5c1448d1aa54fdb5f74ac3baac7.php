@@ -17,24 +17,26 @@
                   <!-- Purchased Desktop Version: Start -->
 
                 <?php if(count($invoice) != 0 ): ?>
-                <div class="container px-0 d-none d-lg-block"> 
+                <div class="container px-0"> 
                       <div class="la-purchaseh__item row mb-5">          
-                        <div class="col-lg-4 la-anim__stagger-item--x">
-                          <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-2xl head-font">Invoice ID                            </div>
+                        <div class="col-3 col-lg-4 la-anim__stagger-item--x">
+                          <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-sm text-md-2xl head-font">Invoice ID                            </div>
                         </div>
-                        <div class="col-lg-1 "></div>
-                        <div class="col-lg-1 text-center la-anim__stagger-item--x">
+                        
+
+                        <div class="col-3 col-lg-2 la-anim__stagger-item--x">
                           <div class="la-purchaseh__item-label text-sm">On  </div>
                         </div>
-                        <div class="col-lg-1"></div>
                         
-                        <div class="col-lg-1 px-0 text-center la-anim__stagger-item--x">
+                        
+
+                        <div class="col-2 col-lg-1 la-anim__stagger-item--x">
                           <div class="la-purchaseh__item-label text-sm">Total Price </div>
                         </div>
-                        <div class="col-lg-1 text-center la-anim__stagger-item--x">
+                        <div class="col-2 col-lg-1  la-anim__stagger-item--x">
                           <div class="la-purchaseh__item-label text-sm">Payment Status </div>
                         </div>
-                        <div class="col-lg-1 p-0 text-center la-anim__stagger-item--x">
+                        <div class="col-2 col-lg-2  la-anim__stagger-item--x">
                           <div class="la-purchaseh__item-label text-sm">Invoice </div>
                         </div>
                       </div>
@@ -56,7 +58,7 @@
                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
                 <?php else: ?>
-                  <div class="d-none d-lg-block la-anim__wrap">
+                  <div class="la-anim__wrap">
                     <div class=" d-md-flex justify-content-center align-items-start la-anim__stagger-item">
                           <div class="la-empty__inner py-10">
                               <h6 class="la-empty__course-title  text-3xl la-anim__stagger-item" style="color:var(--gray8);">No Purchase History.</h6>
@@ -68,41 +70,7 @@
                   <!-- Purchased Desktop Version: End -->
 
                   <!-- Purchased Mobile Version: Start -->
-                <?php if(count($invoice) != 0 ): ?>
-                <div class="container ">
-                  <div class="la-ph__mobile d-block d-lg-none la-anim__stagger-item">
-                    <div class="la-ph__mobile-inner d-flex justify-content-between my-5">
-                      <div class="la-ph__course text-md ">Course</div>
-                      <div class="la-ph__status text-md">Status</div>
-                    </div>
-                    <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-xl head-font pb-3">Purchased</div>
-                  </div>
-                  
-                    <?php $__currentLoopData = $invoice; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                      <?php $__currentLoopData = $i->details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                         <?php if (isset($component)) { $__componentOriginal2b4fa1f1be12051bf0aa15b0f0f98b56199c9ba0 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\PurchaseMobile::class, ['id' => $detail->id,'img' => 'https://picsum.photos/200/100','course' => $detail->course->title,'creator' => $detail->course->user->fullname,'date' => Carbon\Carbon::parse($detail->created_at)->isoFormat('D/M/YY'),'paymode' => 'PayTM','total' => $detail->price,'paystatus' => $i->status,'invoice' => 'Invoice','invoiceUrl' => '/download-invoice/'.$i->id]); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes([]); ?>
-<?php if (isset($__componentOriginal2b4fa1f1be12051bf0aa15b0f0f98b56199c9ba0)): ?>
-<?php $component = $__componentOriginal2b4fa1f1be12051bf0aa15b0f0f98b56199c9ba0; ?>
-<?php unset($__componentOriginal2b4fa1f1be12051bf0aa15b0f0f98b56199c9ba0); ?>
-<?php endif; ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>   
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>        
-                </div>
-                <?php else: ?>
-                    <div class="d-block d-lg-none la-anim__wrap">
-                      <div class="d-md-flex justify-content-between align-items-start  la-anim__stagger-item" >
-                          <div class="text-center py-6 la-empty__inner">
-                          <h6 class="la-empty__course-title text-xl la-anim__stagger-item" style="color:var(--gray8);">No Purchase History.</h6>
-                          </div>
-                      </div>
-                    </div>
-                <?php endif; ?>
+               
                 <!-- Purchased Mobile Version: End -->
             </section>
             <!-- SECTION PURCHASED: END -->

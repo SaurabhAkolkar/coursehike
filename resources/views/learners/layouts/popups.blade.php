@@ -14,7 +14,7 @@
                                     
                             <div class="modal-body  la-locked__modal-body text-center">
                                 <h5 class="modal-title la-locked__modal-title ">Login Required</h5>
-                                <img src="../images/learners/status/locked-login.svg" alt="Login" class="img-fluid mx-auto d-block la-locked__modal-img">
+                                <img src="/images/learners/status/locked-login.svg" alt="Login" class="img-fluid mx-auto d-block la-locked__modal-img">
                                 <p class="la-locked__modal-desc px-6">Please login & subscribe to gain full access to courses.</p>
                                 <a href="/login" class="la-btn__app py-3 btn btn-block w-100 la-locked__modal-btn" role="button">Login</a>
 
@@ -41,7 +41,7 @@
                                     
                             <div class="modal-body  la-locked__modal-body text-center">
                                 <h5 class="modal-title la-locked__modal-title ">Subscription Required!</h5>
-                                <img src="../images/learners/status/locked-subscribe.svg" alt="Subscribe" class="img-fluid mx-auto d-block la-locked__modal-img">
+                                <img src="/images/learners/status/locked-subscribe.svg" alt="Subscribe" class="img-fluid mx-auto d-block la-locked__modal-img">
                                 <p class="la-locked__modal-desc">Please subscribe & continue to enjoy courses from you favourite mentors.</p>
                                 <a href="/" class="la-btn__app py-3 w-100 btn btn-block la-locked__modal-btn" role="button">Subscribe Now</a>
 
@@ -68,7 +68,7 @@
                                     
                             <div class="modal-body  la-locked__modal-body text-center">
                                 <h5 class="modal-title la-locked__modal-title ">We have a gift for you!</h5>
-                                <img src="../images/learners/status/locked-signup.svg" alt="Gift for You" class="img-fluid mx-auto d-block la-locked__modal-img">
+                                <img src="/images/learners/status/locked-signup.svg" alt="Gift for You" class="img-fluid mx-auto d-block la-locked__modal-img">
                                 <p class="la-locked__modal-desc px-14">Access premium courses for free for first 7 days.</p>
 
                                 <a class="la-btn__app py-3 w-100 btn btn-block la-locked__modal-btn" role="button" href="/register">Signup Now</a>

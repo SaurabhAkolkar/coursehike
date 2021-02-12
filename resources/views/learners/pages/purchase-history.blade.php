@@ -19,26 +19,29 @@
                   <!-- Purchased Desktop Version: Start -->
 
                 @if(count($invoice) != 0 )
-                <div class="container px-0 d-none d-lg-block"> 
+                <div class="container px-0"> 
                       <div class="la-purchaseh__item row mb-5">          
-                        <div class="col-lg-4 la-anim__stagger-item--x">
-                          <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-2xl head-font">Invoice ID                            </div>
+                        <div class="col-3 col-lg-4 la-anim__stagger-item--x">
+                          <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-sm text-md-2xl head-font">Invoice ID                            </div>
                         </div>
-                        <div class="col-lg-1 "></div>
-                        <div class="col-lg-1 text-center la-anim__stagger-item--x">
+                        {{-- <div class="col-lg-1 "></div> --}}
+
+                        <div class="col-3 col-lg-2 la-anim__stagger-item--x">
                           <div class="la-purchaseh__item-label text-sm">On  </div>
                         </div>
-                        <div class="col-lg-1"></div>
-                        {{-- <div class="col-lg-1 text-center la-anim__stagger-item--x">
+                        
+                        {{-- <div class="col-lg-1"></div>
+                        <div class="col-lg-1  la-anim__stagger-item--x">
                           <div class="la-purchaseh__item-label text-sm">Payment Mode </div>
                         </div> --}}
-                        <div class="col-lg-1 px-0 text-center la-anim__stagger-item--x">
+
+                        <div class="col-2 col-lg-1 la-anim__stagger-item--x">
                           <div class="la-purchaseh__item-label text-sm">Total Price </div>
                         </div>
-                        <div class="col-lg-1 text-center la-anim__stagger-item--x">
+                        <div class="col-2 col-lg-1  la-anim__stagger-item--x">
                           <div class="la-purchaseh__item-label text-sm">Payment Status </div>
                         </div>
-                        <div class="col-lg-1 p-0 text-center la-anim__stagger-item--x">
+                        <div class="col-2 col-lg-2  la-anim__stagger-item--x">
                           <div class="la-purchaseh__item-label text-sm">Invoice </div>
                         </div>
                       </div>
@@ -57,7 +60,7 @@
                       @endforeach
                 </div>
                 @else
-                  <div class="d-none d-lg-block la-anim__wrap">
+                  <div class="la-anim__wrap">
                     <div class=" d-md-flex justify-content-center align-items-start la-anim__stagger-item">
                           <div class="la-empty__inner py-10">
                               <h6 class="la-empty__course-title  text-3xl la-anim__stagger-item" style="color:var(--gray8);">No Purchase History.</h6>
@@ -69,7 +72,7 @@
                   <!-- Purchased Desktop Version: End -->
 
                   <!-- Purchased Mobile Version: Start -->
-                @if(count($invoice) != 0 )
+               {{-- @if(count($invoice) != 0 )
                 <div class="container ">
                   <div class="la-ph__mobile d-block d-lg-none la-anim__stagger-item">
                     <div class="la-ph__mobile-inner d-flex justify-content-between my-5">
@@ -104,7 +107,7 @@
                           </div>
                       </div>
                     </div>
-                @endif
+                @endif --}}
                 <!-- Purchased Mobile Version: End -->
             </section>
             <!-- SECTION PURCHASED: END -->

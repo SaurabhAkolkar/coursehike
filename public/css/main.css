@@ -17816,11 +17816,14 @@ a, a:hover {
   -webkit-transition: transform 0.24s ease-out;
   -moz-transition: transform 0.24s ease-out;
   overflow: hidden;
+  width: 100%;
+  height: 200px;
 }
 .la-course__imgwrap img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
+  height: 220px;
   transition: transform 0.24s ease-out;
   -webkit-transition: transform 0.24s ease-out;
   -moz-transition: transform 0.24s ease-out;

@@ -67,86 +67,8 @@
                     <!-- Cousre Cart:  End -->
 
                     <div class="col-lg-4 mb-5 mb-md-0 la-anim__wrap">
-                      <div class="la-profile__title body-font text-xl  la-anim__stagger-item--x">Billing Address</div>
-                      <form class="form-row la-payment__form-row pb-10">                        
-                            <?php
-                                $address1 = new stdClass;
-                                $address1->inputLabel = "House No./Street/Area";
-                                $address1->inputType = "text";
-                                $address1->inputValue = "H.No:7/52,BDD,Worli,Mumbai";
-                                $address1->inputName = "street_name";
-                                $address1->inputId = "bill-address";
-                                $address1->value = "bill-address";
-
-                                $address3 = new stdClass;
-                                $address3->inputLabel = "State";
-                                $address3->inputType = "text";
-                                $address3->inputValue = "Maharastra";
-                                $address3->inputName = "state";
-                                $address3->inputId = "bill-state";
-
-                                $address4 = new stdClass;
-                                $address4->inputLabel = "City";
-                                $address4->inputType = "text";
-                                $address4->inputValue = "Mumbai";
-                                $address4->inputName = "city";
-                                $address4->inputId = "bill-city";
-
-                                $address5 = new stdClass;
-                                $address5->inputLabel = "Zip Code";
-                                $address5->inputType = "number";
-                                $address5->inputValue = "500073";
-                                $address5->inputName = "zipcode";
-                                $address5->inputId = "bill-zipcode";
-
-
-                                $countries = [];
-                                $addresses = array( $address3, $address4, $address5);
-                            ?>
-
-                            <div class="col-12 col-md-12">
-                                 <?php if (isset($component)) { $__componentOriginal641f81b69a265e38ea849a4e8e7658167b839d47 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Payment::class, ['inputLabel' => $address1->inputLabel,'inputType' => $address1->inputType,'inputValue' => $address1->inputValue,'inputName' => $address1->inputName,'inputId' => $address1->inputId]); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes([]); ?>
-<?php if (isset($__componentOriginal641f81b69a265e38ea849a4e8e7658167b839d47)): ?>
-<?php $component = $__componentOriginal641f81b69a265e38ea849a4e8e7658167b839d47; ?>
-<?php unset($__componentOriginal641f81b69a265e38ea849a4e8e7658167b839d47); ?>
-<?php endif; ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-                            </div>
-
-                            <?php $__currentLoopData = $addresses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $address): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <div class="col-12 col-md-6">
-                                     <?php if (isset($component)) { $__componentOriginal641f81b69a265e38ea849a4e8e7658167b839d47 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Payment::class, ['inputLabel' => $address->inputLabel,'inputType' => $address->inputType,'inputValue' => $address->inputValue,'inputName' => $address->inputName,'inputId' => $address->inputId]); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes([]); ?>
-<?php if (isset($__componentOriginal641f81b69a265e38ea849a4e8e7658167b839d47)): ?>
-<?php $component = $__componentOriginal641f81b69a265e38ea849a4e8e7658167b839d47; ?>
-<?php unset($__componentOriginal641f81b69a265e38ea849a4e8e7658167b839d47); ?>
-<?php endif; ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-                                </div>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-                            <div class="col-12 col-md-6">
-                                <div class="la-payment__card la-anim__stagger-item--x">
-                                    <label class="la-payment__card-label text-sm">Country <span style="color:var(--danger);">*</span></label>
-                                    <select name="country" class="form-control select2 la-payment__card-input">
-                                        <?php $__currentLoopData = $countries; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($country->iso); ?>" <?php echo e((old("country") == $country->iso ? "selected":"")); ?>>
-                                            <?php echo e($country->nicename); ?></option>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                        </form>
+                      
+                        
                       
 
                         <!-- Cart Checkout: Start -->
