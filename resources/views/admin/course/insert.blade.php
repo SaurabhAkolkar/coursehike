@@ -35,7 +35,7 @@
               {{ csrf_field() }} 
   
               <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <label>{{ __('adminstaticword.Category') }}:<span class="redstar">*</span></label>
                   <select name="category_id" id="category_id" class="form-control js-example-basic-single">
                     <option value="0">{{ __('adminstaticword.SelectanOption') }}</option>
@@ -44,17 +44,17 @@
                     @endforeach
                   </select>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <label>{{ __('adminstaticword.SubCategory') }}:<span class="redstar">*</span></label>
                     <select name="subcategory_id" id="upload_id" class="form-control js-example-basic-single">
                     </select>
                 </div>
-                <div class="col-md-3">
+                {{-- <div class="col-md-3">
                   <label>{{ __('adminstaticword.ChildCategory') }}:</label>
                   <select name="childcategory_id" id="grand" class="form-control js-example-basic-single"></select>
-                </div>
+                </div> --}}
                 @if(Auth::user()->role == 'admin')
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                     <label for="exampleInputTit1e">{{ __('adminstaticword.Instructor') }}</label>
                       <select name="user_id" class="form-control js-example-basic-single ">
                       @foreach($user as $u)

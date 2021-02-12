@@ -15,7 +15,7 @@
 
              
               <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <label><?php echo e(__('adminstaticword.Category')); ?><span class="redstar">*</span></label>
                   <select name="category_id" id="category_id" class="form-control js-example-basic-single" required>
                     <option value="0"><?php echo e(__('adminstaticword.SelectanOption')); ?></option>
@@ -28,7 +28,7 @@
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
                   </select>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <label><?php echo e(__('adminstaticword.SubCategory')); ?>:<span class="redstar">*</span></label>
                   <select name="subcategory_id" id="upload_id" class="form-control js-example-basic-single">
                     <?php
@@ -39,19 +39,8 @@
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   </select>
                 </div>
-                <div class="col-md-3">
-                  <label><?php echo e(__('adminstaticword.ChildCategory')); ?>:</label>
-                  <select name="childcategory_id" id="grand" class="form-control js-example-basic-single">
-                    <?php
-                      $childcategory = App\ChildCategory::all();
-                    ?> 
-
-                    <?php $__currentLoopData = $childcategory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $caat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                      <option <?php echo e($cor->childcategory_id == $caat->id ? 'selected' : ""); ?> value="<?php echo e($caat->id); ?>"><?php echo e($caat->title); ?></option>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                  </select>
-                </div>     
-                <div class="col-md-3">
+                     
+                <div class="col-md-4">
                   <?php
                     $User = App\User::all();
                   ?>
