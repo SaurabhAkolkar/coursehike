@@ -273,6 +273,17 @@ class SubscriptionController extends Controller
 		$status = $invoiceObject->status;
 	}
 
+	public function manage_billing()
+	{
+		\Stripe\Stripe::setApiKey(config('services.stripe.secret'));
+		$user = Auth::User();
+		$session = \Stripe\BillingPortal\Session::create([
+			'customer' => $user->stripe_id,
+			'return_url' => config('app.url').'/profile',
+		  ]);
+		return redirect($session->url);
+	}
+
 	public function billing()
 	{
 		$user = Auth::User();

@@ -45,7 +45,7 @@
           </a>
         </li>
         <li class="la-profile__sidebar-item">
-          <a href="/billing" class="la-profile__sidebar-link d-flex align-items-center @if(Request::segment(1) == 'billing') active @endif ">
+          <a href="/manage-billing" target="_blank" class="la-profile__sidebar-link d-flex align-items-center @if(Request::segment(1) == 'billing') active @endif ">
             <span class="la-icon la-icon--xl icon-card-filled"></span>
             <span class="la-profile__sidebar-text pl-2">Billing</span>
           </a>
