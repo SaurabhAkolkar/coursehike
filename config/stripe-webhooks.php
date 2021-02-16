@@ -16,9 +16,10 @@ return [
      * https://stripe.com/docs/api#event_types.
      */
     'jobs' => [
-        'invoice_payment_succeeded' => \App\Jobs\StripeWebhooks\InvoicePaymentSucceededJob::class,
+        'customer_subscription_updated' => \App\Jobs\StripeWebhooks\CustomerSubscriptionUpdatedJob::class,
+        'invoice_paid' => \App\Jobs\StripeWebhooks\InvoicePaymentSucceededJob::class,
         'invoice_payment_failed' => \App\Jobs\StripeWebhooks\InvoicePaymentFailedJob::class,
-        'invoice_payment_action_required' => \App\Jobs\StripeWebhooks\InvoiceRequireActionJob::class,
+        // 'invoice_payment_action_required' => \App\Jobs\StripeWebhooks\InvoiceRequireActionJob::class,
         // 'source_chargeable' => \App\Jobs\StripeWebhooks\HandleChargeableSource::class,
         
         'checkout_session_completed' => \App\Jobs\StripeWebhooks\CheckoutChargeSucceededJob::class,

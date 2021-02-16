@@ -62,7 +62,7 @@ class InvoicePaymentFailedJob implements ShouldQueue
         if($subscription_status != 'active' || $invoice_status != 'paid' || !$invoice_paid){
             $user = UserSubscription::where('stripe_subscription_id', $subscription_id)->first()->user ?? 0;
             
-            $user->subscription('main')->cancel(true);
+            // $user->subscription('main')->cancel(true);
             // if($user != 0 && $user->subscription('main')->ended()){
                 
                 // Create Invoice Record
