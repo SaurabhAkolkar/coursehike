@@ -19,6 +19,7 @@ class CreateUserInvoiceDetailsTable extends Migration
             $table->double('sub_total', 8, 2);
             $table->double('taxes', 8, 2);
             $table->double('total', 8, 2);
+            $table->char('currency');
             $table->double('discount', 8, 2)->nullable();
             $table->char('discount_type')->nullable();
             $table->char('coupon_applied')->nullable();
