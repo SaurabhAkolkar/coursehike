@@ -27,4 +27,11 @@ return [
 
     ],
 
+    'plans' => [
+        'monthly-global' => 'price_1IJGzyDEIHJhoye2wCDcBfZC',
+        'yearly-global' => 'price_1IJGzyDEIHJhoye2O2KvjoiF',
+        'monthly-india' => 'price_1IJPNrDEIHJhoye2kifs8GbK',
+        'yearly-india' => 'price_1IJZ3JDEIHJhoye28pqansTo',
+    ]
+
 ];

@@ -264,7 +264,7 @@
     @endif
 
   // Create a Stripe client.
-  var stripe = Stripe('{{ env("STRIPE_KEY") }}');
+  var stripe = Stripe('{{ config("services.stripe.key") }}');
 
   var checkoutButton = document.getElementById('checkout-button');
   checkoutButton.addEventListener("click", function () {

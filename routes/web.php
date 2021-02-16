@@ -703,7 +703,8 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/download-invoice/{id}','PurchaseHistoryController@downloadPdf');
 
   Route::get('/subscription/{slug}', 'SubscriptionController@plans');
-  Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
+  // Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
+  Route::post('/subscription-checkout', 'SubscriptionController@plan_subscription')->name('subscription.checkout');
   Route::post('/subscription/cancel', 'SubscriptionController@cancelSubscription')->name('subscription.cancel');
   Route::get('/download-certificate/{id}','LearnController@downloadCertificate');
 

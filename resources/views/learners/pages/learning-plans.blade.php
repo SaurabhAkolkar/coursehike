@@ -18,33 +18,6 @@
           <!-- Column: End-->
         </div>
 
-        @php
-            $plan1 = new stdClass;
-            $plan1->plan = "Monthly";
-            $plan1->discount = 39;
-            $plan1->oldPrice = 49;
-            $plan1->class= "red";
-            $plan1->saving = 10;
-            $plan1->slug = "monthly-plan";
-
-            // $plan2 = new stdClass;
-            // $plan2->plan = "Quarterly";
-            // $plan2->discount = 80;
-            // $plan2->oldPrice = 97;
-            // $plan2->class= "red";
-            // $plan2->saving = 25;
-            // $plan2->slug = "quarterly-plan";
-
-            $plan3 = new stdClass;
-            $plan3->plan = "Yearly";
-            $plan3->discount = 309;
-            $plan3->oldPrice = 324;
-            $plan3->class= "green";
-            $plan3->saving = 25;
-            $plan3->slug = "yearly-plan";
-
-            $plans = array($plan1, $plan3);
-        @endphp
         <div class="row la-lp__choose-main">
           <!-- Column: Start-->
           <div class="col-12">
@@ -68,15 +41,17 @@
               <!-- Choose Plans Swiper Slide for Mobile Version: Start -->
               <div class="swiper-container h-100 la-choose__slider mt-4 d-block d-lg-none">
                 <div class="swiper-wrapper la-choose__wrapper la-anim__stagger-item">
-                  <div class="swiper-slide la-choose__slide">
+                  {{-- <div class="swiper-slide la-choose__slide">
                     <x-chooseplan :plan="$plan1->plan" :discount="$plan1->discount" :oldPrice="$plan1->oldPrice"  :class="$plan1->class" :saving="$plan1->saving" :slug="$plan1->slug" />                  
                   </div>
-                  {{-- <div class="swiper-slide la-choose__slide">
-                    <x-chooseplan :plan="$plan2->plan" :discount="$plan2->discount" :oldPrice="$plan2->oldPrice" :class="$plan2->class" :saving="$plan2->saving" :slug="$plan2->slug" />                                     
-                  </div> --}}
                   <div class="swiper-slide la-choose__slide">
                     <x-chooseplan :plan="$plan3->plan" :discount="$plan3->discount" :oldPrice="$plan3->oldPrice" :class="$plan3->class" :saving="$plan3->saving" :slug="$plan3->slug" />                                                       
-                  </div>
+                  </div> --}}
+                  @foreach ($plans as $plan)
+                      <div class="swiper-slide la-choose__slide">
+                        <x-chooseplan :plan="$plan->plan" :discount="$plan->discount" :oldPrice="$plan->oldPrice" :class="$plan->class" :saving="$plan->saving" :slug="$plan->slug" />
+                      </div>
+                    @endforeach
                 </div>
               </div>
               <div class="swiper-pagination swiper-pagination-custom la-choose__pagination d-block d-lg-none"></div>
@@ -503,4 +478,34 @@
     <!-- Section: End-->
   </section>
   <!-- Main Section: End-->
+@endsection
+
+@section('footerScripts')
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    var stripe = Stripe('{{ config("services.stripe.key") }}');
+    $(document).ready(function() {
+      $( ".plan-subscribe" ).click(function( ) {
+          $.ajax({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type:"POST",
+            url: "/subscription-checkout",
+            data: {slug: $(this).attr('data-plan')},
+            success:function(session){
+              if(session.redirect)
+                window.location.href = '/manage-billing';
+              else
+                stripe.redirectToCheckout({ sessionId: session.id });
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+              console.log(XMLHttpRequest);
+            }
+          });
+      } );
+  });
+
+
+  </script>
 @endsection

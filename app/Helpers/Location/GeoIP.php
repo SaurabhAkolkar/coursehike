@@ -26,7 +26,7 @@ class GeoIP extends Driver
     {
         $position->ip = $location->geoplugin_countryCode;
         $position->countryName = $location->geoplugin_countryName;
-        $position->countryCode = $location->geoplugin_request;
+        $position->countryCode = $location->geoplugin_countryCode;
         $position->latitude = $location->geoplugin_latitude;
         $position->longitude = $location->geoplugin_longitude;
         $position->currencyCode = $location->geoplugin_currencyCode;
