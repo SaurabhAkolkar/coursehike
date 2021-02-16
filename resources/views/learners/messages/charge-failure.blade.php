@@ -37,17 +37,17 @@
 
                               <div class="la-status__info-item d-flex align-items-center">
                                   <div class="col-6 col-md-4 px-0">Payment for</div>
-                                  <div class="col-6 col-md-4 px-0"><strong>Cart Checkout</strong></div>
+                                  <div class="col-6 col-md-4 px-0"><strong>Course Purchase</strong></div>
                               </div>
 
                               <div class="la-status__info-item d-flex align-items-center">
                                 <div class="col-6 col-md-4 px-0">Amount to be Paid</div>
-                                <div class="col-6 col-md-4 px-0"><strong>$ {{ $invoice->total }}</strong></div>
+                                <div class="col-6 col-md-4 px-0"><strong>{{$invoice->currency == 'INR' ? '₹' : '$'}} {{ $invoice->total }}</strong></div>
                               </div>
                           </div>
 
                           <div class="la-status__info-btm">
-                              <div class="la-status__info-moto">Reason for payment failure message displayed here.</div>
+                              {{-- <div class="la-status__info-moto">Reason for payment failure message displayed here.</div> --}}
                               <div class="la-status__info-browse">
                                 <a href="/cart">  <button class="la-btn la-payment__pay-btn la-status__info-cta py-3" type="button">Try Again</button> </a>
                               </div>

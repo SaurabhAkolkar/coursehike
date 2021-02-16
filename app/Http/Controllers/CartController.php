@@ -17,14 +17,24 @@ use Illuminate\Support\Facades\App;
 use App\Adsense;
 use App\UserInvoiceDetail;
 use App\InvoiceDetail;
-use Stripe\Stripe;
 use Debugbar;
 use Illuminate\Support\Str;
 use Stevebauman\Location\Facades\Location;
 use App\Playlist;
+use App\Setting;
+use Cartalyst\Stripe\Stripe;
+use Cartalyst\Stripe\Exception\NotFoundException;
 
 class CartController extends Controller
 {
+
+	private $stripe;
+
+	public function __construct()
+	{
+		$this->stripe = Stripe::make(config('services.stripe.secret'));
+	}
+
     public function index()
     {
         $carts = Cart::all();
@@ -336,21 +346,30 @@ class CartController extends Controller
     public function cartCheckout(Request $request){
 
         $cart = Cart::with('user','cartItems')->where(['user_id' => Auth::User()->id, 'status'=>1])->get();
-        // $cartItems = CartItem::where('cart_id', $check->id)->get();
         
         if(empty($cart) || count($cart) < 1){
             return redirect()->back()->with('message','Your cart is empty.');
         }
         
-        // $price = $cartItems->sum('price');
         $price = $cart->sum(function ($item) {
             return array_sum(array_column($item['cartItems']->toArray(), 'price'));
         });
-        
+
+        $tax_rates = false;
+        $currency = 'USD';
+        if ($position = Location::get()) {
+            $country = $position->countryCode;
+			if($country == 'IN'){
+                $tax_rates = true;
+                $currency = 'INR';
+            }
+        }
+
         $random = Str::of(Str::orderedUuid())->upper()->explode('-');
         $insert['invoice_id'] = '#LILA-'. date('m-d') . '-'. $random[0]. '-'. $random[1];
         $insert['user_id'] =  Auth::User()->id;
-        $insert['taxes'] = 5;
+
+
 
         if(Session::has('appliedCoupon'))
         {
@@ -372,8 +391,13 @@ class CartController extends Controller
             $insert['discount_type'] = 'regular_discount';
         }
         
+        $insert['taxes'] = ($tax_rates) ? (($price * 1.18) - $price) : 0; // 18% GST
+        
+        $insert['currency'] = $currency;
+        
+        $insert['total'] = ($tax_rates) ? ($price * 1.18) : $price;
         $insert['sub_total'] = $price;
-        $insert['total'] = $price;
+
         $insert['purchase_type'] = $cart->first()->cartItems->first()->purchase_type;
         $insert['status'] = 'payment-pending';
 
@@ -507,21 +531,33 @@ class CartController extends Controller
     public function stripeCheckout($order, $request)
     {
 
-        \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
-        
+        $tax_rates = [];
+        $currency = 'USD';
+        $total_amount = $order->sub_total * 100;
+
+        $setting = Setting::find(1);
+        if ($position = Location::get()) {
+            $country = $position->countryCode;
+			if($country == 'IN'){
+				$tax_rates = ['txr_1IJH0jDEIHJhoye20gUfOsMF'];
+                $currency = 'INR';
+                // $total_amount *= ($setting->dollar_price) ? $setting->dollar_price : 75;
+            }
+        }
+
         $session_obj = [
             'payment_method_types' => ['card'],
             'line_items' => [[
               'price_data' => [
-                'currency' => 'usd',
-                'unit_amount' => $order->total * 100,
+                'currency' => $currency,
+                'unit_amount' => $total_amount,
                 'product_data' => [
-                  'name' => 'LILA Checkout',
-                  'images' => ["https://i.imgur.com/EHyR2nP.png"],
+                  'name' => 'LILA Art',
+                  'images' => [asset('/images/status/pay.png')],
                 ],
               ],
               'quantity' => 1,
-              'tax_rates' => ['txr_1IJEf2IdmI7AymqpVH6Bl2ai'],
+              'tax_rates' => $tax_rates,
             ]],
             'client_reference_id' => $order->id, // Cart ID
             'mode' => 'payment',
@@ -532,17 +568,15 @@ class CartController extends Controller
             'cancel_url' => env('APP_URL') . "/checkout-failure/$order->id",
         ];
 
-        // TODO: Enable the below code
-
-        // if (!empty(Auth::user()->stripe_id))
-        //     $session_obj['customer'] = Auth::user()->stripe_id;
-        // else
+        if (!empty(Auth::user()->stripe_id))
+            $session_obj['customer'] = Auth::user()->stripe_id;
+        else
             $session_obj['customer_email'] = Auth::user()->email;
         
-        $checkout_session = \Stripe\Checkout\Session::create($session_obj);
+		$checkout_session = $this->stripe->checkout()->sessions()->create($session_obj);
           
           $response = [
-            "id" => $checkout_session->id,
+            "id" => $checkout_session['id'],
         ];
         return response()->json($response, 200);
     }

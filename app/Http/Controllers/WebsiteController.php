@@ -33,9 +33,9 @@ class WebsiteController extends Controller
 
         $country = 'US';
         $currency = '$';
-        // if ($position = Location::get()) {
-        //     $country = $position->countryCode;
-        // }
+        if ($position = Location::get()) {
+            $country = $position->countryCode;
+        }
 
         if($country != 'IN'){
             // Global
