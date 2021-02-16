@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Stripe\Error\Card;
 use Cartalyst\Stripe\Stripe;
+use Cartalyst\Stripe\Exception\NotFoundException;
 use Exception;
 use Auth;
 
@@ -19,6 +20,7 @@ use App\UserSubscription;
 use App\UserSubscriptionInvoice;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
+use Stevebauman\Location\Facades\Location;
 
 class SubscriptionController extends Controller
 {
@@ -44,6 +46,79 @@ class SubscriptionController extends Controller
 	{
 		return view('paymentstripe');
 	}
+
+
+	public function plan_subscription(Request $request)
+	{
+		$plan = app('rinvex.subscriptions.plan')->where("slug", $request->slug)->first();
+
+		// If customer already subscribed redirect to billing portal
+		// Check user inr/usd and 
+		// Tax rates
+
+		$tax_rates = [];
+        if ($position = Location::get()) {
+            $country = $position->countryCode;
+			if($country == 'IN')
+				$tax_rates = ['txr_1IJH0jDEIHJhoye20gUfOsMF'];
+        }
+		
+		$stripe_plan_id = config('rinvex.subscriptions.plans.'.$request->slug);
+
+		$session_data = [
+			'payment_method_types' => ['card'],
+            'line_items' => [
+				[
+					'price' => $stripe_plan_id,
+					'quantity' => 1,
+					'tax_rates' => $tax_rates
+				]
+			],
+            'mode' => 'subscription',
+            'success_url' => config('app.url') . "/subscription-successful/{CHECKOUT_SESSION_ID}",
+            'cancel_url' => config('app.url') . "/learning-plans",
+			'subscription_data' => [
+				'trial_period_days' => 7
+			]
+		];
+		try {
+
+			$stripe_id = Auth::user()->stripe_id;
+			$customer = $this->stripe->customers()->find($stripe_id);
+
+			if (!array_key_exists('deleted', $customer)){
+				$response = [
+					"redirect" => true,
+				];
+				return response()->json($response, 200);
+
+				$session_data['customer'] = $stripe_id;
+			}else
+				$session_data['customer_email'] = Auth::user()->email;
+
+		} catch (NotFoundException $e) {
+		    $message = $e->getMessage();
+			$session_data['customer_email'] = Auth::user()->email;
+		}
+
+		try {
+
+			$checkout_session = $this->stripe->checkout()->sessions()->create($session_data);
+			$response = [
+				"id" => $checkout_session['id'],
+				"redirect" => false,
+			];
+			return response()->json($response, 200);
+		} catch (Exception $e) {
+			$response = [
+				"message" => $e->getMessage(),
+			];
+			return response()->json($response, 500);
+		}
+		
+	}
+
+
 
 	public function postPaymentStripe(Request $request)
 	{
@@ -134,20 +209,7 @@ class SubscriptionController extends Controller
 			$subscription = $this->stripe->subscriptions()->create($stripe_id, [
 				'plan' => $plan_id,
 				'trial_end' => $trial_period,
-			]);
-
-			
-			// echo '<pre>';
-			// print_r($subscription);
-
-			// $token = $this->stripe->tokens()->create([
-			// 	'card' => [
-			// 		'number' => $request->get('card_no'),
-			// 		'exp_month' => $request->get('ccExpiryMonth'),
-			// 		'exp_year' => $request->get('ccExpiryYear'),
-			// 		'cvc' => $request->get('cvvNumber'),
-			// 	],
-			// ]);
+			]);		
 
 			if ($subscription['status'] == 'trialing' || $subscription['status'] == 'active') {
 
@@ -271,6 +333,17 @@ class SubscriptionController extends Controller
 		$end = $invoiceObject->period_end;
 		$paid = $invoiceObject->paid;
 		$status = $invoiceObject->status;
+	}
+
+	public function manage_billing()
+	{
+		\Stripe\Stripe::setApiKey(config('services.stripe.secret'));
+		$user = Auth::User();
+		$session = \Stripe\BillingPortal\Session::create([
+			'customer' => $user->stripe_id,
+			'return_url' => config('app.url').'/profile',
+		  ]);
+		return redirect($session->url);
 	}
 
 	public function billing()

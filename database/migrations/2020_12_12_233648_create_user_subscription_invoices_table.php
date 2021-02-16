@@ -23,8 +23,9 @@ class CreateUserSubscriptionInvoicesTable extends Migration
             $table->string('stripe_subscription_id')->nullable();
             $table->string('stripe_invoice_id');
             $table->string('invoice_charge_id');
-            $table->string('payment_intent_id')->nullable();;
+            $table->string('payment_intent_id')->nullable();
             $table->string('invoice_paid');
+            $table->string('invoice_currency');
             $table->string('status')->nullable();
 
             $table->timestamps();

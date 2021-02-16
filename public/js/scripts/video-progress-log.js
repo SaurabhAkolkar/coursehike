@@ -15,7 +15,7 @@ var lilaPlayer = videojs('lila-video').ready(function () {
         
         let currentTime = this.currentTime();
         var intPlayedTime = parseInt(currentTime, 10);
-        var isFifteen     = intPlayedTime % 3 == 0 && intPlayedTime !== 0;
+        var isFifteen     = intPlayedTime % 20 == 0 && intPlayedTime !== 0;
         if (isFifteen && debounce && progress_log.findIndex(x => x.position == intPlayedTime ) < 0) {
             debounce = false;
             progress_log.push({

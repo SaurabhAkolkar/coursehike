@@ -618,7 +618,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::get('/my-courses','SearchController@myCourses');
 
       //- Payment Info of Learners
-      Route::get('/billing', 'SubscriptionController@billing');
+      Route::get('/manage-billing', 'SubscriptionController@manage_billing');
+      // Route::get('/billing', 'SubscriptionController@billing');
       Route::get('/payment-history', 'SubscriptionController@payment_history');
       // Route::view('/payment-cards', 'learners.pages.payment-cards');
       Route::get('/payment-details', 'SubscriptionController@payment_update');
@@ -702,7 +703,8 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/download-invoice/{id}','PurchaseHistoryController@downloadPdf');
 
   Route::get('/subscription/{slug}', 'SubscriptionController@plans');
-  Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
+  // Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
+  Route::post('/subscription-checkout', 'SubscriptionController@plan_subscription')->name('subscription.checkout');
   Route::post('/subscription/cancel', 'SubscriptionController@cancelSubscription')->name('subscription.cancel');
   Route::get('/download-certificate/{id}','LearnController@downloadCertificate');
 

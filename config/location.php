@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'driver' => Stevebauman\Location\Drivers\IpApi::class,
+    'driver' => App\Helpers\Location\GeoIP::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -26,6 +26,8 @@ return [
     */
 
     'fallbacks' => [
+
+        Stevebauman\Location\Drivers\IpApi::class,
 
         Stevebauman\Location\Drivers\IpInfo::class,
 
@@ -132,9 +134,9 @@ return [
 
     'testing' => [
 
-        'enabled' => env('LOCATION_TESTING', false),
+        'enabled' => env('LOCATION_TESTING', true),
 
-        'ip' => '66.102.0.0',
+        'ip' => '27.5.168.125',
 
     ],
 

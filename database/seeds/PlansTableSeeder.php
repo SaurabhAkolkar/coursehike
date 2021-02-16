@@ -11,25 +11,11 @@ class PlansTableSeeder extends Seeder
      */
     public function run()
     {
-        $plan = app('rinvex.subscriptions.plan')->create([
-            'name' => 'Trial Plan',
-            'description' => 'Trial Plan',
-            'price' => 0,
-            'signup_fee' => 0.00,
-            'invoice_period' => 0,
-            'invoice_interval' => 'day',
-            'grace_period' => 1,
-            'grace_interval' => 'day',
-            'trial_period' => 7,
-            'trial_interval' => 'day',
-            'sort_order' => 1,
-            'currency' => 'USD',
-        ]);
 
         $plan = app('rinvex.subscriptions.plan')->create([
-            'name' => 'Monthly Plan',
-            'description' => 'Monthly Plan',
-            'price' => 20,
+            'name' => 'Monthly - Global',
+            'description' => 'Monthly US',
+            'price' => 39,
             'signup_fee' => 0.00,
             'invoice_period' => 1,
             'invoice_interval' => 'month',
@@ -42,11 +28,11 @@ class PlansTableSeeder extends Seeder
         ]);
 
         $plan = app('rinvex.subscriptions.plan')->create([
-            'name' => 'Quarterly Plan',
-            'description' => 'Quarterly plan',
-            'price' => 80,
+            'name' => 'Yearly - Global',
+            'description' => 'Yearly US',
+            'price' => 309,
             'signup_fee' => 0.00,
-            'invoice_period' => 1,
+            'invoice_period' => 12,
             'invoice_interval' => 'month',
             'grace_period' => 1,
             'grace_interval' => 'day',
@@ -57,9 +43,9 @@ class PlansTableSeeder extends Seeder
         ]);
 
         $plan = app('rinvex.subscriptions.plan')->create([
-            'name' => 'Yearly Plan',
-            'description' => 'Yearly plan',
-            'price' => 120,
+            'name' => 'Monthly - India',
+            'description' => 'Monthly India',
+            'price' => 2899,
             'signup_fee' => 0.00,
             'invoice_period' => 1,
             'invoice_interval' => 'month',
@@ -68,7 +54,22 @@ class PlansTableSeeder extends Seeder
             'trial_period' => 7,
             'trial_interval' => 'day',
             'sort_order' => 1,
-            'currency' => 'USD',
+            'currency' => 'INR',
+        ]);
+
+        $plan = app('rinvex.subscriptions.plan')->create([
+            'name' => 'Yearly - India',
+            'description' => 'Yearly India',
+            'price' => 22599,
+            'signup_fee' => 0.00,
+            'invoice_period' => 12,
+            'invoice_interval' => 'month',
+            'grace_period' => 1,
+            'grace_interval' => 'day',
+            'trial_period' => 7,
+            'trial_interval' => 'day',
+            'sort_order' => 1,
+            'currency' => 'INR',
         ]);
     }
 }
