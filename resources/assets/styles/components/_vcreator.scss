@@ -25,10 +25,16 @@
             &profile{
                img{
                     width:100%;
-                    height:100%;
+                    height:560px;
+                    object-fit: cover;
+                    object-position: center;
                     overflow:hidden;
                     margin:0 auto;
                     background-color: var(--white);
+
+                    @include respond-below(md){
+                        height:100%;
+                    }
                 }
             }
             &overlay{

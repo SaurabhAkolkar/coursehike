@@ -196,7 +196,7 @@
     <?php endif; ?>
 
   // Create a Stripe client.
-  var stripe = Stripe('<?php echo e(env("STRIPE_KEY")); ?>');
+  var stripe = Stripe('<?php echo e(config("services.stripe.key")); ?>');
 
   var checkoutButton = document.getElementById('checkout-button');
   checkoutButton.addEventListener("click", function () {

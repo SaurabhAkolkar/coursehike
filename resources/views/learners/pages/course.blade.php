@@ -685,28 +685,26 @@ use Carbon\Carbon;
     <div class="la-section__inner pb-md-10">
       <div class="container ">
         <div class="la-anim__wrap">
-          <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">Creators</h2>
+          <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">Creator</h2>
         </div>
         <div class="row">
-          <div class="col-md-6 col-lg-5 la-creator pr-10">
-            <div class="la-creator__wrap position-relative">
-              <div class="la-creator__inwrap d-flex align-items-end la-anim__wrap">
-                <div class="la-creator__img la-anim__fade-in-top">
-                  <span><img src="{{$course->user->user_img}}" alt="{{$course->user->fullName}}"></span>
-                </div>
-                <div class="la-creator__detail pl-2 text-nowrap">
-                  <span class="la-creator__name text-capitalize la-anim__stagger-item--x la-anim__C">{{$course->user->fullName}}</span>
-                  <div class="la-creator__specialist mt-1 text-capitalize la-anim__stagger-item--x la-anim__D">Design</div>
+          <div class="col-md-6 col-lg-5 la-creator la-anim__wrap">
+            <div class="la-creator__wrap d-flex justify-content-center justify-content-md-start position-relative">
+              <div class="la-creator__inwrap la-anim__stagger-item">
+                <div class="la-creator__img la-anim__fade-in-top la-anim__B">
+                  <img class="img-fluid mx-auto d-block" src="{{$course->user->user_img}}" alt="{{$course->user->fullName}}">
                 </div>
               </div>
             </div>
           </div>
+
           <div class="col-md-6 col-lg-7 my-auto">
             <div class="la-creator__content offset-lg-1 la-anim__wrap">
-              <!-- <div class="la-creator__content-title d-flex align-items-center la-anim__stagger-item--x">
-                <span class="la-creator__content-icon la-icon">&#8220;</span>
-                <span class="la--text pl-3">Stet clita kasd gubergren</span>
-              </div> -->
+              <div class="la-creator__detail">
+                  <h6 class="la-creator__name text-capitalize la-anim__stagger-item--x la-anim__C">{{$course->user->fullName}}</h6>
+                  <div class="la-creator__specialist mt-1 text-capitalize la-anim__stagger-item--x la-anim__D">Design</div>
+              </div>
+
               <div class="la-creator__para mb-6 la-anim__stagger-item--x">{{ $course->user->deatail }}</div>
                 <div class="la-creator__content-btn ">
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold la-anim__stagger-item--x la-anim__B">

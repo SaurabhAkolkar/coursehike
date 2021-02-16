@@ -9,7 +9,7 @@
     </div>
 </div>
 
-<div class="row my-md-14">
+<div class="row my-md-6">
     <div class="col-md-6 p-4 p-md-0 la-anim__stagger-item">
         <div class="la-vcreator__desc">
             <p class="la-vcreator__text"> {!! $desc !!} </p>

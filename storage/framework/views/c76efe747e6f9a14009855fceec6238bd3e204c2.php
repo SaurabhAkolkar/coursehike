@@ -416,7 +416,7 @@ use Carbon\Carbon;
     <div class="la-vcourse__purchase-inwrap container">
       <div class="row la-vcourse__purchase-row">
         <div class="col-md-7 la-vcourse__purchase-left la-anim__wrap">
-          <div class="la-vcourse__purchase-prize mb-8 la-anim__stagger-item">Purchase this Course @ <span class="la-vcourse__purchase-prize--amount"><b>$<?php echo e($course->price); ?></b></span></div>
+          <div class="la-vcourse__purchase-prize mb-8 la-anim__stagger-item">Purchase this Course @ <span class="la-vcourse__purchase-prize--amount"><b><?php echo e(getSymbol()); ?><?php echo e($course->convertedprice); ?></b></span></div>
           <form class="la-vcourse__purchase-form" id="add_to_cart_form" name="add_to_cart_form" method="post" action="/add-to-cart">
             <input type="hidden" name="course_id" value="<?php echo e($course->id); ?>" />
             <?php echo csrf_field(); ?>
@@ -471,7 +471,7 @@ use Carbon\Carbon;
                         </td>
                         <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--name"><?php echo e($class->chapter_name); ?></td>
                         <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--mentor"><?php echo e($course->user->fname); ?></td>
-                        <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--price">$<?php echo e($class->price); ?></td>
+                        <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--price"><?php echo e(getSymbol()); ?><?php echo e($class->convertedprice); ?></td>
                       </tr>
                      
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -689,28 +689,26 @@ use Carbon\Carbon;
     <div class="la-section__inner pb-md-10">
       <div class="container ">
         <div class="la-anim__wrap">
-          <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">Creators</h2>
+          <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">Creator</h2>
         </div>
         <div class="row">
-          <div class="col-md-6 col-lg-5 la-creator pr-10">
-            <div class="la-creator__wrap position-relative">
-              <div class="la-creator__inwrap d-flex align-items-end la-anim__wrap">
-                <div class="la-creator__img la-anim__fade-in-top">
-                  <span><img src="<?php echo e($course->user->user_img); ?>" alt="<?php echo e($course->user->fullName); ?>"></span>
-                </div>
-                <div class="la-creator__detail pl-2 text-nowrap">
-                  <span class="la-creator__name text-capitalize la-anim__stagger-item--x la-anim__C"><?php echo e($course->user->fullName); ?></span>
-                  <div class="la-creator__specialist mt-1 text-capitalize la-anim__stagger-item--x la-anim__D">Design</div>
+          <div class="col-md-6 col-lg-5 la-creator la-anim__wrap">
+            <div class="la-creator__wrap d-flex justify-content-center justify-content-md-start position-relative">
+              <div class="la-creator__inwrap la-anim__stagger-item">
+                <div class="la-creator__img la-anim__fade-in-top la-anim__B">
+                  <img class="img-fluid mx-auto d-block" src="<?php echo e($course->user->user_img); ?>" alt="<?php echo e($course->user->fullName); ?>">
                 </div>
               </div>
             </div>
           </div>
+
           <div class="col-md-6 col-lg-7 my-auto">
             <div class="la-creator__content offset-lg-1 la-anim__wrap">
-              <!-- <div class="la-creator__content-title d-flex align-items-center la-anim__stagger-item--x">
-                <span class="la-creator__content-icon la-icon">&#8220;</span>
-                <span class="la--text pl-3">Stet clita kasd gubergren</span>
-              </div> -->
+              <div class="la-creator__detail">
+                  <h6 class="la-creator__name text-capitalize la-anim__stagger-item--x la-anim__C"><?php echo e($course->user->fullName); ?></h6>
+                  <div class="la-creator__specialist mt-1 text-capitalize la-anim__stagger-item--x la-anim__D">Design</div>
+              </div>
+
               <div class="la-creator__para mb-6 la-anim__stagger-item--x"><?php echo e($course->user->deatail); ?></div>
                 <div class="la-creator__content-btn ">
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold la-anim__stagger-item--x la-anim__B">
