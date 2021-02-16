@@ -67,7 +67,7 @@ class CompletedPayoutController extends Controller
         $end = new Carbon('last day of last month');
 
         $watch_logs =  UserWatchTime::whereHas('courses', function($query) use($creator_userid){
-            $query->where('user_id', $creator_userid ?? 1);
+            $query->where('user_id', $creator_userid);
         })->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get();
 
         $learners = $watch_logs->unique('user_id')->pluck('user_id')->all();
@@ -86,9 +86,13 @@ class CompletedPayoutController extends Controller
         foreach($learners_grouped as $learner => $watch_course){
 
             // If user didn't paid/subscribed last month then skip calculating it...
-            $checkUserSubscribedLastMonth = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid']])->whereBetween('end_date', [$start->startOfMonth(), $end->endOfMonth()])->exists();
-            
-            if(!$checkUserSubscribedLastMonth)
+            $UserSubscribedLastMonth = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid']])->whereBetween('end_date', [$start->startOfMonth(), $end->endOfMonth()])->latest()->first();
+            $UserSubscribedYearly = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid']])->where(function($query) use ($start, $end)
+            {   $query->where('start_date', '<=', $start->startOfMonth() );
+                $query->where('end_date', '>', $end->endOfMonth() );
+            })->latest()->first();
+
+            if(!$UserSubscribedLastMonth && !$UserSubscribedYearly)
                 continue;
 
             $totalWatchtime = 0;
@@ -96,20 +100,36 @@ class CompletedPayoutController extends Controller
             foreach($watch_course as $course_id => $watched_course){
 
                 if(in_array($course_id, $creator_courses))
-                    $creatorCourseWatchtime += (count($watched_course) * 3);
+                    $creatorCourseWatchtime += (count($watched_course) * InstructorRevenueController::$WATCHTIME_LOG_SECONDS);
 
-                $totalWatchtime += count($watched_course) * 3;
+                $totalWatchtime += count($watched_course) * InstructorRevenueController::$WATCHTIME_LOG_SECONDS;
             }
             $creator_watch_share = ($creatorCourseWatchtime * 100) / $totalWatchtime;
 
             $creatorPoolShare = InstructorRevenueController::$REVENUE_POOL * ($creator_watch_share / 100) ;
 
-            $creator_per_income = InstructorRevenueController::$LEARNER_PAID * ($creatorPoolShare / 100);
+            $user_paid = 39;
+
+            if($UserSubscribedLastMonth){
+                $user_paid = $UserSubscribedLastMonth->invoice_paid;
+                if($UserSubscribedLastMonth->invoice_currency == 'INR')
+                    $user_paid /= 75; //Convert to USD
+            }else{
+                $d1 = new DateTime($UserSubscribedYearly->start_date, new DateTimeZone('Europe/London'));
+                $d2 = new DateTime($UserSubscribedYearly->end_date, new DateTimeZone('Europe/London'));
+                $diffInMonths = ($d2->diff($d1))->m;
+
+                $$user_paid = ($UserSubscribedYearly->invoice_paid / $diffInMonths );
+                if($UserSubscribedYearly->invoice_currency == 'INR')
+                    $user_paid /= 75; //Convert to USD
+            }
+
+            $creator_per_income = $user_paid * ($creatorPoolShare / 100);
 
             $total_income += $creator_per_income;
 
         }
-        $watch_time = $watch_logs->count() * 3;
+        $watch_time = $watch_logs->count() * InstructorRevenueController::$WATCHTIME_LOG_SECONDS;
 
         return [
             'learners' => $learners,
@@ -137,7 +157,7 @@ class CompletedPayoutController extends Controller
 
             // If user didn't paid/subscribed last month then skip calculating it...
             $purchase_order = $purchase->user_invoice_details;
-            // dd($purchase_order);
+            
             if($purchase_order->status != "paid")
                 continue;
 

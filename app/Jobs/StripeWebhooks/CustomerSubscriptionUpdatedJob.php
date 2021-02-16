@@ -94,6 +94,7 @@ class CustomerSubscriptionUpdatedJob implements ShouldQueue
 
                 $plan_subscription->starts_at = Carbon::createFromTimestamp($subscription_start)->toDateTimeString(); 
                 $plan_subscription->ends_at = Carbon::createFromTimestamp($subscription_end)->toDateTimeString(); 
+                $plan_subscription->trial_ends_at = Carbon::createFromTimestamp($subscription['trial_end'])->toDateTimeString(); 
                 $plan_subscription->save();
 
                 $user_subscription->plan_id = $current_plan['id'];
