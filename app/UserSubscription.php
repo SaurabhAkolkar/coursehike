@@ -8,7 +8,7 @@ class UserSubscription extends Model
 {
 	protected $table = 'user_subscriptions';
 	
-    protected $fillable = ['user_id', 'subscription_id', 'stripe_subscription_id', 'payment_method_id'];
+    protected $fillable = ['user_id', 'subscription_id', 'stripe_subscription_id', 'plan_selection','payment_id'];
 
     public function user()
     {

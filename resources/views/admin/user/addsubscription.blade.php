@@ -50,6 +50,20 @@
                     @enderror
                 </div>            
               </div>
+
+              <div class="row">
+                <div class="col-md-6 mt-4">
+                    <label for="exampleInputTit1e">{{ __('adminstaticword.PlanSelection') }}:<sup class="redstar">*</sup></label>
+                    <select name = "plan_selection" required class="form-control">
+                        <option disabled selected>-- Select Plan Selection--</option>
+                        <option value="monthly_usd" @if(old('plan_selction') == 'monthly_usd') selected @endif>Monthly USD</option>
+                        <option value="yearly_usd" @if(old('plan_selction') == 'yearly_usd') selected @endif>Yearly USD</option>
+                        <option value="monthly_inr" @if(old('plan_selction') == 'monthly_inr') selected @endif>Monthly INR</option>                        
+                        <option value="yearly_inr" @if(old('plan_selction') == 'yearly_inr') selected @endif>Yearly INR</option>
+                    </select>
+                     
+                </div>            
+              </div>
               
               <div class="row">
                 <div class="col-md-6 mt-8">        
