@@ -21,6 +21,9 @@ class InstructorRevenueController extends Controller
     public static $CREATOR_COMMISSION = 30;
 
 
+    public static $WATCHTIME_LOG_SECONDS = 20;
+
+
     public function instructorRevenue(){
         
         $courses = Course::where(['user_id'=>Auth()->user()->id])->pluck('id');
@@ -70,11 +73,11 @@ class InstructorRevenueController extends Controller
 
         $stripe = Stripe::make(config('services.stripe.secret'));
         
-        $start = new Carbon('first day of this month');
-        $end = new Carbon('last day of this month');
+        $start = new Carbon('first day of last month');
+        $end = new Carbon('last day of last month');
 
         $watch_logs =  UserWatchTime::whereHas('courses', function($query){
-            $query->where('user_id', Auth::User()->id ?? 1);
+            $query->where('user_id', Auth::User()->id);
         })->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get();
 
         $learners = $watch_logs->unique('user_id')->pluck('user_id')->all();
@@ -92,16 +95,15 @@ class InstructorRevenueController extends Controller
         $total_income = 0;
         foreach($learners_grouped as $learner => $watch_course){
 
-            // dd(User::find($learner)->subscription('main')->active(),
-            // User::find($learner)->subscription('main')->onTrial());
-            // $customer = $stripe->customers()->find(User::find($learner)->stripe_id);
-            // $subscription = $stripe->subscriptions()->find(User::find($learner)->stripe_id, User::find($learner)->subscribed->stripe_subscription_id);
-            // dd($subscription, $customer);
-
             // If user didn't paid/subscribed last month then skip calculating it...
-            $checkUserSubscribedLastMonth = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid']])->whereBetween('end_date', [$start->startOfMonth(), $end->endOfMonth()])->exists();
+            $UserSubscribedLastMonth = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid']])->whereBetween('end_date', [$start->startOfMonth(), $end->endOfMonth()])->latest()->first();
+            $UserSubscribedYearly = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid']])->where(function($query) use ($start, $end)
+            {
+                $query->where('start_date', '<=', $start->startOfMonth() );
+                $query->where('end_date', '>', $end->endOfMonth() );
+            })->latest()->first();
 
-            if(!$checkUserSubscribedLastMonth)
+            if(!$UserSubscribedLastMonth && !$UserSubscribedYearly)
                 continue;
 
             $totalWatchtime = 0;
@@ -109,15 +111,31 @@ class InstructorRevenueController extends Controller
             foreach($watch_course as $course_id => $watched_course){
 
                 if(in_array($course_id, $creator_courses))
-                    $creatorCourseWatchtime += (count($watched_course) * 3);
+                    $creatorCourseWatchtime += (count($watched_course) * InstructorRevenueController::$WATCHTIME_LOG_SECONDS);
 
-                $totalWatchtime += count($watched_course) * 3;
+                $totalWatchtime += count($watched_course) * InstructorRevenueController::$WATCHTIME_LOG_SECONDS;
             }
             $creator_watch_share = ($creatorCourseWatchtime * 100) / $totalWatchtime;
 
             $creatorPoolShare = InstructorRevenueController::$REVENUE_POOL * ($creator_watch_share / 100) ;
 
-            $creator_per_income = InstructorRevenueController::$LEARNER_PAID * ($creatorPoolShare / 100);
+            $user_paid = 39;
+
+            if($UserSubscribedLastMonth){
+                $user_paid = $UserSubscribedLastMonth->invoice_paid;
+                if($UserSubscribedLastMonth->invoice_currency == 'INR')
+                    $user_paid /= 75; //Convert to USD
+            }else{
+                $d1 = new DateTime($UserSubscribedYearly->start_date, new DateTimeZone('Europe/London'));
+                $d2 = new DateTime($UserSubscribedYearly->end_date, new DateTimeZone('Europe/London'));
+                $diffInMonths = ($d2->diff($d1))->m;
+
+                $$user_paid = ($UserSubscribedYearly->invoice_paid / $diffInMonths );
+                if($UserSubscribedYearly->invoice_currency == 'INR')
+                    $user_paid /= 75; //Convert to USD
+            }
+
+            $creator_per_income = $user_paid * ($creatorPoolShare / 100);
 
             $total_income += $creator_per_income;
 
@@ -129,7 +147,7 @@ class InstructorRevenueController extends Controller
             //         " creator_per_income: $".round($creator_per_income, 1).
             //          "<br/>";
         }
-        $watch_time = $watch_logs->count() * 3;
+        $watch_time = $watch_logs->count() * InstructorRevenueController::$WATCHTIME_LOG_SECONDS;
         return [
             'learners' => $learners,
             'watch_time' => $this->formatSecondsToWord($watch_time),
@@ -142,10 +160,10 @@ class InstructorRevenueController extends Controller
 
         $watch_logs =  UserWatchTime::whereHas('courses', function($query)
         {
-            $query->where('user_id', Auth::User()->id ?? 1); 
+            $query->where('user_id', Auth::User()->id); 
         })->get();
 
-        $watch_time = $watch_logs->count() * 3;
+        $watch_time = $watch_logs->count() * InstructorRevenueController::$WATCHTIME_LOG_SECONDS;
         $this->formatSecondsToWord($watch_time);
     }
 
