@@ -95,8 +95,6 @@ class SubscriptionController extends Controller
 						"redirect" => true,
 					];
 					return response()->json($response, 200);
-
-					// $session_data['customer'] = $stripe_id;
 				}else
 					$session_data['customer_email'] = Auth::user()->email;
 
@@ -124,7 +122,63 @@ class SubscriptionController extends Controller
 		
 	}
 
+	public function success($checkout_session)
+	{
 
+		$checkout_session = $this->stripe->checkout()->sessions()->find($checkout_session);
+		$user = Auth::user();
+		$stripe_id = $user->stripe_id;
+
+		try {
+			if ($stripe_id == null){
+				$user->stripe_id = $checkout_session['customer'];
+				$user->save();
+				$stripe_id = $checkout_session['customer'];
+			}
+
+			$subscription_id = $checkout_session['subscription'];
+
+			$subscription = $this->stripe->subscriptions()->find($stripe_id, $subscription_id);
+
+			if ($subscription['status'] == 'trialing') {
+
+				$plan_price_id = [
+					'price_1IJGzyDEIHJhoye2wCDcBfZC' => 'monthly-global',
+					'price_1IJGzyDEIHJhoye2O2KvjoiF' => 'yearly-global',
+					'price_1IJPNrDEIHJhoye2kifs8GbK' => 'monthly-india',
+					'price_1IJZ3JDEIHJhoye28pqansTo' => 'yearly-india',
+				];
+
+				if(!$user->subscription('main')){
+					$current_plan = $subscription['plan'];				
+					$plan = app('rinvex.subscriptions.plan')->where('slug', $plan_price_id[$current_plan['id']])->first();
+					$user->newSubscription('main', $plan);
+
+					$userSubscription = new UserSubscription();
+					$userSubscription->user_id = $user->id;
+					$userSubscription->payment_method_id = $subscription['default_payment_method'];
+					$userSubscription->plan_id = $current_plan['id'];
+					$userSubscription->subscription_id = $subscription['id'];
+					$userSubscription->save();
+
+				}
+				$plan_subscription = app('rinvex.subscriptions.plan_subscription')->where("user_id", $user->id)->latest()->first();
+				return view('learners.messages.subscription-trial', compact('plan_subscription'));
+			} else {
+				Session::flash('errors', 'Something went wrong');
+				return redirect()->back();
+			}
+		} catch (Exception $e) {
+			Session::flash('errors', $e->getMessage());
+			return redirect()->back();
+		} catch (\Cartalyst\Stripe\Exception\CardErrorException $e) {
+			Session::flash('errors', $e->getMessage());
+			return redirect()->back();
+		} catch (\Cartalyst\Stripe\Exception\MissingParameterException $e) {
+			Session::flash('errors', $e->getMessage());
+			return redirect()->back();
+		}
+	}
 
 	public function postPaymentStripe(Request $request)
 	{

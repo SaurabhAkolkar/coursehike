@@ -706,6 +706,7 @@ Route::middleware(['auth'])->group(function () {
   // Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
   Route::post('/subscription-checkout', 'SubscriptionController@plan_subscription')->name('subscription.checkout');
   Route::post('/subscription/cancel', 'SubscriptionController@cancelSubscription')->name('subscription.cancel');
+  Route::get('/subscription-successful/{CHECKOUT_SESSION_ID}', 'SubscriptionController@success')->name('subscription.success');
   Route::get('/download-certificate/{id}','LearnController@downloadCertificate');
 
 

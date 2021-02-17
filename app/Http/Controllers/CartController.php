@@ -605,14 +605,20 @@ class CartController extends Controller
         try {
             $checkout_session = $this->stripe->checkout()->sessions()->find($invoice->stripe_session_id);
 
-            // Clear Cart
-            Cart::where('user_id', $invoice->user->id)->get()->each(function($cart) {
-                $cart->delete();
-            });
+            $user = Auth::user();
 
-            return view('learners.messages.charge-successful', compact('invoice'));
+            if($checkout_session && $invoice->user->id == $user->id){
+                // Clear Cart
+                Cart::where('user_id', $invoice->user->id)->get()->each(function($cart) {
+                    $cart->delete();
+                });
+                
+				$user->stripe_id = $checkout_session['customer'];
+				$user->save();
+    
+                return view('learners.messages.charge-successful', compact('invoice'));
+            }
         } catch (Exception $e) {
-            print_r($e->getMessage());
             Session::flash('errors', $e->getMessage());
         }
     }

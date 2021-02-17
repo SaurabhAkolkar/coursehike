@@ -53,6 +53,7 @@ class CheckoutChargeSucceededJob implements ShouldQueue
 
         if($payment_status == 'paid' && 
             intval($user_invoice->total * 100) == $amount_total
+            && $invoice['mode'] == "payment"
             // && $livemode == false
             // && $user_invoice->user->stripe_id == $customer_id
             )
