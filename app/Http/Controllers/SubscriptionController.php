@@ -74,6 +74,7 @@ class SubscriptionController extends Controller
 					'tax_rates' => $tax_rates
 				]
 			],
+			'allow_promotion_codes' => true,
             'mode' => 'subscription',
             'success_url' => config('app.url') . "/subscription-successful/{CHECKOUT_SESSION_ID}",
             'cancel_url' => config('app.url') . "/learning-plans",

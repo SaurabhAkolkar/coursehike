@@ -32,8 +32,18 @@
                       <p class="m-0 pt-1 pl-1 text-sm text-center text-md-left">Instant access to all courses <!-- at nominal monthly fees --></p>
                   </div>
                   <div class="col-md-5 px-0 la-soffer d-flex d-lg-block justify-content-center  mb-lg-auto">
-                    <div class="la-soffer__bestprice"> <sup><small>$</small></sup>  39 / Month</div>
-                    <div class="la-soffer__realprice"> <sup><small>$</small></sup>  99 (USD)</div>
+                    <div class="la-soffer__bestprice"> 
+                      @if (getLocation() == 'IN')
+                        <sup><small>₹</small></sup>  2899 / Month
+                      @else
+                        <sup><small>$</small></sup>  39 / Month
+                      @endif
+                    </div>
+                    @if (getLocation() == 'IN')
+                      <div class="la-soffer__realprice"> <sup><small>₹</small></sup>  5999 (INR)</div>
+                    @else
+                      <div class="la-soffer__realprice"> <sup><small>$</small></sup>  99 (USD)</div>
+                    @endif
                   </div>
                 </div>
               </div>
@@ -73,8 +83,13 @@
                       <p class="m-0 pt-2 pl-1 text-sm text-center text-md-left">Instant access to all courses <!-- at nominal monthly fees --></p>
                 </div>
                 <div class="col-md-6 px-0 pt-4 la-soffer d-flex justify-content-center mx-0">
+                  @if (getLocation() == 'IN')
+                    <div class="la-soffer__bestprice"> <sup><small>₹</small></sup>  2899 / Month</div>
+                    <div class="la-soffer__realprice"> <sup><small>₹</small></sup>  5999 (INR)</div>
+                  @else
                     <div class="la-soffer__bestprice"> <sup><small>$</small></sup>  39 / Month</div>
                     <div class="la-soffer__realprice"> <sup><small>$</small></sup>  99 (USD)</div>
+                  @endif
                 </div>
               </div>
             </div>
@@ -489,8 +504,14 @@
                               <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
                               <p class="la-price__box-para mt-8 mb-2 la-anim__stagger-item--x">Get <span class="la-color--primary">35% savings </span>on Annual Plan</p>
                               <div class="la-price__box-soffer la-soffer ml-0">
-                                <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x"> <sup><small>$</small></sup>  39 / Month</div>
-                                <div class="la-soffer__realprice la-anim__stagger-item--x"> <sup><small>$</small></sup>  99 (USD) </div>
+                                
+                                @if (getLocation() == 'IN')
+                                  <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x"> <sup><small>₹</small></sup>  2899 / Month</div>
+                                  <div class="la-soffer__realprice la-anim__stagger-item--x"> <sup><small>₹</small></sup>  5999 (INR) </div>
+                                @else
+                                  <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x"> <sup><small>$</small></sup>  39 / Month</div>
+                                  <div class="la-soffer__realprice la-anim__stagger-item--x"> <sup><small>$</small></sup>  99 (USD) </div>
+                                @endif
                               </div>
                           </div>
                         </div>

@@ -406,7 +406,7 @@ use Carbon\Carbon;
   <!-- Section: End-->
 
   <!-- Section: Start-->
-  @if($video_access || !auth()->check())
+  @if(!$video_access || !auth()->check())
 
   <section class="la-section__small la-section--grey la-vcourse__purchase">
     <div class="la-vcourse__purchase-inwrap container">
@@ -488,13 +488,13 @@ use Carbon\Carbon;
 
         <div class="col-md-5 col-lg-3 offset-lg-1 px-lg-0  la-vcourse__purchase-right la-anim__wrap">
           <div class="la-vcourse__purchase-content ">
-            <div class="la-vcourse__purchase-prize mb-8 la-anim__stagger-item--x la-anim__C">Subscribe for all Courses @ <span class="la-vcourse__purchase-prize--amount"><b>$39/month</b></span></div>
+            <div class="la-vcourse__purchase-prize mb-8 la-anim__stagger-item--x la-anim__C">Subscribe for all Courses @ <span class="la-vcourse__purchase-prize--amount"><b>{{$subscription_rate}}/month</b></span></div>
             <p class="la-anim__stagger-item--x la-anim__C">Access all the current and future courses at the tiny monthly subscription payment</p>
             <div class="la-vcourse__purchase-actions d-inline-block text-center mt-8">
               <div class="la-vcourse__purchase-btn la-anim__stagger-item--x la-anim__C">
-                <a class="btn btn-primary active la-btn la-btn--primary text-center"  href="/learning-plans">SUBSCRIBE NOW</a>
+                <a class="btn btn-primary active la-btn la-btn--primary text-center"  href="/learning-plans">Try it for a week</a>
               </div>
-              <a href="/login"  class="la-vcourse__purchase-trial--lnk mt-8 la-anim__stagger-item--x la-anim__C">Start free 7 Days trial</a>
+              <a href="/learning-plans"  class="la-vcourse__purchase-trial--lnk mt-8 la-anim__stagger-item--x la-anim__C">Get free 7 Days trial</a>
             </div>
           </div>
         </div>

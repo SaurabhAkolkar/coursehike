@@ -58,9 +58,9 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
     Route::middleware(['is_verified'])->group(function () {
   
-         Route::get('/', function () {
-            return view('home');
-         });
+        //  Route::get('/', function () {
+        //     return view('home');
+        //  });
 
         Route::get('/', 'HomeController@index');
 
@@ -741,7 +741,6 @@ Route::get('/guided-creator','WebsiteController@guidedCreator');
 Route::get('/learning-plans','WebsiteController@learningPlans');
 
 // test
-// Harish Route's
 Route::get("zoho/module","ZohoController@createRecords");
 // Zoho module
 Route::get('/requests', 'CourseReviewController@instructorRequests');
