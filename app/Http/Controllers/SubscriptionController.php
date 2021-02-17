@@ -222,10 +222,6 @@ class SubscriptionController extends Controller
 				$userSubscription->stripe_subscription_id = $subscription['id'];
 				$userSubscription->save();
 
-				// if($subscription['status'] == 'trialing')
-				// 	return view('learners.messages.subscription-successful', compact('userSubscription'));
-				// else
-
 				$plan_subscription = app('rinvex.subscriptions.plan_subscription')->where("user_id", Auth::user()->id)->latest()->first();
 				return view('learners.messages.subscription-trial', compact('plan_subscription'));
 

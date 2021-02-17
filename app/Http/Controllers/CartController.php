@@ -24,6 +24,7 @@ use App\Playlist;
 use App\Setting;
 use Cartalyst\Stripe\Stripe;
 use Cartalyst\Stripe\Exception\NotFoundException;
+use Exception;
 
 class CartController extends Controller
 {
@@ -574,7 +575,10 @@ class CartController extends Controller
             $session_obj['customer_email'] = Auth::user()->email;
         
 		$checkout_session = $this->stripe->checkout()->sessions()->create($session_obj);
-          
+
+        $order->stripe_session_id = $checkout_session['id'];
+        $order->save();
+
           $response = [
             "id" => $checkout_session['id'],
         ];
@@ -584,7 +588,20 @@ class CartController extends Controller
     public function checkoutSuccessful($transaction_id)
     {
         $invoice = UserInvoiceDetail::where([['id', $transaction_id],['status', '!=' , 'failed']])->firstOrFail();
-        return view('learners.messages.charge-successful', compact('invoice'));
+
+        try {
+            $checkout_session = $this->stripe->checkout()->sessions()->find($invoice->stripe_session_id);
+
+            // Clear Cart
+            Cart::where('user_id', $invoice->user->id)->get()->each(function($cart) {
+                $cart->delete();
+            });
+
+            return view('learners.messages.charge-successful', compact('invoice'));
+        } catch (Exception $e) {
+            print_r($e->getMessage());
+            Session::flash('errors', $e->getMessage());
+        }
     }
 
     public function checkoutFailed($transaction_id)
