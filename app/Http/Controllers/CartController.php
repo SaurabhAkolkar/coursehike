@@ -568,11 +568,24 @@ class CartController extends Controller
             'success_url' => env('APP_URL') . "/checkout-successful/$order->id",
             'cancel_url' => env('APP_URL') . "/checkout-failure/$order->id",
         ];
+        
+        $stripe_id = Auth::user()->stripe_id;
 
-        if (!empty(Auth::user()->stripe_id))
-            $session_obj['customer'] = Auth::user()->stripe_id;
-        else
-            $session_obj['customer_email'] = Auth::user()->email;
+		if(!empty($stripe_id)){
+			try {
+				$customer = $this->stripe->customers()->find($stripe_id);
+
+				if (!array_key_exists('deleted', $customer)){
+					$session_obj['customer'] = $stripe_id;
+				}else
+					$session_obj['customer_email'] = Auth::user()->email;
+
+			} catch (NotFoundException $e) {
+				$message = $e->getMessage();
+				$session_obj['customer_email'] = Auth::user()->email;
+			}
+		}else
+			$session_obj['customer_email'] = Auth::user()->email;        
         
 		$checkout_session = $this->stripe->checkout()->sessions()->create($session_obj);
 

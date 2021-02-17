@@ -82,25 +82,30 @@ class SubscriptionController extends Controller
 				'trial_period_days' => 7
 			]
 		];
-		try {
 
-			$stripe_id = Auth::user()->stripe_id;
-			$customer = $this->stripe->customers()->find($stripe_id);
+		$stripe_id = Auth::user()->stripe_id;
 
-			if (!array_key_exists('deleted', $customer)){
-				$response = [
-					"redirect" => true,
-				];
-				return response()->json($response, 200);
+		if(!empty(Auth::user()->stripe_id)){
+			try {
 
-				$session_data['customer'] = $stripe_id;
-			}else
+				$customer = $this->stripe->customers()->find($stripe_id);
+
+				if (!array_key_exists('deleted', $customer)){
+					$response = [
+						"redirect" => true,
+					];
+					return response()->json($response, 200);
+
+					// $session_data['customer'] = $stripe_id;
+				}else
+					$session_data['customer_email'] = Auth::user()->email;
+
+			} catch (NotFoundException $e) {
+				$message = $e->getMessage();
 				$session_data['customer_email'] = Auth::user()->email;
-
-		} catch (NotFoundException $e) {
-		    $message = $e->getMessage();
+			}
+		}else
 			$session_data['customer_email'] = Auth::user()->email;
-		}
 
 		try {
 
