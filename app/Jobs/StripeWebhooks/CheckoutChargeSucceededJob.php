@@ -71,8 +71,10 @@ class CheckoutChargeSucceededJob implements ShouldQueue
                 ]);
             }
 
-            Cart::where(['user_id', $user_invoice->user->id])->delete();
-            CartItem::where(['user_id', $user_invoice->user->id])->delete();
+            // Clear Cart
+            Cart::where('user_id', $user_invoice->user->id)->get()->each(function($cart) {
+                $cart->delete();
+            });
         }
         
     }
