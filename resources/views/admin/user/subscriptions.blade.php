@@ -22,6 +22,7 @@
               <table id="example1" class="table table-bordered table-striped text-center display nowrap">
                 <thead>
                   <th>#</th>
+                  <th>Plan</th>
                   <th>{{ __('adminstaticword.StartDate') }}</th>
                   <th>{{ __('adminstaticword.EndDate') }}</th>
                   <th>{{ __('adminstaticword.Amount') }}</th>
@@ -36,9 +37,10 @@
 
                       <tr>
                         <td><?php echo $i;?></td>
-                        <td>{{$s->subscriptionDetails->start_date}}</td>                 
-                        <td>{{$s->subscriptionDetails->end_date}}</td>                 
-                        <td>$ {{$s->subscriptionDetails->invoice_paid}}</td>                 
+                        <td>{{$s->plan->name}}</td>   
+                        <td>{{$s->starts_at}}</td>                 
+                        <td>{{$s->ends_at}}</td>                 
+                        <td>{{$s->plan->currency}} {{$s->plan->price}}</td>                 
                     </tr>
                   @endforeach
 

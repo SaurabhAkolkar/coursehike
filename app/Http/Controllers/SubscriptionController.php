@@ -150,25 +150,30 @@ class SubscriptionController extends Controller
 				];
 
 				if(!$user->subscription('main')){
-					
-					$current_plan = $subscription['plan'];				
+
+					$current_plan = $subscription['plan'];
 					$plan = app('rinvex.subscriptions.plan')->where('slug', $plan_price_id[$current_plan['id']])->first();
 					$user->newSubscription('main', $plan);
 
-					$userSubscription = new UserSubscription();
-					$userSubscription->user_id = $user->id;
-					$userSubscription->payment_method_id = $subscription['default_payment_method'];
-					$userSubscription->plan_id = $current_plan['id'];
-					$userSubscription->subscription_id = $subscription['id'];
-					$userSubscription->save();
-
+					// $userSubscription = new UserSubscription();
+					// $userSubscription->user_id = $user->id;
+					// $userSubscription->payment_method_id = $subscription['default_payment_method'];
+					// $userSubscription->plan_id = $current_plan['id'];
+					// $userSubscription->subscription_id = $subscription['id'];
+					// $userSubscription->save();
 				}
+
+				UserSubscription::updateOrCreate(
+					['user_id' => $user->id],
+					['payment_method_id' => $subscription['default_payment_method'], 'subscription_id' => $subscription['id'], 'plan_id' => $current_plan['id']]
+				);
+					
+
 				$plan_subscription = app('rinvex.subscriptions.plan_subscription')->where("user_id", $user->id)->latest()->first();
 				return view('learners.messages.subscription-trial', compact('plan_subscription'));
 
 			} else {
-				Session::flash('errors', 'Something went wrong');
-				return redirect()->back();
+				return redirect('/user-dashboard');
 			}
 		} catch (Exception $e) {
 			Session::flash('errors', $e->getMessage());
@@ -395,12 +400,30 @@ class SubscriptionController extends Controller
 
 	public function manage_billing()
 	{
+
+		$stripe_id = Auth::user()->stripe_id;
+
+		if(!empty($stripe_id)){
+			try {
+
+				$customer = $this->stripe->customers()->find($stripe_id);
+
+				if (array_key_exists('deleted', $customer))
+					return redirect('/learning-plans');
+
+			} catch (NotFoundException $e) {
+				$message = $e->getMessage();
+				return redirect('/learning-plans');
+			}
+		}
+
 		\Stripe\Stripe::setApiKey(config('services.stripe.secret'));
-		$user = Auth::User();
+
 		$session = \Stripe\BillingPortal\Session::create([
-			'customer' => $user->stripe_id,
+			'customer' => $stripe_id,
 			'return_url' => config('app.url').'/profile',
 		  ]);
+		
 		return redirect($session->url);
 	}
 

@@ -68,7 +68,11 @@ class UserController extends Controller
 
     public function subscriptions($id){
 
-        $subscriptions = UserSubscription::with('subscriptionDetails')->where('user_id', $id)->get();
+        $user = User::find($id);
+        $subscriptions = app('rinvex.subscriptions.plan_subscription')->ofUser($user)->latest()->get(); 
+
+        // $subscriptions = UserSubscription::where('user_id', $id)->get();
+        // dd($subscriptions);
         $courses_purchased =  UserPurchasedCourse::with('course')->where('user_id', $id)->get();
         $user_id = $id;
   
@@ -154,37 +158,50 @@ class UserController extends Controller
             'end_date' => 'required',
             'amount' => 'required',
         ]);
-            $start_date = Carbon::parse($request->start_date);
-            $end_date = Carbon::parse($request->end_date);
-            $diff = $start_date->diffInDays($end_date);
 
-            if(round($diff/30) <= 1)
-                $plan_id = 'price_1Hk3QlE6m1twc6cGzy7K0Xwh';
-            else if(round($diff/30) <= 3 )
-                $plan_id = 'price_1HyL7FE6m1twc6cGxmT4KI6G';
-            else if(round($diff/30) <= 12)
-                $plan_id = 'price_1Hk3Q8E6m1twc6cGJjmdFY17';
-            
-            $input['plan_selection'] = $request->plan_selection;
-            $input['user_id'] = $request->user_id;
-            $input['stripe_subscription_id'] = 'Admin-Purchased';
-            $input['payment_id'] = $plan_id;
-                
-            $subscription = UserSubscription::create($input);
+        $plan = app('rinvex.subscriptions.plan')->where('slug', $request->slug)->first();
 
-            $input['subscription_id'] = $subscription->id;
-            $input['start_date'] = $start_date->format('Y-m-d h:i:s');
-            $input['end_date'] = $end_date->format('Y-m-d h:i:s');
-            $input['stripe_subscription_id'] = 'Admin-Purchased';
-            $input['stripe_invoice_id'] = $plan_id;
-            $input['invoice_charge_id'] = $plan_id;
-            $input['invoice_charge_id'] = $plan_id;
-            $input['payment_intent_id'] = $plan_id;
-            $input['invoice_paid'] = $request->amount;
-            $input['plan_selection'] = $request->plan_selection;
-            $input['status'] = 'successful';
+        $user  = User::find($request->user_id);
+        $user->newSubscription('main', $plan);
 
-            UserSubscriptionInvoice::create($input);
+        // $start_date = Carbon::parse($request->start_date);
+        // $end_date = Carbon::parse($request->end_date);
+        // $input['subscription_id'] = $subscription->id;
+        // $input['start_date'] = $start_date->format('Y-m-d h:i:s');
+        // $input['end_date'] = $end_date->format('Y-m-d h:i:s');
+        // $input['stripe_subscription_id'] = 'Admin-Purchased';
+        // $input['stripe_invoice_id'] = $plan_id;
+        // $input['invoice_charge_id'] = $plan_id;
+        // $input['invoice_charge_id'] = $plan_id;
+        // $input['payment_intent_id'] = $plan_id;
+        // $input['invoice_paid'] = $request->amount;
+        // $input['plan_selection'] = $request->plan_selection;
+        // $input['status'] = 'successful';
+
+        // $input['user_id'] = $request->user_id;
+        // $input['subscription_id'] = 'Admin-Purchased';
+        // $input['plan_id'] = $plan_id;
+        // UserSubscription::create($input);
+        
+        $plan_id = config('rinvex.subscriptions.plans.'.$request->slug);
+
+        UserSubscription::updateOrCreate(
+            ['user_id' => $request->user_id],
+            ['subscription_id' => 'Admin-Purchased', 'plan_id' => $plan_id]
+        );
+
+        UserSubscriptionInvoice::create([
+            'user_id' => $user->id,
+            'subscription_id' => $user->subscription('main')->id,
+            'stripe_subscription_id' => 'Admin-Purchased',
+            'start_date' => Carbon::createFromTimestamp($request->start_date)->toDateTimeString(),
+            'end_date' => Carbon::createFromTimestamp($request->end_date)->toDateTimeString(),
+            'stripe_invoice_id' => 0,
+            'invoice_charge_id' => 0,
+            'payment_intent_id' => 0,
+            'invoice_paid' => $request->amount,
+            'status' => 'paid',
+        ]);
 
         return redirect('/user/subscriptions/'.$request->user_id)->with('success','Subscription added successfully.');
     }
