@@ -150,6 +150,7 @@ class SubscriptionController extends Controller
 				];
 
 				if(!$user->subscription('main')){
+					
 					$current_plan = $subscription['plan'];				
 					$plan = app('rinvex.subscriptions.plan')->where('slug', $plan_price_id[$current_plan['id']])->first();
 					$user->newSubscription('main', $plan);
@@ -164,6 +165,7 @@ class SubscriptionController extends Controller
 				}
 				$plan_subscription = app('rinvex.subscriptions.plan_subscription')->where("user_id", $user->id)->latest()->first();
 				return view('learners.messages.subscription-trial', compact('plan_subscription'));
+
 			} else {
 				Session::flash('errors', 'Something went wrong');
 				return redirect()->back();
