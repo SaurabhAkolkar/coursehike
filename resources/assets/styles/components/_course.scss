@@ -44,6 +44,7 @@
                             //box-shadow: 4px 6px 6px 4px rgba(0,0,0,0.1);
                             position:absolute;
                             cursor: pointer;
+                            display: inline-block;
     
                             &:hover{
                                 background-color:var(--app-indigo-1);

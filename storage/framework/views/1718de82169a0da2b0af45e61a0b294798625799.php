@@ -1,20 +1,32 @@
+
 <div class="la-cart__bill la-anim__stagger-item--x">
     <div class="la-cart__bill-title mb-4  ">Total</div>
     <div class="la-cart__bill-items mb-4">
         <div class="la-cart__bill-item d-flex justify-content-between mb-2 ">
             <div class="la-cart__bill-label">Total Price</div>
-            <div class="la-cart__bill-amount">$ <?php echo e($totalAmount); ?></div>
+            <div class="la-cart__bill-amount"><?php echo e(getSymbol()); ?> <?php echo e($totalAmount); ?></div>
         </div>
         
         <div class="la-cart__bill-item d-flex justify-content-between mb-2">
             <div class="la-cart__bill-label">Sub Total</div>
-            <div class="la-cart__bill-amount">$ <?php echo e($totalAmount); ?></div>
+            <div class="la-cart__bill-amount"><?php echo e(getSymbol()); ?> <?php echo e($subTotal); ?></div>
         </div>
+        <?php if($location=='India'): ?>
+                <div class="la-cart__bill-item d-flex justify-content-between mb-2">
+                    <div class="la-cart__bill-label">CGST (9%)</div>
+                    <div class="la-cart__bill-amount"> ₹  <?php echo e(round(($subTotal * 9 )/100, 2)); ?></div>
+                </div>
+                <div class="la-cart__bill-item d-flex justify-content-between mb-2">
+                    <div class="la-cart__bill-label">SGST (9%)</div>
+                    <div class="la-cart__bill-amount"> ₹  <?php echo e(round(($subTotal * 9 )/100, 2)); ?></div>
+                </div>
+        <?php endif; ?>
         
         <div class="la-cart__bill-item d-flex justify-content-between mb-2">
             <div class="la-cart__bill-label">Offer Discount</div>
-            <div class="la-cart__bill-amount">$ <?php echo e($offerAmount); ?></div>
+            <div class="la-cart__bill-amount"><?php echo e(getSymbol()); ?> <?php echo e($offerAmount); ?></div>
         </div>
+
         <div class="la-cart__bill-item d-flex justify-content-between mb-2 ">
             <div class="la-cart__bill-label">Coupon Discount</div>
             <?php if($totalAmount == 0 ): ?>
@@ -26,7 +38,7 @@
                     <span class="text text--purble"> <?php echo e($applyCoupon); ?> </span>
                 </a>
             <?php endif; ?>
-          
+                
         </div>
 
         <div class="la-cart__bill-item d-flex justify-content-between">

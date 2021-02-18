@@ -164,7 +164,8 @@ class UserController extends Controller
                 $plan_id = 'price_1HyL7FE6m1twc6cGxmT4KI6G';
             else if(round($diff/30) <= 12)
                 $plan_id = 'price_1Hk3Q8E6m1twc6cGJjmdFY17';
-
+            
+            $input['plan_selection'] = $request->plan_selection;
             $input['user_id'] = $request->user_id;
             $input['stripe_subscription_id'] = 'Admin-Purchased';
             $input['payment_id'] = $plan_id;
@@ -180,6 +181,7 @@ class UserController extends Controller
             $input['invoice_charge_id'] = $plan_id;
             $input['payment_intent_id'] = $plan_id;
             $input['invoice_paid'] = $request->amount;
+            $input['plan_selection'] = $request->plan_selection;
             $input['status'] = 'successful';
 
             UserSubscriptionInvoice::create($input);
@@ -408,7 +410,7 @@ class UserController extends Controller
                 UserInterest::create($input);
             }
         }
-        return redirect('/');
+        return redirect('/learning-plans');
 
     }
 

@@ -522,5 +522,6 @@ return [
     'PurchaseCommission' => 'Purchase Commission',
     'EditMentorDetail'=>'Edit Mentor Detail',
     'CurrenyConversion'=>'Currency Conversion',
+    'PlanSelection'=>'Plan Selection',
 
 ];

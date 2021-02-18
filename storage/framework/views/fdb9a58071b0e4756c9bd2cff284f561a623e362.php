@@ -4,7 +4,8 @@
         <div class="card la-choose__card text-center">
           <div class="la-choose__box mb-4">
             <div class="la-choose__ptitle text-lg text-sm-2xl"><?php echo e($plan); ?></div>
-            <div class="la-choose__price mt-2"><sup class="la-choose__tag text-lg">$</sup>
+            <div class="la-choose__price mt-2">
+                
                 <span class="la-choose__discount text-2xl text-sm-5xl mr-1"> <?php echo e($discount); ?></span>
                 <!--<span class="la-choose__oldprice text-sm p-1"><?php echo e($oldPrice); ?></span>-->
             </div>
@@ -14,10 +15,12 @@
             </div>
           </div>
           <div class="la-choose__subscribe mt-5 mx-4">
-            <a href="/subscription/<?php echo e($slug); ?>" role="button" target="_self">
-              <div class="btn la-btn la-btn-secondary py-3" >SUBSCRIBE</div>
-            <a>
-            <p class="text-sm pt-1">Get access to all the Courses</p><a class="la-choose__subscribe-trial text-sm" href="<?php if(Auth::check()): ?> # <?php else: ?> /login <?php endif; ?>">Start free 7 Days trial</a>
+            
+              <div class="btn la-btn la-btn-secondary py-3 plan-subscribe" data-plan=<?php echo e($slug); ?>>Try it now</div>
+            
+            <p class="text-sm pt-2">Get access to all the Courses</p>
+            <p class="la-choose__subscribe-trial text-sm mb-1">Get free 7 Days trial</p>
+            <p class="text-sm mb-1">You won't be charged until <?php echo e(\Carbon\Carbon::now()->addDays(7)->format('M d, Y')); ?></p>
           </div>
           <hr>
           <div class="la-choose__content mb-3 text-left">
