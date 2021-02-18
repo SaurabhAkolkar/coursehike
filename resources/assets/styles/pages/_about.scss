@@ -13,7 +13,7 @@
     }
 }
 .la-about__tag{
-    color:var(--yellow);
+    color:var(--app-indigo-1);
     font-size:var(--text-2xl);
 }
 .la-about__info-title{
@@ -116,8 +116,8 @@
 .la-about__mvt-cta{
     background-color:transparent !important;
 }
-.la-about__mvt-rgt{
+.la-about__btm-section{
     @include respond-below(sm){
-        margin-top:var(--size-10);
+        padding-bottom:var(--size-14);
     }
 }

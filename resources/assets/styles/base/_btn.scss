@@ -199,23 +199,33 @@
                         top:80px;
                         background-color: #EBD3FF !important;
                         color:#56188C;
-                        border:1px solid rgba(#56188C, 0.15) ;
+                        border:1px solid rgba(#56188C, 0.15);
+                        box-shadow:0 3px 6px #c0c0c0;
                         animation: fadeAlert 0.5s ease 1;
                         transition: all 0.1s ease;
                         z-index:101;
                         overflow:hidden;
                         display:inline-block;
+
+                        @include respond-below(sm){
+                            left:0;
+                        }
                     }
                     &danger{
                         position:fixed;
                         top:80px;
                         background-color:#FFD3D9 !important;
                         color:#C52A2E;
-                        border:1px solid rgba(#C52A2E, 0.15) ;;
+                        border:1px solid rgba(#C52A2E, 0.15);
+                        box-shadow:0 3px 6px #c0c0c0;
                         animation: fadeAlert 0.5s ease 1;
                         transition: all 0.1s ease;
                         z-index:101;
                         overflow:hidden;
+
+                        @include respond-below(sm){
+                            left:0;
+                        }
                     }
                     @keyframes fadeAlert{
                         from{transform:translateY(-30px); opacity:0;}

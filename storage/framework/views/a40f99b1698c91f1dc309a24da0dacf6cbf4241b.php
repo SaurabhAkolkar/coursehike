@@ -15,7 +15,7 @@
           
       <div class="row la-anim__wrap">
         <!-- Column: Start-->
-        <div class="col-12 col-sm-12 la-bcreator__banner " style="background:url('../images/learners/creator/bcreator-banner.jpg') no-repeat bottom rgba(0, 0, 0, 0.5); background-size:cover;">
+        <div class="col-12 col-sm-12 la-bcreator__banner" style="background:url('../images/learners/creator/bcreator-banner.jpg') no-repeat bottom rgba(0, 0, 0, 0.5); background-size:cover;">
           <div class="la-bcreator text-left text-sm-center px-6">
 
             <a class="la-bcreator__back-link position-absolute la-anim__stagger-item--x" href="<?php echo e(URL::previous()); ?>"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
@@ -349,17 +349,19 @@
     </div>
   </section>
   <!-- Section: End-->
+
   <!-- Section: Start-->
   <section class="la-bgcreator--ad-banner ">
-    <div class="container">
-      <div class="row">
+    <div class="container-fluid px-0">
+      <div class="row  la-anim__wrap">
         <!-- Column: Start-->
-        <div class="col-sm-12 px-0 px-sm-3 la-anim__wrap">
-          <div class="la-bgcreator__ad-content text-center text-white la-anim__stagger-item">
+        <div class="col-12 la-anim__stagger-item">
+          <div class="la-bgcreator__ad-content text-center text-white" style="background:url('../images/learners/creator/become-cta.jpg') no-repeat center rgba(0, 0, 0, 0.65); background-size:cover;">
             <div class="">
-              <p class="la-bgcreator__ad-para la-anim__stagger-item">Broaden your reach! Help students hone their skills through your courses</p><br>
-              <a class=" la-btn__app text-white text-uppercase la-anim__stagger-item" role="button" href="/creator-signup">Start Creating</a>
-              <div class="mt-4">
+              <p class="la-bgcreator__ad-para la-anim__stagger-item">Broaden your reach! Help students hone their skills through your courses</p>
+              
+              <div class="pt-10">
+                <p class="mb-6"><a class=" la-btn__app text-white text-uppercase la-anim__stagger-item" role="button" href="/creator-signup">Start Creating</a></p>
                 <a class="la-arrow-link text-uppercase position-relative la-anim__stagger-item" href="/guided-creator"> Learn More
                   <span class="la-icon la-icon--5xl icon-grey-arrow la-anim__stagger-item--x"></span>
                 </a>
@@ -372,6 +374,7 @@
     </div>
   </section>
   <!-- Section: End-->
+
   <!-- Section: Start-->
   <section class="la-bgcreator--faq la-anim__wrap">
     <div class="container">

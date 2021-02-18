@@ -14,7 +14,7 @@ $(function(){
   // Navbar Dropdown Toggle: End
 
   // Home Video On scroll Pause/Play: Start
-  $(document).on("scroll",function(){
+  /*$(document).on("scroll",function(){
     if($(document).scrollTop()>450){      
        $('#home_video')[0].pause();
      }
@@ -22,15 +22,15 @@ $(function(){
      {
        $('#home_video')[0].play();
      }
-  });
+  });*/
   // Home Video On scroll Pause/Play: End
 
   // Global Alert Animation for Learners: Start
   window.setTimeout(function() {
-    $(".alert").fadeTo(500, 0).slideUp(500, function() {
+    $(".alert").fadeTo(500, 0).slideUp(2500, function() {
         $(this).remove();
     });
-  }, 4000);
+  }, 5000);
   // Global Alert Animation for Learners: End
 
   // Nested Links in Course Cards
@@ -100,8 +100,6 @@ $(function(){
     });
   }
   
-
-
   //Swiper Js for Artist gallery
   if($('.gallery-thumbs')[0]){
       var galleryThumbs = new Swiper('.gallery-thumbs', {
@@ -125,7 +123,6 @@ $(function(){
         }
       });
   }
-
 
   //Swiper Js for Become Creator
   if($('.la-mcard__container')[0]){
@@ -158,12 +155,21 @@ $(function(){
             slidesPerView: 2,       
             spaceBetween: 30     
           } 
-      
       } 
-    
-      });
+    });
   }
 
+  //Swiper Js for Reviews in Course Page
+  if($('.la-lcreviews__container')[0]){
+    var swiper = new Swiper('.la-lcreviews__container', {
+      slidesPerView: 'auto',
+      spaceBetween: 30,
+      pagination: {
+        el: '.la-lcreviews__pagination',
+        clickable: true,
+      }
+    });
+  }
 
 
   // Rating 

@@ -5,7 +5,7 @@
                 margin:var(--size-12) 0;
 
                 @include respond-below(md){
-                    margin:var(--size-6) 0;
+                    margin:0;
                 }
                
             }
@@ -58,6 +58,11 @@
                 }
 
                 &-{
+                    &popup{
+                        @include respond-below(sm){
+                            margin:var(--size-4) 0;
+                        }
+                    }
                     &modal{
                         top:15%;
                     }

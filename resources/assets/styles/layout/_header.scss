@@ -200,7 +200,7 @@ $sidemenuWidth: 300px;
                             }
 
                             @media(max-width:991px){
-                                color:var(--app-indigo-1);
+                                color:var(--app-indigo-1) !important;
                                 &:before{
                                     display:none;
                                 }

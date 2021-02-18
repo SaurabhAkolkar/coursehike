@@ -171,3 +171,9 @@
     }
 }
 
+
+@media(max-width:767px){
+    .swiper-container-free-mode>.swiper-wrapper{
+        margin-left:6px !important;
+    }
+}
