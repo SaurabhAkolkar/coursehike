@@ -67,7 +67,15 @@ $('.la-vcourse__lesson').on('click', function() {
   
         $('.la-vlesson__title').text(data.title);         
 
-        var lilaPlayer = videojs('lila-video');
+        var lilaPlayer = videojs('lila-video', {
+          preload: 'auto'
+        });
+        // var vhs = lilaPlayer.tech().vhs;
+
+        // vhs.options_.externHls.GOAL_BUFFER_LENGTH = 60;
+        // vhs.options_.externHls.MAX_GOAL_BUFFER_LENGTH = 80;
+        // lilaPlayer.Hls.GOAL_BUFFER_LENGTH = 60;
+
         lilaPlayer.src([
           {
              src: data.url,
@@ -108,6 +116,15 @@ $('.la-vcourse__lesson').on('click', function() {
           lilaPlayer.controlBar.addChild('QualitySelector');
       
         lilaPlayer.play();
+
+        lilaPlayer.on('error', function(e) {
+              console.log(e);
+              console.log(player.error());
+
+              e.stopImmediatePropagation();
+                var error = this.player().error();
+                console.log('error!', error.code, error.type , error.message);
+        });
       
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) { 

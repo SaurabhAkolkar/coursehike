@@ -12,3 +12,8 @@ function getSymbol(){
         return '$';
     }
 }
+
+function getLocation(){
+    $position = Location::get();
+    return $position->countryCode;
+}

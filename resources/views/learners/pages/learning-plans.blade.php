@@ -499,8 +499,9 @@
               else
                 stripe.redirectToCheckout({ sessionId: session.id });
             },
-            error: function(XMLHttpRequest, textStatus, errorThrown) {
-              console.log(XMLHttpRequest);
+            error: function(XMLHttpRequest, textStatus, errorThrown) {              
+              if(XMLHttpRequest.status == 401)
+                window.location.href = '/login';
             }
           });
       } );

@@ -58,9 +58,9 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
     Route::middleware(['is_verified'])->group(function () {
   
-         Route::get('/', function () {
-            return view('home');
-         });
+        //  Route::get('/', function () {
+        //     return view('home');
+        //  });
 
         Route::get('/', 'HomeController@index');
 
@@ -706,6 +706,7 @@ Route::middleware(['auth'])->group(function () {
   // Route::post('/subscription/plans', 'SubscriptionController@postPaymentStripe')->name('subscription.plans');
   Route::post('/subscription-checkout', 'SubscriptionController@plan_subscription')->name('subscription.checkout');
   Route::post('/subscription/cancel', 'SubscriptionController@cancelSubscription')->name('subscription.cancel');
+  Route::get('/subscription-successful/{CHECKOUT_SESSION_ID}', 'SubscriptionController@success')->name('subscription.success');
   Route::get('/download-certificate/{id}','LearnController@downloadCertificate');
 
 
@@ -741,7 +742,6 @@ Route::get('/guided-creator','WebsiteController@guidedCreator');
 Route::get('/learning-plans','WebsiteController@learningPlans');
 
 // test
-// Harish Route's
 Route::get("zoho/module","ZohoController@createRecords");
 // Zoho module
 Route::get('/requests', 'CourseReviewController@instructorRequests');

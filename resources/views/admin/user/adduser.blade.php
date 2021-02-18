@@ -142,7 +142,7 @@
                   </option>
                   <option value="user">{{ __('adminstaticword.User') }}</option>
                   <option value="admin">{{ __('adminstaticword.Admin') }}</option>
-                  <option value="instructor">{{ __('adminstaticword.Instructor') }}</option>
+                  <option value="mentors">{{ __('adminstaticword.Instructor') }}</option>
                 </select>
               </div> 
 

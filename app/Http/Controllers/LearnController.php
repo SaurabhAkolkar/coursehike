@@ -25,6 +25,7 @@ use PDF;
 use Carbon\Carbon;
 use App\CourseLanguage;
 use App\Categories;
+use Stevebauman\Location\Facades\Location;
 
 class LearnController extends Controller
 {
@@ -99,6 +100,13 @@ class LearnController extends Controller
         $two_rating_percentage = round(100*$course->review->where('rating',2)->count()/$total_rating);
         $one_rating_percentage = round(100*$course->review->where('rating',1)->count()/$total_rating);
 
+        $subscription_rate = '$39';
+        if ($position = Location::get()) {
+            $country = $position->countryCode;
+            if($country == 'IN')
+                $subscription_rate = '₹2899';
+        }
+        
         $data = array(
             'video_access'=> $video_access,
             'class_access' => $class_access,
@@ -114,6 +122,7 @@ class LearnController extends Controller
             'one_rating_percentage' => $one_rating_percentage,
             'in_cart'=>$in_cart,
             'order_type'=>$order_type,
+            'subscription_rate'=>$subscription_rate,
             'playlists'=>$playlists
         );
 

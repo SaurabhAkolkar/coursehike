@@ -568,11 +568,24 @@ class CartController extends Controller
             'success_url' => env('APP_URL') . "/checkout-successful/$order->id",
             'cancel_url' => env('APP_URL') . "/checkout-failure/$order->id",
         ];
+        
+        $stripe_id = Auth::user()->stripe_id;
 
-        if (!empty(Auth::user()->stripe_id))
-            $session_obj['customer'] = Auth::user()->stripe_id;
-        else
-            $session_obj['customer_email'] = Auth::user()->email;
+		if(!empty($stripe_id)){
+			try {
+				$customer = $this->stripe->customers()->find($stripe_id);
+
+				if (!array_key_exists('deleted', $customer)){
+					$session_obj['customer'] = $stripe_id;
+				}else
+					$session_obj['customer_email'] = Auth::user()->email;
+
+			} catch (NotFoundException $e) {
+				$message = $e->getMessage();
+				$session_obj['customer_email'] = Auth::user()->email;
+			}
+		}else
+			$session_obj['customer_email'] = Auth::user()->email;        
         
 		$checkout_session = $this->stripe->checkout()->sessions()->create($session_obj);
 
@@ -592,14 +605,20 @@ class CartController extends Controller
         try {
             $checkout_session = $this->stripe->checkout()->sessions()->find($invoice->stripe_session_id);
 
-            // Clear Cart
-            Cart::where('user_id', $invoice->user->id)->get()->each(function($cart) {
-                $cart->delete();
-            });
+            $user = Auth::user();
 
-            return view('learners.messages.charge-successful', compact('invoice'));
+            if($checkout_session && $invoice->user->id == $user->id){
+                // Clear Cart
+                Cart::where('user_id', $invoice->user->id)->get()->each(function($cart) {
+                    $cart->delete();
+                });
+                
+				$user->stripe_id = $checkout_session['customer'];
+				$user->save();
+    
+                return view('learners.messages.charge-successful', compact('invoice'));
+            }
         } catch (Exception $e) {
-            print_r($e->getMessage());
             Session::flash('errors', $e->getMessage());
         }
     }

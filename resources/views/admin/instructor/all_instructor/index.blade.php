@@ -50,7 +50,7 @@
                       @if($item->status==1)
                         {{ __('adminstaticword.Active') }}
                       @else
-                        {{ __('adminstaticword.Inactive') }}
+                        {{ __('adminstaticword.Deactive') }}
                       @endif
                   </td>
                   <td>
