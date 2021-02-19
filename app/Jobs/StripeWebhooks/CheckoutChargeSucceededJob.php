@@ -3,6 +3,7 @@
 namespace App\Jobs\StripeWebhooks;
 
 use App\Cart;
+use App\InvoiceDetail;
 use App\UserInvoiceDetail;
 use App\UserPurchasedCourse;
 use Cartalyst\Stripe\Stripe;
@@ -39,21 +40,24 @@ class CheckoutChargeSucceededJob implements ShouldQueue
      */
     public function handle()
     {
-        // you can access the payload of the webhook call with `$this->webhookCall->payload`
+        // checkout.session.completed
         $invoice = $this->webhookCall->payload['data']['object'];
 
         $customer_id = $invoice['customer'];
         $client_reference_id = $invoice['client_reference_id'];
         $payment_status = $invoice['payment_status'];
         $amount_total = $invoice['amount_total'];
+        $currency = $invoice['currency'];
         $livemode = $invoice['livemode'];
 
 
-        $user_invoice = UserInvoiceDetail::where('id', $client_reference_id)->first();
+        $user_invoice = UserInvoiceDetail::where([['id', $client_reference_id],['status', '!=' , 'failed']])->first();
 
-        if($payment_status == 'paid' && 
-            intval($user_invoice->total * 100) == $amount_total
+        if($payment_status == 'paid' 
             && $invoice['mode'] == "payment"
+            && $user_invoice
+            && intval($user_invoice->total * 100) == $amount_total
+            && strtolower($currency) == strtolower($user_invoice->currency)
             // && $livemode == false
             // && $user_invoice->user->stripe_id == $customer_id
             )
@@ -62,20 +66,49 @@ class CheckoutChargeSucceededJob implements ShouldQueue
             $user_invoice->save();
 
             // TODO: Update UserPurchasedCourse for multiple courses
-            foreach($user_invoice->details as $invoice_items){
-                UserPurchasedCourse::create([
-                    'order_id' => $client_reference_id,
-                    'user_id' => $user_invoice->user->id,
-                    'course_id' => $invoice_items->course_id,
-                    'class_id' => json_encode($invoice_items->pluck('class_id')->all()),
-                    'purchase_type' => $user_invoice->purchase_type,
-                ]);
-            }
+            // foreach($user_invoice->details as $invoice_items){
+            //     UserPurchasedCourse::create([
+            //         'order_id' => $client_reference_id,
+            //         'user_id' => $user_invoice->user->id,
+            //         'course_id' => $invoice_items->course_id,
+            //         'class_id' => json_encode($invoice_items->pluck('class_id')->all()),
+            //         'purchase_type' => $user_invoice->purchase_type,
+            //     ]);
+            // }
 
-            // Clear Cart
-            Cart::where('user_id', $user_invoice->user->id)->get()->each(function($cart) {
-                $cart->delete();
-            });
+            // $invoice = UserInvoiceDetail::where([['id', $transaction_id],['status', '!=' , 'failed']])->firstOrFail();
+
+            // $invoice_details = InvoiceDetail::having('invoice_id', '=', $client_reference_id)->get()->groupBy('course_id');
+            // foreach($invoice_details as $course_id => $invoice_items){
+            //     UserPurchasedCourse::create([
+            //         'order_id' => $client_reference_id,
+            //         'user_id' => $user_invoice->user->id,
+            //         'course_id' => $course_id,
+            //         'class_id' => json_encode($invoice_items->pluck('class_id')->all()),
+            //         'purchase_type' => $invoice_items->first()->purchase_type,
+            //     ]);
+            // }
+
+            $invoice_details = InvoiceDetail::having('invoice_id', '=', $client_reference_id)->get()->groupBy('course_id');
+                foreach($invoice_details as $course_id => $invoice_items){
+
+                    $already_puchased = UserPurchasedCourse::firstOrNew([ ['course_id', $course_id], ['user_id', $invoice->user_id] ]);
+
+                    $already_puchased->order_id = $client_reference_id;
+                    $old_classess = json_decode($already_puchased->class_id);
+                    $new_classess = $invoice_items->pluck('class_id')->all();
+
+                    $combined_classes = array_unique(array_merge ($old_classess ?? [],$new_classess));
+
+                    $already_puchased->class_id = ($combined_classes);
+                    $already_puchased->purchase_type = $invoice_items->first()->purchase_type;
+                    $already_puchased->save();
+                }
+
+                // Clear Cart
+                Cart::where('user_id', $user_invoice->user->id)->get()->each(function($cart) {
+                    $cart->delete();
+                });
         }
         
     }

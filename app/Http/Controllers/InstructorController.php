@@ -65,7 +65,7 @@ class InstructorController extends Controller
             // dd(User::find($learner)->subscription('main')->active(),
             // User::find($learner)->subscription('main')->onTrial());
             // $customer = $stripe->customers()->find(User::find($learner)->stripe_id);
-            // $subscription = $stripe->subscriptions()->find(User::find($learner)->stripe_id, User::find($learner)->subscribed->stripe_subscription_id);
+            // $subscription = $stripe->subscriptions()->find(User::find($learner)->stripe_id, User::find($learner)->subscribed->subscription_id);
             // dd($subscription, $customer);
 
             // If user didn't paid/subscribed last month then skip calculating it...

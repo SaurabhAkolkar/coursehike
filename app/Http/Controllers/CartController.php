@@ -22,6 +22,7 @@ use Illuminate\Support\Str;
 use Stevebauman\Location\Facades\Location;
 use App\Playlist;
 use App\Setting;
+use App\UserPurchasedCourse;
 use Cartalyst\Stripe\Stripe;
 use Cartalyst\Stripe\Exception\NotFoundException;
 use Exception;
@@ -600,14 +601,46 @@ class CartController extends Controller
 
     public function checkoutSuccessful($transaction_id)
     {
-        $invoice = UserInvoiceDetail::where([['id', $transaction_id],['status', '!=' , 'failed']])->firstOrFail();
+        $invoice = UserInvoiceDetail::where([['id', $transaction_id],['status', '!=' , 'failed']])->firstOrFail();        
 
         try {
             $checkout_session = $this->stripe->checkout()->sessions()->find($invoice->stripe_session_id);
+            $amount_total = $checkout_session['amount_total'];
+            $currency = $checkout_session['currency'];
 
             $user = Auth::user();
 
-            if($checkout_session && $invoice->user->id == $user->id){
+            if($checkout_session && $invoice->user->id == $user->id 
+                    && $checkout_session['client_reference_id'] == $transaction_id
+                    && $checkout_session['payment_status'] == 'paid'
+                    && ($amount_total/100) == $invoice->total
+                    && strtolower($currency) == strtolower($invoice->currency)
+            ){
+
+                $invoice_details = InvoiceDetail::having('invoice_id', '=', $transaction_id)->get()->groupBy('course_id');
+                foreach($invoice_details as $course_id => $invoice_items){                    
+
+                    $already_puchased = UserPurchasedCourse::firstOrNew([ ['course_id', $course_id], ['user_id', $invoice->user_id] ]);
+                    $already_puchased->order_id = $transaction_id;
+
+                    $old_classess = json_decode($already_puchased->class_id);
+                    $new_classess = $invoice_items->pluck('class_id')->all();
+
+                    $combined_classes = array_unique(array_merge ($old_classess ?? [],$new_classess));
+
+                    $already_puchased->class_id = ($combined_classes);
+                    $already_puchased->purchase_type = $invoice_items->first()->purchase_type;
+                    $already_puchased->save();
+
+                    // UserPurchasedCourse::create([
+                    //     'order_id' => $transaction_id,
+                    //     'user_id' => $invoice->user_id,
+                    //     'course_id' => $course_id,
+                    //     'class_id' => json_encode($invoice_items->pluck('class_id')->all()),
+                    //     'purchase_type' => $invoice_items->first()->purchase_type,
+                    // ]);
+                }
+
                 // Clear Cart
                 Cart::where('user_id', $invoice->user->id)->get()->each(function($cart) {
                     $cart->delete();
@@ -620,6 +653,7 @@ class CartController extends Controller
             }
         } catch (Exception $e) {
             Session::flash('errors', $e->getMessage());
+            print_r($e->getMessage());
         }
     }
 

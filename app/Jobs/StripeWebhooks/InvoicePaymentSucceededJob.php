@@ -59,9 +59,10 @@ class InvoicePaymentSucceededJob implements ShouldQueue
 		$invoice_paid = $invoice['paid']; // true
         $invoice_status = $invoice['status']; //paid
         
-        if($subscription_status == 'active' && $invoice_status == 'paid' && $invoice_paid){
+        $user_subscription = UserSubscription::where('subscription_id', $subscription['id'])->first();
 
-                $user_subscription = UserSubscription::where('stripe_subscription_id', $subscription['id'])->first();
+        if($subscription_status == 'active' && $invoice_status == 'paid' && $invoice_paid && $user_subscription){
+
                 $user = $user_subscription->user;
                 $plan_subscription = $user->subscription('main');
 

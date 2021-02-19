@@ -68,9 +68,13 @@ use Carbon\Carbon;
           </div>
           
           <div class="col-12 col-md-5 col-lg-5 pt-10 pt-md-1 d-flex flex-column justify-content-start align-items-center align-items-md-end la-anim__wrap">
-            <div class="la-vcourse__buy text-right mb-6 mb-md-12 la-anim__stagger-item--x">
-              <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end" href="/learning-plans">Subscribe Now</a>
-            </div>
+            
+              <div class="la-vcourse__buy text-right mb-6 mb-md-12 la-anim__stagger-item--x">
+                @if ( !Auth::User()->subscription('main') || !Auth::User()->subscription('main')->active() )
+                  <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end" href="/learning-plans">Subscribe Now</a>
+                @endif
+              </div>
+
             <div class="la-vcourse__info-items d-flex align-items-center justify-content-end">
               <div class="la-vcourse__info-item la-vcourse__info--videos d-flex flex-column align-items-center justify-content-end">
                 <div class="la--count la-anim__stagger-item--x">{{ $course->courseclass->count() }}</div>

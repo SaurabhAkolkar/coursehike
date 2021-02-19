@@ -130,7 +130,7 @@ class SubscriptionController extends Controller
 		$stripe_id = $user->stripe_id;
 
 		try {
-			if ($stripe_id == null){
+			if ($stripe_id == null || $stripe_id != $checkout_session['customer']){
 				$user->stripe_id = $checkout_session['customer'];
 				$user->save();
 				$stripe_id = $checkout_session['customer'];
@@ -139,6 +139,7 @@ class SubscriptionController extends Controller
 			$subscription_id = $checkout_session['subscription'];
 
 			$subscription = $this->stripe->subscriptions()->find($stripe_id, $subscription_id);
+			$current_plan = $subscription['plan'];
 
 			if ($subscription['status'] == 'trialing') {
 
@@ -151,7 +152,6 @@ class SubscriptionController extends Controller
 
 				if(!$user->subscription('main')){
 
-					$current_plan = $subscription['plan'];
 					$plan = app('rinvex.subscriptions.plan')->where('slug', $plan_price_id[$current_plan['id']])->first();
 					$user->newSubscription('main', $plan);
 
@@ -177,7 +177,8 @@ class SubscriptionController extends Controller
 			}
 		} catch (Exception $e) {
 			Session::flash('errors', $e->getMessage());
-			return redirect()->back();
+			print_r($e->getMessage());
+			// return redirect()->back();
 		} catch (\Cartalyst\Stripe\Exception\CardErrorException $e) {
 			Session::flash('errors', $e->getMessage());
 			return redirect()->back();
@@ -286,7 +287,7 @@ class SubscriptionController extends Controller
 				$userSubscription = new UserSubscription();
 				$userSubscription->user_id = Auth::user()->id;
 				$userSubscription->payment_method_id = $paymentMethod['id'];
-				$userSubscription->stripe_subscription_id = $subscription['id'];
+				$userSubscription->subscription_id = $subscription['id'];
 				$userSubscription->save();
 
 				$plan_subscription = app('rinvex.subscriptions.plan_subscription')->where("user_id", Auth::user()->id)->latest()->first();
@@ -313,7 +314,7 @@ class SubscriptionController extends Controller
 	{
 		$user = Auth::user();
 		$userSubscription = UserSubscription::where('user_id', $user->id)->latest()->first();
-		$this->stripe->subscriptions()->cancel($user->stripe_id, $userSubscription->stripe_subscription_id, true);
+		$this->stripe->subscriptions()->cancel($user->stripe_id, $userSubscription->subscription_id, true);
 		$user->subscription('main')->cancel();
 		return redirect()->back();
 	}
