@@ -46,7 +46,11 @@ class CustomerSubscriptionUpdatedJob implements ShouldQueue
 
         $customer_id = $subscription['customer'];
 
-        $user_subscription = UserSubscription::where('stripe_subscription_id', $subscription['id'])->first();
+        $user_subscription = UserSubscription::where('subscription_id', $subscription['id'])->first();
+        
+        if(!$user_subscription)
+            return;
+
         $user = $user_subscription->user;
         $plan_subscription = $user->subscription('main');
 

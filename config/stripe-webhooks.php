@@ -19,10 +19,12 @@ return [
         'customer_subscription_updated' => \App\Jobs\StripeWebhooks\CustomerSubscriptionUpdatedJob::class,
         'invoice_paid' => \App\Jobs\StripeWebhooks\InvoicePaymentSucceededJob::class,
         'invoice_payment_failed' => \App\Jobs\StripeWebhooks\InvoicePaymentFailedJob::class,
+        // 'checkout_session_completed' => \App\Jobs\StripeWebhooks\CheckoutChargeSucceededJob::class,
         // 'invoice_payment_action_required' => \App\Jobs\StripeWebhooks\InvoiceRequireActionJob::class,
         // 'source_chargeable' => \App\Jobs\StripeWebhooks\HandleChargeableSource::class,
         
         'checkout_session_completed' => \App\Jobs\StripeWebhooks\CheckoutChargeSucceededJob::class,
+        // 'charge_succeeded' => \App\Jobs\StripeWebhooks\CheckoutChargeSucceededJob::class,
         'charge_failed' => \App\Jobs\StripeWebhooks\CheckoutChargeFailedJob::class,
     ],
 

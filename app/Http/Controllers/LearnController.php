@@ -64,22 +64,22 @@ class LearnController extends Controller
                     $class_access = json_decode($order->class_id);
             }
 
-            // $cart = Cart::where(['user_id' => Auth::User()->id, 'status' => 1])->first();
-            // if($cart){
-            //     $in_cart = CartItem::where(['cart_id' => $cart->id, 'course_id' => $id])->get();
+            $cart = Cart::where(['user_id' => Auth::User()->id, 'status' => 1])->first();
+            if($cart){
+                $in_cart = CartItem::where(['cart_id' => $cart->id, 'course_id' => $id])->get();
              
-            //     if(count($in_cart) > 0){
-            //         foreach($in_cart as $a){
+                if(count($in_cart) > 0){
+                    foreach($in_cart as $a){
                         
-            //             if($a->purchase_type == 'all_classes'){
-            //                 $order_type = 'all_classes';
-            //             }
-            //             if($a->purchase_type == 'selected_classes'){
-            //                 $order_type = 'selected_classes';
-            //             }
-            //         }
-            //     }
-            // }
+                        if($a->purchase_type == 'all_classes'){
+                            $order_type = 'all_classes';
+                        }
+                        if($a->purchase_type == 'selected_classes'){
+                            $order_type = 'selected_classes';
+                        }
+                    }
+                }
+            }
 
         }
 
