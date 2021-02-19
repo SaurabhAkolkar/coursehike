@@ -23,7 +23,7 @@
 
                 <section class="la-interests__like la-interests__sec">
                     <div class="la-interests__inner la-anim__wrap">
-                        <div class="la-interests__title la-anim__stagger-item">
+                        <div class="la-interests__title la-anim__stagger-item mb-6">
                             Your Interests
                             <!--<a role="button" href="" class="text-sm ml-5" style="color:var(--app-indigo-1);font-weight:var(--font-medium)">Edit</a> -->
                         </div>
@@ -33,18 +33,18 @@
                                 $alreadyAdded = true;
                                 @endphp 
 
-                                <ul class="row la-interests__list pr-5">
-                                @foreach ($myInterests as $interest)
-                                    @if($interest->category != null)
-                                        <x-my-interest
-                                            :id="$interest->category_id"
-                                            :img="$interest->category->image"
-                                            :name="$interest->category['title']"
-                                            :alreadyAdded="$alreadyAdded"
-                                        />
-                                    @endif
-                                @endforeach
-                                </ul>
+                                <div class="row la-interests__list pr-5  la-anim__stagger-item">
+                                    @foreach ($myInterests as $interest)
+                                        @if($interest->category != null)
+                                            <x-my-interest
+                                                :id="$interest->category_id"
+                                                :img="$interest->category->image"
+                                                :name="$interest->category['title']"
+                                                :alreadyAdded="$alreadyAdded"
+                                            />
+                                        @endif
+                                    @endforeach
+                                </div>
                             @else
                                 <div class="col-lg-8 mt-2 la-empty__courses la-anim__stagger-item--x">
                                     <div class="la-empty__browse-courses text-center text-md-left">
@@ -57,7 +57,7 @@
                         
 
                         <div class="la-interests__like la-anim__wrap">
-                            <div class="la-interests__title la-anim__stagger-item">You might also like</div>
+                            <div class="la-interests__title la-anim__stagger-item mb-6">You might also like</div>
                             
                          
                                 @if(count($otherCategories) == 0)
@@ -70,7 +70,7 @@
                                     </div>
                                 @else
 
-                                    <ul class="row la-interests__list pr-5">
+                                    <div class="row la-interests__list pr-5  la-anim__stagger-item">
                                     @foreach ($otherCategories as $category)
                                         <x-my-interest
                                             :img="$category->image"
@@ -79,9 +79,9 @@
                                             :alreadyAdded="false"
                                         />
                                     @endforeach
-
+                                    </div>
                                 @endif
-                            </ul>   
+                               
                         </div>
                     </div>
                 </section>

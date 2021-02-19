@@ -7,12 +7,12 @@
 <!-- Footer: Start-->
 <footer class="la-footer">
     <div class="la-footer__inner">
-      <div class="la-footer__top mb-5 pb-3">
+      <div class="la-footer__top mb-5 pb-md-3">
         <div class="container">
           <div class="row">
             <!-- Column: Start-->
-            <div class="col-7 col-lg-2">
-              <div class="la-footer__brand mb-md-8">
+            <div class="col-12 col-lg-2 mb-10 mb-md-1">
+              <div class="la-footer__brand mb-4 mb-md-8">
                 <a href="/"><img class="img-fluid" src="/images/learners/logo.svg" alt="Lila"></a>
               </div>
               <div class="la-footer__contact">
@@ -23,7 +23,7 @@
             <!-- Column: Start-->
             <div class="col-12 col-lg-5 offset-lg-1">
               <div class="row row-cols-2 mt-md-18">
-                <div class="col-12 col-sm-6 mb-5">
+                <div class="col-6 mb-10 mb-md-5">
                   <div class="la-footer__title">Categories</div>
                   <ul class="la-footer__list">
                     @foreach ($footer_categories as $fc)
@@ -32,7 +32,7 @@
                   </ul><a class="la-footer__more" href="/browse/courses">See all</a>
                 </div>
 
-                <div class="col-12 col-sm-6  mb-8 mb-md-5">
+                <div class="col-6 mb-10 mb-md-5">
                   <div class="la-footer__title">Creators</div>
                   <ul class="la-footer__list">
                     @foreach ($creators as $c)
@@ -41,7 +41,7 @@
                   </ul><a class="la-footer__more" href="/mentors">See all</a>
                 </div>
 
-                <div class="col-12 col-sm-6 mb-8 mb-md-5">
+                <div class="col-6 mb-10 mb-md-5">
                   <div class="la-footer__title">Courses</div>
                   <ul class="la-footer__list">
                     @foreach ($courses as $c)
@@ -50,7 +50,7 @@
                   </ul><a class="la-footer__more" href="/browse/courses">See all</a>
                 </div>
 
-                <div class="col-12 col-sm-6 mb-8 mb-md-5">
+                <div class="col-6 mb-10 mb-md-5">
                   <div class="la-footer__title">Master Classes</div>
                   <ul class="la-footer__list">
                     @foreach($master_classes as $mc)
@@ -78,7 +78,7 @@
                 </div> -->
                 <!-- Global Search: End-->
               <!-- </div> -->
-              <ul class="la-footer__nav mt-md-18">
+              <ul class="la-footer__nav">
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li> -->
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Testimonials</a></li> -->
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="https://www.alienstattooschool.com/" target="_blank">Aliens Tattoo School</a></li>
@@ -93,7 +93,7 @@
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/cancellations-refund">Cancellations & Refund</a></li>
               </ul>
 
-              <div class="la-footer__social mt-md-14">
+              <div class="la-footer__social mt-4 mt-md-10">
                   <a class="la-footer__social-link mr-2" href="https://www.facebook.com/learnitlikealiens" target="_blank"><span class="la-icon la-icon--5xl icon-facebook"></span></a>
                   <a class="la-footer__social-link mr-2" href="https://www.instagram.com/learnitlikealiens/" target="_blank"><span class="la-icon la-icon--5xl icon-insta"></span></a>
                   <a class="la-footer__social-link mr-2" href="https://www.youtube.com/channel/UC1LRPWR4rltOLKiR7e-pWEg" target="_blank"><span class="la-icon la-icon--5xl icon-youtube"></span></a>
@@ -106,7 +106,7 @@
         </div>
       </div>
       <div class="la-footer__btm mt-5 pt-3">
-        <div class="la-footer__copyright text-center">Copyright © Lila Alien School. All Rights Reserved</div>
+        <div class="la-footer__copyright text-center">Copyright © Lila Art School. All Rights Reserved</div>
       </div>
     </div>
   </footer>

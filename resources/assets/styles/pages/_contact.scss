@@ -103,8 +103,10 @@ section.la-contact--page{
                     border:none;
                     border-bottom:1px solid #E5E4E0;
                     border-radius:0;
+                    -webkit-border-radius:0;
+                    -moz-border-radius:0;
                 }
-                .text-msg{
+                .la-contact__form-textarea{
                     border:1px solid #E5E4E0 !important;
                 }
                 ::-webkit-input-placeholder{

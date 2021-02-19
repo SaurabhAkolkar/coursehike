@@ -2,8 +2,8 @@
 
 @font-face {
   font-family: "icomoon";
-  src: url(/fonts/icomoon.eot?d098826199392b2d72ada5755474c18a);
-  src: url(/fonts/icomoon.eot?d098826199392b2d72ada5755474c18a) format("embedded-opentype"), url(/fonts/icomoon.ttf?e2c6df6a4946dcb85cef47fa535fd3f8) format("truetype"), url(/fonts/icomoon.woff?4d91226b42f348c992fc02ea1e4b8d9f) format("woff"), url(/fonts/icomoon.svg?2780249fda03ca02572c5dff673b4026) format("svg");
+  src: url(/fonts/icomoon.eot?7347de40059d257e4be44cee5d067960);
+  src: url(/fonts/icomoon.eot?7347de40059d257e4be44cee5d067960) format("embedded-opentype"), url(/fonts/icomoon.ttf?58c9c11fefe4751edd081a1c1d326d5f) format("truetype"), url(/fonts/icomoon.woff?b9da264cfaf7708347c98f6a8811a203) format("woff"), url(/fonts/icomoon.svg?1d76f6dec88e70feb6d8ca63b8e62733) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -22,6 +22,14 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-video-play:before {
+  content: "\E9B1";
+}
+
+.icon-certificate:before {
+  content: "\E9B0";
 }
 
 .icon-right-arrow2:before {
@@ -206,31 +214,31 @@
 
 .icon-google-colored .path1:before {
   content: "\E979";
-  color: white;
+  color: #f5f4f0;
 }
 
 .icon-google-colored .path2:before {
   content: "\E97B";
   margin-left: -1em;
-  color: #547dbf;
+  color: #4285f4;
 }
 
 .icon-google-colored .path3:before {
   content: "\E97C";
   margin-left: -1em;
-  color: #33a852;
+  color: #34a853;
 }
 
 .icon-google-colored .path4:before {
   content: "\E97D";
   margin-left: -1em;
-  color: #f9bc15;
+  color: #fbbc05;
 }
 
 .icon-google-colored .path5:before {
   content: "\E97E";
   margin-left: -1em;
-  color: #ea4435;
+  color: #eb4335;
 }
 
 .icon-linkedin-colored:before {

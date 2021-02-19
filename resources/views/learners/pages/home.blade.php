@@ -484,7 +484,10 @@
     <div class="la-section__inner ">
       <div class="container ">
         <div class="la-price__container">
-          <h2 class="la-section__title la-section__title--big leading-none la-anim__pin"> <span style="color: var(--gray);" class="la-anim__fade-in-top">Learn it </span><br><span class="la-anim__stagger-item">like aliens</span></h2>
+          <h2 class="la-section__title la-section__title--big leading-none la-anim__pin la-price__container-title text-left"> 
+            <span style="color: var(--gray);" class="la-anim__fade-in-top">Learn it </span><br>
+            <span class="la-anim__stagger-item">like aliens</span>
+          </h2>
           <div class="la-price__slider la-anim__slider">
               <div class="la-price__slide la-anim__slide">
                 <div class="la-price__row row mb-16">

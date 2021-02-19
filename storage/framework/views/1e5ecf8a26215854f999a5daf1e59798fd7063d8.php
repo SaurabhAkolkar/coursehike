@@ -9,7 +9,7 @@
                 <img class="img-fluid" src="./images/learners/home/master-class.svg" alt="Master Class">
             </a>
             <a class="la-mccourse__type" href="/learn/course/<?php echo e($id); ?>/<?php echo e($slug); ?>">
-                <span class="la-icon la-icon--xl icon-play mx-3 my-2"></span>
+                <span class="la-mccourse__type-icon la-icon la-icon--md icon-play"></span>
             </a>
             <div class="la-mccourse__title leading-tight text-nowrap"><?php echo e($title); ?></div>
 

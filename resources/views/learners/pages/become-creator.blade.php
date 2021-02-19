@@ -50,8 +50,8 @@
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col-12 col-lg-8 pl-lg-16 la-anim__stagger-item--x">
-          <div class="la-mcard__slider-wrap">
+        <div class="col-12 col-lg-8 la-anim__stagger-item--x">
+          <div class="la-mcard__slider-wrap ">
             <div class="swiper-container h-100 la-mcard__container">
               <div class="swiper-wrapper la-mcard__wrapper">                    
                     @foreach($testimonial as $t)
@@ -393,7 +393,7 @@
                   </div>
                   <div class="panel-collapse collapse" id="faq_{{ $f->id }}" aria-labelledby="faqCalcHead" data-parent="#accordion">
                     <div class="panel-body la-bgcreator__panel-body">
-                      <p class="m-0 la-bgcreator__panel-para panel-text text-md">{!! $f->details !!}</p>
+                      <div class="la-bgcreator__panel-para panel-text text-md">{!! $f->details !!}</div>
                     </div>
                   </div>
                 </div>

@@ -26,6 +26,12 @@
     -moz-osx-font-smoothing: grayscale;
   }
   
+  .icon-video-play:before {
+    content: "\e9b1";
+  }
+  .icon-certificate:before {
+    content: "\e9b0";
+  }
   .icon-right-arrow2:before {
     content: "\e9af";
   }
@@ -164,27 +170,27 @@
   }
   .icon-google-colored .path1:before {
     content: "\e979";
-    color: rgb(255, 255, 255);
+    color: rgb(245, 244, 240);
   }
   .icon-google-colored .path2:before {
     content: "\e97b";
     margin-left: -1em;
-    color: rgb(84, 125, 191);
+    color: rgb(66, 133, 244);
   }
   .icon-google-colored .path3:before {
     content: "\e97c";
     margin-left: -1em;
-    color: rgb(51, 168, 82);
+    color: rgb(52, 168, 83);
   }
   .icon-google-colored .path4:before {
     content: "\e97d";
     margin-left: -1em;
-    color: rgb(249, 188, 21);
+    color: rgb(251, 188, 5);
   }
   .icon-google-colored .path5:before {
     content: "\e97e";
     margin-left: -1em;
-    color: rgb(234, 68, 53);
+    color: rgb(235, 67, 53);
   }
   .icon-linkedin-colored:before {
     content: "\e97f";

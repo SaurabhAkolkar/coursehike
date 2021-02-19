@@ -139,10 +139,8 @@
                     <span class="la-header__nav-name">Contact Us</span>
                 </a>
             </div>
-        </div>
-
-        <div class="la-header__nav-bottom d-lg-none">
-            <div class="la-header__nav-item">   
+        
+            <div class="la-header__nav-item d-lg-none">   
                 <a class="la-header__nav-link @if(Request::segment(1) == 'become-creator') active @endif" href="/become-creator">
                     <div class="la-header__nav-icon">
                         <span class="la-icon la-icon--xl icon-become-creator"></span>
@@ -150,7 +148,7 @@
                     <span class="la-header__nav-name">Become a Creator</span>
                 </a>
             </div>
-            <div class="la-header__nav-item">   
+            <div class="la-header__nav-item d-lg-none">   
                 <a class="la-header__nav-link @if(Request::segment(1) == 'guided-creator') active @endif" href="/guided-creator">
                     <div class="la-header__nav-icon">
                         <span class="la-icon la-icon--xl icon-guided-creator"></span>
@@ -158,7 +156,7 @@
                     <span class="la-header__nav-name">Guided Creator</span>
                 </a>
             </div>
-            <!--<div class="la-header__nav-item">   
+            <!--<div class="la-header__nav-item d-lg-none">   
                 <a class="la-header__nav-link @if(Request::segment(1) == 'help') active @endif" href="/">
                     <div class="la-header__nav-icon">
                         <span class="la-icon--lg icon-help-filled"></span>
@@ -166,7 +164,7 @@
                     <span class="la-header__nav-name">Help</span>
                 </a>
             </div>-->
-            <div class="la-header__nav-item">   
+            <div class="la-header__nav-item d-lg-none">   
                 <a class="la-header__nav-link" role="button" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <div class="la-header__nav-icon">
                         <span class="la-icon la-icon--xl icon-logout"></span>
@@ -178,6 +176,8 @@
                 </a>
             </div>
         </div>
+
+        <div class="la-header__nav-bottom d-lg-none"></div>
 
     @else 
         <div class="la-header__nav-top d-md-inline-flex  align-items-center">

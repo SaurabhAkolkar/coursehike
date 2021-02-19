@@ -55,11 +55,20 @@
         &__ {
             &imgwrap{
                 transition: all 0.24s ease-out;-webkit-transition: all 0.24s ease-out;-moz-transition: all 0.24s ease-out;
-               // height: 310px;
+                height: 310px;
+
+                @include respond-below(md){
+                    height:220px;
+                }
 
                 img{
                     width:100%;
-                    //height:310px;
+                    height:310px;
+                    object-fit: cover;
+
+                    @include respond-below(md){
+                        height:220px;
+                    }
                 }
             }
                         
@@ -101,12 +110,17 @@
                 right: var(--size-3);
                 width: var(--size-10);
                 height: var(--size-10);
-                background:var(--app-indigo-1);
+                background-color:var(--app-indigo-1);
                 border-radius: var(--rounded-full);
 
                 &:hover{
-                    background:var(--yellow);
-                    color:var(--gray);
+                    background-color:var(--yellow);
+                }
+                &-{
+                    &icon{
+                        padding:12px 14px; 
+                        opacity:0.85;
+                    }
                 }
             }
             &title {
