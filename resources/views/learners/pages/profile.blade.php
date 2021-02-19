@@ -3,7 +3,7 @@
 @section('content')
 <div class="la-profile">
     <div class="la-profile__wrap">
-      
+      <!-- testing git -->
       <!-- Side Navbar: Start -->
       @include ('learners.pages.sidebar')
       <!-- Side Navbar: End -->  
