@@ -92,15 +92,15 @@ class CheckoutChargeSucceededJob implements ShouldQueue
             $invoice_details = InvoiceDetail::having('invoice_id', '=', $client_reference_id)->get()->groupBy('course_id');
                 foreach($invoice_details as $course_id => $invoice_items){
 
-                    $already_puchased = UserPurchasedCourse::firstOrNew([ ['course_id', $course_id], ['user_id', $invoice->user_id] ]);
+                    $already_puchased = UserPurchasedCourse::firstOrNew( ['course_id'=> $course_id , 'user_id'=> $user_invoice->user_id] );
 
                     $already_puchased->order_id = $client_reference_id;
                     $old_classess = json_decode($already_puchased->class_id);
                     $new_classess = $invoice_items->pluck('class_id')->all();
 
-                    $combined_classes = array_unique(array_merge ($old_classess ?? [],$new_classess));
+                    $combined_classes = array_unique(array_merge($old_classess ?? [],$new_classess));
 
-                    $already_puchased->class_id = ($combined_classes);
+                    $already_puchased->class_id = json_encode($combined_classes);
                     $already_puchased->purchase_type = $invoice_items->first()->purchase_type;
                     $already_puchased->save();
                 }
