@@ -24,8 +24,8 @@ return [
         // 'source_chargeable' => \App\Jobs\StripeWebhooks\HandleChargeableSource::class,
         
         'checkout_session_completed' => \App\Jobs\StripeWebhooks\CheckoutChargeSucceededJob::class,
-        // 'charge_succeeded' => \App\Jobs\StripeWebhooks\CheckoutChargeSucceededJob::class,
         'charge_failed' => \App\Jobs\StripeWebhooks\CheckoutChargeFailedJob::class,
+        // 'charge_succeeded' => \App\Jobs\StripeWebhooks\CheckoutChargeSucceededJob::class,
     ],
 
     /*

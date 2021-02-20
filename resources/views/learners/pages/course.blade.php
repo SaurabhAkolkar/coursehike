@@ -410,7 +410,7 @@ use Carbon\Carbon;
   <!-- Section: End-->
 
   <!-- Section: Start-->
-  @if(!$video_access || !auth()->check())
+  {{-- @if(!$video_access || !auth()->check()) --}}
 
   <section class="la-section__small la-section--grey la-vcourse__purchase">
     <div class="la-vcourse__purchase-inwrap container">
@@ -489,27 +489,30 @@ use Carbon\Carbon;
             </div>
           </form>
         </div>
+        
+        @if ( !(auth()->check() && auth()->user()->subscription('main')->active()) )
+          <div class="col-md-5 col-lg-4 offset-lg-1 px-lg-0 my-auto la-vcourse__purchase-right la-anim__wrap">
+            <div class="la-vcourse__purchase-content text-center la-anim__stagger-item--x la-anim__B">
+              <div class="la-vcourse__purchase-prize mb-8 la-anim__stagger-item--x">Subscribe for all Courses @ <span class="la-vcourse__purchase-prize--amount"><b>{{$subscription_rate}}/month</b></span></div>
+              <p class="la-anim__stagger-item--x">Access all the current and future courses at the tiny monthly subscription payment</p>
+              <div class="la-vcourse__purchase-actions d-inline-block text-center mt-8">
+                <div class="la-vcourse__purchase-btn la-anim__stagger-item--x">
+                  <a class="btn btn-primary la-btn text-center"  href="/learning-plans">Subscribe Now</a>
+                </div>
 
-        <div class="col-md-5 col-lg-4 offset-lg-1 px-lg-0 my-auto la-vcourse__purchase-right la-anim__wrap">
-          <div class="la-vcourse__purchase-content text-center la-anim__stagger-item--x la-anim__B">
-            <div class="la-vcourse__purchase-prize mb-8 la-anim__stagger-item--x">Subscribe for all Courses @ <span class="la-vcourse__purchase-prize--amount"><b>{{$subscription_rate}}/month</b></span></div>
-            <p class="la-anim__stagger-item--x">Access all the current and future courses at the tiny monthly subscription payment</p>
-            <div class="la-vcourse__purchase-actions d-inline-block text-center mt-8">
-              <div class="la-vcourse__purchase-btn la-anim__stagger-item--x">
-                <a class="btn btn-primary la-btn text-center"  href="/learning-plans">Subscribe Now</a>
-              </div>
-
-              <div class="pt-2">
-                <a href="/learning-plans"  class="la-vcourse__purchase-trial--lnk text-left la-anim__stagger-item--x la-anim__C">
-                  Get free 7 Days trial
-                </a>
+                <div class="pt-2">
+                  <a href="/learning-plans"  class="la-vcourse__purchase-trial--lnk text-left la-anim__stagger-item--x la-anim__C">
+                    Get free 7 Days trial
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        @endif
+        
     </div>
   </section>
-  @endif
+  {{-- @endif --}}
   <!-- Section: End-->
 
   <!-- Section: Start-->

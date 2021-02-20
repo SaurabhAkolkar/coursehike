@@ -48,9 +48,10 @@ class LearnController extends Controller
         $class_access = false;
         $in_cart = null;
         $order_type = null;
+
         if(Auth::check())
         {
-        	$order = UserPurchasedCourse::where('user_id', Auth::User()->id)->where('course_id', $id)->first();
+        	$order = $course->isPurchased();
             
             if( Auth::User()->role == "admin" || 
                 (Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()) ||

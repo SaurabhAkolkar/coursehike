@@ -10,6 +10,7 @@ use App\UserPurchasedCourse;
 use App\UserWatchTimelog;
 use Stevebauman\Location\Facades\Location;
 use App\Setting;
+use Illuminate\Support\Facades\Auth;
 
 class Course extends Model
 {
@@ -164,6 +165,14 @@ class Course extends Model
            return $value;
         }
         
+    }
+
+    public function isPurchased()
+    {
+        $purchased_course = UserPurchasedCourse::where(['course_id'=> $this->id , 'user_id'=> Auth::User()->id])->firstOr(function () {
+           return null;
+        });;
+        return $purchased_course;
     }
 
   

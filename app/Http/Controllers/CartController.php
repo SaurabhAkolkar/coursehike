@@ -618,17 +618,20 @@ class CartController extends Controller
             ){
 
                 $invoice_details = InvoiceDetail::having('invoice_id', '=', $transaction_id)->get()->groupBy('course_id');
-                foreach($invoice_details as $course_id => $invoice_items){                    
+                // dd($invoice_details);
+                foreach($invoice_details as $course_id => $invoice_items){
+                    // dd($invoice_items, $invoice->user_id, $course_id);
 
-                    $already_puchased = UserPurchasedCourse::firstOrNew([ ['course_id', $course_id], ['user_id', $invoice->user_id] ]);
+                    $already_puchased = UserPurchasedCourse::firstOrNew( ['course_id'=> $course_id , 'user_id'=> $invoice->user_id] );
                     $already_puchased->order_id = $transaction_id;
 
+                    if($already_puchased->exists)
                     $old_classess = json_decode($already_puchased->class_id);
                     $new_classess = $invoice_items->pluck('class_id')->all();
 
-                    $combined_classes = array_unique(array_merge ($old_classess ?? [],$new_classess));
-
-                    $already_puchased->class_id = ($combined_classes);
+                    $combined_classes = array_unique(array_merge($old_classess ?? [],$new_classess));
+                    
+                    $already_puchased->class_id = json_encode($combined_classes);
                     $already_puchased->purchase_type = $invoice_items->first()->purchase_type;
                     $already_puchased->save();
 
