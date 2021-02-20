@@ -14,8 +14,8 @@ $(function(){
   // Navbar Dropdown Toggle: End
 
   // Home Video On scroll Pause/Play: Start
-  /*$(document).on("scroll",function(){
-    if($(document).scrollTop()>450){      
+  /*$(window).on("scroll",function(){
+    if($(window).scrollTop()>500){      
        $('#home_video')[0].pause();
      }
      else
