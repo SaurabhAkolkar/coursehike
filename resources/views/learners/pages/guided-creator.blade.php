@@ -138,13 +138,13 @@
   <!-- Section: End-->
   <!-- Section: Start-->
   <section class="la-bgcreator--ad-banner">
-    <div class="container">
-      <div class="row">
+    <div class="container-fluid px-0">
+      <div class="row la-anim__wrap">
         <!-- Column: Start-->
-        <div class="col-sm-12 px-0 px-sm-0 la-anim__wrap">
-          <div class="la-bgcreator__ad-content text-center text-white la-anim__stagger-item">
+        <div class="col-12  la-anim__stagger-item">
+          <div class="la-bgcreator__ad-content text-center text-white" style="background:url('../images/learners/creator/guided-cta.jpg') no-repeat center rgba(0, 0, 0, 0.65); background-size:cover;">
             <div class="">
-              <p class="la-bgcreator__ad-para la-anim__stagger-item">Ready to share your Creations?</p><br>
+              <p class="la-bgcreator__ad-para la-anim__stagger-item mb-8 mb-md-14">Ready to share your Creations?</p>
               <a class="la-btn__app text-white la-anim__stagger-item" role="button" href="/creator-signup">Get Started</a>
             </div>
           </div>

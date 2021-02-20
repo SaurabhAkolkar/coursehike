@@ -8,16 +8,17 @@
                 height:240px;
                 
                 @include respond-below(md){
-                    margin-bottom:0;
                     padding:var(--size-8) var(--size-4);
-                    height:260px;
+                    height:100%;
                     text-align: center;
                 }
-                @include respond-below(sm){
-                    margin-bottom: var(--size-8);
-                }
-               
+                               
                 &- {
+                    &col{
+                        @include respond-below(md){
+                            margin-bottom:var(--size-4);
+                        }
+                    }
                     &title {
                         font-family: var(--head-font);
                         font-size: var(--text-lg);

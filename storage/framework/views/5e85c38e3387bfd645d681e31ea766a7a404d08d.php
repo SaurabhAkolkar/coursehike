@@ -83,7 +83,7 @@
         <section class="la-about__btm">
             <div class="container">
                 <!-- Our Mission: Start -->
-                <div class="row la-section">
+                <div class="row la-section la-about__btm-section">
                     <div class="col-md-7 col-lg-5">
                         <div class="la-about__mvt-lft la-anim__wrap">
                             <div class="la-about__mvt-tag la-anim__fade-in-top">Mission</div>
@@ -98,7 +98,7 @@
                             -->
                         </div>
                     </div>
-                    <div class="col-md-5 col-lg-7 my-auto">
+                    <div class="col-md-5 col-lg-7 my-md-auto">
                         <div class="la-about__mvt-rgt la-anim__wrap">
                             <img src="../images/learners/about/about-mission.svg" alt="Our Mission" class="img-fluid d-block mx-auto la-anim__stagger-item--x la-anim__E">
                         </div>
@@ -107,7 +107,7 @@
                 <!-- Our Mission: End -->
 
                 <!-- Our Vision: Start -->
-                <div class="row la-section">
+                <div class="row la-section la-about__btm-section">
                     <div class="col-md-7 col-lg-5">
                         <div class="la-about__mvt-lft la-anim__wrap">
                             <div class="la-about__mvt-tag la-anim__fade-in-top">Vision</div>
@@ -125,7 +125,7 @@
                             -->
                         </div>
                     </div>
-                    <div class="col-md-5 col-lg-7 my-auto">
+                    <div class="col-md-5 col-lg-7 my-md-auto">
                         <div class="la-about__mvt-rgt la-anim__wrap">
                             <img src="../images/learners/about/about-vision.svg" alt="Our Vision" class="img-fluid d-block mx-auto la-anim__stagger-item--x la-anim__E">
                         </div>
@@ -134,7 +134,7 @@
                 <!-- Our Vision: End -->
 
                 <!-- Our Way of Teaching: Start -->
-                <div class="row la-section">
+                <div class="row la-section la-about__btm-section">
                     <div class="col-md-7 col-lg-5">
                         <div class="la-about__mvt-lft la-anim__wrap">
                             <div class="la-about__mvt-tag la-anim__fade-in-top">Alien's</div>
@@ -155,7 +155,7 @@
                             -->
                         </div>
                     </div>
-                    <div class="col-md-5 col-lg-7 my-auto">
+                    <div class="col-md-5 col-lg-7 my-md-auto">
                         <div class="la-about__mvt-rgt la-anim__wrap">
                             <img src="../images/learners/about/about-teaching.svg" alt="Our Way of Teaching" class="img-fluid d-block mx-auto la-anim__stagger-item--x la-anim__E">
                         </div>

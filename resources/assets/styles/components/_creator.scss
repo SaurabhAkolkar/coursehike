@@ -1,6 +1,11 @@
 #{$ap}- {
     &creator {
         &__ {
+            &section{
+                @include respond-below(sm){
+                    padding-bottom:var(--size-14) !important;
+                }
+            }
             &inwrap {
                 width:320px;
                 height: 320px;

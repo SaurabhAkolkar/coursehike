@@ -263,7 +263,7 @@ use Carbon\Carbon;
                       @foreach ( $course->resources as $resource)
                         <div class="col-12 col-md col-lg px-0">
                           <div class="la-ctabs__resources d-flex">
-                            <div class="la-ctabs__resources-pdf"><i class="la-icon--5xl icon-download mr-8"></i></div>
+                            <div class="la-ctabs__resources-pdf"><i class="la-icon--5xl icon-pdf mr-8"></i></div>
                             <div class="la-ctabs__resources-desc">
                               <div class="la-ctabs__resources-title text-lg  text-uppercase">{{$resource->file_name}}</div><a class="la-ctabs__resources-file text-sm" href="{{$resource->file_url}}" target="_blank">Download Now</a>
                             </div>
@@ -330,14 +330,14 @@ use Carbon\Carbon;
                   @foreach ( $course->resources as $resource)
                     <div class="col-12 col-md col-lg px-0">
                       <div class="la-ctabs__resources d-flex">
-                        <div class="la-ctabs__resources-pdf la-anim__stagger-item--x"><i class="la-icon--3xl icon-download mr-8"></i></div>
+                        <div class="la-ctabs__resources-pdf la-anim__stagger-item--x"><i class="la-icon--xl la-ctabs__resources-download icon-pdf mr-3"></i></div>
                         <div class="la-ctabs__resources-desc la-anim__stagger-item--x">
-                          <div class="la-ctabs__resources-title text-lg  text-uppercase">{{$resource->file_name}}</div><a class="la-ctabs__resources-file text-sm" href="{{$resource->file_url}}" target="_blank">Download Now</a>
+                          <div class="la-ctabs__resources-title text-uppercase">{{$resource->file_name}}</div><a class="la-ctabs__resources-file text-sm" href="{{$resource->file_url}}" target="_blank">Download Now</a>
                         </div>
                       </div>
                     </div>
                   @endforeach
-                  <div class="col-12 mb-20 text-right la-anim__wrap"><a class="la-ctabs__download-all la-anim__stagger-item--x" href=""><span class="text-uppercase text-sm">DOWNLOAD ALL<span class="pl-1 la-icon icon-download"> </span></span></a></div>
+                  <div class="col-12 mb-4 text-right la-anim__wrap"><a class="la-ctabs__download-all la-anim__stagger-item--x" href=""><span class="text-uppercase text-sm">DOWNLOAD ALL<span class="pl-1 la-icon icon-download"> </span></span></a></div>
               @endif
             </div>
             
@@ -348,9 +348,9 @@ use Carbon\Carbon;
               <h5 class="la-ctabs__title mb-4 la-anim__stagger-item">Certificate</h5>
               <div class="col-12 col-md-6 col-lg px-0">
                 <div class="la-ctabs__certificate d-flex">
-                  <div class="la-ctabs__certificate-pdf la-anim__stagger-item--x"><i class="la-icon--3xl icon-download mr-8"></i></div>
+                  <div class="la-ctabs__certificate-pdf la-anim__stagger-item--x"><i class="la-icon--xl la-ctabs__resources-download icon-download mr-3"></i></div>
                   <div class="la-ctabs__certificate-desc la-anim__stagger-item--x">
-                    <div class="la-ctabs__certificate-title text-md-lg  text-uppercase">{{$course->title}}</div><a class="la-ctabs__certificate-file text-sm" href="">{{$course->title}}.pdf</a>
+                    <div class="la-ctabs__certificate-title text-uppercase">{{$course->title}}</div><a class="la-ctabs__certificate-file text-sm" href="">{{$course->title}}.pdf</a>
                   </div>
                 </div>
               </div>
@@ -364,17 +364,17 @@ use Carbon\Carbon;
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  <section class="la-section__small la-lp--include">
+  <section class="la-section__small ">
     <div class="la-section__inner">
       <div class="container">
           <div class="row">
             <div class="col">
               <div class="la-lp__benefits la-anim__wrap">
-                <h3 class="la-section__title mb-7 text-2xl text-md-4xl la-anim__fade-in-bottom">Course Benefits</h3>
+                <h3 class="la-section__title mb-5 mb-md-8 text-2xl text-md-4xl la-anim__fade-in-bottom">Course Benefits</h3>
 
-                <div class="la-cbenefits d-flex my-8">
+                <div class="la-cbenefits d-flex my-1 my-md-8">
                   <div class="row">
-                    <div class="col-md-4 la-anim__stagger-item--x">
+                    <div class="col-md-6 col-lg-4 la-cbenefits__item-col la-anim__stagger-item--x">
                       <div class="la-cbenefits__item d-flex flex-column align-items-center">
                         <div class="mb-7">
                           <img class="img-fluid d-block" src="/images/learners/course-benefits/video.svg" />
@@ -384,7 +384,7 @@ use Carbon\Carbon;
                       </div>
                     </div>
 
-                    <div class="col-md-4 la-anim__stagger-item--x">
+                    <div class="col-md-6 col-lg-4 la-cbenefits__item-col la-anim__stagger-item--x">
                       <div class="la-cbenefits__item d-flex flex-column align-items-center">
                         <div class="mb-7"><img class="img-fluid d-block" src="/images/learners/course-benefits/certificate.svg"></div>
                         <h4 class="la-cbenefits__item-title mb-3">Certification</h4>
@@ -392,7 +392,7 @@ use Carbon\Carbon;
                       </div>
                     </div>
 
-                    <div class="col-md-4 la-anim__stagger-item--x">
+                    <div class="col-md-12 col-lg-4 la-cbenefits__item-col la-anim__stagger-item--x">
                       <div class="la-cbenefits__item d-flex flex-column align-items-center">
                         <div class="mb-7"><img class="img-fluid d-block" src="/images/learners/course-benefits/online-course.svg"></div>
                         <h4 class="la-cbenefits__item-title mb-3">Resources</h4>
@@ -414,14 +414,14 @@ use Carbon\Carbon;
 
   <section class="la-section__small la-section--grey la-vcourse__purchase">
     <div class="la-vcourse__purchase-inwrap container">
-      <div class="row la-vcourse__purchase-row">
-        <div class="col-md-7 la-vcourse__purchase-left la-anim__wrap">
-          <div class="la-vcourse__purchase-prize mb-8 la-anim__stagger-item">Purchase this Course @ <span class="la-vcourse__purchase-prize--amount"><b>{{ getSymbol() }}{{$course->convertedprice}}</b></span></div>
+      <div class="row la-vcourse__purchase-row la-anim__wrap">
+        <div class="col-md-7 col-lg-7 la-vcourse__purchase-left la-anim__stagger-item">
+          <div class="la-vcourse__purchase-prize mb-4 mb-lg-8 ">Purchase this Course @ <span class="la-vcourse__purchase-prize--amount"><b>{{ getSymbol() }}{{$course->convertedprice}}</b></span></div>
           <form class="la-vcourse__purchase-form" id="add_to_cart_form" name="add_to_cart_form" method="post" action="/add-to-cart">
             <input type="hidden" name="course_id" value="{{$course->id}}" />
             @csrf
             <div class="la-vcourse__purchase-classes">
-              <div class="la-vcourse__purchase-class la-vcourse__purchase-class--all mb-4 la-anim__stagger-item">
+              <div class="la-vcourse__purchase-class la-vcourse__purchase-class--all mb-lg-4 la-anim__stagger-item">
                 <div class="la-form__radio-wrap">
                   <input class="la-form__radio d-none la-vcourse__purchase-input" @if($order_type == null || $order_type == 'all_classes') checked @endif type="radio" value="all-classes" name="classes" id="allClasses">
                   <label class="d-flex align-items-center la-vcourse__purchase-label" for="allClasses">
@@ -438,7 +438,7 @@ use Carbon\Carbon;
                     <span class="">Select Classes</span>
                   </label>
                 </div>
-                <div class="la-vcourse__purchase-items mt-8 pl-0 pl-md-8 la-anim__stagger-item" id="selected_class_div">
+                <div class="la-vcourse__purchase-items mt-4 mt-lg-8 la-anim__stagger-item" id="selected_class_div">
                   <table class="w-100 la-vcourse__classes-wrap">
                     <tr class="la-vcourse__sclass-item">
                       <th class="mb-4 la-vcourse__sclass-heading"></th>
@@ -490,19 +490,23 @@ use Carbon\Carbon;
           </form>
         </div>
 
-        <div class="col-md-5 col-lg-3 offset-lg-1 px-lg-0  la-vcourse__purchase-right la-anim__wrap">
-          <div class="la-vcourse__purchase-content ">
-            <div class="la-vcourse__purchase-prize mb-8 la-anim__stagger-item--x la-anim__C">Subscribe for all Courses @ <span class="la-vcourse__purchase-prize--amount"><b>{{$subscription_rate}}/month</b></span></div>
-            <p class="la-anim__stagger-item--x la-anim__C">Access all the current and future courses at the tiny monthly subscription payment</p>
+        <div class="col-md-5 col-lg-4 offset-lg-1 px-lg-0 my-auto la-vcourse__purchase-right la-anim__wrap">
+          <div class="la-vcourse__purchase-content text-center la-anim__stagger-item--x la-anim__B">
+            <div class="la-vcourse__purchase-prize mb-8 la-anim__stagger-item--x">Subscribe for all Courses @ <span class="la-vcourse__purchase-prize--amount"><b>{{$subscription_rate}}/month</b></span></div>
+            <p class="la-anim__stagger-item--x">Access all the current and future courses at the tiny monthly subscription payment</p>
             <div class="la-vcourse__purchase-actions d-inline-block text-center mt-8">
-              <div class="la-vcourse__purchase-btn la-anim__stagger-item--x la-anim__C">
-                <a class="btn btn-primary active la-btn la-btn--primary text-center"  href="/learning-plans">Try it for a week</a>
+              <div class="la-vcourse__purchase-btn la-anim__stagger-item--x">
+                <a class="btn btn-primary la-btn text-center"  href="/learning-plans">Subscribe Now</a>
               </div>
-              <a href="/learning-plans"  class="la-vcourse__purchase-trial--lnk mt-8 la-anim__stagger-item--x la-anim__C">Get free 7 Days trial</a>
+
+              <div class="pt-2">
+                <a href="/learning-plans"  class="la-vcourse__purchase-trial--lnk text-left la-anim__stagger-item--x la-anim__C">
+                  Get free 7 Days trial
+                </a>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-1"></div>
     </div>
   </section>
   @endif
@@ -520,7 +524,7 @@ use Carbon\Carbon;
                     <h3 class="la-rtng__title text-xl text-2xl la-anim__stagger-item">Reviews &amp; Ratings</h3>
                   <div class="la-rtng__wrapper d-flex flex-column flex-md-row justify-content-between">
                     <div class="la-rtng__overall text-left text-md-center la-anim__stagger-item">
-                      <div class="la-rtng__total body-font text-5xl mx-4 mx-md-0 px-5 px-md-0">{{$average_rating}}</div>
+                      <div class="la-rtng__total body-font text-5xl">{{$average_rating}}</div>
                       <div class="la-rtng__icons d-inline-flex">
                         @for($counter=1;$counter <= round($average_rating); $counter++)
                             <div class="la-icon la-icon--2xl icon-star la-rtng__fill"> </div>
@@ -640,44 +644,56 @@ use Carbon\Carbon;
                             </div>
                         </div>
                     </div>
-                </div>
+                  </div>
                   <!-- Leave a Rating Popup: End -->
                 </div>
               </div>
             </li>
           </div>
-          <div class="col-lg-8 pt-md-10">
-            
-            @foreach($reviews as $review)
-           
-              <li class="la-lcreviews__item">
-                <div class="la-lcreviews__inner">
-                  <div class="la-lcreviews__wrapper d-flex flex-column flex-md-row justify-content-between">
-                    <div class="la-lcreviews__prfle d-inline-flex align-items-center la-anim__wrap">
-                      <div class="la-lcreviews__prfle-img la-anim__fade-in-left">
-                      <img class="img-fluid rounded-circle d-block" src="{{ $review->user->user_img }}" alt="{{$review->user->fname}}"></div>
-                      <div class="la-lcreviews__prfle-info ml-4 la-anim__stagger-item--x">
-                          <div class="la-reviews__timestamp text-sm">
-                                    @if($review->created_at->diffInWeeks(Carbon::now())> 0) 
-                                        {{$review->created_at->diffInWeeks(Carbon::now())}} weeks ago
-                                    @elseif($review->created_at->diffInDays(Carbon::now())>0)
-                                        {{$review->created_at->diffInDays(Carbon::now())}} days ago 
-                                    @else
-                                        Today                                      
-                                    @endif
+          <div class="col-12 pt-4 pt-md-12">
+            <div class="la-mcard__slider-wrap la-anim__wrap">
+              <div class="swiper-container h-100 la-lcreviews__container">
+                <div class="swiper-wrapper la-lcreviews__wrapper"> 
+              
+                    @foreach($reviews as $review)
+
+                    <div class="swiper-slide la-lcreviews__slider la-anim__stagger-item">  
+                      <div class="la-lcreviews__item">
+                        <div class="la-lcreviews__wrapper ">
+                          <div class="d-flex justify-content-between align-item-start ">
+                            <div class="la-lcreviews__prfle d-inline-flex align-items-center ">
+                              <div class="la-lcreviews__prfle-img">
+                                <img class="img-fluid rounded-circle d-block" src="{{ $review->user->user_img }}" alt="{{$review->user->fname}}">
+                              </div>
+                              <div class="la-lcreviews__prfle-info ml-2 ">
+                                <div class="la-lcreviews__timestamp text-sm">
+                                              @if($review->created_at->diffInWeeks(Carbon::now())> 0) 
+                                                  {{$review->created_at->diffInWeeks(Carbon::now())}} weeks ago
+                                              @elseif($review->created_at->diffInDays(Carbon::now())>0)
+                                                  {{$review->created_at->diffInDays(Carbon::now())}} days ago 
+                                              @else
+                                                  Today                                      
+                                              @endif
+                                </div>
+                                <h4 class="la-lcreviews__uname text-md text-uppercase ">{{$review->user->fname.' '.$review->user->lname}}</h4>
+                              </div>
+                            </div>
+                            <div class="d-none d-md-block la-lcreviews__ratings"> @for($couter=1 ; $couter <= $review->rating; $couter++)<span class="la-icon--lg icon-star la-rtng__fill"></span>@endfor  @for($couter=1 ; $couter <= 5 - $review->rating; $couter++)<span class="la-icon--lg icon-star la-rtng__unfill"></span>@endfor</div>
                           </div>
-                        <h4 class="la-lcreviews__uname text-md text-md-lg text-uppercase ">{{$review->user->fname.' '.$review->user->lname}}</h4>
+
+                          <div class="la-lcreviews__content">
+                            <div class="d-block d-md-none la-lcreviews__ratings"> @for($couter=1 ; $couter <= $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__fill"></span>@endfor  @for($couter=1 ; $couter <= 5 - $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__unfill"></span>@endfor</div>
+                            <div class="la-lcreviews__comment text-sm">{{$review->review}}</div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div class="la-lcreviews__content w-100 la-anim__wrap">
-                      <div class="la-lcreviews__ratings la-anim__stagger-item--x"> @for($couter=1 ; $couter <= $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__fill"></span>@endfor  @for($couter=1 ; $couter <= 5 - $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__unfill"></span>@endfor</div>
-                      <div class="la-lcreviews__comment text-md la-anim__stagger-item--x">{{$review->review}}</div>
-                    </div>
-
-                  </div>
-                </div>
-              </li>
-            @endforeach
+                    
+                    @endforeach
+                </div> 
+              </div>
+              <div class="swiper-pagination swiper-pagination-custom la-lcreviews__pagination la-anim__stagger-item--x"></div> 
+            </div>
           </div>
         </div>
       </div>
@@ -685,7 +701,7 @@ use Carbon\Carbon;
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  <section class="la-section__small">
+  <section class="la-section__small la-creator__section">
     <div class="la-section__inner pb-md-10">
       <div class="container ">
         <div class="la-anim__wrap">
@@ -767,7 +783,7 @@ use Carbon\Carbon;
   <!-- Section: End-->
   <!-- Section: Start-->
   <section class="la-section__small la-section--grey">
-    <div class="la-section__inner pb-md-10">
+    <div class="la-section__inner">
       <div class="container la-anim__wrap">
         <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">Looking for something else?</h2>
                 

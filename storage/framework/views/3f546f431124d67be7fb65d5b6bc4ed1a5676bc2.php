@@ -30,8 +30,18 @@
                       <p class="m-0 pt-1 pl-1 text-sm text-center text-md-left">Instant access to all courses <!-- at nominal monthly fees --></p>
                   </div>
                   <div class="col-md-5 px-0 la-soffer d-flex d-lg-block justify-content-center  mb-lg-auto">
-                    <div class="la-soffer__bestprice"> <sup><small>$</small></sup>  39 / Month</div>
-                    <div class="la-soffer__realprice"> <sup><small>$</small></sup>  99 (USD)</div>
+                    <div class="la-soffer__bestprice"> 
+                      <?php if(getLocation() == 'IN'): ?>
+                        <sup><small>₹</small></sup>  2899 / Month
+                      <?php else: ?>
+                        <sup><small>$</small></sup>  39 / Month
+                      <?php endif; ?>
+                    </div>
+                    <?php if(getLocation() == 'IN'): ?>
+                      <div class="la-soffer__realprice"> <sup><small>₹</small></sup>  5999 (INR)</div>
+                    <?php else: ?>
+                      <div class="la-soffer__realprice"> <sup><small>$</small></sup>  99 (USD)</div>
+                    <?php endif; ?>
                   </div>
                 </div>
               </div>
@@ -71,8 +81,13 @@
                       <p class="m-0 pt-2 pl-1 text-sm text-center text-md-left">Instant access to all courses <!-- at nominal monthly fees --></p>
                 </div>
                 <div class="col-md-6 px-0 pt-4 la-soffer d-flex justify-content-center mx-0">
+                  <?php if(getLocation() == 'IN'): ?>
+                    <div class="la-soffer__bestprice"> <sup><small>₹</small></sup>  2899 / Month</div>
+                    <div class="la-soffer__realprice"> <sup><small>₹</small></sup>  5999 (INR)</div>
+                  <?php else: ?>
                     <div class="la-soffer__bestprice"> <sup><small>$</small></sup>  39 / Month</div>
                     <div class="la-soffer__realprice"> <sup><small>$</small></sup>  99 (USD)</div>
+                  <?php endif; ?>
                 </div>
               </div>
             </div>
@@ -103,7 +118,7 @@
           <nav class="la-courses__nav position-relative d-flex justify-content-between align-items-start">
             
               <ul class="nav nav-pills la-courses__nav-tabs" id="nav-tab" role="tablist" tabindex="0">
-              <div class="la-courses__nav-prev la-anim__fade-in-left"><span class="la-courses__nav-prev--icon la-icon icon-arrow"></span></div>
+              <div class="d-none d-md-block la-courses__nav-prev la-anim__fade-in-left"><span class="la-courses__nav-prev--icon la-icon icon-arrow"></span></div>
               <?php if($filtres_applied == null): ?>
                 <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <li class="nav-item la-courses__nav-item la-anim__stagger-item--x">
@@ -115,7 +130,7 @@
                 
                 <?php endif; ?>
 
-                <div class="la-courses__nav-next la-anim__stagger-item--x"><span class="la-courses__nav-next--icon la-icon icon-right-arrow2"></span></div>
+                <div class="d-none d-md-block la-courses__nav-next la-anim__stagger-item--x"><span class="la-courses__nav-next--icon la-icon icon-right-arrow2"></span></div>
               </ul>
               
             
@@ -303,7 +318,7 @@
        
         <div class="row">
           <div class="col-12 col-md-5 la-trail__left">
-            <div class="la-trail__title la-trail__title-out la-trail__title--black la-section__title la-section__title--big position-absolute la-anim__text-move">Observe.</div>
+            <div class="la-trail__title d-none d-sm-block la-trail__title-out la-trail__title--black la-section__title la-section__title--big position-absolute la-anim__text-move">Observe.</div>
             <div class="la-trail__img-wrap la-anim__fade-in-right la-anim__B">
               <div class="la-trail__img position-relative">
                 <img class="w-100" src="./images/learners/home/observe.jpg" alt="observe">
@@ -363,8 +378,14 @@
                               <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
                               <p class="la-price__box-para mt-8 mb-2 la-anim__stagger-item--x">Get <span class="la-color--primary">35% savings </span>on Annual Plan</p>
                               <div class="la-price__box-soffer la-soffer ml-0">
-                                <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x"> <sup><small>$</small></sup>  39 / Month</div>
-                                <div class="la-soffer__realprice la-anim__stagger-item--x"> <sup><small>$</small></sup>  99 (USD) </div>
+                                
+                                <?php if(getLocation() == 'IN'): ?>
+                                  <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x"> <sup><small>₹</small></sup>  2899 / Month</div>
+                                  <div class="la-soffer__realprice la-anim__stagger-item--x"> <sup><small>₹</small></sup>  5999 (INR) </div>
+                                <?php else: ?>
+                                  <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x"> <sup><small>$</small></sup>  39 / Month</div>
+                                  <div class="la-soffer__realprice la-anim__stagger-item--x"> <sup><small>$</small></sup>  99 (USD) </div>
+                                <?php endif; ?>
                               </div>
                           </div>
                         </div>

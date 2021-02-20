@@ -21,6 +21,8 @@
         &s {
             height: auto;
             margin-top: -90px;
+            position:relative;
+            z-index:var(--z-2);
             
             @media screen and (min-width:  var(--breakpoint-md)) {
                 margin-top: calc(-1 * var(--size-20));

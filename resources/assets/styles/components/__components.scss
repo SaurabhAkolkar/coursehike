@@ -42,7 +42,7 @@
         padding: calc(var(--size-16) + 40px) 0;
 
         @include respond-below(sm){
-            padding: var(--size-8) 0;
+            padding: var(--size-10) 0;
         }
         &--{
             &trail{
@@ -155,7 +155,7 @@
                         // bottom: -40% !important;
                         right: -24% !important;
                         left: unset;
-                        z-index:10;
+                        z-index:1;
                     }
 
                     &right2{

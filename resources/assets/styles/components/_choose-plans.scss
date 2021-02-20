@@ -2,7 +2,21 @@
     &choose {
             &__ {
                 &plan{
-                    margin:0 var(--size-4);
+                    @include respond-above(md){
+                        margin:0 var(--size-4);
+                    }
+
+                    @include respond-below(sm){
+                        margin-bottom:var(--size-6);
+                    }
+
+                    &-{
+                        &col{
+                            @include respond-above(md){
+                                padding:0;
+                            }
+                        }
+                    }
                 }
                 &plans{
                     opacity:1;
@@ -95,7 +109,7 @@
 
                 &content{
                     padding:0 var(--size-4);
-                    @include respond-above(lg){
+                    @include respond-above(md){
                         padding:0 var(--size-12);
                     }
                     .icon-tick{

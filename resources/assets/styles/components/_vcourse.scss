@@ -283,6 +283,10 @@
                                     }
                                     &video {
                                         height: calc(var(--playerH) * 2);
+
+                                        @include respond-below(md){
+                                            height:var(--playerH);
+                                        }
                                     }
                                     &curriculam {
                                         max-height: inherit;
@@ -290,6 +294,10 @@
                                         overflow-x: unset;
                                         padding-top: 80px;
                                         padding-left: 20px !important;
+
+                                        @include respond-below(md){
+                                            padding-top:20px;
+                                        }
                                     }
 
                                     &lesson {
@@ -360,6 +368,8 @@
 
                     @include respond-below(sm){
                         padding-right:var(--size-base);
+                        padding-top:0;
+                        padding-bottom:0;
                     }
 
                     &:hover {
@@ -548,9 +558,18 @@
             }
 
             &purchase {
+                @include respond-below(sm){
+                    padding:var(--size-14) 0 !important;
+                }
                 &- {
                     &left {
-                        border-right: 1px dashed var(--gray4);
+                        border-bottom: 1px dashed var(--gray4);
+                        padding-bottom:var(--size-10);
+
+                        @include respond-above(sm){
+                            border-right: 1px dashed var(--gray4);
+                            border-bottom:0;
+                        }
                     }
                     &label {
                         font-family: var(--head-font);
@@ -568,9 +587,25 @@
                             margin-top:var(--size-3);
                         }
                     }
+                    &items{
+                        @include respond-above(lg){
+                            padding-left:var(--size-6);
+                        }
+                    }
                     &right{
                         @include respond-below(sm){
                             padding-top:var(--size-10);
+                        }
+                    }
+                    &content{
+                        background:var(--white);
+                        border-radius:10px;
+                        border:1px solid var(--app-indigo-1);
+                        padding:var(--size-8) var(--size-6);
+                        box-shadow: 0px 0px 30px #d4d4d47a;
+
+                        @include respond-above(md){
+                            padding:var(--size-8) var(--size-8);
                         }
                     }
                     &prize {

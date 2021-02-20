@@ -120,7 +120,7 @@
           <nav class="la-courses__nav position-relative d-flex justify-content-between align-items-start">
             
               <ul class="nav nav-pills la-courses__nav-tabs" id="nav-tab" role="tablist" tabindex="0">
-              <div class="la-courses__nav-prev la-anim__fade-in-left"><span class="la-courses__nav-prev--icon la-icon icon-arrow"></span></div>
+              <div class="d-none d-md-block la-courses__nav-prev la-anim__fade-in-left"><span class="la-courses__nav-prev--icon la-icon icon-arrow"></span></div>
               @if($filtres_applied == null)
                 @foreach ($categories as $category)
                   <li class="nav-item la-courses__nav-item la-anim__stagger-item--x">
@@ -133,7 +133,7 @@
                 <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
                 @endif
 
-                <div class="la-courses__nav-next la-anim__stagger-item--x"><span class="la-courses__nav-next--icon la-icon icon-right-arrow2"></span></div>
+                <div class="d-none d-md-block la-courses__nav-next la-anim__stagger-item--x"><span class="la-courses__nav-next--icon la-icon icon-right-arrow2"></span></div>
               </ul>
               
             
@@ -444,7 +444,7 @@
        
         <div class="row">
           <div class="col-12 col-md-5 la-trail__left">
-            <div class="la-trail__title la-trail__title-out la-trail__title--black la-section__title la-section__title--big position-absolute la-anim__text-move">Observe.</div>
+            <div class="la-trail__title d-none d-sm-block la-trail__title-out la-trail__title--black la-section__title la-section__title--big position-absolute la-anim__text-move">Observe.</div>
             <div class="la-trail__img-wrap la-anim__fade-in-right la-anim__B">
               <div class="la-trail__img position-relative">
                 <img class="w-100" src="./images/learners/home/observe.jpg" alt="observe">
