@@ -240,7 +240,7 @@ section.la-lp--testimonials{
         .la-lp__test-cards{
             padding:var(--size-10);
             .la-lp__card-itm{
-                width:440px;
+                width:100%;
                 height:auto;
                 background-color:#ffffff;
                 box-shadow: 0px 31px 39px #A4A4A424;
@@ -250,8 +250,12 @@ section.la-lp--testimonials{
                 transition:all .25s ease-in;-webkit-transition:all .25s ease-in;-moz-transition:all .25s ease-in;-ms-transition:all .25s ease-in;-o-transition:all .25s ease-in;
 
                 &:hover{
-                    transform:scale(1.2);-webkit-transform:scale(1.2);-moz-transform:scale(1.2);-ms-transform:scale(1.2);-o-transform:scale(1.2);
+                    transform:scale(1.05);-webkit-transform:scale(1.05);-moz-transform:scale(1.05);-ms-transform:scale(1.05);-o-transform:scale(1.05);
                     transition:all .2s ease-out;-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;-ms-transition:all .2s ease-out;-o-transition:all .2s ease-out;
+                }
+
+                @include respond-above(sm){
+                    width:80%;
                 }
 
                 .la-lp__profile{
@@ -259,6 +263,7 @@ section.la-lp--testimonials{
                         width:50px;
                         height:50px;
                         background-color: var(--gray);
+                        border:1px solid var(--gray);
                         object-fit: cover;
                     }
                     .la-lp__name{
@@ -272,6 +277,9 @@ section.la-lp--testimonials{
                 }
                 
                 .la-lp__test-rating{
+                    @include respond-below(sm){
+                        margin-top:var(--size-4);
+                    }
                     .la-lp__rtng{
                         color:#FFC516;
                     }
@@ -280,11 +288,16 @@ section.la-lp--testimonials{
                     }
                 }
 
-                p{
+                .la-lp__test-review{
                     font-weight:var(--font-normal);
                     color:var(--gray5);
+                    margin-top:var(--size-2);
+                    @include respond-above(sm){
+                        margin-top:var(--size-4);
+                    }
                 }
             }
+            
 
             ul.la-lp__card-list{
                 float:right;

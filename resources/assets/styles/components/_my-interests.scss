@@ -10,7 +10,7 @@
             }
 
             &item{
-                width:100%;
+                width:80px;
                 height:80px;
                 overflow:hidden;
                 display:inline-block;
@@ -32,7 +32,7 @@
 
                 &-{
                     &img{
-                        width:100%;
+                        width:80px;
                         height:80px;
                         overflow: hidden;
                         transition:all 0.25s linear;-webkit-transition:all 0.25s linear;-moz-transition:all 0.25s linear;
@@ -97,24 +97,29 @@
             }
             
             &overlay{
-                width:100%;
-                height:100%;
-                position: absolute;
+                //width:100%;
+               // height:100%;
+                //position: absolute;
                 display:block;
-                background:rgba(0,0,0,0.25);
-                top:0;
-                left:0;
-                z-index:var(--z-2);
+                //background:rgba(0,0,0,0.25);
+                //top:0;
+                //left:0;
+                //z-index:var(--z-2);
 
                 &-{
                     &name{
-                        color: var(--gray);
+                        color: var(--gray6);
                         font-size:var(--text-sm);
-                        font-weight: var(--font-medium);
-                        position: absolute;
+                        font-weight: var(--font-normal);
+                        padding-left:2px;
+                       // position: absolute;
                         opacity: 1;
-                        bottom:-2px;
-                        left:-1px;
+                        //bottom:-2px;
+                        //left:-1px;
+
+                        @include respond-above(md){
+                            font-size:var(--text-xs);
+                        }
                     }
                     
                 }

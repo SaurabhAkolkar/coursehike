@@ -67,28 +67,28 @@
           <!-- Mobile Column: End-->
 
           <!-- Column: Start-->
-          <div class="col-12 col-md-5 col-lg-4 order-2 order-sm-3 px-0 px-md-3">
+          <div class="col-12 col-md-5 col-lg-5 offset-lg-2 order-2 order-sm-3 px-0 px-md-3">
             <div class="la-contact__title text-center pt-5 d-block d-sm-none">
               <h1 class="la-anim__fade-in-top la-anim__A">CONTACT</h1>
             </div>
             <div class="la-contact__rgt">
               <form class="la-contact__form" action="/contact" method="post"  id="contactForm">
                 <?php echo csrf_field(); ?>
-                <div class="form-group mb-5 la-anim__stagger-item--x">
-                  <label class="text-sm m-0" for="contName">Full Name <span style="color:var(--danger)">*</span></label>
-                  <input class="form-control p-0" id="contName" type="text" name="fname" placeholder="Enter your name" required >
+                <div class="form-group mb-6 la-anim__stagger-item--x">
+                  <label class="text-sm m-0" for="contName">Full Name: <span style="color:var(--danger)">*</span></label>
+                  <input class="form-control la-contact__form-input p-0" id="contName" type="text" name="fname" placeholder="Enter your name" required >
                 </div>
-                <div class="form-group mb-5 la-anim__stagger-item--x">
-                  <label class="text-sm m-0" for="contEmail">Email <span style="color:var(--danger)">*</span></label>
-                  <input class="form-control p-0" id="contEmail" type="email" name="email" placeholder="Enter your email id" required>
+                <div class="form-group mb-6 la-anim__stagger-item--x">
+                  <label class="text-sm m-0" for="contEmail">Email: <span style="color:var(--danger)">*</span></label>
+                  <input class="form-control la-contact__form-input p-0" id="contEmail" type="email" name="email" placeholder="Enter your email id" required>
                 </div>
-                <div class="form-group mb-5 la-anim__stagger-item--x">
-                  <label class="text-sm m-0" for="contPhone">Contact Number <span style="color:var(--danger)">*</span></label>
-                  <input class="form-control p-0" id="contPhone" type="tel" name="mobile" placeholder="Enter your phone number" required>
+                <div class="form-group mb-6 la-anim__stagger-item--x">
+                  <label class="text-sm m-0" for="contPhone">Contact Number: <span style="color:var(--danger)">*</span></label>
+                  <input class="form-control la-contact__form-input p-0" id="contPhone" type="tel" name="mobile" placeholder="Enter your phone number" required>
                 </div>
-                <div class="form-group mb-5 la-anim__stagger-item--x">
-                  <label class="text-sm" for="contMsg">Message <span style="color:var(--danger)">*</span></label>
-                  <textarea class="form-control text-msg p-2" id="contMsg" rows="5" cols="50" name="message" placeholder="Type here" required></textarea>
+                <div class="form-group mb-6 la-anim__stagger-item--x">
+                  <label class="text-sm" for="contMsg">Message: <span style="color:var(--danger)">*</span></label>
+                  <textarea class="form-control la-contact__form-textarea p-2" id="contMsg" rows="5" cols="50" name="message" placeholder="Type here" required></textarea>
                 </div>
                 <div class="la-contact__btn text-right d-none d-sm-block la-anim__stagger-item--x">
                   <button class="btn btn-desktop text-lg text-center" type="submit" >SEND</button>

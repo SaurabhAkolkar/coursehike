@@ -21,7 +21,7 @@
 
                 <section class="la-interests__like la-interests__sec">
                     <div class="la-interests__inner la-anim__wrap">
-                        <div class="la-interests__title la-anim__stagger-item">
+                        <div class="la-interests__title la-anim__stagger-item mb-6">
                             Your Interests
                             <!--<a role="button" href="" class="text-sm ml-5" style="color:var(--app-indigo-1);font-weight:var(--font-medium)">Edit</a> -->
                         </div>
@@ -31,10 +31,10 @@
                                 $alreadyAdded = true;
                                 ?> 
 
-                                <ul class="row la-interests__list pr-5">
-                                <?php $__currentLoopData = $myInterests; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $interest): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <?php if($interest->category != null): ?>
-                                         <?php if (isset($component)) { $__componentOriginalf43312b36df4538db01d96c5e1e44cff9e259eb0 = $component; } ?>
+                                <div class="row la-interests__list pr-5  la-anim__stagger-item">
+                                    <?php $__currentLoopData = $myInterests; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $interest): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if($interest->category != null): ?>
+                                             <?php if (isset($component)) { $__componentOriginalf43312b36df4538db01d96c5e1e44cff9e259eb0 = $component; } ?>
 <?php $component = $__env->getContainer()->make(App\View\Components\MyInterest::class, ['id' => $interest->category_id,'img' => $interest->category->image,'name' => $interest->category['title'],'alreadyAdded' => $alreadyAdded]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -45,9 +45,9 @@
 <?php endif; ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
-                                    <?php endif; ?>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </ul>
+                                        <?php endif; ?>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </div>
                             <?php else: ?>
                                 <div class="col-lg-8 mt-2 la-empty__courses la-anim__stagger-item--x">
                                     <div class="la-empty__browse-courses text-center text-md-left">
@@ -60,7 +60,7 @@
                         
 
                         <div class="la-interests__like la-anim__wrap">
-                            <div class="la-interests__title la-anim__stagger-item">You might also like</div>
+                            <div class="la-interests__title la-anim__stagger-item mb-6">You might also like</div>
                             
                          
                                 <?php if(count($otherCategories) == 0): ?>
@@ -73,7 +73,7 @@
                                     </div>
                                 <?php else: ?>
 
-                                    <ul class="row la-interests__list pr-5">
+                                    <div class="row la-interests__list pr-5  la-anim__stagger-item">
                                     <?php $__currentLoopData = $otherCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                          <?php if (isset($component)) { $__componentOriginalf43312b36df4538db01d96c5e1e44cff9e259eb0 = $component; } ?>
 <?php $component = $__env->getContainer()->make(App\View\Components\MyInterest::class, ['img' => $category->image,'name' => $category->title,'id' => $category->id,'alreadyAdded' => false]); ?>
@@ -87,9 +87,9 @@
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
+                                    </div>
                                 <?php endif; ?>
-                            </ul>   
+                               
                         </div>
                     </div>
                 </section>

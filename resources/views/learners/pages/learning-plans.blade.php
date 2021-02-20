@@ -113,10 +113,10 @@
         <div class="row  la-anim__wrap">
           <!-- Column: Start-->
           <div class="col-12 la-anim__stagger-item">
-            <div class="la-bgcreator__ad-content text-center text-white" style="background:url('../images/learners/creator/plans-cta.jpg') no-repeat center rgba(0, 0, 0, 0.65); background-size:cover;">
+            <div class="la-bgcreator__ad-content text-center text-white" style="background:url('../images/learners/creator/plans-cta.jpg') no-repeat top rgba(0, 0, 0, 0.68); background-size:cover;">
               <div class="py-2 px-5 ">
-                <div class="text-2xl font-weight-light pb-5 mb-5 la-anim__stagger-item">Learn real skills from real artists from around the world</div>
-                <a class="la-btn la-btn-secondary text-white text-uppercase px-5 la-anim__stagger-item" role="button" href="#">Get Started</a>
+                <div class="la-bgcreator__ad-para pb-8 mb-6 la-anim__stagger-item">Learn real skills from real artists from around the world</div>
+                <a class="la-btn la-btn-secondary text-white text-uppercase px-5 la-anim__stagger-item" role="button" href="/browse/courses">Get Started</a>
               </div>
             </div>
           </div>
@@ -335,11 +335,13 @@
       <div class="container pb-5 la-anim__wrap">
         <div class="row d-flex justify-content-lg-between">
           <!-- Column: Start-->
-          <div class="col-12 col-lg-4">
+          <div class="col-12 col-sm-8 col-lg-4">
             <div class="la-lp__test-lft la-anim__stagger-item--x">
               <h4 class=" text-4xl text-md-5xl head-font mb-3">What people say<br>about us?</h4>
               <p class="text-md body-font pr-md-5"> LILA has happy clients all over the world. And we're proud to share some of those experiences!</p>
             </div>
+
+            
           </div>
           <!-- Column: End-->
           <!-- Column: Start-->
@@ -348,12 +350,12 @@
                 @foreach($testimonial as $test)            
                     <div class="la-lp__test-cards d-flex @if($loop->index == 1) justify-content @else justify-content-end @endif la-anim__stagger-item--x" id="testCard_{{ $loop->index }}">
                       <div class="card la-lp__card-itm" >
-                        <div class="la-card__top d-flex justify-content-between">
-                          <div class="la-lp__profile d-flex justify-content-start">
+                        <div class="la-card__top d-md-flex justify-content-between ">
+                          <div class="la-lp__profile d-flex justify-content-start align-items-center">
                             <img class="img-fluid d-block rounded-circle" src="{{ asset('images/testimonial/'.$test->image) }}" alt="{{ $test->client_name }}">
                             <div class="col">
-                              <h5 class="la-lp__name head-font m-0 text-md text-sm-lg">{{ $test->client_name }}</h5>
-                              <span class="la-lp__desg text-sm"></span>
+                              <h5 class="la-lp__name head-font m-0 text-md text-md-lg">{{ $test->client_name }}</h5>
+                              <span class="la-lp__desg text-sm">Learner</span>
                             </div>
                           </div>
                           <div class="la-lp__test-rating d-flex flex-row">
@@ -408,13 +410,12 @@
                               @endif
                           </div>
                         </div>
-                        <p class="la-lp__test-review mt-5 body-font text-sm">{!! $test->details !!}
-                        </p>
+                        <div class="la-lp__test-review  body-font text-sm">{!! $test->details !!}</div>
                       </div>
 
                         @if($loop->index == 1)
-                            <div class="d-flex align-items-center justify-content-end">
-                              <ul class="la-lp__card-list d-none d-sm-block">
+                            <div class="d-flex align-items-center justify-content-end ml-auto">
+                              <ul class="la-lp__card-list d-none d-md-block">
                                 @foreach($testimonial as $t)
                                 <li> <a role="button" href="#testCard_{{ $loop->index }}"></a></li>
                                 @endforeach
@@ -444,9 +445,7 @@
                           &#8220; Lorem Ipsum dolor sit amet, consectur sadipscing elit,sed diam nonumy elrmod tempor invidunt ut labore et 
                           dolore magna aliquaqm erat, sed diam voluptna. &#8221;
                         </p>
-                      </div>
-                      
-                      
+                      </div>                      
                     </div>
 
 

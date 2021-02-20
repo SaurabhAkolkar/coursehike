@@ -48,8 +48,8 @@
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col-12 col-lg-8 pl-lg-16 la-anim__stagger-item--x">
-          <div class="la-mcard__slider-wrap">
+        <div class="col-12 col-lg-8 la-anim__stagger-item--x">
+          <div class="la-mcard__slider-wrap ">
             <div class="swiper-container h-100 la-mcard__container">
               <div class="swiper-wrapper la-mcard__wrapper">                    
                     <?php $__currentLoopData = $testimonial; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $t): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -391,7 +391,7 @@
                   </div>
                   <div class="panel-collapse collapse" id="faq_<?php echo e($f->id); ?>" aria-labelledby="faqCalcHead" data-parent="#accordion">
                     <div class="panel-body la-bgcreator__panel-body">
-                      <p class="m-0 la-bgcreator__panel-para panel-text text-md"><?php echo $f->details; ?></p>
+                      <div class="la-bgcreator__panel-para panel-text text-md"><?php echo $f->details; ?></div>
                     </div>
                   </div>
                 </div>

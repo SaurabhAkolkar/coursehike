@@ -263,7 +263,7 @@ use Carbon\Carbon;
                       @foreach ( $course->resources as $resource)
                         <div class="col-12 col-md col-lg px-0">
                           <div class="la-ctabs__resources d-flex">
-                            <div class="la-ctabs__resources-pdf"><i class="la-icon--5xl icon-pdf mr-8"></i></div>
+                            <div class="la-ctabs__resources-pdf"><i class="la-icon--5xl icon-pdf mr-4"></i></div>
                             <div class="la-ctabs__resources-desc">
                               <div class="la-ctabs__resources-title text-lg  text-uppercase">{{$resource->file_name}}</div><a class="la-ctabs__resources-file text-sm" href="{{$resource->file_url}}" target="_blank">Download Now</a>
                             </div>
@@ -271,7 +271,7 @@ use Carbon\Carbon;
                         </div>
                       @endforeach
                     </div>
-                    <div class="col-12 px-0 d-flex justify-content-end"> <a class="la-ctabs__download-all text-sm" href=""><span class="text-uppercase">DOWNLOAD ALL<span class="pl-1 la-icon icon-download"> </span></span></a></div>
+                    <!-- <div class="col-12 px-0 d-flex justify-content-end"> <a class="la-ctabs__download-all text-sm" href=""><span class="text-uppercase">DOWNLOAD ALL<span class="pl-1 la-icon icon-download"> </span></span></a></div> -->
                   @endif
               </div>
 
@@ -280,7 +280,7 @@ use Carbon\Carbon;
                 <div class="col-lg px-0 d-flex">
                   <div class="col-12 col-md-6 col-lg px-0">
                     <div class="la-ctabs__certificate d-flex">
-                      <div class="la-ctabs__certificate-pdf"><i class="la-icon--5xl icon-download mr-8"></i></div>
+                      <div class="la-ctabs__certificate-pdf"><i class="la-icon--5xl icon-certificate mr-4"></i></div>
                       <div class="la-ctabs__certificate-desc">
                         <div class="la-ctabs__certificate-title text-lg text-uppercase">Water Color</div><a target="_blank" class="la-ctabs__certificate-file text-sm" href="/download-certificate/{{$course->id}}">watercolor_certificate.pdf</a>
                       </div>
@@ -337,7 +337,7 @@ use Carbon\Carbon;
                       </div>
                     </div>
                   @endforeach
-                  <div class="col-12 mb-4 text-right la-anim__wrap"><a class="la-ctabs__download-all la-anim__stagger-item--x" href=""><span class="text-uppercase text-sm">DOWNLOAD ALL<span class="pl-1 la-icon icon-download"> </span></span></a></div>
+                  <!-- <div class="col-12 mb-4 text-right la-anim__wrap"><a class="la-ctabs__download-all la-anim__stagger-item--x" href=""><span class="text-uppercase text-sm">DOWNLOAD ALL<span class="pl-1 la-icon icon-download"> </span></span></a></div> -->
               @endif
             </div>
             
@@ -348,7 +348,7 @@ use Carbon\Carbon;
               <h5 class="la-ctabs__title mb-4 la-anim__stagger-item">Certificate</h5>
               <div class="col-12 col-md-6 col-lg px-0">
                 <div class="la-ctabs__certificate d-flex">
-                  <div class="la-ctabs__certificate-pdf la-anim__stagger-item--x"><i class="la-icon--xl la-ctabs__resources-download icon-download mr-3"></i></div>
+                  <div class="la-ctabs__certificate-pdf la-anim__stagger-item--x"><i class="la-icon--xl la-ctabs__resources-download icon-certificate mr-3"></i></div>
                   <div class="la-ctabs__certificate-desc la-anim__stagger-item--x">
                     <div class="la-ctabs__certificate-title text-uppercase">{{$course->title}}</div><a class="la-ctabs__certificate-file text-sm" href="">{{$course->title}}.pdf</a>
                   </div>

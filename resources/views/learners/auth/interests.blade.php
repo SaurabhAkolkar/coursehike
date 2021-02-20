@@ -19,23 +19,23 @@
           <div class="la-entry__content-wrap d-flex flex-column justify-content-center">
             <div class="la-entry__interests-wrap la-anim__wrap">
               <div class="la-entry__interests-title la-entry__content-title text-center mb-4 la-anim__stagger-item">Your Interests</div>
-              <div class="row mb-3">
+              <div class="row mb-3 la-entry__interests">
                 @foreach ($categories as $c)
-                    <li class="col-4 la-entry__interest la-anim__stagger-item--x">
+                    <div class="col-4 la-entry__interest la-anim__stagger-item--x">
                       <div class="la-entry__interest-inner position-relative d-flex align-items-end">
-                        <span class="la-entry__interest-thumbnail position-absolute z-0" role="button" onclick="addToInterest({{$c->id}})" id="interest_span_{{$c->id}}">
+                        <span class="la-entry__interest-thumbnail z-0" role="button" onclick="addToInterest({{$c->id}})" id="interest_span_{{$c->id}}">
                           <img class="img-fluid" src="{{ $c->image }}" alt="" />
                         </span>
-                        <span class="la-entry__interest-name text-capitalize">{{$c->title}}</span>
                       </div>
-                    </li>
+                      <div class="la-entry__interest-name pt-1 text-capitalize">{{$c->title}}</div>
+                    </div>
                 @endforeach
               </div>
               <div class="la-entry__interest-actions text-center pt-6 la-anim__wrap">
                 <form action="/add-interests" method="post" id="add_interests">
                   @csrf
                   <input type="hidden" name="interets" id="interest_input"/>
-                  <div class="la-entry__interest-next mb-2 la-anim__stagger-item--x"><a onclick="$('#add_interests').submit()" role="button">GET STARTED</a></div>
+                  <div class="la-entry__interest-next my-6 la-btn__arrow text--purple text-uppercase  la-anim__stagger-item--x"><a onclick="$('#add_interests').submit()" role="button">GET STARTED<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a></div>
                 </form>
                 <div class="la-entry__interest-skip la-btn__plain text--burple la-anim__fade-in-bottom"><a href="/profile">skip</a></div>
               </div>

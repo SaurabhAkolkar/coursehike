@@ -114,7 +114,8 @@ $sidemenuWidth: 300px;
                             text-transform: capitalize;
                         }
                         &icon {
-                            font-size: var(--text-lg);
+                            font-size: var(--text-md);
+                            margin-top:5px;
                         }
                         &link {
                             font-size: var(--text-md) !important;
