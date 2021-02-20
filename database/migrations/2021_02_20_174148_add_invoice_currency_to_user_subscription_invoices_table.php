@@ -14,7 +14,7 @@ class AddInvoiceCurrencyToUserSubscriptionInvoicesTable extends Migration
     public function up()
     {
         Schema::table('user_subscription_invoices', function (Blueprint $table) {
-            $table->char('invoice_currency')->nullable()->after('total');
+            $table->char('invoice_currency')->nullable()->after('invoice_paid');
         });
     }
 
