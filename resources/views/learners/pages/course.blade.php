@@ -70,7 +70,7 @@ use Carbon\Carbon;
           <div class="col-12 col-md-5 col-lg-5 pt-10 pt-md-1 d-flex flex-column justify-content-start align-items-center align-items-md-end la-anim__wrap">
             
               <div class="la-vcourse__buy text-right mb-6 mb-md-12 la-anim__stagger-item--x">
-                @if ( !Auth::User()->subscription('main') || !Auth::User()->subscription('main')->active() )
+                @if ( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription('main')) || (auth()->check() && !Auth::User()->subscription('main')->active())  ) )
                   <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end" href="/learning-plans">Subscribe Now</a>
                 @endif
               </div>
