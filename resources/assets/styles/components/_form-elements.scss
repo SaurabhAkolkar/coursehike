@@ -57,9 +57,14 @@
                 background: var(--gray);
                 border: 1px solid #DBDBDB;
                 padding: 20px;
+                outline:0;
 
                 &::placeholder{
                     color: var(--gray8);
+                }
+
+                &:focus{
+                    outline:0;
                 }
             }
 

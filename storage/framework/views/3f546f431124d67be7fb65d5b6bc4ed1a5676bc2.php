@@ -64,7 +64,7 @@
 
             <?php else: ?>
             <!-- Video Section: Start -->
-            <div class="la-hero__video-mainZposition-relative la-anim__stagger-item--x la-anim__C">
+            <div class="la-hero__video-main position-relative la-anim__stagger-item--x la-anim__C" >
               <div class="la-hero__video" style="mask-image:url('../../images/learners/home/home-mask.png'); -webkit-mask-image:url('../../images/learners/home/home-mask.png');">
                   <video autoplay='' playsinline muted='muted' loop='loop' id="home_video">
                       <source src='<?php echo e($firstSection->video_url); ?>'  type='video/mp4' />

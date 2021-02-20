@@ -277,6 +277,13 @@
                     border-radius: var(--size-2);
                 }
             }
+            &free{
+                img{
+                    width:100px;
+                    height:30px;
+                    opacity:1;
+                }
+            }
             &option {
                 &:hover{
                     color:var(--yellow);
