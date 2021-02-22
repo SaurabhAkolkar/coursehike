@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <h3 class="la-admin__section-title ml-3">  <?php echo e(__('adminstaticword.CompletedPayout')); ?></h3>
+        <h3 class="la-admin__section-title ml-2 ml-md-3">  <?php echo e(__('adminstaticword.CompletedPayout')); ?></h3>
         
         
         <!-- /.box-header -->

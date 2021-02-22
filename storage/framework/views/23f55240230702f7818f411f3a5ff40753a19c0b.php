@@ -7,7 +7,7 @@
     <div class="col-12">
       <div class="box box-primary">
         <div class="d-flex justify-content-between align-items-center">
-          <h3 class="la-admin__section-title ml-2">Course Questions</h3>
+          <h3 class="la-admin__section-title ml-md-2">Course Questions</h3>
           <a class="btn btn-info btn-sm" href="<?php echo e(url('instructorquestion/create')); ?>">
               <span class="la-icon la-icon--sm icon-plus"></span> Add Question
           </a>

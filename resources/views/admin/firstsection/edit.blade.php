@@ -16,26 +16,26 @@
 		                
 		              
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 mt-3">
                                 <label for="exampleInputTit1e">{{ __('adminstaticword.Heading') }}:<sup class="redstar">*</sup></label>
                                 <input type="text" class="form-control" name="heading" id="exampleInputTitle" value="{{$show['heading']}}" placeholder="Enter Section Heading">
                                 </div>
                             
-                                <div class="col-md-4">
+                                <div class="col-md-4 mt-3">
                                 <label for="exampleInputTit1e">{{ __('adminstaticword.SubHeading') }}:<sup class="redstar">*</sup></label>
                                 <input type="text" class="form-control" name="sub_heading" id="exampleInputTitle" value="{{$show['sub_heading']}}" placeholder="Enter Section Sub Heading">
                                 </div>
                             </div>
                             
                             <div class="row">
-                                <div class="col-md-8 mt-6">
+                                <div class="col-md-8 mt-3 mt-md-6">
                                     <label for="exampleInputTit1e">{{ __('adminstaticword.ImageText') }}:<sup class="redstar">*</sup></label>
                                     <input type="text" class="form-control" name="image_text" id="exampleInputTitle" value="{{$show['image_text']}}" placeholder="Enter Image Text">
                                 </div>
                             </div>
 
-                            <div class="row mt-8">
-                                <div class="col-md-4 mt-5">
+                            <div class="row mt-md-8">
+                                <div class="col-md-4 mt-md-5">
                                     <div class="la-admin__preview">
                                         <label>{{ __('adminstaticword.Image') }}:<sup class="redstar">*</sup></label><br/>
                                         <div class="la-admin__preview-img la-admin__course-imgvid" >
@@ -54,7 +54,7 @@
                                     </div>
                                 </div>
                             
-                                <div class="col-4">
+                                <div class="col-md-4">
                                         <div class="la-admin__preview">
 
                                         <div class="d-flex justify-content-between align-items-center">
@@ -88,10 +88,8 @@
                             <br>
                             
                             <div class="row mt-8">
-                                <div class="col-8">
-                                    <div class="box-footer">
-                                        <button type="submit" class="btn btn-lg btn-primary px-18"> {{ __('adminstaticword.Save') }}</button>
-                                    </div>
+                                <div class="col-md-8 text-right">
+                                    <button type="submit" class="btn btn-lg btn-primary px-18"> {{ __('adminstaticword.Save') }}</button>
                                 </div>
                             </div>
 		          	</form>

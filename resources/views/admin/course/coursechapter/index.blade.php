@@ -1,60 +1,62 @@
 <section class="content">
  
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 px-0 px-md-4">
         <div class="text-right">
           <a data-toggle="modal" data-target="#myModalp" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.AddCourseChapter') }}</a>
         </div><br/>
         
-        <table id="example1" class="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>{{ __('adminstaticword.Course') }}</th>
-              <th>{{ __('adminstaticword.ClassName') }}</th>
-              <th>{{ __('adminstaticword.Status') }}</th>
-              <th>{{ __('adminstaticword.Edit') }}</th>
-              <th>{{ __('adminstaticword.Delete') }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php $i=0;?>
-            @foreach($coursechapter as $cat)
+        <div class="la-admin__tab-table">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
               <tr>
-                <?php $i++;?>
-                <td><?php echo $i;?></td>
-                <td>{{$cat->courses->title}}</td>
-                <td>{{$cat->chapter_name}}</td>
-                <td>
-                  <form action="{{ route('Chapter.quick',$cat->id) }}" method="POST">
-                    {{ csrf_field() }}
-
-                    <button type="Submit" class="btn btn-xs {{ $cat->status ==1 ? 'btn-success' : 'btn-danger' }}">
-                      @if($cat->status ==1)
-                      {{ __('adminstaticword.Active') }}
-                      @else
-                      {{ __('adminstaticword.Deactive') }}
-                      @endif
-                    </button>
-                  </form>
-                </td>
-                <td>
-                  <a class="btn btn-success btn-sm" href="{{url('coursechapter/'.$cat->id)}}"><i class="la-icon la-icon--lg icon-edit"></i></a>
-                </td>
-
-                <td>
-                  <form  method="post" action="{{url('coursechapter/'.$cat->id)}}"  data-parsley-validate class="form-horizontal form-label-left">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                      <button type="submit" class="btn btn-danger"><i class="la-icon la-icon--lg icon-delete"></i></button>
-                  </form>
-                </td>
-
+                <th>#</th>
+                <th>{{ __('adminstaticword.Course') }}</th>
+                <th>{{ __('adminstaticword.ClassName') }}</th>
+                <th>{{ __('adminstaticword.Status') }}</th>
+                <th>{{ __('adminstaticword.Edit') }}</th>
+                <th>{{ __('adminstaticword.Delete') }}</th>
               </tr>
-            @endforeach
-          </tbody>
+            </thead>
+            <tbody>
+              <?php $i=0;?>
+              @foreach($coursechapter as $cat)
+                <tr>
+                  <?php $i++;?>
+                  <td><?php echo $i;?></td>
+                  <td>{{$cat->courses->title}}</td>
+                  <td>{{$cat->chapter_name}}</td>
+                  <td>
+                    <form action="{{ route('Chapter.quick',$cat->id) }}" method="POST">
+                      {{ csrf_field() }}
 
-        </table>
+                      <button type="Submit" class="btn btn-xs {{ $cat->status ==1 ? 'btn-success' : 'btn-danger' }}">
+                        @if($cat->status ==1)
+                        {{ __('adminstaticword.Active') }}
+                        @else
+                        {{ __('adminstaticword.Deactive') }}
+                        @endif
+                      </button>
+                    </form>
+                  </td>
+                  <td>
+                    <a class="btn btn-success btn-sm" href="{{url('coursechapter/'.$cat->id)}}"><i class="la-icon la-icon--lg icon-edit"></i></a>
+                  </td>
+
+                  <td>
+                    <form  method="post" action="{{url('coursechapter/'.$cat->id)}}"  data-parsley-validate class="form-horizontal form-label-left">
+                          {{ csrf_field() }}
+                          {{ method_field('DELETE') }}
+                        <button type="submit" class="btn btn-danger"><i class="la-icon la-icon--lg icon-delete"></i></button>
+                    </form>
+                  </td>
+
+                </tr>
+              @endforeach
+            </tbody>
+
+          </table>
+        </div>
     </div>
   </div>
 

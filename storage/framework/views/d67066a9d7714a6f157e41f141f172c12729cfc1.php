@@ -2,11 +2,11 @@
 <?php $__env->startSection('body'); ?>
 
 <div class="box">
-  <div class="box-header ml-7 ">
+  <div class="box-header ml-3 ml-md-7 ">
     <h3 class=" la-admin__section-title">Requests</h3>
   </div>
   <?php if($errors->any()): ?>
-  <div class="box-body">
+  <div class="box-body px-0">
     <div class="alert alert-danger">
       <ul>
         <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

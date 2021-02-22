@@ -23,7 +23,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="box box-primary">
-        <div class="ml-3">
+        <div class="ml-md-3">
             @if(Auth::user()->id == $user->id)
                 <h3 class="la-admin__section-title"> {{ __('adminstaticword.Profile') }}</h3>
             @else
@@ -38,7 +38,7 @@
             {{ method_field('PUT') }}
 
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-6 col-md-4 mt-3">
                 <div class="la-admin__profile-label pb-2">Current:</div>
                 @if($user->user_img != null || $user->user_img !='')
                   <div class="edit-user-img la-admin__profile">
@@ -50,7 +50,7 @@
                   </div>
                 @endif
               </div>
-              <div class="col-md-4">
+              <div class="col-6 col-md-4 mt-3">
                 <!-- <label>{{ __('adminstaticword.Image') }}:<sup class="redstar">*</sup></label> -->
                 <div class="la-admin__profile-label pb-2">Upload New:</div>
                 <input type="file" name="user_img"  id="user_img" class="form-control d-none" role="button">
@@ -60,10 +60,10 @@
                   <img src="" alt="">
                 </label>
               </div>
-            </div> <br>
+            </div> 
 
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-4 mt-3">
                 <label for="fname">
                   {{ __('adminstaticword.FirstName') }}:
                   <sup class="redstar">*</sup>
@@ -71,7 +71,7 @@
                 <input value="{{ $user->fname }}" autofocus required name="fname" type="text" class="form-control" placeholder="Enter first name"/>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-4 mt-3">
                 <label for="lname">
                   {{ __('adminstaticword.LastName') }}:
                   <sup class="redstar">*</sup>
@@ -79,29 +79,27 @@
                 <input value="{{ $user->lname }}" required name="lname" type="text" class="form-control" placeholder="Enter last name"/>
               </div>
             </div>
-            <br>
-
+           
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-4 mt-3">
                 <label for="mobile"> {{ __('adminstaticword.Mobile') }}:<sup class="redstar">*</sup></label>
                 <input value="{{ $user->mobile }}" required type="type" name="mobile" placeholder="Enter mobile no" class="form-control" maxlength="10">
                </div>
-               <div class="col-md-4">
+               <div class="col-md-4 mt-3">
                 <label for="mobile">{{ __('adminstaticword.Email') }}:<sup class="redstar">*</sup> </label>
                 <input value="{{ $user->email }}" required type="email" name="email" placeholder="Enter email" class="form-control">
               </div>
             </div>
-            <br>
-
+            
             <div class="row">
-              <div class="col-md-8">
+              <div class="col-md-8 mt-3">
                   <label for="address">{{ __('adminstaticword.Address') }}:<sup class="redstar">*</sup> </label>
                   <textarea name="address" class="form-control" rows="1" required  placeholder="Enter adderss" value="">{{ $user->address }}</textarea>
               </div>
-            </div><br/>
+            </div>
 
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-4 mt-3">
                 <label for="dob">{{ __('adminstaticword.DateofBirth') }}: </label>
                 <div class="input-group date">
                   <!-- <div class="input-group-addon">
@@ -112,7 +110,7 @@
                 </div>
               </div>
            
-              <div class="col-md-4">
+              <div class="col-md-4 mt-3">
                <label for="gender">{{ __('adminstaticword.Gender') }}:</label>
                 <br>
                 <label class="mr-2 font-weight-normal"><input type="radio" name="gender" id="ch1" value="m" {{ $user->gender == 'm' ? 'checked' : '' }}>  {{ __('adminstaticword.Male') }} </label>
@@ -144,11 +142,10 @@
                   @endif
               </div>
             </div>
-            <br>
             @endif
 
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-4 mt-3">
                 <label for="city_id">{{ __('adminstaticword.Country') }}:</label>
                 <select id="country_id" class="form-control js-example-basic-single" name="country_id">
                   <option value="none" selected disabled hidden> 
@@ -162,7 +159,7 @@
                 </select>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-4 mt-3">
                 <label for="city_id">{{ __('adminstaticword.State') }}:</label>
                 <select id="upload_id" class="form-control js-example-basic-single" name="state_id">
                   <option value="none" selected disabled hidden> 
@@ -176,8 +173,8 @@
               </div>
             </div>
 
-            <div class="row mt-5">
-              <div class="col-md-4">
+            <div class="row ">
+              <div class="col-md-4 mt-3 mt-md-4">
                 <label for="city_id">{{ __('adminstaticword.City') }}:</label>
                 <select id="grand" class="form-control js-example-basic-single" name="city_id">
                   <option value="none" selected disabled hidden> 
@@ -190,7 +187,7 @@
                 </select>
               </div>
           
-              <div class="col-md-4">
+              <div class="col-md-4 mt-3  mt-md-4">
                 <label for="pin_code">{{ __('adminstaticword.Pincode') }}:</label>
                 <input value="{{ $user->pin_code }}" placeholder="Enter Pincode" type="text" name="pin_code" class="form-control">
               </div>
@@ -230,7 +227,7 @@
             <br><br/>
 
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-4 mb-5 mb-md-1">
                 <div class="update-password d-flex align-items-center">
                   <label for="box1"> {{ __('adminstaticword.UpdatePassword') }}:</label>
                   <input type="checkbox" class="ml-2 " id="myCheck" name="update_pass" onclick="myFunction()">
@@ -250,7 +247,7 @@
                 @if(Auth::user()->id == $user->id)
 
                 @else
-                  <div class="col-md-2">
+                  <div class="col-6 col-md-2">
                     <div class="d-flex align-items-center">
                       <label for="exampleInputTit1e" class="mb-3 mr-2">{{ __('adminstaticword.Verified') }}:</label>
                       <li class="tg-list-item">
@@ -261,7 +258,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-2">
+                  <div class="col-6 col-md-2">
                     <div class="d-flex align-items-center">
                       <label for="exampleInputTit1e" class="mb-4 mr-2">{{ __('adminstaticword.Status') }}:</label>
                       <li class="tg-list-item">              

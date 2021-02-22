@@ -1,7 +1,7 @@
 <section class="content">
  
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 px-0 px-md-4">
         <div class="text-right">
             <a data-toggle="modal" data-target="#add_resource" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} Resource</a>
         </div><br/>

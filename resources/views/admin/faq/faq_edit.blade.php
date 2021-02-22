@@ -10,7 +10,7 @@
         <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.FAQ') }}</h3>
         
         <div class="box-body">
-            <div class="form-group col-8 p-0">              
+            <div class="form-group col-md-8 p-0">              
           <form id="demo-form2" method="post" action="{{url('faq/'.$find->id)}}" data-parsley-validate class="form-horizontal form-label-left"  enctype="multipart/form-data">
               {{ csrf_field() }}
               {{method_field('PATCH')}}
@@ -26,7 +26,7 @@
               @enderror
             
             </div>
-            <div class="form-group col-8 p-0">
+            <div class="form-group col-md-8 p-0">
               <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
               <textarea class="form-control" name="details"> {{$find->details}}</textarea>
               @error('details')
@@ -37,7 +37,7 @@
               </div>
               @enderror
             </div>
-            <div class="form-group col-8 p-0">
+            <div class="form-group col-md-8 p-0">
             <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
             <li class="tg-list-item">              
                 <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" {{ $find->status == '1' ? 'checked' : '' }} >

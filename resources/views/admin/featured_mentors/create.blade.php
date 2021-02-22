@@ -17,7 +17,7 @@
                   
 
               <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 mt-3">
                         <label for="Mentor">{{ __('adminstaticword.Mentor') }}:<sup class="redstar">*</sup></label>
                         <select name="mentor" id="mentor" class="form-control js-example-basic-single" required >
                             <option selected disabled >Select Mentor</option>
@@ -31,7 +31,7 @@
                             </div>
                         @enderror
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4  mt-3">
                         <label for="Course">{{ __('adminstaticword.Course') }}:<sup class="redstar">*</sup></label>
                         <select name="course" id="courses" class="form-control js-example-basic-single" required>
                             <option selected disabled>Select User First</option>
@@ -44,10 +44,10 @@
                         @enderror
                     </div>
               </div>
-            <br>
+           
               <div class="row">
-                    <div class="col-md-8">
-                      <div class="la-admin__preview">
+                    <div class="col-md-4 mt-4 mt-md-6">
+                      <div class="la-admin__preview mt-0">
                         <label for="" class="la-admin__preview-label">{{ __('adminstaticword.Image') }}:</label>
                         <div class="la-admin__preview-img la-admin__course-imgvid" >
                              <div class="la-admin__preview-text">
@@ -70,12 +70,9 @@
                         @enderror
                       </div>
                     </div>
-                  </div>
-
-                <br />
-                  <div class="row">
-                    <div class="col-md-8">
-                        {{-- <div class="la-admin__preview">
+                 
+                    <div class="col-md-4  mt-4 mt-md-6">
+                        {{-- <div class="la-admin__preview ">
                           <label>{{ __('adminstaticword.ImageThumbnail') }}:<sup class="redstar">*</sup></label>
                           <br>
                           <div class="la-admin__preview-img la-admin__course-imgvid" >
@@ -91,7 +88,8 @@
                             <input type="file" name="image_thumbnail"  id="image_thumbnail" class="d-none">
                           </div>
                         </div> --}}
-                        <div class="la-admin__preview">
+
+                        <div class="la-admin__preview mt-0">
                           <label>{{ __('adminstaticword.ImageThumbnail') }}:<sup class="redstar">*</sup></label>
                         <div class="la-admin__preview-img la-admin__course-imgvid" >
                           <div class="la-admin__preview-text">
@@ -131,10 +129,8 @@
               </div><br/>
               
               <div class="row">
-                <div class="col-8">
-                  <div class="box-footer">
+                <div class="col-md-8 text-right">
                     <button type="submit" value="Add Slider" class="btn btn-primary px-14"> {{ __('adminstaticword.Save') }}</button>
-                  </div>
                 </div>
               </div>
          

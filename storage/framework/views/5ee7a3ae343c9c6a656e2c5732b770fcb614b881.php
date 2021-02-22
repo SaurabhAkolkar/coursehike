@@ -2,12 +2,12 @@
   
   <div class="row">
     <!-- left column -->
-    <div class="col-12">
+    <div class="col-12 px-0">
         <h3 class="la-admin__section-title ml-3"> <?php echo e(__('adminstaticword.Edit')); ?> <?php echo e(__('adminstaticword.Course')); ?></h3>
         
         
         <!-- /.box-header -->
-        <div class="box-body">
+        <div class="box-body px-0">
           <div class="form-group">
             <form action="<?php echo e(route('course.update',$cor->id)); ?>" method="post" enctype="multipart/form-data">
               <?php echo e(csrf_field()); ?>  
@@ -15,7 +15,7 @@
 
              
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 mt-3 mt-md-0">
                   <label><?php echo e(__('adminstaticword.Category')); ?><span class="redstar">*</span></label>
                   <select name="category_id" id="category_id" class="form-control js-example-basic-single" required>
                     <option value="0"><?php echo e(__('adminstaticword.SelectanOption')); ?></option>
@@ -28,7 +28,7 @@
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
                   </select>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mt-3 mt-md-0">
                   <label><?php echo e(__('adminstaticword.SubCategory')); ?>:<span class="redstar">*</span></label>
                   <select name="subcategory_id" id="upload_id" class="form-control js-example-basic-single">
                     <?php
@@ -40,7 +40,7 @@
                   </select>
                 </div>
                      
-                <div class="col-md-4">
+                <div class="col-md-4 mt-3 mt-md-0">
                   <?php
                     $User = App\User::all();
                   ?>
@@ -50,15 +50,15 @@
                   </select>
                 </div>
               </div>
-              <br>
+              
 
               <div class="row">
-                <div class="col-md-6"> 
+                <div class="col-md-6 mt-3 mt-md-6"> 
                   <label for="exampleInputTit1e"><?php echo e(__('adminstaticword.Title')); ?>:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="title" id="exampleInputTitle" value="<?php echo e($cor->title); ?>">
                 </div>
 
-                <div class="col-md-6"> 
+                <div class="col-md-6 mt-3 mt-md-6"> 
                   <?php
                       $languages = App\CourseLanguage::where(['status'=>1])->get();
                   ?>
@@ -71,22 +71,22 @@
                 </div>
                 
               </div>
-              <br/>
+             
 
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3 mt-md-6">
                   <label for="exampleInputDetails"><?php echo e(__('adminstaticword.ShortDetail')); ?>:<sup class="redstar">*</sup></label>
                   <textarea name="short_detail" rows="3" class="form-control" ><?php echo $cor->short_detail; ?></textarea>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3 mt-md-6">
                   <label for="exampleInputDetails"><?php echo e(__('adminstaticword.Requirements')); ?>:<sup class="redstar">*</sup></label>
                   <textarea name="requirement" rows="3" class="form-control" required ><?php echo $cor->requirement; ?></textarea>
                 </div>
               </div>
-              <br>
+              
 
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3 mt-md-6">
                   <label for="exampleInputDetails"><?php echo e(__('adminstaticword.level')); ?>:<sup class="redstar">*</sup></label>
                   <select name="level" class="form-control js-example-basic-single">
                     <option disabled selected > Select Level</option>
@@ -96,17 +96,16 @@
                   </select> 
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3 mt-md-6">
                   <label for="exampleInputSlug">Course Duration(in Hours)</label>
                   <input min="1" class="form-control" name="duration" type="number" id="duration" value="<?php echo e($cor->duration); ?>" placeholder="Enter Duration in hours">
                 </div>
 
               </div>
-              <br>
-
+             
 
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 mt-3 mt-md-6">
                   <label for="exampleInputDetails"><?php echo e(__('adminstaticword.Detail')); ?>:<sup class="redstar">*</sup></label>
                   <textarea id="detail" name="detail" rows="3" class="form-control"><?php echo $cor->detail; ?></textarea>
                 </div>
@@ -131,7 +130,7 @@
                                   <p>This course is accessible by all Subscribers & also available for life-time purchase. </p>
                                   <p>Please enter the Course cost for One-Time Purchase</p>
                                   <div class="form-group row  la-admin__subform-group">
-                                      <div class="input-group col-sm-6 la-admin__subinput-group">
+                                      <div class="input-group col-10 col-sm-6 la-admin__subinput-group">
                                         <div class="input-group-prepend la-admin__subinput-prepend" >
                                             <span class="fa fa-dollar input-group-text la-admin__subinput-text"></span> 
                                         </div>
@@ -218,7 +217,7 @@
 
               <div class="row">    
 
-                <div class="col-md-2"> 
+                <div class="col-6 col-md-2"> 
                   <?php if(Auth::User()->role == "admin"): ?>
                   <label for="exampleInputTit1e"><?php echo e(__('adminstaticword.Featured')); ?>:</label>
                   <li class="tg-list-item">
@@ -229,7 +228,7 @@
                   <?php endif; ?>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-6 col-md-2">
                   <label for="exampleInputDetails">Master Class:</label>
                   <li class="tg-list-item">              
                     <input class="la-admin__toggle-switch" id="master_class" type="checkbox" name="master_class" <?php if($check_master_class): ?> checked <?php endif; ?> >

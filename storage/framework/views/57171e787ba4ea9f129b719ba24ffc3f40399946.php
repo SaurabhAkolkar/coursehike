@@ -15,9 +15,10 @@
   </ol> -->
 </section>
 <section class="content">
+<div class="la-admin__section-content">
 	<!-- Main row -->
-    <div class="row pr-md-20">
-        <div class="col-lg-4">
+    <div class="row">
+        <div class="col-6 col-md-4">
           <!-- small box -->
           <div class="small-box"> 
             <div class="inner">
@@ -47,7 +48,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4">
+        <div class="col-6  col-md-4">
           <!-- small box -->
           <div class="small-box">
             <div class="inner">
@@ -77,9 +78,9 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4">
+        <div class="col-6 col-md-4">
           <!-- small box -->
-          <div class="small-box">
+          <div class="small-box la-admin__dash-cards">
             <div class="inner">
               <div class="icon py-1">
                 <span class="la-icon la-icon--4xl icon-courses"></span>
@@ -105,11 +106,9 @@
             </a>
           </div>
         </div>
-    </div>
-
-    <div class="row pr-md-20">
+    
         <!-- ./col -->
-        <div class="col-lg-4 pt-8">
+        <div class="col-6 col-md-4 pt-8">
           <!-- small box -->
           <div class="small-box">
             <div class="inner">
@@ -189,7 +188,7 @@
           </div>
         </div> -->
         <!-- ./col -->
-        <div class="col-lg-4 pt-8">
+        <div class="col-6 col-md-4 pt-8">
           <!-- small box -->
           <div class="small-box">
             <div class="inner">
@@ -227,9 +226,9 @@
     <!-- /.row -->
 
 	<!-- Main row -->
-	<div class="row mr-md-20">
+	<div class="row">
 		<!-- Left col -->
-    <div class="col-md-5">
+    <div class="col-md-6 col-lg-5">
       <!-- RECENTLY ADDED USERS LIST -->
       <div class="la-dash__recent-section">
           <div class="la-dash__recent-head">
@@ -257,7 +256,7 @@
                       <div class="users-list-name m-0 la-dash__recent-title" ><?php echo e($user['fname']); ?> <?php echo e($user['lname']); ?></div>
                       <div class="users-list-desc la-dash__recent-tag"><?php if($user->role == 'user'): ?> <?php echo e(ucfirst($user->role)); ?> <?php else: ?> Creator <?php endif; ?></div>
                     </div>
-                  </div>
+                  </div>  
                   <!-- </div> -->
                   <div class="la-dash__recent-date">
                     <span class="users-list-date la-dash__recent-subdate"><?php echo e(date('F Y', strtotime($user['created_at']))); ?></span>
@@ -279,7 +278,7 @@
     </div>
 
     <!-- RECENTLY ADDED COURSES LIST -->
-    <div class="col-md-7">
+    <div class="col-md-6 col-lg-7">
       <div class="la-dash__recent-section">
         <div class="la-dash__recent-head">
           <h3 class="la-dash__recent-htitle"><?php echo e(__('adminstaticword.RecentCourses')); ?></h3>
@@ -314,7 +313,7 @@
 
                 <div class="la-dash__recent-date d-flex justify-content-between align-items-center">
                   <div class="users-list-date la-dash__recent-subdate"><?php echo e(date('F Y', strtotime($user['created_at']))); ?></div>
-                  <div class="label label-warning ml-20 ">
+                  <div class="label label-warning ml-4 ml-md-6 ml-lg-20 ">
                       <?php if( $course->type == 1): ?>
                         <?php
                             $currency2 = App\Currency::first();
@@ -347,7 +346,7 @@
     <!-- /.col -->
 
     <!-- RECENT SUBSCRIPTIONS: START -->
-    <div class="col-md-5">
+    <div class="col-md-6 col-lg-5">
         <div class="la-dash__recent-section">
           <div class="la-dash__recent-head">
             <h4 class="la-dash__recent-htitle">Recent Subscriptions</h4>
@@ -379,7 +378,7 @@
     <!-- RECENT SUBSCRIPTIONS: END -->
 
      <!-- RECENTLY BOUGHT COURSES: START -->
-    <div class="col-md-7">
+    <div class="col-md-6 col-lg-7">
         <div class="la-dash__recent-section">
           <div class="la-dash__recent-head">
             <h4 class="la-dash__recent-htitle">Recently Bought Courses</h4>
@@ -419,14 +418,14 @@
               <h4 class="la-dash__recent-htitle pb-4">Pending Creator Requests</h4>
             </div>
       
-            <div class="la-dash__pending-section px-10">
+            <div class="la-dash__pending-section px-0 px-md-10">
                 <div class="row no-gutters d-flex justify-content-between  la-dash__pending-head">
-                    <div class="col-1 la-dash__pending-title">#</div>
-                    <div class="col-3 la-dash__pending-title">Creator Name</div>
+                    <div class="col-1 col-md-1 la-dash__pending-title">#</div>
+                    <div class="col-3 col-md-3 la-dash__pending-title">Creator Name</div>
                     <!-- <div class="col la-dash__pending-title">Crourse ID</div> -->
-                    <div class="col-4 la-dash__pending-title">Course Name</div>
-                    <div class="col-2 la-dash__pending-title">On</div>
-                    <div class="col-2 la-dash__pending-title">Request Type</div>
+                    <div class="col-4 col-md-4 la-dash__pending-title">Course Name</div>
+                    <div class="col-2 col-md-2 la-dash__pending-title text-center text-md-left">On</div>
+                    <div class="col-2 col-md-2 la-dash__pending-title">Request Type</div>
                 </div>
 
                 <div class="la-dash__pending-body">
@@ -473,6 +472,7 @@
     <!-- TABLE: LATEST ORDERS -->
 		
 	</div>
+</div>
 </section>
 
 <?php endif; ?>

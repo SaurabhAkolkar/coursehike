@@ -1,65 +1,67 @@
 <section class="content">
  
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 px-0 px-md-4">
         <div class="text-right">
           <a data-toggle="modal" data-target="#myModalp" href="#" class="btn btn-info btn-sm">+ <?php echo e(__('adminstaticword.AddCourseChapter')); ?></a>
         </div><br/>
         
-        <table id="example1" class="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th><?php echo e(__('adminstaticword.Course')); ?></th>
-              <th><?php echo e(__('adminstaticword.ClassName')); ?></th>
-              <th><?php echo e(__('adminstaticword.Status')); ?></th>
-              <th><?php echo e(__('adminstaticword.Edit')); ?></th>
-              <th><?php echo e(__('adminstaticword.Delete')); ?></th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php $i=0;?>
-            <?php $__currentLoopData = $coursechapter; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <div class="la-admin__tab-table">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
               <tr>
-                <?php $i++;?>
-                <td><?php echo $i;?></td>
-                <td><?php echo e($cat->courses->title); ?></td>
-                <td><?php echo e($cat->chapter_name); ?></td>
-                <td>
-                  <form action="<?php echo e(route('Chapter.quick',$cat->id)); ?>" method="POST">
-                    <?php echo e(csrf_field()); ?>
-
-
-                    <button type="Submit" class="btn btn-xs <?php echo e($cat->status ==1 ? 'btn-success' : 'btn-danger'); ?>">
-                      <?php if($cat->status ==1): ?>
-                      <?php echo e(__('adminstaticword.Active')); ?>
-
-                      <?php else: ?>
-                      <?php echo e(__('adminstaticword.Deactive')); ?>
-
-                      <?php endif; ?>
-                    </button>
-                  </form>
-                </td>
-                <td>
-                  <a class="btn btn-success btn-sm" href="<?php echo e(url('coursechapter/'.$cat->id)); ?>"><i class="la-icon la-icon--lg icon-edit"></i></a>
-                </td>
-
-                <td>
-                  <form  method="post" action="<?php echo e(url('coursechapter/'.$cat->id)); ?>"  data-parsley-validate class="form-horizontal form-label-left">
-                        <?php echo e(csrf_field()); ?>
-
-                        <?php echo e(method_field('DELETE')); ?>
-
-                      <button type="submit" class="btn btn-danger"><i class="la-icon la-icon--lg icon-delete"></i></button>
-                  </form>
-                </td>
-
+                <th>#</th>
+                <th><?php echo e(__('adminstaticword.Course')); ?></th>
+                <th><?php echo e(__('adminstaticword.ClassName')); ?></th>
+                <th><?php echo e(__('adminstaticword.Status')); ?></th>
+                <th><?php echo e(__('adminstaticword.Edit')); ?></th>
+                <th><?php echo e(__('adminstaticword.Delete')); ?></th>
               </tr>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-          </tbody>
+            </thead>
+            <tbody>
+              <?php $i=0;?>
+              <?php $__currentLoopData = $coursechapter; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <tr>
+                  <?php $i++;?>
+                  <td><?php echo $i;?></td>
+                  <td><?php echo e($cat->courses->title); ?></td>
+                  <td><?php echo e($cat->chapter_name); ?></td>
+                  <td>
+                    <form action="<?php echo e(route('Chapter.quick',$cat->id)); ?>" method="POST">
+                      <?php echo e(csrf_field()); ?>
 
-        </table>
+
+                      <button type="Submit" class="btn btn-xs <?php echo e($cat->status ==1 ? 'btn-success' : 'btn-danger'); ?>">
+                        <?php if($cat->status ==1): ?>
+                        <?php echo e(__('adminstaticword.Active')); ?>
+
+                        <?php else: ?>
+                        <?php echo e(__('adminstaticword.Deactive')); ?>
+
+                        <?php endif; ?>
+                      </button>
+                    </form>
+                  </td>
+                  <td>
+                    <a class="btn btn-success btn-sm" href="<?php echo e(url('coursechapter/'.$cat->id)); ?>"><i class="la-icon la-icon--lg icon-edit"></i></a>
+                  </td>
+
+                  <td>
+                    <form  method="post" action="<?php echo e(url('coursechapter/'.$cat->id)); ?>"  data-parsley-validate class="form-horizontal form-label-left">
+                          <?php echo e(csrf_field()); ?>
+
+                          <?php echo e(method_field('DELETE')); ?>
+
+                        <button type="submit" class="btn btn-danger"><i class="la-icon la-icon--lg icon-delete"></i></button>
+                    </form>
+                  </td>
+
+                </tr>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </tbody>
+
+          </table>
+        </div>
     </div>
   </div>
 

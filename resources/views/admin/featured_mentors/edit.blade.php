@@ -17,7 +17,7 @@
                   
             <input type="hidden" value="{{$data->id}}" name="featured_id" />
               <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 mt-3">
                         <label for="Mentor">{{ __('adminstaticword.Mentor') }}:<sup class="redstar">*</sup></label>
                         <select name="mentor" id="mentor" class="form-control js-example-basic-single" disabled>
                             <option selected disabled >Select Mentor</option>
@@ -26,7 +26,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 mt-3">
                         <label for="Course">{{ __('adminstaticword.Course') }}:<sup class="redstar">*</sup></label>
                         <select name="course" id="courses" class="form-control js-example-basic-single">
                             <option selected disabled>Select User First</option>
@@ -36,8 +36,7 @@
                         </select>
                     </div>
               </div>
-            <br>
-
+            
               <div class="row">
                     <div class="col-md-4">
                         <div class="la-admin__preview">

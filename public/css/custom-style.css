@@ -39,6 +39,16 @@ html, body{
     margin:0 10px;
     outline:0;
 }
+@media(max-width:7567px){
+    .main-header .navbar .sidebar-toggle{
+        background-color: var(--app-indigo-1);
+        color: var(--white) !important;
+    }
+    .main-header .navbar .sidebar-toggle:hover{
+        background-color: var(--app-indigo-1) !important;
+        color: var(--white) !important;
+    }
+}
 .main-sidebar{
     background:var(--white) !important;
     box-shadow: 0px 3px 6px #0000001A !important;
@@ -164,12 +174,22 @@ html, body{
     margin:0;
     padding:var(--size-6);
 }
+@media(max-width:767px){
+    .content{
+        padding:var(--size-3);
+    }
+}
 /* == Content small-box bg-colors == */
 .bg-aqua, .bg-orange, .bg-purple, .bg-green, .bg-blue, .bg-yellow, .bg-red{
     background-color:var(--white) !important;
 }
 .content-header{
   padding:var(--size-3) var(--size-6) !important;
+}
+@media (max-width:767px){
+    .content-header{
+        padding:var(--size-3) var(--size-3) !important;
+    }
 }
 .content-header>h1 {
     margin: 0;
@@ -436,11 +456,16 @@ div.dt-buttons {
      height:100%;
      position: relative;
  }
-
- table {
+table {
     border-collapse: seperate !important;
     border-spacing: 0 25px !important; 
     border:none;
+}
+@media(max-width:991px){
+    .dataTables_wrapper{
+        width:100%;
+        overflow-x:scroll;
+    }
 }
 /* == table head == */
 thead{
@@ -512,7 +537,13 @@ table.table-bordered.dataTable tbody td {
     border-radius:10px;
     background-color: var(--gray);
     object-fit: cover;
+    object-position: center;
     border:1px solid var(--gray);
+}
+@media(max-width:767px){
+    .table td img{
+        width:65px;
+    }
 }
 img[alt]{
     border:none;
@@ -798,6 +829,7 @@ table, .table-bordered{
     border-spacing:0 15px;
     border:none;
 }
+
 table::-webkit-scrollbar{background: rgb(0, 0, 0);
     width: 7px;
     position: absolute;
@@ -825,6 +857,15 @@ table::-webkit-scrollbar{background: rgb(0, 0, 0);
     margin: 30px auto;
     max-width: inherit !important;
 }
+@media(max-width:991px){
+    .modal-dialog{
+        width:100%;
+    }
+    .modal-content{
+        background: var(--gray);
+        padding:10px !important;
+    }
+}
 .modal-content{
     background: var(--gray);
     padding:10px 30px;
@@ -843,6 +884,17 @@ button.close:focus{
 }
 .paginate_button.next{
     padding-left:5px !important;
+}
+
+@media (max-width:767px){
+    div.dataTables_wrapper div.dataTables_paginate{
+        margin:0 auto !important;
+        padding-top:15px;
+
+    }
+    div.dataTables_wrapper div.dataTables_info{
+        margin:0 auto;
+    }
 }
 /* Popover for Course Pages */
 .popover{

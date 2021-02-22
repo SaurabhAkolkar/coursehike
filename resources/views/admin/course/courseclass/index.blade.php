@@ -1,11 +1,12 @@
 <section class="content">
  
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 px-0 px-md-4">
       <div class="text-right">
           <a data-toggle="modal" data-target="#myModalab" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.CourseClass') }}</a>
       </div><br/>
 
+      <div class="la-admin__tab-table">
         <table id="example1" class="table table-bordered table-striped db">
           <thead>
             <tr>
@@ -62,6 +63,7 @@
             @endforeach
           </tbody>
         </table>
+        </div>
     </div>
   </div>
 

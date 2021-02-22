@@ -365,7 +365,7 @@ td form .btn-danger {
 
 @media (max-width: 767px) {
   .skin-blue .main-header .navbar .dropdown-menu li a {
-    color: #777 !important;
+    color: #000 !important;
   }
 }
 
@@ -763,6 +763,11 @@ button.dt-button, div.dt-button, a.dt-button {
   .la-dash__recent-list{
     height:300px;
   }
+  @media(max-width:767px){
+    .la-dash__recent-list{
+      height:100%;
+    }
+  }
   .la-dash__recent-item {
     width: 100%;
     display: flex;
@@ -781,6 +786,11 @@ button.dt-button, div.dt-button, a.dt-button {
     object-fit: cover;
     object-position: center;
   }
+  @media(max-width:767px){
+    .la-dash__recent-img img{
+      margin-right:var(--size-2);
+    }
+  }
 
   .la-dash__recent-title {
     font-family: var(--head-font);
@@ -788,6 +798,15 @@ button.dt-button, div.dt-button, a.dt-button {
     font-size: var(--text-sm);
     color: var(--gray5);
     text-transform: capitalize;
+  }
+  @media(max-width:991px){
+    .la-dash__recent-title{
+      overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; 
+    -webkit-box-orient: vertical;
+    }
   }
 
   .la-dash__recent-tag {
@@ -797,6 +816,16 @@ button.dt-button, div.dt-button, a.dt-button {
     color: var(--gray4);
     text-transform: uppercase;
   } 
+  @media(max-width:991px){
+    .la-dash__recent-tag{
+      overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; 
+    -webkit-box-orient: vertical;
+    }
+  }
+
   .la-dash__recent-price{
     font-family: var(--body-font);
     font-weight: var(--font-normal);
@@ -851,7 +880,7 @@ button.dt-button, div.dt-button, a.dt-button {
       color: var(--gray5);
     }
   }
-
+  
   .la-dash__pending-item {
     width: 100%;
     padding: var(--size-2);
@@ -876,7 +905,12 @@ button.dt-button, div.dt-button, a.dt-button {
     }
   }
 }
-
+@media(max-width:767px){
+  .la-dash__pending-section{
+    width:100%;
+    overflow-x:scroll;
+  }
+}
 /* ============ ADMIN PENDING COURSES REQUESTS: END =============== */
 
 /* ================ EDIT COURSE PAGE: START ====================== */
@@ -887,6 +921,10 @@ button.dt-button, div.dt-button, a.dt-button {
   background-color: var(--white);
   box-shadow: 0px 3px 6px #87878729;
   padding: var(--size-8) var(--size-6);
+
+  @media(max-width:767px){
+    padding:var(--size-6) var(--size-3);
+  }
 }
 
 .la-admin__cp-title {
@@ -899,6 +937,10 @@ button.dt-button, div.dt-button, a.dt-button {
 
 .la-admin__cp-subscription, .la-admin__cp-premium, .la-admin__cp-free {
   padding-left: var(--size-8);
+
+  @media(max-width:767px){
+    padding-left:var(--size-base);
+  }
 }
 
 .la-admin__cp-input {
@@ -1008,6 +1050,10 @@ button.dt-button, div.dt-button, a.dt-button {
   @media(min-width:1920px){
     margin:-160px 0 0 220px;
   }
+
+  @media(max-width:767px){
+    margin:-160px 0 0 80px;
+  }
 }
 
 //- Course Edit Pages
@@ -1023,6 +1069,9 @@ button.dt-button, div.dt-button, a.dt-button {
   }
   @media(min-width:1920px){
     margin:-160px 0 0 290px; 
+  }
+  @media(max-width:767px){
+    margin:-160px 0 0 80px;
   }
 }
 
@@ -1086,6 +1135,12 @@ button.dt-button, div.dt-button, a.dt-button {
   background-color: var(--gray) !important;
 }
 
+@media(max-width:767px){
+  .la-admin__preview{
+    margin-top:var(--size-5);
+  }
+}
+
 .la-admin__preview {
   .la-admin__preview-img, .la-admin__preview-video {
     position: relative;
@@ -1119,7 +1174,12 @@ button.dt-button, div.dt-button, a.dt-button {
     font-size: var(--text-lg);
     color: #BCBCBC;
   }
-
+  @media(max-width:767px){
+    .la-admin__preview-img .la-admin__preview-text .la-admin__preview-size, .la-admin__preview-video .la-admin__preview-text .la-admin__preview-size {
+      font-size:var(--text-sm);
+    }
+  }
+  
   .la-admin__preview-img .la-admin__preview-text .la-admin__preview-file, .la-admin__preview-video .la-admin__preview-text .la-admin__preview-file {
     color: var(--skyblue);
     font-size: var(--text-sm);
@@ -1127,7 +1187,7 @@ button.dt-button, div.dt-button, a.dt-button {
     cursor: pointer;
     display: block;
   }
-
+  
   .la-admin__preview-img .la-admin__preview-text .la-admin__preview-filebg {
     background-color: var(--skyblue);
     box-shadow: 0px 3px 6px #00000029;
@@ -1520,10 +1580,23 @@ button.dt-button, div.dt-button, a.dt-button {
     object-fit: cover;
     object-position: center;
   }
+
+  @media(max-width:767px){
+    .la-admin__profile-img{
+      width:150px;
+      height:150px;
+    }
+  }
 }
 .la-admin__profile-new{
   width:180px;
   height:180px;
+}
+@media(max-width:767px){
+  .la-admin__profile-new{
+    width:150px;
+    height:150px;
+  }
 }
 .la-admin__img-upload {
   padding: var(--size-4);
@@ -1734,6 +1807,16 @@ a.la-admin__edit-btn{
   overflow:hidden;
   display:inline-block;
 }
+@media(max-width:767px){
+  .la-btn__alert-success{
+    top:100px;
+    left:0;
+  }
+  .la-btn__alert-danger{
+    top:100px;
+    left:0;
+  }
+}
 .la-btn__alert-danger{
   position:fixed;
   top:80px;
@@ -1784,4 +1867,24 @@ a.la-admin__edit-btn{
 }
 .arrow{
   display:none !important;
+}
+
+
+
+/* =========== MOBILE RESPONSIVENESS FOR ADMIN & CREATOR ============== */
+
+@media (max-width:767px){
+  .la-admin__dash-cards{
+    margin-top:var(--size-8);
+  }
+  .la-admin__tab-table{
+    width:100%;
+    overflow-x: scroll;
+  }
+}
+
+@media(min-width:1200px){
+  .la-admin__section-content{
+    padding-right:var(--size-20);
+  }
 }

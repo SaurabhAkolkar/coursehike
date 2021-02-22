@@ -937,6 +937,13 @@ a:hover {
   margin: var(--size-4) 0 var(--size-6) 0;
 }
 
+@media (max-width: 767px) {
+  .la-admin__section-title {
+    margin-top: var(--size-base);
+    margin-bottom: var(--size-2);
+  }
+}
+
 .la-icon {
   display: inline-block;
 }

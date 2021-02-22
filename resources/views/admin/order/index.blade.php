@@ -18,29 +18,29 @@
         <div class="box-body">
             <div class="la-admin__revenue-stats">
                 <!-- SUBSCRIPTION SECTION: START -->
-                <div class="row mt-4">
-                    <div class="col-md-3">
+                <div class="row">
+                    <div class="col-6 col-md-3 mt-4">
                       <div class="la-admin__revenue-title">Active Trial Subscriptions</div>
                       <div class="la-admin__revenue-info">
                           <span class="la-admin__revenue-total">{{$trial_subscriptions}}</span>
                           {{-- <span class="la-admin__revenue-per">@ $80 each</span> --}}
                       </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-6 col-md-3 mt-4">
                         <div class="la-admin__revenue-title">Monthly Subscriptions</div>
                         <div class="la-admin__revenue-info">
                             <span class="la-admin__revenue-total">{{$monthly_subscriptions}}</span>
                             <span class="la-admin__revenue-per">@ $39 each</span>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-6 col-md-3 mt-4">
                       <div class="la-admin__revenue-title">Yearly Subscriptions</div>
                       <div class="la-admin__revenue-info">
                           <span class="la-admin__revenue-total">{{$yearly_subscriptions}}</span>
                           <span class="la-admin__revenue-per">@ $309 each</span>
                       </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-6 col-md-2 mt-4">
                       <div class="la-admin__revenue-title">Total Amount</div>
                       <div class="la-admin__revenue-info">
                           <span class="la-admin__revenue-price">${{ ($monthly_subscriptions * 39) + ($yearly_subscriptions * 309) }}</span>
@@ -50,26 +50,26 @@
                 <!-- SUBSCRIPTION SECTION: END -->
 
                 <!-- ONE TIME SUBSCRIPTION SECTION: START -->
-                <div class="row my-md-8">
-                  {{-- <div class="col-md-3">
+                <div class="row ">
+                  {{-- <div class="col-md-3 mt-4 mt-md-6">
                       <div class="la-admin__revenue-title">No. of Learners</div>
                       <div class="la-admin__revenue-info">
                           <span class="la-admin__revenue-total">{{$learners}}</span>
                       </div>
                   </div> --}}
-                  <div class="col-md-3">
+                  <div class="col-6 col-md-3 mt-4 mt-md-6">
                     <div class="la-admin__revenue-title">Courses Purchased</div>
                     <div class="la-admin__revenue-info">
                         <span class="la-admin__revenue-total">{{$courses_count}}</span>
                     </div>
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-6 col-md-3 mt-4 mt-md-6">
                     <div class="la-admin__revenue-title">Classes Purchased</div>
                     <div class="la-admin__revenue-info">
                         <span class="la-admin__revenue-total">{{$classes_count}}</span>
                     </div>
                   </div>
-                  <div class="col-md-2">
+                  <div class="col-6 col-md-2 mt-4 mt-md-6">
                     <div class="la-admin__revenue-title">Total Amount</div>
                       <div class="la-admin__revenue-info">
                         <span class="la-admin__revenue-price">${{$total_earning}}</span>
@@ -110,7 +110,7 @@
                       <td>{{ $invoice->status }}</td>   
                       <td>{{ $invoice->created_at }}</td>            
 
-                      <td><a class="btn btn-info text-capitalize font-weight-normal px-0" href="{{route('view.order',$invoice->id)}}">{{ __('adminstaticword.View') }}</a>
+                      <td><a class="btn btn-info text-capitalize font-weight-normal px-4 px-md-2" href="{{route('view.order',$invoice->id)}}">{{ __('adminstaticword.View') }}</a>
                       </td>
                     
                     </tr>

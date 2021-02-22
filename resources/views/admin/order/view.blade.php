@@ -23,7 +23,7 @@
       </div>
      
       <div class="col-12">
-          <div class="la-admin__invoice-details d-flex justify-content-between py-5">
+          <div class="la-admin__invoice-details d-md-flex justify-content-between py-5">
               <div class="la-admin__cust-info">
                   <h6>SOLD TO</h6> 
                   <div class="la-admin__cust-name"> {{ $show->user->fullName }} </div>
@@ -39,7 +39,7 @@
                   <a class="la-admin__cust-mail d-flex align-items-center" href="mailto: {{ $show->user->email }}"><span class="la-icon--xl icon-mail-id"></span> <span class="pl-2"> {{ $show->user->email }} </span></a>
               </div>
 
-              <div class="la-admin__cust-invoice text-right">
+              <div class="la-admin__cust-invoice text-md-right">
                 <div>
                   <span class="la-admin__invoice-date">DATE</span> <br/>
                   <span class="la-admin__date-format">{{ __('adminstaticword.Date') }}:&nbsp;{{ date('jS F Y', strtotime($show->created_at)) }} </span>
@@ -68,7 +68,7 @@
                       />
                 </ul>
               @else
-                    <h1>No Items Found</h1>
+                    <h3>No Items Found</h3>
               @endif
 
             {{-- @if($show->bundle_id != NULL)

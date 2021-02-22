@@ -30,10 +30,10 @@
                     <label for="exampleInputTit1e">{{ __('adminstaticword.Name') }}:<sup class="redstar">*</sup></label>
                     <input type="text" class="form-control" name="client_name" id="exampleInputTitle" placeholder=" Enter Your Name" value="{{ old('client_name') }}">
                   </div>
-                </div><br/>
+                </div>
 
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-6 mt-md-3">
                     <div class="la-admin__preview">
                       <div class="la-admin__preview">
                         <label for="" class="la-admin__preview-label">{{ __('adminstaticword.Image') }}:</label>
@@ -79,7 +79,7 @@
                 </div>
 
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-6 col-md-3">
                     <div class="la-rtng__review-stars">
                       <div class="starRatingContainer">
                           <label for="exampleInputDetails">Rating:<sup class="redstar">*</sup></label>
@@ -87,10 +87,8 @@
                           <input id="input2" type="hidden" name="rating" value="3"></div>
                     </div>
                   </div>
-                </div>
-                   
-                <div class="row">
-                  <div class="col-md-12">
+                
+                  <div class="col-6 col-md-3">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                     <br>
                     <li class="tg-list-item">              
@@ -104,10 +102,8 @@
                
 
                 <div class="row">
-                    <div class="col-6">
-                      <div class="box-footer">
+                    <div class="col-md-6 text-right mt-8">
                         <button type="submit" class="btn btn-lg btn-primary px-14">{{ __('adminstaticword.Submit') }}</button>
-                      </div>
                     </div>
                 </div>
 

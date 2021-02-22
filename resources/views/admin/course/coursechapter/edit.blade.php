@@ -15,7 +15,7 @@
 <section class="content">
   <div class="row">
     <!-- left column -->
-    <div class="col-6">
+    <div class="col-md-6">
       <!-- general form elements -->
       <div class="box box-primary">
           <h3 class="la-admin__section-title ml-3">{{ __('adminstaticword.EditCourseChapter') }}</h3>
@@ -50,7 +50,7 @@
               <!-- CLASS THUMBNAIL: START -->
               <div class="row">
                 <div class="col-12">
-                      <div class="la-admin__preview">
+                      <div class="la-admin__preview mt-0">
                         <label for="" class="la-admin__preview-label"> Class Thumbnail:<sup class="redstar">*</sup></label>
                         <div class="la-admin__preview-img la-admin__course-imgvid2" >
                               <div class="la-admin__preview-text">

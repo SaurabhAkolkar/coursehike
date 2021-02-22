@@ -8,10 +8,10 @@
     <div class="col-12">
       
       <div class="box box-primary">
-          <h3 class="la-admin__section-title ml-3">{{ __('adminstaticword.EditCategory') }}</h3>
+          <h3 class="la-admin__section-title ml-md-3 mb-8 mb-md-6 ">{{ __('adminstaticword.EditCategory') }}</h3>
         
        
-        <div class="panel-body pl-3">
+        <div class="panel-body pl-md-3">
 
           <form id="demo-form" method="post" action="{{url('category/'.$cate->id)}}
               "data-parsley-validate class="form-horizontal form-label-left" autocomplete="off" enctype="multipart/form-data">
@@ -28,11 +28,10 @@
                       </div>
                 @enderror
               </div>
-            </div><br/>
-
+            </div>
 
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-6 mt-0 mt-md-6">
                 <div class="la-admin__preview">
                   <label for="" class="la-admin__preview-label">{{ __('adminstaticword.Image') }}:</label>
                   <div class="la-admin__preview-img la-admin__course-imgvid" >
@@ -61,7 +60,7 @@
             </div><br/> --}}
 
             <div class="row">
-              <div class="col-md-2">
+              <div class="col-6 col-md-2">
                 <label for="exampleInputTit1e">{{ __('adminstaticword.Featured') }}:</label>
                 <li class="tg-list-item">              
                   <input class="la-admin__toggle-switch" id="featured" type="checkbox" name="featured" {{ $cate->featured == '1' ? 'checked' : '' }} >
@@ -70,7 +69,7 @@
                 <input type="hidden"  name="free" value="0" for="featured" id="featured">
               </div>
 
-              <div class="col-md-2">
+              <div class="col-6 col-md-2">
                 <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                
                 <li class="tg-list-item">              

@@ -30,10 +30,10 @@
                     </div>
                 @enderror
               </div>
-            </div><br/>
+            </div>
 
             <div class="row">
-              <div class="col-md-3">
+              <div class="col-md-3  mt-3 mt-md-6">
                 <label >ISO Code: <sup class="redstar">*</sup></label>
                 <input type="text" class="form-control" name="iso_code" value="{{ $language->iso_code }}" placeholder="Please Enter Your  Language Name">
                 @error('iso_code')
@@ -42,7 +42,7 @@
                     </div>
                 @enderror
               </div>
-              <div class="col-md-3">
+              <div class="col-md-3  mt-3 mt-md-6">
                 <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                 <li class="tg-list-item">
                 <input class="la-admin__toggle-switch" id="xyz" type="checkbox" {{ $language->status==1 ? 'checked' : '' }}>

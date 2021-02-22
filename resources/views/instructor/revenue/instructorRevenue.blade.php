@@ -12,40 +12,40 @@
         <div class="box-body">
           <div class="la-admin__revenue-stats">
             <!-- TOTAL WATCH TIME SECTION: START -->
-            <div class="row my-md-8">
-                  <div class="col-md-3">
+            <div class="row ">
+                  <div class="col-6 col-md-3 mt-3 mt-md-6">
                       <div class="la-admin__revenue-title">Subscriber Total Watch Time</div>
                       <div class="la-admin__revenue-info">
                           <span class="la-admin__revenue-total">{{$payout['watch_time']}}</span>
                       </div>
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-6 col-md-3 mt-3 mt-md-6">
                     <div class="la-admin__revenue-title">Subscription Estimated Revenue</div>
                     <div class="la-admin__revenue-info">
                         <span class="la-admin__revenue-price">${{$payout['total_income']}}</span>
                     </div>
                   </div>
               </div>
-              <div class="row my-md-8">
-                <div class="col-md-3">
+              <div class="row mb-md-6">
+                <div class="col-6 col-md-3 mt-3 mt-md-6">
                     <div class="la-admin__revenue-title">No. of Learners</div>
                     <div class="la-admin__revenue-info">
                         <span class="la-admin__revenue-total">{{count($payout['learners'])}}</span>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-6 col-md-3 mt-3 mt-md-6">
                   <div class="la-admin__revenue-title">Courses Purchased</div>
                   <div class="la-admin__revenue-info">
                       <span class="la-admin__revenue-total">{{$courses_count}}</span>
                   </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-6 col-md-3 mt-3 mt-md-6">
                   <div class="la-admin__revenue-title">Classes Purchased</div>
                   <div class="la-admin__revenue-info">
                       <span class="la-admin__revenue-total">{{$classes}}</span>
                   </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-6 col-md-2 mt-3 mt-md-6">
                   <div class="la-admin__revenue-title">Total Amount</div>
                     <div class="la-admin__revenue-info">
                       <span class="la-admin__revenue-price">${{$total_earning}}</span>
