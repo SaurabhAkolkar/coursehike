@@ -3,57 +3,61 @@
             <div class="la-course__inner">
                 <a class="la-course__inner-link" role="button" href= "<?php echo e('/learn/course/'.$id.'/'.$url); ?>" >
                     <div class="la-course__overlay">
-                        <ul class="la-course__options list-unstyled text-white" id="la-course__nested-links">
-                            <li class="la-course__option">
-                                <?php if(Auth::check()): ?>
-                                    <span class="d-inline-block la-course__addtocart" onclick="addToCart(<?php echo e($id); ?>)">
-                                        <i class="la-icon la-icon--2xl icon icon-cart"></i>
-                                    </span>
-                                <?php else: ?>
-                                    <span class="d-inline-block la-course__addtocart" data-toggle="modal" data-target="#locked_login_modal">
-                                        <i class="la-icon la-icon--2xl icon icon-cart"></i>
-                                    </span>
-                                <?php endif; ?>
-                            </li>
-
-                            <li class="la-course__option">
-                                <?php if(Auth::check()): ?>
-                                    <span <?php if($addedToWhishList): ?> onclick="location.href='/remove-from-wishlist/<?php echo e($id); ?>'" <?php else: ?> onclick="addToWishList(<?php echo e($id); ?>)" <?php endif; ?>  >
-                                        <span class="d-inline-block la-course__like">
-                                            <i class="la-icon la-icon--2xl icon icon-wishlist <?php if($addedToWhishList): ?> text-warning <?php endif; ?>"></i>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="la-course__free">
+                                <img src="../images/learners/home/free-class.svg" class="img-fluid" alt="Free Class">
+                            </div>
+                            <ul class="la-course__options list-unstyled text-white" id="la-course__nested-links">
+                                <li class="la-course__option">
+                                    <?php if(Auth::check()): ?>
+                                        <span class="d-inline-block la-course__addtocart" onclick="addToCart(<?php echo e($id); ?>)">
+                                            <i class="la-icon la-icon--2xl icon icon-cart"></i>
                                         </span>
-                                    </span>
-                                <?php else: ?>
-                                    <span data-toggle="modal" data-target="#locked_login_modal">
-                                        <span class="d-inline-block la-course__like">
-                                            <i class="la-icon la-icon--2xl icon icon-wishlist"></i>
+                                    <?php else: ?>
+                                        <span class="d-inline-block la-course__addtocart" data-toggle="modal" data-target="#locked_login_modal">
+                                            <i class="la-icon la-icon--2xl icon icon-cart"></i>
                                         </span>
-                                    </span>
-                                <?php endif; ?>
-                            </li>
+                                    <?php endif; ?>
+                                </li>
 
-                            <li class="la-course__option">
-                                    <div class="dropdown">
-                                        <span class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);">
-                                            <i class="la-icon la-icon--2xl icon icon-menu"></i>
+                                <li class="la-course__option">
+                                    <?php if(Auth::check()): ?>
+                                        <span <?php if($addedToWhishList): ?> onclick="location.href='/remove-from-wishlist/<?php echo e($id); ?>'" <?php else: ?> onclick="addToWishList(<?php echo e($id); ?>)" <?php endif; ?>  >
+                                            <span class="d-inline-block la-course__like">
+                                                <i class="la-icon la-icon--2xl icon icon-wishlist <?php if($addedToWhishList): ?> text-warning <?php endif; ?>"></i>
+                                            </span>
                                         </span>
-                                        <div class="la-cmenu dropdown-menu py-0">
-                                            <?php if(Auth::check()): ?>
-                                                <span class="dropdown-item la-cmenu__item d-inline-flex" <?php if($removeFromPlaylist): ?> onclick="location.href='<?php echo e(url()->current()); ?>/<?php echo e($id); ?>'"  <?php else: ?> onclick="showAddToPlaylist(<?php echo e($id); ?>)" <?php endif; ?>><i class="icon icon-playlist la-icon la-cmenu__item-icon mr-2"></i> <?php if($removeFromPlaylist): ?> Remove from Playlist  <?php else: ?> Add to Playlist <?php endif; ?></span>
-                                                <span class="dropdown-item la-cmenu__item d-inline-flex" <?php if($addedToWhishList): ?> onclick="location.href='/remove-from-wishlist/<?php echo e($id); ?>'" <?php else: ?> onclick="addToWishList(<?php echo e($id); ?>)" <?php endif; ?>><i class="icon icon-wishlist la-icon la-cmenu__item-icon mr-2"></i> <?php if($addedToWhishList): ?> Remove from Wishlist <?php else: ?> Add to Wishlist <?php endif; ?> </span>
-                                                <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToCart(<?php echo e($id); ?>)"><i class="icon icon-cart la-icon la-cmenu__item-icon mr-2"></i>  Add to Cart</span>
-                                            <?php else: ?>   
+                                    <?php else: ?>
+                                        <span data-toggle="modal" data-target="#locked_login_modal">
+                                            <span class="d-inline-block la-course__like">
+                                                <i class="la-icon la-icon--2xl icon icon-wishlist"></i>
+                                            </span>
+                                        </span>
+                                    <?php endif; ?>
+                                </li>
 
-                                                <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login_modal"><i class="icon icon-playlist la-icon la-cmenu__item-icon mr-2"></i>  Add to Playlist</span>
-                                                <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login_modal"><i class="icon icon-wishlist la-icon la-cmenu__item-icon mr-2"></i> Add to Wishlist </span>
-                                                <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login_modal"><i class="icon icon-cart la-icon la-cmenu__item-icon mr-2"></i>  Add to Cart</span>
+                                <li class="la-course__option">
+                                        <div class="dropdown">
+                                            <span class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);">
+                                                <i class="la-icon la-icon--2xl icon icon-menu"></i>
+                                            </span>
+                                            <div class="la-cmenu dropdown-menu py-0">
+                                                <?php if(Auth::check()): ?>
+                                                    <span class="dropdown-item la-cmenu__item d-inline-flex" <?php if($removeFromPlaylist): ?> onclick="location.href='<?php echo e(url()->current()); ?>/<?php echo e($id); ?>'"  <?php else: ?> onclick="showAddToPlaylist(<?php echo e($id); ?>)" <?php endif; ?>><i class="icon icon-playlist la-icon la-cmenu__item-icon mr-2"></i> <?php if($removeFromPlaylist): ?> Remove from Playlist  <?php else: ?> Add to Playlist <?php endif; ?></span>
+                                                    <span class="dropdown-item la-cmenu__item d-inline-flex" <?php if($addedToWhishList): ?> onclick="location.href='/remove-from-wishlist/<?php echo e($id); ?>'" <?php else: ?> onclick="addToWishList(<?php echo e($id); ?>)" <?php endif; ?>><i class="icon icon-wishlist la-icon la-cmenu__item-icon mr-2"></i> <?php if($addedToWhishList): ?> Remove from Wishlist <?php else: ?> Add to Wishlist <?php endif; ?> </span>
+                                                    <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToCart(<?php echo e($id); ?>)"><i class="icon icon-cart la-icon la-cmenu__item-icon mr-2"></i>  Add to Cart</span>
+                                                <?php else: ?>   
 
-                                            <?php endif; ?>
+                                                    <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login_modal"><i class="icon icon-playlist la-icon la-cmenu__item-icon mr-2"></i>  Add to Playlist</span>
+                                                    <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login_modal"><i class="icon icon-wishlist la-icon la-cmenu__item-icon mr-2"></i> Add to Wishlist </span>
+                                                    <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login_modal"><i class="icon icon-cart la-icon la-cmenu__item-icon mr-2"></i>  Add to Cart</span>
+
+                                                <?php endif; ?>
+                                            </div>
                                         </div>
-                                    </div>
-                            </li>
-                        </ul>
-
+                                </li>
+                            </ul>
+                        </div>
                         <div class="la-course__learners"><strong><?php echo e($learnerCount); ?></strong>  Learners</div>
                     </div>
                 </a>

@@ -17947,6 +17947,11 @@ a, a:hover {
   cursor: pointer;
   border-radius: var(--size-2);
 }
+.la-course__free img {
+  width: 100px;
+  height: 30px;
+  opacity: 1;
+}
 .la-course__option:hover {
   color: var(--yellow);
 }
@@ -18417,8 +18422,8 @@ a, a:hover {
 @media (max-width: 767px) {
   .la-vcourse__lesson {
     padding-right: var(--size-base);
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: var(--size-4);
+    padding-bottom: var(--size-4);
   }
 }
 .la-vcourse__lesson:hover {
@@ -18444,6 +18449,11 @@ a, a:hover {
 .la-vcourse__lesson-right {
   width: calc(100% - 150px);
   padding-left: 20px;
+}
+@media (max-width: 767px) {
+  .la-vcourse__lesson-right {
+    padding-left: 10px;
+  }
 }
 .la-vcourse__lesson-description {
   display: none;
@@ -20656,6 +20666,7 @@ a, a:hover {
   background: var(--gray);
   border: 1px solid #DBDBDB;
   padding: 20px;
+  outline: 0;
 }
 .la-form__textarea::-moz-placeholder {
   color: var(--gray8);
@@ -20665,6 +20676,9 @@ a, a:hover {
 }
 .la-form__textarea::placeholder {
   color: var(--gray8);
+}
+.la-form__textarea:focus {
+  outline: 0;
 }
 .la-form__radio:checked + label .la-form__radio-circle:before {
   transform: scale(1);

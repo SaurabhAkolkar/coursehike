@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="129" height="40" viewBox="0 0 129 40">
+  <defs>
+    <filter id="FREE_CLASSES" x="53" y="5.499" width="60" height="32" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feFlood flood-color="#a4a4a4" flood-opacity="0.231"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Free_Classes-2" data-name="Free Classes" transform="translate(4056 1208)">
+    <rect id="Rectangle_3448" data-name="Rectangle 3448" width="129" height="40" rx="20" transform="translate(-4056 -1208)" fill="#e88539" opacity="0.7"/>
+    <g id="lila_logo" data-name="lila logo" transform="translate(-4033 -1200.902)" opacity="0.8">
+      <path id="Path_136" data-name="Path 136" d="M252.335-1409.316l3.054,1.251v8.61h5.527v2.822h-8.581Z" transform="translate(-252.335 1418.822)" fill="#fff"/>
+      <path id="Path_140" data-name="Path 140" d="M252.335-1409.316l3.054,1.251v8.61h5.527v2.822h-8.581Z" transform="translate(-243.232 1414.271)" fill="#fff"/>
+      <path id="Path_137" data-name="Path 137" d="M283.4-1401.007v12.857h3.054v-11.694Z" transform="translate(-276.329 1412.404)" fill="#fff"/>
+      <path id="Exclusion_1" data-name="Exclusion 1" d="M12.421,12.8H9.192l-.756-1.774H3.84L3.2,12.8H0L4.683,0l3,1.367L12.421,12.8ZM6.109,4.567,4.8,8.581H7.621Z" transform="translate(12.275 11.396)" fill="#fff"/>
+      <g id="Ellipse_185" data-name="Ellipse 185" transform="translate(4.182)" fill="none" stroke="#fff" stroke-width="1">
+        <circle cx="4.054" cy="4.054" r="4.054" stroke="none"/>
+        <circle cx="4.054" cy="4.054" r="3.554" fill="none"/>
+      </g>
+      <path id="Intersection_1" data-name="Intersection 1" d="M0,5.466V0L1.02.389V5.466Z" transform="translate(9.102 12.171)" fill="#fff"/>
+    </g>
+    <g id="Group_5056" data-name="Group 5056" transform="translate(-4000 -1199.501)" opacity="0.8">
+      <g transform="matrix(1, 0, 0, 1, -56, -8.5)" filter="url(#FREE_CLASSES)">
+        <text id="FREE_CLASSES-3" data-name="FREE
+CLASSES" transform="translate(56 18.5)" fill="#fff" font-size="11" font-family="Roboto-Medium, Roboto" font-weight="500" letter-spacing="0.1em"><tspan x="0" y="0">FREE</tspan><tspan x="0" y="13">CLASSES</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

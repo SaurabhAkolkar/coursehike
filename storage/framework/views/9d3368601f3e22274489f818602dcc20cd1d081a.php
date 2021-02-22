@@ -27,7 +27,7 @@
     </div>
     <div class="la-vcourse__lesson-right d-flex">
         <div class="la-vcourse__lesson-content d-flex flex-wrap flex-column">
-            <div class="la-vcourse__lesson-title"> <?php echo e($title ?? ''); ?> </div>
+            <div class="la-vcourse__lesson-title leading-snug"> <?php echo e($title ?? ''); ?> </div>
             <div class="la-vcourse__lesson-creator pl-md-4"> <?php echo e($author ?? ''); ?> </div>
             <div class="la-vcourse__lesson-learnt mt-auto"> <?php echo e($statusPercentage ?? ''); ?> </div>
             <div class="la-vcourse__lesson-status"></div>

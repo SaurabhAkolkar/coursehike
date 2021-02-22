@@ -368,8 +368,8 @@
 
                     @include respond-below(sm){
                         padding-right:var(--size-base);
-                        padding-top:0;
-                        padding-bottom:0;
+                        padding-top:var(--size-4);
+                        padding-bottom:var(--size-4);
                     }
 
                     &:hover {
@@ -403,6 +403,10 @@
                         &right {
                             width: calc(100% - 150px);
                             padding-left: 20px;
+
+                            @include respond-below(sm){
+                                padding-left:10px;
+                            }
                         }
                         
                         &description {
