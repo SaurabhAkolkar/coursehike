@@ -61,6 +61,7 @@
                           :creatorUrl="$courses->courses->user->id"
                           :addedToWhishList="$addedToWhishList"
                           :learnerCount="$courses->courses->leanerCount"
+                          :price="$courses->courses->price"
                         />
                     </div>
                     @endforeach

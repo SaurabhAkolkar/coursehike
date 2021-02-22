@@ -141,7 +141,7 @@
                 <div class="row row-cols-lg-4 la-anim__stagger-item">
                   <?php $__currentLoopData = $suggested_courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sc): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                        <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $sc->id,'img' => $sc->preview_image,'course' => $sc->title,'url' => $sc->slug,'rating' => round($sc->average_rating, 2),'creatorImg' => $sc->user->user_img,'creatorName' => $sc->user->fname,'creatorUrl' => $sc->user->id,'learnerCount' => $sc->learnerCount]); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $sc->id,'img' => $sc->preview_image,'course' => $sc->title,'url' => $sc->slug,'rating' => round($sc->average_rating, 2),'creatorImg' => $sc->user->user_img,'creatorName' => $sc->user->fname,'creatorUrl' => $sc->user->id,'learnerCount' => $sc->learnerCount,'price' => $sc->price]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
@@ -196,7 +196,7 @@
     <?php endif; ?>
 
   // Create a Stripe client.
-  var stripe = Stripe('<?php echo e(env("STRIPE_KEY")); ?>');
+  var stripe = Stripe('<?php echo e(config("services.stripe.key")); ?>');
 
   var checkoutButton = document.getElementById('checkout-button');
   checkoutButton.addEventListener("click", function () {

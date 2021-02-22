@@ -4,9 +4,12 @@
                 <a class="la-course__inner-link" role="button" href= "{{ '/learn/course/'.$id.'/'.$url }}" >
                     <div class="la-course__overlay">
                         <div class="d-flex justify-content-between align-items-center">
-                            <div class="la-course__free">
-                                <img src="../images/learners/home/free-class.svg" class="img-fluid" alt="Free Class">
-                            </div>
+                            @if($price)
+                            @else
+                                <div class="la-course__free">
+                                    <img src="../images/learners/home/free-class.svg" class="img-fluid" alt="Free Class">
+                                </div>
+                            @endif
                             <ul class="la-course__options list-unstyled text-white" id="la-course__nested-links">
                                 <li class="la-course__option">
                                     @if(Auth::check())

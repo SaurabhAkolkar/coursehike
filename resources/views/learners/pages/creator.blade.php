@@ -71,6 +71,7 @@
                                           :creatorName="$course->user->FullName"
                                           :creatorUrl="$course->user->id"
                                           :learnerCount="$course->learnerCount"
+                                          :price="$course->price"
                                         />
                                     </div>
                             

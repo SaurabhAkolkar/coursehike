@@ -193,6 +193,7 @@
                               :creatorName="$course->user->fname"
                               :creatorUrl="$course->user->id"
                               :learnerCount="$course->learnerCount"
+                              :price="$course->price"
                             />
                         @endforeach 
                       </div> 

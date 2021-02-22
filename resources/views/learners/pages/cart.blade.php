@@ -218,6 +218,7 @@
                           :creatorName="$sc->user->fname"
                           :creatorUrl="$sc->user->id"
                           :learnerCount="$sc->learnerCount"
+                          :price="$sc->price"
                         />
                   @endforeach       
                   <div class="col-md-6 col-lg-3 la-anim__stagger-item--x">
