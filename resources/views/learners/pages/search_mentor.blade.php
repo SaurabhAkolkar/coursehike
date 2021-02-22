@@ -16,7 +16,7 @@
                 <form class="form-inline" action="/search-mentor" method="post">
                   @csrf
                   <div class="form-group">
-                    <input class="la-gsearch__input w-100 form-control" value="{{$inputValue}}" name="name" type="text" style="background:transparent" placeholder="Search Alien Mentor" required>
+                    <input class="la-gsearch__input w-100 form-control" value="{{$inputValue}}" name="name" type="text" style="background:transparent;" placeholder="Search Alien Mentor" required>
                   </div>
                   <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--3xl icon icon-search"></i></button>
                 </form>
@@ -25,7 +25,7 @@
             </div>
             
             <div class="la-mentors">
-              <div class="row no-gutters">
+              <div class="row no-gutters la-anim__wrap">
                   @if(count($mentors))
                   @foreach($mentors as $mentor)
                       <x-mentor :img="$mentor->user_img" :id="$mentor->id" :name="$mentor->fname.' '.$mentor->lname" :skill="$mentor->skill" />

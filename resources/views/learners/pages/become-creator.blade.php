@@ -21,10 +21,10 @@
           <div class="la-bcreator text-left text-sm-center px-6">
 
             <a class="la-bcreator__back-link position-absolute la-anim__stagger-item--x" href="{{URL::previous()}}"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
-            <div class="la-bcreator__content">
-              <strong class=" la-bcreator__title--mini  text-uppercase m-0 la-anim__stagger-item--x">Design your own course!</strong>
-              <h1 class="la-bcreator__title text-uppercase d-none d-md-block la-anim__stagger-item--x">Become a Creator</h1>
-              <h1 class="la-bcreator__title text-uppercase d-block d-md-none la-anim__stagger-item--x">Become <br/> a Creator</h1>
+            <div class="la-bcreator__content ">
+              <strong class=" la-bcreator__title--mini  text-uppercase m-0 la-anim__fade-in-top">Design your own course!</strong>
+              <h1 class="la-bcreator__title text-uppercase d-none d-md-block la-anim__stagger-item">Become a Creator</h1>
+              <h1 class="la-bcreator__title text-uppercase d-block d-md-none la-anim__stagger-item">Become <br/> a Creator</h1>
               <h6 class="la-bcreator__tag  leading-tight d-none d-md-block la-anim__stagger-item--x ">Join LILA’s inspiring community, <br/> share knowledge and start earning for your values</h6>
               <h6 class="la-bcreator__tag  leading-tight d-block d-md-none la-anim__stagger-item--x">Join LILA’s inspiring community, share knowledge and start earning for your values</h6>
             </div>
@@ -198,7 +198,7 @@
         <div class="col-sm-12" id="how_you_earn">
           <div class="la-earn__blog la-anim__wrap">
             <h3 class="la-earn__blog-title la-anim__stagger-item text-4xl text-md-5xl" >How you earn?</h3>
-            <img class="img-fluid mx-auto d-block la-anim__stagger-item--x la-anim__D" src="../images/learners/creator/earn.svg" alt="How you Earn?">
+            <img class="img-fluid mx-auto d-block la-anim__stagger-item--x la-anim__A" src="../images/learners/creator/earn.svg" alt="How you Earn?">
           </div>
         </div>
         <!-- Column: End-->
@@ -388,7 +388,7 @@
 
               @foreach($faqs->take(3) as $f)
                 <div class="panel panel-default la-bgcreator__faq-panel la-anim__stagger-item">
-                  <div class="panel-heading la-bgcreator__panel-head la-anim__stagger-item--x" id="faqCalcHead">
+                  <div class="panel-heading la-bgcreator__panel-head" id="faqCalcHead">
                     <div class="panel-title la-bgcreator__panel-title"><a class="accordion-toggle collapsed text-md" href="#faq_{{ $f->id }}" data-toggle="collapse" aria-expanded="true" aria-controls="#faq_{{ $f->id }}">{{ $f->title }}</a></div>
                   </div>
                   <div class="panel-collapse collapse" id="faq_{{ $f->id }}" aria-labelledby="faqCalcHead" data-parent="#accordion">

@@ -410,7 +410,7 @@
       <div class="container">
         <h2 class="la-section__title la-section__title--big position-relative la-anim__fade-in-top la-anim__A">Master <span>classes</span></h2>
         <div class="la-mccourses pt-20 pt-md-4">
-          <div class="row justify-content-center px-lg-5 la-anim__stagger la-anim__A">
+          <div class="row justify-content-center px-lg-5 la-anim__stagger">
            
               @foreach ($master_classes as $master)
                 <x-master-class
@@ -464,12 +464,12 @@
                 <div class="la-trail__para pb-10 pr-md-20 la-anim__stagger-item la-anim__B">We strongly believe observation is integral to honing art. Learn from masters in their respective fields with consistent practice, and become a pro yourself!</div>
                 @if(Auth::check())
                   @if(Auth::user()->subscription('main') )
-                    <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item la-anim__B" href="/login">Browse Course</a>
+                    <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item" href="/login">Browse Course</a>
                   @else
-                    <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item la-anim__B" href="/login">Start free trail</a>
+                    <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item" href="/login">Start free trail</a>
                   @endif
                 @else
-                  <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item la-anim__B" href="/login">Start free trail</a>
+                  <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item" href="/login">Start free trail</a>
                 @endif
               </div>
             </div>
@@ -528,11 +528,11 @@
               <div class="la-price__slide la-anim__slide">
                 <div class="la-price__row row mb-16">
                   <div class="col-lg-5 pt-md-20 la-anim__wrap">
-                    <h3 class="la-section__subtitle la-anim__stagger-item la-anim__B">What’s LILA for you ?</h3>
-                    <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x la-anim__B">Our mission is to Encourage, Empower and Embrace self-learning among all curious individuals who wish to learn, expand their potential and make a mark in the world.<br/><br/> 
+                    <h3 class="la-section__subtitle la-anim__stagger-item">What’s LILA for you ?</h3>
+                    <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x">Our mission is to Encourage, Empower and Embrace self-learning among all curious individuals who wish to learn, expand their potential and make a mark in the world.<br/><br/> 
                         Through our Radical team, we strive every day to make knowledge Affordable, Accessible for everyone regardless of who or where they are
                     </p>
-                    <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold  pt-4 pt-md-8  la-anim__stagger-item--x la-anim__B">
+                    <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold  pt-4 pt-md-8  la-anim__stagger-item--x">
                       <a href="/about">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                     </div>
                   </div>

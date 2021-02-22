@@ -9,12 +9,14 @@
         <h3 class="la-admin__section-title ml-3"> <?php echo e(__('adminstaticword.Edit')); ?> <?php echo e(__('adminstaticword.FAQ')); ?></h3>
         
         <div class="box-body">
-            <div class="form-group col-md-8 p-0">              
           <form id="demo-form2" method="post" action="<?php echo e(url('faq/'.$find->id)); ?>" data-parsley-validate class="form-horizontal form-label-left"  enctype="multipart/form-data">
-              <?php echo e(csrf_field()); ?>
+            <?php echo e(csrf_field()); ?>
 
-              <?php echo e(method_field('PATCH')); ?>
+            <?php echo e(method_field('PATCH')); ?>
 
+
+            <div class="form-group col-md-8 p-0">              
+        
 
               <label for="exampleInputName"><?php echo e(__('adminstaticword.Title')); ?>:<sup class="redstar">*</sup></label>
               <input type="text" class="form-control" name="title" id="exampleInputTitle" value="<?php echo e($find->title); ?>">
@@ -34,6 +36,31 @@ endif;
 unset($__errorArgs, $__bag); ?>
             
             </div>
+
+            <div class="form-group col-8 p-0">
+              <label for="exampleInputType"><?php echo e(__('adminstaticword.Type')); ?>:<sup class="redstar">*</sup></label>
+              <select name="type" class="form-control">
+                  <option value="subscription" <?php if(old('type') == 'subscription'): ?> selected <?php endif; ?>>Subscription</option>
+                  <option value="payment_methods" <?php if(old('type') == 'payment_methods'): ?> selected <?php endif; ?>>Payment methods</option>
+                  <option value="free_trial" <?php if(old('type') == 'free_trial'): ?> selected <?php endif; ?>>Free Trial</option>
+                  <option value="single_course" <?php if(old('type') == 'single_course'): ?> selected <?php endif; ?>> Single Course</option>
+              </select>
+              <?php $__errorArgs = ['type'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+              <div class="alert alert-danger">
+                <ul>
+                      <li><?php echo e($message); ?></li>
+                </ul>
+              </div>
+              <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+            </div>
+
             <div class="form-group col-md-8 p-0">
               <label for="exampleInputDetails"><?php echo e(__('adminstaticword.Detail')); ?>:<sup class="redstar">*</sup></label>
               <textarea class="form-control" name="details"> <?php echo e($find->details); ?></textarea>

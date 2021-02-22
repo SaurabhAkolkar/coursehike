@@ -63,9 +63,9 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="la-about__motto position-relative la-anim__wrap">
-                            <div class="la-about__motto-sq la-anim__fade-in-top la-anim__B"></div>
+                            <div class="la-about__motto-sq la-anim__fade-in-top la-anim__A"></div>
                             <div class="la-about__motto-box la-anim__stagger-item ">
-                                <div class="la-about__motto-text leading-tight la-anim__stagger-item--x la-anim__D">
+                                <div class="la-about__motto-text leading-tight la-anim__stagger-item--x la-anim__B">
                                     <span>"The thing</span>
                                     <span style="color:#fff"> I thought couldn’t be possible a year or two ago,</span>
                                     <span>is actually happening."</span> 
@@ -100,7 +100,7 @@
                     </div>
                     <div class="col-md-5 col-lg-7 my-md-auto">
                         <div class="la-about__mvt-rgt la-anim__wrap">
-                            <img src="../images/learners/about/about-mission.svg" alt="Our Mission" class="img-fluid d-block mx-auto la-anim__stagger-item--x la-anim__E">
+                            <img src="../images/learners/about/about-mission.svg" alt="Our Mission" class="img-fluid d-block mx-auto la-anim__stagger-item--x">
                         </div>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
                     </div>
                     <div class="col-md-5 col-lg-7 my-md-auto">
                         <div class="la-about__mvt-rgt la-anim__wrap">
-                            <img src="../images/learners/about/about-vision.svg" alt="Our Vision" class="img-fluid d-block mx-auto la-anim__stagger-item--x la-anim__E">
+                            <img src="../images/learners/about/about-vision.svg" alt="Our Vision" class="img-fluid d-block mx-auto la-anim__stagger-item--x">
                         </div>
                     </div>
                 </div>
@@ -157,7 +157,7 @@
                     </div>
                     <div class="col-md-5 col-lg-7 my-md-auto">
                         <div class="la-about__mvt-rgt la-anim__wrap">
-                            <img src="../images/learners/about/about-teaching.svg" alt="Our Way of Teaching" class="img-fluid d-block mx-auto la-anim__stagger-item--x la-anim__E">
+                            <img src="../images/learners/about/about-teaching.svg" alt="Our Way of Teaching" class="img-fluid d-block mx-auto la-anim__stagger-item--x ">
                         </div>
                     </div>
                 </div>

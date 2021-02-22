@@ -82,32 +82,7 @@
                                 <input type="hidden" name="filters" value="applied" />
 
                                 
-                                <div class="form-group pt-2">
-                                  <div class="glabel-main mb-1"> Course Duration</div>
-                                    <div class="glabel d-flex  align-items-center m-0">
-                                        <input class="la-form__radio d-none la-vcourse__purchase-input" <?php if($selected_duration == "lessthan1"): ?> checked <?php endif; ?> type="radio" name="duration" id="lessthan1" value="lessthan1">
-                                        <label class="d-flex align-items-center" for="lessthan1">
-                                          <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center" for="lessthan1"></span>
-                                          <strong class="pl-2" style="color:var(--gray6);opacity:1;"> Less than an hr</strong>
-                                        </label>
-                                    </div>
-
-                                    <div class="glabel d-flex  align-items-center m-0">
-                                        <input class="la-form__radio d-none la-vcourse__purchase-input" <?php if($selected_duration == "lessthan5"): ?> checked <?php endif; ?> type="radio" name="duration" id="lessthan5" value="lessthan5">
-                                        <label class="d-flex align-items-center" for="lessthan5">
-                                          <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center" for="lessthan5"></span>
-                                          <strong class="pl-2" style="color:var(--gray6);opacity:1;">  1hr - 5hrs</strong>
-                                        </label>
-                                    </div>
-
-                                    <div class="glabel d-flex  align-items-center m-0">
-                                        <input class="la-form__radio d-none la-vcourse__purchase-input" <?php if($selected_duration == "morethan5"): ?> checked <?php endif; ?> type="radio" name="duration" id="morethan5" value="morethan5">
-                                        <label class="d-flex align-items-center" for="morethan5">
-                                          <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex  justify-content-center align-items-center" for="morethan5"></span>
-                                          <strong class="pl-2" style="color:var(--gray6);opacity:1;"> More than 5hrs</strong>
-                                        </label>
-                                    </div>
-                                </div>
+                               
 
                                 <div class="form-group pt-2">
                                   <div class="glabel-main mb-2"> Category</div>
@@ -120,16 +95,7 @@
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </div>
 
-                                <div class="form-group pt-2">
-                                  <div class="glabel-main mb-2"> Language</div>
-                                  <?php $__currentLoopData = $langauges; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $l): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <label class="glabel d-flex" for="lang_<?php echo e($l->id); ?>">
-                                      <input class="d-none" id="lang_<?php echo e($l->id); ?>" <?php if(in_array($l->id, $selected_languages)): ?> checked <?php endif; ?> type="checkbox" onclick="addToLanguage(<?php echo e($l->id); ?>)" value="<?php echo e($l->id); ?>">
-                                      <span class="gcheck position-relative"><span class="gcheck-icon la-icon icon-tick text-xs position-absolute"></span></span>
-                                      <span class="pl-2 mt-n1 text-capitalize"><?php echo e($l->name); ?></span>
-                                    </label>
-                                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </div>
+                                
 
                                 <div class="form-group pt-2">
                                   <div class="glabel-main mb-2">Level</div>
