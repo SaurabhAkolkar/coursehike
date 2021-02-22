@@ -32,7 +32,31 @@
                 </div>
               </div>
               <br>
-
+              
+            <div class="form-group col-8 p-0">
+              <label for="exampleInputDetails"><?php echo e(__('adminstaticword.Type')); ?>:<sup class="redstar">*</sup></label>
+              <select name="type" class="form-control">
+                  <option value="subscription" <?php if(old('type') == 'subscription'): ?> selected <?php endif; ?>>Subscription</option>
+                  <option value="payment_methods" <?php if(old('type') == 'payment_methods'): ?> selected <?php endif; ?>>Payment methods</option>
+                  <option value="free_trial" <?php if(old('type') == 'free_trial'): ?> selected <?php endif; ?>>Free Trial</option>
+                  <option value="single_course" <?php if(old('type') == 'single_course'): ?> selected <?php endif; ?>> Single Course</option>
+              </select>
+              <?php $__errorArgs = ['type'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+              <div class="alert alert-danger">
+                <ul>
+                      <li><?php echo e($message); ?></li>
+                </ul>
+              </div>
+              <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+            </div>
+            
               <div class="row">
                 <div class="col-md-8">
                   <label for="exampleInputDetails"><?php echo e(__('adminstaticword.Detail')); ?>:<sup class="redstar">*</sup></label>

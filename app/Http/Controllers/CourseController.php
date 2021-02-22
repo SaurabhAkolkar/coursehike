@@ -71,7 +71,7 @@ class CourseController extends Controller
     public function create()
     {
         $category = Categories::all();
-        $user =  User::all();
+        $user =  User::where(['role' => 'mentors'])->orWhere(['role'=>'admin'])->get();
         $course = Course::all();
         $coursechapter = CourseChapter::all();
         return view('admin.course.insert', compact("course", 'coursechapter', 'category', 'user'));
@@ -358,7 +358,7 @@ class CourseController extends Controller
         $cor = Course::with('user')->findOrFail($id);
         $categories = Categories::where('status',1)->pluck('title','id');
         $publisRequest = PublishRequest::where(['status' => 1, 'course_id' => $id, 'user_id' => Auth::User()->id])->first();
-
+        $users =  User::where(['role' => 'mentors'])->orWhere(['role'=>'admin'])->get();
         $check_master_class = MasterClass::where(['course_id'=>$id])->first();
 
         $courseinclude = CourseInclude::where('course_id', '=', $id)->get();
@@ -375,7 +375,7 @@ class CourseController extends Controller
         $quizes = Quiz::where('course_id', '=', $id)->get();
         $topics = QuizTopic::where('course_id', '=', $id)->get();
         $appointment = Appointment::where('course_id', '=', $id)->get();
-        return view('admin.course.show', compact('cor', 'course', 'categories', 'publisRequest','courseinclude', 'whatlearns', 'coursechapters', 'coursechapter', 'check_master_class','relatedcourse', 'courseclass', 'courseresources', 'announsments', 'answers', 'reports', 'questions', 'quizes', 'topics', 'appointment'));
+        return view('admin.course.show', compact('cor', 'users','course', 'categories', 'publisRequest','courseinclude', 'whatlearns', 'coursechapters', 'coursechapter', 'check_master_class','relatedcourse', 'courseclass', 'courseresources', 'announsments', 'answers', 'reports', 'questions', 'quizes', 'topics', 'appointment'));
     }
 
 

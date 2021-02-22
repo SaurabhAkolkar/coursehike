@@ -9,7 +9,7 @@ class FaqStudent extends Model
 {
 	use HasTranslations;
 
-    public $translatable = ['title', 'details'];
+    public $translatable = ['title', 'details','type'];
 
     /**
      * Convert the model instance to an array.

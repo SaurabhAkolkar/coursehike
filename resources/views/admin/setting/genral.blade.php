@@ -13,7 +13,7 @@
 		    </div>
 		</div>
 
-		<div class="col-md-4">
+		<div class="col-md-5">
 			<div class="row">
 				@if ($errors->has('logo'))
 				<div class="display-none" id="logo">
@@ -38,25 +38,50 @@
 							<input type="file" name="logo" value="{{ $setting->logo }}" id="logo" class="form-control la-admin__preview-input {{ $errors->has('logo') ? ' is-invalid' : '' }} inputfile inputfile-1"/>
 							<label for="logo"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>{{ __('adminstaticword.ChooseaLogo') }}</span></label>
 							<span class="text-danger invalid-feedback" role="alert"></span>
+
+						
+								@if($setting->logo !="")
+									<div class="logo-settings">
+										<img src="{{ asset('images/logo/'.$setting->logo) }}" alt="{{ $setting->logo }}" class="img-fluid">
+									</div>
+								@else
+									<div class="alert alert-danger">
+										{{ __('adminstaticword.Nologofound') }}
+									</div>
+								@endif
+							
 						</div>
 					</div> 
+
+					{{-- <div class="la-admin__preview">
+                        <label for="" class="la-admin__preview-label">{{ __('adminstaticword.Logo') }}:<sup class="redstar">*</sup></label>
+                        <div class="la-admin__preview-img la-admin__course-imgvid" >
+                             <div class="la-admin__preview-text">
+                                  <p class="la-admin__preview-size">Preview Image size: 300x90</p>
+                                  <p class="la-admin__preview-file text-uppercase">Choose a File</p>
+                            </div>
+                            <div class="text-center pr-20 mr-10">
+                              <span class="la-icon la-icon--8xl " style="font-size:160px;">
+                                <span class="path1"><span class="path2"></span></span>
+                              </span>
+                            </div>
+                            <input type="file" value = "{{ $setting->logo }}" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="preview_image" id="image" />
+							@if($setting->logo !="")
+								<img src="{{ asset('images/logo/'.$setting->logo) }}" alt="" />
+							@else
+								<img src="" alt="" class="d-none preview-img"/>
+							@endif
+							
+                        </div>
+                      </div> --}}
+
 				</div>
 
-				<div class="col-md-6">
-					@if($setting->logo !="")
-						<div class="logo-settings">
-							<img src="{{ asset('images/logo/'.$setting->logo) }}" alt="{{ $setting->logo }}" class="img-fluid">
-						</div>
-					@else
-						<div class="alert alert-danger">
-							{{ __('adminstaticword.Nologofound') }}
-						</div>
-					@endif
-				</div>
+			
 			</div>
 		</div>
 
-		<div class="col-md-4">
+		<div class="col-md-5">
 			<div class="row">
 				@if ($errors->has('favicon'))
                     <strong class="text-danger">{{ $errors->first('favicon') }}</strong>
@@ -77,22 +102,22 @@
                             </div>	
 							<input type="file" name="favicon" id="favi" class="form-control la-admin__preview-input  {{ $errors->has('favicon') ? ' is-invalid' : '' }} inputfile inputfile-1"/>
 							<label for="favi"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="30" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>{{ __('adminstaticword.Chooseafavicon') }}</span></label>
+			
+								@if($setting->favicon !="")
+									<div class="favicon-settings">
+										<img src="{{ asset('images/favicon/'.$setting->favicon) }}" alt="{{ $setting->favicon }}" class="img-fluid">
+									</div>
+								@else
+									<div class="alert alert-danger">
+										{{ __('adminstaticword.NoFaviconfound') }}
+									</div>
+								@endif
 						</div>
+						
 					</div>
 				</div>
 				
-				<div class="col-md-4">
-					@if($setting->favicon !="")
-						<div class="favicon-settings">
-							<img src="{{ asset('images/favicon/'.$setting->favicon) }}" alt="{{ $setting->favicon }}" class="img-fluid">
-						</div>
-					@else
-						<div class="alert alert-danger">
-							{{ __('adminstaticword.NoFaviconfound') }}
-						</div>
-					@endif
-
-				</div>
+				
 			</div>
 			<br>
 		</div>

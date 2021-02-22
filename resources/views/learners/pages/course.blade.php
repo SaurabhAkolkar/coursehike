@@ -467,7 +467,7 @@ use Carbon\Carbon;
                           </div>
                         </td>
                         <td class="la-vcourse__sclass-data la-vcourse__sclass-data--thumbnail">
-                          <img src="https://picsum.photos/68/46" alt="purchase item">
+                          <img src="{{ $class->thumbnail }}" alt="purchase item" class="img-thumbnail">
                         </td>
                         <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--name">{{$class->chapter_name}}</td>
                         <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--mentor">{{$course->user->fname}}</td>
@@ -725,10 +725,13 @@ use Carbon\Carbon;
             <div class="la-creator__content offset-lg-1 la-anim__wrap">
               <div class="la-creator__detail">
                   <h6 class="la-creator__name text-capitalize la-anim__stagger-item--x la-anim__C">{{$course->user->fullName}}</h6>
-                  <div class="la-creator__specialist mt-1 text-capitalize la-anim__stagger-item--x la-anim__D">Design</div>
+                  <div class="la-creator__specialist mt-1 text-capitalize la-anim__stagger-item--x la-anim__D">{{ $course->category->title }}</div>
               </div>
-
-              <div class="la-creator__para mb-6 la-anim__stagger-item--x">{{ $course->user->deatail }}</div>
+              @php
+                    $details = strip_tags($course->user->detail);
+                   $details = preg_replace("/&#?[a-z0-9]+;/i"," ",$details); 
+              @endphp 
+              <div class="la-creator__para mb-6 la-anim__stagger-item--x">{{ substr($details, 0, 200) }}</div>
                 <div class="la-creator__content-btn ">
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold la-anim__stagger-item--x la-anim__B">
                     <a href="/creator/{{$course->user->id}}">read about

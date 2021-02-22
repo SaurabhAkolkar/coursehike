@@ -32,7 +32,24 @@
                 </div>
               </div>
               <br>
-
+              
+            <div class="form-group col-8 p-0">
+              <label for="exampleInputDetails">{{ __('adminstaticword.Type') }}:<sup class="redstar">*</sup></label>
+              <select name="type" class="form-control">
+                  <option value="subscription" @if(old('type') == 'subscription') selected @endif>Subscription</option>
+                  <option value="payment_methods" @if(old('type') == 'payment_methods') selected @endif>Payment methods</option>
+                  <option value="free_trial" @if(old('type') == 'free_trial') selected @endif>Free Trial</option>
+                  <option value="single_course" @if(old('type') == 'single_course') selected @endif> Single Course</option>
+              </select>
+              @error('type')
+              <div class="alert alert-danger">
+                <ul>
+                      <li>{{ $message }}</li>
+                </ul>
+              </div>
+              @enderror
+            </div>
+            
               <div class="row">
                 <div class="col-md-8">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>

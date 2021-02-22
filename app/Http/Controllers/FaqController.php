@@ -43,7 +43,9 @@ class FaqController extends Controller
         ]);
         
         $input = $request->all();
+
         $data = FaqStudent::create($input);
+        $data->type = $request->type;
         $data->save();
 
         return redirect('faq');
@@ -91,7 +93,8 @@ class FaqController extends Controller
         $input = $request->all();
         
         $data->update($input);
-        
+        $data->type = $request->type;
+        $data->save();
         return redirect('faq'); 
     }
 
