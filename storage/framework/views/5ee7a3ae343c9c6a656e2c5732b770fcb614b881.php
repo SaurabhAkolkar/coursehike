@@ -45,8 +45,10 @@
                     $User = App\User::all();
                   ?>
                   <label for="exampleInputSlug"><?php echo e(__('adminstaticword.Instructor')); ?></label>
-                  <select name="user" class="form-control js-example-basic-single ">
-                    <option  value="<?php echo e($cor->id); ?>"><?php echo e($cor->user->fullName); ?></option>
+                  <select name="user_id" class="form-control js-example-basic-single ">
+                    <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      <option  value="<?php echo e($user->id); ?>" <?php if($user->id == $cor->user_id): ?> selected <?php endif; ?>)><?php echo e($user->fullName); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   </select>
                 </div>
               </div>

@@ -41,8 +41,8 @@ use Carbon\Carbon;
 <section class="la-section__small">
     <div class="la-vcourse">
       <div class="container">
-        <div class="row  mb-12"> 
-          <div class="col-12 col-md-7 col-lg-7 la-anim__wrap">
+        <div class="row  mb-12  la-anim__wrap"> 
+          <div class="col-12 col-md-7 col-lg-7">
             <div class="la-vcourse__header d-flex align-items-center ">
               <h1 class="la-vcourse__title  text-capitalize la-anim__fade-in-top">{{ $course->title }}</h1>
               {{-- <div class="la-vcourse__badges la-anim__stagger-item">
@@ -61,7 +61,7 @@ use Carbon\Carbon;
               
             </div>
             <p class="la-vcourse__excerpt mb-5 la-anim__stagger-item">{{ $course->short_detail }}</p>
-            <div class="la-vcourse__creator d-flex align-items-center">
+            <div class="la-vcourse__creator d-flex align-items-center la-anim__stagger-item">
               <div class="la-vcourse__creator-avator la-anim__fade-in-left"><img src="{{ $course->user->user_img }}" class="img-fluid" alt=""></div>
               <div class="la-vcourse__creator-name text-capitalize la-anim__stagger-item--x">{{ $course->user->fname }}</div>
             </div>
@@ -75,23 +75,23 @@ use Carbon\Carbon;
                 @endif
               </div>
 
-            <div class="la-vcourse__info-items d-flex align-items-center justify-content-end">
+            <div class="la-vcourse__info-items d-flex align-items-center justify-content-end la-anim__stagger-item--x">
               <div class="la-vcourse__info-item la-vcourse__info--videos d-flex flex-column align-items-center justify-content-end">
-                <div class="la--count la-anim__stagger-item--x">{{ $course->courseclass->count() }}</div>
-                <span class="la--label mt-2 la-anim__stagger-item--x">Videos</span>
+                <div class="la--count ">{{ $course->courseclass->count() }}</div>
+                <span class="la--label mt-2">Videos</span>
               </div>
               <div class="la-vcourse__info-item la-vcourse__info--learners d-flex flex-column align-items-center justify-content-end mx-10">
-                <div class="la--count la-anim__stagger-item--x">{{$course->learnerCount}}</div>
-                <span class="la--label mt-2 la-anim__stagger-item--x">Learners</span>
+                <div class="la--count">{{$course->learnerCount}}</div>
+                <span class="la--label mt-2">Learners</span>
               </div>
               <div class="la-vcourse__info-item la-vcourse__info--level d-flex flex-column align-items-center justify-content-end">
-                <div class="la--icon mt-n3">
+                <div class="la--icon mt-n3 la-anim__stagger-item--x">
                   @if($course->level == 1)
-                    <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-beginner la-anim__stagger-item--x"></span>
+                    <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-beginner"></span>
                   @elseif($course->level == 2)
-                  <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-intermediate la-anim__stagger-item--x"></span>
+                  <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-intermediate"></span>
                   @else
-                  <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-advanced la-anim__stagger-item--x"></span>
+                  <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-advanced"></span>
                   @endif
                 </div>
                 <div class="la--label mt-n2 la-anim__stagger-item--x">
@@ -108,22 +108,22 @@ use Carbon\Carbon;
           </div>
         </div>
 
-        <div class="row">
+        <div class="row la-anim__wrap">
           <div class="col">
-            <ul class="list-unstyled d-block d-lg-flex mb-6 la-anim__wrap">
-              <li class="la-vcourse__duration mr-14 la-anim__stagger-item la-anim__A"><span class="la-text-gray4">Duration: </span>  {{ $course->duration }} Hrs</li>
-              <li class="la-vcourse__updatedon mr-14 la-anim__stagger-item la-anim__A"><span class="la-text-gray4">Last Updated: </span>  {{ $course->updated_at->format('d-M Y') }}</li>
-              <li class="la-vcourse__languages mr-14 la-anim__stagger-item la-anim__A"> <span class="la-text-gray4">Languages: </span>  {{$course->language->name}} </li>
+            <ul class="list-unstyled d-block d-lg-flex mb-6 ">
+              <li class="la-vcourse__duration mr-14 la-anim__stagger-item"><span class="la-text-gray4">Duration: </span>  {{ $course->duration }} Hrs</li>
+              <li class="la-vcourse__updatedon mr-14 la-anim__stagger-item"><span class="la-text-gray4">Last Updated: </span>  {{ $course->updated_at->format('d-M Y') }}</li>
+              <li class="la-vcourse__languages mr-14 la-anim__stagger-item"> <span class="la-text-gray4">Languages: </span>  {{$course->language->name}} </li>
             </ul>
           </div>
-          <div class="col-12 la-vcourse__primary-info d-flex mb-2 la-anim__wrap">
+          <div class="col-12 la-vcourse__primary-info d-flex mb-2">
             <div class="la-vcourse__classes-info pr-2 la-anim__stagger-item--x">
-              <span class="la--count la-anim__stagger-item--x">{{ $course->chapter->count() }}</span>
-              <span class="la--label la-anim__stagger-item--x">Classes</span>
+              <span class="la--count">{{ $course->chapter->count() }}</span>
+              <span class="la--label">Classes</span>
             </div>
             <div class="la-vcourse__videos-info pl-2 la-anim__stagger-item--x">
-              <span class="la--count la-anim__stagger-item--x">{{ $course->courseclass->count() }}</span>
-              <span class="la--label la-anim__stagger-item--x">Videos</span>
+              <span class="la--count">{{ $course->courseclass->count() }}</span>
+              <span class="la--label">Videos</span>
               @php
                   $startTime = \Carbon\Carbon::parse('2020-12-05T01:18:36.862+00:30');
                   $finishTime = \Carbon\Carbon::parse('2020-12-05T01:18:36.862+1:30');
@@ -134,9 +134,9 @@ use Carbon\Carbon;
             </div>
           </div>
         </div>
-        <div id="vcourse_row" class="row la-vcourse__class-row ">
-          <div class="col-12 col-lg-6 la-vcourse__class-col px-0 px-md-4 la-anim__wrap">
-            <div class="la-player la-vcourse__video-wrap mb-3  la-anim__stagger-item">
+        <div id="vcourse_row" class="row la-vcourse__class-row  la-anim__wrap">
+          <div class="col-12 col-lg-6 la-vcourse__class-col px-0 px-md-4 la-anim__stagger-item">
+            <div class="la-player la-vcourse__video-wrap mb-3  ">
               <video-js
                 id="lila-video"
                 class="la-vcourse__video video-js"
@@ -163,10 +163,10 @@ use Carbon\Carbon;
             <small class="la-vlesson__creator text-capitalize la-anim__stagger-item">{{ $course->user->fname }}</small>
           </div>
 
-          <div class="col-12 col-lg-6 la-vcourse__class-col px-0 px-md-2 la-anim__wrap">
-            <div class="la-vcourse__curriculam la-anim__stagger-item--x">
+          <div class="col-12 col-lg-6 la-vcourse__class-col px-0 px-md-2 la-anim__stagger-item--x">
+            <div class="la-vcourse__curriculam ">
               @foreach($course->chapter as $class)
-              <div class="la-vcourse__class la-anim__stagger-item la-anim__E">
+              <div class="la-vcourse__class la-anim__stagger-item">
                 <div class="la-vcourse__class-header d-flex mb-7 ml-5 ">
                   <div class="la-vcourse__class-thumb mr-3"><img class="img-fluid" src="{{$class->thumbnail}}"></div>
                   <div class="d-flex flex-column">
@@ -219,13 +219,13 @@ use Carbon\Carbon;
   <section class="la-section__small">
     <div class="la-section__inner">
       <div class="container">
-        <div class="la-ctabs d-none d-sm-block">
-          <nav class="la-courses__nav ">
-            <ul class="nav nav-pills la-courses__nav-tabs la-anim__wrap" id="cnav-tab" role="tablist">
-              <li class="nav-item la-courses__nav-item la-anim__stagger-item--x"><a class="nav-link la-courses__nav-link active text-capitalize" id="cnav-about-tab" data-toggle="tab" href="#cnav-about" role="tab" aria-controls="cnav-about" aria-selected="true">About</a></li>
+        <div class="la-ctabs d-none d-sm-block la-anim__wrap">
+          <nav class="la-courses__nav la-anim__stagger-item--x">
+            <ul class="nav nav-pills la-courses__nav-tabs " id="cnav-tab" role="tablist">
+              <li class="nav-item la-courses__nav-item "><a class="nav-link la-courses__nav-link active text-capitalize" id="cnav-about-tab" data-toggle="tab" href="#cnav-about" role="tab" aria-controls="cnav-about" aria-selected="true">About</a></li>
               @if($video_access == true)
-                <li class="nav-item la-courses__nav-item la-anim__stagger-item--x"><a class="nav-link la-courses__nav-link text-capitalize" id="cnav-resource-tab" data-toggle="tab" href="#cnav-resource" role="tab" aria-controls="cnav-resource" aria-selected="false">Resources</a></li>
-                <li class="nav-item la-courses__nav-item la-anim__stagger-item--x"><a class="nav-link la-courses__nav-link text-capitalize" id="cnav-certificate-tab" data-toggle="tab" href="#cnav-certificate" role="tab" aria-controls="cnav-certificate" aria-selected="false">Certificate</a></li>
+                <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link text-capitalize" id="cnav-resource-tab" data-toggle="tab" href="#cnav-resource" role="tab" aria-controls="cnav-resource" aria-selected="false">Resources</a></li>
+                <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link text-capitalize" id="cnav-certificate-tab" data-toggle="tab" href="#cnav-certificate" role="tab" aria-controls="cnav-certificate" aria-selected="false">Certificate</a></li>
               @endif
             </ul>
           </nav>
@@ -233,14 +233,14 @@ use Carbon\Carbon;
             <div class="tab-pane fade show active" id="cnav-about" role="tabpanel" aria-labelledby="cnav-about-tab">
               <div class="col-lg-9 px-0">
                 <div class="col-12 col-lg px-0 la-anim__wrap">
-                  <div class="la-ctabs__about la-anim__stagger-item la-anim__C">
+                  <div class="la-ctabs__about la-anim__stagger-item ">
                     <p>{{ $course->short_detail }}</p>
                     <span class="la-ctabs__about-collapse collapse" id="about_collapse">
                       {!! $course->detail !!}
                     </span>
                   </div>
                   
-                  <div class="la-vcourse__btn-wrap text-right mt-3 la-anim__stagger-item la-anim__C">
+                  <div class="la-vcourse__btn-wrap text-right mt-3 la-anim__stagger-item ">
                     <a class="la-btn__arrow-down la-vcourse__btn-collapse d-inline-block text-center collapsed" data-toggle="collapse" href="#about_collapse">
                       <div class="la-vcourse__btn-text la-btn__text la-btn__text--purple pt-4">Read More</div>
                     </a>
@@ -295,19 +295,19 @@ use Carbon\Carbon;
 
         <!-- Mobile Version: Start -->
         <div class="la-ctabs d-block d-sm-none">
-          <div class="la-ctabs__content">
+          <div class="la-ctabs__content la-anim__wrap">
             <!-- About -->
-            <div class="col-12 mb-6 px-0 la-anim__wrap">
+            <div class="col-12 mb-6 px-0 ">
               <h5 class="la-ctabs__title mb-4 la-anim__stagger-item">About</h5>
                 <div class="col-12 col-lg px-0">
-                  <div class="la-ctabs__about la-anim__stagger-item--x la-anim__B">
+                  <div class="la-ctabs__about la-anim__stagger-item--x">
                     {!! $course->detail !!}
                     <span class="la-ctabs__about-collapse collapse" id="read_more">
                       {!! $course->detail !!}
                     </span>
                   </div>
                  
-                  <div class="la-vcourse__btn-wrap text-center la-anim__stagger-item--x la-anim__B">
+                  <div class="la-vcourse__btn-wrap text-center la-anim__stagger-item--x">
                     <a class="la-btn__arrow-down la-vcourse__btn-collapse d-inline-block text-center collapsed" data-toggle="collapse" href="#read_more">
                       <div class="la-vcourse__btn-text la-btn__text la-btn__text--purple pt-4">Read More</div>
                     </a>
@@ -317,7 +317,7 @@ use Carbon\Carbon;
 
             <!-- Resources -->
             @if($video_access == true)
-            <div class="col-12 mb-4 px-0 la-anim__wrap">
+            <div class="col-12 mb-4 px-0">
               <h5 class="la-ctabs__title mb-4 la-anim__stagger-item">Resources</h5>
 
               @if(count($course->resources) == 0)
@@ -344,7 +344,7 @@ use Carbon\Carbon;
             
 
             <!-- Certificate -->
-            <div class="col-12 mb-4 px-0 la-anim__wrap">
+            <div class="col-12 mb-4 px-0">
               <h5 class="la-ctabs__title mb-4 la-anim__stagger-item">Certificate</h5>
               <div class="col-12 col-md-6 col-lg px-0">
                 <div class="la-ctabs__certificate d-flex">
@@ -467,7 +467,7 @@ use Carbon\Carbon;
                           </div>
                         </td>
                         <td class="la-vcourse__sclass-data la-vcourse__sclass-data--thumbnail">
-                          <img src="{{ $class->thumbnail }}" alt="purchase item" class="img-thumbnail">
+                          <img src="{{ $class->thumbnail }}" alt="purchase item" class="img-fluid d-block">
                         </td>
                         <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--name">{{$class->chapter_name}}</td>
                         <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--mentor">{{$course->user->fname}}</td>
@@ -492,7 +492,7 @@ use Carbon\Carbon;
         
         @if ( !(auth()->check() && auth()->user()->subscription('main') && auth()->user()->subscription('main')->active()) )
           <div class="col-md-5 col-lg-4 offset-lg-1 px-lg-0 my-auto la-vcourse__purchase-right la-anim__wrap">
-            <div class="la-vcourse__purchase-content text-center la-anim__stagger-item--x la-anim__B">
+            <div class="la-vcourse__purchase-content text-center la-anim__stagger-item--x">
               <div class="la-vcourse__purchase-prize mb-8 la-anim__stagger-item--x">Subscribe for all Courses @ <span class="la-vcourse__purchase-prize--amount"><b>{{$subscription_rate}}/month</b></span></div>
               <p class="la-anim__stagger-item--x">Access all the current and future courses at the tiny monthly subscription payment</p>
               <div class="la-vcourse__purchase-actions d-inline-block text-center mt-8">
@@ -501,7 +501,7 @@ use Carbon\Carbon;
                 </div>
 
                 <div class="pt-2">
-                  <a href="/learning-plans"  class="la-vcourse__purchase-trial--lnk text-left la-anim__stagger-item--x la-anim__C">
+                  <a href="/learning-plans"  class="la-vcourse__purchase-trial--lnk text-left la-anim__stagger-item--x ">
                     Get free 7 Days trial
                   </a>
                 </div>
@@ -714,26 +714,26 @@ use Carbon\Carbon;
           <div class="col-md-6 col-lg-5 la-creator la-anim__wrap">
             <div class="la-creator__wrap d-flex justify-content-center justify-content-md-start position-relative">
               <div class="la-creator__inwrap la-anim__stagger-item">
-                <div class="la-creator__img la-anim__fade-in-top la-anim__B">
+                <div class="la-creator__img la-anim__fade-in-top ">
                   <img class="img-fluid mx-auto d-block" src="{{$course->user->user_img}}" alt="{{$course->user->fullName}}">
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-7 my-auto">
-            <div class="la-creator__content offset-lg-1 la-anim__wrap">
+          <div class="col-md-6 col-lg-7 my-auto la-anim__wrap">
+            <div class="la-creator__content offset-lg-1 ">
               <div class="la-creator__detail">
-                  <h6 class="la-creator__name text-capitalize la-anim__stagger-item--x la-anim__C">{{$course->user->fullName}}</h6>
-                  <div class="la-creator__specialist mt-1 text-capitalize la-anim__stagger-item--x la-anim__D">{{ $course->category->title }}</div>
+                  <h6 class="la-creator__name text-capitalize la-anim__stagger-item--x">{{$course->user->fullName}}</h6>
+                  <div class="la-creator__specialist mt-1 mb-3 text-capitalize la-anim__stagger-item--x">{{ $course->category->title }}</div>
               </div>
               @php
                     $details = strip_tags($course->user->detail);
                    $details = preg_replace("/&#?[a-z0-9]+;/i"," ",$details); 
               @endphp 
-              <div class="la-creator__para mb-6 la-anim__stagger-item--x">{{ substr($details, 0, 200) }}</div>
-                <div class="la-creator__content-btn ">
-                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold la-anim__stagger-item--x la-anim__B">
+              <div class="la-creator__para mb-6 la-anim__stagger-item--x">{{ substr($details, 0, 200) }}...</div>
+                <div class="la-creator__content-btn la-anim__stagger-item--x  ">
+                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold ">
                     <a href="/creator/{{$course->user->id}}">read about
                     <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow "></span></a>
                   </div>
@@ -765,7 +765,7 @@ use Carbon\Carbon;
                 </div>         
             @else
 
-            <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item--x la-anim__B">
+            <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item--x ">
               @foreach ($mentor_other_courses as $course)
                     <x-course 
                     :id="$course->id"
@@ -803,7 +803,7 @@ use Carbon\Carbon;
 
           @else
 
-            <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item--x la-anim__B">
+            <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item--x ">
               @foreach ($related_courses as $course)
                   <x-course 
                       :id="$course->id"

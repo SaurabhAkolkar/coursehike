@@ -13,6 +13,13 @@ $(function(){
   });
   // Navbar Dropdown Toggle: End
 
+  // Nested Links in Course Cards
+  $('#la-course__nested-links li').on('click', function(e) {
+    var value = $(this).children('a').attr('value');
+    e.preventDefault();
+    console.log(value)
+  });
+
   // Home Video On scroll Pause/Play: Start
   /*$(window).on("scroll",function(){
     if($(window).scrollTop()>500){      
@@ -32,13 +39,6 @@ $(function(){
     });
   }, 5000);
   // Global Alert Animation for Learners: End
-
-  // Nested Links in Course Cards
-  $('#la-course__nested-links li').on('click', function(e) {
-    var value = $(this).children('a').attr('value');
-    e.preventDefault();
-    console.log(value)
-  });
 
 
   //- Carousel Indiactors for Nav Tabs

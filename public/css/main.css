@@ -17903,11 +17903,13 @@ a, a:hover {
   transform: scale(1.1);
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
+  border-radius: var(--size-2);
 }
 .la-course__inner a:hover > .la-course__imgwrap img {
   transform: scale(1.1);
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
+  border-radius: var(--size-2);
 }
 .la-course__imgwrap {
   border-radius: var(--size-2);
@@ -17918,6 +17920,9 @@ a, a:hover {
   width: 100%;
   height: 220px;
 }
+.la-course__imgwrap:hover {
+  border-radius: var(--size-2);
+}
 .la-course__imgwrap img {
   -o-object-fit: cover;
      object-fit: cover;
@@ -17927,6 +17932,9 @@ a, a:hover {
   transition: transform 0.24s ease-out;
   -webkit-transition: transform 0.24s ease-out;
   -moz-transition: transform 0.24s ease-out;
+}
+.la-course__imgwrap img:hover {
+  border-radius: var(--size-2);
 }
 .la-course__overlay {
   display: flex;
@@ -18404,6 +18412,12 @@ a, a:hover {
 }
 .la-vcourse__sclass-data:nth-child(5) {
   width: 10%;
+}
+.la-vcourse__sclass-data--thumbnail img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .la-vcourse__lesson {
   --videoW: 148px;
@@ -20399,7 +20413,7 @@ a, a:hover {
   -webkit-transition: transform 0.26s ease-out;
   -moz-transition: transform 0.26s ease-out;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .la-cmenu {
     transform: translate3d(-10px, 42px, -40px) !important;
     -webkit-transform: translate3d(-10px, 42px, -40px) !important;
@@ -22989,7 +23003,7 @@ section.la-bgcreator--faq {
 }
 @media (max-width: 767px) {
   .la-bgcreator__panel-head {
-    padding: 0 var(--size-6);
+    padding: 0 var(--size-4);
   }
 }
 
@@ -23050,7 +23064,7 @@ section.la-bgcreator--faq {
 }
 @media (max-width: 767px) {
   .la-bgcreator__panel-body {
-    padding: var(--size-4) 0 0 var(--size-6);
+    padding: var(--size-4) 0 0 var(--size-4);
   }
 }
 
@@ -24097,12 +24111,24 @@ section.la-lp--sub-faq {
 .la-lp__faq-panel {
   background: #ffffff;
   border-radius: 10px;
-  padding: var(--size-base) var(--size-3);
+  padding: var(--size-base) var(--size-base);
+  position: relative;
+  display: block;
+}
+.la-lp__faq-panel:not(.collapsed) {
+  display: block;
+}
+
+.la-lp__faq-sub {
+  position: relative;
+  display: block;
 }
 
 .la-lp__faq-title a {
   font-weight: var(--font-medium);
   color: rgba(1, 1, 1, 0.5);
+  position: relative;
+  display: block;
 }
 .la-lp__faq-title a:after {
   font-family: "icomoon";
@@ -24123,8 +24149,7 @@ section.la-lp--sub-faq {
   -ms-transition: all 0.25s ease-in;
   -o-transition: all 0.25s ease-in;
 }
-
-.main-toggle.collapsed:after {
+.la-lp__faq-title a.collapsed:after {
   content: "\E96D";
   transform: rotate(0);
   -webkit-transform: rotate(0);

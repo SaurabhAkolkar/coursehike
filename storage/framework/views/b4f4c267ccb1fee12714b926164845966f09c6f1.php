@@ -38,10 +38,10 @@
 
                                 <li class="la-course__option">
                                         <div class="dropdown">
-                                            <span class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);">
+                                            <div class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" id="course_options" role="button" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">
                                                 <i class="la-icon la-icon--2xl icon icon-menu"></i>
-                                            </span>
-                                            <div class="la-cmenu dropdown-menu py-0">
+                                            </div>
+                                            <div class="la-cmenu dropdown-menu py-0" arial-labelledby="course_options">
                                                 <?php if(Auth::check()): ?>
                                                     <span class="dropdown-item la-cmenu__item d-inline-flex" <?php if($removeFromPlaylist): ?> onclick="location.href='<?php echo e(url()->current()); ?>/<?php echo e($id); ?>'"  <?php else: ?> onclick="showAddToPlaylist(<?php echo e($id); ?>)" <?php endif; ?>><i class="icon icon-playlist la-icon la-cmenu__item-icon mr-2"></i> <?php if($removeFromPlaylist): ?> Remove from Playlist  <?php else: ?> Add to Playlist <?php endif; ?></span>
                                                     <span class="dropdown-item la-cmenu__item d-inline-flex" <?php if($addedToWhishList): ?> onclick="location.href='/remove-from-wishlist/<?php echo e($id); ?>'" <?php else: ?> onclick="addToWishList(<?php echo e($id); ?>)" <?php endif; ?>><i class="icon icon-wishlist la-icon la-cmenu__item-icon mr-2"></i> <?php if($addedToWhishList): ?> Remove from Wishlist <?php else: ?> Add to Wishlist <?php endif; ?> </span>

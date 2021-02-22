@@ -22,7 +22,7 @@
               <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><i class="flaticon-email" aria-hidden="true"></i> {{ __('adminstaticword.MailSetting') }}</a></li>
               <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><i class="flaticon-test" aria-hidden="true"></i> {{ __('adminstaticword.CustomStyleandJS') }}</a></li>
               <li role="presentation"><a href="#soc-settings" aria-controls="settings" role="tab" data-toggle="tab"><i class="flaticon-share" aria-hidden="true"></i>&nbsp;&nbsp;{{ __('adminstaticword.SocialLoginSetting') }}</a></li>
-            </ul> --}}
+            </ul> 
 
             <!-- Tab panes -->
             <div class="tab-content">

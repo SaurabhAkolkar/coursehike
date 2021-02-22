@@ -350,6 +350,13 @@
                         &:nth-child(5) {
                             width: 10%;
                         }
+
+                        &--{
+                            &thumbnail img{
+                                object-fit: cover;
+                                object-position: center;
+                            }
+                        }
                     }
                 }
             }

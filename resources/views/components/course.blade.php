@@ -38,10 +38,10 @@
 
                                 <li class="la-course__option">
                                         <div class="dropdown">
-                                            <span class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);">
+                                            <div class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" id="course_options" role="button" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">
                                                 <i class="la-icon la-icon--2xl icon icon-menu"></i>
-                                            </span>
-                                            <div class="la-cmenu dropdown-menu py-0">
+                                            </div>
+                                            <div class="la-cmenu dropdown-menu py-0" arial-labelledby="course_options">
                                                 @if(Auth::check())
                                                     <span class="dropdown-item la-cmenu__item d-inline-flex" @if($removeFromPlaylist) onclick="location.href='{{url()->current()}}/{{$id}}'"  @else onclick="showAddToPlaylist({{$id}})" @endif><i class="icon icon-playlist la-icon la-cmenu__item-icon mr-2"></i> @if($removeFromPlaylist) Remove from Playlist  @else Add to Playlist @endif</span>
                                                     <span class="dropdown-item la-cmenu__item d-inline-flex" @if($addedToWhishList) onclick="location.href='/remove-from-wishlist/{{$id}}'" @else onclick="addToWishList({{$id}})" @endif><i class="icon icon-wishlist la-icon la-cmenu__item-icon mr-2"></i> @if($addedToWhishList) Remove from Wishlist @else Add to Wishlist @endif </span>
