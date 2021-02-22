@@ -87,7 +87,7 @@ $global_settings = App\Setting::first();
         </a>
 
         <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav d-inline-block mx-10">
+          <ul class="nav navbar-nav d-inline-block mx-lg-10">
             <!-- Messages: style can be found in dropdown.less-->
             <?php
                 $languages = App\Language::all(); 

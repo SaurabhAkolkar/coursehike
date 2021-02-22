@@ -15,7 +15,7 @@
             <?php echo e(method_field('PATCH')); ?>
 
 
-            <div class="form-group col-8 p-0">              
+            <div class="form-group col-md-8 p-0">              
         
 
               <label for="exampleInputName"><?php echo e(__('adminstaticword.Title')); ?>:<sup class="redstar">*</sup></label>
@@ -40,10 +40,10 @@ unset($__errorArgs, $__bag); ?>
             <div class="form-group col-8 p-0">
               <label for="exampleInputType"><?php echo e(__('adminstaticword.Type')); ?>:<sup class="redstar">*</sup></label>
               <select name="type" class="form-control">
-                  <option value="subscription" <?php if(old('type') == 'subscription'): ?> selected <?php endif; ?>>Subscription</option>
-                  <option value="payment_methods" <?php if(old('type') == 'payment_methods'): ?> selected <?php endif; ?>>Payment methods</option>
-                  <option value="free_trial" <?php if(old('type') == 'free_trial'): ?> selected <?php endif; ?>>Free Trial</option>
-                  <option value="single_course" <?php if(old('type') == 'single_course'): ?> selected <?php endif; ?>> Single Course</option>
+                  <option value="subscription" <?php if(old('type') == 'subscription' || $find->type =="subscription"): ?> selected <?php endif; ?>>Subscription</option>
+                  <option value="payment_methods" <?php if(old('type') == 'payment_methods' || $find->type =="payment_methods"): ?> selected <?php endif; ?>>Payment methods</option>
+                  <option value="free_trial" <?php if(old('type') == 'free_trial' || $find->type =="free_trial"): ?> selected <?php endif; ?>>Free Trial</option>
+                  <option value="single_course" <?php if(old('type') == 'single_course' || $find->type =="single_course"): ?> selected <?php endif; ?>> Single Course</option>
               </select>
               <?php $__errorArgs = ['type'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -61,7 +61,7 @@ endif;
 unset($__errorArgs, $__bag); ?>
             </div>
 
-            <div class="form-group col-8 p-0">
+            <div class="form-group col-md-8 p-0">
               <label for="exampleInputDetails"><?php echo e(__('adminstaticword.Detail')); ?>:<sup class="redstar">*</sup></label>
               <textarea class="form-control" name="details"> <?php echo e($find->details); ?></textarea>
               <?php $__errorArgs = ['details'];
@@ -79,13 +79,13 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
             </div>
-            <div class="form-group col-8 p-0">
+            <div class="form-group col-md-8 p-0">
             <label for="exampleInputTit1e"><?php echo e(__('adminstaticword.Status')); ?>:</label>
             <li class="tg-list-item">              
                 <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" <?php echo e($find->status == '1' ? 'checked' : ''); ?> >
                 <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
             </li>
-            <input type="hidden"  name="status" value="0" for="status" id="status_input">
+            <input type="hidden"  name="status" value="<?php echo e($find->status); ?>" for="status" id="status_input">
             <br>
             <div class="box-footer">
             <button type="submit" class="btn btn-lg col-md-3 btn-primary"><?php echo e(__('adminstaticword.Save')); ?></button>
