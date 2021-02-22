@@ -286,6 +286,18 @@
     });
  
   });
+
+  function toggleRadioButton(id){
+
+      if($('.selected_classes'+id).not(":checked"))
+      {
+        $('#select_classes_'+id).prop('checked', true);
+      }
+      if ($('.selected_classes'+id+':checked').length == $('.selected_classes'+id).length) {
+        $('#all_classes_'+id).prop('checked', true);
+      }
+
+  }
 </script>
 
 @endsection
