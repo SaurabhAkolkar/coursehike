@@ -46,6 +46,7 @@
                           :creatorImg="$course->course->user->user_img"
                           :creatorName="$course->course->user->fullName"
                           :creatorUrl="$course->course->user->id"
+                          :price="$course->course->price"
                           :learnerCount="$course->course->learnerCount"
                         />
                       @endforeach
@@ -93,6 +94,7 @@
                       :creatorImg="$course->user->user_img"
                       :creatorName="$course->user->fullName"
                       :creatorUrl="$course->user->id"
+                      :price="$course->price"
                       :learnerCount="$course->learnerCount"
                     />
                   @endforeach

@@ -1,7 +1,7 @@
 <?php $__env->startSection('content'); ?>
 <div class="la-profile">
     <div class="la-profile__wrap">
-      
+      <!-- testing git -->
       <!-- Side Navbar: Start -->
       <?php echo $__env->make('learners.pages.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
       <!-- Side Navbar: End -->  
