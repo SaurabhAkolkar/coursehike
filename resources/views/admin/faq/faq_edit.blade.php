@@ -10,10 +10,12 @@
         <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.FAQ') }}</h3>
         
         <div class="box-body">
-            <div class="form-group col-md-8 p-0">              
           <form id="demo-form2" method="post" action="{{url('faq/'.$find->id)}}" data-parsley-validate class="form-horizontal form-label-left"  enctype="multipart/form-data">
-              {{ csrf_field() }}
-              {{method_field('PATCH')}}
+            {{ csrf_field() }}
+            {{method_field('PATCH')}}
+
+            <div class="form-group col-md-8 p-0">              
+        
 
               <label for="exampleInputName">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
               <input type="text" class="form-control" name="title" id="exampleInputTitle" value="{{$find->title}}">
@@ -26,6 +28,24 @@
               @enderror
             
             </div>
+
+            <div class="form-group col-8 p-0">
+              <label for="exampleInputType">{{ __('adminstaticword.Type') }}:<sup class="redstar">*</sup></label>
+              <select name="type" class="form-control">
+                  <option value="subscription" @if(old('type') == 'subscription') selected @endif>Subscription</option>
+                  <option value="payment_methods" @if(old('type') == 'payment_methods') selected @endif>Payment methods</option>
+                  <option value="free_trial" @if(old('type') == 'free_trial') selected @endif>Free Trial</option>
+                  <option value="single_course" @if(old('type') == 'single_course') selected @endif> Single Course</option>
+              </select>
+              @error('type')
+              <div class="alert alert-danger">
+                <ul>
+                      <li>{{ $message }}</li>
+                </ul>
+              </div>
+              @enderror
+            </div>
+
             <div class="form-group col-md-8 p-0">
               <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
               <textarea class="form-control" name="details"> {{$find->details}}</textarea>

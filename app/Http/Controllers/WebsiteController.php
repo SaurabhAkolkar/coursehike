@@ -29,6 +29,7 @@ class WebsiteController extends Controller
     public function learningPlans(){
 
         $faqs = FaqStudent::where(['status'=>1])->get();
+
         $testimonial = Testimonial::where(['status'=>1, 'type'=>'learner'])->get()->take(3);
 
         $country = 'US';

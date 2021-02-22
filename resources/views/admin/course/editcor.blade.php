@@ -55,8 +55,10 @@
                     $User = App\User::all();
                   @endphp
                   <label for="exampleInputSlug">{{ __('adminstaticword.Instructor') }}</label>
-                  <select name="user" class="form-control js-example-basic-single ">
-                    <option  value="{{ $cor->id }}">{{ $cor->user->fullName }}</option>
+                  <select name="user_id" class="form-control js-example-basic-single ">
+                    @foreach($users as $user)
+                      <option  value="{{ $user->id }}" @if($user->id == $cor->user_id) selected @endif)>{{ $user->fullName }}</option>
+                    @endforeach
                   </select>
                 </div>
               </div>

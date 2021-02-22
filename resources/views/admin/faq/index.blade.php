@@ -20,6 +20,7 @@
                 <th>#</th>
                 <th>{{ __('adminstaticword.Question') }}</th>
                 <th>{{ __('adminstaticword.Answer') }}</th>
+                <th>{{ __('adminstaticword.Type') }}</th>
                 <th>{{ __('adminstaticword.Status') }}</th>
                 <th>{{ __('adminstaticword.Edit') }}</th>
                 <th>{{ __('adminstaticword.Delete') }}</th>
@@ -31,6 +32,7 @@
                 <td>{{$key+1}}</td>
                 <td>{{$p->title}}</td>                 
                 <td>{!! str_limit(strip_tags($p->details), $limit = 60, $end = '...') !!}</td>
+                <td>{{ ucfirst(str_replace('_',' ',$p->type)) }}</td>
                 <td>
                   <form action="{{ route('faq.quick',$p->id) }}" method="POST">
                     {{ csrf_field() }}
