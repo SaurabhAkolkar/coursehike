@@ -40,45 +40,45 @@
               <td><?php echo e(ucfirst($p->type)); ?></td>
               <td><?php echo e($p->client_name); ?></td>
               <td> <div class="la-course__rating ml-auto">
-                <div class="la-rtng__pg-rtng d-inline-flex pl-3">
+                <div class="la-rtng__pg-rtng d-inline-flex">
                     <?php if($p->rating == 5): ?>
-                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow "></div>
-                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow "></div>
-                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
-                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
-                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--sm icon-star la-rtng__fill text-yellow "></div>
+                        <div class="la-icon--sm icon-star la-rtng__fill text-yellow "></div>
+                        <div class="la-icon--sm icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--sm icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--sm icon-star la-rtng__fill text-yellow"></div>
                     <?php elseif($p->rating >= 4): ?>
-                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
-                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
-                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
-                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
-                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--sm icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--sm icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--sm icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--sm icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--sm icon-star la-rtng__unfill"></div>
                     <?php elseif($p->rating >= 3): ?>
-                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
-                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
-                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
-                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
-                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--sm icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--sm icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--sm icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--sm icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--sm icon-star la-rtng__unfill"></div>
 
                     <?php elseif($p->rating >= 2): ?>
                     
-                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
-                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
-                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
-                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
-                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--sm icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--sm icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--sm icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--sm icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--sm icon-star la-rtng__unfill"></div>
                     <?php elseif($p->rating >= 1): ?>
-                        <div class="la-icon--lg icon-star la-rtng__fill text-yellow"></div>
-                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
-                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
-                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
-                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--sm icon-star la-rtng__fill text-yellow"></div>
+                        <div class="la-icon--sm icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--sm icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--sm icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--sm icon-star la-rtng__unfill"></div>
                     <?php else: ?>
-                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
-                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
-                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
-                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
-                        <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--sm icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--sm icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--sm icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--sm icon-star la-rtng__unfill"></div>
+                        <div class="la-icon--sm icon-star la-rtng__unfill"></div>
                     <?php endif; ?>
                 </div>
             </div></td>

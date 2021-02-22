@@ -52,7 +52,7 @@
             
 
             <!-- Tab panes -->
-            <div class="tab-content">
+            <div class="tab-content px-0">
               <div role="tabpanel" class="tab-pane fadein active" id="a">
                 @include('admin.course.editcor')
               </div>

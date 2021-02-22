@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="box box-primary">
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-md-flex justify-content-between align-items-center">
           <h3 class="la-admin__section-title ml-2"><?php echo e(__('adminstaticword.CourseLanguage')); ?></h3>
           <a data-toggle="modal" data-target="#myModaljjh" href="#" class="btn btn-info btn-sm">
             <span class="la-icon la-icon--sm icon-plus"></span> <?php echo e(__('adminstaticword.Add')); ?> <?php echo e(__('adminstaticword.CourseLanguage')); ?></a>
@@ -105,10 +105,9 @@ endif;
 unset($__errorArgs, $__bag); ?>
                       </div>
                     </div>
-                    <br/>
-
+                    
                     <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-6 mt-3 mt-md-0">
                         <label for="exampleInputSlug">ISO Code:<sup class="redstar">*</sup></label>
                         <input type="text" class="form-control" name="iso_code" placeholder="Eg, en, hi, ta, etc,." value="" required> 
                           <?php $__errorArgs = ['iso_code'];
@@ -125,7 +124,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-6  mt-3 mt-md-0">
                         <label for="exampleInputDetails"><?php echo e(__('adminstaticword.Status')); ?>:</label>
                           <li class="tg-list-item">              
                           <input class="la-admin__toggle-switch" id="welmail" type="checkbox" name="status" >

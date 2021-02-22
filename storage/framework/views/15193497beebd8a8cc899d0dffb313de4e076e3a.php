@@ -34,7 +34,7 @@
               <?php echo e(csrf_field()); ?> 
   
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 mt-4 mt-md-6">
                   <label><?php echo e(__('adminstaticword.Category')); ?>:<span class="redstar">*</span></label>
                   <select name="category_id" id="category_id" class="form-control js-example-basic-single">
                     <option value="0"><?php echo e(__('adminstaticword.SelectanOption')); ?></option>
@@ -43,14 +43,14 @@
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   </select>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mt-4 mt-md-6">
                   <label><?php echo e(__('adminstaticword.SubCategory')); ?>:<span class="redstar">*</span></label>
                     <select name="subcategory_id" id="upload_id" class="form-control js-example-basic-single">
                     </select>
                 </div>
                 
                 <?php if(Auth::user()->role == 'admin'): ?>
-                  <div class="col-md-4">
+                  <div class="col-md-4 mt-4 mt-md-6">
                     <label for="exampleInputTit1e"><?php echo e(__('adminstaticword.Instructor')); ?></label>
                       <select name="user_id" class="form-control js-example-basic-single ">
                       <?php $__currentLoopData = $user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $u): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -60,7 +60,7 @@
                   </div>
                 <?php endif; ?>
                 <?php if(Auth::user()->role == 'mentors'): ?>
-                <div class="col-md-3">
+                <div class="col-md-4 mt-4 mt-md-6">
                   <label for="exampleInputTit1e"><?php echo e(__('adminstaticword.Instructor')); ?></label>
                     <select name="user_id" class="form-control js-example-basic-single ">
                         <option value="<?php echo e(Auth::user()->id); ?>"><?php echo e(Auth::user()->fname); ?></option>
@@ -69,14 +69,14 @@
                 <?php endif; ?>
 
               </div>
-              <br>
+              
 
-              <div class="row">
-                <div class="col-md-6">
+              <div class="row ">
+                <div class="col-md-6 mt-4 mt-md-6">
                   <label for="exampleInputTit1e"><?php echo e(__('adminstaticword.Title')); ?>: <sup class="redstar">*</sup></label>
                   <input type="title" class="form-control" name="title" id="exampleInputTitle" placeholder="Please Enter Your Title" value="" required>
                 </div>
-                <div class="col-md-6"> 
+                <div class="col-md-6 mt-4 mt-md-6"> 
                   <label><?php echo e(__('adminstaticword.Language')); ?>: <span class="redstar">*</span></label>
                   <select name="language_id" class="form-control js-example-basic-single">
                     <?php
@@ -88,9 +88,9 @@
                   </select> 
                 </div>
               </div>
-              <br>
+             
               <div class="row">
-                <div class="col-md-6"> 
+                <div class="col-md-6 mt-4 mt-md-6"> 
                   <label><?php echo e(__('adminstaticword.level')); ?>: <span class="redstar">*</span></label>
                   <select name="level" class="form-control js-example-basic-single">
                     <option selected disabled > Select Level</option>
@@ -100,33 +100,32 @@
                   </select> 
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6 mt-4 mt-md-6">
                       <label for="exampleInputSlug">Course Duration(in Hours)</label>
                       <input min="1" class="form-control" name="duration" type="number" id="duration"  placeholder="Enter Duration in hours">
                 </div>
               </div>
 
-              <br>
+              
 
               <div class="row">
                 
               </div>
-              <br>
+              
                  
-              <div class="row">
-                <div class="col-md-6">
+              <div class="row ">
+                <div class="col-md-6 mt-4 mt-md-6">
                   <label for="exampleInputTit1e"><?php echo e(__('adminstaticword.ShortDetail')); ?>: <sup class="redstar">*</sup></label>
                   <textarea name="short_detail" rows="3"  class="form-control" placeholder="Enter Your Detail" required ></textarea>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mt-4 mt-md-6">
                   <label for="exampleInputTit1e"><?php echo e(__('adminstaticword.Requirements')); ?>: <sup class="redstar">*</sup></label>
                   <textarea name="requirement" rows="3"  class="form-control" placeholder="Enter Requirements" required ></textarea>
                 </div>
               </div>           
-              <br> 
-
+              
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 mt-4 mt-md-6">
                   <label for="exampleInputTit1e"><?php echo e(__('adminstaticword.Detail')); ?>: <sup class="redstar">*</sup></label>
                   <textarea id="detail" name="detail" rows="3" class="form-control"></textarea>
                 </div>
@@ -160,7 +159,7 @@
                                   <p>This course is accessible by all Subscribers & also available for life-time purchase. </p>
                                   <p>Please enter the Course cost for One-Time Purchase</p>
                                   <div class="form-group row  la-admin__subform-group">
-                                      <div class="input-group col-sm-6 la-admin__subinput-group">
+                                      <div class="input-group col-10 col-sm-6 la-admin__subinput-group">
                                         <div class="input-group-prepend la-admin__subinput-prepend" >
                                             <span class="fa fa-dollar input-group-text la-admin__subinput-text"></span> 
                                         </div>

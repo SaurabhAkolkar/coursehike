@@ -76,8 +76,8 @@
               </div>
           </div>
 
-          <div class="row mt-3">
-            <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-4 mt-4 mt-md-0">
               <label>{{ __('adminstaticword.Linkedto') }}:<span class="redstar">*</span></label>
               
                 <select required="" name="link_by" id="link_by" class="form-control js-example-basic-single">
@@ -94,7 +94,7 @@
                   </div>
                   @enderror
 
-                <div id="probox" class="col-md-12 px-0 mt-4 display-none">
+                <div id="probox" class="col-md-12 px-0 mt-4 mt-md-0 display-none">
                   <label>{{ __('adminstaticword.SelectCourse') }}:<span class="redstar">*</span> </label>
                   <br>
                   <select style="width: 100%" id="pro_id" name="course_id" class="js-example-basic-single form-control">
@@ -114,7 +114,7 @@
                   @enderror
                 </div>
             
-                <div id="catbox" class="col-md-12  px-0 mt-4 display-none">
+                <div id="catbox" class="col-md-12  px-0 mt-4 mt-md-0 display-none">
                   <label>{{ __('adminstaticword.SelectCategories') }}:<span class="required redstar">*</span> </label>
                   <br>
                   <select style="width: 100%" id="cat_id" name="category_id" class="js-example-basic-single form-control">
@@ -133,7 +133,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4" id="minAmount" >
+            <div class="col-md-4 mt-4 mt-md-0" id="minAmount" >
                 <label>{{ __('adminstaticword.MinAmount') }}: </label>
                 <div class="input-group">
                   @php 

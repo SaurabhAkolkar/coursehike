@@ -16,9 +16,9 @@
   <div class="row">
     <div class="col-md-12">
       <div class="box box-primary">
-        <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.User') }}</h3>
+        <h3 class="la-admin__section-title ml-md-3"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.User') }}</h3>
        
-        <div class="panel-body pl-3">
+        <div class="panel-body pl-md-3">
           <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
 

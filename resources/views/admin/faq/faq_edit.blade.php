@@ -14,7 +14,7 @@
             {{ csrf_field() }}
             {{method_field('PATCH')}}
 
-            <div class="form-group col-8 p-0">              
+            <div class="form-group col-md-8 p-0">              
         
 
               <label for="exampleInputName">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
@@ -46,7 +46,7 @@
               @enderror
             </div>
 
-            <div class="form-group col-8 p-0">
+            <div class="form-group col-md-8 p-0">
               <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
               <textarea class="form-control" name="details"> {{$find->details}}</textarea>
               @error('details')
@@ -57,7 +57,7 @@
               </div>
               @enderror
             </div>
-            <div class="form-group col-8 p-0">
+            <div class="form-group col-md-8 p-0">
             <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
             <li class="tg-list-item">              
                 <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" {{ $find->status == '1' ? 'checked' : '' }} >

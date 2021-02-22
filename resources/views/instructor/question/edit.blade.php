@@ -17,7 +17,7 @@
               {{ method_field('PUT') }}
 
               <div class="row">
-                <div class="col-6">
+                <div class="col-md-6">
                   <input type="hidden" name="instructor_id" class="form-control" value="{{ Auth::User()->id }}"  />
                       
                   <select name="course_id" class="form-control js-example-basic-single col-12 display-none">
@@ -37,7 +37,7 @@
               <br/>
 
               <div class="row">
-                <div class="col-6">
+                <div class="col-md-6">
                   <select name="user_id" class="form-control js-example-basic-single col-12 display-none">
                     @foreach($user as $cu)
                       <option class="display-none" value="{{ $cu->id }}" {{$que->courses->id == $cu->id  ? 'selected' : ''}}>{{ $cu->fname}}</option>
@@ -53,7 +53,7 @@
               </div> <br/>
                    
               <div class="row">
-                <div class="col-md-5">
+                <div class="col-md-6">
                   <label for="exampleInputTit1e">Question:<span class="redstar">*</span></label>
                   <textarea name="question" rows="3" class="form-control" placeholder="Enter Your quetion">{{$que->question}}</textarea>
                   @error('question')
@@ -63,8 +63,10 @@
                     @enderror
 
                 </div>
+              </div>
               
-                <div class="col-md-1">
+              <div class="row">
+                <div class="col-md-6 mt-3">
                   <label for="exampleInputTit1e">Status:</label>
                   <li class="tg-list-item">
                     <input class="la-admin__toggle-switch" id="cb77" type="checkbox" {{ $que->status==1 ? 'checked' : '' }}>

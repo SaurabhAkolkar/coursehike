@@ -82,7 +82,7 @@
               <br />
 
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-6 col-md-3">
                   <div class="la-rtng__review-stars">
                     <div class="starRatingContainer">
                         <label for="exampleInputDetails">Rating:<sup class="redstar">*</sup></label>
@@ -90,12 +90,8 @@
                         <input id="input2" type="hidden" name="rating" value="{{ $test->rating }}"></div>
                   </div>
                 </div>
-              </div>
-
-
-
-              <div class="row">
-                <div class="col-md-6">
+            
+                <div class="col-6 col-md-3">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                   <li class="tg-list-item">              
                     <input class="la-admin__toggle-switch" id="welmail" type="checkbox" name="status" {{ $test->status == '1' ? 'checked' : '' }} >

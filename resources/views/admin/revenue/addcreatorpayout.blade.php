@@ -16,7 +16,7 @@
               {{ csrf_field() }}         
 
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 mt-3">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Instructor') }}:<sup class="redstar">*</sup></label>
                   <select name="user_id" class="form-control js-example-basic-single ">
                         <option disabled selected>Choose Option</option>
@@ -32,7 +32,7 @@
                     @enderror
                 </div>
           
-                <div class="col-md-4">
+                <div class="col-md-4 mt-3">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Month') }}:<sup class="redstar">*</sup></label>
                   <input class="form-control month" name="month" id="exampleInputTitle" readonly>
                   @error('month')
@@ -42,10 +42,10 @@
                     @enderror
                 </div>
               </div>
-              <br> 
+             
 
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 mt-3 mt-md-8">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.SubscriptionAmount') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="subscription_amount" id="exampleInputTitle" >
                   @error('subscription_amount')
@@ -54,7 +54,7 @@
                     </div>
                     @enderror
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mt-3 mt-md-8">
                   <label for="exampleInputTit1e">{{ __('adminstaticword.CourseAmount') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="course_amount" id="exampleInputTitle" >
                   @error('course_amount')

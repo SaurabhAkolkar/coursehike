@@ -15,7 +15,7 @@
               <!-- <a href="#" role="button"><span class="la-icon la-icon--3xl icon-excel mr-2" style="color:#1D6F42"></span></a> -->
             </div>
             
-            <table id="example1" class="table table-bordered table-striped pt-8">
+            <table id="example1" class="table table-bordered table-striped pt-md-8">
               <thead>
                 <tr>
                   <th>#</th>
@@ -50,7 +50,7 @@
                         <?php echo e(__('adminstaticword.Active')); ?>
 
                       <?php else: ?>
-                        <?php echo e(__('adminstaticword.Inactive')); ?>
+                        <?php echo e(__('adminstaticword.Deactive')); ?>
 
                       <?php endif; ?>
                   </td>

@@ -8,7 +8,7 @@
     <div class="col-12">
       <!-- general form elements -->
       <div class="box box-primary">
-          <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Answer') }}</h3>
+          <h3 class="la-admin__section-title ml-2"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Answer') }}</h3>
         
         <div class="box-body">
             <form action="{{url('instructoranswer/'.$answer->id)}}" method="POST" enctype="multipart/form-data">
@@ -17,7 +17,7 @@
 
                
                   <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6 mt-3">
                       <label  for="exampleInputTit1e"> {{ __('adminstaticword.Select') }} {{ __('adminstaticword.Question') }}:<sup class="redstar">*</sup></label>
                       <br>
                       <select name="question_id" required class="form-control  js-example-basic-single">
@@ -34,7 +34,7 @@
                   </div>
 
                   <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6 mt-3">
                       <label for="exampleInput"> {{ __('adminstaticword.Answer') }}:<sup class="redstar">*</sup></label>
                       <textarea name="answer" rows="4" class="form-control" placeholder="Please Enter Your Answer">{{ $answer->answer }}</textarea>
                       @error('answer')
@@ -44,12 +44,10 @@
                       @enderror
                     </div>
                   </div>
-                
-                  <br><br>
-
+              
 
                 <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-6 mt-3">
                     <div class="form-group">
                     <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
                     <li class="tg-list-item">
@@ -59,12 +57,10 @@
                     <input type="hidden" name="status" value="{{ $answer->status }}" id="jjjj">
                 </div>
                 </div>
-                <br>
-                <br>
-                <br>
-                
-                <div class="row">
-                  <div class="col-12">
+              </div>
+                             
+                {{-- <div class="row">
+                   <div class="col-12">
                     <div class="box-footer">
                       <button value="" type="submit"  class="btn btn-md btn-primary">{{ __('adminstaticword.Save') }}</button>
                     </div>
@@ -83,18 +79,16 @@
                       </div>
                     </div>
                     </div>
-                    <br>
+                    <br> --}}
                    
                     <div class="row">
-                      <div class="col-6">
-                        <div class="box-footer">
-                          <button value="" type="submit"  class="btn btn-md btn-primary px-md-20">{{ __('adminstaticword.Save') }}</button>
-                        </div>
+                      <div class="col-md-6 text-right">
+                          <button value="" type="submit"  class="btn btn-md btn-primary px-20">{{ __('adminstaticword.Save') }}</button>
                       </div>
                     </div>
                   
             </form>
-        </div>
+        
         <!-- /.box-body -->
       </div>
       <!-- /.box -->

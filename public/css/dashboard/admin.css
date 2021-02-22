@@ -360,7 +360,7 @@ td form .btn-danger:hover {
 
 @media (max-width: 767px) {
   .skin-blue .main-header .navbar .dropdown-menu li a {
-    color: #777 !important;
+    color: #000 !important;
   }
 }
 
@@ -762,6 +762,12 @@ a.dt-button {
   height: 300px;
 }
 
+@media (max-width: 767px) {
+  .la-dash__recent-section .la-dash__recent-list {
+    height: 100%;
+  }
+}
+
 .la-dash__recent-section .la-dash__recent-item {
   width: 100%;
   display: flex;
@@ -785,6 +791,12 @@ a.dt-button {
      object-position: center;
 }
 
+@media (max-width: 767px) {
+  .la-dash__recent-section .la-dash__recent-img img {
+    margin-right: var(--size-2);
+  }
+}
+
 .la-dash__recent-section .la-dash__recent-title {
   font-family: var(--head-font);
   font-weight: var(--font-normal);
@@ -793,12 +805,32 @@ a.dt-button {
   text-transform: capitalize;
 }
 
+@media (max-width: 991px) {
+  .la-dash__recent-section .la-dash__recent-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+}
+
 .la-dash__recent-section .la-dash__recent-tag {
   font-family: var(--body-font);
   font-weight: var(--font-medium);
   font-size: var(--text-xxs);
   color: var(--gray4);
   text-transform: uppercase;
+}
+
+@media (max-width: 991px) {
+  .la-dash__recent-section .la-dash__recent-tag {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
 }
 
 .la-dash__recent-section .la-dash__recent-price {
@@ -883,6 +915,13 @@ a.dt-button {
   font-size: var(--text-sm);
 }
 
+@media (max-width: 767px) {
+  .la-dash__pending-section {
+    width: 100%;
+    overflow-x: scroll;
+  }
+}
+
 /* ============ ADMIN PENDING COURSES REQUESTS: END =============== */
 
 /* ================ EDIT COURSE PAGE: START ====================== */
@@ -893,6 +932,12 @@ a.dt-button {
   background-color: var(--white);
   box-shadow: 0px 3px 6px #87878729;
   padding: var(--size-8) var(--size-6);
+}
+
+@media (max-width: 767px) {
+  .la-admin__course-package {
+    padding: var(--size-6) var(--size-3);
+  }
 }
 
 .la-admin__cp-title {
@@ -907,6 +952,14 @@ a.dt-button {
 .la-admin__cp-premium,
 .la-admin__cp-free {
   padding-left: var(--size-8);
+}
+
+@media (max-width: 767px) {
+  .la-admin__cp-subscription,
+  .la-admin__cp-premium,
+  .la-admin__cp-free {
+    padding-left: var(--size-base);
+  }
 }
 
 .la-admin__cp-input {
@@ -1033,6 +1086,12 @@ a.dt-button {
   }
 }
 
+@media (max-width: 767px) {
+  .la-admin__course-imgvid img {
+    margin: -160px 0 0 80px;
+  }
+}
+
 .la-admin__course-imgvid2 img {
   width: 135px;
   height: 135px;
@@ -1051,6 +1110,12 @@ a.dt-button {
 @media (min-width: 1920px) {
   .la-admin__course-imgvid2 img {
     margin: -160px 0 0 290px;
+  }
+}
+
+@media (max-width: 767px) {
+  .la-admin__course-imgvid2 img {
+    margin: -160px 0 0 80px;
   }
 }
 
@@ -1118,6 +1183,12 @@ a.dt-button {
   background-color: var(--gray) !important;
 }
 
+@media (max-width: 767px) {
+  .la-admin__preview {
+    margin-top: var(--size-5);
+  }
+}
+
 .la-admin__preview .la-admin__preview-img,
 .la-admin__preview .la-admin__preview-video {
   position: relative;
@@ -1153,6 +1224,13 @@ a.dt-button {
   font-weight: var(--font-light);
   font-size: var(--text-lg);
   color: #BCBCBC;
+}
+
+@media (max-width: 767px) {
+  .la-admin__preview .la-admin__preview-img .la-admin__preview-text .la-admin__preview-size,
+  .la-admin__preview .la-admin__preview-video .la-admin__preview-text .la-admin__preview-size {
+    font-size: var(--text-sm);
+  }
 }
 
 .la-admin__preview .la-admin__preview-img .la-admin__preview-text .la-admin__preview-file,
@@ -1573,9 +1651,23 @@ a.dt-button {
      object-position: center;
 }
 
+@media (max-width: 767px) {
+  .la-admin__profile .la-admin__profile-img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
 .la-admin__profile-new {
   width: 180px;
   height: 180px;
+}
+
+@media (max-width: 767px) {
+  .la-admin__profile-new {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 .la-admin__img-upload {
@@ -1813,6 +1905,18 @@ a.la-admin__edit-btn:hover {
   display: inline-block;
 }
 
+@media (max-width: 767px) {
+  .la-btn__alert-success {
+    top: 100px;
+    left: 0;
+  }
+
+  .la-btn__alert-danger {
+    top: 100px;
+    left: 0;
+  }
+}
+
 .la-btn__alert-danger {
   position: fixed;
   top: 80px;
@@ -1889,5 +1993,24 @@ a.la-admin__edit-btn:hover {
 
 .arrow {
   display: none !important;
+}
+
+/* =========== MOBILE RESPONSIVENESS FOR ADMIN & CREATOR ============== */
+
+@media (max-width: 767px) {
+  .la-admin__dash-cards {
+    margin-top: var(--size-8);
+  }
+
+  .la-admin__tab-table {
+    width: 100%;
+    overflow-x: scroll;
+  }
+}
+
+@media (min-width: 1200px) {
+  .la-admin__section-content {
+    padding-right: var(--size-20);
+  }
 }
 

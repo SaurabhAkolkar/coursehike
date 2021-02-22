@@ -35,12 +35,12 @@
                       {{ csrf_field() }}
 
                       <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 mb-0 mb-md-6">
                           <label for="c_name">{{ __('adminstaticword.Name') }}:<sup class="redstar">*</sup></label>
                           <input placeholder="Enter your category" type="text" class="form-control" name="title" required="">
                         </div>
                       </div>
-                      <br>
+                      
 
                       <div class="row">
                         <div class="col-md-12">
@@ -73,7 +73,7 @@
                       <br> --}}
 
                       <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-6 col-md-4">
                           <label for="exampleInputDetails">{{ __('adminstaticword.Featured') }}:</label>
                             <li class="tg-list-item">              
                             <input class="la-admin__toggle-switch" id="featured" type="checkbox" name="featured" >
@@ -81,7 +81,7 @@
                           </li>
                           <input type="hidden"  name="free" value="0" for="featured" id="featured">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-6 col-md-4">
                           <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
                           <li class="tg-list-item">              
                             <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" >

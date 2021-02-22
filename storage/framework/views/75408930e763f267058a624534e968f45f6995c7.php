@@ -46,7 +46,7 @@
             
 
             <!-- Tab panes -->
-            <div class="tab-content">
+            <div class="tab-content px-0">
               <div role="tabpanel" class="tab-pane fadein active" id="a">
                 <?php echo $__env->make('admin.course.editcor', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
               </div>

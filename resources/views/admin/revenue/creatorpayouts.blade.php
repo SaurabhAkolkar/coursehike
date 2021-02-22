@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-md-flex justify-content-between align-items-center">
           <h3 class="la-admin__section-title ml-2">  {{ __('adminstaticword.CreatorPayout') }}</h3>
           <a class="btn btn-info btn-sm" href="{{url('admin/addpayout')}}">
           + {{ __('adminstaticword.Add') }} {{ __('adminstaticword.CreatorPayout') }}

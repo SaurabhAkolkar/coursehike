@@ -2,19 +2,19 @@
   {{-- @include('admin.message') --}}
   <div class="row">
     <!-- left column -->
-    <div class="col-12">
+    <div class="col-12 px-0">
         <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Course') }}</h3>
         
         
         <!-- /.box-header -->
-        <div class="box-body">
+        <div class="box-body px-0">
           <div class="form-group">
             <form action="{{route('course.update',$cor->id)}}" method="post" enctype="multipart/form-data">
               {{ csrf_field() }}  
               {{ method_field('PUT') }}
              
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 mt-3 mt-md-0">
                   <label>{{ __('adminstaticword.Category') }}<span class="redstar">*</span></label>
                   <select name="category_id" id="category_id" class="form-control js-example-basic-single" required>
                     <option value="0">{{ __('adminstaticword.SelectanOption') }}</option>
@@ -27,7 +27,7 @@
                     @endforeach 
                   </select>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mt-3 mt-md-0">
                   <label>{{ __('adminstaticword.SubCategory') }}:<span class="redstar">*</span></label>
                   <select name="subcategory_id" id="upload_id" class="form-control js-example-basic-single">
                     @php
@@ -38,7 +38,7 @@
                     @endforeach
                   </select>
                 </div>
-                {{-- <div class="col-md-3">
+                {{-- <div class="col-md-3 mt-3 mt-md-0">
                   <label>{{ __('adminstaticword.ChildCategory') }}:</label>
                   <select name="childcategory_id" id="grand" class="form-control js-example-basic-single">
                     @php
@@ -50,7 +50,7 @@
                     @endforeach
                   </select>
                 </div> --}}     
-                <div class="col-md-4">
+                <div class="col-md-4 mt-3 mt-md-0">
                   @php
                     $User = App\User::all();
                   @endphp
@@ -62,15 +62,15 @@
                   </select>
                 </div>
               </div>
-              <br>
+              
 
               <div class="row">
-                <div class="col-md-6"> 
+                <div class="col-md-6 mt-3 mt-md-6"> 
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
                   <input type="text" class="form-control" name="title" id="exampleInputTitle" value="{{ $cor->title }}">
                 </div>
 
-                <div class="col-md-6"> 
+                <div class="col-md-6 mt-3 mt-md-6"> 
                   @php
                       $languages = App\CourseLanguage::where(['status'=>1])->get();
                   @endphp
@@ -83,22 +83,22 @@
                 </div>
                 
               </div>
-              <br/>
+             
 
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3 mt-md-6">
                   <label for="exampleInputDetails">{{ __('adminstaticword.ShortDetail') }}:<sup class="redstar">*</sup></label>
                   <textarea name="short_detail" rows="3" class="form-control" >{!! $cor->short_detail !!}</textarea>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3 mt-md-6">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Requirements') }}:<sup class="redstar">*</sup></label>
                   <textarea name="requirement" rows="3" class="form-control" required >{!! $cor->requirement !!}</textarea>
                 </div>
               </div>
-              <br>
+              
 
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3 mt-md-6">
                   <label for="exampleInputDetails">{{ __('adminstaticword.level') }}:<sup class="redstar">*</sup></label>
                   <select name="level" class="form-control js-example-basic-single">
                     <option disabled selected > Select Level</option>
@@ -108,17 +108,16 @@
                   </select> 
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6 mt-3 mt-md-6">
                   <label for="exampleInputSlug">Course Duration(in Hours)</label>
                   <input min="1" class="form-control" name="duration" type="number" id="duration" value="{{ $cor->duration }}" placeholder="Enter Duration in hours">
                 </div>
 
               </div>
-              <br>
-
+             
 
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 mt-3 mt-md-6">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
                   <textarea id="detail" name="detail" rows="3" class="form-control">{!! $cor->detail !!}</textarea>
                 </div>
@@ -143,7 +142,7 @@
                                   <p>This course is accessible by all Subscribers & also available for life-time purchase. </p>
                                   <p>Please enter the Course cost for One-Time Purchase</p>
                                   <div class="form-group row  la-admin__subform-group">
-                                      <div class="input-group col-sm-6 la-admin__subinput-group">
+                                      <div class="input-group col-10 col-sm-6 la-admin__subinput-group">
                                         <div class="input-group-prepend la-admin__subinput-prepend" >
                                             <span class="fa fa-dollar input-group-text la-admin__subinput-text"></span> 
                                         </div>
@@ -244,7 +243,7 @@
 
               <div class="row">    
 
-                <div class="col-md-2"> 
+                <div class="col-6 col-md-2"> 
                   @if(Auth::User()->role == "admin")
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Featured') }}:</label>
                   <li class="tg-list-item">
@@ -255,7 +254,7 @@
                   @endif
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-6 col-md-2">
                   <label for="exampleInputDetails">Master Class:</label>
                   <li class="tg-list-item">              
                     <input class="la-admin__toggle-switch" id="master_class" type="checkbox" name="master_class" @if($check_master_class) checked @endif >

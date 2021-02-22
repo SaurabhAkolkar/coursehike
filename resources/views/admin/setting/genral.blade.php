@@ -124,7 +124,7 @@
 	</div>
 
 	<div class="row ">
-		<div class="col-md-3">
+		<div class="col-md-3 mt-3">
 			<div class="form-group">
 				<label for="project_title">{{ __('adminstaticword.ProjectTitle') }}:<sup class="redstar">*</sup></label>
 			  	<input value="{{ $setting->project_title }}" placeholder="Enter project title" name="project_title" type="text" class="{{ $errors->has('project_title') ? ' is-invalid' : '' }} form-control">
@@ -135,7 +135,7 @@
 	            @endif
 	        </div>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-4 mt-3">
 			<label for="APP_URL">{{ __('adminstaticword.APPURL') }}:<sup class="redstar">*</sup></label>
 		  	<input placeholder="http://localhost/" name="APP_URL" type="text" class="{{ $errors->has('APP_URL') ? ' is-invalid' : '' }} form-control" value="{{ $env_files['APP_URL'] }}" >
 		  	@if ($errors->has('APP_URL'))
@@ -143,10 +143,10 @@
                     <strong>{{ $errors->first('APP_URL') }}</strong>
                 </span>
             @endif
-            <br>
+           
 		</div>
 
-		<div class="col-md-3">
+		<div class="col-md-3 mt-3">
             <label for="cpy_txt">{{ __('adminstaticword.CopyrightText') }}:<sup class="redstar">*</sup></label>
             <input value="{{ $setting->cpy_txt }}" name="cpy_txt" placeholder="Enter Copyright Text" type="text" required class="{{ $errors->has('cpy_txt') ? ' is-invalid' : '' }} form-control">
 		</div>
@@ -154,12 +154,12 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-5">
+		<div class="col-md-5 mt-3">
 			<label for="wel_email">{{ __('adminstaticword.Email') }}:<sup class="redstar">*</sup></label>
             <input value="{{ $setting->wel_email }}" name="wel_email" placeholder="Enter your email" type="text" class="{{ $errors->has('wel_email') ? ' is-invalid' : '' }} form-control" required>
 		</div>
 
-		<div class="col-md-5">
+		<div class="col-md-5 mt-3">
 			<label for="phone">{{ __('adminstaticword.Contact') }}:<sup class="redstar">*</sup></label>
             <input value="{{ $setting->default_phone }}" name="default_phone" placeholder="Enter contact no." type="text" class="{{ $errors->has('default_phone') ? ' is-invalid' : '' }} form-control" required>
 		</div>
@@ -480,8 +480,8 @@
 	<br> --}}
 	
 	<div class="row">
-		<div class="col-10 text-right mt-12">
-			<button type="Submit" class="btn btn-lg col-md-3 btn-primary btn-md">{{ __('adminstaticword.Save') }}</button>
+		<div class="col-12 col-md-10 text-right mt-12">
+			<button type="Submit" class="btn btn-lg  btn-primary px-20">{{ __('adminstaticword.Save') }}</button>
 		</div>
 	</div>
 

@@ -14,10 +14,12 @@
     <li class="active">{{ __('adminstaticword.Dashboard') }}</li>
   </ol> -->
 </section>
+
 <section class="content">
+  <div class="la-admin__section-content">
 	<!-- Main row -->
-  <div class="row pr-md-20">
-      <div class="col-lg-4 col-6">
+  <div class="row ">
+      <div class="col-6 col-md-4 mt-md-1">
         <div class="small-box bg-red">
           <div class="inner">
             <div class="icon">
@@ -45,7 +47,7 @@
       </div>
       <!-- ./col -->
 
-      <div class="col-lg-4 col-6">
+      <div class="col-6 col-md-4  mt-md-1">
         <div class="small-box bg-green">
           <div class="inner">
             <div class="icon">
@@ -72,7 +74,7 @@
       </div>
       <!-- ./col -->
 
-      <div class="col-lg-4 col-6">
+      <div class="col-6 col-md-4 mt-4 mt-md-1">
         <div class="small-box bg-green">
           <div class="inner">
             <div class="icon">
@@ -139,9 +141,9 @@
       <!-- ./col -->
   </div>
 
-  <div class="row my-md-10 pr-md-20">
+  <div class="row my-md-10">
         <!-- RECENT LEARNERS: START -->
-      <div class="col-md-5">
+      <div class="col-md-6 col-lg-5">
         <div class="la-dash__recent-section">
           <div class="la-dash__recent-head">
             <h4 class="la-dash__recent-htitle">Recent Learners</h4>
@@ -174,7 +176,7 @@
        <!-- RECENT LEARNERS: END -->
 
       <!-- RECENTLY BOUGHT COURSES: START -->
-      <div class="col-md-7">
+      <div class="col-md-6 col-lg-7">
         <div class="la-dash__recent-section">
           <div class="la-dash__recent-head">
             <h4 class="la-dash__recent-htitle">Recently Bought Courses</h4>
@@ -209,7 +211,7 @@
 
     </div>
   <!-- /.row -->
-	
+	</div>
 </section>
 
 @endif

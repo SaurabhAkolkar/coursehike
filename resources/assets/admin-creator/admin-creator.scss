@@ -138,6 +138,11 @@ a {
                         font-family: var(--head-font);
                         font-weight:var(--font-semibold);
                         margin:var(--size-4) 0 var(--size-6) 0;
+
+                        @include respond-below(sm){
+                            margin-top:var(--size-base);
+                            margin-bottom:var(--size-2);
+                        }
                     }
                 }
             }

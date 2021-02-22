@@ -106,7 +106,7 @@
                   </div>
                 </div>
 
-                <div class="col-6">
+                <div class="col-md-6">
                   <div class="la-admin__preview">
                       <h6 class="la-admin__editing-title mb-2" > Current: </h6>
                       <div class="la-admin__preview-img la-admin__preview-img2 la-admin__editclass-preview" >
@@ -115,7 +115,7 @@
                   </div>
                 </div>
 
-                <div class="col-6">
+                <div class="col-md-6">
                       <div class="la-admin__preview">
                           <h6 class="la-admin__editing-title  mb-2" > Update New: </h6>
                           <div class="la-admin__preview-img la-admin__preview-img2 la-admin__course-imgvid" >
@@ -200,7 +200,7 @@
     <div class="col-md-5 offset-md-1">
         <!-- SUBTITLE SECTION: START -->
 
-        <div class="row pr-10">
+        <div class="row pr-md-10">
           <div class="box box-primary">
             <div class="box-header d-flex align-items-center">
               <h3 class="box-title"> {{ __('adminstaticword.Subtitle') }}</h3>
