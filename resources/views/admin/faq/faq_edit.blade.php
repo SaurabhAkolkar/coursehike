@@ -63,7 +63,7 @@
                 <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" {{ $find->status == '1' ? 'checked' : '' }} >
                 <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
             </li>
-            <input type="hidden"  name="status" value="0" for="status" id="status_input">
+            <input type="hidden"  name="status" value="{{ $find->status }}" for="status" id="status_input">
             <br>
             <div class="box-footer">
             <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('adminstaticword.Save') }}</button>
