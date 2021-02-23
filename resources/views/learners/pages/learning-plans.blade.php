@@ -160,20 +160,24 @@
 
                 <div class="panel-group la-lp__faq-group" id="accFree">
                   <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
-                    <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqFree"><span class="panel-title la-lp__faq-title "><a class="main-toggle text-uppercase collapsed" href="#faqFreePre" data-toggle="collapse" aria-expanded="true">Free Trial</a></span></div>
+                    <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqFree">
+                      <div class="panel-title la-lp__faq-title ">
+                        <a class="main-toggle text-uppercase collapsed" href="#faqFreePre" data-toggle="collapse" aria-expanded="true">Free Trial</a>
+                      </div>
+                    </div>
                     <div class="panel-collapse collapse" id="faqFreePre" aria-labelledby="faqFree"  data-parent="#accordion">
-                      <div class="panel-group la-lp__sub-group mx-2" id="accPP"> 
+                      <div class="panel-group la-lp__sub-group mx-2"> 
             
                           @foreach($faqs->where('type','%','free_trial') as $f)
                           <div class="panel panel-default la-lp__faq-panel">
-                            <div class="panel-heading la-lp__faq-sub py-2" id="faqS1">
+                            <div class="panel-heading la-lp__faq-sub py-2">
                               <div class="panel-title la-lp__faq-tag px-2">
-                                <a class="accordion-toggle collapsed" href="#faqFT_{{ $f->id }}" data-toggle="collapse" aria-expanded="true">{{ $f->title }}</a>
+                                <a class="accordion-toggle main-toggle collapsed" href="#faqFT_{{ $f->id }}" data-toggle="collapse" aria-expanded="true">{{ $f->title }}</a>
                               </div>
-                              <div class="panel-collapse collapse" id="faqFT_{{ $f->id }}" aria-labelledby="faqFT_{{ $f->id }}" data-parent="#accSub">
-                                <div class="panel-body pt-2 px-2">
-                                  <div class="panel-text">{!! $f->details !!}</div>
-                                </div>
+                            </div>
+                            <div class="panel-collapse collapse" id="faqFT_{{ $f->id }}" aria-labelledby="faqFT_{{ $f->id }}" data-parent="#accFree">
+                              <div class="panel-body pt-2 px-2">
+                                <div class="panel-text">{!! $f->details !!}</div>
                               </div>
                             </div>
                           </div>
@@ -192,21 +196,23 @@
                 <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
                   <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSub"><span class="panel-title la-lp__faq-title"><a class="main-toggle text-uppercase collapsed" href="#faqSubs" data-toggle="collapse" aria-expanded="true">SUBSCRIPTION</a></span></div>
                   <div class="panel-collapse collapse show" id="faqSubs" aria-labelledby="faqSub" data-parent="#accordion">
-                    <div class="panel-group la-lp__sub-group mx-2" id="accSub"> 
+                    <div class="panel-group la-lp__sub-group mx-2"> 
+
                       @foreach($faqs->where('type','%','subscription') as $f)
                         <div class="panel panel-default la-lp__faq-panel">
-                          <div class="panel-heading la-lp__faq-sub py-2" id="faqS1">
+                          <div class="panel-heading la-lp__faq-sub py-2">
                             <div class="panel-title la-lp__faq-tag px-2">
-                              <a class="accordion-toggle collapsed" href="#faqSa_{{ $f->id }}" data-toggle="collapse" aria-expanded="true">{{ $f->title }}</a>
+                              <a class="accordion-toggle main-toggle collapsed" href="#faqSa_{{ $f->id }}" data-toggle="collapse" aria-expanded="true">{{ $f->title }}</a>
                             </div>
-                            <div class="panel-collapse collapse" id="faqSa_{{ $f->id }}" aria-labelledby="faqSa_{{ $f->id }}" data-parent="#accSub">
-                              <div class="panel-body pt-2 px-2">
-                                <div class="panel-text">{!! $f->details !!}</div>
-                              </div>
+                          </div>
+                          <div class="panel-collapse collapse" id="faqSa_{{ $f->id }}" aria-labelledby="faqSa_{{ $f->id }}" data-parent="#accSubMain">
+                            <div class="panel-body pt-2 px-2">
+                              <div class="panel-text">{!! $f->details !!}</div>
                             </div>
                           </div>
                         </div>
                       @endforeach
+
                     </div>
                   </div>
                 </div> 
@@ -219,17 +225,18 @@
                 <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
                   <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSP"><span class="panel-title la-lp__faq-title"><a class="main-toggle text-uppercase collapsed" href="#faqSing" data-toggle="collapse" aria-expanded="true">SINGLE PURCHASE</a></span></div>
                   <div class="panel-collapse collapse" id="faqSing" aria-labelledby="faqSP"  data-parent="#accordion">
-                    <div class="panel-group la-lp__sub-group mx-2" id="accSP"> 
+                    <div class="panel-group la-lp__sub-group mx-2"> 
+
                       @foreach($faqs->where('type','%','single_course') as $f)
                       <div class="panel panel-default la-lp__faq-panel ">
-                        <div class="panel-heading la-lp__faq-sub py-2" id="faqS1">
+                        <div class="panel-heading la-lp__faq-sub py-2">
                           <div class="panel-title la-lp__faq-tag px-2">
-                            <a class="accordion-toggle collapsed" href="#faqSPa_{{ $f->id }}" data-toggle="collapse" aria-expanded="true">{{ $f->title }}</a>
+                            <a class="accordion-toggle main-toggle collapsed" href="#faqSPa_{{ $f->id }}" data-toggle="collapse" aria-expanded="true">{{ $f->title }}</a>
                           </div>
-                          <div class="panel-collapse collapse" id="faqSPa_{{ $f->id }}" aria-labelledby="faqSPa_{{ $f->id }}" data-parent="#accSub">
-                            <div class="panel-body pt-2 px-2">
-                              <div class="panel-text">{!! $f->details !!}</div>
-                            </div>
+                        </div>
+                        <div class="panel-collapse collapse" id="faqSPa_{{ $f->id }}" aria-labelledby="faqSPa_{{ $f->id }}" data-parent="#accSPMain">
+                          <div class="panel-body pt-2 px-2">
+                            <div class="panel-text">{!! $f->details !!}</div>
                           </div>
                         </div>
                       </div>
@@ -241,24 +248,23 @@
               </div>
                <!-- Single Purchase: End-->
 
-              <!-- Premium Purchase: Start-->
+              <!-- Payment Methods: Start-->
               <div class="panel-group la-lp__faq-group" id="accPPMain">
                 <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
                   <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqPP"><span class="panel-title la-lp__faq-title"><a class="main-toggle text-uppercase collapsed" href="#faqPre" data-toggle="collapse" aria-expanded="true">Payment Methods</a></span></div>
                   <div class="panel-collapse collapse" id="faqPre" aria-labelledby="faqPP"  data-parent="#accordion">
-                    <div class="panel-group la-lp__sub-group mx-2" id="accPP"> 
+                    <div class="panel-group la-lp__sub-group mx-2"> 
         
-
                         @foreach($faqs->where('type','%','payment_methods') as $f)
                         <div class="panel panel-default la-lp__faq-panel">
-                          <div class="panel-heading la-lp__faq-sub py-2" id="faqS1">
+                          <div class="panel-heading la-lp__faq-sub py-2">
                             <div class="panel-title la-lp__faq-tag px-2">
-                              <a class="accordion-toggle collapsed" href="#faqPPa_{{ $f->id }}" data-toggle="collapse" aria-expanded="true">{{ $f->title }}</a>
+                              <a class="accordion-toggle main-toggle collapsed" href="#faqPPa_{{ $f->id }}" data-toggle="collapse" aria-expanded="true">{{ $f->title }}</a>
                             </div>
-                            <div class="panel-collapse collapse" id="faqPPa_{{ $f->id }}" aria-labelledby="faqPPa_{{ $f->id }}" data-parent="#accSub">
-                              <div class="panel-body pt-2 px-2">
-                                <div class="panel-text">{!! $f->details !!}</div>
-                              </div>
+                          </div>
+                          <div class="panel-collapse collapse" id="faqPPa_{{ $f->id }}" aria-labelledby="faqPPa_{{ $f->id }}" data-parent="#accPPMain">
+                            <div class="panel-body pt-2 px-2">
+                              <div class="panel-text">{!! $f->details !!}</div>
                             </div>
                           </div>
                         </div>
@@ -268,10 +274,10 @@
                   </div>
                 </div>
               </div>
-               <!-- Premium Purchase: End -->
+               <!-- Payment Methods: End -->
 
               <!-- Premium Purchase: Start-->
-              <div class="collapse" id="lp_faq_collapse">
+              {{--<div class="collapse" id="lp_faq_collapse">
                 <div class="panel-group la-lp__faq-group" id="accPPMain2">  
                   <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
                     <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqPP2">
@@ -295,7 +301,7 @@
                     </div>
                   </div>
                 </div>
-              </div> 
+              </div> --}}
                <!-- Premium Purchase: End -->
 
               <!-- <div class="faq-see-all text-right pt-4">
