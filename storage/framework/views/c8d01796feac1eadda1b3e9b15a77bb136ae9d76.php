@@ -64,7 +64,7 @@
 
             <?php else: ?>
             <!-- Video Section: Start -->
-            <div class="la-hero__video-mainZposition-relative la-anim__stagger-item--x la-anim__C">
+            <div class="la-hero__video-main position-relative la-anim__stagger-item--x la-anim__C" >
               <div class="la-hero__video" style="mask-image:url('../../images/learners/home/home-mask.png'); -webkit-mask-image:url('../../images/learners/home/home-mask.png');">
                   <video autoplay='' playsinline muted='muted' loop='loop' id="home_video">
                       <source src='<?php echo e($firstSection->video_url); ?>'  type='video/mp4' />
@@ -170,7 +170,7 @@
                                           <?php continue; ?>
                                       <?php endif; ?>
                                        <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => $course->review->avg('rating'),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount]); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => $course->review->avg('rating'),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount,'price' => $course->price]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
@@ -198,7 +198,7 @@
                             <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item la-anim__C">
                               <?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                  <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => $course->review->avg('rating'),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount]); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => $course->review->avg('rating'),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount,'price' => $course->price]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
@@ -280,7 +280,7 @@
       <div class="container">
         <h2 class="la-section__title la-section__title--big position-relative la-anim__fade-in-top la-anim__A">Master <span>classes</span></h2>
         <div class="la-mccourses pt-20 pt-md-4">
-          <div class="row justify-content-center px-lg-5 la-anim__stagger la-anim__A">
+          <div class="row justify-content-center px-lg-5 la-anim__stagger">
            
               <?php $__currentLoopData = $master_classes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $master): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                  <?php if (isset($component)) { $__componentOriginal569f4b3c3d50580306a5cb083576611189fd5fee = $component; } ?>
@@ -336,12 +336,12 @@
                 <div class="la-trail__para pb-10 pr-md-20 la-anim__stagger-item la-anim__B">We strongly believe observation is integral to honing art. Learn from masters in their respective fields with consistent practice, and become a pro yourself!</div>
                 <?php if(Auth::check()): ?>
                   <?php if(Auth::user()->subscription('main') ): ?>
-                    <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item la-anim__B" href="/login">Browse Course</a>
+                    <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item" href="/login">Browse Course</a>
                   <?php else: ?>
-                    <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item la-anim__B" href="/login">Start free trail</a>
+                    <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item" href="/login">Start free trail</a>
                   <?php endif; ?>
                 <?php else: ?>
-                  <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item la-anim__B" href="/login">Start free trail</a>
+                  <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item" href="/login">Start free trail</a>
                 <?php endif; ?>
               </div>
             </div>
@@ -373,38 +373,49 @@
                       <a href="/learning-plans">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                     </div>
                   </div>
+        
+                  <?php if(Auth::check() && Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()): ?>
+                  
+                      Subscribed
+                     
 
-                  <div class="col-lg-5  offset-lg-1 pt-12 pt-md-20 ">
-                    <div class="la-anim__wrap la-anim__wrap-pin2">
-                        <div class="la-price__box la-anim__pin2 ">
-                          <div class="la-price__box-inner la-anim__stagger-item">
-                              <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
-                              <p class="la-price__box-para mt-8 mb-2 la-anim__stagger-item--x">Get <span class="la-color--primary">35% savings </span>on Annual Plan</p>
-                              <div class="la-price__box-soffer la-soffer ml-0">
-                                
-                                <?php if(getLocation() == 'IN'): ?>
-                                  <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x"> <sup><small>₹</small></sup>  2899 / Month</div>
-                                  <div class="la-soffer__realprice la-anim__stagger-item--x"> <sup><small>₹</small></sup>  5999 (INR) </div>
-                                <?php else: ?>
-                                  <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x"> <sup><small>$</small></sup>  39 / Month</div>
-                                  <div class="la-soffer__realprice la-anim__stagger-item--x"> <sup><small>$</small></sup>  99 (USD) </div>
-                                <?php endif; ?>
+                  <?php else: ?>
+
+                      <div class="col-lg-5  offset-lg-1 pt-12 pt-md-20 ">
+                        <div class="la-anim__wrap la-anim__wrap-pin2">
+                            <div class="la-price__box la-anim__pin2 ">
+                              <div class="la-price__box-inner la-anim__stagger-item">
+                                  <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
+                                  <p class="la-price__box-para mt-8 mb-2 la-anim__stagger-item--x">Get <span class="la-color--primary">35% savings </span>on Annual Plan</p>
+                                  <div class="la-price__box-soffer la-soffer ml-0">
+                                    
+                                    <?php if(getLocation() == 'IN'): ?>
+                                      <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x"> <sup><small>₹</small></sup>  2899 / Month</div>
+                                      <div class="la-soffer__realprice la-anim__stagger-item--x"> <sup><small>₹</small></sup>  5999 (INR) </div>
+                                    <?php else: ?>
+                                      <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x"> <sup><small>$</small></sup>  39 / Month</div>
+                                      <div class="la-soffer__realprice la-anim__stagger-item--x"> <sup><small>$</small></sup>  99 (USD) </div>
+                                    <?php endif; ?>
+                                  </div>
                               </div>
-                          </div>
+                            </div>
                         </div>
-                    </div>
-                  </div> 
+                      </div> 
+
+
+                    <?php endif; ?>
+
                 </div>
               </div>
 
               <div class="la-price__slide la-anim__slide">
                 <div class="la-price__row row mb-16">
                   <div class="col-lg-5 pt-md-20 la-anim__wrap">
-                    <h3 class="la-section__subtitle la-anim__stagger-item la-anim__B">What’s LILA for you ?</h3>
-                    <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x la-anim__B">Our mission is to Encourage, Empower and Embrace self-learning among all curious individuals who wish to learn, expand their potential and make a mark in the world.<br/><br/> 
+                    <h3 class="la-section__subtitle la-anim__stagger-item">What’s LILA for you ?</h3>
+                    <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x">Our mission is to Encourage, Empower and Embrace self-learning among all curious individuals who wish to learn, expand their potential and make a mark in the world.<br/><br/> 
                         Through our Radical team, we strive every day to make knowledge Affordable, Accessible for everyone regardless of who or where they are
                     </p>
-                    <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold  pt-4 pt-md-8  la-anim__stagger-item--x la-anim__B">
+                    <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold  pt-4 pt-md-8  la-anim__stagger-item--x">
                       <a href="/about">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                     </div>
                   </div>

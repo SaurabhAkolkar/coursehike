@@ -77,7 +77,7 @@ class HomeController extends Controller
         if(Auth::check()){
             $playlists = Playlist::where('user_id', Auth::user()->id)->get();   
         }
-        $master_classes = MasterClass::with('courses','courses.user')->get();
+        $master_classes = MasterClass::with('courses','courses.user')->limit(4)->get();
         $featuredMentor = FeaturedMentor::with('user','courses','courses.category')->where(['status'=>'1'])->get();
 
 

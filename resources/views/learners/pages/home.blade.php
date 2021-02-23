@@ -501,27 +501,47 @@
                       <a href="/learning-plans">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                     </div>
                   </div>
-
-                  <div class="col-lg-5  offset-lg-1 pt-12 pt-md-20 ">
-                    <div class="la-anim__wrap la-anim__wrap-pin2">
-                        <div class="la-price__box la-anim__pin2 ">
-                          <div class="la-price__box-inner la-anim__stagger-item">
-                              <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
-                              <p class="la-price__box-para mt-8 mb-2 la-anim__stagger-item--x">Get <span class="la-color--primary">35% savings </span>on Annual Plan</p>
-                              <div class="la-price__box-soffer la-soffer ml-0">
-                                
-                                @if (getLocation() == 'IN')
-                                  <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x"> <sup><small>₹</small></sup>  2899 / Month</div>
-                                  <div class="la-soffer__realprice la-anim__stagger-item--x"> <sup><small>₹</small></sup>  5999 (INR) </div>
-                                @else
-                                  <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x"> <sup><small>$</small></sup>  39 / Month</div>
-                                  <div class="la-soffer__realprice la-anim__stagger-item--x"> <sup><small>$</small></sup>  99 (USD) </div>
-                                @endif
+        
+                  @if(Auth::check() && Auth::User()->subscription('main') && Auth::User()->subscription('main')->active())
+                  
+                        <div class="col-lg-5  offset-lg-1 pt-12 pt-md-20 ">
+                          <div class="la-anim__wrap la-anim__wrap-pin2">
+                              <div class="la-price__box la-anim__pin2 ">
+                                <div class="la-price__box-inner la-anim__stagger-item">
+                                    <a href="/browse/course" class="btn btn-primary la-btn la-btn--primary w-100">Start Learning</a>
+                                    <p class="la-price__box-para mt-8 mb-2 la-anim__stagger-item--x">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore id, assumenda nisi laboriosam distinctio suscipit! Quam nam aliquam ea dolore optio expedita excepturi quaerat dicta blanditiis eos error aut odit rerum veniam, doloremque dignissimos delectus vitae, laboriosam qui iure aspernatur perspiciatis. Possimus veniam vero amet vel inventore nemo nostrum placeat?</p>
+                                   
+                                </div>
                               </div>
                           </div>
+                        </div>                      
+
+                  @else
+
+                      <div class="col-lg-5  offset-lg-1 pt-12 pt-md-20 ">
+                        <div class="la-anim__wrap la-anim__wrap-pin2">
+                            <div class="la-price__box la-anim__pin2 ">
+                              <div class="la-price__box-inner la-anim__stagger-item">
+                                  <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
+                                  <p class="la-price__box-para mt-8 mb-2 la-anim__stagger-item--x">Get <span class="la-color--primary">35% savings </span>on Annual Plan</p>
+                                  <div class="la-price__box-soffer la-soffer ml-0">
+                                    
+                                    @if (getLocation() == 'IN')
+                                      <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x"> <sup><small>₹</small></sup>  2899 / Month</div>
+                                      <div class="la-soffer__realprice la-anim__stagger-item--x"> <sup><small>₹</small></sup>  5999 (INR) </div>
+                                    @else
+                                      <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x"> <sup><small>$</small></sup>  39 / Month</div>
+                                      <div class="la-soffer__realprice la-anim__stagger-item--x"> <sup><small>$</small></sup>  99 (USD) </div>
+                                    @endif
+                                  </div>
+                              </div>
+                            </div>
                         </div>
-                    </div>
-                  </div> 
+                      </div> 
+
+
+                    @endif
+
                 </div>
               </div>
 

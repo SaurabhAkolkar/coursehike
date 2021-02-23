@@ -153,15 +153,18 @@
 
                 <div class="panel-group la-lp__faq-group" id="accFree">
                   <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
-                    <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqFree"><span class="panel-title la-lp__faq-title mx-5"><a class="main-toggle collapsed" href="#faqFreePre" data-toggle="collapse" aria-expanded="true">Free Trial</a></span></div>
+                    <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqFree"><span class="panel-title la-lp__faq-title "><a class="main-toggle text-uppercase collapsed" href="#faqFreePre" data-toggle="collapse" aria-expanded="true">Free Trial</a></span></div>
                     <div class="panel-collapse collapse" id="faqFreePre" aria-labelledby="faqFree"  data-parent="#accordion">
-                      <div class="panel-group la-lp__sub-group mx-2 mx-sm-5" id="accPP"> 
+                      <div class="panel-group la-lp__sub-group mx-2" id="accPP"> 
             
                           <?php $__currentLoopData = $faqs->where('type','%','free_trial'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $f): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                          <div class="panel panel-default la-lp__faq-panel mt-2">
-                            <div class="panel-heading la-lp__faq-sub py-2" id="faqS1"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqFT_<?php echo e($f->id); ?>" data-toggle="collapse" aria-expanded="true"><?php echo e($f->title); ?></a></span>
+                          <div class="panel panel-default la-lp__faq-panel">
+                            <div class="panel-heading la-lp__faq-sub py-2" id="faqS1">
+                              <div class="panel-title la-lp__faq-tag px-2">
+                                <a class="accordion-toggle collapsed" href="#faqFT_<?php echo e($f->id); ?>" data-toggle="collapse" aria-expanded="true"><?php echo e($f->title); ?></a>
+                              </div>
                               <div class="panel-collapse collapse" id="faqFT_<?php echo e($f->id); ?>" aria-labelledby="faqFT_<?php echo e($f->id); ?>" data-parent="#accSub">
-                                <div class="panel-body py-4 px-5">
+                                <div class="panel-body pt-2 px-2">
                                   <div class="panel-text"><?php echo $f->details; ?></div>
                                 </div>
                               </div>
@@ -180,14 +183,17 @@
               <!-- Subscription: Start-->
             <div class="panel-group la-lp__faq-group" id="accSubMain">
                 <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
-                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSub"><span class="panel-title la-lp__faq-title mx-5"><a class="main-toggle collapsed" href="#faqSubs" data-toggle="collapse" aria-expanded="true">SUBSCRIPTION</a></span></div>
-                  <div class="panel-collapse collapse" id="faqSubs" aria-labelledby="faqSub" data-parent="#accordion">
-                    <div class="panel-group la-lp__sub-group mx-2 mx-sm-5" id="accSub"> 
+                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSub"><span class="panel-title la-lp__faq-title"><a class="main-toggle text-uppercase collapsed" href="#faqSubs" data-toggle="collapse" aria-expanded="true">SUBSCRIPTION</a></span></div>
+                  <div class="panel-collapse collapse show" id="faqSubs" aria-labelledby="faqSub" data-parent="#accordion">
+                    <div class="panel-group la-lp__sub-group mx-2" id="accSub"> 
                       <?php $__currentLoopData = $faqs->where('type','%','subscription'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $f): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="panel panel-default la-lp__faq-panel mt-2">
-                          <div class="panel-heading la-lp__faq-sub py-2" id="faqS1"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqSa_<?php echo e($f->id); ?>" data-toggle="collapse" aria-expanded="true"><?php echo e($f->title); ?></a></span>
+                        <div class="panel panel-default la-lp__faq-panel">
+                          <div class="panel-heading la-lp__faq-sub py-2" id="faqS1">
+                            <div class="panel-title la-lp__faq-tag px-2">
+                              <a class="accordion-toggle collapsed" href="#faqSa_<?php echo e($f->id); ?>" data-toggle="collapse" aria-expanded="true"><?php echo e($f->title); ?></a>
+                            </div>
                             <div class="panel-collapse collapse" id="faqSa_<?php echo e($f->id); ?>" aria-labelledby="faqSa_<?php echo e($f->id); ?>" data-parent="#accSub">
-                              <div class="panel-body py-4 px-5">
+                              <div class="panel-body pt-2 px-2">
                                 <div class="panel-text"><?php echo $f->details; ?></div>
                               </div>
                             </div>
@@ -204,14 +210,17 @@
               <!-- Single Purchase: Start-->
               <div class="panel-group la-lp__faq-group" id="accSPMain">
                 <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
-                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSP"><span class="panel-title la-lp__faq-title mx-5"><a class="main-toggle collapsed" href="#faqSing" data-toggle="collapse" aria-expanded="true">SINGLE PURCHASE</a></span></div>
+                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSP"><span class="panel-title la-lp__faq-title"><a class="main-toggle text-uppercase collapsed" href="#faqSing" data-toggle="collapse" aria-expanded="true">SINGLE PURCHASE</a></span></div>
                   <div class="panel-collapse collapse" id="faqSing" aria-labelledby="faqSP"  data-parent="#accordion">
-                    <div class="panel-group la-lp__sub-group mx-2 mx-sm-5" id="accSP"> 
+                    <div class="panel-group la-lp__sub-group mx-2" id="accSP"> 
                       <?php $__currentLoopData = $faqs->where('type','%','single_course'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $f): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                      <div class="panel panel-default la-lp__faq-panel mt-2">
-                        <div class="panel-heading la-lp__faq-sub py-2" id="faqS1"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqSPa_<?php echo e($f->id); ?>" data-toggle="collapse" aria-expanded="true"><?php echo e($f->title); ?></a></span>
+                      <div class="panel panel-default la-lp__faq-panel ">
+                        <div class="panel-heading la-lp__faq-sub py-2" id="faqS1">
+                          <div class="panel-title la-lp__faq-tag px-2">
+                            <a class="accordion-toggle collapsed" href="#faqSPa_<?php echo e($f->id); ?>" data-toggle="collapse" aria-expanded="true"><?php echo e($f->title); ?></a>
+                          </div>
                           <div class="panel-collapse collapse" id="faqSPa_<?php echo e($f->id); ?>" aria-labelledby="faqSPa_<?php echo e($f->id); ?>" data-parent="#accSub">
-                            <div class="panel-body py-4 px-5">
+                            <div class="panel-body pt-2 px-2">
                               <div class="panel-text"><?php echo $f->details; ?></div>
                             </div>
                           </div>
@@ -228,16 +237,19 @@
               <!-- Premium Purchase: Start-->
               <div class="panel-group la-lp__faq-group" id="accPPMain">
                 <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
-                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqPP"><span class="panel-title la-lp__faq-title mx-5"><a class="main-toggle collapsed" href="#faqPre" data-toggle="collapse" aria-expanded="true">Payment Menthods</a></span></div>
+                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqPP"><span class="panel-title la-lp__faq-title"><a class="main-toggle text-uppercase collapsed" href="#faqPre" data-toggle="collapse" aria-expanded="true">Payment Methods</a></span></div>
                   <div class="panel-collapse collapse" id="faqPre" aria-labelledby="faqPP"  data-parent="#accordion">
-                    <div class="panel-group la-lp__sub-group mx-2 mx-sm-5" id="accPP"> 
+                    <div class="panel-group la-lp__sub-group mx-2" id="accPP"> 
         
 
                         <?php $__currentLoopData = $faqs->where('type','%','payment_methods'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $f): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="panel panel-default la-lp__faq-panel mt-2">
-                          <div class="panel-heading la-lp__faq-sub py-2" id="faqS1"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqPPa_<?php echo e($f->id); ?>" data-toggle="collapse" aria-expanded="true"><?php echo e($f->title); ?></a></span>
+                        <div class="panel panel-default la-lp__faq-panel">
+                          <div class="panel-heading la-lp__faq-sub py-2" id="faqS1">
+                            <div class="panel-title la-lp__faq-tag px-2">
+                              <a class="accordion-toggle collapsed" href="#faqPPa_<?php echo e($f->id); ?>" data-toggle="collapse" aria-expanded="true"><?php echo e($f->title); ?></a>
+                            </div>
                             <div class="panel-collapse collapse" id="faqPPa_<?php echo e($f->id); ?>" aria-labelledby="faqPPa_<?php echo e($f->id); ?>" data-parent="#accSub">
-                              <div class="panel-body py-4 px-5">
+                              <div class="panel-body pt-2 px-2">
                                 <div class="panel-text"><?php echo $f->details; ?></div>
                               </div>
                             </div>
