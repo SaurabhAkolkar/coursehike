@@ -25,24 +25,30 @@
 
               <div class="d-none d-lg-block">
                 <div class="la-hero__actions d-md-flex align-items-center la-anim__stagger-item">
+                  <?php if(Auth::check() && Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()): ?>
+
+                  <?php else: ?>
+
                   <div class="col-md-7 px-0">
                       <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary">Subscribe Now</a>
                       <p class="m-0 pt-1 pl-1 text-sm text-center text-md-left">Instant access to all courses <!-- at nominal monthly fees --></p>
                   </div>
-                  <div class="col-md-5 px-0 la-soffer d-flex d-lg-block justify-content-center  mb-lg-auto">
-                    <div class="la-soffer__bestprice"> 
+                  
+                    <div class="col-md-5 px-0 la-soffer d-flex d-lg-block justify-content-center  mb-lg-auto">
+                      <div class="la-soffer__bestprice"> 
+                        <?php if(getLocation() == 'IN'): ?>
+                          <sup><small>₹</small></sup>  2899 / Month
+                        <?php else: ?>
+                          <sup><small>$</small></sup>  39 / Month
+                        <?php endif; ?>
+                      </div>
                       <?php if(getLocation() == 'IN'): ?>
-                        <sup><small>₹</small></sup>  2899 / Month
+                        <div class="la-soffer__realprice"> <sup><small>₹</small></sup>  5999 (INR)</div>
                       <?php else: ?>
-                        <sup><small>$</small></sup>  39 / Month
+                        <div class="la-soffer__realprice"> <sup><small>$</small></sup>  99 (USD)</div>
                       <?php endif; ?>
                     </div>
-                    <?php if(getLocation() == 'IN'): ?>
-                      <div class="la-soffer__realprice"> <sup><small>₹</small></sup>  5999 (INR)</div>
-                    <?php else: ?>
-                      <div class="la-soffer__realprice"> <sup><small>$</small></sup>  99 (USD)</div>
-                    <?php endif; ?>
-                  </div>
+                  <?php endif; ?>
                 </div>
               </div>
              
@@ -75,21 +81,27 @@
             <?php endif; ?>
 
             <div class="d-block d-lg-none">
-              <div class="la-hero__actions pb-8 pb-md-10 d-md-flex align-items-start  la-anim__stagger-item la-anim__C">
-                <div class="col-md-6 px-0">
-                      <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary btn-block">Subscribe Now</a>
-                      <p class="m-0 pt-2 pl-1 text-sm text-center text-md-left">Instant access to all courses <!-- at nominal monthly fees --></p>
+              <?php if(Auth::check() && Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()): ?>
+
+              <?php else: ?>
+
+                <div class="la-hero__actions pb-8 pb-md-10 d-md-flex align-items-start  la-anim__stagger-item la-anim__C">
+                  <div class="col-md-6 px-0">
+                        <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary btn-block">Subscribe Now</a>
+                        <p class="m-0 pt-2 pl-1 text-sm text-center text-md-left">Instant access to all courses <!-- at nominal monthly fees --></p>
+                  </div>
+                  <div class="col-md-6 px-0 pt-4 la-soffer d-flex justify-content-center mx-0">
+                    <?php if(getLocation() == 'IN'): ?>
+                      <div class="la-soffer__bestprice"> <sup><small>₹</small></sup>  2899 / Month</div>
+                      <div class="la-soffer__realprice"> <sup><small>₹</small></sup>  5999 (INR)</div>
+                    <?php else: ?>
+                      <div class="la-soffer__bestprice"> <sup><small>$</small></sup>  39 / Month</div>
+                      <div class="la-soffer__realprice"> <sup><small>$</small></sup>  99 (USD)</div>
+                    <?php endif; ?>
+                  </div>
                 </div>
-                <div class="col-md-6 px-0 pt-4 la-soffer d-flex justify-content-center mx-0">
-                  <?php if(getLocation() == 'IN'): ?>
-                    <div class="la-soffer__bestprice"> <sup><small>₹</small></sup>  2899 / Month</div>
-                    <div class="la-soffer__realprice"> <sup><small>₹</small></sup>  5999 (INR)</div>
-                  <?php else: ?>
-                    <div class="la-soffer__bestprice"> <sup><small>$</small></sup>  39 / Month</div>
-                    <div class="la-soffer__realprice"> <sup><small>$</small></sup>  99 (USD)</div>
-                  <?php endif; ?>
-                </div>
-              </div>
+
+              <?php endif; ?>
             </div>
            
           </div>
@@ -99,7 +111,7 @@
         <!-- Row: Start-->
         <div class="la-anim__wrap">
           <div class="la-hero__bottom d-flex justify-content-center justify-content-lg-between align-items-center pt-4 pb-14 la-anim__fade-in-bottom la-anim__D">
-            <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing"><?php if(Auth::check()): ?> <?php if(Auth::user()->subscription('main')): ?> <?php else: ?><a href="/learning-plans">Start free trial<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a> <?php endif; ?> <?php else: ?><a href="/learning-plans">Start free trial<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a><?php endif; ?></div>
+            <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing"><?php if(Auth::check() && Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()): ?>  <?php else: ?><a href="/learning-plans">Start free trial<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a> <?php endif; ?> </div>
             <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text--burple text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block"><a href="#home_courses">BROWSE COURSES</a><span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span></div>
           </div>
         </div>
@@ -376,8 +388,17 @@
         
                   <?php if(Auth::check() && Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()): ?>
                   
-                      Subscribed
-                     
+                        <div class="col-lg-5  offset-lg-1 pt-12 pt-md-20 ">
+                          <div class="la-anim__wrap la-anim__wrap-pin2">
+                              <div class="la-price__box la-anim__pin2 ">
+                                <div class="la-price__box-inner la-anim__stagger-item">
+                                    <a href="/browse/course" class="btn btn-primary la-btn la-btn--primary w-100">Start Learning</a>
+                                    <p class="la-price__box-para mt-8 mb-2 la-anim__stagger-item--x">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore id, assumenda nisi laboriosam distinctio suscipit! Quam nam aliquam ea dolore optio expedita excepturi quaerat dicta blanditiis eos error aut odit rerum veniam, doloremque dignissimos delectus vitae, laboriosam qui iure aspernatur perspiciatis. Possimus veniam vero amet vel inventore nemo nostrum placeat?</p>
+                                   
+                                </div>
+                              </div>
+                          </div>
+                        </div>                      
 
                   <?php else: ?>
 
