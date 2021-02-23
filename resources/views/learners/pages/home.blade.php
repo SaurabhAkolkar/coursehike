@@ -509,7 +509,7 @@
                               <div class="la-price__box la-anim__pin2 ">
                                 <div class="la-price__box-inner la-anim__stagger-item">
                                     <a href="/browse/course" class="btn btn-primary la-btn la-btn--primary w-100">Start Learning</a>
-                                    <p class="la-price__box-para mt-8 mb-2 la-anim__stagger-item--x">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore id, assumenda nisi laboriosam distinctio suscipit! Quam nam aliquam ea dolore optio expedita excepturi quaerat dicta blanditiis eos error aut odit rerum veniam, doloremque dignissimos delectus vitae, laboriosam qui iure aspernatur perspiciatis. Possimus veniam vero amet vel inventore nemo nostrum placeat?</p>
+                                    <p class="la-price__box-para mt-8 mb-2 la-anim__stagger-item--x">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                                    
                                 </div>
                               </div>
