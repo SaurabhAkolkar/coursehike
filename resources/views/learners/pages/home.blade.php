@@ -32,7 +32,6 @@
                       
                     <div class="col-md-7 px-0">
                       <a href="/browse/course" class="btn btn-primary la-hero__cta la-btn la-btn--primary">Browse Course</a>
-                      <p class="m-0 pt-1 pl-1 text-sm text-center text-md-left">Start Learning Like Never Before <!-- at nominal monthly fees --></p>
                     </div>
 
 
@@ -94,7 +93,6 @@
 
                 <div class="col-md-6 px-0">
                   <a href="/browse/course" class="btn btn-primary la-hero__cta la-btn la-btn--primary btn-block">Browse Course</a>
-                  <p class="m-0 pt-2 pl-1 text-sm text-center text-md-left">Start Learning Like Never Before <!-- at nominal monthly fees --></p>
                 </div>  
 
               @else

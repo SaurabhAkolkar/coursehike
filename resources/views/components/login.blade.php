@@ -112,6 +112,20 @@
                     <span class="la-header__nav-name">Mentors</span>
                 </a>
             </div>
+            @if(Auth::check() && Auth::User()->subscription('main') && Auth::User()->subscription('main')->active())
+
+            @else
+
+                <div class="la-header__nav-item">   
+                    <a class="la-header__nav-link @if(Request::segment(1) == 'leanring-plans') active @endif" href="/learning-plans">
+                        <div class="la-header__nav-icon">
+                            <span class="la-icon--xl icon-all-mentors"></span>
+                        </div>
+                        <span class="la-header__nav-name">Learning Plans</span>
+                    </a>
+                </div>
+
+            @endif
 
             <div class="la-header__nav-item d-lg-none">   
                 <a class="la-header__nav-link @if(Request::segment(1) == 'learning-plans') active @endif" href="/learning-plans">

@@ -27,6 +27,12 @@
                 <div class="la-hero__actions d-md-flex align-items-center la-anim__stagger-item">
                   <?php if(Auth::check() && Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()): ?>
 
+                      
+                    <div class="col-md-7 px-0">
+                      <a href="/browse/course" class="btn btn-primary la-hero__cta la-btn la-btn--primary">Browse Course</a>
+                    </div>
+
+
                   <?php else: ?>
 
                   <div class="col-md-7 px-0">
@@ -82,6 +88,10 @@
 
             <div class="d-block d-lg-none">
               <?php if(Auth::check() && Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()): ?>
+
+                <div class="col-md-6 px-0">
+                  <a href="/browse/course" class="btn btn-primary la-hero__cta la-btn la-btn--primary btn-block">Browse Course</a>
+                </div>  
 
               <?php else: ?>
 
@@ -392,9 +402,8 @@
                           <div class="la-anim__wrap la-anim__wrap-pin2">
                               <div class="la-price__box la-anim__pin2 ">
                                 <div class="la-price__box-inner la-anim__stagger-item">
-                                    <a href="/browse/course" class="btn btn-primary la-btn la-btn--primary w-100">Start Learning</a>
-                                    <p class="la-price__box-para mt-8 mb-2 la-anim__stagger-item--x">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore id, assumenda nisi laboriosam distinctio suscipit! Quam nam aliquam ea dolore optio expedita excepturi quaerat dicta blanditiis eos error aut odit rerum veniam, doloremque dignissimos delectus vitae, laboriosam qui iure aspernatur perspiciatis. Possimus veniam vero amet vel inventore nemo nostrum placeat?</p>
-                                   
+                                    <p class="la-price__box-para mt-8 mb-2 la-anim__stagger-item--x">Discover our wide range of art courses curated by top artists from around the world and explore your creativity! </p>
+                                    <a href="/browse/course" class="btn btn-primary la-btn la-btn--primary w-100">Start Learning</a>                                   
                                 </div>
                               </div>
                           </div>
