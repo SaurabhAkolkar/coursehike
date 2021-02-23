@@ -24110,7 +24110,8 @@ section.la-lp--sub-faq {
 
 .la-lp__faq-panel {
   background: #ffffff;
-  border-radius: 10px;
+  box-shadow: 0px 6px 15px #A4A4A412;
+  border-radius: 8px;
   padding: var(--size-base) var(--size-base);
   position: relative;
   display: block;
@@ -24148,6 +24149,7 @@ section.la-lp--sub-faq {
   -moz-transition: all 0.25s ease-in;
   -ms-transition: all 0.25s ease-in;
   -o-transition: all 0.25s ease-in;
+  display: block;
 }
 .la-lp__faq-title a.collapsed:after {
   content: "\E96D";
@@ -24165,17 +24167,18 @@ section.la-lp--sub-faq {
 
 .main-toggle.collapsed {
   color: rgba(0, 0, 0, 0.7);
+  display: block;
 }
 
 .main-toggle:not(.collapsed) {
   color: var(--app-indigo-1);
-  font-size: var(--text-lg);
-  font-weight: var(--font-normal);
+  font-weight: var(--font-semibold);
+  display: block;
 }
 
 .la-lp__faq-tag a {
+  color: var(--gray3);
   font-weight: var(--font-light);
-  color: rgba(1, 1, 1, 0.6);
 }
 .la-lp__faq-tag a:after {
   font-family: "icomoon";
@@ -24183,7 +24186,7 @@ section.la-lp--sub-faq {
   position: relative;
   float: right;
   color: var(--app-indigo-1) !important;
-  font-weight: var(--font-semibold);
+  font-weight: var(--font-medium);
   font-size: var(--text-md);
   transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
