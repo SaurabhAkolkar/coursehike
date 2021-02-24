@@ -112,9 +112,9 @@ class CheckoutChargeSucceededJob implements ShouldQueue
                 if($setting->w_email_enable == 1){
                     try{
                         $data = [];
-                        // $data['course_name'] = 'dynamics';
-                        // $data['purchase_type'] = 'All Classses';
-                        // $data['amount'] = '235';
+                        $data['course_name'] = 'dynamics';
+                        $data['purchase_type'] = 'All Classses';
+                        $data['amount'] = '235';
                      
 
                         Mail::to('officialvikramsuthar@gmail.com')->send(new CoursePurchased($data));
