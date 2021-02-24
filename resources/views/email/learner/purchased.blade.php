@@ -85,7 +85,7 @@
                                 <span style="font-size:12px;color:#8B8B8B;">Total Amount Paid</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">@if($email_data['currenty'] == 'INR') ₹ @else $ @endif {{ $data['amount'] }}</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">@if($data['currenty'] == 'INR') ₹ @else $ @endif {{ $data['amount'] }}</span>
                             </td>
                         </tr>
 
