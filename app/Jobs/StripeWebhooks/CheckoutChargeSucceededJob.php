@@ -97,6 +97,8 @@ class CheckoutChargeSucceededJob implements ShouldQueue
             // $email_data['course_name'] = 'dynamics';
             $email_data['course_name'] = '';
             $email_data['purchase_type'] = '';
+            $email_data['url'] = APP_URL.'/purchase-history';
+            $email_data['invoice_id'] = $user_invoice->invoice_id;
             $email_data['amount'] = $amount_total;
             $email_data['currenty'] = $user_invoice->currency;
 

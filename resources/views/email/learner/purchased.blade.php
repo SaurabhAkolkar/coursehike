@@ -55,10 +55,10 @@
             
                         <tr>
                             <td width="150" style="padding:4px 0">
-                                <span style="font-size:12px;color:#8B8B8B;">Course ID</span>
+                                <span style="font-size:12px;color:#8B8B8B;">Invoice ID</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">#C123</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">{{ $data['invoice_id'] }}</span>
                             </td>
                         </tr>
 
@@ -109,11 +109,11 @@
 
                         <tr>
                             <td width="150" colspan="1"  style="padding:40px 0">
-                                <button style="background:#7600DA; font-size:10px;font-weight:300; color:#fff;padding:11px 16px;border:none;border-radius:5px;">Check Details</button>
+                                <a href="{{ data['url'] }}" style="background:#7600DA; font-size:10px;font-weight:300; color:#fff;padding:11px 16px;border:none;border-radius:5px;">Check Details</a>
                             </td>
-                            <td colspan="1"  style="padding:40px 0">
+                            {{-- <td colspan="1"  style="padding:40px 0">
                                 <a href="" role="button" style="font-size:14px;color:#7600DA;font-weight:500;">Invoice</a>
-                            </td>
+                            </td> --}}
                         </tr>
                     </table>
                 </td>
