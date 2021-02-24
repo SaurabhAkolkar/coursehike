@@ -109,7 +109,7 @@
 
                         <tr>
                             <td width="150" colspan="1"  style="padding:40px 0">
-                                <a href="{{ data['url'] }}" style="background:#7600DA; font-size:10px;font-weight:300; color:#fff;padding:11px 16px;border:none;border-radius:5px;">Check Details</a>
+                                <a href="" style="background:#7600DA; font-size:10px;font-weight:300; color:#fff;padding:11px 16px;border:none;border-radius:5px;">Check Details</a>
                             </td>
                             {{-- <td colspan="1"  style="padding:40px 0">
                                 <a href="" role="button" style="font-size:14px;color:#7600DA;font-weight:500;">Invoice</a>
