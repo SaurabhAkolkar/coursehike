@@ -17153,24 +17153,29 @@ a, a:hover {
   left: 0;
   background: var(--white);
   z-index: var(--header-z);
-  box-shadow: rgba(202, 202, 202, 0.4) 0px 0px 10px 10px;
+  box-shadow: rgba(202, 202, 202, 0.3) 0px 0px 10px 10px;
 }
 .la-header__gsearch-input[type=text] {
   width: 0;
   border-left: none;
-  transition: all 0.35s ease-out;
+  border-bottom: none;
+  display: inline-block;
 }
 .la-header__gsearch-input[type=text]::-webkit-input-placeholder {
-  font-size: var(--text-sm);
+  font-size: var(--text-xl);
 }
 .la-header__gsearch-input[type=text]:focus {
+  background: transparent;
+}
+.la-header__gsearch-expand {
   width: 100%;
-  border-left: 1px solid var(--gray9);
-  transform: translateX(-10px);
-  transition: all 0.35s ease-in;
+  position: absolute;
+  left: 10px;
+  z-index: 1000;
+  height: 60px;
 }
 .la-header__brand {
-  margin-right: var(--size-9);
+  margin-right: var(--size-6);
 }
 .la-header__collapse-wrap {
   background: #F8F8F8;
@@ -17253,7 +17258,7 @@ a, a:hover {
   }
 }
 .la-header__nav-item {
-  margin-right: var(--size-12);
+  margin-right: var(--size-8);
   z-index: 10;
 }
 @media (max-width: 1199px) {
@@ -17271,7 +17276,7 @@ a, a:hover {
 }
 @media (max-width: 1199px) {
   .la-header__nav-link {
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
   }
 }
 .la-header__nav-link:before {
@@ -17330,14 +17335,6 @@ a, a:hover {
 .la-header__menu-icon {
   font-size: var(--text-2xl);
   color: var(--gray6);
-  transition: all 0.25s linear;
-  -webkit-transition: all 0.25s linear;
-}
-.la-header__menu-rotate {
-  transform-origin: 50% 50%;
-  -webkit-transform-origin: 50% 50%;
-  transform: rotate(90deg);
-  -webkit-transform: rotate(90deg);
   transition: all 0.25s linear;
   -webkit-transition: all 0.25s linear;
 }
@@ -17438,6 +17435,15 @@ a, a:hover {
     transform: translateX(10px);
   }
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition: background-color 500s ease-in-out 0s;
+  transition: background-color 500s ease-in-out 0s;
+  -webkit-text-fill-color: #666 !important;
+}
+
 .la-footer {
   background-color: var(--gray3);
   color: #fff;

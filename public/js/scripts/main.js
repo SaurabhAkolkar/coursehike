@@ -2,17 +2,8 @@ $(function(){
   // Global Dropdown Toggle: Start
   $('.dropdown-toggle').dropdown()
   // Global Dropdown Toggle: End
+
   
-  // Navbar Dropdown Toggle: Start
-  $("#profileMenu").on('click', function(){
-    $(this).toggleClass("la-header__menu-rotate"); 
-  });
-
-  $("#profileBeforeLogin").on('click', function(){
-    $(this).toggleClass("la-header__menu-rotate"); 
-  });
-  // Navbar Dropdown Toggle: End
-
   // Nested Links in Course Cards
   $('#la-course__nested-links li').on('click', function(e) {
     var value = $(this).children('a').attr('value');
@@ -198,6 +189,17 @@ $(function(){
     $('.la-profile__sidebar').toggleClass('menu-open')
   })
 
+  // Navbar Search
+  $('#header_search').on('click', function(){
+    $('#header_search_input').toggleClass('la-header__gsearch-expand');
+
+    if($('#header_search_input').hasClass('la-header__gsearch-expand')){
+      $('#header_search_input').css({'width':'60%','height':'60px','position':'absolute','z-index':'1000','left':'0','background':'#fff'});
+    }
+    else{
+      $('#header_search_input').css('width','0%');
+    }
+  });
 
   //header sidemenu
   $('.la-header__sidemenu-btn').on('click', function() {
