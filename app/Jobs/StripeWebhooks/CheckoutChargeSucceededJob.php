@@ -14,6 +14,9 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
 use Spatie\WebhookClient\Models\WebhookCall;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CoursePurchased;
+use App\Setting;
 
 class CheckoutChargeSucceededJob implements ShouldQueue
 {
@@ -104,8 +107,22 @@ class CheckoutChargeSucceededJob implements ShouldQueue
                     $already_puchased->purchase_type = $invoice_items->first()->purchase_type;
                     $already_puchased->save();
                 }
+                $setting = Setting::first();
+                if($setting->w_email_enable == 1){
+                    try{
+                       
+                        Mail::to('officialvikramsuthar@gmail.com')->send(new CoursePurchased());
+                       
+                    }
+                    catch(\Swift_TransportException $e){
+        
+                        header( "refresh:5;url=./" );
+                            
+                    }
+                }
 
                 // Clear Cart
+
                 Cart::where('user_id', $user_invoice->user->id)->get()->each(function($cart) {
                     $cart->delete();
                 });

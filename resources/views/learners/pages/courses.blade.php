@@ -207,6 +207,7 @@
                                 :creatorUrl="$course->user->id"
                                 :learnerCount="$course->learnerCount"
                                 :price="$course->price"
+                                :bought="$course->isPurchased()"
                             />
                           @endforeach
 
@@ -226,6 +227,7 @@
                             </a>
                         </div>
                       </div>
+                      
                     @endif
             @else
                 <div class="tab-content la-courses__content la-anim__wrap position-relative" id="nav-tabContent">
@@ -254,6 +256,7 @@
                                       :creatorUrl="$course->user->id"
                                       :learnerCount="$course->learnerCount"
                                       :price="$course->price"
+                                      :bought="$course->isPurchased()"
 
                                     />
                                 @endforeach

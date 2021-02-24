@@ -57,6 +57,7 @@
                                     :removeFromPlaylist="$removeFromPlaylist"
                                     :learnerCount="$course->learnerCount"
                                     :price="$course->price"
+                                    :bought="$course->isPurchased()"
                                 />
                               </div>
                               @endforeach

@@ -116,7 +116,7 @@
 
             <?php else: ?>
 
-                <div class="la-header__nav-item">   
+                <div class="la-header__nav-item ">   
                     <a class="la-header__nav-link <?php if(Request::segment(1) == 'leanring-plans'): ?> active <?php endif; ?>" href="/learning-plans">
                         <div class="la-header__nav-icon">
                             <span class="la-icon--xl icon-all-mentors"></span>
