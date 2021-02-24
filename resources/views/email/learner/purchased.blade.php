@@ -76,7 +76,7 @@
                                 <span style="font-size:12px;color:#8B8B8B;">Classes Purchased</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">{{ $data['purchase_type'] }}</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">{{ $data['purchase_type']=='all_classes'?'All Classes':'Selected Classes' }}</span>
                             </td>
                         </tr>
 
