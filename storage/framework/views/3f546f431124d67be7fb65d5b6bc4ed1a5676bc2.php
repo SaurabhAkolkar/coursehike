@@ -299,7 +299,7 @@
     <div class="la-section__inner">
       <div class="container">
         <h2 class="la-section__title la-section__title--big position-relative la-anim__fade-in-top la-anim__A">Master <span>classes</span></h2>
-        <div class="la-mccourses pt-20 pt-md-4">
+        <div class="la-mccourses pt-20 pt-md-6">
           <div class="row justify-content-center px-lg-5 la-anim__stagger">
            
               <?php $__currentLoopData = $master_classes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $master): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
