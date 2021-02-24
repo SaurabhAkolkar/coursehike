@@ -12,15 +12,15 @@ $(function(){
   });
 
   // Home Video On scroll Pause/Play: Start
-  /*$(window).on("scroll",function(){
+  $(window).on("scroll",function(){
     if($(window).scrollTop()>500){      
-       $('#home_video')[0].pause();
+       $('#home_video').trigger('pause');
      }
      else
      {
-       $('#home_video')[0].play();
+       $('#home_video').trigger('play');
      }
-  });*/
+  });
   // Home Video On scroll Pause/Play: End
 
   // Global Alert Animation for Learners: Start
@@ -190,16 +190,22 @@ $(function(){
   })
 
   // Navbar Search
-  $('#header_search').on('click', function(){
+  $('#header_search').on('click', function(e){
+    e.preventDefault();
     $('#header_search_input').toggleClass('la-header__gsearch-expand');
-
+    
     if($('#header_search_input').hasClass('la-header__gsearch-expand')){
-      $('#header_search_input').css({'width':'60%','height':'60px','position':'absolute','z-index':'1000','left':'0','background':'#fff'});
-    }
-    else{
-      $('#header_search_input').css('width','0%');
-    }
+      $('#header_search_input').focus();
+      $('#header_search_input').on('blur', function(){
+        $('#header_search_input').focus();
+      });
+    }  
   });
+
+  $('.la-header__gsearch-icon').on('click', function(){
+    $(this).toggleClass('la-header__gsearch-isActive');
+  });
+  
 
   //header sidemenu
   $('.la-header__sidemenu-btn').on('click', function() {

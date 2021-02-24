@@ -70,12 +70,13 @@ html, body{
 
 /* == Sidebar Toggler Menu Links == */
 .user-panel{
-    padding:10px 2px 10px;
+    padding:8px 4px;
 }
 .user-panel>.image>img{
     height:45px !important;
     background:var(--gray);
     object-fit: cover;
+    object-position: center;
 }
 .user-panel > .info > p{
     color:var(--gray6) !important;

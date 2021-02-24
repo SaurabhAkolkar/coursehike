@@ -15,31 +15,41 @@ $sidemenuWidth: 300px;
                 &-{
                     &input[type=text]{
                         width:0;
+                        height:60px;
                         border-left:none;
                         border-bottom:none;
                         display: inline-block;
-                        //transition:all 0.35s ease-out;
-                                            
+                        transition:all 0.35s ease-out;
+                        position:absolute;
+                        left:0;
+                        z-index:1000;
+                        background:var(--white);
+                        
+                                                                    
                         &::-webkit-input-placeholder{
-                            font-size:var(--text-xl); 
+                            font-size:var(--text-md); 
+
+                            @include respond-above(lg){
+                                font-size:var(--text-xl);
+                            }
                         }
-                       
-                        &:focus{
-                           // width:100%;
-                            //transform:translateX(-10px);
-                           // transition:all 0.35s ease-in;
-                           background:transparent;
-                        }
+                        
                     }
                     &expand{
-                        width:100%;
-                        position:absolute;
-                        left:10px;
-                        z-index:1000;
-                        height:60px;
+                        &:focus{
+                            width:78%;
+
+                            @media (max-width:1440px){
+                                width:60%;
+                            }
+                        }
+                    }
+                    &isActive{
+                        color:var(--app-indigo-1);
                     }
                 }
             }
+            
             &inner {
 
             }
