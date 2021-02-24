@@ -107,11 +107,17 @@ class CheckoutChargeSucceededJob implements ShouldQueue
                     $already_puchased->purchase_type = $invoice_items->first()->purchase_type;
                     $already_puchased->save();
                 }
+
                 $setting = Setting::first();
                 if($setting->w_email_enable == 1){
                     try{
-                       
-                        Mail::to('officialvikramsuthar@gmail.com')->send(new CoursePurchased());
+                        $data = [];
+                        // $data['course_name'] = 'dynamics';
+                        // $data['purchase_type'] = 'All Classses';
+                        // $data['amount'] = '235';
+                     
+
+                        Mail::to('officialvikramsuthar@gmail.com')->send(new CoursePurchased($data));
                        
                     }
                     catch(\Swift_TransportException $e){

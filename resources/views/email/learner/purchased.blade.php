@@ -67,7 +67,7 @@
                                 <span style="font-size:12px;color:#8B8B8B;">Course Name</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">Tattoo Art</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;"></span>
                             </td>
                         </tr>
 
@@ -76,7 +76,7 @@
                                 <span style="font-size:12px;color:#8B8B8B;">Classes Purchased</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">All Classes (4)</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;"></span>
                             </td>
                         </tr>
 
@@ -85,7 +85,7 @@
                                 <span style="font-size:12px;color:#8B8B8B;">Total Amount Paid</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">$ 120</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">$ </span>
                             </td>
                         </tr>
 
