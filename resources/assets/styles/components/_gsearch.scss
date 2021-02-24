@@ -59,11 +59,7 @@
                         }
                     }
             }
-            &submit{
-                @include respond-below(md){
-                    margin-top:-10px;
-                }
-            }                        
+                                 
         }
     }
     // Global Search: End

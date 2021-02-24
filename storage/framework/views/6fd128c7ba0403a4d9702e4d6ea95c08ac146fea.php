@@ -46,7 +46,7 @@ use App\Announcement;
               <!-- Global Search: Start-->
               <div class="la-gsearch  mb-0" > 
                   <button class="la-gsearch__submit btn px-0" type="submit" id="header_search">
-                    <i class="la-icon la-icon--xl icon icon-search"></i>
+                    <i class="la-icon la-icon--xl icon icon-search la-header__gsearch-icon"></i>
                   </button>
               </div>
               <!-- Global Search: End-->
@@ -320,7 +320,7 @@ use App\Announcement;
               <!-- Global Search: Start-->
               <div class="la-gsearch  mb-0" > 
                   <button class="la-gsearch__submit btn px-0" type="submit" id="header_search">
-                    <i class="la-icon la-icon--xl icon icon-search"></i>
+                    <i class="la-icon la-icon--xl icon icon-search la-header__gsearch-icon"></i>
                   </button>
               </div>
               <!-- Global Search: End-->
