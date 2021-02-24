@@ -17,6 +17,7 @@ use Spatie\WebhookClient\Models\WebhookCall;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\CoursePurchased;
 use App\Setting;
+use App\Course;
 
 class CheckoutChargeSucceededJob implements ShouldQueue
 {
