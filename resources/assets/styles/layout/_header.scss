@@ -24,9 +24,14 @@ $sidemenuWidth: 300px;
                         left:0;
                         z-index:1000;
                         background:var(--white);
-                                            
+                        
+                                                                    
                         &::-webkit-input-placeholder{
-                            font-size:var(--text-xl); 
+                            font-size:var(--text-md); 
+
+                            @include respond-above(lg){
+                                font-size:var(--text-xl);
+                            }
                         }
                         
                     }
@@ -34,7 +39,7 @@ $sidemenuWidth: 300px;
                         &:focus{
                             width:78%;
 
-                            @media (max-width:1300px){
+                            @media (max-width:1440px){
                                 width:60%;
                             }
                         }

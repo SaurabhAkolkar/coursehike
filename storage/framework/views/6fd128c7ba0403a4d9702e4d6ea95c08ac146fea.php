@@ -33,9 +33,9 @@ use App\Announcement;
 
         </div>
         
-        <form class="form-inline mb-0" action="<?php echo e(url('/search-course/')); ?>" method="get">
+        <form class="form-inline mb-0 d-none d-md-block" action="<?php echo e(url('/search-course/')); ?>" method="get">
           <div class="form-group la-header__gsearch"  >
-            <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input pl-4" id="header_search_input" type="text" name="course_name" value="<?php echo e(isset($search_input)?$search_input:''); ?>" placeholder="Search Courses and Classes" required>
+            <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input pl-4" id="header_search_input" type="text" name="course_name" value="<?php echo e(isset($search_input)?$search_input:''); ?>" placeholder="Looking for creative courses by the best artists in the world?" required>
           </div>
         </form>
 
@@ -307,11 +307,11 @@ use App\Announcement;
 
       </div>
 
-      <form class="form-inline mb-0" action="<?php echo e(url('/search-course/')); ?>" method="get">
-          <div class="form-group la-header__gsearch"  >
-            <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input pl-4" id="header_search_input" type="text" name="course_name" value="<?php echo e(isset($search_input)?$search_input:''); ?>" placeholder="Search Courses and Classes" required>
-          </div>
-        </form>
+      <form class="form-inline mb-0 d-none d-md-block" action="<?php echo e(url('/search-course/')); ?>" method="get">
+        <div class="form-group la-header__gsearch"  >
+          <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input pl-4" id="header_search_input" type="text" name="course_name" value="<?php echo e(isset($search_input)?$search_input:''); ?>" placeholder="Looking for creative courses by the best artists in the world?" required>
+        </div>
+      </form>
 
       <div class="la-header__rht ml-auto mr-md-5">
         <div class="la-header__menu d-inline-flex align-items-center">

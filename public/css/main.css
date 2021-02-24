@@ -17168,12 +17168,17 @@ a, a:hover {
   background: var(--white);
 }
 .la-header__gsearch-input[type=text]::-webkit-input-placeholder {
-  font-size: var(--text-xl);
+  font-size: var(--text-md);
+}
+@media (min-width: 1200px) {
+  .la-header__gsearch-input[type=text]::-webkit-input-placeholder {
+    font-size: var(--text-xl);
+  }
 }
 .la-header__gsearch-expand:focus {
   width: 78%;
 }
-@media (max-width: 1300px) {
+@media (max-width: 1440px) {
   .la-header__gsearch-expand:focus {
     width: 60%;
   }
