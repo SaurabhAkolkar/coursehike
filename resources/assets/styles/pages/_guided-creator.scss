@@ -23,17 +23,18 @@
 }
 .la-gcbanner__title{
     font-weight: var(--font-black);
-    font-size:calc(var(--text-5xl) * 2);
-    @include respond-below(md){
-        font-size:var(--text-5xl);
+    font-size:var(--text-5xl);
+
+    @media (min-width:1200px){
+        font-size:calc(var(--text-5xl) * 2);
     }
 }
 .la-gcbanner__tag{
     font-weight: var(--font-black);
-    font-size:calc(var(--text-5xl) * 2);
+    font-size:var(--text-5xl);
 
-    @include respond-below(md){
-        font-size:var(--text-5xl);
+    @media (min-width:1200px){
+        font-size:calc(var(--text-5xl) * 2);
     }
 }
 .la-gcbanner__para{

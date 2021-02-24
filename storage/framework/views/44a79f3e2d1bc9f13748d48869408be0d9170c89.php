@@ -15,7 +15,7 @@
       <div class="row">
         <!-- Column: Start-->
         <div class="col-12 col-lg-12 la-gc__banner">
-          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-lg-none pl-2 pt-5 mb-6 la-anim__stagger-item--x" href="<?php echo e(URL::previous()); ?>"></a>
+          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-lg-none pl-2 pt-5 mb-3 la-anim__stagger-item--x" href="<?php echo e(URL::previous()); ?>"></a>
           <div class="la-gc__banner-itm d-flex flex-column flex-lg-row justify-content-lg-between">
             <div class="col-12 col-lg la-gcbanner__content d-flex flex-row align-items-center p-0">
               <div class="la-gcbanner__inner">
@@ -157,7 +157,7 @@
     <div class="container">
       <div class="row">
         <!-- Column: Start-->
-        <div class="col-12 px-5 px-sm-0 la-anim__wrap">
+        <div class="col-12 px-3 px-sm-0 la-anim__wrap">
           <div class="panel-group" id="accordion">
             <h4 class="la-bgcreator__faq-title">FAQ&#39;s</h4>
 

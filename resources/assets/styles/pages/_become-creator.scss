@@ -295,6 +295,10 @@ section.la-bcreator-reach-stats{
 }
 .la-bcreator__stats-btn{
 	margin-top:var(--size-14);
+
+	@include respond-below(sm){
+		margin-top:var(--size-6);
+	}
 }
 // Lila Reach Stats Section End
 
@@ -404,7 +408,7 @@ section.la-bgcreator--ad-banner{
 section.la-bgcreator--faq{
 	margin:calc(var(--size-20) + var(--size-20)) 0;
 
-	@media(max-width:767px){
+	@media(max-width:991px){
 		margin:var(--size-20) 0;
 	}
 }

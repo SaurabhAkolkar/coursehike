@@ -8,10 +8,30 @@
                font-weight:var(--font-normal);
             }
             &right {
-                padding-top: 230px;
+                padding-top: 20px;
+                z-index:var(--z-20);
 
-                @include respond-below(lg){
-                    padding-top: 20px;
+                @include respond-above(lg){
+                    padding-top: 250px;
+                }
+            }
+            &content{
+                &-{
+                    &wrap{
+                        @include respond-above(lg){
+                            padding-right:var(--size-20);
+                        }
+                    }
+                }
+            }
+            
+            &para{
+                @include respond-above(lg){
+                    padding-bottom:var(--size-10);
+                    padding-right:var(--size-20);
+                }
+                @include respond-below(sm){
+                    padding-bottom:var(--size-6);
                 }
             }
             &img {
@@ -40,8 +60,8 @@
                 top: 15%;
                 left: 26%;
 
-                @include respond-below(md){
-                    top:50%;
+                @include respond-below(lg){
+                    top:68%;
                 }
                 @include respond-below(sm){
                     top:80%;

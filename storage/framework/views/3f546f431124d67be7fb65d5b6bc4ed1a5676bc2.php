@@ -27,11 +27,9 @@
                 <div class="la-hero__actions d-md-flex align-items-center la-anim__stagger-item">
                   <?php if(Auth::check() && Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()): ?>
 
-                      
                     <div class="col-md-7 px-0">
-                      <a href="/browse/course" class="btn btn-primary la-hero__cta la-btn la-btn--primary">Browse Course</a>
+                      <a href="/browse/course" class="btn btn-primary la-hero__cta la-btn la-btn--primary">Start Learning</a>
                     </div>
-
 
                   <?php else: ?>
 
@@ -43,15 +41,15 @@
                     <div class="col-md-5 px-0 la-soffer d-flex d-lg-block justify-content-center  mb-lg-auto">
                       <div class="la-soffer__bestprice"> 
                         <?php if(getLocation() == 'IN'): ?>
-                          <sup><small>₹</small></sup>  2899 / Month
+                          <sup>₹</sup> 2899 / Month
                         <?php else: ?>
-                          <sup><small>$</small></sup>  39 / Month
+                          <sup>>$</sup> 39 / Month
                         <?php endif; ?>
                       </div>
                       <?php if(getLocation() == 'IN'): ?>
-                        <div class="la-soffer__realprice"> <sup><small>₹</small></sup>  5999 (INR)</div>
+                        <div class="la-soffer__realprice"> <sup>₹</sup> 5999 (INR)</div>
                       <?php else: ?>
-                        <div class="la-soffer__realprice"> <sup><small>$</small></sup>  99 (USD)</div>
+                        <div class="la-soffer__realprice"> <sup>$</sup> 99 (USD)</div>
                       <?php endif; ?>
                     </div>
                   <?php endif; ?>
@@ -349,21 +347,21 @@
             </div>
           </div>
 
-          <div class="col-12 col-md-7 pl-md-0">
+          <div class="col-12 col-md-7 pl-md-0 ">
             <div class="la-trail__btn la-btn__plain d-flex justify-content-center la-anim__fade-in-left">
               <a href="/about" class="d-none d-md-block">ALIENS WAY OF TEACHING</a>
             </div>
-            <div class="la-trail__right d-flex align-items-end ">
-              <div class="la-trail__content-wrap pr-md-20 la-anim__stagger">
-                <div class="la-trail__para pb-10 pr-md-20 la-anim__stagger-item la-anim__B">We strongly believe observation is integral to honing art. Learn from masters in their respective fields with consistent practice, and become a pro yourself!</div>
+            <div class="la-trail__right position-relative d-flex align-items-end ">
+              <div class="la-trail__content-wrap la-anim__stagger">
+                <div class="la-trail__para la-anim__stagger-item la-anim__B">We strongly believe observation is integral to honing art. Learn from masters in their respective fields with consistent practice, and become a pro yourself!</div>
                 <?php if(Auth::check()): ?>
                   <?php if(Auth::user()->subscription('main') ): ?>
-                    <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item" href="/login">Browse Course</a>
+                    <a class="btn btn-primary la-btn la-btn--primary mt-md-6 la-anim__stagger-item" href="/login">Browse Course</a>
                   <?php else: ?>
-                    <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item" href="/login">Start free trail</a>
+                    <a class="btn btn-primary la-btn la-btn--primary mt-md-6 la-anim__stagger-item" href="/login">Start free trail</a>
                   <?php endif; ?>
                 <?php else: ?>
-                  <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item" href="/login">Start free trail</a>
+                  <a class="btn btn-primary la-btn la-btn--primary mt-md-6 la-anim__stagger-item" href="/login">Start free trail</a>
                 <?php endif; ?>
               </div>
             </div>
@@ -385,8 +383,8 @@
             <span class="la-anim__stagger-item">like aliens</span>
           </h2>
           <div class="la-price__slider la-anim__slider">
-              <div class="la-price__slide la-anim__slide">
-                <div class="la-price__row row mb-16">
+              <div class="la-price__slide la-anim__slide mb-6 mb-lg-16">
+                <div class="la-price__row row ">
                 
                   <div class="col-lg-5 pt-20 la-anim__wrap">
                     <h3 class="la-section__subtitle la-anim__stagger-item">How does subscription works?</h3>
@@ -398,8 +396,8 @@
         
                   <?php if(Auth::check() && Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()): ?>
                   
-                        <div class="col-lg-5  offset-lg-1 pt-12 pt-md-20 ">
-                          <div class="la-anim__wrap la-anim__wrap-pin2">
+                        <div class="col-md-7 col-lg-5 offset-lg-1 pt-12 pt-md-20">
+                          <div class="la-anim__wrap la-anim__wrap-pin2 ">
                               <div class="la-price__box la-anim__pin2 ">
                                 <div class="la-price__box-inner la-anim__stagger-item">
                                     <p class="la-price__box-para mt-8 mb-2 la-anim__stagger-item--x">Discover our wide range of art courses curated by top artists from around the world and explore your creativity! </p>
@@ -411,8 +409,8 @@
 
                   <?php else: ?>
 
-                      <div class="col-lg-5  offset-lg-1 pt-12 pt-md-20 ">
-                        <div class="la-anim__wrap la-anim__wrap-pin2">
+                      <div class="col-md-7 col-lg-5 offset-lg-1 pt-12 pt-md-20">
+                        <div class="la-anim__wrap la-anim__wrap-pin2 ">
                             <div class="la-price__box la-anim__pin2 ">
                               <div class="la-price__box-inner la-anim__stagger-item">
                                   <a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary w-100">SUBSCRIBE NOW</a>
@@ -440,7 +438,7 @@
 
               <div class="la-price__slide la-anim__slide">
                 <div class="la-price__row row mb-16">
-                  <div class="col-lg-5 pt-md-20 la-anim__wrap">
+                  <div class="col-lg-5 pt-lg-20 la-anim__wrap">
                     <h3 class="la-section__subtitle la-anim__stagger-item">What’s LILA for you ?</h3>
                     <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x">Our mission is to Encourage, Empower and Embrace self-learning among all curious individuals who wish to learn, expand their potential and make a mark in the world.<br/><br/> 
                         Through our Radical team, we strive every day to make knowledge Affordable, Accessible for everyone regardless of who or where they are

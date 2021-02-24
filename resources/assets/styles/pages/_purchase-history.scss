@@ -20,10 +20,6 @@ section.la-purchase--history{
 }
 
 @media (max-width:991px){
-    section.la-purchase--history{
-        padding:var(--size-6) var(--size-base);
-    } 
-
     .la-ph__mobile{
         .la-ph__course, .la-ph__status{
             color:var(--gray5);

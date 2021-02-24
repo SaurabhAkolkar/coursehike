@@ -18,6 +18,11 @@
                     &medium {
                         font-weight: var(--font-medium);
                     }
+                    &contact{
+                        font-weight:var(--font-normal) !important;
+                        color:var(--gray6) !important;
+                        margin:0;
+                    }
                 }
             }
 
@@ -27,6 +32,9 @@
                 background: none;
                 border: none;
                 border-bottom: 1px solid #DBDBDB;
+                border-radius: 0;
+                -webkit-border-radius: 0;
+                -moz-border-radius:0;
 
                 &:focus{
                     background-color: transparent;
@@ -57,14 +65,16 @@
                 background: var(--gray);
                 border: 1px solid #DBDBDB;
                 padding: 20px;
-                outline:0;
+                outline:none;
 
                 &::placeholder{
                     color: var(--gray8);
                 }
 
                 &:focus{
-                    outline:0;
+                    outline:none;
+                    background:transparent;
+                    box-shadow:none;
                 }
             }
 
