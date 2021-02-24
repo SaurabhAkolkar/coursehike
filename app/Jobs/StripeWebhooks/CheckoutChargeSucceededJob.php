@@ -92,11 +92,20 @@ class CheckoutChargeSucceededJob implements ShouldQueue
             //     ]);
             // }
 
+            $email_data = [];
+            // $email_data['course_name'] = 'dynamics';
+            $email_data['course_name'] = '';
+            $email_data['purchase_type'] = '';
+            $email_data['amount'] = $amount_total;
+
             $invoice_details = InvoiceDetail::having('invoice_id', '=', $client_reference_id)->get()->groupBy('course_id');
                 foreach($invoice_details as $course_id => $invoice_items){
 
+                    $course = Course::findOrFail($course_id);
+                    
                     $already_puchased = UserPurchasedCourse::firstOrNew( ['course_id'=> $course_id , 'user_id'=> $user_invoice->user_id] );
-
+                    $email_data['course_name'] =  $email_data['course_name']==''?$course->title:$email_data['course_name'].', '.$course->title;
+                    $email_data['purchase_type'] = $email_data['purchase_type']==''?$already_puchased->purchase_type:$email_data['purchase_type'].', '.$already_puchased->purchase_type; 
                     $already_puchased->order_id = $client_reference_id;
                     $old_classess = json_decode($already_puchased->class_id);
                     $new_classess = $invoice_items->pluck('class_id')->all();
@@ -111,13 +120,10 @@ class CheckoutChargeSucceededJob implements ShouldQueue
                 $setting = Setting::first();
                 if($setting->w_email_enable == 1){
                     try{
-                        $data = [];
-                        $data['course_name'] = 'dynamics';
-                        $data['purchase_type'] = 'All Classses';
-                        $data['amount'] = '235';
+                      
                      
 
-                        Mail::to('officialvikramsuthar@gmail.com')->send(new CoursePurchased($data));
+                        Mail::to('officialvikramsuthar@gmail.com')->send(new CoursePurchased($email_data));
                        
                     }
                     catch(\Swift_TransportException $e){
