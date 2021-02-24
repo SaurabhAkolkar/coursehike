@@ -53,21 +53,21 @@
                             </td>
                         </tr>
             
-                        <tr>
+                        {{-- <tr>
                             <td width="150" style="padding:4px 0">
                                 <span style="font-size:12px;color:#8B8B8B;">Learner ID</span>
                             </td>
                             <td  style="padding:4px 0">
                                  <span style="font-size:14px;color:#010101;font-weight:500;">#L3245</span>
                             </td>
-                        </tr>
+                        </tr> --}}
 
                         <tr>
                             <td width="150" style="padding:4px 0">
                                 <span style="font-size:12px;color:#8B8B8B;">Name</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">Andrea Phills</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">{{ $data['name'] }}</span>
                             </td>
                         </tr>
 
@@ -76,7 +76,7 @@
                                 <span style="font-size:12px;color:#8B8B8B;">Email ID</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">andreaphilis@gmail.com</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">{{ $data['email'] }}</span>
                             </td>
                         </tr>
 
@@ -85,7 +85,7 @@
                                 <span style="font-size:12px;color:#8B8B8B;">Subscription Type</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">Annual Subscription</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">{{ $data['type'] }}</span>
                             </td>
                         </tr>
 
@@ -94,7 +94,7 @@
                                 <span style="font-size:12px;color:#8B8B8B;">Total Amount Paid</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">$ 240</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">{{ $data['currenty']=='INR'? '₹' : '$' }}{{ $data['amount'] }}</span>
                             </td>
                         </tr>
 
@@ -103,7 +103,7 @@
                                 <span style="font-size:12px;color:#8B8B8B;">Payment Mode</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">Paytm</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">Stripe</span>
                             </td>
                         </tr>
 

@@ -55,7 +55,7 @@ class CheckoutChargeSucceededJob implements ShouldQueue
         $livemode = $invoice['livemode'];
 
 
-        $user_invoice = UserInvoiceDetail::where([['id', $client_reference_id],['status', '!=' , 'failed']])->first();
+        $user_invoice = UserInvoiceDetail::with('user')->where([['id', $client_reference_id],['status', '!=' , 'failed']])->first();
 
         if($payment_status == 'paid' 
             && $invoice['mode'] == "payment"
@@ -124,7 +124,7 @@ class CheckoutChargeSucceededJob implements ShouldQueue
                       
                      
 
-                        Mail::to('officialvikramsuthar@gmail.com')->send(new CoursePurchased($email_data));
+                        Mail::to($user_invoice->email)->send(new CoursePurchased($email_data));
                        
                     }
                     catch(\Swift_TransportException $e){
