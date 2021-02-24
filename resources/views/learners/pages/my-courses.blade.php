@@ -48,6 +48,7 @@
                           :creatorUrl="$course->course->user->id"
                           :price="$course->course->price"
                           :learnerCount="$course->course->learnerCount"
+                          :bought="$course->course->isPurchased()"
                         />
                       @endforeach
                     </div>
@@ -96,6 +97,7 @@
                       :creatorUrl="$course->user->id"
                       :price="$course->price"
                       :learnerCount="$course->learnerCount"
+                      :bought="$course->isPurchased()"
                     />
                   @endforeach
                 </div>

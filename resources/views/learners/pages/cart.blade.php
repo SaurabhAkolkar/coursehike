@@ -219,6 +219,7 @@
                           :creatorUrl="$sc->user->id"
                           :learnerCount="$sc->learnerCount"
                           :price="$sc->price"
+                          :bought="$sc->isPurchased()"
                         />
                   @endforeach       
                   <div class="col-md-6 col-lg-4 offset-lg-8 text-right la-anim__stagger-item--x">

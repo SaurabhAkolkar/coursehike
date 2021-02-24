@@ -415,80 +415,89 @@ use Carbon\Carbon;
   <section class="la-section__small la-section--grey la-vcourse__purchase">
     <div class="la-vcourse__purchase-inwrap container">
       <div class="row la-vcourse__purchase-row la-anim__wrap">
+        {{-- Purchase Course DIV:Start --}}
         <div class="col-md-7 col-lg-7 la-vcourse__purchase-left la-anim__stagger-item">
-          <div class="la-vcourse__purchase-prize mb-4 mb-lg-8 ">Purchase this Course @ <span class="la-vcourse__purchase-prize--amount"><b>{{ getSymbol() }}{{$course->convertedprice}}</b></span></div>
-          <form class="la-vcourse__purchase-form" id="add_to_cart_form" name="add_to_cart_form" method="post" action="/add-to-cart">
-            <input type="hidden" name="course_id" value="{{$course->id}}" />
-            @csrf
-            <div class="la-vcourse__purchase-classes">
-              <div class="la-vcourse__purchase-class la-vcourse__purchase-class--all mb-lg-4 la-anim__stagger-item">
-                <div class="la-form__radio-wrap">
-                  <input class="la-form__radio d-none la-vcourse__purchase-input" @if($order_type == null || $order_type == 'all_classes') checked @endif type="radio" value="all-classes" name="classes" id="allClasses">
-                  <label class="d-flex align-items-center la-vcourse__purchase-label" for="allClasses">
-                    <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
-                    <span class="">All Classes</span>
-                  </label>
+          @if($course->isPurchased() == null || !Auth::check())
+            <div class="la-vcourse__purchase-prize mb-4 mb-lg-8 ">Purchase this Course @ <span class="la-vcourse__purchase-prize--amount"><b>{{ getSymbol() }}{{$course->convertedprice}}</b></span></div>
+            <form class="la-vcourse__purchase-form" id="add_to_cart_form" name="add_to_cart_form" method="post" action="/add-to-cart">
+              <input type="hidden" name="course_id" value="{{$course->id}}" />
+              @csrf
+              <div class="la-vcourse__purchase-classes">
+                <div class="la-vcourse__purchase-class la-vcourse__purchase-class--all mb-lg-4 la-anim__stagger-item">
+                  <div class="la-form__radio-wrap">
+                    <input class="la-form__radio d-none la-vcourse__purchase-input" @if($order_type == null || $order_type == 'all_classes') checked @endif type="radio" value="all-classes" name="classes" id="allClasses">
+                    <label class="d-flex align-items-center la-vcourse__purchase-label" for="allClasses">
+                      <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
+                      <span class="">All Classes</span>
+                    </label>
+                  </div>
                 </div>
-              </div>
-              <div class="la-vcourse__purchase-class la-vcourse__purchase-class--select ">
-                <div class="la-form__radio-wrap la-anim__stagger-item">
-                  <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" value="select-classes" @if($order_type == 'selected_classes') @endif name="classes" id="selectClasses">
-                  <label class="d-flex align-items-center la-vcourse__purchase-label" for="selectClasses">
-                    <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
-                    <span class="">Select Classes</span>
-                  </label>
-                </div>
-                <div class="la-vcourse__purchase-items mt-4 mt-lg-8 la-anim__stagger-item" id="selected_class_div">
-                  <table class="w-100 la-vcourse__classes-wrap">
-                    <tr class="la-vcourse__sclass-item">
-                      <th class="mb-4 la-vcourse__sclass-heading"></th>
-                      <th class="mb-4 la-vcourse__sclass-heading">Class</th>
-                      <th class="mb-4 la-vcourse__sclass-heading">Name</th>
-                      <th class="mb-4 la-vcourse__sclass-heading">Mentor</th>
-                      <th class="mb-4 la-vcourse__sclass-heading">Price</th>
-                    </tr>
-                    @foreach ($course->chapter as $class)
-                    
-                      <tr class="la-vcourse__sclass-item align-top">
-                        <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--checkbox">
-                          <div>
-                            <input id="selectItem_{{$class->id}}" name="selected_classes[]" class="la-form__checkbox-input selected_classes custom-control-input" type="checkbox" value="{{$class->id}}" @if($order_type == 'all_classes') checked @endif>
-                            
-                            <label class="" for="selectItem_{{$class->id}}">
-                              <svg viewBox="0 0 16 16" height="16" width="16">
-                                <g id="Group_5052" data-name="Group 5052" transform="translate(-129 -2108)">
-                                  <g id="Rectangle_3239" data-name="Rectangle 3239" transform="translate(129 2108)" fill="none" stroke="#7400d7" stroke-width="1">
-                                    <rect class="la-form__checkbox-rect" x="0.5" y="0.5" width="15" height="15" fill="none" />
-                                  </g>
-                                </g>
-                                <path class="la-form__checkbox-mark" id="Path_17096" data-name="Path 17096" d="M147.263,194.53a.857.857,0,0,0,.56.4.994.994,0,0,0,.171.02.854.854,0,0,0,.5-.161l7.175-5.128a.856.856,0,0,0-1-1.392l-6.419,4.589-1.871-3.1a.856.856,0,1,0-1.467.882Z" transform="matrix(0.985, -0.174, 0.174, 0.985, -173.013, -153.894)" fill="#010101"/>
-                              </svg>
-                            </label>
-                          </div>
-                        </td>
-                        <td class="la-vcourse__sclass-data la-vcourse__sclass-data--thumbnail">
-                          <img src="{{ $class->thumbnail }}" alt="purchase item" class="img-fluid d-block">
-                        </td>
-                        <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--name">{{$class->chapter_name}}</td>
-                        <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--mentor">{{$course->user->fname}}</td>
-                        <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--price">{{ getSymbol() }}{{$class->convertedprice}}</td>
+                <div class="la-vcourse__purchase-class la-vcourse__purchase-class--select ">
+                  <div class="la-form__radio-wrap la-anim__stagger-item">
+                    <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" value="select-classes" @if($order_type == 'selected_classes') @endif name="classes" id="selectClasses">
+                    <label class="d-flex align-items-center la-vcourse__purchase-label" for="selectClasses">
+                      <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
+                      <span class="">Select Classes</span>
+                    </label>
+                  </div>
+                  <div class="la-vcourse__purchase-items mt-4 mt-lg-8 la-anim__stagger-item" id="selected_class_div">
+                    <table class="w-100 la-vcourse__classes-wrap">
+                      <tr class="la-vcourse__sclass-item">
+                        <th class="mb-4 la-vcourse__sclass-heading"></th>
+                        <th class="mb-4 la-vcourse__sclass-heading">Class</th>
+                        <th class="mb-4 la-vcourse__sclass-heading">Name</th>
+                        <th class="mb-4 la-vcourse__sclass-heading">Mentor</th>
+                        <th class="mb-4 la-vcourse__sclass-heading">Price</th>
                       </tr>
-                     
-                    @endforeach
-                  </table>
+                      @foreach ($course->chapter as $class)
+                      
+                        <tr class="la-vcourse__sclass-item align-top">
+                          <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--checkbox">
+                            <div>
+                              <input id="selectItem_{{$class->id}}" name="selected_classes[]" class="la-form__checkbox-input selected_classes custom-control-input" type="checkbox" value="{{$class->id}}" @if($order_type == 'all_classes') checked @endif checked>
+                              
+                              <label class="" for="selectItem_{{$class->id}}">
+                                <svg viewBox="0 0 16 16" height="16" width="16">
+                                  <g id="Group_5052" data-name="Group 5052" transform="translate(-129 -2108)">
+                                    <g id="Rectangle_3239" data-name="Rectangle 3239" transform="translate(129 2108)" fill="none" stroke="#7400d7" stroke-width="1">
+                                      <rect class="la-form__checkbox-rect" x="0.5" y="0.5" width="15" height="15" fill="none" />
+                                    </g>
+                                  </g>
+                                  <path class="la-form__checkbox-mark" id="Path_17096" data-name="Path 17096" d="M147.263,194.53a.857.857,0,0,0,.56.4.994.994,0,0,0,.171.02.854.854,0,0,0,.5-.161l7.175-5.128a.856.856,0,0,0-1-1.392l-6.419,4.589-1.871-3.1a.856.856,0,1,0-1.467.882Z" transform="matrix(0.985, -0.174, 0.174, 0.985, -173.013, -153.894)" fill="#010101"/>
+                                </svg>
+                              </label>
+                            </div>
+                          </td>
+                          <td class="la-vcourse__sclass-data la-vcourse__sclass-data--thumbnail">
+                            <img src="{{ $class->thumbnail }}" alt="purchase item" class="img-fluid d-block">
+                          </td>
+                          <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--name">{{$class->chapter_name}}</td>
+                          <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--mentor">{{$course->user->fname}}</td>
+                          <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--price">{{ getSymbol() }}{{$class->convertedprice}}</td>
+                        </tr>
+                      
+                      @endforeach
+                    </table>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="la-vcourse__purchase-actions d-flex flex-wrap align-items-center mt-8">
-              <div class="la-vcourse__purchase-btn1 w-50">
-                <a class="btn btn-primary la-btn w-100 text-center" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif >Buy course</a>
+              <div class="la-vcourse__purchase-actions d-flex flex-wrap align-items-center mt-8">
+                <div class="la-vcourse__purchase-btn1 w-50">
+                  <a class="btn btn-primary la-btn w-100 text-center" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif >Buy course</a>
+                </div>
+                <div class="la-vcourse__purchase-btn w-50">
+                  <a class="btn  la-btn__plain text--green w-100 text-center" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>ADD TO CART</a>
+                </div>
               </div>
-              <div class="la-vcourse__purchase-btn w-50">
-                <a class="btn  la-btn__plain text--green w-100 text-center" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>ADD TO CART</a>
-              </div>
-            </div>
-          </form>
+            </form>
+          
+            @else
+
+              This Course is free to Watch
+            @endif
         </div>
+
+        {{-- Purchase course DIV:END --}}
         
         @if ( !(auth()->check() && auth()->user()->subscription('main') && auth()->user()->subscription('main')->active()) )
           <div class="col-md-5 col-lg-4 offset-lg-1 px-lg-0 my-auto la-vcourse__purchase-right la-anim__wrap">
@@ -778,6 +787,8 @@ use Carbon\Carbon;
                     :creatorUrl="$course->user->id"
                     :learnerCount="$course->learnerCount"
                     :price="$course->price"
+                    :bought="$course->isPurchased()"
+
                   />
               @endforeach
             </div>
@@ -817,6 +828,7 @@ use Carbon\Carbon;
                       :creatorUrl="$course->user->id"
                       :learnerCount="$course->learnerCount"
                       :price="$course->price"
+                      :bought="$course->isPurchased()"
                   />
               @endforeach
             </div>
