@@ -106,6 +106,7 @@ class CheckoutChargeSucceededJob implements ShouldQueue
             $email_data['currenty'] = $user_invoice->currency;
 
             $invoice_details = InvoiceDetail::having('invoice_id', '=', $client_reference_id)->get()->groupBy('course_id');
+            
                 foreach($invoice_details as $course_id => $invoice_items){
 
                     $course = Course::findOrFail($course_id);
