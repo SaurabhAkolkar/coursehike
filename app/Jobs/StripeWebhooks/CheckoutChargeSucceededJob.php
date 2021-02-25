@@ -106,6 +106,7 @@ class CheckoutChargeSucceededJob implements ShouldQueue
             $email_data['currenty'] = $user_invoice->currency;
 
             $invoice_details = InvoiceDetail::having('invoice_id', '=', $client_reference_id)->get()->groupBy('course_id');
+            
                 foreach($invoice_details as $course_id => $invoice_items){
 
                     $course = Course::findOrFail($course_id);
@@ -121,6 +122,8 @@ class CheckoutChargeSucceededJob implements ShouldQueue
                     $already_puchased->purchase_type = $invoice_items->first()->purchase_type;
                     $already_puchased->save();
 
+                    $email_data['course_name'] =  $email_data['course_name'] == '' ? $course->title : $email_data['course_name'].', '.$course->title;
+                    $email_data['purchase_type'] = $email_data['purchase_type'] == '' ? $invoice_items->first()->purchase_type : $email_data['purchase_type'].', '.$invoice_items->first()->purchase_type; 
                     $data = [];
                     $data['title'] = $course->title;
                     $data['image'] = $course->preview_image;
@@ -131,8 +134,6 @@ class CheckoutChargeSucceededJob implements ShouldQueue
 
                     
 
-                    $email_data['course_name'] =  $email_data['course_name'] == '' ? $course->title : $email_data['course_name'].', '.$course->title;
-                    $email_data['purchase_type'] = $email_data['purchase_type'] == '' ? $invoice_items->first()->purchase_type : $email_data['purchase_type'].', '.$invoice_items->first()->purchase_type; 
                 }
 
                 $setting = Setting::first();
@@ -140,9 +141,10 @@ class CheckoutChargeSucceededJob implements ShouldQueue
 
                 if($setting->w_email_enable == 1){
                     try{
-                        Mail::to($user_invoice->email)->send(new CoursePurchased($email_data));
-                    }catch(\Swift_TransportException $e){
-                            
+                        Mail::to($user_invoice->email)->send(new CoursePurchased($email_data));                       
+                    }
+                    catch(\Swift_TransportException $e){  
+                        header( "refresh:5;url=./" );
                     }
                 }
 
