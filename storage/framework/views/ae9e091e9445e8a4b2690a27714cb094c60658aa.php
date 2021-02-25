@@ -2,13 +2,14 @@
 <!-- Main Section: Start-->
 <section class="la-cdashboard-main">
     <!-- Section: Start-->
-    <section class="la-cdashboard py-5">
+    <section class="la-cdashboard py-md-5">
       <div class="la-cdashboard__inner pt-5">
         <div class="container pt-0 pt-sm-3">
           <div class="row d-flex flex-row justify-content-between">
-            <div class="col-12 col-md-6 col-lg-5 ">
-              <div class="la-cdashboard__page  la-anim__wrap">
-                <h1 class="la-cdashboard__user-name text-3xl text-md-4xl text-capitalize  la-anim__fade-in-top">Welcome <span style="color:var(--app-indigo-1);"><?php echo e(Auth::user()->fname); ?>!</span></h1>
+            <div class="col-12 col-md-6 col-lg-5  la-anim__wrap">
+              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2 la-anim__stagger-item" href="<?php echo e(URL::previous()); ?>"></a>
+              <div class="la-cdashboard__page ">
+                <h1 class="la-cdashboard__user-name mb-2 text-3xl text-md-4xl text-capitalize la-anim__fade-in-top">Welcome <span style="color:var(--app-indigo-1);"><?php echo e(Auth::user()->fname); ?>!</span></h1>
                 <p class="text-md  la-anim__stagger-item--x">Share your knowledge, Be the change.<br/> The kind that enables everyone to reach their full potential & more!</p>
               </div>
 
@@ -36,7 +37,7 @@
 <?php endif; ?>
                         <?php else: ?>
 
-                        <div class="la-empty__courses text-center mt-0 mb-10 mb-md-1 py-6 py-md-10 px-12 px-md-14">
+                        <div class="la-empty__courses text-center mt-0 mb-10 mb-md-1 py-6 py-md-9 px-12 px-md-14">
                             <div class="la-empty__inner la-anim__stagger-item">
                                 <p class="la-empty__course-desc leading-snug m-0">You don't have any last viewed course.</p>
                             </div>
@@ -183,7 +184,7 @@
                 <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
                     <a href="/browse/courses" class="la-empty__browse">
                         Browse Courses
-                        <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                      <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
                     </a>
                 </div>
             </div>

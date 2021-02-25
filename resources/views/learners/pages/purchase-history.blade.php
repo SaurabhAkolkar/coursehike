@@ -13,8 +13,8 @@
             <!-- SECTION PURCHASED: START -->
             <section class="la-purchase--history">
                 <div class="container px-0 la-anim__stagger-item">
-                  <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5" href="{{URL::previous()}}"></a>
-                  <div class="la-purchaseh__main-title text-3xl head-font pb-5 pb-lg-10">Purchase History</div>
+                  <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-3" href="{{URL::previous()}}"></a>
+                  <div class="la-purchaseh__main-title text-3xl head-font mb-5 mb-lg-10">Purchase History</div>
                 </div>
                   <!-- Purchased Desktop Version: Start -->
 
@@ -61,9 +61,9 @@
                 </div>
                 @else
                   <div class="la-anim__wrap">
-                    <div class=" d-md-flex justify-content-center align-items-start la-anim__stagger-item">
+                    <div class="la-anim__stagger-item">
                           <div class="la-empty__inner py-10">
-                              <h6 class="la-empty__course-title  text-3xl la-anim__stagger-item" style="color:var(--gray8);">No Purchase History.</h6>
+                              <h6 class="la-empty__course-title text-center text-2xl text-md-3xl la-anim__stagger-item" style="color:var(--gray8);">No Purchase History.</h6>
                           </div>
                       </div>
                     </div>

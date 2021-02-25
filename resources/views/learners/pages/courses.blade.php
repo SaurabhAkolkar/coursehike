@@ -19,8 +19,8 @@
     <div class="la-section__inner">
       <div class="container">
         <div class="la-anim__wrap">  
-          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5 la-anim__stagger-item--x" href="{{URL::previous()}}"></a>
-          <h1 class="la-page__title mb-8 la-anim__stagger-item">Browse Courses</h1>
+          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2 la-anim__stagger-item--x" href="{{URL::previous()}}"></a>
+          <h1 class="la-page__title mb-4 mb-md-8 la-anim__stagger-item">Browse Courses</h1>
         </div>
         
         <div class="d-flex justify-content-between align-items-start ">
@@ -167,7 +167,7 @@
         </div>
               
 
-        <div class="la-courses mt-6 mt-md-14 la-anim__wrap">
+        <div class="la-courses mt-1 mt-md-14 la-anim__wrap">
           <nav class="la-courses__nav d-flex justify-content-between position-relative">
               <ul class="nav nav-pills la-courses__nav-tabs" id="nav-tab" role="tablist" tabindex="0">
               

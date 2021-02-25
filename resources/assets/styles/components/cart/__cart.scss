@@ -5,7 +5,7 @@
         &__ {
             &sec{
                 @media(max-width:767px){
-                    border-bottom:1px solid var(--gray6);
+                    border-bottom:1px solid var(--gray9);
                 }
             }
             &bill {
@@ -130,10 +130,14 @@
                     &title {
                         margin-bottom: var(--size-10);
                         &-- {
-                            &light h2 {
+                            &light{
                                 font-weight: var(--font-light);
                                 color: var(--gray5)
                             }
+                        }
+
+                        @include respond-below(md){
+                            font-size: var(--text-2xl);
                         }
                     }
                 }

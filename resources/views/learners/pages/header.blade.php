@@ -56,58 +56,28 @@ use App\Announcement;
               <div class="dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="notificationPanel" style="border:none !important;">
                   <ul class="card la-notification__card">
                     <!-- Notification Panel: Start -->
-                    @php
-                    $user = Auth::user();
-                        $msg1 = new stdClass;
-                        $msg1->url = "";
-                        $msg1->img = "https://picsum.photos/50";
-                        $msg1->name = "Lillan";
-                        $msg1->comment = "added new Course in Design";
-                        $msg1->timestamp = "Just now";
 
-                        $msg2 = new stdClass;
-                        $msg2->url = "";
-                        $msg2->img = "https://picsum.photos/50";
-                        $msg2->name = "Alton";
-                        $msg2->comment = "likes your comment";
-                        $msg2->timestamp = "2h";
+                    @foreach (Auth::user()->unreadNotifications as $notification)
+                      @if($notification->type == "App\Notifications\CourseNotification")
 
-                        $msg3 = new stdClass;
-                        $msg3->url = "";
-                        $msg3->img = "https://picsum.photos/50";
-                        $msg3->name = "Joseph";
-                        $msg3->comment = "added new Course in Design";
-                        $msg3->timestamp = "3h";
-
-                        $msg4 = new stdClass;
-                        $msg4->url = "";
-                        $msg4->img = "https://picsum.photos/50";
-                        $msg4->name = "Dartin";
-                        $msg4->comment = "likes your comment";
-                        $msg4->timestamp = "6h";
-
-                        $msg5 = new stdClass;
-                        $msg5->url = "";
-                        $msg5->img = "https://picsum.photos/50";
-                        $msg5->name = "Dartin";
-                        $msg5->comment = "likes your comment";
-                        $msg5->timestamp = "6h";
-
-                        $msgs = array($msg1, $msg2, $msg3, $msg4, $msg5);
-                        $notificationCount = 0;
-                    @endphp
-
-                    @foreach ($msgs as $msg)
-                        <x-notification :url="$msg->url" :img="$msg->img" :name="$msg->name" :comment="$msg->comment" :timestamp="$msg->timestamp" />
-                    @endforeach 
-
-                    @foreach ($user->unreadNotifications as $notification)
-                      @if($notification->type == "App\Notifications\NewReleases")
-                        @php 
-                              $notificationCount++;
-                        @endphp
+                      <x-notification  :img="$notification->data['image']" :name="'Subscribed'" :comment="$notification->data['data']" :timestamp="$notification->created_at" />
                       @endif
-                    @endforeach         
+                    @endforeach 
+                    @if(count(Auth::user()->unreadNotifications) == 0)
+                      <li class="la-notification__item">
+                        <a class="la-notification__link" href= "#">
+                            <div class="la-notification__link-inner d-flex flex-row align-items-start">
+                                  <div class="la-notification__msg">
+                                      <div class="la-notification__title text-sm pr-1">
+                                          <span class="text-sm font-normal pr-1">No Notifications Found</span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </a>
+                      </li>
+                    @endif
+
+                         
                     <!-- Notification Panel: End -->
                   </ul>
                 <a class="la-notification__clear-all position-fixed" href="#">

@@ -70,10 +70,10 @@
                         text-transform: uppercase;
                         color: var(--gray2);
                         
-                        @include respond-above(md) {
+                        @include respond-above(lg) {
                             font-size: var(--text-abnormal);
                         }
-                        @include respond-below(md) {
+                        @include respond-below(lg) {
                             text-align:center;
                             font-size: calc(var(--text-5xl) * 2);
                             margin-bottom:var(--size-8);

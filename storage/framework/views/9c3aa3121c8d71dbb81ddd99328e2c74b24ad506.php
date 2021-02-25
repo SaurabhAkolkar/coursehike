@@ -8,8 +8,8 @@
 
         <div class="container">
           <div class="col-12 la-anim__wrap d-md-flex justify-content-between align-items-center px-0 pb-md-12">
-            <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5 la-anim__stagger-item" href="<?php echo e(URL::previous()); ?>"></a>
-            <h1 class="la-mycourses__title text-4xl mb-8 la-anim__stagger-item">My Courses</h1>
+            <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2 la-anim__stagger-item" href="<?php echo e(URL::previous()); ?>"></a>
+            <h1 class="la-mycourses__title text-4xl mb-4 mb-md-8 la-anim__stagger-item">My Courses</h1>
 
             <!-- Global Search: Start-->
             <div class="la-gsearch la-anim__stagger-item--x">
@@ -44,7 +44,7 @@
                       <?php $__currentLoopData = $on_going_courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       
                        <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->course->id,'img' => $course->course->preview_image,'course' => $course->course->title,'url' => $course->course->slug,'rating' => $course->course->review->avg('rating'),'creatorImg' => $course->course->user->user_img,'creatorName' => $course->course->user->fullName,'creatorUrl' => $course->course->user->id,'price' => $course->course->price,'learnerCount' => $course->course->learnerCount]); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->course->id,'img' => $course->course->preview_image,'course' => $course->course->title,'url' => $course->course->slug,'rating' => $course->course->review->avg('rating'),'creatorImg' => $course->course->user->user_img,'creatorName' => $course->course->user->fullName,'creatorUrl' => $course->course->user->id,'price' => $course->course->price,'learnerCount' => $course->course->learnerCount,'bought' => $course->course->isPurchased()]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
@@ -91,7 +91,7 @@
                   <?php $__currentLoopData = $yet_to_start_courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 
                    <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => $course->review->avg('rating'),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fullName,'creatorUrl' => $course->user->id,'price' => $course->price,'learnerCount' => $course->learnerCount]); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => $course->review->avg('rating'),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fullName,'creatorUrl' => $course->user->id,'price' => $course->price,'learnerCount' => $course->learnerCount,'bought' => $course->isPurchased()]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>

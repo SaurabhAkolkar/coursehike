@@ -3,24 +3,22 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
 
-class CourseNotification extends Notification
+class UserNotifications extends Notification
 {
     use Queueable;
-
-    private $course;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($course)
+    public function __construct()
     {
-        $this->course = $course;
+        //
     }
 
     /**
@@ -57,10 +55,9 @@ class CourseNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-
             'id' => $this->course['title'],
             'image' => $this->course['image'],
-            'data' => $this->course['data'],
+            'msg' => $this->course['msg'],
         ];
     }
 }

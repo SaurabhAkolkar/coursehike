@@ -7,6 +7,10 @@
                 font-weight: var(--font-normal);
                 margin-bottom: var(--size-4);
                 color: var(--gray7);
+
+                @include respond-below(sm){
+                    font-size: var(--text-xl);
+                }
             }
 
             &item{
@@ -129,7 +133,7 @@
                 padding: var(--size-14) 0;
 
                 @media(max-width:767px){
-                    padding:var(--size-10) 0;
+                    padding:var(--size-6) 0;
                 }
             }
         }

@@ -116,10 +116,10 @@
 
             <?php else: ?>
 
-                <div class="la-header__nav-item">   
+                <div class="la-header__nav-item d-none d-lg-block">   
                     <a class="la-header__nav-link <?php if(Request::segment(1) == 'learning-plans'): ?> active <?php endif; ?>" href="/learning-plans">
                         <div class="la-header__nav-icon">
-                            <span class="la-icon--xl icon-all-mentors"></span>
+                            <span class="la-icon--xl icon-learning-plans"></span>
                         </div>
                         <span class="la-header__nav-name">Learning Plans</span>
                     </a>

@@ -3,8 +3,8 @@
     <div class="la-section__inner">
       <div class="container ">
         <div class="la-anim__wrap d-md-flex justify-content-between align-items-center">
-          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5 la-anim__stagger-item--x" href="<?php echo e(URL::previous()); ?>"></a>
-          <h1 class="la-page__title mb-8 la-anim__stagger-item">Alien Mentors</h1>
+          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2 la-anim__stagger-item--x" href="<?php echo e(URL::previous()); ?>"></a>
+          <h1 class="la-page__title mb-4 mb-md-8 la-anim__stagger-item">Alien Mentors</h1>
 
           <!-- Global Search: Start-->
           <div class="la-gsearch la-anim__stagger-item--x">
@@ -33,7 +33,7 @@
           //$mentors = array($mentor1, $mentor2, $mentor3, $mentor4, $mentor5, $mentor6, $mentor7, $mentor8, $mentor9);
         ?>
 
-        <div class="la-mentors pt-md-10">
+        <div class="la-mentors pt-4 pt-md-10">
           <div class="row la-anim__wrap">
               <div class="row row-cols-lg-3">
                 <?php $__currentLoopData = $mentors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $mentor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

@@ -68,11 +68,11 @@
                         <div class="la-cart__item-label mb-4 ">Price</div>
                         <div class="la-cart__item-content">
                             <div class="la-soffer ml-0">
-                                <div class="la-soffer__bestprice "> 
-                                   <sup><small><?php echo e(getSymbol()); ?></small></sup><span><?php echo e($cart->cartItems->sum('price')); ?></span>
+                                <div class="la-soffer__bestprice la-cart__item-cost"> 
+                                   <sup><?php echo e(getSymbol()); ?></sup><span><?php echo e($cart->cartItems->sum('price')); ?></span>
                                 </div>
                                 <div class="la-soffer__realprice "> 
-                                   <sup><small><?php echo e(getSymbol()); ?></small></sup><span><?php echo e($cart->cartItems->sum('offer_price')); ?></span>
+                                   <sup><?php echo e(getSymbol()); ?></sup><span><?php echo e($cart->cartItems->sum('offer_price')); ?></span>
                                 </div>
                             </div>
                         </div>
