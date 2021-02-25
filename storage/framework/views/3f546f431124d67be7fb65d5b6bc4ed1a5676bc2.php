@@ -11,6 +11,7 @@
   </div>
 <?php endif; ?>
 
+
 <!-- Section: Start-->
 <section class="la-section  la-section--hero clearfix p-0">
     <div class="la-section__inner">
@@ -356,7 +357,7 @@
                 <div class="la-trail__para la-anim__stagger-item la-anim__B">We strongly believe observation is integral to honing art. Learn from masters in their respective fields with consistent practice, and become a pro yourself!</div>
                 <?php if(Auth::check()): ?>
                   <?php if(Auth::user()->subscription('main') ): ?>
-                    <a class="btn btn-primary la-btn la-btn--primary mt-md-6 la-anim__stagger-item" href="/login">Browse Course</a>
+                    <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item" href="/browse/course/">Browse Course</a>
                   <?php else: ?>
                     <a class="btn btn-primary la-btn la-btn--primary mt-md-6 la-anim__stagger-item" href="/login">Start free trail</a>
                   <?php endif; ?>
@@ -400,7 +401,7 @@
                           <div class="la-anim__wrap la-anim__wrap-pin2 ">
                               <div class="la-price__box la-anim__pin2 ">
                                 <div class="la-price__box-inner la-anim__stagger-item">
-                                    <p class="la-price__box-para mt-8 mb-2 la-anim__stagger-item--x">Discover our wide range of art courses curated by top artists from around the world and explore your creativity! </p>
+                                    <p class="la-price__box-para mb-8 la-anim__stagger-item--x">Discover our wide range of art courses curated by top artists from around the world and explore your creativity! </p>
                                     <a href="/browse/course" class="btn btn-primary la-btn la-btn--primary w-100">Start Learning</a>                                   
                                 </div>
                               </div>

@@ -59,25 +59,15 @@ use App\Announcement;
 
                     @foreach (Auth::user()->unreadNotifications as $notification)
                       @if($notification->type == "App\Notifications\CourseNotification")
-
                       <x-notification  :img="$notification->data['image']" :name="$notification->data['id']" :comment="$notification->data['data']" :timestamp="Carbon::parse($notification->created_at)->format('d-m-Y')" />
                       @endif
                     @endforeach 
                     @if(count(Auth::user()->unreadNotifications) == 0)
-                      <li class="la-notification__item">
-                        <a class="la-notification__link" href= "#">
-                            <div class="la-notification__link-inner d-flex flex-row align-items-start">
-                                  <div class="la-notification__msg">
-                                      <div class="la-notification__title text-sm pr-1">
-                                          <span class="text-sm font-normal pr-1">No Notifications Found</span>
-                                      </div>
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
+                      <div class="d-flex justify-content-center align-items-center my-auto">
+                        <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-semibold)">No Notifications Found</div>
+                      </div>                                                   
                     @endif
 
-                         
                     <!-- Notification Panel: End -->
                   </ul>
                 <a class="la-notification__clear-all position-fixed" href="#">
