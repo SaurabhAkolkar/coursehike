@@ -416,7 +416,7 @@ use Carbon\Carbon;
     <div class="la-vcourse__purchase-inwrap container">
       <div class="row la-vcourse__purchase-row la-anim__wrap">
         <div class="col-md-7 col-lg-7 la-vcourse__purchase-left la-anim__stagger-item">
-          <div class="la-vcourse__purchase-prize mb-4 mb-lg-8 ">Purchase this Course @ <span class="la-vcourse__purchase-prize--amount"><b>{{ getSymbol() }}{{$course->convertedprice}}</b></span></div>
+          <div class="la-vcourse__purchase-prize mb-4 mb-lg-8 ">Purchase this Course for lifetime access @ <span class="la-vcourse__purchase-prize--amount"><b>{{ getSymbol() }}{{$course->convertedprice}}</b></span></div>
           <form class="la-vcourse__purchase-form" id="add_to_cart_form" name="add_to_cart_form" method="post" action="/add-to-cart">
             <input type="hidden" name="course_id" value="{{$course->id}}" />
             @csrf

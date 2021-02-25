@@ -61,7 +61,7 @@ class AuthController extends Controller
      */
     public function findOrCreateUser($user, $provider)
     {
-        if($user->email == Null){
+        if($user->email == null){
             $user->email = $user->id.'@facebook.com';
         }
         $authUser = User::where('email', $user->email)->first();

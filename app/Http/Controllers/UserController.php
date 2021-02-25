@@ -162,7 +162,19 @@ class UserController extends Controller
         $plan = app('rinvex.subscriptions.plan')->where('slug', $request->slug)->first();
 
         $user  = User::find($request->user_id);
-        $user->newSubscription('main', $plan);
+
+
+        $plan_subscription = $user->subscription('main');
+
+        if($plan_subscription){
+
+            $plan_subscription->changePlan($plan);
+
+            $plan_subscription->starts_at = Carbon::createFromTimestamp($request->start_date)->toDateTimeString(); 
+            $plan_subscription->ends_at = Carbon::createFromTimestamp($request->end_date)->toDateTimeString();
+            $plan_subscription->save();
+        }else
+            $user->newSubscription('main', $plan);
 
         // $start_date = Carbon::parse($request->start_date);
         // $end_date = Carbon::parse($request->end_date);

@@ -71,13 +71,13 @@ class CourseClass extends Model
         return Storage::url(config('path.course.video_thumnail').$this->course_id. '/' . $value);
     }
 
-    public function getVideoAttribute($value)
-    {
-        return Storage::temporaryUrl(
-            config('path.course.video').$this->course_id. '/' . $value, now()->addMinutes(5)
-        );
-        // return Storage::url(config('path.course.video').$this->course_id. '/' . $value);
-    }
+    // public function getVideoAttribute($value)
+    // {
+    //     return Storage::temporaryUrl(
+    //         config('path.course.video').$this->course_id. '/' . $value, now()->addMinutes(60)
+    //     );
+    //     // return Storage::url(config('path.course.video').$this->course_id. '/' . $value);
+    // }
 
     public function getSignedStreamURL()
     {
@@ -85,7 +85,7 @@ class CourseClass extends Model
         $payload = array(
             // "iss" => "example.org",
             // "aud" => "example.com",
-            'exp' => time() + (60 * 60 * 1),
+            'exp' => time() + (60 * 60 * 6),
             'kid' => env('CLOUDFLARE_Signing_KEY'),
             'sub' => $this->stream_url,
         );
