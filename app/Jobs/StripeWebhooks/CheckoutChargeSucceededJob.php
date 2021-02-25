@@ -16,8 +16,11 @@ use Illuminate\Support\Facades\Log;
 use Spatie\WebhookClient\Models\WebhookCall;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\CoursePurchased;
+use App\Notifications\CourseNotification;
 use App\Setting;
 use App\Course;
+use Illuminate\Support\Facades\Notification;
+use App\User;
 
 class CheckoutChargeSucceededJob implements ShouldQueue
 {
@@ -103,6 +106,7 @@ class CheckoutChargeSucceededJob implements ShouldQueue
             $email_data['currenty'] = $user_invoice->currency;
 
             $invoice_details = InvoiceDetail::having('invoice_id', '=', $client_reference_id)->get()->groupBy('course_id');
+            
                 foreach($invoice_details as $course_id => $invoice_items){
 
                     $course = Course::findOrFail($course_id);
@@ -120,14 +124,27 @@ class CheckoutChargeSucceededJob implements ShouldQueue
 
                     $email_data['course_name'] =  $email_data['course_name'] == '' ? $course->title : $email_data['course_name'].', '.$course->title;
                     $email_data['purchase_type'] = $email_data['purchase_type'] == '' ? $invoice_items->first()->purchase_type : $email_data['purchase_type'].', '.$invoice_items->first()->purchase_type; 
+                    $data = [];
+                    $data['title'] = $course->title;
+                    $data['image'] = $course->preview_image;
+                    $data['data'] = 'You bought this course';
+                    $user = User::findOrFail($user_invoice->user->id);
+
+                    Notification::send( $user, new CourseNotification($data));
+
+                    
+
                 }
 
                 $setting = Setting::first();
+
+
                 if($setting->w_email_enable == 1){
                     try{
-                        Mail::to($user_invoice->email)->send(new CoursePurchased($email_data));
-                    }catch(\Swift_TransportException $e){
-                            
+                        Mail::to($user_invoice->email)->send(new CoursePurchased($email_data));                       
+                    }
+                    catch(\Swift_TransportException $e){  
+                        header( "refresh:5;url=./" );
                     }
                 }
 
