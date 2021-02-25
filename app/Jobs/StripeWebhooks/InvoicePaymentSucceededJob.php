@@ -59,6 +59,7 @@ class InvoicePaymentSucceededJob implements ShouldQueue
         $invoice_charge = $invoice['charge']; // charge_id
         $payment_intent_id = $invoice['payment_intent']; // payment_intent_id
         $invoice_amount_paid = $invoice['amount_paid'];
+        $currency = strtoupper($invoice['currency']);
         
 		$invoice_paid = $invoice['paid']; // true
         $invoice_status = $invoice['status']; //paid
@@ -90,6 +91,7 @@ class InvoicePaymentSucceededJob implements ShouldQueue
                     'invoice_paid' => $invoice_amount_paid,
                     'status' => $invoice_status,
                 ]);
+
                 $plan_price_id = [
 					'price_1IJGzyDEIHJhoye2wCDcBfZC' => 'monthly-global',
 					'price_1IJGzyDEIHJhoye2O2KvjoiF' => 'yearly-global',
@@ -97,37 +99,26 @@ class InvoicePaymentSucceededJob implements ShouldQueue
 					'price_1IJZ3JDEIHJhoye28pqansTo' => 'yearly-india',
 				];
 
-                if($plan_price_id[$user_subscription->plan_id] && strpos($plan_price_id[$user_subscription->plan_id], 'india') !== false){
-                    $currency = 'INR';
-                }else{
-                    $currency = 'USD';
-                }
-
                 if(strpos($plan_price_id[$user_subscription->plan_id], 'yearly') !== false){
                     $plan = 'Annual';
                 }else{
                     $plan = 'Monthly';
                 }
                 
-                $user_data = User::findOrFail($user->id);
-                $email_data = [];
-                $email_data['name'] =  $user_data->fullName;
-                $email_data['email'] =  $user_data->email;
-                $email_data['type'] = $plan;
-                $email_data['currency'] = $currency;
-                $email_data['amount'] = $invoice_amount_paid;
+                $email_data = [
+                    'name' => $user->fullName,
+                    'email' => $user->email,
+                    'type' => $plan,
+                    'currency' => $currency,
+                    'amount' => $invoice_amount_paid,
+                ];
                 
                 $setting = Setting::first();
                 if($setting->w_email_enable == 1){
-                    try{
-                      
-                        Mail::to($user_invoice->email)->send(new UserSubscribed($email_data));
-                       
-                    }
-                    catch(\Swift_TransportException $e){
-        
-                        header( "refresh:5;url=./" );
-                            
+                    try{                      
+                        Mail::to($user->email)->send(new UserSubscribed($email_data));                       
+                    }catch(\Swift_TransportException $e){
+                        
                     }
                 }
 

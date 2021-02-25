@@ -11,7 +11,7 @@
         <div class="container">
           <div class="col-12 la-anim__wrap d-md-flex justify-content-between align-items-center px-0 pb-md-12">
             <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2 la-anim__stagger-item" href="{{URL::previous()}}"></a>
-            <h1 class="la-mycourses__title text-4xl mb-4 mb-md-8 la-anim__stagger-item">My Courses</h1>
+            <h1 class="la-mycourses__title text-4xl mb-4 mb-lg-8 la-anim__stagger-item">My Courses</h1>
 
             <!-- Global Search: Start-->
             <div class="la-gsearch la-anim__stagger-item--x">
@@ -25,7 +25,7 @@
             <!-- Global Search: End-->
           </div>
 
-          <div class="mb-8 la-anim__wrap ">
+          <div class="la-anim__wrap">
               <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Ongoing</div> 
                     
               <x-add-to-playlist 
@@ -130,7 +130,7 @@
       <div class="la-section__inner">
         <div class="container la-anim__wrap">
           <div class="row">
-            <div class="col-12 mb-6 ">
+            <div class="col-12">
               <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Completed</div>
             
                 <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">

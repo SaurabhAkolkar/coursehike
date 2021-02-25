@@ -48,7 +48,14 @@ $image-center: -30px;
                     }
                     //-Wishlist page
                     &wishlist{
-                        height:210px;
+                        height:180px;
+
+                        @include respond-above(lg){
+                            height:220px;
+                        }
+                        @include respond-below(md){
+                            height:200px;
+                        }
                     }
                 }
             }

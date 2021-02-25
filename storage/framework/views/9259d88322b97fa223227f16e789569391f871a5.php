@@ -1,5 +1,5 @@
 <div class="row ">
-    <div class="col p-0 p-md-0">
+    <div class="col-12">
         <div class="la-vcreator__profile la-anim__stagger-item">
             <img class="img-fluid d-block" src= "<?php echo e($img); ?>" alt= "<?php echo e($name); ?>" />
             <div class="la-vcreator__overlay">
@@ -10,13 +10,13 @@
 </div>
 
 <div class="row my-md-6">
-    <div class="col-md-6 p-4 p-md-0 la-anim__stagger-item">
+    <div class="col-md-6 la-anim__stagger-item">
         <div class="la-vcreator__desc">
             <p class="la-vcreator__text"> <?php echo $desc; ?> </p>
         </div>
 
         <div class="la-vcreator__social mt-8">
-          <div class="la-vcreator__social-itm mr-5">
+          <div class="la-vcreator__social-itm mr-2 mr-md-5">
             <?php if($facebook): ?>
             <a class="la-vcreator__social-link" href="<?php echo e($facebook); ?>">
               <i class="la-icon la-icon--5xl icon-facebook"></i>
@@ -36,8 +36,8 @@
           </div>
         </div>
     </div>
-    <div class="col-md-2 p-md-0"></div>
-    <div class="col-md-4 p-4 p-md-0 la-anim__stagger-item">
+  
+    <div class="col-md-6 col-lg-4 offset-lg-2 la-anim__stagger-item">
       <div class="la-vcreator__profession">
         <h4 class="text-uppercase la-vcreator__skill"> <?php echo e($skill); ?> </h4>
         <div class="la-vcreator__location"> <?php echo e($location); ?> </div>

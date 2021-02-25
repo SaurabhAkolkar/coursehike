@@ -531,7 +531,7 @@
                           <div class="la-anim__wrap la-anim__wrap-pin2 ">
                               <div class="la-price__box la-anim__pin2 ">
                                 <div class="la-price__box-inner la-anim__stagger-item">
-                                    <p class="la-price__box-para mt-8 mb-2 la-anim__stagger-item--x">Discover our wide range of art courses curated by top artists from around the world and explore your creativity! </p>
+                                    <p class="la-price__box-para mb-8 la-anim__stagger-item--x">Discover our wide range of art courses curated by top artists from around the world and explore your creativity! </p>
                                     <a href="/browse/course" class="btn btn-primary la-btn la-btn--primary w-100">Start Learning</a>                                   
                                 </div>
                               </div>

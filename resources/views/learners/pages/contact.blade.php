@@ -42,13 +42,13 @@
                 <p class="la-contact__connect-para pt-2 la-anim__stagger-item">Your search for world-class mentors, loyal student base, ends with LILA. Holler at us! Let’s get talking!</p>
               </div>
               <div class="la-contact__btm d-none d-sm-block">
-                <div class="la-contact__details la-anim__stagger-item">
-                  <span class="la-contact__details-icon la-icon--xl icon-contact-number mr-3"></span>
-                  <a  class="la-contact__details-desc" href="tel:+91 9999999999">+91 9999999999</a>
+                <div class="la-contact__details la-anim__stagger-item mb-1">
+                  <span class="la-contact__details-icon la-icon--xl icon-contact-number mr-2"></span>
+                  <a class="la-contact__details-desc" href="tel:+91 8779056596">+91 8779056596</a>
                 </div>
                 <div class="la-contact__details d-flex align-items-center la-anim__stagger-item">
                   <span class="la-contact__details-icon la-icon--xl icon-mail-id mr-3"></span>
-                  <a  class="la-contact__details-desc" href="mailto:ask@learnitlikealiens.com">ask@learnitlikealiens.com</a>
+                  <a  class="la-contact__details-desc" href="mailto:lila@learnitlikealiens.com">lila@learnitlikealiens.com</a>
                 </div>
                 <div class="la-contact__smedia mt-6">
                   <a class="la-contact__smedia-link la-anim__stagger-item" href="https://www.facebook.com/learnitlikealiens" target="_blank"><span class="la-icon la-icon--6xl icon-facebook"></a>
@@ -63,13 +63,13 @@
           <!-- Mobile Column: Start-->
           <div class="col order-3 order-sm-none  py-5 px-5 d-block d-sm-none"> 
             <div class="la-contact__btm-mobile py-5">
-              <div class="la-contact__details la-anim__stagger-item">
-                <span class="la-contact__details-icon la-icon--lg icon-contact-number mr-3"></span>
-                <a class="la-contact__details-desc text-md" href="tel:">+91 9999999999</a>
+              <div class="la-contact__details la-anim__stagger-item mb-2">
+                <span class="la-contact__details-icon la-icon--lg icon-contact-number mr-2"></span>
+                <a class="la-contact__details-desc text-md" href="tel:+91 8779056596">+91 8779056596</a>
               </div>
               <div class="la-contact__details d-flex align-items-center la-anim__stagger-item">
-                <span class="la-contact__details-icon la-icon--lg icon-mail-id mr-3"></span>
-                <a class="la-contact__details-desc text-md" href="mailto:ask@learnitlikealiens.com">ask@learnitlikealiens.com</a>
+                <span class="la-contact__details-icon la-icon--xl icon-mail-id mr-3"></span>
+                <a class="la-contact__details-desc text-md" href="mailto:lila@learnitlikealiens.com">lila@learnitlikealiens.com</a>
               </div>
               <div class="la-contact__smedia la-anim__stagger-item mt-8">
                 <a class="la-contact__smedia-link mr-1" href="https://www.facebook.com/learnitlikealiens" target="_blank"><span class="la-icon la-icon--5xl icon-facebook"></span></a>

@@ -75,7 +75,7 @@
                     </div>
                     <!-- Cousre Cart:  End -->
 
-                    <div class="col-lg-4 mb-5 mb-md-0 la-anim__wrap">
+                    <div class="col-md-8 col-lg-4 mb-5 mb-md-0 la-anim__wrap">
                       {{-- <div class="la-profile__title body-font text-xl  la-anim__stagger-item--x">Billing Address</div> --}}
                         {{-- <form class="form-row la-payment__form-row pb-10">                        
                             @php

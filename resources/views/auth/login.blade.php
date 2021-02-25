@@ -53,13 +53,13 @@
                     </div> 
                 </div>
 
-                <div class="col-md-5 la-entry__col la-entry__col-right h-100">
+                <div class="col-md-5 la-entry__col la-entry__col-right h-100 la-anim__wrap">
                     {{-- <div class="signup-heading">
                         {{ __('frontstaticword.LogIntoYour') }} {{ $project_title }} {{ __('frontstaticword.Account') }}!
                     </div> --}}
 
                     <div class="la-entry__content-wrap d-flex flex-column justify-content-center">  
-                        <div class="d-flex flex-column la-entry__content-top mt-md-5 la-anim__wrap">
+                        <div class="d-flex flex-column la-entry__content-top mt-md-5 ">
                                 <form method="POST" class="signup-form la-entry__form" action="{{ route('login') }}">
                                     @csrf
                                     <div class="la-form__input-wrap la-entry__input-wrap mb-md-10 la-anim__stagger-item">

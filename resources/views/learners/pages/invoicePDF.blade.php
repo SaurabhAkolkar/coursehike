@@ -33,13 +33,13 @@
                     <div>
                         <p style="font-size:15px;color:#252525">K2, Old Sonal Industrial Est, Kanchpada, <br/> Malad Link Road, Malad West, Mumbai <br/> 400064. MH, India </p> 
                         <div>
-                            <a  href="tel: +91 9999999999"  style="color:#252525;text-decoration:none;">
-                                <span>+91 9999999999 </span>
+                            <a  href="tel: +91 8779056596"  style="color:#252525;text-decoration:none;">
+                                <span>+91 8779056596 </span>
                             </a>
                         </div>
                         <div>
-                            <a href="mailto: ask@learnitlikealiens.com" style="color:#252525;text-decoration:none;">
-							    <span>ask@learnitlikealiens.com </span>
+                            <a href="mailto:  lila@learnitlikealiens.com" style="color:#252525;text-decoration:none;">
+							    <span> lila@learnitlikealiens.com</span>
                             </a>
                         </div>
                      </div>

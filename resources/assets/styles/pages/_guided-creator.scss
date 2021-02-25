@@ -111,7 +111,11 @@ section.la-page--how-this-works{
     }	
     .la-gvline-last{
         margin-left:34px;
-		height:300px;
+		height:350px;
+
+        @media (min-width:1000px){
+            height:500px;
+        }
     }
     .la-gcreator__video-icon{
         position:absolute;
@@ -208,7 +212,7 @@ section.la-page--how-this-works{
     section.la-page--how-this-works {
         .la-gcreator__works-mobile{margin:-50px 0 0 40px !important;}
         .la-gvline{  height:750px; }	
-        .la-gvline-last{ height:650px;}
+        .la-gvline-last{ height:700px;}
     }
 }
 @media(max-width:767px){
@@ -217,7 +221,7 @@ section.la-page--how-this-works{
         .la-gcreator__works-mobile{margin:-20px 0 0 40px !important;}
         .la-gcreator__video-content {margin-left: 20px;}
         .la-gvline{  height:650px; }
-        .la-gvline-last{ height:580px;}
+        .la-gvline-last{ height:650px;}
     }
 }
 

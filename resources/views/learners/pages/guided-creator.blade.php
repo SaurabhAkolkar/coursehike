@@ -123,6 +123,10 @@
                   <li class="la-gcreator__list-item d-flex align-items-start"><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Use the power of digital media to connect with artists all over the globe</li>
                   <li class="la-gcreator__list-item d-flex align-items-start"><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Build a community of passionate artists and help each other grow</li>
                 </ul>
+
+                <div class="form-group mt-8 la-anim__stagger-item">
+                  <button class="la-btn__app py-3 py-md-4" type="submit">Submit</button>
+                </div>
               </div>
             </div>
 

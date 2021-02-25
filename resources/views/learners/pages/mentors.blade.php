@@ -37,11 +37,11 @@
 
         <div class="la-mentors pt-4 pt-md-10">
           <div class="row la-anim__wrap">
-              <div class="row row-cols-lg-3">
+              
                 @foreach($mentors as $mentor)
                     <x-mentor :img="$mentor->user_img" :id="$mentor->id" :name="$mentor->fname.' '.$mentor->lname" :skill="$mentor->skill" />
                 @endforeach
-               </div>
+             
             </div>
         </div>
       </div>

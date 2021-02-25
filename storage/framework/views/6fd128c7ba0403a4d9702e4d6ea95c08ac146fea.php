@@ -256,11 +256,11 @@ use App\Announcement;
             <div class="d-none d-lg-block la-header__menu-item la-header__menu-item--btn ml-5">
               <a class="la-header__menu-link la-header__menu-icon la-icon icon-hamburger-menu font-weight-normal"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
               <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" style="border:none !important;">
-                <a class="dropdown-item la-header__dropdown-item text-sm" href="/learning-plans">Learning Plans</a>
-                <a class="dropdown-item la-header__dropdown-item text-sm" href="/become-creator">Become a Creator</a>
-                <a class="dropdown-item la-header__dropdown-item text-sm" href="/guided-creator">Guided Creator</a>
-                <a class="dropdown-item la-header__dropdown-item text-sm" href="/about">About Us</a>
-                <a class="dropdown-item la-header__dropdown-item text-sm" href="/contact">Contact Us</a>
+                <a class="dropdown-item la-header__dropdown-item text-sm <?php if(Request::segment(1) == 'learning-plans'): ?> active <?php endif; ?>" href="/learning-plans">Learning Plans</a>
+                <a class="dropdown-item la-header__dropdown-item text-sm <?php if(Request::segment(1) == 'become-creator'): ?> active <?php endif; ?>" href="/become-creator">Become a Creator</a>
+                <a class="dropdown-item la-header__dropdown-item text-sm <?php if(Request::segment(1) == 'guided-creator'): ?> active <?php endif; ?>" href="/guided-creator">Guided Creator</a>
+                <a class="dropdown-item la-header__dropdown-item text-sm <?php if(Request::segment(1) == 'about'): ?> active <?php endif; ?>" href="/about">About Us</a>
+                <a class="dropdown-item la-header__dropdown-item text-sm <?php if(Request::segment(1) == 'contact'): ?> active <?php endif; ?>" href="/contact">Contact Us</a>
 
                 <a class="dropdown-item la-header__dropdown-item text-sm" role="button" href="<?php echo e(route('logout')); ?>"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                   <span>Logout</span>
@@ -402,10 +402,10 @@ use App\Announcement;
           <div class="d-none d-lg-inline-block la-header__menu-item">
             <a class="la-header__menu-link la-header__menu-icon icon-hamburger-menu font-weight-normal" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
             <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" style="border:none;">
-              <a class="dropdown-item la-header__dropdown-item text-sm" href="/become-creator">Become a Creator</a>
-              <a class="dropdown-item la-header__dropdown-item text-sm" href="/guided-creator">Guided Creator</a>
-              <a class="dropdown-item la-header__dropdown-item text-sm" href="/about">About Us</a>
-              <a class="dropdown-item la-header__dropdown-item text-sm" href="/contact">Contact Us</a>
+              <a class="dropdown-item la-header__dropdown-item text-sm <?php if(Request::segment(1) == 'become-creator'): ?> active <?php endif; ?>" href="/become-creator">Become a Creator</a>
+              <a class="dropdown-item la-header__dropdown-item text-sm <?php if(Request::segment(1) == 'guided-creator'): ?> active <?php endif; ?>" href="/guided-creator">Guided Creator</a>
+              <a class="dropdown-item la-header__dropdown-item text-sm <?php if(Request::segment(1) == 'about'): ?> active <?php endif; ?>" href="/about">About Us</a>
+              <a class="dropdown-item la-header__dropdown-item text-sm <?php if(Request::segment(1) == 'contact'): ?> active <?php endif; ?>" href="/contact">Contact Us</a>
             </div>
           </div>
 
