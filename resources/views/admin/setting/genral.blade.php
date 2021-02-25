@@ -42,7 +42,7 @@
 						
 								@if($setting->logo !="")
 									<div class="logo-settings">
-										<img src="{{ asset('images/logo/'.$setting->logo) }}" alt="{{ $setting->logo }}" class="img-fluid">
+										<img src="{{ asset('images/logo/'.$setting->logo) }}" alt="{{ $setting->logo }}" class="img-fluid d-block" style="width:160px;height:138px;">
 									</div>
 								@else
 									<div class="alert alert-danger">
@@ -67,9 +67,9 @@
                             </div>
                             <input type="file" value = "{{ $setting->logo }}" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="preview_image" id="image" />
 							@if($setting->logo !="")
-								<img src="{{ asset('images/logo/'.$setting->logo) }}" alt="" />
-							@else
-								<img src="" alt="" class="d-none preview-img"/>
+								<img src="{{ asset('images/logo/'.$setting->logo) }}" alt="Logo" class="img-fluid d-block" />
+							@else 
+								<img src="" alt="" class="d-none preview-img" />
 							@endif
 							
                         </div>
@@ -105,7 +105,7 @@
 			
 								@if($setting->favicon !="")
 									<div class="favicon-settings">
-										<img src="{{ asset('images/favicon/'.$setting->favicon) }}" alt="{{ $setting->favicon }}" class="img-fluid">
+										<img src="{{ asset('images/favicon/'.$setting->favicon) }}" alt="{{ $setting->favicon }}" class="img-fluid d-block" style="width:160px; height:138px;">
 									</div>
 								@else
 									<div class="alert alert-danger">
@@ -180,8 +180,8 @@
 		  </div>
 	</div>
 
-	{{-- <h4 class="box-title">{{ __('adminstaticword.MapCoordinates') }}</h4>
 
+	{{-- <h4 class="box-title">{{ __('adminstaticword.MapCoordinates') }}</h4>						
 	<div class="row">
 		<div class="col-md-6">
             <label for="map_lat">{{ __('adminstaticword.MapEnable') }}:</label>
@@ -227,11 +227,8 @@
             <input value="{{ $setting->map_api }}" name="map_api" placeholder="Enter Map Api" type="text" class="{{ $errors->has('map_api') ? ' is-invalid' : '' }} form-control">
 		</div>
 	</div>
-	
 	<hr>
-
 	<h4 class="box-title">{{ __('adminstaticword.PromoBar') }}</h4>
-
 	<div class="row">
 		<div class="col-md-6">
             <label for="promo_enable">{{ __('adminstaticword.PromoEnable') }}: </label> (Enable Promobar on site)
@@ -256,8 +253,6 @@
 		</div>
 	</div>
 	<hr>
-
-
 	<div class="row">
 		<div class="col-md-6">
 			<label for="exampleInputDetails">{{ __('adminstaticword.Address') }}:<sup class="redstar">*</sup></label>
@@ -289,7 +284,6 @@
 		</div>
 	</div>
 	<br>
-
 	<div class="row">
 		<div class="col-md-6">
 			<label for="feature_amount">Amount to feature a course:</label>
@@ -315,7 +309,6 @@
 		</div>
 	</div>
 	<br>
-
 	<div class="row">
 		<div class="col-md-6">
 			<div class="row">
@@ -377,7 +370,6 @@
 		
 	</div>
 	<hr>
-
     <div class="row">
     	<div class="col-md-3">
 	    	<label for="">{{ __('Enable Zoom On Portal') }}: </label>
@@ -426,7 +418,6 @@
 
     </div>
     <hr>
-
     <div class="row">
 
     	<div class="col-md-3">
@@ -472,12 +463,7 @@
 	            <small>(Enable Appointment on Course)</small>
 			</div>
     	</div>
-
-    </div>
-
-    
-	<br>
-	<br> --}}
+    </div> --}}
 	
 	<div class="row">
 		<div class="col-12 col-md-10 text-right mt-12">

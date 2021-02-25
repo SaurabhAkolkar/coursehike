@@ -112,6 +112,20 @@
                     <span class="la-header__nav-name">Mentors</span>
                 </a>
             </div>
+            <?php if(Auth::check() && Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()): ?>
+
+            <?php else: ?>
+
+                <div class="la-header__nav-item">   
+                    <a class="la-header__nav-link <?php if(Request::segment(1) == 'learning-plans'): ?> active <?php endif; ?>" href="/learning-plans">
+                        <div class="la-header__nav-icon">
+                            <span class="la-icon--xl icon-all-mentors"></span>
+                        </div>
+                        <span class="la-header__nav-name">Learning Plans</span>
+                    </a>
+                </div>
+
+            <?php endif; ?>
 
             <div class="la-header__nav-item d-lg-none">   
                 <a class="la-header__nav-link <?php if(Request::segment(1) == 'learning-plans'): ?> active <?php endif; ?>" href="/learning-plans">
@@ -139,10 +153,8 @@
                     <span class="la-header__nav-name">Contact Us</span>
                 </a>
             </div>
-        </div>
-
-        <div class="la-header__nav-bottom d-lg-none">
-            <div class="la-header__nav-item">   
+        
+            <div class="la-header__nav-item d-lg-none">   
                 <a class="la-header__nav-link <?php if(Request::segment(1) == 'become-creator'): ?> active <?php endif; ?>" href="/become-creator">
                     <div class="la-header__nav-icon">
                         <span class="la-icon la-icon--xl icon-become-creator"></span>
@@ -150,7 +162,7 @@
                     <span class="la-header__nav-name">Become a Creator</span>
                 </a>
             </div>
-            <div class="la-header__nav-item">   
+            <div class="la-header__nav-item d-lg-none">   
                 <a class="la-header__nav-link <?php if(Request::segment(1) == 'guided-creator'): ?> active <?php endif; ?>" href="/guided-creator">
                     <div class="la-header__nav-icon">
                         <span class="la-icon la-icon--xl icon-guided-creator"></span>
@@ -158,7 +170,7 @@
                     <span class="la-header__nav-name">Guided Creator</span>
                 </a>
             </div>
-            <!--<div class="la-header__nav-item">   
+            <!--<div class="la-header__nav-item d-lg-none">   
                 <a class="la-header__nav-link <?php if(Request::segment(1) == 'help'): ?> active <?php endif; ?>" href="/">
                     <div class="la-header__nav-icon">
                         <span class="la-icon--lg icon-help-filled"></span>
@@ -166,7 +178,7 @@
                     <span class="la-header__nav-name">Help</span>
                 </a>
             </div>-->
-            <div class="la-header__nav-item">   
+            <div class="la-header__nav-item d-lg-none">   
                 <a class="la-header__nav-link" role="button" href="<?php echo e(route('logout')); ?>"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <div class="la-header__nav-icon">
                         <span class="la-icon la-icon--xl icon-logout"></span>
@@ -178,6 +190,8 @@
                 </a>
             </div>
         </div>
+
+        <div class="la-header__nav-bottom d-lg-none"></div>
 
     <?php else: ?> 
         <div class="la-header__nav-top d-md-inline-flex  align-items-center">

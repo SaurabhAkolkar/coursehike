@@ -17153,24 +17153,41 @@ a, a:hover {
   left: 0;
   background: var(--white);
   z-index: var(--header-z);
-  box-shadow: rgba(202, 202, 202, 0.4) 0px 0px 10px 10px;
+  box-shadow: rgba(202, 202, 202, 0.3) 0px 0px 10px 10px;
 }
 .la-header__gsearch-input[type=text] {
   width: 0;
+  height: 60px;
   border-left: none;
+  border-bottom: none;
+  display: inline-block;
   transition: all 0.35s ease-out;
+  position: absolute;
+  left: 0;
+  z-index: 1000;
+  background: var(--white);
 }
 .la-header__gsearch-input[type=text]::-webkit-input-placeholder {
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
 }
-.la-header__gsearch-input[type=text]:focus {
-  width: 100%;
-  border-left: 1px solid var(--gray9);
-  transform: translateX(-10px);
-  transition: all 0.35s ease-in;
+@media (min-width: 1200px) {
+  .la-header__gsearch-input[type=text]::-webkit-input-placeholder {
+    font-size: var(--text-xl);
+  }
+}
+.la-header__gsearch-expand:focus {
+  width: 78%;
+}
+@media (max-width: 1440px) {
+  .la-header__gsearch-expand:focus {
+    width: 60%;
+  }
+}
+.la-header__gsearch-isActive {
+  color: var(--app-indigo-1);
 }
 .la-header__brand {
-  margin-right: var(--size-9);
+  margin-right: var(--size-6);
 }
 .la-header__collapse-wrap {
   background: #F8F8F8;
@@ -17253,7 +17270,7 @@ a, a:hover {
   }
 }
 .la-header__nav-item {
-  margin-right: var(--size-12);
+  margin-right: var(--size-8);
   z-index: 10;
 }
 @media (max-width: 1199px) {
@@ -17271,7 +17288,7 @@ a, a:hover {
 }
 @media (max-width: 1199px) {
   .la-header__nav-link {
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
   }
 }
 .la-header__nav-link:before {
@@ -17330,14 +17347,6 @@ a, a:hover {
 .la-header__menu-icon {
   font-size: var(--text-2xl);
   color: var(--gray6);
-  transition: all 0.25s linear;
-  -webkit-transition: all 0.25s linear;
-}
-.la-header__menu-rotate {
-  transform-origin: 50% 50%;
-  -webkit-transform-origin: 50% 50%;
-  transform: rotate(90deg);
-  -webkit-transform: rotate(90deg);
   transition: all 0.25s linear;
   -webkit-transition: all 0.25s linear;
 }
@@ -17438,6 +17447,15 @@ a, a:hover {
     transform: translateX(10px);
   }
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition: background-color 500s ease-in-out 0s;
+  transition: background-color 500s ease-in-out 0s;
+  -webkit-text-fill-color: #666 !important;
+}
+
 .la-footer {
   background-color: var(--gray3);
   color: #fff;
@@ -17903,11 +17921,13 @@ a, a:hover {
   transform: scale(1.1);
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
+  border-radius: var(--size-2);
 }
 .la-course__inner a:hover > .la-course__imgwrap img {
   transform: scale(1.1);
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
+  border-radius: var(--size-2);
 }
 .la-course__imgwrap {
   border-radius: var(--size-2);
@@ -17918,6 +17938,9 @@ a, a:hover {
   width: 100%;
   height: 220px;
 }
+.la-course__imgwrap:hover {
+  border-radius: var(--size-2);
+}
 .la-course__imgwrap img {
   -o-object-fit: cover;
      object-fit: cover;
@@ -17927,6 +17950,9 @@ a, a:hover {
   transition: transform 0.24s ease-out;
   -webkit-transition: transform 0.24s ease-out;
   -moz-transition: transform 0.24s ease-out;
+}
+.la-course__imgwrap img:hover {
+  border-radius: var(--size-2);
 }
 .la-course__overlay {
   display: flex;
@@ -18404,6 +18430,12 @@ a, a:hover {
 }
 .la-vcourse__sclass-data:nth-child(5) {
   width: 10%;
+}
+.la-vcourse__sclass-data--thumbnail img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .la-vcourse__lesson {
   --videoW: 148px;
@@ -20376,11 +20408,6 @@ a, a:hover {
     font-size: var(--text-2xl);
   }
 }
-@media (max-width: 991px) {
-  .la-gsearch__submit {
-    margin-top: -10px;
-  }
-}
 
 .la-cmenu {
   --cmenuW: 248px;
@@ -20399,7 +20426,7 @@ a, a:hover {
   -webkit-transition: transform 0.26s ease-out;
   -moz-transition: transform 0.26s ease-out;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .la-cmenu {
     transform: translate3d(-10px, 42px, -40px) !important;
     -webkit-transform: translate3d(-10px, 42px, -40px) !important;
@@ -22989,7 +23016,7 @@ section.la-bgcreator--faq {
 }
 @media (max-width: 767px) {
   .la-bgcreator__panel-head {
-    padding: 0 var(--size-6);
+    padding: 0 var(--size-4);
   }
 }
 
@@ -23050,7 +23077,7 @@ section.la-bgcreator--faq {
 }
 @media (max-width: 767px) {
   .la-bgcreator__panel-body {
-    padding: var(--size-4) 0 0 var(--size-6);
+    padding: var(--size-4) 0 0 var(--size-4);
   }
 }
 
@@ -24096,13 +24123,26 @@ section.la-lp--sub-faq {
 
 .la-lp__faq-panel {
   background: #ffffff;
-  border-radius: 10px;
-  padding: var(--size-base) var(--size-3);
+  box-shadow: 0px 6px 15px #A4A4A412;
+  border-radius: 8px;
+  padding: var(--size-base) var(--size-base);
+  position: relative;
+  display: block;
+}
+.la-lp__faq-panel:not(.collapsed) {
+  display: block;
+}
+
+.la-lp__faq-sub {
+  position: relative;
+  display: block;
 }
 
 .la-lp__faq-title a {
   font-weight: var(--font-medium);
   color: rgba(1, 1, 1, 0.5);
+  position: relative;
+  display: block;
 }
 .la-lp__faq-title a:after {
   font-family: "icomoon";
@@ -24122,9 +24162,9 @@ section.la-lp--sub-faq {
   -moz-transition: all 0.25s ease-in;
   -ms-transition: all 0.25s ease-in;
   -o-transition: all 0.25s ease-in;
+  display: block;
 }
-
-.main-toggle.collapsed:after {
+.la-lp__faq-title a.collapsed:after {
   content: "\E96D";
   transform: rotate(0);
   -webkit-transform: rotate(0);
@@ -24140,17 +24180,18 @@ section.la-lp--sub-faq {
 
 .main-toggle.collapsed {
   color: rgba(0, 0, 0, 0.7);
+  display: block;
 }
 
 .main-toggle:not(.collapsed) {
   color: var(--app-indigo-1);
-  font-size: var(--text-lg);
-  font-weight: var(--font-normal);
+  font-weight: var(--font-semibold);
+  display: block;
 }
 
 .la-lp__faq-tag a {
+  color: var(--gray3);
   font-weight: var(--font-light);
-  color: rgba(1, 1, 1, 0.6);
 }
 .la-lp__faq-tag a:after {
   font-family: "icomoon";
@@ -24158,7 +24199,7 @@ section.la-lp--sub-faq {
   position: relative;
   float: right;
   color: var(--app-indigo-1) !important;
-  font-weight: var(--font-semibold);
+  font-weight: var(--font-medium);
   font-size: var(--text-md);
   transform: rotate(180deg);
   -webkit-transform: rotate(180deg);

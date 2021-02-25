@@ -19,6 +19,7 @@
                 <th>#</th>
                 <th><?php echo e(__('adminstaticword.Question')); ?></th>
                 <th><?php echo e(__('adminstaticword.Answer')); ?></th>
+                <th><?php echo e(__('adminstaticword.Type')); ?></th>
                 <th><?php echo e(__('adminstaticword.Status')); ?></th>
                 <th><?php echo e(__('adminstaticword.Edit')); ?></th>
                 <th><?php echo e(__('adminstaticword.Delete')); ?></th>
@@ -30,6 +31,7 @@
                 <td><?php echo e($key+1); ?></td>
                 <td><?php echo e($p->title); ?></td>                 
                 <td><?php echo str_limit(strip_tags($p->details), $limit = 60, $end = '...'); ?></td>
+                <td><?php echo e(ucfirst(str_replace('_',' ',$p->type))); ?></td>
                 <td>
                   <form action="<?php echo e(route('faq.quick',$p->id)); ?>" method="POST">
                     <?php echo e(csrf_field()); ?>

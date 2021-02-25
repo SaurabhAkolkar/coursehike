@@ -132,7 +132,7 @@
                                                             <div class="col-2 col-md-2 text-center my-auto ">
                                                                 <div class="form-group m-0">
                                                                     <label class="glabel d-flex justify-content-center m-0">
-                                                                        <input type="checkbox" name="selected_classes[]" class="d-none selected_classes<?php echo e($courseId); ?>" <?php if(in_array($class->id, $classes_id->toArray())): ?> checked <?php endif; ?> value="<?php echo e($class->id); ?>">
+                                                                        <input type="checkbox" name="selected_classes[]" onclick="toggleRadioButton(<?php echo e($courseId); ?>)" class="d-none selected_classes<?php echo e($courseId); ?>" <?php if(in_array($class->id, $classes_id->toArray())): ?> checked <?php endif; ?> value="<?php echo e($class->id); ?>">
                                                                         <span class="gcheck position-relative px-1">
                                                                             <div class="gcheck-icon la-icon icon-tick text-xs position-absolute" style="margin-left:-6px;"></div>
                                                                         </span>

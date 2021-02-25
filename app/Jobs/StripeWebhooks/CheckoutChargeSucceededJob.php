@@ -14,6 +14,10 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
 use Spatie\WebhookClient\Models\WebhookCall;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CoursePurchased;
+use App\Setting;
+use App\Course;
 
 class CheckoutChargeSucceededJob implements ShouldQueue
 {
@@ -51,7 +55,7 @@ class CheckoutChargeSucceededJob implements ShouldQueue
         $livemode = $invoice['livemode'];
 
 
-        $user_invoice = UserInvoiceDetail::where([['id', $client_reference_id],['status', '!=' , 'failed']])->first();
+        $user_invoice = UserInvoiceDetail::with('user')->where([['id', $client_reference_id],['status', '!=' , 'failed']])->first();
 
         if($payment_status == 'paid' 
             && $invoice['mode'] == "payment"
@@ -89,11 +93,23 @@ class CheckoutChargeSucceededJob implements ShouldQueue
             //     ]);
             // }
 
+            $email_data = [];
+            // $email_data['course_name'] = 'dynamics';
+            $email_data['course_name'] = '';
+            $email_data['purchase_type'] = '';
+            //$email_data['url'] = APP_URL.'/purchase-history';
+            $email_data['invoice_id'] = $user_invoice->invoice_id;
+            $email_data['amount'] = $amount_total;
+            $email_data['currenty'] = $user_invoice->currency;
+
             $invoice_details = InvoiceDetail::having('invoice_id', '=', $client_reference_id)->get()->groupBy('course_id');
                 foreach($invoice_details as $course_id => $invoice_items){
 
+                    $course = Course::findOrFail($course_id);
+                    
                     $already_puchased = UserPurchasedCourse::firstOrNew( ['course_id'=> $course_id , 'user_id'=> $user_invoice->user_id] );
-
+                    $email_data['course_name'] =  $email_data['course_name']==''?$course->title:$email_data['course_name'].', '.$course->title;
+                    $email_data['purchase_type'] = $email_data['purchase_type']==''?$invoice_items->first()->purchase_type:$email_data['purchase_type'].', '.$invoice_items->first()->purchase_type; 
                     $already_puchased->order_id = $client_reference_id;
                     $old_classess = json_decode($already_puchased->class_id);
                     $new_classess = $invoice_items->pluck('class_id')->all();
@@ -105,7 +121,24 @@ class CheckoutChargeSucceededJob implements ShouldQueue
                     $already_puchased->save();
                 }
 
+                $setting = Setting::first();
+                if($setting->w_email_enable == 1){
+                    try{
+                      
+                     
+
+                        Mail::to($user_invoice->email)->send(new CoursePurchased($email_data));
+                       
+                    }
+                    catch(\Swift_TransportException $e){
+        
+                        header( "refresh:5;url=./" );
+                            
+                    }
+                }
+
                 // Clear Cart
+
                 Cart::where('user_id', $user_invoice->user->id)->get()->each(function($cart) {
                     $cart->delete();
                 });

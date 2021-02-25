@@ -9,34 +9,53 @@ $sidemenuWidth: 300px;
         left: 0;
         background: var(--white);
         z-index: var(--header-z);
-        box-shadow:rgba(202, 202, 202, 0.40) 0px 0px 10px 10px;
+        box-shadow:rgba(202, 202, 202, 0.30) 0px 0px 10px 10px;
         &__ {
             &gsearch{
                 &-{
                     &input[type=text]{
                         width:0;
+                        height:60px;
                         border-left:none;
+                        border-bottom:none;
+                        display: inline-block;
                         transition:all 0.35s ease-out;
+                        position:absolute;
+                        left:0;
+                        z-index:1000;
+                        background:var(--white);
                         
+                                                                    
                         &::-webkit-input-placeholder{
-                            font-size:var(--text-sm);
-                        }
+                            font-size:var(--text-md); 
 
-                        &:focus{
-                            width:100%;
-                            border-left:1px solid var(--gray9);
-                            transform:translateX(-10px);
-                            transition:all 0.35s ease-in;
+                            @include respond-above(lg){
+                                font-size:var(--text-xl);
+                            }
                         }
+                        
+                    }
+                    &expand{
+                        &:focus{
+                            width:78%;
+
+                            @media (max-width:1440px){
+                                width:60%;
+                            }
+                        }
+                    }
+                    &isActive{
+                        color:var(--app-indigo-1);
                     }
                 }
             }
+            
             &inner {
 
             }
 
             &brand {
-                margin-right: var(--size-9);
+                margin-right: var(--size-6);
             }
 
             &collapse {
@@ -158,7 +177,7 @@ $sidemenuWidth: 300px;
 
                 &- {
                     &item {
-                        margin-right: var(--size-12);
+                        margin-right: var(--size-8);
                         z-index:10;
 
                         @include respond-below(lg){
@@ -174,7 +193,7 @@ $sidemenuWidth: 300px;
                         position: relative;
 
                         @include respond-below(lg){
-                            font-size:var(--text-md);
+                            font-size:var(--text-sm);
                         }
                        
                         &:before {
@@ -241,14 +260,7 @@ $sidemenuWidth: 300px;
                         font-size:var(--text-2xl);
                         color:var(--gray6);
                         transition:all 0.25s linear;-webkit-transition:all 0.25s linear;
-                    }
-                    &rotate{
-                        transform-origin: 50% 50%;-webkit-transform-origin: 50% 50%;
-                        transform:rotate(90deg);-webkit-transform:rotate(90deg);
-                        transition:all 0.25s linear;-webkit-transition:all 0.25s linear;
-                    }
-                    
-            
+                    }            
                     &badge{
                         position: absolute;
                         top:-12px;
@@ -408,4 +420,13 @@ $sidemenuWidth: 300px;
         opacity: 0;
         transform: translateX(10px);
     }
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 500s ease-in-out 0s;
+    -webkit-text-fill-color: #666 !important;
 }

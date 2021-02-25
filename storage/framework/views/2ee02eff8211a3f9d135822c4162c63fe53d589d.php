@@ -149,169 +149,128 @@
           <div class="col-12 col-md-6 col-lg-6 px-3 la-anim__stagger-item">
             <div class="la-lp__rgt-content" id="accordion">
               <h4 class="faq-title  text-4xl">FAQ's</h4>
-              <div class="panel-group la-lp__faq-group" id="accFreeMain">
                 <!-- Free Trial: Start-->
-                <!-- <div class="panel panel-default la-lp__faq-panel mt-2">
-                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqFree"><span class="panel-title la-lp__faq-title text-md mx-5"><a class="main-toggle collapsed text-uppercase" href="#faqFT" data-toggle="collapse" aria-expanded="true">Payment</a></span></div>
-                  <div class="panel-collapse collapse show" id="faqFT" aria-labelledby="faqFree" data-parent="#accordion"> -->
-                    
-                  <div class="panel-group la-lp__sub-group my-2 " id="accFree">
 
-                    <?php $__currentLoopData = $faqs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $f): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="panel panel-default la-lp__faq-panel mt-2">
-                          <div class="panel-heading la-lp__faq-sub py-2" id="faqF"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqFa_<?php echo e($f->id); ?>" data-toggle="collapse" aria-expanded="true"><?php echo e($f->title); ?></a></span>
-                            <div class="panel-collapse collapse" id="faqFa_<?php echo e($f->id); ?>" aria-labelledby="faqF" data-parent="#accFree">
-                              <div class="panel-body py-4 px-5">
-                                <div class="panel-text">
-                                    <?php echo $f->details; ?>
-
-                                </div>
+                <div class="panel-group la-lp__faq-group" id="accFree">
+                  <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
+                    <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqFree">
+                      <div class="panel-title la-lp__faq-title ">
+                        <a class="main-toggle text-uppercase collapsed" href="#faqFreePre" data-toggle="collapse" aria-expanded="true">Free Trial</a>
+                      </div>
+                    </div>
+                    <div class="panel-collapse collapse" id="faqFreePre" aria-labelledby="faqFree"  data-parent="#accordion">
+                      <div class="panel-group la-lp__sub-group mx-2"> 
+            
+                          <?php $__currentLoopData = $faqs->where('type','%','free_trial'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $f): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <div class="panel panel-default la-lp__faq-panel">
+                            <div class="panel-heading la-lp__faq-sub py-2">
+                              <div class="panel-title la-lp__faq-tag px-2">
+                                <a class="accordion-toggle main-toggle collapsed" href="#faqFT_<?php echo e($f->id); ?>" data-toggle="collapse" aria-expanded="true"><?php echo e($f->title); ?></a>
+                              </div>
+                            </div>
+                            <div class="panel-collapse collapse" id="faqFT_<?php echo e($f->id); ?>" aria-labelledby="faqFT_<?php echo e($f->id); ?>" data-parent="#accFree">
+                              <div class="panel-body pt-2 px-2">
+                                <div class="panel-text"><?php echo $f->details; ?></div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </div>
-                  <!-- </div>
-                </div> -->
-                <!-- Free Trial: End-->
-              </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-              <!-- Subscription: Start-->
-              <!--<div class="panel-group la-lp__faq-group" id="accSubMain">
-                <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
-                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSub"><span class="panel-title la-lp__faq-title mx-5"><a class="main-toggle collapsed" href="#faqSubs" data-toggle="collapse" aria-expanded="true">SUBSCRIPTION</a></span></div>
-                  <div class="panel-collapse collapse" id="faqSubs" aria-labelledby="faqSub" data-parent="#accordion">
-                    <div class="panel-group la-lp__sub-group mx-2 mx-sm-5" id="accSub"> 
-                      <div class="panel panel-default la-lp__faq-panel mt-2">
-                        <div class="panel-heading la-lp__faq-sub py-2" id="faqS1"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqSa" data-toggle="collapse" aria-expanded="true">Lorem Ipsum dolor sit amet, consectur adispicing elit?</a></span>
-                          <div class="panel-collapse collapse" id="faqSa" aria-labelledby="faqS1" data-parent="#accSub">
-                            <div class="panel-body py-4 px-5">
-                              <div class="panel-text">First Answer</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="panel panel-default la-lp__faq-panel mt-2">
-                        <div class="panel-heading la-lp__faq-sub py-2" id="faqS2"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqSb" data-toggle="collapse" aria-expanded="true">Lorem Ipsum dolor sit amet, consectur </a></span>
-                          <div class="panel-collapse collapse" id="faqSb" aria-labelledby="faqS2" data-parent="#accSub">
-                            <div class="panel-body py-4 px-5">
-                              <div class="panel-text">Second Answer</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="panel panel-default la-lp__faq-panel mt-2">
-                        <div class="panel-heading la-lp__faq-sub py-2" id="faqS3"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqSc" data-toggle="collapse" aria-expanded="true">Lorem Ipsum dolor sit amet, consectur </a></span>
-                          <div class="panel-collapse collapse" id="faqSc" aria-labelledby="faqS3" data-parent="#accSub">
-                            <div class="panel-body py-4 px-5">
-                              <div class="panel-text">Ut enim ad minim veniam, quis nosted excretion uliamo.</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="panel panel-default la-lp__faq-panel mt-2">
-                        <div class="panel-heading la-lp__faq-sub py-2" id="faqS4"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqSd" data-toggle="collapse" aria-expanded="true">Lorem Ipsum dolor sit amet, consectur </a></span>
-                          <div class="panel-collapse collapse" id="faqSd" aria-labelledby="faqS4" data-parent="#accSub">
-                            <div class="panel-body py-4 px-5">
-                              <div class="panel-text">Ut enim ad minim veniam, quis nosted excretion uliamo.</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="panel panel-default la-lp__faq-panel mt-2">
-                        <div class="panel-heading la-lp__faq-sub py-2" id="faqS5"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqSe" data-toggle="collapse" aria-expanded="true">Lorem Ipsum dolor sit amet, consectur </a></span>
-                          <div class="panel-collapse collapse" id="faqSe" aria-labelledby="faqS5" data-parent="#accSub">
-                            <div class="panel-body py-4 px-5">
-                              <div class="panel-text">Ut enim ad minim veniam, quis nosted excretion uliamo.</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="panel panel-default la-lp__faq-panel mt-2">
-                        <div class="panel-heading la-lp__faq-sub py-2" id="faqS6"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqSf" data-toggle="collapse" aria-expanded="true">Lorem Ipsum dolor sit amet, consectur </a></span>
-                          <div class="panel-collapse collapse" id="faqSf" aria-labelledby="faqS6" data-parent="#accSub">
-                            <div class="panel-body py-4 px-5">
-                              <div class="panel-text">Ut enim ad minim veniam, quis nosted excretion uliamo.</div>
-                            </div>
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
+                </div>
+
+                <!-- Free Trial: End-->
+       
+
+              <!-- Subscription: Start-->
+            <div class="panel-group la-lp__faq-group" id="accSubMain">
+                <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
+                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSub"><span class="panel-title la-lp__faq-title"><a class="main-toggle text-uppercase collapsed" href="#faqSubs" data-toggle="collapse" aria-expanded="true">SUBSCRIPTION</a></span></div>
+                  <div class="panel-collapse collapse show" id="faqSubs" aria-labelledby="faqSub" data-parent="#accordion">
+                    <div class="panel-group la-lp__sub-group mx-2"> 
+
+                      <?php $__currentLoopData = $faqs->where('type','%','subscription'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $f): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="panel panel-default la-lp__faq-panel">
+                          <div class="panel-heading la-lp__faq-sub py-2">
+                            <div class="panel-title la-lp__faq-tag px-2">
+                              <a class="accordion-toggle main-toggle collapsed" href="#faqSa_<?php echo e($f->id); ?>" data-toggle="collapse" aria-expanded="true"><?php echo e($f->title); ?></a>
+                            </div>
+                          </div>
+                          <div class="panel-collapse collapse" id="faqSa_<?php echo e($f->id); ?>" aria-labelledby="faqSa_<?php echo e($f->id); ?>" data-parent="#accSubMain">
+                            <div class="panel-body pt-2 px-2">
+                              <div class="panel-text"><?php echo $f->details; ?></div>
+                            </div>
+                          </div>
+                        </div>
+                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                    </div>
+                  </div>
                 </div> 
-              </div> -->
+              </div> 
                 <!-- Subscription: End-->
 
 
               <!-- Single Purchase: Start-->
-              <!-- <div class="panel-group la-lp__faq-group" id="accSPMain">
+              <div class="panel-group la-lp__faq-group" id="accSPMain">
                 <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
-                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSP"><span class="panel-title la-lp__faq-title mx-5"><a class="main-toggle collapsed" href="#faqSing" data-toggle="collapse" aria-expanded="true">SINGLE PURCHASE</a></span></div>
+                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSP"><span class="panel-title la-lp__faq-title"><a class="main-toggle text-uppercase collapsed" href="#faqSing" data-toggle="collapse" aria-expanded="true">SINGLE PURCHASE</a></span></div>
                   <div class="panel-collapse collapse" id="faqSing" aria-labelledby="faqSP"  data-parent="#accordion">
-                    <div class="panel-group la-lp__sub-group mx-2 mx-sm-5" id="accSP"> 
-                      <div class="panel panel-default la-lp__faq-panel mt-2">
-                        <div class="panel-heading la-lp__faq-sub py-2" id="faqSP1"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqSPa" data-toggle="collapse" aria-expanded="true">How much it cost?</a></span>
-                          <div class="panel-collapse collapse" id="faqSPa" aria-labelledby="faqSP1 " data-parent="#accSP">
-                            <div class="panel-body py-4 px-5">
-                              <div class="panel-text">Something</div>
-                            </div>
+                    <div class="panel-group la-lp__sub-group mx-2"> 
+
+                      <?php $__currentLoopData = $faqs->where('type','%','single_course'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $f): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      <div class="panel panel-default la-lp__faq-panel ">
+                        <div class="panel-heading la-lp__faq-sub py-2">
+                          <div class="panel-title la-lp__faq-tag px-2">
+                            <a class="accordion-toggle main-toggle collapsed" href="#faqSPa_<?php echo e($f->id); ?>" data-toggle="collapse" aria-expanded="true"><?php echo e($f->title); ?></a>
+                          </div>
+                        </div>
+                        <div class="panel-collapse collapse" id="faqSPa_<?php echo e($f->id); ?>" aria-labelledby="faqSPa_<?php echo e($f->id); ?>" data-parent="#accSPMain">
+                          <div class="panel-body pt-2 px-2">
+                            <div class="panel-text"><?php echo $f->details; ?></div>
                           </div>
                         </div>
                       </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
                     </div>
                   </div>
                 </div> 
-              </div> -->
+              </div>
                <!-- Single Purchase: End-->
 
-              <!-- Premium Purchase: Start-->
-              <!--<div class="panel-group la-lp__faq-group" id="accPPMain">
+              <!-- Payment Methods: Start-->
+              <div class="panel-group la-lp__faq-group" id="accPPMain">
                 <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
-                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqPP"><span class="panel-title la-lp__faq-title mx-5"><a class="main-toggle collapsed" href="#faqPre" data-toggle="collapse" aria-expanded="true">PREMIUM PURCHASE</a></span></div>
+                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqPP"><span class="panel-title la-lp__faq-title"><a class="main-toggle text-uppercase collapsed" href="#faqPre" data-toggle="collapse" aria-expanded="true">Payment Methods</a></span></div>
                   <div class="panel-collapse collapse" id="faqPre" aria-labelledby="faqPP"  data-parent="#accordion">
-                    <div class="panel-group la-lp__sub-group mx-2 mx-sm-5" id="accPP"> 
-                      <div class="panel panel-default la-lp__faq-panel mt-2">
-                        <div class="panel-heading la-lp__faq-sub py-2" id="faqPP1"><span class="panel-title la-lp__faq-tag mx-3"><a class="accordion-toggle collapsed" href="#faqPPa" data-toggle="collapse" aria-expanded="true">How much it cost?</a></span>
-                          <div class="panel-collapse collapse" id="faqPPa" aria-labelledby="faqPP1 " data-parent="#accPP">
-                            <div class="panel-body py-4 px-5">
-                              <div class="panel-text">Something</div>
+                    <div class="panel-group la-lp__sub-group mx-2"> 
+        
+                        <?php $__currentLoopData = $faqs->where('type','%','payment_methods'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $f): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="panel panel-default la-lp__faq-panel">
+                          <div class="panel-heading la-lp__faq-sub py-2">
+                            <div class="panel-title la-lp__faq-tag px-2">
+                              <a class="accordion-toggle main-toggle collapsed" href="#faqPPa_<?php echo e($f->id); ?>" data-toggle="collapse" aria-expanded="true"><?php echo e($f->title); ?></a>
+                            </div>
+                          </div>
+                          <div class="panel-collapse collapse" id="faqPPa_<?php echo e($f->id); ?>" aria-labelledby="faqPPa_<?php echo e($f->id); ?>" data-parent="#accPPMain">
+                            <div class="panel-body pt-2 px-2">
+                              <div class="panel-text"><?php echo $f->details; ?></div>
                             </div>
                           </div>
                         </div>
-                      </div>
+                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
                     </div>
                   </div>
                 </div>
-              </div> -->
-               <!-- Premium Purchase: End -->
+              </div>
+               <!-- Payment Methods: End -->
 
               <!-- Premium Purchase: Start-->
-              <!-- <div class="collapse" id="lp_faq_collapse">
-                <div class="panel-group la-lp__faq-group" id="accPPMain2">  
-                  <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
-                    <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqPP2">
-                      <span class="panel-title la-lp__faq-title mx-5">
-                        <a class="main-toggle collapsed" href="#faqPre2" data-toggle="collapse" aria-expanded="true">PURCHASE</a>
-                      </span>
-                    </div>
-                    <div class="panel-collapse collapse" id="faqPre2" aria-labelledby="faqPP2"  data-parent="#accPPMain2">
-                      <div class="panel-group la-lp__sub-group mx-2 mx-sm-5" id="accPP2"> 
-                        <div class="panel panel-default la-lp__faq-panel mt-2">
-                          <div class="panel-heading la-lp__faq-sub py-2" id="faqPP12"><span class="panel-title la-lp__faq-tag mx-3">
-                            <a class="accordion-toggle collapsed" href="#faqPPa2" data-toggle="collapse" aria-expanded="true">How much it cost?</a></span>
-                            <div class="panel-collapse collapse" id="faqPPa2" aria-labelledby="faqPP12" data-parent="#accPP2">
-                              <div class="panel-body py-4 px-5">
-                                <div class="panel-text">Something</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
+              
                <!-- Premium Purchase: End -->
 
               <!-- <div class="faq-see-all text-right pt-4">

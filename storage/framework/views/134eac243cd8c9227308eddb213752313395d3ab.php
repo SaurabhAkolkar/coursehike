@@ -138,10 +138,10 @@
                 </div>  
               <?php else: ?>
 
-                <div class="row row-cols-lg-4 la-anim__stagger-item">
+                <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item">
                   <?php $__currentLoopData = $suggested_courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sc): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                        <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $sc->id,'img' => $sc->preview_image,'course' => $sc->title,'url' => $sc->slug,'rating' => round($sc->average_rating, 2),'creatorImg' => $sc->user->user_img,'creatorName' => $sc->user->fname,'creatorUrl' => $sc->user->id,'learnerCount' => $sc->learnerCount,'price' => $sc->price]); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $sc->id,'img' => $sc->preview_image,'course' => $sc->title,'url' => $sc->slug,'rating' => round($sc->average_rating, 2),'creatorImg' => $sc->user->user_img,'creatorName' => $sc->user->fname,'creatorUrl' => $sc->user->id,'learnerCount' => $sc->learnerCount,'price' => $sc->price,'bought' => $sc->isPurchased()]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
@@ -152,8 +152,8 @@
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>       
-                  <div class="col-md-6 col-lg-3 la-anim__stagger-item--x">
-                      <div class=" la-btn__plain text--burple text-md h-75 d-flex align-items-center justify-content-center justify-content-md-start">
+                  <div class="col-md-6 col-lg-4 offset-lg-8 text-right la-anim__stagger-item--x">
+                      <div class=" la-btn__plain text--burple text-md h-75 d-flex align-items-center justify-content-center justify-content-md-end">
                         <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8 la-anim__fade-in-right">
                           <a href="/browse/courses" >explore more<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
                         </div>
@@ -217,6 +217,18 @@
     });
  
   });
+
+  function toggleRadioButton(id){
+
+      if($('.selected_classes'+id).not(":checked"))
+      {
+        $('#select_classes_'+id).prop('checked', true);
+      }
+      if ($('.selected_classes'+id+':checked').length == $('.selected_classes'+id).length) {
+        $('#all_classes_'+id).prop('checked', true);
+      }
+
+  }
 </script>
 
 <?php $__env->stopSection(); ?>

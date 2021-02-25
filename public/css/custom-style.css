@@ -39,7 +39,7 @@ html, body{
     margin:0 10px;
     outline:0;
 }
-@media(max-width:7567px){
+@media(max-width:767px){
     .main-header .navbar .sidebar-toggle{
         background-color: var(--app-indigo-1);
         color: var(--white) !important;
@@ -69,11 +69,14 @@ html, body{
 }
 
 /* == Sidebar Toggler Menu Links == */
+.user-panel{
+    padding:8px 4px;
+}
 .user-panel>.image>img{
-    max-width:50px !important;
-    height:50px !important;
+    height:45px !important;
     background:var(--gray);
     object-fit: cover;
+    object-position: center;
 }
 .user-panel > .info > p{
     color:var(--gray6) !important;

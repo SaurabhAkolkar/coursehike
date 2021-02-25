@@ -12,6 +12,7 @@ use Stevebauman\Location\Facades\Location;
 use App\Setting;
 use Illuminate\Support\Facades\Auth;
 
+
 class Course extends Model
 {
     use HasTranslations;
@@ -145,6 +146,7 @@ class Course extends Model
         return Storage::url(config('path.course.img'). $value);
     }
 
+
     public function getConvertedpriceAttribute(){
 
         $value = $this->price;
@@ -169,10 +171,15 @@ class Course extends Model
 
     public function isPurchased()
     {
-        $purchased_course = UserPurchasedCourse::where(['course_id'=> $this->id , 'user_id'=> Auth::User()->id])->firstOr(function () {
-           return null;
-        });;
-        return $purchased_course;
+        if(Auth::check())
+        {
+            $purchased_course = UserPurchasedCourse::where(['course_id'=> $this->id , 'user_id'=> Auth::User()->id])->firstOr(function () {
+                return null;
+            });;
+            return $purchased_course;
+        }
+
+        return null;
     }
 
   

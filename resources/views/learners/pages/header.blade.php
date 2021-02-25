@@ -23,23 +23,25 @@ use App\Announcement;
 
         </div>
         
+        <form class="form-inline mb-0 d-none d-md-block" action="{{ url('/search-course/') }}" method="get">
+          <div class="form-group la-header__gsearch"  >
+            <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input pl-4" id="header_search_input" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Looking for creative courses by the best artists in the world?" required>
+          </div>
+        </form>
+
         <div class="la-header__rht ml-auto">
           <div class="la-header__menu d-inline-flex align-items-center position-relative">
             
             <div class="la-header__menu-item d-none d-md-block">
               <!-- Global Search: Start-->
-              <div class="la-gsearch  mb-0" >
-                <form class="form-inline mb-0" action="{{ url('/search-course/') }}" method="get">
-                  <div class="form-group la-header__gsearch" >
-                    <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Search Courses and Classes..." required>
-                  </div>
-                  <button class="la-gsearch__submit btn px-0" type="submit" >
-                    <i class="la-icon la-icon--xl icon icon-search"></i>
+              <div class="la-gsearch  mb-0" > 
+                  <button class="la-gsearch__submit btn px-0" type="submit" id="header_search">
+                    <i class="la-icon la-icon--xl icon icon-search la-header__gsearch-icon"></i>
                   </button>
-                </form>
               </div>
               <!-- Global Search: End-->
             </div>
+
             @if(Auth::user()->role == 'mentors' || Auth::user()->role == 'admin')
               <div class="la-header__menu-item d-none d-lg-block @if(Request::segment(1) == 'admins') active @endif">
                   <a class="la-header__menu-link la-header__menu-icon la-icon la-icon--xl icon-admin" role="button" target="_blank" href="/admins"></a>
@@ -212,8 +214,8 @@ use App\Announcement;
             </div>
 
             <div class="d-none d-lg-block la-header__menu-item la-header__menu-item--btn ml-5">
-              <a class="la-header__menu-link la-header__menu-icon la-icon icon-hamburger-menu font-weight-normal" id="profileMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
-              <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="profileMenu"  style="border:none !important;">
+              <a class="la-header__menu-link la-header__menu-icon la-icon icon-hamburger-menu font-weight-normal"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
+              <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" style="border:none !important;">
                 <a class="dropdown-item la-header__dropdown-item text-sm" href="/learning-plans">Learning Plans</a>
                 <a class="dropdown-item la-header__dropdown-item text-sm" href="/become-creator">Become a Creator</a>
                 <a class="dropdown-item la-header__dropdown-item text-sm" href="/guided-creator">Guided Creator</a>
@@ -255,22 +257,23 @@ use App\Announcement;
 
       </div>
 
+      <form class="form-inline mb-0 d-none d-md-block" action="{{ url('/search-course/') }}" method="get">
+        <div class="form-group la-header__gsearch"  >
+          <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input pl-4" id="header_search_input" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Looking for creative courses by the best artists in the world?" required>
+        </div>
+      </form>
+
       <div class="la-header__rht ml-auto mr-md-5">
         <div class="la-header__menu d-inline-flex align-items-center">
 
           <div class="la-header__menu-item d-none d-md-block">
-            <!-- Global Search: Start-->
-            <div class="la-gsearch  mb-0" >
-              <form class="form-inline mb-0" action="{{ url('/search-course/') }}" method="get">
-                  <div class="form-group la-header__gsearch" >
-                    <input class="la-gsearch__input form-control text-md pr-0 la-header__gsearch-input" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Search Courses and Classes..." required>
-                  </div>
-                  <button class="la-gsearch__submit btn px-0 mt-1" type="submit" >
-                    <i class="la-icon la-icon--xl icon icon-search"></i>
+              <!-- Global Search: Start-->
+              <div class="la-gsearch  mb-0" > 
+                  <button class="la-gsearch__submit btn px-0" type="submit" id="header_search">
+                    <i class="la-icon la-icon--xl icon icon-search la-header__gsearch-icon"></i>
                   </button>
-                </form>
-            </div>
-            <!-- Global Search: End-->
+              </div>
+              <!-- Global Search: End-->
           </div>
           
           <div class="la-header__menu-item">
@@ -337,8 +340,8 @@ use App\Announcement;
           </div> 
 
           <div class="d-none d-lg-inline-block la-header__menu-item">
-            <a class="la-header__menu-link la-header__menu-icon icon-hamburger-menu font-weight-normal" id="profileBeforeLogin" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
-            <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="profileBeforeLogin" style="border:none;">
+            <a class="la-header__menu-link la-header__menu-icon icon-hamburger-menu font-weight-normal" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
+            <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" style="border:none;">
               <a class="dropdown-item la-header__dropdown-item text-sm" href="/become-creator">Become a Creator</a>
               <a class="dropdown-item la-header__dropdown-item text-sm" href="/guided-creator">Guided Creator</a>
               <a class="dropdown-item la-header__dropdown-item text-sm" href="/about">About Us</a>

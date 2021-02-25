@@ -62,6 +62,7 @@
                           :addedToWhishList="$addedToWhishList"
                           :learnerCount="$courses->courses->leanerCount"
                           :price="$courses->courses->price"
+                          :bought="$courses->courses->isPurchased()"
                         />
                     </div>
                     @endforeach

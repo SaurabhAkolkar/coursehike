@@ -37,9 +37,7 @@
 
             <!-- Filters : Start -->
            <div class="la-courses__nav-filters d-flex align-items-start ml-6">
-              <div class="la-courses__nav-props ">
-                <a class="la-icon icon-list-layout la-courses__nav-filter mr-3 " id="showLayout" role="button"></a>
-              </div>
+              
               <div class="la-courses__nav-props">
                 <a class="la-icon icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                 <!-- Sort Courses Dropdown -->
@@ -83,32 +81,7 @@
                                 <input type="hidden" name="filters" value="applied" />
 
                                 
-                                <div class="form-group pt-2">
-                                  <div class="glabel-main mb-1"> Course Duration</div>
-                                    <div class="glabel d-flex  align-items-center m-0">
-                                        <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" name="duration" id="lessthan1" value="lessthan1">
-                                        <label class="d-flex align-items-center" for="lessthan1">
-                                          <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center" for="lessthan1"></span>
-                                          <strong class="pl-2" style="color:var(--gray6);opacity:1;"> Less than an hr</strong>
-                                        </label>
-                                    </div>
-
-                                    <div class="glabel d-flex  align-items-center m-0">
-                                        <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" name="duration" id="lessthan5" value="lessthan5">
-                                        <label class="d-flex align-items-center" for="lessthan5">
-                                          <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center" for="lessthan5"></span>
-                                          <strong class="pl-2" style="color:var(--gray6);opacity:1;">  1hr - 5hrs</strong>
-                                        </label>
-                                    </div>
-
-                                    <div class="glabel d-flex  align-items-center m-0">
-                                        <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" name="duration" id="morethan5" value="morethan5">
-                                        <label class="d-flex align-items-center" for="morethan5">
-                                          <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex  justify-content-center align-items-center" for="morethan5"></span>
-                                          <strong class="pl-2" style="color:var(--gray6);opacity:1;"> More than 5hrs</strong>
-                                        </label>
-                                    </div>
-                                </div>
+                                
 
                                 <div class="form-group pt-2">
                                   <div class="glabel-main mb-2"> Category</div>
@@ -121,18 +94,7 @@
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </div>
 
-                                <div class="form-group pt-2">
-                                  <div class="glabel-main mb-2"> Language</div>
-                              
-                                  <?php $__currentLoopData = $langauges; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $l): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <label class="glabel d-flex" for="lang_<?php echo e($l->id); ?>">
-                                      <input class="d-none" id="lang_<?php echo e($l->id); ?>" <?php if(in_array($l->id, $selected_languages)): ?> checked <?php endif; ?> type="checkbox" onclick="addToLanguage(<?php echo e($l->id); ?>)" value="<?php echo e($l->id); ?>">
-                                      <span class="gcheck position-relative"><span class="gcheck-icon la-icon icon-tick text-xs position-absolute"></span></span>
-                                      <span class="pl-2 mt-n1 text-capitalize"><?php echo e($l->name); ?></span>
-                                    </label>
-                                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                              
-                                </div>
+                                
 
                                 <div class="form-group pt-2">
                                   <div class="glabel-main mb-2">Level</div>
@@ -156,6 +118,9 @@
                                 </div>
 
                                 <button onclick="$('#filter_form').submit()" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Apply</button> 
+                                <div class="mt-6">
+                                  <a href="/browse/courses" role="button" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Clear</a> 
+                                </div>
                             </form>
                       </div>
                   </div>
@@ -187,7 +152,7 @@
                         <?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         
                            <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => $course->review->avg('rating'),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount]); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => $course->review->avg('rating'),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount,'price' => $course->price]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>

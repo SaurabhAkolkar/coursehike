@@ -34,7 +34,7 @@
 
             <tr>
                 <td align="center" width="600" colspan="2" style="padding:0 50px;">
-                    <span style="color:#FAC216;font-family:Raleway;font-size:64px;font-weight:900;text-transform:uppercase;">Purchased</span>
+                    <span style="color:#FAC216;font-family:Raleway;font-size:64px;font-weight:900;text-transform:uppercase;">Subscribed</span>
                 </td>
             </tr>
 
@@ -43,40 +43,49 @@
                     <table width="500">
                         <tr>
                             <td colspan="2" style="padding-bottom:10px;">
-                                <span style="font-size:16px;color:#010101;font-weight:500;">Course/Class Purchased</span>
+                                <span style="font-size:16px;color:#010101;font-weight:500;">Subscription Successful!</span>
                             </td> 
                         </tr>
                         
                         <tr>
                             <td colspan="2" style="padding-bottom:15px;">
-                                <img src="http://lila-fe.thestudiohash.com/email-images/course.png" alt="Welcome" style="width:120px"/>
+                                <img src="http://lila-fe.thestudiohash.com/email-images/creator.png" alt="Profile Photo" style="width:50px"/>
                             </td>
                         </tr>
             
-                        <tr>
+                        {{-- <tr>
                             <td width="150" style="padding:4px 0">
-                                <span style="font-size:12px;color:#8B8B8B;">Course ID</span>
+                                <span style="font-size:12px;color:#8B8B8B;">Learner ID</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">#C123</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">#L3245</span>
+                            </td>
+                        </tr> --}}
+
+                        <tr>
+                            <td width="150" style="padding:4px 0">
+                                <span style="font-size:12px;color:#8B8B8B;">Name</span>
+                            </td>
+                            <td  style="padding:4px 0">
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">{{ $data['name'] }}</span>
                             </td>
                         </tr>
 
                         <tr>
                             <td width="150" style="padding:4px 0">
-                                <span style="font-size:12px;color:#8B8B8B;">Course Name</span>
+                                <span style="font-size:12px;color:#8B8B8B;">Email ID</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">Tattoo Art</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">{{ $data['email'] }}</span>
                             </td>
                         </tr>
 
                         <tr>
                             <td width="150" style="padding:4px 0">
-                                <span style="font-size:12px;color:#8B8B8B;">Classes Purchased</span>
+                                <span style="font-size:12px;color:#8B8B8B;">Subscription Type</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">All Classes (4)</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">{{ $data['type'] }}</span>
                             </td>
                         </tr>
 
@@ -85,7 +94,7 @@
                                 <span style="font-size:12px;color:#8B8B8B;">Total Amount Paid</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">$ 120</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">{{ $data['currenty']=='INR'? '₹' : '$' }}{{ $data['amount'] }}</span>
                             </td>
                         </tr>
 
@@ -94,7 +103,7 @@
                                 <span style="font-size:12px;color:#8B8B8B;">Payment Mode</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">Paytm</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">Stripe</span>
                             </td>
                         </tr>
 

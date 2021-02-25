@@ -12,6 +12,10 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Spatie\WebhookClient\Models\WebhookCall;
+use Illuminate\Support\Facades\Mail;
+use App\Setting;
+use App\Mail\UserSubscribed;
+use App\User;
 
 class InvoicePaymentSucceededJob implements ShouldQueue
 {
@@ -75,7 +79,7 @@ class InvoicePaymentSucceededJob implements ShouldQueue
             // if($user->subscription('main')->ended()){
                 // Create Invoice Record
                 UserSubscriptionInvoice::create([
-                    'user_id' => $$user->id,
+                    'user_id' => $user->id,
                     'subscription_id' => $user->subscription('main')->id,
                     'stripe_subscription_id' => $subscription['id'],
                     'start_date' => Carbon::createFromTimestamp($subscription_start)->toDateTimeString(),
@@ -86,6 +90,47 @@ class InvoicePaymentSucceededJob implements ShouldQueue
                     'invoice_paid' => $invoice_amount_paid,
                     'status' => $invoice_status,
                 ]);
+                $plan_price_id = [
+					'price_1IJGzyDEIHJhoye2wCDcBfZC' => 'monthly-global',
+					'price_1IJGzyDEIHJhoye2O2KvjoiF' => 'yearly-global',
+					'price_1IJPNrDEIHJhoye2kifs8GbK' => 'monthly-india',
+					'price_1IJZ3JDEIHJhoye28pqansTo' => 'yearly-india',
+				];
+
+                if($plan_price_id[$user_subscription->plan_id] && strpos($plan_price_id[$user_subscription->plan_id], 'india') !== false){
+                    $currency = 'INR';
+                }else{
+                    $currency = 'USD';
+                }
+
+                if(strpos($plan_price_id[$user_subscription->plan_id], 'yearly') !== false){
+                    $plan = 'Annual';
+                }else{
+                    $plan = 'Monthly';
+                }
+                
+                $user_data = User::findOrFail($user->id);
+                $email_data = [];
+                $email_data['name'] =  $user_data->fullName;
+                $email_data['email'] =  $user_data->email;
+                $email_data['type'] = $plan;
+                $email_data['currency'] = $currency;
+                $email_data['amount'] = $invoice_amount_paid;
+                
+                $setting = Setting::first();
+                if($setting->w_email_enable == 1){
+                    try{
+                      
+                        Mail::to($user_invoice->email)->send(new UserSubscribed($email_data));
+                       
+                    }
+                    catch(\Swift_TransportException $e){
+        
+                        header( "refresh:5;url=./" );
+                            
+                    }
+                }
+
                 
             // }
         }

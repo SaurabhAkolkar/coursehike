@@ -14,7 +14,7 @@ class AddCurrencyToUserInvoiceDetailsTable extends Migration
     public function up()
     {
         Schema::table('user_invoice_details', function (Blueprint $table) {
-            $table->char('currency')->nullable()->after('total');
+            $table->string('currency', 4)->nullable()->after('total');
         });
     }
 
