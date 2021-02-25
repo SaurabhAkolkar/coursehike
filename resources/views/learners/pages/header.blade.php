@@ -60,7 +60,7 @@ use App\Announcement;
                     @foreach (Auth::user()->unreadNotifications as $notification)
                       @if($notification->type == "App\Notifications\CourseNotification")
 
-                      <x-notification  :img="$notification->data['image']" :name="$notification->data['id']" :comment="$notification->data['data']" :timestamp="Carbon\Carbon::parse($notification->created_at)->format('d-m-Y')" />
+                      <x-notification  :img="$notification->data['image']" :name="$notification->data['id']" :comment="$notification->data['data']" :timestamp="Carbon::parse($notification->created_at)->format('d-m-Y')" />
                       @endif
                     @endforeach 
                     @if(count(Auth::user()->unreadNotifications) == 0)
