@@ -8,6 +8,7 @@ use Socialite;
 use Auth;
 use App\User;
 use File;
+use Illuminate\Support\Facades\Storage;
 
 class AuthController extends Controller
 {
@@ -82,11 +83,11 @@ class AuthController extends Controller
 
         if($user->avatar != NULL && $user->avatar != ""){
             $fileContents = file_get_contents($user->getAvatar());
-            $user_profile = File::put(public_path() . '/images/user_img/' . $user->getId() . ".jpg", $fileContents);
-            $name = $user->getId() . ".jpg";
+            Storage::put(config('path.profile') . $user->getId() . ".jpg", $fileContents);
+            $profile_img = $user->getId() . ".jpg";
         }
         else {
-            $name = NULL;
+            $profile_img = NULL;
         }
 
         $verified = \Carbon\Carbon::now()->toDateTimeString();
@@ -94,7 +95,7 @@ class AuthController extends Controller
         return User::create([
             'fname'     => $user->name,
             'email'    => $user->email,
-            'user_img'    => $name,
+            'user_img'    => $profile_img,
             'email_verified_at'  => $verified,
             $providerField => $user->id,
         ]);
