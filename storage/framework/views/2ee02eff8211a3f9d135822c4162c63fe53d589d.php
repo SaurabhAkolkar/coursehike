@@ -5,7 +5,7 @@
     <section class="la-lp--page">
       <div class="container la-anim__wrap">
         <div class="row ">
-          <a class="la-icon--5xl icon-back-arrow d-block d-lg-none my-6 px-3" href="<?php echo e(URL::previous()); ?>"></a>
+          <a class="la-icon--5xl icon-back-arrow d-block d-lg-none my-3 my-md-6 px-3" href="<?php echo e(URL::previous()); ?>"></a>
           <!-- Column: Start-->
           <div class="col-12 col-lg-6">
             <div class=" la-anim__stagger-item">

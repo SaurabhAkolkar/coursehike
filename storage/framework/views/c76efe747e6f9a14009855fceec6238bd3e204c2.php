@@ -419,80 +419,89 @@ use Carbon\Carbon;
   <section class="la-section__small la-section--grey la-vcourse__purchase">
     <div class="la-vcourse__purchase-inwrap container">
       <div class="row la-vcourse__purchase-row la-anim__wrap">
+        
         <div class="col-md-7 col-lg-7 la-vcourse__purchase-left la-anim__stagger-item">
-          <div class="la-vcourse__purchase-prize mb-4 mb-lg-8 ">Purchase this Course @ <span class="la-vcourse__purchase-prize--amount"><b><?php echo e(getSymbol()); ?><?php echo e($course->convertedprice); ?></b></span></div>
-          <form class="la-vcourse__purchase-form" id="add_to_cart_form" name="add_to_cart_form" method="post" action="/add-to-cart">
-            <input type="hidden" name="course_id" value="<?php echo e($course->id); ?>" />
-            <?php echo csrf_field(); ?>
-            <div class="la-vcourse__purchase-classes">
-              <div class="la-vcourse__purchase-class la-vcourse__purchase-class--all mb-lg-4 la-anim__stagger-item">
-                <div class="la-form__radio-wrap">
-                  <input class="la-form__radio d-none la-vcourse__purchase-input" <?php if($order_type == null || $order_type == 'all_classes'): ?> checked <?php endif; ?> type="radio" value="all-classes" name="classes" id="allClasses">
-                  <label class="d-flex align-items-center la-vcourse__purchase-label" for="allClasses">
-                    <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
-                    <span class="">All Classes</span>
-                  </label>
+          <?php if($course->isPurchased() == null || !Auth::check()): ?>
+            <div class="la-vcourse__purchase-prize mb-4 mb-lg-8 ">Purchase this Course @ <span class="la-vcourse__purchase-prize--amount"><b><?php echo e(getSymbol()); ?><?php echo e($course->convertedprice); ?></b></span></div>
+            <form class="la-vcourse__purchase-form" id="add_to_cart_form" name="add_to_cart_form" method="post" action="/add-to-cart">
+              <input type="hidden" name="course_id" value="<?php echo e($course->id); ?>" />
+              <?php echo csrf_field(); ?>
+              <div class="la-vcourse__purchase-classes">
+                <div class="la-vcourse__purchase-class la-vcourse__purchase-class--all mb-lg-4 la-anim__stagger-item">
+                  <div class="la-form__radio-wrap">
+                    <input class="la-form__radio d-none la-vcourse__purchase-input" <?php if($order_type == null || $order_type == 'all_classes'): ?> checked <?php endif; ?> type="radio" value="all-classes" name="classes" id="allClasses">
+                    <label class="d-flex align-items-center la-vcourse__purchase-label" for="allClasses">
+                      <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
+                      <span class="">All Classes</span>
+                    </label>
+                  </div>
                 </div>
-              </div>
-              <div class="la-vcourse__purchase-class la-vcourse__purchase-class--select ">
-                <div class="la-form__radio-wrap la-anim__stagger-item">
-                  <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" value="select-classes" <?php if($order_type == 'selected_classes'): ?> <?php endif; ?> name="classes" id="selectClasses">
-                  <label class="d-flex align-items-center la-vcourse__purchase-label" for="selectClasses">
-                    <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
-                    <span class="">Select Classes</span>
-                  </label>
-                </div>
-                <div class="la-vcourse__purchase-items mt-4 mt-lg-8 la-anim__stagger-item" id="selected_class_div">
-                  <table class="w-100 la-vcourse__classes-wrap">
-                    <tr class="la-vcourse__sclass-item">
-                      <th class="mb-4 la-vcourse__sclass-heading"></th>
-                      <th class="mb-4 la-vcourse__sclass-heading">Class</th>
-                      <th class="mb-4 la-vcourse__sclass-heading">Name</th>
-                      <th class="mb-4 la-vcourse__sclass-heading">Mentor</th>
-                      <th class="mb-4 la-vcourse__sclass-heading">Price</th>
-                    </tr>
-                    <?php $__currentLoopData = $course->chapter; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $class): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    
-                      <tr class="la-vcourse__sclass-item align-top">
-                        <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--checkbox">
-                          <div>
-                            <input id="selectItem_<?php echo e($class->id); ?>" name="selected_classes[]" class="la-form__checkbox-input selected_classes custom-control-input" type="checkbox" value="<?php echo e($class->id); ?>" <?php if($order_type == 'all_classes'): ?> checked <?php endif; ?>>
-                            
-                            <label class="" for="selectItem_<?php echo e($class->id); ?>">
-                              <svg viewBox="0 0 16 16" height="16" width="16">
-                                <g id="Group_5052" data-name="Group 5052" transform="translate(-129 -2108)">
-                                  <g id="Rectangle_3239" data-name="Rectangle 3239" transform="translate(129 2108)" fill="none" stroke="#7400d7" stroke-width="1">
-                                    <rect class="la-form__checkbox-rect" x="0.5" y="0.5" width="15" height="15" fill="none" />
-                                  </g>
-                                </g>
-                                <path class="la-form__checkbox-mark" id="Path_17096" data-name="Path 17096" d="M147.263,194.53a.857.857,0,0,0,.56.4.994.994,0,0,0,.171.02.854.854,0,0,0,.5-.161l7.175-5.128a.856.856,0,0,0-1-1.392l-6.419,4.589-1.871-3.1a.856.856,0,1,0-1.467.882Z" transform="matrix(0.985, -0.174, 0.174, 0.985, -173.013, -153.894)" fill="#010101"/>
-                              </svg>
-                            </label>
-                          </div>
-                        </td>
-                        <td class="la-vcourse__sclass-data la-vcourse__sclass-data--thumbnail">
-                          <img src="<?php echo e($class->thumbnail); ?>" alt="purchase item" class="img-fluid d-block">
-                        </td>
-                        <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--name"><?php echo e($class->chapter_name); ?></td>
-                        <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--mentor"><?php echo e($course->user->fname); ?></td>
-                        <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--price"><?php echo e(getSymbol()); ?><?php echo e($class->convertedprice); ?></td>
+                <div class="la-vcourse__purchase-class la-vcourse__purchase-class--select ">
+                  <div class="la-form__radio-wrap la-anim__stagger-item">
+                    <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" value="select-classes" <?php if($order_type == 'selected_classes'): ?> <?php endif; ?> name="classes" id="selectClasses">
+                    <label class="d-flex align-items-center la-vcourse__purchase-label" for="selectClasses">
+                      <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
+                      <span class="">Select Classes</span>
+                    </label>
+                  </div>
+                  <div class="la-vcourse__purchase-items mt-4 mt-lg-8 la-anim__stagger-item" id="selected_class_div">
+                    <table class="w-100 la-vcourse__classes-wrap">
+                      <tr class="la-vcourse__sclass-item">
+                        <th class="mb-4 la-vcourse__sclass-heading"></th>
+                        <th class="mb-4 la-vcourse__sclass-heading">Class</th>
+                        <th class="mb-4 la-vcourse__sclass-heading">Name</th>
+                        <th class="mb-4 la-vcourse__sclass-heading">Mentor</th>
+                        <th class="mb-4 la-vcourse__sclass-heading">Price</th>
                       </tr>
-                     
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                  </table>
+                      <?php $__currentLoopData = $course->chapter; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $class): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      
+                        <tr class="la-vcourse__sclass-item align-top">
+                          <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--checkbox">
+                            <div>
+                              <input id="selectItem_<?php echo e($class->id); ?>" name="selected_classes[]" class="la-form__checkbox-input selected_classes custom-control-input" type="checkbox" value="<?php echo e($class->id); ?>" <?php if($order_type == 'all_classes'): ?> checked <?php endif; ?> checked>
+                              
+                              <label class="" for="selectItem_<?php echo e($class->id); ?>">
+                                <svg viewBox="0 0 16 16" height="16" width="16">
+                                  <g id="Group_5052" data-name="Group 5052" transform="translate(-129 -2108)">
+                                    <g id="Rectangle_3239" data-name="Rectangle 3239" transform="translate(129 2108)" fill="none" stroke="#7400d7" stroke-width="1">
+                                      <rect class="la-form__checkbox-rect" x="0.5" y="0.5" width="15" height="15" fill="none" />
+                                    </g>
+                                  </g>
+                                  <path class="la-form__checkbox-mark" id="Path_17096" data-name="Path 17096" d="M147.263,194.53a.857.857,0,0,0,.56.4.994.994,0,0,0,.171.02.854.854,0,0,0,.5-.161l7.175-5.128a.856.856,0,0,0-1-1.392l-6.419,4.589-1.871-3.1a.856.856,0,1,0-1.467.882Z" transform="matrix(0.985, -0.174, 0.174, 0.985, -173.013, -153.894)" fill="#010101"/>
+                                </svg>
+                              </label>
+                            </div>
+                          </td>
+                          <td class="la-vcourse__sclass-data la-vcourse__sclass-data--thumbnail">
+                            <img src="<?php echo e($class->thumbnail); ?>" alt="purchase item" class="img-fluid d-block">
+                          </td>
+                          <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--name"><?php echo e($class->chapter_name); ?></td>
+                          <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--mentor"><?php echo e($course->user->fname); ?></td>
+                          <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--price"><?php echo e(getSymbol()); ?><?php echo e($class->convertedprice); ?></td>
+                        </tr>
+                      
+                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </table>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="la-vcourse__purchase-actions d-flex flex-wrap align-items-center mt-8">
-              <div class="la-vcourse__purchase-btn1 w-50">
-                <a class="btn btn-primary la-btn w-100 text-center" <?php if(Auth::check()): ?> onclick="$('#add_to_cart_form').submit()" <?php else: ?> data-toggle="modal" data-target="#locked_login_modal" <?php endif; ?> >Buy course</a>
+              <div class="la-vcourse__purchase-actions d-flex flex-wrap align-items-center mt-8">
+                <div class="la-vcourse__purchase-btn1 w-50">
+                  <a class="btn btn-primary la-btn w-100 text-center" <?php if(Auth::check()): ?> onclick="$('#add_to_cart_form').submit()" <?php else: ?> data-toggle="modal" data-target="#locked_login_modal" <?php endif; ?> >Buy course</a>
+                </div>
+                <div class="la-vcourse__purchase-btn w-50">
+                  <a class="btn  la-btn__plain text--green w-100 text-center" <?php if(Auth::check()): ?> onclick="$('#add_to_cart_form').submit()" <?php else: ?> data-toggle="modal" data-target="#locked_login_modal" <?php endif; ?>>ADD TO CART</a>
+                </div>
               </div>
-              <div class="la-vcourse__purchase-btn w-50">
-                <a class="btn  la-btn__plain text--green w-100 text-center" <?php if(Auth::check()): ?> onclick="$('#add_to_cart_form').submit()" <?php else: ?> data-toggle="modal" data-target="#locked_login_modal" <?php endif; ?>>ADD TO CART</a>
-              </div>
-            </div>
-          </form>
+            </form>
+          
+            <?php else: ?>
+
+              This Course is free to Watch
+            <?php endif; ?>
         </div>
+
+        
         
         <?php if( !(auth()->check() && auth()->user()->subscription('main') && auth()->user()->subscription('main')->active()) ): ?>
           <div class="col-md-5 col-lg-4 offset-lg-1 px-lg-0 my-auto la-vcourse__purchase-right la-anim__wrap">
@@ -772,7 +781,7 @@ use Carbon\Carbon;
             <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item--x ">
               <?php $__currentLoopData = $mentor_other_courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                      <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => round($course->average_rating, 2),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount,'price' => $course->price]); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => round($course->average_rating, 2),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount,'price' => $course->price,'bought' => $course->isPurchased()]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
@@ -810,7 +819,7 @@ use Carbon\Carbon;
             <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item--x ">
               <?php $__currentLoopData = $related_courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                    <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => round($course->average_rating, 2),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount,'price' => $course->price]); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => round($course->average_rating, 2),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount,'price' => $course->price,'bought' => $course->isPurchased()]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>

@@ -41,7 +41,7 @@
             
           <div class="la-profile__main-inner ">
             <div class="la-profile__title-wrap la-anim__stagger-item">
-              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-6" href="<?php echo e(URL::previous()); ?>"></a>
+              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-3" href="<?php echo e(URL::previous()); ?>"></a>
               <h1 class="la-profile__title">Wishlist</h1>
               
               <!-- Mobile Version Add Courses Btn -->
@@ -57,7 +57,7 @@
                     <?php $__currentLoopData = $wishlist_courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $courses): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       <div class="col-md-6 col-lg-4 px-0  la-anim__stagger-item">
                          <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $courses->course_id,'img' => $courses->courses->preview_image,'course' => $courses->courses->title,'url' => $courses->courses->slug,'rating' => round($courses->courses->average_rating, 2),'creatorImg' => $courses->courses->user->user_img,'creatorName' => $courses->courses->user->FullName,'creatorUrl' => $courses->courses->user->id,'addedToWhishList' => $addedToWhishList,'learnerCount' => $courses->courses->leanerCount,'price' => $courses->courses->price]); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $courses->course_id,'img' => $courses->courses->preview_image,'course' => $courses->courses->title,'url' => $courses->courses->slug,'rating' => round($courses->courses->average_rating, 2),'creatorImg' => $courses->courses->user->user_img,'creatorName' => $courses->courses->user->FullName,'creatorUrl' => $courses->courses->user->id,'addedToWhishList' => $addedToWhishList,'learnerCount' => $courses->courses->leanerCount,'price' => $courses->courses->price,'bought' => $courses->courses->isPurchased()]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>

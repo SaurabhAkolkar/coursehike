@@ -55,10 +55,10 @@
             
                         <tr>
                             <td width="150" style="padding:4px 0">
-                                <span style="font-size:12px;color:#8B8B8B;">Course ID</span>
+                                <span style="font-size:12px;color:#8B8B8B;">Invoice ID</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">#C123</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">{{ $data['invoice_id'] }}</span>
                             </td>
                         </tr>
 
@@ -76,7 +76,7 @@
                                 <span style="font-size:12px;color:#8B8B8B;">Classes Purchased</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">{{ $data['purchase_type'] }}</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">{{ $data['purchase_type']=='all_classes'?'All Classes':'Selected Classes' }}</span>
                             </td>
                         </tr>
 
@@ -85,7 +85,7 @@
                                 <span style="font-size:12px;color:#8B8B8B;">Total Amount Paid</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">{{ $data['amount'] }}</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">@if($data['currenty'] == 'INR') ₹ @else $ @endif {{ $data['amount'] }}</span>
                             </td>
                         </tr>
 
@@ -94,7 +94,7 @@
                                 <span style="font-size:12px;color:#8B8B8B;">Payment Mode</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">Paytm</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">Stripe</span>
                             </td>
                         </tr>
 
@@ -109,11 +109,11 @@
 
                         <tr>
                             <td width="150" colspan="1"  style="padding:40px 0">
-                                <button style="background:#7600DA; font-size:10px;font-weight:300; color:#fff;padding:11px 16px;border:none;border-radius:5px;">Check Details</button>
+                                <a href="" style="background:#7600DA; font-size:10px;font-weight:300; color:#fff;padding:11px 16px;border:none;border-radius:5px;">Check Details</a>
                             </td>
-                            <td colspan="1"  style="padding:40px 0">
+                            {{-- <td colspan="1"  style="padding:40px 0">
                                 <a href="" role="button" style="font-size:14px;color:#7600DA;font-weight:500;">Invoice</a>
-                            </td>
+                            </td> --}}
                         </tr>
                     </table>
                 </td>

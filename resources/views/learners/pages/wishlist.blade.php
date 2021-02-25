@@ -35,7 +35,7 @@
             
           <div class="la-profile__main-inner ">
             <div class="la-profile__title-wrap la-anim__stagger-item">
-              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-6" href="{{URL::previous()}}"></a>
+              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-3" href="{{URL::previous()}}"></a>
               <h1 class="la-profile__title">Wishlist</h1>
               
               <!-- Mobile Version Add Courses Btn -->

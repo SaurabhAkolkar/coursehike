@@ -13,11 +13,9 @@
 
               <div class="la-profile__main-inner">
                 <div class="la-profile__title-wrap m-0 la-anim__wrap">
-                  <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5 la-anim__stagger-item" href="<?php echo e(URL::previous()); ?>"></a>
+                  <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-3 la-anim__stagger-item" href="<?php echo e(URL::previous()); ?>"></a>
                   <h1 class="la-profile__title la-anim__stagger-item">Interests</h1>
                 </div>
-
-                
 
                 <section class="la-interests__like la-interests__sec">
                     <div class="la-interests__inner la-anim__wrap">

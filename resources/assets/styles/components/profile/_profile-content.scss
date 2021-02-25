@@ -32,11 +32,11 @@
             &form {
                 &- {
                     &inner {
-
+                        padding-right:0;
                         @include respond-above(sm) {
-                            padding-right: 240px;
+                            padding-right: 150px;
                         }
-                        @include respond-above(md) {
+                        @include respond-above(lg) {
                             padding-right: 500px
                         }
                     }
@@ -46,10 +46,14 @@
                 font-size: var(--text-4xl);
                 font-family: var(--head-font);
                 font-weight: var(--font-semibold);
+                margin-bottom:var(--size-3);
 
                 &- {
                     &wrap {
-                        margin-bottom: var(--size-10);
+                        margin-bottom: var(--size-5);
+                        @include respond-above(md){
+                            margin-bottom: var(--size-10);
+                        }
                     }
                     &crumbs{
                         @include respond-below(md){

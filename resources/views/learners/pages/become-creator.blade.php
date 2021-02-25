@@ -248,7 +248,7 @@
   <!-- Section: Start-->
   <section class="la-bcreator-reach-stats">
     <div class="container my-5 ">
-      <div class="row my-5">
+      <div class="row">
         <!-- Column: Start-->
         <div class="col-sm-12 col-md-5">
           <div class="la-bcreator__reach-main pb-10 pb-sm-4 la-anim__wrap">
@@ -287,10 +287,10 @@
         <div class="col col-sm-12 col-md-1"></div>
         <!-- Column: End-->
       </div>
-      <div class="row">
+      <div class="row d-flex justify-content-center">
         <!-- Column: Start-->
-        <div class="col col-sm-12 mt-2 mt-sm-14 la-anim__wrap">
-          <div class="la-bcreator__stats-btn text-center d-none d-sm-block la-anim__stagger-item">
+        <div class="col-12 mt-2 mt-md-10 text-center la-anim__wrap">
+          <div class="la-bcreator__stats-btn  d-none d-sm-block la-anim__stagger-item">
             <a class="btn-get__started la-btn__app text-uppercase" role="button" href="/creator-signup">Get Started</a>
           </div>
           <!-- For Mobile-->
@@ -382,7 +382,7 @@
     <div class="container">
       <div class="row">
         <!-- Column: Start-->
-        <div class="col-12 px-5 px-sm-0 la-anim__wrap">
+        <div class="col-12 px-3 px-sm-0 la-anim__wrap">
           <div class="panel-group" id="accordion">
             <h4 class="la-bgcreator__faq-title la-anim__stagger-item">FAQ&#39;s</h4>
 
