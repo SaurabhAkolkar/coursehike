@@ -26,6 +26,10 @@ use App\UserPurchasedCourse;
 use Cartalyst\Stripe\Stripe;
 use Cartalyst\Stripe\Exception\NotFoundException;
 use Exception;
+use App\Notifications\CourseNotification;
+use Illuminate\Support\Facades\Notification;
+
+
 
 class CartController extends Controller
 {

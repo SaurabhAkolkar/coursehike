@@ -12,15 +12,14 @@ class Notification extends Component
      * @return void
      */
 
-    public $url;
     public $img;
     public $name;
     public $comment;
     public $timestamp;
      
-    public function __construct($url, $img, $name, $comment, $timestamp)
+    public function __construct( $img, $name, $comment, $timestamp)
     {
-       $this->url = $url;
+
        $this->img = $img;
        $this->name = $name;
        $this->comment = $comment;

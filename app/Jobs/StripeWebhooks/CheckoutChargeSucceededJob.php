@@ -16,8 +16,11 @@ use Illuminate\Support\Facades\Log;
 use Spatie\WebhookClient\Models\WebhookCall;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\CoursePurchased;
+use App\Notifications\CourseNotification;
 use App\Setting;
 use App\Course;
+use Illuminate\Support\Facades\Notification;
+use App\User;
 
 class CheckoutChargeSucceededJob implements ShouldQueue
 {
@@ -116,21 +119,28 @@ class CheckoutChargeSucceededJob implements ShouldQueue
                     $already_puchased->class_id = json_encode($combined_classes);
                     $already_puchased->purchase_type = $invoice_items->first()->purchase_type;
                     $already_puchased->save();
+
+                    $data = [];
+                    $data['title'] = $course->title;
+                    $data['image'] = $course->preview_image;
+                    $data['data'] = 'You bought this course';
+                    $user = User::findOrFail($user_invoice->user->id);
+
+                    Notification::send( $user, new CourseNotification($data));
+
+                    
+
                 }
 
                 $setting = Setting::first();
+
+
                 if($setting->w_email_enable == 1){
                     try{
-                      
-                     
-
-                        Mail::to($user_invoice->email)->send(new CoursePurchased($email_data));
-                       
+                        Mail::to($user_invoice->email)->send(new CoursePurchased($email_data));                       
                     }
-                    catch(\Swift_TransportException $e){
-        
+                    catch(\Swift_TransportException $e){  
                         header( "refresh:5;url=./" );
-                            
                     }
                 }
 
