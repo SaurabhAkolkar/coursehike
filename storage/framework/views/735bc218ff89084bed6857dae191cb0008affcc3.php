@@ -1,6 +1,6 @@
 
 
-<div class="col-md-6 col-lg-4 d-inline-flex justify-content-center">
+<div class="col-md-6 col-lg-4 ">
     <div class="la-mentor ">
       <div class="la-mentor__profile la-anim__stagger-item">
           <img class="img-fluid" src="<?php echo e($img); ?>" alt=<?php echo e($name); ?>>

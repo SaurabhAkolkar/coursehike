@@ -34,9 +34,9 @@
                   :google="$creator->google_id"
               />
         
-              <div class="row py-6 py-md-20">   
-                  <div class="col-12 px-0">
-                    <h4 class="text-2xl text-md-3xl px-3 px-md-1 pb-8">Courses from <span class="text-capitalize"> {{ucfirst($creator->FullName)}}</span></h4>
+              <div class="row py-14 py-md-20">   
+                  <div class="col-12 la-anim__wrap">
+                    <h4 class="text-2xl text-md-3xl px-0 pb-8 la-anim__stagger-item">Courses from <span class="text-capitalize"> {{ucfirst($creator->FullName)}}</span></h4>
                    
                     @if(count($courses) == 0) 
 
@@ -56,11 +56,11 @@
 
                     @else
                             
-                        <div class="la-courses__creator-courses row row-cols-md-2 row-cols-lg-3">
+                        <div class="la-courses__creator-courses row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item">
                                 
                                 @foreach($courses as $course)
                                 
-                                    <div class="col-md-6 col-lg-4 px-4 px-md-0 ">
+                                    <div class="col-md-6 col-lg-4 px-0 px-md-0 ">
                                       <x-course 
                                           :id="$course->id"
                                           :img="$course->preview_image" 

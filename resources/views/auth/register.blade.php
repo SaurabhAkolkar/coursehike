@@ -50,16 +50,16 @@
                </div> 
            </div>
 
-            <div class="col-md-5  la-entry__col la-entry__col-right h-100">
+            <div class="col-md-5  la-entry__col la-entry__col-right h-100 la-anim__wrap">
                 {{-- <div class="signup-heading">
                     {{ __('frontstaticword.StartLearning') }}!
                 </div> --}}
 
-                <div class="la-entry__content-wrap d-flex flex-column justify-content-center la-anim__wrap" >     
+                <div class="la-entry__content-wrap d-flex flex-column justify-content-center la-anim__stagger-item" >     
                     <div class="d-flex flex-column la-entry__content-top">
                         <form class="la-entry__form " method="POST" action="{{ route('register') }}">
                             @csrf
-                            <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item">
+                            <div class="la-form__input-wrap la-entry__input-wrap ">
                                 <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
                                 <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-profile"></span></span>
                                 <input type="text" class="la-form__input la-entry__input{{ $errors->has('fname') ? ' is-invalid' : '' }}" name="fname" value="{{ old('fname') }}" id="fname" placeholder="First Name">
@@ -70,7 +70,7 @@
                                 @endif
                             </div>
 
-                            <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item">
+                            <div class="la-form__input-wrap la-entry__input-wrap ">
                                 <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
                                 <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-profile"></span></span>
                                 <input type="text" class="la-form__input la-entry__input{{ $errors->has('lname') ? ' is-invalid' : '' }}" name="lname" value="{{ old('lname') }}" id="lname" placeholder="Last Name">
@@ -90,7 +90,7 @@
                                 @endif
                             </div> --}}
                             {{-- @if($gsetting->mobile_enable == 0) --}}
-                            <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item">
+                            <div class="la-form__input-wrap la-entry__input-wrap ">
                                 <!-- <i class="fa fa-phone" aria-hidden="true"></i> -->
                                 <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-contact-number"></span></span>
                                 <input type="text" class="la-form__input la-entry__input{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile') }}" id="mobile" placeholder="Mobile Number" maxlength="10">
@@ -102,7 +102,7 @@
                             </div>
                             {{-- @endif --}}
                             
-                            <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item">
+                            <div class="la-form__input-wrap la-entry__input-wrap ">
                                 <!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
                                 <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-mail-id"></span></span>
                                 <input type="email" class="la-form__input la-entry__input{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" id="email" placeholder="Email ID">
@@ -113,14 +113,14 @@
                                 @endif
                             </div>
 
-                            <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item">
+                            <div class="la-form__input-wrap la-entry__input-wrap">
                                 <span class="la-entry__input-icon">
                                     <span class="la-icon la-icon--xl icon-birthday"></span>
                                 </span>
                                 <input class="la-form__input la-entry__input" type="text" value="" onfocus="(this.type='date')" name="dob" min='1899-01-01' max='{{ Carbon\Carbon::now()->subYear(18)->format('Y-m-d') }}' placeholder="Date of Birth(dd/mm/yyyy)">
                             </div>
                            
-                            <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item">
+                            <div class="la-form__input-wrap la-entry__input-wrap ">
                                 <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
                                 <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-password"></span></span>
                                 <input type="password" class="la-form__input la-entry__input{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" id="password" placeholder="Password">
@@ -217,7 +217,7 @@
                         {{ __('frontstaticword.Bysigningup') }} <a href="{{url('terms_condition')}}" title="Policy">{{ __('frontstaticword.Terms&Condition') }} </a>, <a href="{{url('privacy_policy')}}" title="Policy">{{ __('frontstaticword.PrivacyPolicy') }}.</a>
                     </div> -->
 
-                    <div class="la-entry__other-option text-center mt-md-10">{{ __('frontstaticword.Alreadyhaveanaccount') }}? 
+                    <div class="la-entry__other-option text-center mt-md-4">{{ __('frontstaticword.Alreadyhaveanaccount') }}? 
                         <span class="la-btn__plain text--burple text--md ml-2">
                             <a href="{{ route('login') }}" >{{ __('frontstaticword.Login') }}</a>
                         </span>

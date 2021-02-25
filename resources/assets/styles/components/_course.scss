@@ -249,22 +249,35 @@
                 transition: transform 0.24s ease-out;-webkit-transition: transform 0.24s ease-out;-moz-transition: transform 0.24s ease-out;
                 overflow: hidden;
                 width:100%;
-                height:220px;
+                height:180px;
 
                 &:hover{
                     border-radius: var(--size-2);
+                }
+                @include respond-above(lg){
+                    height:220px;
+                }
+                @include respond-below(md){
+                    height:200px;
                 }
 
                 img {
                     object-fit:cover;
                     width: 100%;
-                    height: 220px;
+                    height: 180px;
                     border-radius: var(--size-2);
                     transition: transform 0.24s ease-out;-webkit-transition: transform 0.24s ease-out;-moz-transition: transform 0.24s ease-out;
                 
                     &:hover{
                         border-radius: var(--size-2);
-                    }                
+                    }   
+                    
+                    @include respond-above(lg){
+                        height:220px;
+                    }
+                    @include respond-below(md){
+                        height:200px;
+                    }
                 }
             }
             &overlay {

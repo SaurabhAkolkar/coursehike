@@ -66,7 +66,7 @@
                     </div>
                     <!-- Cousre Cart:  End -->
 
-                    <div class="col-lg-4 mb-5 mb-md-0 la-anim__wrap">
+                    <div class="col-md-8 col-lg-4 mb-5 mb-md-0 la-anim__wrap">
                       
                         
                       

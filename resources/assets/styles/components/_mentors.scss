@@ -10,22 +10,22 @@
         }
 
         & {
-            --mentor-profileW: 370px;
-            --mentor-profileH: 270px;
-
-            
+            --mentor-profileW: 100%;
+            --mentor-profileH: 250px;
 
             &__ {
                 &profile {
-                    width: calc(var(--mentor-profileW) - var(--size-6));
+                    width: var(--mentor-profileW);
                     height: var(--mentor-profileH);
                     border-radius: var(--size-2);
+                    -webkit-border-radius: var(--size-2);
+                    -moz-border-radius: var(--size-2);
                     overflow: hidden;
                     position:relative;
                     background-color: var(--white);
-                      
+                                         
                     img{
-                        width: calc(var(--mentor-profileW) - var(--size-6));
+                        width: var(--mentor-profileW);
                         height:var(--mentor-profileH);
                         transition: all 0.25s ease-out;
                         -webkit-transition: all 0.25s ease-out;
@@ -33,26 +33,25 @@
                         -ms-transition: all 0.25s ease-out;
                         -o-transition: all 0.25s ease-out;   
                         object-fit: cover;
-                        object-position: center;
-                        background-color:var(--white);                     
-                    }
-                    img:hover{
-                        position:absolute;
-                        transform: scale(1.1);
-                        transition: all 0.25s ease-in;
-                        -webkit-transition: all 0.25s ease-in;
-                        -moz-transition: all 0.25s ease-in;
-                        -ms-transition: all 0.25s ease-in;
-                        -o-transition: all 0.25s ease-in;
-                    }
-                }
-                // Dashboard Page
-                &dprofile{
-                    @include respond-below(md){
-                        width:100%;
-                    }
-                }
+                        background-color:var(--white);  
+                        border-radius: var(--size-2);
+                        -webkit-border-radius: var(--size-2);
+                        -moz-border-radius: var(--size-2);
 
+                        &:hover{
+                            transform: scale(1.05);-webkit-transform: scale(1.05);-moz-transform: scale(1.05);-o-transform: scale(1.05);
+                            transition: all 0.25s ease-in;
+                            -webkit-transition: all 0.25s ease-in;
+                            -moz-transition: all 0.25s ease-in;
+                            -ms-transition: all 0.25s ease-in;
+                            -o-transition: all 0.25s ease-in;
+                            border-radius: var(--size-2);
+                            -webkit-border-radius: var(--size-2);
+                            -moz-border-radius: var(--size-2);
+                        }
+                    }
+                }
+                
                 &btm {
                     padding: var(--size-3);
                 }

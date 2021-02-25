@@ -30,9 +30,9 @@
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
         
-              <div class="row py-6 py-md-20">   
-                  <div class="col-12 px-0">
-                    <h4 class="text-2xl text-md-3xl px-3 px-md-1 pb-8">Courses from <span class="text-capitalize"> <?php echo e(ucfirst($creator->FullName)); ?></span></h4>
+              <div class="row py-14 py-md-20">   
+                  <div class="col-12 la-anim__wrap">
+                    <h4 class="text-2xl text-md-3xl px-0 pb-8 la-anim__stagger-item">Courses from <span class="text-capitalize"> <?php echo e(ucfirst($creator->FullName)); ?></span></h4>
                    
                     <?php if(count($courses) == 0): ?> 
 
@@ -52,13 +52,13 @@
 
                     <?php else: ?>
                             
-                        <div class="la-courses__creator-courses row row-cols-md-2 row-cols-lg-3">
+                        <div class="la-courses__creator-courses row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item">
                                 
                                 <?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 
-                                    <div class="col-md-6 col-lg-4 px-4 px-md-0 ">
+                                    <div class="col-md-6 col-lg-4 px-0 px-md-0 ">
                                        <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->title,'rating' => $course->review->avg('rating'),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->FullName,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount]); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->title,'rating' => $course->review->avg('rating'),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->FullName,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount,'price' => $course->price,'bought' => $course->isPurchased()]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>

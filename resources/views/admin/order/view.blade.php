@@ -16,8 +16,8 @@
 
               <div class="la-admin__invoice-address text-right">
                   <p>K2, Old Sonal Industrial Est, Kanchpada, <br/> Malad Link Road, Malad West, Mumbai <br/> 400064. MH, India </p> 
-                  <a  href="tel: +91 9999999999" class="d-flex justify-content-end align-items-center"><span class="la-icon--xl icon-contact-number"></span> <span class="pl-2">+91 9999999999 </span></a>
-                  <a href="mailto: ask@learnitlikealiens.com" class="d-flex justify-content-end align-items-center"><span class="la-icon--xl icon-mail-id"></span> <span class="pl-2">ask@learnitlikealiens.com </span></a>
+                  <a  href="tel: +91 8779056596" class="d-flex justify-content-end align-items-center"><span class="la-icon--xl icon-contact-number"></span> <span class="pl-2">+91  8779056596 </span></a>
+                  <a href="mailto:  lila@learnitlikealiens.com" class="d-flex justify-content-end align-items-center"><span class="la-icon--xl icon-mail-id"></span> <span class="pl-2"> lila@learnitlikealiens.com </span></a>
               </div>
           </div>
       </div>

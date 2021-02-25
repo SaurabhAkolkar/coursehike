@@ -190,8 +190,7 @@ $(function(){
   })
 
   // Navbar Search
-  $('#header_search').on('click', function(e){
-    e.preventDefault();
+  $('#header_search').on('click', function(){
     $('#header_search_input').toggleClass('la-header__gsearch-expand');
     
     if($('#header_search_input').hasClass('la-header__gsearch-expand')){
@@ -199,6 +198,8 @@ $(function(){
       $('#header_search_input').on('blur', function(){
         $('#header_search_input').focus();
       });
+    }else{
+      $('#header_search_input').blur();
     }  
   });
 

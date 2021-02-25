@@ -20,14 +20,14 @@
                </div> 
            </div>
 
-            <div class="col-md-5  la-entry__col la-entry__col-right h-100">
+            <div class="col-md-5  la-entry__col la-entry__col-right h-100 la-anim__wrap">
                 
 
-                <div class="la-entry__content-wrap d-flex flex-column justify-content-center la-anim__wrap" >     
+                <div class="la-entry__content-wrap d-flex flex-column justify-content-center la-anim__stagger-item" >     
                     <div class="d-flex flex-column la-entry__content-top">
                         <form class="la-entry__form " method="POST" action="<?php echo e(route('register')); ?>">
                             <?php echo csrf_field(); ?>
-                            <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item">
+                            <div class="la-form__input-wrap la-entry__input-wrap ">
                                 <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
                                 <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-profile"></span></span>
                                 <input type="text" class="la-form__input la-entry__input<?php echo e($errors->has('fname') ? ' is-invalid' : ''); ?>" name="fname" value="<?php echo e(old('fname')); ?>" id="fname" placeholder="First Name">
@@ -38,7 +38,7 @@
                                 <?php endif; ?>
                             </div>
 
-                            <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item">
+                            <div class="la-form__input-wrap la-entry__input-wrap ">
                                 <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
                                 <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-profile"></span></span>
                                 <input type="text" class="la-form__input la-entry__input<?php echo e($errors->has('lname') ? ' is-invalid' : ''); ?>" name="lname" value="<?php echo e(old('lname')); ?>" id="lname" placeholder="Last Name">
@@ -50,7 +50,7 @@
                             </div>
                             
                             
-                            <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item">
+                            <div class="la-form__input-wrap la-entry__input-wrap ">
                                 <!-- <i class="fa fa-phone" aria-hidden="true"></i> -->
                                 <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-contact-number"></span></span>
                                 <input type="text" class="la-form__input la-entry__input<?php echo e($errors->has('mobile') ? ' is-invalid' : ''); ?>" name="mobile" value="<?php echo e(old('mobile')); ?>" id="mobile" placeholder="Mobile Number" maxlength="10">
@@ -62,7 +62,7 @@
                             </div>
                             
                             
-                            <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item">
+                            <div class="la-form__input-wrap la-entry__input-wrap ">
                                 <!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
                                 <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-mail-id"></span></span>
                                 <input type="email" class="la-form__input la-entry__input<?php echo e($errors->has('email') ? ' is-invalid' : ''); ?>" name="email" value="<?php echo e(old('email')); ?>" id="email" placeholder="Email ID">
@@ -73,14 +73,14 @@
                                 <?php endif; ?>
                             </div>
 
-                            <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item">
+                            <div class="la-form__input-wrap la-entry__input-wrap">
                                 <span class="la-entry__input-icon">
                                     <span class="la-icon la-icon--xl icon-birthday"></span>
                                 </span>
                                 <input class="la-form__input la-entry__input" type="text" value="" onfocus="(this.type='date')" name="dob" min='1899-01-01' max='<?php echo e(Carbon\Carbon::now()->subYear(18)->format('Y-m-d')); ?>' placeholder="Date of Birth(dd/mm/yyyy)">
                             </div>
                            
-                            <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item">
+                            <div class="la-form__input-wrap la-entry__input-wrap ">
                                 <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
                                 <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-password"></span></span>
                                 <input type="password" class="la-form__input la-entry__input<?php echo e($errors->has('password') ? ' is-invalid' : ''); ?>" name="password" id="password" placeholder="Password">
@@ -146,7 +146,7 @@
                         <?php echo e(__('frontstaticword.Bysigningup')); ?> <a href="<?php echo e(url('terms_condition')); ?>" title="Policy"><?php echo e(__('frontstaticword.Terms&Condition')); ?> </a>, <a href="<?php echo e(url('privacy_policy')); ?>" title="Policy"><?php echo e(__('frontstaticword.PrivacyPolicy')); ?>.</a>
                     </div> -->
 
-                    <div class="la-entry__other-option text-center mt-md-10"><?php echo e(__('frontstaticword.Alreadyhaveanaccount')); ?>? 
+                    <div class="la-entry__other-option text-center mt-md-4"><?php echo e(__('frontstaticword.Alreadyhaveanaccount')); ?>? 
                         <span class="la-btn__plain text--burple text--md ml-2">
                             <a href="<?php echo e(route('login')); ?>" ><?php echo e(__('frontstaticword.Login')); ?></a>
                         </span>

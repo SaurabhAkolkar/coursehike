@@ -26,7 +26,7 @@
                         </div>
                         <div class="la-cart__item-right ">
                             <div class="la-cart__item-name">{{ $course }}</div>
-                            <div class="la-cart__item-author mb-2 mb-md-4">by <span class="text-capitalize ">{{ $creator}}</span></div>
+                            <div class="la-cart__item-author mb-2 mb-lg-4">by <span class="text-capitalize ">{{ $creator}}</span></div>
                             <div class="la-cart__item-actions d-flex">
                                 <div class="la-cart__item-action remove"> 
                                     <a href= {{ $removeUrl }}>{{ $remove }}</a>
