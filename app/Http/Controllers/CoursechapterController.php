@@ -9,6 +9,10 @@ use App\Course;
 use Illuminate\Support\Facades\Storage;
 use Session;
 use Image;
+use App\UserPurchasedCourse;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\CourseNotification;
+use App\User;
 
 class CoursechapterController extends Controller
 {
@@ -41,11 +45,29 @@ class CoursechapterController extends Controller
      */
     public function store(Request $request)
     {
+      
         $data = $this->validate($request,[
             'chapter_name' => 'required',
         ]);
 
         $input = $request->all();
+      
+        if($request->status == 2){
+
+            $user_ids = UserPurchasedCourse::where('course_id', $request->course_id)->pluck('user_id');
+            $users = User::whereIN('id', $user_ids)->get();
+
+            $course = Course::findOrFail($request->course_id);
+            $data = [];
+            $data['title'] = $course->title;
+            $data['image'] = $course->preview_image;
+            $data['data'] = 'New Class has been added';
+            
+            Notification::send($users, new CourseNotification($data));
+        }
+
+
+
         $data = CourseChapter::create($input);
 
         if($file = $request->file('preview_image'))
@@ -65,6 +87,10 @@ class CoursechapterController extends Controller
         }
 
         $data->save();
+
+        
+
+
 
         Session::flash('success','Added Successfully !');
         return redirect()->route('course.show',$request->course_id);

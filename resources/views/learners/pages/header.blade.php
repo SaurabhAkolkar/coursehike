@@ -52,16 +52,15 @@ use App\Announcement;
               <a class="la-header__menu-link la-header__menu-icon la-icon icon-profile" href="/profile"></a>
             </div>
             
-            <div class="la-header__menu-item dropdown"><a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-notification " id="notificationPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
+            <div class="la-header__menu-item dropdown"><a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-notification " id="notificationPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><sup class="la-header__menu-badge badge badge-light" id="notificationBadge">{{count(Auth::user()->unreadNotifications)}}</sup> </a>
               <div class="dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="notificationPanel" style="border:none !important;">
                   <ul class="card la-notification__card">
                     <!-- Notification Panel: Start -->
 
                     @foreach (Auth::user()->unreadNotifications as $notification)
-                      @if($notification->type == "App\Notifications\CourseNotification")
-
+                     
                       <x-notification  :img="$notification->data['image']" :name="$notification->data['id']" :comment="$notification->data['data']" :timestamp="Carbon::parse($notification->created_at)->format('d-m-Y')" />
-                      @endif
+
                     @endforeach 
                     @if(count(Auth::user()->unreadNotifications) == 0)
                       <li class="la-notification__item">
@@ -80,7 +79,7 @@ use App\Announcement;
                          
                     <!-- Notification Panel: End -->
                   </ul>
-                <a class="la-notification__clear-all position-fixed" href="#">
+                <a class="la-notification__clear-all position-fixed" href="#" onclick="clearNotification()">
                   <div class="text-center">CLEAR ALL</div>
                 </a>
               </div>

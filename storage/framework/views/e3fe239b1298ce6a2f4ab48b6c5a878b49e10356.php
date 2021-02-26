@@ -2,13 +2,14 @@
 <!-- Main Section: Start-->
 <section class="la-cdashboard-main">
     <!-- Section: Start-->
-    <section class="la-cdashboard py-5">
+    <section class="la-cdashboard py-md-5">
       <div class="la-cdashboard__inner pt-5">
         <div class="container pt-0 pt-sm-3">
           <div class="row d-flex flex-row justify-content-between">
-            <div class="col-12 col-md-6 col-lg-5 ">
-              <div class="la-cdashboard__page  la-anim__wrap">
-                <h1 class="la-cdashboard__user-name text-3xl text-md-4xl text-capitalize  la-anim__fade-in-top">Welcome <span style="color:var(--app-indigo-1);"><?php echo e(Auth::user()->fname); ?>!</span></h1>
+            <div class="col-12 col-md-6 col-lg-5  la-anim__wrap">
+              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2 la-anim__stagger-item" href="<?php echo e(URL::previous()); ?>"></a>
+              <div class="la-cdashboard__page ">
+                <h1 class="la-cdashboard__user-name mb-2 text-3xl text-md-4xl text-capitalize la-anim__fade-in-top">Welcome <span style="color:var(--app-indigo-1);"><?php echo e(Auth::user()->fname); ?>!</span></h1>
                 <p class="text-md  la-anim__stagger-item--x">Share your knowledge, Be the change.<br/> The kind that enables everyone to reach their full potential & more!</p>
               </div>
 
@@ -36,7 +37,7 @@
 <?php endif; ?>
                         <?php else: ?>
 
-                        <div class="la-empty__courses text-center mt-0 mb-10 mb-md-1 py-6 py-md-10 px-12 px-md-14">
+                        <div class="la-empty__courses text-center mt-0 mb-10 mb-md-1 py-6 py-md-9 px-10 px-lg-12">
                             <div class="la-empty__inner la-anim__stagger-item">
                                 <p class="la-empty__course-desc leading-snug m-0">You don't have any last viewed course.</p>
                             </div>
@@ -50,12 +51,12 @@
 
             </div>
 
-            <div class="col-12 col-md-5 col-lg-4 la-anim__wrap">
+            <div class="col-12 col-md-6 col-lg-4 la-anim__wrap">
               <div class="la-course__alien-ad">
                 <div class="card la-course__ad-card la-anim__stagger-item--x">
                   <div class="card-body la-course__ad-body my-0 position-relative">
                     <p class="la-course__ad-tag leading-snug text-sm pt-4 la-anim__stagger-item">Got something different? <br/> Let’s share it with the world!</p>
-                    <h2 class="la-course__ad-title text-4xl la-anim__stagger-item--x">become an <br><span>Alien Mentor, today!</span></h2>
+                    <h2 class="la-course__ad-title text-3xl text-md-4xl la-anim__stagger-item--x">become an <br><span>Alien Mentor, today!</span></h2>
                   
                     <div class="la-course__ad-learnmore text-right mr-md-n4 la-anim__stagger-item--x">
                       <a class="la-course__ad-learn text-uppercase " href="/become-creator">Learn More
@@ -183,7 +184,7 @@
                 <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
                     <a href="/browse/courses" class="la-empty__browse">
                         Browse Courses
-                        <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                      <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
                     </a>
                 </div>
             </div>
@@ -197,7 +198,7 @@
     <section class="la-hp-section py-md-5 my-md-5">
       <div class="container px-5 px-sm-0">
         <div class="row">
-          <div class="col-12 px-2">
+          <div class="col-12">
             <div class="la-hp__inner la-anim__wrap">
               <h5 class="text-2xl text-md-3xl la-hp__title mb-8 la-anim__stagger-item">Hand Picked for you! </h5>
               <div class="la-hp__data">
@@ -240,29 +241,27 @@
               </div>
             </div>
           
-            <div class="row">
-              <div class="col-12 la-mentors">
-                  <div class="row la-anim__wrap ">
-                    <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $u): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                      <div class="col-md-6 col-lg-4">
-                        <div class="la-mentor">
-                          <div class="la-mentor__profile la-mentor__dprofile la-anim__stagger-item">
-                              <img class="img-fluid" src="<?php echo e($u[0]->user->user_img); ?>" alt="<?php echo e($u[0]->user->fullName); ?>">
-                          </div>
-                          <div class="la-mentor__btm d-flex justify-content-between align-items-center la-anim__stagger-item la-anim__B">
-                            <div class="la-mentor__info ">
-                              <h3 class="la-mentor__name"><?php echo e($u[0]->user->fullName); ?></h3>
-                              <p class="la-mentor__skill"><?php echo e($u[0]->category->title); ?></p>
-                            </div>
-                            <a class="la-mentor__detailview " href="/creator/<?php echo e(1); ?>">
-                              <span class="la-icon la-icon--6xl icon-grey-arrow mt-n2"></span>
-                            </a>
-                          </div>
+            <div class="la-mentors">
+              <div class="row la-anim__wrap">
+                <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $u): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <div class="col-md-6 col-lg-4 ">
+                    <div class="la-mentor">
+                      <div class="la-mentor__profile  la-anim__stagger-item">
+                          <img class="img-fluid" src="<?php echo e($u[0]->user->user_img); ?>" alt="<?php echo e($u[0]->user->fullName); ?>">
+                      </div>
+                      <div class="la-mentor__btm d-flex justify-content-between align-items-center la-anim__stagger-item la-anim__B">
+                        <div class="la-mentor__info ">
+                          <h3 class="la-mentor__name"><?php echo e($u[0]->user->fullName); ?></h3>
+                          <p class="la-mentor__skill"><?php echo e($u[0]->category->title); ?></p>
                         </div>
-                      </div>                
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                  </div>
-              </div> 
+                        <a class="la-mentor__detailview " href="/creator/<?php echo e(1); ?>">
+                          <span class="la-icon la-icon--6xl icon-grey-arrow mt-n2"></span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>                
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+              </div>
           </div>            
         </div>
     </div>

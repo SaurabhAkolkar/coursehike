@@ -12,6 +12,12 @@ class NotificationController extends Controller
         return back();
     }
 
+    public function clearAll()
+    {
+    	$notification = Auth()->User()->unreadNotifications->markAsRead();
+        return back();
+    }
+
     public function delete()
     {
         
