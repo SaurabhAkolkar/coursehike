@@ -66,50 +66,11 @@ use App\Announcement;
               <div class="dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="notificationPanel" style="border:none !important;">
                   <ul class="card la-notification__card">
                     <!-- Notification Panel: Start -->
-                    <?php
-                    $user = Auth::user();
-                        $msg1 = new stdClass;
-                        $msg1->url = "";
-                        $msg1->img = "https://picsum.photos/50";
-                        $msg1->name = "Lillan";
-                        $msg1->comment = "added new Course in Design";
-                        $msg1->timestamp = "Just now";
 
-                        $msg2 = new stdClass;
-                        $msg2->url = "";
-                        $msg2->img = "https://picsum.photos/50";
-                        $msg2->name = "Alton";
-                        $msg2->comment = "likes your comment";
-                        $msg2->timestamp = "2h";
-
-                        $msg3 = new stdClass;
-                        $msg3->url = "";
-                        $msg3->img = "https://picsum.photos/50";
-                        $msg3->name = "Joseph";
-                        $msg3->comment = "added new Course in Design";
-                        $msg3->timestamp = "3h";
-
-                        $msg4 = new stdClass;
-                        $msg4->url = "";
-                        $msg4->img = "https://picsum.photos/50";
-                        $msg4->name = "Dartin";
-                        $msg4->comment = "likes your comment";
-                        $msg4->timestamp = "6h";
-
-                        $msg5 = new stdClass;
-                        $msg5->url = "";
-                        $msg5->img = "https://picsum.photos/50";
-                        $msg5->name = "Dartin";
-                        $msg5->comment = "likes your comment";
-                        $msg5->timestamp = "6h";
-
-                        $msgs = array($msg1, $msg2, $msg3, $msg4, $msg5);
-                        $notificationCount = 0;
-                    ?>
-
-                    <?php $__currentLoopData = $msgs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $msg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                         <?php if (isset($component)) { $__componentOriginalc38fa723bbde1cde1a8279f40704f35cdf16b365 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Notification::class, ['url' => $msg->url,'img' => $msg->img,'name' => $msg->name,'comment' => $msg->comment,'timestamp' => $msg->timestamp]); ?>
+                    <?php $__currentLoopData = Auth::user()->unreadNotifications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notification): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      <?php if($notification->type == "App\Notifications\CourseNotification"): ?>
+                       <?php if (isset($component)) { $__componentOriginalc38fa723bbde1cde1a8279f40704f35cdf16b365 = $component; } ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Notification::class, ['img' => $notification->data['image'],'name' => $notification->data['id'],'comment' => $notification->data['data'],'timestamp' => Carbon::parse($notification->created_at)->format('d-m-Y')]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
@@ -119,15 +80,14 @@ use App\Announcement;
 <?php endif; ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
-
-                    <?php $__currentLoopData = $user->unreadNotifications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notification): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                      <?php if($notification->type == "App\Notifications\NewReleases"): ?>
-                        <?php 
-                              $notificationCount++;
-                        ?>
                       <?php endif; ?>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>         
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
+                    <?php if(count(Auth::user()->unreadNotifications) == 0): ?>
+                      <div class="d-flex justify-content-center align-items-center my-auto">
+                        <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-semibold)">No Notifications Found</div>
+                      </div>                                                   
+                    <?php endif; ?>
+
                     <!-- Notification Panel: End -->
                   </ul>
                 <a class="la-notification__clear-all position-fixed" href="#">
