@@ -2,6 +2,9 @@
 
 use Stevebauman\Location\Facades\Location;
 
+if (isset($_SERVER["HTTP_CF_CONNECTING_IP"]))
+    $_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
+
 function getSymbol(){
     $position = Location::get();
     $location = $position->countryName;

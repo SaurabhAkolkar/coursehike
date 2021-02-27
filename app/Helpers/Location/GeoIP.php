@@ -10,6 +10,9 @@ class GeoIP extends Driver
 {
     public function url($ip)
     {
+        if (isset($_SERVER["HTTP_CF_CONNECTING_IP"]))
+            $ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
+        
         return "http://www.geoplugin.net/json.gp?ip=$ip";
     }
     
