@@ -1,4 +1,26 @@
 @extends('learners.layouts.app')
+
+@section('seo_content')
+    <title>Learn Anything & Anywhere Artistic | Online Classes For Creatives</title>
+    <meta name='description' itemprop='description' content='Discover online classes on art, creativity, design, digital art, artistic baking & much more. Join LILA & enhance your skills with these online classes.' />
+
+    <meta property="og:description"content="Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now" />
+    <meta property="og:title"content="Learn Anything & Anywhere Artistic | Online Classes For Creatives" />
+    <meta property="og:url"content="{{Request::url()}}" />
+    <meta property="og:type"content="website" />
+    <meta property="og:site_name"content="LILA Art" />
+    <meta property="og:image"content="/images/learners/logo.svg" />
+    <meta property="og:image:url"content="/images/learners/logo.svg" />
+    <meta property="og:image:size"content="300" />
+
+    <meta name="twitter:card"content="summary" />
+    <meta name="twitter:title"content="Learn Anything & Anywhere Artistic | Online Classes For Creatives" />
+    <meta name="twitter:site"content="@lilaaliens" />
+    
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Learn Anything & Anywhere Artistic | Online Classes For Creatives"}</script>
+@endsection
+
+
 <!-- Playlist Alert Message-->
 @if(session('message'))
 <div class="la-btn__alert position-relative">
