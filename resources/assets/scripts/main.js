@@ -613,3 +613,20 @@ $('input[type=radio][name=sort_by]').change(function() {
   window.location.href= '?sort_by='+this.value;
 
 });
+
+function clearNotification(){
+  $.ajax({
+    headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    type:"get",
+    url: '/clear-all-notification',
+    success:function(data){   
+         
+           $('#notificationBadge').html(0);
+    },
+    error: function(XMLHttpRequest, textStatus, errorThrown) {
+      console.log(XMLHttpRequest);
+    }
+  });
+}

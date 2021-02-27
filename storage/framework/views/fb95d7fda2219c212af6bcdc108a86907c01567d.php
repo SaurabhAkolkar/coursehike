@@ -62,16 +62,15 @@ use App\Announcement;
               <a class="la-header__menu-link la-header__menu-icon la-icon icon-profile" href="/profile"></a>
             </div>
             
-            <div class="la-header__menu-item dropdown"><a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-notification " id="notificationPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
+            <div class="la-header__menu-item dropdown"><a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-notification " id="notificationPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><sup class="la-header__menu-badge badge badge-light" id="notificationBadge"><?php echo e(count(Auth::user()->unreadNotifications)); ?></sup> </a>
               <div class="dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="notificationPanel" style="border:none !important;">
                   <ul class="card la-notification__card">
                     <!-- Notification Panel: Start -->
 
                     <?php $__currentLoopData = Auth::user()->unreadNotifications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notification): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                      <?php if($notification->type == "App\Notifications\CourseNotification"): ?>
-
+                     
                        <?php if (isset($component)) { $__componentOriginalc38fa723bbde1cde1a8279f40704f35cdf16b365 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Notification::class, ['img' => $notification->data['image'],'name' => 'Subscribed','comment' => $notification->data['data'],'timestamp' => $notification->created_at]); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Notification::class, ['img' => $notification->data['image'],'name' => $notification->data['id'],'comment' => $notification->data['data'],'timestamp' => Carbon::parse($notification->created_at)->format('d-m-Y')]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
@@ -81,7 +80,7 @@ use App\Announcement;
 <?php endif; ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
-                      <?php endif; ?>
+
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
                     <?php if(count(Auth::user()->unreadNotifications) == 0): ?>
                       <li class="la-notification__item">
@@ -100,7 +99,7 @@ use App\Announcement;
                          
                     <!-- Notification Panel: End -->
                   </ul>
-                <a class="la-notification__clear-all position-fixed" href="#">
+                <a class="la-notification__clear-all position-fixed" href="#" onclick="clearNotification()">
                   <div class="text-center">CLEAR ALL</div>
                 </a>
               </div>
@@ -226,11 +225,11 @@ use App\Announcement;
             <div class="d-none d-lg-block la-header__menu-item la-header__menu-item--btn ml-5">
               <a class="la-header__menu-link la-header__menu-icon la-icon icon-hamburger-menu font-weight-normal"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
               <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" style="border:none !important;">
-                <a class="dropdown-item la-header__dropdown-item text-sm" href="/learning-plans">Learning Plans</a>
-                <a class="dropdown-item la-header__dropdown-item text-sm" href="/become-creator">Become a Creator</a>
-                <a class="dropdown-item la-header__dropdown-item text-sm" href="/guided-creator">Guided Creator</a>
-                <a class="dropdown-item la-header__dropdown-item text-sm" href="/about">About Us</a>
-                <a class="dropdown-item la-header__dropdown-item text-sm" href="/contact">Contact Us</a>
+                <a class="dropdown-item la-header__dropdown-item text-sm <?php if(Request::segment(1) == 'learning-plans'): ?> active <?php endif; ?>" href="/learning-plans">Learning Plans</a>
+                <a class="dropdown-item la-header__dropdown-item text-sm <?php if(Request::segment(1) == 'become-creator'): ?> active <?php endif; ?>" href="/become-creator">Become a Creator</a>
+                <a class="dropdown-item la-header__dropdown-item text-sm <?php if(Request::segment(1) == 'guided-creator'): ?> active <?php endif; ?>" href="/guided-creator">Guided Creator</a>
+                <a class="dropdown-item la-header__dropdown-item text-sm <?php if(Request::segment(1) == 'about'): ?> active <?php endif; ?>" href="/about">About Us</a>
+                <a class="dropdown-item la-header__dropdown-item text-sm <?php if(Request::segment(1) == 'contact'): ?> active <?php endif; ?>" href="/contact">Contact Us</a>
 
                 <a class="dropdown-item la-header__dropdown-item text-sm" role="button" href="<?php echo e(route('logout')); ?>"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                   <span>Logout</span>
@@ -372,10 +371,10 @@ use App\Announcement;
           <div class="d-none d-lg-inline-block la-header__menu-item">
             <a class="la-header__menu-link la-header__menu-icon icon-hamburger-menu font-weight-normal" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
             <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" style="border:none;">
-              <a class="dropdown-item la-header__dropdown-item text-sm" href="/become-creator">Become a Creator</a>
-              <a class="dropdown-item la-header__dropdown-item text-sm" href="/guided-creator">Guided Creator</a>
-              <a class="dropdown-item la-header__dropdown-item text-sm" href="/about">About Us</a>
-              <a class="dropdown-item la-header__dropdown-item text-sm" href="/contact">Contact Us</a>
+              <a class="dropdown-item la-header__dropdown-item text-sm <?php if(Request::segment(1) == 'become-creator'): ?> active <?php endif; ?>" href="/become-creator">Become a Creator</a>
+              <a class="dropdown-item la-header__dropdown-item text-sm <?php if(Request::segment(1) == 'guided-creator'): ?> active <?php endif; ?>" href="/guided-creator">Guided Creator</a>
+              <a class="dropdown-item la-header__dropdown-item text-sm <?php if(Request::segment(1) == 'about'): ?> active <?php endif; ?>" href="/about">About Us</a>
+              <a class="dropdown-item la-header__dropdown-item text-sm <?php if(Request::segment(1) == 'contact'): ?> active <?php endif; ?>" href="/contact">Contact Us</a>
             </div>
           </div>
 

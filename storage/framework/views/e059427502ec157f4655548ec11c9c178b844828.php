@@ -118,10 +118,10 @@
                                                         <div class="col-3 col-md-3">
                                                             <div class="la-cart__edit-main">Name</div>
                                                         </div>
-                                                        <div class="col-3 col-md-3">
+                                                        <div class="col-2 col-md-3 px-0 px-md-2">
                                                             <div class="la-cart__edit-main">Mentor</div>
                                                         </div>
-                                                        <div class="col-2 col-md-2">
+                                                        <div class="col-3 col-md-2">
                                                             <div class="la-cart__edit-main">Price</div>
                                                         </div>
                                                     </div>
@@ -145,10 +145,10 @@
                                                             <div class="col-3 col-md-3 my-auto">
                                                                 <div class="la-cart__edit-submain"><?php echo e($class->chapter_name); ?></div>
                                                             </div>
-                                                            <div class="col-3 col-md-3 my-auto">
+                                                            <div class="col-2 col-md-3 px-0 px-md-2 my-auto">
                                                                 <div class="la-cart__edit-submain text-capitalize"><?php echo e($creator); ?></div>
                                                             </div>
-                                                            <div class=" col-2 col-md-2 my-auto">
+                                                            <div class=" col-3 col-md-2 my-auto">
                                                                 <div class="la-cart__edit-submain  text-sm">$ <?php echo e($class->price); ?></div>
                                                             </div>
                                                         </div>

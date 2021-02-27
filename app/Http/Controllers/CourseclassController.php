@@ -58,7 +58,6 @@ class CourseclassController extends Controller
         // $request->validate([
         //     'video_upld' => 'mimes:mp4,avi,wmv'
         // ]);
-
         $courseclass = new CourseClass;
         $courseclass->course_id = $request->course_id;
         $courseclass->coursechapter_id =  $request->course_chapters;
