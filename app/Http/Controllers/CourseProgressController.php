@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\CourseProgress;
 use App\CourseChapter;
 use App\UserPurchasedCourse;
+use App\UserWatchProgress;
 use App\UserWatchTime;
 use Auth;
 
@@ -56,10 +57,11 @@ class CourseProgressController extends Controller
 		if(!Auth::check())
 			return;
 		
-		$order = UserPurchasedCourse::where('user_id', Auth::User()->id)->where('course_id', $course_id)->first();
+		$user = Auth::User();
+		$order = UserPurchasedCourse::where('user_id', $user->id)->where('course_id', $course_id)->first();
 		
-		if( Auth::User()->role == "admin" || 
-			(Auth::User()->subscription('main') && Auth::User()->subscription('main')->active() && !Auth::User()->subscription('main')->onTrial()) ||
+		if( $user->role == "admin" || 
+			($user->subscription('main') && $user->subscription('main')->active() && !$user->subscription('main')->onTrial()) ||
 			(!empty( $order) && ( $order->purchase_type == 'all_classes' || in_array($class_id, json_decode($order->class_id))) ) )
 		{
 			// TODO: Verify the Order Purchased and Subscription area
@@ -67,22 +69,49 @@ class CourseProgressController extends Controller
 				$logs = array();
 				foreach ($request->all() as $log) {
 					$logs[] = [
-						'user_id' => Auth::User()->id ?? 0,
+						'user_id' => $user->id ?? 0,
 						'course_id' => $course_id,
 						'class_id' => $class_id,
 						'time' => $log["time"],
 						'position' => $log["position"],
 						'created_at'  => \Carbon\Carbon::now()->toDateTimeString()
 					];
+
+					UserWatchProgress::updateOrCreate(
+						['user_id' => $user->id, 'course_id' => $course_id, 'class_id' => $class_id],
+						['current_position' => $log["position"] ]
+					);
 				}
 				UserWatchTime::insert($logs);
 			
-		}
-			
+		}			
+		$response = array(
+			'status' => 'success',
+		);
+		return response()->json($response, 200);
+	}
+
+    public function class_completed(Request $request, $course_id, $class_id)
+	{
+		if(!Auth::check())
+			return;
 		
-		// $response = array(
-		// 	'status' => 'success',
-		// );
-		// return response()->json($response, 200);
+		$user = Auth::User();
+		$order = UserPurchasedCourse::where('user_id', $user->id)->where('course_id', $course_id)->first();
+		
+		if( $user->role == "admin" || 
+			($user->subscription('main') && $user->subscription('main')->active() && !$user->subscription('main')->onTrial()) ||
+			(!empty( $order) && ( $order->purchase_type == 'all_classes' || in_array($class_id, json_decode($order->class_id))) ) )
+		{				
+				UserWatchProgress::updateOrCreate(
+					['user_id' => $user->id, 'course_id' => $course_id, 'class_id' => $class_id],
+					['completion' => true , 'current_position' => $request->currentTime]
+				);
+			
+		}			
+		$response = array(
+			'status' => 'success',
+		);
+		return response()->json($response, 200);
 	}
 }

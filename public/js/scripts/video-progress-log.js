@@ -9,7 +9,7 @@ $.ajaxSetup({
 var video_id;
 var lilaPlayer = videojs('lila-video').ready(function () {
 
-    var progress_log = [], debounce = true;;
+    var progress_log = [], debounce = true;
 
     var updateProgress = function() {
         
@@ -26,7 +26,6 @@ var lilaPlayer = videojs('lila-video').ready(function () {
             });
 
             if(progress_log.length >= 3){
-                console.log(progress_log, video_id);
 
                 $.ajax({
                     type: 'POST',
@@ -51,8 +50,36 @@ var lilaPlayer = videojs('lila-video').ready(function () {
             debounce = true;
         }
     };
+
+    var endProgress = function() {
+      
+        $.ajax({
+            type: 'POST',
+            url: "/subscribed-courses/" + course_id + "/" + video_id + "/completion",
+            data: JSON.stringify({currentTime: parseInt(this.currentTime())}),
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(response){
+              let data = response.data;
+              console.log(data);
+            }
+          });
+
+        $.ajax({
+            type: 'POST',
+            url: "/subscribed-courses/" + course_id + "/" + video_id + "/progress-logs",
+            data: JSON.stringify(progress_log),
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(response){
+              let data = response.data;
+              console.log(data);
+            }
+          });
+  };
+
     this.on('timeupdate', updateProgress);
-    this.on('ended', updateProgress);
+    this.on('ended', endProgress);
 });
 $('.la-vcourse__lesson').on('click', function() {
 
