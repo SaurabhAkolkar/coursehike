@@ -244,9 +244,7 @@
                   </div>
                 </div>
               </div>
-                @if(Auth::user()->id == $user->id)
-
-                @else
+                @if(Auth::user()->role=='admin')
                   <div class="col-6 col-md-2">
                     <div class="d-flex align-items-center">
                       <label for="exampleInputTit1e" class="mb-3 mr-2">{{ __('adminstaticword.Verified') }}:</label>
@@ -265,7 +263,7 @@
                         <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" {{ $user->status == '1' ? 'checked' : '' }} >
                         <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
                       </li>
-                      <input type="hidden"  name="free" value="0" for="status" id="status">
+                      <input type="hidden"  name="free" value="{{ $user->status }}" for="status" id="status">
                     </div>
                   </div>
                 @endif

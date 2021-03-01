@@ -38,7 +38,7 @@
                 @foreach($items as $item)
                 <tr>
                   <td>{{++$count}}</td>
-                	<td><img src="{{ $item->userimg }}" class="img-fluid"></td> 
+                	<td><img src="{{ $item->user_img }}" class="img-fluid"></td> 
                   <td>{{$item->fname}}</td>
                   <td>{{$item->email}}</td>
 
