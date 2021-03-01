@@ -7,13 +7,16 @@ if (isset($_SERVER["HTTP_CF_CONNECTING_IP"]))
 
 function getSymbol(){
     $position = Location::get();
-    $location = $position->countryName;
+    if($position){
+        $location = $position->countryName;
 
-    if($location == 'India'){
-        return '₹';
-    }else{
-        return '$';
+        if($location == 'India'){
+            return '₹';
+        }else{
+            return '$';
+        }
     }
+    return '$';
 }
 
 function getLocation(){

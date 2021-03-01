@@ -66,7 +66,7 @@
                         @if (getLocation() == 'IN')
                           <sup>₹</sup> 2899 / Month
                         @else
-                          <sup>>$</sup> 39 / Month
+                          <sup>$</sup> 39 / Month
                         @endif
                       </div>
                       @if (getLocation() == 'IN')
