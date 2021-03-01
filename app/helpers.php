@@ -18,5 +18,8 @@ function getSymbol(){
 
 function getLocation(){
     $position = Location::get();
-    return $position->countryCode;
+    if($position){
+        return $position->countryCode;
+    }
+    return 'USD';
 }
