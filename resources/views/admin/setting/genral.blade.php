@@ -1,7 +1,7 @@
 <form enctype="multipart/form-data" method="POST" action="{{ route('setting.store') }}">
 	@csrf
 
-	<div class="row">
+	{{-- <div class="row">
 		<div class="col-md-2">
 			<div class="form-group">
 				<label for="exampleInputDetails">{{ __('adminstaticword.TextLogo') }}:</label>
@@ -74,7 +74,7 @@
 							
                         </div>
                       </div> --}}
-
+{{-- 
 				</div>
 
 			
@@ -121,7 +121,7 @@
 			</div>
 			<br>
 		</div>
-	</div>
+	</div> --}}
 
 	<div class="row ">
 		<div class="col-md-3 mt-3">

@@ -22,6 +22,7 @@
                   <th>#</th>
                   <th>{{ __('adminstaticword.Image') }}</th>
                   <th>{{ __('adminstaticword.Title') }}</th>
+                  <th>{{ __('adminstaticword.Category') }}</th>
                   @if(Auth::User()->role == "admin")<th>{{ __('adminstaticword.Instructor') }}</th>@endif
                   <th>{{ __('adminstaticword.Slug') }}</th>
                   <th>{{ __('adminstaticword.Featured') }}</th>
@@ -46,6 +47,7 @@
                           @endif
                         </td>
                         <td>{{$cat->title}}</td>
+                        <td>{{$cat->category->title}}</td>
                         <td>{{ $cat->user['fname'] }}</td>
                         <td>{{$cat->slug}}</td>
                         <td>

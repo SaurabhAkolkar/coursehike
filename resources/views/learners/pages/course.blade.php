@@ -428,7 +428,7 @@ use Carbon\Carbon;
   <!-- Section: End-->
 
   <!-- Section: Start-->
-  {{-- @if(!$video_access || !auth()->check()) --}}
+  @if(!$video_access || !auth()->check())
 
   <section class="la-section__small la-section--grey la-vcourse__purchase">
     <div class="la-vcourse__purchase-inwrap container">
@@ -507,11 +507,7 @@ use Carbon\Carbon;
                   <a class="btn  la-btn__plain text--green w-100 text-center" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>ADD TO CART</a>
                 </div>
               </div>
-            </form>
-          
-            @else
-
-              This Course is free to Watch
+            </form>              
             @endif
         </div>
 
@@ -539,7 +535,7 @@ use Carbon\Carbon;
         
     </div>
   </section>
-  {{-- @endif --}}
+  @endif
   <!-- Section: End-->
 
   <!-- Section: Start-->
