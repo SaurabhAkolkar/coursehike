@@ -96,14 +96,13 @@ class CheckoutChargeSucceededJob implements ShouldQueue
             //     ]);
             // }
 
-            $email_data = [];
-            // $email_data['course_name'] = 'dynamics';
-            $email_data['course_name'] = '';
-            $email_data['purchase_type'] = '';
-            //$email_data['url'] = APP_URL.'/purchase-history';
-            $email_data['invoice_id'] = $user_invoice->invoice_id;
-            $email_data['amount'] = $amount_total;
-            $email_data['currenty'] = $user_invoice->currency;
+            $email_data = [
+                'course_name' => '',
+                'purchase_type' => '',
+                'invoice_id' => $user_invoice->invoice_id,
+                'amount' => $amount_total,
+                'currenty' => $user_invoice->currency,
+            ];
 
             $invoice_details = InvoiceDetail::having('invoice_id', '=', $client_reference_id)->get()->groupBy('course_id');
             
@@ -124,26 +123,21 @@ class CheckoutChargeSucceededJob implements ShouldQueue
 
                     $email_data['course_name'] =  $email_data['course_name'] == '' ? $course->title : $email_data['course_name'].', '.$course->title;
                     $email_data['purchase_type'] = $email_data['purchase_type'] == '' ? $invoice_items->first()->purchase_type : $email_data['purchase_type'].', '.$invoice_items->first()->purchase_type; 
-                    $data = [];
-                    $data['title'] = $course->title;
-                    $data['image'] = $course->preview_image;
-                    $data['data'] = 'You bought this course';
-                    $user = User::findOrFail($user_invoice->user->id);
+                    $data = [
+                        'title' => $course->title,
+                        'image' => $course->preview_image,
+                        'data' => 'You bought this course',
+                    ];
+                    $user = User::findOrFail($user_invoice->user_id);
 
                     Notification::send( $user, new CourseNotification($data));
-
-                    
-
                 }
 
                 $setting = Setting::first();
-
-
                 if($setting->w_email_enable == 1){
                     try{
                         Mail::to($user_invoice->email)->send(new CoursePurchased($email_data));                       
-                    }
-                    catch(\Swift_TransportException $e){  
+                    }catch(\Swift_TransportException $e){  
                         header( "refresh:5;url=./" );
                     }
                 }
