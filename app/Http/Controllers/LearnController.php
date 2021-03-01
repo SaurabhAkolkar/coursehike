@@ -61,7 +61,7 @@ class LearnController extends Controller
                 $video_access = true;
                 if($order && $order->purchase_type == 'all_classes')
                     $class_access = 1;
-                elseif($order)
+                elseif($order && $order->purchase_type == 'selected_classes')
                     $class_access = json_decode($order->class_id);
             }
 
@@ -137,13 +137,21 @@ class LearnController extends Controller
         $class_video = CourseClass::where('id', $video_id)->first();
         if(Auth::check() || $class_video->is_preview == '1')
         {
-            if(Auth::check())
-                $have_purchased = UserPurchasedCourse::where('user_id', Auth::User()->id)->where('course_id', $class_video->course_id)->whereJsonContains('class_id', [(int)$video_id])->exists();
+            if(Auth::check()){
+                // $have_purchased = UserPurchasedCourse::where('user_id', Auth::User()->id)->where('course_id', $class_video->course_id)->whereJsonContains('class_id', [(int)$video_id])->exists();
+                $course = UserPurchasedCourse::where('user_id', Auth::User()->id)->where('course_id', $class_video->course_id)->first();
+                if($course->purchase_type == 'all_classes')
+                    $have_purchased = true;
+                else{
+                    $have_purchased = in_array((int)$video_id, json_decode($course->class_id));
+                }
+            }
+            
             if(
                 $class_video->is_preview == '1' || 
                 $class_video->courses->package_type == '0' ||
                 (Auth::check() && ( Auth::User()->role == "admin" || 
-                (Auth::check() && Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()) ||
+                (Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()) ||
                 $have_purchased )) 
             )
             {

@@ -76,10 +76,10 @@ class CourseProgressController extends Controller
 						'position' => $log["position"],
 						'created_at'  => \Carbon\Carbon::now()->toDateTimeString()
 					];
-
+					$percentage_completion = (int) (($log["position"] / $log["total"]) * 100);
 					UserWatchProgress::updateOrCreate(
 						['user_id' => $user->id, 'course_id' => $course_id, 'class_id' => $class_id],
-						['current_position' => $log["position"] ]
+						['current_position' => $percentage_completion ]
 					);
 				}
 				UserWatchTime::insert($logs);
@@ -105,7 +105,7 @@ class CourseProgressController extends Controller
 		{				
 				UserWatchProgress::updateOrCreate(
 					['user_id' => $user->id, 'course_id' => $course_id, 'class_id' => $class_id],
-					['completion' => true , 'current_position' => $request->currentTime]
+					['completion' => true , 'current_position' => 100]
 				);
 			
 		}			
