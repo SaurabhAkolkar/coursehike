@@ -59,7 +59,7 @@
                                 <span class="path1"><span class="path2"></span></span>
                               </span>
                             </div>
-                            <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="user_img" value="{{ old('user_img') }}" id="image" />
+                            <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="user_image" value="{{ old('user_img') }}" id="image" />
                             <img src="{{ old('user_img') }}" alt="" class="d-none preview-img img-fluid text-center" required/>
                         </div>
 

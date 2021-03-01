@@ -177,145 +177,7 @@
                 <div class="d-none d-md-block la-courses__nav-next la-anim__stagger-item--x"><span class="la-courses__nav-next--icon la-icon icon-right-arrow2"></span></div>
               </ul>
               
-            
-            <!-- Filters : Start -->
-            {{--<div class="la-courses__nav-filters ml-10 mt-2">
-              <!-- <div class="la-courses__nav-props">
-                <a class="la-icon icon-list-layout la-courses__nav-filter mr-3" id="showLayout" role="button"></a>
-              </div> -->
-              <div class="la-courses__nav-props">
-
-                  <div class="la-courses__nav-filters d-flex align-items-start ml-6">
-                    <!-- <div class="la-courses__nav-props">
-                      <a class="la-icon icon-list-layout la-courses__nav-filter  mr-3" id="showLayout" role="button"></a>
-                    </div> -->
-                    <div class="la-courses__nav-props">
-                      <a class="la-icon icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
-                      <!-- Sort Courses Dropdown -->
-                      <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses"  style="border:none !important;">
-                        <div class="la-form__input-wrap px-5">
-                            <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-2 text-dark">Sort by</div>
-                            <div class=" pt-2">
-                                <div class="la-form__radio-wrap mr-5">
-                                      <input class="la-form__radio d-none" type="radio" value="most_popular" name="sort_by" id="most_popular" @if($sort_type =='most_popular') checked @endif>
-                                      <label class="la-form__radio-filterlabel d-flex align-items-center text-sm" for="most_popular"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Most Popular</span></label>
-                                </div>
-                                <div class="la-form__radio-wrap mr-5">
-                                    <input class="la-form__radio d-none" type="radio" value="highest_rated" name="sort_by" id="highest_rated" @if($sort_type =='highest_rated') checked @endif>
-                                    <label class="la-form__radio-filterlabel d-flex align-items-center text-sm" for="highest_rated"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Highest Rated</span></label>
-                                </div>
-                                <div class="la-form__radio-wrap mr-5">
-                                    <input class="la-form__radio d-none" type="radio" value="latest" name="sort_by" id="latest" @if($sort_type =='latest') checked @endif>
-                                    <label class="la-form__radio-filterlabel d-flex align-items-center text-sm" for="latest"><span class="la-form__radio-circle d-flex justify-content-center align-items-center mr-2"></span><span>Latest</span></label>
-                                </div>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-                      
-                    <div class="la-courses__nav-filterprops">
-                    <a class="la-icon icon-filter la-courses__nav-filter " id="filteredCourses"  role="button"></a>
-                    
-                        <!-- Filter Courses Dropdown -->
-                        <div class="la-courses__nav-filterdropdown" id="filtered_sidebar">
-                            <div class="la-form__input-wrap px-5">
-                                <div class="d-flex justify-content-between align-items-center">
-                                  <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
-                                  <button class="la-courses__nav-filterclose close text-4xl mt-1" type="button" id="filter_close">&times;</button>
-                                </div>
       
-                                  <form action="{{ url()->current() }}" method="get" id="filter_form">
-                                      <input type="hidden" name="categories" id="filter_categories" value="{{implode(',',$selected_categories)}}"/>
-                                      <input type="hidden" name="languages" id="filter_languages" value="{{implode(',',$selected_languages)}}"/>
-                                      <input type="hidden" name="level" id="filter_level" value="{{implode(',',$selected_level)}}"/>
-                                      <input type="hidden" name="filters" value="applied" />
-      
-                                      
-                                      <div class="form-group pt-2">
-                                        <div class="glabel-main mb-1" > Course Duration</div>
-                                        <div class="glabel d-flex  align-items-center m-0">
-                                            <input class="la-form__radio d-none la-vcourse__purchase-input" @if($selected_duration == "lessthan1") checked @endif type="radio" name="duration" id="lessthan1" value="lessthan1">
-                                            <label class="d-flex align-items-center" for="lessthan1">
-                                              <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center"></span>
-                                              <strong class="pl-2" style="color:var(--gray6);opacity:1;"> Less than an hr</strong>
-                                            </label>
-                                        </div>
-      
-                                        <div class="glabel d-flex  align-items-center m-0">
-                                            <input class="la-form__radio d-none la-vcourse__purchase-input" @if($selected_duration == "lessthan5") checked @endif type="radio" name="duration" id="lessthan5" value="lessthan5">
-                                            <label class="d-flex align-items-center" for="lessthan5">
-                                              <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center"></span>
-                                              <strong class="pl-2" style="color:var(--gray6);opacity:1;">  1hr - 5hrs</strong>
-                                            </label>
-                                        </div>
-      
-                                        <div class="glabel d-flex  align-items-center m-0">
-                                            <input class="la-form__radio d-none la-vcourse__purchase-input" @if($selected_duration == "morethan5") checked @endif type="radio" name="duration" id="morethan5" value="morethan5">
-                                            <label class="d-flex align-items-center" for="morethan5">
-                                              <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex  justify-content-center align-items-center"></span>
-                                              <strong class="pl-2" style="color:var(--gray6);opacity:1;"> More than 5hrs</strong>
-                                            </label>
-                                        </div>
-                                    
-                                      </div>
-      
-                                      <div class="form-group pt-2">
-                                        <div class="glabel-main mb-2" > Category</div>
-                                          @foreach($filter_categories as $c)
-                                            <label class="glabel d-flex" for="course_{{$c->id}}">
-                                              <input class="d-none" type="checkbox" id="course_{{$c->id}}" @if(in_array($c->id, $selected_categories)) checked @endif onclick="addToCategory({{$c->id}})" value="{{$c->id}}">
-                                                <span class="gcheck position-relative"><span class="gcheck-icon la-icon icon-tick text-xs position-absolute"></span></span>
-                                                <span class="pl-2 mt-n1 text-capitalize">{{$c->title}}</span>
-                                            </label>
-                                          @endforeach
-                                      </div>
-      
-                                      <div class="form-group pt-2">
-                                        <div class="glabel-main mb-2" > Language</div>
-                                        @foreach($langauges as $l)
-                                          <label class="glabel d-flex" for="lang_{{$l->id}}">
-                                            <input class="d-none" id="lang_{{$l->id}}" @if(in_array($l->id, $selected_languages)) checked @endif type="checkbox" onclick="addToLanguage({{$l->id}})" value="{{$l->id}}">
-                                            <span class="gcheck position-relative"><span class="gcheck-icon la-icon icon-tick text-xs position-absolute"></span></span>
-                                            <span class="pl-2 mt-n1 text-capitalize">{{$l->name}}</span>
-                                          </label>
-                                        @endforeach
-                                    
-                                      </div>
-      
-                                      <div class="form-group pt-2">
-                                        <div class="glabel-main mb-2" >Level</div>
-                                        <label class="glabel d-flex" for="level_1">
-                                          <input class="d-none" id ="level_1" type="checkbox" onclick="addToLevel(1)" @if(in_array(1, $selected_level)) checked @endif>
-                                          <span class="gcheck position-relative"><span class="gcheck-icon la-icon icon-tick text-xs position-absolute"></span></span>
-                                          <span class="pl-2 mt-n1">Beginner</span>
-                                        </label>
-      
-                                        <label class="glabel d-flex" for="level_2">
-                                          <input class="d-none" id="level_2"  type="checkbox" onclick="addToLevel(2)" @if(in_array(2, $selected_level)) checked @endif>
-                                          <span class="gcheck position-relative"><span class="gcheck-icon la-icon icon-tick text-xs position-absolute"></span></span>
-                                          <span class="pl-2 mt-n1">Intermediate</span>
-                                        </label>
-      
-                                        <label class="glabel d-flex" for="level_3">
-                                          <input class="d-none" id="level_3"  type="checkbox" onclick="addToLevel(3)" @if(in_array(3, $selected_level)) checked @endif>
-                                          <span class="gcheck position-relative"><span class="gcheck-icon la-icon icon-tick text-xs position-absolute"></span></span>
-                                          <span class="pl-2 mt-n1">Advanced</span>
-                                        </label>
-                                      </div>
-              
-                                      
-                                      <button onclick="$('#filter_form').submit()" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Apply</button> 
-                                      <div class="mt-6">
-                                        <a href="/browse/courses" role="button" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Clear</a> 
-                                      </div>
-                                  </form>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                  <!-- Filters : End -->
-              </div>  
-            </div>  --}}
         </nav> 
         <nav class="la-courses__nav">
                     <x-add-to-playlist 
@@ -434,12 +296,11 @@
 
       <div class="swiper-container gallery-thumbs la-artist__thumbnails-wrap la-anim__fade-in-right">
         <div class="swiper-wrapper la-artist__thumbnails">
-          <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-1.png" alt=""></div>
-          <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-2.png" alt=""></div>
-          <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-3.png" alt=""></div>
-          <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-4.png" alt=""></div>
-          <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-5.png" alt=""></div>
-          <div class="swiper-slide la-artist__thumbnail"><img src="./images/learners/home/artist-thumb/artist-thumb-6.png" alt=""></div>
+
+          @foreach($featuredMentor as $feat)
+            <div class="swiper-slide la-artist__thumbnail"><img src="{{ $feat->user_thumbnail }}" alt="" style="width: 90px; height:100px;"></div>
+          @endforeach
+        
         </div>
       </div>
 
