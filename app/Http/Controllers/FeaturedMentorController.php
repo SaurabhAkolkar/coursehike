@@ -20,7 +20,7 @@ class FeaturedMentorController extends Controller
 
     public function create()
 	{
-        $users = User::where(['status'=>1,'role'=>'mentors'])->get();
+        $users = User::where(['status'=>1,'role'=>'mentors'])->orWhere(['role'=>'admin'])->get();
      
 		return view('admin.featured_mentors.create',compact('users'));
     }
@@ -49,6 +49,7 @@ class FeaturedMentorController extends Controller
             return redirect()->back()->withInput();        
         }
 
+        dd($request);
         if ($file = $request->file('user_image')) {
                 
                 $photo = Image::make($file);

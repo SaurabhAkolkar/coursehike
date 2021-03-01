@@ -64,7 +64,7 @@
                         <?php if(getLocation() == 'IN'): ?>
                           <sup>₹</sup> 2899 / Month
                         <?php else: ?>
-                          <sup>>$</sup> 39 / Month
+                          <sup>$</sup> 39 / Month
                         <?php endif; ?>
                       </div>
                       <?php if(getLocation() == 'IN'): ?>
