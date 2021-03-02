@@ -1,8 +1,8 @@
 @php
   $creators = App\User::where(['role'=>'mentors', 'status'=>1])->limit(6)->get();
   $footer_categories = App\Categories::where(['status'=>1])->orderBy('featured','DESC')->limit(6)->get();
-  $courses = App\Course::where(['status'=>1])->limit(6)->get();
-  $master_classes = App\MasterClass::with('courses')->limit(6)->get();
+  $courses = App\Course::where(['status'=>1])->orderBy('created_at','DESC')->limit(6)->get();
+  $master_classes = App\MasterClass::with(array('courses' => function($query) {$query->where(['status' => 1]);}))->orderBy('created_at','DESC')->limit(6)->get();
 @endphp
 <!-- Footer: Start-->
 <footer class="la-footer">
@@ -55,7 +55,9 @@
                   <div class="la-footer__title">Master Classes</div>
                   <ul class="la-footer__list">
                     @foreach($master_classes as $mc)
-                    <li class="la-footer__list-item"><a href="/learn/course/{{ $mc->courses->id }}/{{ $mc->courses->slug }}" class="la-footer__list-link">{{ $mc->courses->title }}</a></li>
+                      @if($mc->courses != null)
+                        <li class="la-footer__list-item"><a href="/learn/course/{{ $mc->courses->id }}/{{ $mc->courses->slug }}" class="la-footer__list-link">{{ $mc->courses->title }}</a></li>
+                      @endif
                     @endforeach
                   </ul><a class="la-footer__more" href="/master-classes">See all</a>
                 </div>

@@ -317,15 +317,17 @@
           <div class="row justify-content-center px-lg-5 la-anim__stagger">
            
               @foreach ($master_classes as $master)
-                <x-master-class
-                  :img="$master->courses->preview_image"
-                  :title="$master->courses->title"
-                  :profileImg="$master->courses->user->user_img"
-                  :profileName="$master->courses->user->fullName"
-                  :learners="$master->courses->learnerCount"
-                  :id="$master->courses->id"
-                  :slug="$master->courses->slug"
-                />
+                @if($master->courses != null)
+                  <x-master-class
+                    :img="$master->courses->preview_image"
+                    :title="$master->courses->title"
+                    :profileImg="$master->courses->user->user_img"
+                    :profileName="$master->courses->user->fullName"
+                    :learners="$master->courses->learnerCount"
+                    :id="$master->courses->id"
+                    :slug="$master->courses->slug"
+                  />
+                @endif
               @endforeach
              
           </div>
