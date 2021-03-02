@@ -772,19 +772,19 @@ use Carbon\Carbon;
             @else
 
             <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item--x ">
-              @foreach ($mentor_other_courses as $course)
+              @foreach ($mentor_other_courses as $mentor_other_course)
                     <x-course 
-                    :id="$course->id"
-                    :img="$course->preview_image"
-                    :course="$course->title"
-                    :url="$course->slug"
-                    :rating="round($course->average_rating, 2)"
-                    :creatorImg="$course->user->user_img"
-                    :creatorName="$course->user->fname"
-                    :creatorUrl="$course->user->id"
-                    :learnerCount="$course->learnerCount"
-                    :price="$course->price"
-                    :bought="$course->isPurchased()"
+                    :id="$mentor_other_course->id"
+                    :img="$mentor_other_course->preview_image"
+                    :course="$mentor_other_course->title"
+                    :url="$mentor_other_course->slug"
+                    :rating="round($mentor_other_course->average_rating, 2)"
+                    :creatorImg="$mentor_other_course->user->user_img"
+                    :creatorName="$mentor_other_course->user->fname"
+                    :creatorUrl="$mentor_other_course->user->id"
+                    :learnerCount="$mentor_other_course->learnerCount"
+                    :price="$mentor_other_course->price"
+                    :bought="$mentor_other_course->isPurchased()"
 
                   />
               @endforeach
@@ -813,19 +813,19 @@ use Carbon\Carbon;
           @else
 
             <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item--x ">
-              @foreach ($related_courses as $course)
+              @foreach ($related_courses as $related_course)
                   <x-course 
-                      :id="$course->id"
-                      :img="$course->preview_image"
-                      :course="$course->title"
-                      :url="$course->slug"
-                      :rating="round($course->average_rating, 2)"
-                      :creatorImg="$course->user->user_img"
-                      :creatorName="$course->user->fname"
-                      :creatorUrl="$course->user->id"
-                      :learnerCount="$course->learnerCount"
-                      :price="$course->price"
-                      :bought="$course->isPurchased()"
+                      :id="$related_course->id"
+                      :img="$related_course->preview_image"
+                      :course="$related_course->title"
+                      :url="$related_course->slug"
+                      :rating="round($related_course->average_rating, 2)"
+                      :creatorImg="$related_course->user->user_img"
+                      :creatorName="$related_course->user->fname"
+                      :creatorUrl="$related_course->user->id"
+                      :learnerCount="$related_course->learnerCount"
+                      :price="$related_course->price"
+                      :bought="$related_course->isPurchased()"
                   />
               @endforeach
             </div>
