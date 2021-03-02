@@ -83,27 +83,31 @@ class SubscriptionController extends Controller
 			]
 		];
 
-		$stripe_id = Auth::user()->stripe_id;
+		$user = Auth::user();
+		$stripe_id = $user->stripe_id;
 
-		if(!empty(Auth::user()->stripe_id)){
+		if(!empty($stripe_id)){
 			try {
-
+				// Customer Present
 				$customer = $this->stripe->customers()->find($stripe_id);
 
-				if (!array_key_exists('deleted', $customer)){
+				// Already subscribed before
+				$user_subscription = UserSubscription::where('user_id', $user->id)->exists();
+
+				if (!array_key_exists('deleted', $customer)  && $user->subscription('main') && $user_subscription ){
 					$response = [
 						"redirect" => true,
 					];
 					return response()->json($response, 200);
 				}else
-					$session_data['customer_email'] = Auth::user()->email;
+					$session_data['customer_email'] = $user->email;
 
 			} catch (NotFoundException $e) {
 				$message = $e->getMessage();
-				$session_data['customer_email'] = Auth::user()->email;
+				$session_data['customer_email'] = $user->email;
 			}
 		}else
-			$session_data['customer_email'] = Auth::user()->email;
+			$session_data['customer_email'] = $user->email;
 
 		try {
 

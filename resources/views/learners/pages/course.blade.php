@@ -4,12 +4,12 @@
   <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
   <link href="https://unpkg.com/@silvermine/videojs-quality-selector/dist/css/quality-selector.css" rel="stylesheet">
   <title>{{ $course->title }}</title>
-
 @endsection
 
 @section('content')
 @php
 use Carbon\Carbon;
+$course_id = $course->id;
 @endphp
 
 @if(session('success'))
@@ -841,7 +841,7 @@ use Carbon\Carbon;
 @endsection
 
 @section('footerScripts')
-  <script>var course_id = {!! json_encode($course->id) !!};</script>
+  <script>var course_id = {!! json_encode($course_id) !!};</script>
   <!-- video js -->
   <script src="https://unpkg.com/video.js/dist/video.js"></script>
   {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.15.0/videojs-contrib-hls.min.js" integrity="sha512-R1+Pgd+uyqnjx07LGUmp85iW8MSL1iLR2ICPysFAt8Y4gub8C42B+aNG2ddOfCWcDDn1JPWZO4eby4+291xP9g==" crossorigin="anonymous"></script> --}}
