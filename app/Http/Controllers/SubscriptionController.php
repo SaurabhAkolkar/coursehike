@@ -99,7 +99,11 @@ class SubscriptionController extends Controller
 						"redirect" => true,
 					];
 					return response()->json($response, 200);
-				}else
+				}
+
+				if (!array_key_exists('deleted', $customer))
+					$session_data['customer'] = $stripe_id;
+				else
 					$session_data['customer_email'] = $user->email;
 
 			} catch (NotFoundException $e) {
