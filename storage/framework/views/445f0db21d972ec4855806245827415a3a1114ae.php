@@ -1,3 +1,23 @@
+<?php $__env->startSection('seo_content'); ?>
+    <title>Subscribe Now | Start Your 7 Days Free Trail | LILA</title>
+    <meta name='description' itemprop='description' content='Subscribe to the online classes of creativity, craft, art & much more from creators & mentors all around the world. Join & learn real skills with LILA now!' />
+
+    <meta property="og:description"content="Subscribe to the online classes of creativity, craft, art & much more from creators & mentors all around the world. Join & learn real skills with LILA now!" />
+    <meta property="og:title"content="Subscribe Now | Start Your 7 Days Free Trail | LILA" />
+    <meta property="og:url"content="<?php echo e(Request::url()); ?>" />
+    <meta property="og:type"content="website" />
+    <meta property="og:site_name"content="LILA Art" />
+    <meta property="og:image"content="/images/learners/logo.svg" />
+    <meta property="og:image:url"content="/images/learners/logo.svg" />
+    <meta property="og:image:size"content="300" />
+
+    <meta name="twitter:card"content="summary" />
+    <meta name="twitter:title"content="Subscribe Now | Start Your 7 Days Free Trail | LILA" />
+    <meta name="twitter:site"content="@lilaaliens" />
+    
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Subscribe Now | Start Your 7 Days Free Trail | LILA"}</script>
+<?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('content'); ?>
 <!-- Main Section: Start-->
 <section class="la-cbg--main la-lp__section">
@@ -5,7 +25,7 @@
     <section class="la-lp--page">
       <div class="container la-anim__wrap">
         <div class="row ">
-          <a class="la-icon--5xl icon-back-arrow d-block d-lg-none my-6 px-3" href="<?php echo e(URL::previous()); ?>"></a>
+          <a class="la-icon--5xl icon-back-arrow d-block d-lg-none my-3 my-md-6 px-3" href="<?php echo e(URL::previous()); ?>"></a>
           <!-- Column: Start-->
           <div class="col-12 col-lg-6">
             <div class=" la-anim__stagger-item">

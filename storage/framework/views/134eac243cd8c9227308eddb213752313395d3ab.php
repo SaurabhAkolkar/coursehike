@@ -20,7 +20,7 @@
               </div>
             <?php endif; ?>
             <div class="la-profile__title-wrap la-anim__wrap">
-              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-5 la-anim__stagger-item--x" href="<?php echo e(URL::previous()); ?>"></a>
+              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-3 la-anim__stagger-item--x" href="<?php echo e(URL::previous()); ?>"></a>
               <h1 class="la-profile__title la-anim__stagger-item">Cart</h1>
             </div>
 
@@ -38,7 +38,7 @@
 
                     <div class="col-lg-8 ">
                       <div class="la-anim__wrap">
-                        <h2 class="la-cart__title text-2xl d-block d-md-none pt-14 pb-3 la-anim__stagger-item">
+                        <h2 class="la-cart__title text-2xl d-block d-md-none pt-10 pb-3 la-anim__stagger-item">
                             Courses in the Cart
                         </h2>
                       </div>
@@ -66,7 +66,7 @@
                     </div>
                     <!-- Cousre Cart:  End -->
 
-                    <div class="col-lg-4 mb-5 mb-md-0 la-anim__wrap">
+                    <div class="col-md-8 col-lg-4 mb-5 mb-md-0 la-anim__wrap">
                       
                         
                       
@@ -111,9 +111,7 @@
               </div>
             </section>
             <section class="la-section la-cart__product pt-0 la-anim__wrap">
-              <div class="la-cart__product-title la-cart__product-title--light la-anim__stagger-item">
-                <h2>You might also like</h2>
-              </div>
+              <h2 class="la-cart__product-title la-cart__product-title--light la-anim__stagger-item">You might also like</h2>
 
               <!-- playlist : Start  -->
                  <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>

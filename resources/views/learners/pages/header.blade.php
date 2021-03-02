@@ -252,48 +252,40 @@ use App\Announcement;
                 </div>
                     <!-- Announcements Panel: Start -->
                     @php
-                      $new1 = new stdClass;
-                      $new1->url = "";
-                      $new1->img = "https://picsum.photos/50";
-                      $new1->event = "Four new badges for learners!";
-                      $new1->timestamp = "Just now";
+                          $announcements = Announcement::where('status',1)
+                                                      ->orderBy('updated_at', 'DESC')
+                                                      ->get();
+                      
+                    @endphp 
 
-                      $new2 = new stdClass;
-                      $new2->url = "";
-                      $new2->img = "https://picsum.photos/50";
-                      $new2->event = "New app released for better learning";
-                      $new2->timestamp = "Just now";
+                      @foreach ($announcements as $anno)
+                                              
+                      @php
+                        
+                          if($anno->preview_image == "")
+                          {
+                            $anno->preview_image = "https://picsum.photos/50";
+                          }else{
+                            $anno->preview_image = asset('/images/announcement/'.$anno->preview_image);
+                          }
+                        
+                          $timestamp = $anno->created_at->diffInDays(Carbon::now());
+                          if($timestamp > 0){
+                            $timestamp = $timestamp.' Days Ago';
+                          }else{
+                            $timestamp = 'Today';
+                          }                      
+                      @endphp
 
-                      $new3 = new stdClass;
-                      $new3->url = "";
-                      $new3->img = "https://picsum.photos/50";
-                      $new3->event = "Meet the mentors at this event";
-                      $new3->timestamp = "2h";
+                      <x-announcement :url="$anno->id" :img="$anno->preview_image" :event="$anno->title" :timestamp="$timestamp" />
 
-                      $new4 = new stdClass;
-                      $new4->url = "";
-                      $new4->img = "https://picsum.photos/50";
-                      $new4->event = "Four new badges for learners!";
-                      $new4->timestamp = "2h";
+                      @endforeach   
+                      @if(count($announcements) == 0)
+                      <div class="d-flex justify-content-center align-items-center my-auto">
+                        <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-semibold)">No Notifications Found</div>
+                      </div>                                                   
+                    @endif
 
-                      $new5 = new stdClass;
-                      $new5->url = "";
-                      $new5->img = "https://picsum.photos/50";
-                      $new5->event = "New app released for better learning";
-                      $new5->timestamp = "2h";
-
-                      $new6 = new stdClass;
-                      $new6->url = "";
-                      $new6->img = "https://picsum.photos/50";
-                      $new6->event = "Meet the mentors at this event";
-                      $new6->timestamp = "Just now";
-
-                      $news = array($new1, $new2, $new3, $new4, $new5, $new6);
-                    @endphp
-
-                    @foreach ($news as $new)
-                      <x-announcement :url="$new->url" :img="$new->img" :event="$new->event" :timestamp="$new->timestamp" />
-                    @endforeach          
                     <!-- Announcements Panel: End -->          
               </div>
             </div>

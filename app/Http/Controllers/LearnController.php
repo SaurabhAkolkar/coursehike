@@ -37,9 +37,9 @@ class LearnController extends Controller
         $related_courses =  Course::whereHas('category', function($query) use($course) 
         {
             $query->where('id', $course->category_id); 
-        })->whereNotIn('id', [$course->id])->take(3)->get();
+        })->where('status', 1)->whereNotIn('id', [$course->id])->take(3)->get();
 
-        $mentor_other_courses =  Course::where('user_id', $course->user_id)->whereNotIn('id', [$course->id])->take(3)->get();
+        $mentor_other_courses =  Course::where('user_id', $course->user_id)->where('status', 1)->whereNotIn('id', [$course->id])->take(3)->get();
 
         if($course->slug != $slug)
             return redirect()->route('learn.show', ['id' => $id,'slug'=>$course->slug]);

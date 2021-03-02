@@ -13,14 +13,20 @@
         </div>
         @php
             $courses = App\PlaylistCourse::where(['playlist_id'=>$id])->get();
+       
         @endphp
 
         <div class="la-playlist__thumbnails  la-playlist__thumbnails--three d-flex flex-wrap">
-            @if($classesCount <= 1)    
+            @if(count($courses) == 0)  
+                <div class="la-playlist__thumbnail">
+                    <img class="img-fluid" src="{{ asset('/images/default-images/playlist_default.jpg') }}" alt="thumbnail">
+                </div>
+        
+            @elseif(count($courses) == 1)    
                 <div class="la-playlist__thumbnail">
                     <img class="img-fluid" src="{{ $courses[0]->courses->preview_image  }}" alt="thumbnail">
                 </div>
-            @elseif($classesCount == 2)
+            @elseif(count($courses) == 2)
                 <div class="la-playlist__thumbnail">
                     <img class="img-fluid" src="{{ $courses[0]->courses->preview_image }}" alt="thumbnail">
                 </div>

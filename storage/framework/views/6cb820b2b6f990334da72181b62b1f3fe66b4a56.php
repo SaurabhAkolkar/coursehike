@@ -262,7 +262,7 @@ unset($__errorArgs, $__bag); ?>
                     <div class="col-md-6 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Zip Code</div>
-                                      <input class="la-form__input" type="number" value="<?php if(Auth::user()->pin_code==""): ?><?php echo e(old('zipcode')); ?><?php else: ?><?php echo e(Auth::user()->pincode); ?><?php endif; ?>" name="zipcode" placeholder="Enter Zipcode">
+                                      <input class="la-form__input" type="number" value="<?php if(Auth::user()->pin_code==""): ?><?php echo e(old('zipcode')); ?><?php else: ?><?php echo e(Auth::user()->pin_code); ?><?php endif; ?>" name="zipcode" placeholder="Enter Zipcode">
                                       <?php $__errorArgs = ['zipcode'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -278,7 +278,7 @@ unset($__errorArgs, $__bag); ?>
                     <div class="col-md-12 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Short Bio</div>
-                                      <textarea class="la-form__textarea" name="short_bio" cols="30" rows="10" placeholder="Type here" ><?php if(Auth::user()->detals==""): ?><?php echo e(old('short_bio')); ?><?php else: ?><?php echo e(Auth::user()->detals); ?><?php endif; ?></textarea>
+                                      <textarea class="la-form__textarea" name="short_bio" cols="30" rows="10" placeholder="Type here" ><?php if(Auth::user()->detail==""): ?><?php echo e(old('short_bio')); ?><?php else: ?><?php echo e(Auth::user()->detail); ?><?php endif; ?></textarea>
                                     </div>
                     </div>
                   </div>

@@ -184,7 +184,11 @@ class CartController extends Controller
         $gst = Null;
         $subTotal = Null;
         $position = Location::get();
-        $location = $position->countryName;
+        if($position){
+            $location = $position->countryName;
+        }else{
+            $location = [];
+        }
         
 
         if(Auth::check()){

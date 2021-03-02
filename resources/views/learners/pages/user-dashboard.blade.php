@@ -159,7 +159,7 @@
     </section>
     <!-- Section: End-->
     <!-- Section: Start-->
-    <section class="la-empty">
+    {{-- <section class="la-empty">
       <div class="container">
         <div class="row la-anim__wrap">  
           <div class="col-12 text-center la-anim__stagger-item">
@@ -167,7 +167,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
     <!-- Section: End-->
     <!-- Section: Start-->
     <section class="la-pcourses-section">
@@ -258,7 +258,7 @@
     </section>
     <!-- Section: End-->
     <!-- Section: Start-->
-    <section class="la-empty">
+    {{-- <section class="la-empty">
       <div class="container">
         <div class="row la-anim__wrap">  
           <div class="col-12 text-center la-anim__stagger-item" style="width:100%;height:132px;background:#eee;margin:80px 0">
@@ -266,7 +266,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
     <!-- Section: End-->
   </section>
   <!-- Main Section: End-->
