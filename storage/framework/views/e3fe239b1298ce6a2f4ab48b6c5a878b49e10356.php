@@ -159,15 +159,7 @@
     </section>
     <!-- Section: End-->
     <!-- Section: Start-->
-    <section class="la-empty">
-      <div class="container">
-        <div class="row la-anim__wrap">  
-          <div class="col-12 text-center la-anim__stagger-item">
-            <h1 class="text-light"  style="width:100%;height:248px;background:#eee;margin:80px 0">1080 x 248   </h1>
-          </div>
-        </div>
-      </div>
-    </section>
+    
     <!-- Section: End-->
     <!-- Section: Start-->
     <section class="la-pcourses-section">
@@ -268,15 +260,7 @@
     </section>
     <!-- Section: End-->
     <!-- Section: Start-->
-    <section class="la-empty">
-      <div class="container">
-        <div class="row la-anim__wrap">  
-          <div class="col-12 text-center la-anim__stagger-item" style="width:100%;height:132px;background:#eee;margin:80px 0">
-            <h1 class="text-light">1080 x 132</h1>
-          </div>
-        </div>
-      </div>
-    </section>
+    
     <!-- Section: End-->
   </section>
   <!-- Main Section: End-->

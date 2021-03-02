@@ -7,6 +7,7 @@ if (isset($_SERVER["HTTP_CF_CONNECTING_IP"]))
 
 function getSymbol(){
     $position = Location::get();
+ 
     if($position){
         $location = $position->countryName;
 

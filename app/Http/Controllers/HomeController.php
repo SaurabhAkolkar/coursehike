@@ -77,7 +77,8 @@ class HomeController extends Controller
         if(Auth::check()){
             $playlists = Playlist::where('user_id', Auth::user()->id)->get();   
         }
-        $master_classes = MasterClass::with('courses','courses.user')->limit(4)->get();
+        $master_classes = MasterClass::with(array('courses' => function($query) {$query->where('status', 1);}),'courses.user')->limit(4)->get();
+        
         $featuredMentor = FeaturedMentor::with('user','courses','courses.category')->where(['status'=>'1'])->get();
 
 
@@ -176,19 +177,19 @@ class HomeController extends Controller
             $sort_type = $request->sort_by;
 
             if($request->sort_by == 'latest'){
-                $categories = Categories::with(array('courses' => function($query) {$query->orderBy('created_at', 'DESC');}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+                $categories = Categories::with(array('courses' => function($query) {$query->where(['status' => 1])->orderBy('created_at' , 'DESC' );}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
             }else if($request->sort_by=='highest_rated'){
 
-                $categories = Categories::with('courses','courses','subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+                $categories = Categories::with(array('courses' => function($query) {$query->where(['status' => 1]);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
 
             }else if($request->sort_by=='most_popular'){
-                $categories = Categories::with(array('courses' => function($query) {$query->orderBy('created_at', 'DESC');}),'courses','subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+                $categories = Categories::with(array('courses' => function($query) {$query->where([ 'status' => 1])->orderBy('created_at' , 'DESC');}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
             }else{
-                $categories = Categories::with('courses','subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+                $categories = Categories::with(array('courses' => function($query) {$query->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
             }
         
         }else{
-                $categories = Categories::with('courses','subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+                $categories = Categories::with(array('courses' => function($query) {$query->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
         }
         
         $data = [

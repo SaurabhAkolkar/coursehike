@@ -301,7 +301,7 @@ use Carbon\Carbon;
               <h5 class="la-ctabs__title mb-4 la-anim__stagger-item">About</h5>
                 <div class="col-12 col-lg px-0">
                   <div class="la-ctabs__about la-anim__stagger-item--x">
-                    {!! $course->detail !!}
+                    {!! $course->short_detail !!}
                     <span class="la-ctabs__about-collapse collapse" id="read_more">
                       {!! $course->detail !!}
                     </span>
@@ -410,14 +410,14 @@ use Carbon\Carbon;
   <!-- Section: End-->
 
   <!-- Section: Start-->
-  @if(!Auth::check() ||Auth::check() && $course->price != null)
+  @if(!Auth::check() || Auth::check() && $course->price != null && $course->isPurchased() == null)
 
   <section class="la-section__small la-section--grey la-vcourse__purchase">
     <div class="la-vcourse__purchase-inwrap container">
       <div class="row la-vcourse__purchase-row la-anim__wrap">
         {{-- Purchase Course DIV:Start --}}
         <div class="col-md-7 col-lg-7 la-vcourse__purchase-left la-anim__stagger-item">
-          @if($course->isPurchased() == null || !Auth::check())
+       
             <div class="la-vcourse__purchase-prize mb-4 mb-lg-8 ">Purchase this Course for lifetime access @ <span class="la-vcourse__purchase-prize--amount"><b>{{ getSymbol() }}{{$course->convertedprice}}</b></span></div>
             <form class="la-vcourse__purchase-form" id="add_to_cart_form" name="add_to_cart_form" method="post" action="/add-to-cart">
               <input type="hidden" name="course_id" value="{{$course->id}}" />
@@ -490,7 +490,7 @@ use Carbon\Carbon;
                 </div>
               </div>
             </form>              
-            @endif
+         
         </div>
 
         {{-- Purchase course DIV:END --}}

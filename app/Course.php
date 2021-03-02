@@ -161,11 +161,16 @@ class Course extends Model
         }else{
            $dollar_price = 70;
         }
-        if ($position->countryName == 'India') {
-            return $value * $dollar_price;
-        } else {
-           return $value;
-        }
+        
+        if($position){
+            if ( $position->countryName == 'India') {
+                return $value * $dollar_price;
+            } else {
+               
+            }
+        }else{
+            return $value;
+        }   
         
     }
 

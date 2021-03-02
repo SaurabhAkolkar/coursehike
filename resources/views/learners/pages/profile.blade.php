@@ -184,7 +184,7 @@
                     <div class="col-md-6 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Zip Code</div>
-                                      <input class="la-form__input" type="number" value="@if(Auth::user()->pin_code==""){{ old('zipcode') }}@else{{ Auth::user()->pincode }}@endif" name="zipcode" placeholder="Enter Zipcode">
+                                      <input class="la-form__input" type="number" value="@if(Auth::user()->pin_code==""){{ old('zipcode') }}@else{{ Auth::user()->pin_code }}@endif" name="zipcode" placeholder="Enter Zipcode">
                                       @error('zipcode')
                                           <div class="alert alert-danger">{{ $message }}</div>
                                       @enderror
@@ -193,7 +193,7 @@
                     <div class="col-md-12 la-anim__stagger-item--x">
                                     <div class="la-form__input-wrap">
                                       <div class="la-form__lable la-form__lable--medium mb-2">Short Bio</div>
-                                      <textarea class="la-form__textarea" name="short_bio" cols="30" rows="10" placeholder="Type here" >@if(Auth::user()->detals==""){{ old('short_bio') }}@else{{ Auth::user()->detals }}@endif</textarea>
+                                      <textarea class="la-form__textarea" name="short_bio" cols="30" rows="10" placeholder="Type here" >@if(Auth::user()->detail==""){{ old('short_bio') }}@else{{ Auth::user()->detail }}@endif</textarea>
                                     </div>
                     </div>
                   </div>
