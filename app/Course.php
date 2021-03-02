@@ -111,6 +111,11 @@ class Course extends Model
         return $this->hasMany('App\Question','instructor_id');
     }
 
+    public function masterclass()
+    {
+        return $this->hasOne('App\MasterClass','course_id');
+    }
+
     public function order()
     {
         return $this->hasMany('App\Order','course_id');

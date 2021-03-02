@@ -184,9 +184,58 @@ class SearchController extends Controller
 		return view('learners.pages.my-courses',compact('playlists','on_going_courses','yet_to_start_courses'));
 	}
 
-	public function masterClasses(){
-        $master_classes = MasterClass::with('courses','courses.user')->get();
-		return view('learners.pages.master_classes', compact('master_classes'));
+	public function masterClasses(Request $request){
+
+		$categories = [];
+		$selected_categories = [];
+		$selected_level = [];
+		$sort_type = "";
+		$filtres_applied = false;
+
+		$categories = Categories::where(['status'=>1])->get();
+		$master_classes = Course::has('masterclass')->where('status',1)->get();
+
+		if($request->filters == 'applied'){
+
+			$filtres_applied = true;
+
+			if(isset($request->sort_by)){
+
+				$sort_type = $request->sort_by;
+
+				if($request->sort_by == 'latest'){	
+
+					$master_classes = Course::has('masterclass')->orderBy('created_at' , 'DESC' )->where('status',1)->get();
+
+				}else if($request->sort_by == 'highest_rated'){	
+
+					$master_classes = Course::has('masterclass')->orderBy('created_at' , 'DESC' )->where('status',1)->get();
+				}		
+			}else{
+				$master_classes = Course::has('masterclass')->where('status',1)->get();
+			}
+		
+
+			if(isset($request->categories) && $request->categories != null){
+
+				$get_categories = array_map('intval', explode(',',$request->categories));
+				$selected_categories = $get_categories;
+				$master_classes = $master_classes->whereIn('category_id',$get_categories);
+			
+			}
+		
+			if(isset($request->level) && $request->level != null){
+	
+				$level = array_map('intval', explode(',',$request->level));
+				$selected_level = $level;
+				$master_classes = $master_classes->whereIn('level',$level);
+			}
+			
+			return view('learners.pages.master_classes', compact('master_classes','filtres_applied','sort_type','selected_level','selected_categories','categories'));
+
+		}
+
+		return view('learners.pages.master_classes', compact('master_classes','filtres_applied','sort_type','selected_level','selected_categories','categories'));
 	}
 
    

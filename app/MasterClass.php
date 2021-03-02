@@ -10,7 +10,7 @@ class MasterClass extends Model
 
     public function courses()
     {
-        return $this->belongsTo('App\Course','course_id');
+        return $this->hasOne('App\Course','id','course_id')->where('status', 1);
 
     } 
 }

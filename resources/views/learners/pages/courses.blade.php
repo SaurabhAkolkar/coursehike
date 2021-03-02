@@ -89,7 +89,7 @@
               <div class="la-courses__nav-filterprops">
                <a class="la-icon icon-filter la-courses__nav-filter " id="filteredCourses"  role="button"></a>
               
-                  <!-- Filter Courses Dropdown -->
+               
                   <div class="la-courses__nav-filterdropdown" id="filtered_sidebar">
                       <div class="la-form__input-wrap px-5">
                           <div class="d-flex justify-content-between align-items-center">
