@@ -164,7 +164,7 @@ class UserController extends Controller
         $user  = User::find($request->user_id);
 
 
-        $plan_subscription = $user->subscription('main');
+        $plan_subscription = $user->subscription();
 
         if($plan_subscription){
 
@@ -204,7 +204,7 @@ class UserController extends Controller
 
         UserSubscriptionInvoice::create([
             'user_id' => $user->id,
-            'subscription_id' => $user->subscription('main')->id,
+            'subscription_id' => $user->subscription()->id,
             'stripe_subscription_id' => 'Admin-Purchased',
             'start_date' => Carbon::createFromTimestamp($request->start_date)->toDateTimeString(),
             'end_date' => Carbon::createFromTimestamp($request->end_date)->toDateTimeString(),

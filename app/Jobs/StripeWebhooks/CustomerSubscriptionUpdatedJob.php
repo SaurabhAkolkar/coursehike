@@ -52,12 +52,12 @@ class CustomerSubscriptionUpdatedJob implements ShouldQueue
             return;
 
         $user = $user_subscription->user;
-        $plan_subscription = $user->subscription('main');
+        $plan_subscription = $user->subscription();
 
         if($subscription['cancel_at'] != null){
             // User Cancel the Subscription
 
-            $user->subscription('main')->cancel(!$subscription['cancel_at_period_end']);
+            $user->subscription()->cancel(!$subscription['cancel_at_period_end']);
 
             $plan_subscription->cancels_at = Carbon::createFromTimestamp($subscription['cancel_at'])->toDateTimeString(); 
             $plan_subscription->canceled_at = Carbon::createFromTimestamp($subscription['canceled_at'])->toDateTimeString(); 

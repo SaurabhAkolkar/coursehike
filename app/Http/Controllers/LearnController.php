@@ -54,7 +54,7 @@ class LearnController extends Controller
         	$order = $course->isPurchased();
             
             if( Auth::User()->role == "admin" || 
-                (Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()) ||
+                (Auth::User()->subscription() && Auth::User()->subscription()->active()) ||
                 !empty( $order) )
             {
                 // TODO: Verify the Order Purchased and Subscription area
@@ -140,18 +140,18 @@ class LearnController extends Controller
             if(Auth::check()){
                 // $have_purchased = UserPurchasedCourse::where('user_id', Auth::User()->id)->where('course_id', $class_video->course_id)->whereJsonContains('class_id', [(int)$video_id])->exists();
                 $course = UserPurchasedCourse::where('user_id', Auth::User()->id)->where('course_id', $class_video->course_id)->first();
-                if($course->purchase_type == 'all_classes')
-                    $have_purchased = true;
-                else{
-                    $have_purchased = in_array((int)$video_id, json_decode($course->class_id));
-                }
+                
+                if($course){
+                    $have_purchased = ($course->purchase_type == 'all_classes') ? true : in_array((int)$video_id, json_decode($course->class_id));
+                }else
+                    $have_purchased = false;
             }
             
             if(
                 $class_video->is_preview == '1' || 
                 $class_video->courses->package_type == '0' ||
                 (Auth::check() && ( Auth::User()->role == "admin" || 
-                (Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()) ||
+                (Auth::User()->subscription() && Auth::User()->subscription()->active()) ||
                 $have_purchased )) 
             )
             {

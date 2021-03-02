@@ -70,7 +70,7 @@ $course_id = $course->id;
           <div class="col-12 col-md-5 col-lg-5 pt-10 pt-md-1 d-flex flex-column justify-content-start align-items-center align-items-md-end la-anim__wrap">
             
               <div class="la-vcourse__buy text-right mb-6 mb-md-12 la-anim__stagger-item--x">
-                @if ( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription('main')) || (auth()->check() && !Auth::User()->subscription('main')->active())  ) )
+                @if ( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription()) || (auth()->check() && !Auth::User()->subscription()->active())  ) )
                   <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end" href="/learning-plans">Subscribe Now</a>
                 @endif
               </div>
@@ -495,7 +495,7 @@ $course_id = $course->id;
 
         {{-- Purchase course DIV:END --}}
         
-        @if ( !(auth()->check() && auth()->user()->subscription('main') && auth()->user()->subscription('main')->active()) )
+        @if ( !(auth()->check() && auth()->user()->subscription() && auth()->user()->subscription()->active()) )
           <div class="col-md-5 col-lg-4 offset-lg-1 px-lg-0 my-auto la-vcourse__purchase-right la-anim__wrap">
             <div class="la-vcourse__purchase-content text-center la-anim__stagger-item--x">
               <div class="la-vcourse__purchase-prize mb-8 la-anim__stagger-item--x">Subscribe for all Courses @ <span class="la-vcourse__purchase-prize--amount"><b>{{$subscription_rate}}/month</b></span></div>
