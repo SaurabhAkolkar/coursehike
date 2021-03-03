@@ -1,7 +1,7 @@
 <div class="swiper-slide la-artist__slider">
     <div class="row la-artist__slider-row la-anim__stagger">
         <div class="col-md-6 la-artist__slider-col la-artist__slide-img la-anim__B la-anim__stagger-item--x">
-            <div class="la-artist__img text-center"><img class="img-fluid" src="<?php echo e($artistImage); ?>" alt=""></div>
+            <div class="la-artist__img text-center"><img class="img-fluid" style="max-height:500px" src="<?php echo e($artistImage); ?>" alt="" ></div>
             </div>
         <div class="col-md-6 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end la-anim__B la-anim__stagger-item--x">
             <div class="la-artist__content-top d-flex flex-column align-items-end pb-10 pb-md-0">

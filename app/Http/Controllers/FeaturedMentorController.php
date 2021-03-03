@@ -39,7 +39,7 @@ class FeaturedMentorController extends Controller
         $data = $this->validate($request,[
             'mentor' => 'required',
             'course' => 'required',
-            'user_img' => 'required',
+            'user_image' => 'required',
             'image_thumbnail' => 'required',
         ]);
          
@@ -49,7 +49,6 @@ class FeaturedMentorController extends Controller
             return redirect()->back()->withInput();        
         }
 
-        dd($request);
         if ($file = $request->file('user_image')) {
                 
                 $photo = Image::make($file);
@@ -62,11 +61,11 @@ class FeaturedMentorController extends Controller
                 $input['user_image'] = $file_name;
         }
 
-        if ($file = $request->file('image_thumbnail')) {
+        if ($file1 = $request->file('image_thumbnail')) {
                 
-                $photo = Image::make($file);
+                $photo = Image::make($file1);
                 
-                $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+                $file_name = time().rand().'.'.$file1->getClientOriginalExtension();
                 
                 // $input['preview_image'] = Storage::putFile(config('path.course.img'), $photo );
                 Storage::put(config('path.mentor.featuredthumbnail').$file_name, $photo->stream() );
