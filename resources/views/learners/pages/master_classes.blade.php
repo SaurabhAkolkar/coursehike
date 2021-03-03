@@ -21,12 +21,15 @@
         <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2" href="{{URL::previous()}}"></a>
         <div class="d-flex justify-content-between la-anim__wrap">  
           <h1 class="la-page__title mb-16 mb-md-8 la-anim__stagger-item">Master Classes</h1>
+                
+
           <a class="la-icon--2xl icon-filter d-none d-lg-none" id="filterCourses" role="button"></a>
 
           <div class="la-courses__nav-filters  d-flex align-items-start ml-6 ">
             <!-- <div class="la-courses__nav-props">
               <a class="la-icon icon-list-layout la-courses__nav-filter  mr-3" id="showLayout" role="button"></a>
             </div> -->
+
             <div class="la-courses__nav-props ">
               <a class="la-icon icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
               <!-- Sort Courses Dropdown -->
@@ -112,6 +115,19 @@
 
         </div>  
 
+          <!-- Global Search: Start-->
+          <div class="la-gsearch mb-0">
+            <form class="form-inline "  action="{{ \Request::getRequestUri() }}">
+         
+              <div class="form-group d-flex align-items-center">
+                <input class="la-gsearch__input form-control la-gsearch__input-searchcourses" style=" background:transparent" value="{{ $search_input }}" name="course_name" type="text" placeholder="What you want to learn today?">
+                <button class="la-gsearch__submit btn mt-0" type="submit"><i class="la-icon icon icon-search la-gsearch__input-icon"></i></button>
+              </div>
+            </form>
+          </div>
+          <!-- Global Search: End-->
+
+
             <section class="la-section la-section--classes la-section--grey position-relative la-anim__wrap">
                 <div class="la-section__inner">
                 <div class="container px-0">
@@ -121,7 +137,7 @@
                       @if(count($master_classes) == 0)
                       <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mx-5 mt-0 mt-md-6">
                           <div class="la-empty__inner">
-                              <h6 class="col la-empty__course-title text-xl la-anim__stagger-item">No master classes uploaded yet! </h6>
+                              <h6 class="col la-empty__course-title text-xl la-anim__stagger-item">No master classes Found! </h6>
                           </div>
                           <div class="col text-md-right la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
                               <a href="/browse/courses" class="la-empty__browse">

@@ -46,7 +46,7 @@
 
               <div class="d-none d-lg-block">
                 <div class="la-hero__actions d-md-flex align-items-center la-anim__stagger-item">
-                  <?php if(Auth::check() && Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()): ?>
+                  <?php if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active()): ?>
 
                     <div class="col-md-7 px-0">
                       <a href="/browse/course" class="btn btn-primary la-hero__cta la-btn la-btn--primary">Start Learning</a>
@@ -106,7 +106,7 @@
             <?php endif; ?>
 
             <div class="d-block d-lg-none">
-              <?php if(Auth::check() && Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()): ?>
+              <?php if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active()): ?>
 
                 <div class="col-md-6 px-0">
                   <a href="/browse/course" class="btn btn-primary la-hero__cta la-btn la-btn--primary btn-block">Browse Course</a>
@@ -140,7 +140,7 @@
         <!-- Row: Start-->
         <div class="la-anim__wrap">
           <div class="la-hero__bottom d-flex justify-content-center justify-content-lg-between align-items-center pt-4 pb-14 la-anim__fade-in-bottom la-anim__D">
-            <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing"><?php if(Auth::check() && Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()): ?>  <?php else: ?><a href="/learning-plans">Start free trial<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a> <?php endif; ?> </div>
+            <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing"><?php if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active()): ?>  <?php else: ?><a href="/learning-plans">Start free trial<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a> <?php endif; ?> </div>
             <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text--burple text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block"><a href="#home_courses">BROWSE COURSES</a><span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span></div>
           </div>
         </div>
@@ -375,7 +375,7 @@
               <div class="la-trail__content-wrap la-anim__stagger">
                 <div class="la-trail__para la-anim__stagger-item la-anim__B">We strongly believe observation is integral to honing art. Learn from masters in their respective fields with consistent practice, and become a pro yourself!</div>
                 <?php if(Auth::check()): ?>
-                  <?php if(Auth::user()->subscription('main') ): ?>
+                  <?php if(Auth::user()->subscription() ): ?>
                     <a class="btn btn-primary la-btn la-btn--primary mt-md-10 la-anim__stagger-item" href="/browse/course/">Browse Course</a>
                   <?php else: ?>
                     <a class="btn btn-primary la-btn la-btn--primary mt-md-6 la-anim__stagger-item" href="/login">Start free trail</a>
@@ -414,7 +414,7 @@
                     </div>
                   </div>
         
-                  <?php if(Auth::check() && Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()): ?>
+                  <?php if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active()): ?>
                   
                         <div class="col-md-7 col-lg-5 offset-lg-1 pt-12 pt-md-20">
                           <div class="la-anim__wrap la-anim__wrap-pin2 ">

@@ -100,7 +100,7 @@ use App\Announcement;
               <?php
                   $announcements = [];
                   $old_announcements = [];
-                  if(Auth::User()->subscription('main') && Auth::User()->subscription('main')->active())
+                  if(Auth::User()->subscription() && Auth::User()->subscription()->active())
                   {
                       $courses_id = CourseProgress::where('user_id', Auth::User()->id)->pluck('course_id');
                       $last_annoucement_check = Auth::user()->last_annoucement_check;
