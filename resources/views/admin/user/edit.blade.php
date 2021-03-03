@@ -306,6 +306,61 @@
             </div>
             <br>
             <br>
+
+
+            <div class="row mt-10">
+              <div class="col-12">
+                <h3 class="la-admin__section-title">{{ __('adminstaticword.CreatorDetails') }}</h3>
+              </div>
+              <div class="col-md-4">
+                <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item--x">
+                  <label >Expert In</label>
+                  <input class="form-control" type="text" value="{{ $user->expertise }}" name="expert_in" placeholder="Expert In">
+                </div>
+                  @error('expert_in')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror
+              </div>
+            
+              <div class="col-md-4">
+                <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item--x">
+                  <label>Years Of Experience</label>
+                  <input class="form-control" type="number" value="{{ $user->yoe }}" name="yoe" placeholder="Years of Experience">
+                </div>
+                @error('yoe')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+              </div>
+            </div>
+            <br>
+
+            <div class="row"> 
+                <div class="col-md-4">
+                  <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item--x">
+                    <div id="added_to_awards">
+                      @foreach($user->portfolio_links as $link)
+
+                      @endforeach
+                      <input type="hidden" name="all_awards" id="all_awards" value=""/>
+                    </div>
+                    <label>Awards</label>
+                      <input class="form-control" value="" id="awards" name="awards" placeholder="Any Award you want to add"><span class="la-entry__input-icon" style="right:0;cursor:pointer;border:0" onclick="addToAwards();">+</span>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div id="added_to_portfolio">
+                    <input type="hidden" name="all_portfolio" id="all_portfolio" />
+                  </div>
+                  <div class="la-form__input-wrap la-entry__input-wrap mb-12 la-anim__stagger-item--x">
+                    <label>Portfolio Links</label>
+                    <input class="form-control" value="" id="portfolio_links" name="portfolio_links" placeholder="Portfolio Links (if any)"><span class="la-entry__input-icon" style="right:0;cursor:pointer;border:0" onclick="addToLinks();">+</span>
+                  </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
             
 
             <div class="row">
@@ -429,6 +484,60 @@
        text.style.display = "none";
     }
   }
+
+  let addToAwards = () =>{
+        let award = $('#awards').val();
+        let awardInput = $('#all_awards').val();
+
+        if(award && !awardInput.includes(award)){
+            let badge = `<span class="la-entry__badge badge badge-pill" id="award_${award}">${award} <span class="ml-2" role="button" onclick="removeAward('${award}')">x</span></span>`;
+            if(awardInput){
+              awardInput = awardInput+', '+award; 
+            }else{
+              awardInput = award;
+            }
+            
+            $('#all_awards').val(awardInput);
+            $('#added_to_awards').append(badge);
+            $('#awards').val(''); 
+        }
+    }
+    let addToLinks = () =>{
+       let portfolio = $('#portfolio_links').val();
+        let portfolioInput = $('#all_portfolio').val();
+        
+        if(portfolio && !portfolioInput.includes(portfolio)){
+            let badge = `<span class="la-entry__badge badge badge-pill" id="portfolio_${portfolio}">${portfolio} <span class="ml-2" role="button" onclick="removePortfolio('${portfolio}')">x</span></span>`;
+            if(portfolioInput){
+              portfolioInput = portfolioInput+','+portfolio; 
+            }else{
+              portfolioInput = portfolio;
+            }
+            
+            $('#all_portfolio').val(portfolioInput);
+            $('#added_to_portfolio').append(badge);
+            $('#portfolio_links').val(''); 
+        }
+    }
+
+    let removeAward = (award) => {
+        $('#award_'+award).remove();
+
+        let awardInput = $('#all_awards').val();
+        awardInput = awardInput.replace(award,'');
+        $('#all_awards').val(awardInput);
+
+    }
+
+    let removePortfolio = (portfolio) => {
+        $('#portfolio_'+portfolio).remove();
+
+        let portfolioInput = $('#all_portfolio').val();
+        portfolioInput = portfolioInput.replace(portfolio,'');
+        $('#all_portfolio').val(portfolioInput);
+
+    }
+
 </script>
 
 @endsection

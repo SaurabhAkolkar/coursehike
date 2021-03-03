@@ -112,7 +112,7 @@
                     <span class="la-header__nav-name">Mentors</span>
                 </a>
             </div>
-            <?php if(Auth::check() && Auth::User()->subscription('main') && Auth::User()->subscription('main')->active()): ?>
+            <?php if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active()): ?>
 
             <?php else: ?>
 

@@ -617,7 +617,7 @@ $course_id = $course->id;
                 </div>
 
                 <div class="la-rtng__review-popup la-anim__wrap">
-                  <a class="la-rtng__review text-uppercase text-center text-md-right text-nowrap la-anim__stagger-item" data-toggle="modal" data-target="#leave_rating">Leave a Review</a>
+                  <a class="la-rtng__review text-uppercase text-center text-md-right text-nowrap la-anim__stagger-item" onclick="openReview()">Leave a Review</a>
 
                   <!-- Leave a Rating Popup: Start -->
                   <div class="modal fade la-rtng__review-modal" id="leave_rating">
@@ -654,6 +654,47 @@ $course_id = $course->id;
                         </div>
                     </div>
                   </div>
+
+                  {{-- Edit Rating Modal:Starts --}}
+
+                      <div class="modal fade la-rtng__review-modal" id="edit_rating">
+                        <div class="modal-dialog la-rtng__review-dialog">
+                            <div class="modal-content la-rtng__review-content">
+                                <div class="modal-header la-rtng__review-header">
+                                    <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
+                                </div>
+                                
+                                <div class="modal-body la-rtng__review-body">
+                                      <form action="{{route('update.review')}}" method="post" id="edit_rate_form" name="edit_rate_form">
+                                          @csrf
+                                          {{ method_field('PUT') }}
+                                          <div class="la-rtng__review-top">
+                                              <h6 class="la-rtng__review-title">Update Review</h6>
+                                              <div class="la-rtng__review-stars">
+                                                  <div class="starRatingContainer">
+                                                      <div class="rate2 text-2xl" style="color:#FFC516"></div>
+                                                      <input id="rating_value_input" class="border-0">
+                                                      <input type="hidden" name="rating_id" id="rating_id" />
+                                                      <input type="hidden" name="course_id" value="" id="rating_course_id"  class="border-0">
+                                                      <input id="input2" type="hidden" name="rating_value" type="text">
+                                                  </div>
+                                              </div>
+                                          </div>
+
+                                          <div class="la-rtng__review-btm py-8">
+                                              <h6 class="la-rtng__review-title">Review</h6>
+                                              <textarea cols="38" rows="5" class="la-form__textarea" name="review" id="update_review_input" placeholder="Type your Review here..."></textarea>
+                                          </div>
+
+                                          <div class="text-right">
+                                            <a role="button" class="la-rtng__review-btn" onclick="$('#edit_rate_form').submit()">Update Review</a>
+                                          </div>
+                                      </form>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                  {{-- Edit Rating Modal:Ends --}}
                   <!-- Leave a Rating Popup: End -->
                 </div>
               </div>
@@ -694,7 +735,7 @@ $course_id = $course->id;
                             <div class="d-block d-md-none la-lcreviews__ratings"> @for($couter=1 ; $couter <= $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__fill"></span>@endfor  @for($couter=1 ; $couter <= 5 - $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__unfill"></span>@endfor</div>
                             <div class="la-lcreviews__comment text-sm">{{$review->review}}</div>
                             <div class="la-lcreviews__edit-comment text-right">
-                                <a class="text-sm" href=""  role="button" style="color:var(--app-indigo-1);font-weight:var(--font-semibold)">Edit</a>
+                              @if(Auth::user()->id == $review->user_id)<a class="text-sm"  role="button" onclick="editReview({{ $review->id }}, {{ $review->course_id }}, '{{ $review->review }}', {{ $review->rating }})" class="la-empty__browse" style="color:var(--app-indigo-1);font-weight:var(--font-semibold)">Edit</a>@endif
                             </div>
                           </div>
                         </div>
@@ -859,17 +900,7 @@ $course_id = $course->id;
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   <script src="/js/scripts/video-progress-log.js"></script>
   <script>
-            var options = {
-                max_value: 5,
-                step_size: 1,
-                url: '/',
-                initial_value: 3,
-                update_input_field_name: $("#input2, #rating_value_input, #rating_value_input2, #input3"),
-            }
-            // $('#input2').change(function(){   
-            //     $('#reating_value_input').val($this.val());
-            // });
-            $(".rate2").rate(options);
+          
 
             $("form[name='rate_course_form']").validate({
       
@@ -949,6 +980,45 @@ $course_id = $course->id;
                     }
                 });
               
+              function openReview(){
+
+                  var options = {
+                  max_value: 5,
+                  step_size: 1,
+                  url: '/',
+                  initial_value: 3,
+                  update_input_field_name: $("#input2, #rating_value_input, #rating_value_input2, #input3"),
+                  };
+
+                  $(".rate2").rate(options);
+                  $('#leave_rating').modal('show');
+
+              }
+
+              function editReview(review_id, course_id, review, rating_value){
+
+                  $('#rating_id').val(review_id);
+                  $('#rating_course_id').val(course_id);
+                  $('#update_review_input').val(review);
+
+                  var options = {
+                    max_value: 5,
+                    step_size: 1,
+                    url: '/',
+                    initial_value: rating_value,
+                    update_input_field_name: $("#input2, #rating_value_input, #rating_value_input2, #input3"),
+                  }
+                // $('#input2').change(function(){   
+                //     $('#reating_value_input').val($this.val());
+                // });
+                $(".rate2").rate(options);
+
+                $('#edit_rating').modal('show');
+               
+              }
+
+  
+
 
 
   </script>

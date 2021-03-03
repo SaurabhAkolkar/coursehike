@@ -523,5 +523,6 @@ return [
     'EditMentorDetail'=>'Edit Mentor Detail',
     'CurrenyConversion'=>'Currency Conversion',
     'PlanSelection'=>'Plan Selection',
+    'CreatorDetails' => 'Creator Details',
 
 ];

@@ -664,6 +664,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 Route::middleware(['auth'])->group(function () {
 
   Route::post('/rate-course','SearchController@rateCourse')->name('rate.course');
+  Route::put('/update-review','SearchController@updateReview')->name('update.review');
 
   Route::get('/playlist','PlaylistController@index');
   Route::get('/playlist/{id}','PlaylistController@show');

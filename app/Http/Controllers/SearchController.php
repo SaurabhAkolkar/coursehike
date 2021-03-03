@@ -169,6 +169,28 @@ class SearchController extends Controller
 		
 		return redirect()->back()->with('success','Reivew added successfully.');
 	}
+
+	public function updateReview(Request $request){
+	
+		$request->validate([
+            'review' => 'required',
+            'rating_value' => 'required',
+		]);
+		
+		$review = ReviewRating::where(['id'=>$request->rating_id, 'user_id'=>Auth::user()->id])->first();
+		if($review){
+
+			$review->rating = $request->rating_value;
+			$review->review = $request->review;
+			$review->save();
+
+			return redirect()->back()->with('success','Reivew updated successfully.');
+		}else{
+			return redirect()->back()->with('success','Review not found');
+		}	
+		
+	}
+
 	
 	public function myCourses(){
 		
@@ -191,9 +213,16 @@ class SearchController extends Controller
 		$selected_level = [];
 		$sort_type = "";
 		$filtres_applied = false;
+		$search_input = null;
 
 		$categories = Categories::where(['status'=>1])->get();
-		$master_classes = Course::has('masterclass')->where('status',1)->get();
+
+		if($request->course_name){
+			$master_classes = Course::has('masterclass')->where('title','like','%'.$request->course_name.'%')->where('status',1)->get();
+			$search_input = $request->course_name;
+		}else{
+			$master_classes = Course::has('masterclass')->where('status',1)->get();
+		}
 
 		if($request->filters == 'applied'){
 
@@ -231,11 +260,11 @@ class SearchController extends Controller
 				$master_classes = $master_classes->whereIn('level',$level);
 			}
 			
-			return view('learners.pages.master_classes', compact('master_classes','filtres_applied','sort_type','selected_level','selected_categories','categories'));
+			return view('learners.pages.master_classes', compact('master_classes','search_input','filtres_applied','sort_type','selected_level','selected_categories','categories'));
 
 		}
 
-		return view('learners.pages.master_classes', compact('master_classes','filtres_applied','sort_type','selected_level','selected_categories','categories'));
+		return view('learners.pages.master_classes', compact('master_classes','search_input','filtres_applied','sort_type','selected_level','selected_categories','categories'));
 	}
 
    

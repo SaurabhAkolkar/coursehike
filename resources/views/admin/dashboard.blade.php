@@ -20,66 +20,71 @@
     <div class="row">
         <div class="col-6 col-md-4">
           <!-- small box -->
-          <div class="small-box"> 
-            <div class="inner">
-              <div class="icon">
-                <span class="la-icon la-icon--5xl icon-users"></span>
-              </div>
-              <p class="m-0">{{ __('adminstaticword.Users') }}</p>
-              <h3 class="m-0">
-                  @php
-                   
-                    if($users>0){
+            <a  href="{{route('user.index')}}" >
+            <div class="small-box"> 
+              <div class="inner">
+                <div class="icon">
+                  <span class="la-icon la-icon--5xl icon-users"></span>
+                </div>
+                <p class="m-0">{{ __('adminstaticword.Users') }}</p>
+                <h3 class="m-0">
+                    @php
+                      
+                      if($users>0){
 
-                      echo $users;
+                        echo $users;
+                      }
+                      else{
+
+                        echo "0";
+                      }
+                    @endphp
+                </h3>
+            </div>
+
+              <span class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> 
+                <!-- <i class="fa fa-arrow-circle-right"></i> -->
+                <span class="la-icon la-icon--5xl icon-black-arrow"></span>
+              </span>
+            </div>
+            </a>
+        </div>
+        <!-- ./col -->
+        <div class="col-6  col-md-4">
+          <!-- small box -->
+          <a href="href="{{url('category')}}"" >
+            <div class="small-box">
+              <div class="inner">
+              <div class="icon py-2">
+              <!--  <i class="flaticon-layout"></i> -->
+              <span class="la-icon la-icon--3xl icon-categories"></span>
+              
+              </div>
+              <p>{{ __('adminstaticword.Categories') }}</p>
+                <h3  class="m-0">
+                  @php
+                  
+                    if($categories != null){
+
+                      echo $categories;
                     }
                     else{
 
                       echo "0";
                     }
                   @endphp
-              </h3>
-          </div>
-
-            <a href="{{route('user.index')}}" class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> 
-              <!-- <i class="fa fa-arrow-circle-right"></i> -->
-              <span class="la-icon la-icon--5xl icon-black-arrow"></span>
-            </a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-6  col-md-4">
-          <!-- small box -->
-          <div class="small-box">
-            <div class="inner">
-            <div class="icon py-2">
-             <!--  <i class="flaticon-layout"></i> -->
-             <span class="la-icon la-icon--3xl icon-categories"></span>
-            
+                </h3>
+              </div>
+              <span  class="small-box-footer"><!--{{ __('adminstaticword.Moreinfo') }}-->
+                <span class="la-icon la-icon--5xl icon-black-arrow"></span>
+              </span>
             </div>
-            <p>{{ __('adminstaticword.Categories') }}</p>
-              <h3  class="m-0">
-              	@php
-              	
-              		if($categories != null){
-
-              			echo $categories;
-              		}
-              		else{
-
-              			echo "0";
-              		}
-              	@endphp
-              </h3>
-            </div>
-            <a href="{{url('category')}}" class="small-box-footer"><!--{{ __('adminstaticword.Moreinfo') }}-->
-              <span class="la-icon la-icon--5xl icon-black-arrow"></span>
-            </a>
-          </div>
+          </a>
         </div>
         <!-- ./col -->
         <div class="col-6 col-md-4">
           <!-- small box -->
+          <a href="{{url('course')}}" >
           <div class="small-box la-admin__dash-cards">
             <div class="inner">
               <div class="icon py-1">
@@ -87,53 +92,56 @@
               </div>
               <p>{{ __('adminstaticword.Courses') }}</p>
               <h3  class="m-0">
-              	@php
-              		$course = App\Course::all();
-              		if(count($course)>0){
+                @php
+                  $course = App\Course::all();
+                  if(count($course)>0){
 
-              			echo count($course);
-              		}
-              		else{
+                    echo count($course);
+                  }
+                  else{
 
-              			echo "0";
-              		}
-              	@endphp
+                    echo "0";
+                  }
+                @endphp
               </h3>       
             </div>  
-            <a href="{{url('course')}}" class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> 
+            <span  class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> 
               <!--  <i class="fa fa-arrow-circle-right"></i> -->
               <span class="la-icon la-icon--5xl icon-black-arrow"></span>
-            </a>
+            </span>
           </div>
+          </a>
         </div>
     
         <!-- ./col -->
         <div class="col-6 col-md-4 pt-8">
           <!-- small box -->
-          <div class="small-box">
-            <div class="inner">
-              <div class="icon">
-                <!-- <i class="flaticon-shopping-cart-1"></i> -->
-                <span class="la-icon la-icon--5xl icon-revenue"></span>
+          <a href="{{url('order')}}"  >
+            <div class="small-box">
+              <div class="inner">
+                <div class="icon">
+                  <!-- <i class="flaticon-shopping-cart-1"></i> -->
+                  <span class="la-icon la-icon--5xl icon-revenue"></span>
+                </div>
+                <p>{{ __('adminstaticword.Orders') }}</p>
+                <h3  class="m-0">
+                  @php
+                  
+                    if($total != null){
+                      echo ' $ '.$total;
+                    }
+                    else{
+                      echo '0';
+                    }
+                  @endphp
+                </h3>
               </div>
-              <p>{{ __('adminstaticword.Orders') }}</p>
-              <h3  class="m-0">
-              	@php
-              	
-              		if($total != null){
-                    echo ' $ '.$total;
-              		}
-              		else{
-                    echo '0';
-              		}
-              	@endphp
-              </h3>
+              <span class="small-box-footer"><!--{{ __('adminstaticword.Moreinfo') }} --> 
+                <!--<i class="fa fa-arrow-circle-right"></i>-->
+                <span class="la-icon la-icon--5xl icon-black-arrow"></span>
+              </span>
             </div>
-            <a href="{{url('order')}}" class="small-box-footer"><!--{{ __('adminstaticword.Moreinfo') }} --> 
-              <!--<i class="fa fa-arrow-circle-right"></i>-->
-              <span class="la-icon la-icon--5xl icon-black-arrow"></span>
-            </a>
-          </div>
+          </a>
         </div>
         <!-- ./col -->
            <!-- small box -->
@@ -190,33 +198,35 @@
         <!-- ./col -->
         <div class="col-6 col-md-4 pt-8">
           <!-- small box -->
-          <div class="small-box">
-            <div class="inner">
-              <div class="icon">
-              <!-- <i class="flaticon-teacher"></i>-->
-              <span class="la-icon la-icon--5xl icon-all-mentors"></span>
-              
+            <a  href="{{route('all.instructor')}}" >
+              <div class="small-box">
+                <div class="inner">
+                  <div class="icon">
+                  <!-- <i class="flaticon-teacher"></i>-->
+                  <span class="la-icon la-icon--5xl icon-all-mentors"></span>
+                  
+                  </div>
+                  <p>{{ __('adminstaticword.Instructors') }}</p>
+                  <h3  class="m-0">
+                    @php
+                    
+                      if($mentor != null ){
+
+                        echo $mentor;
+                      }
+                      else{
+
+                        echo "0";
+                      }
+                    @endphp
+                  </h3>
+                </div>
+                <span class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> 
+                  <!-- <i class="fa fa-arrow-circle-right"></i> -->
+                  <span class="la-icon la-icon--5xl icon-black-arrow"></span>
+                </span>
               </div>
-              <p>{{ __('adminstaticword.Instructors') }}</p>
-              <h3  class="m-0">
-                @php
-              	
-              		if($mentor != null ){
-
-              			echo $mentor;
-              		}
-              		else{
-
-              			echo "0";
-              		}
-              	@endphp
-              </h3>
-            </div>
-            <a href="{{route('all.instructor')}}" class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> 
-              <!-- <i class="fa fa-arrow-circle-right"></i> -->
-              <span class="la-icon la-icon--5xl icon-black-arrow"></span>
             </a>
-          </div>
         </div>
         <!-- ./col -->
          <!-- small box -->

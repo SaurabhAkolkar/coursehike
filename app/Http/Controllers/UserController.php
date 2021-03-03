@@ -292,7 +292,7 @@ class UserController extends Controller
         $cities = Allcity::where(['state_id'=>$user->id])->get();
         $states = State::all();
         $countries = Allcountry::get();
-      
+
         return view('admin.user.edit',compact('cities','states','countries','user'));
 
     }
@@ -306,7 +306,7 @@ class UserController extends Controller
      */
     public function update(Request $request,$id)
     {
-
+      
         $user = User::findorfail($id);
 
         $request->validate([
@@ -358,6 +358,14 @@ class UserController extends Controller
             $input['status'] = '0';
         }
 
+        $input['yoe'] = $request->yoe;
+        $input['expertise'] = $request->expert_in;
+        $portfolio = $request->all_portfolio;
+        $input['portfolio_links']= json_encode(explode(",",$portfolio));
+        $awards = $request->all_awards;
+        $input['awards']= json_encode(explode(",",$awards));
+
+
         $user->update($input);
         if($user->id == Auth::user()->id)
         {
@@ -366,7 +374,7 @@ class UserController extends Controller
         }else{
             Session::flash('success','User Updated Successfully !');
         }
-        return redirect()->route('user.index');
+        return redirect()->back();
 
     }
 
