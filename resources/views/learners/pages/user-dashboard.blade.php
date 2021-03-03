@@ -28,7 +28,7 @@
                       
                           <x-last-viewed
                               :img="$lastViewed->course->preview_image"
-                              :progress="'30'"
+                              :progress="$recentWatchedCourseCompletion"
                               :desc="$lastViewed->course->title"
                               :name="$lastViewed->course->user->fullName"
                               :rating="$lastViewed->course->average_rating"

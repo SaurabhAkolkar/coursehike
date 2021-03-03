@@ -46,7 +46,7 @@
 
                                   <div class="la-status__info-item d-flex align-items-center">
                                     <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">Amount to be Paid after trial</div>
-                                    <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x"><strong> {{getSymbol().$plan_subscription->plan->price}}</strong></div>
+                                    <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x"><strong> {{getSymbol().$plan_subscription->plan->price}}</strong> + tax if applicable</div>
                                   </div>
 
                                   <div class="la-status__info-item d-flex align-items-center">
