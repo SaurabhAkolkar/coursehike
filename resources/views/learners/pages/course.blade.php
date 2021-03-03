@@ -4,12 +4,12 @@
   <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
   <link href="https://unpkg.com/@silvermine/videojs-quality-selector/dist/css/quality-selector.css" rel="stylesheet">
   <title>{{ $course->title }}</title>
-
 @endsection
 
 @section('content')
 @php
 use Carbon\Carbon;
+$course_id = $course->id;
 @endphp
 
 @if(session('success'))
@@ -70,7 +70,7 @@ use Carbon\Carbon;
           <div class="col-12 col-md-5 col-lg-5 pt-10 pt-md-1 d-flex flex-column justify-content-start align-items-center align-items-md-end la-anim__wrap">
             
               <div class="la-vcourse__buy text-right mb-6 mb-md-12 la-anim__stagger-item--x">
-                @if ( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription('main')) || (auth()->check() && !Auth::User()->subscription('main')->active())  ) )
+                @if ( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription()) || (auth()->check() && !Auth::User()->subscription()->active())  ) )
                   <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end" href="/learning-plans">Subscribe Now</a>
                 @endif
               </div>
@@ -495,7 +495,7 @@ use Carbon\Carbon;
 
         {{-- Purchase course DIV:END --}}
         
-        @if ( !(auth()->check() && auth()->user()->subscription('main') && auth()->user()->subscription('main')->active()) )
+        @if ( !(auth()->check() && auth()->user()->subscription() && auth()->user()->subscription()->active()) )
           <div class="col-md-5 col-lg-4 offset-lg-1 px-lg-0 my-auto la-vcourse__purchase-right la-anim__wrap">
             <div class="la-vcourse__purchase-content text-center la-anim__stagger-item--x">
               <div class="la-vcourse__purchase-prize mb-8 la-anim__stagger-item--x">Subscribe for all Courses @ <span class="la-vcourse__purchase-prize--amount"><b>{{$subscription_rate}}/month</b></span></div>
@@ -772,19 +772,19 @@ use Carbon\Carbon;
             @else
 
             <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item--x ">
-              @foreach ($mentor_other_courses as $course)
+              @foreach ($mentor_other_courses as $mentor_other_course)
                     <x-course 
-                    :id="$course->id"
-                    :img="$course->preview_image"
-                    :course="$course->title"
-                    :url="$course->slug"
-                    :rating="round($course->average_rating, 2)"
-                    :creatorImg="$course->user->user_img"
-                    :creatorName="$course->user->fname"
-                    :creatorUrl="$course->user->id"
-                    :learnerCount="$course->learnerCount"
-                    :price="$course->price"
-                    :bought="$course->isPurchased()"
+                    :id="$mentor_other_course->id"
+                    :img="$mentor_other_course->preview_image"
+                    :course="$mentor_other_course->title"
+                    :url="$mentor_other_course->slug"
+                    :rating="round($mentor_other_course->average_rating, 2)"
+                    :creatorImg="$mentor_other_course->user->user_img"
+                    :creatorName="$mentor_other_course->user->fname"
+                    :creatorUrl="$mentor_other_course->user->id"
+                    :learnerCount="$mentor_other_course->learnerCount"
+                    :price="$mentor_other_course->price"
+                    :bought="$mentor_other_course->isPurchased()"
 
                   />
               @endforeach
@@ -813,19 +813,19 @@ use Carbon\Carbon;
           @else
 
             <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item--x ">
-              @foreach ($related_courses as $course)
+              @foreach ($related_courses as $related_course)
                   <x-course 
-                      :id="$course->id"
-                      :img="$course->preview_image"
-                      :course="$course->title"
-                      :url="$course->slug"
-                      :rating="round($course->average_rating, 2)"
-                      :creatorImg="$course->user->user_img"
-                      :creatorName="$course->user->fname"
-                      :creatorUrl="$course->user->id"
-                      :learnerCount="$course->learnerCount"
-                      :price="$course->price"
-                      :bought="$course->isPurchased()"
+                      :id="$related_course->id"
+                      :img="$related_course->preview_image"
+                      :course="$related_course->title"
+                      :url="$related_course->slug"
+                      :rating="round($related_course->average_rating, 2)"
+                      :creatorImg="$related_course->user->user_img"
+                      :creatorName="$related_course->user->fname"
+                      :creatorUrl="$related_course->user->id"
+                      :learnerCount="$related_course->learnerCount"
+                      :price="$related_course->price"
+                      :bought="$related_course->isPurchased()"
                   />
               @endforeach
             </div>
@@ -841,7 +841,7 @@ use Carbon\Carbon;
 @endsection
 
 @section('footerScripts')
-  <script>var course_id = {!! json_encode($course->id) !!};</script>
+  <script>var course_id = {!! json_encode($course_id) !!};</script>
   <!-- video js -->
   <script src="https://unpkg.com/video.js/dist/video.js"></script>
   {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.15.0/videojs-contrib-hls.min.js" integrity="sha512-R1+Pgd+uyqnjx07LGUmp85iW8MSL1iLR2ICPysFAt8Y4gub8C42B+aNG2ddOfCWcDDn1JPWZO4eby4+291xP9g==" crossorigin="anonymous"></script> --}}

@@ -69,7 +69,7 @@ class InvoicePaymentSucceededJob implements ShouldQueue
         if($subscription_status == 'active' && $invoice_status == 'paid' && $invoice_paid && $user_subscription){
 
                 $user = $user_subscription->user;
-                $plan_subscription = $user->subscription('main');
+                $plan_subscription = $user->subscription();
 
                 $plan_subscription->starts_at = Carbon::createFromTimestamp($subscription_start)->toDateTimeString(); 
                 $plan_subscription->ends_at = Carbon::createFromTimestamp($subscription_end)->toDateTimeString(); 
@@ -77,11 +77,11 @@ class InvoicePaymentSucceededJob implements ShouldQueue
                 $plan_subscription->save();
 
                 
-            // if($user->subscription('main')->ended()){
+            // if($user->subscription()->ended()){
                 // Create Invoice Record
                 UserSubscriptionInvoice::create([
                     'user_id' => $user->id,
-                    'subscription_id' => $user->subscription('main')->id,
+                    'subscription_id' => $user->subscription()->id,
                     'stripe_subscription_id' => $subscription['id'],
                     'start_date' => Carbon::createFromTimestamp($subscription_start)->toDateTimeString(),
                     'end_date' => Carbon::createFromTimestamp($subscription_end)->toDateTimeString(),
