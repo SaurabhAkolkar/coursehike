@@ -6,7 +6,7 @@
     <!-- Section: Start-->
     <section class="la-cdashboard py-md-5">
       <div class="la-cdashboard__inner pt-5">
-        <div class="container pt-0 pt-sm-3">
+        <div class="container-fluid pt-0 pt-sm-3">
           <div class="row d-flex flex-row justify-content-between">
             <div class="col-12 col-md-6 col-lg-5  la-anim__wrap">
               <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2 la-anim__stagger-item" href="{{URL::previous()}}"></a>
@@ -170,8 +170,8 @@
     </section> --}}
     <!-- Section: End-->
     <!-- Section: Start-->
-    <section class="la-pcourses-section">
-      <div class="container">
+    <section class="la-pcourses-section pt-md-14">
+      <div class="container-fluid">
         <div class="row">  
           <div class="col-12 la-anim__wrap">
             <h5 class="la-pcourses__title  text-2xl text-md-3xl la-anim__stagger-item">Pending Courses</h5>
@@ -196,7 +196,7 @@
     <!-- Section: Start-->
 
     <section class="la-hp-section py-md-5 my-md-5">
-      <div class="container px-5 px-sm-0">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-12">
             <div class="la-hp__inner la-anim__wrap">
@@ -224,7 +224,7 @@
      @endphp
     <section class="la-section__small">
       <div class="la-section__inner">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row ">
               <div class="col-12 la-anim__wrap">
                 <h5 class="text-2xl text-md-3xl mb-8 px-0 la-anim__stagger-item ">Alien Mentors</h5>

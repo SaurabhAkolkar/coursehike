@@ -1,7 +1,7 @@
-<div class="col-12 col-md-6 la-anim__stagger-item la-anim__B">
+<div class="col-12 la-anim__stagger-item la-anim__B">
     <div class="la-mccourse">
         <div class="la-mccourse__imgwrap">
-            <img class="img-fluid" src= "{{ $img }}" alt= {{ $title }} />
+            <img class="img-fluid  mx-auto d-block" src= "{{ $img }}" alt= {{ $title }} />
         </div>
       
         <div class="la-mccourse__overlay">
@@ -20,8 +20,8 @@
                     </div>
                     <div class="la-mccourse__cprofile-name">{{ $profileName }} </div>
                 </div>
-                <div class="la-mccourse__learners">{{ $learners }} Learners</div>
             </div>
+            <div class="la-mccourse__learners mt-4">{{ $learners }} Learners</div>
         </div>
     </div>
 </div>

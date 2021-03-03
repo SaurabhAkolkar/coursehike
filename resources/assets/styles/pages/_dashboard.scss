@@ -49,10 +49,10 @@ section.la-cdashboard-main{
 
 // Dashboard Last View Card: Start
 .la-course__last-view{
-    margin-top:var(--size-12);
+    margin-top:var(--size-10);
 
-    @include respond-below(sm){
-        margin-top:var(--size-10);
+    @include respond-above(lg){
+        margin-top:var(--size-16);
     }
 }
 .la-course__tile-title{
@@ -246,8 +246,8 @@ section.la-cdashboard-main{
 } 
 .la-hp__card-item{
     position: relative;
-    width:250px;
-    height:180px;
+    width:100%;
+    height:200px;
     overflow:hidden;
     border-radius:10px;
 
@@ -262,8 +262,8 @@ section.la-cdashboard-main{
 }
 .la-hp__card-thumbnail--img{
     object-fit: cover;
-    width:250px;
-    height:180px;
+    width:100%;
+    height:200px;
     box-shadow:1px 1px 2px #eee;
     background:var(--gray9);
     border-radius:10px;

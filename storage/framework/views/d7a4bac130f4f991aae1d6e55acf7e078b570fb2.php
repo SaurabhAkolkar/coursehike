@@ -23,6 +23,7 @@
                   <th>#</th>
                   <th><?php echo e(__('adminstaticword.Image')); ?></th>
                   <th><?php echo e(__('adminstaticword.Title')); ?></th>
+                  <th><?php echo e(__('adminstaticword.Category')); ?></th>
                   <?php if(Auth::User()->role == "admin"): ?><th><?php echo e(__('adminstaticword.Instructor')); ?></th><?php endif; ?>
                   <th><?php echo e(__('adminstaticword.Slug')); ?></th>
                   <th><?php echo e(__('adminstaticword.Featured')); ?></th>
@@ -47,6 +48,7 @@
                           <?php endif; ?>
                         </td>
                         <td><?php echo e($cat->title); ?></td>
+                        <td><?php echo e($cat->category->title); ?></td>
                         <td><?php echo e($cat->user['fname']); ?></td>
                         <td><?php echo e($cat->slug); ?></td>
                         <td>

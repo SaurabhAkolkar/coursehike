@@ -230,7 +230,7 @@ section.la-lp--sub-faq{
 
 // Section Testimonials Start
 section.la-lp--testimonials{
-    padding:var(--size-20) var(--size-6);
+    padding:var(--size-20) 0;
 
     @include respond-below(md){
         padding:var(--size-14) 0;

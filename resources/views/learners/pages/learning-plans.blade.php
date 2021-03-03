@@ -25,7 +25,7 @@
 <section class="la-cbg--main la-lp__section">
     <!-- Section: Start-->
     <section class="la-lp--page">
-      <div class="container la-anim__wrap">
+      <div class="container-fluid la-anim__wrap">
         <div class="row ">
           <a class="la-icon--5xl icon-back-arrow d-block d-lg-none my-3 my-md-6 px-3" href="{{URL::previous()}}"></a>
           <!-- Column: Start-->
@@ -85,7 +85,7 @@
     <!-- Section: End-->
     <!-- Course Benefits Section: Start-->
     <section class="la-lp--include la-section__small">
-      <div class="container ">
+      <div class="container-fluid">
         <div class="row">
           <div class="col">
             <div class="la-lp__benefits la-anim__wrap">
@@ -129,7 +129,7 @@
 
     <!-- Section: Start-->
     <section class="la-bgcreator--ad-banner">
-      <div class="container-fluid px-0">
+      <div class="w-100 h-100">
         <div class="row  la-anim__wrap">
           <!-- Column: Start-->
           <div class="col-12 la-anim__stagger-item">
@@ -148,7 +148,7 @@
     
     <!-- Section: Start-->
     <section class="la-lp--sub-faq">
-      <div class="container la-anim__wrap">
+      <div class="container-fluid la-anim__wrap">
         <div class="row d-flex justify-content-lg-between">
           <!-- Column: Start-->
           <div class="col-12 col-md-6 col-lg-5 la-anim__stagger-item">
@@ -336,7 +336,7 @@
     <!-- Section: End-->
     <!-- Section: Start-->
     <section class="la-lp--testimonials">
-      <div class="container pb-5 la-anim__wrap">
+      <div class="container-fluid pb-5 la-anim__wrap">
         <div class="row d-flex justify-content-lg-between">
           <!-- Column: Start-->
           <div class="col-12 col-sm-8 col-lg-4">

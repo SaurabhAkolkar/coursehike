@@ -17,9 +17,10 @@
 
 <section class="la-section__small la-cbg--main">
     <div class="la-section__inner">
-      <div class="container">
+      <div class="container-fluid">
+      <div class="row">
         <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2" href="{{URL::previous()}}"></a>
-        <div class="d-flex justify-content-between la-anim__wrap">  
+        <div class="col-12 px-0 d-flex justify-content-between la-anim__wrap">  
           <h1 class="la-page__title mb-16 mb-md-8 la-anim__stagger-item">Master Classes</h1>
           <a class="la-icon--2xl icon-filter d-none d-lg-none" id="filterCourses" role="button"></a>
 
@@ -109,12 +110,12 @@
                 </div>
             </div>
           </div>
+        </div> 
+      </div> 
 
-        </div>  
-
-            <section class="la-section la-section--classes la-section--grey position-relative la-anim__wrap">
-                <div class="la-section__inner">
-                <div class="container px-0">
+            <div class="row la-section la-anim__wrap">
+                <div class="col-12 ">
+                
                     <div class="la-mccourses py-4">
                       <div class="row justify-content-center px-0 la-anim__stagger la-anim__A">
 
@@ -132,7 +133,7 @@
                       </div>  
 
                       @else
-                      
+                          <div class="row row-cols-md-6 row-cols-lg-4">
                           @foreach ($master_classes as $master)
                               <x-master-class
                               :img="$master->preview_image"
@@ -144,14 +145,13 @@
                               :slug="$master->slug"
                               />
                           @endforeach
-
+                          </div>
                       @endif
                           
-                      </div>
                     </div>
                 </div>
                 </div>
-            </section>
+            </div>
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 // MENTORS Page: Start
 #{$ap}- {
     &mentor {
+        margin-bottom:var(--size-6);
         @media(max-width:767px){
             margin-bottom:var(--size-4);
         }

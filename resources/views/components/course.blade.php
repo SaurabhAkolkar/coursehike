@@ -85,7 +85,14 @@
          
         <div class="la-course__btm">
             <div class="la-course__info d-flex align-items-center mb-1">
-                <a class="la-course__title" href= {{ '/learn/course/'.$id.'/'.$url }}> {{ strlen($course)>25?substr($course,0,25).'...':$course }} </a>
+                <a class="la-course__creator d-inline-flex align-items-center" href= "/creator/{{ $creatorUrl }}" >
+                    <div class="la-course__creator-imgwrap">
+                        <img class="img-fluid" src="{{ $creatorImg }}" alt={{ $creatorName }} />
+                        {{-- <img class="img-fluid" src={{ $creatorImg }} alt={{ $creatorName }} /> --}}
+                    </div>
+                    <div class="la-course__creator-name">{{ $creatorName }}</div>
+                </a>
+                
                 <div class="la-course__rating ml-auto">
                     <div class="la-rtng__pg-rtng d-inline-flex pl-3">
                         @if($rating == 5)
@@ -130,14 +137,9 @@
                     </div>
                 </div>
             </div>
+
+            <a class="la-course__title" href= {{ '/learn/course/'.$id.'/'.$url }}> {{ strlen($course)>25?substr($course,0,25).'...':$course }} </a>
             
-            <a class="la-course__creator d-inline-flex align-items-center" href= "/creator/{{ $creatorUrl }}" >
-                <div class="la-course__creator-imgwrap">
-                    <img class="img-fluid" src="{{ $creatorImg }}" alt={{ $creatorName }} />
-                    {{-- <img class="img-fluid" src={{ $creatorImg }} alt={{ $creatorName }} /> --}}
-                </div>
-                <div class="la-course__creator-name">{{ $creatorName }}</div>
-            </a>
         </div>
     </div>
 </div>

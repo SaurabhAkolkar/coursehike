@@ -1,9 +1,29 @@
+<?php $__env->startSection('seo_content'); ?>
+    <title>Subscribe Now | Start Your 7 Days Free Trail | LILA</title>
+    <meta name='description' itemprop='description' content='Subscribe to the online classes of creativity, craft, art & much more from creators & mentors all around the world. Join & learn real skills with LILA now!' />
+
+    <meta property="og:description"content="Subscribe to the online classes of creativity, craft, art & much more from creators & mentors all around the world. Join & learn real skills with LILA now!" />
+    <meta property="og:title"content="Subscribe Now | Start Your 7 Days Free Trail | LILA" />
+    <meta property="og:url"content="<?php echo e(Request::url()); ?>" />
+    <meta property="og:type"content="website" />
+    <meta property="og:site_name"content="LILA Art" />
+    <meta property="og:image"content="/images/learners/logo.svg" />
+    <meta property="og:image:url"content="/images/learners/logo.svg" />
+    <meta property="og:image:size"content="300" />
+
+    <meta name="twitter:card"content="summary" />
+    <meta name="twitter:title"content="Subscribe Now | Start Your 7 Days Free Trail | LILA" />
+    <meta name="twitter:site"content="@lilaaliens" />
+    
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Subscribe Now | Start Your 7 Days Free Trail | LILA"}</script>
+<?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('content'); ?>
 <!-- Main Section: Start-->
 <section class="la-cbg--main la-lp__section">
     <!-- Section: Start-->
     <section class="la-lp--page">
-      <div class="container la-anim__wrap">
+      <div class="container-fluid la-anim__wrap">
         <div class="row ">
           <a class="la-icon--5xl icon-back-arrow d-block d-lg-none my-3 my-md-6 px-3" href="<?php echo e(URL::previous()); ?>"></a>
           <!-- Column: Start-->
@@ -58,7 +78,7 @@
     <!-- Section: End-->
     <!-- Course Benefits Section: Start-->
     <section class="la-lp--include la-section__small">
-      <div class="container ">
+      <div class="container-fluid">
         <div class="row">
           <div class="col">
             <div class="la-lp__benefits la-anim__wrap">
@@ -102,7 +122,7 @@
 
     <!-- Section: Start-->
     <section class="la-bgcreator--ad-banner">
-      <div class="container-fluid px-0">
+      <div class="w-100 h-100">
         <div class="row  la-anim__wrap">
           <!-- Column: Start-->
           <div class="col-12 la-anim__stagger-item">
@@ -121,7 +141,7 @@
     
     <!-- Section: Start-->
     <section class="la-lp--sub-faq">
-      <div class="container la-anim__wrap">
+      <div class="container-fluid la-anim__wrap">
         <div class="row d-flex justify-content-lg-between">
           <!-- Column: Start-->
           <div class="col-12 col-md-6 col-lg-5 la-anim__stagger-item">
@@ -285,7 +305,7 @@
     <!-- Section: End-->
     <!-- Section: Start-->
     <section class="la-lp--testimonials">
-      <div class="container pb-5 la-anim__wrap">
+      <div class="container-fluid pb-5 la-anim__wrap">
         <div class="row d-flex justify-content-lg-between">
           <!-- Column: Start-->
           <div class="col-12 col-sm-8 col-lg-4">

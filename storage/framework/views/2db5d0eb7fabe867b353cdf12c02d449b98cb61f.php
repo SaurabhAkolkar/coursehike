@@ -1,3 +1,24 @@
+<?php $__env->startSection('seo_content'); ?>
+    <title>Learn Anything & Anywhere Artistic | Online Classes For Creatives</title>
+    <meta name='description' itemprop='description' content='Discover online classes on art, creativity, design, digital art, artistic baking & much more. Join LILA & enhance your skills with these online classes.' />
+
+    <meta property="og:description"content="Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now" />
+    <meta property="og:title"content="Learn Anything & Anywhere Artistic | Online Classes For Creatives" />
+    <meta property="og:url"content="<?php echo e(Request::url()); ?>" />
+    <meta property="og:type"content="website" />
+    <meta property="og:site_name"content="LILA Art" />
+    <meta property="og:image"content="/images/learners/logo.svg" />
+    <meta property="og:image:url"content="/images/learners/logo.svg" />
+    <meta property="og:image:size"content="300" />
+
+    <meta name="twitter:card"content="summary" />
+    <meta name="twitter:title"content="Learn Anything & Anywhere Artistic | Online Classes For Creatives" />
+    <meta name="twitter:site"content="@lilaaliens" />
+    
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Learn Anything & Anywhere Artistic | Online Classes For Creatives"}</script>
+<?php $__env->stopSection(); ?>
+
+
 <!-- Playlist Alert Message-->
 <?php if(session('message')): ?>
 <div class="la-btn__alert position-relative">
@@ -16,7 +37,7 @@
 
 <section class="la-section__small la-cbg--main">
     <div class="la-section__inner">
-      <div class="container">
+      <div class="container-fluid">
         <div class="la-anim__wrap">  
           <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2 la-anim__stagger-item--x" href="<?php echo e(URL::previous()); ?>"></a>
           <h1 class="la-page__title mb-4 mb-md-8 la-anim__stagger-item">Browse Courses</h1>
@@ -66,7 +87,7 @@
               <div class="la-courses__nav-filterprops">
                <a class="la-icon icon-filter la-courses__nav-filter " id="filteredCourses"  role="button"></a>
               
-                  <!-- Filter Courses Dropdown -->
+               
                   <div class="la-courses__nav-filterdropdown" id="filtered_sidebar">
                       <div class="la-form__input-wrap px-5">
                           <div class="d-flex justify-content-between align-items-center">
@@ -164,7 +185,7 @@
       
             <?php if($filtres_applied): ?>
                   <div class="la-anim__wrap">
-                    <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item">
+                    <div class="row row-cols-md-2 row-cols-lg-4 la-anim__stagger-item">
                                   
                         <?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                              <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
@@ -181,7 +202,7 @@
                           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                     </div>
-                    </div>
+                  </div>
 
                     <?php if(count($courses) == 0): ?>
 
@@ -211,7 +232,7 @@
                                     }                
                                 ?>
 
-                                <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item la-anim__C">
+                                <div class="row row-cols-md-2 row-cols-lg-4 la-anim__stagger-item la-anim__C">
                                 <?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 
                                    <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
