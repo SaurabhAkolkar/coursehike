@@ -83,28 +83,36 @@ class SubscriptionController extends Controller
 			]
 		];
 
-		$stripe_id = Auth::user()->stripe_id;
+		$user = Auth::user();
+		$stripe_id = $user->stripe_id;
 
-		if(!empty(Auth::user()->stripe_id)){
+		if(!empty($stripe_id)){
 			try {
-
+				// Customer Present
 				$customer = $this->stripe->customers()->find($stripe_id);
 
-				if (!array_key_exists('deleted', $customer)){
+				// Already subscribed before
+				$user_subscription = UserSubscription::where('user_id', $user->id)->exists();
+
+				if (!array_key_exists('deleted', $customer)  && $user->subscription() && $user_subscription ){
 					$response = [
 						"redirect" => true,
 					];
 					return response()->json($response, 200);
-				}else
-					$session_data['customer_email'] = Auth::user()->email;
+				}
+
+				if (!array_key_exists('deleted', $customer))
+					$session_data['customer'] = $stripe_id;
+				else
+					$session_data['customer_email'] = $user->email;
 
 			} catch (NotFoundException $e) {
 				$message = $e->getMessage();
-				$session_data['customer_email'] = Auth::user()->email;
+				$session_data['customer_email'] = $user->email;
 			}
 		}else
-			$session_data['customer_email'] = Auth::user()->email;
-
+			$session_data['customer_email'] = $user->email;
+		
 		try {
 
 			$checkout_session = $this->stripe->checkout()->sessions()->create($session_data);
@@ -150,7 +158,7 @@ class SubscriptionController extends Controller
 					'price_1IJZ3JDEIHJhoye28pqansTo' => 'yearly-india',
 				];
 
-				if(!$user->subscription('main')){
+				if(!$user->subscription()){
 
 					$plan = app('rinvex.subscriptions.plan')->where('slug', $plan_price_id[$current_plan['id']])->first();
 					$user->newSubscription('main', $plan);
@@ -315,7 +323,7 @@ class SubscriptionController extends Controller
 		$user = Auth::user();
 		$userSubscription = UserSubscription::where('user_id', $user->id)->latest()->first();
 		$this->stripe->subscriptions()->cancel($user->stripe_id, $userSubscription->subscription_id, true);
-		$user->subscription('main')->cancel();
+		$user->subscription()->cancel();
 		return redirect()->back();
 	}
 
@@ -439,8 +447,8 @@ class SubscriptionController extends Controller
 			if($subscription)
 				$card = $this->stripe->paymentMethods()->find($subscription->payment_method_id)['card'];
 		}
-		if($user->subscription('main')){
-				$canceled_subscription = $user->subscription('main')->canceled();
+		if($user->subscription()){
+				$canceled_subscription = $user->subscription()->canceled();
 		}
 
 		$last_payment = UserSubscriptionInvoice::where('user_id', $user->id)->latest()->first();

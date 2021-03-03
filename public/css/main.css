@@ -10720,7 +10720,6 @@ ul, li {
   color: #7400D7;
 }
 .la-btn__app {
-  height: 100%;
   border: 2px solid #7400D7;
   border-radius: 10px;
   padding: var(--size-4) var(--size-9);
@@ -10733,7 +10732,7 @@ ul, li {
   z-index: 1;
   transition: all 0.1s ease;
 }
-.la-btn__app:hover {
+.la-btn__app:hover, .la-btn__app:focus {
   background: var(--app-indigo-1);
   color: #ffffff;
   border-radius: 10px;

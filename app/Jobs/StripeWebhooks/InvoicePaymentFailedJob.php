@@ -64,13 +64,13 @@ class InvoicePaymentFailedJob implements ShouldQueue
             $user_subscription = UserSubscription::where('subscription_id', $subscription['id'])->first();
             $user = $user_subscription->user;
             
-            // $user->subscription('main')->cancel(true);
-            // if($user != 0 && $user->subscription('main')->ended()){
+            // $user->subscription()->cancel(true);
+            // if($user != 0 && $user->subscription()->ended()){
                 
                 // Create Invoice Record
                 UserSubscriptionInvoice::create([
                     'user_id' => $user->id ?? 0,
-                    'subscription_id' => $user->subscription('main')->id,
+                    'subscription_id' => $user->subscription()->id,
                     'stripe_subscription_id' => $subscription['id'],
                     'start_date' => Carbon::createFromTimestamp($subscription_start)->toDateTimeString(),
                     'end_date' => Carbon::createFromTimestamp($subscription_end)->toDateTimeString(),

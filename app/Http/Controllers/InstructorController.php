@@ -62,8 +62,8 @@ class InstructorController extends Controller
         $total_income = 0;
         foreach($learners_grouped as $learner => $watch_course){
 
-            // dd(User::find($learner)->subscription('main')->active(),
-            // User::find($learner)->subscription('main')->onTrial());
+            // dd(User::find($learner)->subscription()->active(),
+            // User::find($learner)->subscription()->onTrial());
             // $customer = $stripe->customers()->find(User::find($learner)->stripe_id);
             // $subscription = $stripe->subscriptions()->find(User::find($learner)->stripe_id, User::find($learner)->subscribed->subscription_id);
             // dd($subscription, $customer);

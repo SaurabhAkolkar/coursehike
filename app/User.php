@@ -157,5 +157,10 @@ class User extends Authenticatable
             'ends_at' => $isTrial ? $trial->getEndDate() : $period->getEndDate(),
         ]);
     }
+
+    public function subscription()
+    {
+        return $this->subscriptions()->first();
+    }
 }
 

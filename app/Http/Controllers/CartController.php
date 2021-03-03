@@ -383,7 +383,7 @@ class CartController extends Controller
 
         if(Session::has('appliedCoupon'))
         {
-            $coupon = Coupon::findOrFail($request->coupon_id);
+            $coupon = Coupon::findOrFail(Session::get('appliedCoupon'));
             if($coupon){
                 if($coupon->distype == 'fix'){
                     $insert['discount'] = $coupon->amount;
