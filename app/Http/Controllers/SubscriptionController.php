@@ -92,9 +92,11 @@ class SubscriptionController extends Controller
 				$customer = $this->stripe->customers()->find($stripe_id);
 
 				// Already subscribed before
-				$user_subscription = UserSubscription::where('user_id', $user->id)->exists();
+				$user_subscription = UserSubscription::where('user_id', $user->id)->first();
 
-				if (!array_key_exists('deleted', $customer)  && $user->subscription() && $user_subscription ){
+				$stripe_subscription = $this->stripe->subscriptions()->find($stripe_id, $user_subscription->subscription_id);
+				
+				if (!array_key_exists('deleted', $customer)  && $user->subscription() && $user_subscription && $stripe_subscription){
 					$response = [
 						"redirect" => true,
 					];
@@ -147,6 +149,10 @@ class SubscriptionController extends Controller
 			$subscription_id = $checkout_session['subscription'];
 
 			$subscription = $this->stripe->subscriptions()->find($stripe_id, $subscription_id);
+
+			$subscription_start = $subscription['current_period_start'];
+			$subscription_end = $subscription['current_period_end'];
+
 			$current_plan = $subscription['plan'];
 
 			if ($subscription['status'] == 'trialing') {
@@ -157,25 +163,23 @@ class SubscriptionController extends Controller
 					'price_1IJPNrDEIHJhoye2kifs8GbK' => 'monthly-india',
 					'price_1IJZ3JDEIHJhoye28pqansTo' => 'yearly-india',
 				];
+				$plan = app('rinvex.subscriptions.plan')->where('slug', $plan_price_id[$current_plan['id']])->first();
+				
+                $plan_subscription = $user->subscription();
 
-				if(!$user->subscription()){
-
-					$plan = app('rinvex.subscriptions.plan')->where('slug', $plan_price_id[$current_plan['id']])->first();
+				if(!$plan_subscription){
 					$user->newSubscription('main', $plan);
-
-					// $userSubscription = new UserSubscription();
-					// $userSubscription->user_id = $user->id;
-					// $userSubscription->payment_method_id = $subscription['default_payment_method'];
-					// $userSubscription->plan_id = $current_plan['id'];
-					// $userSubscription->subscription_id = $subscription['id'];
-					// $userSubscription->save();
+				}else{
+					$plan_subscription->starts_at = Carbon::createFromTimestamp($subscription_start)->toDateTimeString(); 
+					$plan_subscription->ends_at = Carbon::createFromTimestamp($subscription_end)->toDateTimeString(); 
+					$plan_subscription->trial_ends_at = Carbon::createFromTimestamp($subscription['trial_end'])->toDateTimeString(); 
+					$plan_subscription->save();
 				}
 
 				UserSubscription::updateOrCreate(
 					['user_id' => $user->id],
 					['payment_method_id' => $subscription['default_payment_method'], 'subscription_id' => $subscription['id'], 'plan_id' => $current_plan['id']]
-				);
-					
+				);					
 
 				$plan_subscription = app('rinvex.subscriptions.plan_subscription')->where("user_id", $user->id)->latest()->first();
 				return view('learners.messages.subscription-trial', compact('plan_subscription'));
