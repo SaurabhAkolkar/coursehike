@@ -72,7 +72,7 @@
               <div class="row">
                 <div  class="col-md-12 mt-4" id="duration">
                   <label for="">{{ __('adminstaticword.Duration') }} :</label>
-                  <input type="text" name="duration" value="{{ $cate->duration }}" class="form-control" placeholder="Enter class duration in (mins) Eg:160">
+                  <input type="text" name="duration" value="{{ $cate->duration }}" class="form-control" placeholder="Enter class duration in (hh:mm:ss) Eg:01:30:20">
                 </div>
               </div>
               <br>

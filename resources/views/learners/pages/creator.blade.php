@@ -29,7 +29,7 @@
                   :location="$creator->location"
                   :courses="$course_count"
                   :rating="$rating"
-                  :awards="$awards"
+                  :awards="$creator->award_count"
                   :facebook="$creator->facebook_id"
                   :google="$creator->google_id"
               />

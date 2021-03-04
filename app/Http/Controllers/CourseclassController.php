@@ -41,6 +41,7 @@ class CourseclassController extends Controller
      */
     public function create()
     {
+
         $courseclass = CourseClass::all();
         return view('admin.course.courseclass.insert',compact('courseclass')); 
  

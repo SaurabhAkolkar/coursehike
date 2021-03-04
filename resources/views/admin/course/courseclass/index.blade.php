@@ -164,6 +164,16 @@
                 <!-- CLASS VIDEO: END -->
 
 
+                <div class="row mt-3">
+                  <div class="col-12">
+                        <div class="la-admin__preview">
+                          <label for="" class="la-admin__preview-label p-0">Duration<sup class="redstar">*</sup></label>
+                          <input type="text" class="form-control " name="duration" id="exampleInputTitle"   placeholder="Enter duration in hh:mm:ss"  required>
+                        </div>
+                  </div>
+                </div>
+
+
                 <div class="row mt-3">  
                   <div class="col-md-6">    
                     <label >{{ __('adminstaticword.Is_preview_video') }}:</label>

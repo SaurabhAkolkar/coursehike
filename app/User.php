@@ -143,6 +143,14 @@ class User extends Authenticatable
     {
         return ucfirst("{$this->fname} {$this->lname}");
     }  
+
+    public function getAwardCountAttribute(){
+        if(json_decode($this->awards)){
+            return count(json_decode($this->awards));
+        }else{
+            return 0;
+        }
+    }
     
     public function newSubscription($subscription, Plan $plan, $isTrial = TRUE)
     {
