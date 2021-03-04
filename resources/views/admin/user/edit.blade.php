@@ -338,10 +338,21 @@
                 <div class="col-md-4">
                   <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item--x">
                     <div id="added_to_awards">
-                      @foreach($user->portfolio_links as $link)
+                      @php
+                        $user->portfolio_links = json_decode($user->portfolio_links);
+                        $user->awards = json_decode($user->awards);
+                      
+                        $user->awards?$user->awards:$user->awards=[];
+                        $user->portfolio_links?$user->portfolio_links:$user->portfolio_links=[];
 
+                      @endphp
+                      @foreach($user->awards as $award)
+                        @php
+                            $award = trim($award);
+                        @endphp
+                        <span class="la-entry__badge badge badge-pill" id="award_{{ $award }}">{{ $award }}<span class="ml-2" role="button" onclick="removeAward('{{ $award }}')">x</span></span>
                       @endforeach
-                      <input type="hidden" name="all_awards" id="all_awards" value=""/>
+                      <input type="hidden" name="all_awards" id="all_awards" value="{{ implode(',',$user->awards) }}"/>
                     </div>
                     <label>Awards</label>
                       <input class="form-control" value="" id="awards" name="awards" placeholder="Any Award you want to add"><span class="la-entry__input-icon" style="right:0;cursor:pointer;border:0" onclick="addToAwards();">+</span>
@@ -349,7 +360,12 @@
                 </div>
                 <div class="col-md-4">
                   <div id="added_to_portfolio">
-                    <input type="hidden" name="all_portfolio" id="all_portfolio" />
+                    @foreach($user->portfolio_links as $link)
+
+                    <span class="la-entry__badge badge badge-pill" id="portfolio_{{ $link }}">{{ $link }}  <span class="ml-2" role="button" onclick="removePortfolio('{{ $link }}')">x</span></span>
+                    @endforeach
+
+                    <input type="hidden" name="all_portfolio" id="all_portfolio" value="{{ implode(',',$user->portfolio_links) }}" />
                   </div>
                   <div class="la-form__input-wrap la-entry__input-wrap mb-12 la-anim__stagger-item--x">
                     <label>Portfolio Links</label>

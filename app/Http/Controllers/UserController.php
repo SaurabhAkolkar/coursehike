@@ -360,10 +360,13 @@ class UserController extends Controller
 
         $input['yoe'] = $request->yoe;
         $input['expertise'] = $request->expert_in;
-        $portfolio = $request->all_portfolio;
-        $input['portfolio_links']= json_encode(explode(",",$portfolio));
-        $awards = $request->all_awards;
-        $input['awards']= json_encode(explode(",",$awards));
+       
+        $portfolio = explode(',',$request->all_portfolio);
+        $portfolio = json_encode(array_values(array_filter($portfolio , function($a){ if(strlen(trim($a)) > 0){ return trim($a); } else { return null; } })));
+        $input['portfolio_links']= $portfolio;
+        $awards = explode(",",$request->all_awards);
+        $awards = json_encode(array_values(array_filter($awards , function($a){ if(strlen(trim($a)) > 0){ return trim($a); } else { return null; } })));
+        $input['awards']= $awards;
 
 
         $user->update($input);
