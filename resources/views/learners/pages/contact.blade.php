@@ -35,7 +35,7 @@
  <section class="la-cbg--main">
     <!-- Section: Strat-->
     <section class="la-contact--page">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row la-anim__wrap">
           <!-- Column: Start-->
           <div class="col-12 mt-5 mt-lg-10 la-anim__stagger-item--x">

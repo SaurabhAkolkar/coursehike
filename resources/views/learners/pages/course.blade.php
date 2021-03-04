@@ -225,7 +225,7 @@ $course_id = $course->id;
               <li class="nav-item la-courses__nav-item "><a class="nav-link la-courses__nav-link active text-capitalize" id="cnav-about-tab" data-toggle="tab" href="#cnav-about" role="tab" aria-controls="cnav-about" aria-selected="true">About</a></li>
               @if($video_access == true)
                 <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link text-capitalize" id="cnav-resource-tab" data-toggle="tab" href="#cnav-resource" role="tab" aria-controls="cnav-resource" aria-selected="false">Resources</a></li>
-                <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link text-capitalize" id="cnav-certificate-tab" data-toggle="tab" href="#cnav-certificate" role="tab" aria-controls="cnav-certificate" aria-selected="false">Certificate</a></li>
+                {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link text-capitalize" id="cnav-certificate-tab" data-toggle="tab" href="#cnav-certificate" role="tab" aria-controls="cnav-certificate" aria-selected="false">Certificate</a></li> --}}
               @endif
             </ul>
           </nav>
@@ -276,7 +276,7 @@ $course_id = $course->id;
               </div>
 
 
-              <div class="tab-pane fade" id="cnav-certificate" role="tabpanel" aria-labelledby="cnav-certificate-tab">
+              {{-- <div class="tab-pane fade" id="cnav-certificate" role="tabpanel" aria-labelledby="cnav-certificate-tab">
                 <div class="col-lg px-0 d-flex">
                   <div class="col-12 col-md-6 col-lg px-0">
                     <div class="la-ctabs__certificate d-flex">
@@ -287,7 +287,7 @@ $course_id = $course->id;
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> --}}
 
             @endif
           </div>
@@ -344,7 +344,7 @@ $course_id = $course->id;
             
 
             <!-- Certificate -->
-            <div class="col-12 mb-4 px-0">
+            {{-- <div class="col-12 mb-4 px-0">
               <h5 class="la-ctabs__title mb-4 la-anim__stagger-item">Certificate</h5>
               <div class="col-12 col-md-6 col-lg px-0">
                 <div class="la-ctabs__certificate d-flex">
@@ -354,7 +354,7 @@ $course_id = $course->id;
                   </div>
                 </div>
               </div>
-            </div>
+            </div> --}}
             @endif
           </div>
         </div>
@@ -734,7 +734,9 @@ $course_id = $course->id;
                           <div class="la-lcreviews__content">
                             <div class="d-block d-md-none la-lcreviews__ratings"> @for($couter=1 ; $couter <= $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__fill"></span>@endfor  @for($couter=1 ; $couter <= 5 - $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__unfill"></span>@endfor</div>
                             <div class="la-lcreviews__comment text-sm">{{$review->review}}</div>
-                            @if(Auth::user()->id == $review->user_id)<a onclick="editReview({{ $review->id }}, {{ $review->course_id }}, '{{ $review->review }}', {{ $review->rating }})" class="la-empty__browse">Edit</a>@endif
+                            <div class="la-lcreviews__edit-comment text-right">
+                              @if(Auth::user()->id == $review->user_id)<a class="text-sm"  role="button" onclick="editReview({{ $review->id }}, {{ $review->course_id }}, '{{ $review->review }}', {{ $review->rating }})" class="la-empty__browse" style="color:var(--app-indigo-1);font-weight:var(--font-semibold)">Edit</a>@endif
+                            </div>
                           </div>
                         </div>
                       </div>

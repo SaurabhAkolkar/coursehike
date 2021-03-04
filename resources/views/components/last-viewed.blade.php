@@ -4,7 +4,7 @@
 
         <div class="la-course__tile-bars position-relative ">
             <div class="la-course__tile-progress progress bg-transparent d-block pt-2">
-                <div class="la-course__title-progress--bar progress-bar " role="progress-bar" aria-valuenow="37" aria-valuemin="0" aria-valuemax="100" style="width:37%;height:4px;border-radius: 0 0 0 10px;"></div>
+                <div class="la-course__title-progress--bar progress-bar " role="progress-bar" aria-valuenow={{ $progress }} aria-valuemin="0" aria-valuemax="100" style="width:{{ $progress }}%;height:4px;border-radius: 0 0 0 10px;"></div>
             </div>
         </div>
     </div>

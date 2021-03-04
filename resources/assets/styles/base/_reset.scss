@@ -3,3 +3,10 @@ ul, li {
     margin: 0;
     list-style: none;
 }
+
+.container-fluid{
+    @include respond-above(lg){
+        padding-left:85px !important;
+        padding-right:85px !important;
+    }
+}

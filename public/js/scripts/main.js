@@ -91,6 +91,48 @@ $(function(){
     });
   }
   
+  // Swiper JS for Browse Courses in Homepage
+  if($('.la-home__course-container')[0]){
+    var swiper = new Swiper('.la-home__course-container', {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      slidesPerGroup: 1,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      navigation: {
+        nextEl: '.la-home__course-next',
+        prevEl: '.la-home__course-prev',
+      },
+    });
+  }
+
+  // Swiper JS for Master Classes in Homepage
+  if($('.la-home__master-container')[0]){
+    var swiper = new Swiper('.la-home__master-container', {
+      slidesPerView: 4,
+      spaceBetween: 0,
+      //slidesPerGroup: 1,
+      //loop: true,
+      loopFillGroupWithBlank: true,
+      navigation: {
+        nextEl: '.la-home__master-next',
+        prevEl: '.la-home__master-prev',
+      },
+    });
+  }
+
+  //- Customize Section in Home Page
+  if($('.la-home__customize-container')[0]){
+    var swiper = new Swiper('.la-home__customize-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 10,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  } 
+
   //Swiper Js for Artist gallery
   if($('.gallery-thumbs')[0]){
       var galleryThumbs = new Swiper('.gallery-thumbs', {

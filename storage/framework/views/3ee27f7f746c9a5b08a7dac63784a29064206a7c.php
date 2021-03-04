@@ -3,7 +3,7 @@
 <section class="la-cbg--main">
   <div class="la-page la-page--vcreator ">
       <div class="la-page__header">
-        <div class="container la-anim__wrap">
+        <div class="container-fluid la-anim__wrap">
           <div class="row">
             <div class="col-1 mb-14">
               <a href="<?php echo e(URL::previous()); ?>" class="la-vcreator__back"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>

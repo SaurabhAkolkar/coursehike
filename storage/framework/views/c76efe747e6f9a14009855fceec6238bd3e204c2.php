@@ -2,12 +2,12 @@
   <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
   <link href="https://unpkg.com/@silvermine/videojs-quality-selector/dist/css/quality-selector.css" rel="stylesheet">
   <title><?php echo e($course->title); ?></title>
-
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
 <?php
 use Carbon\Carbon;
+$course_id = $course->id;
 ?>
 
 <?php if(session('success')): ?>
@@ -74,7 +74,7 @@ use Carbon\Carbon;
           <div class="col-12 col-md-5 col-lg-5 pt-10 pt-md-1 d-flex flex-column justify-content-start align-items-center align-items-md-end la-anim__wrap">
             
               <div class="la-vcourse__buy text-right mb-6 mb-md-12 la-anim__stagger-item--x">
-                <?php if( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription('main')) || (auth()->check() && !Auth::User()->subscription('main')->active())  ) ): ?>
+                <?php if( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription()) || (auth()->check() && !Auth::User()->subscription()->active())  ) ): ?>
                   <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end" href="/learning-plans">Subscribe Now</a>
                 <?php endif; ?>
               </div>
@@ -226,7 +226,7 @@ use Carbon\Carbon;
               <li class="nav-item la-courses__nav-item "><a class="nav-link la-courses__nav-link active text-capitalize" id="cnav-about-tab" data-toggle="tab" href="#cnav-about" role="tab" aria-controls="cnav-about" aria-selected="true">About</a></li>
               <?php if($video_access == true): ?>
                 <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link text-capitalize" id="cnav-resource-tab" data-toggle="tab" href="#cnav-resource" role="tab" aria-controls="cnav-resource" aria-selected="false">Resources</a></li>
-                <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link text-capitalize" id="cnav-certificate-tab" data-toggle="tab" href="#cnav-certificate" role="tab" aria-controls="cnav-certificate" aria-selected="false">Certificate</a></li>
+                
               <?php endif; ?>
             </ul>
           </nav>
@@ -278,18 +278,7 @@ use Carbon\Carbon;
               </div>
 
 
-              <div class="tab-pane fade" id="cnav-certificate" role="tabpanel" aria-labelledby="cnav-certificate-tab">
-                <div class="col-lg px-0 d-flex">
-                  <div class="col-12 col-md-6 col-lg px-0">
-                    <div class="la-ctabs__certificate d-flex">
-                      <div class="la-ctabs__certificate-pdf"><i class="la-icon--5xl icon-certificate mr-4"></i></div>
-                      <div class="la-ctabs__certificate-desc">
-                        <div class="la-ctabs__certificate-title text-lg text-uppercase">Water Color</div><a target="_blank" class="la-ctabs__certificate-file text-sm" href="/download-certificate/<?php echo e($course->id); ?>">watercolor_certificate.pdf</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
 
             <?php endif; ?>
           </div>
@@ -303,7 +292,7 @@ use Carbon\Carbon;
               <h5 class="la-ctabs__title mb-4 la-anim__stagger-item">About</h5>
                 <div class="col-12 col-lg px-0">
                   <div class="la-ctabs__about la-anim__stagger-item--x">
-                    <?php echo $course->detail; ?>
+                    <?php echo $course->short_detail; ?>
 
                     <span class="la-ctabs__about-collapse collapse" id="read_more">
                       <?php echo $course->detail; ?>
@@ -348,17 +337,7 @@ use Carbon\Carbon;
             
 
             <!-- Certificate -->
-            <div class="col-12 mb-4 px-0">
-              <h5 class="la-ctabs__title mb-4 la-anim__stagger-item">Certificate</h5>
-              <div class="col-12 col-md-6 col-lg px-0">
-                <div class="la-ctabs__certificate d-flex">
-                  <div class="la-ctabs__certificate-pdf la-anim__stagger-item--x"><i class="la-icon--xl la-ctabs__resources-download icon-certificate mr-3"></i></div>
-                  <div class="la-ctabs__certificate-desc la-anim__stagger-item--x">
-                    <div class="la-ctabs__certificate-title text-uppercase"><?php echo e($course->title); ?></div><a class="la-ctabs__certificate-file text-sm" href=""><?php echo e($course->title); ?>.pdf</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
             <?php endif; ?>
           </div>
         </div>
@@ -414,14 +393,14 @@ use Carbon\Carbon;
   <!-- Section: End-->
 
   <!-- Section: Start-->
-  
+  <?php if(!Auth::check() || Auth::check() && $course->price != null && $course->isPurchased() == null): ?>
 
   <section class="la-section__small la-section--grey la-vcourse__purchase">
     <div class="la-vcourse__purchase-inwrap container">
       <div class="row la-vcourse__purchase-row la-anim__wrap">
         
         <div class="col-md-7 col-lg-7 la-vcourse__purchase-left la-anim__stagger-item">
-          <?php if($course->isPurchased() == null || !Auth::check()): ?>
+       
             <div class="la-vcourse__purchase-prize mb-4 mb-lg-8 ">Purchase this Course for lifetime access @ <span class="la-vcourse__purchase-prize--amount"><b><?php echo e(getSymbol()); ?><?php echo e($course->convertedprice); ?></b></span></div>
             <form class="la-vcourse__purchase-form" id="add_to_cart_form" name="add_to_cart_form" method="post" action="/add-to-cart">
               <input type="hidden" name="course_id" value="<?php echo e($course->id); ?>" />
@@ -493,17 +472,13 @@ use Carbon\Carbon;
                   <a class="btn  la-btn__plain text--green w-100 text-center" <?php if(Auth::check()): ?> onclick="$('#add_to_cart_form').submit()" <?php else: ?> data-toggle="modal" data-target="#locked_login_modal" <?php endif; ?>>ADD TO CART</a>
                 </div>
               </div>
-            </form>
-          
-            <?php else: ?>
-
-              This Course is free to Watch
-            <?php endif; ?>
+            </form>              
+         
         </div>
 
         
         
-        <?php if( !(auth()->check() && auth()->user()->subscription('main') && auth()->user()->subscription('main')->active()) ): ?>
+        <?php if( !(auth()->check() && auth()->user()->subscription() && auth()->user()->subscription()->active()) ): ?>
           <div class="col-md-5 col-lg-4 offset-lg-1 px-lg-0 my-auto la-vcourse__purchase-right la-anim__wrap">
             <div class="la-vcourse__purchase-content text-center la-anim__stagger-item--x">
               <div class="la-vcourse__purchase-prize mb-8 la-anim__stagger-item--x">Subscribe for all Courses @ <span class="la-vcourse__purchase-prize--amount"><b><?php echo e($subscription_rate); ?>/month</b></span></div>
@@ -526,6 +501,7 @@ use Carbon\Carbon;
     </div>
   </section>
   
+ <?php endif; ?>
   <!-- Section: End-->
 
   <!-- Section: Start-->
@@ -700,6 +676,9 @@ use Carbon\Carbon;
                           <div class="la-lcreviews__content">
                             <div class="d-block d-md-none la-lcreviews__ratings"> <?php for($couter=1 ; $couter <= $review->rating; $couter++): ?><span class="la-icon--xl icon-star la-rtng__fill"></span><?php endfor; ?>  <?php for($couter=1 ; $couter <= 5 - $review->rating; $couter++): ?><span class="la-icon--xl icon-star la-rtng__unfill"></span><?php endfor; ?></div>
                             <div class="la-lcreviews__comment text-sm"><?php echo e($review->review); ?></div>
+                            <div class="la-lcreviews__edit-comment text-right">
+                                <a class="text-sm" href=""  role="button" style="color:var(--app-indigo-1);font-weight:var(--font-semibold)">Edit</a>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -779,9 +758,9 @@ use Carbon\Carbon;
             <?php else: ?>
 
             <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item--x ">
-              <?php $__currentLoopData = $mentor_other_courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <?php $__currentLoopData = $mentor_other_courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $mentor_other_course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                      <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => round($course->average_rating, 2),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount,'price' => $course->price,'bought' => $course->isPurchased()]); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $mentor_other_course->id,'img' => $mentor_other_course->preview_image,'course' => $mentor_other_course->title,'url' => $mentor_other_course->slug,'rating' => round($mentor_other_course->average_rating, 2),'creatorImg' => $mentor_other_course->user->user_img,'creatorName' => $mentor_other_course->user->fname,'creatorUrl' => $mentor_other_course->user->id,'learnerCount' => $mentor_other_course->learnerCount,'price' => $mentor_other_course->price,'bought' => $mentor_other_course->isPurchased()]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
@@ -817,9 +796,9 @@ use Carbon\Carbon;
           <?php else: ?>
 
             <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item--x ">
-              <?php $__currentLoopData = $related_courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <?php $__currentLoopData = $related_courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $related_course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                    <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => round($course->average_rating, 2),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount,'price' => $course->price,'bought' => $course->isPurchased()]); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $related_course->id,'img' => $related_course->preview_image,'course' => $related_course->title,'url' => $related_course->slug,'rating' => round($related_course->average_rating, 2),'creatorImg' => $related_course->user->user_img,'creatorName' => $related_course->user->fname,'creatorUrl' => $related_course->user->id,'learnerCount' => $related_course->learnerCount,'price' => $related_course->price,'bought' => $related_course->isPurchased()]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
@@ -843,7 +822,7 @@ use Carbon\Carbon;
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('footerScripts'); ?>
-  <script>var course_id = <?php echo json_encode($course->id); ?>;</script>
+  <script>var course_id = <?php echo json_encode($course_id); ?>;</script>
   <!-- video js -->
   <script src="https://unpkg.com/video.js/dist/video.js"></script>
   

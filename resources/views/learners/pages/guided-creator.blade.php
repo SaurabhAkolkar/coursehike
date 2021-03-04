@@ -40,22 +40,22 @@
   <!-- Section: End-->
   <!-- Section: Start-->
   <section class="la-page--how-this-works py-5 ">
-    <div class="container-fluid pl-0 pl-md-5 py-5">
-      <div class="row pl-4 py-5">
+    <div class="container-fluid py-5">
+      <div class="row py-5">
         <!-- Column: Start-->
-        <div class="col-12 py-5 px-0 px-sm-4 ">
-          <div class=" pl-5 la-anim__wrap ">
-            <h2 class="la-gcreator__works-title pl-1 pl-md-5 la-anim__stagger-item">How this works?</h2>
+        <div class="col-12 py-5 ">
+          <div class="la-anim__wrap ">
+            <h2 class="la-gcreator__works-title la-anim__stagger-item">How this works?</h2>
           </div>
         </div>
         <!-- Column: End-->
       </div>
-      <div class="row px-2 px-md-5 ">
+      <div class="row ">
         <!-- Column: Start-->
         <div class="col-12 col-lg-5 d-none d-lg-block la-anim__wrap">
-          <div class="la-gcreator__works mt-n5 "><img class="img-fluid mx-auto d-block img-rounded la-anim__stagger-item" src="../images/learners/creator/gcreator-1a.png" alt="Record a Video"></div>
-          <div class="la-gcreator__works mt-2 "><img class="img-fluid mx-auto d-block img-rounded la-anim__stagger-item" src="../images/learners/creator/gcreator-2a.png" alt="Edit a Video"></div>
-          <div class="la-gcreator__works mt-n5 "><img class="img-fluid mx-auto d-block img-rounded la-anim__stagger-item" src="../images/learners/creator/gcreator-3a.png" alt="Share Video"></div>
+          <div class="la-gcreator__works mt-n5 "><img class="img-fluid d-block img-rounded la-anim__stagger-item" src="../images/learners/creator/gcreator-1a.png" alt="Record a Video"></div>
+          <div class="la-gcreator__works mt-2 "><img class="img-fluid d-block img-rounded la-anim__stagger-item" src="../images/learners/creator/gcreator-2a.png" alt="Edit a Video"></div>
+          <div class="la-gcreator__works mt-n5 "><img class="img-fluid d-block img-rounded la-anim__stagger-item" src="../images/learners/creator/gcreator-3a.png" alt="Share Video"></div>
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
@@ -142,7 +142,7 @@
   <!-- Section: End-->
   <!-- Section: Start-->
   <section class="la-bgcreator--ad-banner">
-    <div class="container-fluid px-0">
+    <div class="w-100 h-100">
       <div class="row la-anim__wrap">
         <!-- Column: Start-->
         <div class="col-12  la-anim__stagger-item">
@@ -160,7 +160,7 @@
   <!-- Section: End-->
   <!-- Section: Start-->
   <section class="la-bgcreator--faq">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <!-- Column: Start-->
         <div class="col-12 px-3 px-sm-0 la-anim__wrap">

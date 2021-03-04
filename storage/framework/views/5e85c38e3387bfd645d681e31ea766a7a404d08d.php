@@ -2,7 +2,7 @@
 <section class="la-about__section">
     <div class="la-section__inner">
         <section class="la-about__top la-section__small">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row la-anim__wrap">
                     <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-3 mt-n4 mb-5 la-anim__stagger-item--x" href="<?php echo e(URL::previous()); ?>"></a>
 
@@ -59,7 +59,7 @@
                 </div>
             </div>
 
-            <div class="container la-section">
+            <div class="container-fluid la-section">
                 <div class="row">
                     <div class="col-12">
                         <div class="la-about__motto position-relative la-anim__wrap">
@@ -81,7 +81,7 @@
         </section>
 
         <section class="la-about__btm">
-            <div class="container">
+            <div class="container-fluid">
                 <!-- Our Mission: Start -->
                 <div class="row la-section la-about__btm-section">
                     <div class="col-md-7 col-lg-5">

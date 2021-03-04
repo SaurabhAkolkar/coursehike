@@ -1,8 +1,6 @@
 <?php $__env->startSection('content'); ?>
-  <!-- Section: Start-->
-  <section class="la-page--bcreator ">
-    <div class="container-fluid">
-    <?php if(session('message')): ?>
+
+<?php if(session('message')): ?>
               <div class="la-btn__alert position-relative">
                 <div class="la-btn__alert-success col-lg-4 offset-lg-4  alert alert-success alert-dismissible fade show" role="alert">
                     <span class="la-btn__alert-msg"><?php echo e(session('message')); ?></span>
@@ -13,6 +11,9 @@
               </div>
      <?php endif; ?>
           
+  <!-- Section: Start-->
+  <section class="la-page--bcreator ">
+    <div class="w-100 h-100">
       <div class="row la-anim__wrap">
         <!-- Column: Start-->
         <div class="col-12 col-sm-12 la-bcreator__banner" style="background:url('../images/learners/creator/bcreator-banner.jpg') no-repeat bottom rgba(0, 0, 0, 0.5); background-size:cover;">
@@ -135,7 +136,7 @@
   <!-- Section: End-->
   <!-- Section: Start-->
   <section class="la-start-creating ">
-    <div class="container la-dashed__vline">
+    <div class="container-fluid la-dashed__vline">
       <div class="row">
         <!-- Column: Start-->
         <div class="col-md-5 col-lg-5 py-5 py-sm-2 px-5 px-sm-2 d-flex flex-row align-items-center la-anim__wrap">
@@ -190,7 +191,7 @@
   <!-- Section: End-->
   <!-- Section: Start-->
   <section class="la-bcreator--earn py-5 mt-5 ">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <!-- Column: Start-->
         <div class="col-sm-12" id="how_you_earn">
@@ -204,7 +205,7 @@
     </div>
     
     <div class="container-fluid la-bcreator--calc-wrapper la-section__small">
-      <div class="container ">
+      <div class="container">
         <div class="row ">
           <!-- Column: Start-->
           <div class="col-lg-8 offset-lg-2 la-anim__wrap py-8">
@@ -245,7 +246,7 @@
   <!-- Section: End-->
   <!-- Section: Start-->
   <section class="la-bcreator-reach-stats">
-    <div class="container my-5 ">
+    <div class="container-fluid my-5 ">
       <div class="row">
         <!-- Column: Start-->
         <div class="col-sm-12 col-md-5">
@@ -303,7 +304,7 @@
   <!-- Section: End-->
   <!-- Section: Start-->
   <section class="la-bcreator--benefits ">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row ">
         <!-- Column: Start-->
         <div class="col-12 ">
@@ -352,7 +353,7 @@
 
   <!-- Section: Start-->
   <section class="la-bgcreator--ad-banner ">
-    <div class="container-fluid px-0">
+    <div class="w-100 h-100">
       <div class="row  la-anim__wrap">
         <!-- Column: Start-->
         <div class="col-12 la-anim__stagger-item">
@@ -377,7 +378,7 @@
 
   <!-- Section: Start-->
   <section class="la-bgcreator--faq la-anim__wrap">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <!-- Column: Start-->
         <div class="col-12 px-3 px-sm-0 la-anim__wrap">
