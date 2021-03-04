@@ -85,7 +85,14 @@
          
         <div class="la-course__btm">
             <div class="la-course__info d-flex align-items-center mb-1">
-                <a class="la-course__title" href= <?php echo e('/learn/course/'.$id.'/'.$url); ?>> <?php echo e(strlen($course)>25?substr($course,0,25).'...':$course); ?> </a>
+                <a class="la-course__creator d-inline-flex align-items-center" href= "/creator/<?php echo e($creatorUrl); ?>" >
+                    <div class="la-course__creator-imgwrap">
+                        <img class="img-fluid" src="<?php echo e($creatorImg); ?>" alt=<?php echo e($creatorName); ?> />
+                        
+                    </div>
+                    <div class="la-course__creator-name"><?php echo e($creatorName); ?></div>
+                </a>
+                
                 <div class="la-course__rating ml-auto">
                     <div class="la-rtng__pg-rtng d-inline-flex pl-3">
                         <?php if($rating == 5): ?>
@@ -130,14 +137,9 @@
                     </div>
                 </div>
             </div>
+
+            <a class="la-course__title" href= <?php echo e('/learn/course/'.$id.'/'.$url); ?>> <?php echo e(strlen($course)>25?substr($course,0,25).'...':$course); ?> </a>
             
-            <a class="la-course__creator d-inline-flex align-items-center" href= "/creator/<?php echo e($creatorUrl); ?>" >
-                <div class="la-course__creator-imgwrap">
-                    <img class="img-fluid" src="<?php echo e($creatorImg); ?>" alt=<?php echo e($creatorName); ?> />
-                    
-                </div>
-                <div class="la-course__creator-name"><?php echo e($creatorName); ?></div>
-            </a>
         </div>
     </div>
 </div>
