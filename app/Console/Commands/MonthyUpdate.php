@@ -3,6 +3,9 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\User;
+use Carbon\Carbon;
+use App\CreatorPayout;
 
 class MonthyUpdate extends Command
 {
@@ -40,21 +43,21 @@ class MonthyUpdate extends Command
 
         $mentors = User::where([['role','mentors'],['status','1']])->get();
         $creators = array();
+        $date = Carbon::now()->subMonth();
         foreach ($mentors as $mentor) {
 
-            // $mentor->push($this->payoutCalculate($mentor->id));
+            $payout =  app('App\Http\Controllers\CompletedPayoutController')->payoutCalculate($mentor);
 
             $creator = [
-                'id' => $mentor->id,
-                'name' => $mentor->fname,
-                'email' => $mentor->email,
-                'payout' => $this->payoutCalculate($mentor),
-                'month' => Carbon::now()->subMonth()->format('F'),
-                'year' => Carbon::now()->subMonth()->format('Y'),
+                'user_id' => $mentor->id,
+                'subscription_amount'=> $payout['subscribers_total_income'],
+                'course_amount' => $payout['course_sale']['total_income'],
+                'status'=> 'pending',
+                'start_date' => $date->startOfMonth()->format('Y-m-d'),
+                'end_date' =>  $date->endOfMonth()->format('Y-m-d'),
             ];
 
-            $creators[] = $creator;
-
+            CreatorPayout::create($creator);
         }
     }
 }

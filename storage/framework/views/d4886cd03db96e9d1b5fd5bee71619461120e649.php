@@ -15,29 +15,29 @@
         <div class="box-body">
             <div class="la-admin__revenue-stats">
                 <!-- SUBSCRIPTION SECTION: START -->
-                <div class="row mt-4">
-                    <div class="col-md-3">
+                <div class="row">
+                    <div class="col-6 col-md-3 mt-4">
                       <div class="la-admin__revenue-title">Active Trial Subscriptions</div>
                       <div class="la-admin__revenue-info">
                           <span class="la-admin__revenue-total"><?php echo e($trial_subscriptions); ?></span>
                           
                       </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-6 col-md-3 mt-4">
                         <div class="la-admin__revenue-title">Monthly Subscriptions</div>
                         <div class="la-admin__revenue-info">
                             <span class="la-admin__revenue-total"><?php echo e($monthly_subscriptions); ?></span>
                             <span class="la-admin__revenue-per">@ $39 each</span>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-6 col-md-3 mt-4">
                       <div class="la-admin__revenue-title">Yearly Subscriptions</div>
                       <div class="la-admin__revenue-info">
                           <span class="la-admin__revenue-total"><?php echo e($yearly_subscriptions); ?></span>
                           <span class="la-admin__revenue-per">@ $309 each</span>
                       </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-6 col-md-2 mt-4">
                       <div class="la-admin__revenue-title">Total Amount</div>
                       <div class="la-admin__revenue-info">
                           <span class="la-admin__revenue-price">$<?php echo e(($monthly_subscriptions * 39) + ($yearly_subscriptions * 309)); ?></span>
@@ -47,37 +47,27 @@
                 <!-- SUBSCRIPTION SECTION: END -->
 
                 <!-- ONE TIME SUBSCRIPTION SECTION: START -->
-                <div class="row my-md-8">
+                <div class="row ">
                   
-                  <div class="col-md-3">
+                  <div class="col-6 col-md-3 mt-4 mt-md-6">
                     <div class="la-admin__revenue-title">Courses Purchased</div>
                     <div class="la-admin__revenue-info">
                         <span class="la-admin__revenue-total"><?php echo e($courses_count); ?></span>
                     </div>
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-6 col-md-3 mt-4 mt-md-6">
                     <div class="la-admin__revenue-title">Classes Purchased</div>
                     <div class="la-admin__revenue-info">
                         <span class="la-admin__revenue-total"><?php echo e($classes_count); ?></span>
                     </div>
                   </div>
-                  <div class="col-md-2">
+                  <div class="col-6 col-md-2 mt-4 mt-md-6">
                     <div class="la-admin__revenue-title">Total Amount</div>
                       <div class="la-admin__revenue-info">
                         <span class="la-admin__revenue-price">$<?php echo e($total_earning); ?></span>
                       </div>
                   </div>
 
-                  <div class="col-md-2">
-                    <div class="la-admin__revenue-title">Dollar Price</div>
-                      <div class="la-admin__revenue-info">
-                        <form method="post" action="<?php echo e(route('update.dollar')); ?>">
-                          <?php echo csrf_field(); ?>
-                        <input type="number" class="form-control" name="price" required value="<?php echo e($settings->dollar_price); ?>" />
-                        <button type="submit" class="btn btn-sm btn-primary">Update</button>
-                        </form>
-                      </div>
-                  </div>
               </div>
               <!-- ONE TIME SUBSCRIPTION SECTION: END -->
             </div>
@@ -112,7 +102,7 @@
                       <td><?php echo e($invoice->status); ?></td>   
                       <td><?php echo e($invoice->created_at); ?></td>            
 
-                      <td><a class="btn btn-info text-capitalize font-weight-normal px-0" href="<?php echo e(route('view.order',$invoice->id)); ?>"><?php echo e(__('adminstaticword.View')); ?></a>
+                      <td><a class="btn btn-info text-capitalize font-weight-normal px-4 px-md-2" href="<?php echo e(route('view.order',$invoice->id)); ?>"><?php echo e(__('adminstaticword.View')); ?></a>
                       </td>
                     
                     </tr>
