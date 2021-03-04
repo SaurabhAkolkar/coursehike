@@ -198,9 +198,9 @@
                   <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
                   <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
                   @foreach ($categories as $category)
-                    <div class="d-none d-md-block la-courses__nav-prev la-anim__fade-in-left"><span class="la-courses__nav-prev--icon la-icon icon-arrow"></span></div>
+                    <!-- <div class="d-none d-md-block la-courses__nav-prev la-anim__fade-in-left"><span class="la-courses__nav-prev--icon la-icon icon-arrow"></span></div> -->
                       <li class="nav-item la-courses__nav-item la-anim__stagger-item--x"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative text-nowrap">{{ $category->title}}</span></a></li>
-                    <div class="d-none d-md-block  la-courses__nav-next la-anim__fade-in-right"><span class="la-courses__nav-next--icon la-icon icon-right-arrow2"></span></div>
+                    <!-- <div class="d-none d-md-block  la-courses__nav-next la-anim__fade-in-right"><span class="la-courses__nav-next--icon la-icon icon-right-arrow2"></span></div> -->
                   @endforeach
                 @endif
                 
@@ -215,7 +215,7 @@
       
             @if($filtres_applied)
                   <div class="la-anim__wrap">
-                    <div class="row row-cols-md-2 row-cols-lg-4 la-anim__stagger-item">
+                    <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item">
                                   
                         @foreach($courses as $course)
                             <x-course 
@@ -264,7 +264,7 @@
                                     }                
                                 @endphp
 
-                                <div class="row row-cols-md-2 row-cols-lg-4 la-anim__stagger-item la-anim__C">
+                                <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item la-anim__C">
                                 @foreach($courses as $course)
                                 
                                   <x-course 

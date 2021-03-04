@@ -11,7 +11,7 @@
         }
        & {
         //    width: var(--courseW);
-           margin-bottom: var(--size-9);
+           margin-bottom: var(--size-12);
        }
 
         &s {
@@ -257,34 +257,33 @@
                 transition: transform 0.24s ease-out;-webkit-transition: transform 0.24s ease-out;-moz-transition: transform 0.24s ease-out;
                 overflow: hidden;
                 width:100%;
-                height:180px;
+                height:250px;
 
                 &:hover{
                     border-radius: var(--size-2);-webkit-border-radius: var(--size-2);-moz-border-radius: var(--size-2);
                 }
-                @include respond-above(lg){
-                    height:230px;
+                @media(min-width:1920px){
+                    height:320px;
                 }
                 @include respond-below(md){
-                    height:200px;
+                    height:230px;
                 }
 
                 img {
                     object-fit:cover;
                     width: 100%;
-                    height: 180px;
+                    height: 250px;
                     border-radius: var(--size-2);-webkit-border-radius: var(--size-2);-moz-border-radius: var(--size-2);
                     transition: transform 0.24s ease-out;-webkit-transition: transform 0.24s ease-out;-moz-transition: transform 0.24s ease-out;
                 
                     &:hover{
                         border-radius: var(--size-2);-webkit-border-radius: var(--size-2);-moz-border-radius: var(--size-2);
                     }   
-                    
-                    @include respond-above(lg){
-                        height:230px;
+                    @media(min-width:1920px){
+                        height:320px;
                     }
                     @include respond-below(md){
-                        height:200px;
+                        height:230px;
                     }
                 }
             }

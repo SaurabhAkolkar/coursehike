@@ -51,7 +51,7 @@
 
     @include respond-below(sm){
         width:100%;
-        height:500px;
+        height:600px;
         //mask-size:350px 350px;
         //-webkit-mask-size:350px 350px;
         //margin:0 auto var(--size-6) auto;
@@ -75,8 +75,13 @@
     padding:0 var(--size-6);
 }
 .la-home__bestprice{
+    font-size:var(--text-md);
     sup{
-        color:var(--green);
+        color:var(--white);
+        font-weight:var(--font-light);
+    }
+    small{
+        font-weight: var(--font-medium);
     }
 }
 .la-home__realprice{
@@ -102,11 +107,34 @@
 .la-home__course-mtitle{
     color:var(--app-indigo-1);
     font-weight:var(--font-extrabold);
-    font-size:var(--text-5xl);
+    font-size:var(--text-4xl);
+    margin-bottom:var(--size-8);
+
+    @include respond-above(md){
+        font-size:var(--text-5xl);
+        margin-bottom:var(--size-14);
+    }
 }
 .la-home__course-container{
     width:100%;
     height:100%;
+}
+.la-home__course-pagination{
+    .swiper-pagination-bullet{
+		background:var(--gray6);
+		border-radius:50%;
+		opacity:0.4 !important;
+		margin-right:var(--size-base);
+	}
+	.swiper-pagination-bullet-active{
+		background-color:var(--yellow);
+        opacity: 1 !important;
+	}
+
+    @include respond-below(lg){
+        left: 45%;
+        bottom:-10px;
+    }
 }
 .la-home__course-prev, .la-home__course-next{
     background-color:var(--gray2);
@@ -129,17 +157,59 @@
 }
 .la-home__course-next{
     right:-45px;
-    top:35%;
+    top:33%;
+
+    @include respond-below(lg){
+        display:none;
+    }
 }
 .la-home__course-prev{
     left:-45px;
-    top:35%;
+    top:33%;
+
+    @include respond-below(lg){
+        display:none;
+    }
 }
 
 //- Master Class Carousel
 .la-home__master-container{
     width:100%;
     height:100%;
+}
+.la-home__master-slide{
+   height:100%;
+
+    @include respond-above(lg){
+        height:450px;
+    }
+    @include respond-below(sm){
+        width:80% !important;
+    }
+}
+.la-home__master-pagination{
+    margin-top:var(--size-16);
+    left: 50%;
+    bottom:-20px;
+
+	.swiper-pagination-bullet{
+		background:#ffffff;
+		border-radius:50%;
+		opacity:0.4 !important;
+		margin-right:var(--size-base);
+	}
+	.swiper-pagination-bullet-active{
+		background-color:#fff;
+        opacity: 1 !important;
+	}
+
+    @include respond-below(sm){
+        left: 45%;
+        bottom:-20px;
+    }
+    @include respond-above(lg){
+        display:none;
+    }
 }
 .la-home__master-prev, .la-home__master-next{
     background-color:var(--gray2);
@@ -162,16 +232,42 @@
 }
 .la-home__master-next{
     right:-60px;
-    top:45%;
+    top:48%;
+
+    @media(min-width:1200px){
+        right:-60px;
+        top:48%;
+    }
+    @media(max-width:1199px){
+        display: none;
+    }
 }
 .la-home__master-prev{
     left:-60px;
-    top:45%;
+    top:48%;
+
+    @media(min-width:1200px){
+        left:-60px;
+        top:48%;
+    }
+    @media(max-width:1199px){
+        display: none;
+    }
 }
 
 //- Customize Section
+.la-home__customize-fluid{
+    @include respond-above(sm){
+        padding-right:0 !important;
+    }
+}
 .la-home__section-customize{
-    background-color:rgba(115, 34, 183, 0.85);
+    background-color:rgba(115, 34, 183, 0.75);
+}
+.la-home__customize{
+    @include respond-below(md){
+        padding-bottom:var(--size-12);
+    }
 }
 .la-home__customize-title{
     color:var(--white);
@@ -183,17 +279,13 @@
 .la-home__customize-container{
     width:100%;
     height:100%;
+    margin-bottom:var(--size-10);
 }
 .la-home__customize-slide{
-    width:80%;
-
-    &:nth-child(2n){
-        width:40%;
-    }
+    width:100%;
 }
 .la-home__customize-pagination{
-	right: 40px !important;
-    margin-top:var(--size-10);
+    right: 40px !important;
 
 	.swiper-pagination-bullet{
 		background:#ffffff;
@@ -205,10 +297,15 @@
 		background-color:#fff;
         opacity: 1 !important;
 	}
+
+    @include respond-above(lg){
+        right: 80px !important;
+    }
 }
 .la-home__customize-info img{
     width:100%;
-    height:350px;
+    height:100%;
+    border-radius: 10px;
 }
 .la-home__customize-infotitle{
     color:var(--yellow);
@@ -221,5 +318,14 @@
 
     @include respond-above(lg){
         padding-right:var(--size-16);
+    }
+}
+
+//- Learn Section
+.la-home__learn{
+    z-index:10;
+
+    @include respond-below(md){
+        padding-bottom:var(--size-12);
     }
 }

@@ -12,7 +12,7 @@
 
         & {
             --mentor-profileW: 100%;
-            --mentor-profileH: 250px;
+            --mentor-profileH: 300px;
 
             &__ {
                 &profile {
@@ -34,6 +34,7 @@
                         -ms-transition: all 0.25s ease-out;
                         -o-transition: all 0.25s ease-out;   
                         object-fit: cover;
+                        object-position: 50% 50%;
                         background-color:var(--white);  
                         border-radius: var(--size-2);
                         -webkit-border-radius: var(--size-2);

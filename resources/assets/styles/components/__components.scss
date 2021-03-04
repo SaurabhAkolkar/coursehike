@@ -49,8 +49,10 @@
                 //overflow-x:hidden;
             }
             &artists{
+                padding-top:calc(var(--size-20) * 2);
+
                 @include respond-below(md){
-                    padding:var(--size-20) 0;
+                    padding-top:var(--size-20);
                 }
             }
         }
@@ -92,6 +94,9 @@
                         @include respond-above(md){
                             font-size:calc(var(--text-6xl) + var(--text-2xl));
                         }
+                    }
+                    &dark{
+                        color:#3B3B3A;
                     }
                 }
 
@@ -145,6 +150,11 @@
                     left: -24%;
                 }
 
+                &-{
+                    &learn{
+                        top:-70% !important;
+                    }
+                }
                
                 // bottom: -34%;
                 // left: -24%;
@@ -196,6 +206,13 @@
             &grey {
                 background-color: var(--gray);
             }
+            &dark{
+                background-color:var(--gray3);
+
+                @include respond-below(sm){
+                    padding:var(--size-20) 0;
+                }
+            }
             &hero {
                 display: flex;
                 flex-direction: column;
@@ -218,7 +235,7 @@
 
     // SpecialOffer: Start
     &soffer {
-        margin-left: var(--size-8);
+        //margin-left: var(--size-8);
 
         &__ {
             &bestprice {

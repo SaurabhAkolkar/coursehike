@@ -46,9 +46,9 @@ $course_id = $course->id;
 
 <section class="la-section__small">
     <div class="la-vcourse">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row  mb-12  la-anim__wrap"> 
-          <div class="col-12 col-md-7 col-lg-7">
+          <div class="col-12 col-md-7 col-lg-8">
             <div class="la-vcourse__header d-flex align-items-center ">
               <h1 class="la-vcourse__title  text-capitalize la-anim__fade-in-top"><?php echo e($course->title); ?></h1>
               
@@ -71,12 +71,21 @@ $course_id = $course->id;
             </div>
           </div>
           
-          <div class="col-12 col-md-5 col-lg-5 pt-10 pt-md-1 d-flex flex-column justify-content-start align-items-center align-items-md-end la-anim__wrap">
+          <div class="col-12 col-md-5 col-lg-4 pt-10 pt-md-1 d-flex flex-column justify-content-start align-items-center align-items-md-end la-anim__wrap">
             
-              <div class="la-vcourse__buy text-right mb-6 mb-md-12 la-anim__stagger-item--x">
+              <div class="la-vcourse__buy text-center mb-6 mb-md-12 la-anim__stagger-item--x">
                 <?php if( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription()) || (auth()->check() && !Auth::User()->subscription()->active())  ) ): ?>
                   <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end" href="/learning-plans">Subscribe Now</a>
                 <?php endif; ?>
+
+                <div class="text-center la-anim__stagger-item--x">
+                  <div class="la-vcourse__buy-complete mb-1">
+                    <span class="pr-2" style="color:var(--green)">100%</span> <span style="color:var(--gray8)"> Completed</span>
+                  </div>
+                  <div class="progress la-rtng__progress w-100"> 
+                    <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:100%" aria-valuenow="<?php echo e($five_rating_percentage); ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
               </div>
 
             <div class="la-vcourse__info-items d-flex align-items-center justify-content-end la-anim__stagger-item--x">
@@ -219,7 +228,7 @@ $course_id = $course->id;
   <!-- Section: Start-->
   <section class="la-section__small">
     <div class="la-section__inner">
-      <div class="container">
+      <div class="container-fluid">
         <div class="la-ctabs d-none d-sm-block la-anim__wrap">
           <nav class="la-courses__nav la-anim__stagger-item--x">
             <ul class="nav nav-pills la-courses__nav-tabs " id="cnav-tab" role="tablist">
@@ -349,7 +358,7 @@ $course_id = $course->id;
   <!-- Section: Start-->
   <section class="la-section__small ">
     <div class="la-section__inner">
-      <div class="container">
+      <div class="container-fluid">
           <div class="row">
             <div class="col">
               <div class="la-lp__benefits la-anim__wrap">
@@ -396,7 +405,7 @@ $course_id = $course->id;
   <?php if(!Auth::check() || Auth::check() && $course->price != null && $course->isPurchased() == null): ?>
 
   <section class="la-section__small la-section--grey la-vcourse__purchase">
-    <div class="la-vcourse__purchase-inwrap container">
+    <div class="la-vcourse__purchase-inwrap container-fluid">
       <div class="row la-vcourse__purchase-row la-anim__wrap">
         
         <div class="col-md-7 col-lg-7 la-vcourse__purchase-left la-anim__stagger-item">
@@ -507,7 +516,7 @@ $course_id = $course->id;
   <!-- Section: Start-->
   <section class="la-section__small">
     <div class="la-section__inner">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-lg-12">
             <li class="la-rtng__item">
@@ -600,7 +609,7 @@ $course_id = $course->id;
                 </div>
 
                 <div class="la-rtng__review-popup la-anim__wrap">
-                  <a class="la-rtng__review text-uppercase text-center text-md-right text-nowrap la-anim__stagger-item" data-toggle="modal" data-target="#leave_rating">Leave a Review</a>
+                  <a class="la-rtng__review text-uppercase text-center text-md-right text-nowrap la-anim__stagger-item" onclick="openReview()">Leave a Review</a>
 
                   <!-- Leave a Rating Popup: Start -->
                   <div class="modal fade la-rtng__review-modal" id="leave_rating">
@@ -637,13 +646,55 @@ $course_id = $course->id;
                         </div>
                     </div>
                   </div>
+
+                  
+
+                      <div class="modal fade la-rtng__review-modal" id="edit_rating">
+                        <div class="modal-dialog la-rtng__review-dialog">
+                            <div class="modal-content la-rtng__review-content">
+                                <div class="modal-header la-rtng__review-header">
+                                    <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
+                                </div>
+                                
+                                <div class="modal-body la-rtng__review-body">
+                                      <form action="<?php echo e(route('update.review')); ?>" method="post" id="edit_rate_form" name="edit_rate_form">
+                                          <?php echo csrf_field(); ?>
+                                          <?php echo e(method_field('PUT')); ?>
+
+                                          <div class="la-rtng__review-top">
+                                              <h6 class="la-rtng__review-title">Update Review</h6>
+                                              <div class="la-rtng__review-stars">
+                                                  <div class="starRatingContainer">
+                                                      <div class="rate2 text-2xl" style="color:#FFC516"></div>
+                                                      <input id="rating_value_input" class="border-0">
+                                                      <input type="hidden" name="rating_id" id="rating_id" />
+                                                      <input type="hidden" name="course_id" value="" id="rating_course_id"  class="border-0">
+                                                      <input id="input2" type="hidden" name="rating_value" type="text">
+                                                  </div>
+                                              </div>
+                                          </div>
+
+                                          <div class="la-rtng__review-btm py-8">
+                                              <h6 class="la-rtng__review-title">Review</h6>
+                                              <textarea cols="38" rows="5" class="la-form__textarea" name="review" id="update_review_input" placeholder="Type your Review here..."></textarea>
+                                          </div>
+
+                                          <div class="text-right">
+                                            <a role="button" class="la-rtng__review-btn" onclick="$('#edit_rate_form').submit()">Update Review</a>
+                                          </div>
+                                      </form>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                  
                   <!-- Leave a Rating Popup: End -->
                 </div>
               </div>
             </li>
           </div>
           <div class="col-12 pt-4 pt-md-12">
-            <div class="la-mcard__slider-wrap la-anim__wrap">
+            <div class="la-mcard__slider-wrap la-anim__wrap px-0">
               <div class="swiper-container h-100 la-lcreviews__container">
                 <div class="swiper-wrapper la-lcreviews__wrapper"> 
               
@@ -677,7 +728,7 @@ $course_id = $course->id;
                             <div class="d-block d-md-none la-lcreviews__ratings"> <?php for($couter=1 ; $couter <= $review->rating; $couter++): ?><span class="la-icon--xl icon-star la-rtng__fill"></span><?php endfor; ?>  <?php for($couter=1 ; $couter <= 5 - $review->rating; $couter++): ?><span class="la-icon--xl icon-star la-rtng__unfill"></span><?php endfor; ?></div>
                             <div class="la-lcreviews__comment text-sm"><?php echo e($review->review); ?></div>
                             <div class="la-lcreviews__edit-comment text-right">
-                                <a class="text-sm" href=""  role="button" style="color:var(--app-indigo-1);font-weight:var(--font-semibold)">Edit</a>
+                              <?php if(Auth::user()->id == $review->user_id): ?><a class="text-sm"  role="button" onclick="editReview(<?php echo e($review->id); ?>, <?php echo e($review->course_id); ?>, '<?php echo e($review->review); ?>', <?php echo e($review->rating); ?>)" class="la-empty__browse" style="color:var(--app-indigo-1);font-weight:var(--font-semibold)">Edit</a><?php endif; ?>
                             </div>
                           </div>
                         </div>
@@ -698,7 +749,7 @@ $course_id = $course->id;
   <!-- Section: Start-->
   <section class="la-section__small la-creator__section">
     <div class="la-section__inner pb-md-10">
-      <div class="container ">
+      <div class="container-fluid">
         <div class="la-anim__wrap">
           <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">Creator</h2>
         </div>
@@ -740,7 +791,7 @@ $course_id = $course->id;
   <!-- Section: Start-->
   <section class="la-section__small la-section--grey">
     <div class="la-section__inner">
-      <div class="container la-anim__wrap">
+      <div class="container-fluid la-anim__wrap">
         <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">More from Creators</h2>
         
           <?php if(count($mentor_other_courses) == 0): ?>
@@ -782,7 +833,7 @@ $course_id = $course->id;
   <!-- Section: Start-->
   <section class="la-section__small la-section--grey">
     <div class="la-section__inner">
-      <div class="container la-anim__wrap">
+      <div class="container-fluid la-anim__wrap">
         <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">Looking for something else?</h2>
                 
           <?php if(count($related_courses) == 0): ?>
@@ -836,17 +887,7 @@ $course_id = $course->id;
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   <script src="/js/scripts/video-progress-log.js"></script>
   <script>
-            var options = {
-                max_value: 5,
-                step_size: 1,
-                url: '/',
-                initial_value: 3,
-                update_input_field_name: $("#input2, #rating_value_input, #rating_value_input2, #input3"),
-            }
-            // $('#input2').change(function(){   
-            //     $('#reating_value_input').val($this.val());
-            // });
-            $(".rate2").rate(options);
+          
 
             $("form[name='rate_course_form']").validate({
       
@@ -926,6 +967,45 @@ $course_id = $course->id;
                     }
                 });
               
+              function openReview(){
+
+                  var options = {
+                  max_value: 5,
+                  step_size: 1,
+                  url: '/',
+                  initial_value: 3,
+                  update_input_field_name: $("#input2, #rating_value_input, #rating_value_input2, #input3"),
+                  };
+
+                  $(".rate2").rate(options);
+                  $('#leave_rating').modal('show');
+
+              }
+
+              function editReview(review_id, course_id, review, rating_value){
+
+                  $('#rating_id').val(review_id);
+                  $('#rating_course_id').val(course_id);
+                  $('#update_review_input').val(review);
+
+                  var options = {
+                    max_value: 5,
+                    step_size: 1,
+                    url: '/',
+                    initial_value: rating_value,
+                    update_input_field_name: $("#input2, #rating_value_input, #rating_value_input2, #input3"),
+                  }
+                // $('#input2').change(function(){   
+                //     $('#reating_value_input').val($this.val());
+                // });
+                $(".rate2").rate(options);
+
+                $('#edit_rating').modal('show');
+               
+              }
+
+  
+
 
 
   </script>

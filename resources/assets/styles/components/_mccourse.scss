@@ -5,8 +5,8 @@
         // --mccourse-height: 310px;
 
         @media screen and (min-width:  var(--breakpoint-md)) {
-            --mccourse-width: 474px;
-            --mccourse-height: 310px;
+            --mccourse-width: 350px;
+            --mccourse-height: 450px;
 
         }
 
@@ -55,20 +55,21 @@
         &__ {
             &imgwrap{
                 transition: all 0.24s ease-out;-webkit-transition: all 0.24s ease-out;-moz-transition: all 0.24s ease-out;
-                height: 420px;
+                height: 450px;
+                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
 
                 @include respond-below(md){
-                    height:220px;
+                   // height:220px;
                 }
 
                 img{
                     width:100%;
-                    height:420px;
+                    height:450px;
                     object-fit: cover;
                     object-position:center;
 
                     @include respond-below(md){
-                        height:220px;
+                        //height:220px;
                     }
                 }
             }
@@ -81,9 +82,10 @@
                 height: 100%;
                 top: 0;
                 left: 0;
-                background: transparent linear-gradient(rgba(0, 0, 0, 0.54) 0%, rgba(152, 152, 152, 0.25) 49.54%, rgba(0, 0, 0, 0.79) 100%);
-                -webkit-background: transparent linear-gradient(rgba(0, 0, 0, 0.54) 0%, rgba(152, 152, 152, 0.25) 49.54%, rgba(0, 0, 0, 0.79) 100%);
-                -moz-background: transparent linear-gradient(rgba(0, 0, 0, 0.54) 0%, rgba(152, 152, 152, 0.25) 49.54%, rgba(0, 0, 0, 0.79) 100%);
+                background:rgba(0,0,0,0.4);
+                //background: transparent linear-gradient(rgba(0, 0, 0, 0.54) 0%, rgba(152, 152, 152, 0.25) 49.54%, rgba(0, 0, 0, 0.79) 100%);
+                //-webkit-background: transparent linear-gradient(rgba(0, 0, 0, 0.54) 0%, rgba(152, 152, 152, 0.25) 49.54%, rgba(0, 0, 0, 0.79) 100%);
+                //-moz-background: transparent linear-gradient(rgba(0, 0, 0, 0.54) 0%, rgba(152, 152, 152, 0.25) 49.54%, rgba(0, 0, 0, 0.79) 100%);
                 // opacity: 0.66;
                 padding: var(--size-3);
                 color: #fff;

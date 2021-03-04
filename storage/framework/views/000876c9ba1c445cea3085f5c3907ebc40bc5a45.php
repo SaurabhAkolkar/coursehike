@@ -33,8 +33,8 @@
           //$mentors = array($mentor1, $mentor2, $mentor3, $mentor4, $mentor5, $mentor6, $mentor7, $mentor8, $mentor9);
         ?>
 
-        <div class="la-mentors pt-4 pt-md-10">
-          <div class="row la-anim__wrap">
+        <div class="la-mentors ">
+          <div class="row la-anim__wrap pt-4 pt-lg-10">
               
                 <?php $__currentLoopData = $mentors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $mentor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                      <?php if (isset($component)) { $__componentOriginal002e1005d7efb18a57460cdde7b338f8c4c0068d = $component; } ?>

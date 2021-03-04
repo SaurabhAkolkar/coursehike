@@ -379,6 +379,9 @@
                         padding-bottom:var(--size-4);
                     }
 
+                    &.active{
+                        background-color:var(--gray);
+                    }
                     &:hover {
                         background: var(--gray);
 

@@ -40,9 +40,9 @@ $course_id = $course->id;
 
 <section class="la-section__small">
     <div class="la-vcourse">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row  mb-12  la-anim__wrap"> 
-          <div class="col-12 col-md-7 col-lg-7">
+          <div class="col-12 col-md-7 col-lg-8">
             <div class="la-vcourse__header d-flex align-items-center ">
               <h1 class="la-vcourse__title  text-capitalize la-anim__fade-in-top">{{ $course->title }}</h1>
               {{-- <div class="la-vcourse__badges la-anim__stagger-item">
@@ -67,12 +67,21 @@ $course_id = $course->id;
             </div>
           </div>
           
-          <div class="col-12 col-md-5 col-lg-5 pt-10 pt-md-1 d-flex flex-column justify-content-start align-items-center align-items-md-end la-anim__wrap">
+          <div class="col-12 col-md-5 col-lg-4 pt-10 pt-md-1 d-flex flex-column justify-content-start align-items-center align-items-md-end la-anim__wrap">
             
-              <div class="la-vcourse__buy text-right mb-6 mb-md-12 la-anim__stagger-item--x">
+              <div class="la-vcourse__buy text-center mb-6 mb-md-12 la-anim__stagger-item--x">
                 @if ( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription()) || (auth()->check() && !Auth::User()->subscription()->active())  ) )
                   <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end" href="/learning-plans">Subscribe Now</a>
                 @endif
+
+                <div class="text-center la-anim__stagger-item--x">
+                  <div class="la-vcourse__buy-complete mb-1">
+                    <span class="pr-2" style="color:var(--green)">100%</span> <span style="color:var(--gray8)"> Completed</span>
+                  </div>
+                  <div class="progress la-rtng__progress w-100"> 
+                    <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:100%" aria-valuenow="{{$five_rating_percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
               </div>
 
             <div class="la-vcourse__info-items d-flex align-items-center justify-content-end la-anim__stagger-item--x">
@@ -218,7 +227,7 @@ $course_id = $course->id;
   <!-- Section: Start-->
   <section class="la-section__small">
     <div class="la-section__inner">
-      <div class="container">
+      <div class="container-fluid">
         <div class="la-ctabs d-none d-sm-block la-anim__wrap">
           <nav class="la-courses__nav la-anim__stagger-item--x">
             <ul class="nav nav-pills la-courses__nav-tabs " id="cnav-tab" role="tablist">
@@ -366,7 +375,7 @@ $course_id = $course->id;
   <!-- Section: Start-->
   <section class="la-section__small ">
     <div class="la-section__inner">
-      <div class="container">
+      <div class="container-fluid">
           <div class="row">
             <div class="col">
               <div class="la-lp__benefits la-anim__wrap">
@@ -413,7 +422,7 @@ $course_id = $course->id;
   @if(!Auth::check() || Auth::check() && $course->price != null && $course->isPurchased() == null)
 
   <section class="la-section__small la-section--grey la-vcourse__purchase">
-    <div class="la-vcourse__purchase-inwrap container">
+    <div class="la-vcourse__purchase-inwrap container-fluid">
       <div class="row la-vcourse__purchase-row la-anim__wrap">
         {{-- Purchase Course DIV:Start --}}
         <div class="col-md-7 col-lg-7 la-vcourse__purchase-left la-anim__stagger-item">
@@ -524,7 +533,7 @@ $course_id = $course->id;
   <!-- Section: Start-->
   <section class="la-section__small">
     <div class="la-section__inner">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-lg-12">
             <li class="la-rtng__item">
@@ -701,7 +710,7 @@ $course_id = $course->id;
             </li>
           </div>
           <div class="col-12 pt-4 pt-md-12">
-            <div class="la-mcard__slider-wrap la-anim__wrap">
+            <div class="la-mcard__slider-wrap la-anim__wrap px-0">
               <div class="swiper-container h-100 la-lcreviews__container">
                 <div class="swiper-wrapper la-lcreviews__wrapper"> 
               
@@ -756,7 +765,7 @@ $course_id = $course->id;
   <!-- Section: Start-->
   <section class="la-section__small la-creator__section">
     <div class="la-section__inner pb-md-10">
-      <div class="container ">
+      <div class="container-fluid">
         <div class="la-anim__wrap">
           <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">Creator</h2>
         </div>
@@ -798,7 +807,7 @@ $course_id = $course->id;
   <!-- Section: Start-->
   <section class="la-section__small la-section--grey">
     <div class="la-section__inner">
-      <div class="container la-anim__wrap">
+      <div class="container-fluid la-anim__wrap">
         <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">More from Creators</h2>
         
           @if(count($mentor_other_courses) == 0)
@@ -843,7 +852,7 @@ $course_id = $course->id;
   <!-- Section: Start-->
   <section class="la-section__small la-section--grey">
     <div class="la-section__inner">
-      <div class="container la-anim__wrap">
+      <div class="container-fluid la-anim__wrap">
         <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">Looking for something else?</h2>
                 
           @if(count($related_courses) == 0)

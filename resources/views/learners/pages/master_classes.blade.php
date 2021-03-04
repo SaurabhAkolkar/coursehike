@@ -21,7 +21,7 @@
       <div class="row">
         <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2" href="{{URL::previous()}}"></a>
         <div class="col-12 px-0 d-flex justify-content-between la-anim__wrap">  
-          <h1 class="la-page__title mb-16 mb-md-8 la-anim__stagger-item">Master Classes</h1>
+          <h1 class="la-page__title mb-16 mb-md-12 la-anim__stagger-item">Master Classes</h1>
                 
 
           <a class="la-icon--2xl icon-filter d-none d-lg-none" id="filterCourses" role="button"></a>
@@ -116,38 +116,42 @@
         </div> 
       </div> 
 
-            <div class="row la-section la-anim__wrap">
-                <div class="col-12 ">
+            <div class="row  la-anim__wrap">
+                <div class="col-12 px-0">
                 
-                    <div class="la-mccourses py-4">
-                      <div class="row justify-content-center px-0 la-anim__stagger la-anim__A">
+                    <div class="la-mccourses la-section">
+                      <div class="la-anim__stagger-item la-anim__A">
 
-                      @if(count($master_classes) == 0)
-                      <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mx-5 mt-0 mt-md-6">
-                          <div class="la-empty__inner">
-                              <h6 class="col la-empty__course-title text-xl la-anim__stagger-item">No master classes Found! </h6>
-                          </div>
-                          <div class="col text-md-right la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
-                              <a href="/browse/courses" class="la-empty__browse">
-                                  Browse Courses
-                                  <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
-                              </a>
-                          </div>
-                      </div>  
+                        @if(count($master_classes) == 0)
+                        <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mx-5 mt-0 mt-md-6">
+                            <div class="la-empty__inner">
+                                <h6 class="col la-empty__course-title text-xl la-anim__stagger-item">No master classes Found! </h6>
+                            </div>
+                            <div class="col text-md-right la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
+                                <a href="/browse/courses" class="la-empty__browse">
+                                    Browse Courses
+                                    <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                                </a>
+                            </div>
+                        </div>  
 
-                      @else
-                          <div class="row row-cols-md-6 row-cols-lg-4">
-                          @foreach ($master_classes as $master)
-                              <x-master-class
-                              :img="$master->preview_image"
-                              :title="$master->title"
-                              :profileImg="$master->user->user_img"
-                              :profileName="$master->user->fullName"
-                              :learners="$master->learnerCount"
-                              :id="$master->id"
-                              :slug="$master->slug"
-                              />
-                          @endforeach
+                        @else
+                          
+                            <div class="row row-cols-md-3 row-cols-lg-4">
+                              @foreach ($master_classes as $master)
+                                <div class="col-12">
+                                  <x-master-class
+                                  :img="$master->preview_image"
+                                  :title="$master->title"
+                                  :profileImg="$master->user->user_img"
+                                  :profileName="$master->user->fullName"
+                                  :learners="$master->learnerCount"
+                                  :id="$master->id"
+                                  :slug="$master->slug"
+                                  />
+                                  </div>
+                              @endforeach
+                           
                           </div>
                       @endif
                           

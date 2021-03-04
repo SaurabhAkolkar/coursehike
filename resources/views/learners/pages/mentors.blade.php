@@ -35,8 +35,8 @@
           //$mentors = array($mentor1, $mentor2, $mentor3, $mentor4, $mentor5, $mentor6, $mentor7, $mentor8, $mentor9);
         @endphp
 
-        <div class="la-mentors pt-4 pt-md-10">
-          <div class="row la-anim__wrap">
+        <div class="la-mentors ">
+          <div class="row la-anim__wrap pt-4 pt-lg-10">
               
                 @foreach($mentors as $mentor)
                     <x-mentor :img="$mentor->user_img" :id="$mentor->id" :name="$mentor->fname.' '.$mentor->lname" :skill="$mentor->skill" />
