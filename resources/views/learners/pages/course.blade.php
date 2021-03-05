@@ -145,28 +145,23 @@ $course_id = $course->id;
         </div>
         <div id="vcourse_row" class="row la-vcourse__class-row  la-anim__wrap">
           <div class="col-12 col-lg-6 la-vcourse__class-col px-0 px-md-4 la-anim__stagger-item">
-            <div class="la-player la-vcourse__video-wrap mb-3  ">
-              <video-js
-                id="lila-video"
-                class="la-vcourse__video video-js"
-                controls
-                preload="auto"
-                width="100%"
-                height="100%"
-                poster="{{ $course->preview_image }}"
-                data-setup="{}"
-                type="application/x-mpegURL" 
-              >
-                <source src="{{ $course->getSignedStreamURL()}}" type="application/x-mpegURL" />
-                {{-- <source src="http://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8" type="application/x-mpegURL"> --}}
-                <p class="vjs-no-js">
-                  {{-- To view this video please enable JavaScript, and consider upgrading to a
-                  web browser that
-                  <a href="https://videojs.com/html5-video-support/" target="_blank"
-                    >supports HTML5 video</a
-                  > --}}
-                </p>
-              </video-js>
+            <div class="la-player la-vcourse__video-wrap mb-3">
+              
+                <video-js
+                  id="lila-video"
+                  class="la-vcourse__video video-js"
+                  controls
+                  preload="auto"
+                  width="100%"
+                  height="100%"
+                  poster="{{ $course->preview_image }}"
+                  data-setup="{}"
+                  type="application/x-mpegURL" 
+                >
+                  <source src="{{ $course->getSignedStreamURL()}}" type="application/x-mpegURL" />
+                  <p class="vjs-no-js"></p>
+                </video-js>
+              
             </div>
             <h2 class="la-vlesson__title m-0  text-capitalize la-anim__stagger-item">{{ $course->title}} - Course Preview</h2>
             <small class="la-vlesson__creator text-capitalize la-anim__stagger-item">{{ $course->user->fname }}</small>
@@ -187,7 +182,7 @@ $course_id = $course->id;
 
                   @foreach ($class->courseclass as $class_video)
                     @php
-                      $lesson_access = $class_video->is_preview == '1' ? 'free' : ($video_access ? 'free' : 'locked');  
+                      // $lesson_access = $class_video->is_preview == '1' ? 'free' : ($video_access ? 'free' : 'locked');  
                       if($class_video->is_preview == '1')       
                         $lesson_access = 'free';
                       else{

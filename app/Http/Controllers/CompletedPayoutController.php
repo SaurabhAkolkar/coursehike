@@ -63,8 +63,8 @@ class CompletedPayoutController extends Controller
     public function payoutCalculate($creator)
     {
         $creator_userid = $creator->id;
-        $start = new Carbon('first day of last month');
-        $end = new Carbon('last day of last month');
+        $start = new Carbon('first day of this month');
+        $end = new Carbon('last day of this month');
 
         $watch_logs =  UserWatchTime::whereHas('courses', function($query) use($creator_userid){
             $query->where('user_id', $creator_userid);
