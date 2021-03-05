@@ -27,14 +27,14 @@
                       </div>
                     </div>
                     <div class="col-6 col-md-3 mt-4">
-                        <div class="la-admin__revenue-title">Monthly Subscriptions</div>
+                        <div class="la-admin__revenue-title">Active Monthly Subscriptions</div>
                         <div class="la-admin__revenue-info">
                             <span class="la-admin__revenue-total">{{$monthly_subscriptions}}</span>
                             <span class="la-admin__revenue-per">@ $39 each</span>
                         </div>
                     </div>
                     <div class="col-6 col-md-3 mt-4">
-                      <div class="la-admin__revenue-title">Yearly Subscriptions</div>
+                      <div class="la-admin__revenue-title">Active Yearly Subscriptions</div>
                       <div class="la-admin__revenue-info">
                           <span class="la-admin__revenue-total">{{$yearly_subscriptions}}</span>
                           <span class="la-admin__revenue-per">@ $309 each</span>
