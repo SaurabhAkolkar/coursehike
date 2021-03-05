@@ -94,10 +94,15 @@ $(function(){
   // Swiper JS for Browse Courses in Homepage
   if($('.la-home__course-container')[0]){
     var swiper = new Swiper('.la-home__course-container', {
-      slidesPerView: 3,
-      spaceBetween: 30,
+      slidesPerView: 'auto',
+      spaceBetween: 25,
+      loop: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
       pagination: {
-        el: '.la-home__course-pagination',
+        el: '.la-home__course-paginations',
         clickable: true,
       },
       navigation: {
@@ -122,8 +127,13 @@ $(function(){
   // Swiper JS for Master Classes in Homepage
   if($('.la-home__master-container')[0]){
     var swiper = new Swiper('.la-home__master-container', {
-      slidesPerView: 4,
+      slidesPerView: 'auto',
       spaceBetween: 25,
+      loop: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
       pagination: {
         el: '.la-home__master-pagination',
         clickable: true,
@@ -429,7 +439,7 @@ $(function(){
       trigger: ".la-header",
       start: "80px top",
       toggleActions: "restart none reset none"
-    }, boxShadow:"rgba(202, 202, 202, 0.40) 0px 0px 10px 10px"
+    }, boxShadow:"rgba(0, 0, 0, 0.14) 0px 0px 10px 6px"
   })
 
   

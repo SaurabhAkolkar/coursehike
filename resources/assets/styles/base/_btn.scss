@@ -57,7 +57,8 @@
                 &.font-weight--medium {
                     font-weight: var(--font-medium);
                 }
-                &.font-weight--semibold {
+                &.font-weight--semibold,
+                &.font-weight--semibold a {
                     font-weight: var(--font-semibold);
                 }
                 &.font-weight--bold {
