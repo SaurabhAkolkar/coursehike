@@ -238,7 +238,7 @@ class UserController extends Controller
         $data = $this->validate($request, [
             'fname' => 'required',
             'lname' => 'required',
-            'mobile' => 'required|regex:/[0-9]{9}/',
+            // 'mobile' => 'required|regex:/[0-9]{9}/',
             'address' => 'required|max:2000',
             'email' => 'required|unique:users,email',
             'password' => 'required|min:6|max:20',
@@ -292,8 +292,25 @@ class UserController extends Controller
         $cities = Allcity::where(['state_id'=>$user->id])->get();
         $states = State::all();
         $countries = Allcountry::get();
+        $awards = [];
+        $yoe = null;
+        $portfolio_links = [];
+        $expertise = null;
 
-        return view('admin.user.edit',compact('cities','states','countries','user'));
+        if($user->role){
+            $creator = Instructor::where(['user_id' => $user->id])->first();
+            if($creator){
+                    $awards = json_decode($creator->awards);
+                    $portfolio_links = json_decode($creator->portfolio_links);
+                    $yoe = $creator->yoe;
+                    $expertise = $creator->expert_in;
+
+                    $awards?$awards:$awards=[];
+                    $portfolio_links?$portfolio_links:$portfolio_links=[];
+            }
+        }
+
+        return view('admin.user.edit',compact('cities','states','countries','user','awards','portfolio_links','yoe','expertise'));
 
     }
 
@@ -304,6 +321,7 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request,$id)
     {
       
@@ -311,7 +329,7 @@ class UserController extends Controller
 
         $request->validate([
               'email' => 'required|email|unique:users,email,'.$user->id,
-              'mobile' => 'required|integer|min:10',
+            //   'mobile' => 'required|integer|min:10',
           ]);
 
         if($request->dob){
@@ -358,6 +376,8 @@ class UserController extends Controller
             $input['status'] = '0';
         }
 
+        $user->update($input);
+
         $input['yoe'] = $request->yoe;
         $input['expertise'] = $request->expert_in;
        
@@ -367,9 +387,12 @@ class UserController extends Controller
         $awards = explode(",",$request->all_awards);
         $awards = json_encode(array_values(array_filter($awards , function($a){ if(strlen(trim($a)) > 0){ return trim($a); } else { return null; } })));
         $input['awards']= $awards;
+        $input['user_id'] = $id;
+        Instructor::updateOrCreate(
+            ['user_id' => $request->$id],
+            $input
+        );
 
-
-        $user->update($input);
         if($user->id == Auth::user()->id)
         {
             Session::flash('success','Profile Updated Successfully !');
