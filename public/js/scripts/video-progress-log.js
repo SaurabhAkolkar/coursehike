@@ -111,27 +111,27 @@ $('.la-vcourse__lesson').on('click', function() {
              selected: true,
           },
           {
-             src: data.url+'?clientBandwidthHint=5',
+             src: data.url+'?clientBandwidthHint=8',
              type: 'application/x-mpegURL',
              label: '1080P',
           },
           {
-            src: data.url+'?clientBandwidthHint=35',
+            src: data.url+'?clientBandwidthHint=4.8',
             type: 'application/x-mpegURL',
             label: '720P',
          },
           {
-             src: data.url+'?clientBandwidthHint=1.8',
+             src: data.url+'?clientBandwidthHint=2.4',
              type: 'application/x-mpegURL',
              label: '480P',
           },
           {
-             src: data.url+'?clientBandwidthHint=0.77',
+             src: data.url+'?clientBandwidthHint=1',
              type: 'application/x-mpegURL',
              label: '360P',
           },
           {
-             src: data.url+'?clientBandwidthHint=0.38',
+             src: data.url+'?clientBandwidthHint=0.6',
              type: 'application/x-mpegURL',
              label: '240p',
           },

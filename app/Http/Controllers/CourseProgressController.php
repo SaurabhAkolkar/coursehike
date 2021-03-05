@@ -61,7 +61,7 @@ class CourseProgressController extends Controller
 		$order = UserPurchasedCourse::where('user_id', $user->id)->where('course_id', $course_id)->first();
 		
 		if( $user->role == "admin" || 
-			($user->subscription() && $user->subscription()->active() && !$user->subscription()->onTrial()) ||
+			($user->subscription() && $user->subscription()->active()) ||
 			(!empty( $order) && ( $order->purchase_type == 'all_classes' || in_array($class_id, json_decode($order->class_id))) ) )
 		{
 			// TODO: Verify the Order Purchased and Subscription area
@@ -82,7 +82,9 @@ class CourseProgressController extends Controller
 						['current_position' => $percentage_completion ]
 					);
 				}
-				UserWatchTime::insert($logs);
+
+				if($user->subscription() && $user->subscription()->active() && !$user->subscription()->onTrial())
+					UserWatchTime::insert($logs);
 			
 		}			
 		$response = array(
@@ -100,7 +102,7 @@ class CourseProgressController extends Controller
 		$order = UserPurchasedCourse::where('user_id', $user->id)->where('course_id', $course_id)->first();
 		
 		if( $user->role == "admin" || 
-			($user->subscription() && $user->subscription()->active() && !$user->subscription()->onTrial()) ||
+			($user->subscription() && $user->subscription()->active()) ||
 			(!empty( $order) && ( $order->purchase_type == 'all_classes' || in_array($class_id, json_decode($order->class_id))) ) )
 		{				
 				UserWatchProgress::updateOrCreate(
