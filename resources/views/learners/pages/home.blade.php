@@ -373,9 +373,14 @@
       <div class="swiper-container gallery-top la-artist__slider container-fluid">
         
         <div class="swiper-wrapper">
-          <div class="la-artist__designation position-absolute w-75  my-auto d-flex align-items-center justify-content-center la-anim__fade-in-top la-anim__A">
+          <div class="la-artist__designation la-artist__designation--front position-absolute w-100  my-auto d-flex align-items-center justify-content-left la-anim__fade-in-top la-anim__A">
               <h2 class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">
-                  <span>Lila</span> 
+                  <span class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">Lila</span> 
+              </h2>
+          </div>
+
+          <div class="la-artist__designation position-absolute w-100  my-auto d-flex align-items-center justify-content-center la-anim__fade-in-top la-anim__A">
+              <h2 class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">
                   <span class="ml-6" style="color: var(--gray);"> CREATORS </span>
               </h2>
           </div>
@@ -539,7 +544,16 @@
        
         <div class="row">
           <div class="col-12 col-md-5 la-trail__left  position-relative">
-            <div class="la-trail__title-main position-absolute">
+            <div class="la-trail__img-wrap la-anim__fade-in-right la-anim__B">
+              <div class="la-trail__img position-relative">
+                <img class="w-100" src="./images/learners/home/observe.png" alt="observe">
+              </div>
+              <!-- <div class="la-trail__title la-trail__title-in la-trail__title--purple la-section__title la-section__title--big position-absolute la-anim__text-move la-anim__text-move--z1">Observe.</div>-->
+            </div>
+          </div>
+
+          <div class="col-12 col-md-7 pl-md-0 mt-auto position-relative">
+            <div class="la-trail__title-main">
               <div class="swiper-container la-trail__title-container ">
                 <div class="swiper-wrapper la-trail__title-wrapper">
                   <div class="swiper-slide la-trail__title-slide">
@@ -557,20 +571,6 @@
                 </div>
               </div>
             </div>
-            
-            
-            <div class="la-trail__img-wrap la-anim__fade-in-right la-anim__B">
-              <div class="la-trail__img position-relative">
-                <img class="w-100" src="./images/learners/home/observe.png" alt="observe">
-              </div>
-              <!-- <div class="la-trail__title la-trail__title-in la-trail__title--purple la-section__title la-section__title--big position-absolute la-anim__text-move la-anim__text-move--z1">Observe.</div>-->
-            </div>
-          </div>
-
-          <div class="col-12 col-md-7 pl-md-0 mt-auto position-relative">
-            <div class="la-trail__btn la-btn__plain d-flex justify-content-center align-items-start la-anim__fade-in-left">
-              <a href="/about" class="d-none d-md-block">ALIENS WAY OF TEACHING</a>
-            </div>
             <div class="la-trail__right position-relative d-flex align-items-end">
               <div class="la-trail__content-wrap la-anim__stagger">
                 <div class="la-trail__para la-anim__stagger-item la-anim__B">We strongly believe observation is integral to honing art. Learn from masters in their respective fields with consistent practice, and become a pro yourself!</div>
@@ -585,6 +585,10 @@
                 @endif
               </div>
             </div>
+          </div>
+
+          <div class="la-home__trail-btn la-btn__plain d-flex justify-content-center align-items-start la-anim__fade-in-left">
+            <a href="/about" class="d-none d-md-block">ALIENS WAY OF TEACHING</a>
           </div>
 
         </div>

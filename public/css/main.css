@@ -21906,12 +21906,22 @@ label.error {
 .la-artist__designation {
   top: 0;
   bottom: 0;
-  z-index: 5;
 }
 @media (min-width: 768px) {
   .la-artist__designation {
     top: 20px;
     z-index: 0;
+  }
+}
+.la-artist__designation--front {
+  z-index: 1;
+}
+.la-artist__designation--front .la-section__title {
+  opacity: 0.7;
+}
+@media (min-width: 992px) {
+  .la-artist__designation--front {
+    margin-left: 70px;
   }
 }
 .la-artist__name {
@@ -22136,14 +22146,16 @@ label.error {
   }
 }
 .la-trail__title-main {
-  top: 25%;
-  left: 52%;
+  position: relative;
+  left: -30vh;
+  padding-bottom: var(--size-10);
   z-index: 10;
 }
 @media (max-width: 767px) {
   .la-trail__title-main {
-    top: 70%;
+    top: -80px;
     left: 10%;
+    position: absolute;
   }
 }
 @media (max-width: 767px) {
@@ -23140,6 +23152,17 @@ label.error {
 }
 .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
   pointer-events: auto !important;
+}
+
+.la-home__trail-btn {
+  letter-spacing: 3.2px;
+  padding-left: 110px;
+  color: #FFC516;
+  font-weight: var(--font-normal);
+  top: auto;
+  right: 120px;
+  position: absolute;
+  z-index: 40;
 }
 
 section.la-page--bcreator {

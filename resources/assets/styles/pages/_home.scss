@@ -378,3 +378,14 @@
 .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
     pointer-events: auto !important;
 }
+
+.la-home__trail-btn {
+    letter-spacing: 3.2px;
+    padding-left: 110px;
+    color: #FFC516;
+    font-weight: var(--font-normal);
+    top: auto;
+    right: 120px;
+    position: absolute;
+    z-index: 40;
+}
