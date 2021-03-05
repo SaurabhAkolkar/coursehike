@@ -1,5 +1,5 @@
 
-    <div class="la-mccourse la-anim__stagger-item la-anim__B" >
+    <div class="la-mccourse la-anim__stagger-item" >
         <div class="la-mccourse__imgwrap">
             <img class="img-fluid  mx-auto d-block" src= "{{ $img }}" alt= {{ $title }} />
         </div>
