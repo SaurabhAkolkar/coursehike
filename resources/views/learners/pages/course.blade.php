@@ -744,7 +744,7 @@ $course_id = $course->id;
                             <div class="d-block d-md-none la-lcreviews__ratings"> @for($couter=1 ; $couter <= $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__fill"></span>@endfor  @for($couter=1 ; $couter <= 5 - $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__unfill"></span>@endfor</div>
                             <div class="la-lcreviews__comment text-sm">{{$review->review}}</div>
                             <div class="la-lcreviews__edit-comment text-right">
-                              @if(Auth::user()->id == $review->user_id)<a class="text-sm"  role="button" onclick="editReview({{ $review->id }}, {{ $review->course_id }}, '{{ $review->review }}', {{ $review->rating }})" class="la-empty__browse" style="color:var(--app-indigo-1);font-weight:var(--font-semibold)">Edit</a>@endif
+                              @if(Auth::check() && Auth::user()->id == $review->user_id)<a class="text-sm"  role="button" onclick="editReview({{ $review->id }}, {{ $review->course_id }}, '{{ $review->review }}', {{ $review->rating }})" class="la-empty__browse" style="color:var(--app-indigo-1);font-weight:var(--font-semibold)">Edit</a>@endif
                             </div>
                           </div>
                         </div>

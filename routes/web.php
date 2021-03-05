@@ -713,7 +713,7 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/download-certificate/{id}','LearnController@downloadCertificate');
 
 
-
+  Route::get('/user-dashboard','UserDashboardController@index');
 
 });
 
@@ -755,7 +755,7 @@ Route::view('/signin','learners.auth.signin');
 Route::get('/mentors','InstructorController@allMentors');
 Route::post('/search-mentor','InstructorController@searchMentor');
 Route::get('/creator/{id}','InstructorController@creator');
-Route::get('/user-dashboard','UserDashboardController@index');
+
 Route::view('/creator','learners.pages.creator');
 Route::view('/payment-successful','learners.pages.payment-successful');
 Route::view('/contact','learners.pages.contact')->name('contactus');
