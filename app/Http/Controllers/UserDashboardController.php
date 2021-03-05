@@ -16,18 +16,20 @@ class UserDashboardController extends Controller
 
         $userInterest = UserInterest::where(['user_id'=>Auth::User()->id])->pluck('category_id');
         $lastViewed = UserWatchTimelog::with('course', 'course.courseclass','course.user')->where(['user_id'=>Auth::User()->id])->latest()->first();
-        
-        //Total Class Videos
-        $lastViewedTotalVideo = $lastViewed->course->courseclass->count();
-        
-        // User watched videos
-        $lastWatchedCourse = UserWatchProgress::where([ 'course_id'=> $lastViewed->course_id, 'user_id'=>Auth::User()->id ])->get();
-        $lastWatchedCourseAvg = $lastWatchedCourse->avg('current_position'); // 60% competed
+        $recentWatchedCourseCompletion = 0;
+        if($lastViewed){            
+            //Total Class Videos
+            $lastViewedTotalVideo = $lastViewed->course->courseclass->count();
+            
+            // User watched videos
+            $lastWatchedCourse = UserWatchProgress::where([ 'course_id'=> $lastViewed->course_id, 'user_id'=>Auth::User()->id ])->get();
+            $lastWatchedCourseAvg = $lastWatchedCourse->avg('current_position'); // 60% competed
 
-        $lastWatchedCourseCount = $lastWatchedCourse->count();
+            $lastWatchedCourseCount = $lastWatchedCourse->count();
 
-        $recentWatchedCourseCompletion = $lastWatchedCourseAvg / (($lastViewedTotalVideo - $lastWatchedCourseCount)+1);
-        
+            $recentWatchedCourseCompletion = $lastWatchedCourseAvg / (($lastViewedTotalVideo - $lastWatchedCourseCount)+1);            
+        }
+
         if($userInterest){
             $courses = Course::with('user','category')->where(['status'=>1])->whereIn('category_id', $userInterest)->get();
             
