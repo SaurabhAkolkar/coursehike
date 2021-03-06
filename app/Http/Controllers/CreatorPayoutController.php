@@ -10,7 +10,7 @@ class CreatorPayoutController extends Controller
 {
     public function index(){
         
-        $payouts = CreatorPayout::with('user')->get();
+        $payouts = CreatorPayout::has('user')->with('user')->get();
         return view('admin.revenue.creatorpayouts', compact('payouts'));
     }
 

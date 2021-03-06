@@ -752,8 +752,8 @@ Route::post('/delete-course-request', 'CourseReviewController@deleteCourseReques
 // Route for Learner's View
 Route::view('/signup','learners.auth.signup');
 Route::view('/signin','learners.auth.signin');
-Route::get('/mentors','InstructorController@allMentors');
-Route::post('/search-mentor','InstructorController@searchMentor');
+Route::get('/creators','InstructorController@allMentors');
+Route::post('/search-creator','InstructorController@searchMentor');
 Route::get('/creator/{id}','InstructorController@creator');
 
 Route::view('/creator','learners.pages.creator');

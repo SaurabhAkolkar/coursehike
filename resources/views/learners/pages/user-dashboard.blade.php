@@ -222,9 +222,24 @@
               <div class="la-hp__data">
                 <div class="row">
                     <!-- Hand Picked: Start -->
+                    @if(count($courses) > 0)
                     @foreach ($courses->take(4) as $c)
                         <x-handpicked :hpImg="$c->preview_image" :hpCourse="$c->title" :hpCname="$c->user->fullName" :hpUrl="'/learn/course/'.$c->id.'/'.$c->slug" />
                     @endforeach
+                    @else
+                      <div class="la-empty__courses  d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                        <div class="col la-empty__inner la-anim__stagger-item">
+                            <h6 class="la-empty__course-title">No Courses Found</h6>
+                            <p class="la-empty__course-desc leading-snug m-0">Add Interests To Get Course Suggestion</p>
+                        </div>
+                        <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
+                            <a href="/my-interests" class="la-empty__browse">
+                                Add Interests
+                              <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                            </a>
+                        </div>
+                      </div>
+                    @endif
                     <!-- Hand Picked: End -->
                 </div>
               </div>
@@ -245,30 +260,47 @@
         <div class="container-fluid">
             <div class="row ">
               <div class="col-12 la-anim__wrap">
-                <h5 class="text-2xl text-md-3xl mb-8 px-0 la-anim__stagger-item ">Alien Mentors</h5>
+                <h5 class="text-2xl text-md-3xl mb-8 px-0 la-anim__stagger-item ">Alien Creators</h5>
               </div>
             </div>
           
             <div class="la-mentors">
               <div class="row la-anim__wrap">
-                @foreach($users as $u)
-                  <div class="col-md-6 col-lg-4 ">
-                    <div class="la-mentor">
-                      <div class="la-mentor__profile  la-anim__stagger-item">
-                          <img class="img-fluid" src="{{ $u[0]->user->user_img }}" alt="{{$u[0]->user->fullName}}">
-                      </div>
-                      <div class="la-mentor__btm d-flex justify-content-between align-items-center la-anim__stagger-item la-anim__B">
-                        <div class="la-mentor__info ">
-                          <h3 class="la-mentor__name">{{$u[0]->user->fullName}}</h3>
-                          <p class="la-mentor__skill">{{$u[0]->category->title}}</p>
+                @if(count($users) > 0)
+                  @foreach($users as $u)
+                    <div class="col-md-6 col-lg-4 ">
+                      <div class="la-mentor">
+                        <div class="la-mentor__profile  la-anim__stagger-item">
+                            <img class="img-fluid" src="{{ $u[0]->user->user_img }}" alt="{{$u[0]->user->fullName}}">
                         </div>
-                        <a class="la-mentor__detailview " href="/creator/{{1}}">
-                          <span class="la-icon la-icon--6xl icon-grey-arrow mt-n2"></span>
-                        </a>
+                        <div class="la-mentor__btm d-flex justify-content-between align-items-center la-anim__stagger-item la-anim__B">
+                          <div class="la-mentor__info ">
+                            <h3 class="la-mentor__name">{{$u[0]->user->fullName}}</h3>
+                            <p class="la-mentor__skill">{{$u[0]->category->title}}</p>
+                          </div>
+                          <a class="la-mentor__detailview " href="/creator/{{1}}">
+                            <span class="la-icon la-icon--6xl icon-grey-arrow mt-n2"></span>
+                          </a>
+                        </div>
                       </div>
-                    </div>
-                  </div>                
-                @endforeach
+                    </div>                
+                  @endforeach
+                @else
+
+                      <div class="la-empty__courses  d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                        <div class="col la-empty__inner la-anim__stagger-item">
+                            <h6 class="la-empty__course-title">No Creator Found</h6>
+                            <p class="la-empty__course-desc leading-snug m-0">Add Interests To Get Creator Suggestion</p>
+                        </div>
+                        <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
+                            <a href="/my-interests" class="la-empty__browse">
+                                Add Interests
+                              <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                            </a>
+                        </div>
+                      </div>
+                    
+                @endif
               </div>
           </div>            
         </div>

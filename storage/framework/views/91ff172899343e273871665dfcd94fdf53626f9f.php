@@ -92,7 +92,7 @@
                   <ul class="treeview-menu">
                     <li class="<?php if(Request::segment(1) == 'category'): ?> active <?php endif; ?>"><a href="<?php echo e(url('category')); ?>" class="d-flex align-items-center"><i class="la-icon la-icon--sm icon-categories mr-4"></i><?php echo e(__('adminstaticword.Category')); ?></a></li>
                     <li class="<?php if(Request::segment(1) == 'subcategory'): ?> active <?php endif; ?>"><a href="<?php echo e(url('subcategory')); ?>" class="d-flex align-items-center"><i class="la-icon la-icon--sm icon-sub-category mr-4"></i><?php echo e(__('adminstaticword.SubCategory')); ?></a></li>
-                    <li class="<?php echo e(Nav::isResource('childcategory')); ?>"><a href="<?php echo e(url('childcategory')); ?>" class="d-flex align-items-center"><i class="la-icon la-icon--sm icon-child-category mr-4"></i><?php echo e(__('adminstaticword.ChildCategory')); ?></a></li>
+                    
                   </ul>
 
                   <li class="<?php if(Request::segment(1) == 'course'): ?> active <?php endif; ?>"><a href="<?php echo e(url('course')); ?>" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-courses mr-4"></i><span><?php echo e(__('adminstaticword.Courses')); ?></span></a></li>
@@ -153,6 +153,7 @@
             </a>
             <ul class="treeview-menu">
               
+              
               <li class="<?php echo e(Nav::isRoute('admin.creatorpayoutanalytics')); ?>"><a href="<?php echo e(route('admin.creatorpayoutanalytics')); ?>" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-mentor-payout mr-3"></i>Payout Analytics</a></li>
               <li class="<?php echo e(Nav::isRoute('admin.creatorpayout')); ?>"><a href="<?php echo e(route('admin.creatorpayout')); ?>" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-mentor-payout mr-3"></i><?php echo e(__('adminstaticword.CreatorPayout')); ?></a></li>
             
@@ -172,14 +173,15 @@
             </ul>
           </li> -->
 
-          <li class="<?php echo e(Nav::isResource('slider')); ?> <?php echo e(Nav::isResource('facts')); ?> <?php echo e(Nav::isRoute('category.slider')); ?> <?php echo e(Nav::isResource('firstsection')); ?> <?php echo e(Nav::isResource('featuredMentors')); ?> <?php echo e(Nav::isResource('coursetext')); ?> <?php echo e(Nav::isResource('getstarted')); ?> <?php echo e(Nav::isResource('trusted')); ?> <?php echo e(Nav::isRoute('widget.setting')); ?> <?php echo e(Nav::isRoute('terms')); ?> <?php echo e(Nav::isResource('testimonial')); ?> treeview">
+          <li class="<?php echo e(Nav::isResource('slider')); ?> <?php echo e(Nav::isResource('settings')); ?> <?php echo e(Nav::isResource('facts')); ?> <?php echo e(Nav::isRoute('category.slider')); ?> <?php echo e(Nav::isResource('firstsection')); ?> <?php echo e(Nav::isResource('featuredMentors')); ?> <?php echo e(Nav::isResource('coursetext')); ?> <?php echo e(Nav::isResource('getstarted')); ?> <?php echo e(Nav::isResource('trusted')); ?> <?php echo e(Nav::isRoute('widget.setting')); ?> <?php echo e(Nav::isRoute('terms')); ?> <?php echo e(Nav::isResource('testimonial')); ?> treeview">
            <a href="#" class="d-flex align-items-center">
-             <i class="la-icon la-icon--xl icon-front-Settings mr-3" aria-hidden="true"></i> <span><?php echo e(__('adminstaticword.FrontSetting')); ?></span>
+             <i class="la-icon la-icon--xl icon-front-Settings mr-3" aria-hidden="true"></i> <span><?php echo e(__('adminstaticword.Setting')); ?></span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
+              <li class="<?php if(Request::segment(1) == 'settings'): ?> active <?php endif; ?>" ><a href="<?php echo e(url('settings')); ?>"  class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-settings mr-4" aria-hidden="true"></i><span>General <?php echo e(__('adminstaticword.Setting')); ?></span></a></li>
               <!-- <li class="<?php if(Request::segment(1) == 'slider'): ?> active <?php endif; ?>"><a href="<?php echo e(url('slider')); ?>" class="d-flex align-items-center"><i class="la-icon la-icon--xl icon-sliders mr-3"></i><span><?php echo e(__('adminstaticword.Slider')); ?></span></a></li>
               <li class="<?php if(Request::segment(1) == 'facts'): ?> active <?php endif; ?>"><a href="<?php echo e(url('facts')); ?>" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-fact-sliders mr-4"></i><span><?php echo e(__('adminstaticword.FactsSlider')); ?></span></a></li>
               <li class="<?php if(Request::segment(1) == 'frontslider'): ?> active <?php endif; ?>"><a href="<?php echo e(route('category.slider')); ?>" class="d-flex align-items-center"><i class="la-icon la-icon--xl icon-category-sliders mr-3"></i><span><?php echo e(__('adminstaticword.CategorySlider')); ?></span></a></li>
@@ -193,7 +195,7 @@
             </ul>
           </li>
           
-           <li class="<?php echo e(Nav::isRoute('gen.set')); ?> <?php echo e(Nav::isRoute('api.setApiView')); ?> <?php echo e(Nav::isResource('blog')); ?> <?php echo e(Nav::isRoute('about.page')); ?> <?php echo e(Nav::isRoute('careers.page')); ?> <?php echo e(Nav::isRoute('comingsoon.page')); ?> <?php echo e(Nav::isRoute('termscondition')); ?> <?php echo e(Nav::isRoute('policy')); ?> <?php echo e(Nav::isRoute('bank.transfer')); ?> <?php echo e(Nav::isRoute('show.pwa')); ?> <?php echo e(Nav::isRoute('adsense')); ?> treeview">
+           <!--<li class="<?php echo e(Nav::isRoute('gen.set')); ?> <?php echo e(Nav::isRoute('api.setApiView')); ?> <?php echo e(Nav::isResource('blog')); ?> <?php echo e(Nav::isRoute('about.page')); ?> <?php echo e(Nav::isRoute('careers.page')); ?> <?php echo e(Nav::isRoute('comingsoon.page')); ?> <?php echo e(Nav::isRoute('termscondition')); ?> <?php echo e(Nav::isRoute('policy')); ?> <?php echo e(Nav::isRoute('bank.transfer')); ?> <?php echo e(Nav::isRoute('show.pwa')); ?> <?php echo e(Nav::isRoute('adsense')); ?> treeview">
            <a href="#">
              <i class="flaticon-tools" aria-hidden="true"></i> <span><?php echo e(__('adminstaticword.SiteSetting')); ?></span>
               <span class="pull-right-container">
@@ -221,7 +223,7 @@
               <?php endif; ?>
 
             </ul>
-          </li> 
+          </li> -->
 
           <!-- <li class="<?php echo e(Nav::isRoute('player.set')); ?> <?php echo e(Nav::isRoute('ads')); ?> <?php echo e(Nav::isRoute('ad.setting')); ?> treeview">
            <a href="#">

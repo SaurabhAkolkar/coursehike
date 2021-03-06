@@ -1,4 +1,4 @@
-<div class="col-12 grid-view " <?php if($addedToWhishList): ?> id="course_<?php echo e($id); ?>" <?php endif; ?>>
+<div class="grid-view " <?php if($addedToWhishList): ?> id="course_<?php echo e($id); ?>" <?php endif; ?>>
     <div class="la-course">
             <div class="la-course__inner">
                 <a class="la-course__inner-link" role="button" href= "<?php echo e('/learn/course/'.$id.'/'.$url); ?>" >
@@ -147,7 +147,7 @@
 
 
 <!-- Course Card List View: Start -->
-<div class="col-12 list-view d-none">
+<div class="list-view d-none">
     <div class="la-course__list d-flex justify-content-between align-items-center">
         <div class="la-course__list-clft d-md-flex align-items-center">
             <div class="la-course__list-cimgtop">

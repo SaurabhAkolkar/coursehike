@@ -224,8 +224,9 @@ class InstructorController extends Controller
 
     public function searchMentor(Request $request){
         define("MENTOR_SEARCH_INPUT", $request->name);
-
-        $mentors = User::where(['role'=>'mentors','status'=>'1'])
+        $role = ['mentors', 'admin'];
+        $mentors = User::whereIn('role', $role)
+                            ->where(['status'=>'1'])
                             ->where(
                                 function ($q) {
                                 $q->where('fname','like', '%'.MENTOR_SEARCH_INPUT.'%')->orWhere('lname','like', '%'.MENTOR_SEARCH_INPUT.'%');

@@ -115,8 +115,9 @@ class InvoicePaymentSucceededJob implements ShouldQueue
                 
                 $setting = Setting::first();
                 if($setting->w_email_enable == 1){
-                    try{                      
-                        Mail::to($user->email)->send(new UserSubscribed($email_data));                       
+                    try{    
+                        Mail::to($user->email)->later(now()->addMinutes(1), new UserSubscribed($email_data));                  
+                        //Mail::to($user->email)->send(new UserSubscribed($email_data));                       
                     }catch(\Swift_TransportException $e){
                         
                     }

@@ -19,9 +19,9 @@
             <span></span>
         </div>
         <div class="la-vcourse__video-progress position-absolute w-100">
-            <div class="la-vcourse__video-time text-right mr-1"> {{ $watchedDuration ?? '' }} </div>
+            <div class="la-vcourse__video-time text-right mr-1"> {{ $watchduration ?? '' }} </div>
             <div class="la-vcourse__video-track position-relative">
-                <span style="width: {{ $statusPercentage ?? '' }};" class="la-vcourse__video-bar"></span>
+                <span style="width: {{ $statuspercentage ?? '' }}%;" class="la-vcourse__video-bar"></span>
             </div>
         </div>
     </div>
@@ -29,7 +29,6 @@
         <div class="la-vcourse__lesson-content d-flex flex-wrap flex-column">
             <div class="la-vcourse__lesson-title leading-snug"> {{ $title ?? '' }} </div>
             <div class="la-vcourse__lesson-creator"> {{ $author ?? '' }} </div>
-            <div class="la-vcourse__lesson-learnt mt-auto"> {{ $statusPercentage ?? '' }} </div>
             <div class="la-vcourse__lesson-status"></div>
         </div>
         <div class="la-vcourse__lesson-description">
