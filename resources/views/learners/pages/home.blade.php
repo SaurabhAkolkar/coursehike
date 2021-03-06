@@ -74,7 +74,7 @@
                 <div class="la-hero__actions la-anim__stagger-item mt-md-10">
                   @if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())
                   <div class="">
-                    <a href="/browse/course" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white">Start Learning</a>
+                    <a href="/browse/courses" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white">Start Learning</a>
                   </div>
 
                   @else

@@ -20,7 +20,7 @@
             <div class="col-md-10">
                   <div class="la-status__info d-flex">
                       <div class="la-status__info-card ">
-                          <h1 class="la-status__info-title la-status__info-title2 m-0">Sorry!</h1>
+                          <h1 class="la-status__info-title la-status__info-title2 m-0">Oops!</h1>
                           <div class="la-status__info-tag">Your payment failed</div>
 
                           <div class="la-status__info-list ">

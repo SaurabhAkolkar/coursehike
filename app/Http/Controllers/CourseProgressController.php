@@ -61,7 +61,7 @@ class CourseProgressController extends Controller
 		$order = UserPurchasedCourse::where('user_id', $user->id)->where('course_id', $course_id)->first();
 		
 		if( $user->role == "admin" || 
-			($user->subscription() && $user->subscription()->active() && !$user->subscription()->onTrial()) ||
+			($user->subscription() && $user->subscription()->active()) ||
 			(!empty( $order) && ( $order->purchase_type == 'all_classes' || in_array($class_id, json_decode($order->class_id))) ) )
 		{
 			// TODO: Verify the Order Purchased and Subscription area
@@ -77,10 +77,14 @@ class CourseProgressController extends Controller
 						'created_at'  => \Carbon\Carbon::now()->toDateTimeString()
 					];
 					$percentage_completion = (int) (($log["position"] / $log["total"]) * 100);
-					UserWatchProgress::updateOrCreate(
-						['user_id' => $user->id, 'course_id' => $course_id, 'class_id' => $class_id],
-						['current_position' => $percentage_completion ]
-					);
+
+					$log_exists = UserWatchProgress::where([ ['user_id', '=', $user->id], ['course_id', '=', $course_id], ['class_id', '=', $class_id], ['completion', '=', 1 ] ])->exists();
+					
+					if(!$log_exists)
+						UserWatchProgress::updateOrCreate(
+							['user_id' => $user->id, 'course_id' => $course_id, 'class_id' => $class_id],
+							['current_position' => $percentage_completion ]
+						);
 				}
 				UserWatchTime::insert($logs);
 			
@@ -100,7 +104,7 @@ class CourseProgressController extends Controller
 		$order = UserPurchasedCourse::where('user_id', $user->id)->where('course_id', $course_id)->first();
 		
 		if( $user->role == "admin" || 
-			($user->subscription() && $user->subscription()->active() && !$user->subscription()->onTrial()) ||
+			($user->subscription() && $user->subscription()->active()) ||
 			(!empty( $order) && ( $order->purchase_type == 'all_classes' || in_array($class_id, json_decode($order->class_id))) ) )
 		{				
 				UserWatchProgress::updateOrCreate(
