@@ -17,7 +17,7 @@ class UserDashboardController extends Controller
         $userInterest = UserInterest::where(['user_id'=>Auth::User()->id])->pluck('category_id');
         $lastViewed = UserWatchTimelog::with('course', 'course.courseclass','course.user')->where(['user_id'=>Auth::User()->id])->latest()->first();
         $recentWatchedCourseCompletion = 0;
-        if($lastViewed){            
+        if($lastViewed){
             //Total Class Videos
             $lastViewedTotalVideo = $lastViewed->course->courseclass->count();
             
