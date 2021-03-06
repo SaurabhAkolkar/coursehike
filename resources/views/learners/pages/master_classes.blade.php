@@ -139,7 +139,7 @@
                           
                             <div class="row row-cols-md-3 row-cols-lg-4">
                               @foreach ($master_classes as $master)
-                                <div class="col-12">
+                                <div class="col-12  la-anim__stagger-item">
                                   <x-master-class
                                   :img="$master->preview_image"
                                   :title="$master->title"

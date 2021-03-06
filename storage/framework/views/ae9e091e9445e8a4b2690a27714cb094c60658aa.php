@@ -1,3 +1,22 @@
+<?php $__env->startSection('seo_content'); ?>
+    <title>Dashboard | Learn Anything Artistic Online | Start For Free Today | LILA</title>
+    <meta name='description' itemprop='description' content='Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now' />
+
+    <meta property="og:description"content="Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now" />
+    <meta property="og:title"content="Dashboard | Learn Anything Artistic Online | Start For Free Today | LILA" />
+    <meta property="og:url"content="<?php echo e(Request::url()); ?>" />
+    <meta property="og:type"content="website" />
+    <meta property="og:site_name"content="LILA Art" />
+    <meta property="og:image"content="/images/learners/logo.svg" />
+    <meta property="og:image:url"content="/images/learners/logo.svg" />
+    <meta property="og:image:size"content="300" />
+
+    <meta name="twitter:card"content="summary" />
+    <meta name="twitter:title"content="Dashboard | Learn Anything Artistic Online | Start For Free Today | LILA" />
+    <meta name="twitter:site"content="@lilaaliens" />
+    
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Dashboard | Learn Anything Artistic Online | Start For Free Today | LILA"}</script>
+<?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 <!-- Main Section: Start-->
 <section class="la-cdashboard-main">
@@ -25,7 +44,7 @@
                         <?php if($lastViewed != null): ?>
                       
                            <?php if (isset($component)) { $__componentOriginala14dc0162d0c6a6ad5d543909e2cf66e6b75bff9 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\LastViewed::class, ['img' => $lastViewed->course->preview_image,'progress' => '30','desc' => $lastViewed->course->title,'name' => $lastViewed->course->user->fullName,'rating' => $lastViewed->course->average_rating,'id' => $lastViewed->course->id,'slug' => $lastViewed->course->slug]); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\LastViewed::class, ['img' => $lastViewed->course->preview_image,'progress' => $recentWatchedCourseCompletion,'desc' => $lastViewed->course->title,'name' => $lastViewed->course->user->fullName,'rating' => $lastViewed->course->average_rating,'id' => $lastViewed->course->id,'slug' => $lastViewed->course->slug]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>

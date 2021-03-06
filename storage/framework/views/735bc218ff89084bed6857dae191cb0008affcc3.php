@@ -1,13 +1,13 @@
 
 
 <div class="col-md-6 col-lg-4 ">
-    <div class="la-mentor ">
+    <div class="la-mentor la-anim__stagger-item">
       <a href="/creator/<?php echo e($id); ?>">
-        <div class="la-mentor__profile la-anim__stagger-item">
+        <div class="la-mentor__profile">
             <img class="img-fluid" src="<?php echo e($img); ?>" alt=<?php echo e($name); ?>>
         </div>
       </a>
-      <div class="la-mentor__btm d-flex justify-content-between align-items-center la-anim__stagger-item la-anim__B">
+      <div class="la-mentor__btm d-flex justify-content-between align-items-center">
         <a href="/creator/<?php echo e($id); ?>">
           <div class="la-mentor__info ">
             <h3 class="la-mentor__name text-capitalize"><?php echo e(ucfirst($name)); ?></h3>

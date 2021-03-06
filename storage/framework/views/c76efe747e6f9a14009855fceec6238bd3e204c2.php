@@ -78,14 +78,16 @@ $course_id = $course->id;
                   <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end" href="/learning-plans">Subscribe Now</a>
                 <?php endif; ?>
 
-                <div class="text-center la-anim__stagger-item--x">
-                  <div class="la-vcourse__buy-complete mb-1">
-                    <span class="pr-2" style="color:var(--green)">100%</span> <span style="color:var(--gray8)"> Completed</span>
+                <?php if(auth()->check()): ?>
+                  <div class="text-center la-anim__stagger-item--x">
+                    <div class="la-vcourse__buy-complete mb-1">
+                      <span class="pr-2" style="color:var(--green)"><?php echo e($course->getProgress()); ?>%</span> <span style="color:var(--gray8)"> Completed</span>
+                    </div>
+                    <div class="progress la-rtng__progress w-100"> 
+                      <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:<?php echo e($course->getProgress()); ?>%" aria-valuenow="<?php echo e($course->getProgress()); ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
                   </div>
-                  <div class="progress la-rtng__progress w-100"> 
-                    <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:100%" aria-valuenow="<?php echo e($five_rating_percentage); ?>" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
+                <?php endif; ?>
               </div>
 
             <div class="la-vcourse__info-items d-flex align-items-center justify-content-end la-anim__stagger-item--x">
@@ -149,24 +151,23 @@ $course_id = $course->id;
         </div>
         <div id="vcourse_row" class="row la-vcourse__class-row  la-anim__wrap">
           <div class="col-12 col-lg-6 la-vcourse__class-col px-0 px-md-4 la-anim__stagger-item">
-            <div class="la-player la-vcourse__video-wrap mb-3  ">
-              <video-js
-                id="lila-video"
-                class="la-vcourse__video video-js"
-                controls
-                preload="auto"
-                width="100%"
-                height="100%"
-                poster="<?php echo e($course->preview_image); ?>"
-                data-setup="{}"
-                type="application/x-mpegURL" 
-              >
-                <source src="<?php echo e($course->getSignedStreamURL()); ?>" type="application/x-mpegURL" />
-                
-                <p class="vjs-no-js">
-                  
-                </p>
-              </video-js>
+            <div class="la-player la-vcourse__video-wrap mb-3">
+              
+                <video-js
+                  id="lila-video"
+                  class="la-vcourse__video video-js"
+                  controls
+                  preload="auto"
+                  width="100%"
+                  height="100%"
+                  poster="<?php echo e($course->preview_image); ?>"
+                  data-setup="{}"
+                  type="application/x-mpegURL" 
+                >
+                  <source src="<?php echo e($course->getSignedStreamURL()); ?>" type="application/x-mpegURL" />
+                  <p class="vjs-no-js"></p>
+                </video-js>
+              
             </div>
             <h2 class="la-vlesson__title m-0  text-capitalize la-anim__stagger-item"><?php echo e($course->title); ?> - Course Preview</h2>
             <small class="la-vlesson__creator text-capitalize la-anim__stagger-item"><?php echo e($course->user->fname); ?></small>
@@ -187,7 +188,7 @@ $course_id = $course->id;
 
                   <?php $__currentLoopData = $class->courseclass; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $class_video): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <?php
-                      $lesson_access = $class_video->is_preview == '1' ? 'free' : ($video_access ? 'free' : 'locked');  
+                      // $lesson_access = $class_video->is_preview == '1' ? 'free' : ($video_access ? 'free' : 'locked');  
                       if($class_video->is_preview == '1')       
                         $lesson_access = 'free';
                       else{
@@ -728,7 +729,7 @@ $course_id = $course->id;
                             <div class="d-block d-md-none la-lcreviews__ratings"> <?php for($couter=1 ; $couter <= $review->rating; $couter++): ?><span class="la-icon--xl icon-star la-rtng__fill"></span><?php endfor; ?>  <?php for($couter=1 ; $couter <= 5 - $review->rating; $couter++): ?><span class="la-icon--xl icon-star la-rtng__unfill"></span><?php endfor; ?></div>
                             <div class="la-lcreviews__comment text-sm"><?php echo e($review->review); ?></div>
                             <div class="la-lcreviews__edit-comment text-right">
-                              <?php if(Auth::user()->id == $review->user_id): ?><a class="text-sm"  role="button" onclick="editReview(<?php echo e($review->id); ?>, <?php echo e($review->course_id); ?>, '<?php echo e($review->review); ?>', <?php echo e($review->rating); ?>)" class="la-empty__browse" style="color:var(--app-indigo-1);font-weight:var(--font-semibold)">Edit</a><?php endif; ?>
+                              <?php if(Auth::check() && Auth::user()->id == $review->user_id): ?><a class="text-sm"  role="button" onclick="editReview(<?php echo e($review->id); ?>, <?php echo e($review->course_id); ?>, '<?php echo e($review->review); ?>', <?php echo e($review->rating); ?>)" class="la-empty__browse" style="color:var(--app-indigo-1);font-weight:var(--font-semibold)">Edit</a><?php endif; ?>
                             </div>
                           </div>
                         </div>

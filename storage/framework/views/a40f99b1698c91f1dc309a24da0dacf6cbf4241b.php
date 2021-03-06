@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    <div class="container-fluid px-0 la-anim__wrap">
+    <div class="container-fluid la-bcreator__banner-container la-anim__wrap">
       <div class="row la-bcreator__banner-btm py-5">
         <!-- Column: Start-->
         <div class="col-12 col-lg-4 py-5 py-sm-0">
@@ -49,7 +49,7 @@
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
-        <div class="col-12 col-lg-8 la-anim__stagger-item--x">
+        <div class="col-12 col-lg-8 pr-0 la-anim__stagger-item--x">
           <div class="la-mcard__slider-wrap ">
             <div class="swiper-container h-100 la-mcard__container">
               <div class="swiper-wrapper la-mcard__wrapper">                    
