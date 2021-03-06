@@ -545,24 +545,14 @@ class UserController extends Controller
     public function resetPasswordMail(Request $request){
 
         $token = sha1(uniqid(rand(), true));
-        $setting = Setting::first();
         
         DB::table('password_resets')->insert(['email'=>$request->email, 'token' => Hash::make($token), 'created_at' => Carbon::now()->toDateTimeString() ]);
         $email = $request->email;
 
-        if($setting->w_email_enable == 1){
-            try{
-               
-                Mail::to($request->email)->send(new PasswordReset($email, $token));
-               
-            }
-            catch(\Swift_TransportException $e){
-
-                // header( "refresh:5;url=./login" );
-               // dd($e);
-                dd("Your Registration is successfull ! but welcome email is not sent because your webmaster not updated the mail settings in admin dashboard ! Kindly go back and login");
-
-            }
+        try{
+            Mail::to($request->email)->send(new PasswordReset($email, $token));               
+        }catch(\Swift_TransportException $e){
+            header( "refresh:5;url=./login" );
         }
 
         return redirect()->back()->with('success','Password reset link sent successfully.');

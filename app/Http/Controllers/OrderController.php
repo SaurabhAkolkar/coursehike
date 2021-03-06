@@ -64,8 +64,8 @@ class OrderController extends Controller
         $classes_count = $total_purchase->where('purchase_type','selected_classes')->count();
         $total_earning = $total_purchase->sum('total');
 
-        $monthly_subscriptions = app('rinvex.subscriptions.plan_subscription')->byPlanId(1)->count();
-        $yearly_subscriptions = app('rinvex.subscriptions.plan_subscription')->byPlanId(2)->count();
+        $monthly_subscriptions = app('rinvex.subscriptions.plan_subscription')->byPlanId(1)->where([ ['ends_at','>', now()], ['trial_ends_at','<', now()] ])->count() + app('rinvex.subscriptions.plan_subscription')->byPlanId(3)->where([ ['ends_at','>', now()], ['trial_ends_at','<', now()] ])->count();
+        $yearly_subscriptions = app('rinvex.subscriptions.plan_subscription')->byPlanId(2)->where([ ['ends_at','>', now()], ['trial_ends_at','<', now()] ])->count() + app('rinvex.subscriptions.plan_subscription')->byPlanId(4)->where([ ['ends_at','>', now()], ['trial_ends_at','<', now()] ])->count();
         $trial_subscriptions = app('rinvex.subscriptions.plan_subscription')->findEndingTrial(7)->count();
         $settings = Setting::first();
         return view('admin.order.index', compact('trial_subscriptions', 'settings','monthly_subscriptions', 'yearly_subscriptions','total_purchase','courses_count', 'classes_count','total_earning'));

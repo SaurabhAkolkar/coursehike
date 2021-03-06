@@ -1,9 +1,12 @@
 <div class="row ">
     <div class="col-12">
         <div class="la-vcreator__profile la-anim__stagger-item">
-            <img class="img-fluid d-block" src= "{{ $img }}" alt= "{{ $name }}" />
+            <div class="la-vcreator__profile--img position-relative"><img class="img-fluid d-block" src= "{{ $img }}" alt= "{{ $name }}" /></div>
             <div class="la-vcreator__overlay">
-              <div class="la-vcreator__name la-anim__stagger-item--x"> {{ $name }} </div>
+              <div class="la-vcreator__name la-anim__text-move"> {{ $name }} </div>
+            </div>
+            <div class="la-vcreator__overlay--back">
+              <div class="la-vcreator__name la-anim__text-move"> {{ $name }} </div>
             </div>
         </div>
     </div>

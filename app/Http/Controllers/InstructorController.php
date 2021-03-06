@@ -206,7 +206,7 @@ class InstructorController extends Controller
 
     public function allMentors(){
 
-        $mentors = User::where(['role'=>'mentors','status'=>'1'])->orWhere(['role'=>'admin'])->get();
+        $mentors = User::where([ ['role', '=', 'mentors'],['status', '=', '1'] ])->orWhere([ ['role', '=', 'admin'],['status', '=', '1'] ])->get();
         
         return view('learners.pages.mentors',compact('mentors'));
 

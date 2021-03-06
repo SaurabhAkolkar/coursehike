@@ -217,7 +217,7 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                // height: calc(100vh - var(--size-18));
+                height: calc(100vh - var(--inner-padding));
                 // max-height: 100vh;
 
                 #{$ap}-section__title {

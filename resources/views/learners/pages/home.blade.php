@@ -68,13 +68,13 @@
             <div class="la-hero la-hero__video-content d-flex justify-content-center flex-column align-items-center">
               <div class="la-hero__video-info text-center">
                 <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">COURSES & CLASSES BY</p>
-                <h1 class="la-hero__title la-anim__stagger-item mb-2">World’s finest <span class="la-hero__subtitle">Creators</span></h1>
+                <h1 class="la-hero__title la-anim__stagger-item mb-5">World’s finest <span class="la-hero__subtitle">Creators</span></h1>
                 <p class="la-hero__lead la-anim__stagger-item">{{$firstSection->sub_heading}}</p>
               
                 <div class="la-hero__actions la-anim__stagger-item mt-md-10">
                   @if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())
                   <div class="">
-                    <a href="/browse/course" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white">Start Learning</a>
+                    <a href="/browse/courses" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white">Start Learning</a>
                   </div>
 
                   @else
@@ -109,7 +109,7 @@
                 @endif
                 </div>
                 
-                <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing mt-6 la-anim__stagger-item ">@if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())  @else<a href="/learning-plans" class="btn la-btn text-white">Start free trial</a> @endif </div>
+                <div class="la-hero__bottom-trial la-btn__plain text--green text-uppercase text--md font-weight--semibold text-spacing mt-6 la-anim__stagger-item ">@if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())  @else<a href="/learning-plans" class="btn font-weight--semibold">Start free trial</a> @endif </div>
               </div>
                
               <div class="ml-auto mt-4 mt-md-20 pr-md-20  la-anim__stagger-item">
@@ -288,7 +288,7 @@
                                       @if ($course->featured == 0)
                                           @continue
                                       @endif
-                                      <div class="swiper-slide la-home__course-slide la-anim__stagger-item">
+                                      <div class="swiper-slide col-md-3 px-md-0 la-home__course-slide la-anim__stagger-item">
                                       <x-course 
                                           :id="$course->id"
                                           :img="$course->preview_image"
@@ -306,8 +306,8 @@
                                     @endforeach                                  
                                   
                             </div>
+                            <div class="swiper-pagination la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
                         </div>
-                        <div class="swiper-pagination la-home__course-pagination d-block d-lg-none"></div>
                         <div class="swiper-button-next la-home__course-next"></div>
                         <div class="swiper-button-prev la-home__course-prev"></div>
                       </div>
@@ -357,7 +357,7 @@
           </div>
 
           <div class="la-mccourse__view-more position-relative text-right la-anim__wrap mt-8 mt-md-1">
-            <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-md-8 mr-5 mr-md-1 la-anim__fade-in-right">
+            <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-md-8 mr-5 mr-md-1 la-anim__fade-in-right la-anim--B">
               <a href="/browse/courses" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
             </div>
           </div>
@@ -373,9 +373,14 @@
       <div class="swiper-container gallery-top la-artist__slider container-fluid">
         
         <div class="swiper-wrapper">
-          <div class="la-artist__designation position-absolute w-75  my-auto d-flex align-items-center justify-content-center la-anim__fade-in-top la-anim__A">
+          <div class="la-artist__designation la-artist__designation--front position-absolute w-100  my-auto d-flex align-items-center justify-content-left la-anim__fade-in-top la-anim__A">
               <h2 class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">
-                  <span>Lila</span> 
+                  <span class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">Lila</span> 
+              </h2>
+          </div>
+
+          <div class="la-artist__designation position-absolute w-100  my-auto d-flex align-items-center justify-content-center la-anim__fade-in-top la-anim__A">
+              <h2 class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">
                   <span class="ml-6" style="color: var(--gray);"> CREATORS </span>
               </h2>
           </div>
@@ -418,7 +423,7 @@
 
                 @foreach ($master_classes as $master)
                   @if($master->courses != null)
-                    <div class="swiper-slide la-home__master-slide ">
+                    <div class="swiper-slide col-12 col-md-3 px-0 la-home__master-slide ">
                       <x-master-class
                         :img="$master->courses->preview_image"
                         :title="$master->courses->title"
@@ -438,7 +443,7 @@
             <div class="swiper-button-prev la-home__master-prev"></div>
         </div>
 
-        <div class="la-mccourse__view-more position-relative text-right la-anim__wrap mt-14 mt-md-8">
+        <div class="la-mccourse__view-more position-relative text-right la-anim__stagger-item mt-14 mt-md-16">
             <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-md-8 mr-5 mr-md-1 la-anim__fade-in-right">
               <a href="/master-classes" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
             </div>
@@ -539,7 +544,16 @@
        
         <div class="row">
           <div class="col-12 col-md-5 la-trail__left  position-relative">
-            <div class="la-trail__title-main position-absolute">
+            <div class="la-trail__img-wrap la-anim__fade-in-right la-anim__B">
+              <div class="la-trail__img position-relative">
+                <img class="w-100" src="./images/learners/home/observe.png" alt="observe">
+              </div>
+              <!-- <div class="la-trail__title la-trail__title-in la-trail__title--purple la-section__title la-section__title--big position-absolute la-anim__text-move la-anim__text-move--z1">Observe.</div>-->
+            </div>
+          </div>
+
+          <div class="col-12 col-md-7 pl-md-0 mt-auto position-relative">
+            <div class="la-trail__title-main">
               <div class="swiper-container la-trail__title-container ">
                 <div class="swiper-wrapper la-trail__title-wrapper">
                   <div class="swiper-slide la-trail__title-slide">
@@ -557,20 +571,6 @@
                 </div>
               </div>
             </div>
-            
-            
-            <div class="la-trail__img-wrap la-anim__fade-in-right la-anim__B">
-              <div class="la-trail__img position-relative">
-                <img class="w-100" src="./images/learners/home/observe.png" alt="observe">
-              </div>
-              <!-- <div class="la-trail__title la-trail__title-in la-trail__title--purple la-section__title la-section__title--big position-absolute la-anim__text-move la-anim__text-move--z1">Observe.</div>-->
-            </div>
-          </div>
-
-          <div class="col-12 col-md-7 pl-md-0 mt-auto position-relative">
-            <div class="la-trail__btn la-btn__plain d-flex justify-content-center align-items-start la-anim__fade-in-left">
-              <a href="/about" class="d-none d-md-block">ALIENS WAY OF TEACHING</a>
-            </div>
             <div class="la-trail__right position-relative d-flex align-items-end">
               <div class="la-trail__content-wrap la-anim__stagger">
                 <div class="la-trail__para la-anim__stagger-item la-anim__B">We strongly believe observation is integral to honing art. Learn from masters in their respective fields with consistent practice, and become a pro yourself!</div>
@@ -585,6 +585,10 @@
                 @endif
               </div>
             </div>
+          </div>
+
+          <div class="la-home__trail-btn la-btn__plain d-flex justify-content-center align-items-start la-anim__fade-in-left">
+            <a href="/about" class="d-none d-md-block">ALIENS WAY OF TEACHING</a>
           </div>
 
         </div>
@@ -607,10 +611,22 @@
                 <div class="la-price__row row ">
                 
                   <div class="col-lg-5 pt-20 la-anim__wrap">
-                    <h3 class="la-section__subtitle la-anim__stagger-item">How does subscription works?</h3>
-                    <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x ">Learning need not be expensive. At LILA, our subscription model gives you the benefit to choose from any number of courses or individual classes, as you please.<br/><br/> All at nominal fees! So, learn away! </p>
-                    <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-4 pt-md-8 la-anim__stagger-item--x">
-                      <a href="/learning-plans">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
+                    <div class="pb-lg-20">
+                      <h3 class="la-section__subtitle la-anim__stagger-item">How does subscription works?</h3>
+                      <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x ">Learning need not be expensive. At LILA, our subscription model gives you the benefit to choose from any number of courses or individual classes, as you please.<br/><br/> All at nominal fees! So, learn away! </p>
+                      <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-4 pt-md-8 la-anim__stagger-item--x">
+                        <a href="/learning-plans">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
+                      </div>
+                    </div>
+
+                    <div class="la-home__subscription__ques--second la-anim__wrap">
+                      <h3 class="la-section__subtitle la-anim__stagger-item">What’s LILA for you ?</h3>
+                      <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x">Our mission is to Encourage, Empower and Embrace self-learning among all curious individuals who wish to learn, expand their potential and make a mark in the world.<br/><br/> 
+                          Through our Radical team, we strive every day to make knowledge Affordable, Accessible for everyone regardless of who or where they are
+                      </p>
+                      <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold  pt-4 pt-md-8  la-anim__stagger-item--x">
+                        <a href="/about">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
+                      </div>
                     </div>
                   </div>
         
@@ -629,7 +645,7 @@
 
                   @else
 
-                      <div class="col-md-7 col-lg-4 offset-lg-2 py-12 py-md-20">
+                      <div class="col-md-7 col-lg-4 offset-lg-2 pt-12 pb-0 py-lg-20">
                         <div class="la-anim__wrap la-anim__wrap-pin2 ">
                             <div class="la-price__box la-anim__pin2 ">
                               <div class="la-price__box-inner la-anim__stagger-item">
@@ -656,7 +672,7 @@
                 </div>
               </div>
 
-              <div class="la-price__slide la-anim__slide">
+              <!-- <div class="la-price__slide la-anim__slide">
                 <div class="la-price__row row mb-16">
                   <div class="col-lg-5 pt-lg-20 la-anim__wrap">
                     <h3 class="la-section__subtitle la-anim__stagger-item">What’s LILA for you ?</h3>
@@ -668,7 +684,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
           </div>
         </div>

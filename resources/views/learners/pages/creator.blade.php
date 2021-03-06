@@ -60,7 +60,7 @@
                                 
                                 @foreach($courses as $course)
                                 
-                                    <div class="col-md-6 col-lg-4 px-0 px-md-0 ">
+                                    <div class="col-md-6 col-lg-4 ">
                                       <x-course 
                                           :id="$course->id"
                                           :img="$course->preview_image" 
