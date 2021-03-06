@@ -19,7 +19,7 @@
         <div class="la-playlist__thumbnails  la-playlist__thumbnails--three d-flex flex-wrap">
             @if(count($courses) == 0)  
                 <div class="la-playlist__thumbnail">
-                    <img class="img-fluid" src="{{ asset('/images/default-images/playlist_default.jpg') }}" alt="thumbnail">
+                    <img class="img-fluid" src="{{ asset('/images/default-images/playlist default_new.png') }}" alt="thumbnail">
                 </div>
         
             @elseif(count($courses) == 1)    
