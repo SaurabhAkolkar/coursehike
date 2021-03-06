@@ -193,7 +193,12 @@ $course_id = $course->id;
                         else 
                           $lesson_access = 'locked';
                       }
+                      
+                
                     @endphp
+
+
+                    
                     <x-class-video
                       :id="$class_video->id"
                       :title="$class_video->title"
@@ -201,7 +206,7 @@ $course_id = $course->id;
                       :detail="$class_video->detail"
                       :author="$class_video->courses->user->fname"
                       :watchduration="$class_video->duration"
-                      :statuspercentage="$class_video->duration"
+                      :statuspercentage="$class_video->getProgress()"
                       :access="$lesson_access"
                     />
                   @endforeach

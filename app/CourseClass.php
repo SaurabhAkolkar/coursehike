@@ -6,7 +6,7 @@ use Firebase\JWT\JWT;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
-
+use Auth;
 class CourseClass extends Model
 {
     use HasTranslations;
@@ -71,6 +71,21 @@ class CourseClass extends Model
         return Storage::url(config('path.course.video_thumnail').$this->course_id. '/' . $value);
     }
 
+     public function getProgress(){
+        if(Auth::check()){
+            $data = UserWatchProgress::where(['user_id'=>Auth::user()->id, 'class_id' => $this->id])->first();
+            if($data){
+                return $data->current_position;
+
+           }
+           else{
+               return null;
+           }
+        }
+
+        return null;
+    }
+
     // public function getVideoAttribute($value)
     // {
     //     return Storage::temporaryUrl(
@@ -94,4 +109,6 @@ class CourseClass extends Model
         return 'https://videodelivery.net/'.$jwt.'/manifest/video.m3u8';
         // return Storage::url(config('path.course.video').$this->course_id. '/' . $value);
     }
+
+   
 }
