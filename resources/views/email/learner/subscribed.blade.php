@@ -18,7 +18,11 @@
                 border-collapse: collapse;
                 border-spacing: 0;
             }
-                        
+            @media only screen and (max-width:600px){
+                table{
+                    width:100% !important;
+                }
+            }              
         </style>
     </head>
 
@@ -33,14 +37,14 @@
             </tr>
 
             <tr>
-                <td align="center" width="600" colspan="2" style="padding:0 50px;">
-                    <span style="color:#FAC216;font-family:Raleway;font-size:64px;font-weight:900;text-transform:uppercase;">Subscribed</span>
+                <td align="center" width="600" colspan="2" style="padding:0 40px;">
+                    <span style="color:#FAC216;font-family:Raleway;font-size:46px;font-weight:900;text-transform:uppercase;">Subscribed</span>
                 </td>
             </tr>
 
             <tr>
-                <td width="600" style="padding:20px 0 40px 50px">
-                    <table width="500">
+                <td width="600" style="padding:20px 0 40px 40px">
+                    <table>
                         <tr>
                             <td colspan="2" style="padding-bottom:10px;">
                                 <span style="font-size:16px;color:#010101;font-weight:500;">Subscription Successful!</span>
@@ -53,14 +57,14 @@
                             </td>
                         </tr>
             
-                        {{-- <tr>
+                        <!-- <tr>
                             <td width="150" style="padding:4px 0">
                                 <span style="font-size:12px;color:#8B8B8B;">Learner ID</span>
                             </td>
                             <td  style="padding:4px 0">
                                  <span style="font-size:14px;color:#010101;font-weight:500;">#L3245</span>
                             </td>
-                        </tr> --}}
+                        </tr> -->
 
                         <tr>
                             <td width="150" style="padding:4px 0">
@@ -118,7 +122,7 @@
 
                         <tr>
                             <td width="150" colspan="1"  style="padding:40px 0">
-                                <button style="background:#7600DA; font-size:10px;font-weight:300; color:#fff;padding:11px 16px;border:none;border-radius:5px;">Check Details</button>
+                                <button style="background:#7600DA; font-size:12px;font-weight:300; color:#fff;padding:11px 16px;border:none;border-radius:5px;">Check Details</button>
                             </td>
                             <td colspan="1"  style="padding:40px 0">
                                 <a href="" role="button" style="font-size:14px;color:#7600DA;font-weight:500;">Invoice</a>
@@ -143,8 +147,8 @@
                            </td>
           
                            <td width="300" colspan="1" align="right" style="padding:15px 20px 15px 0">
-                               <span style="color:#fff;font-size:12px;font-weight:300;">ask@learnitlikealiens.com</span> <br/>
-                               <a href="" style="color:#fff;font-size:12px;font-weight:300;text-decoration: none;">learnitlikealiens.com</a>
+                               <a href="mailto:ask@learnitlikealiens.com" style="color:#fff;font-size:12px;font-weight:300;text-decoration: none;">ask@learnitlikealiens.com</a> <br/>
+                               <a href="" target="_blank" style="color:#fff;font-size:12px;font-weight:300;text-decoration: none;">lila.art</a>
                            </td>
                        </tr>
                    </table>

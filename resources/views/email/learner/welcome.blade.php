@@ -18,7 +18,11 @@
                 border-collapse: collapse;
                 border-spacing: 0;
             }
-                        
+            @media only screen and (max-width:600px){
+                table{
+                    width:100% !important;
+                }
+            }            
         </style>
     </head>
 
@@ -34,7 +38,7 @@
 
             <tr>
                 <td align="center" width="600" colspan="2" >
-                    <span style="color:#FAC216;font-family:Raleway;font-size:64px;font-weight:900;text-transform:uppercase;">Welcome</span>
+                    <span style="color:#FAC216;font-family:Raleway;font-size:56px;font-weight:900;text-transform:uppercase;">Welcome</span>
                 </td>
             </tr>
 
@@ -54,7 +58,7 @@
                         </tr>
             
                         <tr>
-                            <td align="center" style="padding:25px 0 5px 0">
+                            <td align="center" style="padding:25px 20px 5px 20px">
                                  <span style="font-size:14px;color:#010101;font-weight:400;">Please click on the button below to verify your email id</span>
                             </td>
                         </tr>
@@ -83,8 +87,8 @@
                            </td>
           
                            <td width="300" colspan="1" align="right" style="padding:15px 20px 15px 0">
-                               <span style="color:#fff;font-size:12px;font-weight:300;">ask@learnitlikealiens.com</span> <br/>
-                               <a href="" style="color:#fff;font-size:12px;font-weight:300;text-decoration: none;">learnitlikealiens.com</a>
+                               <a href="mailto:ask@learnitlikealiens.com" style="color:#fff;font-size:12px;font-weight:300;text-decoration: none;">ask@learnitlikealiens.com</a> <br/>
+                               <a href="" target="_blank" style="color:#fff;font-size:12px;font-weight:300;text-decoration: none;">lila.art</a>
                            </td>
                        </tr>
                    </table>

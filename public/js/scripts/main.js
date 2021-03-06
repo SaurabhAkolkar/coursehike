@@ -11,6 +11,10 @@ $(function(){
     console.log(value)
   });
 
+
+
+
+
   // Home Video On scroll Pause/Play: Start
   $(window).on("scroll",function(){
     if($(window).scrollTop()>500){      
