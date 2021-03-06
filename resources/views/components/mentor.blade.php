@@ -1,6 +1,6 @@
 
 
-<div class="col-md-6 col-lg-4 ">
+<div class="col-md-6 col-lg-3">
     <div class="la-mentor la-anim__stagger-item">
       <a href="/creator/{{$id}}">
         <div class="la-mentor__profile">

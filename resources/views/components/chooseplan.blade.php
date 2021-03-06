@@ -1,4 +1,4 @@
-<div class="col-12 col-md-6 col-lg-3 la-choose__plan la-anim__stagger-item px-0">
+<div class="col-12 col-md-6 la-choose__plan la-anim__stagger-item px-0">
     <div class="col la-choose__plan-col text-center">
       <div class="la-choose__plans">
         <div class="card la-choose__card text-center">
@@ -20,7 +20,7 @@
             {{-- <a> --}}
             <p class="text-sm pt-2">Get access to all the Courses</p>
             <p class="la-choose__subscribe-trial text-sm mb-1">Get free 7 Days trial</p>
-            <p class="text-sm mb-1">You won't be charged until {{ \Carbon\Carbon::now()->addDays(7)->format('M d, Y') }}</p>
+            <p class="la-choose__subscribe-date text-sm mb-1">You won't be charged until {{ \Carbon\Carbon::now()->addDays(7)->format('M d, Y') }}</p>
           </div>
           <hr>
           <div class="la-choose__content mb-3 text-left">

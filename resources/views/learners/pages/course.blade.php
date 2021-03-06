@@ -146,7 +146,7 @@ $course_id = $course->id;
           </div>
         </div>
         <div id="vcourse_row" class="row la-vcourse__class-row  la-anim__wrap">
-          <div class="col-12 col-lg-6 la-vcourse__class-col px-0 px-md-4 la-anim__stagger-item">
+          <div class="col-12 col-lg-6 la-vcourse__class-col px-md-4 la-anim__stagger-item">
             <div class="la-player la-vcourse__video-wrap mb-3">
               
                 <video-js
@@ -242,7 +242,7 @@ $course_id = $course->id;
           </nav>
           <div class="tab-content la-courses__content" id="cnav-tabContent">
             <div class="tab-pane fade show active" id="cnav-about" role="tabpanel" aria-labelledby="cnav-about-tab">
-              <div class="col-lg-9 px-0">
+              <div class="col-lg-12 px-0">
                 <div class="col-12 col-lg px-0 la-anim__wrap">
                   <div class="la-ctabs__about la-anim__stagger-item ">
                     <p>{{ $course->short_detail }}</p>

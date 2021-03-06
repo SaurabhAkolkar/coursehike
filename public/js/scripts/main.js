@@ -443,7 +443,8 @@ $(function(){
       trigger: ".la-header",
       start: "80px top",
       toggleActions: "restart none reset none"
-    }, boxShadow:"rgba(0, 0, 0, 0.14) 0px 0px 10px 6px"
+    }, 
+    // boxShadow:"rgba(0, 0, 0, 0.14) 0px 0px 10px 6px"
   })
 
   

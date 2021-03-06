@@ -1,4 +1,4 @@
-<div class="grid-view " @if($addedToWhishList) id="course_{{$id}}" @endif>
+<div class="col-12 grid-view " @if($addedToWhishList) id="course_{{$id}}" @endif>
     <div class="la-course">
             <div class="la-course__inner">
                 <a class="la-course__inner-link" role="button" href= "{{ '/learn/course/'.$id.'/'.$url }}" >
