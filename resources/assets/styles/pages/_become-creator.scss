@@ -70,6 +70,11 @@ a.la-bcreator__back-link{
 }
 	
 
+.la-bcreator__banner-container{
+	@include respond-above(lg){
+		padding-right:0 !important;
+	}
+}
 .la-bcreator__banner-btm{
 	margin-top:-130px;
 
