@@ -10,3 +10,12 @@ ul, li {
         padding-right:85px !important;
     }
 }
+
+//- Terms & Conditions Page
+.la-cr__section-item{
+    list-style-type: decimal-leading-zero !important;
+    margin-bottom:var(--size-base);
+}
+.la-cr__section-subitem{
+    list-style-type: initial !important;
+}

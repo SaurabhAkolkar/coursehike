@@ -763,3 +763,4 @@ Route::view('/about', 'learners.pages.about');
 Route::view('/cancellations-refund', 'learners.pages.cancellations-refund');
 Route::view('/subscription-trial', 'learners.pages.subscription-trial');
 
+Route::view('/terms-conditions', 'learners.pages.terms-conditions');

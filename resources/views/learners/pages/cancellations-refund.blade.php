@@ -2,11 +2,11 @@
 
 @section('content')
     <section class="la-section__small la-cbg--main">
-        <div class="container pb-1 pb-md-20">
+        <div class="container-fluid pb-1 pb-md-20">
             <div class="row">
                 <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 px-md-0">
                     <div class="la-cr__section la-anim__wrap">
-                        <h1 class="la-section-title mb-6 la-anim__fade-in-top" style="color:var(--app-indigo-1);font-weight:var(--font-bold)">Cancellations & Refund</h1>
+                        <h1 class="la-section-title mb-6 text-3xl text-md-5xl la-anim__fade-in-top" style="color:var(--app-indigo-1);font-weight:var(--font-bold)">Cancellations & Refund</h1>
                         <p class="la-cr__section-para la-anim__stagger-item">Learn it like Aliens is not responsible or liable for any refunds for Membership, workshops, Webinars or other purchases on the Service.</p>
                     
                         <div class="la-cr__section-subheading pt-6">

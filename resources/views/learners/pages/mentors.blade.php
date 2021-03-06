@@ -6,14 +6,14 @@
       <div class="container-fluid">
       <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none mt-n4 ml-n1 mb-2" href="{{URL::previous()}}"></a>
         <div class="la-anim__wrap d-md-flex justify-content-between align-items-center">
-          <h1 class="la-page__title mb-4 mb-md-8 la-anim__stagger-item">Alien Creators</h1>
+          <h1 class="la-page__title mb-4 mb-md-8 la-anim__stagger-item">Alien Mentors</h1>
 
           <!-- Global Search: Start-->
           <div class="la-gsearch la-anim__stagger-item--x">
             <form class="form-inline" action="/search-creator" method="post">
               @csrf
               <div class="form-group d-flex align-items-center">
-                <input class="la-gsearch__input w-100 form-control la-gsearch__input-browsecourses" name="name" type="text" style="background:transparent" placeholder="Looking for your favourite Alien Creator?">
+                <input class="la-gsearch__input w-100 form-control la-gsearch__input-browsecourses" name="name" type="text" style="background:transparent" placeholder="Looking for your favourite Alien Mentor?">
               </div>
               <button class="la-gsearch__submit btn" type="submit"><i class="la-icon icon-search la-gsearch__input-icon"></i></button>
             </form>
