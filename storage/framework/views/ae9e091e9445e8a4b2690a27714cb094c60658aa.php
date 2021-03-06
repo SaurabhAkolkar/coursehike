@@ -25,7 +25,7 @@
       <div class="la-cdashboard__inner pt-5">
         <div class="container-fluid pt-0 pt-sm-3">
           <div class="row d-flex flex-row justify-content-between">
-            <div class="col-12 col-md-6 col-lg-5  la-anim__wrap">
+            <div class="col-12 col-md-6 col-lg-4  la-anim__wrap">
               <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2 la-anim__stagger-item" href="<?php echo e(URL::previous()); ?>"></a>
               <div class="la-cdashboard__page ">
                 <h1 class="la-cdashboard__user-name mb-2 text-3xl text-md-4xl text-capitalize la-anim__fade-in-top">Welcome <span style="color:var(--app-indigo-1);"><?php echo e(Auth::user()->fname); ?>!</span></h1>
@@ -56,7 +56,7 @@
 <?php endif; ?>
                         <?php else: ?>
 
-                        <div class="la-empty__courses text-center mt-0 mb-10 mb-md-1 py-6 py-md-9 px-10 px-lg-12">
+                        <div class="la-empty__courses text-center mt-0 mb-10 mb-md-1 py-6 py-lg-9 px-10 px-lg-12">
                             <div class="la-empty__inner la-anim__stagger-item">
                                 <p class="la-empty__course-desc leading-snug m-0">You don't have any last viewed course.</p>
                             </div>
@@ -181,7 +181,7 @@
     
     <!-- Section: End-->
     <!-- Section: Start-->
-    <section class="la-pcourses-section pt-md-14">
+    <section class="la-pcourses-section mt-14">
       <div class="container-fluid">
         <div class="row">  
           <div class="col-12 la-anim__wrap">
@@ -206,7 +206,7 @@
     <!-- Section: End-->
     <!-- Section: Start-->
 
-    <section class="la-hp-section py-md-5 my-md-5">
+    <section class="la-hp-section">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
@@ -215,6 +215,7 @@
               <div class="la-hp__data">
                 <div class="row">
                     <!-- Hand Picked: Start -->
+                    <?php if(count($courses) > 0): ?>
                     <?php $__currentLoopData = $courses->take(4); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $c): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                          <?php if (isset($component)) { $__componentOriginal6140f5124f377f6c9739ee318dd31a7e77329c20 = $component; } ?>
 <?php $component = $__env->getContainer()->make(App\View\Components\Handpicked::class, ['hpImg' => $c->preview_image,'hpCourse' => $c->title,'hpCname' => $c->user->fullName,'hpUrl' => '/learn/course/'.$c->id.'/'.$c->slug]); ?>
@@ -228,6 +229,20 @@
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <?php else: ?>
+                      <div class="la-empty__courses  d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                        <div class="col la-empty__inner la-anim__stagger-item">
+                            <h6 class="la-empty__course-title">No Courses Found</h6>
+                            <p class="la-empty__course-desc leading-snug m-0">Add Interests To Get Course Suggestion</p>
+                        </div>
+                        <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
+                            <a href="/my-interests" class="la-empty__browse">
+                                Add Interests
+                              <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                            </a>
+                        </div>
+                      </div>
+                    <?php endif; ?>
                     <!-- Hand Picked: End -->
                 </div>
               </div>
@@ -248,30 +263,47 @@
         <div class="container-fluid">
             <div class="row ">
               <div class="col-12 la-anim__wrap">
-                <h5 class="text-2xl text-md-3xl mb-8 px-0 la-anim__stagger-item ">Alien Mentors</h5>
+                <h5 class="text-2xl text-md-3xl mb-8 px-0 la-anim__stagger-item ">Alien Creators</h5>
               </div>
             </div>
           
             <div class="la-mentors">
               <div class="row la-anim__wrap">
-                <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $u): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                  <div class="col-md-6 col-lg-4 ">
-                    <div class="la-mentor">
-                      <div class="la-mentor__profile  la-anim__stagger-item">
-                          <img class="img-fluid" src="<?php echo e($u[0]->user->user_img); ?>" alt="<?php echo e($u[0]->user->fullName); ?>">
-                      </div>
-                      <div class="la-mentor__btm d-flex justify-content-between align-items-center la-anim__stagger-item la-anim__B">
-                        <div class="la-mentor__info ">
-                          <h3 class="la-mentor__name"><?php echo e($u[0]->user->fullName); ?></h3>
-                          <p class="la-mentor__skill"><?php echo e($u[0]->category->title); ?></p>
+                <?php if(count($users) > 0): ?>
+                  <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $u): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="col-md-6 col-lg-4 ">
+                      <div class="la-mentor">
+                        <div class="la-mentor__profile  la-anim__stagger-item">
+                            <img class="img-fluid" src="<?php echo e($u[0]->user->user_img); ?>" alt="<?php echo e($u[0]->user->fullName); ?>">
                         </div>
-                        <a class="la-mentor__detailview " href="/creator/<?php echo e(1); ?>">
-                          <span class="la-icon la-icon--6xl icon-grey-arrow mt-n2"></span>
-                        </a>
+                        <div class="la-mentor__btm d-flex justify-content-between align-items-center la-anim__stagger-item la-anim__B">
+                          <div class="la-mentor__info ">
+                            <h3 class="la-mentor__name"><?php echo e($u[0]->user->fullName); ?></h3>
+                            <p class="la-mentor__skill"><?php echo e($u[0]->category->title); ?></p>
+                          </div>
+                          <a class="la-mentor__detailview " href="/creator/<?php echo e(1); ?>">
+                            <span class="la-icon la-icon--6xl icon-grey-arrow mt-n2"></span>
+                          </a>
+                        </div>
                       </div>
-                    </div>
-                  </div>                
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </div>                
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                <?php else: ?>
+
+                      <div class="la-empty__courses  d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                        <div class="col la-empty__inner la-anim__stagger-item">
+                            <h6 class="la-empty__course-title">No Creator Found</h6>
+                            <p class="la-empty__course-desc leading-snug m-0">Add Interests To Get Creator Suggestion</p>
+                        </div>
+                        <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
+                            <a href="/my-interests" class="la-empty__browse">
+                                Add Interests
+                              <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                            </a>
+                        </div>
+                      </div>
+                    
+                <?php endif; ?>
               </div>
           </div>            
         </div>

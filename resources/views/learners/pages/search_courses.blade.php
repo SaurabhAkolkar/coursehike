@@ -3,7 +3,7 @@
 @section('content')
 <section class="la-section__small la-cbg--main">
     <div class="la-section__inner">
-      <div class="container">
+      <div class="container-fluid">
         <!-- Alert Message -->
         @if(session('message'))
           <div class="la-btn__alert position-relative">

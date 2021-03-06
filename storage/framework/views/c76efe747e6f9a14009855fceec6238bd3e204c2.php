@@ -150,7 +150,7 @@ $course_id = $course->id;
           </div>
         </div>
         <div id="vcourse_row" class="row la-vcourse__class-row  la-anim__wrap">
-          <div class="col-12 col-lg-6 la-vcourse__class-col px-0 px-md-4 la-anim__stagger-item">
+          <div class="col-12 col-lg-6 la-vcourse__class-col px-md-4 la-anim__stagger-item">
             <div class="la-player la-vcourse__video-wrap mb-3">
               
                 <video-js
@@ -197,9 +197,14 @@ $course_id = $course->id;
                         else 
                           $lesson_access = 'locked';
                       }
+                      
+                
                     ?>
+
+
+                    
                      <?php if (isset($component)) { $__componentOriginalff32d1cf202e585582bd852574666ac7f52eac32 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\ClassVideo::class, ['id' => $class_video->id,'title' => $class_video->title,'thumbnail' => $class_video->image,'detail' => $class_video->detail,'author' => $class_video->courses->user->fname,'watchduration' => $class_video->duration,'statuspercentage' => $class_video->duration,'access' => $lesson_access]); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\ClassVideo::class, ['id' => $class_video->id,'title' => $class_video->title,'thumbnail' => $class_video->image,'detail' => $class_video->detail,'author' => $class_video->courses->user->fname,'watchduration' => $class_video->duration,'statuspercentage' => $class_video->getProgress(),'access' => $lesson_access]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
@@ -242,7 +247,7 @@ $course_id = $course->id;
           </nav>
           <div class="tab-content la-courses__content" id="cnav-tabContent">
             <div class="tab-pane fade show active" id="cnav-about" role="tabpanel" aria-labelledby="cnav-about-tab">
-              <div class="col-lg-9 px-0">
+              <div class="col-lg-12 px-0">
                 <div class="col-12 col-lg px-0 la-anim__wrap">
                   <div class="la-ctabs__about la-anim__stagger-item ">
                     <p><?php echo e($course->short_detail); ?></p>

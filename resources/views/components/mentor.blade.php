@@ -1,10 +1,10 @@
 
 
-<div class="col-md-6 col-lg-3">
+<div class="col-md-6 col-lg-4">
     <div class="la-mentor la-anim__stagger-item">
       <a href="/creator/{{$id}}">
         <div class="la-mentor__profile">
-            <img class="img-fluid" src="{{ $img }}" alt={{ $name }}>
+            <img class="img-fluid" src="{{ $img }}" alt={{ $name }} width="400" height="400">
         </div>
       </a>
       <div class="la-mentor__btm d-flex justify-content-between align-items-center">

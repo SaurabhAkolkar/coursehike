@@ -1,10 +1,10 @@
 
 
-<div class="col-md-6 col-lg-4 ">
+<div class="col-md-6 col-lg-4">
     <div class="la-mentor la-anim__stagger-item">
       <a href="/creator/<?php echo e($id); ?>">
         <div class="la-mentor__profile">
-            <img class="img-fluid" src="<?php echo e($img); ?>" alt=<?php echo e($name); ?>>
+            <img class="img-fluid" src="<?php echo e($img); ?>" alt=<?php echo e($name); ?> width="400" height="400">
         </div>
       </a>
       <div class="la-mentor__btm d-flex justify-content-between align-items-center">
