@@ -509,16 +509,16 @@
                             <div class="swiper-slide la-home__customize-slide col-md-7 px-0 la-anim__stagger-item">
                                 <div class="la-home__customize-info">
                                     <img src="../images/learners/home/mockup3.png" alt="Mock" class="img-fluid mx-auto d-block la-home__customize-img">
-                                    <div class="la-home__customize-infotitle leading-tight mt-8">Personalised dashboard for focussed learning</div>
-                                    <p class="la-home__customize-infopara">Courses based on your interests or your favourite creators, everything you want is available in one place.</p>
+                                    <div class="la-home__customize-infotitle leading-tight mt-8">Personalised dashboard for focused learning</div>
+                                    <p class="la-home__customize-infopara">Courses based on your interests, favourite creators, on one easy learning platform</p>
                                 </div>
                             </div>
 
                             <div class="swiper-slide la-home__customize-slide col-md-7 px-0 la-anim__stagger-item">
                                 <div class="la-home__customize-info">
                                     <img src="../images/learners/home/mockup2.png" alt="Mock" class="img-fluid mx-auto d-block la-home__customize-img">
-                                    <div class="la-home__customize-infotitle leading-tight mt-8">Unique Courses from around the world</div>
-                                    <p class="la-home__customize-infopara">Learn courses that are unique and are created by trusted creators across the world</p>
+                                    <div class="la-home__customize-infotitle leading-tight mt-8">Unique tattoo styles from around of the world</div>
+                                    <p class="la-home__customize-infopara">Learn unique styles created by incredible artists from across the world</p>
                                 </div>
                             </div>
 
@@ -604,7 +604,7 @@
             </div>
             <div class="la-trail__right position-relative d-flex align-items-end">
               <div class="la-trail__content-wrap la-anim__stagger">
-                <div class="la-trail__para la-anim__stagger-item la-anim__B">We strongly believe observation is integral to honing art. Learn from masters in their respective fields with consistent practice, and become a pro yourself!</div>
+                <div class="la-trail__para la-anim__stagger-item la-anim__B">We strongly believe observation is integral to honing art. Learn from artists who have created their niche in the world of tattooing with consistent practice, and become the master of your niche!</div>
                 @if(Auth::check())
                   @if(Auth::user()->subscription() )
                     <a class="btn btn-primary la-btn  mt-md-10 la-anim__stagger-item" href="/browse/course/">Browse Course</a>
