@@ -30,7 +30,7 @@
                     &inner{ 
                         padding: var(--size-12);
                         @include respond-above(sm){
-                            padding: var(--size-16);
+                            padding: var(--size-20);
                         }
                     }
                     &para {

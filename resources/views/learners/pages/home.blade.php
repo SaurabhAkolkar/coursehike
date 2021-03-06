@@ -666,7 +666,7 @@
         
                   @if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())
                   
-                        <div class="col-md-7 col-lg-4 offset-lg-2 py-12 py-md-20">
+                        <div class="col-md-7 col-lg-5 offset-lg-1 py-12 py-md-20">
                           <div class="la-anim__wrap la-anim__wrap-pin2 ">
                               <div class="la-price__box la-anim__pin2 ">
                                 <div class="la-price__box-inner la-anim__stagger-item">
@@ -679,7 +679,7 @@
 
                   @else
 
-                      <div class="col-md-7 col-lg-4 offset-lg-2 pt-12 pb-0 py-lg-20">
+                      <div class="col-md-7 col-lg-5 offset-lg-1 pt-12 pb-0 py-lg-20">
                         <div class="la-anim__wrap la-anim__wrap-pin2 ">
                             <div class="la-price__box la-anim__pin2 ">
                               <div class="la-price__box-inner la-anim__stagger-item">
