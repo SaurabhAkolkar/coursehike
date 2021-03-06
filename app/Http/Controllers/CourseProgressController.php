@@ -82,9 +82,7 @@ class CourseProgressController extends Controller
 						['current_position' => $percentage_completion ]
 					);
 				}
-
-				if($user->subscription() && $user->subscription()->active() && !$user->subscription()->onTrial())
-					UserWatchTime::insert($logs);
+				UserWatchTime::insert($logs);
 			
 		}			
 		$response = array(
