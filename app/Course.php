@@ -197,11 +197,10 @@ class Course extends Model
     public function getLearnerCountAttribute()
     {
         $count = 0;
-        $purchased_courses = UserPurchasedCourse::where(['course_id' => $this->id])->groupBy('user_id')->pluck('user_id');
+        $purchased_courses = UserPurchasedCourse::where(['course_id' => $this->id])->groupBy('user_id')->pluck('user_id')->toArray();
         
         if($purchased_courses !=null){
-            $subscribers = UserWatchTimelog::where(['course_id'=>$this->id])->whereNotIn('user_id', $purchased_courses)->groupBy('course_id')->count();
-
+            $subscribers = UserWatchTimelog::where(['course_id'=>$this->id])->whereNotIn('user_id', $purchased_courses)->groupBy('course_id')->count();            
             $count = $count + $subscribers;
             $count = $count + count($purchased_courses);
         }else{
@@ -217,6 +216,21 @@ class Course extends Model
         $rating = 0;
         $avgRating = ReviewRating::where(['course_id' => $this->id])->avg('rating');
         return $avgRating;
+    }
+
+    public function getProgress()
+    {
+        $classes = $this->courseclass->count();
+
+        $lastWatchedCourse = UserWatchProgress::where([ 'course_id'=> $this->id, 'user_id'=>Auth::User()->id ])->get();
+
+        $courseCompletion = 0;
+        if($lastWatchedCourse){
+            $lastWatchedCourseAvg = $lastWatchedCourse->avg('current_position');
+            $lastWatchedCourseCount = $lastWatchedCourse->count();
+            $courseCompletion = $lastWatchedCourseAvg / (($classes - $lastWatchedCourseCount)+1);
+        }
+        return $courseCompletion;
     }
 
     public function getPreviewVideoAttribute($value)
