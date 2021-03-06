@@ -74,12 +74,14 @@ $course_id = $course->id;
                   <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end" href="/learning-plans">Subscribe Now</a>
                 @endif
 
-                <div class="text-center la-anim__stagger-item--x mt-4">
-                  <div class="la-vcourse__buy-complete mb-1">
-                    <span class="pr-2" style="color:var(--green)">100%</span> <span style="color:var(--gray8)"> Completed</span>
-                  </div>
-                  <div class="progress la-rtng__progress w-100"> 
-                    <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:100%" aria-valuenow="{{$five_rating_percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
+                @if(auth()->check())
+                  <div class="text-center la-anim__stagger-item--x">
+                    <div class="la-vcourse__buy-complete mb-1">
+                      <span class="pr-2" style="color:var(--green)">{{$course->getProgress()}}%</span> <span style="color:var(--gray8)"> Completed</span>
+                    </div>
+                    <div class="progress la-rtng__progress w-100"> 
+                      <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$course->getProgress()}}%" aria-valuenow="{{$course->getProgress()}}" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
                   </div>
                 @endif
               </div>
