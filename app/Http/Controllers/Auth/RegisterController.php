@@ -138,8 +138,8 @@ class RegisterController extends Controller
       
         if($setting->w_email_enable == 1){
             try{
-               
-                Mail::to($data['email'])->send(new WelcomeUser($user));
+
+                Mail::to($data['email'])->later(now()->addMinutes(1), new WelcomeUser($user));
                
             }
             catch(\Swift_TransportException $e){

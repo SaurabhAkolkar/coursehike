@@ -8,7 +8,7 @@
         <div class="container-fluid la-anim__wrap">
           <div class="row">
             <div class="col-1 mb-14">
-              <a href="{{URL::previous()}}" class="la-vcreator__back"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
+              <a href="/creators" class="la-vcreator__back"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
             </div>
           </div>
 

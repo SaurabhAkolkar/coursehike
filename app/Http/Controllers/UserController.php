@@ -550,7 +550,8 @@ class UserController extends Controller
         $email = $request->email;
 
         try{
-            Mail::to($request->email)->send(new PasswordReset($email, $token));               
+            Mail::to($request->email)->later(now()->addMinutes(1), new PasswordReset($email, $token));
+                   
         }catch(\Swift_TransportException $e){
             header( "refresh:5;url=./login" );
         }

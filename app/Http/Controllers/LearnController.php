@@ -482,7 +482,7 @@ class LearnController extends Controller
 	
 				$level = array_map('intval', explode(',',$request->level));
 				$selected_level =$level;
-				$courses = $courses->level('level',$level);
+				$courses = $courses->whereIn('level',$level);
 			}
         }
         

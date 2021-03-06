@@ -105,11 +105,11 @@
             </div>
 
             <div class="la-header__nav-item">   
-                <a class="la-header__nav-link @if(Request::segment(1) == 'mentors') active @endif" href="/mentors">
+                <a class="la-header__nav-link @if(Request::segment(1) == 'mentors') active @endif" href="/creators">
                     <div class="la-header__nav-icon">
                         <span class="la-icon--xl icon-all-mentors"></span>
                     </div>
-                    <span class="la-header__nav-name">Mentors</span>
+                    <span class="la-header__nav-name">Creator</span>
                 </a>
             </div>
             @if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())
@@ -214,11 +214,11 @@
             </div>
 
             <div class="la-header__nav-item"> 
-                <a class="la-header__nav-link @if(Request::segment(1) == 'mentors') active @endif "  href="/mentors">
+                <a class="la-header__nav-link @if(Request::segment(1) == 'mentors') active @endif "  href="/creators">
                     <div class="la-header__nav-icon">
                     <span class="la-icon--lg icon-all-mentors"></span>
                     </div> 
-                    <span class="la-header__nav-name">Mentors</span>
+                    <span class="la-header__nav-name">Creators</span>
                 </a>
             </div>
 
