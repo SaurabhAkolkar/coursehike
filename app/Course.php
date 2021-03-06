@@ -233,6 +233,11 @@ class Course extends Model
         return $courseCompletion;
     }
 
+    public function isCompleted()
+    {
+        return ($this->getProgress() == 100);
+    }
+
     public function getPreviewVideoAttribute($value)
     {
         return Storage::url(config('path.course.preview_video'). $value);

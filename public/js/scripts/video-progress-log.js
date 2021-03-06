@@ -84,6 +84,8 @@ var lilaPlayer = videojs('lila-video').ready(function () {
 $('.la-vcourse__lesson').on('click', function() {
 
     video_id = $(this).attr('data-video-id');
+    $('.la-vcourse__lesson').removeClass('active');
+    $(this).addClass('active');
   
     $.ajax({
       type: 'POST',

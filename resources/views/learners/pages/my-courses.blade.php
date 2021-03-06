@@ -82,26 +82,25 @@
           <div class="row">
             <div class="col-12">
                 <div class="la-mycourses__subtitle text-2xl mb-6 head-font  la-anim__stagger-item--x">Yet to Start</div>
-                @if(count($yet_to_start_courses) != 0)
-                <div class="row row-cols-lg-3 ">
-                  @foreach($yet_to_start_courses as $course)
-                
-                  <x-course 
-                      :id="$course->id"
-                      :img="$course->preview_image" 
-                      :course="$course->title" 
-                      :url="$course->slug" 
-                      :rating="$course->review->avg('rating')"
-                      :creatorImg="$course->user->user_img"
-                      :creatorName="$course->user->fullName"
-                      :creatorUrl="$course->user->id"
-                      :price="$course->price"
-                      :learnerCount="$course->learnerCount"
-                      :bought="$course->isPurchased()"
-                    />
-                  @endforeach
-                </div>
-
+                @if($yet_to_start_courses && count($yet_to_start_courses) > 0)
+                  <div class="row row-cols-lg-3 ">
+                    @foreach($yet_to_start_courses as $course)
+                  
+                    <x-course 
+                        :id="$course->id"
+                        :img="$course->preview_image" 
+                        :course="$course->title" 
+                        :url="$course->slug" 
+                        :rating="$course->review->avg('rating')"
+                        :creatorImg="$course->user->user_img"
+                        :creatorName="$course->user->fullName"
+                        :creatorUrl="$course->user->id"
+                        :price="$course->price"
+                        :learnerCount="$course->learnerCount"
+                        :bought="$course->isPurchased()"
+                      />
+                    @endforeach
+                  </div>
                 @else
 
                   <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
@@ -132,19 +131,39 @@
           <div class="row">
             <div class="col-12">
               <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Completed</div>
-            
-                <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
-                  <div class="col la-empty__inner">
-                      <h6 class="la-empty__course-title  la-anim__stagger-item">No Courses</h6>
-                      <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You have not finished any course yet.</p>
+                @if($completed_courses && count($completed_courses) != 0)
+                  <div class="row row-cols-lg-3 ">
+                    @foreach($completed_courses as $course)
+                  
+                    <x-course 
+                        :id="$course->id"
+                        :img="$course->preview_image" 
+                        :course="$course->title" 
+                        :url="$course->slug" 
+                        :rating="$course->review->avg('rating')"
+                        :creatorImg="$course->user->user_img"
+                        :creatorName="$course->user->fullName"
+                        :creatorUrl="$course->user->id"
+                        :price="$course->price"
+                        :learnerCount="$course->learnerCount"
+                        :bought="$course->isPurchased()"
+                      />
+                    @endforeach
                   </div>
-                  <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
-                      <a href="/browse/courses" class="la-empty__browse ">
-                          Browse Courses
-                          <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
-                      </a>
+                @else
+                  <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                    <div class="col la-empty__inner">
+                        <h6 class="la-empty__course-title  la-anim__stagger-item">No Courses</h6>
+                        <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You have not finished any course yet.</p>
+                    </div>
+                    <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
+                        <a href="/browse/courses" class="la-empty__browse ">
+                            Browse Courses
+                            <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                        </a>
+                    </div>
                   </div>
-                </div>
+                @endif
 
               </div>
           </div>
