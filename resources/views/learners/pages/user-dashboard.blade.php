@@ -260,7 +260,7 @@
         <div class="container-fluid">
             <div class="row ">
               <div class="col-12 la-anim__wrap">
-                <h5 class="text-2xl text-md-3xl mb-8 px-0 la-anim__stagger-item ">Alien Creators</h5>
+                <h5 class="text-2xl text-md-3xl mb-8 px-0 la-anim__stagger-item ">Alien Mentors</h5>
               </div>
             </div>
           
@@ -289,8 +289,8 @@
 
                       <div class="la-empty__courses  d-md-flex justify-content-between align-items-start la-anim__stagger-item">
                         <div class="col la-empty__inner la-anim__stagger-item">
-                            <h6 class="la-empty__course-title">No Creator Found</h6>
-                            <p class="la-empty__course-desc leading-snug m-0">Add Interests To Get Creator Suggestion</p>
+                            <h6 class="la-empty__course-title">No Mentors Found</h6>
+                            <p class="la-empty__course-desc leading-snug m-0">Add Interests To Get Mentor Suggestion</p>
                         </div>
                         <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
                             <a href="/my-interests" class="la-empty__browse">

@@ -10608,6 +10608,15 @@ ul, li {
   }
 }
 
+.la-cr__section-item {
+  list-style-type: decimal-leading-zero !important;
+  margin-bottom: var(--size-base);
+}
+
+.la-cr__section-subitem {
+  list-style-type: initial !important;
+}
+
 .la-btn {
   font-weight: var(--font-bold);
   font-size: var(--text-xs);

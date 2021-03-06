@@ -145,7 +145,7 @@
                 
               </ul>
           </nav>
-          <!-- <nav class="la-courses__nav position-relative d-flex justify-content-between align-items-start">
+           <nav class="la-courses__nav position-relative d-flex justify-content-between align-items-start">
             
               <ul class="nav nav-pills la-courses__nav-tabs" id="nav-tab" role="tablist" tabindex="0">
               
@@ -162,7 +162,7 @@
 
                 
               </ul>
-          </nav> -->
+          </nav> 
 
           <nav class="la-courses__nav">
                <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
@@ -283,15 +283,15 @@
       <div class="swiper-container gallery-top la-artist__slider container-fluid">
         
         <div class="swiper-wrapper">
-          <div class="la-artist__designation la-artist__designation--front position-absolute w-50  my-auto d-flex align-items-center justify-content-left la-anim__fade-in-top la-anim__A">
+          <div class="la-artist__designation la-artist__designation--front position-absolute w-50 pt-10 my-auto d-flex align-items-center justify-content-left la-anim__fade-in-top la-anim__A">
               <h2 class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">
                   <span class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">Lila</span> 
               </h2>
           </div>
 
-          <div class="la-artist__designation position-absolute w-100  my-auto d-flex align-items-center justify-content-center la-anim__fade-in-top la-anim__A">
+          <div class="la-artist__designation position-absolute w-100 pt-10 my-auto d-flex align-items-center justify-content-center la-anim__fade-in-top la-anim__A">
               <h2 class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">
-                  <span class="ml-6" style="color: var(--gray);"> CREATORS </span>
+                  <span class="ml-6" style="color: var(--gray);"> Mentors </span>
               </h2>
           </div>
             <?php $__currentLoopData = $featuredMentor; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $feat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -399,7 +399,7 @@
                         <div class="swiper-wrapper la-home__customize-wrapper">
                             <div class="swiper-slide la-home__customize-slide col-md-7 px-0 la-anim__stagger-item">
                                 <div class="la-home__customize-info">
-                                    <img src="../images/learners/home/mockup3.png" alt="Mock" class="img-fluid mx-auto d-block la-home__customize-img">
+                                    <img src="../images/learners/home/mockup1.jpg" alt="Personalised dashboard" class="img-fluid mx-auto d-block la-home__customize-img">
                                     <div class="la-home__customize-infotitle leading-tight mt-8">Personalised dashboard for focused learning</div>
                                     <p class="la-home__customize-infopara">Courses based on your interests, favourite creators, on one easy learning platform</p>
                                 </div>
@@ -407,7 +407,7 @@
 
                             <div class="swiper-slide la-home__customize-slide col-md-7 px-0 la-anim__stagger-item">
                                 <div class="la-home__customize-info">
-                                    <img src="../images/learners/home/mockup2.png" alt="Mock" class="img-fluid mx-auto d-block la-home__customize-img">
+                                    <img src="../images/learners/home/mockup2.jpg" alt="Unique tattoo styles" class="img-fluid mx-auto d-block la-home__customize-img">
                                     <div class="la-home__customize-infotitle leading-tight mt-8">Unique tattoo styles from around of the world</div>
                                     <p class="la-home__customize-infopara">Learn unique styles created by incredible artists from across the world</p>
                                 </div>
@@ -415,7 +415,7 @@
 
                             <div class="swiper-slide la-home__customize-slide col-md-7 px-0 la-anim__stagger-item">
                                 <div class="la-home__customize-info">
-                                    <img src="../images/learners/home/mockup1.png" alt="Mock" class="img-fluid mx-auto d-block la-home__customize-img">
+                                    <img src="../images/learners/home/mockup3.jpg" alt="Personal Playlist" class="img-fluid mx-auto d-block la-home__customize-img">
                                     <div class="la-home__customize-infotitle leading-tight mt-8">Personal Playlist to help you organise</div>
                                     <p class="la-home__customize-infopara">Create playlist to save all the courses you want to learn in a personal space and learn whenever, wherever yo want!</p>
                                 </div>
