@@ -1,9 +1,28 @@
 @extends('learners.layouts.app')
 
+@section('seo_content')
+    <title>{{ $course->title }} | Courses | Best Online Courses for Art & Creativity | LILA</title>
+    <meta name='description' itemprop='description' content='Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now' />
+
+    <meta property="og:description"content="Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now" />
+    <meta property="og:title"content="Courses | Best Online Courses for Art & Creativity | LILA" />
+    <meta property="og:url"content="{{Request::url()}}" />
+    <meta property="og:type"content="website" />
+    <meta property="og:site_name"content="LILA Art" />
+    <meta property="og:image"content="/images/learners/logo.svg" />
+    <meta property="og:image:url"content="/images/learners/logo.svg" />
+    <meta property="og:image:size"content="300" />
+
+    <meta name="twitter:card"content="summary" />
+    <meta name="twitter:title"content="Courses | Best Online Courses for Art & Creativity | LILA" />
+    <meta name="twitter:site"content="@lilaaliens" />
+    
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Courses | Best Online Courses for Art & Creativity | LILA"}</script>
+@endsection
+
 @section('headAssets')
   <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
   <link href="https://unpkg.com/@silvermine/videojs-quality-selector/dist/css/quality-selector.css" rel="stylesheet">
-  <title>{{ $course->title }}</title>
 @endsection
 
 @section('content')

@@ -1,12 +1,32 @@
 @extends('learners.layouts.app')
 
+@section('seo_content')
+    <title>Mentors | Best Online Courses for Art & Creativity | LILA</title>
+    <meta name='description' itemprop='description' content='Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now' />
+
+    <meta property="og:description"content="Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now" />
+    <meta property="og:title"content="Mentors | Best Online Courses for Art & Creativity | LILA" />
+    <meta property="og:url"content="{{Request::url()}}" />
+    <meta property="og:type"content="website" />
+    <meta property="og:site_name"content="LILA Art" />
+    <meta property="og:image"content="/images/learners/logo.svg" />
+    <meta property="og:image:url"content="/images/learners/logo.svg" />
+    <meta property="og:image:size"content="300" />
+
+    <meta name="twitter:card"content="summary" />
+    <meta name="twitter:title"content="Mentors | Best Online Courses for Art & Creativity | LILA" />
+    <meta name="twitter:site"content="@lilaaliens" />
+    
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Mentors | Best Online Courses for Art & Creativity | LILA"}</script>
+@endsection
+
 @section('content')
 <section class="la-section__small la-cbg--main">
     <div class="la-section__inner">
       <div class="container-fluid">
       <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none mt-n4 ml-n1 mb-2" href="{{URL::previous()}}"></a>
         <div class="la-anim__wrap d-md-flex justify-content-between align-items-center">
-          <h1 class="la-page__title mb-4 mb-md-8 la-anim__stagger-item">Alien Creators</h1>
+          <h1 class="la-page__title mb-4 mb-md-8 la-anim__stagger-item">Alien Mentors</h1>
 
           <!-- Global Search: Start-->
           <div class="la-gsearch la-anim__stagger-item--x">
