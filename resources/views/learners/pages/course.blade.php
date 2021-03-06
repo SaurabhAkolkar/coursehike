@@ -416,9 +416,9 @@ $course_id = $course->id;
 
                     <div class="col-md-6 col-lg-4 la-cbenefits__item-col la-anim__stagger-item--x">
                       <div class="la-cbenefits__item d-flex flex-column align-items-center">
-                        <div class="mb-7"><img class="img-fluid d-block" src="/images/learners/course-benefits/certificate.svg"></div>
-                        <h4 class="la-cbenefits__item-title mb-3">Certification</h4>
-                        <p class="la-cbenefits__item-desc m-0 text-center">Certificates as proof of course completion</p>
+                        <div class="la-cbenefits__item-icon"><span class="la-icon icon-trial"></span></div>
+                        <h4 class="la-cbenefits__item-title mb-3">Free Trials</h4>
+                        <p class="la-cbenefits__item-desc m-0 text-center">A 7 day free trial to help choose the right course</p>
                       </div>
                     </div>
 

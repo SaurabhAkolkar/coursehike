@@ -27,10 +27,16 @@
                     &-{
                         //- Browse Courses Page
                         &browsecourses{
-                            width:420px !important;
+                            width:100% !important;
 
+                            @include respond-above(lg){
+                                width:420px !important;
+                            }
                             @include respond-below(md){
-                                width:260px !important;
+                                width:300px !important;
+                            }
+                            @include respond-below(sm){
+                                width:75vw !important;
                             }
                         }
 
@@ -44,10 +50,16 @@
 
                         //- Search Course Page
                         &searchcourses{
-                            width:410px !important;
+                            width:100% !important;
 
+                            @include respond-above(lg){
+                                width:410px !important;
+                            }
                             @include respond-below(md){
-                                width:150px !important;
+                                width:300px !important;
+                            }
+                            @include respond-below(sm){
+                                width:80vw !important;
                             }
                         }
                         &icon{

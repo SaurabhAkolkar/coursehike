@@ -43,7 +43,7 @@
           <div class="col-12 position-relative my-auto">
             @if($firstSection->video_url == null)
 
-            <div class="la-hero__img position-relative d-flex align-items-center la-anim__fade-in-right">
+            <div class="la-hero__img position-relative d-flex align-items-center la-anim__fade-in-right py-20">
               <h2 class="la-section__title la-section__title--big">
                 <span class="la-anim__text-move--content">{{$firstSection->image_text}}</span>
               </h2>

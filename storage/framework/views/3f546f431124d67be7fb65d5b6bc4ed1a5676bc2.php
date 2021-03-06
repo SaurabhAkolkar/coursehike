@@ -41,7 +41,7 @@
           <div class="col-12 position-relative my-auto">
             <?php if($firstSection->video_url == null): ?>
 
-            <div class="la-hero__img position-relative d-flex align-items-center la-anim__fade-in-right">
+            <div class="la-hero__img position-relative d-flex align-items-center la-anim__fade-in-right py-20">
               <h2 class="la-section__title la-section__title--big">
                 <span class="la-anim__text-move--content"><?php echo e($firstSection->image_text); ?></span>
               </h2>
@@ -145,7 +145,7 @@
                 
               </ul>
           </nav>
-           <nav class="la-courses__nav position-relative d-flex justify-content-between align-items-start">
+          <!-- <nav class="la-courses__nav position-relative d-flex justify-content-between align-items-start">
             
               <ul class="nav nav-pills la-courses__nav-tabs" id="nav-tab" role="tablist" tabindex="0">
               
@@ -162,7 +162,7 @@
 
                 
               </ul>
-          </nav> 
+          </nav> -->
 
           <nav class="la-courses__nav">
                <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>

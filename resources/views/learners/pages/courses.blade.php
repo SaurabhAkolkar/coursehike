@@ -45,7 +45,7 @@
           <h1 class="la-page__title mb-4 mb-md-8 la-anim__stagger-item">Browse Courses</h1>
         </div>
         
-        <div class="d-flex justify-content-between align-items-start ">
+        <div class="d-flex justify-content-between align-items-start flex-wrap flex-column flex-md-row">
             <!-- Global Search: Start-->
             <div class="la-gsearch la-anim__wrap">
               <form class="form-inline m-0 la-anim__stagger-item"  action="{{ url('/search-course/') }}">
@@ -58,7 +58,7 @@
             <!-- Global Search: End-->
 
               <!-- Filters : Start -->
-            <div class="la-courses__nav-filters  d-flex align-items-start ml-6 ">
+            <div class="la-courses__nav-filters  d-flex align-items-start ml-auto ml-md-6 ">
               <!-- <div class="la-courses__nav-props">
                 <a class="la-icon icon-list-layout la-courses__nav-filter  mr-3" id="showLayout" role="button"></a>
               </div> -->

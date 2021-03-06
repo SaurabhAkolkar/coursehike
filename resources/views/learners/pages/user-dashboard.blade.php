@@ -227,7 +227,8 @@
                         <x-handpicked :hpImg="$c->preview_image" :hpCourse="$c->title" :hpCname="$c->user->fullName" :hpUrl="'/learn/course/'.$c->id.'/'.$c->slug" />
                     @endforeach
                     @else
-                      <div class="la-empty__courses  d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                    <div class="col-12">
+                      <div class="la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
                         <div class="col la-empty__inner la-anim__stagger-item">
                             <h6 class="la-empty__course-title">No Courses Found</h6>
                             <p class="la-empty__course-desc leading-snug m-0">Add Interests To Get Course Suggestion</p>
@@ -238,6 +239,7 @@
                               <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
                             </a>
                         </div>
+                      </div>
                       </div>
                     @endif
                     <!-- Hand Picked: End -->
@@ -286,8 +288,8 @@
                     </div>                
                   @endforeach
                 @else
-
-                      <div class="la-empty__courses  d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                    <div class="col-12">
+                      <div class="la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
                         <div class="col la-empty__inner la-anim__stagger-item">
                             <h6 class="la-empty__course-title">No Mentors Found</h6>
                             <p class="la-empty__course-desc leading-snug m-0">Add Interests To Get Mentor Suggestion</p>
@@ -299,7 +301,7 @@
                             </a>
                         </div>
                       </div>
-                    
+                      </div>
                 @endif
               </div>
           </div>            

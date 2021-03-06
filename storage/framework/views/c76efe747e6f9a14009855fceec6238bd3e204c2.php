@@ -1,7 +1,26 @@
+<?php $__env->startSection('seo_content'); ?>
+    <title><?php echo e($course->title); ?> | Courses | Best Online Courses for Art & Creativity | LILA</title>
+    <meta name='description' itemprop='description' content='Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now' />
+
+    <meta property="og:description"content="Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now" />
+    <meta property="og:title"content="Courses | Best Online Courses for Art & Creativity | LILA" />
+    <meta property="og:url"content="<?php echo e(Request::url()); ?>" />
+    <meta property="og:type"content="website" />
+    <meta property="og:site_name"content="LILA Art" />
+    <meta property="og:image"content="/images/learners/logo.svg" />
+    <meta property="og:image:url"content="/images/learners/logo.svg" />
+    <meta property="og:image:size"content="300" />
+
+    <meta name="twitter:card"content="summary" />
+    <meta name="twitter:title"content="Courses | Best Online Courses for Art & Creativity | LILA" />
+    <meta name="twitter:site"content="@lilaaliens" />
+    
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Courses | Best Online Courses for Art & Creativity | LILA"}</script>
+<?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('headAssets'); ?>
   <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
   <link href="https://unpkg.com/@silvermine/videojs-quality-selector/dist/css/quality-selector.css" rel="stylesheet">
-  <title><?php echo e($course->title); ?></title>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -384,9 +403,9 @@ $course_id = $course->id;
 
                     <div class="col-md-6 col-lg-4 la-cbenefits__item-col la-anim__stagger-item--x">
                       <div class="la-cbenefits__item d-flex flex-column align-items-center">
-                        <div class="mb-7"><img class="img-fluid d-block" src="/images/learners/course-benefits/certificate.svg"></div>
-                        <h4 class="la-cbenefits__item-title mb-3">Certification</h4>
-                        <p class="la-cbenefits__item-desc m-0 text-center">Certificates as proof of course completion</p>
+                        <div class="la-cbenefits__item-icon"><span class="la-icon icon-trial"></span></div>
+                        <h4 class="la-cbenefits__item-title mb-3">Free Trials</h4>
+                        <p class="la-cbenefits__item-desc m-0 text-center">A 7 day free trial to help choose the right course</p>
                       </div>
                     </div>
 

@@ -103,7 +103,7 @@
 
                   <div class="col-md-6 col-lg-4  la-cbenefits__item-col">
                     <div class="la-cbenefits__item bg-white d-flex flex-column align-items-center la-anim__stagger-item--x">
-                      <div class="mb-7"><img class="img-fluid" src="./images/learners/course-benefits/certificate.svg"></div>
+                      <div class="la-cbenefits__item-icon"><span class="la-icon icon-trial"></span></div>
                       <h4 class="la-cbenefits__item-title mb-3">Free Trials</h4>
                       <p class="la-cbenefits__item-desc text-center">A 7 day free trial to help choose the right course</p>
                     </div>
