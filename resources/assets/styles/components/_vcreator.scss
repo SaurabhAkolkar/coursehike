@@ -23,23 +23,21 @@
                 }
             }
             &profile{
-
                 @include respond-above(lg){
                     width: calc(100% - 130px);
                     margin-left: auto;
                 }
 
-               img{
+               img{                 
                     width:100%;
                     // height:560px;
-                    // object-fit: cover;
+                    //object-fit: cover;
+                    //object-position: top;
                     // overflow:hidden;
                     margin:0 auto;
                     background-color: var(--white);
 
-                    @include respond-below(md){
-                        height:400px;
-                    }
+                   
                     @include respond-below(sm){
                         height: auto;
                     }
@@ -47,7 +45,7 @@
                 &--{
                     &img {
                         @include respond-above(lg) {
-                            height: 70vh;
+                            height: 80vh;
                             overflow: hidden;
                         }
 
@@ -60,7 +58,14 @@
                             -webkit-background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9));
                             -moz-background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9));
                         }
-
+                        
+                        @include respond-above(lg){
+                            &:after{
+                                display: block;
+                                content: "";
+                                padding-bottom: 100%;
+                            }
+                        }
                     }
                 }
             }
@@ -85,6 +90,7 @@
                             &vcreator {
                                 &__ {
                                     &name {
+                                        font-family: var(--head-font);
                                         color: #000000;
                                     }
                                 }
@@ -94,6 +100,7 @@
                 }
             }
             &name {
+                font-family: var(--head-font);
                 font-size: calc(var(--text-6xl) * 2);
                 color: var(--gray);
                 text-transform:uppercase;

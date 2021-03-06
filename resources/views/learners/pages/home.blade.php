@@ -446,7 +446,7 @@
 
                 @foreach ($master_classes as $master)
                   @if($master->courses != null)
-                    <div class="swiper-slide col-12 col-md-3 px-0 la-home__master-slide  la-anim__stagger-item">
+                    <div class="swiper-slide col-12 col-md-3 px-0 la-home__master-slide">
                       <x-master-class
                         :img="$master->courses->preview_image"
                         :title="$master->courses->title"

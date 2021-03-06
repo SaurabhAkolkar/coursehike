@@ -19,10 +19,9 @@
     <div class="la-section__inner">
       <div class="container-fluid">
       <div class="row">
-        <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2" href="{{URL::previous()}}"></a>
-        <div class="col-12 px-0 d-flex justify-content-between la-anim__wrap">  
-          <h1 class="la-page__title mb-16 mb-md-12 la-anim__stagger-item">Master Classes</h1>
-                
+        <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-3 mt-n2 mb-2" href="{{URL::previous()}}"></a>
+        <div class="col-12 d-flex justify-content-between la-anim__wrap">  
+          <h1 class="la-page__title mb-20 mb-md-12 la-anim__stagger-item">Master Classes</h1>    
 
           <a class="la-icon--2xl icon-filter d-none d-lg-none" id="filterCourses" role="button"></a>
 
@@ -117,7 +116,7 @@
       </div> 
 
             <div class="row  la-anim__wrap">
-                <div class="col-12 px-0">
+                <div class="col-12">
                 
                     <div class="la-mccourses la-section">
                       <div class="la-anim__stagger-item la-anim__A">

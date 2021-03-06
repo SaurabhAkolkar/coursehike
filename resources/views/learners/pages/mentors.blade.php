@@ -4,6 +4,7 @@
 <section class="la-section__small la-cbg--main">
     <div class="la-section__inner">
       <div class="container-fluid">
+      <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none mt-n4 ml-n1 mb-2" href="{{URL::previous()}}"></a>
         <div class="la-anim__wrap d-md-flex justify-content-between align-items-center">
           <h1 class="la-page__title mb-4 mb-md-8 la-anim__stagger-item">Alien Creators</h1>
 

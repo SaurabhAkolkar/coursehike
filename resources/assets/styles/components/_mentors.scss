@@ -11,8 +11,8 @@
         }
 
         & {
-            --mentor-profileW: 100%;
-            --mentor-profileH: auto;
+            //--mentor-profileW: 100%;
+            //--mentor-profileH: 300px;
 
             &__ {
                 &profile {
@@ -24,17 +24,26 @@
                     overflow: hidden;
                     position:relative;
                     background-color: var(--white);
+
+                    &:after{
+                        display:block;
+                        content:"";
+                        padding-bottom:75%;
+                    }
                                          
                     img{
-                        width: var(--mentor-profileW);
-                        height:var(--mentor-profileH);
+                        position:absolute;
+                        width: 100%;
+                        height:100%;
+                        top:0;
+                        left:0;
                         transition: all 0.25s ease-out;
                         -webkit-transition: all 0.25s ease-out;
                         -moz-transition: all 0.25s ease-out;
                         -ms-transition: all 0.25s ease-out;
                         -o-transition: all 0.25s ease-out;   
                         object-fit: cover;
-                        object-position: 50% 50%;
+                        object-position: top;
                         background-color:var(--white);  
                         border-radius: var(--size-2);
                         -webkit-border-radius: var(--size-2);
