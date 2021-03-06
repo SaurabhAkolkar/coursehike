@@ -138,7 +138,7 @@
                 </div>
             </div>
 
-            <a class="la-course__title" href= {{ '/learn/course/'.$id.'/'.$url }}> {{ strlen($course)>25?substr($course,0,25).'...':$course }} </a>
+            <a class="la-course__title" href= {{ '/learn/course/'.$id.'/'.$url }}> {{ $course }} </a>
             
         </div>
     </div>
@@ -157,7 +157,7 @@
             </div>
             
             <div class="la-course__list-cinfo ml-md-5">
-                <h4 class="la-course__list-cname text-md text-md-2xl">{{ strlen($course)>25?substr($course,0,25).'...':$course }} </h4>
+                <h4 class="la-course__list-cname text-md text-md-2xl">{{ $course }} </h4>
                 <a href="/creator/{{ $creatorUrl }}" class="la-course__list-cauthor text-capitalize text-sm text-md-lg">{{ $creatorName }}</a>
             </div>
         </div>

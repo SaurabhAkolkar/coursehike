@@ -22,5 +22,6 @@ class VerifyCsrfToken extends Middleware
         'hooks',
         'payment/status',
         'featurepayment/status',
+        'logout'
     ];
 }
