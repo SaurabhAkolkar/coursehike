@@ -13,6 +13,7 @@ use App\ReviewRating;
 use App\UserPurchasedCourse;
 use App\CourseLanguage;
 use App\MasterClass;
+use App\UserWatchProgress;
 use App\UserWatchTimelog;
 
 class SearchController extends Controller
@@ -197,13 +198,22 @@ class SearchController extends Controller
 		$playlists = [];
 		
 		$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
-		$course_ids = UserPurchasedCourse::with('course','course.user','course.review')->where(['user_id'=>Auth::User()->id])->pluck('course_id')->toArray();
-		$on_going_courses = UserWatchTimelog::with('course')->whereIn('course_id', $course_ids)->groupBy('course_id')->get()->take(4);
 
-		$yet_to_start = array_diff($course_ids, $on_going_courses->pluck('course_id')->toArray());
+		$watched_courses = UserWatchProgress::groupBy('course_id')->get()->pluck('course_id')->toArray();
+
+		$purchased_courses = UserPurchasedCourse::with('course','course.user','course.review')->where(['user_id'=>Auth::User()->id])->whereNotIn('course_id', $watched_courses)->pluck('course_id')->toArray();
+		
+		$ongoing_completed_courses = Course::whereIn('id', $watched_courses)->whereNotIn('course_id', $purchased_courses)->get();
+
+		$completed_courses = $ongoing_completed_courses->filter->isCompleted()->values();
+		$on_going_courses = $ongoing_completed_courses->filter(function ($course) {
+			return !$course->isCompleted();
+		})->values();
+
+		$yet_to_start = array_diff($purchased_courses, $on_going_courses->pluck('course_id')->toArray());
 		$yet_to_start_courses = Course::whereIn('id', $yet_to_start)->get()->take(4);
 
-		return view('learners.pages.my-courses',compact('playlists','on_going_courses','yet_to_start_courses'));
+		return view('learners.pages.my-courses',compact('playlists','on_going_courses','yet_to_start_courses', 'completed_courses'));
 	}
 
 	public function masterClasses(Request $request){
