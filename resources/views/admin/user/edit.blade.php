@@ -83,7 +83,7 @@
             <div class="row">
               <div class="col-md-4 mt-3">
                 <label for="mobile"> {{ __('adminstaticword.Mobile') }}:<sup class="redstar">*</sup></label>
-                <input value="{{ $user->mobile }}" required type="type" name="mobile" placeholder="Enter mobile no" class="form-control" maxlength="10">
+                <input value="{{ $user->mobile }}" type="type" name="mobile" placeholder="Enter mobile no" class="form-control" maxlength="10">
                </div>
                <div class="col-md-4 mt-3">
                 <label for="mobile">{{ __('adminstaticword.Email') }}:<sup class="redstar">*</sup> </label>
@@ -315,7 +315,7 @@
               <div class="col-md-4">
                 <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item--x">
                   <label >Expert In</label>
-                  <input class="form-control" type="text" value="{{ $user->expertise }}" name="expert_in" placeholder="Expert In">
+                  <input class="form-control" type="text" value="{{ $expertise }}" name="expert_in" placeholder="Expert In">
                 </div>
                   @error('expert_in')
                   <div class="alert alert-danger">{{ $message }}</div>
@@ -325,7 +325,7 @@
               <div class="col-md-4">
                 <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item--x">
                   <label>Years Of Experience</label>
-                  <input class="form-control" type="number" value="{{ $user->yoe }}" name="yoe" placeholder="Years of Experience">
+                  <input class="form-control" type="number" value="{{ $yoe }}" name="yoe" placeholder="Years of Experience">
                 </div>
                 @error('yoe')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -338,21 +338,14 @@
                 <div class="col-md-4">
                   <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item--x">
                     <div id="added_to_awards">
-                      @php
-                        $user->portfolio_links = json_decode($user->portfolio_links);
-                        $user->awards = json_decode($user->awards);
-                      
-                        $user->awards?$user->awards:$user->awards=[];
-                        $user->portfolio_links?$user->portfolio_links:$user->portfolio_links=[];
 
-                      @endphp
-                      @foreach($user->awards as $award)
+                      @foreach($awards as $award)
                         @php
                             $award = trim($award);
                         @endphp
                         <span class="la-entry__badge badge badge-pill" id="award_{{ $award }}">{{ $award }}<span class="ml-2" role="button" onclick="removeAward('{{ $award }}')">x</span></span>
                       @endforeach
-                      <input type="hidden" name="all_awards" id="all_awards" value="{{ implode(',',$user->awards) }}"/>
+                      <input type="hidden" name="all_awards" id="all_awards" value="{{ implode(',',$awards) }}"/>
                     </div>
                     <label>Awards</label>
                       <input class="form-control" value="" id="awards" name="awards" placeholder="Any Award you want to add"><span class="la-entry__input-icon" style="right:0;cursor:pointer;border:0" onclick="addToAwards();">+</span>
@@ -360,12 +353,12 @@
                 </div>
                 <div class="col-md-4">
                   <div id="added_to_portfolio">
-                    @foreach($user->portfolio_links as $link)
+                    @foreach($portfolio_links as $link)
 
                     <span class="la-entry__badge badge badge-pill" id="portfolio_{{ $link }}">{{ $link }}  <span class="ml-2" role="button" onclick="removePortfolio('{{ $link }}')">x</span></span>
                     @endforeach
 
-                    <input type="hidden" name="all_portfolio" id="all_portfolio" value="{{ implode(',',$user->portfolio_links) }}" />
+                    <input type="hidden" name="all_portfolio" id="all_portfolio" value="{{ implode(',',$portfolio_links) }}" />
                   </div>
                   <div class="la-form__input-wrap la-entry__input-wrap mb-12 la-anim__stagger-item--x">
                     <label>Portfolio Links</label>
