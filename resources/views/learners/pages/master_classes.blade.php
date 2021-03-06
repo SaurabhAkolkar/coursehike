@@ -19,7 +19,7 @@
     <div class="la-section__inner">
       <div class="container-fluid">
       <div class="row">
-        <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-3 mt-n2 mb-2" href="{{URL::previous()}}"></a>
+        <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-2 mt-n2 mb-2" href="{{URL::previous()}}"></a>
         <div class="col-12 d-flex justify-content-between la-anim__wrap">  
           <h1 class="la-page__title mb-20 mb-md-12 la-anim__stagger-item">Master Classes</h1>    
 
