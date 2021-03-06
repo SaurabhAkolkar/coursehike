@@ -112,7 +112,7 @@
                 <div class="la-hero__bottom-trial la-btn__plain text--green text-uppercase text--md font-weight--semibold text-spacing mt-6 la-anim__stagger-item ">@if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())  @else<a href="/learning-plans" class="btn font-weight--semibold">Start free trial</a> @endif </div>
               </div>
                
-              <div class="ml-auto mt-4 mt-md-20 pr-md-20  la-anim__stagger-item">
+              <div class="la-hero__btn--scroll-down la-anim__stagger-item">
                 <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text-white text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block">
                   <a href="#home_courses">BROWSE COURSES
                     <span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span>
@@ -240,10 +240,27 @@
 
   <!-- Section: Start-->
   <section class="la-section  la-section--grey la-section--art-categories position-relative"  id="home_courses">
-    <div class="la-section__inner la-anim__wrap" >
+    <div class="la-section__inner la-anim__wrap la-section--courses-inwrap" >
       <div class="container-fluid position-relative px-0">
         <div class="la-courses">
           <h3 class="la-home__course-mtitle text-center la-anim__stagger-item">Learn what you love!</h3>
+
+          <nav class="la-courses__nav d-flex justify-content-center position-relative">
+              <ul class="nav nav-pills la-courses__nav-tabs justify-content-center" id="nav-tab" role="tablist" tabindex="0">
+              
+                @if(!$filtres_applied)
+                  {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"> <span class="position-relative">Tattoo</span></a></li>
+                  <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
+                  <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
+                  @foreach ($categories as $category)
+                    <!-- <div class="d-none d-md-block la-courses__nav-prev la-anim__fade-in-left"><span class="la-courses__nav-prev--icon la-icon icon-arrow"></span></div> -->
+                      <li class="nav-item la-courses__nav-item la-anim__stagger-item--x"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative text-nowrap">{{ $category->title}}</span></a></li>
+                    <!-- <div class="d-none d-md-block  la-courses__nav-next la-anim__fade-in-right"><span class="la-courses__nav-next--icon la-icon icon-right-arrow2"></span></div> -->
+                  @endforeach
+                @endif
+                
+              </ul>
+          </nav>
           <!-- <nav class="la-courses__nav position-relative d-flex justify-content-between align-items-start">
             
               <ul class="nav nav-pills la-courses__nav-tabs" id="nav-tab" role="tablist" tabindex="0">
@@ -305,11 +322,21 @@
                                         </div>
                                     @endforeach                                  
                                   
+                          </div>
+                          <div class=" w-100 d-flex justify-content-between align-items-center">
+                            <div class="la-slider__navigations la-home__course-navigations d-flex align-items-center">
+                              <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div>
+                              <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
+                              <div class="swiper-button-next la-slider__navigations-arrow la-home__course-next"></div>
                             </div>
-                            <div class="swiper-pagination la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
+                            <div class="la-mccourse__view-more position-relative text-right la-anim__wrap mt-md-1">
+                              <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold mr-5 mr-md-7 la-anim__fade-in-right la-anim--B">
+                                <a href="/browse/courses" >explore more <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
+                              </div>
+                            </div>
+                          </div>    
                         </div>
-                        <div class="swiper-button-next la-home__course-next"></div>
-                        <div class="swiper-button-prev la-home__course-prev"></div>
+              
                       </div>
                     @endforeach
                 
@@ -356,11 +383,7 @@
             </nav>
           </div>
 
-          <div class="la-mccourse__view-more position-relative text-right la-anim__wrap mt-8 mt-md-1">
-            <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-md-8 mr-5 mr-md-1 la-anim__fade-in-right la-anim--B">
-              <a href="/browse/courses" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
-            </div>
-          </div>
+          
         </div>
       </div>
   </section>
@@ -373,7 +396,7 @@
       <div class="swiper-container gallery-top la-artist__slider container-fluid">
         
         <div class="swiper-wrapper">
-          <div class="la-artist__designation la-artist__designation--front position-absolute w-100  my-auto d-flex align-items-center justify-content-left la-anim__fade-in-top la-anim__A">
+          <div class="la-artist__designation la-artist__designation--front position-absolute w-50  my-auto d-flex align-items-center justify-content-left la-anim__fade-in-top la-anim__A">
               <h2 class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">
                   <span class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">Lila</span> 
               </h2>
@@ -427,6 +450,7 @@
                       <x-master-class
                         :img="$master->courses->preview_image"
                         :title="$master->courses->title"
+                        :url="$master->courses->slug"
                         :profileImg="$master->courses->user->user_img"
                         :profileName="$master->courses->user->fullName"
                         :learners="$master->courses->learnerCount"
@@ -438,15 +462,22 @@
                 @endforeach
               </div>
             </div>
-            <div class="swiper-pagination la-home__master-pagination"></div>
-            <div class="swiper-button-next la-home__master-next"></div>
-            <div class="swiper-button-prev la-home__master-prev"></div>
-        </div>
-
-        <div class="la-mccourse__view-more position-relative text-right la-anim__stagger-item mt-14 mt-md-16">
-            <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-md-8 mr-5 mr-md-1 la-anim__fade-in-right">
-              <a href="/master-classes" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
+            <div class=" w-100 d-flex justify-content-between align-items-center mt-6 mt-md-12">
+              <div class="la-slider__navigations la-home__course-navigations d-flex align-items-center">
+                <div class="swiper-button-prev la-slider__navigations-arrow la-home__master-prev"></div>
+                <div class="swiper-pagination la-slider__navigations-dots la-home__master-pagination la-slider__paginations la-slider__paginations--purble la-right"></div>
+                <div class="swiper-button-next la-slider__navigations-arrow la-home__master-next"></div>
+              </div>
+              <div class="la-mccourse__view-more position-relative text-right la-anim__stagger-item">
+                <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold mr-5 mr-md-1 la-anim__fade-in-right">
+                  <a href="/master-classes" >explore more <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
+                </div>
+              </div>
             </div>
+
+            <!-- <div class="swiper-pagination la-home__master-pagination"></div>
+            <div class="swiper-button-next la-home__master-next"></div>
+            <div class="swiper-button-prev la-home__master-prev"></div> -->
         </div>
 
       </div>
@@ -578,17 +609,20 @@
                   @if(Auth::user()->subscription() )
                     <a class="btn btn-primary la-btn  mt-md-10 la-anim__stagger-item" href="/browse/course/">Browse Course</a>
                   @else
-                    <a class="btn btn-primary la-btn  mt-md-6 la-anim__stagger-item" href="/login">Start free trail</a>
+                    <a class="btn btn-primary la-btn  mt-md-6 la-anim__stagger-item" href="/login">Start free trial</a>
                   @endif
                 @else
-                  <a class="btn btn-primary la-btn  mt-md-6 la-anim__stagger-item" href="/login">Start free trail</a>
+                  <a class="btn btn-primary la-btn  mt-md-6 la-anim__stagger-item" href="/login">Start free trial</a>
                 @endif
               </div>
             </div>
           </div>
 
           <div class="la-home__trail-btn la-btn__plain d-flex justify-content-center align-items-start la-anim__fade-in-left">
-            <a href="/about" class="d-none d-md-block">ALIENS WAY OF TEACHING</a>
+            <!-- <a href="/about" class="d-none d-md-block">ALIENS WAY OF TEACHING</a> -->
+            <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold mr-5 mr-md-1 la-anim__fade-in-right" style="transform: translate(0px, 0px); opacity: 1;">
+                  <a href="/about">ALIENS WAY OF TEACHING <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
+                </div>
           </div>
 
         </div>
