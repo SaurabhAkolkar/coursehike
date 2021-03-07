@@ -196,7 +196,7 @@ class Course extends Model
 
     public function getLearnerCountAttribute()
     {
-        $count = 0;
+        $count = (100 + $this->id + strlen($this->title) + $this->courseclass->count());
         $purchased_courses = UserPurchasedCourse::where(['course_id' => $this->id])->groupBy('user_id')->pluck('user_id')->toArray();
         
         if($purchased_courses !=null){
@@ -228,7 +228,7 @@ class Course extends Model
         if($lastWatchedCourse){
             $lastWatchedCourseAvg = $lastWatchedCourse->avg('current_position');
             $lastWatchedCourseCount = $lastWatchedCourse->count();
-            $courseCompletion = $lastWatchedCourseAvg / (($classes - $lastWatchedCourseCount)+1);
+            $courseCompletion = round($lastWatchedCourseAvg / (($classes - $lastWatchedCourseCount)+1));
         }
         return $courseCompletion;
     }

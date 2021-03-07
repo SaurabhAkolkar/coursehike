@@ -157,12 +157,13 @@ class UserController extends Controller
             'start_date' => 'required',
             'end_date' => 'required',
             'amount' => 'required',
+            'plan_selection' => 'required',
         ]);
 
-        $plan = app('rinvex.subscriptions.plan')->where('slug', $request->slug)->first();
+        // dd($request->all(), Carbon::createFromFormat('Y-m-d', $request->start_date)->toDateTimeString(), Carbon::createFromFormat('Y-m-d', $request->end_date)->toDateTimeString());
+        $plan = app('rinvex.subscriptions.plan')->where('slug', $request->plan_selection)->first();
 
         $user  = User::find($request->user_id);
-
 
         $plan_subscription = $user->subscription();
 
@@ -170,32 +171,13 @@ class UserController extends Controller
 
             $plan_subscription->changePlan($plan);
 
-            $plan_subscription->starts_at = Carbon::createFromTimestamp($request->start_date)->toDateTimeString(); 
-            $plan_subscription->ends_at = Carbon::createFromTimestamp($request->end_date)->toDateTimeString();
+            $plan_subscription->starts_at = Carbon::createFromFormat('Y-m-d', $request->start_date)->toDateTimeString(); 
+            $plan_subscription->ends_at = Carbon::createFromFormat('Y-m-d', $request->end_date)->toDateTimeString();
             $plan_subscription->save();
         }else
             $user->newSubscription('main', $plan);
-
-        // $start_date = Carbon::parse($request->start_date);
-        // $end_date = Carbon::parse($request->end_date);
-        // $input['subscription_id'] = $subscription->id;
-        // $input['start_date'] = $start_date->format('Y-m-d h:i:s');
-        // $input['end_date'] = $end_date->format('Y-m-d h:i:s');
-        // $input['stripe_subscription_id'] = 'Admin-Purchased';
-        // $input['stripe_invoice_id'] = $plan_id;
-        // $input['invoice_charge_id'] = $plan_id;
-        // $input['invoice_charge_id'] = $plan_id;
-        // $input['payment_intent_id'] = $plan_id;
-        // $input['invoice_paid'] = $request->amount;
-        // $input['plan_selection'] = $request->plan_selection;
-        // $input['status'] = 'successful';
-
-        // $input['user_id'] = $request->user_id;
-        // $input['subscription_id'] = 'Admin-Purchased';
-        // $input['plan_id'] = $plan_id;
-        // UserSubscription::create($input);
         
-        $plan_id = config('rinvex.subscriptions.plans.'.$request->slug);
+        $plan_id = config('rinvex.subscriptions.plans.'.$request->plan_selection);
 
         UserSubscription::updateOrCreate(
             ['user_id' => $request->user_id],
@@ -206,12 +188,13 @@ class UserController extends Controller
             'user_id' => $user->id,
             'subscription_id' => $user->subscription()->id,
             'stripe_subscription_id' => 'Admin-Purchased',
-            'start_date' => Carbon::createFromTimestamp($request->start_date)->toDateTimeString(),
-            'end_date' => Carbon::createFromTimestamp($request->end_date)->toDateTimeString(),
+            'start_date' => Carbon::createFromFormat('Y-m-d', $request->start_date)->toDateTimeString(),
+            'end_date' => Carbon::createFromFormat('Y-m-d', $request->end_date)->toDateTimeString(),
             'stripe_invoice_id' => 0,
             'invoice_charge_id' => 0,
             'payment_intent_id' => 0,
             'invoice_paid' => $request->amount,
+            'plan_selection' => $plan_id,
             'status' => 'paid',
         ]);
 
