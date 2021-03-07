@@ -341,13 +341,10 @@
                 &-{
                     &info{
                         position: absolute;
-                        top: 10%;
-                        right:3%;
+                        top: 0%;
+                        right:0%;
                         width:100%;
                         height:100%;
-                        -webkit-transform: translate(0%, -50%);
-                        -ms-transform: translate(0%, -50%);
-                        transform: translate(0%, -50%);
                     }
                 }
             }
@@ -365,6 +362,8 @@
                 &s {
                     position: relative;
                     margin-left: auto;
+                    margin-top:var(--size-3);
+                    margin-right:var(--size-3);
                     display: inline-flex;
                     align-items: center;
                     z-index: var(--z-1);
@@ -380,16 +379,8 @@
                 font-size: var(--text-xs);
                 letter-spacing: 1.05px;
                 color: var(--white);
-                align-self: flex-end;
-                position: absolute;
-                top: 88%;
-                left:5%;
-                width:100%;
-                height:100%;
-                -webkit-transform: translate(0%, 0%);
-                -ms-transform: translate(0%, 0%);
-                transform: translate(0%, 0%);
-
+                //align-self: flex-end;
+               
                 /*&:after{
                     position:absolute;
                     content:'';

@@ -3,7 +3,7 @@
         <div class="la-course__inner">
                 <a class="la-course__inner-link" role="button" href= "{{ '/learn/course/'.$id.'/'.$url }}" >
                     <div class="la-course__overlay">
-                        <div class="la-course__overlay-info d-flex justify-content-between align-items-center">
+                        <div class="la-course__overlay-info d-flex justify-content-between align-items-start">
                             @if($price)
                             @else
                                 <div class="la-course__free">
