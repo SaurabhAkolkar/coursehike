@@ -20,7 +20,7 @@
                     width:100%;
                     transition:all 0.5s linear;
                     scroll-behavior: smooth;
-                    
+                  
                     /*&:hover > .la-courses__nav-tabs::-webkit-scrollbar-thumb{
                         transition:all 0.5s linear;
                         height:8px;
@@ -85,23 +85,21 @@
                         }
                                                
                         &tabs {
-                            width:100%;
+                            //width:100%;
                             //height:100%;
                             flex-wrap:nowrap;
-                            overflow-x:scroll;
+                            overflow-x: auto;
+                            overflow-y: hidden;
+                            display: -webkit-box;
+                            display: -moz-box;
                             -webkit-overflow-scrolling: touch;
                             scroll-behavior: smooth;
-                            margin-bottom: var(--size-6);
+                            margin-bottom: var(--size-10);
                             padding-bottom:var(--size-2);
                             transition:all 0.5s linear;
                             
                             @include respond-below(md){
-                                margin:0 var(--size-2) var(--size-5);
-                                padding-left:50px;
-                            }
-                            @include respond-below(sm){
-                                margin:var(--size-5) 0;
-                                padding-left:420px;
+                                margin:var(--size-6) var(--size-3);
                             }
                         }
                         &tabs::-webkit-scrollbar {
@@ -118,6 +116,10 @@
                         }
                         &item {
                             margin-right: var(--size-14);
+
+                            @include respond-below(sm){
+                                margin-right:var(--size-8);
+                            }
                         }
                         &link {
                             font-family: var(--head-font);
@@ -245,14 +247,7 @@
                 }
 
                 &:hover .la-course__overlay{
-                    transform:scale(1) translateY(0);-webkit-transform: scale(1) translateY(0);-moz-transform: scale(1) translateY(0);
-                    border-radius: var(--size-2);-webkit-border-radius: var(--size-2);-moz-border-radius: var(--size-2);
-                    
-                    @include respond-below(md){
-                        -webkit-transform: none;
-                        -ms-transform: none;
-                        transform: none;   
-                    }
+                    opacity:1;
                 }
 
                 a{
@@ -311,31 +306,23 @@
                 width: 100%;
                 height: 100%;
                 padding: var(--size-3);
-                // background: transparent linear-gradient(180deg, #010101 0%, #8E8E8E05 0%, #000000 150%) 0% 0% no-repeat padding-box;
-                // -webkit-background: transparent linear-gradient(180deg, #010101 0%, #8E8E8E05 0%, #000000 150%) 0% 0% no-repeat padding-box;
-                // -moz-background: transparent linear-gradient(180deg, #010101 0%, #8E8E8E05 0%, #000000 150%) 0% 0% no-repeat padding-box;
-                /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.5+100 */
                 background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%); /* FF3.6-15 */
                 background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
                 background: radial-gradient(ellipse at center,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#80000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-                -webkit-transform: scale(0);
-                -ms-transform: scale(0);
-                transform: scale(0);
                 z-index: var(--z-10);
                 -webkit-transition: .3s ease;
                 transition: .3s ease;
                 border-radius: var(--size-2);-webkit-border-radius: var(--size-2);-moz-border-radius: var(--size-2);
-                
+                opacity: 0;
+
                 &:hover {
                     cursor: pointer;
                     border-radius: var(--size-2);-webkit-border-radius: var(--size-2);-moz-border-radius: var(--size-2);
                 }
 
                 @include respond-below(md){
-                    -webkit-transform: scale(1);
-                    -ms-transform: scale(1);
-                    transform: scale(1);   
+                    opacity: 1;
                 }
 
                 &-{
@@ -349,6 +336,9 @@
                 }
             }
             &free{
+                margin-left:var(--size-2);
+                margin-top:var(--size-2);
+                opacity:1;
                 img{
                     width:100px;
                     height:30px;

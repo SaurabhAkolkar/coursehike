@@ -339,10 +339,12 @@
       <div class="container-fluid pb-5 la-anim__wrap">
         <div class="row d-flex justify-content-lg-between">
           <!-- Column: Start-->
-          <div class="col-12 col-sm-8 col-lg-4">
-            <div class="la-lp__test-lft la-anim__stagger-item--x">
-              <h4 class=" text-4xl text-md-5xl head-font mb-3">What people say<br>about us?</h4>
-              <p class="text-md body-font pr-md-5"> LILA has happy clients all over the world. And we're proud to share some of those experiences!</p>
+          <div class="col-12 col-lg-4">
+            <div class="mb-6 la-anim__wrap-pin3">
+              <div class="la-lp__test-lft la-anim__pin3">
+                <h4 class=" text-4xl text-md-5xl head-font mb-3">What people say<br>about us?</h4>
+                <p class="text-md body-font pr-md-5"> LILA has happy clients all over the world. And we're proud to share some of those experiences!</p>
+              </div>
             </div>
 
             

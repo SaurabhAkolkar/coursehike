@@ -2,15 +2,15 @@
 
 @section('content')
  <!-- Main Section: Start-->
- <section class="la-cbg--main">
+ <section class="la-section__small la-cbg--main">
     <!-- Section: Start-->
     <section class="la-new--releases">
       <div class="container la-new__events ">
-        <div class="row">
-          <div class="col-12 ">
-            <div class="la-anim__wrap">
-                <a class="la-new__back la-icon la-icon--5xl icon-back-arrow  la-anim__stagger-item" href="{{URL::previous()}}"></a>
-                <h1 class="la-announcement__main-title head-font text-3xl text-md-4xl  la-anim__fade-in-top ">New Releases</h1>
+        <div class="row la-anim__wrap">
+          <div class="col-12">
+            <div class="la-announcement__main-title d-md-flex ">
+                <a class="la-new__back la-icon la-icon--5xl icon-back-arrow ml-n2 ml-md-n5 mt-n1 pr-md-3 la-anim__stagger-item--x" href="{{URL::previous()}}"></a>
+                <h1 class="text-3xl text-md-4xl mb-4 la-anim__stagger-item">New Releases</h1>
             </div>
           </div>
 

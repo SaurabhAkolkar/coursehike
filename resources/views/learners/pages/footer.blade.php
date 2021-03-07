@@ -12,7 +12,7 @@
           <div class="row">
             <!-- Column: Start-->
             <div class="col-12 col-lg-2 mb-10 mb-md-1">
-              <div class="la-footer__brand mb-4 mb-md-8">
+              <div class="la-footer__brand mb-4 mb-md-5">
                 <a href="/"><img class="img-fluid" src="/images/learners/logo.svg" alt="Lila"></a>
               </div>
               <div class="la-footer__contact">
@@ -24,7 +24,7 @@
             <!-- Column: Start-->
             <div class="col-12 col-lg-5 offset-lg-1">
               <div class="row row-cols-2 mt-md-18">
-                <div class="col-6 mb-10 mb-md-5">
+                <div class="col-6 mb-10">
                   <div class="la-footer__title">Categories</div>
                   <ul class="la-footer__list">
                     @foreach ($footer_categories as $fc)
@@ -33,8 +33,8 @@
                   </ul><a class="la-footer__more" href="/browse/courses">See all</a>
                 </div>
 
-                <div class="col-6 mb-10 mb-md-5">
-                  <div class="la-footer__title">Creators</div>
+                <div class="col-6 mb-10">
+                  <div class="la-footer__title">Mentors</div>
                   <ul class="la-footer__list">
                     @foreach ($creators as $c)
                       <li class="la-footer__list-item"><a class="la-footer__list-link" href="/creator/{{$c->id}}">{{$c->fullName}}</a></li>
@@ -42,7 +42,7 @@
                   </ul><a class="la-footer__more" href="/mentors">See all</a>
                 </div>
 
-                <div class="col-6 mb-10 mb-md-5">
+                <div class="col-6 mb-10">
                   <div class="la-footer__title">Courses</div>
                   <ul class="la-footer__list">
                     @foreach ($courses as $c)
@@ -51,7 +51,7 @@
                   </ul><a class="la-footer__more" href="/browse/courses">See all</a>
                 </div>
 
-                <div class="col-6 mb-10 mb-md-5">
+                <div class="col-6 mb-10">
                   <div class="la-footer__title">Master Classes</div>
                   <ul class="la-footer__list">
                     @foreach($master_classes as $mc)

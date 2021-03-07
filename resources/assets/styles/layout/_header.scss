@@ -233,6 +233,14 @@ $sidemenuWidth: 300px;
                             color:var(--app-indigo-1);
                              opacity: 0.8;
                         }
+                        &--{
+                            &login{
+                                @include respond-below(lg){
+                                    font-weight:var(--font-medium) !important;
+                                    padding:0 !important;
+                                }
+                            }
+                        }
                     }
                     &name{
                         position: relative;

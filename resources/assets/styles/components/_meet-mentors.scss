@@ -8,7 +8,7 @@
                         padding-top:var(--size-10);
                         padding-bottom:var(--size-10);
                         margin-right:var(--size-12);
-                        border-bottom:2px solid var(--gray8);
+                        //border-bottom:2px solid var(--gray8);
 
                         @include respond-below(md){
                             margin-right:0 !important;

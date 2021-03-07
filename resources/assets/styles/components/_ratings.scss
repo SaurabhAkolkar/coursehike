@@ -93,6 +93,9 @@
                         font-weight: var(--font-medium);
                         padding-bottom: var(--size-base);
                     }
+                    &textarea{
+                        padding:var(--size-2) !important;
+                    }
                     &btn{
                         text-transform: uppercase;
                         color: var(--app-indigo-1);
@@ -100,7 +103,15 @@
                         font-size: var(--text-md);
                         font-weight: var(--font-bold);
                         &:hover{
-                            color: var(--app-indigo-1);
+                            color: var(--dark);
+                        }
+                    }
+                    &edit{
+                        color:var(--app-indigo-1);
+                        font-weight: var(--font-semibold);
+
+                        &:hover{
+                            color:var(--black);
                         }
                     }
                 }

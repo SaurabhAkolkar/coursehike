@@ -17,7 +17,7 @@
       <div class="row la-anim__wrap">
         <!-- Column: Start-->
         <div class="col-12 col-sm-12 la-bcreator__banner" style="background:url('../images/learners/creator/bcreator-banner.jpg') no-repeat bottom rgba(0, 0, 0, 0.5); background-size:cover;">
-          <div class="la-bcreator text-left text-sm-center px-6">
+          <div class="la-bcreator text-left text-sm-center px-8">
 
             <a class="la-bcreator__back-link position-absolute la-anim__stagger-item--x" href="<?php echo e(URL::previous()); ?>"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
             <div class="la-bcreator__content ">
@@ -142,7 +142,7 @@
         <div class="col-md-5 col-lg-5 py-5 py-sm-2 px-5 px-sm-2 d-flex flex-row align-items-center la-anim__wrap">
           <div class="mb-8 la-anim__stagger-item"><span class="la-vdotted__lft-tag text-2xl text-md-3xl">Easy steps to start</span>
             <h2 class="la-vdotted__lft-title text-4xl text-md-5xl la-anim__stagger-item">Sharing Values</h2><br>
-            <a class="la-btn__app text-uppercase la-anim__stagger-item" role="button" href="/creator-signup">Start Creating</a>
+            <a class="la-btn__app text-uppercase la-anim__stagger-item" role="button" href="/creator-signup">Start Teaching</a>
           </div>
         </div>
         <!-- Column: End-->
@@ -290,11 +290,11 @@
         <!-- Column: Start-->
         <div class="col-12 mt-2 mt-md-10 text-center la-anim__wrap">
           <div class="la-bcreator__stats-btn  d-none d-sm-block la-anim__stagger-item">
-            <a class="btn-get__started la-btn__app text-uppercase" role="button" href="/creator-signup">Get Started</a>
+            <a class="btn-get__started la-btn__app text-uppercase" role="button" href="/creator-signup">Start Teaching</a>
           </div>
           <!-- For Mobile-->
           <div class="la-bcreator__stats-btn text-center d-block d-sm-none la-anim__stagger-item">
-            <a class="btn-get__started la-btn__app btn-block px-5 text-uppercase" role="button" href="/creator-signup">Get Started</a>
+            <a class="btn-get__started la-btn__app btn-block px-5 text-uppercase" role="button" href="/creator-signup">Start Teaching</a>
           </div>
         </div>
         <!-- Column: End-->
@@ -362,7 +362,7 @@
               <p class="la-bgcreator__ad-para la-anim__stagger-item">Broaden your reach! Help students hone their skills through your courses</p>
               
               <div class="pt-10">
-                <p class="mb-6"><a class=" la-btn__app text-white text-uppercase la-anim__stagger-item" role="button" href="/creator-signup">Start Creating</a></p>
+                <p class="mb-6"><a class=" la-btn__app text-white text-uppercase la-anim__stagger-item" role="button" href="/creator-signup">Start Teaching</a></p>
                 <a class="la-arrow-link text-uppercase position-relative la-anim__stagger-item" href="/guided-creator"> Learn More
                   <span class="la-icon la-icon--5xl icon-grey-arrow la-anim__stagger-item--x"></span>
                 </a>

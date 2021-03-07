@@ -76,7 +76,7 @@ use App\Announcement;
               </div>
             </div>
             
-            <div class="la-header__menu-item dropdown">
+            <div class="la-header__menu-item dropdown d-none d-lg-block">
               @php
                   $announcements = [];
                   $old_announcements = [];
@@ -165,7 +165,7 @@ use App\Announcement;
               </div>
             </div>
 
-            <div class="la-header__menu-item d-none d-lg-block">
+            <div class="la-header__menu-item ">
               @php
                   $cart = App\Cart::with('cartItems')->where(['user_id' => Auth::User()->id, 'status' => 1])->get();
                                 
@@ -237,7 +237,7 @@ use App\Announcement;
           </div>
           
           <div class="la-header__menu-item">
-            <a class="la-header__nav-link " href="/login">Login</a>
+            <a class="la-header__nav-link la-header__nav-link--login" href="/login">Login</a>
           </div>
           
           <div class="la-header__menu-item dropdown">

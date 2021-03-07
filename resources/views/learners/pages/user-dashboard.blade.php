@@ -288,7 +288,7 @@
                     </div>                
                   @endforeach
                 @else
-                    <div class="col-12">
+                    <div class="col-12 pb-10">
                       <div class="la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
                         <div class="col la-empty__inner la-anim__stagger-item">
                             <h6 class="la-empty__course-title">No Mentors Found</h6>

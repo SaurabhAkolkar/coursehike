@@ -143,7 +143,7 @@
             }
 
             &curriculam {
-                max-height: var(--playerH);
+                max-height: 360px;
                 border-bottom: 1px dashed var(--gray2);
                 box-shadow: inset 0 0 10px 0 #00000014;
                 overflow: auto;
@@ -153,7 +153,7 @@
                     padding-left:var(--size-4);
                     margin-top:var(--size-10);
                 }
-
+                
                 &::-webkit-scrollbar {
                     width: 5px;
                 }
@@ -211,6 +211,7 @@
                 --classThumbW: 32px;
                 --classThumbH: 32px;
                 position: relative;
+
                 &:not(:last-child) {
                     padding-bottom: var(--size-10);
                 }
@@ -223,6 +224,12 @@
                     height: 100%;
                     background: var(--gray7);
                     z-index: 1;
+                }
+                &:first-child:before{
+                    top:20px;
+                }
+                &:last-child:before{
+                    top:-55px;
                 }
 
                 &es {

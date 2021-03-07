@@ -3,7 +3,7 @@
         &__{
             &item{
                 padding:var(--size-10) 0;
-                border-bottom:2px solid var(--gray8);
+                //border-bottom:2px solid var(--gray8);
 
                 @include respond-below(md){
                     margin-right:0;

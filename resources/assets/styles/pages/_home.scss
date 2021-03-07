@@ -38,8 +38,9 @@
 
 .la-hero__img img{
     width:100%;
-    height:auto;
-    //object-fit: cover;
+    height:650px;
+    object-fit: contain;
+    object-position: top;
 }
 
 .la-hero__video{
@@ -253,7 +254,7 @@
     height:35px;
 
     &:hover{
-        background-color:var(--app-indigo-1);
+        background-color:var(--yellow);
         transform:all 0.25s ease;
     }
     &:after{
@@ -295,9 +296,6 @@
     @include respond-above(sm){
         padding-right:0 !important;
     }
-}
-.la-home__section-customize{
-    background-color:rgba(115, 34, 183, 0.75);
 }
 .la-home__customize{
     @include respond-below(md){
@@ -379,9 +377,21 @@
         padding-bottom:var(--size-12);
     }
 }
+.la-home__learn-info{
+    z-index:2;
+}
 
+
+//- Subscription Box
+.la-home__subscription__ques--first{
+    padding:var(--size-10) 0;
+
+    @include respond-above(lg){
+        padding:var(--size-20) 0;
+    }
+}
 .la-home__subscription__ques--second {
-    padding-top: 50px;
+    padding-top: 20px;
 }
 @include respond-above(lg){
     .la-home__subscription__ques--second {

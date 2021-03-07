@@ -22,7 +22,7 @@ a.la-bcreator__back-link{
 	}
 
 	@media(max-width:767px){
-		left:14px;
+		left:26px;
 		&:hover{
 			transform:none;
 		}
@@ -86,7 +86,7 @@ a.la-bcreator__back-link{
 	padding-left:var(--size-14);
 
 	@include respond-below(md){
-		padding:var(--size-4) var(--size-5);
+		padding:var(--size-4) 0;
 	}
 }
 .la-bcreator__left-title{

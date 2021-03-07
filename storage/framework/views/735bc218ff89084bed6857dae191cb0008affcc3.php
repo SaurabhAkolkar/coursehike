@@ -8,11 +8,9 @@
         </div>
       </a>
       <div class="la-mentor__btm d-flex justify-content-between align-items-center">
-        <a href="/creator/<?php echo e($id); ?>">
-          <div class="la-mentor__info ">
-            <h3 class="la-mentor__name text-capitalize"><?php echo e(ucfirst($name)); ?></h3>
-            <p class="la-mentor__skill"><?php echo e($skill); ?></p>
-          </div>
+        <a class="la-mentor__info" href="/creator/<?php echo e($id); ?>">
+          <h3 class="la-mentor__name text-capitalize"><?php echo e(ucfirst($name)); ?></h3>
+          <p class="la-mentor__skill"><?php echo e($skill); ?></p>
         </a>
         <a class="la-mentor__detailview " href="/creator/<?php echo e($id); ?>">
           <span class="la-icon la-icon--6xl icon-grey-arrow mt-n2"></span>
