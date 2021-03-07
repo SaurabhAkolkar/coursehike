@@ -107,12 +107,12 @@ class CourseController extends Controller
 
 
         if ($file = $request->file('preview_image')) {
-            $photo = Image::make($file)->fit(600, 360, function ($constraint) {
-                $constraint->upsize();
-            })->encode('jpg', 70);
+            // $photo = Image::make($file)->fit(600, 360, function ($constraint) {
+            //     $constraint->upsize();
+            // })->encode('jpg', 70);
 
             $file_name = time().rand().'.'.$file->getClientOriginalExtension();
-            Storage::put(config('path.course.img').$file_name, $photo->stream() );
+            Storage::put(config('path.course.img').$file_name, fopen($file->getRealPath(), 'r+') );
             $data->preview_image = $file_name;
 
         }
@@ -212,19 +212,12 @@ class CourseController extends Controller
                     Storage::delete(config('path.course.img').$course->preview_image);
             }
 
-            $photo = Image::make($file)->fit(600, 360, function ($constraint) {
-                $constraint->upsize();
-            })->encode('jpg', 70);
-
             $file_name = time().rand().'.'.$file->getClientOriginalExtension();
 
-            // $input['preview_image'] = Storage::putFile(config('path.course.img'), $photo );
-            Storage::put(config('path.course.img').$file_name, $photo->stream() );
-            // Storage::put(config('path.course.img').$file_name, $photo->getEncoded());
+            Storage::put(config('path.course.img').$file_name, fopen($file->getRealPath(), 'r+') );
             $input['preview_image'] = $file_name;
         }
 
-        
         if ($file = $request->file('preview_video')) {
             if ($course->preview_video != "") {
                 $exists = Storage::exists(config('path.course.preview_video').$course->preview_video);
@@ -238,7 +231,6 @@ class CourseController extends Controller
                 }
             }
 
-            // $file_name = md5(microtime().rand()). time().'.'.$file->getClientOriginalExtension();
             $file_name = basename(Storage::putFile(config('path.course.preview_video'), $file ));
             $input['preview_video'] = $file_name;
 

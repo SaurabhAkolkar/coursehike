@@ -199,11 +199,11 @@ class SearchController extends Controller
 		
 		$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
 
-		$watched_courses = UserWatchProgress::groupBy('course_id')->get()->pluck('course_id')->toArray();
+		$watched_courses = UserWatchProgress::where(['user_id'=>Auth::User()->id])->groupBy('course_id')->get()->pluck('course_id')->toArray();
 
 		$purchased_courses = UserPurchasedCourse::with('course','course.user','course.review')->where(['user_id'=>Auth::User()->id])->whereNotIn('course_id', $watched_courses)->pluck('course_id')->toArray();
 		
-		$ongoing_completed_courses = Course::whereIn('id', $watched_courses)->whereNotIn('course_id', $purchased_courses)->get();
+		$ongoing_completed_courses = Course::whereIn('id', $watched_courses)->whereNotIn('id', $purchased_courses)->get();
 
 		$completed_courses = $ongoing_completed_courses->filter->isCompleted()->values();
 		$on_going_courses = $ongoing_completed_courses->filter(function ($course) {
@@ -211,7 +211,7 @@ class SearchController extends Controller
 		})->values();
 
 		$yet_to_start = array_diff($purchased_courses, $on_going_courses->pluck('course_id')->toArray());
-		$yet_to_start_courses = Course::whereIn('id', $yet_to_start)->get()->take(4);
+		$yet_to_start_courses = Course::whereIn('id', $yet_to_start)->get();
 
 		return view('learners.pages.my-courses',compact('playlists','on_going_courses','yet_to_start_courses', 'completed_courses'));
 	}

@@ -145,8 +145,9 @@ class User extends Authenticatable
     }  
 
     public function getAwardCountAttribute(){
-        if(json_decode($this->awards)){
-            return count(json_decode($this->awards));
+        $user = Instructor::where(['user_id' => $this->id ])->first();
+        if($user !=null && json_decode($user->awards)){            
+            return count(json_decode($user->awards));
         }else{
             return 0;
         }

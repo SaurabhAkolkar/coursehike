@@ -109,7 +109,7 @@
                     <div class="la-header__nav-icon">
                         <span class="la-icon--xl icon-all-mentors"></span>
                     </div>
-                    <span class="la-header__nav-name">Creator</span>
+                    <span class="la-header__nav-name">Mentors</span>
                 </a>
             </div>
             <?php if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active()): ?>
@@ -218,7 +218,7 @@
                     <div class="la-header__nav-icon">
                     <span class="la-icon--lg icon-all-mentors"></span>
                     </div> 
-                    <span class="la-header__nav-name">Creators</span>
+                    <span class="la-header__nav-name">Mentors</span>
                 </a>
             </div>
 

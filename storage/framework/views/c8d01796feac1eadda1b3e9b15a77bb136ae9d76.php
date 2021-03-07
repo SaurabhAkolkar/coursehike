@@ -41,7 +41,7 @@
           <div class="col-12 position-relative my-auto">
             <?php if($firstSection->video_url == null): ?>
 
-            <div class="la-hero__img position-relative d-flex align-items-center la-anim__fade-in-right">
+            <div class="la-hero__img position-relative d-flex align-items-center la-anim__fade-in-right py-20">
               <h2 class="la-section__title la-section__title--big">
                 <span class="la-anim__text-move--content"><?php echo e($firstSection->image_text); ?></span>
               </h2>
@@ -104,7 +104,7 @@
                 <div class="la-hero__bottom-trial la-btn__plain text--green text-uppercase text--md font-weight--semibold text-spacing mt-6 la-anim__stagger-item "><?php if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active()): ?>  <?php else: ?><a href="/learning-plans" class="btn font-weight--semibold">Start free trial</a> <?php endif; ?> </div>
               </div>
                
-              <div class="ml-auto mt-4 mt-md-20 pr-md-20  la-anim__stagger-item">
+              <div class="la-hero__btn--scroll-down la-anim__stagger-item">
                 <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text-white text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block">
                   <a href="#home_courses">BROWSE COURSES
                     <span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span>
@@ -126,10 +126,25 @@
 
   <!-- Section: Start-->
   <section class="la-section  la-section--grey la-section--art-categories position-relative"  id="home_courses">
-    <div class="la-section__inner la-anim__wrap" >
+    <div class="la-section__inner la-anim__wrap la-section--courses-inwrap" >
       <div class="container-fluid position-relative px-0">
         <div class="la-courses">
           <h3 class="la-home__course-mtitle text-center la-anim__stagger-item">Learn what you love!</h3>
+
+          <nav class="la-courses__nav d-md-flex justify-content-start justify-content-md-center position-relative">
+              <ul class="nav nav-pills la-courses__nav-tabs justify-content-center" id="nav-tab" role="tablist" tabindex="0">
+              
+                <?php if(!$filtres_applied): ?>
+                  
+                  <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <!-- <div class="d-none d-md-block la-courses__nav-prev la-anim__fade-in-left"><span class="la-courses__nav-prev--icon la-icon icon-arrow"></span></div> -->
+                      <li class="nav-item la-courses__nav-item la-anim__stagger-item--x"><a class="nav-link la-courses__nav-link <?php if($loop->first): ?> active <?php endif; ?> " id="nav-<?php echo e($category->slug); ?>-tab" data-toggle="tab" href="#nav-<?php echo e($category->slug); ?>" role="tab" aria-controls="nav-<?php echo e($category->slug); ?>" aria-selected="true"> <span class="position-relative text-nowrap"><?php echo e($category->title); ?></span></a></li>
+                    <!-- <div class="d-none d-md-block  la-courses__nav-next la-anim__fade-in-right"><span class="la-courses__nav-next--icon la-icon icon-right-arrow2"></span></div> -->
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                <?php endif; ?>
+                
+              </ul>
+          </nav>
           <!-- <nav class="la-courses__nav position-relative d-flex justify-content-between align-items-start">
             
               <ul class="nav nav-pills la-courses__nav-tabs" id="nav-tab" role="tablist" tabindex="0">
@@ -196,11 +211,21 @@
                                         </div>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                  
                                   
+                          </div>
+                          <div class=" w-100 d-flex justify-content-between align-items-center">
+                            <div class="la-slider__navigations la-home__course-navigations d-flex align-items-center">
+                              <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div>
+                              <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
+                              <div class="swiper-button-next la-slider__navigations-arrow la-home__course-next"></div>
                             </div>
-                            <div class="swiper-pagination la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
+                            <div class="la-mccourse__view-more position-relative text-right la-anim__wrap mt-md-1">
+                              <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold mr-5 mr-md-7 la-anim__fade-in-right la-anim--B">
+                                <a href="/browse/courses" >explore more <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
+                              </div>
+                            </div>
+                          </div>    
                         </div>
-                        <div class="swiper-button-next la-home__course-next"></div>
-                        <div class="swiper-button-prev la-home__course-prev"></div>
+              
                       </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 
@@ -245,11 +270,7 @@
             </nav>
           </div>
 
-          <div class="la-mccourse__view-more position-relative text-right la-anim__wrap mt-8 mt-md-1">
-            <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-md-8 mr-5 mr-md-1 la-anim__fade-in-right la-anim--B">
-              <a href="/browse/courses" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
-            </div>
-          </div>
+          
         </div>
       </div>
   </section>
@@ -262,15 +283,15 @@
       <div class="swiper-container gallery-top la-artist__slider container-fluid">
         
         <div class="swiper-wrapper">
-          <div class="la-artist__designation la-artist__designation--front position-absolute w-100  my-auto d-flex align-items-center justify-content-left la-anim__fade-in-top la-anim__A">
+          <div class="la-artist__designation la-artist__designation--front position-absolute w-50 pt-10 my-auto d-flex align-items-center justify-content-left la-anim__fade-in-top la-anim__A">
               <h2 class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">
                   <span class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">Lila</span> 
               </h2>
           </div>
 
-          <div class="la-artist__designation position-absolute w-100  my-auto d-flex align-items-center justify-content-center la-anim__fade-in-top la-anim__A">
+          <div class="la-artist__designation position-absolute w-100 pt-10 my-auto d-flex align-items-center justify-content-center la-anim__fade-in-top la-anim__A">
               <h2 class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">
-                  <span class="ml-6" style="color: var(--gray);"> CREATORS </span>
+                  <span class="ml-6" style="color: var(--gray);"> Mentors </span>
               </h2>
           </div>
             <?php $__currentLoopData = $featuredMentor; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $feat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -315,12 +336,12 @@
 
                 <?php $__currentLoopData = $master_classes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $master): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <?php if($master->courses != null): ?>
-                    <div class="swiper-slide col-12 col-md-3 px-0 la-home__master-slide ">
+                    <div class="swiper-slide col-12 col-md-3 px-0 la-home__master-slide">
                        <?php if (isset($component)) { $__componentOriginal569f4b3c3d50580306a5cb083576611189fd5fee = $component; } ?>
 <?php $component = $__env->getContainer()->make(App\View\Components\MasterClass::class, ['img' => $master->courses->preview_image,'title' => $master->courses->title,'profileImg' => $master->courses->user->user_img,'profileName' => $master->courses->user->fullName,'learners' => $master->courses->learnerCount,'id' => $master->courses->id,'slug' => $master->courses->slug]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes([]); ?>
+<?php $component->withAttributes(['url' => $master->courses->slug]); ?>
 <?php if (isset($__componentOriginal569f4b3c3d50580306a5cb083576611189fd5fee)): ?>
 <?php $component = $__componentOriginal569f4b3c3d50580306a5cb083576611189fd5fee; ?>
 <?php unset($__componentOriginal569f4b3c3d50580306a5cb083576611189fd5fee); ?>
@@ -332,15 +353,22 @@
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               </div>
             </div>
-            <div class="swiper-pagination la-home__master-pagination"></div>
-            <div class="swiper-button-next la-home__master-next"></div>
-            <div class="swiper-button-prev la-home__master-prev"></div>
-        </div>
-
-        <div class="la-mccourse__view-more position-relative text-right la-anim__stagger-item mt-14 mt-md-16">
-            <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-md-8 mr-5 mr-md-1 la-anim__fade-in-right">
-              <a href="/master-classes" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
+            <div class=" w-100 d-flex justify-content-between align-items-center mt-6 mt-md-12">
+              <div class="la-slider__navigations la-home__course-navigations d-flex align-items-center">
+                <div class="swiper-button-prev la-slider__navigations-arrow la-home__master-prev"></div>
+                <div class="swiper-pagination la-slider__navigations-dots la-home__master-pagination la-slider__paginations la-slider__paginations--purble la-right"></div>
+                <div class="swiper-button-next la-slider__navigations-arrow la-home__master-next"></div>
+              </div>
+              <div class="la-mccourse__view-more position-relative text-right la-anim__stagger-item">
+                <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold mr-5 mr-md-1 la-anim__fade-in-right">
+                  <a href="/master-classes" >explore more <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
+                </div>
+              </div>
             </div>
+
+            <!-- <div class="swiper-pagination la-home__master-pagination"></div>
+            <div class="swiper-button-next la-home__master-next"></div>
+            <div class="swiper-button-prev la-home__master-prev"></div> -->
         </div>
 
       </div>
@@ -371,23 +399,23 @@
                         <div class="swiper-wrapper la-home__customize-wrapper">
                             <div class="swiper-slide la-home__customize-slide col-md-7 px-0 la-anim__stagger-item">
                                 <div class="la-home__customize-info">
-                                    <img src="../images/learners/home/mockup3.png" alt="Mock" class="img-fluid mx-auto d-block la-home__customize-img">
-                                    <div class="la-home__customize-infotitle leading-tight mt-8">Personalised dashboard for focussed learning</div>
-                                    <p class="la-home__customize-infopara">Courses based on your interests or your favourite creators, everything you want is available in one place.</p>
+                                    <img src="../images/learners/home/mockup1.jpg" alt="Personalised dashboard" class="img-fluid mx-auto d-block la-home__customize-img">
+                                    <div class="la-home__customize-infotitle leading-tight mt-8">Personalised dashboard for focused learning</div>
+                                    <p class="la-home__customize-infopara">Courses based on your interests, favourite creators, on one easy learning platform</p>
                                 </div>
                             </div>
 
                             <div class="swiper-slide la-home__customize-slide col-md-7 px-0 la-anim__stagger-item">
                                 <div class="la-home__customize-info">
-                                    <img src="../images/learners/home/mockup2.png" alt="Mock" class="img-fluid mx-auto d-block la-home__customize-img">
-                                    <div class="la-home__customize-infotitle leading-tight mt-8">Unique Courses from around the world</div>
-                                    <p class="la-home__customize-infopara">Learn courses that are unique and are created by trusted creators across the world</p>
+                                    <img src="../images/learners/home/mockup2.jpg" alt="Unique tattoo styles" class="img-fluid mx-auto d-block la-home__customize-img">
+                                    <div class="la-home__customize-infotitle leading-tight mt-8">Unique tattoo styles from around of the world</div>
+                                    <p class="la-home__customize-infopara">Learn unique styles created by incredible artists from across the world</p>
                                 </div>
                             </div>
 
                             <div class="swiper-slide la-home__customize-slide col-md-7 px-0 la-anim__stagger-item">
                                 <div class="la-home__customize-info">
-                                    <img src="../images/learners/home/mockup1.png" alt="Mock" class="img-fluid mx-auto d-block la-home__customize-img">
+                                    <img src="../images/learners/home/mockup3.jpg" alt="Personal Playlist" class="img-fluid mx-auto d-block la-home__customize-img">
                                     <div class="la-home__customize-infotitle leading-tight mt-8">Personal Playlist to help you organise</div>
                                     <p class="la-home__customize-infopara">Create playlist to save all the courses you want to learn in a personal space and learn whenever, wherever yo want!</p>
                                 </div>
@@ -467,22 +495,25 @@
             </div>
             <div class="la-trail__right position-relative d-flex align-items-end">
               <div class="la-trail__content-wrap la-anim__stagger">
-                <div class="la-trail__para la-anim__stagger-item la-anim__B">We strongly believe observation is integral to honing art. Learn from masters in their respective fields with consistent practice, and become a pro yourself!</div>
+                <div class="la-trail__para la-anim__stagger-item la-anim__B">We strongly believe observation is integral to honing art. Learn from artists who have created their niche in the world of tattooing with consistent practice, and become the master of your niche!</div>
                 <?php if(Auth::check()): ?>
                   <?php if(Auth::user()->subscription() ): ?>
                     <a class="btn btn-primary la-btn  mt-md-10 la-anim__stagger-item" href="/browse/course/">Browse Course</a>
                   <?php else: ?>
-                    <a class="btn btn-primary la-btn  mt-md-6 la-anim__stagger-item" href="/login">Start free trail</a>
+                    <a class="btn btn-primary la-btn  mt-md-6 la-anim__stagger-item" href="/login">Start free trial</a>
                   <?php endif; ?>
                 <?php else: ?>
-                  <a class="btn btn-primary la-btn  mt-md-6 la-anim__stagger-item" href="/login">Start free trail</a>
+                  <a class="btn btn-primary la-btn  mt-md-6 la-anim__stagger-item" href="/login">Start free trial</a>
                 <?php endif; ?>
               </div>
             </div>
           </div>
 
           <div class="la-home__trail-btn la-btn__plain d-flex justify-content-center align-items-start la-anim__fade-in-left">
-            <a href="/about" class="d-none d-md-block">ALIENS WAY OF TEACHING</a>
+            <!-- <a href="/about" class="d-none d-md-block">ALIENS WAY OF TEACHING</a> -->
+            <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold mr-5 mr-md-1 la-anim__fade-in-right" style="transform: translate(0px, 0px); opacity: 1;">
+                  <a href="/about">ALIENS WAY OF TEACHING <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
+                </div>
           </div>
 
         </div>
@@ -526,7 +557,7 @@
         
                   <?php if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active()): ?>
                   
-                        <div class="col-md-7 col-lg-4 offset-lg-2 py-12 py-md-20">
+                        <div class="col-md-7 col-lg-5 offset-lg-1 py-12 py-md-20">
                           <div class="la-anim__wrap la-anim__wrap-pin2 ">
                               <div class="la-price__box la-anim__pin2 ">
                                 <div class="la-price__box-inner la-anim__stagger-item">
@@ -539,7 +570,7 @@
 
                   <?php else: ?>
 
-                      <div class="col-md-7 col-lg-4 offset-lg-2 pt-12 pb-0 py-lg-20">
+                      <div class="col-md-7 col-lg-5 offset-lg-1 pt-12 pb-0 py-lg-20">
                         <div class="la-anim__wrap la-anim__wrap-pin2 ">
                             <div class="la-price__box la-anim__pin2 ">
                               <div class="la-price__box-inner la-anim__stagger-item">

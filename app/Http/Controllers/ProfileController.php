@@ -79,6 +79,7 @@ class ProfileController extends Controller
         $input['city_id'] = $request->city;
         $input['pin_code'] = $request->zipcode;
         $input['detail'] = $request->short_bio;
+        $input['mobile'] = $request->mobile;
 
             if ($file = $request->file('user_img')) {
 
