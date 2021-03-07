@@ -154,15 +154,15 @@
 .la-home__course-prev, .la-home__course-next{
     background-color:var(--gray2);
     border-radius:var(--rounded-full);
-    width:45px;
-    height:45px;
+    width:35px;
+    height:35px;
 
     &:hover{
         background-color:var(--app-indigo-1);
         transform:all 0.25s ease;
     }
     &:after{
-        font-size:var(--text-lg);
+        font-size:var(--text-md);
         color:var(--gray6);
         font-weight:var(--font-semibold);
     }
@@ -249,15 +249,15 @@
 .la-home__master-prev, .la-home__master-next{
     background-color:var(--gray2);
     border-radius:var(--rounded-full);
-    width:45px;
-    height:45px;
+    width:35px;
+    height:35px;
 
     &:hover{
         background-color:var(--app-indigo-1);
         transform:all 0.25s ease;
     }
     &:after{
-        font-size:var(--text-lg);
+        font-size:var(--text-md);
         color:var(--gray6);
         font-weight:var(--font-semibold);
     }
@@ -323,7 +323,7 @@
 }
 .la-home__customize-pagination{
     right: 40px !important;
-
+    
 	.swiper-pagination-bullet{
 		background:#ffffff;
 		border-radius:50%;
@@ -333,6 +333,19 @@
 	.swiper-pagination-bullet-active{
 		background-color:#fff;
         opacity: 1 !important;
+        width:30px;
+        border-radius:10px;
+        animation:fill2 1s ease 1;
+        
+    
+        @keyframes fill2{
+            from{opacity:0;width:0;}
+            to{opacity:1;width:30px;}
+        }
+        @-webkit-keyframes fill2{
+            from{opacity:0;width:0;}
+            to{opacity:1;width:30px;}
+        }
 	}
 
     @include respond-above(lg){
@@ -411,6 +424,7 @@
     box-shadow: 0px 2px 4px 3px #0000002e;
     background-color: #ffffff;
     cursor: pointer;
+    opacity:1 !important;
 }
 .la-slider__navigations-dots {
     position: unset;
@@ -419,5 +433,19 @@
 .la-slider__navigations-dots .swiper-pagination-bullet {
     margin-left: 8px;
     margin-right: 0;
-    
+}
+.la-slider__paginations--purble .swiper-pagination-bullet-active{
+    width:30px;
+    height:7px;
+    border-radius:10px;
+    animation:fill 1s ease 1;
+
+    @keyframes fill{
+        from{opacity:0;width:0;}
+        to{opacity:1;width:30px;}
+    }
+    @-webkit-keyframes fill{
+        from{opacity:0;width:0;}
+        to{opacity:1;width:30px;}
+    }
 }

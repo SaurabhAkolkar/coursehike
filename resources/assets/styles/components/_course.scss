@@ -94,12 +94,14 @@
                             margin-bottom: var(--size-6);
                             padding-bottom:var(--size-2);
                             transition:all 0.5s linear;
-
+                            
                             @include respond-below(md){
                                 margin:0 var(--size-2) var(--size-5);
+                                padding-left:50px;
                             }
                             @include respond-below(sm){
                                 margin:var(--size-5) 0;
+                                padding-left:420px;
                             }
                         }
                         &tabs::-webkit-scrollbar {
@@ -133,7 +135,7 @@
                             }
 
                             @include respond-below(md){
-                                white-space: nowrap;
+                                //white-space: nowrap;
                                 font-size:var(--text-2xl);
                             }
 
@@ -230,6 +232,7 @@
 
         &__ {
             &inner {
+                width:100%;
                 position: relative;
                 // height: var(--courseH);
                 &:hover>#{$ap}-course__imgwrap img {
@@ -238,6 +241,17 @@
 
                     @include respond-below(md){
                         transform:none;
+                    }
+                }
+
+                &:hover .la-course__overlay{
+                    transform:scale(1) translateY(0);-webkit-transform: scale(1) translateY(0);-moz-transform: scale(1) translateY(0);
+                    border-radius: var(--size-2);-webkit-border-radius: var(--size-2);-moz-border-radius: var(--size-2);
+                    
+                    @include respond-below(md){
+                        -webkit-transform: none;
+                        -ms-transform: none;
+                        transform: none;   
                     }
                 }
 
@@ -250,6 +264,7 @@
                             transform:none;
                         }
                     }
+                   
                 }
             }
             &imgwrap {
@@ -304,13 +319,36 @@
                 background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
                 background: radial-gradient(ellipse at center,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#80000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
+                -webkit-transform: scale(0);
+                -ms-transform: scale(0);
+                transform: scale(0);
                 z-index: var(--z-10);
+                -webkit-transition: .3s ease;
+                transition: .3s ease;
                 border-radius: var(--size-2);-webkit-border-radius: var(--size-2);-moz-border-radius: var(--size-2);
                 
                 &:hover {
                     cursor: pointer;
                     border-radius: var(--size-2);-webkit-border-radius: var(--size-2);-moz-border-radius: var(--size-2);
+                }
+
+                @include respond-below(md){
+                    -webkit-transform: scale(1);
+                    -ms-transform: scale(1);
+                    transform: scale(1);   
+                }
+
+                &-{
+                    &info{
+                        position: absolute;
+                        top: 10%;
+                        right:3%;
+                        width:100%;
+                        height:100%;
+                        -webkit-transform: translate(0%, -50%);
+                        -ms-transform: translate(0%, -50%);
+                        transform: translate(0%, -50%);
+                    }
                 }
             }
             &free{
@@ -343,6 +381,14 @@
                 letter-spacing: 1.05px;
                 color: var(--white);
                 align-self: flex-end;
+                position: absolute;
+                top: 88%;
+                left:5%;
+                width:100%;
+                height:100%;
+                -webkit-transform: translate(0%, 0%);
+                -ms-transform: translate(0%, 0%);
+                transform: translate(0%, 0%);
 
                 /*&:after{
                     position:absolute;

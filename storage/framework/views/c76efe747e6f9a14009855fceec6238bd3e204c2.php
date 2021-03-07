@@ -90,16 +90,16 @@ $course_id = $course->id;
             </div>
           </div>
           
-          <div class="col-12 col-md-5 col-lg-4 pt-10 pt-md-1 d-flex flex-column justify-content-start align-items-center align-items-md-end la-anim__wrap">
+          <div class="col-12 col-md-5 col-lg-3 offset-lg-1 pt-10 pt-md-1 d-flex flex-column justify-content-start align-items-center align-items-md-end la-anim__wrap">
             
-              <div class="la-vcourse__buy text-center mb-6 mb-md-12 la-anim__stagger-item--x">
+              <div class="la-vcourse__buy w-100 text-center mb-6 mb-md-12 la-anim__stagger-item--x">
                 <?php if( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription()) || (auth()->check() && !Auth::User()->subscription()->active())  ) ): ?>
                   <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end" href="/learning-plans">Subscribe Now</a>
                 <?php endif; ?>
 
                 <?php if(auth()->check()): ?>
                   <div class="text-center la-anim__stagger-item--x">
-                    <div class="la-vcourse__buy-complete mb-1">
+                    <div class="la-vcourse__buy-complete mb-1 w-100">
                       <span class="pr-2" style="color:var(--green)"><?php echo e($course->getProgress()); ?>%</span> <span style="color:var(--gray8)"> Completed</span>
                     </div>
                     <div class="progress la-rtng__progress w-100"> 
@@ -114,7 +114,7 @@ $course_id = $course->id;
                 <div class="la--count "><?php echo e($course->courseclass->count()); ?></div>
                 <span class="la--label mt-2">Videos</span>
               </div>
-              <div class="la-vcourse__info-item la-vcourse__info--learners d-flex flex-column align-items-center justify-content-end mx-10">
+              <div class="la-vcourse__info-item la-vcourse__info--learners d-flex flex-column align-items-center justify-content-end mx-16">
                 <div class="la--count"><?php echo e($course->learnerCount); ?></div>
                 <span class="la--label mt-2">Learners</span>
               </div>

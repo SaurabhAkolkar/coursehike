@@ -1,9 +1,9 @@
-<div class="col-12 grid-view " @if($addedToWhishList) id="course_{{$id}}" @endif>
+<div class="col-12" @if($addedToWhishList) id="course_{{$id}}" @endif>
     <div class="la-course">
-            <div class="la-course__inner">
+        <div class="la-course__inner">
                 <a class="la-course__inner-link" role="button" href= "{{ '/learn/course/'.$id.'/'.$url }}" >
                     <div class="la-course__overlay">
-                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="la-course__overlay-info d-flex justify-content-between align-items-center">
                             @if($price)
                             @else
                                 <div class="la-course__free">
@@ -48,6 +48,25 @@
                                 </li>
 
                                 <li class="la-course__option">
+                                    @if(Auth::check())
+                                            <span  @if($removeFromPlaylist) onclick="location.href='{{url()->current()}}/{{$id}}'"  @else onclick="showAddToPlaylist({{$id}})" @endif>
+                                                <span class="d-inline-block la-course__like">
+                                                    <i class="la-icon  la-icon--2xl icon-playlist @if($removeFromPlaylist) text-warning  @endif"></i> 
+                                                </span>
+                                            </span>
+
+                                        @else   
+
+                                            <span data-toggle="modal" data-target="#locked_login_modal">
+                                                <span class="d-inline-block la-course__like">
+                                                    <i class="la-icon la-icon--2xl icon-playlist"></i> 
+                                                </span>
+                                            </span>
+
+                                    @endif
+                                </li>
+
+                                {{--<li class="la-course__option">
                                         <div class="dropdown">
                                             <div class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" id="course_options" role="button" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">
                                                 <i class="la-icon la-icon--2xl icon icon-menu"></i>
@@ -72,7 +91,7 @@
                                                 @endif
                                             </div>
                                         </div>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                         <div class="la-course__learners"><strong>{{$learnerCount}}</strong>  Learners</div>
@@ -144,61 +163,3 @@
     </div>
 </div>
 
-
-
-<!-- Course Card List View: Start -->
-<div class="list-view d-none">
-    <div class="la-course__list d-flex justify-content-between align-items-center">
-        <div class="la-course__list-clft d-md-flex align-items-center">
-            <div class="la-course__list-cimgtop">
-                <a href="{{ '/learn/course/'.$id.'/'.$url }}"  class="la-course__list-cimg">
-                    <img src="{{ $img }}" alt="{{ $course }}" class="img-fluid d-block" />
-                </a>
-            </div>
-            
-            <div class="la-course__list-cinfo ml-md-5">
-                <h4 class="la-course__list-cname text-md text-md-2xl">{{ $course }} </h4>
-                <a href="/creator/{{ $creatorUrl }}" class="la-course__list-cauthor text-capitalize text-sm text-md-lg">{{ $creatorName }}</a>
-            </div>
-        </div>
-
-        <div class="la-course__list-crht d-flex align-items-center">
-            <div class="la-course__list-clearners ml-2">{{$learnerCount}} <span class="la-course__list-clearners--text">Learners</span></div>
-            <div class="la-course__list-cratings ml-2 ml-md-20">  
-                 <div class="la-rtng__pg-rtng d-inline-flex px-3">
-                    <div class="icon-star la-rtng__fill"></div>
-                    <div class="icon-star la-rtng__fill"></div>
-                    <div class="icon-star la-rtng__fill"></div>
-                    <div class="icon-star la-rtng__unfill"></div>
-                    <div class="icon-star la-rtng__unfill"></div>
-                </div>
-            </div>
-
-            <li class="la-course__option ml-2 ml-md-20">
-                <div class="dropdown">
-                    <div class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);">
-                        <i class="la-icon la-icon--2xl icon icon-menu"></i>
-                    </div>
-                    <div class="la-cmenu dropdown-menu py-0">
-                        @if(Auth::check())
-                            <span class="dropdown-item la-cmenu__item d-inline-flex" @if($removeFromPlaylist) onclick="location.href='{{url()->current()}}/{{$id}}'"  @else onclick="showAddToPlaylist({{$id}})" @endif><i class="icon icon-playlist la-icon la-cmenu__item-icon mr-2"></i> @if($removeFromPlaylist) Remove from Playlist  @else Add to Playlist @endif</span>
-
-                            @if($price && $bought == null)
-                                <span class="dropdown-item la-cmenu__item d-inline-flex" @if($addedToWhishList) onclick="location.href='/remove-from-wishlist/{{$id}}'" @else onclick="addToWishList({{$id}})" @endif><i class="icon icon-wishlist la-icon la-cmenu__item-icon mr-2"></i> @if($addedToWhishList) Remove from Wishlist @else Add to Wishlist @endif </span>
-                                <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToCart({{$id}})"><i class="icon icon-cart la-icon la-cmenu__item-icon mr-2"></i>  Add to Cart</span>
-                            @else
-
-                            @endif
-                            
-                        @else   
-                            <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login_modal"><i class="icon icon-playlist la-icon la-cmenu__item-icon mr-2"></i>  Add to Playlist</span>
-                            <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login_modal"><i class="icon icon-wishlist la-icon la-cmenu__item-icon mr-2"></i> Add to Wishlist </span>
-                            <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login_modal"><i class="icon icon-cart la-icon la-cmenu__item-icon mr-2"></i>  Add to Cart</span>
-                        @endif
-                    </div>
-                </div>
-            </li>
-        </div>
-    </div>
-</div>
-<!-- Course Card List View: End -->

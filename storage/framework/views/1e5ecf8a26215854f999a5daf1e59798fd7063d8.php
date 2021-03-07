@@ -1,4 +1,4 @@
-
+    <div class="la-mccourse__wrap">
         <a class="la-mccourse la-anim__stagger-item d-block" role="button" href="/learn/course/<?php echo e($id); ?>/<?php echo e($slug); ?>">
             <div class="la-mccourse__imgwrap">
                 <img class="img-fluid  mx-auto d-block" src= "<?php echo e($img); ?>" alt= <?php echo e($title); ?> />
@@ -24,4 +24,5 @@
                 <div class="la-mccourse__learners mt-4"><?php echo e($learners); ?> Learners</div>
             </div>
         </a>
+        </div>
 <?php /**PATH E:\lila-laravel\resources\views/components/master-class.blade.php ENDPATH**/ ?>

@@ -131,7 +131,7 @@
         <div class="la-courses">
           <h3 class="la-home__course-mtitle text-center la-anim__stagger-item">Learn what you love!</h3>
 
-          <nav class="la-courses__nav d-flex justify-content-center position-relative">
+          <nav class="la-courses__nav d-md-flex justify-content-start justify-content-md-center position-relative">
               <ul class="nav nav-pills la-courses__nav-tabs justify-content-center" id="nav-tab" role="tablist" tabindex="0">
               
                 <?php if(!$filtres_applied): ?>

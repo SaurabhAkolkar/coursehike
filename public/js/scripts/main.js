@@ -37,7 +37,7 @@ $(function(){
 
 
   //- Carousel Indiactors for Nav Tabs
-  (function($) {
+  /*(function($) {
     $(".la-courses__nav-tabs").on('scroll', function() {
       $val = $(this).scrollLeft();
   
@@ -56,6 +56,7 @@ $(function(){
     });
 
   })(jQuery);
+  */
   //- Carousel Indiactors for Nav Tabs
 
   //- Filter Sidebar
@@ -99,10 +100,9 @@ $(function(){
   if($('.la-home__course-container')[0]){
     var swiper = new Swiper('.la-home__course-container', {
       slidesPerView: 'auto',
-      spaceBetween: 25,
       loop: true,
       autoplay: {
-        delay: 2500,
+        delay: 3000,
         disableOnInteraction: false,
       },
       pagination: {
@@ -188,6 +188,17 @@ $(function(){
         freeMode: true,
         watchSlidesVisibility: true,
         watchSlidesProgress: true,
+        breakpoints: {  
+          320: {       
+            slidesPerView: 6,         
+          },       
+          767: {       
+            slidesPerView: 10,         
+          },
+          1200: {
+            slidersPerView: 13,
+          },  
+        }, 
       });
       var galleryTop = new Swiper('.gallery-top', {
         effect: 'fade',
