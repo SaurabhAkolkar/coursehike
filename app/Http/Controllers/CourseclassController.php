@@ -122,12 +122,9 @@ class CourseclassController extends Controller
   
         if($file = $request->file('preview_image'))
         {
-            $photo = Image::make($file)->fit(600, 360, function ($constraint) {
-                $constraint->upsize();
-            })->encode('jpg', 70);
 
             $file_name = time().rand().'.'.$file->getClientOriginalExtension();
-            Storage::put(config('path.course.video_thumnail').$request->course_id .'/'. $file_name, $photo->stream() );
+            Storage::put(config('path.course.video_thumnail').$request->course_id .'/'. $file_name, fopen($file->getRealPath(), 'r+') );
             $courseclass->image = $file_name;
         }
 
@@ -292,12 +289,8 @@ class CourseclassController extends Controller
                     Storage::delete(config('path.course.video_thumnail').$courseclass->course_id .'/'.$courseclass->image);
             }
 
-            $photo = Image::make($file)->fit(600, 360, function ($constraint) {
-                $constraint->upsize();
-            })->encode('jpg', 70);
-
             $file_name = time().rand().'.'.$file->getClientOriginalExtension();
-            Storage::put(config('path.course.video_thumnail').$courseclass->course_id .'/'. $file_name, $photo->stream() );
+            Storage::put(config('path.course.video_thumnail').$courseclass->course_id .'/'. $file_name, fopen($file->getRealPath(), 'r+') );
             $courseclass->image = $file_name;
         }
 

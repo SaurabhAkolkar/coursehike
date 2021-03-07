@@ -190,8 +190,8 @@ class CountryController extends Controller
     {
 
         $id = $request['catId'];
-        $country = Country::where('country_id',$id)->first();
-        $upload = Allstate::where('country_id',$country->country_id)->pluck('name','id');
+        // $country = Allcountry::where('country_id',$id)->first();
+        $upload = Allstate::where('country_id',$id)->pluck('name','id');
         
         return response()->json($upload);
     }
