@@ -203,7 +203,7 @@ class SearchController extends Controller
 
 		$purchased_courses = UserPurchasedCourse::with('course','course.user','course.review')->where(['user_id'=>Auth::User()->id])->whereNotIn('course_id', $watched_courses)->pluck('course_id')->toArray();
 		
-		$ongoing_completed_courses = Course::whereIn('id', $watched_courses)->whereNotIn('course_id', $purchased_courses)->get();
+		$ongoing_completed_courses = Course::whereIn('id', $watched_courses)->whereNotIn('id', $purchased_courses)->get();
 
 		$completed_courses = $ongoing_completed_courses->filter->isCompleted()->values();
 		$on_going_courses = $ongoing_completed_courses->filter(function ($course) {
