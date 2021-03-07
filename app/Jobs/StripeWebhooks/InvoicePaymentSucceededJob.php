@@ -13,7 +13,6 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Spatie\WebhookClient\Models\WebhookCall;
 use Illuminate\Support\Facades\Mail;
-use App\Setting;
 use App\Mail\UserSubscribed;
 use App\User;
 
@@ -113,17 +112,11 @@ class InvoicePaymentSucceededJob implements ShouldQueue
                     'amount' => $invoice_amount_paid,
                 ];
                 
-                $setting = Setting::first();
-                if($setting->w_email_enable == 1){
-                    try{    
-                        Mail::to($user->email)->later(now()->addMinutes(1), new UserSubscribed($email_data));                  
-                        //Mail::to($user->email)->send(new UserSubscribed($email_data));                       
-                    }catch(\Swift_TransportException $e){
-                        
-                    }
+                try{    
+                    Mail::to($user->email)->later(now()->addMinutes(1), new UserSubscribed($email_data));                    
+                }catch(\Swift_TransportException $e){
+                    
                 }
-
-                
             // }
         }
     }
