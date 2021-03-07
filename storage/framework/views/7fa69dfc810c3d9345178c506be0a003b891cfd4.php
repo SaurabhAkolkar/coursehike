@@ -1,9 +1,9 @@
-<div class="grid-view " <?php if($addedToWhishList): ?> id="course_<?php echo e($id); ?>" <?php endif; ?>>
+<div class="col-12" <?php if($addedToWhishList): ?> id="course_<?php echo e($id); ?>" <?php endif; ?>>
     <div class="la-course">
-            <div class="la-course__inner">
+        <div class="la-course__inner">
                 <a class="la-course__inner-link" role="button" href= "<?php echo e('/learn/course/'.$id.'/'.$url); ?>" >
                     <div class="la-course__overlay">
-                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="la-course__overlay-info d-flex justify-content-between align-items-start">
                             <?php if($price): ?>
                             <?php else: ?>
                                 <div class="la-course__free">
@@ -48,31 +48,25 @@
                                 </li>
 
                                 <li class="la-course__option">
-                                        <div class="dropdown">
-                                            <div class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" id="course_options" role="button" href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">
-                                                <i class="la-icon la-icon--2xl icon icon-menu"></i>
-                                            </div>
-                                            <div class="la-cmenu dropdown-menu py-0" arial-labelledby="course_options">
-                                                <?php if(Auth::check()): ?>
-                                                    <span class="dropdown-item la-cmenu__item d-inline-flex" <?php if($removeFromPlaylist): ?> onclick="location.href='<?php echo e(url()->current()); ?>/<?php echo e($id); ?>'"  <?php else: ?> onclick="showAddToPlaylist(<?php echo e($id); ?>)" <?php endif; ?>><i class="icon icon-playlist la-icon la-cmenu__item-icon mr-2"></i> <?php if($removeFromPlaylist): ?> Remove from Playlist  <?php else: ?> Add to Playlist <?php endif; ?></span>
-                                                    <?php if($price && $bought == null): ?>
-                                            
-                                                        <span class="dropdown-item la-cmenu__item d-inline-flex" <?php if($addedToWhishList): ?> onclick="location.href='/remove-from-wishlist/<?php echo e($id); ?>'" <?php else: ?> onclick="addToWishList(<?php echo e($id); ?>)" <?php endif; ?>><i class="icon icon-wishlist la-icon la-cmenu__item-icon mr-2"></i> <?php if($addedToWhishList): ?> Remove from Wishlist <?php else: ?> Add to Wishlist <?php endif; ?> </span>
-                                                        <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToCart(<?php echo e($id); ?>)"><i class="icon icon-cart la-icon la-cmenu__item-icon mr-2"></i>  Add to Cart</span>
+                                    <?php if(Auth::check()): ?>
+                                            <span  <?php if($removeFromPlaylist): ?> onclick="location.href='<?php echo e(url()->current()); ?>/<?php echo e($id); ?>'"  <?php else: ?> onclick="showAddToPlaylist(<?php echo e($id); ?>)" <?php endif; ?>>
+                                                <span class="d-inline-block la-course__like">
+                                                    <i class="la-icon  la-icon--2xl icon-playlist <?php if($removeFromPlaylist): ?> text-warning  <?php endif; ?>"></i> 
+                                                </span>
+                                            </span>
 
-                                                    <?php else: ?>
+                                        <?php else: ?>   
 
-                                                    <?php endif; ?>
-                                                <?php else: ?>   
+                                            <span data-toggle="modal" data-target="#locked_login_modal">
+                                                <span class="d-inline-block la-course__like">
+                                                    <i class="la-icon la-icon--2xl icon-playlist"></i> 
+                                                </span>
+                                            </span>
 
-                                                    <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login_modal"><i class="icon icon-playlist la-icon la-cmenu__item-icon mr-2"></i>  Add to Playlist</span>
-                                                    <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login_modal"><i class="icon icon-wishlist la-icon la-cmenu__item-icon mr-2"></i> Add to Wishlist </span>
-                                                    <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login_modal"><i class="icon icon-cart la-icon la-cmenu__item-icon mr-2"></i>  Add to Cart</span>
-
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
+                                    <?php endif; ?>
                                 </li>
+
+                                
                             </ul>
                         </div>
                         <div class="la-course__learners"><strong><?php echo e($learnerCount); ?></strong>  Learners</div>
@@ -138,68 +132,10 @@
                 </div>
             </div>
 
-            <a class="la-course__title" href= <?php echo e('/learn/course/'.$id.'/'.$url); ?>> <?php echo e(strlen($course)>25?substr($course,0,25).'...':$course); ?> </a>
+            <a class="la-course__title" href= <?php echo e('/learn/course/'.$id.'/'.$url); ?>> <?php echo e($course); ?> </a>
             
         </div>
     </div>
 </div>
 
-
-
-<!-- Course Card List View: Start -->
-<div class="list-view d-none">
-    <div class="la-course__list d-flex justify-content-between align-items-center">
-        <div class="la-course__list-clft d-md-flex align-items-center">
-            <div class="la-course__list-cimgtop">
-                <a href="<?php echo e('/learn/course/'.$id.'/'.$url); ?>"  class="la-course__list-cimg">
-                    <img src="<?php echo e($img); ?>" alt="<?php echo e($course); ?>" class="img-fluid d-block" />
-                </a>
-            </div>
-            
-            <div class="la-course__list-cinfo ml-md-5">
-                <h4 class="la-course__list-cname text-md text-md-2xl"><?php echo e(strlen($course)>25?substr($course,0,25).'...':$course); ?> </h4>
-                <a href="/creator/<?php echo e($creatorUrl); ?>" class="la-course__list-cauthor text-capitalize text-sm text-md-lg"><?php echo e($creatorName); ?></a>
-            </div>
-        </div>
-
-        <div class="la-course__list-crht d-flex align-items-center">
-            <div class="la-course__list-clearners ml-2"><?php echo e($learnerCount); ?> <span class="la-course__list-clearners--text">Learners</span></div>
-            <div class="la-course__list-cratings ml-2 ml-md-20">  
-                 <div class="la-rtng__pg-rtng d-inline-flex px-3">
-                    <div class="icon-star la-rtng__fill"></div>
-                    <div class="icon-star la-rtng__fill"></div>
-                    <div class="icon-star la-rtng__fill"></div>
-                    <div class="icon-star la-rtng__unfill"></div>
-                    <div class="icon-star la-rtng__unfill"></div>
-                </div>
-            </div>
-
-            <li class="la-course__option ml-2 ml-md-20">
-                <div class="dropdown">
-                    <div class="dropdown-toggle d-inline-block la-course__menubtn" data-toggle="dropdown" href="javascript:void(0);">
-                        <i class="la-icon la-icon--2xl icon icon-menu"></i>
-                    </div>
-                    <div class="la-cmenu dropdown-menu py-0">
-                        <?php if(Auth::check()): ?>
-                            <span class="dropdown-item la-cmenu__item d-inline-flex" <?php if($removeFromPlaylist): ?> onclick="location.href='<?php echo e(url()->current()); ?>/<?php echo e($id); ?>'"  <?php else: ?> onclick="showAddToPlaylist(<?php echo e($id); ?>)" <?php endif; ?>><i class="icon icon-playlist la-icon la-cmenu__item-icon mr-2"></i> <?php if($removeFromPlaylist): ?> Remove from Playlist  <?php else: ?> Add to Playlist <?php endif; ?></span>
-
-                            <?php if($price && $bought == null): ?>
-                                <span class="dropdown-item la-cmenu__item d-inline-flex" <?php if($addedToWhishList): ?> onclick="location.href='/remove-from-wishlist/<?php echo e($id); ?>'" <?php else: ?> onclick="addToWishList(<?php echo e($id); ?>)" <?php endif; ?>><i class="icon icon-wishlist la-icon la-cmenu__item-icon mr-2"></i> <?php if($addedToWhishList): ?> Remove from Wishlist <?php else: ?> Add to Wishlist <?php endif; ?> </span>
-                                <span class="dropdown-item la-cmenu__item d-inline-flex" onclick="addToCart(<?php echo e($id); ?>)"><i class="icon icon-cart la-icon la-cmenu__item-icon mr-2"></i>  Add to Cart</span>
-                            <?php else: ?>
-
-                            <?php endif; ?>
-                            
-                        <?php else: ?>   
-                            <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login_modal"><i class="icon icon-playlist la-icon la-cmenu__item-icon mr-2"></i>  Add to Playlist</span>
-                            <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login_modal"><i class="icon icon-wishlist la-icon la-cmenu__item-icon mr-2"></i> Add to Wishlist </span>
-                            <span class="dropdown-item la-cmenu__item d-inline-flex" data-toggle="modal" data-target="#locked_login_modal"><i class="icon icon-cart la-icon la-cmenu__item-icon mr-2"></i>  Add to Cart</span>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            </li>
-        </div>
-    </div>
-</div>
-<!-- Course Card List View: End -->
 <?php /**PATH C:\xampp\htdocs\lila-laravel\resources\views/components/course.blade.php ENDPATH**/ ?>
