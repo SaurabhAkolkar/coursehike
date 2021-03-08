@@ -105,7 +105,7 @@ class CourseclassController extends Controller
                 'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
                 'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
             ])->post('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/copy', [
-                'url' => Storage::temporaryUrl(config('path.course.video'). $courseclass->course_id.'/'.$file_name, now()->addMinutes(10)),
+                'url' => Storage::temporaryUrl(config('path.course.video'). $courseclass->course_id.'/'.$file_name, now()->addMinutes(60)),
                 'meta' => [
                     'name' => $file_name
                 ],

@@ -30,8 +30,7 @@
 
           <!-- Global Search: Start-->
           <div class="la-gsearch la-anim__stagger-item--x">
-            <form class="form-inline" action="/search-creator" method="post">
-              @csrf
+            <form class="form-inline" action="/search-mentor" method="get">
               <div class="form-group d-flex align-items-center">
                 <input class="la-gsearch__input w-100 form-control la-gsearch__input-browsecourses" name="name" type="text" style="background:transparent" placeholder="Looking for your favourite Alien Mentor?">
               </div>

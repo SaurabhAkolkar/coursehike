@@ -25,9 +25,11 @@ class Course extends Component
     public $learnerCount;
     public $price;
     public $bought;
+    public $checkWishList;
+    public $checkCart;
 
 
-    public function __construct($id, $img, $bought, $course, $price, $learnerCount, $rating, $url, $creatorImg, $creatorName, $creatorUrl, $addedToWhishList=false, $removeFromPlaylist = false)
+    public function __construct($id, $img, $checkWishList, $checkCart, $bought, $course, $price, $learnerCount, $rating, $url, $creatorImg, $creatorName, $creatorUrl, $addedToWhishList=false, $removeFromPlaylist = false)
     // public function __construct()
     {
         $this->id = $id;
@@ -45,6 +47,8 @@ class Course extends Component
         $this->learnerCount = $learnerCount;
         $this->price = $price;
         $this->bought = $bought;
+        $this->checkWishList = $checkWishList;
+        $this->checkCart = $checkCart;
     }
 
     /**

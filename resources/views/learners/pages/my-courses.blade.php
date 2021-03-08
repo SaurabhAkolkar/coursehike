@@ -49,6 +49,8 @@
                           :price="$course->price"
                           :learnerCount="$course->learnerCount"
                           :bought="$course->isPurchased()"
+                          :checkWishList="$course->checkWishList"
+                          :checkCart="$course->checkCart"
                         />
                       @endforeach
                     </div>
@@ -98,6 +100,8 @@
                         :price="$course->price"
                         :learnerCount="$course->learnerCount"
                         :bought="$course->isPurchased()"
+                        :checkWishList="$course->checkWishList"
+                        :checkCart="$course->checkCart"
                       />
                     @endforeach
                   </div>
@@ -147,6 +151,8 @@
                         :price="$course->price"
                         :learnerCount="$course->learnerCount"
                         :bought="$course->isPurchased()"
+                        :checkWishList="$course->checkWishList"
+                        :checkCart="$course->checkCart"
                       />
                     @endforeach
                   </div>

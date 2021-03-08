@@ -11,10 +11,6 @@ $(function(){
     console.log(value)
   });
 
-
-
-
-
   // Home Video On scroll Pause/Play: Start
   $(window).on("scroll",function(){
     if($(window).scrollTop()>500){      
@@ -460,7 +456,7 @@ $(function(){
       pin: true,
       pinSpacing: false,
       start: "top 20%",
-      end: "+=950",
+      end: "+=900",
     }, opacity: 1
   });
 

@@ -65,51 +65,53 @@
             @endif
 
             <!-- Video Content Section: Start -->
-            <div class="la-hero la-hero__video-content d-flex justify-content-center flex-column align-items-center">
-              <div class="la-hero__video-info text-center">
-                <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">COURSES & CLASSES BY</p>
-                <h1 class="la-hero__title la-anim__stagger-item mb-5">World’s finest <span class="la-hero__subtitle">Creators</span></h1>
+            <div class="container-fluid la-hero la-hero__video-content d-flex justify-content-center flex-column align-items-center">
+              <div class="la-hero__video-info text-center text-md-left">
+                <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">Ace the learning curve with Courses & Classes by</p>
+                <h1 class="la-hero__title la-anim__stagger-item mb-5">World’s finest <span class="la-hero__subtitle">Tattooists</span></h1>
                 <p class="la-hero__lead la-anim__stagger-item">{{$firstSection->sub_heading}}</p>
               
-                <div class="la-hero__actions la-anim__stagger-item mt-md-10">
-                  @if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())
-                  <div class="">
-                    <a href="/browse/courses" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white">Start Learning</a>
-                  </div>
+                <div class="d-md-flex align-items-center">
+                  <div class="la-hero__actions la-anim__stagger-item mt-10">
+                    @if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())
+                    <div class="">
+                      <a href="/browse/courses" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white">Start Learning</a>
+                    </div>
 
-                  @else
-                  <div class="">
-                      <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white">
-                        Subscribe for
-                        <span class="la-soffer__bestprice la-home__bestprice" style="color:var(--white)"> 
+                    @else
+                    <div class="">
+                        <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white">
+                          Subscribe for
+                          <span class="la-soffer__bestprice la-home__bestprice" style="color:var(--white)"> 
+                            @if (getLocation() == 'IN')
+                              <sup>₹</sup>2899/Month
+                            @else
+                              <sup>$</sup>39/<span class="text-xxs">Month</span>
+                            @endif
+                        </span>
+                        </a>
+                    </div>
+                    
+                    <div class="la-soffer mt-2 d-inline-flex justify-content-center flex-column align-items-md-center">
+                        {{-- <div class="la-soffer__bestprice" style="color:var(--white)"> 
                           @if (getLocation() == 'IN')
-                            <sup>₹</sup>2899/Month
+                            <sup>₹</sup> 2899 / Month
                           @else
-                            <sup>$</sup>39/<span class="text-xxs">Month</span>
+                            <sup>$</sup> 39 / Month
                           @endif
-                      </span>
-                      </a>
-                  </div>
-                  
-                  <div class="la-soffer mt-2 d-inline-flex justify-content-center flex-column align-items-md-center">
-                      {{-- <div class="la-soffer__bestprice" style="color:var(--white)"> 
-                        @if (getLocation() == 'IN')
-                          <sup>₹</sup> 2899 / Month
-                        @else
-                          <sup>$</sup> 39 / Month
-                        @endif
-                      </div> --}}
+                        </div> --}}
 
-                      @if (getLocation() == 'IN')
-                        <div class="la-soffer__realprice la-home__realprice text-sm" style="color:var(--white)"> <sup>₹</sup> 5999 (INR)</div>
-                      @else
-                        <div class="la-soffer__realprice la-home__realprice text-sm" style="color:var(--white)"> <sup>$</sup> 99 (USD)</div>
-                      @endif
+                        @if (getLocation() == 'IN')
+                          <div class="la-soffer__realprice la-home__realprice text-sm" style="color:var(--white)"> <sup>₹</sup> 5999 (INR)</div>
+                        @else
+                          <div class="la-soffer__realprice la-home__realprice text-sm" style="color:var(--white)"> <sup>$</sup> 99 (USD)</div>
+                        @endif
+                    </div>
+                  @endif
                   </div>
-                @endif
-                </div>
                 
-                <div class="la-hero__bottom-trial la-btn__plain text--green text-uppercase text--md font-weight--semibold text-spacing mt-6 la-anim__stagger-item ">@if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())  @else<a href="/learning-plans" class="btn font-weight--semibold">Start free trial</a> @endif </div>
+                  <div class="la-hero__bottom-trial mt-8 mt-md-2 ml-md-6 la-anim__stagger-item ">@if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())  @else<a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary bg-transparent text-white">Start free trial</a> @endif </div>
+                </div>
               </div>
                
               <div class="la-hero__btn--scroll-down la-anim__stagger-item">
@@ -128,8 +130,8 @@
           <!-- Column: Start-->
          {{-- <div class="col-12 col-lg-5 la-anim__item la-anim__item--left my-auto">
             <div class="la-hero pt-6 pt-lg-2 la-anim__stagger">
-              <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">COURSES & CLASSES BY</p>
-              <h1 class="la-hero__title la-anim__stagger-item">World’s best <span class="la-hero__subtitle">Creators</span></h1>
+              <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">Ace the learning curve with Courses & Classes by</p>
+              <h1 class="la-hero__title la-anim__stagger-item">World’s finest <span class="la-hero__subtitle">Tattooists</span></h1>
               <p class="la-hero__lead la-anim__stagger-item">{{$firstSection->sub_heading}}</p>
 
               <div class="d-none d-lg-block">
@@ -246,7 +248,7 @@
           <h3 class="la-home__course-mtitle text-center la-anim__stagger-item">Learn what you love!</h3>
 
           <nav class="la-courses__nav d-inline-flex justify-content-start justify-content-md-center position-relative">
-              <ul class="nav nav-pills la-courses__nav-tabs justify-content-center" id="nav-tab" role="tablist" tabindex="0">
+              <ul class="nav nav-pills la-courses__nav-tabs mb-4 justify-content-center" id="nav-tab" role="tablist" tabindex="0">
               
                 @if(!$filtres_applied)
                   {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"> <span class="position-relative">Tattoo</span></a></li>
@@ -281,7 +283,7 @@
               </ul>
           </nav> -->
 
-          <nav class="la-courses__nav">
+          <nav class="la-courses__nav la-anim__wrap">
               <x-add-to-playlist 
                    :playlists="$playlists"
               />
@@ -291,21 +293,22 @@
                     @foreach ($categories as $category)
                       <div class="position-relative tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
                         <div class="swiper-container la-home__course-container">
-                          <div class="swiper-wrapper la-home__course-wrapper">
+                          <div class="swiper-wrapper la-home__course-wrapper ">
                                                                                           
                                     @php
                                       $courses = $category->courses;
                                       if($sort_type == 'highest_rated')
                                       {
                                         $courses = $courses->sortByDesc('average_rating');
-                                      }                
+                                      }            
+                               
                                     @endphp
 
                                     @foreach($courses as $course)
                                       @if ($course->featured == 0)
                                           @continue
                                       @endif
-                                      <div class="swiper-slide col-md-6 col-lg-4 px-0 la-home__course-slide la-anim__stagger-item">
+                                      <div class="swiper-slide col-md-6 col-lg-4 px-0 py-md-10 la-home__course-slide  la-anim__stagger-item">
                                       <x-course 
                                           :id="$course->id"
                                           :img="$course->preview_image"
@@ -318,12 +321,14 @@
                                           :learnerCount="$course->learnerCount"
                                           :price="$course->price"
                                           :bought="$course->isPurchased()"
+                                          :checkWishList="$course->checkWishList"
+                                          :checkCart="$course->checkCart"
                                         />
                                         </div>
                                     @endforeach                                  
                                   
                           </div>
-                          <div class=" w-100 d-flex justify-content-between align-items-center">
+                          <div class=" w-100 d-md-flex justify-content-between align-items-center">
                             <div class="la-slider__navigations la-home__course-navigations d-flex align-items-center">
                               <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div>
                               <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
@@ -335,51 +340,27 @@
                               </div>
                             </div>
                           </div>    
-                        </div>
-              
+                        </div>              
                       </div>
                     @endforeach
+
+                    @if(count($courses) == 0)
+                    <div class="col-12 la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
+                        <div class="la-empty__inner">
+                            <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
+                        </div>
+                        <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
+                            <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
+                                Browse Courses
+                                <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
+                            </a>
+                        </div>
+                    </div>
+                  @endif
                 
                         {{-- Categories Tab : END --}}
-                      @else
-                            @php
-                            if($sort_type == 'highest_rated')
-                            {
-                              $courses = $courses->sortByDesc('average_rating');
-                            }                
-                            @endphp
-                            <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item la-anim__C">
-                              @foreach($courses as $course)
-                                <x-course 
-                                    :id="$course->id"
-                                    :img="$course->preview_image"
-                                    :course="$course->title"
-                                    :url="$course->slug"
-                                    :rating="$course->review->avg('rating')"
-                                    :creatorImg="$course->user->user_img"
-                                    :creatorName="$course->user->fname"
-                                    :creatorUrl="$course->user->id"
-                                    :learnerCount="$course->learnerCount"
-                                    :price="$course->price"
-                                    :bought="$course->isPurchased()"
-                                  />
-                              @endforeach
-                              </div>
-
-                              @if(count($courses) == 0)
-                                <div class="col-12 la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
-                                    <div class="la-empty__inner">
-                                        <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
-                                    </div>
-                                    <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
-                                        <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
-                                            Browse Courses
-                                            <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                              @endif
-                      @endif
+                
+               @endif
             </nav>
           </div>
 
@@ -397,13 +378,13 @@
         
         <div class="swiper-wrapper">
           <div class="la-artist__designation la-artist__designation--front position-absolute w-50 pt-10 my-auto d-flex align-items-center justify-content-left la-anim__fade-in-top la-anim__A">
-              <h2 class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">
-                  <span class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">Lila</span> 
+              <h2 class="la-artist__designation-title mb-0  d-flex flex-row justify-content-center align-items-center">
+                  <span>Lila</span> 
               </h2>
           </div>
 
           <div class="la-artist__designation position-absolute w-100 pt-10 my-auto d-flex align-items-center justify-content-center la-anim__fade-in-top la-anim__A">
-              <h2 class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">
+              <h2 class="la-artist__designation-title mb-0  d-flex flex-row justify-content-center align-items-center">
                   <span class="ml-6" style="color: var(--gray);"> Mentors </span>
               </h2>
           </div>
@@ -438,15 +419,17 @@
   <section class="la-section  la-section--classes  position-relative la-anim__wrap">
     <div class="la-section__inner">
       <div class="container-fluid">
-        <h2 class="text-center la-section__title la-section__title--big  position-relative la-anim__fade-in-top la-anim__A">Master <span>classes</span></h2>
+        <div class="la-anim__fade-in-top la-anim__A">
+          <h2 class="la-section--classes-title text-center la-section__title la-section__title--big  position-relative ">Master <span>classes</span></h2>
+        </div> 
+
         <div class="la-mccourses pt-20 pt-md-6">
-         
             <div class="swiper-container la-home__master-container">
               <div class="swiper-wrapper la-home__master-wrapper">
 
                 @foreach ($master_classes as $master)
                   @if($master->courses != null)
-                    <div class="swiper-slide col-12 col-md-3 px-0 la-home__master-slide">
+                    <div class="swiper-slide col-12 col-md-4 col-lg-3 px-0 la-home__master-slide">
                       <x-master-class
                         :img="$master->courses->preview_image"
                         :title="$master->courses->title"
@@ -510,7 +493,7 @@
                                 <div class="la-home__customize-info">
                                     <img src="../images/learners/home/mockup1.jpg" alt="Personalised dashboard" class="img-fluid mx-auto d-block la-home__customize-img">
                                     <div class="la-home__customize-infotitle leading-tight mt-8">Personalised dashboard for focused learning</div>
-                                    <p class="la-home__customize-infopara">Courses based on your interests, favourite creators, on one easy learning platform</p>
+                                    <p class="la-home__customize-infopara">Courses based on your interests, favourite mentors, on one easy learning platform</p>
                                 </div>
                             </div>
 
@@ -604,6 +587,12 @@
             </div>
             <div class="la-trail__right position-relative d-flex align-items-end">
               <div class="la-trail__content-wrap la-anim__stagger">
+                <div class="la-home__trail-btn la-btn__plain d-flex justify-content-start align-items-start la-anim__fade-in-left">
+                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold la-anim__fade-in-right" style="transform: translate(0px, 0px); opacity: 1;">
+                      <a href="/about">ALIENS WAY OF TEACHING <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
+                  </div>
+                </div>
+
                 <div class="la-trail__para la-anim__stagger-item la-anim__B">We strongly believe observation is integral to honing art. Learn from artists who have created their niche in the world of tattooing with consistent practice, and become the master of your niche!</div>
                 @if(Auth::check())
                   @if(Auth::user()->subscription() )
@@ -618,12 +607,11 @@
             </div>
           </div>
 
-          <div class="la-home__trail-btn la-btn__plain d-flex justify-content-center align-items-start la-anim__fade-in-left">
-            <!-- <a href="/about" class="d-none d-md-block">ALIENS WAY OF TEACHING</a> -->
+          <!--<div class="la-home__trail-btn la-btn__plain d-flex justify-content-center align-items-start la-anim__fade-in-left">
             <div class="d-none d-md-block la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold mr-5 mr-md-1 la-anim__fade-in-right" style="transform: translate(0px, 0px); opacity: 1;">
                 <a href="/about">ALIENS WAY OF TEACHING <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
             </div>
-          </div>
+          </div> -->
 
         </div>
       </div>
@@ -632,12 +620,12 @@
   <!-- Section: End-->
 
   <!-- Section: Start-->
-  <section class="la-section la-section--price la-anim__wrap la-anim__wrap-pin">
+  <section class="la-section la-section--price la-section--grey  la-anim__wrap la-anim__wrap-pin">
     <div class="la-section__inner ">
       <div class="container-fluid">
         <div class="la-price__container">
           <h2 class="la-section__title la-section__title--big leading-none la-anim__pin la-price__container-title text-left"> 
-            <span style="color: var(--gray);" class="la-anim__fade-in-top">Learn it </span><br>
+            <span style="color: var(--gray2);" class="la-anim__fade-in-top">Learn it </span><br>
             <span class="la-anim__stagger-item">like aliens</span>
           </h2>
           <div class="la-price__slider la-anim__slider">
@@ -672,7 +660,7 @@
                                 <div class="la-price__box la-anim__pin2 ">
                                   <div class="la-price__box-inner la-anim__stagger-item">
                                       <p class="la-price__box-para mb-8 la-anim__stagger-item--x">Discover our wide range of art courses curated by top artists from around the world and explore your creativity! </p>
-                                      <a href="/browse/course" class="btn btn-primary la-btn text-white w-100">Start Learning</a>                                   
+                                      <a href="/browse/course" class="btn btn-primary la-btn w-100">Start Learning</a>                                   
                                   </div>
                                 </div>
                             </div>
@@ -686,16 +674,16 @@
                           <div class="la-anim__wrap la-anim__wrap-pin2">
                               <div class="la-price__box la-anim__pin2 ">
                                 <div class="la-price__box-inner la-anim__stagger-item">
-                                    <a href="/learning-plans" class="btn btn-primary la-btn text-white w-100">SUBSCRIBE NOW</a>
+                                    <a href="/learning-plans" class="btn btn-primary la-btn w-100">SUBSCRIBE NOW</a>
                                     <p class="la-price__box-para mt-8 mb-2 la-anim__stagger-item--x">Get <span class="la-color--primary">35% savings </span>on Annual Plan</p>
                                     <div class="la-price__box-soffer la-soffer ml-0">
                                       
                                       @if (getLocation() == 'IN')
-                                        <div class="la-soffer__bestprice la-soffer__bestprice--white la-anim__stagger-item--x" style="font-weight:var(--font-bold)"> <sup><small>₹</small></sup>  2899 / Month</div>
-                                        <div class="la-soffer__realprice la-soffer__realprice--white la-anim__stagger-item--x"> <sup><small>₹</small></sup>  5999 (INR) </div>
+                                        <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x" style="font-weight:var(--font-bold)"> <sup><small>₹</small></sup>  2899 / Month</div>
+                                        <div class="la-soffer__realprice la-soffer__realprice--black la-anim__stagger-item--x"> <sup><small>₹</small></sup>  5999 (INR) </div>
                                       @else
-                                        <div class="la-soffer__bestprice la-soffer__bestprice--white la-anim__stagger-item--x" style="font-weight:var(--font-bold)"> <sup><small>$</small></sup>  39 / Month</div>
-                                        <div class="la-soffer__realprice la-soffer__realprice--white la-anim__stagger-item--x"> <sup><small>$</small></sup>  99 (USD) </div>
+                                        <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x" style="font-weight:var(--font-bold)"> <sup><small>$</small></sup>  39 / Month</div>
+                                        <div class="la-soffer__realprice la-soffer__realprice--black la-anim__stagger-item--x"> <sup><small>$</small></sup>  99 (USD) </div>
                                       @endif
                                     </div>
                                 </div>

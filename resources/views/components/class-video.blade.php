@@ -15,9 +15,9 @@
         <div class="la-vcourse__lesson-thumbnail"  @if($access == "locked") data-toggle="modal" @if(Auth::check()) data-target="#locked_subscribe"  @else data-target="#locked_login_modal"  @endif @endif>
             <img class="img-fluid" src= {{ $thumbnail ?? '' }} alt= {{ $title ?? '' }}>
         </div>
-        <!--<div class="la-vcourse__lesson-playbtn">
+        <div class="la-vcourse__lesson-playbtn">
             <span></span>
-        </div>-->
+        </div>
         <div class="la-vcourse__video-progress position-absolute w-100">
             <div class="la-vcourse__video-time text-right mr-1"> {{ $watchduration ?? '' }} </div>
             <div class="la-vcourse__video-track position-relative">

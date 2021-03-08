@@ -15,7 +15,7 @@
                                     @if(Auth::check())
                                         @if($price && $bought == null)
                                             <span class="d-inline-block la-course__addtocart" onclick="addToCart({{$id}})">
-                                                <i class="la-icon la-icon--2xl icon icon-cart"></i>
+                                                <i class="la-icon la-icon--2xl icon icon-cart @if($checkCart) text-warning @endif"></i>
                                             </span>
                                         @else
 
@@ -32,7 +32,7 @@
                                         @if($price && $bought == null)
                                             <span @if($addedToWhishList) onclick="location.href='/remove-from-wishlist/{{$id}}'" @else onclick="addToWishList({{$id}})" @endif  >
                                                 <span class="d-inline-block la-course__like">
-                                                    <i class="la-icon la-icon--2xl icon icon-wishlist @if($addedToWhishList) text-warning @endif"></i>
+                                                    <i class="la-icon la-icon--2xl icon @if($checkWishList) text-warning @endif icon-wishlist @if($addedToWhishList) text-warning @endif"></i>
                                                 </span>
                                             </span>
                                         @else
@@ -94,11 +94,21 @@
                                 </li> --}}
                             </ul>
                         </div>
+
+                        <div class="la-course__play position-relative text-center w-100 mt-auto">
+                            <a  role="button" href= "{{ '/learn/course/'.$id.'/'.$url }}" class="la-course__play-btn">
+                                <svg class="la-course__play-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"  x="0px" y="0px" viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7" xml:space="preserve">
+                                    <polygon class='la-course__play-triangle triangle' id="XMLID_18_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="73.5,62.5 148.5,105.8 73.5,149.1 "/> 
+                                    <circle class='la-course__play-circle circle' id="XMLID_17_" fill="none"  stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="106.8" cy="106.8" r="103.3"/>
+                                </svg>
+                            </a>
+                        </div>
+
                         <div class="la-course__learners"><strong>{{$learnerCount}}</strong>  Learners</div>
                     </div>
                 </a>
                 <div class="la-course__imgwrap">
-                    <img class="img-fluid" src= "{{ $img }}" alt= "{{ $course }}" />
+                    <img class="img-fluid" src= "{{ $img }}?width=560&height=460&auto_optimize=true" alt= "{{ $course }}" />
                 </div>            
         </div>
          

@@ -27,7 +27,7 @@
         </div> --}}
 
         <div class="col-2 col-lg-1">
-            <div class="la-purchaseh__item-total text-sm text-md-md">$ {{ $total }}</div>
+            <div class="la-purchaseh__item-total text-sm text-md-md"> {{ getSymbol(). $total }}</div>
         </div>
 
         <div class="col-2 col-lg-1">

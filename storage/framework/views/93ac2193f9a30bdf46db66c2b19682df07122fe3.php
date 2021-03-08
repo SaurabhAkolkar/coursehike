@@ -12,7 +12,7 @@
           <div class="row">
             <!-- Column: Start-->
             <div class="col-12 col-lg-2 mb-10 mb-md-1">
-              <div class="la-footer__brand mb-4 mb-md-8">
+              <div class="la-footer__brand mb-4 mb-md-5">
                 <a href="/"><img class="img-fluid" src="/images/learners/logo.svg" alt="Lila"></a>
               </div>
               <div class="la-footer__contact">
@@ -24,7 +24,7 @@
             <!-- Column: Start-->
             <div class="col-12 col-lg-5 offset-lg-1">
               <div class="row row-cols-2 mt-md-18">
-                <div class="col-6 mb-10 mb-md-5">
+                <div class="col-6 mb-10">
                   <div class="la-footer__title">Categories</div>
                   <ul class="la-footer__list">
                     <?php $__currentLoopData = $footer_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $fc): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -33,8 +33,8 @@
                   </ul><a class="la-footer__more" href="/browse/courses">See all</a>
                 </div>
 
-                <div class="col-6 mb-10 mb-md-5">
-                  <div class="la-footer__title">Creators</div>
+                <div class="col-6 mb-10">
+                  <div class="la-footer__title">Mentors</div>
                   <ul class="la-footer__list">
                     <?php $__currentLoopData = $creators; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $c): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       <li class="la-footer__list-item"><a class="la-footer__list-link" href="/creator/<?php echo e($c->id); ?>"><?php echo e($c->fullName); ?></a></li>
@@ -42,7 +42,7 @@
                   </ul><a class="la-footer__more" href="/mentors">See all</a>
                 </div>
 
-                <div class="col-6 mb-10 mb-md-5">
+                <div class="col-6 mb-10">
                   <div class="la-footer__title">Courses</div>
                   <ul class="la-footer__list">
                     <?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $c): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -51,7 +51,7 @@
                   </ul><a class="la-footer__more" href="/browse/courses">See all</a>
                 </div>
 
-                <div class="col-6 mb-10 mb-md-5">
+                <div class="col-6 mb-10">
                   <div class="la-footer__title">Master Classes</div>
                   <ul class="la-footer__list">
                     <?php $__currentLoopData = $master_classes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $mc): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
