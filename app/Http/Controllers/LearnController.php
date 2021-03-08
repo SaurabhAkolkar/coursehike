@@ -88,12 +88,9 @@ class LearnController extends Controller
         if(Auth::check()){
 			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
 		}
-        $average_rating = $course->review->average('rating');
+        // $average_rating = $course->review->average('rating');
+        $average_rating = $course->average_rating;
         $total_rating = $course->review->count() > 0 ? $course->review->count() : 1 ;
-        // dd($total_rating);
-        // if(count($reviews)==0){
-        //     $reviews = 1;
-        // }
 
         $five_rating_percentage= round(100*$course->review->where('rating',5)->count()/$total_rating);
         $four_rating_percentage =  round(100*$course->review->where('rating',4)->count()/$total_rating);
@@ -102,11 +99,8 @@ class LearnController extends Controller
         $one_rating_percentage = round(100*$course->review->where('rating',1)->count()/$total_rating);
 
         $subscription_rate = '$39';
-        if ($position = Location::get()) {
-            $country = $position->countryCode;
-            if($country == 'IN')
-                $subscription_rate = '₹2899';
-        }
+        if (getLocation() == 'IN')
+            $subscription_rate = '₹2899';
         
         $data = array(
             'video_access'=> $video_access,

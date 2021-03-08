@@ -213,8 +213,11 @@ class Course extends Model
 
     public function getAverageRatingAttribute()
     {
-        $rating = 0;
         $avgRating = ReviewRating::where(['course_id' => $this->id])->avg('rating');
+        
+        if($avgRating == 0 || empty($avgRating))
+            $avgRating = $this->masterclass ? 5 : 4;
+
         return $avgRating;
     }
 

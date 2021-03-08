@@ -113,7 +113,7 @@ class InvoicePaymentSucceededJob implements ShouldQueue
                 ];
                 
                 try{    
-                    Mail::to($user->email)->later(now()->addMinutes(1), new UserSubscribed($email_data));                    
+                    Mail::to($user->email)->later(now()->addSeconds(5), new UserSubscribed($email_data));                    
                 }catch(\Swift_TransportException $e){
                     
                 }
