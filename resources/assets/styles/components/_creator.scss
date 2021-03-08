@@ -26,6 +26,7 @@
                     border-radius:100%;
                     background-color:#FFC516;
                     object-fit: cover;
+                    object-position: top;
 
                     @include respond-below(md){
                         width:230px;

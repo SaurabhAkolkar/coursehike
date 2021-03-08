@@ -19049,6 +19049,8 @@ input:-webkit-autofill:active {
   background-color: #FFC516;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
 }
 @media (max-width: 991px) {
   .la-creator__img img {
