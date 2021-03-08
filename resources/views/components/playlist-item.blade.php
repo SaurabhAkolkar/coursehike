@@ -45,8 +45,8 @@
                 </div>
             @endif
         </div>
-        
     </div>
+
     <div class="la-playlist__item-bottom d-flex justify-content-between">
         <div class="la-playlist__category">
             <div class="la-playlist__course-name">{{ $courseName }}</div>

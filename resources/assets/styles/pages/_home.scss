@@ -22,10 +22,12 @@
             font-size:var(--text-xl);
             line-height: calc(var(--text-xl) + 6px);
             color:var(--white);
+            padding-right:var(--size-10); 
 
-            @include respond-above(lg) {
-                width: 70%;
+            @include respond-below(sm) {
+                width: 90%;
                 margin: 0 auto;
+                padding-right:0;
             }
         }
         .la-hero__cta{
@@ -89,6 +91,18 @@
     height:100%;
     margin:0 auto;
     padding:0 var(--size-6);
+}
+.la-hero__video-info{
+    position:absolute;
+    left:0;
+
+    @include respond-above(sm){
+        left:100px;
+    }
+    @include respond-above(lg){
+        margin-left:var(--size-8);
+        left:85px;
+    }
 }
 .la-home__bestprice{
     font-size:var(--text-md);
@@ -207,7 +221,7 @@
     &-- {
         &purble {
             & .swiper-pagination-bullet-active {
-                background: var(--app-indigo-1) !important;
+                background: var(--app-indigo-1);
             }
         }
     }
@@ -232,7 +246,7 @@
 		margin-right:var(--size-base);
 	}
 	.swiper-pagination-bullet-active{
-		background-color:#fff;
+		background-color:var(--yellow);
         opacity: 1 !important;
 	}
 
@@ -305,7 +319,7 @@
 .la-home__customize-title{
     font-size: 3.4vh;
     line-height: 4vh;
-    color:var(--white);
+    color:var(--app-indigo-1);
 }
 .la-home__customize-para{
     color:var(--gray2);
@@ -407,13 +421,13 @@
 
 .la-home__trail-btn {
     letter-spacing: 3.2px;
-    padding-left: 110px;
-    color: #FFC516;
+    //padding-left: 110px;
+    //color: #FFC516;
     font-weight: var(--font-normal);
-    top: auto;
-    right: 120px;
-    position: absolute;
-    z-index: 40;
+    //top: auto;
+    //right: 120px;
+    //position: absolute;
+    //z-index: 40;
 }
 
 .la-hero__btn--scroll-down {

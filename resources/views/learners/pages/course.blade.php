@@ -407,7 +407,7 @@ $course_id = $course->id;
                     <div class="col-md-6 col-lg-4 la-cbenefits__item-col la-anim__stagger-item--x">
                       <div class="la-cbenefits__item d-flex flex-column align-items-center">
                         <div class="mb-7">
-                          <img class="img-fluid d-block" src="/images/learners/course-benefits/video.svg" />
+                          <img class="img-fluid d-block" src="/images/learners/course-benefits/video.svg" alt="Unlimited Learning"/>
                         </div>
                         <h4 class="la-cbenefits__item-title mb-3">Unlimited Learning</h4>
                         <p class="la-cbenefits__item-desc m-0 text-center">Access to numerous courses of varied art skills</p>
@@ -416,7 +416,7 @@ $course_id = $course->id;
 
                     <div class="col-md-6 col-lg-4 la-cbenefits__item-col la-anim__stagger-item--x">
                       <div class="la-cbenefits__item d-flex flex-column align-items-center">
-                        <div class="la-cbenefits__item-icon"><span class="la-icon icon-trial"></span></div>
+                        <div class="mb-3"><img class="img-fluid d-block w-100" src="/images/learners/course-benefits/trial.svg" alt="Free Trials" /></div>
                         <h4 class="la-cbenefits__item-title mb-3">Free Trials</h4>
                         <p class="la-cbenefits__item-desc m-0 text-center">A 7 day free trial to help choose the right course</p>
                       </div>
@@ -424,7 +424,7 @@ $course_id = $course->id;
 
                     <div class="col-md-12 col-lg-4 la-cbenefits__item-col la-anim__stagger-item--x">
                       <div class="la-cbenefits__item d-flex flex-column align-items-center">
-                        <div class="mb-7"><img class="img-fluid d-block" src="/images/learners/course-benefits/online-course.svg"></div>
+                        <div class="mb-7"><img class="img-fluid d-block" src="/images/learners/course-benefits/online-course.svg" alt="Resources"></div>
                         <h4 class="la-cbenefits__item-title mb-3">Resources</h4>
                         <p class="la-cbenefits__item-desc m-0 text-center">Extra resources to practice and hone your skills</p>
                       </div>

@@ -61,10 +61,17 @@
                 }
             }
             &classes{
-                background-color:rgba(115, 34, 183, 0.75);
+                background-color:rgba(115, 34, 183, 1);
 
                 @include respond-below(sm){
                     padding:var(--size-14) 0 !important;
+                }
+
+                &-{
+                    &title{
+                        color:var(--white);
+                        opacity: 0.25;
+                    }
                 }
             }
         }
@@ -267,9 +274,11 @@
                 &-- {
                     &black {
                         color: #262626;
+                        font-size: var(--text-4xl);
                     }
                     &white{
                         color:var(--white);
+                        font-size: var(--text-4xl);
                     }
                 }
             }

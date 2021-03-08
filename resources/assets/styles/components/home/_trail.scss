@@ -15,7 +15,7 @@
                 z-index:var(--z-20);
 
                 @include respond-below(sm){
-                    padding-top: var(--size-6);
+                    padding-top: var(--size-10);
                 }
             }
             &content{
@@ -29,6 +29,7 @@
             }
             
             &para{
+                padding-top:var(--size-6);
                 @include respond-above(lg){
                     padding-bottom:var(--size-10);
                     padding-right:var(--size-20);
@@ -70,10 +71,11 @@
                         // top: 25%;
                         position: relative;
                         left: -10vh;
-                        padding-bottom: var(--size-10);
+                        
                         z-index:10;
 
                         @include respond-above(lg){
+                            padding-bottom: var(--size-10);
                             left: -30vh;
                         }
                         @include respond-below(sm){
