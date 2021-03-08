@@ -104,6 +104,7 @@ class CheckoutChargeSucceededJob implements ShouldQueue
             ];
 
             $invoice_details = InvoiceDetail::having('invoice_id', '=', $client_reference_id)->get()->groupBy('course_id');
+            $user = $user_invoice->user;
             
                 foreach($invoice_details as $course_id => $invoice_items){
 
@@ -127,20 +128,18 @@ class CheckoutChargeSucceededJob implements ShouldQueue
                         'image' => $course->preview_image,
                         'data' => 'You bought this course',
                     ];
-                    $user = User::findOrFail($user_invoice->user_id);
 
                     Notification::send( $user, new CourseNotification($data));
                 }
 
                 try{
-                    Mail::to($user_invoice->email)->later(now()->addSeconds(5), new CoursePurchased($email_data));
-                    //Mail::to($user_invoice->email)->send(new CoursePurchased($email_data));                       
+                    Mail::to($user->email)->later(now()->addSeconds(5), new CoursePurchased($email_data));                    
                 }catch(\Swift_TransportException $e){  
                     header( "refresh:5;url=./" );
                 }
 
                 // Clear Cart
-                Cart::where('user_id', $user_invoice->user->id)->get()->each(function($cart) {
+                Cart::where('user_id', $user_invoice->user_id)->get()->each(function($cart) {
                     $cart->delete();
                 });
         }
