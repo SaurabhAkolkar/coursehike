@@ -75,6 +75,15 @@
                     </a>
                 </div>
 
+                <div class="la-header__nav-item">
+                    <a class="la-header__nav-link <?php if(Request::segment(1) == 'releases'): ?> active <?php endif; ?>" href="/releases">
+                        <div class="la-header__nav-icon">
+                            <span class="la-icon la-icon--md icon-interests"></span>
+                        </div>
+                        <span class="la-header__nav-name">New Releases</span>
+                    </a>
+                </div>
+
             </div>
 
             <div class="la-header__nav-item ">
@@ -196,7 +205,7 @@
     <?php else: ?> 
         <div class="la-header__nav-top d-md-inline-flex  align-items-center">
             <div class="la-header__nav-item d-lg-none ">
-                <a class="la-header__nav-link <?php if(Request::segment(1) == 'login'): ?> active <?php endif; ?>" href="/login">
+                <a class="la-header__nav-link  <?php if(Request::segment(1) == 'login'): ?> active <?php endif; ?>" href="/login">
                     <div class="la-header__nav-icon">
                         <span class="la-icon--lg icon-profile"></span>
                     </div>

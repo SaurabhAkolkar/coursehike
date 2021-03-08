@@ -217,6 +217,8 @@
                           :creatorUrl="$sc->user->id"
                           :learnerCount="$sc->learnerCount"
                           :price="$sc->price"
+                          :checkWishList="$sc->checkWishList"
+                          :checkCart="$sc->checkCart"
                           :bought="$sc->isPurchased()"
                         />
                   @endforeach       

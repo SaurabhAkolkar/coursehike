@@ -15,7 +15,7 @@
                                     @if(Auth::check())
                                         @if($price && $bought == null)
                                             <span class="d-inline-block la-course__addtocart" onclick="addToCart({{$id}})">
-                                                <i class="la-icon la-icon--2xl icon icon-cart"></i>
+                                                <i class="la-icon la-icon--2xl icon icon-cart @if($checkCart) text-warning @endif"></i>
                                             </span>
                                         @else
 
@@ -32,7 +32,7 @@
                                         @if($price && $bought == null)
                                             <span @if($addedToWhishList) onclick="location.href='/remove-from-wishlist/{{$id}}'" @else onclick="addToWishList({{$id}})" @endif  >
                                                 <span class="d-inline-block la-course__like">
-                                                    <i class="la-icon la-icon--2xl icon icon-wishlist @if($addedToWhishList) text-warning @endif"></i>
+                                                    <i class="la-icon la-icon--2xl icon @if($checkWishList) text-warning @endif icon-wishlist @if($addedToWhishList) text-warning @endif"></i>
                                                 </span>
                                             </span>
                                         @else

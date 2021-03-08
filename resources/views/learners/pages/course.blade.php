@@ -859,6 +859,8 @@ $course_id = $course->id;
                     :learnerCount="$mentor_other_course->learnerCount"
                     :price="$mentor_other_course->price"
                     :bought="$mentor_other_course->isPurchased()"
+                    :checkWishList="$course->checkWishList"
+                    :checkCart="$course->checkCart"
 
                   />
               @endforeach
@@ -900,6 +902,8 @@ $course_id = $course->id;
                       :learnerCount="$related_course->learnerCount"
                       :price="$related_course->price"
                       :bought="$related_course->isPurchased()"
+                      :checkWishList="$course->checkWishList"
+                      :checkCart="$course->checkCart"
                   />
               @endforeach
             </div>
