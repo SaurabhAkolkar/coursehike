@@ -114,7 +114,7 @@
             </div>
 
             <div class="la-header__nav-item">   
-                <a class="la-header__nav-link <?php if(Request::segment(1) == 'mentors'): ?> active <?php endif; ?>" href="/creators">
+                <a class="la-header__nav-link <?php if(Request::segment(1) == 'mentors'): ?> active <?php endif; ?>" href="/mentors">
                     <div class="la-header__nav-icon">
                         <span class="la-icon--xl icon-all-mentors"></span>
                     </div>
@@ -223,7 +223,7 @@
             </div>
 
             <div class="la-header__nav-item"> 
-                <a class="la-header__nav-link <?php if(Request::segment(1) == 'mentors'): ?> active <?php endif; ?> "  href="/creators">
+                <a class="la-header__nav-link <?php if(Request::segment(1) == 'mentors'): ?> active <?php endif; ?> "  href="/mentors">
                     <div class="la-header__nav-icon">
                     <span class="la-icon--lg icon-all-mentors"></span>
                     </div> 
