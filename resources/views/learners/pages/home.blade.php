@@ -102,9 +102,9 @@
                         </div> --}}
 
                         @if (getLocation() == 'IN')
-                          <div class="la-soffer__realprice la-home__realprice text-sm" style="color:var(--white)"> <sup>₹</sup> 5999 (INR)</div>
+                          <div class="la-soffer__realprice la-home__realprice" style="color:var(--white)"> <sup>₹</sup> 5999 (INR)</div>
                         @else
-                          <div class="la-soffer__realprice la-home__realprice text-sm" style="color:var(--white)"> <sup>$</sup> 99 (USD)</div>
+                          <div class="la-soffer__realprice la-home__realprice" style="color:var(--white)"> <sup>$</sup> 99 (USD)</div>
                         @endif
                     </div>
                   @endif
@@ -328,7 +328,7 @@
                                     @endforeach                                  
                                   
                           </div>
-                          <div class=" w-100 d-md-flex justify-content-between align-items-center">
+                          <div class=" w-100 d-md-flex justify-content-between align-items-start">
                             <div class="la-slider__navigations la-home__course-navigations d-flex align-items-center">
                               <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div>
                               <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
@@ -429,7 +429,7 @@
 
                 @foreach ($master_classes as $master)
                   @if($master->courses != null)
-                    <div class="swiper-slide col-12 col-md-4 col-lg-3 px-0 la-home__master-slide">
+                    <div class="swiper-slide col-12 col-md-4 col-lg-3 px-0  la-home__master-slide">
                       <x-master-class
                         :img="$master->courses->preview_image"
                         :title="$master->courses->title"
@@ -445,7 +445,7 @@
                 @endforeach
               </div>
             </div>
-            <div class=" w-100 d-flex justify-content-between align-items-center mt-6 mt-md-12">
+            <div class=" w-100 d-flex justify-content-between align-items-end mt-6 mt-md-16">
               <div class="la-slider__navigations la-home__course-navigations d-flex align-items-center">
                 <div class="swiper-button-prev la-slider__navigations-arrow la-home__master-prev"></div>
                 <div class="swiper-pagination la-slider__navigations-dots la-home__master-pagination la-slider__paginations la-slider__paginations--purble la-right"></div>
@@ -458,9 +458,6 @@
               </div>
             </div>
 
-            <!-- <div class="swiper-pagination la-home__master-pagination"></div>
-            <div class="swiper-button-next la-home__master-next"></div>
-            <div class="swiper-button-prev la-home__master-prev"></div> -->
         </div>
 
       </div>
@@ -474,48 +471,54 @@
       <span class="la-section__circle la-section__circle--right la-section__circle-learn d-none d-md-block"></span>
         <div class="container-fluid la-home__customize-fluid">
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="la-home__customize">
-                        <h3 class="la-home__customize-title leading-none mb-4 la-anim__stagger-item">Customized Learning with you in mind!</h3>
-                        <p class="la-home__customize-para la-anim__stagger-item">A learning platform just for you. An approach that aims to customize learning for each student's strengths, needs, skills, and interests.</p>
+                <div class="col-lg-4 my-auto h-100">
+                    <div class="la-home__customize position-relative">
+                        <h3 class="la-home__customize-title leading-none position-relative la-anim__stagger-item">Customized Learning with you in mind!</h3>
+                        <p class="la-home__customize-para mb-0 la-anim__stagger-item">A learning platform just for you. An approach that aims to customize learning for each student's strengths, needs, skills, and interests.</p>
                         
-                        <div class=" la-btn__arrow text-white text-uppercase text-spacing font-weight--bold pt-md-8 mr-5 mr-md-1 la-anim__stagger-item--x">
+                        <div class="la-btn__arrow la-btn__text--yellow text-uppercase text-spacing font-weight--bold mr-5 mr-md-1 la-anim__stagger-item--x">
                           <a href="" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-9">
-                  <div class="la-home__customize-right">
-                    <div class="swiper-container la-home__customize-container">
-                        <div class="swiper-wrapper la-home__customize-wrapper">
-                            <div class="swiper-slide la-home__customize-slide col-md-7 px-0 la-anim__stagger-item">
-                                <div class="la-home__customize-info">
-                                    <img src="../images/learners/home/mockup1.jpg" alt="Personalised dashboard" class="img-fluid mx-auto d-block la-home__customize-img">
-                                    <div class="la-home__customize-infotitle leading-tight mt-8">Personalised dashboard for focused learning</div>
-                                    <p class="la-home__customize-infopara">Courses based on your interests, favourite mentors, on one easy learning platform</p>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide la-home__customize-slide col-md-7 px-0 la-anim__stagger-item">
-                                <div class="la-home__customize-info">
-                                    <img src="../images/learners/home/mockup2.jpg" alt="Unique tattoo styles" class="img-fluid mx-auto d-block la-home__customize-img">
-                                    <div class="la-home__customize-infotitle leading-tight mt-8">Unique tattoo styles from around of the world</div>
-                                    <p class="la-home__customize-infopara">Learn unique styles created by incredible artists from across the world</p>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide la-home__customize-slide col-md-7 px-0 la-anim__stagger-item">
-                                <div class="la-home__customize-info">
-                                    <img src="../images/learners/home/mockup3.jpg" alt="Personal Playlist" class="img-fluid mx-auto d-block la-home__customize-img">
-                                    <div class="la-home__customize-infotitle leading-tight mt-8">Personal Playlist to help you organise</div>
-                                    <p class="la-home__customize-infopara">Create playlist to save all the courses you want to learn in a personal space and learn whenever, wherever yo want!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-pagination la-home__customize-pagination"></div>
+                <div class="col-lg-7 offset-lg-1 pr-md-6">
+                  <div class="la-home__customize-right position-relative">
+                      <div class="la-home__customize-img la-anim__stagger-item--x">
+                          <img src="../images/learners/home/customize.png" alt="Customize" class="img-fluid d-block">
+                      </div>
                   </div>
+                </div>
+
+                <div class="col-lg-7 offset-lg-5">
+                      <div class="swiper-container la-home__customize-container pl-md-3">
+                          <div class="swiper-wrapper la-home__customize-wrapper">
+                              <div class="swiper-slide la-home__customize-slide col-md-8 px-0 la-anim__stagger-item">
+                                  <div class="la-home__customize-info">
+                                      <!-- <img src="../images/learners/home/mockup1.jpg" alt="Personalised dashboard" class="img-fluid mx-auto d-block la-home__customize-img"> -->
+                                      <div class="la-home__customize-infotitle leading-tight mt-8">Personalised dashboard for focused learning</div>
+                                      <p class="la-home__customize-infopara">Courses based on your interests, favourite mentors, on one easy learning platform</p>
+                                  </div>
+                              </div>
+
+                              <div class="swiper-slide la-home__customize-slide col-md-8 px-0 la-anim__stagger-item">
+                                  <div class="la-home__customize-info">
+                                      <!-- <img src="../images/learners/home/mockup2.jpg" alt="Unique tattoo styles" class="img-fluid mx-auto d-block la-home__customize-img"> -->
+                                      <div class="la-home__customize-infotitle leading-tight mt-8">Unique tattoo styles from around of the world</div>
+                                      <p class="la-home__customize-infopara">Learn unique styles created by incredible artists from across the world</p>
+                                  </div>
+                              </div>
+
+                              <div class="swiper-slide la-home__customize-slide col-md-8 px-0 la-anim__stagger-item">
+                                  <div class="la-home__customize-info">
+                                      <!-- <img src="../images/learners/home/mockup3.jpg" alt="Personal Playlist" class="img-fluid mx-auto d-block la-home__customize-img"> -->
+                                      <div class="la-home__customize-infotitle leading-tight mt-8">Personal Playlist to help you organise</div>
+                                      <p class="la-home__customize-infopara">Create playlist to save all the courses you want to learn in a personal space and learn whenever, wherever yo want!</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="swiper-pagination la-home__customize-pagination"></div>
                 </div>
             </div>
         </div>
@@ -524,7 +527,7 @@
   <!-- Section: End -->
 
   <!-- Section: Start -->
-  <div class="la-section  la-home__section-learn position-relative la-anim__wrap">
+  <!-- <div class="la-section  la-home__section-learn position-relative la-anim__wrap">
       <div class="la-section__inner position-relative">
         <span class="la-section__circle la-section__circle-learn d-none d-md-block"></span>
           <div class="container-fluid">
@@ -547,11 +550,11 @@
               </div>
           </div>
       </div>
-  </div>
+  </div> -->
   <!-- Section: End -->
   
   <!-- Section: Start-->
-  <section class="la-section la-section--trail position-relative la-section--grey  la-anim__wrap">
+  <!-- <section class="la-section la-section--trail position-relative la-section--grey  la-anim__wrap">
     <div class="la-section__inner">
       <span class="la-section__circle la-section__circle--right"></span>
       <div class="container-fluid">
@@ -562,7 +565,6 @@
               <div class="la-trail__img position-relative">
                 <img class="w-100" src="./images/learners/home/observe.png" alt="observe">
               </div>
-              <!-- <div class="la-trail__title la-trail__title-in la-trail__title--purple la-section__title la-section__title--big position-absolute la-anim__text-move la-anim__text-move--z1">Observe.</div>-->
             </div>
           </div>
 
@@ -585,6 +587,7 @@
                 </div>
               </div>
             </div>
+
             <div class="la-trail__right position-relative d-flex align-items-end">
               <div class="la-trail__content-wrap la-anim__stagger">
                 <div class="la-home__trail-btn la-btn__plain d-flex justify-content-start align-items-start la-anim__fade-in-left">
@@ -606,55 +609,82 @@
               </div>
             </div>
           </div>
-
-          <!--<div class="la-home__trail-btn la-btn__plain d-flex justify-content-center align-items-start la-anim__fade-in-left">
-            <div class="d-none d-md-block la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold mr-5 mr-md-1 la-anim__fade-in-right" style="transform: translate(0px, 0px); opacity: 1;">
-                <a href="/about">ALIENS WAY OF TEACHING <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
-            </div>
-          </div> -->
-
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- Section: End-->
 
   <!-- Section: Start-->
-  <section class="la-section la-section--price la-section--grey  la-anim__wrap la-anim__wrap-pin">
+  <section class="la-section__small la-section--price la-section--grey  la-anim__wrap la-anim__wrap-pin">
     <div class="la-section__inner ">
       <div class="container-fluid">
         <div class="la-price__container">
-          <h2 class="la-section__title la-section__title--big leading-none la-anim__pin la-price__container-title text-left"> 
-            <span style="color: var(--gray2);" class="la-anim__fade-in-top">Learn it </span><br>
-            <span class="la-anim__stagger-item">like aliens</span>
-          </h2>
+
+          <div class="col-12 px-0 mt-auto position-relative la-anim__wrap-pin">
+            <div class="la-trail__title-main la-anim__pin">
+              <div class="swiper-container la-trail__title-container ">
+                <div class="swiper-wrapper la-trail__title-wrapper">
+                  <div class="swiper-slide la-trail__title-slide">
+                      <div class="la-trail__title text-left la-trail__title--purple la-section__title la-section__title--big">Observe</div>
+                  </div>
+                  <div class="swiper-slide la-trail__title-slide">
+                      <div class="la-trail__title text-left la-trail__title--purple la-section__title la-section__title--big">Learn</div>
+                  </div>
+                  <div class="swiper-slide la-trail__title-slide">
+                      <div class="la-trail__title text-left la-trail__title--purple la-section__title la-section__title--big">Practice</div>
+                  </div>
+                  <div class="swiper-slide la-trail__title-slide">
+                      <div class="la-trail__title text-left la-trail__title--purple la-section__title la-section__title--big">Repeat</div>
+                  </div>
+                </div>
+              </div>
+
+              <h2 class="la-section__title la-section__title--big leading-none la-price__container-title text-left"> 
+                  <!-- <span style="color: var(--gray2);" class="la-anim__fade-in-top">Learn it</span><br> -->
+                  <span style="font-weight:var(--font-extrabold)">it like aliens</span>
+              </h2>
+            </div>
+          </div>
+
+         
           <div class="la-price__slider la-anim__slider">
-              <div class="la-price__slide la-anim__slide mb-6 mb-lg-16">
+              <div class="la-price__slide la-anim__slide mt-16 mb-6 mb-md-16">
                 <div class="la-price__row row ">
                 
-                  <div class="col-lg-5 la-anim__wrap order-2 order-lg-1">
-                    <div class="la-home__subscription__ques--first">
-                      <h3 class="la-section__subtitle la-anim__stagger-item">How does subscription works?</h3>
-                      <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x ">Learning need not be expensive. At LILA, our subscription model gives you the benefit to choose from any number of courses or individual classes, as you please.</p>
-                      <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x ">  All at nominal fees! So, learn away! </p>
-                      <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-4 pt-md-8 la-anim__stagger-item--x">
-                        <a href="/learning-plans">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
+                  <div class="col-lg-5 la-anim__wrap">
+                    <div class="la-home__subscription-main ">
+                      <div class="la-home__subscription-ques la-home__subscription__ques--first">
+                        <h3 class="la-section__subtitle la-home__subscription-title la-anim__stagger-item">LILA's way of teaching</h3>
+                        <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x ">We strongly believe observation is integral to honing art. Learn from artists who have created their niche in the world of tattooing with consistent practice, and become the master of your niche!</p>
+                        <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-4 pt-md-8 la-anim__stagger-item--x">
+                          <a href="/about">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
+                        </div>
                       </div>
-                    </div>
 
-                    <div class="la-home__subscription__ques--second la-anim__wrap">
-                      <h3 class="la-section__subtitle la-anim__stagger-item">What’s LILA for you ?</h3>
-                      <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x">Our mission is to Encourage, Empower and Embrace self-learning among all curious individuals who wish to learn, expand their potential and make a mark in the world.</p>
-                      <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x">   Through our Radical team, we strive every day to make knowledge Affordable, Accessible for everyone regardless of who or where they are</p>
-                      <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold  pt-4 pt-md-8  la-anim__stagger-item--x">
-                        <a href="/about">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
+                      <div class="la-home__subscription-ques la-home__subscription__ques--second">
+                        <h3 class="la-section__subtitle--medium la-anim__stagger-item">How does subscription works?</h3>
+                        <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x ">Learning need not be expensive. At LILA, our subscription model gives you the benefit to choose from any number of courses or individual classes, as you please.</p>
+                        <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x ">  All at nominal fees! So, learn away! </p>
+                        <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-4 pt-md-8 la-anim__stagger-item--x">
+                          <a href="/learning-plans">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
+                        </div>
+                      </div>
+
+                      <div class="la-home__subscription-ques la-home__subscription__ques--third la-anim__wrap">
+                        <h3 class="la-section__subtitle--medium la-anim__stagger-item">What’s LILA for you ?</h3>
+                        <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x">Our mission is to Encourage, Empower and Embrace self-learning among all curious individuals who wish to learn, expand their potential and make a mark in the world.</p>
+                        <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x">   Through our Radical team, we strive every day to make knowledge Affordable, Accessible for everyone regardless of who or where they are</p>
+                        <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold  pt-4 pt-md-8  la-anim__stagger-item--x">
+                          <a href="/about">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
+                        </div>
                       </div>
                     </div>
                   </div>
         
                   @if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())
                   
-                        <div class="col-md-7 col-lg-5 offset-lg-1  order-1 order-lg-2">
+                        <div class="col-md-10 offset-md-1 col-lg-5 offset-lg-1">
                           <div class="la-price__box-wrap la-anim__wrap-pin2 ">
                             <div class="la-anim__wrap ">
                                 <div class="la-price__box la-anim__pin2 ">
@@ -669,7 +699,7 @@
 
                   @else
 
-                      <div class="col-md-7 col-lg-5 offset-lg-1 order-1 order-lg-2">
+                      <div class="col-md-10 offset-md-1 col-lg-5 offset-lg-1">
                         <div class="la-price__box-wrap">
                           <div class="la-anim__wrap la-anim__wrap-pin2">
                               <div class="la-price__box la-anim__pin2 ">

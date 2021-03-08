@@ -230,7 +230,7 @@
             bottom: 0px;
             right: 0 !important;
             left: unset !important;
-            text-align: right;
+            text-align: left;
         }
     }
 }
@@ -317,18 +317,44 @@
     }
 }
 .la-home__customize-title{
-    font-size: 3.4vh;
-    line-height: 4vh;
-    color:var(--app-indigo-1);
+    font-size: var(--text-5xl);
+    font-weight: var(--font-black);
+    color:var(--white);
+    z-index:1;
+    
+    &:before{
+        content:"";
+        position:absolute;
+        left:-19px;
+        top:-12px;
+        width:var(--size-8);
+        height:var(--size-8);
+        border:2px solid var(--yellow);
+        border-radius: var(--rounded-full);
+        z-index:-1;
+
+        @include respond-below(md){
+            width:var(--size-6);
+            height:var(--size-6);
+            left:-10px;
+        }
+    }
 }
 .la-home__customize-para{
     color:var(--gray2);
-    font-size:var(--text-sm);
+    font-size:var(--text-md);
+    padding:var(--size-8) 0;
+}
+.la-home__customize-right{
+    z-index:2;
 }
 .la-home__customize-container{
     width:100%;
     height:100%;
-    margin-bottom:var(--size-10);
+    
+    @include respond-above(sm){
+        margin-bottom:var(--size-10);
+    }
 }
 .la-home__customize-slide{
     width:100%;
@@ -397,7 +423,13 @@
 
 
 //- Subscription Box
-.la-home__subscription__ques--first{
+.la-home__subscription-ques{
+    padding:var(--size-10) 0;
+}
+.la-home__subscription-title{
+    color:var(--app-indigo-1);
+}
+/*.la-home__subscription__ques--first{
     padding:var(--size-10) 0;
 
     @include respond-above(lg){
@@ -405,14 +437,14 @@
     }
 }
 .la-home__subscription__ques--second {
-    padding-top: 20px;
+    //padding-top: 20px;
 }
 @include respond-above(lg){
     .la-home__subscription__ques--second {
-        padding-top: 150px;
-        padding-bottom: 50px;
+       // padding-top: 150px;
+       // padding-bottom: 50px;
     }
-}
+}*/
 
 
 .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {

@@ -61,7 +61,6 @@
                 }
             }
             &title {
-
                 @include respond-below(sm){
                     font-size:var(--text-8xl) !important;
                 }
@@ -70,18 +69,25 @@
                     &main{
                         // top: 25%;
                         position: relative;
-                        left: -10vh;
-                        
+                        //left: -10vh;  
                         z-index:10;
+                        background-color: var(--gray);
 
                         @include respond-above(lg){
-                            padding-bottom: var(--size-10);
-                            left: -30vh;
+                            //padding-bottom: var(--size-10);
+                            //left: -30vh;
                         }
                         @include respond-below(sm){
-                            top: -80px;
-                            left: 10%;
-                            position: absolute;
+                            //top: -80px;
+                            //left: 10%;
+                            //position: absolute;
+                        }
+                        @include respond-below(md){
+                            transform:none !important;
+                            position:  relative !important;
+                            left:0 !important;
+                            top:0 !important;
+                            background-color:transparent;
                         }
                     }
 
@@ -106,7 +112,6 @@
                 &-- {
                     &purple {
                         color: var(--app-indigo-1) !important;
-                        opacity: 0.7 !important;
                     }
                     &black {
                         color: var(--gray5) !important;

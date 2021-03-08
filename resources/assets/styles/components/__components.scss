@@ -143,6 +143,13 @@
                 @include respond-below(sm){
                     font-size: var(--text-3xl);
                 }
+                
+                &--{
+                    &medium{
+                        font-size:var(--text-3xl);
+                        margin-bottom: var(--size-5);
+                    }
+                }
             }
 
             &text {

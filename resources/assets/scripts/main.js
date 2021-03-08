@@ -124,8 +124,8 @@ $(function(){
           slidersPerView: 3,
         }, 
       }, 
-      observer: true,
-			observeParents: true,
+      //observer: true,
+			//observeParents: true,
     });
 
     var course_slider_pagination_first = course_swiper[0].pagination.el;
@@ -199,6 +199,7 @@ $(function(){
     var swiper = new Swiper('.la-home__customize-container', {
       slidesPerView: 'auto',
       spaceBetween: 30,
+      loop:true,
       autoplay: {
         delay: 2500,
         disableOnInteraction: false,
@@ -431,9 +432,9 @@ $(function(){
       scrub: true,
       pin: true,
       pinSpacing: false,
-      start: "top 15%",
-      end: "+=1000px",
-    }, opacity: 0.2
+      start: "top 0%",
+      end: "+=600px",
+    }, opacity: 1
   });
 
   //- Subscription Card on Homepage
@@ -443,8 +444,8 @@ $(function(){
       scrub: true,
       pin: true,
       pinSpacing: false,
-      start: "top 20%",
-      end: "+=500",
+      start: "top 45%",
+      end: "+=600",
     }, opacity: 1
   });
   
