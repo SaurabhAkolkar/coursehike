@@ -63,45 +63,47 @@
             <?php endif; ?>
 
             <!-- Video Content Section: Start -->
-            <div class="la-hero la-hero__video-content d-flex justify-content-center flex-column align-items-center">
-              <div class="la-hero__video-info text-center">
+            <div class="container-fluid la-hero la-hero__video-content d-flex justify-content-center flex-column align-items-center">
+              <div class="la-hero__video-info text-center text-md-left">
                 <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">COURSES & CLASSES BY</p>
                 <h1 class="la-hero__title la-anim__stagger-item mb-5">World’s finest <span class="la-hero__subtitle">Creators</span></h1>
                 <p class="la-hero__lead la-anim__stagger-item"><?php echo e($firstSection->sub_heading); ?></p>
               
-                <div class="la-hero__actions la-anim__stagger-item mt-md-10">
-                  <?php if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active()): ?>
-                  <div class="">
-                    <a href="/browse/courses" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white">Start Learning</a>
-                  </div>
+                <div class="d-md-flex align-items-center">
+                  <div class="la-hero__actions la-anim__stagger-item mt-10">
+                    <?php if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active()): ?>
+                    <div class="">
+                      <a href="/browse/courses" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white">Start Learning</a>
+                    </div>
 
-                  <?php else: ?>
-                  <div class="">
-                      <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white">
-                        Subscribe for
-                        <span class="la-soffer__bestprice la-home__bestprice" style="color:var(--white)"> 
-                          <?php if(getLocation() == 'IN'): ?>
-                            <sup>₹</sup>2899/Month
-                          <?php else: ?>
-                            <sup>$</sup>39/<span class="text-xxs">Month</span>
-                          <?php endif; ?>
-                      </span>
-                      </a>
-                  </div>
-                  
-                  <div class="la-soffer mt-2 d-inline-flex justify-content-center flex-column align-items-md-center">
-                      
+                    <?php else: ?>
+                    <div class="">
+                        <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white">
+                          Subscribe for
+                          <span class="la-soffer__bestprice la-home__bestprice" style="color:var(--white)"> 
+                            <?php if(getLocation() == 'IN'): ?>
+                              <sup>₹</sup>2899/Month
+                            <?php else: ?>
+                              <sup>$</sup>39/<span class="text-xxs">Month</span>
+                            <?php endif; ?>
+                        </span>
+                        </a>
+                    </div>
+                    
+                    <div class="la-soffer mt-2 d-inline-flex justify-content-center flex-column align-items-md-center">
+                        
 
-                      <?php if(getLocation() == 'IN'): ?>
-                        <div class="la-soffer__realprice la-home__realprice text-sm" style="color:var(--white)"> <sup>₹</sup> 5999 (INR)</div>
-                      <?php else: ?>
-                        <div class="la-soffer__realprice la-home__realprice text-sm" style="color:var(--white)"> <sup>$</sup> 99 (USD)</div>
-                      <?php endif; ?>
+                        <?php if(getLocation() == 'IN'): ?>
+                          <div class="la-soffer__realprice la-home__realprice text-sm" style="color:var(--white)"> <sup>₹</sup> 5999 (INR)</div>
+                        <?php else: ?>
+                          <div class="la-soffer__realprice la-home__realprice text-sm" style="color:var(--white)"> <sup>$</sup> 99 (USD)</div>
+                        <?php endif; ?>
+                    </div>
+                  <?php endif; ?>
                   </div>
-                <?php endif; ?>
-                </div>
                 
-                <div class="la-hero__bottom-trial la-btn__plain text--green text-uppercase text--md font-weight--semibold text-spacing mt-6 la-anim__stagger-item "><?php if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active()): ?>  <?php else: ?><a href="/learning-plans" class="btn font-weight--semibold">Start free trial</a> <?php endif; ?> </div>
+                  <div class="la-hero__bottom-trial mt-8 mt-md-2 ml-md-6 la-anim__stagger-item "><?php if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active()): ?>  <?php else: ?><a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary bg-transparent text-white">Start free trial</a> <?php endif; ?> </div>
+                </div>
               </div>
                
               <div class="la-hero__btn--scroll-down la-anim__stagger-item">
@@ -132,7 +134,7 @@
           <h3 class="la-home__course-mtitle text-center la-anim__stagger-item">Learn what you love!</h3>
 
           <nav class="la-courses__nav d-inline-flex justify-content-start justify-content-md-center position-relative">
-              <ul class="nav nav-pills la-courses__nav-tabs justify-content-center" id="nav-tab" role="tablist" tabindex="0">
+              <ul class="nav nav-pills la-courses__nav-tabs mb-4 justify-content-center" id="nav-tab" role="tablist" tabindex="0">
               
                 <?php if(!$filtres_applied): ?>
                   
@@ -182,7 +184,7 @@
                     <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       <div class="position-relative tab-pane fade show <?php if($loop->first): ?> active <?php endif; ?>" id="nav-<?php echo e($category->slug); ?>" role="tabpanel" aria-labelledby="nav-<?php echo e($category->slug); ?>-tab">
                         <div class="swiper-container la-home__course-container">
-                          <div class="swiper-wrapper la-home__course-wrapper">
+                          <div class="swiper-wrapper la-home__course-wrapper py-md-10">
                                                                                           
                                     <?php
                                       $courses = $category->courses;
@@ -328,9 +330,11 @@
   <section class="la-section  la-section--classes  position-relative la-anim__wrap">
     <div class="la-section__inner">
       <div class="container-fluid">
-        <h2 class="text-center la-section__title la-section__title--big  position-relative la-anim__fade-in-top la-anim__A">Master <span>classes</span></h2>
+        <div class="la-anim__fade-in-top la-anim__A">
+          <h2 class="la-section--classes-title text-center la-section__title la-section__title--big  position-relative ">Master <span>classes</span></h2>
+        </div> 
+
         <div class="la-mccourses pt-20 pt-md-6">
-         
             <div class="swiper-container la-home__master-container">
               <div class="swiper-wrapper la-home__master-wrapper">
 
@@ -495,6 +499,12 @@
             </div>
             <div class="la-trail__right position-relative d-flex align-items-end">
               <div class="la-trail__content-wrap la-anim__stagger">
+                <div class="la-home__trail-btn la-btn__plain d-flex justify-content-start align-items-start la-anim__fade-in-left">
+                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold la-anim__fade-in-right" style="transform: translate(0px, 0px); opacity: 1;">
+                      <a href="/about">ALIENS WAY OF TEACHING <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
+                  </div>
+                </div>
+
                 <div class="la-trail__para la-anim__stagger-item la-anim__B">We strongly believe observation is integral to honing art. Learn from artists who have created their niche in the world of tattooing with consistent practice, and become the master of your niche!</div>
                 <?php if(Auth::check()): ?>
                   <?php if(Auth::user()->subscription() ): ?>
@@ -509,12 +519,11 @@
             </div>
           </div>
 
-          <div class="la-home__trail-btn la-btn__plain d-flex justify-content-center align-items-start la-anim__fade-in-left">
-            <!-- <a href="/about" class="d-none d-md-block">ALIENS WAY OF TEACHING</a> -->
+          <!--<div class="la-home__trail-btn la-btn__plain d-flex justify-content-center align-items-start la-anim__fade-in-left">
             <div class="d-none d-md-block la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold mr-5 mr-md-1 la-anim__fade-in-right" style="transform: translate(0px, 0px); opacity: 1;">
                 <a href="/about">ALIENS WAY OF TEACHING <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
             </div>
-          </div>
+          </div> -->
 
         </div>
       </div>
@@ -523,12 +532,12 @@
   <!-- Section: End-->
 
   <!-- Section: Start-->
-  <section class="la-section la-section--price la-anim__wrap la-anim__wrap-pin">
+  <section class="la-section la-section--price la-section--grey  la-anim__wrap la-anim__wrap-pin">
     <div class="la-section__inner ">
       <div class="container-fluid">
         <div class="la-price__container">
           <h2 class="la-section__title la-section__title--big leading-none la-anim__pin la-price__container-title text-left"> 
-            <span style="color: var(--gray);" class="la-anim__fade-in-top">Learn it </span><br>
+            <span style="color: var(--gray2);" class="la-anim__fade-in-top">Learn it </span><br>
             <span class="la-anim__stagger-item">like aliens</span>
           </h2>
           <div class="la-price__slider la-anim__slider">
@@ -563,7 +572,7 @@
                                 <div class="la-price__box la-anim__pin2 ">
                                   <div class="la-price__box-inner la-anim__stagger-item">
                                       <p class="la-price__box-para mb-8 la-anim__stagger-item--x">Discover our wide range of art courses curated by top artists from around the world and explore your creativity! </p>
-                                      <a href="/browse/course" class="btn btn-primary la-btn text-white w-100">Start Learning</a>                                   
+                                      <a href="/browse/course" class="btn btn-primary la-btn w-100">Start Learning</a>                                   
                                   </div>
                                 </div>
                             </div>
@@ -577,16 +586,16 @@
                           <div class="la-anim__wrap la-anim__wrap-pin2">
                               <div class="la-price__box la-anim__pin2 ">
                                 <div class="la-price__box-inner la-anim__stagger-item">
-                                    <a href="/learning-plans" class="btn btn-primary la-btn text-white w-100">SUBSCRIBE NOW</a>
+                                    <a href="/learning-plans" class="btn btn-primary la-btn w-100">SUBSCRIBE NOW</a>
                                     <p class="la-price__box-para mt-8 mb-2 la-anim__stagger-item--x">Get <span class="la-color--primary">35% savings </span>on Annual Plan</p>
                                     <div class="la-price__box-soffer la-soffer ml-0">
                                       
                                       <?php if(getLocation() == 'IN'): ?>
-                                        <div class="la-soffer__bestprice la-soffer__bestprice--white la-anim__stagger-item--x" style="font-weight:var(--font-bold)"> <sup><small>₹</small></sup>  2899 / Month</div>
-                                        <div class="la-soffer__realprice la-soffer__realprice--white la-anim__stagger-item--x"> <sup><small>₹</small></sup>  5999 (INR) </div>
+                                        <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x" style="font-weight:var(--font-bold)"> <sup><small>₹</small></sup>  2899 / Month</div>
+                                        <div class="la-soffer__realprice la-soffer__realprice--black la-anim__stagger-item--x"> <sup><small>₹</small></sup>  5999 (INR) </div>
                                       <?php else: ?>
-                                        <div class="la-soffer__bestprice la-soffer__bestprice--white la-anim__stagger-item--x" style="font-weight:var(--font-bold)"> <sup><small>$</small></sup>  39 / Month</div>
-                                        <div class="la-soffer__realprice la-soffer__realprice--white la-anim__stagger-item--x"> <sup><small>$</small></sup>  99 (USD) </div>
+                                        <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x" style="font-weight:var(--font-bold)"> <sup><small>$</small></sup>  39 / Month</div>
+                                        <div class="la-soffer__realprice la-soffer__realprice--black la-anim__stagger-item--x"> <sup><small>$</small></sup>  99 (USD) </div>
                                       <?php endif; ?>
                                     </div>
                                 </div>
