@@ -68,7 +68,7 @@
             <div class="container-fluid la-hero la-hero__video-content d-flex justify-content-center flex-column align-items-center">
               <div class="la-hero__video-info text-center text-md-left">
                 <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">Ace the learning curve with Courses & Classes by</p>
-                <h1 class="la-hero__title la-anim__stagger-item mb-5">World’s finest <span class="la-hero__subtitle">Tattooists</span></h1>
+                <h1 class="la-hero__title la-anim__stagger-item mb-5">World’s finest <span class="la-hero__subtitle">Artists</span></h1>
                 <p class="la-hero__lead la-anim__stagger-item">{{$firstSection->sub_heading}}</p>
               
                 <div class="d-md-flex align-items-center">
@@ -80,11 +80,11 @@
 
                     @else
                     <div class="">
-                        <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white">
+                        <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white" style="letter-spacing:1.5px">
                           Subscribe for
                           <span class="la-soffer__bestprice la-home__bestprice" style="color:var(--white)"> 
                             @if (getLocation() == 'IN')
-                              <sup>₹</sup>2899/Month
+                              <sup>₹</sup>2899/<span class="text-xxs">Month</span>
                             @else
                               <sup>$</sup>39/<span class="text-xxs">Month</span>
                             @endif
@@ -110,7 +110,7 @@
                   @endif
                   </div>
                 
-                  <div class="la-hero__bottom-trial mt-8 mt-md-2 ml-md-6 la-anim__stagger-item ">@if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())  @else<a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary bg-transparent text-white">Start free trial</a> @endif </div>
+                  <div class="la-hero__bottom-trial mt-8 mt-md-2 ml-md-6 la-anim__stagger-item ">@if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())  @else<a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary bg-transparent text-white" style="letter-spacing:1.8px">Start free trial</a> @endif </div>
                 </div>
               </div>
                
@@ -241,9 +241,9 @@
   <!-- Section: End-->
 
   <!-- Section: Start-->
-  <section class="la-section  la-section--grey la-section--art-categories position-relative"  id="home_courses">
+  <section class="la-section la-section--grey la-section--art-categories position-relative"  id="home_courses">
     <div class="la-section__inner la-anim__wrap la-section--courses-inwrap" >
-      <div class="container-fluid position-relative px-0">
+      <div class="container-fluid position-relative la-home__customize-fluid">
         <div class="la-courses">
           <h3 class="la-home__course-mtitle text-center la-anim__stagger-item">Learn what you love!</h3>
 
@@ -308,7 +308,7 @@
                                       @if ($course->featured == 0)
                                           @continue
                                       @endif
-                                      <div class="swiper-slide col-md-6 col-lg-4 px-0 py-md-10 la-home__course-slide  la-anim__stagger-item">
+                                      <div class="swiper-slide  py-md-10 la-home__course-slide  la-anim__stagger-item">
                                       <x-course 
                                           :id="$course->id"
                                           :img="$course->preview_image"
@@ -379,7 +379,7 @@
         <div class="swiper-wrapper">
           <div class="la-artist__designation la-artist__designation--front position-absolute w-50 pt-10 my-auto d-flex align-items-center justify-content-left la-anim__fade-in-top la-anim__A">
               <h2 class="la-artist__designation-title mb-0  d-flex flex-row justify-content-center align-items-center">
-                  <span>Lila</span> 
+                  <span style="opacity:0.25">Lila</span> 
               </h2>
           </div>
 
@@ -418,7 +418,7 @@
   <!-- Section: Start-->
   <section class="la-section  la-section--classes  position-relative la-anim__wrap">
     <div class="la-section__inner">
-      <div class="container-fluid">
+      <div class="container-fluid la-home__customize-fluid">
         <div class="la-anim__fade-in-top la-anim__A">
           <h2 class="la-section--classes-title text-center la-section__title la-section__title--big  position-relative ">Master <span>classes</span></h2>
         </div> 
@@ -445,7 +445,7 @@
                 @endforeach
               </div>
             </div>
-            <div class=" w-100 d-flex justify-content-between align-items-end mt-6 mt-md-16">
+            <div class=" w-100 d-md-flex justify-content-between align-items-end mt-6 mt-md-16">
               <div class="la-slider__navigations la-home__course-navigations d-flex align-items-center">
                 <div class="swiper-button-prev la-slider__navigations-arrow la-home__master-prev"></div>
                 <div class="swiper-pagination la-slider__navigations-dots la-home__master-pagination la-slider__paginations la-slider__paginations--purble la-right"></div>

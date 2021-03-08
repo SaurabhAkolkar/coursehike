@@ -59,6 +59,7 @@
                       .la-mccourse__play-circle {
                         stroke-dashoffset: 0;
                         opacity: 1;
+                        transition: all 0.8s ease;-webkit-transition: all 0.8s ease;-moz-transition: all 0.8s ease;-o-transition: all 0.8s ease;
                       }
                 }
             }
@@ -151,10 +152,10 @@
                     }
                     &btn{
                         display: inline-block;
-                        transition: all 0.5s ease;-webkit-transition: all 0.5s ease;-moz-transition: all 0.5s ease;-o-transition: all 0.5s ease;
+                        transition: all 0.8s ease;-webkit-transition: all 0.8s ease;-moz-transition: all 0.8s ease;-o-transition: all 0.8s ease;
 
                         .la-mccourse__play-triangle{
-                            transition: all 0.7s ease-in-out;-webkit-transition: all 0.7s ease-in-out;-moz-transition: all 0.7s ease-in-out;-o-transition: all 0.7s ease-in-out;
+                            transition: all 1s ease-in-out;-webkit-transition: all 1s ease-in-out;-moz-transition: all 1s ease-in-out;-o-transition: all 1s ease-in-out;
                             stroke-dasharray: 240;
                             stroke-dashoffset: 480;
                             stroke: var(--white);
@@ -170,6 +171,7 @@
                               }
                               
                               .la-mccourse__play-circle {
+                                transition: all 1s ease-in-out;-webkit-transition: all 1s ease-in-out;
                                 stroke-dashoffset: 0;
                                 opacity: 1;
                               }
@@ -180,7 +182,7 @@
                         stroke: #f8aa28;
                         stroke-dasharray: 650;
                         stroke-dashoffset: 650;
-                        -webkit-transition: all 0.5s ease-in-out;
+                        transition: all 1s ease-in-out;-webkit-transition: all 1s ease-in-out;
                         opacity: 0.3;
                     }
                 }
@@ -251,6 +253,15 @@
                 &-{
                     &more{
                         z-index:99;
+                        right:20px;
+
+                        @include respond-above(lg){
+                            right:100px;
+                        }
+                        
+                        @include respond-below(md){
+                            margin-top:var(--size-6);
+                        }
                     }
                 }
             }

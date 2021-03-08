@@ -1,19 +1,23 @@
 #{$ap}- {
     // Course: Start
     &course {
-        --courseW: 300px;
+        --courseW: 380px;
         --courseH: 220px;
-        transition:all 0.25 ease;-webkit-transition:all 0.25 ease;-moz-transition:all 0.25 ease;
+        transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;
         
        /* @include respond-above(md) {
             --courseW: 340px;
              --courseH: 226px;
         }*/
 
-        /*&:hover{
-            transform: translateY(-6px);
-            transition:all 0.25 ease;-webkit-transition:all 0.25 ease;-moz-transition:all 0.25 ease;
-        }*/
+        &:hover{
+            transform: translateY(-8px);-webkit-transform: translateY(-8px);-moz-transform: translateY(-8px);
+            transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;
+
+            @include respond-below(md){
+                transform:none;
+            }
+        }
 
        & {
         //    width: var(--courseW);
@@ -242,12 +246,12 @@
             &inner {
                 width:100%;
                 position: relative;
-                transition:all 0.25 ease;-webkit-transition:all 0.25 ease;-moz-transition:all 0.25 ease;
+                transition:all 0.25s ease;-webkit-transition:all 0.25s ease;-moz-transition:all 0.25s ease;
                 // height: var(--courseH);
 
                 &:hover>#{$ap}-course__imgwrap img {
                     transform: scale(1.05);-webkit-transform: scale(1.05);-moz-transform: scale(1.05);
-                    transition:all 0.25 ease;-webkit-transition:all 0.25 ease;-moz-transition:all 0.25 ease;
+                    transition:all 0.25s ease;-webkit-transition:all 0.25s ease;-moz-transition:all 0.25s ease;
                     border-radius: var(--size-2);-webkit-border-radius: var(--size-2);-moz-border-radius: var(--size-2);
 
                     @include respond-below(md){
@@ -257,7 +261,7 @@
 
                 &:hover .la-course__overlay{
                     opacity:1;
-                    transition:all 0.25 ease;-webkit-transition:all 0.25 ease;-moz-transition:all 0.25 ease;
+                    transition:all 0.25s ease;-webkit-transition:all 0.25s ease;-moz-transition:all 0.25s ease;
                 }                
                 &:hover .la-course__play-btn{
                     .la-course__play-triangle {
@@ -283,6 +287,7 @@
                       }
                       
                       .la-course__play-circle {
+                        transition: all 1s ease-in-out;-webkit-transition: all 1s ease-in-out;
                         stroke-dashoffset: 0;
                         opacity: 1;
                       }
@@ -357,7 +362,7 @@
                     cursor: pointer;
                     border-radius: var(--size-2);-webkit-border-radius: var(--size-2);-moz-border-radius: var(--size-2);
                 }
-
+                
                 @include respond-below(md){
                     opacity: 1;
                 }
@@ -409,10 +414,10 @@
                     }
                     &btn{
                         display: inline-block;
-                        transition: all 0.5s ease;-webkit-transition: all 0.5s ease;-moz-transition: all 0.5s ease;-o-transition: all 0.5s ease;
+                        transition: all 0.8s ease;-webkit-transition: all 0.8s ease;-moz-transition: all 0.8s ease;-o-transition: all 0.8s ease;
 
                         .la-course__play-triangle{
-                            transition: all 0.7s ease-in-out;-webkit-transition: all 0.7s ease-in-out;-moz-transition: all 0.7s ease-in-out;-o-transition: all 0.7s ease-in-out;
+                            transition: all 1s ease-in-out;-webkit-transition: all 1s ease-in-out;-moz-transition: all 1s ease-in-out;-o-transition: all 1s ease-in-out;
                             stroke-dasharray: 240;
                             stroke-dashoffset: 480;
                             stroke: var(--white);
@@ -443,6 +448,7 @@
                             }
                               
                             .la-course__play-circle {
+                                transition: all 1s ease-in-out;-webkit-transition: all 1s ease-in-out;
                                 stroke-dashoffset: 0;
                                 opacity: 1;
                             }
@@ -453,7 +459,7 @@
                         stroke: #f8aa28;
                         stroke-dasharray: 650;
                         stroke-dashoffset: 650;
-                        -webkit-transition: all 0.5s ease-in-out;
+                        transition: all 1s ease-in-out;-webkit-transition: all 1s ease-in-out;
                         opacity: 0.3;
                     }
                 }

@@ -98,7 +98,7 @@ $(function(){
   // if($(this)[0]){
           
     var course_swiper = new Swiper(".la-home__course-container", {
-      slidesPerView: 'auto',
+      slidesPerView: 3,
       loop: true,
       autoplay: {
         delay: 3000,
@@ -128,9 +128,9 @@ $(function(){
 			//observeParents: true,
     });
 
-    var course_slider_pagination_first = course_swiper[0].pagination.el;
+    /*var course_slider_pagination_first = course_swiper[0].pagination.el;
     var course_slider_pagination_first_width = $(course_slider_pagination_first).width() + 30;
-    $(course_slider_pagination_first).css("width", course_slider_pagination_first_width);
+    $(course_slider_pagination_first).css("width", course_slider_pagination_first_width);*/
     
 
     $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
@@ -145,7 +145,7 @@ $(function(){
         var course_slider_pagination_width = $(course_slider_pagination).width() + 30;
         $(course_slider_pagination).css("width", course_slider_pagination_width);
       }
-    });
+    }); 
     
   // }
       
@@ -192,9 +192,9 @@ $(function(){
       }, 
     });
 
-    var master_slider_pagination_first = master_slider.pagination.el;
+    /*var master_slider_pagination_first = master_slider.pagination.el;
     var master_slider_pagination_first_width = $(master_slider_pagination_first).width() + 30;
-    $(master_slider_pagination_first).css("width", master_slider_pagination_first_width);
+    $(master_slider_pagination_first).css("width", master_slider_pagination_first_width); */
 
   //- Customize Section in Home Page
   if($('.la-home__customize-container')[0]){
