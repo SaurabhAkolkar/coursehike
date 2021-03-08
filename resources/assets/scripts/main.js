@@ -159,8 +159,7 @@ $(function(){
   // });
 
   // Swiper JS for Master Classes in Homepage
-  if($('.la-home__master-container')[0]){
-    var swiper = new Swiper('.la-home__master-container', {
+    var master_slider = new Swiper('.la-home__master-container', {
       slidesPerView: 'auto',
       spaceBetween: 25,
       loop: true,
@@ -192,7 +191,10 @@ $(function(){
         },  
       }, 
     });
-  }
+
+    var master_slider_pagination_first = master_slider.pagination.el;
+    var master_slider_pagination_first_width = $(master_slider_pagination_first).width() + 30;
+    $(master_slider_pagination_first).css("width", master_slider_pagination_first_width);
 
   //- Customize Section in Home Page
   if($('.la-home__customize-container')[0]){
