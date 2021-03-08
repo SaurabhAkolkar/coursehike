@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width,initial-scale=1" name="viewport">
-
+    <title>Learn Anything Artistic Online | Start For Free Today | LILA</title>
+    
 @yield('seo_content')
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">

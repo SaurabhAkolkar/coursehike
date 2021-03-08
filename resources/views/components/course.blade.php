@@ -108,7 +108,7 @@
                     </div>
                 </a>
                 <div class="la-course__imgwrap">
-                    <img class="img-fluid" src= "{{ $img }}" alt= "{{ $course }}" />
+                    <img class="img-fluid" src= "{{ $img }}?width=560&height=460&auto_optimize=true" alt= "{{ $course }}" />
                 </div>            
         </div>
          
