@@ -73,7 +73,7 @@
                                     <span>is actually happening."</span> 
                                 </div>
                                 <div class="la-about__motto-author text-right mt-8 la-anim__stagger-item--x la-anim__E">
-                                    – Allan Go1s, artist, student & Lila mentor
+                                    – Allan Gois, artist, student & Lila mentor
                                 </div>
                             </div>
                         </div>

@@ -67,8 +67,8 @@
             <!-- Video Content Section: Start -->
             <div class="container-fluid la-hero la-hero__video-content d-flex justify-content-center flex-column align-items-center">
               <div class="la-hero__video-info text-center text-md-left">
-                <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">COURSES & CLASSES BY</p>
-                <h1 class="la-hero__title la-anim__stagger-item mb-5">World’s finest <span class="la-hero__subtitle">Creators</span></h1>
+                <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">Ace the learning curve with Courses & Classes by</p>
+                <h1 class="la-hero__title la-anim__stagger-item mb-5">World’s finest <span class="la-hero__subtitle">Tattooists</span></h1>
                 <p class="la-hero__lead la-anim__stagger-item">{{$firstSection->sub_heading}}</p>
               
                 <div class="d-md-flex align-items-center">
@@ -130,8 +130,8 @@
           <!-- Column: Start-->
          {{-- <div class="col-12 col-lg-5 la-anim__item la-anim__item--left my-auto">
             <div class="la-hero pt-6 pt-lg-2 la-anim__stagger">
-              <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">COURSES & CLASSES BY</p>
-              <h1 class="la-hero__title la-anim__stagger-item">World’s best <span class="la-hero__subtitle">Creators</span></h1>
+              <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">Ace the learning curve with Courses & Classes by</p>
+              <h1 class="la-hero__title la-anim__stagger-item">World’s finest <span class="la-hero__subtitle">Tattooists</span></h1>
               <p class="la-hero__lead la-anim__stagger-item">{{$firstSection->sub_heading}}</p>
 
               <div class="d-none d-lg-block">
@@ -283,7 +283,7 @@
               </ul>
           </nav> -->
 
-          <nav class="la-courses__nav">
+          <nav class="la-courses__nav la-anim__wrap">
               <x-add-to-playlist 
                    :playlists="$playlists"
               />
@@ -293,7 +293,7 @@
                     @foreach ($categories as $category)
                       <div class="position-relative tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
                         <div class="swiper-container la-home__course-container">
-                          <div class="swiper-wrapper la-home__course-wrapper py-md-10">
+                          <div class="swiper-wrapper la-home__course-wrapper ">
                                                                                           
                                     @php
                                       $courses = $category->courses;
@@ -308,7 +308,7 @@
                                       @if ($course->featured == 0)
                                           @continue
                                       @endif
-                                      <div class="swiper-slide col-md-6 col-lg-4 px-0 la-home__course-slide la-anim__stagger-item">
+                                      <div class="swiper-slide col-md-6 col-lg-4 px-0 py-md-10 la-home__course-slide  la-anim__stagger-item">
                                       <x-course 
                                           :id="$course->id"
                                           :img="$course->preview_image"
@@ -328,7 +328,7 @@
                                     @endforeach                                  
                                   
                           </div>
-                          <div class=" w-100 d-flex justify-content-between align-items-center">
+                          <div class=" w-100 d-md-flex justify-content-between align-items-center">
                             <div class="la-slider__navigations la-home__course-navigations d-flex align-items-center">
                               <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div>
                               <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
@@ -378,13 +378,13 @@
         
         <div class="swiper-wrapper">
           <div class="la-artist__designation la-artist__designation--front position-absolute w-50 pt-10 my-auto d-flex align-items-center justify-content-left la-anim__fade-in-top la-anim__A">
-              <h2 class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">
-                  <span class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">Lila</span> 
+              <h2 class="la-artist__designation-title mb-0  d-flex flex-row justify-content-center align-items-center">
+                  <span>Lila</span> 
               </h2>
           </div>
 
           <div class="la-artist__designation position-absolute w-100 pt-10 my-auto d-flex align-items-center justify-content-center la-anim__fade-in-top la-anim__A">
-              <h2 class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">
+              <h2 class="la-artist__designation-title mb-0  d-flex flex-row justify-content-center align-items-center">
                   <span class="ml-6" style="color: var(--gray);"> Mentors </span>
               </h2>
           </div>
@@ -429,7 +429,7 @@
 
                 @foreach ($master_classes as $master)
                   @if($master->courses != null)
-                    <div class="swiper-slide col-12 col-md-3 px-0 la-home__master-slide">
+                    <div class="swiper-slide col-12 col-md-4 col-lg-3 px-0 la-home__master-slide">
                       <x-master-class
                         :img="$master->courses->preview_image"
                         :title="$master->courses->title"
@@ -493,7 +493,7 @@
                                 <div class="la-home__customize-info">
                                     <img src="../images/learners/home/mockup1.jpg" alt="Personalised dashboard" class="img-fluid mx-auto d-block la-home__customize-img">
                                     <div class="la-home__customize-infotitle leading-tight mt-8">Personalised dashboard for focused learning</div>
-                                    <p class="la-home__customize-infopara">Courses based on your interests, favourite creators, on one easy learning platform</p>
+                                    <p class="la-home__customize-infopara">Courses based on your interests, favourite mentors, on one easy learning platform</p>
                                 </div>
                             </div>
 

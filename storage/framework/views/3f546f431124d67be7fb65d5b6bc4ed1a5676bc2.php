@@ -65,8 +65,8 @@
             <!-- Video Content Section: Start -->
             <div class="container-fluid la-hero la-hero__video-content d-flex justify-content-center flex-column align-items-center">
               <div class="la-hero__video-info text-center text-md-left">
-                <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">COURSES & CLASSES BY</p>
-                <h1 class="la-hero__title la-anim__stagger-item mb-5">World’s finest <span class="la-hero__subtitle">Creators</span></h1>
+                <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">Ace the learning curve with Courses & Classes by</p>
+                <h1 class="la-hero__title la-anim__stagger-item mb-5">World’s finest <span class="la-hero__subtitle">Tattooists</span></h1>
                 <p class="la-hero__lead la-anim__stagger-item"><?php echo e($firstSection->sub_heading); ?></p>
               
                 <div class="d-md-flex align-items-center">
@@ -166,7 +166,7 @@
               </ul>
           </nav> -->
 
-          <nav class="la-courses__nav">
+          <nav class="la-courses__nav la-anim__wrap">
                <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.add-to-playlist','data' => ['playlists' => $playlists]]); ?>
 <?php if ($component->shouldRender()): ?>
@@ -184,23 +184,24 @@
                     <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       <div class="position-relative tab-pane fade show <?php if($loop->first): ?> active <?php endif; ?>" id="nav-<?php echo e($category->slug); ?>" role="tabpanel" aria-labelledby="nav-<?php echo e($category->slug); ?>-tab">
                         <div class="swiper-container la-home__course-container">
-                          <div class="swiper-wrapper la-home__course-wrapper py-md-10">
+                          <div class="swiper-wrapper la-home__course-wrapper ">
                                                                                           
                                     <?php
                                       $courses = $category->courses;
                                       if($sort_type == 'highest_rated')
                                       {
                                         $courses = $courses->sortByDesc('average_rating');
-                                      }                
+                                      }            
+                               
                                     ?>
 
                                     <?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                       <?php if($course->featured == 0): ?>
                                           <?php continue; ?>
                                       <?php endif; ?>
-                                      <div class="swiper-slide col-md-6 col-lg-4 px-0 la-home__course-slide la-anim__stagger-item">
+                                      <div class="swiper-slide col-md-6 col-lg-4 px-0 py-md-10 la-home__course-slide  la-anim__stagger-item">
                                        <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => $course->review->avg('rating'),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount,'price' => $course->price,'bought' => $course->isPurchased()]); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => $course->review->avg('rating'),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount,'price' => $course->price,'bought' => $course->isPurchased(),'checkWishList' => $course->checkWishList,'checkCart' => $course->checkCart]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
@@ -214,7 +215,7 @@
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                  
                                   
                           </div>
-                          <div class=" w-100 d-flex justify-content-between align-items-center">
+                          <div class=" w-100 d-md-flex justify-content-between align-items-center">
                             <div class="la-slider__navigations la-home__course-navigations d-flex align-items-center">
                               <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div>
                               <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
@@ -226,49 +227,27 @@
                               </div>
                             </div>
                           </div>    
-                        </div>
-              
+                        </div>              
                       </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                    <?php if(count($courses) == 0): ?>
+                    <div class="col-12 la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
+                        <div class="la-empty__inner">
+                            <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
+                        </div>
+                        <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
+                            <a href="<?php echo e(Url('/browse/courses')); ?>" class="la-empty__browse">
+                                Browse Courses
+                                <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
+                            </a>
+                        </div>
+                    </div>
+                  <?php endif; ?>
                 
                         
-                      <?php else: ?>
-                            <?php
-                            if($sort_type == 'highest_rated')
-                            {
-                              $courses = $courses->sortByDesc('average_rating');
-                            }                
-                            ?>
-                            <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item la-anim__C">
-                              <?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                 <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => $course->review->avg('rating'),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount,'price' => $course->price,'bought' => $course->isPurchased()]); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes([]); ?>
-<?php if (isset($__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706)): ?>
-<?php $component = $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706; ?>
-<?php unset($__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706); ?>
-<?php endif; ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                              </div>
-
-                              <?php if(count($courses) == 0): ?>
-                                <div class="col-12 la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
-                                    <div class="la-empty__inner">
-                                        <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
-                                    </div>
-                                    <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
-                                        <a href="<?php echo e(Url('/browse/courses')); ?>" class="la-empty__browse">
-                                            Browse Courses
-                                            <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                              <?php endif; ?>
-                      <?php endif; ?>
+                
+               <?php endif; ?>
             </nav>
           </div>
 
@@ -286,13 +265,13 @@
         
         <div class="swiper-wrapper">
           <div class="la-artist__designation la-artist__designation--front position-absolute w-50 pt-10 my-auto d-flex align-items-center justify-content-left la-anim__fade-in-top la-anim__A">
-              <h2 class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">
-                  <span class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">Lila</span> 
+              <h2 class="la-artist__designation-title mb-0  d-flex flex-row justify-content-center align-items-center">
+                  <span>Lila</span> 
               </h2>
           </div>
 
           <div class="la-artist__designation position-absolute w-100 pt-10 my-auto d-flex align-items-center justify-content-center la-anim__fade-in-top la-anim__A">
-              <h2 class="mb-0 la-section__title la-section__title--big d-flex flex-row justify-content-center align-items-center">
+              <h2 class="la-artist__designation-title mb-0  d-flex flex-row justify-content-center align-items-center">
                   <span class="ml-6" style="color: var(--gray);"> Mentors </span>
               </h2>
           </div>
@@ -340,7 +319,7 @@
 
                 <?php $__currentLoopData = $master_classes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $master): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <?php if($master->courses != null): ?>
-                    <div class="swiper-slide col-12 col-md-3 px-0 la-home__master-slide">
+                    <div class="swiper-slide col-12 col-md-4 col-lg-3 px-0 la-home__master-slide">
                        <?php if (isset($component)) { $__componentOriginal569f4b3c3d50580306a5cb083576611189fd5fee = $component; } ?>
 <?php $component = $__env->getContainer()->make(App\View\Components\MasterClass::class, ['img' => $master->courses->preview_image,'title' => $master->courses->title,'profileImg' => $master->courses->user->user_img,'profileName' => $master->courses->user->fullName,'learners' => $master->courses->learnerCount,'id' => $master->courses->id,'slug' => $master->courses->slug]); ?>
 <?php if ($component->shouldRender()): ?>
@@ -405,7 +384,7 @@
                                 <div class="la-home__customize-info">
                                     <img src="../images/learners/home/mockup1.jpg" alt="Personalised dashboard" class="img-fluid mx-auto d-block la-home__customize-img">
                                     <div class="la-home__customize-infotitle leading-tight mt-8">Personalised dashboard for focused learning</div>
-                                    <p class="la-home__customize-infopara">Courses based on your interests, favourite creators, on one easy learning platform</p>
+                                    <p class="la-home__customize-infopara">Courses based on your interests, favourite mentors, on one easy learning platform</p>
                                 </div>
                             </div>
 

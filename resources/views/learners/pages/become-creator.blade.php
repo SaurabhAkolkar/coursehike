@@ -24,8 +24,8 @@
             <a class="la-bcreator__back-link position-absolute la-anim__stagger-item--x" href="{{URL::previous()}}"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
             <div class="la-bcreator__content ">
               <strong class=" la-bcreator__title--mini  text-uppercase m-0 la-anim__fade-in-top">Design your own course!</strong>
-              <h1 class="la-bcreator__title text-uppercase d-none d-md-block la-anim__stagger-item">Become a Creator</h1>
-              <h1 class="la-bcreator__title text-uppercase d-block d-md-none la-anim__stagger-item">Become <br/> a Creator</h1>
+              <h1 class="la-bcreator__title text-uppercase d-none d-md-block la-anim__stagger-item">Become a Mentor</h1>
+              <h1 class="la-bcreator__title text-uppercase d-block d-md-none la-anim__stagger-item">Become <br/> a Mentor</h1>
               <h6 class="la-bcreator__tag  leading-tight d-none d-md-block la-anim__stagger-item--x ">Join LILA’s inspiring community, <br/> share knowledge and start earning for your values</h6>
               <h6 class="la-bcreator__tag  leading-tight d-block d-md-none la-anim__stagger-item--x">Join LILA’s inspiring community, share knowledge and start earning for your values</h6>
             </div>
@@ -45,7 +45,7 @@
             <p class="la-bcreator__left-para pt-3 pt-sm-8">
               We're on a mission to help hobbies flourish into something more than just a past time activity. Join us.
               Lead the movement. This is your chance to inspire 
-              someone &#38; be the wind benath their wings&#33;
+              someone &#38; be the wind beneath their wings&#33;
             </p>
           </div>
         </div>
