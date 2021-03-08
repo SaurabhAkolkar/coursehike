@@ -22,6 +22,10 @@
                     &cost{
                         font-size: var(--text-lg) !important;
                         font-weight:var(--font-medium);
+
+                        @include respond-below(md){
+                            font-size: var(--text-md) !important;
+                        }
                     }
                 
                     &img {

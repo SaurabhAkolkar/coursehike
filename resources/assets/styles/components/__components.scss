@@ -60,6 +60,13 @@
                     padding: 0 !important;
                 }
             }
+            &classes{
+                background-color:rgba(115, 34, 183, 0.75);
+
+                @include respond-below(sm){
+                    padding:var(--size-14) 0 !important;
+                }
+            }
         }
         &__ {
             &small{
@@ -261,6 +268,9 @@
                     &black {
                         color: #262626;
                     }
+                    &white{
+                        color:var(--white);
+                    }
                 }
             }
 
@@ -269,6 +279,15 @@
                 font-size: var(--text-lg);
                 color: #6D6D6D;
                 text-decoration: line-through #ff0000;
+
+                &-- {
+                    &black {
+                        color: #262626;
+                    }
+                    &white{
+                        color:var(--white);
+                    }
+                }
             }
         }
     }

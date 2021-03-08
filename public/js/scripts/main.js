@@ -128,6 +128,13 @@ $(function(){
     });
   }
 
+  //- Autoplay Stop on Mouse Hover
+  $(".swiper-container").hover(function() {
+    (this).swiper.autoplay.stop();
+  }, function() {
+      (this).swiper.autoplay.start();
+  });
+
   // Swiper JS for Master Classes in Homepage
   if($('.la-home__master-container')[0]){
     var swiper = new Swiper('.la-home__master-container', {
@@ -268,6 +275,10 @@ $(function(){
     var swiper = new Swiper('.la-lcreviews__container', {
       slidesPerView: 'auto',
       spaceBetween: 30,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
       pagination: {
         el: '.la-lcreviews__pagination',
         clickable: true,
@@ -402,6 +413,7 @@ $(function(){
     }, opacity: 0.2
   });
 
+  //- Subscription Card on Homepage
   gsap.to(".la-anim__pin2", {
     scrollTrigger: {
       trigger: ".la-anim__pin2",
@@ -413,6 +425,18 @@ $(function(){
     }, opacity: 1
   });
   
+  //- Testimonials Section in Learning Plans
+  gsap.to(".la-anim__pin3", {
+    scrollTrigger: {
+      trigger: ".la-anim__pin3",
+      scrub: true,
+      pin: true,
+      pinSpacing: false,
+      start: "top 20%",
+      end: "+=950",
+    }, opacity: 1
+  });
+
   // For Home Page
   gsap.utils.toArray('.la-anim__slide').forEach(function(elem) {
     let tl = gsap.timeline({

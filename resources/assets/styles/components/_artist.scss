@@ -90,6 +90,11 @@
                   
                 }
             }
+            &about{
+                @include respond-below(sm){
+                    margin-right:var(--size-3);
+                }
+            }
             &specialist{
                 @include respond-below(sm){
                     font-size:var(--text-sm);
@@ -194,7 +199,7 @@
                         position: absolute;
                         width: 100%;
                         height: 100%;
-                        border: 3px solid var(--app-indigo-1);
+                        border: 3px solid var(--yellow);
                     }
                 }
 
@@ -207,7 +212,7 @@
                 
 
                 &s {
-                    background-color:var(--gray3) !important;
+                    background-color:rgba(115, 34, 183, 0.75) !important;
                     padding:0 var(--size-5);
                     position:relative;
                     z-index:2;

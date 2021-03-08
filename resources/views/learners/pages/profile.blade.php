@@ -208,7 +208,7 @@
             <section class="la-section la-profile__update-passwrod la-profile__form la-anim__wrap">
               <div class="la-profile__form-inner ">
                 <div class="la-password__update-option mb-8 d-flex la-anim__stagger-item--x">
-                  <div class="la-password__update-toggler text text-uppercase mr-3 collapsed " id="password-toggler" data-toggle="collapse" data-target="#passwordCollapse" aria-expanded="false" aria-controls="passwordCollapse">Update Password</div>
+                  <a class="la-password__update-toggler text text-uppercase mr-3 collapsed" role="button" id="password-toggler" data-toggle="collapse" data-target="#passwordCollapse" aria-expanded="false" aria-controls="passwordCollapse">Update Password</a>
                 </div>
                 <div class="collapse " id="passwordCollapse">
                   <form class="la-password__update-content" id="change_password_form" method="Post" action="{{route('update.password')}}" name = "change_password_form">

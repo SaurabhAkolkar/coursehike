@@ -515,8 +515,8 @@ $course_id = $course->id;
                 <div class="la-vcourse__purchase-btn1 w-50">
                   <a class="btn btn-primary la-btn w-100 text-center" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif >Buy course</a>
                 </div>
-                <div class="la-vcourse__purchase-btn w-50">
-                  <a class="btn  la-btn__plain text--green w-100 text-center" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>ADD TO CART</a>
+                <div class="la-vcourse__purchase-btn w-50 text-center">
+                  <a class="btn la-btn__plain text--green" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>ADD TO CART</a>
                 </div>
               </div>
             </form>              
@@ -673,7 +673,7 @@ $course_id = $course->id;
 
                                       <div class="la-rtng__review-btm py-8">
                                           <h6 class="la-rtng__review-title">Review</h6>
-                                          <textarea cols="38" rows="5" class="la-form__textarea" name="review" id="review_input" placeholder="Type your Review here..."></textarea>
+                                          <textarea cols="38" rows="5" class="la-form__textarea la-rtng__review-textarea" name="review" id="review_input" placeholder="Type your Review here..."></textarea>
                                       </div>
 
                                       <div class="text-right">
@@ -713,7 +713,7 @@ $course_id = $course->id;
 
                                           <div class="la-rtng__review-btm py-8">
                                               <h6 class="la-rtng__review-title">Review</h6>
-                                              <textarea cols="38" rows="5" class="la-form__textarea" name="review" id="update_review_input" placeholder="Type your Review here..."></textarea>
+                                              <textarea cols="38" rows="5" class="la-form__textarea la-rtng__review-textarea" name="review" id="update_review_input" placeholder="Type your Review here..."></textarea>
                                           </div>
 
                                           <div class="text-right">
@@ -765,7 +765,7 @@ $course_id = $course->id;
                             <div class="d-block d-md-none la-lcreviews__ratings"> @for($couter=1 ; $couter <= $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__fill"></span>@endfor  @for($couter=1 ; $couter <= 5 - $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__unfill"></span>@endfor</div>
                             <div class="la-lcreviews__comment text-sm">{{$review->review}}</div>
                             <div class="la-lcreviews__edit-comment text-right">
-                              @if(Auth::check() && Auth::user()->id == $review->user_id)<a class="text-sm"  role="button" onclick="editReview({{ $review->id }}, {{ $review->course_id }}, '{{ $review->review }}', {{ $review->rating }})" class="la-empty__browse" style="color:var(--app-indigo-1);font-weight:var(--font-semibold)">Edit</a>@endif
+                              @if(Auth::check() && Auth::user()->id == $review->user_id)<a class="text-sm la-rtng__review-edit"  role="button" onclick="editReview({{ $review->id }}, {{ $review->course_id }}, '{{ $review->review }}', {{ $review->rating }})">Edit</a>@endif
                             </div>
                           </div>
                         </div>

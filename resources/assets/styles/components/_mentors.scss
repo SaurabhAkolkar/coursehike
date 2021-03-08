@@ -70,7 +70,9 @@
                 }
 
                 &info {
-
+                    &:hover>.la-mentor__name{
+                        color:var(--app-indigo-1);
+                    }
                 }
 
                 &name {
