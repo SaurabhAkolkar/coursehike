@@ -57,12 +57,12 @@
                             </td>
                         </tr>
 
-                        <tr>
+                        {{-- <tr>
                             <td  align="center"  colspan="1" style="padding:10px 0" >
                                 <span style="color:#010101;font-size:10px">It wasn't you?</span>
                                 <a href="" role="button" style="color:#FF5C5C;font-size:10px">Report</a>
                             </td>
-                        </tr>
+                        </tr> --}}
                     </table>
                 </td>
             </tr>
@@ -82,7 +82,7 @@
           
                            <td width="300" colspan="1" align="right" style="padding:15px 20px 15px 0">
                                <span style="color:#fff;font-size:12px;font-weight:300;">ask@learnitlikealiens.com</span> <br/>
-                               <a href="" style="color:#fff;font-size:12px;font-weight:300;text-decoration: none;">learnitlikealiens.com</a>
+                               <a href="https://lila.art" style="color:#fff;font-size:12px;font-weight:300;text-decoration: none;">lila.art</a>
                            </td>
                        </tr>
                    </table>
