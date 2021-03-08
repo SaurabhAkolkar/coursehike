@@ -15,7 +15,7 @@
                                     <?php if(Auth::check()): ?>
                                         <?php if($price && $bought == null): ?>
                                             <span class="d-inline-block la-course__addtocart" onclick="addToCart(<?php echo e($id); ?>)">
-                                                <i class="la-icon la-icon--2xl icon icon-cart"></i>
+                                                <i class="la-icon la-icon--2xl icon icon-cart <?php if($checkCart): ?> text-warning <?php endif; ?>"></i>
                                             </span>
                                         <?php else: ?>
 
@@ -32,7 +32,7 @@
                                         <?php if($price && $bought == null): ?>
                                             <span <?php if($addedToWhishList): ?> onclick="location.href='/remove-from-wishlist/<?php echo e($id); ?>'" <?php else: ?> onclick="addToWishList(<?php echo e($id); ?>)" <?php endif; ?>  >
                                                 <span class="d-inline-block la-course__like">
-                                                    <i class="la-icon la-icon--2xl icon icon-wishlist <?php if($addedToWhishList): ?> text-warning <?php endif; ?>"></i>
+                                                    <i class="la-icon la-icon--2xl icon <?php if($checkWishList): ?> text-warning <?php endif; ?> icon-wishlist <?php if($addedToWhishList): ?> text-warning <?php endif; ?>"></i>
                                                 </span>
                                             </span>
                                         <?php else: ?>

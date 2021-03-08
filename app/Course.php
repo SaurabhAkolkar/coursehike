@@ -192,6 +192,25 @@ class Course extends Model
         return null;
     }
 
+    public function getCheckWishlistAttribute(){
+            if(Auth::check()){
+                $wishlist = Wishlist::where(['user_id' => Auth::user()->id, 'course_id' =>  $this->id])->first();
+
+                return $wishlist?true:false;
+            }   
+            return false;
+    }
+
+    public function getCheckCartAttribute(){
+
+        if(Auth::check()){
+
+            $cart = Cart::where(['user_id' => Auth::user()->id, 'course_id' =>  $this->id, 'status' => 1])->first();
+
+            return $cart?true:false;
+        }   
+        return false;
+    }
   
 
     public function getLearnerCountAttribute()
