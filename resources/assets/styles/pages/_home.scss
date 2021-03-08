@@ -439,10 +439,14 @@
 .la-slider__navigations-dots {
     position: unset;
     margin: 0 20px;
+    text-align: left;
 }
 .la-slider__navigations-dots .swiper-pagination-bullet {
     margin-left: 8px;
     margin-right: 0;
+    &:first-child {
+        margin-left: 0;
+    }
 }
 .la-slider__paginations--purble .swiper-pagination-bullet-active{
     width:30px;

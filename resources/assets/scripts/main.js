@@ -97,8 +97,11 @@ $(function(){
   }
   
   // Swiper JS for Browse Courses in Homepage
-  if($('.la-home__course-container')[0]){
-    var swiper = new Swiper('.la-home__course-container', {
+  // var course_Sliders = [];
+   
+  // if($(this)[0]){
+          
+    var course_swiper = new Swiper(".la-home__course-container", {
       slidesPerView: 'auto',
       loop: true,
       autoplay: {
@@ -106,7 +109,7 @@ $(function(){
         disableOnInteraction: false,
       },
       pagination: {
-        el: '.la-home__course-paginations',
+        el: ".la-home__course-paginations",
         clickable: true,
       },
       navigation: {
@@ -125,15 +128,39 @@ $(function(){
           slidersPerView: 3,
         }, 
       }, 
+      observer: true,
+			observeParents: true,
     });
-  }
+
+    var course_slider_pagination_first = course_swiper[0].pagination.el;
+    var course_slider_pagination_first_width = $(course_slider_pagination_first).width() + 30;
+    $(course_slider_pagination_first).css("width", course_slider_pagination_first_width);
+    
+
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+      var paneTarget = $(e.target).attr('href');
+      var $thePane = $('.tab-pane' + paneTarget);
+      var paneIndex = $thePane.index();
+      if ($thePane.find('.la-home__course-container').length > 0 && 0 === $thePane.find('.swiper-slide-active').length) {
+        
+        course_swiper[paneIndex].update();
+
+        var course_slider_pagination = course_swiper[paneIndex].pagination.el;
+        var course_slider_pagination_width = $(course_slider_pagination).width() + 30;
+        $(course_slider_pagination).css("width", course_slider_pagination_width);
+      }
+    });
+    
+  // }
+      
+
 
   //- Autoplay Stop on Mouse Hover
-  $(".swiper-container").hover(function() {
-    (this).swiper.autoplay.stop();
-  }, function() {
-      (this).swiper.autoplay.start();
-  });
+  // $(".swiper-container").hover(function() {
+  //   $(this).swiper.autoplay.stop();
+  // }, function() {
+  //     $(this).swiper.autoplay.start();
+  // });
 
   // Swiper JS for Master Classes in Homepage
   if($('.la-home__master-container')[0]){
@@ -197,7 +224,7 @@ $(function(){
         watchSlidesProgress: true,
         breakpoints: {  
           320: {       
-            slidesPerView: 6,         
+            slidesPerView: 3,         
           },       
           767: {       
             slidesPerView: 10,         
