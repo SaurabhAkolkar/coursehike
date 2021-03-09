@@ -111,14 +111,14 @@
                             </td>
                         </tr>
 
-                        <tr>
+                        {{-- <tr>
                             <td width="150" colspan="1"  style="padding:40px 0">
                                 <button style="background:#7600DA; font-size:12px;font-weight:300; color:#fff;padding:11px 16px;border:none;border-radius:5px;">Check Details</button>
                             </td>
                             <td colspan="1"  style="padding:40px 0">
                                 <a href="" role="button" style="font-size:14px;color:#7600DA;font-weight:500;">Invoice</a>
                             </td>
-                        </tr>
+                        </tr> --}}
                     </table>
                 </td>
             </tr>

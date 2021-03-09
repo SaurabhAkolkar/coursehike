@@ -65,7 +65,7 @@
             
                         <tr>
                             <td  align="center" style="padding:10px 0 60px 0">
-                                <a href="{{route('useremail.verify',['id'=>$user->id, 'hash' => $user->token])}}?expiry={{Carbon\Carbon::now()->addMinutes('60')->timestamp}}" style="background:#7600DA; font-size:10px;font-weight:300;color:#fff;padding:11px 32px;border:none;border-radius:5px;">Verify Email</a>
+                                <a href="{{route('useremail.verify',['id'=>$user->id, 'hash' => $user->token])}}?expiry={{Carbon\Carbon::now()->addDays('14')->timestamp}}" style="background:#7600DA; font-size:10px;font-weight:300;color:#fff;padding:11px 32px;border:none;border-radius:5px;">Verify Email</a>
                             </td>
                         </tr>
                     </table>

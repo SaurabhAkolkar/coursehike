@@ -51,11 +51,11 @@
                             </td> 
                         </tr>
                         
-                        <tr>
+                        {{-- <tr>
                             <td colspan="2" style="padding-bottom:15px;">
                                 <img src="http://lila-fe.thestudiohash.com/email-images/creator.png" alt="Profile Photo" style="width:50px"/>
                             </td>
-                        </tr>
+                        </tr> --}}
             
                         <!-- <tr>
                             <td width="150" style="padding:4px 0">
@@ -98,7 +98,7 @@
                                 <span style="font-size:12px;color:#8B8B8B;">Total Amount Paid</span>
                             </td>
                             <td  style="padding:4px 0">
-                                 <span style="font-size:14px;color:#010101;font-weight:500;">{{ $data['currenty']=='INR'? '₹' : '$' }}{{ $data['amount'] }}</span>
+                                 <span style="font-size:14px;color:#010101;font-weight:500;">{{ $data['currency']=='INR'? '₹' : '$' }}{{ $data['amount'] }}</span>
                             </td>
                         </tr>
 
@@ -120,14 +120,14 @@
                             </td>
                         </tr>
 
-                        <tr>
+                        {{-- <tr>
                             <td width="150" colspan="1"  style="padding:40px 0">
                                 <button style="background:#7600DA; font-size:12px;font-weight:300; color:#fff;padding:11px 16px;border:none;border-radius:5px;">Check Details</button>
                             </td>
                             <td colspan="1"  style="padding:40px 0">
                                 <a href="" role="button" style="font-size:14px;color:#7600DA;font-weight:500;">Invoice</a>
                             </td>
-                        </tr>
+                        </tr> --}}
                     </table>
                 </td>
             </tr>
