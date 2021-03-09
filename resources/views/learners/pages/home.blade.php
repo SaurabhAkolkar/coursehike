@@ -308,7 +308,7 @@
                                       @if ($course->featured == 0)
                                           @continue
                                       @endif
-                                      <div class="swiper-slide  py-md-10 la-home__course-slide  la-anim__stagger-item">
+                                      <div class="swiper-slide  pt-md-10 pb-md-5 la-home__course-slide  la-anim__stagger-item">
                                       <x-course 
                                           :id="$course->id"
                                           :img="$course->preview_image"
@@ -330,9 +330,9 @@
                           </div>
                           <div class=" w-100 d-md-flex justify-content-between align-items-start">
                             <div class="la-slider__navigations la-home__course-navigations d-flex align-items-center">
-                              <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div>
+                              <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div> -->
                               <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
-                              <div class="swiper-button-next la-slider__navigations-arrow la-home__course-next"></div>
+                              <!-- <div class="swiper-button-next la-slider__navigations-arrow la-home__course-next"></div> -->
                             </div>
                             <div class="la-mccourse__view-more position-relative text-right la-anim__wrap pb-2">
                               <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold mr-8 mr-md-7 la-anim__fade-in-right la-anim--B">
@@ -447,9 +447,9 @@
             </div>
             <div class=" w-100 d-md-flex justify-content-between align-items-end mt-6 mt-md-16">
               <div class="la-slider__navigations la-home__course-navigations d-flex align-items-center">
-                <div class="swiper-button-prev la-slider__navigations-arrow la-home__master-prev"></div>
+                <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__master-prev"></div> -->
                 <div class="swiper-pagination la-slider__navigations-dots la-home__master-pagination la-slider__paginations la-slider__paginations--purble la-right"></div>
-                <div class="swiper-button-next la-slider__navigations-arrow la-home__master-next"></div>
+                <!-- <div class="swiper-button-next la-slider__navigations-arrow la-home__master-next"></div> -->
               </div>
               <div class="la-mccourse__view-more position-relative text-right la-anim__stagger-item">
                 <div class=" la-btn__arrow text-white text-uppercase text-spacing font-weight--bold mr-5 mr-md-1 la-anim__fade-in-right">

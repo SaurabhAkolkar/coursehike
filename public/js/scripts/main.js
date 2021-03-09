@@ -98,8 +98,9 @@ $(function(){
   // if($(this)[0]){
           
     var course_swiper = new Swiper(".la-home__course-container", {
-      slidesPerView: 3,
+      slidesPerView: 'auto',
       loop: true,
+      spaceBetween: 25,
       autoplay: {
         delay: 3000,
         disableOnInteraction: false,
@@ -108,24 +109,23 @@ $(function(){
         el: ".la-home__course-paginations",
         clickable: true,
       },
-      navigation: {
-        nextEl: '.la-home__course-next',
-        prevEl: '.la-home__course-prev',
-      },
+      // navigation: {
+      //   nextEl: '.la-home__course-next',
+      //   prevEl: '.la-home__course-prev',
+      // },
       breakpoints: {  
         // when window width is <= 480px     
         320: {       
-          slidesPerView: 1,           
+          slidesPerView: 'auto',  
+          spaceBetween: 15,
         },       
-        767: {       
-          slidesPerView: 2,         
-        },
+        // 767: {       
+        //   slidesPerView: 'auto',         
+        // },
         991: {
           slidersPerView: 3,
         }, 
-      }, 
-      //observer: true,
-			//observeParents: true,
+      }
     });
 
     /*var course_slider_pagination_first = course_swiper[0].pagination.el;
@@ -171,10 +171,10 @@ $(function(){
         el: '.la-home__master-pagination',
         clickable: true,
       },
-      navigation: {
-        nextEl: '.la-home__master-next',
-        prevEl: '.la-home__master-prev',
-      },
+      // navigation: {
+      //   nextEl: '.la-home__master-next',
+      //   prevEl: '.la-home__master-prev',
+      // },
       breakpoints: {  
         // when window width is <= 480px     
         320: {       
