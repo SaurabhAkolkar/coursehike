@@ -264,10 +264,11 @@ $course_id = $course->id;
               <div class="col-lg-12 px-0">
                 <div class="col-12 col-lg px-0 la-anim__wrap">
                   <div class="la-ctabs__about la-anim__stagger-item ">
-                    <p>{{ $course->short_detail }}</p>
+                    <p>{{ $course->short_detail }}
                     <span class="la-ctabs__about-collapse collapse" id="about_collapse">
                       {!! $course->detail !!}
                     </span>
+                    </p>
                   </div>
                   
                   <div class="la-vcourse__btn-wrap text-right mt-3 la-anim__stagger-item ">
