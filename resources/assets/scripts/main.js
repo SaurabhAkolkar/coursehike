@@ -152,11 +152,11 @@ $(function(){
 
 
   //- Autoplay Stop on Mouse Hover
-  // $(".swiper-container").hover(function() {
-  //   $(this).swiper.autoplay.stop();
-  // }, function() {
-  //     $(this).swiper.autoplay.start();
-  // });
+    $(".swiper-container").hover(function() {
+      this.swiper.autoplay.stop();
+    }, function() {
+        this.swiper.autoplay.start();
+    });
 
   // Swiper JS for Master Classes in Homepage
     var master_slider = new Swiper('.la-home__master-container', {
