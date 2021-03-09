@@ -18,7 +18,11 @@
                 border-collapse: collapse;
                 border-spacing: 0;
             }
-                        
+            @media only screen and (max-width:600px){
+                table{
+                    width:100% !important;
+                }
+            }                          
         </style>
     </head>
 
@@ -34,7 +38,7 @@
 
             <tr>
                 <td align="center" width="600" colspan="2" style="padding-top:10px" >
-                    <span style="color:#FAC216;font-family:Raleway;font-size:42px;font-weight:900;text-transform:uppercase;">Password Recovery</span>
+                    <span style="color:#FAC216;font-family:Raleway;font-size:42px;font-weight:900;text-transform:uppercase;line-height:1;">Password Recovery</span>
                 </td>
             </tr>
 
@@ -42,27 +46,25 @@
                 <td style="padding:5px 0 60px 0">
                     <table width="500" align="center" >
                         <tr>
-                            <td  align="center" style="padding:20px 0 10px 0;">
+                            <td  align="center" style="padding:20px 10px 10px 10px;">
                                 <span style="font-size:14px;color:#232323;font-weight:400;">Dear user, we see that you are trying to recover your password. Kindly click on the following button to reset password.</span>
+
                             </td>  
                         </tr>
-                        <tr>   
-                            <td>
-                            </td>
-                            <td></td>
-                        </tr>
+            
+                    
                         <tr>
                             <td align="center"  colspan="1"  >
                                 <a href="{{ env('APP_URL') }}/password/reset/{{$token}}?email={{$email}}"  style="background:#7600DA; font-size:12px;color:#fff;padding:10px 50px;border:none;font-weight:300;border-radius:5px;">Click Here</a>
                             </td>
                         </tr>
 
-                        {{-- <tr>
+                        <tr>
                             <td  align="center"  colspan="1" style="padding:10px 0" >
-                                <span style="color:#010101;font-size:10px">It wasn't you?</span>
-                                <a href="" role="button" style="color:#FF5C5C;font-size:10px">Report</a>
+                                <span style="color:#010101;font-size:12px">It wasn't you?</span>
+                                <a href="" role="button" style="color:#FF5C5C;font-size:12px">Report</a>
                             </td>
-                        </tr> --}}
+                        </tr>
                     </table>
                 </td>
             </tr>
@@ -81,8 +83,8 @@
                            </td>
           
                            <td width="300" colspan="1" align="right" style="padding:15px 20px 15px 0">
-                               <span style="color:#fff;font-size:12px;font-weight:300;">ask@learnitlikealiens.com</span> <br/>
-                               <a href="https://lila.art" style="color:#fff;font-size:12px;font-weight:300;text-decoration: none;">lila.art</a>
+                               <a href="mailto:ask@learnitlikealiens.com" style="color:#fff;font-size:12px;font-weight:300;text-decoration: none;">ask@learnitlikealiens.com</a> <br/>
+                               <a href="" target="_blank" style="color:#fff;font-size:12px;font-weight:300;text-decoration: none;">lila.art</a>
                            </td>
                        </tr>
                    </table>
