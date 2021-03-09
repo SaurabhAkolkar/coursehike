@@ -18545,7 +18545,7 @@ input:-webkit-autofill:active {
   }
 }
 .la-vcourse__info-item .la--count {
-  font-size: calc(var(--text-5xl) + 5px);
+  font-size: calc(var(--text-5xl));
   color: var(--app-indigo-1);
   font-weight: var(--font-light);
   line-height: calc(var(--text-5xl) - 8px);
@@ -19033,7 +19033,6 @@ input:-webkit-autofill:active {
 .la-vcourse__purchase-content {
   background: var(--white);
   border-radius: 10px;
-  border: 1px solid var(--app-indigo-1);
   padding: var(--size-8) var(--size-6);
   box-shadow: 0px 0px 30px #d4d4d47a;
 }
@@ -23829,13 +23828,13 @@ label.error {
 }
 
 .la-slider__paginations--purble .swiper-pagination-bullet {
-  width: 7px;
+  width: 15px;
+  border-radius: 10px;
   transition: all 0.4s ease;
 }
 
 .la-slider__paginations--purble .swiper-pagination-bullet-active {
   width: 30px;
-  border-radius: 10px;
   transition: all 0.4s ease;
 }
 
