@@ -314,7 +314,7 @@
                                           :img="$course->preview_image"
                                           :course="$course->title"
                                           :url="$course->slug"
-                                          :rating="$course->review->avg('rating')"
+                                          :rating="round($course->average_rating, 2)"
                                           :creatorImg="$course->user->user_img"
                                           :creatorName="$course->user->fname"
                                           :creatorUrl="$course->user->id"

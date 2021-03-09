@@ -240,6 +240,14 @@
                             <a href="{{ route('login') }}" >{{ __('frontstaticword.Login') }}</a>
                         </span>
                     </div>
+                        
+                    <div class="la-anim__wrap">
+                        <div class="text-center la-entry__other-option mt-md-8 la-anim__fade-in-left">Facing an issue?
+                            <span class="la-btn__plain text--burple text--md ml-2 la-anim__stagger-item--x">
+                                <a href="https://desk.zoho.com/portal/alienstattoo/en/newticket" title="support">Get support</a>
+                            </span>
+                        </div>  
+                    </div>
                     
                 </div>
             </div>

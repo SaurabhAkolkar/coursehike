@@ -29,6 +29,6 @@ class SendOrderMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('email.orderslip')->subject('Order Confirmation');
+        return $this->subject('Order Confirmation')->markdown('email.orderslip');
     }
 }

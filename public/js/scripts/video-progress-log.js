@@ -7,7 +7,7 @@ $.ajaxSetup({
     }
   });
 var video_id;
-var lilaPlayer = videojs('lila-video').ready(function () {
+var lilaPlayer = videojs('lila-video',{errorDisplay: false}).ready(function () {
 
     var progress_log = [], debounce = true;
 
@@ -81,6 +81,7 @@ var lilaPlayer = videojs('lila-video').ready(function () {
     this.on('timeupdate', updateProgress);
     this.on('ended', endProgress);
 });
+
 $('.la-vcourse__lesson').on('click', function() {
 
     video_id = $(this).attr('data-video-id');
@@ -97,7 +98,8 @@ $('.la-vcourse__lesson').on('click', function() {
         $('.la-vlesson__title').text(data.title);         
 
         var lilaPlayer = videojs('lila-video', {
-          preload: 'auto'
+          preload: 'auto',
+          errorDisplay: false
         });
         // var vhs = lilaPlayer.tech().vhs;
 

@@ -59,12 +59,12 @@
                             </td>
                         </tr>
 
-                        <tr>
+                        {{-- <tr>
                             <td  align="center"  colspan="1" style="padding:10px 0" >
                                 <span style="color:#010101;font-size:12px">It wasn't you?</span>
                                 <a href="" role="button" style="color:#FF5C5C;font-size:12px">Report</a>
                             </td>
-                        </tr>
+                        </tr> --}}
                     </table>
                 </td>
             </tr>

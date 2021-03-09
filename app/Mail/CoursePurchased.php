@@ -29,7 +29,7 @@ class CoursePurchased extends Mailable
     public function build()
     {
         return 
-        $this->markdown('email.learner.purchased')
+        $this->subject('Course Purchase Successful')->markdown('email.learner.purchased')
         ->with('data',$this->data);
     }
 }
