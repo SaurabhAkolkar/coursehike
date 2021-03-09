@@ -11,13 +11,33 @@
         <div class="container">
           <div class="row">
             <!-- Column: Start-->
-            <div class="col-12 col-lg-2 mb-10 mb-md-1">
+            <div class="col-12 col-lg-3 mb-10 mb-md-1">
               <div class="la-footer__brand mb-4 mb-md-5">
                 <a href="/"><img class="img-fluid" src="/images/learners/logo.svg" alt="Lila"></a>
               </div>
               <div class="la-footer__contact">
                 <!-- <p class="la-footer__contact-address mb-2">K2, Old Sonal Industrial Est., Kanchpada, Malad Link Road, Malad West, Mumbai 400064. MH, India</p> -->
                 <a class="la-footer__contact-link" href="mailto:lila@learnitlikealiens.com"> <strong>lila@learnitlikealiens.com</strong></a>
+              </div>
+              <ul class="la-footer__nav">
+                <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li> -->
+                <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Testimonials</a></li> -->
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/learning-plans">Learning Plans</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/become-creator">Become a Creator</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/guided-creator">Guided Creator</a></li>
+                <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Request a Tutorial</a></li> -->
+                <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Teaching Techniques</a></li> -->
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/about">About Us</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/contact">Contact Us</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/learning-plans">Start Free Trial</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/cancellations-refund">Cancellations & Refund</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="https://www.alienstattooschool.com/" target="_blank">Aliens Tattoo School</a></li>
+              </ul>
+
+              <div class="la-footer__social mt-4 mt-md-10">
+                  <a class="la-footer__social-link mr-2" href="https://www.facebook.com/learnitlikealiens" target="_blank"><span class="la-icon la-icon--5xl icon-facebook"></span></a>
+                  <a class="la-footer__social-link mr-2" href="https://www.instagram.com/learnitlikealiens/" target="_blank"><span class="la-icon la-icon--5xl icon-insta"></span></a>
+                  <a class="la-footer__social-link mr-2" href="https://www.youtube.com/channel/UC1LRPWR4rltOLKiR7e-pWEg" target="_blank"><span class="la-icon la-icon--5xl icon-youtube"></span></a>
               </div>
             </div>
             <!-- Column: End-->
@@ -34,15 +54,6 @@
                 </div>
 
                 <div class="col-6 mb-10">
-                  <div class="la-footer__title">Mentors</div>
-                  <ul class="la-footer__list">
-                    @foreach ($creators as $c)
-                      <li class="la-footer__list-item"><a class="la-footer__list-link" href="/creator/{{$c->id}}">{{$c->fullName}}</a></li>
-                    @endforeach
-                  </ul><a class="la-footer__more" href="/mentors">See all</a>
-                </div>
-
-                <div class="col-6 mb-10">
                   <div class="la-footer__title">Courses</div>
                   <ul class="la-footer__list">
                     @foreach ($courses as $c)
@@ -50,8 +61,15 @@
                     @endforeach
                   </ul><a class="la-footer__more" href="/browse/courses">See all</a>
                 </div>
+                
 
-                <div class="col-6 mb-10">
+              </div>
+            </div>
+            <!-- Column: End-->
+            <!-- Column: Start-->
+            <div class="col-12 col-lg-3">
+              <div class="mt-md-18">
+                <div class="col-12 mb-10">
                   <div class="la-footer__title">Master Classes</div>
                   <ul class="la-footer__list">
                     @foreach($master_classes as $mc)
@@ -62,11 +80,15 @@
                   </ul><a class="la-footer__more" href="/master-classes">See all</a>
                 </div>
 
+                <div class="col-12 mb-10">
+                  <div class="la-footer__title">Mentors</div>
+                  <ul class="la-footer__list">
+                    @foreach ($creators as $c)
+                      <li class="la-footer__list-item"><a class="la-footer__list-link" href="/creator/{{$c->id}}">{{$c->fullName}}</a></li>
+                    @endforeach
+                  </ul><a class="la-footer__more" href="/mentors">See all</a>
+                </div>
               </div>
-            </div>
-            <!-- Column: End-->
-            <!-- Column: Start-->
-            <div class="col-12 col-lg-4">
               <!-- <div class="la-footer__search"> -->
                  <!-- Global Search: Start-->
                 <!-- <div class="la-gsearch mb-md-4">
@@ -81,26 +103,7 @@
                 </div> -->
                 <!-- Global Search: End-->
               <!-- </div> -->
-              <ul class="la-footer__nav">
-                <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li> -->
-                <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Testimonials</a></li> -->
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="https://www.alienstattooschool.com/" target="_blank">Aliens Tattoo School</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/learning-plans">Learning Plans</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/become-creator">Become a Creator</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/guided-creator">Guided Creator</a></li>
-                <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Request a Tutorial</a></li> -->
-                <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Teaching Techniques</a></li> -->
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/about">About Us</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/contact">Contact Us</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/learning-plans">Start Free Trial</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/cancellations-refund">Cancellations & Refund</a></li>
-              </ul>
-
-              <div class="la-footer__social mt-4 mt-md-10">
-                  <a class="la-footer__social-link mr-2" href="https://www.facebook.com/learnitlikealiens" target="_blank"><span class="la-icon la-icon--5xl icon-facebook"></span></a>
-                  <a class="la-footer__social-link mr-2" href="https://www.instagram.com/learnitlikealiens/" target="_blank"><span class="la-icon la-icon--5xl icon-insta"></span></a>
-                  <a class="la-footer__social-link mr-2" href="https://www.youtube.com/channel/UC1LRPWR4rltOLKiR7e-pWEg" target="_blank"><span class="la-icon la-icon--5xl icon-youtube"></span></a>
-              </div>
+              
             </div>
             <!-- Column: End-->
           </div>

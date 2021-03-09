@@ -91,6 +91,10 @@
                     font-size: var(--text-6xl);
                 }
 
+                @include respond-above(lg) {
+                    font-size: 8vh;
+                }
+
                 &:before {
                     content: '';
                     position: absolute;
@@ -196,7 +200,7 @@
                 width: 80px !important;
                 height:80px !important;
                 cursor:pointer;
-                margin:var(--size-2) 0;
+                // margin:var(--size-2) 0;
 
                 @include respond-below(md){
                     width:60px !important;
@@ -241,7 +245,7 @@
                 
 
                 &s {
-                    background-color:rgba(115, 34, 183, 1) !important;
+                    // background-color:rgba(115, 34, 183, 1) !important;
                     padding:0 var(--size-5);
                     position:relative;
                     z-index:2;

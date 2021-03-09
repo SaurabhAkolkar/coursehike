@@ -152,11 +152,11 @@ $(function(){
 
 
   //- Autoplay Stop on Mouse Hover
-  // $(".swiper-container").hover(function() {
-  //   $(this).swiper.autoplay.stop();
-  // }, function() {
-  //     $(this).swiper.autoplay.start();
-  // });
+    $(".swiper-container").hover(function() {
+      this.swiper.autoplay.stop();
+    }, function() {
+        this.swiper.autoplay.start();
+    });
 
   // Swiper JS for Master Classes in Homepage
     var master_slider = new Swiper('.la-home__master-container', {
@@ -794,3 +794,17 @@ function clearNotification(){
     }
   });
 }
+
+
+// vcourse video lish dynamic height
+
+var course_video_height = function() {
+  var course_video = $('.la-vcourse__video-wrap').height();
+  $('.la-vcourse__curriculam').css('height', course_video);
+}
+
+course_video_height();
+
+$( window ).resize(function() {
+  course_video_height();
+});

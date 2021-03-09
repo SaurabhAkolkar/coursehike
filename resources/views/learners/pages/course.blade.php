@@ -165,7 +165,7 @@ $course_id = $course->id;
           </div>
         </div>
         <div id="vcourse_row" class="row la-vcourse__class-row  la-anim__wrap">
-          <div class="col-12 col-lg-6 la-vcourse__class-col px-md-4 la-anim__stagger-item">
+          <div class="la-vcourse__class-col la-vcourse__class-col--video px-md-4 la-anim__stagger-item">
             <div class="la-player la-vcourse__video-wrap mb-3">
               
                 <video-js
@@ -188,7 +188,7 @@ $course_id = $course->id;
             <small class="la-vlesson__creator text-capitalize la-anim__stagger-item">{{ $course->user->fname }}</small>
           </div>
 
-          <div class="col-12 col-lg-6 la-vcourse__class-col px-0 px-md-2 la-anim__stagger-item--x">
+          <div class="la-vcourse__class-col la-vcourse__class-col--video-list px-0 px-md-2 la-anim__stagger-item--x">
             <div class="la-vcourse__curriculam ">
               @foreach($course->chapter as $class)
               <div class="la-vcourse__class la-anim__stagger-item">
