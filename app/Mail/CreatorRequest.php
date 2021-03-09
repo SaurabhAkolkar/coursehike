@@ -30,7 +30,7 @@ class CreatorRequest extends Mailable
      */
     public function build()
     {
-        return $this->markdown('email.creatorRequest')
+        return $this->subject('Mentor Request')->markdown('email.creatorRequest')
         ->with('user',$this->user);
     }
 }

@@ -96,30 +96,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $setting = Setting::first();
-
-        // if($setting->mobile_enable == 1)
-        // {
-        //     $mobile = $data['mobile'];
-        // }
-        // else
-        // {
-        //     $mobile = NULL;
-        // }
-
-        // if($setting->verify_enable == 0)
-        // {
-        //     $verified = \Carbon\Carbon::now()->toDateTimeString();
-        // }
-        // else
-        // {
-            $verified = NULL;
-            $token = sha1(uniqid(rand(), true));
-        // }
+        $verified = NULL;
+        $token = sha1(uniqid(rand(), true));
 
                 
         $user = User::create([
-
             'fname' => $data['fname'],
             'lname' => $data['lname'],
             'email' => $data['email'],
@@ -136,20 +117,15 @@ class RegisterController extends Controller
         // $zohoData['name'] = $data['fname'].' '.$data['lname'];
         // $response = $this->ZohoController->createRecords($zohoData);
       
-        if($setting->w_email_enable == 1){
+        // if($setting->w_email_enable == 1){
             try{
-
-                Mail::to($data['email'])->later(now()->addSeconds(5), new WelcomeUser($user));
-               
+                Mail::to($data['email'])->later(now()->addSeconds(5), new WelcomeUser($user));               
             }
             catch(\Swift_TransportException $e){
-
-                header( "refresh:5;url=./login" );
-                
-                dd("Your Registration is successfull ! but welcome email is not sent because your webmaster not updated the mail settings in admin dashboard ! Kindly go back and login");
-
+                header( "refresh:5;url=./login" );            
+                // dd("Your Registration is successfull ! but welcome email is not sent because your webmaster not updated the mail settings in admin dashboard ! Kindly go back and login");
             }
-        }
+        // }
 
         return $user;
     }

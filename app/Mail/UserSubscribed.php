@@ -28,7 +28,7 @@ class UserSubscribed extends Mailable
      */
     public function build()
     {
-        return $this->markdown('email.learner.subscribed')
+        return $this->subject('Successfully Subscribed')->markdown('email.learner.subscribed')
         ->with('data',$this->data);
     }
 }
