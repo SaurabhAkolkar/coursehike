@@ -794,3 +794,17 @@ function clearNotification(){
     }
   });
 }
+
+
+// vcourse video lish dynamic height
+
+var course_video_height = function() {
+  var course_video = $('.la-vcourse__video-wrap').height();
+  $('.la-vcourse__curriculam').css('height', course_video);
+}
+
+course_video_height();
+
+$( window ).resize(function() {
+  course_video_height();
+});

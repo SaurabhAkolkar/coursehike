@@ -132,6 +132,11 @@
                 height: var(--playerH);
                 background: var(--gray);
 
+                @include respond-above(lg) {
+                    height: auto;
+                    padding-top: 60%;
+                }
+
                 & .vjs-big-play-button {
                     position: absolute;
                     top: 0;
@@ -143,7 +148,7 @@
             }
 
             &curriculam {
-                max-height: 360px;
+                // max-height: 360px;
                 border-bottom: 1px dashed var(--gray2);
                 box-shadow: inset 0 0 10px 0 #00000014;
                 overflow: auto;
@@ -324,6 +329,30 @@
                                             }
                                         }
                                     }
+                                }
+                            }
+                        }
+                    }
+                    &col {
+                        width: 100%;
+                        @include respond-above(md) {
+                            width: 50%;
+                        }
+                        &-- {
+                            &video {
+                                @include respond-above(lg) {
+                                    width: calc(100% - 500px);
+                                }
+                                @media (min-width: 1700px) {
+                                    width: calc(100% - 600px);
+                                }
+                            }
+                            &video-list {
+                                @include respond-above(lg) {
+                                    width: 500px;
+                                }
+                                @media (min-width: 1700px) {
+                                    width: 600px;
                                 }
                             }
                         }
