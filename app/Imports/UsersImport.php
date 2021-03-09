@@ -20,7 +20,6 @@ class UsersImport implements ToCollection
 
         foreach ($rows as $row) 
         {
-            dd(Carbon::createFromFormat('m/d/Y', $row[7])->toDateTimeString(), $row[7]);
             if(empty($row[9]))
                 continue;
 

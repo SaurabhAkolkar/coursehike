@@ -27,6 +27,10 @@
     <link rel="stylesheet" href="{{('/css/main.css')}}" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
+    <script type="text/javascript">
+        var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode:"4f8506d3301d7456fde4e9f7b70cc2898b8053dba2d293f5c5cf1103214edd9e", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);d.write("<div id='zsiqwidget'></div>");
+    </script>
+
 </head>
 
 <body>

@@ -194,9 +194,17 @@
                         </div>
                         
                         <div class="la-anim__wrap">
-                            <div class="text-center la-entry__other-option mt-md-8 la-anim__fade-in-left">{{ __('frontstaticword.Donothaveanaccount') }}?
+                            <div class="text-center la-entry__other-option mt-md-8 la-anim__fade-in-left">Create a new account?
                                 <span class="la-btn__plain text--burple text--md ml-2 la-anim__stagger-item--x">
                                     <a href="{{ route('register') }}" title="sign-up">  {{ __('frontstaticword.Signup') }}</a>
+                                </span>
+                            </div>  
+                        </div>
+
+                        <div class="la-anim__wrap">
+                            <div class="text-center la-entry__other-option mt-md-8 la-anim__fade-in-left">Facing an issue?
+                                <span class="la-btn__plain text--burple text--md ml-2 la-anim__stagger-item--x">
+                                    <a href="https://desk.zoho.com/portal/alienstattoo/en/newticket" title="support">Get support</a>
                                 </span>
                             </div>  
                         </div>
