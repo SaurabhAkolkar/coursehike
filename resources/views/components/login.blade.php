@@ -78,7 +78,7 @@
                 <div class="la-header__nav-item">
                     <a class="la-header__nav-link @if(Request::segment(1) == 'releases') active @endif" href="/releases">
                         <div class="la-header__nav-icon">
-                            <span class="la-icon la-icon--md icon-interests"></span>
+                            <span class="la-icon la-icon--md icon-announcement"></span>
                         </div>
                         <span class="la-header__nav-name">New Releases</span>
                     </a>

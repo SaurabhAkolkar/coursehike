@@ -11,6 +11,13 @@ $(function(){
     console.log(value)
   });
 
+
+  //- On click on Entire Course Card
+  $("#course_card_link").on('click', function() {
+    window.location = $(this).find("a").attr("href"); 
+    return false;
+  });
+
   // Home Video On scroll Pause/Play: Start
   $(window).on("scroll",function(){
     if($(window).scrollTop()>500){      
@@ -96,10 +103,10 @@ $(function(){
   // var course_Sliders = [];
    
   // if($(this)[0]){
-          
+  if($('.la-home__course-container')[0]){     
     var course_swiper = new Swiper(".la-home__course-container", {
       slidesPerView: 'auto',
-      loop: true,
+      //loop: true,
       spaceBetween: 25,
       autoplay: {
         delay: 3000,
@@ -127,6 +134,7 @@ $(function(){
         }, 
       }
     });
+  }
 
     /*var course_slider_pagination_first = course_swiper[0].pagination.el;
     var course_slider_pagination_first_width = $(course_slider_pagination_first).width() + 30;
@@ -147,9 +155,7 @@ $(function(){
       }
     }); 
     
-  // }
-      
-
+  // } 
 
   //- Autoplay Stop on Mouse Hover
     $(".swiper-container").hover(function() {
@@ -158,11 +164,17 @@ $(function(){
         this.swiper.autoplay.start();
     });
 
+    // Home Banner Browser Courses ONclick
+    $('#home_courses_redirect').on("click", function(){
+      $('.la-section--courses-inwrap').addClass('la-home__course-animate');
+    });
+
   // Swiper JS for Master Classes in Homepage
+  if($('.la-home__master-container')[0]){   
     var master_slider = new Swiper('.la-home__master-container', {
       slidesPerView: 'auto',
       spaceBetween: 25,
-      loop: true,
+      //loop: true,
       autoplay: {
         delay: 2500,
         disableOnInteraction: false,
@@ -191,13 +203,14 @@ $(function(){
         },  
       }, 
     });
+  }
 
     /*var master_slider_pagination_first = master_slider.pagination.el;
     var master_slider_pagination_first_width = $(master_slider_pagination_first).width() + 30;
     $(master_slider_pagination_first).css("width", master_slider_pagination_first_width); */
 
   //- Customize Section in Home Page
-  if($('.la-home__customize-container')[0]){
+  if($('.la-home__customize-container')[0]){   
     var swiper = new Swiper('.la-home__customize-container', {
       slidesPerView: 'auto',
       spaceBetween: 30,
@@ -211,7 +224,8 @@ $(function(){
         clickable: true,
       },
     });
-  } 
+  }
+  
 
   //Swiper Js for Artist gallery
   if($('.gallery-thumbs')[0]){

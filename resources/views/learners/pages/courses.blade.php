@@ -221,7 +221,7 @@
       
             @if($filtres_applied)
                   <div class="la-anim__wrap">
-                    <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item">
+                    <div class="row row-cols-md-3 row-cols-lg-4 la-anim__stagger-item">
                                   
                         @foreach($courses as $course)
                             <x-course 
@@ -272,7 +272,7 @@
                                     }                
                                 @endphp
 
-                                <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item la-anim__C">
+                                <div class="row row-cols-md-2 row-cols-lg-4 la-anim__stagger-item la-anim__C">
                                 @foreach($courses as $course)
                                 
                                   <x-course 
