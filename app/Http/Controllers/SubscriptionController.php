@@ -99,7 +99,7 @@ class SubscriptionController extends Controller
 				else
 					$session_data['customer_email'] = $user->email;
 
-				$stripe_subscription = $this->stripe->subscriptions()->find($stripe_id, $user_subscription->subscription_id);
+				$stripe_subscription = $this->stripe->subscriptions()->find($stripe_id, $user_subscription->subscription_id ?? 0);
 			
 				if (!array_key_exists('deleted', $customer)  && $user->subscription() && $user_subscription && $stripe_subscription){
 					$response = [
@@ -428,7 +428,8 @@ class SubscriptionController extends Controller
 				$message = $e->getMessage();
 				return redirect('/learning-plans');
 			}
-		}
+		}else
+			return redirect('/learning-plans');
 
 		\Stripe\Stripe::setApiKey(config('services.stripe.secret'));
 

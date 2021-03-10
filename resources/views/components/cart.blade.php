@@ -34,9 +34,9 @@
                                 <div class="la-cart__item-action wishlist">
                                     <a href={{ $wishlistUrl }}>{{ $wishlist }}</a>
                                 </div>
-                                <div class="la-cart__item-action edit ">
+                                {{-- <div class="la-cart__item-action edit ">
                                     <a  data-toggle="modal" data-target="#edit_cart_{{$cartId}}"> {{ $edit }}</a>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -149,8 +149,8 @@
                                                             <div class="col-2 col-md-3 px-0 px-md-2 my-auto">
                                                                 <div class="la-cart__edit-submain text-capitalize">{{ $creator }}</div>
                                                             </div>
-                                                            <div class=" col-3 col-md-2 px-2 px-md-0 my-auto">
-                                                                <div class="la-cart__edit-submain text-sm">$ {{ $class->price }}</div>
+                                                            <div class=" col-3 col-md-2 my-auto">
+                                                                <div class="la-cart__edit-submain  text-sm">{{getSymbol()}} {{ $class->convertedprice }}</div>
                                                             </div>
                                                         </div>
                                                         @endforeach
