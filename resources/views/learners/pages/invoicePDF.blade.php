@@ -26,7 +26,7 @@
         <table width="100%">
             <tr>
                 <td width="30%"> 
-                    <img src="{{asset('/images/learners/logo.svg')}}" alt="Logo" />  
+                    <img src="{{asset('/images/learners/logo.svg')}}" alt="Logo" style="width:100px;" />  
                 </td>
 
                 <td width="70%" colspan="2" style="text-align:right;">
@@ -51,7 +51,7 @@
                     <div>
                         <h5 style="color:#959595;margin:0;">SOLD TO</h5> 
                         <div style="color:#252525;"> {{$user->fullName}} </div>
-                        <div style="color:#252525;">{{$user->address}}{{$user->city}}{{$user->state}}{{$user->country}} - {{$user->pin_code}}</div>
+                        <div style="color:#252525;">{{$user->address}}{{$user->city->name}},<br>{{$user->state->name}},<br>{{$user->country->name}} - {{$user->pin_code}}</div>
                         <div>
                             <a href="tel:9999912345" style="color:#252525;text-decoration:none;">
                                 <span>@if(getLocation() == 'India') +91 @endif {{$user->mobile}} </span>
