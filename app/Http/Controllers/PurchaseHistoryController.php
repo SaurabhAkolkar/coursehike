@@ -23,7 +23,7 @@ class PurchaseHistoryController extends Controller
         $invoiceDetailData = InvoiceDetail::with('course','course.user')->where('invoice_id', $id)->get()->unique('course_id');
         $user = User::findOrFail(Auth::user()->id);
 
-        $pdf = PDF::loadView('learners.pages.invoicePDF', compact('invoice','invoiceDetailData', 'user','date'))->stream('itsolutionstuff.pdf');
+        $pdf = PDF::loadView('learners.pages.invoicePDF', compact('invoice','invoiceDetailData', 'user','date'))->stream('lila-invoice.pdf');
     
            
         return $pdf;
