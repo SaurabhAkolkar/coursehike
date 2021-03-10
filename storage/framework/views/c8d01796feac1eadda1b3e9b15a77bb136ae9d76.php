@@ -7,8 +7,8 @@
     <meta property="og:url"content="<?php echo e(Request::url()); ?>" />
     <meta property="og:type"content="website" />
     <meta property="og:site_name"content="LILA Art" />
-    <meta property="og:image"content="/images/learners/logo.svg" />
-    <meta property="og:image:url"content="/images/learners/logo.svg" />
+    <meta property="og:image"content="<?php echo e(config('app.url')); ?>/images/learners/logo.svg" />
+    <meta property="og:image:url"content="<?php echo e(config('app.url')); ?>/images/learners/logo.svg" />
     <meta property="og:image:size"content="300" />
 
     <meta name="twitter:card"content="summary" />
@@ -72,7 +72,8 @@
             <!-- Video Content Section: Start -->
             <div class="container-fluid la-hero la-hero__video-content d-flex justify-content-center flex-column align-items-center">
               <div class="la-hero__video-info text-center text-md-left">
-                <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">Ace the learning curve with Courses & Classes by</p>
+                <p class="la-hero__tag mb-2 mb-md-0 d-none d-md-block la-anim__stagger-item">Ace the learning curve with Courses & Classes by</p>
+                <p class="la-hero__tag mb-2 mb-md-0 d-block d-md-none la-anim__stagger-item">Courses & Classes by</p>
                 <h1 class="la-hero__title la-anim__stagger-item mb-5">World’s finest <span class="la-hero__subtitle">Artists</span></h1>
                 <p class="la-hero__lead la-anim__stagger-item"><?php echo e($firstSection->sub_heading); ?></p>
               
@@ -80,12 +81,12 @@
                   <div class="la-hero__actions la-anim__stagger-item mt-10">
                     <?php if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active()): ?>
                     <div class="">
-                      <a href="/browse/courses" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white">Start Learning</a>
+                      <a href="/browse/courses" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white px-md-4">Start Learning</a>
                     </div>
 
                     <?php else: ?>
                     <div class="">
-                        <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white" style="letter-spacing:1.5px">
+                        <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white px-md-4" style="letter-spacing:1.5px">
                           Subscribe for
                           <span class="la-soffer__bestprice la-home__bestprice" style="color:var(--white)"> 
                             <?php if(getLocation() == 'IN'): ?>
@@ -109,13 +110,13 @@
                   <?php endif; ?>
                   </div>
                 
-                  <div class="la-hero__bottom-trial mt-8 mt-md-2 ml-md-6 la-anim__stagger-item "><?php if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active()): ?>  <?php else: ?><a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary bg-transparent text-white" style="letter-spacing:1.8px">Start free trial</a> <?php endif; ?> </div>
+                  <div class="la-hero__bottom-trial mt-8 mt-md-2 ml-md-6 la-anim__stagger-item "><?php if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active()): ?>  <?php else: ?><a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary bg-transparent text-white px-md-4" style="letter-spacing:1.8px">Start free trial</a> <?php endif; ?> </div>
                 </div>
               </div>
                
               <div class="la-hero__btn--scroll-down la-anim__stagger-item">
                 <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text-white text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block">
-                  <a href="#home_courses">BROWSE COURSES
+                  <a href="#home_courses" id="home_courses_redirect">BROWSE COURSES
                     <span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span>
                   </a>
                 </div>
@@ -206,7 +207,7 @@
                                       <?php if($course->featured == 0): ?>
                                           <?php continue; ?>
                                       <?php endif; ?>
-                                      <div class="swiper-slide  pt-md-10 pb-md-5 la-home__course-slide  la-anim__stagger-item">
+                                      <div class="swiper-slide pt-md-10 pb-md-5 la-home__course-slide  la-anim__stagger-item">
                                        <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
 <?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => round($course->average_rating, 2),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount,'price' => $course->price,'bought' => $course->isPurchased(),'checkWishList' => $course->checkWishList,'checkCart' => $course->checkCart]); ?>
 <?php if ($component->shouldRender()): ?>
@@ -416,7 +417,9 @@
                               </div>
                           </div>
                       </div>
-                      <div class="swiper-pagination la-home__customize-pagination"></div>
+                      <div class="la-slider__navigations  la-home__course-navigations d-flex justify-content-end align-items-start">
+                        <div class="swiper-pagination la-slider__navigations-dots la-home__customize-pagination la-slider__paginations la-slider__paginations--purble la-right"></div>
+                      </div>
                 </div>
             </div>
         </div>
