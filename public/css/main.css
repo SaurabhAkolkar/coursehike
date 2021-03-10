@@ -9793,7 +9793,7 @@ a.text-dark:focus, a.text-dark:hover {
 @font-face {
   font-family: "icomoon";
   src: url(/fonts/icomoon.eot?c9cc7d64474d557c5e8df44ab98ef73d);
-  src: url(/fonts/icomoon.eot?c9cc7d64474d557c5e8df44ab98ef73d#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?b0311fcd468caf1d6a03ac397d35b57b) format("truetype"), url(/fonts/icomoon.woff?6c28319732fe4213ee7bd6023fcd38fc) format("woff"), url(/fonts/icomoon.svg?de0c5186619b1d1cd9b29a4949ceff22#icomoon) format("svg");
+  src: url(/fonts/icomoon.eot?c9cc7d64474d557c5e8df44ab98ef73d#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?b0311fcd468caf1d6a03ac397d35b57b) format("truetype"), url(/fonts/icomoon.woff?6c28319732fe4213ee7bd6023fcd38fc) format("woff"), url(/fonts/icomoon.svg?38c141a24542bfcd10573322cd0e4a45#icomoon) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -17501,17 +17501,13 @@ input:-webkit-autofill:active {
 }
 .la-footer__inner {
   padding-top: calc(var(--size-base) * 16);
-  padding-left: calc(var(--size-base) * 21);
   padding-bottom: var(--size-4);
-  padding-right: calc(var(--size-base) * 33);
-}
-@media (max-width: 767px) {
-  .la-footer__inner {
-    padding-top: calc(var(--size-base) * 6);
-    padding-left: calc(var(--size-base) * 4);
-    padding-bottom: var(--size-4);
-    padding-right: calc(var(--size-base) * 4);
-  }
+  /* @include respond-below(sm){
+       padding-top: calc(var(--size-base) * 6);
+       padding-left: calc(var(--size-base) * 4);
+       padding-bottom: var(--size-4);
+       padding-right: calc(var(--size-base) * 4);
+   }*/
 }
 .la-footer__brand {
   width: 60px;
@@ -17547,13 +17543,13 @@ input:-webkit-autofill:active {
   padding: 0;
   margin-top: var(--size-6) !important;
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .la-footer__nav {
-    margin-top: var(--size-18) !important;
+    margin-top: var(--size-10) !important;
   }
 }
 .la-footer__nav-item {
-  margin-bottom: var(--size-4);
+  margin-bottom: var(--size-3);
   line-height: normal;
 }
 @media (max-width: 767px) {

@@ -455,6 +455,7 @@ $course_id = $course->id;
               @csrf
               <div class="la-vcourse__purchase-classes">
                 <div class="la-vcourse__purchase-class la-vcourse__purchase-class--all mb-lg-4 la-anim__stagger-item">
+                  @if(count($course->chapter) > 1)
                   <div class="la-form__radio-wrap">
                     <input class="la-form__radio d-none la-vcourse__purchase-input" @if($order_type == null || $order_type == 'all_classes') checked @endif type="radio" value="all-classes" name="classes" id="allClasses">
                     <label class="d-flex align-items-center la-vcourse__purchase-label" for="allClasses">
@@ -462,19 +463,29 @@ $course_id = $course->id;
                       <span class="">All Classes</span>
                     </label>
                   </div>
+                  @endif
                 </div>
                 <div class="la-vcourse__purchase-class la-vcourse__purchase-class--select ">
-                  <div class="la-form__radio-wrap la-anim__stagger-item">
-                    <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" value="select-classes" @if($order_type == 'selected_classes') @endif name="classes" id="selectClasses">
-                    <label class="d-flex align-items-center la-vcourse__purchase-label" for="selectClasses">
-                      <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
-                      <span class="">Select Classes</span>
-                    </label>
-                  </div>
+                  @if(count($course->chapter) > 1)
+                    <div class="la-form__radio-wrap la-anim__stagger-item ">
+                      <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" value="select-classes" @if($order_type == 'selected_classes') @endif name="classes" id="selectClasses">
+                      <label class="d-flex align-items-center la-vcourse__purchase-label" for="selectClasses">
+                        <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
+                        <span class="">Select Classes</span>
+                      </label>
+                    </div>
+                  @endif
+
+                  @if(count($course->chapter) == 1)
+                    <input type="hidden" name="classes" value="all-classes" />
+
+                  @endif
                   <div class="la-vcourse__purchase-items mt-4 mt-lg-8 la-anim__stagger-item" id="selected_class_div">
                     <table class="w-100 la-vcourse__classes-wrap">
                       <tr class="la-vcourse__sclass-item">
+                      @if(count($course->chapter) > 1)
                         <th class="mb-4 la-vcourse__sclass-heading"></th>
+                      @endif
                         <th class="mb-4 la-vcourse__sclass-heading">Class</th>
                         <th class="mb-4 la-vcourse__sclass-heading">Name</th>
                         <th class="mb-4 la-vcourse__sclass-heading">Mentor</th>
@@ -483,6 +494,7 @@ $course_id = $course->id;
                       @foreach ($course->chapter as $class)
                       
                         <tr class="la-vcourse__sclass-item align-top">
+                          @if(count($course->chapter) > 1)
                           <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--checkbox">
                             <div>
                               <input id="selectItem_{{$class->id}}" name="selected_classes[]" class="la-form__checkbox-input selected_classes custom-control-input" type="checkbox" value="{{$class->id}}" @if($order_type == 'all_classes') checked @endif checked>
@@ -499,6 +511,7 @@ $course_id = $course->id;
                               </label>
                             </div>
                           </td>
+                          @endif
                           <td class="la-vcourse__sclass-data la-vcourse__sclass-data--thumbnail">
                             <img src="{{ $class->thumbnail }}" alt="purchase item" class="img-fluid d-block">
                           </td>
@@ -815,7 +828,7 @@ $course_id = $course->id;
               <div class="la-creator__para mb-6 la-anim__stagger-item--x">{{ substr($details, 0, 200) }}...</div>
                 <div class="la-creator__content-btn la-anim__stagger-item--x  ">
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold ">
-                    <a href="/creator/{{$course->user->id}}">read about
+                    <a href="/mentor/{{$course->user->id}}">read about
                     <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow "></span></a>
                   </div>
                 </div>

@@ -140,7 +140,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-2 col-md-2 p-0 my-auto">
-                                                                <img class="la-cart__edit-img img-fluid d-block" src="https://picsum.photos/80/50" alt="" />
+                                                                <img class="la-cart__edit-img img-fluid d-block" src="{{$class->thumbnail}}" alt="" />
                                                             </div>
                                                             <div class="col-3 col-md-3 my-auto">
                                                                 <div class="la-cart__edit-submain">{{$class->chapter_name}}</div>

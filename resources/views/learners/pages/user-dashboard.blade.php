@@ -280,7 +280,7 @@
                             <h3 class="la-mentor__name">{{$u[0]->user->fullName}}</h3>
                             <p class="la-mentor__skill">{{$u[0]->category->title}}</p>
                           </div>
-                          <a class="la-mentor__detailview " href="/creator/{{1}}">
+                          <a class="la-mentor__detailview " href="/mentor/{{1}}">
                             <span class="la-icon la-icon--6xl icon-grey-arrow mt-n2"></span>
                           </a>
                         </div>

@@ -7,7 +7,7 @@
             <div class="la-artist__content-top d-flex flex-column align-items-end">
                 <div class="la-artist__name"> {{ $artistName }} </div>
                 <div class="la-artist__about la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold">
-                    <a href="/creator/{{$artistId}}">read about
+                    <a href="/mentor/{{$artistId}}">read about
                         <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
                     </a>
                 </div>

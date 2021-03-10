@@ -17,7 +17,7 @@ class CheckCreator
     public function handle($request, Closure $next)
     {
         if(Auth::user()->role == "mentors" || Auth::user()->role == "admin" ){
-            return redirect()->back()->with('message','You are already a creator');
+            return redirect()->back()->with('message','You are already a Mentor');
         }
         return $next($request);
     }
