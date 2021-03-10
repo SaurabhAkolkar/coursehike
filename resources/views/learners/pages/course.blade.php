@@ -88,14 +88,14 @@ $course_id = $course->id;
           
           <div class="col-12 col-md-5 col-lg-3 offset-lg-1 pt-10 pt-md-1 d-flex flex-column justify-content-start align-items-center align-items-md-end la-anim__wrap">
             
-              <div class="la-vcourse__buy w-100 text-center mb-6 mb-md-12 la-anim__stagger-item--x">
+              <div class="la-vcourse__buy w-100 text-center text-md-right mb-6 mb-md-12 la-anim__stagger-item--x">
                 @if ( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription()) || (auth()->check() && !Auth::User()->subscription()->active())  ) )
                   <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end" href="/learning-plans">Subscribe Now</a>
                 @endif
 
                 @if(auth()->check())
                   <div class="text-center la-anim__stagger-item--x">
-                    <div class="la-vcourse__buy-complete mb-1 w-100">
+                    <div class="la-vcourse__buy-complete mt-5 mb-1 w-100">
                       <span class="pr-2" style="color:var(--green)">{{$course->getProgress()}}%</span> <span style="color:var(--gray8)"> Completed</span>
                     </div>
                     <div class="progress la-rtng__progress w-100"> 
@@ -165,7 +165,7 @@ $course_id = $course->id;
           </div>
         </div>
         <div id="vcourse_row" class="row la-vcourse__class-row  la-anim__wrap">
-          <div class="col-12 col-lg-6 la-vcourse__class-col px-md-4 la-anim__stagger-item">
+          <div class="la-vcourse__class-col la-vcourse__class-col--video px-md-4 la-anim__stagger-item">
             <div class="la-player la-vcourse__video-wrap mb-3">
               
                 <video-js
@@ -188,7 +188,7 @@ $course_id = $course->id;
             <small class="la-vlesson__creator text-capitalize la-anim__stagger-item">{{ $course->user->fname }}</small>
           </div>
 
-          <div class="col-12 col-lg-6 la-vcourse__class-col px-0 px-md-2 la-anim__stagger-item--x">
+          <div class="la-vcourse__class-col la-vcourse__class-col--video-list px-0 px-md-2 la-anim__stagger-item--x">
             <div class="la-vcourse__curriculam ">
               @foreach($course->chapter as $class)
               <div class="la-vcourse__class la-anim__stagger-item">
@@ -416,9 +416,9 @@ $course_id = $course->id;
 
                     <div class="col-md-6 col-lg-4 la-cbenefits__item-col la-anim__stagger-item--x">
                       <div class="la-cbenefits__item d-flex flex-column align-items-center">
-                        <div class="mb-3"><img class="img-fluid d-block w-100" src="/images/learners/course-benefits/trial.svg" alt="Free Trials" /></div>
-                        <h4 class="la-cbenefits__item-title mb-3">Free Trials</h4>
-                        <p class="la-cbenefits__item-desc m-0 text-center">A 7 day free trial to help choose the right course</p>
+                        <div class="mb-7"><img class="img-fluid d-block w-100" src="/images/learners/course-benefits/artist-original.svg" alt="Artist's Original Content" /></div>
+                        <h4 class="la-cbenefits__item-title mb-3">Artist's Original Content</h4>
+                        <p class="la-cbenefits__item-desc m-0 text-center">Made with Lila's principles of explanation methods</p>
                       </div>
                     </div>
 

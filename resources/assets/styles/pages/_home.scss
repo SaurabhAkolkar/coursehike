@@ -138,7 +138,6 @@
     color:var(--app-indigo-1);
     font-weight:var(--font-extrabold);
     font-size:var(--text-4xl);
-    margin-bottom:var(--size-8);
 
     @include respond-above(md){
         font-size:var(--text-5xl);
@@ -513,14 +512,15 @@
     }
 }
 .la-slider__paginations--purble .swiper-pagination-bullet {
-    width: 7px;
-    transition: all 0.6s ease;
+    width: 15px;
+    border-radius:10px;
+    transition: all 0.4s ease;
 }
 .la-slider__paginations--purble .swiper-pagination-bullet-active {
     width:30px;
     // height:7px;
-    border-radius:10px;
-    transition: all 0.6s ease;
+    // border-radius:10px;
+    transition: all 0.4s ease;
 
     // animation:fill 0.6s ease 0s alternate;
 
