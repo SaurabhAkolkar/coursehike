@@ -260,7 +260,7 @@
                       
                     @endif
             @else
-                <div class="tab-content la-courses__content la-anim__wrap position-relative" id="nav-tabContent">
+                <div class="tab-content la-courses__nav-content la-anim__wrap position-relative" id="nav-tabContent">
                       @foreach ($categories as $category)
                         <div class="tab-pane fade show la-anim__wrap @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
                           
