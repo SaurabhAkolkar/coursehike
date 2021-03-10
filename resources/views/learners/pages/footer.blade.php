@@ -23,8 +23,8 @@
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li> -->
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Testimonials</a></li> -->
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/learning-plans">Learning Plans</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/become-creator">Become a Creator</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/guided-creator">Guided Creator</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/become-mentor">Become a Mentor</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/guided-mentor">Guided Mentor</a></li>
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Request a Tutorial</a></li> -->
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Teaching Techniques</a></li> -->
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/about">About Us</a></li>

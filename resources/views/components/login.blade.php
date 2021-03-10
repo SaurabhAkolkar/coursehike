@@ -164,19 +164,19 @@
             </div>
         
             <div class="la-header__nav-item d-lg-none">   
-                <a class="la-header__nav-link @if(Request::segment(1) == 'become-creator') active @endif" href="/become-creator">
+                <a class="la-header__nav-link @if(Request::segment(1) == 'become-mentor') active @endif" href="/become-mentor">
                     <div class="la-header__nav-icon">
                         <span class="la-icon la-icon--xl icon-become-creator"></span>
                     </div>
-                    <span class="la-header__nav-name">Become a Creator</span>
+                    <span class="la-header__nav-name">Become a Mentor</span>
                 </a>
             </div>
             <div class="la-header__nav-item d-lg-none">   
-                <a class="la-header__nav-link @if(Request::segment(1) == 'guided-creator') active @endif" href="/guided-creator">
+                <a class="la-header__nav-link @if(Request::segment(1) == 'guided-mentor') active @endif" href="/guided-mentor">
                     <div class="la-header__nav-icon">
                         <span class="la-icon la-icon--xl icon-guided-creator"></span>
                     </div>
-                    <span class="la-header__nav-name">Guided Creator</span>
+                    <span class="la-header__nav-name">Guided Mentor</span>
                 </a>
             </div>
             <!--<div class="la-header__nav-item d-lg-none">   
@@ -241,20 +241,20 @@
             </div>
 
             <div class="la-header__nav-item d-lg-none">   
-                <a class="la-header__nav-link @if(Request::segment(1) == 'become-creator') active @endif" href="/become-creator">
+                <a class="la-header__nav-link @if(Request::segment(1) == 'become-mentor') active @endif" href="/become-mentor">
                     <div class="la-header__nav-icon">
                     <span class="la-icon--lg icon-become-creator"></span>
                     </div>
-                    <span class="la-header__nav-name" style="text-transform:none">Become a Creator</span>
+                    <span class="la-header__nav-name" style="text-transform:none">Become a Mentor</span>
                 </a>
             </div>
 
             <div class="la-header__nav-item d-lg-none">   
-                <a class="la-header__nav-link @if(Request::segment(1) == 'guided-creator') active @endif" href="/guided-creator">
+                <a class="la-header__nav-link @if(Request::segment(1) == 'guided-mentor') active @endif" href="/guided-mentor">
                     <div class="la-header__nav-icon">
                     <span class="la-icon--lg icon-guided-creator"></span>
                     </div>
-                    <span class="la-header__nav-name">Guided Creator</span>
+                    <span class="la-header__nav-name">Guided Mentor</span>
                 </a>
             </div>
 
