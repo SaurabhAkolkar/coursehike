@@ -68,6 +68,10 @@ class CourseProgressController extends Controller
 
 				$logs = array();
 				foreach ($request->all() as $log) {
+					
+					if(!$class_id || intval($class_id) == 0)
+						continue;
+
 					$logs[] = [
 						'user_id' => $user->id ?? 0,
 						'course_id' => $course_id,
