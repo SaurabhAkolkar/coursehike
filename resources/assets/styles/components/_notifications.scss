@@ -1,6 +1,12 @@
 #{$ap}- {
     &notification{
         &__{
+            &dropdown{
+                @include respond-below(sm){
+                    width:100vw !important;
+                    left:-6px !important;
+                }
+            }
             &card{
                 margin-top:var(--size-4);
                 background:#ffffff;
@@ -16,7 +22,8 @@
                 -ms-overflow-style: none; 
 
                 @include respond-below(sm){
-                    width:300px;
+                    width:100%;
+                    border-radius:0;
                 }
             }
             &card::-webkit-scrollbar{
@@ -76,7 +83,7 @@
                 }
 
                 @include respond-below(sm){
-                    width:300px;
+                    width:100%;
                 }
             }
         }

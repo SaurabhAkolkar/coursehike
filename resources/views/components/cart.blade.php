@@ -127,6 +127,7 @@
                                                     </div>
 
                                                     
+                                                    <div class="la-cart__edit-scroll">
                                                         @foreach($cart->courses->chapter as $class)
                                                         <div class="row la-cart__edit-info ">
                                                             <div class="col-2 col-md-2 text-center my-auto ">
@@ -148,11 +149,12 @@
                                                             <div class="col-2 col-md-3 px-0 px-md-2 my-auto">
                                                                 <div class="la-cart__edit-submain text-capitalize">{{ $creator }}</div>
                                                             </div>
-                                                            <div class=" col-3 col-md-2 my-auto">
-                                                                <div class="la-cart__edit-submain  text-sm">$ {{ $class->price }}</div>
+                                                            <div class=" col-3 col-md-2 px-2 px-md-0 my-auto">
+                                                                <div class="la-cart__edit-submain text-sm">$ {{ $class->price }}</div>
                                                             </div>
                                                         </div>
                                                         @endforeach
+                                                    </div>
                                                     
                                                     <!-- 
                                                     <div class="row la-cart__edit-info">

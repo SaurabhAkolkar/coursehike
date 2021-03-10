@@ -44,7 +44,7 @@
                               @php
                                 $course = $c->courses;
                               @endphp
-                              <div class="col-md-4 px-0">
+                              <div class="col-md-6 col-lg-4 px-0">
                                 <x-course   
                                     :id="$course->id"
                                     :img="$course->preview_image" 
