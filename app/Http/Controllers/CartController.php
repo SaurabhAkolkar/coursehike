@@ -133,7 +133,10 @@ class CartController extends Controller
 
             CartItem::insert($insert);
 
-            return redirect()->back()->with('message','Course added to the cart.');
+            if($request->has('buy_type') && $request->buy_type == 'buy_now')
+                return redirect('/cart')->with('message','Course added to the cart.');
+            else
+                return redirect()->back()->with('message','Course added to the cart.');
 
         }elseif($request->classes == "select-classes"){
             
@@ -161,8 +164,11 @@ class CartController extends Controller
                     CartItem::insert($insert);
                 }
             }
-
-            return redirect()->back()->with('message','Classes added to the cart.');
+            
+            if($request->has('buy_type') && $request->buy_type == 'buy_now')
+                return redirect('/cart')->with('message','Course added to the cart.');
+            else
+                return redirect()->back()->with('message','Course added to the cart.');
         }else{
 
             return redirect()->back()->with('message','Please select the type of class.');

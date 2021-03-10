@@ -34,7 +34,7 @@
 
               <div class="col-12 px-0 la-anim__wrap">
                   @if(count($on_going_courses) != 0)
-                    <div class="row row-cols-md-2 row-cols-lg-3 ">
+                    <div class="row row-cols-md-2 row-cols-lg-4">
                       @foreach($on_going_courses as $course)
                       
                       <x-course 
@@ -42,7 +42,7 @@
                           :img="$course->preview_image" 
                           :course="$course->title" 
                           :url="$course->slug" 
-                          :rating="$course->review->avg('rating')"
+                          :rating="round($course->average_rating, 2)"
                           :creatorImg="$course->user->user_img"
                           :creatorName="$course->user->fullName"
                           :creatorUrl="$course->user->id"
@@ -85,7 +85,7 @@
             <div class="col-12">
                 <div class="la-mycourses__subtitle text-2xl mb-6 head-font  la-anim__stagger-item--x">Yet to Start</div>
                 @if($yet_to_start_courses && count($yet_to_start_courses) > 0)
-                  <div class="row row-cols-lg-3 ">
+                  <div class="row row-cols-md-2 row-cols-lg-4">
                     @foreach($yet_to_start_courses as $course)
                   
                     <x-course 
@@ -93,7 +93,7 @@
                         :img="$course->preview_image" 
                         :course="$course->title" 
                         :url="$course->slug" 
-                        :rating="$course->review->avg('rating')"
+                        :rating="round($course->average_rating, 2)"
                         :creatorImg="$course->user->user_img"
                         :creatorName="$course->user->fullName"
                         :creatorUrl="$course->user->id"
@@ -136,7 +136,7 @@
             <div class="col-12">
               <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Completed</div>
                 @if($completed_courses && count($completed_courses) != 0)
-                  <div class="row row-cols-lg-3 ">
+                  <div class="row row-cols-md-2 row-cols-lg-4">
                     @foreach($completed_courses as $course)
                   
                     <x-course 
@@ -144,7 +144,7 @@
                         :img="$course->preview_image" 
                         :course="$course->title" 
                         :url="$course->slug" 
-                        :rating="$course->review->avg('rating')"
+                        :rating="round($course->average_rating, 2)"
                         :creatorImg="$course->user->user_img"
                         :creatorName="$course->user->fullName"
                         :creatorUrl="$course->user->id"

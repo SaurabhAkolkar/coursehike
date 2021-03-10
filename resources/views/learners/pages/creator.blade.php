@@ -9,8 +9,8 @@
     <meta property="og:url"content="{{Request::url()}}" />
     <meta property="og:type"content="website" />
     <meta property="og:site_name"content="LILA Art" />
-    <meta property="og:image"content="/images/learners/logo.svg" />
-    <meta property="og:image:url"content="/images/learners/logo.svg" />
+    <meta property="og:image"content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:url"content="{{config('app.url')}}/images/learners/logo.svg" />
     <meta property="og:image:size"content="300" />
 
     <meta name="twitter:card"content="summary" />
@@ -80,13 +80,13 @@
                                 
                                 @foreach($courses as $course)
                                 
-                                    <div class="col-md-6 col-lg-4 px-0">
+                                    <div class="col-md-6 col-lg-3 px-0">
                                       <x-course 
                                           :id="$course->id"
                                           :img="$course->preview_image" 
                                           :course="$course->title" 
                                           :url="$course->title" 
-                                          :rating="$course->review->avg('rating')"
+                                          :rating="round($course->average_rating, 2)"
                                           :creatorImg="$course->user->user_img"
                                           :creatorName="$course->user->FullName"
                                           :creatorUrl="$course->user->id"

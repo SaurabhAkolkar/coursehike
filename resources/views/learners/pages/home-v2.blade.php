@@ -9,8 +9,8 @@
     <meta property="og:url"content="{{Request::url()}}" />
     <meta property="og:type"content="website" />
     <meta property="og:site_name"content="LILA Art" />
-    <meta property="og:image"content="/images/learners/logo.svg" />
-    <meta property="og:image:url"content="/images/learners/logo.svg" />
+    <meta property="og:image"content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:url"content="{{config('app.url')}}/images/learners/logo.svg" />
     <meta property="og:image:size"content="300" />
 
     <meta name="twitter:card"content="summary" />
@@ -314,7 +314,7 @@
                                           :img="$course->preview_image"
                                           :course="$course->title"
                                           :url="$course->slug"
-                                          :rating="$course->review->avg('rating')"
+                                          :rating="round($course->average_rating, 2)"
                                           :creatorImg="$course->user->user_img"
                                           :creatorName="$course->user->fname"
                                           :creatorUrl="$course->user->id"

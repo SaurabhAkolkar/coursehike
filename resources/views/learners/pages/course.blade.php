@@ -4,14 +4,14 @@
     <title>{{ $course->title }} | Courses | Best Online Courses for Art & Creativity | LILA</title>
     <meta name='description' itemprop='description' content='Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now' />
 
-    <meta property="og:description"content="Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now" />
-    <meta property="og:title"content="Courses | Best Online Courses for Art & Creativity | LILA" />
-    <meta property="og:url"content="{{Request::url()}}" />
-    <meta property="og:type"content="website" />
-    <meta property="og:site_name"content="LILA Art" />
-    <meta property="og:image"content="/images/learners/logo.svg" />
-    <meta property="og:image:url"content="/images/learners/logo.svg" />
-    <meta property="og:image:size"content="300" />
+    <meta property="og:description" content="Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now" />
+    <meta property="og:title" content="Courses | Best Online Courses for Art & Creativity | LILA" />
+    <meta property="og:url" content="{{Request::url()}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LILA Art" />
+    <meta property="og:image" content="{{$course->preview_image}}" />
+    <meta property="og:image:url" content="{{$course->preview_image}}" />
+    <meta property="og:image:size" content="300" />
 
     <meta name="twitter:card"content="summary" />
     <meta name="twitter:title"content="Courses | Best Online Courses for Art & Creativity | LILA" />
@@ -271,11 +271,11 @@ $course_id = $course->id;
               <div class="col-lg-12 px-0">
                 <div class="col-12 col-lg px-0 la-anim__wrap">
                   <div class="la-ctabs__about la-anim__stagger-item ">
-                    <p>{{ $course->short_detail }}
+                    <p>{!! $course->short_detail !!}</p>
                     <span class="la-ctabs__about-collapse collapse" id="about_collapse">
-                      {!! $course->detail !!}
+                      {!! $course->detail  !!}
                     </span>
-                    </p>
+                    
                   </div>
                   
                   <div class="la-vcourse__btn-wrap text-right mt-3 la-anim__stagger-item ">
@@ -464,7 +464,7 @@ $course_id = $course->id;
               @csrf
               <div class="la-vcourse__purchase-classes">
                 <div class="la-vcourse__purchase-class la-vcourse__purchase-class--all mb-lg-4 la-anim__stagger-item">
-                  @if(count($course->chapter) > 1)
+                
                   <div class="la-form__radio-wrap">
                     <input class="la-form__radio d-none la-vcourse__purchase-input" @if($order_type == null || $order_type == 'all_classes') checked @endif type="radio" value="all-classes" name="classes" id="allClasses">
                     <label class="d-flex align-items-center la-vcourse__purchase-label" for="allClasses">
@@ -472,10 +472,10 @@ $course_id = $course->id;
                       <span class="">All Classes</span>
                     </label>
                   </div>
-                  @endif
+                
                 </div>
                 <div class="la-vcourse__purchase-class la-vcourse__purchase-class--select ">
-                  @if(count($course->chapter) > 1)
+                  
                     <div class="la-form__radio-wrap la-anim__stagger-item ">
                       <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" value="select-classes" @if($order_type == 'selected_classes') @endif name="classes" id="selectClasses">
                       <label class="d-flex align-items-center la-vcourse__purchase-label" for="selectClasses">
@@ -483,18 +483,12 @@ $course_id = $course->id;
                         <span class="">Select Classes</span>
                       </label>
                     </div>
-                  @endif
 
-                  @if(count($course->chapter) == 1)
-                    <input type="hidden" name="classes" value="all-classes" />
-
-                  @endif
                   <div class="la-vcourse__purchase-items mt-4 mt-lg-8 la-anim__stagger-item" id="selected_class_div">
                     <table class="w-100 la-vcourse__classes-wrap">
                       <tr class="la-vcourse__sclass-item">
-                      @if(count($course->chapter) > 1)
+                     
                         <th class="mb-4 la-vcourse__sclass-heading"></th>
-                      @endif
                         <th class="mb-4 la-vcourse__sclass-heading">Class</th>
                         <th class="mb-4 la-vcourse__sclass-heading">Name</th>
                         <th class="mb-4 la-vcourse__sclass-heading">Mentor</th>
@@ -503,7 +497,6 @@ $course_id = $course->id;
                       @foreach ($course->chapter as $class)
                       
                         <tr class="la-vcourse__sclass-item align-top">
-                          @if(count($course->chapter) > 1)
                           <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--checkbox">
                             <div>
                               <input id="selectItem_{{$class->id}}" name="selected_classes[]" class="la-form__checkbox-input selected_classes custom-control-input" type="checkbox" value="{{$class->id}}" @if($order_type == 'all_classes') checked @endif checked>
@@ -520,7 +513,7 @@ $course_id = $course->id;
                               </label>
                             </div>
                           </td>
-                          @endif
+                          
                           <td class="la-vcourse__sclass-data la-vcourse__sclass-data--thumbnail">
                             <img src="{{ $class->thumbnail }}" alt="purchase item" class="img-fluid d-block">
                           </td>
@@ -534,9 +527,10 @@ $course_id = $course->id;
                   </div>
                 </div>
               </div>
+              <input type="hidden" name="buy_type" id="buy_type" value="add_cart">
               <div class="la-vcourse__purchase-actions d-flex flex-wrap align-items-center mt-8">
                 <div class="la-vcourse__purchase-btn1 w-50">
-                  <a class="btn btn-primary la-btn w-100 text-center text-in" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif >Buy this course @ <span class="la-vcourse__purchase-prize--amount"><b>{{ getSymbol() }}{{$course->convertedprice}}</b></span></a>
+                  <a class="btn btn-primary la-btn w-100 text-center" @if(Auth::check()) onclick="(function(){$('#buy_type').val('buy_now');$('#add_to_cart_form').submit()})()" @else data-toggle="modal" data-target="#locked_login_modal" @endif >Buy course</a>
                 </div>
                 <div class="la-vcourse__purchase-btn w-50 text-center">
                   <a class="btn la-btn__plain text--green" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>ADD TO CART</a>
@@ -768,6 +762,7 @@ $course_id = $course->id;
           </div>
           <div class="col-12 pt-4 pt-md-12">
             <div class="la-mcard__slider-wrap la-anim__wrap px-0">
+            @if(count($reviews))
               <div class="swiper-container h-100 la-lcreviews__container">
                 <div class="swiper-wrapper la-lcreviews__wrapper"> 
               
@@ -813,6 +808,7 @@ $course_id = $course->id;
               </div>
               <div class="swiper-pagination swiper-pagination-custom la-lcreviews__pagination la-anim__stagger-item--x"></div> 
             </div>
+            @endif
           </div>
         </div>
       </div>
@@ -850,7 +846,7 @@ $course_id = $course->id;
               <div class="la-creator__para mb-6 la-anim__stagger-item--x">{{ substr($details, 0, 200) }}...</div>
                 <div class="la-creator__content-btn la-anim__stagger-item--x  ">
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold ">
-                    <a href="/creator/{{$course->user->id}}">read about
+                    <a href="/mentor/{{$course->user->id}}">read about
                     <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow "></span></a>
                   </div>
                 </div>
@@ -881,7 +877,7 @@ $course_id = $course->id;
                 </div>         
             @else
 
-            <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item--x ">
+            <div class="row row-cols-md-2 row-cols-lg-4 la-anim__stagger-item--x ">
               @foreach ($mentor_other_courses as $mentor_other_course)
                     <x-course 
                     :id="$mentor_other_course->id"
@@ -924,7 +920,7 @@ $course_id = $course->id;
 
           @else
 
-            <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item--x ">
+            <div class="row row-cols-md-2 row-cols-lg-4 la-anim__stagger-item--x ">
               @foreach ($related_courses as $related_course)
                   <x-course 
                       :id="$related_course->id"
