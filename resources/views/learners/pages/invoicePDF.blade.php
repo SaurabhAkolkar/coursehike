@@ -26,7 +26,7 @@
         <table width="100%">
             <tr>
                 <td width="30%"> 
-                    <img src="https://picsum.photos/80/80" alt="Logo" />  
+                    <img src="{{asset('/images/learners/logo.svg')}}" alt="Logo" />  
                 </td>
 
                 <td width="70%" colspan="2" style="text-align:right;">
@@ -50,16 +50,16 @@
                 <td width="50%" style="padding:50px 0;">
                     <div>
                         <h5 style="color:#959595;margin:0;">SOLD TO</h5> 
-                        <div style="color:#252525;"> Joseph Phill </div>
-                        <div style="color:#252525;">Address: 7-23, Hyderabad</div>
+                        <div style="color:#252525;"> {{$user->fullName}} </div>
+                        <div style="color:#252525;">{{$user->address}}{{$user->city}}{{$user->state}}{{$user->country}} - {{$user->pin_code}}</div>
                         <div>
                             <a href="tel:9999912345" style="color:#252525;text-decoration:none;">
-                                <span>+91 9999912345</span>
+                                <span>@if(getLocation() == 'India') +91 @endif {{$user->mobile}} </span>
                             </a> 
                         <div>
                         <div>
                             <a href="mailto: mail@example.com" style="color:#252525;text-decoration:none;">
-                                <span> mail@example.com</span>
+                                <span>{{$user->email}}</span>
                             </a>
                         </div>
                     </div>
@@ -69,12 +69,12 @@
                     <div>
                         <div style="padding-bottom:15px;">
                             <h5 style="color:#959595;margin:0;">DATE</h5> 
-                            <p style="color:#252525;margin:0;font-size:14px;">20.12.2020</p>
+                            <p style="color:#252525;margin:0;font-size:14px;">{{$date}}</p>
                         </div>
                                 
                         <div>
                             <h5 style="color:#959595;margin:0;">ORDER ID </h5>
-                            <p style="color:#252525;margin:0;font-size:14px;">52ghkyiysskj55</p>
+                            <p style="color:#252525;margin:0;font-size:14px;">{{$invoice->invoice_id}}</p>
                         </div>
                     </div>
                 </td>
@@ -89,21 +89,42 @@
                     <div style="color:#929292;"> Price</div> 
                 </td>
             </tr>
-                        
+            @foreach($invoiceDetailData as $idd)         
             <tr>
                 <td width="40%" style="padding-bottom:10px;">
-                    <img src="https://picsum.photos/140/80" alt="course name" style="width:140px;height:80px;border-radius:10px;background-color:#c3c3c3;"/>
+                    <img src="{{$idd->course->preview_image}}" alt="course name" style="width:140px;height:80px;border-radius:10px;background-color:#c3c3c3;"/>
                 </td>
 
                 <td width="30%" style="text-align:left;padding-bottom:10px;">
                     <div>
-                        <strong>Course Name</strong> <br/>
-                        <span style="color:#252525">by Creator Name </span>
+                        <strong>{{$idd->course->title}}</strong> <br/>
+                        <span style="color:#252525">by {{$idd->course->user->fullName}} </span>
                     </div>
                 </td>
                 
                 <td width="30%" style="text-align:right;padding-bottom:10px;">
-                    <div style="color:#252525">$ <span>10</span></div>
+                    <div style="color:#252525">@if($invoice->currency == 'INR') ₹ @else $ @endif <span>{{$idd->price}}</span></div>
+                </td>
+            </tr>
+            @endforeach
+
+            <tr>
+                <td width="50%" colspan="2"></td>
+                <td width="50%" style="text-align:right;padding-top:15px;">
+                    <div>
+                        <p style="color:#959595;font-weight:bold"> Sub Total </p>
+                        <p style="color:#252525"> @if($invoice->currency =='INR') ₹ @else $ @endif <span>{{$invoice->sub_total}}</span> </p>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td width="50%" colspan="2"></td>
+                <td width="50%" style="text-align:right;padding-top:15px;">
+                    <div>
+                        <p style="color:#959595;font-weight:bold"> Taxes </p>
+                        <p style="color:#252525"> @if($invoice->currency =='INR') ₹ @else $ @endif <span>{{$invoice->taxes}}</span> </p>
+                    </div>
                 </td>
             </tr>
 
@@ -112,7 +133,7 @@
                 <td width="50%" style="text-align:right;padding-top:15px;">
                     <div>
                         <p style="color:#959595;font-weight:bold"> Total </p>
-                        <p style="color:#252525"> $ <span>40</span> </p>
+                        <p style="color:#252525"> @if($invoice->currency =='INR') ₹ @else $ @endif <span>{{$invoice->total}}</span> </p>
                     </div>
                 </td>
             </tr>
@@ -128,12 +149,12 @@
               
                         <div>
                             <span  style="color:#656565;padding-right:5px;">Payment Method:</span>
-                            <span  style="color:#252525">PayTM</span>
+                            <span  style="color:#252525">Stripe</span>
                         </div>
               
                         <div>
                             <span  style="color:#656565;padding-right:5px;">Transaction Id:</span>
-                            <span  style="color:#252525">dssxjshaldjkdhuhf</span>
+                            <span  style="color:#252525">{{$invoice->invoice_id}}</span>
                         </div>
                     </div>
                 </td>
