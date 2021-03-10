@@ -149,7 +149,7 @@
                                                                 <div class="la-cart__edit-submain text-capitalize">{{ $creator }}</div>
                                                             </div>
                                                             <div class=" col-3 col-md-2 my-auto">
-                                                                <div class="la-cart__edit-submain  text-sm">$ {{ $class->price }}</div>
+                                                                <div class="la-cart__edit-submain  text-sm">$ {{ $class->convertedprice }}</div>
                                                             </div>
                                                         </div>
                                                         @endforeach
