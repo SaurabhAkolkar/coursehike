@@ -3,9 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width,initial-scale=1" name="viewport">
-    <title>Learn Anything Artistic Online | Start For Free Today | LILA</title>
     
-@yield('seo_content')
+    @yield('seo_content')
+    
+    <title>Learn Anything Artistic Online | Start For Free Today | LILA</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,6 +30,16 @@
 
     <script type="text/javascript">
         var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode:"4f8506d3301d7456fde4e9f7b70cc2898b8053dba2d293f5c5cf1103214edd9e", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);d.write("<div id='zsiqwidget'></div>");
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6T463JS9YB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-6T463JS9YB');
     </script>
 
 </head>

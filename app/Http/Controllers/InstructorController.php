@@ -14,6 +14,7 @@ use Cartalyst\Stripe\Stripe;
 use App\Instructor;
 use App\ReviewRating;
 use App\UserSubscriptionInvoice;
+use Illuminate\Support\Str;
 
 class InstructorController extends Controller
 {
@@ -212,8 +213,13 @@ class InstructorController extends Controller
 
     }
 
-    public function creator($id){
+    public function creator($id, $name = null){
+
         $creator = User::findorfail($id);
+        
+        if($name == null)
+            return redirect()->route('mentor.profile', ['id' => $id, 'name'=> Str::slug($creator->fname.' '.$creator->lname, '-') ]);
+
         $courses = Course::with('user','review')->where(['user_id' => $id, 'status' => 1])->get();
         $courses_ids = Course::where('user_id', $id)->pluck('id');
         $rating = ReviewRating::whereIn('course_id', $courses_ids)->avg('rating');

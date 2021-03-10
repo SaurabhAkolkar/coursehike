@@ -740,8 +740,8 @@ Route::post('admin/ipblock/update', 'IPBlockController@update')->name('ipblock.u
 Route::get('all/assignment', 'AssignmentController@view')->name('assignment.view');
 Route::get('view/assignment/{id}', 'AssignmentController@assignment')->name('list.assignment');
 
-Route::get('/become-creator','WebsiteController@becomeCreator');
-Route::get('/guided-creator','WebsiteController@guidedCreator');
+Route::get('/become-mentor','WebsiteController@becomeCreator');
+Route::get('/guided-mentor','WebsiteController@guidedCreator');
 Route::get('/learning-plans','WebsiteController@learningPlans');
 
 // test
@@ -754,9 +754,8 @@ Route::view('/signup','learners.auth.signup');
 Route::view('/signin','learners.auth.signin');
 Route::get('/mentors','InstructorController@allMentors');
 Route::get('/search-mentor','InstructorController@searchMentor');
-Route::get('/creator/{id}','InstructorController@creator');
+Route::get('/mentor/{id}/{name?}','InstructorController@creator')->name('mentor.profile');
 
-Route::view('/creator','learners.pages.creator');
 Route::view('/payment-successful','learners.pages.payment-successful');
 Route::view('/contact','learners.pages.contact')->name('contactus');
 Route::view('/about', 'learners.pages.about');

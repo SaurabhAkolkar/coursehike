@@ -8,8 +8,8 @@
     <meta property="og:url"content="{{Request::url()}}" />
     <meta property="og:type"content="website" />
     <meta property="og:site_name"content="LILA Art" />
-    <meta property="og:image"content="/images/learners/logo.svg" />
-    <meta property="og:image:url"content="/images/learners/logo.svg" />
+    <meta property="og:image"content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:url"content="{{config('app.url')}}/images/learners/logo.svg" />
     <meta property="og:image:size"content="300" />
 
     <meta name="twitter:card"content="summary" />
@@ -280,7 +280,7 @@
                             <h3 class="la-mentor__name">{{$u[0]->user->fullName}}</h3>
                             <p class="la-mentor__skill">{{$u[0]->category->title}}</p>
                           </div>
-                          <a class="la-mentor__detailview " href="/creator/{{1}}">
+                          <a class="la-mentor__detailview " href="/mentor/{{1}}">
                             <span class="la-icon la-icon--6xl icon-grey-arrow mt-n2"></span>
                           </a>
                         </div>

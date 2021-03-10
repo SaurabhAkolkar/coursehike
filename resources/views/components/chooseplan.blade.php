@@ -10,9 +10,12 @@
                 {{-- <span class="la-choose__oldprice text-sm p-1">{{ $oldPrice }}</span> --}}
             </div>
             <div class="la-choose__billing text-sm mt-1">Billed {{ $plan }}</div>
-            <!-- <div class="la-choose__savings-bg">
-              <div class="la-choose__savings-{{ $class }}  text-xs mt-1">You save {{ $saving }}%</div>
-            </div> -->
+            @if($saving && $saving != 0)
+              <div class="la-choose__savings-bg">
+                <div class="la-choose__savings-{{ $class }}  text-xs mt-1">You save {{ $saving }}%</div>
+              </div>
+            @endif
+            
           </div>
           <div class="la-choose__subscribe mt-5 mx-4">
             {{-- <a href="/subscription/{{ $slug }}" role="button" target="_self"> --}}

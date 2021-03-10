@@ -9,8 +9,8 @@
     <meta property="og:url"content="{{Request::url()}}" />
     <meta property="og:type"content="website" />
     <meta property="og:site_name"content="LILA Art" />
-    <meta property="og:image"content="/images/learners/logo.svg" />
-    <meta property="og:image:url"content="/images/learners/logo.svg" />
+    <meta property="og:image"content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:url"content="{{config('app.url')}}/images/learners/logo.svg" />
     <meta property="og:image:size"content="300" />
 
     <meta name="twitter:card"content="summary" />
@@ -18,6 +18,13 @@
     <meta name="twitter:site"content="@lilaaliens" />
     
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Learn Anything Artistic Online | Start For Free Today | LILA"}</script>
+
+    <script>
+      (function(h,e,a,t,m,p) {
+      m=e.createElement(a);m.async=!0;m.src=t;
+      p=e.getElementsByTagName(a)[0];p.parentNode.insertBefore(m,p);
+      })(window,document,'script','https://u.heatmap.it/log.js');
+    </script>
 @endsection
 
 @section('content')

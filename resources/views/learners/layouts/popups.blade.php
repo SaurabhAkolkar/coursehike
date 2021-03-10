@@ -43,7 +43,7 @@
                                 <h5 class="modal-title la-locked__modal-title ">Subscription Required!</h5>
                                 <img src="/images/learners/status/locked-subscribe.svg" alt="Subscribe" class="img-fluid mx-auto d-block la-locked__modal-img">
                                 <p class="la-locked__modal-desc">Please subscribe & continue to enjoy courses from you favourite mentors.</p>
-                                <a href="/" class="la-btn__app py-3 w-100 btn btn-block la-locked__modal-btn" role="button">Subscribe Now</a>
+                                <a href="/learning-plans" class="la-btn__app py-3 w-100 btn btn-block la-locked__modal-btn" role="button">Subscribe Now</a>
 
                                 <div class="la-locked__modal-register pt-3">
                                     <span class="la-locked__modal-info pr-1">We have differents plans for you, check</span> <br/>
