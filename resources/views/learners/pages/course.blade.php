@@ -746,6 +746,7 @@ $course_id = $course->id;
           </div>
           <div class="col-12 pt-4 pt-md-12">
             <div class="la-mcard__slider-wrap la-anim__wrap px-0">
+            @if(count($reviews))
               <div class="swiper-container h-100 la-lcreviews__container">
                 <div class="swiper-wrapper la-lcreviews__wrapper"> 
               
@@ -791,6 +792,7 @@ $course_id = $course->id;
               </div>
               <div class="swiper-pagination swiper-pagination-custom la-lcreviews__pagination la-anim__stagger-item--x"></div> 
             </div>
+            @endif
           </div>
         </div>
       </div>
