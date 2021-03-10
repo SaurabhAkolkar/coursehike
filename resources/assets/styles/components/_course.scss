@@ -148,7 +148,7 @@
 
                             @include respond-below(md){
                                 //white-space: nowrap;
-                                font-size:var(--text-2xl);
+                                font-size:var(--text-xl);
                             }
 
                             &:before {

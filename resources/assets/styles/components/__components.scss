@@ -371,7 +371,7 @@
         &__ {
             &tag {
                 font-size: var(--text-2xl);
-                font-weight: var(--font-extrabold);
+                font-weight: var(--font-light);
                 font-family: var(--head-font);
                 color: #222;
             }
@@ -410,6 +410,9 @@
                 // Regular 24px/29px Roboto;
                 font-size: var(--text-2xl);
                 margin-bottom: var(--size-7);
+                @include respond-above(lg) {
+                    width: 60%;
+                }
             }
 
             &img {
@@ -428,6 +431,16 @@
             }
 
             &actions {}
+
+            &video {
+                &- {
+                    &info {
+                        @include respond-below(sm) {
+                            padding: 0 15px;
+                        }
+                    }
+                }
+            }
 
 
         }

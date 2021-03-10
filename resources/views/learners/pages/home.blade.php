@@ -484,7 +484,7 @@
                         <p class="la-home__customize-para mb-0 la-anim__stagger-item">A learning platform just for you. An approach that aims to customize learning for each student's strengths, needs, skills, and interests.</p>
                         
                         <div class="la-btn__arrow la-btn__text--yellow text-uppercase text-spacing font-weight--bold mr-5 mr-md-1 la-anim__stagger-item--x">
-                          <a href="" >explore more</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
+                          <a @if(Auth::check()) href="/user-dashboard" @else data-toggle="modal" data-target="#locked_login_modal" @endif >explore more <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
                         </div>
                     </div>
                 </div>
