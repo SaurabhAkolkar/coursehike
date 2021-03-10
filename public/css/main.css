@@ -19188,6 +19188,11 @@ input:-webkit-autofill:active {
     text-align: center;
   }
 }
+.la-cbenefits__item img {
+  width: auto;
+  max-width: inherit !important;
+  height: 60px;
+}
 .la-cbenefits__item-icon {
   color: var(--yellow);
   font-size: 60px;
