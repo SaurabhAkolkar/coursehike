@@ -4,14 +4,14 @@
     <title>{{ $course->title }} | Courses | Best Online Courses for Art & Creativity | LILA</title>
     <meta name='description' itemprop='description' content='Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now' />
 
-    <meta property="og:description"content="Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now" />
-    <meta property="og:title"content="Courses | Best Online Courses for Art & Creativity | LILA" />
-    <meta property="og:url"content="{{Request::url()}}" />
-    <meta property="og:type"content="website" />
-    <meta property="og:site_name"content="LILA Art" />
-    <meta property="og:image"content="/images/learners/logo.svg" />
-    <meta property="og:image:url"content="/images/learners/logo.svg" />
-    <meta property="og:image:size"content="300" />
+    <meta property="og:description" content="Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now" />
+    <meta property="og:title" content="Courses | Best Online Courses for Art & Creativity | LILA" />
+    <meta property="og:url" content="{{Request::url()}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LILA Art" />
+    <meta property="og:image" content="{{$course->preview_image}}" />
+    <meta property="og:image:url" content="{{$course->preview_image}}" />
+    <meta property="og:image:size" content="300" />
 
     <meta name="twitter:card"content="summary" />
     <meta name="twitter:title"content="Courses | Best Online Courses for Art & Creativity | LILA" />
