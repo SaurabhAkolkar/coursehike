@@ -114,7 +114,7 @@
          
         <div class="la-course__btm">
             <div class="la-course__info d-flex align-items-center mb-1">
-                <a class="la-course__creator d-inline-flex align-items-center" href= "/creator/{{ $creatorUrl }}" >
+                <a class="la-course__creator d-inline-flex align-items-center" href= "/mentor/{{ $creatorUrl }}" >
                     <div class="la-course__creator-imgwrap">
                         <img class="img-fluid" src="{{ $creatorImg }}" alt={{ $creatorName }} />
                         {{-- <img class="img-fluid" src={{ $creatorImg }} alt={{ $creatorName }} /> --}}

@@ -828,7 +828,7 @@ $course_id = $course->id;
               <div class="la-creator__para mb-6 la-anim__stagger-item--x">{{ substr($details, 0, 200) }}...</div>
                 <div class="la-creator__content-btn la-anim__stagger-item--x  ">
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold ">
-                    <a href="/creator/{{$course->user->id}}">read about
+                    <a href="/mentor/{{$course->user->id}}">read about
                     <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow "></span></a>
                   </div>
                 </div>
