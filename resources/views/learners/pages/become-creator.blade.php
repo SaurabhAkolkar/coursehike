@@ -156,7 +156,7 @@
               <div class="la-vicon__text">
                 <h5 class="la-vicon__title la-anim__stagger-item">Record a Video</h5>
                 <p class="la-vicon__desc pt-2 la-anim__stagger-item">Classify and videotape the course of your expertise as classes for better understanding</p>
-                <a class="la-vicon__link text-uppercase position-absolute la-anim__stagger-item" href="/guided-creator">Need Assistance<span class="la-vicon__arrow la-icon la-icon--5xl icon-grey-arrow"></span></a>
+                <a class="la-vicon__link text-uppercase position-absolute la-anim__stagger-item" href="/guided-mentor">Need Assistance<span class="la-vicon__arrow la-icon la-icon--5xl icon-grey-arrow"></span></a>
               </div>
             </div>
             <div class="la-vicon d-flex align-items-start la-anim__wrap">
@@ -365,7 +365,7 @@
               
               <div class="pt-10">
                 <p class="mb-6"><a class=" la-btn__app text-white text-uppercase la-anim__stagger-item" role="button" href="/creator-signup">Start Teaching</a></p>
-                <a class="la-arrow-link text-uppercase position-relative la-anim__stagger-item" href="/guided-creator"> Learn More
+                <a class="la-arrow-link text-uppercase position-relative la-anim__stagger-item" href="/guided-mentor"> Learn More
                   <span class="la-icon la-icon--5xl icon-grey-arrow la-anim__stagger-item--x"></span>
                 </a>
               </div>
