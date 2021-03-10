@@ -191,6 +191,7 @@
                   <div class="tab-content la-courses__content la-anim__wrap" id="nav-tabContent">
                     <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       <div class="position-relative tab-pane fade show <?php if($loop->first): ?> active <?php endif; ?>" id="nav-<?php echo e($category->slug); ?>" role="tabpanel" aria-labelledby="nav-<?php echo e($category->slug); ?>-tab">
+                      
                         <div class="swiper-container la-home__course-container">
                           <div class="swiper-wrapper la-home__course-wrapper ">
                                                                                           
@@ -220,9 +221,9 @@
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
                                         </div>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                  
-                                  
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>   
                           </div>
+                          <?php if(count($courses) != 0): ?>
                           <div class=" w-100 d-md-flex justify-content-between align-items-start">
                             <div class="la-slider__navigations la-home__course-navigations d-flex align-items-center">
                               <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div> -->
@@ -234,24 +235,26 @@
                                 <a href="/browse/courses" >explore more <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
                               </div>
                             </div>
-                          </div>    
-                        </div>              
+                          </div> 
+                          <?php endif; ?>   
+                        </div>  
+                        <?php if(count($courses) == 0): ?>
+                        <div class="col-12 la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
+                            <div class="la-empty__inner">
+                                <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
+                            </div>
+                            <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
+                                <a href="<?php echo e(Url('/browse/courses')); ?>" class="la-empty__browse">
+                                    Browse Courses
+                                    <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
+                                </a>
+                            </div>
+                        </div>
+                      <?php endif; ?>            
                       </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-                    <?php if(count($courses) == 0): ?>
-                    <div class="col-12 la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
-                        <div class="la-empty__inner">
-                            <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
-                        </div>
-                        <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
-                            <a href="<?php echo e(Url('/browse/courses')); ?>" class="la-empty__browse">
-                                Browse Courses
-                                <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
-                            </a>
-                        </div>
-                    </div>
-                  <?php endif; ?>
+                    
                 
                         
                 

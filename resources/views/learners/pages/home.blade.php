@@ -300,6 +300,7 @@
                   <div class="tab-content la-courses__nav-content position-relative pt-0 la-anim__wrap" id="nav-tabContent">
                     @foreach ($categories as $category)
                       <div class="position-relative tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
+                      
                         <div class="swiper-container la-home__course-container">
                           <div class="swiper-wrapper la-home__course-wrapper ">
                                                                                           
