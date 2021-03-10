@@ -41,6 +41,12 @@
                 font-size: var(--text-2xl);
                 line-height: var(--text-2xl);
                 font-weight: var(--font-light);
+
+                &- {
+                    &label {
+                        font-size: var(--text-xl);
+                    }
+                }
             }
             &specialist {
                 font-family: var(--head-font);
