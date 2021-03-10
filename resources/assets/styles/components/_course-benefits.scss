@@ -12,6 +12,12 @@
                     height:100%;
                     text-align: center;
                 }
+
+                & img {
+                    width: auto;
+                    max-width: inherit !important;
+                    height: 60px;
+                }
                                
                 &- {
                     &icon{

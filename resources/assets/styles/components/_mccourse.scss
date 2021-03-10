@@ -21,7 +21,8 @@
         
         &s {
             height: auto;
-            margin-top: -90px;
+            // margin-top: -90px;
+            padding-top: 0 !important;
             position:relative;
             z-index:var(--z-2);
             
