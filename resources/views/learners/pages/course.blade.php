@@ -525,9 +525,10 @@ $course_id = $course->id;
                   </div>
                 </div>
               </div>
+              <input type="hidden" name="buy_type" id="buy_type" value="add_cart">
               <div class="la-vcourse__purchase-actions d-flex flex-wrap align-items-center mt-8">
                 <div class="la-vcourse__purchase-btn1 w-50">
-                  <a class="btn btn-primary la-btn w-100 text-center" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif >Buy course</a>
+                  <a class="btn btn-primary la-btn w-100 text-center" @if(Auth::check()) onclick="(function(){$('#buy_type').val('buy_now');$('#add_to_cart_form').submit()})()" @else data-toggle="modal" data-target="#locked_login_modal" @endif >Buy course</a>
                 </div>
                 <div class="la-vcourse__purchase-btn w-50 text-center">
                   <a class="btn la-btn__plain text--green" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>ADD TO CART</a>
