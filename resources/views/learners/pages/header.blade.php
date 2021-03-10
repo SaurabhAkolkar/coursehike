@@ -160,6 +160,12 @@ use App\Announcement;
                             <x-announcement :url="$anno->id" :img="$anno->preview_image" :event="$anno->title" :timestamp="$timestamp" />
                  
                       @endforeach     
+
+                      @if(count($old_announcements) == 0 && count($announcements) == 0)
+                      <div class="d-flex justify-content-center align-items-center my-auto">
+                        <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-semibold)">No Notifications Found</div>
+                      </div>
+                      @endif
                       <!-- Announcements Panel: End -->          
                 </div>
               </div>
