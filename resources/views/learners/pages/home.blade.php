@@ -352,7 +352,7 @@
                       </div>
                     @endforeach
 
-                    @if(count($courses) == 0)
+                    {{-- @if(count($courses) == 0)
                     <div class="col-12 la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
                         <div class="la-empty__inner">
                             <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
@@ -364,7 +364,7 @@
                             </a>
                         </div>
                     </div>
-                  @endif
+                    @endif --}}
                 
                         {{-- Categories Tab : END --}}
                 
