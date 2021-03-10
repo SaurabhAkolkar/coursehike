@@ -127,6 +127,7 @@
                                                     </div>
 
                                                     
+                                                    <div class="la-cart__edit-scroll">
                                                         @foreach($cart->courses->chapter as $class)
                                                         <div class="row la-cart__edit-info ">
                                                             <div class="col-2 col-md-2 text-center my-auto ">
@@ -153,6 +154,7 @@
                                                             </div>
                                                         </div>
                                                         @endforeach
+                                                    </div>
                                                     
                                                     <!-- 
                                                     <div class="row la-cart__edit-info">

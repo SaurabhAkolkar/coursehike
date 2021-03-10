@@ -84,7 +84,7 @@
                   <div class="la-footer__title">Mentors</div>
                   <ul class="la-footer__list">
                     @foreach ($creators as $c)
-                      <li class="la-footer__list-item"><a class="la-footer__list-link" href="/creator/{{$c->id}}">{{$c->fullName}}</a></li>
+                      <li class="la-footer__list-item"><a class="la-footer__list-link" href="/mentor/{{$c->id}}">{{$c->fullName}}</a></li>
                     @endforeach
                   </ul><a class="la-footer__more" href="/mentors">See all</a>
                 </div>

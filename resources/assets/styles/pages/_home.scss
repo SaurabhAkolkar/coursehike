@@ -25,6 +25,7 @@
             padding-right:var(--size-10); 
 
             @include respond-below(sm) {
+                font-size:var(--text-md);
                 width: 90%;
                 margin: 0 auto;
                 padding-right:0;
@@ -115,9 +116,19 @@
     }
 }
 .la-home__realprice{
-    font-weight: var(--font-medium);
+    font-weight: var(--font-light);
     sup{
         color:var(--green);
+    }
+}
+
+.la-home__course-animate{
+    animation:parallax 1.5s ease;-webkit-animation:parallax 1.5s ease;-moz-animation:parallax 1.5s ease;
+    transition: all 3s cubic-bezier(0.25, 0.1, 0.14, 1.05);-webkit-transition: all 3s cubic-bezier(0.25, 0.1, 0.14, 1.05);-moz-transition: all 3s cubic-bezier(0.25, 0.1, 0.14, 1.05);
+
+    @keyframes parallax{
+        from{opacity:0;transform:translateX(300px);-webkit-transform:translateX(300px);-moz-transform:translateX(300px);transition: all 1s cubic-bezier(0.25, 0.1, 0.14, 1.05);-webkit-transition: all 3s cubic-bezier(0.25, 0.1, 0.14, 1.05);-moz-transition: all 3s cubic-bezier(0.25, 0.1, 0.14, 1.05);}
+        to{opacity:1;transform:translateX(0px);-webkit-transform:translateX(0px);-moz-transform:translateX(0px);transition: all 1s cubic-bezier(0.25, 0.1, 0.14, 1.05);-webkit-transition: all 3s cubic-bezier(0.25, 0.1, 0.14, 1.05);-moz-transition: all 3s cubic-bezier(0.25, 0.1, 0.14, 1.05);}
     }
 }
 
@@ -159,11 +170,11 @@
     // }
 
     @include respond-above(md){
-        width: 360px !important;
+        width: 320px !important;
     }
 
     @include respond-above(lg){
-        width: 400px !important;
+        width: 320px !important;
     }
 }
 .la-home__course-pagination{
@@ -368,16 +379,12 @@
 .la-home__customize-container{
     width:100%;
     height:100%;
-    
-    @include respond-above(sm){
-        margin-bottom:var(--size-10);
-    }
 }
 .la-home__customize-slide{
     width:100%;
 }
 .la-home__customize-pagination{
-    right: 40px !important;
+    //right: 40px !important;
     
 	.swiper-pagination-bullet{
 		background:#ffffff;
@@ -386,21 +393,8 @@
 		margin-right:var(--size-base);
 	}
 	.swiper-pagination-bullet-active{
-		background-color:#fff;
+		background-color:var(--white);
         opacity: 1 !important;
-        width:30px;
-        border-radius:10px;
-        animation:fill2 1s ease 1;
-        
-    
-        @keyframes fill2{
-            from{opacity:0;width:0;}
-            to{opacity:1;width:30px;}
-        }
-        @-webkit-keyframes fill2{
-            from{opacity:0;width:0;}
-            to{opacity:1;width:30px;}
-        }
 	}
 
     @include respond-above(lg){

@@ -754,9 +754,8 @@ Route::view('/signup','learners.auth.signup');
 Route::view('/signin','learners.auth.signin');
 Route::get('/mentors','InstructorController@allMentors');
 Route::get('/search-mentor','InstructorController@searchMentor');
-Route::get('/creator/{id}','InstructorController@creator');
+Route::get('/mentor/{id}/{name?}','InstructorController@creator')->name('mentor.profile');
 
-Route::view('/creator','learners.pages.creator');
 Route::view('/payment-successful','learners.pages.payment-successful');
 Route::view('/contact','learners.pages.contact')->name('contactus');
 Route::view('/about', 'learners.pages.about');

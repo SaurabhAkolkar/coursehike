@@ -115,12 +115,12 @@ $('.la-vcourse__lesson').on('click', function() {
              selected: true,
           },
           {
-             src: data.url+'?clientBandwidthHint=8',
+             src: data.url+'?clientBandwidthHint=5',
              type: 'application/x-mpegURL',
              label: '1080P',
           },
           {
-            src: data.url+'?clientBandwidthHint=4.8',
+            src: data.url+'?clientBandwidthHint=3.6',
             type: 'application/x-mpegURL',
             label: '720P',
          },

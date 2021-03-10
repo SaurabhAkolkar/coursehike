@@ -47,13 +47,14 @@
 
                       @if(count($carts) > 0)
                         @foreach ($carts as $cart)
+                          {{-- {{dd($cart->cartItems)}} --}}
                             <x-cart
                               :cartId="$cart->id"
                               :cart="$cart"
                               :courseId="$cart->course_id"
                               :collapseId="$cart->collapseId"
                               :courseImg="$cart->courses->preview_image"
-                              :classType="$cart->cartItems->first()->purchase_type"
+                              :classType="$cart->cartItems->first() && $cart->cartItems->first()->purchase_type"
                               :course="$cart->courses->title"
                               :creator="$cart->courses->user->fullName"
                               :remove="$remove"
@@ -223,7 +224,7 @@
                         />
                   @endforeach       
                   <div class="col-md-6 col-lg-4 offset-lg-8 text-right la-anim__stagger-item--x">
-                      <div class=" la-btn__plain text--burple text-md h-75 d-flex align-items-center justify-content-center justify-content-md-end">
+                      <div class=" la-btn__plain text--burple text-md h-75 d-flex align-items-center justify-content-center justify-content-lg-end">
                         <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-8 la-anim__fade-in-right">
                           <a href="/browse/courses" >explore more<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
                         </div>

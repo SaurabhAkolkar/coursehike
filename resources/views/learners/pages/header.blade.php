@@ -53,7 +53,7 @@ use App\Announcement;
             </div>
             
             <div class="la-header__menu-item dropdown"><a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-notification " id="notificationPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><sup class="la-header__menu-badge badge badge-light" id="notificationBadge">{{count(Auth::user()->unreadNotifications)}}</sup> </a>
-              <div class="dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="notificationPanel" style="border:none !important;">
+              <div class="la-notification__dropdown dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="notificationPanel" style="border:none !important;">
                   <ul class="card la-notification__card">
                     <!-- Notification Panel: Start -->
 
@@ -105,7 +105,7 @@ use App\Announcement;
                   
               @endphp
             <a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-announcement" onclick="markNotificationRead()" id="announcementPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <sup class="la-header__menu-badge badge badge-light" id="releaseNotificationBadge">{{count($announcements)}}</sup></a>
-              <div class="dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="announcementPanel" style="border:none;">
+              <div class="la-notification__dropdown dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="announcementPanel" style="border:none;">
                 <div class="card la-announcement__card">
                   <div class="la-announcement__name d-flex justify-content-between">
                     <h6 class="text-xl body-font">New Releases</h6>
@@ -160,6 +160,12 @@ use App\Announcement;
                             <x-announcement :url="$anno->id" :img="$anno->preview_image" :event="$anno->title" :timestamp="$timestamp" />
                  
                       @endforeach     
+
+                      @if(count($old_announcements) == 0 && count($announcements) == 0)
+                      <div class="d-flex justify-content-center align-items-center my-auto">
+                        <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-semibold)">No Notifications Found</div>
+                      </div>
+                      @endif
                       <!-- Announcements Panel: End -->          
                 </div>
               </div>
@@ -242,7 +248,7 @@ use App\Announcement;
           
           <div class="la-header__menu-item dropdown">
             <a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-announcement" id="announcementPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
-            <div class="dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="announcementPanel" style="border:none !important;">
+            <div class="la-notification__dropdown  dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="announcementPanel" style="border:none !important;">
               <div class="card la-announcement__card">
                 <div class="la-announcement__name d-flex justify-content-between">
                   <h6 class="text-xl body-font">New Releases</h6>

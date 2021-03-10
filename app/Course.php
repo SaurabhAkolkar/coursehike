@@ -250,7 +250,7 @@ class Course extends Model
         if($lastWatchedCourse){
             $lastWatchedCourseAvg = $lastWatchedCourse->avg('current_position');
             $lastWatchedCourseCount = $lastWatchedCourse->count();
-            $courseCompletion = round($lastWatchedCourseAvg / (($classes - $lastWatchedCourseCount)+1));
+            $courseCompletion = round(abs($lastWatchedCourseAvg / (abs($classes - $lastWatchedCourseCount)+1)));
         }
         return $courseCompletion;
     }
