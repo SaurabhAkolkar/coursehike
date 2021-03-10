@@ -24,6 +24,26 @@
                 }
             }
 
+            &intro {
+                &- {
+                    &left {
+                        width: 100%;
+                        
+                        @include respond-above(md) {
+                            width: calc(100% - 550px);
+                        }
+                    }
+                    &right {
+                        width: 100%;
+
+                        @include respond-above(md) {
+                            width: 550px;
+                            padding-left: 65px;
+                        }
+                    }
+                }
+            }
+
             &badge {
 
             }
@@ -74,14 +94,17 @@
                     &item {
                         & #{$ap}-- {
                             &count {
-                                font-size: calc(var(--text-5xl));
+                                font-size: calc(var(--text-3xl));
                                 color: var(--app-indigo-1);
-                                font-weight: var(--font-light);
-                                line-height: calc(var(--text-5xl) - 8px);
+                                font-weight: var(--font-normal);
+                                line-height: calc(var(--text-3xl) - 8px);
 
                                 @include respond-below(sm){
                                     font-size:var(--text-3xl);
                                 }
+                            }
+                            &label {
+                                font-size: calc(var(--text-xs));
                             }
                         }
                     }
@@ -125,6 +148,10 @@
 
             &duration, &updatedon, &languages {
                 font-size: var(--text-sm);
+                // font-weight: var(--font-normal);
+                & .font-normal {
+                    font-weight: var(--font-medium);
+                }
             }
 
             &video {
@@ -302,7 +329,7 @@
                                     }
                                     &curriculam {
                                         max-height: inherit;
-                                        overflow-y: hidden;
+                                        // overflow-y: hidden;
                                         overflow-x: unset;
                                         padding-top: 80px;
                                         padding-left: 20px !important;
@@ -617,9 +644,14 @@
                         padding-bottom:var(--size-10);
 
                         @include respond-above(sm){
-                            border-right: 1px dashed var(--gray4);
+                            // border-right: 1px dashed var(--gray4);
                             border-bottom:0;
                         }
+                    }
+                    &title {
+                        // font-size: 5.4vh;
+                        // font-weight: var(--font-black);
+                        // font-family: var(--head-font);
                     }
                     &label {
                         font-family: var(--head-font);
@@ -643,9 +675,12 @@
                         }
                     }
                     &right{
+                        background-color: #efeeea;
+                        
                         @include respond-below(sm){
                             padding-top:var(--size-10);
                         }
+
                     }
                     &content{
                         background:var(--white);
@@ -674,7 +709,7 @@
                         &-- {
                             &lnk {
                                 font-size: var(--text-sm);
-                                text-decoration: underline;
+                                // text-decoration: underline;
                                 font-weight: var(--font-medium);
                             }
                         }
