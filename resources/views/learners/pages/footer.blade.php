@@ -8,10 +8,10 @@
 <footer class="la-footer">
     <div class="la-footer__inner">
       <div class="la-footer__top mb-5 pb-md-3">
-        <div class="container">
+        <div class="container-fluid">
           <div class="row">
             <!-- Column: Start-->
-            <div class="col-12 col-lg-3 mb-10 mb-md-1">
+            <div class="col-12 col-md-6 col-lg-4 mb-10 mb-md-1">
               <div class="la-footer__brand mb-4 mb-md-5">
                 <a href="/"><img class="img-fluid" src="/images/learners/logo.svg" alt="Lila"></a>
               </div>
@@ -34,7 +34,7 @@
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="https://www.alienstattooschool.com/" target="_blank">Aliens Tattoo School</a></li>
               </ul>
 
-              <div class="la-footer__social mt-4 mt-md-10">
+              <div class="la-footer__social mt-4">
                   <a class="la-footer__social-link mr-2" href="https://www.facebook.com/learnitlikealiens" target="_blank"><span class="la-icon la-icon--5xl icon-facebook"></span></a>
                   <a class="la-footer__social-link mr-2" href="https://www.instagram.com/learnitlikealiens/" target="_blank"><span class="la-icon la-icon--5xl icon-insta"></span></a>
                   <a class="la-footer__social-link mr-2" href="https://www.youtube.com/channel/UC1LRPWR4rltOLKiR7e-pWEg" target="_blank"><span class="la-icon la-icon--5xl icon-youtube"></span></a>
@@ -42,7 +42,7 @@
             </div>
             <!-- Column: End-->
             <!-- Column: Start-->
-            <div class="col-12 col-lg-5 offset-lg-1">
+            <div class="col-12  col-md-6  col-lg-5">
               <div class="row row-cols-2 mt-md-18">
                 <div class="col-6 mb-10">
                   <div class="la-footer__title">Categories</div>
@@ -67,9 +67,9 @@
             </div>
             <!-- Column: End-->
             <!-- Column: Start-->
-            <div class="col-12 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-3">
               <div class="mt-md-18">
-                <div class="col-12 mb-10">
+                <div class="col-12 px-0 mb-10">
                   <div class="la-footer__title">Master Classes</div>
                   <ul class="la-footer__list">
                     @foreach($master_classes as $mc)
@@ -80,7 +80,7 @@
                   </ul><a class="la-footer__more" href="/master-classes">See all</a>
                 </div>
 
-                <div class="col-12 mb-10">
+                <div class="col-12 px-0 mb-10">
                   <div class="la-footer__title">Mentors</div>
                   <ul class="la-footer__list">
                     @foreach ($creators as $c)

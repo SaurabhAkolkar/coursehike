@@ -11,16 +11,16 @@
         &__ {
             &inner {
                 padding-top: calc(var(--size-base) * 16);
-                padding-left: calc(var(--size-base) * 21);
+               // padding-left: calc(var(--size-base) * 21);
                 padding-bottom: var(--size-4);
-                padding-right: calc(var(--size-base) * 33);
+                //padding-right: calc(var(--size-base) * 33);
 
-                @include respond-below(sm){
+               /* @include respond-below(sm){
                     padding-top: calc(var(--size-base) * 6);
                     padding-left: calc(var(--size-base) * 4);
                     padding-bottom: var(--size-4);
                     padding-right: calc(var(--size-base) * 4);
-                }
+                }*/
             }
             &btm {
 
@@ -61,12 +61,13 @@
                 padding: 0;
                 margin-top:var(--size-6) !important;
 
-                @include respond-above(md){
-                    margin-top:var(--size-18) !important;
+                @include respond-above(lg){
+                    margin-top:var(--size-10) !important;
                 }
+               
                 &- {
                     &item {
-                        margin-bottom: var(--size-4);
+                        margin-bottom: var(--size-3);
                         line-height: normal;
 
                         @include respond-below(sm){
