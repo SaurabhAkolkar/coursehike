@@ -119,8 +119,14 @@ $course_id = $course->id;
               <div class="la-vcourse__buy w-100 d-flex flex-wrap align-items-start justify-content-lg-end text-lg-right mb-6 la-anim__stagger-item--x">
                 @if ( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription()) || (auth()->check() && !Auth::User()->subscription()->active())  ) )
                   <div class="la-vcourse__buy-btn text-center">
-                    <a class="btn btn-primary la-btn la-btn--primary color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" href="/learning-plans">Buy this Course</a><br/>
+                  <form class="la-vcourse__purchase-form" id="add_to_cart_form_1" name="add_to_cart_form" method="post" action="/add-to-cart">
+                    <input type="hidden" name="course_id" value="{{$course->id}}" />
+                    <input type="hidden" value="all-classes" name="classes" />
+                    @csrf
+                    <a class="btn btn-primary la-btn la-btn--primary color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" onclick="$('#add_to_cart_form_1').submit();">Buy this Course</a><br/>
                     <span class="text-grey">@ ₹2730</span>
+
+                  </form>
                   </div>
                   <div class="la-vcourse__buy-btn text-center">
                     <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end mb-2 active" href="/learning-plans">Subscribe for Free</a><br/>

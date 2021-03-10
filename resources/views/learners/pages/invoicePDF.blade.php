@@ -117,16 +117,17 @@
                     </div>
                 </td>
             </tr>
-
-            <tr>
-                <td width="50%" colspan="2"></td>
-                <td width="50%" style="text-align:right;">
-                    <div>
-                        <p style="color:#959595;font-weight:bold"> Taxes </p>
-                        <p style="color:#252525"> @if($invoice->currency =='INR') ₹ @else $ @endif <span>{{$invoice->taxes}}</span> </p>
-                    </div>
-                </td>
-            </tr>
+            @if($invoice->currency == 'INR')
+                <tr>
+                    <td width="50%" colspan="2"></td>
+                    <td width="50%" style="text-align:right;">
+                        <div>
+                            <p style="color:#959595;font-weight:bold"> Taxes(18% GST) </p>
+                            <p style="color:#252525"> ₹ <span>{{$invoice->taxes}}</span> </p>
+                        </div>
+                    </td>
+                </tr>
+            @endif
 
             <tr>
                 <td width="50%" colspan="2"></td>
