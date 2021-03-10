@@ -213,6 +213,7 @@
                             overflow-y:scroll;
                             display:none;
                             transition:all 0.25s ease;-webkit-transition:all 0.25s ease;-moz-transition:all 0.25s ease;
+                            z-index: 22;
 
                             &.active{
                                 animation:slideLeft 0.5s ease 1;-webkit-animation:slideLeft 0.5s ease 1;-moz-animation:slideLeft 0.5s ease 1;

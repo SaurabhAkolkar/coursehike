@@ -17398,6 +17398,7 @@ a, a:hover {
   padding-bottom: 0;
   padding-top: 0;
   box-shadow: 0px 3px 6px #00000029;
+  z-index: 21;
 }
 .la-header__dropdown-item {
   padding: var(--size-3) var(--size-6);
@@ -17955,6 +17956,7 @@ input:-webkit-autofill:active {
   transition: all 0.25s ease;
   -webkit-transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
+  z-index: 22;
 }
 .la-courses__nav-filterdropdown.active {
   animation: slideLeft 0.5s ease 1;
@@ -18557,6 +18559,11 @@ input:-webkit-autofill:active {
     font-size: var(--text-xl);
   }
 }
+.la-vcourse__buy-btn {
+  font-size: var(--text-sm);
+  color: var(--gray4);
+  font-weight: var(--font-medium);
+}
 .la-vcourse__info-item .la--count {
   font-size: calc(var(--text-3xl));
   color: var(--app-indigo-1);
@@ -18698,7 +18705,7 @@ input:-webkit-autofill:active {
   top: 20px;
 }
 .la-vcourse__class:last-child:before {
-  top: -55px;
+  height: calc(100% - 74px);
 }
 .la-vcourse__classes-info {
   position: relative;
@@ -19009,13 +19016,11 @@ input:-webkit-autofill:active {
 .la-vcourse__access--available .la-vcourse__access-icon {
   font-size: calc(var(--text-xs) - 1px);
 }
-@media (max-width: 767px) {
-  .la-vcourse__purchase {
-    padding: var(--size-14) 0 !important;
-  }
+.la-vcourse__purchase-inwrap {
+  padding-right: 0 !important;
 }
 .la-vcourse__purchase-left {
-  border-bottom: 1px dashed var(--gray4);
+  padding-top: var(--size-12);
   padding-bottom: var(--size-10);
 }
 @media (min-width: 768px) {
@@ -19044,6 +19049,7 @@ input:-webkit-autofill:active {
 }
 .la-vcourse__purchase-right {
   background-color: #efeeea;
+  padding-bottom: var(--size-12);
 }
 @media (max-width: 767px) {
   .la-vcourse__purchase-right {
@@ -19133,6 +19139,9 @@ input:-webkit-autofill:active {
   font-size: var(--text-2xl);
   line-height: var(--text-2xl);
   font-weight: var(--font-light);
+}
+.la-creator__name-label {
+  font-size: var(--text-xl);
 }
 .la-creator__specialist {
   font-family: var(--head-font);
@@ -20987,7 +20996,7 @@ input:-webkit-autofill:active {
 }
 .la-mccourses {
   height: auto;
-  margin-top: -90px;
+  padding-top: 0 !important;
   position: relative;
   z-index: var(--z-2);
 }

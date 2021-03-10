@@ -82,12 +82,19 @@
                         @include respond-below(sm){
                             font-size:var(--text-xl);
                         }
+
                     }
                 }
             }
 
             &buy {
-
+                &- {
+                    &btn {
+                        font-size: var(--text-sm);
+                        color: var(--gray4);
+                        font-weight: var(--font-medium);
+                    }
+                }
             }
             &info {
                 &- {
@@ -261,7 +268,8 @@
                     top:20px;
                 }
                 &:last-child:before{
-                    top:-55px;
+                    // top:-55px;
+                    height: calc(100% - 74px);
                 }
 
                 &es {
@@ -636,11 +644,15 @@
 
             &purchase {
                 @include respond-below(sm){
-                    padding:var(--size-14) 0 !important;
+                    // padding:var(--size-14) 0 !important;
                 }
                 &- {
+                    &inwrap {
+                        padding-right: 0 !important;
+                    }
                     &left {
-                        border-bottom: 1px dashed var(--gray4);
+                        // border-bottom: 1px dashed var(--gray4);
+                        padding-top: var(--size-12);
                         padding-bottom:var(--size-10);
 
                         @include respond-above(sm){
@@ -676,6 +688,8 @@
                     }
                     &right{
                         background-color: #efeeea;
+                        padding-bottom:var(--size-12);
+
                         
                         @include respond-below(sm){
                             padding-top:var(--size-10);
