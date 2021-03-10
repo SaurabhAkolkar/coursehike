@@ -71,21 +71,21 @@ class FirstSectionController extends Controller
             $file_name = basename(Storage::putFile(config('path.firstsection_video'), $file ));
             $input['video_url'] = $file_name;
 
-            $response = Http::withHeaders([
-                'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
-                'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
-            ])->post('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/copy', [
-                'url' => Storage::temporaryUrl(config('path.firstsection_video'). $file_name, now()->addMinutes(10)),
-                'meta' => [
-                    'name' => $file_name
-                ],
-                "requireSignedURLs" => true,
-            ]);
+            // $response = Http::withHeaders([
+            //     'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
+            //     'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
+            // ])->post('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/copy', [
+            //     'url' => Storage::temporaryUrl(config('path.firstsection_video'). $file_name, now()->addMinutes(10)),
+            //     'meta' => [
+            //         'name' => $file_name
+            //     ],
+            //     "requireSignedURLs" => true,
+            // ]);
             
-            if($response->successful()){
-                $res = $response->json();
-                $input['stream_video'] = $res['result']['uid'];
-            }
+            // if($response->successful()){
+            //     $res = $response->json();
+            //     $input['stream_video'] = $res['result']['uid'];
+            // }
 
         }
         
