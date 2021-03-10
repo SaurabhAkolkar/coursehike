@@ -27,7 +27,7 @@ class UserDashboardController extends Controller
 
             $lastWatchedCourseCount = $lastWatchedCourse->count();
 
-            $recentWatchedCourseCompletion = abs($lastWatchedCourseAvg / (abs($lastViewedTotalVideo - $lastWatchedCourseCount) + 1));
+            $recentWatchedCourseCompletion = round(abs($lastWatchedCourseAvg / (abs($lastViewedTotalVideo - $lastWatchedCourseCount) + 1)));
         }
 
         if($userInterest){

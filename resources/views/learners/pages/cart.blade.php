@@ -47,13 +47,14 @@
 
                       @if(count($carts) > 0)
                         @foreach ($carts as $cart)
+                          {{-- {{dd($cart->cartItems)}} --}}
                             <x-cart
                               :cartId="$cart->id"
                               :cart="$cart"
                               :courseId="$cart->course_id"
                               :collapseId="$cart->collapseId"
                               :courseImg="$cart->courses->preview_image"
-                              :classType="$cart->cartItems->first()->purchase_type"
+                              :classType="$cart->cartItems->first() && $cart->cartItems->first()->purchase_type"
                               :course="$cart->courses->title"
                               :creator="$cart->courses->user->fullName"
                               :remove="$remove"
