@@ -428,7 +428,8 @@ class SubscriptionController extends Controller
 				$message = $e->getMessage();
 				return redirect('/learning-plans');
 			}
-		}
+		}else
+			return redirect('/learning-plans');
 
 		\Stripe\Stripe::setApiKey(config('services.stripe.secret'));
 
