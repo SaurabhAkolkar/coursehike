@@ -110,7 +110,7 @@
 
             <tr>
                 <td width="50%" colspan="2"></td>
-                <td width="50%" style="text-align:right;padding-top:15px;">
+                <td width="50%" style="text-align:right;">
                     <div>
                         <p style="color:#959595;font-weight:bold"> Sub Total </p>
                         <p style="color:#252525"> @if($invoice->currency =='INR') ₹ @else $ @endif <span>{{$invoice->sub_total}}</span> </p>
@@ -120,7 +120,7 @@
 
             <tr>
                 <td width="50%" colspan="2"></td>
-                <td width="50%" style="text-align:right;padding-top:15px;">
+                <td width="50%" style="text-align:right;">
                     <div>
                         <p style="color:#959595;font-weight:bold"> Taxes </p>
                         <p style="color:#252525"> @if($invoice->currency =='INR') ₹ @else $ @endif <span>{{$invoice->taxes}}</span> </p>
@@ -130,7 +130,7 @@
 
             <tr>
                 <td width="50%" colspan="2"></td>
-                <td width="50%" style="text-align:right;padding-top:15px;">
+                <td width="50%" style="text-align:right;">
                     <div>
                         <p style="color:#959595;font-weight:bold"> Total </p>
                         <p style="color:#252525"> @if($invoice->currency =='INR') ₹ @else $ @endif <span>{{$invoice->total}}</span> </p>
