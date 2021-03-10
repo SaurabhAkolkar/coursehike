@@ -77,7 +77,7 @@
                     <h2 class="la-course__ad-title text-3xl text-md-4xl la-anim__stagger-item--x">become an <br><span>Alien Mentor, today!</span></h2>
                   
                     <div class="la-course__ad-learnmore text-right mr-md-n4 la-anim__stagger-item--x">
-                      <a class="la-course__ad-learn text-uppercase " href="/become-creator">Learn More
+                      <a class="la-course__ad-learn text-uppercase " href="/become-mentor">Learn More
                         <span class="la-icon la-icon--5xl icon-black-arrow "></span>
                       </a>
                     </div>

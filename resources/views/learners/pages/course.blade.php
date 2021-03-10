@@ -264,11 +264,16 @@ $course_id = $course->id;
               <div class="col-lg-12 px-0">
                 <div class="col-12 col-lg px-0 la-anim__wrap">
                   <div class="la-ctabs__about la-anim__stagger-item ">
-                    <p>{{ $course->short_detail }}
+                  @php
+                      $discription = $course->short_detail.' '.$course->detail;
+                      $first_string = explode(".", strip_tags($discription), 3);
+                      $length = strlen($first_string[0]) + strlen($first_string[1]) +strlen($first_string[2]);
+                  @endphp
+                    <p>{{ $first_string[0].'. '.$first_string[1].'. '.$first_string[2].'.' }}</p>
                     <span class="la-ctabs__about-collapse collapse" id="about_collapse">
-                      {!! $course->detail !!}
+                      {{ substr(strip_tags($discription), $length+3) }}
                     </span>
-                    </p>
+                    
                   </div>
                   
                   <div class="la-vcourse__btn-wrap text-right mt-3 la-anim__stagger-item ">
