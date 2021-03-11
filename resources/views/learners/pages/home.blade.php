@@ -333,7 +333,26 @@
                                     @endforeach                                  
                                   
                           </div>
-                          
+
+                          @if(count($courses) == 0)
+                          <div class="container pr-6 pr-md-1">
+                            <div class="row">
+                              <div class="col-12 la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
+                                <div class="la-empty__inner">
+                                    <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
+                                </div>
+                                <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
+                                    <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
+                                        Browse Courses
+                                        <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
+                                    </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          @endif
+
+                          @if(count($courses) == 0)
                           <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-center">
                             <div class="la-slider__navigations la-home__course-navigations d-md-flex  align-items-center">
                               <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div> -->
@@ -345,29 +364,16 @@
                                 <a href="/browse/courses" >explore more <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
                               </div>
                             </div>
-                          </div>   
+                          </div> 
+                          @endif
+
+
 
                         </div>              
                       </div>
                     @endforeach
 
-                    @if(count($courses) == 0)
-                    <div class="container pr-6 pr-md-1">
-                      <div class="row">
-                        <div class="col-12 la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
-                          <div class="la-empty__inner">
-                              <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
-                          </div>
-                          <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
-                              <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
-                                  Browse Courses
-                                  <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
-                              </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                   @endif
+                    
                 
                         {{-- Categories Tab : END --}}
                   </div>
