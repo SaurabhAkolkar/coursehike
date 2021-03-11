@@ -24,27 +24,27 @@
                           <div class="la-status__info-tag la-anim__stagger-item">Your payment failed</div>
 
                           <div class="la-status__info-list ">
-                              <div class="la-status__info-item d-flex align-items-center">
+                              <div class="la-status__info-item d-flex align-items-start">
                                   <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">Payment for</div>
                                   <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x"><strong>Annual Subscription</strong></div>
                               </div>
 
-                              <div class="la-status__info-item d-flex align-items-center">
+                              <div class="la-status__info-item d-flex align-items-start">
                                 <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">Amount Paid</div>
                                 <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x"><strong>$ 423</strong></div>
                               </div>
 
-                              <div class="la-status__info-item d-flex align-items-center">
+                              <div class="la-status__info-item d-flex align-items-start">
                                 <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">Payment Status</div>
                                 <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">Successful</div>
                               </div>
 
-                              <div class="la-status__info-item d-flex align-items-center">
+                              <div class="la-status__info-item d-flex align-items-start">
                                 <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">Payment Method</div>
                                 <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">Debit Card</div>
                               </div>
 
-                              <div class="la-status__info-item d-flex align-items-center">
+                              <div class="la-status__info-item d-flex align-items-start">
                                 <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">Transaction Id</div>
                                 <div class="col-6 col-md-4 px-0 la-anim__stagger-item--x">hgkfih457fhf55</div>
                               </div>

@@ -364,6 +364,11 @@
         padding-right:0 !important;
     }
 }
+.la-home__section-customize{
+    @include respond-below(sm){
+        padding:var(--size-12) 0 var(--size-14) 0;
+    }
+}
 .la-home__customize{
     @include respond-below(md){
         padding-bottom:var(--size-12);
@@ -522,6 +527,10 @@
     position: unset;
     margin: 0 20px;
     text-align: left;
+
+    @include respond-below(sm){
+        margin-top:-16px;
+    }
 }
 .la-slider__navigations-dots .swiper-pagination-bullet {
     margin-left: 8px;
