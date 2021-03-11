@@ -108,7 +108,7 @@
                             //padding-bottom:var(--size-2);
                             transition:all 0.5s linear;
                             
-                            @include respond-below(md){
+                            @include respond-below(sm){
                                 margin:var(--size-6) var(--size-3);
                             }
                         }

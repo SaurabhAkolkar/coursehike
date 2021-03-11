@@ -166,14 +166,14 @@
             </ul>
           </li>
 
-          <li class="mt-md-20 pt-md-20">
-            <a href="/contact" class="d-flex align-items-center">
+          <li>
+            <a href="/contact" target="_blank" class="d-flex align-items-center">
               <i class="la-icon la-icon--md icon-contact-number mr-4"></i>
               <span class="mt-1">Contact Us</span>
             </a>
           </li>
 
-          <li class="">
+          <li>
             <a role="button" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="d-flex align-items-center">
               <i class="la-icon la-icon--md icon-logout mr-5"></i>
               <span>{{ __('adminstaticword.Logout') }}</span>

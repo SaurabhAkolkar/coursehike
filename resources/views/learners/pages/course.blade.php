@@ -116,28 +116,28 @@ $course_id = $course->id;
           
           <div class="la-vcourse__intro-right pt-10 d-flex flex-column justify-content-start justify-content-lg-between align-items-center align-items-md-end la-anim__wrap">
             
-              <div class="la-vcourse__buy w-100 d-flex flex-wrap align-items-start justify-content-lg-end text-lg-right mb-6 la-anim__stagger-item--x">
+              <div class="la-vcourse__buy w-100 d-md-flex flex-wrap align-items-start justify-content-lg-end text-lg-right mb-1 mb-md-6 la-anim__stagger-item--x">
                 @if ( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription()) || (auth()->check() && !Auth::User()->subscription()->active())  ) )
                   <div class="la-vcourse__buy-btn text-center">
-                  <form class="la-vcourse__purchase-form" id="add_to_cart_form_1" name="add_to_cart_form" method="post" action="/add-to-cart">
-                    <input type="hidden" name="course_id" value="{{$course->id}}" />
-                    <input type="hidden" value="all-classes" name="classes" />
-                    @csrf
-                    <a class="btn btn-primary la-btn la-btn--primary color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" onclick="$('#add_to_cart_form_1').submit();">Buy this Course</a><br/>
-                    <span class="text-grey">@ ₹2730</span>
-
-                  </form>
+                    <form class="la-vcourse__purchase-form" id="add_to_cart_form_1" name="add_to_cart_form" method="post" action="/add-to-cart">
+                      <input type="hidden" name="course_id" value="{{$course->id}}" />
+                      <input type="hidden" value="all-classes" name="classes" />
+                      @csrf
+                      <a class="la-vcourse__buy-course btn btn-primary la-btn la-btn--primary color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" onclick="$('#add_to_cart_form_1').submit();">Buy this Course</a><br/>
+                      <span class="text-grey">@ ₹2730</span>
+                    </form>
                   </div>
+
                   <div class="la-vcourse__buy-btn text-center">
-                    <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end mb-2 active" href="/learning-plans">Subscribe for Free</a><br/>
+                    <a class="la-vcourse__buy-course btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end mb-2 active" href="/learning-plans">Subscribe for Free</a><br/>
                     <span class="text-grey">Access all courses</span>
                   </div>
                 @endif
               </div>
 
-              <div class="w-100 d-flex flex-wrap justify-content-lg-end">
+              <div class="w-100 d-md-flex flex-column flex-lg-row flex-wrap justify-content-lg-end">
                 @if(auth()->check())
-                  <div class="text-center la-anim__stagger-item--x w-50 pr-8 mb-6 mb-md-0">
+                  <div class="la-vcourse__buy-progress text-center la-anim__stagger-item--x  mb-6 mb-md-0">
                     <div class="la-vcourse__buy-complete mt-5 mb-1 w-100 text-center text-md-left">
                       <span class="pr-2" style="color:var(--green)">{{$course->getProgress()}}%</span> <span style="color:var(--gray8)"> Completed</span>
                     </div>
@@ -146,7 +146,8 @@ $course_id = $course->id;
                     </div>
                   </div>
                 @endif
-                <div class="la-vcourse__info-items d-flex align-items-center justify-content-center justify-content-md-end la-anim__stagger-item--x">
+
+                <div class="la-vcourse__info-items d-flex align-items-center  justify-content-center justify-content-md-start justify-content-lg-end la-anim__stagger-item--x">
                   <div class="la-vcourse__info-item la-vcourse__info--videos d-flex flex-column align-items-center justify-content-end">
                     <div class="la--count ">{{ $course->courseclass->count() }}</div>
                     <span class="la--label mt-2">Videos</span>
@@ -276,11 +277,12 @@ $course_id = $course->id;
               @endif
             </ul>
           </nav>
-          <div class="tab-content la-courses__content" id="cnav-tabContent">
+          
+          <div class="tab-content la-courses__nav-content" id="cnav-tabContent">
             <div class="tab-pane fade show active" id="cnav-about" role="tabpanel" aria-labelledby="cnav-about-tab">
-              <div class="col-lg-12 px-0">
-                <div class="col-12 col-lg px-0 la-anim__wrap">
-                  <div class="la-ctabs__about la-anim__stagger-item ">
+              <div class="col-lg-11 px-0">
+                <div class="la-ctabs__about-section la-anim__wrap">
+                  <div class="la-ctabs__about la-anim__stagger-item">
                     <p>{!! $course->short_detail !!}</p>
                     <span class="la-ctabs__about-collapse collapse" id="about_collapse">
                       {!! $course->detail  !!}
@@ -288,7 +290,7 @@ $course_id = $course->id;
                     
                   </div>
                   
-                  <div class="la-vcourse__btn-wrap text-right mt-3 la-anim__stagger-item ">
+                  <div class="la-vcourse__btn-wrap text-right mt-3 la-anim__stagger-item pr-1 pr-lg-4">
                     <a class="la-btn__arrow-down la-vcourse__btn-collapse d-inline-block text-center collapsed" data-toggle="collapse" href="#about_collapse">
                       <div class="la-vcourse__btn-text la-btn__text la-btn__text--purple pt-4">Read More</div>
                     </a>
@@ -421,7 +423,7 @@ $course_id = $course->id;
                 <h3 class="la-section__title mb-5 mb-md-8 text-2xl text-md-4xl la-anim__fade-in-bottom">Course Benefits</h3>
 
                 <div class="la-cbenefits d-flex my-1 my-md-8">
-                  <div class="row">
+                  <div class="row text-center">
                     <div class="col-md-6 col-lg-4 la-cbenefits__item-col la-anim__stagger-item--x">
                       <div class="la-cbenefits__item d-flex flex-column align-items-center">
                         <div class="mb-7">
@@ -569,8 +571,8 @@ $course_id = $course->id;
                 </div>
               </div>
             </div> -->
-            <div class="la-vcourse__purchase-content--plain text-center">
-              <div class="la-title la-title--circle la-title--purple la-vcourse__purchase-title position-relative pb-6">
+            <div class="la-vcourse__purchase-content--plain position-relative text-center">
+              <div class="la-title la-title--circle la-title--purple la-vcourse__purchase-title position-relative pb-6 la-anim__fade-in-top">
                 <span class="position-relative">Eager to learn a lot?</span>
               </div>
               <div class="la-vcourse__purchase-btn la-anim__stagger-item--x">
@@ -833,7 +835,7 @@ $course_id = $course->id;
           <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">Creator</h2>
         </div> -->
         <div class="row">
-          <div class="col-md-6 col-lg-5 la-creator la-anim__wrap">
+          <div class="col-md-5 la-creator la-anim__wrap">
             <div class="la-creator__wrap d-flex justify-content-center position-relative">
               <div class="la-creator__inwrap la-anim__stagger-item">
                 <div class="la-creator__img la-anim__fade-in-top text-center">
@@ -843,12 +845,12 @@ $course_id = $course->id;
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-7 my-auto la-anim__wrap">
+          <div class="col-md-7 my-auto la-anim__wrap">
             <div class="la-creator__content offset-lg-1 ">
               <div class="la-creator__detail">
-                  <div class="la-creator__name-label">Course by</div>
+                  <div class="la-creator__name-label la-anim__fade-in-top">Course by</div>
                   <div class="la-creator__name text-capitalize position-relative mb-4">
-                    <h6 class="la-title la-title--circle la-anim__stagger-item--x"><span class="position-relative">{{$course->user->fullName}}</span></h6>
+                    <h6 class="la-title la-title--circle la-anim__stagger-item"><span class="position-relative">{{$course->user->fullName}}</span></h6>
                   </div>
                   <div class="la-creator__specialist mt-1 mb-3 text-capitalize la-anim__stagger-item--x">{{ $course->category->title }}</div>
               </div>

@@ -245,7 +245,7 @@
                 
 
                 &s {
-                    // background-color:rgba(115, 34, 183, 1) !important;
+                    // background-color:var(--gray3) !important;
                     padding:0 var(--size-5);
                     position:relative;
                     z-index:2;
@@ -255,7 +255,7 @@
                                        
                     &- {
                         &wrap {
-                            background-color:rgba(115, 34, 183, 1) !important;
+                            background-color:var(--gray3) !important;
                             overflow: visible !important;
                         }
                     }

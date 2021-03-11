@@ -352,7 +352,7 @@
                           </div>
                           @endif
 
-                          @if(count($courses) == 0)
+                          @if(count($courses) != 0)
                           <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-center">
                             <div class="la-slider__navigations la-home__course-navigations d-md-flex  align-items-center">
                               <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div> -->
@@ -431,7 +431,7 @@
   <!-- Section: End-->
 
   <!-- Section: Start-->
-  <section class="la-section  la-section--classes  position-relative la-anim__wrap">
+  <section class="la-section la-section--dark la-section--classes position-relative la-anim__wrap">
     <div class="la-section__inner">
       <div class="la-home__master-fluid">
         <div class="la-anim__fade-in-top la-anim__A">
@@ -481,7 +481,7 @@
   <!-- Section: End-->
 
   <!-- Section: Start -->
-  <div class="la-section  la-home__section-customize la-section--dark position-relative la-anim__wrap">
+  <div class="la-section  la-section--purple la-home__section-customize position-relative la-anim__wrap">
     <div class="la-section__inner position-relative">
       <span class="la-section__circle la-section__circle--right la-section__circle-learn d-none d-md-block"></span>
         <div class="container-fluid la-home__customize-fluid">

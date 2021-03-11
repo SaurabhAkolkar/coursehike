@@ -13,6 +13,11 @@
                 }
 
                 &-{
+                    &section{
+                        @include respond-above(lg){
+                            padding-right:var(--size-20);
+                        }
+                    }
                     &desc{
                         p{
                             font-weight:var(--font-normal);
