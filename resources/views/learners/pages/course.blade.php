@@ -123,8 +123,8 @@ $course_id = $course->id;
                       <input type="hidden" name="course_id" value="{{$course->id}}" />
                       <input type="hidden" value="all-classes" name="classes" />
                       @csrf
-                      <a class="la-vcourse__buy-course btn btn-primary la-btn la-btn--primary color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" onclick="$('#add_to_cart_form_1').submit();">Buy this Course</a><br/>
-                      <span class="text-grey">@ ₹2730</span>
+                      <a class="la-vcourse__buy-course btn btn-primary la-btn la-btn--primary color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" @if(Auth::check()) onclick="$('#add_to_cart_form_1').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>Buy this Course</a><br/>
+                      <span class="text-grey">@ {{ getSymbol() }}{{$course->convertedprice}}</span>
                     </form>
                   </div>
 
