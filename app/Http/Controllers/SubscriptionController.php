@@ -60,7 +60,7 @@ class SubscriptionController extends Controller
         if ($position = Location::get()) {
             $country = $position->countryCode;
 			if($country == 'IN')
-				$tax_rates = ['txr_1IJH0jDEIHJhoye20gUfOsMF'];
+				$tax_rates = [config('rinvex.subscriptions.stripe_tax_rate')];
         }
 		
 		$stripe_plan_id = config('rinvex.subscriptions.plans.'.$request->slug);

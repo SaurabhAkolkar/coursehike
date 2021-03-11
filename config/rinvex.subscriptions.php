@@ -39,4 +39,6 @@ return [
     'stripe_india_monthly' => env('STRIPE_PLAN_MONTHLY_INDIA', true),
     'stripe_india_yearly' => env('STRIPE_PLAN_YEARLY_INDIA', true),
 
+    'stripe_tax_rate' => env('STRIPE_TAX_RATE', true),
+
 ];

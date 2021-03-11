@@ -194,7 +194,7 @@ class UserController extends Controller
             'invoice_charge_id' => 0,
             'payment_intent_id' => 0,
             'invoice_paid' => $request->amount,
-            'plan_selection' => $plan_id,
+            // 'plan_selection' => $plan_id,
             'status' => 'paid',
         ]);
 

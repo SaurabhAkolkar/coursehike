@@ -79,7 +79,7 @@ class UsersImport implements ToCollection
                 'invoice_charge_id' => 0,
                 'payment_intent_id' => 0,
                 'invoice_paid' => 0,
-                'plan_selection' => $plan_price_id,
+                // 'plan_selection' => $plan_price_id,
                 'status' => 'paid',
             ]);
         }
