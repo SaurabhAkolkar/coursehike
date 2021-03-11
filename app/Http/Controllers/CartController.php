@@ -557,7 +557,7 @@ class CartController extends Controller
         if ($position = Location::get()) {
             $country = $position->countryCode;
 			if($country == 'IN'){
-				$tax_rates = ['txr_1IJH0jDEIHJhoye20gUfOsMF'];
+				$tax_rates = [config('rinvex.subscriptions.stripe_tax_rate')];
                 $currency = 'INR';
                 // $total_amount *= ($setting->dollar_price) ? $setting->dollar_price : 75;
             }
