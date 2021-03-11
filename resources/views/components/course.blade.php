@@ -5,7 +5,7 @@
         <div class="la-lcourse__inner">
             <div class="la-lcourse__inner-link stretched-link" id="course_card_link" role="button" href= "{{ '/learn/course/'.$id.'/'.$url }}" >
                 <div class="la-lcourse__inner-wrap">
-                    <div class="la-lcourse__imgwrap" style="background-image:url('../../images/learners/home/course-mask.png'); -webkit-mask-image:url('../../images/learners/home/course-mask.png');">
+                    <div class="la-lcourse__imgwrap" style="background-image:url('/images/learners/home/course-mask.png'); -webkit-mask-image:url('/images/learners/home/course-mask.png');">
                         <img class="img-fluid" src= "{{ $img }}?width=560&height=460&auto_optimize=true" alt= "{{ $course }}" />
                     </div> 
                 </div>

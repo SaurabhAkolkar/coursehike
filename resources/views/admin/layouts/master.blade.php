@@ -71,10 +71,10 @@ $global_settings = App\Setting::first();
       <a href="{{ url('/') }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">
-        <img title="{{ $global_settings->project_title }}" width="60px" src="{{ url('images/logo/'.$global_settings->logo) }}" alt=""/>
+        <img title="{{ $global_settings->project_title }}" width="50px" src="{{ url('images/logo/'.$global_settings->logo) }}" alt=""/>
       </span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"> <img title="{{ $global_settings->project_title }}" width="100px" src="{{ url('images/logo/'.$global_settings->logo) }}" alt=""/></span>
+      <span class="logo-lg"> <img title="{{ $global_settings->project_title }}" width="60px" src="{{ url('images/logo/'.$global_settings->logo) }}" alt=""/></span>
     </a>
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-fixed-top">

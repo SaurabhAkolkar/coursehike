@@ -5,7 +5,7 @@
                 background: rgba(#F5F4F0, 1);
                 border-radius: var(--size-2);
                 padding: var(--size-10);
-                height:240px;
+                height:250px;
                 
                 @include respond-below(md){
                     padding:var(--size-8) var(--size-4);

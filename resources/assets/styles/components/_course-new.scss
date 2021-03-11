@@ -12,6 +12,10 @@
         &:hover{
             transform:translateY(-12px);-webkit-transform:translateY(-12px);-moz-transform:translateY(-12px);
             transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;
+
+            @include respond-below(sm){
+                transform: none;
+            }
         }
 
         &__{
