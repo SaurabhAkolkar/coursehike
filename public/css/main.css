@@ -20929,7 +20929,7 @@ input:-webkit-autofill:active {
 .la-gsearch__input-browsecourses {
   width: 100% !important;
 }
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .la-gsearch__input-browsecourses {
     width: 420px !important;
   }
@@ -20947,7 +20947,7 @@ input:-webkit-autofill:active {
 .la-gsearch__input-searchcourses {
   width: 100% !important;
 }
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .la-gsearch__input-searchcourses {
     width: 410px !important;
   }
