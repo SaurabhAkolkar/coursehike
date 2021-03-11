@@ -164,7 +164,7 @@ class CartController extends Controller
                     CartItem::insert($insert);
                 }
             }
-            
+
             if($request->has('buy_type') && $request->buy_type == 'buy_now')
                 return redirect('/cart')->with('message','Course added to the cart.');
             else
@@ -416,7 +416,7 @@ class CartController extends Controller
         $insert['total'] = ($tax_rates) ? ($price * 1.18) : $price;
         $insert['sub_total'] = $price;
 
-        $insert['purchase_type'] = $cart->first()->cartItems->first()->purchase_type;
+        $insert['purchase_type'] = ($cart->first()->cartItems && $cart->first()->cartItems->first() && $cart->first()->cartItems->first()->purchase_type);
         $insert['status'] = 'payment-pending';
 
         $info = UserInvoiceDetail::create($insert);

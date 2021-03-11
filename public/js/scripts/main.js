@@ -99,6 +99,7 @@ $(function(){
     });
   }
   
+
   // Swiper JS for Browse Courses in Homepage
   // var course_Sliders = [];
    
@@ -168,7 +169,7 @@ $(function(){
     $('#home_courses_redirect').on("click", function(){
       $('.la-section--courses-inwrap').addClass('la-home__course-animate');
     });
-
+    
   // Swiper JS for Master Classes in Homepage
   if($('.la-home__master-container')[0]){   
     var master_slider = new Swiper('.la-home__master-container', {

@@ -116,7 +116,7 @@
     }
 }
 .la-home__realprice{
-    font-weight: var(--font-light);
+    font-weight: var(--font-thin);
     sup{
         color:var(--green);
     }
@@ -155,6 +155,12 @@
         margin-bottom:var(--size-14);
     }
 }
+
+.la-home__course-fluid{
+    @include respond-below(sm){
+        padding-left:12px;
+    }
+}
 .la-home__course-container{
     width:100%;
     height:100%;
@@ -165,10 +171,16 @@
     }
 }
 .la-home__course-slide{
-    // @include respond-above(sm){
-        width: 300px !important;
-    // }
+    width: 300px !important;
 
+    &:first-child{
+        padding-left:0;
+
+       @include respond-above(lg){
+            margin-left:85px;
+       }
+    }
+    
     @include respond-above(md){
         width: 320px !important;
     }
@@ -231,12 +243,25 @@
 }
 
 //- Master Class Carousel
+.la-home__master-fluid{
+    @include respond-below(sm){
+        padding:0 12px;
+    }
+}
 .la-home__master-container{
     width:100%;
     height:100%;
 }
 .la-home__master-slide{
    height:100%;
+
+    &:first-child{
+        padding-left:0;
+
+        @include respond-above(lg){
+                margin-left:85px;
+        }
+    }
 
     @include respond-above(lg){
         height:450px;

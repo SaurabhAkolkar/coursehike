@@ -34,9 +34,9 @@
                                 <div class="la-cart__item-action wishlist">
                                     <a href={{ $wishlistUrl }}>{{ $wishlist }}</a>
                                 </div>
-                                <div class="la-cart__item-action edit ">
+                                {{-- <div class="la-cart__item-action edit ">
                                     <a  data-toggle="modal" data-target="#edit_cart_{{$cartId}}"> {{ $edit }}</a>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
