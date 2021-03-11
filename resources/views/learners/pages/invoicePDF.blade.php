@@ -31,7 +31,7 @@
 
                 <td width="70%" colspan="2" style="text-align:right;">
                     <div>
-                        <p style="font-size:15px;color:#252525">K2, Old Sonal Industrial Est, Kanchpada, <br/> Malad Link Road, Malad West, Mumbai <br/> 400064. MH, India </p> 
+                        <p style="font-size:15px;color:#252525">Aliens Art School Pvt. ltd. <br>K2, Old Sonal Industrial Est, Kanchpada, <br/> Malad Link Road, Malad West, Mumbai <br/> 400064. MH, India </p> 
                         <div>
                             <a  href="tel: +91 8779056596"  style="color:#252525;text-decoration:none;">
                                 <span>+91 8779056596 </span>
@@ -103,7 +103,7 @@
                 </td>
                 
                 <td width="30%" style="text-align:right;padding-bottom:10px;">
-                    <div style="color:#252525">@if($invoice->currency == 'INR') ₹ @else $ @endif <span>{{$idd->price}}</span></div>
+                    <div style="color:#252525">@if($invoice->currency == 'INR') INR @else $ @endif <span>{{$idd->price}}</span></div>
                 </td>
             </tr>
             @endforeach
@@ -113,7 +113,7 @@
                 <td width="50%" style="text-align:right;">
                     <div>
                         <p style="color:#959595;font-weight:bold"> Sub Total </p>
-                        <p style="color:#252525"> @if($invoice->currency =='INR') ₹ @else $ @endif <span>{{$invoice->sub_total}}</span> </p>
+                        <p style="color:#252525"> @if($invoice->currency =='INR') INR @else $ @endif <span>{{$invoice->sub_total}}</span> </p>
                     </div>
                 </td>
             </tr>
