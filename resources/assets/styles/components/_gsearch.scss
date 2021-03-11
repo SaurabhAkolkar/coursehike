@@ -29,7 +29,7 @@
                         &browsecourses{
                             width:100% !important;
 
-                            @include respond-above(lg){
+                            @include respond-above(md){
                                 width:420px !important;
                             }
                             @include respond-below(md){
@@ -52,7 +52,7 @@
                         &searchcourses{
                             width:100% !important;
 
-                            @include respond-above(lg){
+                            @include respond-above(md){
                                 width:410px !important;
                             }
                             @include respond-below(md){

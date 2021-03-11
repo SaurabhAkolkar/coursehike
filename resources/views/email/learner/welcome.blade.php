@@ -31,7 +31,7 @@
             <tr>
                 <td align="center" width="100%" colspan="2" style="padding:40px 0 10px 0">
                     <a href="" target="_blank" >
-                        <img src="http://lila-fe.thestudiohash.com/email-images/logo.png" alt="logo" style="display:block;margin:0" />
+                        <img src="https://lila.art/images/emailers/logo.png" alt="logo" style="display:block;margin:0" />
                     </a> 
                 </td>
             </tr>
@@ -53,7 +53,7 @@
                         
                         <tr>
                             <td align="center" style="padding:10px 0">
-                                <img src="http://lila-fe.thestudiohash.com/email-images/learner-welcome.png" alt="Welcome" style="width:300px"/>
+                                <img src="https://lila.art/images/emailers/learner-welcome.png" alt="Welcome" style="width:300px"/>
                             </td>
                         </tr>
             
@@ -80,9 +80,9 @@
                        <tr>
                            <td width="300"  colspan="1" align="left" style="padding:15px 0 15px 20px;">
                               <span>
-                                  <a href=""><img src="http://lila-fe.thestudiohash.com/email-images/facebook.png"/></a>
-                                  <a href="" style="padding:0 5px"><img src="http://lila-fe.thestudiohash.com/email-images/insta.png"/></a>
-                                  <a href=""><img src="http://lila-fe.thestudiohash.com/email-images/youtube.png"/></a>
+                                  <a href=""><img src="https://lila.art/images/emailers/facebook.png"/></a>
+                                  <a href="" style="padding:0 5px"><img src="https://lila.art/images/emailers/insta.png"/></a>
+                                  <a href=""><img src="https://lila.art/images/emailers/youtube.png"/></a>
                               </span>
                            </td>
           
