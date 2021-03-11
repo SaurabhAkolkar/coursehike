@@ -214,10 +214,26 @@ $(function(){
   if($('.la-home__customize-container')[0]){   
     var swiper = new Swiper('.la-home__customize-container', {
       slidesPerView: 'auto',
-      spaceBetween: 30,
+      spaceBetween: 15,
       loop:true,
       autoplay: {
-        delay: 2500,
+        delay: 3500,
+        disableOnInteraction: false,
+      },
+      /*pagination: {
+        el: '.la-home__customize-pagination',
+        clickable: true,
+      },*/
+    });
+  }
+
+  if($('.la-home__customize-container2')[0]){   
+    var swiper = new Swiper('.la-home__customize-container2', {
+      slidesPerView: 'auto',
+      spaceBetween: 15,
+      loop:true,
+      autoplay: {
+        delay: 3500,
         disableOnInteraction: false,
       },
       pagination: {

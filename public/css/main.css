@@ -23559,7 +23559,7 @@ label.error {
   background-color: #7322b7;
 }
 .la-section--dark {
-  background-color: #111111;
+  background-color: #1f1f1f;
 }
 @media (max-width: 767px) {
   .la-section--dark {
@@ -24146,16 +24146,70 @@ label.error {
 }
 
 .la-home__customize-right {
+  width: 600px;
+  height: 400px;
   z-index: 2;
+  background-size: 600px 400px !important;
+}
+@media (min-width: 1200px) {
+  .la-home__customize-right {
+    width: 800px;
+    height: 600px;
+    background-size: 800px 600px !important;
+  }
+}
+@media (max-width: 767px) {
+  .la-home__customize-right {
+    width: 340px !important;
+    height: 100%;
+    background-size: contain !important;
+  }
 }
 
 .la-home__customize-container {
-  width: 100%;
-  height: 100%;
+  width: 580px;
+  height: 380px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  border-radius: 10px;
+}
+@media (min-width: 1200px) {
+  .la-home__customize-container {
+    width: 755px;
+    height: 600px;
+  }
+}
+@media (max-width: 767px) {
+  .la-home__customize-container {
+    width: 335px !important;
+    height: 300px;
+  }
 }
 
 .la-home__customize-slide {
-  width: 100%;
+  width: 580px !important;
+  height: 365px;
+  display: flex;
+  align-items: start;
+  margin-top: 20px;
+  border-radius: 10px !important;
+  position: relative;
+}
+@media (min-width: 1200px) {
+  .la-home__customize-slide {
+    width: 755px !important;
+    height: 545px;
+    margin-top: 27px;
+  }
+}
+@media (max-width: 767px) {
+  .la-home__customize-slide {
+    width: 328px !important;
+    height: 300px;
+    margin-top: 30px;
+    margin-left: 10px;
+  }
 }
 
 .la-home__customize-pagination .swiper-pagination-bullet {
@@ -24175,9 +24229,22 @@ label.error {
 }
 
 .la-home__customize-info img {
-  width: 100%;
-  height: 100%;
+  width: 560px;
+  height: 362px;
   border-radius: 10px;
+  position: relative;
+}
+@media (min-width: 1200px) {
+  .la-home__customize-info img {
+    width: 755px;
+    height: 545px;
+  }
+}
+@media (max-width: 767px) {
+  .la-home__customize-info img {
+    width: 320px !important;
+    height: 240px;
+  }
 }
 
 .la-home__customize-infotitle {

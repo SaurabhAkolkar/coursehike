@@ -501,17 +501,41 @@
                 </div>
 
                 <div class="col-lg-7 offset-lg-1 pr-md-6">
-                  <div class="la-home__customize-right position-relative">
-                      <div class="la-home__customize-img la-anim__stagger-item--x">
+                  <div class="la-home__customize-right position-relative" style="background:url('../../images/learners/home/customize.png') no-repeat center;">
+                      <!--<div class="la-home__customize-img" >
                           <img src="../images/learners/home/customize.png" alt="Customize" class="img-fluid d-block">
+                      </div> -->
+
+                      <div class="swiper-container la-home__customize-container pl-md-3" >
+                          <div class="swiper-wrapper la-home__customize-wrapper">
+                              <div class="swiper-slide la-home__customize-slide col-md-12 px-0 la-anim__stagger-item">
+                                  <div class="la-home__customize-info">
+                                      <img src="./images/learners/home/mockup1.png" alt="Personalised dashboard" class="img-fluid mx-auto d-block la-home__customize-img">
+                                    </div>
+                              </div>
+
+                              <div class="swiper-slide la-home__customize-slide col-md-12 px-0 la-anim__stagger-item">
+                                  <div class="la-home__customize-info">
+                                      <img src="./images/learners/home/mockup2.png" alt="Unique tattoo styles" class="img-fluid mx-auto d-block la-home__customize-img">
+                                  </div>
+                              </div>
+
+                              <div class="swiper-slide la-home__customize-slide col-md-12 px-0 la-anim__stagger-item">
+                                  <div class="la-home__customize-info">
+                                      <img src="./images/learners/home/mockup3.png" alt="Personal Playlist" class="img-fluid mx-auto d-block la-home__customize-img">
+                                    </div>
+                              </div>
+                          </div>
                       </div>
+
                   </div>
                 </div>
 
+              
                 <div class="col-lg-7 offset-lg-5">
-                      <div class="swiper-container la-home__customize-container pl-md-3">
-                          <div class="swiper-wrapper la-home__customize-wrapper">
-                              <div class="swiper-slide la-home__customize-slide col-md-8 px-0 la-anim__stagger-item">
+                      <div class="swiper-container la-home__customize-container2 pl-md-3">
+                          <div class="swiper-wrapper la-home__customize-wrapper2">
+                              <div class="swiper-slide la-home__customize-slide2 col-md-8 px-0 la-anim__stagger-item">
                                   <div class="la-home__customize-info">
                                       <!-- <img src="../images/learners/home/mockup1.jpg" alt="Personalised dashboard" class="img-fluid mx-auto d-block la-home__customize-img"> -->
                                       <div class="la-home__customize-infotitle leading-tight mt-8">Personalised dashboard for focused learning</div>
@@ -519,7 +543,7 @@
                                   </div>
                               </div>
 
-                              <div class="swiper-slide la-home__customize-slide col-md-8 px-0 la-anim__stagger-item">
+                              <div class="swiper-slide la-home__customize-slide2 col-md-8 px-0 la-anim__stagger-item">
                                   <div class="la-home__customize-info">
                                       <!-- <img src="../images/learners/home/mockup2.jpg" alt="Unique tattoo styles" class="img-fluid mx-auto d-block la-home__customize-img"> -->
                                       <div class="la-home__customize-infotitle leading-tight mt-8">Unique tattoo styles from around of the world</div>
@@ -527,7 +551,7 @@
                                   </div>
                               </div>
 
-                              <div class="swiper-slide la-home__customize-slide col-md-8 px-0 la-anim__stagger-item">
+                              <div class="swiper-slide la-home__customize-slide2 col-md-8 px-0 la-anim__stagger-item">
                                   <div class="la-home__customize-info">
                                       <!-- <img src="../images/learners/home/mockup3.jpg" alt="Personal Playlist" class="img-fluid mx-auto d-block la-home__customize-img"> -->
                                       <div class="la-home__customize-infotitle leading-tight mt-8">Personal Playlist to help you organise</div>
@@ -539,7 +563,7 @@
                       <div class="la-slider__navigations  la-home__course-navigations d-flex justify-content-end align-items-start">
                         <div class="swiper-pagination la-slider__navigations-dots la-home__customize-pagination la-slider__paginations la-slider__paginations--purble la-right"></div>
                       </div>
-                </div>
+                </div> 
             </div>
         </div>
     </div>

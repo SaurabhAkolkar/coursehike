@@ -275,7 +275,7 @@
                 background-color:rgba(115, 34, 183, 1);
             }
             &dark{
-                background-color:#111111;
+                background-color:#1f1f1f;
 
                 @include respond-below(sm){
                     padding:var(--size-20) 0;
