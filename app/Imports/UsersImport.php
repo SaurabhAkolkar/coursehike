@@ -26,16 +26,16 @@ class UsersImport implements ToCollection
             $plan_price_id = '';
             $plan_slug = '';
             if($row[6] == 'Monthly' && $row[5] != 'India'){
-                $plan_price_id = 'price_1IJGzyDEIHJhoye2wCDcBfZC';
+                $plan_price_id = config('rinvex.subscriptions.stripe_global_monthly');
                 $plan_slug = 'monthly-global';
             }elseif($row[6] == 'Annual' && $row[5] != 'India'){
-                $plan_price_id = 'price_1IJGzyDEIHJhoye2O2KvjoiF';
+                $plan_price_id = config('rinvex.subscriptions.stripe_global_yearly');
                 $plan_slug = 'yearly-global';
             }elseif($row[6] == 'Monthly' && $row[5] == 'India'){
-                $plan_price_id = 'price_1IJPNrDEIHJhoye2kifs8GbK';
+                $plan_price_id = config('rinvex.subscriptions.stripe_india_monthly');
                 $plan_slug = 'monthly-india';
             }elseif($row[6] == 'Annual' && $row[5] == 'India'){
-                $plan_price_id = 'price_1IJZ3JDEIHJhoye28pqansTo';
+                $plan_price_id = config('rinvex.subscriptions.stripe_india_yearly');
                 $plan_slug = 'yearly-india';
             }
 

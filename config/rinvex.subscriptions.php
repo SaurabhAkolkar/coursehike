@@ -28,10 +28,15 @@ return [
     ],
 
     'plans' => [
-        'monthly-global' => 'price_1IJGzyDEIHJhoye2wCDcBfZC',
-        'yearly-global' => 'price_1IJGzyDEIHJhoye2O2KvjoiF',
-        'monthly-india' => 'price_1IJPNrDEIHJhoye2kifs8GbK',
-        'yearly-india' => 'price_1IJZ3JDEIHJhoye28pqansTo',
-    ]
+        'monthly-global' => env('STRIPE_PLAN_MONTHLY_GLOBAL', true),
+        'yearly-global' => env('STRIPE_PLAN_YEARLY_GLOBAL', true),
+        'monthly-india' => env('STRIPE_PLAN_MONTHLY_INDIA', true),
+        'yearly-india' => env('STRIPE_PLAN_YEARLY_INDIA', true),
+    ],
+
+    'stripe_global_monthly' => env('STRIPE_PLAN_MONTHLY_GLOBAL', true),
+    'stripe_global_yearly' => env('STRIPE_PLAN_YEARLY_GLOBAL', true),
+    'stripe_india_monthly' => env('STRIPE_PLAN_MONTHLY_INDIA', true),
+    'stripe_india_yearly' => env('STRIPE_PLAN_YEARLY_INDIA', true),
 
 ];
