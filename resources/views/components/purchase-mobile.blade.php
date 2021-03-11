@@ -1,5 +1,4 @@
  <!-- For Mobile Version-->
-
 <div class="la-purchaseh__items-mobile d-block d-lg-none">
     <div class="la-purchaseh__items d-flex justify-content-between">
         <div class="la-purchaseh__item align-items-center mb-4 ">           

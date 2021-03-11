@@ -20,31 +20,41 @@
 
                 @if(count($invoice) != 0 )
                 <div class="container px-0"> 
-                      <div class="la-purchaseh__item row mb-5">          
-                        <div class="col-3 col-lg-4 la-anim__stagger-item--x">
-                          <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-sm text-md-2xl head-font">Invoice ID                            </div>
-                        </div>
-                        {{-- <div class="col-lg-1 "></div> --}}
+                      <div class="d-none d-md-block">
+                        <div class="la-purchaseh__item row mb-5 ">          
+                          <div class="col-3 col-lg-4 la-anim__stagger-item--x">
+                            <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-sm text-md-2xl head-font">Invoice ID                            </div>
+                          </div>
+                          {{-- <div class="col-lg-1 "></div> --}}
 
-                        <div class="col-3 col-lg-2 la-anim__stagger-item--x">
-                          <div class="la-purchaseh__item-label text-sm">On  </div>
-                        </div>
-                        
-                        {{-- <div class="col-lg-1"></div>
-                        <div class="col-lg-1  la-anim__stagger-item--x">
-                          <div class="la-purchaseh__item-label text-sm">Payment Mode </div>
-                        </div> --}}
+                          <div class="col-3 col-lg-2 la-anim__stagger-item--x">
+                            <div class="la-purchaseh__item-label text-sm">On  </div>
+                          </div>
+                          
+                          {{-- <div class="col-lg-1"></div>
+                          <div class="col-lg-1  la-anim__stagger-item--x">
+                            <div class="la-purchaseh__item-label text-sm">Payment Mode </div>
+                          </div> --}}
 
-                        <div class="col-2 col-lg-1 la-anim__stagger-item--x">
-                          <div class="la-purchaseh__item-label text-sm">Total Price </div>
-                        </div>
-                        <div class="col-2 col-lg-1  la-anim__stagger-item--x">
-                          <div class="la-purchaseh__item-label text-sm">Payment Status </div>
-                        </div>
-                        <div class="col-2 col-lg-2  la-anim__stagger-item--x">
-                          <div class="la-purchaseh__item-label text-sm">Invoice </div>
+                          <div class="col-2 col-lg-1 la-anim__stagger-item--x">
+                            <div class="la-purchaseh__item-label text-sm">Total Price </div>
+                          </div>
+                          <div class="col-2 col-lg-1  la-anim__stagger-item--x">
+                            <div class="la-purchaseh__item-label text-sm">Payment Status </div>
+                          </div>
+                          <div class="col-2 col-lg-2  la-anim__stagger-item--x">
+                            <div class="la-purchaseh__item-label text-sm">Invoice </div>
+                          </div>
                         </div>
                       </div>
+
+                      <div class="la-purchaseh__mobile row  d-block d-md-none">          
+                        <div class="px-4 d-flex justify-content-between align-items-start mb-5">
+                          <div class="col-10 px-0 la-purchaseh__item-label la-purchaseh__item-label2 text-md head-font  la-anim__stagger-item--x">Invoice ID </div>
+                          <div class="col-2 px-0 la-purchaseh__item-label text-md la-anim__stagger-item--x">Status</div>
+                        </div>
+                      </div>
+
 
                       @foreach ($invoice as $i)
                           {{-- @foreach($i->details as $detail) --}}

@@ -98,7 +98,7 @@ class InvoicePaymentSucceededJob implements ShouldQueue
 					config('rinvex.subscriptions.stripe_india_yearly') => 'yearly-india',
 				];
 
-                if(strpos($plan_price_id[$user_subscription->plan_id], 'yearly') !== false){
+                if(preg_match("/yearly/i",$plan_price_id[$user_subscription->plan_id])){
                     $plan = 'Annual';
                 }else{
                     $plan = 'Monthly';
@@ -109,7 +109,7 @@ class InvoicePaymentSucceededJob implements ShouldQueue
                     'email' => $user->email,
                     'type' => $plan,
                     'currency' => $currency,
-                    'amount' => $invoice_amount_paid,
+                    'amount' => abs($invoice_amount_paid/100),
                 ];
                 
                 try{    
