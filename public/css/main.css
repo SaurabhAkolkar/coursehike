@@ -21072,7 +21072,7 @@ input:-webkit-autofill:active {
 }
 .la-mccourses {
   height: auto;
-  padding-top: 0 !important;
+  margin-top: -90px;
   position: relative;
   z-index: var(--z-2);
 }
@@ -21101,9 +21101,6 @@ input:-webkit-autofill:active {
   stroke-dashoffset: 0;
   opacity: 1;
   stroke: #f8aa28;
-  animation: nudge 0.7s ease-in-out;
-  -webkit-animation: nudge 0.7s ease-in-out;
-  -moz-animation: nudge 0.7s ease-in-out;
 }
 .la-mccourse:hover .la-mccourse__overlay .la-mccourse__play-circle {
   stroke-dashoffset: 0;
@@ -22693,7 +22690,6 @@ label.error {
   }
 }
 .la-artist__thumbnails-wrap {
-  background-color: var(--gray3) !important;
   overflow: visible !important;
 }
 
@@ -23986,9 +23982,6 @@ label.error {
   height: 100%;
 }
 
-.la-home__master-slide {
-  height: 100%;
-}
 .la-home__master-slide:first-child {
   padding-left: 0;
 }
@@ -23997,14 +23990,14 @@ label.error {
     margin-left: 85px;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .la-home__master-slide {
-    height: 450px;
+    width: 320px !important;
   }
 }
-@media (max-width: 767px) {
+@media (min-width: 1200px) {
   .la-home__master-slide {
-    width: 80% !important;
+    width: 320px !important;
   }
 }
 
