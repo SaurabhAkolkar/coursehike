@@ -90,7 +90,7 @@
                 padding-top:var(--size-20);
 
                 @include respond-below(sm){
-                    padding-top:var(--size-8);
+                    padding-top:var(--size-10);
                 }
                 @include respond-above(md){
                     padding-top:calc(var(--size-20) * 2);
@@ -275,7 +275,7 @@
                 background-color:rgba(115, 34, 183, 1);
             }
             &dark{
-                background-color:var(--gray3);
+                background-color:#111111;
 
                 @include respond-below(sm){
                     padding:var(--size-20) 0;

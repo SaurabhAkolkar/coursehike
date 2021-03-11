@@ -25,27 +25,27 @@
 
                               <div class="la-status__info-list">
 
-                                  <div class="la-status__info-item d-flex align-items-center">
+                                  <div class="la-status__info-item d-flex align-items-start">
                                     <div class="col-6 col-md-4 px-0">Transaction Id</div>
                                     <div class="col-6 col-md-4 px-0"><strong>{{ $invoice->invoice_id }}</strong></div>
                                   </div>
 
-                                  <div class="la-status__info-item d-flex align-items-center">
+                                  <div class="la-status__info-item d-flex align-items-start">
                                       <div class="col-6 col-md-4 px-0">Payment for</div>
                                       <div class="col-6 col-md-4 px-0"><strong>Cart Checkout</strong></div>
                                   </div>
 
-                                  <div class="la-status__info-item d-flex align-items-center">
+                                  <div class="la-status__info-item d-flex align-items-start">
                                     <div class="col-6 col-md-4 px-0">Amount Paid</div>
                                     <div class="col-6 col-md-4 px-0"><strong>{{$invoice->currency == 'INR' ? '₹' : '$'}} {{ $invoice->total }}</strong></div>
                                   </div>
 
-                                  <div class="la-status__info-item d-flex align-items-center">
+                                  <div class="la-status__info-item d-flex align-items-start">
                                     <div class="col-6 col-md-4 px-0">Payment Status</div>
                                     <div class="col-6 col-md-4 px-0"><strong>Successful</strong></div>
                                   </div>
 
-                                  {{-- <div class="la-status__info-item d-flex align-items-center">
+                                  {{-- <div class="la-status__info-item d-flex align-items-start">
                                     <div class="col-6 col-md-4 px-0">Download</div>
                                     <div class="col-6 col-md-4 px-0">
                                       <a href="" role="button">
@@ -59,7 +59,7 @@
                               <div class="la-status__info-btm">
                                   <div class="la-status__info-moto">Start learning from the best mentors across the globe!</div>
                                   <div class="la-status__info-browse">
-                                      <a href="/my-courses" class="la-btn__app la-status__info-cta py-3" type="button">Browse Your Courses</a>
+                                      <a href="/my-courses" class="btn btn--primary la-btn__app text-white text-uppercase la-status__info-cta py-3" role="button">Browse Your Courses</a>
                                   </div>
                               </div>
                           </div>

@@ -389,19 +389,22 @@
   <section class="la-section--artists position-relative la-anim__wrap">
     <div class="la-section__inner position-relative">
       <span class="la-section__circle"></span>
+      <h2 class="d-block d-md-none la-anim__fade-in-top text-center la-section__title la-section__title--big position-relative" style="z-index:4;">Lila Mentors</h2>
       <div class="swiper-container gallery-top la-artist__slider container-fluid">
         
         <div class="swiper-wrapper">
-          <div class="la-artist__designation la-artist__designation--front position-absolute w-50 pt-10 my-auto d-flex align-items-center justify-content-left la-anim__fade-in-top la-anim__A">
-              <h2 class="la-artist__designation-title mb-0  d-flex flex-row justify-content-center align-items-center">
-                  <span style="opacity:0.25">Lila</span> 
-              </h2>
-          </div>
+          <div class="d-none d-md-block">
+            <div class="la-artist__designation la-artist__designation--front position-absolute w-50 pt-10 my-auto d-flex align-items-center justify-content-left la-anim__fade-in-top la-anim__A">
+                <h2 class="la-artist__designation-title mb-0  d-flex flex-row justify-content-center align-items-center">
+                    <span style="opacity:0.25">Lila</span> 
+                </h2>
+            </div>
 
-          <div class="la-artist__designation position-absolute w-100 pt-10 my-auto d-flex align-items-center justify-content-center la-anim__fade-in-top la-anim__A">
-              <h2 class="la-artist__designation-title mb-0  d-flex flex-row justify-content-center align-items-center">
-                  <span class="ml-6" style="color: var(--gray);"> Mentors </span>
-              </h2>
+            <div class="la-artist__designation position-absolute w-100 pt-10 my-auto d-flex align-items-center justify-content-center la-anim__fade-in-top la-anim__A">
+                <h2 class="la-artist__designation-title mb-0  d-flex flex-row justify-content-center align-items-center">
+                    <span class="ml-6" style="color: var(--gray);"> Mentors </span>
+                </h2>
+            </div>
           </div>
             @foreach ($featuredMentor as $feat)
                 <x-artist 
