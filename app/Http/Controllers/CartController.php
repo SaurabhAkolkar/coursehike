@@ -284,13 +284,15 @@ class CartController extends Controller
 
     public function applyCouponManual(Request $request){
         
-        $getCouponId = Coupon::where('code', $request->coupon_name)->first();
 
+        $getCouponId = Coupon::where('code', $request->coupon_name)->first();
+        
         if($getCouponId){
 
             $check = Coupon::findOrFail($getCouponId->id);
         
-            $total = Cart::where('user_id', Auth::user()->id)->sum('price');
+            $cart = Cart::where(['user_id' => Auth::User()->id, 'status' =>1 ])->first();
+            $total = CartItem::where('cart_id', $cart->id)->sum('price');
     
                 if($check){
     
