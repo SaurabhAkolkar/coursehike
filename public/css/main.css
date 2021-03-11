@@ -23112,6 +23112,11 @@ label.error {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
 }
+@media (max-width: 767px) {
+  .la-lcourse:hover {
+    transform: none;
+  }
+}
 .la-lcourse__inner {
   border-radius: var(--size-2);
   -webkit-border-radius: var(--size-2);
