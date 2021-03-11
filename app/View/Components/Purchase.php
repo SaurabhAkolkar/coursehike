@@ -21,14 +21,16 @@ class Purchase extends Component
     public $paystatus;
     public $invoice;
     public $invoiceUrl;
+    public $id;
 
-    public function __construct($date, $total, $paystatus, $invoice, $invoiceUrl)
+    public function __construct($date, $id,$total, $paystatus, $invoice, $invoiceUrl)
     {
         // $this->img = $img;
         // $this->course = $course;
         // $this->creator = $creator;
         // $this->invoice_id = $invoice_id;
         $this->date = $date;
+        $this->id=$id;
         // $this->paymode = $paymode;
         $this->total = $total;
         $this->paystatus = $paystatus;
