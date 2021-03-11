@@ -21896,6 +21896,11 @@ input:-webkit-autofill:active {
   }
 }
 
+@media (max-width: 991px) {
+  .la-purchaseh__item-mobile {
+    margin-bottom: var(--size-8);
+  }
+}
 .la-purchaseh__item-img {
   width: 160px;
   height: 100px;
@@ -21971,7 +21976,7 @@ input:-webkit-autofill:active {
     position: absolute;
     top: 0;
     right: -16px;
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
     transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
@@ -22001,7 +22006,7 @@ input:-webkit-autofill:active {
     padding-bottom: var(--size-6);
   }
   .la-purchaseh__label-mobile p {
-    color: #C0C0C0;
+    color: var(--gray4);
     font-weight: var(--font-light);
   }
 }

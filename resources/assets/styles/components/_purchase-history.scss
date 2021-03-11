@@ -1,6 +1,15 @@
 #{$ap}- {
     &purchaseh{
         &__{
+            &item{
+                &-{
+                    &mobile{
+                        @include respond-below(md){
+                            margin-bottom:var(--size-8);
+                        }
+                    }
+                }
+            }
             &item-img{
                 width:160px;
                 height:100px;
@@ -73,7 +82,7 @@
                         position:absolute;
                         top:0;
                         right:-16px;
-                        font-size: var(--text-md);
+                        font-size: var(--text-sm);
                         transform: rotate(180deg);-webkit-transform: rotate(180deg);-moz-transform: rotate(180deg);-ms-transform: rotate(180deg);-o-transform: rotate(180deg);
                         transition: all 0.25s ease-in;-webkit-transition: all 0.25s ease-in;-moz-transition: all 0.25s ease-in;-ms-transition: all 0.25s ease-in;-o-transition: all 0.25s ease-in;
                     }
@@ -89,7 +98,7 @@
                    padding-bottom:var(--size-6);
                }
                &label-mobile p{
-                   color:#C0C0C0;
+                   color:var(--gray4);
                    font-weight:var(--font-light);
                }
             }
