@@ -876,12 +876,12 @@ $course_id = $course->id;
   <section class="la-section__small la-section--grey">
     <div class="la-section__inner">
       <div class="container-fluid la-anim__wrap">
-        <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">More from Creators</h2>
+        <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">More from Mentor</h2>
         
           @if(count($mentor_other_courses) == 0)
                <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6 la-anim__stagger-item">
                     <div class="col la-empty__inner">
-                        <h6 class="la-empty__course-title text-xl la-anim__stagger-item">No more Courses from this Creator</h6>
+                        <h6 class="la-empty__course-title text-xl la-anim__stagger-item">No more Courses from this Mentor</h6>
                     </div>
                     <div class="col text-md-right la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
                         <a href="/browse/courses" class="la-empty__browse">

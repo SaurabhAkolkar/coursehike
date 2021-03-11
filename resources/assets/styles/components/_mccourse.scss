@@ -21,8 +21,8 @@
         
         &s {
             height: auto;
-            // margin-top: -90px;
-            padding-top: 0 !important;
+            margin-top: -90px;
+            //padding-top: 0 !important;
             position:relative;
             z-index:var(--z-2);
             
@@ -55,7 +55,6 @@
                         stroke-dashoffset: 0;
                         opacity: 1;
                         stroke: #f8aa28;
-                        animation: nudge 0.7s ease-in-out;-webkit-animation: nudge 0.7s ease-in-out;-moz-animation: nudge 0.7s ease-in-out;
                       }
                       
                       .la-mccourse__play-circle {

@@ -253,8 +253,7 @@
     height:100%;
 }
 .la-home__master-slide{
-   height:100%;
-
+ 
     &:first-child{
         padding-left:0;
 
@@ -263,11 +262,12 @@
         }
     }
 
-    @include respond-above(lg){
-        height:450px;
+    @include respond-above(md){
+        width: 320px !important;
     }
-    @include respond-below(sm){
-        width:80% !important;
+
+    @include respond-above(lg){
+        width: 320px !important;
     }
 }
 .la-slider__paginations {

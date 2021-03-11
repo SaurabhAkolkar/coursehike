@@ -200,7 +200,7 @@ $(function(){
           slidesPerView: 3,         
         },
         1200: {
-          slidersPerView: 4,
+          slidersPerView: 'auto',
         },  
       }, 
     });
