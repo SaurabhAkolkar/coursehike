@@ -62,7 +62,7 @@
             <!-- Video Section: Start -->
             <div class="la-hero__video-main position-relative la-anim__stagger-item--x">
               <div class="la-hero__video">
-                <video autoplay='' playsinline muted='muted' loop='loop' id="home_video">
+                <video autoplay playsinline muted loop id="home_video">
                   <source src='{{$firstSection->video_url}}'  type='video/mp4' />
                 </video>
               </div>

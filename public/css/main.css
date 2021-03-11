@@ -18641,13 +18641,12 @@ input:-webkit-autofill:active {
 }
 .la-vcourse__video {
   width: 100%;
-  height: var(--playerH);
+  padding-top: 56.2%;
   background: var(--gray);
 }
 @media (min-width: 1200px) {
   .la-vcourse__video {
     height: auto;
-    padding-top: 60%;
   }
 }
 .la-vcourse__video .vjs-big-play-button {
