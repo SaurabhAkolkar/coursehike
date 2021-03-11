@@ -31,7 +31,7 @@
           <!-- Global Search: Start-->
           <div class="la-gsearch la-anim__stagger-item--x">
             <form class="form-inline" action="/search-mentor" method="get">
-              <div class="form-group d-flex align-items-center">
+              <div class="form-group d-flex align-items-center mb-0">
                 <input class="la-gsearch__input w-100 form-control la-gsearch__input-browsecourses" name="name" type="text" style="background:transparent" placeholder="Looking for your favourite Alien Mentor?">
               </div>
               <button class="la-gsearch__submit btn" type="submit"><i class="la-icon icon-search la-gsearch__input-icon"></i></button>
