@@ -83,10 +83,10 @@ class CustomerSubscriptionUpdatedJob implements ShouldQueue
             $previous_plan = $previous_attributes['plan'];
 
             $plan_price_id = [
-                'price_1IJGzyDEIHJhoye2wCDcBfZC' => 'monthly-global',
-                'price_1IJGzyDEIHJhoye2O2KvjoiF' => 'yearly-global',
-                'price_1IJPNrDEIHJhoye2kifs8GbK' => 'monthly-india',
-                'price_1IJZ3JDEIHJhoye28pqansTo' => 'yearly-india',
+                config('rinvex.subscriptions.stripe_global_monthly') => 'monthly-global',
+                config('rinvex.subscriptions.stripe_global_yearly') => 'yearly-global',
+                config('rinvex.subscriptions.stripe_india_monthly') => 'monthly-india',
+                config('rinvex.subscriptions.stripe_india_yearly') => 'yearly-india',
             ];
 
             
