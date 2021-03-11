@@ -24,7 +24,7 @@
                   <th>{{ __('adminstaticword.Title') }}</th>
                   <th>{{ __('adminstaticword.Category') }}</th>
                   @if(Auth::User()->role == "admin")<th>{{ __('adminstaticword.Instructor') }}</th>@endif
-                  <th>{{ __('adminstaticword.Slug') }}</th>
+                  @if(Auth::User()->role == "admin")<th>{{ __('adminstaticword.Slug') }}</th>@endif
                   <th>{{ __('adminstaticword.Featured') }}</th>
                   <th>{{ __('adminstaticword.Status') }}</th>
                   <th>{{ __('adminstaticword.Edit') }}</th>
