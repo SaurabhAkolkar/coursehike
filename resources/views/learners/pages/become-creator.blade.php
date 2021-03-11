@@ -29,7 +29,7 @@
               <h6 class="la-bcreator__tag  leading-tight d-none d-md-block la-anim__stagger-item--x ">Join LILA’s inspiring community, <br/> share knowledge and start earning for your values</h6>
               <h6 class="la-bcreator__tag  leading-tight d-block d-md-none la-anim__stagger-item--x">Join LILA’s inspiring community, share knowledge and start earning for your values</h6>
             </div>
-            <div class="la-bcreator__content-btn la-anim__stagger-item--x"><a class="la-btn__app text-white text-uppercase" role="button" href="/creator-signup">Start Teaching</a></div>
+            <div class="la-bcreator__content-btn la-anim__stagger-item--x"><a class="btn btn--primary la-btn__app text-white text-uppercase" role="button" href="/creator-signup">Start Teaching</a></div>
           </div>
         </div>
         <!-- Column: End-->
