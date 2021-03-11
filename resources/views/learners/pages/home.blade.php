@@ -352,7 +352,7 @@
                           </div>
                           @endif
 
-                          @if(count($courses) == 0)
+                          @if(count($courses) != 0)
                           <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-center">
                             <div class="la-slider__navigations la-home__course-navigations d-md-flex  align-items-center">
                               <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div> -->
