@@ -55,6 +55,7 @@
                                   :paystatus="$i->status"
                                   :invoice="$i->invoice_id"
                                   :invoiceUrl="'/download-invoice/'.$i->id"
+                                  :id="$i->id"
                               />
                           {{-- @endforeach --}}
                       @endforeach
