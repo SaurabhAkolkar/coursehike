@@ -14,6 +14,12 @@
               <div class="la-choose__savings-bg">
                 <div class="la-choose__savings-{{ $class }}  text-xs mt-1">You save {{ $saving }}%</div>
               </div>
+              
+              @else
+              
+              <div class="la-choose__savings-bg" style="visibility:hidden;">
+                <div class="la-choose__savings-{{ $class }}  text-xs mt-1">You save {{ $saving }}%</div>
+              </div>
             @endif
             
           </div>

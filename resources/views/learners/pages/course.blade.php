@@ -60,8 +60,8 @@ $course_id = $course->id;
 <section class="la-section__small">
     <div class="la-vcourse">
       <div class="container-fluid">
-        <div class="row  mb-12  la-anim__wrap"> 
-          <div class="col-12 col-md-7 col-lg-8">
+        <div class="d-flex flex-wrap mb-12 la-anim__wrap"> 
+          <div class="la-vcourse__intro-left">
             <div class="la-vcourse__header d-flex align-items-center ">
               <h1 class="la-vcourse__title  text-capitalize la-anim__fade-in-top">{{ $course->title }}</h1>
               {{-- <div class="la-vcourse__badges la-anim__stagger-item">
@@ -84,18 +84,61 @@ $course_id = $course->id;
               <div class="la-vcourse__creator-avator la-anim__fade-in-left"><img src="{{ $course->user->user_img }}" class="img-fluid" alt=""></div>
               <div class="la-vcourse__creator-name text-capitalize la-anim__stagger-item--x">{{ $course->user->fname }}</div>
             </div>
+
+            <div class="la-vcourse__primary-info d-flex mt-5">
+                <div class="la-vcourse__classes-info pr-2 la-anim__stagger-item--x">
+                  <span class="la--count">{{ $course->chapter->count() }}</span>
+                  <span class="la--label">Classes</span>
+                </div>
+                <div class="la-vcourse__videos-info pl-2 la-anim__stagger-item--x">
+                  <span class="la--count">{{ $course->courseclass->count() }}</span>
+                  <span class="la--label">Videos</span>
+                  @php
+                      $startTime = \Carbon\Carbon::parse('2020-12-05T01:18:36.862+00:30');
+                      $finishTime = \Carbon\Carbon::parse('2020-12-05T01:18:36.862+1:30');
+
+                      $totalDuration = $finishTime->diffInHours($startTime);
+                      
+                  @endphp
+                </div>
+              </div>
+
+            <div class="row la-anim__wrap mt-3">
+              <div class="col">
+                <ul class="list-unstyled d-block d-lg-flex ">
+                  <li class="la-vcourse__duration mr-14 la-anim__stagger-item"><span class="la-text-gray4">Duration: </span>  <span class="font-normal">{{ $course->duration }} Hrs</span></li>
+                  <li class="la-vcourse__updatedon mr-14 la-anim__stagger-item"><span class="la-text-gray4">Last Updated: </span>  <span class="font-normal">{{ $course->updated_at->format('d-M Y') }}</span></li>
+                  <li class="la-vcourse__languages mr-14 la-anim__stagger-item"> <span class="la-text-gray4">Languages: </span> <span class="font-normal"> {{$course->language->name}}</span> </li>
+                </ul>
+              </div>
+            </div>
           </div>
           
-          <div class="col-12 col-md-5 col-lg-3 offset-lg-1 pt-10 pt-md-1 d-flex flex-column justify-content-start align-items-center align-items-md-end la-anim__wrap">
+          <div class="la-vcourse__intro-right pt-10 d-flex flex-column justify-content-start justify-content-lg-between align-items-center align-items-md-end la-anim__wrap">
             
-              <div class="la-vcourse__buy w-100 text-center text-md-right mb-6 mb-md-12 la-anim__stagger-item--x">
+              <div class="la-vcourse__buy w-100 d-flex flex-wrap align-items-start justify-content-lg-end text-lg-right mb-6 la-anim__stagger-item--x">
                 @if ( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription()) || (auth()->check() && !Auth::User()->subscription()->active())  ) )
-                  <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end" href="/learning-plans">Subscribe Now</a>
-                @endif
+                  <div class="la-vcourse__buy-btn text-center">
+                  <form class="la-vcourse__purchase-form" id="add_to_cart_form_1" name="add_to_cart_form" method="post" action="/add-to-cart">
+                    <input type="hidden" name="course_id" value="{{$course->id}}" />
+                    <input type="hidden" value="all-classes" name="classes" />
+                    @csrf
+                    <a class="btn btn-primary la-btn la-btn--primary color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" onclick="$('#add_to_cart_form_1').submit();">Buy this Course</a><br/>
+                    <span class="text-grey">@ ₹2730</span>
 
+                  </form>
+                  </div>
+                  <div class="la-vcourse__buy-btn text-center">
+                    <a class="btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end mb-2 active" href="/learning-plans">Subscribe for Free</a><br/>
+                    <span class="text-grey">Access all courses</span>
+                  </div>
+                @endif
+              </div>
+
+              <div class="w-100 d-flex flex-wrap justify-content-lg-end">
                 @if(auth()->check())
-                  <div class="text-center la-anim__stagger-item--x">
-                    <div class="la-vcourse__buy-complete mt-5 mb-1 w-100">
+                  <div class="text-center la-anim__stagger-item--x w-50 pr-8 mb-6 mb-md-0">
+                    <div class="la-vcourse__buy-complete mt-5 mb-1 w-100 text-center text-md-left">
                       <span class="pr-2" style="color:var(--green)">{{$course->getProgress()}}%</span> <span style="color:var(--gray8)"> Completed</span>
                     </div>
                     <div class="progress la-rtng__progress w-100"> 
@@ -103,68 +146,42 @@ $course_id = $course->id;
                     </div>
                   </div>
                 @endif
+                <div class="la-vcourse__info-items d-flex align-items-center justify-content-center justify-content-md-end la-anim__stagger-item--x">
+                  <div class="la-vcourse__info-item la-vcourse__info--videos d-flex flex-column align-items-center justify-content-end">
+                    <div class="la--count ">{{ $course->courseclass->count() }}</div>
+                    <span class="la--label mt-2">Videos</span>
+                  </div>
+                  <div class="la-vcourse__info-item la-vcourse__info--learners d-flex flex-column align-items-center justify-content-end mx-10">
+                    <div class="la--count">{{$course->learnerCount}}</div>
+                    <span class="la--label mt-2">Learners</span>
+                  </div>
+                  <div class="la-vcourse__info-item la-vcourse__info--level d-flex flex-column align-items-center justify-content-end">
+                    <div class="la--icon mt-n3 la-anim__stagger-item--x">
+                      @if($course->level == 1)
+                        <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-beginner"></span>
+                      @elseif($course->level == 2)
+                      <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-intermediate"></span>
+                      @else
+                      <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-advanced"></span>
+                      @endif
+                    </div>
+                    <div class="la--label mt-n2 la-anim__stagger-item--x">
+                      @if($course->level == 1)
+                        Beginner
+                      @elseif($course->level == 2)
+                        Intermidiate
+                      @else
+                        Advanced
+                      @endif
+                    </div>
+                  </div>
+                </div>
               </div>
 
-            <div class="la-vcourse__info-items d-flex align-items-center justify-content-end la-anim__stagger-item--x">
-              <div class="la-vcourse__info-item la-vcourse__info--videos d-flex flex-column align-items-center justify-content-end">
-                <div class="la--count ">{{ $course->courseclass->count() }}</div>
-                <span class="la--label mt-2">Videos</span>
-              </div>
-              <div class="la-vcourse__info-item la-vcourse__info--learners d-flex flex-column align-items-center justify-content-end mx-16">
-                <div class="la--count">{{$course->learnerCount}}</div>
-                <span class="la--label mt-2">Learners</span>
-              </div>
-              <div class="la-vcourse__info-item la-vcourse__info--level d-flex flex-column align-items-center justify-content-end">
-                <div class="la--icon mt-n3 la-anim__stagger-item--x">
-                  @if($course->level == 1)
-                    <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-beginner"></span>
-                  @elseif($course->level == 2)
-                  <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-intermediate"></span>
-                  @else
-                  <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-advanced"></span>
-                  @endif
-                </div>
-                <div class="la--label mt-n2 la-anim__stagger-item--x">
-                  @if($course->level == 1)
-                    Beginner
-                  @elseif($course->level == 2)
-                    Intermidiate
-                  @else
-                    Advanced
-                  @endif
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
-        <div class="row la-anim__wrap">
-          <div class="col">
-            <ul class="list-unstyled d-block d-lg-flex mb-6 ">
-              <li class="la-vcourse__duration mr-14 la-anim__stagger-item"><span class="la-text-gray4">Duration: </span>  {{ $course->duration }} Hrs</li>
-              <li class="la-vcourse__updatedon mr-14 la-anim__stagger-item"><span class="la-text-gray4">Last Updated: </span>  {{ $course->updated_at->format('d-M Y') }}</li>
-              <li class="la-vcourse__languages mr-14 la-anim__stagger-item"> <span class="la-text-gray4">Languages: </span>  {{$course->language->name}} </li>
-            </ul>
-          </div>
-          <div class="col-12 la-vcourse__primary-info d-flex mb-2">
-            <div class="la-vcourse__classes-info pr-2 la-anim__stagger-item--x">
-              <span class="la--count">{{ $course->chapter->count() }}</span>
-              <span class="la--label">Classes</span>
-            </div>
-            <div class="la-vcourse__videos-info pl-2 la-anim__stagger-item--x">
-              <span class="la--count">{{ $course->courseclass->count() }}</span>
-              <span class="la--label">Videos</span>
-              @php
-                  $startTime = \Carbon\Carbon::parse('2020-12-05T01:18:36.862+00:30');
-                  $finishTime = \Carbon\Carbon::parse('2020-12-05T01:18:36.862+1:30');
-
-                  $totalDuration = $finishTime->diffInHours($startTime);
-                  
-              @endphp
-            </div>
-          </div>
-        </div>
-        <div id="vcourse_row" class="row la-vcourse__class-row  la-anim__wrap">
+        <div id="vcourse_row" class="la-vcourse__class-row d-flex flex-wrap la-anim__wrap">
           <div class="la-vcourse__class-col la-vcourse__class-col--video px-md-4 la-anim__stagger-item">
             <div class="la-player la-vcourse__video-wrap mb-3">
               
@@ -443,13 +460,15 @@ $course_id = $course->id;
   <!-- Section: Start-->
   @if(!Auth::check() || Auth::check() && $course->price != null && $course->isPurchased() == null)
 
-  <section class="la-section__small la-section--grey la-vcourse__purchase">
+  <section class="la-section--grey la-vcourse__purchase ">
     <div class="la-vcourse__purchase-inwrap container-fluid">
       <div class="row la-vcourse__purchase-row la-anim__wrap">
         {{-- Purchase Course DIV:Start --}}
         <div class="col-md-7 col-lg-7 la-vcourse__purchase-left la-anim__stagger-item">
        
-            <div class="la-vcourse__purchase-prize mb-4 mb-lg-8 ">Purchase this Course for lifetime access @ <span class="la-vcourse__purchase-prize--amount"><b>{{ getSymbol() }}{{$course->convertedprice}}</b></span></div>
+          <h3 class="la-section__title mb-5 mb-md-8 text-2xl text-md-4xl la-anim__fade-in-bottom">Purchase this Course</h3>
+          
+            <!-- <div class="la-vcourse__purchase-prize mb-4 mb-lg-8 ">Purchase this Course for lifetime access @ <span class="la-vcourse__purchase-prize--amount"><b>{{ getSymbol() }}{{$course->convertedprice}}</b></span></div> -->
             <form class="la-vcourse__purchase-form" id="add_to_cart_form" name="add_to_cart_form" method="post" action="/add-to-cart">
               <input type="hidden" name="course_id" value="{{$course->id}}" />
               @csrf
@@ -534,8 +553,8 @@ $course_id = $course->id;
         {{-- Purchase course DIV:END --}}
         
         @if ( !(auth()->check() && auth()->user()->subscription() && auth()->user()->subscription()->active()) )
-          <div class="col-md-5 col-lg-4 offset-lg-1 px-lg-0 my-auto la-vcourse__purchase-right la-anim__wrap">
-            <div class="la-vcourse__purchase-content text-center la-anim__stagger-item--x">
+          <div class="col-md-5 col-lg-5 la-vcourse__purchase-right la-anim__wrap d-flex align-items-center justify-content-center">
+            <!-- <div class="la-vcourse__purchase-content text-center la-anim__stagger-item--x">
               <div class="la-vcourse__purchase-prize mb-8 la-anim__stagger-item--x">Subscribe for all Courses @ <span class="la-vcourse__purchase-prize--amount"><b>{{$subscription_rate}}/month</b></span></div>
               <p class="la-anim__stagger-item--x">Access all the current and future courses at the tiny monthly subscription payment</p>
               <div class="la-vcourse__purchase-actions d-inline-block text-center mt-8">
@@ -549,6 +568,19 @@ $course_id = $course->id;
                   </a>
                 </div>
               </div>
+            </div> -->
+            <div class="la-vcourse__purchase-content--plain text-center">
+              <div class="la-title la-title--circle la-title--purple la-vcourse__purchase-title position-relative pb-6">
+                <span class="position-relative">Eager to learn a lot?</span>
+              </div>
+              <div class="la-vcourse__purchase-btn la-anim__stagger-item--x">
+                  <a class="btn btn-primary la-btn text-center active"  href="/learning-plans">Subscribe for Free</a>
+                </div>
+                <div class="pt-2">
+                  <a href="/learning-plans"  class="la-vcourse__purchase-trial--lnk text-left la-anim__stagger-item--x ">
+                    Get access to all courses
+                  </a>
+                </div>
             </div>
           </div>
         @endif
@@ -796,15 +828,15 @@ $course_id = $course->id;
   <!-- Section: Start-->
   <section class="la-section__small la-creator__section">
     <div class="la-section__inner pb-md-10">
-      <div class="container-fluid">
-        <div class="la-anim__wrap">
+      <div class="container">
+        <!-- <div class="la-anim__wrap">
           <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">Creator</h2>
-        </div>
+        </div> -->
         <div class="row">
           <div class="col-md-6 col-lg-5 la-creator la-anim__wrap">
-            <div class="la-creator__wrap d-flex justify-content-center justify-content-md-start position-relative">
+            <div class="la-creator__wrap d-flex justify-content-center position-relative">
               <div class="la-creator__inwrap la-anim__stagger-item">
-                <div class="la-creator__img la-anim__fade-in-top ">
+                <div class="la-creator__img la-anim__fade-in-top text-center">
                   <img class="img-fluid mx-auto d-block" src="{{$course->user->user_img}}" alt="{{$course->user->fullName}}">
                 </div>
               </div>
@@ -814,7 +846,10 @@ $course_id = $course->id;
           <div class="col-md-6 col-lg-7 my-auto la-anim__wrap">
             <div class="la-creator__content offset-lg-1 ">
               <div class="la-creator__detail">
-                  <h6 class="la-creator__name text-capitalize la-anim__stagger-item--x">{{$course->user->fullName}}</h6>
+                  <div class="la-creator__name-label">Course by</div>
+                  <div class="la-creator__name text-capitalize position-relative mb-4">
+                    <h6 class="la-title la-title--circle la-anim__stagger-item--x"><span class="position-relative">{{$course->user->fullName}}</span></h6>
+                  </div>
                   <div class="la-creator__specialist mt-1 mb-3 text-capitalize la-anim__stagger-item--x">{{ $course->category->title }}</div>
               </div>
               @php

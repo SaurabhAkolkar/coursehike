@@ -56,7 +56,7 @@
             <div class="la-gsearch la-anim__wrap">
               <form class="form-inline m-0 la-anim__stagger-item"  action="{{ url('/search-course/') }}">
                 <div class="form-group d-flex align-items-center">
-                  <input class="la-gsearch__input form-control la-gsearch__input-searchcourses " style="background:transparent" name="course_name" type="text" placeholder="What can we interest you in learning today?">
+                  <input class="la-gsearch__input form-control la-gsearch__input-searchcourses " style="background:transparent" name="course_name" type="text" placeholder="What can we interest you in learning today?" required>
                   <button class="la-gsearch__submit btn mt-0" type="submit"><i class="la-icon icon icon-search la-gsearch__input-icon"></i></button>
                 </div>
               </form>
@@ -260,7 +260,7 @@
                       
                     @endif
             @else
-                <div class="tab-content la-courses__content la-anim__wrap position-relative" id="nav-tabContent">
+                <div class="tab-content la-courses__nav-content la-anim__wrap position-relative" id="nav-tabContent">
                       @foreach ($categories as $category)
                         <div class="tab-pane fade show la-anim__wrap @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
                           

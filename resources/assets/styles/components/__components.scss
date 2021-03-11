@@ -38,6 +38,36 @@
 
 #{$ap}- {
 
+    &title {
+        font-size: 5.4vh;
+        font-weight: var(--font-black);
+        font-family: var(--head-font);
+
+        &-- {
+            &circle {
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: calc(-1 * var(--size-2));
+                    width: var(--size-10);
+                    height: var(--size-10);
+                    border: 2px solid transparent;
+                    border-color: #FFC516;
+                    transform: translateX(0);
+                    -webkit-transform: translateX(0);
+                    -moz-transform: translateX(0);
+                    opacity: 1;
+                    z-index: 0;
+                    border-radius: var(--rounded-full);
+                }
+            }
+            &purple {
+                color: var(--app-indigo-1);
+            }
+        }
+    }
+
     // Section: Start
     &section {
         padding: calc(var(--size-16) + 40px) 0;
@@ -336,6 +366,14 @@
         &-- {
             &primary {
                 background:var(--white) !important;
+
+                &.color-grey {
+                    border: 2px solid var(--gray2) !important;
+                    // &:hover {
+                    //     border: 2px solid var(--gray2) !important;
+                    //     background:var(--gray2) !important;
+                    // }
+                }
             }
             &secondary {
                 border-color: #7400D7;
