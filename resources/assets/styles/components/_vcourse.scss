@@ -93,6 +93,27 @@
                         font-size: var(--text-sm);
                         color: var(--gray4);
                         font-weight: var(--font-medium);
+
+                        @include respond-below(sm){
+                           margin-bottom:var(--size-3);
+                        }
+                    }
+                    &course{
+                        @include respond-below(sm){
+                            width:100%;
+                        }
+                    }
+                    &progress{
+                        width:50%;
+                        
+                        @include respond-above(md){
+                            width:50%;
+                            padding-right:var(--size-10);
+                        }
+
+                        @include respond-below(sm){
+                            width:100%;
+                        }
                     }
                 }
             }
@@ -687,7 +708,7 @@
                         }
                     }
                     &right{
-                        background-color: #efeeea;
+                        background-color: #F1F0EC;
                         padding-bottom:var(--size-12);
 
                         
@@ -723,8 +744,11 @@
                         &-- {
                             &lnk {
                                 font-size: var(--text-sm);
-                                // text-decoration: underline;
                                 font-weight: var(--font-medium);
+
+                                &:hover{
+                                    text-decoration: underline;
+                                }
                             }
                         }
                     }
