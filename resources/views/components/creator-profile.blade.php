@@ -1,5 +1,37 @@
-<div class="row ">
-    <div class="col-12">
+<div class="row flex-column-reverse flex-xl-row">
+    <div class="col-xl-6">
+      <div class="la-vcreator__overlay-wrap">
+        <div class="la-vcreator__overlay--back">
+          <div class="la-vcreator__name la-anim__text-move la-title--circle"> <span class="position-relative">{{ $name }}</span> </div>
+        </div>
+        <div class="la-vcreator__profile-content mt-10">
+          <div class="la-vcreator__desc">
+            {!! $desc !!}
+          </div>
+          <div class="la-vcreator__social mt-8">
+            <div class="la-vcreator__social-itm mr-2 mr-md-5">
+              @if($facebook)
+              <a class="la-vcreator__social-link" href="{{$facebook}}">
+                <i class="la-icon la-icon--5xl icon-facebook"></i>
+              </a>
+              <a class="la-vcreator__social-link" href="{{$facebook}}">
+                <i class="la-icon la-icon--5xl icon-insta"></i>
+              </a>
+              @endif
+              @if($google)
+              <a class="la-vcreator__social-link" href="{{$google}}">
+                <i class="la-icon la-icon--5xl icon-youtube"></i>
+              </a>
+              @endif
+              <a class="la-vcreator__social-link" href="mailto:{{$email}}">
+                <i class="la-icon la-icon--5xl icon-mail"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-6 mb-4 mb-md-0">
         <div class="la-vcreator__profile la-anim__stagger-item">
             <div class="la-vcreator__profile--img position-relative">
               <img class="img-fluid d-block" src= "{{ $img }}" alt= "{{ $name }}" />
@@ -7,20 +39,20 @@
             <div class="la-vcreator__overlay">
               <div class="la-vcreator__name la-anim__text-move"> {{ $name }} </div>
             </div>
-            <div class="la-vcreator__overlay--back">
+            <!-- <div class="la-vcreator__overlay--back">
               <div class="la-vcreator__name la-anim__text-move"> {{ $name }} </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
 
 <div class="row my-md-6">
     <div class="col-md-6 la-anim__stagger-item">
-        <div class="la-vcreator__desc">
+        <!-- <div class="la-vcreator__desc">
             <p class="la-vcreator__text"> {!! $desc !!} </p>
-        </div>
+        </div> -->
 
-        <div class="la-vcreator__social mt-8">
+        <!-- <div class="la-vcreator__social mt-8">
           <div class="la-vcreator__social-itm mr-2 mr-md-5">
             @if($facebook)
             <a class="la-vcreator__social-link" href="{{$facebook}}">
@@ -39,7 +71,7 @@
               <i class="la-icon la-icon--5xl icon-mail"></i>
             </a>
           </div>
-        </div>
+        </div> -->
     </div>
   
     <div class="col-md-6 col-lg-4 offset-lg-2 la-anim__stagger-item">
