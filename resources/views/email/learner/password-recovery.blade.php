@@ -13,7 +13,7 @@
        
         <style>
             *{box-sizing: border-box;}
-            html,body{font-family:'Roboto','Open Sans',sans-serif; font-weight:400;background:#ffffff; color:#010101;font-size:16px;line-height:1.2;width:100%;margin:0;padding:0;overflow:auto;}
+            html,body{font-family:'Roboto', Verdana,'Open Sans',sans-serif; font-weight:400;background:#ffffff; color:#010101;font-size:16px;line-height:1.2;width:100%;margin:0;padding:0;overflow:auto;}
             table{
                 border-collapse: collapse;
                 border-spacing: 0;
