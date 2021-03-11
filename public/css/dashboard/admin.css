@@ -1647,8 +1647,8 @@ a.dt-button {
   background-color: var(--gray8);
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  -o-object-position: top;
+     object-position: top;
 }
 
 @media (max-width: 767px) {
@@ -1894,13 +1894,15 @@ a.la-admin__edit-btn:hover {
 .la-btn__alert-success {
   position: fixed;
   top: 80px;
+  left: 0;
+  width: 100%;
   background-color: #EBD3FF !important;
   color: #56188C !important;
   border: 1px solid rgba(86, 24, 140, 0.15);
   -webkit-animation: fadeAlert 0.5s ease 1;
           animation: fadeAlert 0.5s ease 1;
   transition: all 0.1s ease;
-  z-index: 101;
+  z-index: 1000;
   overflow: hidden;
   display: inline-block;
 }
@@ -1920,13 +1922,15 @@ a.la-admin__edit-btn:hover {
 .la-btn__alert-danger {
   position: fixed;
   top: 80px;
+  left: 0;
+  width: 100%;
   background-color: #FFD3D9 !important;
   color: #C52A2E !important;
   border: 1px solid rgba(197, 42, 46, 0.15);
   -webkit-animation: fadeAlert 0.5s ease 1;
           animation: fadeAlert 0.5s ease 1;
   transition: all 0.1s ease;
-  z-index: 101;
+  z-index: 1000;
   overflow: hidden;
 }
 
