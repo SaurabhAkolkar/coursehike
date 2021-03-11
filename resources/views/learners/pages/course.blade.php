@@ -170,7 +170,7 @@ $course_id = $course->id;
                       @if($course->level == 1)
                         Beginner
                       @elseif($course->level == 2)
-                        Intermidiate
+                        Intermediate
                       @else
                         Advanced
                       @endif
