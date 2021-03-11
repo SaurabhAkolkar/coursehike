@@ -38,7 +38,7 @@
 
             <tr>
                 <td align="center" width="600" colspan="2" style="padding:0 40px;">
-                    <span style="color:#FAC216;font-family:Raleway;font-size:46px;font-weight:900;text-transform:uppercase;">Subscribed</span>
+                    <span style="color:#FAC216;font-family:Verdana;font-size:46px;font-weight:900;text-transform:uppercase;">Subscribed</span>
                 </td>
             </tr>
 

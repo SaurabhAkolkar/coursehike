@@ -38,7 +38,7 @@
 
             <tr>
                 <td align="center" width="600" colspan="2" style="padding-top:10px" >
-                    <span style="color:#FAC216;font-family:Raleway;font-size:42px;font-weight:900;text-transform:uppercase;line-height:1;">Password Recovery</span>
+                    <span style="color:#FAC216;font-family:Verdana;font-size:42px;font-weight:900;text-transform:uppercase;line-height:1;">Password Recovery</span>
                 </td>
             </tr>
 

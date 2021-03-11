@@ -38,7 +38,7 @@
 
             <tr>
                 <td align="center" width="600" colspan="2" >
-                    <span style="color:#FAC216;font-family:Raleway;font-size:56px;font-weight:900;text-transform:uppercase;">Welcome</span>
+                    <span style="color:#FAC216;font-family:Verdana;font-size:56px;font-weight:900;text-transform:uppercase;">Welcome</span>
                 </td>
             </tr>
 
