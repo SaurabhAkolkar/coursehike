@@ -858,6 +858,7 @@ $course_id = $course->id;
                     $details = strip_tags($course->user->detail);
                    $details = preg_replace("/&#?[a-z0-9]+;/i"," ",$details); 
               @endphp 
+            @if(strlen($details) != 0)
               <div class="la-creator__para mb-6 la-anim__stagger-item--x">{{ substr($details, 0, 200) }}...</div>
                 <div class="la-creator__content-btn la-anim__stagger-item--x  ">
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold ">
@@ -865,7 +866,8 @@ $course_id = $course->id;
                     <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow "></span></a>
                   </div>
                 </div>
-            </div>
+              </div>
+            @endif
           </div>
         </div>
       </div>
