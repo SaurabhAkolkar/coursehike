@@ -10611,6 +10611,11 @@ ul, li {
     padding-right: 85px !important;
   }
 }
+@media (min-width: 1921px) {
+  .container-fluid {
+    width: 1600px;
+  }
+}
 
 .la-cr__section-item {
   list-style-type: decimal-leading-zero !important;
