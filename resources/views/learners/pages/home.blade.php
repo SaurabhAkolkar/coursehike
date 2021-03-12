@@ -500,7 +500,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-7 pl-0 pl-md-4 position-relative la-home__customize-sliders  w-100  la-anim__stagger-item">
+                <div class="col-lg-7 position-relative la-home__customize-sliders  w-100  la-anim__stagger-item">
                  
                     <div class="la-home__customize-right position-relative mx-auto" style="background:url('../../images/learners/home/clslider.svg') no-repeat center;">
                         <div class="swiper-container la-home__customize-container la-home__customize-container--desktop position-relative" >
