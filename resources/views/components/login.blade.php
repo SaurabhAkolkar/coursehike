@@ -86,6 +86,34 @@
 
             </div>
 
+            <!-- Header Buttons: Start -->
+          {{--
+            <div class="la-header__menu-item la-header__menu-item--cta text-center d-block d-lg-none">
+                <a class="la-header__menu-link  la-header__menu-cta btn btn--primary la-btn__header bg-yellow" role="button">
+                    <span class="la-header__menu-cta--text text-sm pr-3">Start free trial</span>
+                </a>
+            </div>
+
+            <div class="la-header__menu-item la-header__menu-item--cta text-center d-block d-lg-none">
+                <a class="la-header__menu-link la-header__menu-cta btn btn--primary la-btn__header border-yellow" role="button">
+                    <span class="la-header__menu-cta--text text-sm pr-3">2 Days of free trial left</span>
+                </a>
+            </div>
+
+            <div class="la-header__menu-item la-header__menu-item--cta d-block d-lg-none">
+                <a class="la-header__menu-link la-header__menu-cta btn btn--primary la-btn__header bg-green" role="button">
+                    <span class="la-header__menu-cta--text text-sm pr-3">Subscribe Now</span>
+                </a>
+            </div>
+
+            <div class="la-header__menu-item la-header__menu-item--cta d-block d-lg-none">
+                <a class="la-header__menu-link la-header__menu-cta btn btn--primary la-btn__header border-green" role="button">
+                    <span class="la-header__menu-cta--text text-sm pr-3">Annual Subscription</span>
+                </a>
+            </div>
+         --}}
+            <!-- Header Buttons: End -->
+
             <div class="la-header__nav-item ">
                 <a class="la-header__nav-link @if(Request::segment(1) == 'user-dashboard') active @endif" href="/user-dashboard">
                     <div class="la-header__nav-icon">
@@ -203,6 +231,7 @@
         <div class="la-header__nav-bottom d-lg-none"></div>
 
     @else 
+
         <div class="la-header__nav-top d-md-inline-flex  align-items-center">
             <div class="la-header__nav-item d-lg-none ">
                 <a class="la-header__nav-link  @if(Request::segment(1) == 'login') active @endif" href="/login">
