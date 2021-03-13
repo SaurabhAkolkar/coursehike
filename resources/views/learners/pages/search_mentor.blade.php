@@ -31,7 +31,7 @@
                   @endforeach
                 </div>
                 @else
-                    <div class="col-12 ">
+                    <div class="col-12">
                       <div class="text-center bg-transparent py-10 py-md-20">
                           <h4 class=" m-0" style="color:var(--gray4)">No Mentor found.</h4>
                       </div>

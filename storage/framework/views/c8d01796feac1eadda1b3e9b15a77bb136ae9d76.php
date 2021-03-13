@@ -337,7 +337,7 @@
 
                 <?php $__currentLoopData = $master_classes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $master): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <?php if($master->courses != null): ?>
-                    <div class="swiper-slide col-12 col-md-4 col-lg-3 px-0  la-home__master-slide">
+                    <div class="swiper-slide  la-home__master-slide">
                        <?php if (isset($component)) { $__componentOriginal569f4b3c3d50580306a5cb083576611189fd5fee = $component; } ?>
 <?php $component = $__env->getContainer()->make(App\View\Components\MasterClass::class, ['img' => $master->courses->preview_image,'title' => $master->courses->title,'profileImg' => $master->courses->user->user_img,'profileName' => $master->courses->user->fullName,'learners' => $master->courses->learnerCount,'id' => $master->courses->id,'slug' => $master->courses->slug]); ?>
 <?php if ($component->shouldRender()): ?>

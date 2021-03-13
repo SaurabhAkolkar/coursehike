@@ -200,7 +200,7 @@ $(function(){
           slidesPerView: 3,         
         },
         1200: {
-          slidersPerView: 4,
+          slidersPerView: 'auto',
         },  
       }, 
     });
@@ -210,14 +210,52 @@ $(function(){
     var master_slider_pagination_first_width = $(master_slider_pagination_first).width() + 30;
     $(master_slider_pagination_first).css("width", master_slider_pagination_first_width); */
 
-  //- Customize Section in Home Page
+  //- Customize Desktop Frame Section in Home Page
   if($('.la-home__customize-container')[0]){   
     var swiper = new Swiper('.la-home__customize-container', {
       slidesPerView: 'auto',
-      spaceBetween: 30,
+      spaceBetween: 0,
       loop:true,
+      flipEffect: {
+        slideShadows: false,
+      },
+      speed:1500,
       autoplay: {
-        delay: 2500,
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+    });
+  }
+
+  //- Customize Mobile Frame Section in Home Page
+  if($('.la-home__customize-container--mobile')[0]){   
+    var swiper = new Swiper('.la-home__customize-container--mobile', {
+      slidesPerView: 'auto',
+      spaceBetween: 0,
+      loop:true,
+      flipEffect: {
+        slideShadows: false,
+      },
+      speed:1500,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+    });
+  }
+
+  //- Customize Content Section in Home Page
+  if($('.la-home__customize-container--content')[0]){   
+    var swiper = new Swiper('.la-home__customize-container--content', {
+      slidesPerView: 'auto',
+      spaceBetween: 15,
+      loop:true,
+      flipEffect: {
+        slideShadows: false,
+      },
+      speed:1500,
+      autoplay: {
+        delay: 3000,
         disableOnInteraction: false,
       },
       pagination: {
@@ -813,13 +851,16 @@ function clearNotification(){
 
 // vcourse video lish dynamic height
 
+
 var course_video_height = function() {
   var course_video = $('.la-vcourse__video-wrap').height();
-  $('.la-vcourse__curriculam').css('height', course_video);
+  if(course_video > 100) {
+    $('.la-vcourse__curriculam').css('height', course_video);
+  }
 }
 
 course_video_height();
 
-$( window ).resize(function() {
+$(window).resize(function() {
   course_video_height();
 });

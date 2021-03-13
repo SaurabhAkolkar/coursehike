@@ -51,7 +51,7 @@
                     <div>
                         <h5 style="color:#959595;margin:0;">SOLD TO</h5> 
                         <div style="color:#252525;"> {{$user->fullName}} </div>
-                        <div style="color:#252525;">{{$user->address}}{{$user->city->name}},<br>{{$user->state->name}},<br>{{$user->country->name}} - {{$user->pin_code}}</div>
+                        <div style="color:#252525;">{{$user->address}} {{$user->city && (', '.$user->city->name)}} {{$user->state && (',<br>'.$user->state->name)}} {{$user->country && (',<br>'.$user->country->name. ' - '. $user->pin_code)}}</div>
                         <div>
                             <a href="tel:9999912345" style="color:#252525;text-decoration:none;">
                                 <span>@if(getLocation() == 'India') +91 @endif {{$user->mobile}} </span>
@@ -123,7 +123,7 @@
                     <td width="50%" style="text-align:right;">
                         <div>
                             <p style="color:#959595;font-weight:bold"> Taxes(18% GST) </p>
-                            <p style="color:#252525"> ₹ <span>{{$invoice->taxes}}</span> </p>
+                            <p style="color:#252525"> INR <span>{{$invoice->taxes}}</span> </p>
                         </div>
                     </td>
                 </tr>
@@ -134,7 +134,7 @@
                 <td width="50%" style="text-align:right;">
                     <div>
                         <p style="color:#959595;font-weight:bold"> Total </p>
-                        <p style="color:#252525"> @if($invoice->currency =='INR') ₹ @else $ @endif <span>{{$invoice->total}}</span> </p>
+                        <p style="color:#252525"> @if($invoice->currency =='INR') INR @else $ @endif <span>{{$invoice->total}}</span> </p>
                     </div>
                 </td>
             </tr>

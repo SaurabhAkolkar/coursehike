@@ -71,9 +71,11 @@
                                 <div class="la-soffer__bestprice la-cart__item-cost"> 
                                    <sup>{{ getSymbol() }}</sup><span>{{ $cart->cartItems->sum('price')}}</span>
                                 </div>
+                                @if($cart->cartItems->sum('offer_price') != 0)
                                 <div class="la-soffer__realprice "> 
                                    <sup>{{ getSymbol() }}</sup><span>{{ $cart->cartItems->sum('offer_price') }}</span>
                                 </div>
+                                @endif
                             </div>
                         </div>
                     </div>

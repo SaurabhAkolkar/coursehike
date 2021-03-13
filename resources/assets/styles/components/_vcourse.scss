@@ -184,12 +184,13 @@
 
             &video {
                 width: 100%;
-                height: var(--playerH);
+                padding-top: 56.2%;
+                // height: var(--playerH);
                 background: var(--gray);
 
                 @include respond-above(lg) {
                     height: auto;
-                    padding-top: 60%;
+                    // padding-top: 56.3%;
                 }
 
                 & .vjs-big-play-button {

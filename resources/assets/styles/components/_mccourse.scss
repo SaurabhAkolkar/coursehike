@@ -6,13 +6,13 @@
 
         @media screen and (min-width:  var(--breakpoint-md)) {
             --mccourse-width: 350px;
-            --mccourse-height: 450px;
+            --mccourse-height: 470px;
 
         }
 
         position: relative;
         width: var(--mccourse-width);
-        max-height: var(--mccourse-height);
+        height: var(--mccourse-height);
         box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.55);
         overflow: hidden;
         border-radius: var(--size-2);-webkit-border-radius: var(--size-2);-moz-border-radius: var(--size-2);
@@ -21,8 +21,8 @@
         
         &s {
             height: auto;
-            // margin-top: -90px;
-            padding-top: 0 !important;
+            margin-top: -90px;
+            //padding-top: 0 !important;
             position:relative;
             z-index:var(--z-2);
             
@@ -55,7 +55,6 @@
                         stroke-dashoffset: 0;
                         opacity: 1;
                         stroke: #f8aa28;
-                        animation: nudge 0.7s ease-in-out;-webkit-animation: nudge 0.7s ease-in-out;-moz-animation: nudge 0.7s ease-in-out;
                       }
                       
                       .la-mccourse__play-circle {
@@ -71,7 +70,7 @@
             &imgwrap{
                 transition: all 0.24s ease-out;-webkit-transition: all 0.24s ease-out;-moz-transition: all 0.24s ease-out;
                 width:100%;
-                height: 450px;
+                height: 470px;
                 box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
                 overflow: hidden;
                 position:relative;
@@ -103,9 +102,7 @@
                 top: 0;
                 left: 0;
                 border-radius: var(--size-2);-webkit-border-radius: var(--size-2);-moz-border-radius: var(--size-2);
-                background: transparent linear-gradient(rgba(0, 0, 0, 0.24) 0%, rgba(152, 152, 152, 0.25) 49.54%, rgba(0, 0, 0, 0.65) 100%);
-                -webkit-background: transparent linear-gradient(rgba(0, 0, 0, 0.24) 0%, rgba(152, 152, 152, 0.25) 49.54%, rgba(0, 0, 0, 0.95) 100%);
-                -moz-background: transparent linear-gradient(rgba(0, 0, 0, 0.24) 0%, rgba(152, 152, 152, 0.25) 49.54%, rgba(0, 0, 0, 0.95) 100%);
+                background:rgba(0,0,0,0.2);    
                 padding: var(--size-3);
                 color: #fff;
                 transition: all 0.24s ease-out;-webkit-transition: all 0.24s ease-out;-moz-transition: all 0.24s ease-out;

@@ -882,6 +882,9 @@ button.close:focus{
 }
 
 /* Pagination */
+.pagination>li>a{
+    padding:0 6px;
+}
 .paginate_button.previous{
     padding-right:5px !important;
 }

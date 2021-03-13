@@ -179,6 +179,7 @@ class CartController extends Controller
     public function learnerCart(){
         // dd(Session::all());
         $carts = Cart::with('user','cartItems')->where(['user_id' => Auth::User()->id, 'status' => 1])->get();
+        
 		$countries = DB::table('allcountry')->get();
         $cartItem = [];
         $discount = 0;
@@ -200,8 +201,12 @@ class CartController extends Controller
         if(Auth::check()){
 			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
         }
-        
-        $suggested_courses = Course::with('user')->where(['status'=>1])->limit(3)->get();
+        if($carts){
+            $course_ids = $carts->pluck('course_id');
+            
+            $suggested_courses = Course::with('user')->where(['status'=>1])->whereNotIn('id',$course_ids)->limit(3)->get();
+
+        }
 
         if($carts){
             // $cartItem = CartItem::with('courses','courses.user')->where('cart_id', $carts->id)->get();
@@ -557,7 +562,7 @@ class CartController extends Controller
         if ($position = Location::get()) {
             $country = $position->countryCode;
 			if($country == 'IN'){
-				$tax_rates = ['txr_1IJH0jDEIHJhoye20gUfOsMF'];
+				$tax_rates = [config('rinvex.subscriptions.stripe_tax_rate')];
                 $currency = 'INR';
                 // $total_amount *= ($setting->dollar_price) ? $setting->dollar_price : 75;
             }
