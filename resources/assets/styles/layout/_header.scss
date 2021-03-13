@@ -253,6 +253,16 @@ $sidemenuWidth: 300px;
                 &- {
                     &item {
                         margin-left: var(--size-6);
+
+                        &--{
+                            &cta{
+                                @include respond-below(md){
+                                    margin-right:var(--size-6);
+                                    margin-top:var(--size-base);
+                                    margin-bottom:var(--size-base);
+                                }
+                            }
+                        }
                     }
                     &link {
                         font-size: var(--text-lg);
@@ -265,6 +275,17 @@ $sidemenuWidth: 300px;
                         
                         &:hover{
                             color:var(--app-indigo-1);
+                        }
+                    }
+                    &cta{
+                        &--{
+                            &yellow{
+                                font-size:var(--text-xl);
+                                color:#946906;
+                            }
+                            &green{
+                                color:#0D5608;
+                            }
                         }
                     }
                     &icon{
