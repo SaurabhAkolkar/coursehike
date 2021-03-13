@@ -331,6 +331,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::resource('subcategory','SubcategoryController');
       Route::resource('childcategory','ChildcategoryController');
       Route::resource('course','CourseController');
+      Route::get('featuredcourses','CourseController@featuredCourses');
       Route::resource('courseinclude','CourseincludeController');
       Route::resource('coursechapter','CoursechapterController');
       Route::resource('courseresource','CourseresourceController');
@@ -372,6 +373,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::resource('languages', 'LanguageController');
 
       Route::get('reposition/category', 'CategoriesController@reposition')->name('category_reposition');
+
+      Route::get('reposition/course', 'CourseController@reposition')->name('course_reposition');
 
       Route::post('reposition/class', 'CourseclassController@sort')->name('class-sort');
 

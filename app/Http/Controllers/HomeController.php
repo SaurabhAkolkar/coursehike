@@ -82,115 +82,26 @@ class HomeController extends Controller
         $featuredMentor = FeaturedMentor::with('user','courses','courses.category')->where(['status'=>'1'])->get();
 
 
-    
-        if($request->filters == 'applied'){
-			$filtres_applied = true;
-			if(isset($request->sort_by)){
+        // if(isset($request->sort_by)){
+        //     $sort_type = $request->sort_by;
 
-                $sort_type = $request->sort_by;
-                
-				if($request->sort_by == 'latest'){
+        //     if($request->sort_by == 'latest'){
+        //         $categories = Categories::with(array('courses' => function($query) {$query->where(['status' => 1])->orderBy('created_at' , 'DESC' );}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+        //     }else if($request->sort_by=='highest_rated'){
 
-                    $courses = Course::with('user')->where('status',1)->orderBy('created_at')->get();
-                    
-				}else if($request->sort_by == 'highest_rated'){		
+        //         $categories = Categories::with(array('courses' => function($query) {$query->where(['status' => 1]);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
 
-                    $courses = Course::with('user')->where('status',1)->orderBy('created_at')->get();
-                    
-                }	
-                	
-			}else{
-
-				$courses = Course::with('user')->where('status',1)->get();
-			}
-			
-			
-			if(isset($request->duration) && $request->duration != null){
-
-				$selected_duration =$request->duration;
-				if($selected_duration == 'lessthan1'){
-					$courses = $courses->where('duration','<=',1);
-				}
-				if($selected_duration == 'lessthan5'){
-					$courses = $courses->where('duration','<=',5);
-				}
-				if($selected_duration == 'morethan5'){
-					$courses = $courses->where('duration','>',5);
-				}
-			
-			}
-
-			if(isset($request->categories) && $request->categories != null){
-
-				$categories = array_map('intval', explode(',',$request->categories));
-				$selected_categories =$categories;
-				$courses = $courses->whereIn('category_id',$categories);
-			
-			}
-	
-			if(isset($request->languages) && $request->categories != null){
-	
-				$languages = array_map('intval', explode(',',$request->languages));
-				$selected_languages =$languages;
-				$courses = $courses->whereIn('language_id',$languages);
-			}
-	
-			if(isset($request->level) && $request->level != null){
-	
-				$level = array_map('intval', explode(',',$request->level));
-				$selected_level =$level;
-				$courses = $courses->whereIn('level',$level);
-            }
-            
-            $data = [
-                'categories'=>$categories,
-                'playlists' => $playlists,
-                'firstSection' => $firstSection,
-                'featuredMentor' => $featuredMentor,
-                'master_classes' => $master_classes,
-                'sliders' => $sliders,
-                'facts' => $facts,
-                'cor' => $cor,
-                'bundles' => $bundles,
-                'meetings' => $meetings,
-                'bigblue' => $bigblue,
-                'testi' => $testi,
-                'trusted' => $trusted,
-                'selected_duration' => $selected_duration,
-                'sort_type' => $sort_type,
-                'selected_languages' => $selected_languages,
-                'selected_categories' => $selected_categories,
-                'selected_level' => $selected_level,
-                'filtres_applied' => $filtres_applied,
-                'courses' => $courses,
-                'langauges' => $langauges,
-                'filter_categories'=>$filter_categories
-            ];
-			
-			return view('learners.pages.home')->with($data);
-
-        }
-
-
-
-        if(isset($request->sort_by)){
-            $sort_type = $request->sort_by;
-
-            if($request->sort_by == 'latest'){
-                $categories = Categories::with(array('courses' => function($query) {$query->where(['status' => 1])->orderBy('created_at' , 'DESC' );}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
-            }else if($request->sort_by=='highest_rated'){
-
-                $categories = Categories::with(array('courses' => function($query) {$query->where(['status' => 1]);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
-
-            }else if($request->sort_by=='most_popular'){
-                $categories = Categories::with(array('courses' => function($query) {$query->where([ 'status' => 1])->orderBy('created_at' , 'DESC');}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
-            }else{
-                $categories = Categories::with(array('courses' => function($query) {$query->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
-            }
+        //     }else if($request->sort_by=='most_popular'){
+        //         $categories = Categories::with(array('courses' => function($query) {$query->where([ 'status' => 1])->orderBy('created_at' , 'DESC');}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+        //     }else{
+        //         $categories = Categories::with(array('courses' => function($query) {$query->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+        //     }
         
-        }else{
-                $categories = Categories::with(array('courses' => function($query) {$query->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
-        }
+        // }else{
+        // }
+
+        $categories = Categories::with(array('courses' => function($query) {$query->orderBy('order')->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+
         
         $data = [
             'categories'=>$categories,
@@ -221,3 +132,94 @@ class HomeController extends Controller
     }
 
 }
+
+
+//filter code commented
+/*
+if($request->filters == 'applied'){
+    $filtres_applied = true;
+    if(isset($request->sort_by)){
+
+        $sort_type = $request->sort_by;
+        
+        if($request->sort_by == 'latest'){
+
+            $courses = Course::with('user')->where('status',1)->orderBy('created_at')->get();
+            
+        }else if($request->sort_by == 'highest_rated'){		
+
+            $courses = Course::with('user')->where('status',1)->orderBy('created_at')->get();
+            
+        }	
+            
+    }else{
+
+        $courses = Course::with('user')->where('status',1)->get();
+    }
+    
+    
+    if(isset($request->duration) && $request->duration != null){
+
+        $selected_duration =$request->duration;
+        if($selected_duration == 'lessthan1'){
+            $courses = $courses->where('duration','<=',1);
+        }
+        if($selected_duration == 'lessthan5'){
+            $courses = $courses->where('duration','<=',5);
+        }
+        if($selected_duration == 'morethan5'){
+            $courses = $courses->where('duration','>',5);
+        }
+    
+    }
+
+    if(isset($request->categories) && $request->categories != null){
+
+        $categories = array_map('intval', explode(',',$request->categories));
+        $selected_categories =$categories;
+        $courses = $courses->whereIn('category_id',$categories);
+    
+    }
+
+    if(isset($request->languages) && $request->categories != null){
+
+        $languages = array_map('intval', explode(',',$request->languages));
+        $selected_languages =$languages;
+        $courses = $courses->whereIn('language_id',$languages);
+    }
+
+    if(isset($request->level) && $request->level != null){
+
+        $level = array_map('intval', explode(',',$request->level));
+        $selected_level =$level;
+        $courses = $courses->whereIn('level',$level);
+    }
+    
+    $data = [
+        'categories'=>$categories,
+        'playlists' => $playlists,
+        'firstSection' => $firstSection,
+        'featuredMentor' => $featuredMentor,
+        'master_classes' => $master_classes,
+        'sliders' => $sliders,
+        'facts' => $facts,
+        'cor' => $cor,
+        'bundles' => $bundles,
+        'meetings' => $meetings,
+        'bigblue' => $bigblue,
+        'testi' => $testi,
+        'trusted' => $trusted,
+        'selected_duration' => $selected_duration,
+        'sort_type' => $sort_type,
+        'selected_languages' => $selected_languages,
+        'selected_categories' => $selected_categories,
+        'selected_level' => $selected_level,
+        'filtres_applied' => $filtres_applied,
+        'courses' => $courses,
+        'langauges' => $langauges,
+        'filter_categories'=>$filter_categories
+    ];
+    
+    return view('learners.pages.home')->with($data);
+
+**/

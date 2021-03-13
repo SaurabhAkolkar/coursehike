@@ -524,5 +524,6 @@ return [
     'CurrenyConversion'=>'Currency Conversion',
     'PlanSelection'=>'Plan Selection',
     'CreatorDetails' => 'Creator Details',
+    'featuredCourses' => 'Featured Courses',
 
 ];

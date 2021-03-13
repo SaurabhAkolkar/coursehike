@@ -325,6 +325,36 @@ class CourseController extends Controller
         }
     }
 
+    public function featuredCourses(){
+        $courses = Course::where('featured','1')->orderBy('order')->get();
+
+        return view('admin.course.featured',compact('courses'));
+    }
+
+    public function reposition(Request $request)
+    {
+
+        $data= $request->all();
+        
+        $posts = Course::where(['featured'=>1])->get();
+        $pos = $data['id'];
+
+        
+        
+       
+        $position =json_encode($data);
+     
+        foreach ($pos as $key => $item) {
+          Course::where('id', $item)->update(array('order' => $key));
+          // $new_data = Course::findOrFail($itme->id)
+
+        }
+
+        return response()->json(['msg'=>'Updated Successfully', 'success'=>true]);
+
+
+    }
+
     public function upload_info(Request $request)
     {
         $id = $request['catId'];
