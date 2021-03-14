@@ -116,9 +116,9 @@
       </div> 
 
             <div class="row  la-anim__wrap">
-                <div class="col-12">
+                <div class="col-12  la-section">
                 
-                    <div class="la-mccourses la-section">
+                    <div class="la-mccourses">
                       <div class="la-anim__stagger-item la-anim__A">
 
                         @if(count($master_classes) == 0)
@@ -136,7 +136,7 @@
 
                         @else
                           
-                            <div class="row row-cols-md-3 row-cols-lg-4">
+                            <div class="row row-cols-md-2 row-cols-lg-4">
                               @foreach ($master_classes as $master)
                                 <div class="col-12  la-anim__stagger-item">
                                   <x-master-class

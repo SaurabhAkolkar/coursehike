@@ -107,7 +107,7 @@ $(function(){
   if($('.la-home__course-container')[0]){     
     var course_swiper = new Swiper(".la-home__course-container", {
       slidesPerView: 'auto',
-      spaceBetween: 25,
+      spaceBetween: 20,
       flipEffect: {
         slideShadows: false,
       },
@@ -128,7 +128,7 @@ $(function(){
         // when window width is <= 480px     
         320: {       
           slidesPerView: 'auto',  
-          spaceBetween: 15,
+          spaceBetween: 10,
         },       
         // 767: {       
         //   slidesPerView: 'auto',         
@@ -161,20 +161,13 @@ $(function(){
     
   // } 
 
-  //- Autoplay Stop on Mouse Hover
-    $(".swiper-container").hover(function() {
-      this.swiper.autoplay.stop();
-    }, function() {
-        this.swiper.autoplay.start();
-    });
-
   // Home Banner Browser Courses ONclick
   $('#home_courses_redirect').on("click", function(){
       $('.la-section--courses-inwrap').addClass('la-home__course-animate');
     });
     
   // Swiper JS for Master Classes in Homepage
-  if($('.la-home__master-container')[0]){   
+  if($('.la-home__master-container')[0] && $('.la-home__master-container .swiper-slide').length >= 4){   
     var master_slider = new Swiper('.la-home__master-container', {
       slidesPerView: 'auto',
       spaceBetween: 25,
@@ -218,6 +211,10 @@ $(function(){
 
  
   //- Customize Content Section in Home Page
+
+  /*var menu = ['Personalised dashboard for focused learning', 'Unique tattoo styles from around of the world', 'Personal Playlist to help you organise'];
+  var menu2 = ['Courses based on your interests, favourite mentors, on one easy learning platform','Learn unique styles created by incredible artists from across the world','Create playlist to save all the courses you want to learn in a personal space and learn whenever, wherever yo want!']
+  */
   if($('.la-home__customize-container')[0]){   
     var swiper = new Swiper('.la-home__customize-container', {
       slidesPerView: 'auto',
@@ -235,6 +232,13 @@ $(function(){
         el: '.la-home__customize-pagination',
         clickable: true,
       },
+      /*pagination: {
+        el: '.la-home__pagination-top, .la-home__customize-paginations',
+        clickable: true,
+        renderBullet: function (index, className, classTag) {
+          return '<div class="' + className + '">' + (menu[index]) + '<br/>' + '<div class="' + classTag + '">' + (menu2[index]) + '</div>' + '</div>';
+        },
+      }*/
     });
   }
   
@@ -288,10 +292,18 @@ $(function(){
   }
 
   //Swiper Js for Become Creator
-  if($('.la-mcard__container')[0]){
+  if($('.la-mcard__container')[0] && $('.la-mcard__container .swiper-slide').length > 1){
     var swiper = new Swiper('.la-mcard__container', {
       slidesPerView: 'auto',
       spaceBetween: 30,
+      flipEffect: {
+        slideShadows: false,
+      },
+      speed:1000,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -300,7 +312,7 @@ $(function(){
   }
   
   //Swiper Js for Learning Plans
-  if($('.la-choose__slider')[0]){
+  /*if($('.la-choose__slider')[0]){
       var swiper = new Swiper('.la-choose__slider', {
         slidesPerView: 1,
         spaceBetween: 30,
@@ -308,25 +320,29 @@ $(function(){
           el: '.swiper-pagination',
           clickable: true,
         },
-      breakpoints: {  
-          // when window width is <= 480px     
-          480: {       
-            slidesPerView: 1,       
-            spaceBetween: 20     
-          },       
-          767: {       
-            slidesPerView: 2,       
-            spaceBetween: 30     
-          } 
-      } 
+        breakpoints: {  
+            // when window width is <= 480px     
+            480: {       
+              slidesPerView: 1,       
+              spaceBetween: 20     
+            },       
+            767: {       
+              slidesPerView: 2,       
+              spaceBetween: 30     
+            } 
+        } 
     });
-  }
+  } */
 
   //Swiper Js for Reviews in Course Page
-  if($('.la-lcreviews__container')[0]){
+  if($('.la-lcreviews__container')[0] && $('.la-lcreviews__container .swiper-slide').length >= 2){
     var swiper = new Swiper('.la-lcreviews__container', {
       slidesPerView: 'auto',
       spaceBetween: 30,
+      flipEffect: {
+        slideShadows: false,
+      },
+      speed:1000,
       autoplay: {
         delay: 2500,
         disableOnInteraction: false,
@@ -338,6 +354,14 @@ $(function(){
     });
   }
 
+  
+  //- Autoplay Stop on Mouse Hover
+  $('.swiper-container').on('mouseover', function() {
+    this.swiper.autoplay.stop();
+  });
+  $('.swiper-container').on('mouseout', function() {
+    this.swiper.autoplay.start();
+  });
 
   // Rating 
   $("#rateYo").rateYo({

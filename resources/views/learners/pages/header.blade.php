@@ -7,7 +7,7 @@ use App\Announcement;
 
   <!-- Header: Start-->
   <header class="la-header">
-      <div class="la-header__inner px-5 py-3 d-flex align-items-center">
+      <div class="la-header__inner px-4 py-3 d-flex align-items-center">
         <div class="la-header__lft d-inline-flex align-items-center">
           <a class="la-header__brandwrap" href="/">
             <img class="la-header__brand" src="/images/learners/logo.svg" alt="Lila">
@@ -25,7 +25,7 @@ use App\Announcement;
 
         <form class="form-inline mb-0 d-none d-md-block" action="{{ url('/search-course/') }}" method="get">
           <div class="form-group la-header__gsearch"  >
-            <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input pl-4" id="header_search_input" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Looking for creative courses by the best artists in the world?" required>
+            <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input" id="header_search_input" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Looking for creative courses by the best artists in the world?" required>
           </div>
         </form>
 

@@ -506,6 +506,46 @@
     }
 }
 
+/*.la-home__pagination-top{
+    position: relative;
+    display:inherit;
+    margin-right:10px;
+    text-align: left;
+  
+    .swiper-pagination-bullet{
+        width: 100%;
+        display: inline-block;
+        border-radius: 0px;
+        height: auto;
+        font-size: var(--text-lg);
+        font-weight: var(--font-medium);
+        background-color: transparent;
+        padding: 5px;
+        color: var(--yellow);
+        opacity: 0.75;
+        padding-right:var(--size-4);
+        line-height:1.2;
+
+        div{
+            color:var(--white) !important;
+            opacity:0.75;
+            font-size: var(--text-sm);
+            font-weight: var(--font-normal);
+            padding-top:5px;
+        }
+    }
+
+    .swiper-pagination-bullet-active {
+        color:var(--yellow);
+        background: transparent;
+        opacity: 1;
+
+        div{
+            color:var(--white) !important;
+            opacity:1;
+        }
+    }
+}*/
 .la-home__customize-desc{
     @include respond-above(sm){
         margin-right:var(--size-6);
