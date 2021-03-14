@@ -33,34 +33,50 @@ use App\Announcement;
           <div class="la-header__menu d-inline-flex align-items-center position-relative">
 
             <!-- Header Buttons: Start -->
-          
-           <div class="la-header__menu-item d-none d-lg-block">
-                <a class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header bg-yellow" role="button">
-                    <span class="la-header__menu-cta--text text-sm pr-3">Start free trial</span>
-                    <span class="la-header__menu-cta--yellow la-icon icon-profile"></span>
-                </a>
-            </div>
+          @if(Auth::check())
+            @if(Auth::user()->subscription()->active())
 
-            <div class="la-header__menu-item d-none d-lg-block">
-                <a class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header border-yellow" role="button">
-                    <span class="la-header__menu-cta--text text-sm pr-3">2 Days of free trial left</span>
-                    <span class="la-header__menu-cta la-icon la-icon--lg icon-profile"></span>
-                </a>
-            </div>
+              <div class="la-header__menu-item d-none d-lg-block">
+                  <a href="learning-plans" class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header bg-yellow" role="button">
+                      <span class="la-header__menu-cta--text text-sm pr-3">Start free trial</span>
+                      <span class="la-header__menu-cta--yellow la-icon icon-profile"></span>
+                  </a>
+              </div>
+            @endif
 
-            <div class="la-header__menu-item d-none d-lg-block">
-                <a class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header bg-green" role="button">
-                    <span class="la-header__menu-cta--text text-sm pr-3">Subscribe Now</span>
-                    <span class="la-header__menu-cta--green la-icon icon-profile"></span>
-                </a>
-            </div>
+            @if(Auth::user()->subscription()->onTrial())
+             @php
+                $user = DB::table('plan_subscriptions')->where('user_id', Auth::user()->id)->first();
+                $created = new Carbon($user->created_at);
+                $now = Carbon::now();
+                $difference = $created->diff($now)->days;
+                
+                @endphp
+              <div class="la-header__menu-item d-none d-lg-block">
+                  <a href="learning-plans" class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header border-yellow" role="button">
+                      <span class="la-header__menu-cta--text text-sm pr-3">Trial Ends in {{$difference}} days</span>
+                      <span class="la-header__menu-cta la-icon la-icon--lg icon-profile"></span>
+                  </a>
+              </div>
+            @endif
 
+            @if(Auth::user()->subscription()->ended() || Auth::user()->subscription()->canceled())
+              
+                <div class="la-header__menu-item d-none d-lg-block">
+                    <a href="learning-plans" class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header bg-green" role="button">
+                        <span class="la-header__menu-cta--text text-sm pr-3">Renew Subscription</span>
+                        <span class="la-header__menu-cta--green la-icon icon-profile"></span>
+                    </a>
+                </div>
+            @endif
+          @endif
+<!-- 
             <div class="la-header__menu-item d-none d-lg-block">
                 <a class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header border-green" role="button">
                     <span class="la-header__menu-cta--text text-sm pr-3">Annual Subscription</span>
                     <span class="la-header__menu-cta la-icon la-icon--lg icon-profile"></span>
                 </a>
-            </div>
+            </div> -->
             <!-- Header Buttons: End -->
             
             <div class="la-header__menu-item d-none d-md-block">
