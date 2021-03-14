@@ -33,7 +33,7 @@ use App\Announcement;
           <div class="la-header__menu d-inline-flex align-items-center position-relative">
 
             <!-- Header Buttons: Start -->
-          {{--
+          
            <div class="la-header__menu-item d-none d-lg-block">
                 <a class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header bg-yellow" role="button">
                     <span class="la-header__menu-cta--text text-sm pr-3">Start free trial</span>
@@ -61,7 +61,6 @@ use App\Announcement;
                     <span class="la-header__menu-cta la-icon la-icon--lg icon-profile"></span>
                 </a>
             </div>
-            --}}
             <!-- Header Buttons: End -->
             
             <div class="la-header__menu-item d-none d-md-block">

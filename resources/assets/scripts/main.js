@@ -101,13 +101,12 @@ $(function(){
   
 
   // Swiper JS for Browse Courses in Homepage
+
   // var course_Sliders = [];
-   
   // if($(this)[0]){
   if($('.la-home__course-container')[0]){     
     var course_swiper = new Swiper(".la-home__course-container", {
       slidesPerView: 'auto',
-      //loop: true,
       spaceBetween: 25,
       flipEffect: {
         slideShadows: false,
@@ -169,8 +168,8 @@ $(function(){
         this.swiper.autoplay.start();
     });
 
-    // Home Banner Browser Courses ONclick
-    $('#home_courses_redirect').on("click", function(){
+  // Home Banner Browser Courses ONclick
+  $('#home_courses_redirect').on("click", function(){
       $('.la-section--courses-inwrap').addClass('la-home__course-animate');
     });
     
@@ -179,7 +178,6 @@ $(function(){
     var master_slider = new Swiper('.la-home__master-container', {
       slidesPerView: 'auto',
       spaceBetween: 25,
-      //loop: true,
       flipEffect: {
         slideShadows: false,
       },
