@@ -88,7 +88,7 @@
 
             <!-- Header Buttons: Start -->
           @if(Auth::check())
-            @if(Auth::user()->subscription()->active())
+            @if(Auth::user()->subscription() && Auth::user()->subscription()->active())
             <div class="la-header__menu-item la-header__menu-item--cta text-center d-block d-lg-none">
                 <a href="/learning-plans" class="la-header__menu-link  la-header__menu-cta btn btn--primary la-btn__header bg-yellow" role="button">
                     <span class="la-header__menu-cta--text text-sm pr-3">Start free trial</span>
@@ -96,7 +96,7 @@
             </div>
             @endif
 
-            @if(Auth::user()->subscription()->onTrial())
+            @if(Auth::user()->subscription() && Auth::user()->subscription()->onTrial())
              @php
                 $user = DB::table('plan_subscriptions')->where('user_id', Auth::user()->id)->first();
                 $created = new Carbon($user->created_at);
@@ -111,7 +111,7 @@
                 </div>
             @endif
 
-            @if(Auth::user()->subscription()->ended() || Auth::user()->subscription()->canceled())
+            @if(Auth::user()->subscription() && (Auth::user()->subscription()->ended() || Auth::user()->subscription()->canceled()))
             <div class="la-header__menu-item la-header__menu-item--cta d-block d-lg-none">
                 <a href="/learning-plans" class="la-header__menu-link la-header__menu-cta btn btn--primary la-btn__header bg-green" role="button">
                     <span class="la-header__menu-cta--text text-sm pr-3">Subscribe Now</span>
