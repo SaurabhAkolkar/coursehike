@@ -22,7 +22,7 @@ use App\Announcement;
           <x-login />
 
         </div>
-        
+
         <form class="form-inline mb-0 d-none d-md-block" action="{{ url('/search-course/') }}" method="get">
           <div class="form-group la-header__gsearch"  >
             <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input pl-4" id="header_search_input" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Looking for creative courses by the best artists in the world?" required>
@@ -31,6 +31,38 @@ use App\Announcement;
 
         <div class="la-header__rht ml-auto">
           <div class="la-header__menu d-inline-flex align-items-center position-relative">
+
+            <!-- Header Buttons: Start -->
+          {{--
+           <div class="la-header__menu-item d-none d-lg-block">
+                <a class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header bg-yellow" role="button">
+                    <span class="la-header__menu-cta--text text-sm pr-3">Start free trial</span>
+                    <span class="la-header__menu-cta--yellow la-icon icon-profile"></span>
+                </a>
+            </div>
+
+            <div class="la-header__menu-item d-none d-lg-block">
+                <a class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header border-yellow" role="button">
+                    <span class="la-header__menu-cta--text text-sm pr-3">2 Days of free trial left</span>
+                    <span class="la-header__menu-cta la-icon la-icon--lg icon-profile"></span>
+                </a>
+            </div>
+
+            <div class="la-header__menu-item d-none d-lg-block">
+                <a class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header bg-green" role="button">
+                    <span class="la-header__menu-cta--text text-sm pr-3">Subscribe Now</span>
+                    <span class="la-header__menu-cta--green la-icon icon-profile"></span>
+                </a>
+            </div>
+
+            <div class="la-header__menu-item d-none d-lg-block">
+                <a class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header border-green" role="button">
+                    <span class="la-header__menu-cta--text text-sm pr-3">Annual Subscription</span>
+                    <span class="la-header__menu-cta la-icon la-icon--lg icon-profile"></span>
+                </a>
+            </div>
+            --}}
+            <!-- Header Buttons: End -->
             
             <div class="la-header__menu-item d-none d-md-block">
               <!-- Global Search: Start-->

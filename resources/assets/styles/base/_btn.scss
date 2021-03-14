@@ -101,6 +101,74 @@
                 }
             }
 
+            &header{
+                font-family: var(--body-font) !important;
+                padding: 8px var(--size-4);
+                border-radius:20px 20px 20px 20px;
+                border:none;
+                letter-spacing: 0;
+                font-size:var(--text-sm);
+                text-transform: none;   
+                font-weight: var(--font-normal) !important;                     
+
+                @include respond-below(md){
+                    width:100%;
+                    padding:3px var(--size-4);
+                }
+
+                &.bg-yellow{
+                    background-color:var(--yellow);
+                    color:var(--white);
+                    border:1px solid transparent;
+                    
+                    &:hover{
+                        background-color:transparent;
+                        color:var(--gray6);
+                        border:1px solid var(--yellow);
+
+                        .la-header__menu-cta--yellow{
+                            color:var(--gray6);
+                        }
+                    }
+                }
+                &.border-yellow{
+                    background-color:rgba(#FFF5CF,0.8);
+                    color:var(--gray6);
+                    border: 1px solid #FFD01A;
+                   
+                    &:hover{
+                        background-color:var(--yellow);
+                        color:var(--white);
+                      
+                    }
+                }
+                &.bg-green{
+                    background-color:var(--green);
+                    color:var(--white);
+                    border: 1px solid transparent;
+                    
+                    &:hover{
+                        background-color:transparent;
+                        color:var(--gray6);
+                        border: 1px solid var(--green);
+
+                        .la-header__menu-cta--green{
+                            color:var(--gray6);
+                        }
+                    }
+                }
+                &.border-green{
+                    background-color:rgba(#E9FFE8,0.8);
+                    color:var(--gray6);
+                    border: 1px solid var(--green);
+                   
+                    &:hover{
+                        background-color:var(--green);
+                        color:var(--white);
+                    }
+                }
+            }
+
             &arrow {
                 position: relative;
                 display: inline-block;
