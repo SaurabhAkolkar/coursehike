@@ -87,31 +87,41 @@
             </div>
 
             <!-- Header Buttons: Start -->
-          {{--
+          @if(Auth::check())
+            @if(Auth::user()->subscription()->active())
             <div class="la-header__menu-item la-header__menu-item--cta text-center d-block d-lg-none">
-                <a class="la-header__menu-link  la-header__menu-cta btn btn--primary la-btn__header bg-yellow" role="button">
+                <a href="/learning-plans" class="la-header__menu-link  la-header__menu-cta btn btn--primary la-btn__header bg-yellow" role="button">
                     <span class="la-header__menu-cta--text text-sm pr-3">Start free trial</span>
                 </a>
             </div>
+            @endif
 
-            <div class="la-header__menu-item la-header__menu-item--cta text-center d-block d-lg-none">
-                <a class="la-header__menu-link la-header__menu-cta btn btn--primary la-btn__header border-yellow" role="button">
-                    <span class="la-header__menu-cta--text text-sm pr-3">2 Days of free trial left</span>
-                </a>
-            </div>
+            @if(Auth::user()->subscription()->onTrial())
+             @php
+                $user = DB::table('plan_subscriptions')->where('user_id', Auth::user()->id)->first();
+                $created = new Carbon($user->created_at);
+                $now = Carbon::now();
+                $difference = $created->diff($now)->days;
+                
+                @endphp
+                <div class="la-header__menu-item la-header__menu-item--cta text-center d-block d-lg-none">
+                    <a href="/learning-plans" class="la-header__menu-link la-header__menu-cta btn btn--primary la-btn__header border-yellow" role="button">
+                        <span class="la-header__menu-cta--text text-sm pr-3">2 Days of free trial left</span>
+                    </a>
+                </div>
+            @endif
 
+            @if(Auth::user()->subscription()->ended() || Auth::user()->subscription()->canceled())
             <div class="la-header__menu-item la-header__menu-item--cta d-block d-lg-none">
-                <a class="la-header__menu-link la-header__menu-cta btn btn--primary la-btn__header bg-green" role="button">
+                <a href="/learning-plans" class="la-header__menu-link la-header__menu-cta btn btn--primary la-btn__header bg-green" role="button">
                     <span class="la-header__menu-cta--text text-sm pr-3">Subscribe Now</span>
                 </a>
             </div>
+            @endif
 
-            <div class="la-header__menu-item la-header__menu-item--cta d-block d-lg-none">
-                <a class="la-header__menu-link la-header__menu-cta btn btn--primary la-btn__header border-green" role="button">
-                    <span class="la-header__menu-cta--text text-sm pr-3">Annual Subscription</span>
-                </a>
-            </div>
-         --}}
+        
+        @endif
+         
             <!-- Header Buttons: End -->
 
             <div class="la-header__nav-item ">
