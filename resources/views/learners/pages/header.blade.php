@@ -34,7 +34,7 @@ use App\Announcement;
 
             <!-- Header Buttons: Start -->
           @if(Auth::check())
-            @if(Auth::user()->subscription()->active())
+            @if(!Auth::user()->subscription())
 
               <div class="la-header__menu-item d-none d-lg-block">
                   <a href="learning-plans" class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header bg-yellow" role="button">
@@ -44,7 +44,7 @@ use App\Announcement;
               </div>
             @endif
 
-            @if(Auth::user()->subscription()->onTrial())
+            @if(Auth::user()->subscription() && Auth::user()->subscription()->onTrial())
              @php
                 $user = DB::table('plan_subscriptions')->where('user_id', Auth::user()->id)->first();
                 $created = new Carbon($user->created_at);
@@ -60,7 +60,7 @@ use App\Announcement;
               </div>
             @endif
 
-            @if(Auth::user()->subscription()->ended() || Auth::user()->subscription()->canceled())
+            @if(Auth::user()->subscription() && (Auth::user()->subscription()->ended() || Auth::user()->subscription()->canceled()))
               
                 <div class="la-header__menu-item d-none d-lg-block">
                     <a href="learning-plans" class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header bg-green" role="button">
