@@ -87,7 +87,6 @@
             </div>
 
             <!-- Header Buttons: Start -->
-          {{--
             <div class="la-header__menu-item la-header__menu-item--cta text-center d-block d-lg-none">
                 <a class="la-header__menu-link  la-header__menu-cta btn btn--primary la-btn__header bg-yellow" role="button">
                     <span class="la-header__menu-cta--text text-sm pr-3">Start free trial</span>
@@ -111,7 +110,6 @@
                     <span class="la-header__menu-cta--text text-sm pr-3">Annual Subscription</span>
                 </a>
             </div>
-         --}}
             <!-- Header Buttons: End -->
 
             <div class="la-header__nav-item ">
