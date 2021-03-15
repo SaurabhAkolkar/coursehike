@@ -112,9 +112,16 @@ $(function(){
         slideShadows: false,
       },
       speed:1500,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
+      on: {
+        lazyImageReady: function () {
+            if (!this.autoplay.running) {
+                this.params.autoplay = {
+                    delay: 3500,
+                    disableOnInteraction: true
+                };
+                this.autoplay.start();
+            }
+        }
       },
       pagination: {
         el: ".la-home__course-paginations",
@@ -124,8 +131,7 @@ $(function(){
       //   nextEl: '.la-home__course-next',
       //   prevEl: '.la-home__course-prev',
       // },
-      breakpoints: {  
-        // when window width is <= 480px     
+      breakpoints: {   
         320: {       
           slidesPerView: 'auto',  
           spaceBetween: 10,
@@ -175,9 +181,16 @@ $(function(){
         slideShadows: false,
       },
       speed:1500,
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
+      on: {
+        lazyImageReady: function () {
+            if (!this.autoplay.running) {
+                this.params.autoplay = {
+                    delay: 3500,
+                    disableOnInteraction: true
+                };
+                this.autoplay.start();
+            }
+        }
       },
       pagination: {
         el: '.la-home__master-pagination',
@@ -225,7 +238,7 @@ $(function(){
       },
       speed:1500,
       autoplay: {
-        delay: 3000,
+        delay: 3500,
         disableOnInteraction: false,
       },
       pagination: {
@@ -475,6 +488,7 @@ $(function(){
       }, x: 100, ease: "Expo.ease"}, "0");
 
   });
+
 
   gsap.registerPlugin(ScrollTrigger);
 

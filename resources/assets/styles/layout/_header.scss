@@ -52,7 +52,14 @@ $sidemenuWidth: 300px;
             }
             
             &inner {
+                padding:var(--size-3) var(--size-2);
 
+                @include respond-above(lg){
+                    padding:var(--size-3) var(--size-4);
+                }
+                @include respond-below(md){
+                    padding:var(--size-3) var(--size-3);
+                }
             }
 
             &brand {
@@ -183,8 +190,9 @@ $sidemenuWidth: 300px;
                     &item {
                         margin-right: var(--size-8);
                         z-index:10;
+                        line-height: 1.2;
 
-                        @media(max-width:1200px){
+                        @media(max-width:1340px){
                             margin-right: var(--size-4);
                         }
                     }
@@ -198,6 +206,9 @@ $sidemenuWidth: 300px;
 
                         @include respond-below(lg){
                             font-size:var(--text-sm);
+                        }
+                        @media (min-width:1200px) and (max-width:1340px){
+                            font-size:var(--text-md);
                         }
                        
                         &:before {
@@ -253,7 +264,15 @@ $sidemenuWidth: 300px;
             &menu {
                 &- {
                     &item {
-                        margin-left: var(--size-6);
+                        margin-left: var(--size-6);                      
+
+                        @include respond-below(lg){
+                            margin-left:var(--size-4);
+                        }
+                        @include respond-below(md){
+                            margin-left:var(--size-6);
+                        }
+
 
                         &--{
                             &cta{

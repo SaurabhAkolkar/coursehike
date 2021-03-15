@@ -242,7 +242,7 @@
 
     @else 
 
-        <div class="la-header__nav-top d-md-inline-flex  align-items-center">
+        <div class="la-header__nav-top d-lg-inline-flex  align-items-center">
             <div class="la-header__nav-item d-lg-none ">
                 <a class="la-header__nav-link  @if(Request::segment(1) == 'login') active @endif" href="/login">
                     <div class="la-header__nav-icon">

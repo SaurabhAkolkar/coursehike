@@ -297,15 +297,9 @@
 
                               @if(count($courses) == 0)
 
-                                <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
+                                <div class=" my-3 my-md-8  la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
                                   <div class="la-empty__inner">
-                                      <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
-                                  </div>
-                                  <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
-                                      <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
-                                          Browse Courses
-                                          <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
-                                      </a>
+                                      <h6 class="la-empty__course-title la-anim__stagger-item">No Courses available currently.</h6>
                                   </div>
                                 </div>
                                 

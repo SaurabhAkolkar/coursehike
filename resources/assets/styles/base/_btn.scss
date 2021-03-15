@@ -109,7 +109,8 @@
                 letter-spacing: 0;
                 font-size:var(--text-sm);
                 text-transform: none;   
-                font-weight: var(--font-normal) !important;                     
+                font-weight: var(--font-normal) !important;        
+                transition: all 0.25s ease-in-out;-webkit-transition: all 0.25s ease-in-out;-moz-transition: all 0.25s ease-in-out;             
 
                 @include respond-below(md){
                     width:100%;
@@ -125,6 +126,7 @@
                         background-color:transparent;
                         color:var(--gray6);
                         border:1px solid var(--yellow);
+                        transition: all 0.25s ease-in-out;-webkit-transition: all 0.25s ease-in-out;-moz-transition: all 0.25s ease-in-out;             
 
                         .la-header__menu-cta--yellow{
                             color:var(--gray6);
@@ -139,7 +141,7 @@
                     &:hover{
                         background-color:var(--yellow);
                         color:var(--white);
-                      
+                        transition: all 0.25s ease-in-out;-webkit-transition: all 0.25s ease-in-out;-moz-transition: all 0.25s ease-in-out;             
                     }
                 }
                 &.bg-green{
@@ -151,6 +153,7 @@
                         background-color:transparent;
                         color:var(--gray6);
                         border: 1px solid var(--green);
+                        transition: all 0.25s ease-in-out;-webkit-transition: all 0.25s ease-in-out;-moz-transition: all 0.25s ease-in-out;             
 
                         .la-header__menu-cta--green{
                             color:var(--gray6);
@@ -161,6 +164,7 @@
                     background-color:rgba(#E9FFE8,0.8);
                     color:var(--gray6);
                     border: 1px solid var(--green);
+                    transition: all 0.25s ease-in-out;-webkit-transition: all 0.25s ease-in-out;-moz-transition: all 0.25s ease-in-out;             
                    
                     &:hover{
                         background-color:var(--green);

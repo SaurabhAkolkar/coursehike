@@ -10721,6 +10721,9 @@ ul, li {
   font-size: var(--text-sm);
   text-transform: none;
   font-weight: var(--font-normal) !important;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
 }
 @media (max-width: 991px) {
   .la-btn__header {
@@ -10737,6 +10740,9 @@ ul, li {
   background-color: transparent;
   color: var(--gray6);
   border: 1px solid var(--yellow);
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
 }
 .la-btn__header.bg-yellow:hover .la-header__menu-cta--yellow {
   color: var(--gray6);
@@ -10749,6 +10755,9 @@ ul, li {
 .la-btn__header.border-yellow:hover {
   background-color: var(--yellow);
   color: var(--white);
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
 }
 .la-btn__header.bg-green {
   background-color: var(--green);
@@ -10759,6 +10768,9 @@ ul, li {
   background-color: transparent;
   color: var(--gray6);
   border: 1px solid var(--green);
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
 }
 .la-btn__header.bg-green:hover .la-header__menu-cta--green {
   color: var(--gray6);
@@ -10767,6 +10779,9 @@ ul, li {
   background-color: rgba(233, 255, 232, 0.8);
   color: var(--gray6);
   border: 1px solid var(--green);
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
 }
 .la-btn__header.border-green:hover {
   background-color: var(--green);
@@ -17283,6 +17298,19 @@ a, a:hover {
 .la-header__gsearch-isActive {
   color: var(--app-indigo-1);
 }
+.la-header__inner {
+  padding: var(--size-3) var(--size-2);
+}
+@media (min-width: 1200px) {
+  .la-header__inner {
+    padding: var(--size-3) var(--size-4);
+  }
+}
+@media (max-width: 991px) {
+  .la-header__inner {
+    padding: var(--size-3) var(--size-3);
+  }
+}
 .la-header__brand {
   margin-right: var(--size-4);
   width: 50px;
@@ -17372,8 +17400,9 @@ a, a:hover {
 .la-header__nav-item {
   margin-right: var(--size-8);
   z-index: 10;
+  line-height: 1.2;
 }
-@media (max-width: 1200px) {
+@media (max-width: 1340px) {
   .la-header__nav-item {
     margin-right: var(--size-4);
   }
@@ -17389,6 +17418,11 @@ a, a:hover {
 @media (max-width: 1199px) {
   .la-header__nav-link {
     font-size: var(--text-sm);
+  }
+}
+@media (min-width: 1200px) and (max-width: 1340px) {
+  .la-header__nav-link {
+    font-size: var(--text-md);
   }
 }
 .la-header__nav-link:before {
@@ -17438,6 +17472,16 @@ a, a:hover {
 }
 .la-header__menu-item {
   margin-left: var(--size-6);
+}
+@media (max-width: 1199px) {
+  .la-header__menu-item {
+    margin-left: var(--size-4);
+  }
+}
+@media (max-width: 991px) {
+  .la-header__menu-item {
+    margin-left: var(--size-6);
+  }
 }
 @media (max-width: 991px) {
   .la-header__menu-item--cta {
@@ -17931,7 +17975,7 @@ input:-webkit-autofill:active {
 }
 @media (max-width: 767px) {
   .la-courses__nav-tabs {
-    margin: var(--size-6) var(--size-3);
+    margin: var(--size-6) 0;
   }
 }
 .la-courses__nav-tabs::-webkit-scrollbar {
@@ -17940,8 +17984,10 @@ input:-webkit-autofill:active {
       height:4px;
   }*/
 }
-.la-courses__nav-content {
-  padding-top: var(--size-6);
+@media (min-width: 768px) {
+  .la-courses__nav-content {
+    padding-top: var(--size-6);
+  }
 }
 .la-courses__nav-item {
   margin-right: var(--size-14);
@@ -18027,7 +18073,7 @@ input:-webkit-autofill:active {
   }
 }
 .la-courses__nav-filterdropdown {
-  width: 260px;
+  width: 300px;
   height: 100vh;
   position: fixed;
   right: 0;
@@ -18042,6 +18088,11 @@ input:-webkit-autofill:active {
   -webkit-transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
   z-index: 22;
+}
+@media (max-width: 1199px) {
+  .la-courses__nav-filterdropdown {
+    width: 250px;
+  }
 }
 .la-courses__nav-filterdropdown.active {
   animation: slideLeft 0.5s ease 1;
@@ -25849,10 +25900,22 @@ section.la-dash-mentors-list h5 {
   font-weight: var(--font-semibold);
   color: var(--gray5);
 }
+@media (max-width: 767px) {
+  .la-empty__courses .la-empty__inner .la-empty__course-title {
+    font-size: var(--text-xl);
+    margin-bottom: 0;
+  }
+}
 .la-empty__courses .la-empty__inner .la-empty__course-desc {
   font-size: var(--text-lg);
   font-weight: var(--font-light);
   color: var(--gray6);
+}
+@media (max-width: 767px) {
+  .la-empty__courses .la-empty__inner .la-empty__course-desc {
+    font-size: var(--text-md);
+    margin-bottom: 0;
+  }
 }
 .la-empty__courses .la-empty__browse-courses .la-empty__browse {
   color: var(--app-indigo-1);

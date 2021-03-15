@@ -253,7 +253,7 @@
     <div class="la-section__inner la-anim__wrap la-section--courses-inwrap" >
       <div class="la-home__course-fluid position-relative" id="home_fluid_container">
         <div class="la-courses">
-          <h3 class="la-home__course-mtitle text-center la-anim__stagger-item">Learn what you love!</h3>
+          <h3 class="la-home__course-mtitle ml-n3 ml-md-0 text-center mb-6 mb-md-10 la-anim__stagger-item">Learn what you love!</h3>
 
           <nav class="la-courses__nav d-inline-flex justify-content-start justify-content-md-center position-relative">
               <ul class="nav nav-pills la-courses__nav-tabs justify-content-center" id="nav-tab" role="tablist" tabindex="0">
@@ -313,7 +313,7 @@
                                           @continue
                                       @endif
                                       
-                                      <div class="swiper-slide la-home__course-slide pt-md-6 la-anim__stagger-item">
+                                      <div class="swiper-slide la-home__course-slide pt-md-6 la-anim__stagger-item" >
                                         <x-course 
                                           :id="$course->id"
                                           :img="$course->preview_image"
@@ -337,15 +337,9 @@
                           @if(count($courses) == 0)
                           <div class="container pr-6 pr-md-1">
                             <div class="row">
-                              <div class="col-12 la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
-                                <div class="la-empty__inner">
-                                    <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
-                                </div>
-                                <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
-                                    <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
-                                        Browse Courses
-                                        <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
-                                    </a>
+                              <div class="col-12  my-3 my-md-8 la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
+                                <div class="la-empty__inner text-center">
+                                    <h6 class="la-empty__course-title la-anim__stagger-item">No Courses available currently.</h6>
                                 </div>
                               </div>
                             </div>
@@ -353,7 +347,7 @@
                           @endif
 
                           @if(count($courses) != 0)
-                          <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-center">
+                          <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-start">
                             <div class="la-slider__navigations la-home__course-navigations d-md-flex  align-items-center">
                               <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div> -->
                               <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
@@ -463,7 +457,7 @@
                 @endforeach
               </div>
             </div>
-            <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-end mt-6 mt-md-16">
+            <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-start mt-6 mt-md-16">
               <div class="la-slider__navigations la-home__course-navigations d-md-flex align-items-center">
                 <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__master-prev"></div> -->
                 <div class="swiper-pagination la-slider__navigations-dots la-home__master-pagination la-slider__paginations la-slider__paginations--purble la-right"></div>

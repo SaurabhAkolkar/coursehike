@@ -7,7 +7,7 @@ use App\Announcement;
 
   <!-- Header: Start-->
   <header class="la-header">
-      <div class="la-header__inner px-4 py-3 d-flex align-items-center">
+      <div class="la-header__inner d-flex align-items-center">
         <div class="la-header__lft d-inline-flex align-items-center">
           <a class="la-header__brandwrap" href="/">
             <img class="la-header__brand" src="/images/learners/logo.svg" alt="Lila">
@@ -23,12 +23,7 @@ use App\Announcement;
 
         </div>
 
-        <form class="form-inline mb-0 d-none d-md-block" action="{{ url('/search-course/') }}" method="get">
-          <div class="form-group la-header__gsearch"  >
-            <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input" id="header_search_input" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Looking for creative courses by the best artists in the world?" required>
-          </div>
-        </form>
-
+       
         <div class="la-header__rht ml-auto">
           <div class="la-header__menu d-inline-flex align-items-center position-relative">
 
@@ -78,8 +73,15 @@ use App\Announcement;
                 </a>
             </div> -->
             <!-- Header Buttons: End -->
+
+            <form class="form-inline mb-0 d-none d-xl-block" action="{{ url('/search-course/') }}" method="get">
+              <div class="form-group la-header__gsearch"  >
+                <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input" id="header_search_input" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Looking for creative courses by the best artists in the world?" required>
+              </div>
+            </form>
+
             
-            <div class="la-header__menu-item d-none d-md-block">
+            <div class="la-header__menu-item d-none d-xl-block">
               <!-- Global Search: Start-->
               <div class="la-gsearch  mb-0" > 
                   <button class="la-gsearch__submit btn px-0" type="submit" id="header_search">
@@ -90,7 +92,7 @@ use App\Announcement;
             </div>
 
             @if(Auth::user()->role == 'mentors' || Auth::user()->role == 'admin')
-              <div class="la-header__menu-item d-none d-lg-block @if(Request::segment(1) == 'admins') active @endif">
+              <div class="la-header__menu-item d-none d-xl-block @if(Request::segment(1) == 'admins') active @endif">
                   <a class="la-header__menu-link la-header__menu-icon la-icon la-icon--xl icon-admin" role="button" target="_blank" href="/admins"></a>
               </div>
             @endif
@@ -270,16 +272,16 @@ use App\Announcement;
 
       </div>
 
-      <form class="form-inline mb-0 d-none d-md-block" action="{{ url('/search-course/') }}" method="get">
+      <form class="form-inline mb-0 d-none d-xl-block" action="{{ url('/search-course/') }}" method="get">
         <div class="form-group la-header__gsearch"  >
-          <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input pl-4" id="header_search_input" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Looking for creative courses by the best artists in the world?" required>
+          <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input px-0" id="header_search_input" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Looking for creative courses by the best artists in the world?" required>
         </div>
       </form>
 
       <div class="la-header__rht ml-auto mr-md-5">
         <div class="la-header__menu d-inline-flex align-items-center">
 
-          <div class="la-header__menu-item d-none d-md-block">
+          <div class="la-header__menu-item d-none d-xl-block">
               <!-- Global Search: Start-->
               <div class="la-gsearch  mb-0" > 
                   <button class="la-gsearch__submit btn px-0" type="submit" id="header_search">

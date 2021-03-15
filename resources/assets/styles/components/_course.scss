@@ -109,7 +109,7 @@
                             transition:all 0.5s linear;
                             
                             @include respond-below(sm){
-                                margin:var(--size-6) var(--size-3);
+                                margin:var(--size-6) 0;
                             }
                         }
                         &tabs::-webkit-scrollbar {
@@ -125,7 +125,9 @@
                             }*/
                         }
                         &content{
-                            padding-top:var(--size-6);
+                            @include respond-above(sm){
+                                padding-top:var(--size-6);
+                            }
                         }
                         &item {
                             margin-right: var(--size-14);
@@ -204,7 +206,7 @@
                             }
                         }
                         &filterdropdown{
-                            width:260px;
+                            width:300px;
                             height:100vh;
                             position:fixed;
                             right:0;
@@ -218,6 +220,10 @@
                             transition:all 0.25s ease;-webkit-transition:all 0.25s ease;-moz-transition:all 0.25s ease;
                             z-index: 22;
 
+                            @include respond-below(lg){
+                                width:250px;
+                            }
+                            
                             &.active{
                                 animation:slideLeft 0.5s ease 1;-webkit-animation:slideLeft 0.5s ease 1;-moz-animation:slideLeft 0.5s ease 1;
                                 transition:all 0.25s ease;-webkit-transition:all 0.25s ease;-moz-transition:all 0.25s ease;
