@@ -13,7 +13,7 @@
             transform:translateY(-12px);-webkit-transform:translateY(-12px);-moz-transform:translateY(-12px);
             transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;
 
-            @include respond-below(sm){
+            @include respond-below(md){
                 transform: none;
             }
         }
@@ -42,7 +42,7 @@
                 position:relative;
                 width:100%;
                 height:100%;
-                border-radius: 10px 10px 0 0;
+                border-radius: 10px 10px 0 0;-webkit-border-radius: 10px 10px 0 0;-moz-border-radius: 10px 10px 0 0;
                 //box-shadow: 0px 20px 10px #00000029;
                 overflow: hidden;
                 //border-radius: 0 0 100%/10em 0%;
@@ -51,7 +51,6 @@
                 mask-position: top;-webkit-mask-position: top;
                 mask-clip:border-box;-webkit-mask-clip:border-box;
                 mask-size:100% 320px;-webkit-mask-size:100% 320px;
-               
                 z-index:0;
 
                 img{
@@ -59,7 +58,7 @@
                     z-index:0;
                     width:100%;
                     height:330px;
-                    border-radius:10px 10px 0 0;
+                    border-radius:10px 10px 0 0;-webkit-border-radius:10px 10px 0 0;-moz-border-radius:10px 10px 0 0;
                     box-shadow: 0px 20px 10px #00000029;
                     object-fit: cover;
                     object-position: top;
@@ -92,13 +91,14 @@
                     }
                     .la-lcourse__play-circle {
                         stroke: #f8aa28;
-                        transition: all 1s ease-in-out;-webkit-transition: all 1s ease-in-out;
+                        transition: all 1s ease-in-out;-webkit-transition: all 1s ease-in-out;-moz-transition: all 1s ease-in-out;
                         stroke-dashoffset: 0;
                         opacity: 1;
                     }
                     .la-lcourse__options{
                         opacity:1;
                         transition:all 0.35s ease-in-out;-webkit-transition:all 0.35s ease-in-out;-moz-transition:all 0.35s ease-in-out;
+                        
                     }
                 }
                 &-{
@@ -114,7 +114,11 @@
             }
             &options{
                 opacity: 0;
-                transition:all 0.35s ease-out;
+                transition:all 0.35s ease-out;-webkit-transition:all 0.35s ease-out;-moz-transition:all 0.35s ease-out;
+
+                @include respond-below(md){
+                    opacity:1;
+                }
             }
             &play{
                 &-{
@@ -131,6 +135,12 @@
                             stroke-dasharray: 240;
                             stroke-dashoffset: 480;
                             stroke: var(--white); 
+
+                            @include respond-below(md){
+                                stroke: #f8aa28;
+                                stroke-dashoffset: 0;
+                                opacity: 1;
+                            }
                         }
                     }
 
@@ -138,8 +148,14 @@
                         stroke: var(--white);
                         stroke-dasharray: 650;
                         stroke-dashoffset: 650;
-                        transition: all 1s ease-in-out;-webkit-transition: all 1s ease-in-out;
+                        transition: all 1s ease-in-out;-webkit-transition: all 1s ease-in-out;-moz-transition: all 1s ease-in-out;
                         opacity: 0.3;
+
+                        @include respond-below(md){
+                            stroke: #f8aa28;
+                            stroke-dashoffset: 0;
+                            opacity: 1;
+                        }
                     }
                 }
             }

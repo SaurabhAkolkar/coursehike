@@ -131,18 +131,6 @@ $(function(){
       //   nextEl: '.la-home__course-next',
       //   prevEl: '.la-home__course-prev',
       // },
-      breakpoints: {   
-        320: {       
-          slidesPerView: 'auto',  
-          spaceBetween: 10,
-        },       
-        // 767: {       
-        //   slidesPerView: 'auto',         
-        // },
-        991: {
-          slidersPerView: 3,
-        }, 
-      }
     });
   }
 
@@ -203,7 +191,7 @@ $(function(){
       breakpoints: {  
         // when window width is <= 480px     
         320: {       
-          slidesPerView: 1,         
+          slidesPerView: 'auto',         
         },       
         576: {       
           slidesPerView: 2,         
@@ -369,10 +357,10 @@ $(function(){
 
   
   //- Autoplay Stop on Mouse Hover
-  $('.swiper-container').on('mouseover', function() {
+  $('.swiper-container').on('mouseover touchstart', function() {
     this.swiper.autoplay.stop();
   });
-  $('.swiper-container').on('mouseout', function() {
+  $('.swiper-container').on('mouseout touchend', function() {
     this.swiper.autoplay.start();
   });
 

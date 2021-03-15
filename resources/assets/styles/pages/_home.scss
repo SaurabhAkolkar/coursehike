@@ -262,8 +262,8 @@
         }
     }
 
-    @include respond-above(md){
-        width: 320px !important;
+    @include respond-below(md){
+        width: 300px !important;
     }
 
     @include respond-above(lg){

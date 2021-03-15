@@ -21222,6 +21222,11 @@ input:-webkit-autofill:active {
   -webkit-transform: scale(1.05);
   -moz-transform: scale(1.05);
 }
+@media (max-width: 991px) {
+  .la-mccourse:hover .la-mccourse__imgwrap {
+    transform: none;
+  }
+}
 .la-mccourse:hover .la-mccourse__overlay {
   border-radius: var(--size-2);
   -webkit-border-radius: var(--size-2);
@@ -23278,7 +23283,7 @@ label.error {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .la-lcourse:hover {
     transform: none;
   }
@@ -23309,6 +23314,8 @@ label.error {
   width: 100%;
   height: 100%;
   border-radius: 10px 10px 0 0;
+  -webkit-border-radius: 10px 10px 0 0;
+  -moz-border-radius: 10px 10px 0 0;
   overflow: hidden;
   background-size: 100%;
   mask-repeat: no-repeat;
@@ -23327,6 +23334,8 @@ label.error {
   width: 100%;
   height: 330px;
   border-radius: 10px 10px 0 0;
+  -webkit-border-radius: 10px 10px 0 0;
+  -moz-border-radius: 10px 10px 0 0;
   box-shadow: 0px 20px 10px #00000029;
   -o-object-fit: cover;
      object-fit: cover;
@@ -23365,6 +23374,7 @@ label.error {
   stroke: #f8aa28;
   transition: all 1s ease-in-out;
   -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
   stroke-dashoffset: 0;
   opacity: 1;
 }
@@ -23388,6 +23398,13 @@ label.error {
 .la-lcourse__options {
   opacity: 0;
   transition: all 0.35s ease-out;
+  -webkit-transition: all 0.35s ease-out;
+  -moz-transition: all 0.35s ease-out;
+}
+@media (max-width: 991px) {
+  .la-lcourse__options {
+    opacity: 1;
+  }
 }
 .la-lcourse__play-svg {
   width: 50px;
@@ -23409,13 +23426,28 @@ label.error {
   stroke-dashoffset: 480;
   stroke: var(--white);
 }
+@media (max-width: 991px) {
+  .la-lcourse__play-btn .la-lcourse__play-triangle {
+    stroke: #f8aa28;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
 .la-lcourse__play-circle {
   stroke: var(--white);
   stroke-dasharray: 650;
   stroke-dashoffset: 650;
   transition: all 1s ease-in-out;
   -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
   opacity: 0.3;
+}
+@media (max-width: 991px) {
+  .la-lcourse__play-circle {
+    stroke: #f8aa28;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
 }
 .la-lcourse__info {
   position: relative;
@@ -24118,9 +24150,9 @@ label.error {
     margin-left: 85px;
   }
 }
-@media (min-width: 992px) {
+@media (max-width: 991px) {
   .la-home__master-slide {
-    width: 320px !important;
+    width: 300px !important;
   }
 }
 @media (min-width: 1200px) {

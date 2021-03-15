@@ -83,8 +83,8 @@
                            </td>
           
                            <td width="300" colspan="1" align="right" style="padding:15px 20px 15px 0">
-                               <a href="mailto:ask@learnitlikealiens.com" style="color:#fff;font-size:12px;font-weight:300;text-decoration: none;">ask@learnitlikealiens.com</a> <br/>
-                               <a href="" target="_blank" style="color:#fff;font-size:12px;font-weight:300;text-decoration: none;">lila.art</a>
+                                <a href="mailto:lila@learnitlikealiens.com" style="color:#fff;font-size:12px;font-weight:300;text-decoration: none;">lila@learnitlikealiens.com</a> <br/>
+                                <a href="https://lila.art" target="_blank" style="color:#fff;font-size:12px;font-weight:300;text-decoration: none;">lila.art</a>
                            </td>
                        </tr>
                    </table>
