@@ -20,7 +20,7 @@ class UsersImport implements ToCollection
 
         foreach ($rows as $row) 
         {
-            if(empty($row[9]))
+            if(empty($row[9]) || User::firstWhere('email', $row[1]))
                 continue;
 
             $plan_price_id = '';
