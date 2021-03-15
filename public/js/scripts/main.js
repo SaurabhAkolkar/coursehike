@@ -215,17 +215,71 @@ $(function(){
   /*var menu = ['Personalised dashboard for focused learning', 'Unique tattoo styles from around of the world', 'Personal Playlist to help you organise'];
   var menu2 = ['Courses based on your interests, favourite mentors, on one easy learning platform','Learn unique styles created by incredible artists from across the world','Create playlist to save all the courses you want to learn in a personal space and learn whenever, wherever yo want!']
   */
-  if($('.la-home__customize-container')[0]){   
-    var swiper = new Swiper('.la-home__customize-container', {
+  if($('#la-home-customize-laptop')){   
+    var swiper = new Swiper('#la-home-customize-laptop', {
       slidesPerView: 'auto',
       //spaceBetween: 15,
       loop:true,
       flipEffect: {
         slideShadows: false,
       },
-      speed:1500,
+      speed: 1200,
       autoplay: {
-        delay: 3000,
+        delay: 0,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.la-home__customize-pagination',
+        clickable: true,
+      },
+      /*pagination: {
+        el: '.la-home__pagination-top, .la-home__customize-paginations',
+        clickable: true,
+        renderBullet: function (index, className, classTag) {
+          return '<div class="' + className + '">' + (menu[index]) + '<br/>' + '<div class="' + classTag + '">' + (menu2[index]) + '</div>' + '</div>';
+        },
+      }*/
+    });
+  }
+
+  if($('#la-home-customize-mobile')){   
+    var swiper = new Swiper('#la-home-customize-mobile', {
+      slidesPerView: 'auto',
+      //spaceBetween: 15,
+      loop:true,
+      flipEffect: {
+        slideShadows: false,
+      },
+      speed: 1200,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.la-home__customize-pagination',
+        clickable: true,
+      },
+      /*pagination: {
+        el: '.la-home__pagination-top, .la-home__customize-paginations',
+        clickable: true,
+        renderBullet: function (index, className, classTag) {
+          return '<div class="' + className + '">' + (menu[index]) + '<br/>' + '<div class="' + classTag + '">' + (menu2[index]) + '</div>' + '</div>';
+        },
+      }*/
+    });
+  }
+
+  if($('#la-home-customize-content')){   
+    var swiper = new Swiper('#la-home-customize-content', {
+      slidesPerView: 'auto',
+      //spaceBetween: 15,
+      loop:true,
+      flipEffect: {
+        slideShadows: false,
+      },
+      speed: 1200,
+      autoplay: {
+        delay: 0,
         disableOnInteraction: false,
       },
       pagination: {
