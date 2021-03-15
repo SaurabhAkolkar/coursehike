@@ -25881,13 +25881,13 @@ section.la-dash-mentors-list h5 {
   background-color: var(--white);
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 10px;
-  padding: var(--size-10) 0 var(--size-10) var(--size-14);
+  padding: var(--size-10) 0 var(--size-10) var(--size-8);
   margin: var(--size-8) 0;
   line-height: 1.6;
 }
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
   .la-empty__courses {
-    padding: var(--size-12) var(--size-4);
+    padding: var(--size-8) var(--size-4);
   }
 }
 @media (max-width: 767px) {
