@@ -76,11 +76,11 @@
 
                     @else
                             
-                        <div class="la-courses__creator-courses row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item">
+                        <div class="la-courses__creator-courses row row-cols-md-2 row-cols-lg-3 ">
                                 
                                 @foreach($courses as $course)
                                 
-                                    <div class="col-md-6 col-lg-3 px-0">
+                                    <div class="col-md-6 col-lg-3 px-0 la-anim__stagger-item">
                                       <x-course 
                                           :id="$course->id"
                                           :img="$course->preview_image" 
