@@ -57,12 +57,20 @@
                   @endif
                     
                 @endforeach
-          
             </div>
           </div>
 
 
           <div class="col-12">
+            
+            <div class="col-12 px-0 my-auto la-anim__wrap">
+              <div class="la-empty__inner py-10">
+                <h6 class="la-empty__course-title text-center text-2xl text-md-3xl la-anim__stagger-item" style="color:var(--gray8);">
+                    No new Releases yet.
+                </h6>
+              </div>
+            </div>
+
             <div class="la-new__announcements">
                 @php
                   $app1 = new stdClass;

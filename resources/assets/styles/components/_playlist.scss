@@ -48,20 +48,16 @@ $image-center: -30px;
                     }
                     //-Wishlist page
                     &wishlist{
-                        //height:250px;
+                        height:440px;
 
                         @include respond-above(lg){
                             height:440px;
-                        }
-                        @include respond-below(md){
-                            //height:230px;
                         }
                     }
                 }
             }
             &mobile{
                 color: var(--app-indigo-1);
-                letter-spacing: 1px;
                 font-weight: var(--font-semibold);
             }
             &item {

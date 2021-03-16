@@ -23,15 +23,19 @@
           @endif
           <div class="la-profile__main-inner">
             <div class="la-profile__title-wrap la-anim__stagger-item">
-              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2" href="{{URL::previous()}}"></a>
-              <h1 class="la-profile__title">My Playlist</h1>
+              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2" href="{{URL::previous()}}"></a>
+              <h1 class="la-profile__title d-none d-lg-block">My Playlist</h1>
+
               <!-- Mobile Version Button to Add Playlist -->
-              <a class="d-block d-md-none mt-4 mb-8"  data-toggle="modal" data-target="#create_playlist" >
-                <div class="la-btn__add-icon ">
-                  <span class="la-playlist__mobile text-lg text-uppercase"> 
-                    <span class="la-icon la-icon--md icon-plus mr-3"></span>Create Playlist</span>
-                </div>
-              </a>
+              <div class="d-flex d-lg-none justify-content-between align-items-center">
+                <h1 class="la-profile__title mb-0 text-3xl d-block d-lg-none">My Playlist</h1>
+                <a class="mt-4 mb-8"  data-toggle="modal" data-target="#create_playlist" >
+                  <div class="la-btn__add-icon ">
+                    <span class="la-playlist__mobile text-md text-uppercase"> 
+                      <span class="la-icon la-icon--md icon-plus mr-1 mt-5"></span>Create Playlist</span>
+                  </div>
+                </a>
+              </div>
             </div>
             
             <section class="la-section la-playlist__sec pt-0">

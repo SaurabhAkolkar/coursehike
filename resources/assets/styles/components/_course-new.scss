@@ -114,6 +114,10 @@
             &options{
                 opacity: 0;
                 transition:all 0.35s ease-out;-webkit-transition:all 0.35s ease-out;-moz-transition:all 0.35s ease-out;
+
+                @include respond-below(md){
+                    opacity:1;
+                }
             }
             &play{
                 &-{
@@ -130,6 +134,12 @@
                             stroke-dasharray: 240;
                             stroke-dashoffset: 480;
                             stroke: var(--white); 
+
+                            @include respond-below(md){
+                                stroke: #f8aa28;
+                                stroke-dashoffset: 0;
+                                opacity: 1;
+                            }
                         }
                     }
 
@@ -139,6 +149,12 @@
                         stroke-dashoffset: 650;
                         transition: all 1s ease-in-out;-webkit-transition: all 1s ease-in-out;-moz-transition: all 1s ease-in-out;
                         opacity: 0.3;
+
+                        @include respond-below(md){
+                            stroke: #f8aa28;
+                            stroke-dashoffset: 0;
+                            opacity: 1;
+                        }
                     }
                 }
             }
