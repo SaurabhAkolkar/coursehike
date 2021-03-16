@@ -65,6 +65,13 @@
                         opacity: 1;
                         transition: all 0.8s ease;-webkit-transition: all 0.8s ease;-moz-transition: all 0.8s ease;-o-transition: all 0.8s ease;
                       }
+
+                      &-{
+                          &info{
+                              opacity:1;
+                              transition:all 0.35s ease-in-out;-webkit-transition:all 0.35s ease-in-out;-moz-transition:all 0.35s ease-in-out;
+                          }
+                      }
                 }
             }
         }
@@ -109,7 +116,19 @@
                 padding: var(--size-3);
                 color: #fff;
                 transition: all 0.24s ease-out;-webkit-transition: all 0.24s ease-out;-moz-transition: all 0.24s ease-out;
+
+                &-{
+                    &info{
+                        opacity:0;
+                        transition:all 0.35s ease-out;-webkit-transition:all 0.35s ease-out;-moz-transition:all 0.35s ease-out;
+                    }
+                }
             }
+            &options{
+                margin-top:0;
+                margin-right:var(--size-base);
+            }
+
             &tag{
                 position: relative;
                 top: -20px;
@@ -150,8 +169,8 @@
             &play{
                 &-{
                     &svg{
-                        width:75px;
-                        height:75px;
+                        width:65px;
+                        height:65px;
                     }
                     &btn{
                         display: inline-block;
@@ -163,21 +182,6 @@
                             stroke-dashoffset: 480;
                             stroke: var(--white);
                             transform: translateY(0);-webkit-transform: translateY(0);-moz-transform: translateY(0); 
-                        }
-
-                        @include respond-below(md){
-                            .la-mccourse__play-triangle {
-                                stroke-dashoffset: 0;
-                                opacity: 1;
-                                stroke: #f8aa28;
-                                animation: nudge 0.7s ease-in-out;-webkit-animation: nudge 0.7s ease-in-out;-moz-animation: nudge 0.7s ease-in-out;
-                              }
-                              
-                              .la-mccourse__play-circle {
-                                transition: all 1s ease-in-out;-webkit-transition: all 1s ease-in-out;
-                                stroke-dashoffset: 0;
-                                opacity: 1;
-                              }
                         }
                     }
 

@@ -21245,6 +21245,12 @@ input:-webkit-autofill:active {
   -moz-transition: all 0.8s ease;
   -o-transition: all 0.8s ease;
 }
+.la-mccourse:hover .la-mccourse__overlay-info {
+  opacity: 1;
+  transition: all 0.35s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+}
 .la-mccourse__imgwrap {
   transition: all 0.24s ease-out;
   -webkit-transition: all 0.24s ease-out;
@@ -21290,6 +21296,16 @@ input:-webkit-autofill:active {
   -webkit-transition: all 0.24s ease-out;
   -moz-transition: all 0.24s ease-out;
 }
+.la-mccourse__overlay-info {
+  opacity: 0;
+  transition: all 0.35s ease-out;
+  -webkit-transition: all 0.35s ease-out;
+  -moz-transition: all 0.35s ease-out;
+}
+.la-mccourse__options {
+  margin-top: 0;
+  margin-right: var(--size-base);
+}
 .la-mccourse__tag {
   position: relative;
   top: -20px;
@@ -21324,8 +21340,8 @@ input:-webkit-autofill:active {
   opacity: 0.85;
 }
 .la-mccourse__play-svg {
-  width: 75px;
-  height: 75px;
+  width: 65px;
+  height: 65px;
 }
 .la-mccourse__play-btn {
   display: inline-block;
@@ -21345,22 +21361,6 @@ input:-webkit-autofill:active {
   transform: translateY(0);
   -webkit-transform: translateY(0);
   -moz-transform: translateY(0);
-}
-@media (max-width: 991px) {
-  .la-mccourse__play-btn .la-mccourse__play-triangle {
-    stroke-dashoffset: 0;
-    opacity: 1;
-    stroke: #f8aa28;
-    animation: nudge 0.7s ease-in-out;
-    -webkit-animation: nudge 0.7s ease-in-out;
-    -moz-animation: nudge 0.7s ease-in-out;
-  }
-  .la-mccourse__play-btn .la-mccourse__play-circle {
-    transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
 }
 .la-mccourse__play-circle {
   stroke: #f8aa28;
@@ -23401,11 +23401,6 @@ label.error {
   -webkit-transition: all 0.35s ease-out;
   -moz-transition: all 0.35s ease-out;
 }
-@media (max-width: 991px) {
-  .la-lcourse__options {
-    opacity: 1;
-  }
-}
 .la-lcourse__play-svg {
   width: 50px;
   height: 50px;
@@ -23426,13 +23421,6 @@ label.error {
   stroke-dashoffset: 480;
   stroke: var(--white);
 }
-@media (max-width: 991px) {
-  .la-lcourse__play-btn .la-lcourse__play-triangle {
-    stroke: #f8aa28;
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-}
 .la-lcourse__play-circle {
   stroke: var(--white);
   stroke-dasharray: 650;
@@ -23441,13 +23429,6 @@ label.error {
   -webkit-transition: all 1s ease-in-out;
   -moz-transition: all 1s ease-in-out;
   opacity: 0.3;
-}
-@media (max-width: 991px) {
-  .la-lcourse__play-circle {
-    stroke: #f8aa28;
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
 }
 .la-lcourse__info {
   position: relative;
