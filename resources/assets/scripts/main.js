@@ -221,12 +221,13 @@ $(function(){
       slidesPerView: 'auto',
       //spaceBetween: 15,
       loop:true,
-      flipEffect: {
-        slideShadows: false,
-      },
-      speed: 1000,
+      // flipEffect: {
+      //   slideShadows: false,
+      // },
+      freeMode: true,
+      speed: 1500,
       autoplay: {
-        delay: 3500,
+        delay: 0,
         disableOnInteraction: false,
       },
       //allowTouchMove:false,
