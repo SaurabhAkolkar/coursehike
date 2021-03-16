@@ -1,5 +1,6 @@
     
- <div class="la-mccourse d-block la-anim__stagger-item" role="button" onclick="window.location='/learn/course/{{$id}}/{{$slug}}';">
+ <div class="la-mccourse d-block la-anim__stagger-item"  id="course_card_link"  role="button" href="/learn/course/{{$id}}/{{$slug}}">
+ <!--<div class="la-mccourse d-block la-anim__stagger-item"  role="button" onclick="window.location='/learn/course/{{$id}}/{{$slug}}';">-->
     <div class="la-mccourse__imgwrap">
         <img class="img-fluid  mx-auto d-block" src= "{{ $img }}" alt= {{ $title }} />
     </div>
@@ -75,7 +76,7 @@
             </a>
         </div>
 
-        <div class="la-mccourse__title leading-none">{{ $title }}</div>
+        <a  role="button" href="/learn/course/{{$id}}/{{$slug}}" class="la-mccourse__title leading-none">{{ $title }}</a>
         <div class="la-mccourse__btm">
             <div class="la-mccourse__cprofile">
                 <div class="la-mccourse__cprofile-imgwrap">

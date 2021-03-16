@@ -13,10 +13,10 @@ $(function(){
 
 
   //- On click on Entire Course Card
-  $("#course_card_link").on('click', function() {
+  /*$("#course_card_link").on('click', function() {
     window.location = $(this).find("a").attr("href"); 
     return false;
-  });
+  });*/
 
   // Home Video On scroll Pause/Play: Start
   $(window).on("scroll",function(){

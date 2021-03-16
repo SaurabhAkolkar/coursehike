@@ -18358,7 +18358,7 @@ input:-webkit-autofill:active {
   margin-right: var(--size-3);
   display: inline-flex;
   align-items: center;
-  z-index: var(--z-1);
+  z-index: var(--z-10);
 }
 .la-course__option {
   margin-left: var(--size-4);

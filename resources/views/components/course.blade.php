@@ -89,7 +89,7 @@
                         <div class="la-lcourse__info-inner w-100">
                             <div class="position-relative d-inline-flex justify-content-between align-items-center w-100">
                                 <div class="col-8 px-0">
-                                    <a class="la-lcourse__creator d-inline-flex align-items-center" href= "/creator/{{ $creatorUrl }}" >
+                                    <a class="la-lcourse__creator d-inline-flex align-items-center" href="/creator/{{ $creatorUrl }}" >
                                         <div class="la-lcourse__creator-imgwrap">
                                             <img class="img-fluid" src="{{ $creatorImg }}" alt={{ $creatorName }} />
                                         </div>
