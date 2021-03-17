@@ -111,17 +111,10 @@ $(function(){
       flipEffect: {
         slideShadows: false,
       },
-      speed:1500,
-      on: {
-        lazyImageReady: function () {
-            if (!this.autoplay.running) {
-                this.params.autoplay = {
-                    delay: 3500,
-                    disableOnInteraction: true
-                };
-                this.autoplay.start();
-            }
-        }
+      speed:1000,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
       },
       pagination: {
         el: ".la-home__course-paginations",
@@ -168,17 +161,10 @@ $(function(){
       flipEffect: {
         slideShadows: false,
       },
-      speed:1500,
-      on: {
-        lazyImageReady: function () {
-            if (!this.autoplay.running) {
-                this.params.autoplay = {
-                    delay: 3500,
-                    disableOnInteraction: true
-                };
-                this.autoplay.start();
-            }
-        }
+      speed:1000,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
       },
       pagination: {
         el: '.la-home__master-pagination',
@@ -188,21 +174,6 @@ $(function(){
       //   nextEl: '.la-home__master-next',
       //   prevEl: '.la-home__master-prev',
       // },
-      breakpoints: {  
-        // when window width is <= 480px     
-        320: {       
-          slidesPerView: 'auto',         
-        },       
-        576: {       
-          slidesPerView: 2,         
-        },
-        767: {       
-          slidesPerView: 3,         
-        },
-        1200: {
-          slidersPerView: 'auto',
-        },  
-      }, 
     });
   }
 
@@ -219,20 +190,14 @@ $(function(){
   if($('.la-home__customize-container')[0]){   
     var swiper = new Swiper('.la-home__customize-container', {
       slidesPerView: 'auto',
-      //spaceBetween: 15,
       loop:true,
-      // flipEffect: {
-      //   slideShadows: false,
-      // },
       freeMode: true,
       speed: 1500,
       autoplay: {
         delay: 0,
         disableOnInteraction: false,
       },
-      //allowTouchMove:false,
-			//allowSlidePrev: true,
-			//allowSlideNext: true,
+      simulateTouch:false,
       pagination: {
         el: '.la-home__customize-pagination',
         clickable: true,
@@ -481,6 +446,28 @@ $(function(){
 
   });
 
+
+  //- Viewport Autoplay Slide in Homepage: Start
+  gsap.utils.toArray(".la-home__customize-container").forEach(section => {
+    gsap.from(section.querySelectorAll(".la-home__customize-slide"), {
+      scrollTrigger: section,
+      autoAlpha: 0,
+      x: -10,
+      duration: 0.25,
+      stagger: 0.25
+    });
+  });
+
+  gsap.utils.toArray(".la-home__course-container, .la-home__master-container").forEach(section => {
+    gsap.from(section.querySelectorAll(".la-home__course-wrapper, .la-home__master-wrapper"), {
+      scrollTrigger: section,
+      autoAlpha: 0,
+      x: -35,
+      duration: 0.55,
+      stagger: 0.25
+    });
+  });
+  //- Viewport Autoplay Slide in Homepage: End
 
   gsap.registerPlugin(ScrollTrigger);
 
