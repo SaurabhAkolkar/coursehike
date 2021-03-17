@@ -1,7 +1,7 @@
 <div class="row flex-column-reverse flex-xl-row">
     <div class="col-xl-6">
-      <div class="la-vcreator__overlay-wrap">
-        <div class="la-vcreator__overlay--back d-none d-xl-block mb-xl-8">
+      <div class="la-vcreator__overlay-wrap position-relative">
+        <div class="la-vcreator__overlay--back position-relative d-none d-xl-block mb-xl-8">
           <div class="la-vcreator__name la-anim__text-move la-title--circle"> <span class="position-relative">{{ $name }}</span> </div>
         </div>
         <div class="la-vcreator__profile-content la-anim__fade-in-left la-anim__B">

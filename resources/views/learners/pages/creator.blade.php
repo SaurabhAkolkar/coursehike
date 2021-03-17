@@ -27,7 +27,7 @@
       <div class="la-page__header">
         <div class="container-fluid la-anim__wrap">
           <div class="row">
-            <div class="col-1 mb-14">
+            <div class="col-1 mb-16 mt-2 mt-md-1 la-anim__stagger-item">
               <a href="/mentors" class="la-vcreator__back"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
             </div>
           </div>
@@ -56,7 +56,7 @@
         
               <div class="row py-14 py-md-20">   
                   <div class="col-12 la-anim__wrap">
-                    <h4 class="text-2xl text-md-3xl px-0 pb-8 la-anim__stagger-item">Courses from <span class="text-capitalize"> {{ucfirst($creator->FullName)}}</span></h4>
+                    <h4 class="text-2xl text-md-3xl px-0 pb-6 pb-lg-8 la-anim__stagger-item">Courses from <span class="text-capitalize"> {{ucfirst($creator->FullName)}}</span></h4>
                    
                     @if(count($courses) == 0) 
 

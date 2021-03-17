@@ -1,6 +1,6 @@
 <div class="card la-course__tiles position-relative w-100 d-flex flex-row ">
     <div class="col-4 la-courses__tile-thumbnail card-header d-block p-0 la-anim__fade-in-top">
-        <img class="img-fluid d-block " src= {{ $img }} alt= {{ $desc }}>
+        <img class="img-fluid d-block" src= {{ $img }} alt= {{ $desc }}>
 
         <div class="la-course__tile-bars position-relative ">
             <div class="la-course__tile-progress progress bg-transparent d-block pt-2">

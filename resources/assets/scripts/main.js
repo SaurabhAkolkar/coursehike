@@ -161,7 +161,7 @@ $(function(){
     });
     
   // Swiper JS for Master Classes in Homepage
-  if($('.la-home__master-container')[0] && $('.la-home__master-container .swiper-slide').length >= 4){   
+  if($('.la-home__master-container')[0]){   
     var master_slider = new Swiper('.la-home__master-container', {
       slidesPerView: 'auto',
       spaceBetween: 25,
@@ -216,7 +216,7 @@ $(function(){
   /*var menu = ['Personalised dashboard for focused learning', 'Unique tattoo styles from around of the world', 'Personal Playlist to help you organise'];
   var menu2 = ['Courses based on your interests, favourite mentors, on one easy learning platform','Learn unique styles created by incredible artists from across the world','Create playlist to save all the courses you want to learn in a personal space and learn whenever, wherever yo want!']
   */
-  if($('.la-home__customize-container')){   
+  if($('.la-home__customize-container')[0]){   
     var swiper = new Swiper('.la-home__customize-container', {
       slidesPerView: 'auto',
       //spaceBetween: 15,

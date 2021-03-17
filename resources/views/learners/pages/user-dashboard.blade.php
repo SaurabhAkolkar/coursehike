@@ -26,9 +26,10 @@
       <div class="la-cdashboard__inner pt-5">
         <div class="container-fluid pt-0 pt-sm-3">
           <div class="row d-flex flex-row justify-content-between">
-            <div class="col-12 col-md-6 col-lg-4  la-anim__wrap">
-              <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2 la-anim__stagger-item" href="{{URL::previous()}}"></a>
+            <div class="col-12 col-md-6 col-lg-4 d-flex flex-column justify-content-between align-items-start la-anim__wrap">
+
               <div class="la-cdashboard__page ">
+                <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2 la-anim__stagger-item" href="{{URL::previous()}}"></a>
                 <h1 class="la-cdashboard__user-name mb-2 text-3xl text-md-4xl text-capitalize la-anim__fade-in-top">Welcome <span style="color:var(--app-indigo-1);">{{Auth::user()->fname}}!</span></h1>
                 <p class="text-md  la-anim__stagger-item--x">Share your knowledge, Be the change.<br/> The kind that enables everyone to reach their full potential & more!</p>
               </div>
@@ -69,14 +70,14 @@
 
             </div>
 
-            <div class="col-12 col-md-6 col-lg-4 la-anim__wrap">
+            <div class="col-12 col-md-6 col-lg-4  h-100 la-anim__wrap">
               <div class="la-course__alien-ad">
                 <div class="card la-course__ad-card la-anim__stagger-item--x">
                   <div class="card-body la-course__ad-body my-0 position-relative">
                     <p class="la-course__ad-tag leading-snug text-sm pt-4 la-anim__stagger-item">Got something different? <br/> Let’s share it with the world!</p>
                     <h2 class="la-course__ad-title text-3xl text-md-4xl la-anim__stagger-item--x">become an <br><span>Alien Mentor, today!</span></h2>
                   
-                    <div class="la-course__ad-learnmore text-right mr-md-n4 la-anim__stagger-item--x">
+                    <div class="la-course__ad-learnmore text-right mr-md-n5 la-anim__stagger-item--x">
                       <a class="la-course__ad-learn text-uppercase " href="/become-mentor">Learn More
                         <span class="la-icon la-icon--5xl icon-black-arrow "></span>
                       </a>
