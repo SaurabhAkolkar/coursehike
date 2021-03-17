@@ -210,7 +210,7 @@ use App\Announcement;
 
                       @if(count($old_announcements) == 0 && count($announcements) == 0)
                       <div class="d-flex justify-content-center align-items-center my-auto">
-                        <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-semibold)">No Notifications Found</div>
+                        <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-semibold)">No New Releases</div>
                       </div>
                       @endif
                       <!-- Announcements Panel: End -->          
@@ -335,7 +335,7 @@ use App\Announcement;
                       @endforeach   
                       @if(count($announcements) == 0)
                       <div class="d-flex justify-content-center align-items-center my-auto">
-                        <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-semibold)">No Notifications Found</div>
+                        <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-semibold)">No New Releases</div>
                       </div>                                                   
                     @endif
 
