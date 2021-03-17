@@ -451,6 +451,10 @@
                         :learners="$master->courses->learnerCount"
                         :id="$master->courses->id"
                         :slug="$master->courses->slug"
+                        :price="$master->courses->price"
+                        :bought="$master->courses->isPurchased()"
+                        :checkWishList="$master->courses->checkWishList"
+                        :checkCart="$master->courses->checkCart"
                       />
                     </div>
                   @endif

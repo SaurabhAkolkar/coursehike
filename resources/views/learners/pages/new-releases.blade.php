@@ -71,28 +71,9 @@
               </div>
             </div>
 
-            <div class="la-new__announcements">
-                @php
-                  $app1 = new stdClass;
-                  $app1->title = "New app released for better learning";
-                  $app1->timestamp = "2h ago";
-                  $app1->appId = "1";
-                  $app1->desc = "Lorem Ipsum dolor sit amet, consectur sadispicing elitr, sed diam nounumy eirmod tempor";
-                
-                  $apps = array($app1);
-                @endphp          
-            
-                @foreach ($apps as $app)
-                    <x-app-update
-                        :title="$app->title"
-                        :timestamp="$app->timestamp"
-                        :appId="1"
-                        :desc="$app->desc"
-                    />
-                @endforeach                 
-            </div>
+           
           </div>
-
+<!-- 
 
           <div class="col-12">
             <div class="la-new__meet-events">
@@ -119,7 +100,7 @@
                     />
                  @endforeach
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>

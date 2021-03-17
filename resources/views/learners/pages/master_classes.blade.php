@@ -147,6 +147,10 @@
                                   :learners="$master->learnerCount"
                                   :id="$master->id"
                                   :slug="$master->slug"
+                                  :price="$master->price"
+                                  :bought="$master->isPurchased()"
+                                  :checkWishList="$master->checkWishList"
+                                  :checkCart="$master->checkCart"
                                   />
                                   </div>
                               @endforeach

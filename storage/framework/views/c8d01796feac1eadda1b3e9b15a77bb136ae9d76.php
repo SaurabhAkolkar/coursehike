@@ -139,7 +139,7 @@
     <div class="la-section__inner la-anim__wrap la-section--courses-inwrap" >
       <div class="la-home__course-fluid position-relative" id="home_fluid_container">
         <div class="la-courses">
-          <h3 class="la-home__course-mtitle text-center la-anim__stagger-item">Learn what you love!</h3>
+          <h3 class="la-home__course-mtitle ml-n3 ml-md-0 text-center mb-6 mb-md-10 la-anim__stagger-item">Learn what you love!</h3>
 
           <nav class="la-courses__nav d-inline-flex justify-content-start justify-content-md-center position-relative">
               <ul class="nav nav-pills la-courses__nav-tabs justify-content-center" id="nav-tab" role="tablist" tabindex="0">
@@ -204,7 +204,7 @@
                                           <?php continue; ?>
                                       <?php endif; ?>
                                       
-                                      <div class="swiper-slide la-home__course-slide pt-md-6 la-anim__stagger-item">
+                                      <div class="swiper-slide la-home__course-slide pt-md-6 la-anim__stagger-item" >
                                          <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
 <?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => round($course->average_rating, 2),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount,'price' => $course->price,'bought' => $course->isPurchased(),'checkWishList' => $course->checkWishList,'checkCart' => $course->checkCart]); ?>
 <?php if ($component->shouldRender()): ?>
@@ -224,15 +224,9 @@
                           <?php if(count($courses) == 0): ?>
                           <div class="container pr-6 pr-md-1">
                             <div class="row">
-                              <div class="col-12 la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
-                                <div class="la-empty__inner">
-                                    <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
-                                </div>
-                                <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
-                                    <a href="<?php echo e(Url('/browse/courses')); ?>" class="la-empty__browse">
-                                        Browse Courses
-                                        <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
-                                    </a>
+                              <div class="col-12  my-3 my-md-8 la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
+                                <div class="la-empty__inner text-center">
+                                    <h6 class="la-empty__course-title la-anim__stagger-item">No Courses available currently.</h6>
                                 </div>
                               </div>
                             </div>
@@ -240,7 +234,7 @@
                           <?php endif; ?>
 
                           <?php if(count($courses) != 0): ?>
-                          <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-center">
+                          <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-start">
                             <div class="la-slider__navigations la-home__course-navigations d-md-flex  align-items-center">
                               <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div> -->
                               <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
@@ -339,7 +333,7 @@
                   <?php if($master->courses != null): ?>
                     <div class="swiper-slide  la-home__master-slide">
                        <?php if (isset($component)) { $__componentOriginal569f4b3c3d50580306a5cb083576611189fd5fee = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\MasterClass::class, ['img' => $master->courses->preview_image,'title' => $master->courses->title,'profileImg' => $master->courses->user->user_img,'profileName' => $master->courses->user->fullName,'learners' => $master->courses->learnerCount,'id' => $master->courses->id,'slug' => $master->courses->slug]); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\MasterClass::class, ['img' => $master->courses->preview_image,'title' => $master->courses->title,'profileImg' => $master->courses->user->user_img,'profileName' => $master->courses->user->fullName,'learners' => $master->courses->learnerCount,'id' => $master->courses->id,'slug' => $master->courses->slug,'price' => $master->courses->price,'bought' => $master->courses->isPurchased(),'checkWishList' => $master->courses->checkWishList,'checkCart' => $master->courses->checkCart]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes(['url' => $master->courses->slug]); ?>
@@ -354,7 +348,7 @@
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               </div>
             </div>
-            <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-end mt-6 mt-md-16">
+            <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-start mt-6 mt-md-16">
               <div class="la-slider__navigations la-home__course-navigations d-md-flex align-items-center">
                 <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__master-prev"></div> -->
                 <div class="swiper-pagination la-slider__navigations-dots la-home__master-pagination la-slider__paginations la-slider__paginations--purble la-right"></div>
@@ -394,21 +388,21 @@
                 <div class="col-lg-7 position-relative la-home__customize-sliders  w-100  la-anim__stagger-item">
                  
                     <div class="la-home__customize-right position-relative mx-auto" style="background:url('../../images/learners/home/clslider.svg') no-repeat center;">
-                        <div class="swiper-container la-home__customize-container la-home__customize-container--desktop position-relative" >
+                        <div id="la-home-customize-laptop" class="swiper-container la-home__customize-container la-home__customize-container--desktop position-relative" >
                             <div class="swiper-wrapper la-home__customize-wrapper la-home__customize-wrapper--desktop">
-                                <div class="swiper-slide la-home__customize-slide la-home__customize-slide--desktop"  href="#clm_dashboard">
+                                <div class="swiper-slide la-home__customize-slide la-home__customize-slide--desktop" data-swiper-autoplay="1500" href="#clm_dashboard">
                                     <div class="la-home__customize-info--desktop">
                                         <img src="./images/learners/home/clap1.jpg" alt="Personalised dashboard" class="img-fluid mx-auto d-block la-home__customize-img">
                                       </div>
                                 </div>
 
-                                <div class="swiper-slide la-home__customize-slide la-home__customize-slide--desktop" href="#clm_course">
+                                <div class="swiper-slide la-home__customize-slide la-home__customize-slide--desktop" data-swiper-autoplay="1500" href="#clm_course">
                                     <div class="la-home__customize-info--desktop">
                                         <img src="./images/learners/home/clap2.jpg" alt="Unique tattoo styles" class="img-fluid mx-auto d-block la-home__customize-img">
                                     </div>
                                 </div>
 
-                                <div class="swiper-slide la-home__customize-slide la-home__customize-slide--desktop" href="#clm_playlist">
+                                <div class="swiper-slide la-home__customize-slide la-home__customize-slide--desktop" data-swiper-autoplay="1500" href="#clm_playlist">
                                     <div class="la-home__customize-info--desktop">
                                         <img src="./images/learners/home/clap3.jpg" alt="Personal Playlist" class="img-fluid mx-auto d-block la-home__customize-img">
                                       </div>
@@ -420,21 +414,21 @@
                     <!-- Mobile Slider -->
                     <div class="la-home__customize-mobile--section la-anim__stagger-item--x">
                       <div class="la-home__customize-right--mobile" style="background:url('../../images/learners/home/cmslider.svg') no-repeat center;">
-                          <div class="swiper-container la-home__customize-container la-home__customize-container--mobile position-relative" >
+                          <div id="la-home-customize-mobile" class="swiper-container la-home__customize-container la-home__customize-container--mobile position-relative" >
                               <div class="swiper-wrapper la-home__customize-wrapper la-home__customize-wrapper--mobile">
-                                  <div class="swiper-slide la-home__customize-slide la-home__customize-slide--mobile" href="#clm_dashboard">
+                                  <div class="swiper-slide la-home__customize-slide la-home__customize-slide--mobile" data-swiper-autoplay="1500" href="#clm_dashboard">
                                       <div class="la-home__customize-info--mobile">
                                           <img src="./images/learners/home/cmob1.jpg" alt="Personalised dashboard" class="img-fluid mx-auto d-block la-home__customize-img">
                                         </div>
                                   </div>
 
-                                  <div class="swiper-slide la-home__customize-slide la-home__customize-slide--mobile" href="#clm_course">
+                                  <div class="swiper-slide la-home__customize-slide la-home__customize-slide--mobile" data-swiper-autoplay="1500" href="#clm_course">
                                       <div class="la-home__customize-info--mobile">
                                           <img src="./images/learners/home/cmob2.jpg" alt="Unique tattoo styles" class="img-fluid mx-auto d-block la-home__customize-img">
                                       </div>
                                   </div>
 
-                                  <div class="swiper-slide la-home__customize-slide la-home__customize-slide--mobile" href="#clm_playlist">
+                                  <div class="swiper-slide la-home__customize-slide la-home__customize-slide--mobile" data-swiper-autoplay="1500" href="#clm_playlist">
                                       <div class="la-home__customize-info--mobile">
                                           <img src="./images/learners/home/cmob3.jpg" alt="Personal Playlist" class="img-fluid mx-auto d-block la-home__customize-img">
                                         </div>
@@ -447,34 +441,39 @@
                 </div>
 
               
-                <div class="col-lg-8 offset-lg-4  la-anim__stagger-item">
-                      <div class="swiper-container la-home__customize-container la-home__customize-container--content pl-md-3">
-                          <div class="swiper-wrapper la-home__customize-wrapper">
-                              <div class="swiper-slide la-home__customize-slide la-home__customize-slide--text col-md-8 px-0">
-                                  <div class="la-home__customize-desc" id="clm_dashboard">
-                                      <div class="la-home__customize-infotitle leading-tight mt-8">Personalised dashboard for focused learning</div>
-                                      <p class="la-home__customize-infopara">Courses based on your interests, favourite mentors, on one easy learning platform</p>
-                                  </div>
+                <div class="col-lg-8 offset-lg-4 la-anim__stagger-item la-home__customize-container--content-wrap">
+                  <div id="la-home-customize-content" class="swiper-container la-home__customize-container la-home__customize-container--content pl-md-3">
+                      <div class="swiper-wrapper la-home__customize-wrapper">
+                          <div class="swiper-slide la-home__customize-slide col-md-8 px-0" data-swiper-autoplay="1500">
+                              <div class="la-home__customize-desc" id="clm_dashboard">
+                                  <div class="la-home__customize-infotitle leading-tight mt-8">Personalised dashboard for focused learning</div>
+                                  <p class="la-home__customize-infopara">Courses based on your interests, favourite mentors, on one easy learning platform</p>
                               </div>
+                          </div>
 
-                              <div class="swiper-slide la-home__customize-slide   la-home__customize-slide--text  col-md-8 px-0">
-                                  <div class="la-home__customize-desc" id="clm_course">
-                                      <div class="la-home__customize-infotitle leading-tight mt-8">Unique tattoo styles from around of the world</div>
-                                      <p class="la-home__customize-infopara">Learn unique styles created by incredible artists from across the world</p>
-                                  </div>
+                          <div class="swiper-slide la-home__customize-slide col-md-8 px-0" data-swiper-autoplay="1500">
+                              <div class="la-home__customize-desc" id="clm_course">
+                                  <div class="la-home__customize-infotitle leading-tight mt-8">Unique tattoo styles from around of the world</div>
+                                  <p class="la-home__customize-infopara">Learn unique styles created by incredible artists from across the world</p>
                               </div>
+                          </div>
 
-                              <div class="swiper-slide la-home__customize-slide  la-home__customize-slide--text col-md-8 px-0">
-                                  <div class="la-home__customize-desc  " id="clm_playlist">
-                                      <div class="la-home__customize-infotitle leading-tight mt-8">Personal Playlist to help you organise</div>
-                                      <p class="la-home__customize-infopara">Create playlist to save all the courses you want to learn in a personal space and learn whenever, wherever yo want!</p>
-                                  </div>
+                          <div class="swiper-slide la-home__customize-slide col-md-8 px-0" data-swiper-autoplay="1500">
+                              <div class="la-home__customize-desc" id="clm_playlist">
+                                  <div class="la-home__customize-infotitle leading-tight mt-8">Personal Playlist to help you organise</div>
+                                  <p class="la-home__customize-infopara">Create playlist to save all the courses you want to learn in a personal space and learn whenever, wherever yo want!</p>
                               </div>
                           </div>
                       </div>
-                      <div class="la-slider__navigations  la-home__course-navigations d-flex justify-content-end align-items-start">
-                        <div class="swiper-pagination la-slider__navigations-dots la-home__customize-pagination la-slider__paginations la-slider__paginations--purble la-right"></div>
-                      </div>
+                  </div> 
+      
+                  <!--<div class="d-inline-flex justify-content-start align-items-center">
+                    <div class="swiper-pagination  la-home__pagination-top " id="slideshow"></div>
+                  </div>-->
+
+                  <div class="la-slider__navigations  la-home__course-navigations d-flex justify-content-end align-items-start">
+                    <div class="swiper-pagination la-slider__navigations-dots la-home__customize-pagination la-slider__paginations la-slider__paginations--purble la-right"></div>
+                  </div>
                 </div> 
             </div>
         </div>

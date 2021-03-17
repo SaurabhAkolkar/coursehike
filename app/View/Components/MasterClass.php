@@ -19,8 +19,12 @@ class MasterClass extends Component
     public $learners;
     public $id;
     public $slug;
+    public $price;
+    public $bought;
+    public $checkCart;
+    public $checkWishList;
 
-    public function __construct($img, $title, $profileImg, $profileName, $learners, $id, $slug)
+    public function __construct($img, $title, $checkWishList, $checkCart,$profileImg, $price, $bought, $profileName, $learners, $id, $slug)
     {
         $this->img = $img;
         $this->title = $title;
@@ -29,6 +33,10 @@ class MasterClass extends Component
         $this->learners = $learners;
         $this->slug = $slug;
         $this->id = $id;
+        $this->price = $price;
+        $this->bought = $bought;
+        $this->checkWishList = $checkWishList;
+        $this->checkCart = $checkCart;
     }
 
     /**
