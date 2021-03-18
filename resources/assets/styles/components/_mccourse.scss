@@ -282,10 +282,15 @@
             }
             &learners {
                 font-size: var(--text-sm);
-                font-weight: var(--font-normal);
+                font-weight: var(--font-medium);
+                color:var(--gray6);
                 padding-left:var(--size-3);
                 transition:all 0.35s ease-in-out;-webkit-transition:all 0.35s ease-in-out;-moz-transition:all 0.35s ease-in-out;
                 opacity:0;
+
+                @include respond-below(md){
+                    opacity:1;
+                }
             }
 
             &view{

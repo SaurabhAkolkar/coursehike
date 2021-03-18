@@ -21585,12 +21585,18 @@ input:-webkit-autofill:active {
 }
 .la-mccourse__learners {
   font-size: var(--text-sm);
-  font-weight: var(--font-normal);
+  font-weight: var(--font-medium);
+  color: var(--gray6);
   padding-left: var(--size-3);
   transition: all 0.35s ease-in-out;
   -webkit-transition: all 0.35s ease-in-out;
   -moz-transition: all 0.35s ease-in-out;
   opacity: 0;
+}
+@media (max-width: 991px) {
+  .la-mccourse__learners {
+    opacity: 1;
+  }
 }
 .la-mccourse__view-more {
   z-index: 99;
