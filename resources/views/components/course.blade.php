@@ -1,6 +1,6 @@
 
 <!--  New Version Course Card -->
-<div class="col-12" @if($checkWishList) id="course_{{$id}}" @endif>
+<div class="col-12 la-lcourse__card" @if($checkWishList) id="course_{{$id}}" @endif>
     <div class="la-lcourse position-relative">
         <div class="la-lcourse__inner">
             <!-- <div class="la-lcourse__inner-link stretched-link" id="course_card_link" role="button" href= "{{ '/learn/course/'.$id.'/'.$url }}" > -->

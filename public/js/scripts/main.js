@@ -286,7 +286,7 @@ $(function(){
   if($('.la-courses__featured-container')[0]){     
     var course_swiper = new Swiper(".la-courses__featured-container", {
       slidesPerView: 'auto',
-      spaceBetween: 10,
+      spaceBetween: 30,
       flipEffect: {
         slideShadows: false,
       },
@@ -299,6 +299,14 @@ $(function(){
         el: ".la-home__course-paginations",
         clickable: true,
       },
+      breakpoints: {  
+        320: {            
+          spaceBetween:15,     
+        },     
+        767:{
+          spaceBetween:30,
+        },
+      } 
     });
   }
 

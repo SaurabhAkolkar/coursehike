@@ -18150,12 +18150,20 @@ input:-webkit-autofill:active {
   padding: var(--size-6) 0;
   border-bottom: 2px solid #dadada;
 }
+@media (max-width: 991px) {
+  .la-courses__featured-container {
+    overflow: visible;
+  }
+}
 .la-courses__featured-wrapper {
   height: auto !important;
 }
 .la-courses__featured-slide {
-  width: 320px;
+  width: 310px;
   height: 470px;
+}
+.la-courses__featured-slide .la-lcourse__card {
+  padding: 0;
 }
 .la-courses__featured-title {
   color: var(--gray5);

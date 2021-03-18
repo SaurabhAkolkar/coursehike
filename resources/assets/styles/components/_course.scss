@@ -260,13 +260,21 @@
                             height:auto !important;
                             padding:var(--size-6) 0;
                             border-bottom: 2px solid #dadada;
+
+                            @include respond-below(md){
+                                overflow:visible;
+                            }
                         }
                         &wrapper{
                             height:auto !important;
                         }
                         &slide{
-                            width:320px;
+                            width:310px;
                             height:470px;
+
+                            .la-lcourse__card{
+                                padding:0;
+                            }
                         }
                         &title{
                             color:var(--gray5);

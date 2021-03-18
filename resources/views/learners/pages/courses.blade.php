@@ -65,7 +65,7 @@
 
               <!-- Filters : Start -->
             <div class="la-courses__nav-filters  d-flex align-items-start ml-auto ml-md-6 ">
-              <div class="la-courses__nav-props">
+              <div class="la-courses__nav-props d-none d-lg-block">
                 <a class="la-courses__nav-filter  mr-3" id="show_list" role="button">
                   <span class="la-icon icon-list-layout" id="layout_change"></span>
                 </a>
