@@ -100,7 +100,7 @@ class LearnController extends Controller
 
         $subscription_rate = '$39';
         if (getLocation() == 'IN')
-            $subscription_rate = '₹2899';
+            $subscription_rate = '₹2999';
         
         $data = array(
             'video_access'=> $video_access,

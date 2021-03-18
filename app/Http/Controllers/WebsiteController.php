@@ -62,7 +62,7 @@ class WebsiteController extends Controller
             // Indian
             $plan1 = new stdClass;
             $plan1->plan = "Monthly";
-            $plan1->discount = '₹2899';
+            $plan1->discount = '₹2999';
             $plan1->oldPrice = 49;
             $plan1->class= "red";
             $plan1->saving = 0;
@@ -70,7 +70,7 @@ class WebsiteController extends Controller
 
             $plan2 = new stdClass;
             $plan2->plan = "Yearly";
-            $plan2->discount = '₹22599';
+            $plan2->discount = '₹23999';
             $plan2->oldPrice = 324;
             $plan2->class= "green";
             $plan2->saving = 35;
