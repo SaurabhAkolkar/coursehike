@@ -45,7 +45,7 @@ class PlansTableSeeder extends Seeder
         $plan = app('rinvex.subscriptions.plan')->create([
             'name' => 'Monthly - India',
             'description' => 'Monthly India',
-            'price' => 2899,
+            'price' => 2999,
             'signup_fee' => 0.00,
             'invoice_period' => 1,
             'invoice_interval' => 'month',
@@ -60,7 +60,7 @@ class PlansTableSeeder extends Seeder
         $plan = app('rinvex.subscriptions.plan')->create([
             'name' => 'Yearly - India',
             'description' => 'Yearly India',
-            'price' => 22599,
+            'price' => 23999,
             'signup_fee' => 0.00,
             'invoice_period' => 12,
             'invoice_interval' => 'month',
