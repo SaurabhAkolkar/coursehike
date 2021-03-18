@@ -174,8 +174,14 @@ class UserController extends Controller
             $plan_subscription->starts_at = Carbon::createFromFormat('Y-m-d', $request->start_date)->toDateTimeString(); 
             $plan_subscription->ends_at = Carbon::createFromFormat('Y-m-d', $request->end_date)->toDateTimeString();
             $plan_subscription->save();
-        }else
+        }else{
             $user->newSubscription('main', $plan);
+            
+            $plan_subscription = $user->subscription();
+            $plan_subscription->starts_at = Carbon::createFromFormat('Y-m-d', $request->start_date)->toDateTimeString(); 
+            $plan_subscription->ends_at = Carbon::createFromFormat('Y-m-d', $request->end_date)->toDateTimeString();
+            $plan_subscription->save();
+        }
         
         $plan_id = config('rinvex.subscriptions.plans.'.$request->plan_selection);
 
