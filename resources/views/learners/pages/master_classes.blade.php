@@ -14,7 +14,9 @@
 <!-- Wishlist Alert Message-->
 <div id="wishlist_alert_div"></div> 
 @section('content')
-
+<x-add-to-playlist 
+              :playlists="$playlists"
+            />
 <section class="la-section__small la-cbg--main">
     <div class="la-section__inner">
       <div class="container-fluid">

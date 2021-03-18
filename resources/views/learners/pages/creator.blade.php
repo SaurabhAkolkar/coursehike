@@ -39,6 +39,9 @@
              $course_count = count($courses);
           @endphp
 
+          <x-add-to-playlist 
+              :playlists="$playlists"
+            />
           
             <x-creator-profile 
                   :img="$creator->user_img"

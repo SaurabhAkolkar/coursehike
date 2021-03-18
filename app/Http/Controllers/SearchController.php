@@ -224,6 +224,7 @@ class SearchController extends Controller
 		$sort_type = "";
 		$filtres_applied = false;
 		$search_input = null;
+		$playlists = Playlist::where('user_id', Auth::user()->id)->get();
 
 		$categories = Categories::where(['status'=>1])->get();
 
@@ -270,11 +271,11 @@ class SearchController extends Controller
 				$master_classes = $master_classes->whereIn('level',$level);
 			}
 			
-			return view('learners.pages.master_classes', compact('master_classes','search_input','filtres_applied','sort_type','selected_level','selected_categories','categories'));
+			return view('learners.pages.master_classes', compact('master_classes','playlists','search_input','filtres_applied','sort_type','selected_level','selected_categories','categories'));
 
 		}
 
-		return view('learners.pages.master_classes', compact('master_classes','search_input','filtres_applied','sort_type','selected_level','selected_categories','categories'));
+		return view('learners.pages.master_classes', compact('master_classes','playlists','search_input','filtres_applied','sort_type','selected_level','selected_categories','categories'));
 	}
 
    

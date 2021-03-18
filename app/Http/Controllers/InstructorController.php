@@ -15,6 +15,7 @@ use App\Instructor;
 use App\ReviewRating;
 use App\UserSubscriptionInvoice;
 use Illuminate\Support\Str;
+use App\Playlist;
 
 class InstructorController extends Controller
 {
@@ -216,7 +217,7 @@ class InstructorController extends Controller
     public function creator($id, $name = null){
 
         $creator = User::findorfail($id);
-        
+        $playlists = Playlist::where('user_id', Auth::user()->id)->get();
         if($name == null)
             return redirect()->route('mentor.profile', ['id' => $id, 'name'=> Str::slug($creator->fname.' '.$creator->lname, '-') ]);
 
@@ -225,7 +226,7 @@ class InstructorController extends Controller
         $rating = ReviewRating::whereIn('course_id', $courses_ids)->avg('rating');
         $awards = count(Instructor::where('user_id', $id)->pluck('awards'));
         
-        return view('learners.pages.creator', compact('creator','courses','rating','awards'));
+        return view('learners.pages.creator', compact('creator','playlists','courses','rating','awards'));
     }
 
     public function searchMentor(Request $request){

@@ -1,6 +1,6 @@
 
 <!--  New Version Course Card -->
-<div class="col-12" @if($addedToWhishList) id="course_{{$id}}" @endif>
+<div class="col-12" @if($checkWishList) id="course_{{$id}}" @endif>
     <div class="la-lcourse position-relative">
         <div class="la-lcourse__inner">
             <div class="la-lcourse__inner-link stretched-link" id="course_card_link" role="button" href= "{{ '/learn/course/'.$id.'/'.$url }}" >
@@ -38,7 +38,7 @@
                                 <li class="la-course__option">
                                     @if(Auth::check())
                                         @if($price && $bought == null)
-                                            <span @if($addedToWhishList) onclick="location.href='/remove-from-wishlist/{{$id}}'" @else onclick="addToWishList({{$id}})" @endif  >
+                                            <span @if($checkWishList) onclick="location.href='/remove-from-wishlist/{{$id}}'" @else onclick="addToWishList({{$id}})" @endif  >
                                                 <span class="d-inline-block la-course__like">
                                                     <i class="la-icon la-icon--2xl icon @if($checkWishList) text-warning @endif icon-wishlist @if($addedToWhishList) text-warning @endif"></i>
                                                 </span>
@@ -89,9 +89,9 @@
                         <div class="la-lcourse__info-inner w-100">
                             <div class="position-relative d-inline-flex justify-content-between align-items-center w-100">
                                 <div class="col-8 px-0">
-                                    <a class="la-lcourse__creator d-inline-flex align-items-center" href="/creator/{{ $creatorUrl }}" >
+                                    <a class="la-lcourse__creator d-inline-flex align-items-center" href="/mentor/{{ $creatorUrl }}/{{ $creatorName }}" >
                                         <div class="la-lcourse__creator-imgwrap">
-                                            <img class="img-fluid" src="{{ $creatorImg }}" alt={{ $creatorName }} />
+                                            <img class="img-fluid" src="{{ $creatorImg }}" alt="{{ $creatorName }}" />
                                         </div>
                                         <div class="la-lcourse__creator-name mt-2">{{ $creatorName }}</div>
                                     </a>

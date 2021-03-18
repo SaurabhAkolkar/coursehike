@@ -1,6 +1,18 @@
 @extends('learners.layouts.app')
 
 @section('content')
+
+@if(session('message'))
+<div class="la-btn__alert position-relative">
+  <div class="la-btn__alert-success col-lg-4 offset-lg-4  alert alert-success alert-dismissible fade show" role="alert">
+      <span class="la-btn__alert-msg">{{session('message')}}</span>
+      <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true" style="color:#56188C">&times;</span>
+      </button>
+  </div>
+</div>
+@endif
+
 <section class="la-cbg--main">
     <!-- Section Ongoing: Start-->
     <section class="la-section__small">

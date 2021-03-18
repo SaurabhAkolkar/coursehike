@@ -65,7 +65,7 @@
                           :creatorUrl="$courses->courses->user->id"
                           :checkWishList="$courses->courses->checkWishList"
                           :checkCart="$courses->courses->checkCart"
-                          :learnerCount="$courses->courses->leanerCount"
+                          :learnerCount="$courses->courses->learnerCount"
                           :price="$courses->courses->price"
                           :bought="$courses->courses->isPurchased()"
                         />
