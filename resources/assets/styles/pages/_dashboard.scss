@@ -255,13 +255,8 @@ section.la-cdashboard-main{
     overflow:hidden;
     border-radius:10px;
 
-    @include respond-below(lg){
-        width:100%;
-        height:auto;
-    }
-    @include respond-below(md){
-        width:100%;
-        height:100%;
+    @include respond-below(sm){
+        height:120px;
     }
 }
 .la-hp__card-thumbnail--img{
@@ -273,13 +268,8 @@ section.la-cdashboard-main{
     border-radius:10px;
     transition:all .24s linear;-webkit-transition:all .24s linear;-moz-transition:all .24s linear;-ms-transition:all .24s linear;-o-transition:all .24s linear;
 
-    @include respond-below(lg){
-        width:100%;
-        height:auto;
-    }
-    @include respond-below(md){
-        width:100%;
-        height:100%;
+    @include respond-below(sm){
+        height:120px;
     }
 }
 .la-hp__card-overlay{
@@ -314,17 +304,11 @@ section.la-cdashboard-main{
     .la-hp__inner{
         padding:0 12px;
     }
-    .la-hp__card-item,.la-hp__card-thumbnail--img{
-        height:auto !important; 
-    }
 }
 @media (max-width:767px){
     .la-hp__inner{
         padding:0;
     }         
-    .la-hp__card-item,.la-hp__card-thumbnail--img{
-        height:140px !important; 
-    }
 }
 // Hand Pick Section End
 

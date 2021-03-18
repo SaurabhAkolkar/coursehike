@@ -17,6 +17,26 @@ $(function(){
     window.location = $(this).find("a").attr("href"); 
     return false;
   });*/
+  
+  //- Grid and List View in Browse Courses Page: Start
+  function showList(e) {
+    var $gridCont = $('.grid-container');
+    e.preventDefault();
+    $gridCont.hasClass('list-view') ? $gridCont.removeClass('list-view') : $gridCont.addClass('list-view');
+  }
+  function gridList(e) {
+    var $gridCont = $('.grid-container')
+    e.preventDefault();
+    $gridCont.removeClass('list-view');
+  }
+  $(document).on('click', '#show_list', showList);
+
+  //-On click Icon Change
+  $('#layout_change').on('click', function(){
+    $('.icon-list-layout').toggleClass('icon-grid-layout');
+  });
+  //- Grid and List View in Browse Courses Page: End
+
 
   // Home Video On scroll Pause/Play: Start
   $(window).on("scroll",function(){
@@ -29,6 +49,7 @@ $(function(){
      }
   });
   // Home Video On scroll Pause/Play: End
+
 
   // Global Alert Animation for Learners: Start
   window.setTimeout(function() {
@@ -150,9 +171,9 @@ $(function(){
 
   // Home Banner Browser Courses ONclick
   $('#home_courses_redirect').on("click", function(){
-      $('.la-section--courses-inwrap').addClass('la-home__course-animate');
-    });
-    
+    $('.la-section--courses-inwrap').addClass('la-home__course-animate');
+  });
+   
   // Swiper JS for Master Classes in Homepage
   if($('.la-home__master-container')[0]){   
     var master_slider = new Swiper('.la-home__master-container', {
@@ -261,7 +282,27 @@ $(function(){
     });
   }
 
-  //Swiper Js for Become Creator
+  // Feature Courses Slider in Browser Courses Page
+  if($('.la-courses__featured-container')[0]){     
+    var course_swiper = new Swiper(".la-courses__featured-container", {
+      slidesPerView: 'auto',
+      spaceBetween: 10,
+      flipEffect: {
+        slideShadows: false,
+      },
+      speed:1000,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: ".la-home__course-paginations",
+        clickable: true,
+      },
+    });
+  }
+
+  //Swiper Js for Become a Creator
   if($('.la-mcard__container')[0] && $('.la-mcard__container .swiper-slide').length > 1){
     var swiper = new Swiper('.la-mcard__container', {
       slidesPerView: 'auto',

@@ -461,14 +461,14 @@
                 @endforeach
               </div>
             </div>
-            <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-start mt-6 mt-md-16">
+            <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-start mt-6 mt-md-16 la-anim__stagger-item">
               <div class="la-slider__navigations la-home__course-navigations d-md-flex align-items-center">
                 <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__master-prev"></div> -->
                 <div class="swiper-pagination la-slider__navigations-dots la-home__master-pagination la-slider__paginations la-slider__paginations--purble la-right"></div>
                 <!-- <div class="swiper-button-next la-slider__navigations-arrow la-home__master-next"></div> -->
               </div>
-              <div class="la-mccourse__view-more position-relative text-center text-md-right la-anim__stagger-item">
-                <div class=" la-btn__arrow text-white text-uppercase text-spacing font-weight--bold mr-1 mr-md-1 la-anim__fade-in-right">
+              <div class="la-mccourse__view-more position-relative text-center text-md-right ">
+                <div class=" la-btn__arrow text-white text-uppercase text-spacing font-weight--bold mr-1 mr-md-1">
                   <a href="/master-classes" >explore more <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
                 </div>
               </div>

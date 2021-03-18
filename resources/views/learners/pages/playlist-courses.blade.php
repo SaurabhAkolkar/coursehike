@@ -44,7 +44,7 @@
                               @php
                                 $course = $c->courses;
                               @endphp
-                              <div class="col-md-6 col-lg-4 px-0">
+                              <div class="col-md-6 col-lg-4 px-0 la-anim__stagger-item">
                                 <x-course   
                                     :id="$course->id"
                                     :img="$course->preview_image" 

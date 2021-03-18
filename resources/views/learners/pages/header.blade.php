@@ -23,7 +23,7 @@ use App\Announcement;
 
         </div>
 
-        <form class="form-inline mb-0 d-none d-lg-block" action="{{ url('/search-course/') }}" method="get">
+        <form class="form-inline mb-0 d-none d-xl-block" action="{{ url('/search-course/') }}" method="get">
           <div class="form-group la-header__gsearch"  >
             <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input" id="header_search_input" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Looking for creative courses by the best artists in the world?" required>
           </div>
@@ -79,18 +79,18 @@ use App\Announcement;
             </div> -->
             <!-- Header Buttons: End -->
             
-            <div class="la-header__menu-item d-none d-lg-block">
+            <div class="la-header__menu-item d-none d-xl-block">
               <!-- Global Search: Start-->
               <div class="la-gsearch  mb-0" > 
                   <button class="la-gsearch__submit btn px-0" type="submit" id="header_search">
-                    <i class="la-icon la-icon--xl icon icon-search la-header__gsearch-icon"></i>
+                    <i class="la-icon la-icon--lg icon icon-search la-header__gsearch-icon"></i>
                   </button>
               </div>
               <!-- Global Search: End-->
             </div>
 
             @if(Auth::user()->role == 'mentors' || Auth::user()->role == 'admin')
-              <div class="la-header__menu-item d-none d-lg-block @if(Request::segment(1) == 'admins') active @endif">
+              <div class="la-header__menu-item d-none d-xl-block @if(Request::segment(1) == 'admins') active @endif">
                   <a class="la-header__menu-link la-header__menu-icon la-icon la-icon--xl icon-admin" role="button" target="_blank" href="/admins"></a>
               </div>
             @endif
@@ -270,7 +270,7 @@ use App\Announcement;
 
       </div>
 
-      <form class="form-inline mb-0 d-none d-lg-block" action="{{ url('/search-course/') }}" method="get">
+      <form class="form-inline mb-0 d-none d-xl-block" action="{{ url('/search-course/') }}" method="get">
         <div class="form-group la-header__gsearch"  >
           <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input px-0" id="header_search_input" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Looking for creative courses by the best artists in the world?" required>
         </div>
@@ -279,11 +279,11 @@ use App\Announcement;
       <div class="la-header__rht ml-auto mr-md-5">
         <div class="la-header__menu d-inline-flex align-items-center">
 
-          <div class="la-header__menu-item d-none d-lg-block">
+          <div class="la-header__menu-item d-none d-xl-block">
               <!-- Global Search: Start-->
-              <div class="la-gsearch  mb-0" > 
+              <div class="la-gsearch mt-1 mb-0" > 
                   <button class="la-gsearch__submit btn px-0" type="submit" id="header_search">
-                    <i class="la-icon la-icon--xl icon icon-search la-header__gsearch-icon"></i>
+                    <i class="la-icon la-icon--lg icon icon-search la-header__gsearch-icon"></i>
                   </button>
               </div>
               <!-- Global Search: End-->
