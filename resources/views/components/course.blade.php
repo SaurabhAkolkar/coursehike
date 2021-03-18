@@ -38,7 +38,7 @@
                                 <li class="la-course__option">
                                     @if(Auth::check())
                                         @if($price && $bought == null)
-                                            <span @if($checkWishList) onclick="location.href='/remove-from-wishlist/{{$id}}'" @else onclick="addToWishList({{$id}})" @endif  >
+                                            <span @if($addedToWhishList) onclick="location.href='/remove-from-wishlist/{{$id}}'" @else onclick="addToWishList({{$id}})" @endif  >
                                                 <span class="d-inline-block la-course__like">
                                                     <i class="la-icon la-icon--2xl icon @if($checkWishList) text-warning @endif icon-wishlist @if($addedToWhishList) text-warning @endif"></i>
                                                 </span>
