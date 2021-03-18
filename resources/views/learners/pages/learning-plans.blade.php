@@ -196,7 +196,7 @@
                       <div class="panel-group la-lp__sub-group mx-2"> 
             
                           @foreach($faqs->where('type','%','free_trial') as $f)
-                          <div class="panel panel-default la-lp__faq-panel">
+                          <div class="panel panel-default la-lp__faq-panel la-lp__faq-subpanel">
                             <div class="panel-heading la-lp__faq-sub py-2">
                               <div class="panel-title la-lp__faq-tag px-2">
                                 <a class="accordion-toggle main-toggle collapsed" href="#faqFT_{{ $f->id }}" data-toggle="collapse" aria-expanded="true">{{ $f->title }}</a>
@@ -226,7 +226,7 @@
                     <div class="panel-group la-lp__sub-group mx-2"> 
 
                       @foreach($faqs->where('type','%','subscription') as $f)
-                        <div class="panel panel-default la-lp__faq-panel">
+                        <div class="panel panel-default la-lp__faq-panel  la-lp__faq-subpanel">
                           <div class="panel-heading la-lp__faq-sub py-2">
                             <div class="panel-title la-lp__faq-tag px-2">
                               <a class="accordion-toggle main-toggle collapsed" href="#faqSa_{{ $f->id }}" data-toggle="collapse" aria-expanded="true">{{ $f->title }}</a>
@@ -255,7 +255,7 @@
                     <div class="panel-group la-lp__sub-group mx-2"> 
 
                       @foreach($faqs->where('type','%','single_course') as $f)
-                      <div class="panel panel-default la-lp__faq-panel ">
+                      <div class="panel panel-default la-lp__faq-panel  la-lp__faq-subpanel">
                         <div class="panel-heading la-lp__faq-sub py-2">
                           <div class="panel-title la-lp__faq-tag px-2">
                             <a class="accordion-toggle main-toggle collapsed" href="#faqSPa_{{ $f->id }}" data-toggle="collapse" aria-expanded="true">{{ $f->title }}</a>
@@ -283,7 +283,7 @@
                     <div class="panel-group la-lp__sub-group mx-2"> 
         
                         @foreach($faqs->where('type','%','payment_methods') as $f)
-                        <div class="panel panel-default la-lp__faq-panel">
+                        <div class="panel panel-default la-lp__faq-panel  la-lp__faq-subpanel">
                           <div class="panel-heading la-lp__faq-sub py-2">
                             <div class="panel-title la-lp__faq-tag px-2">
                               <a class="accordion-toggle main-toggle collapsed" href="#faqPPa_{{ $f->id }}" data-toggle="collapse" aria-expanded="true">{{ $f->title }}</a>
@@ -314,7 +314,7 @@
                     </div>
                     <div class="panel-collapse collapse" id="faqPre2" aria-labelledby="faqPP2"  data-parent="#accPPMain2">
                       <div class="panel-group la-lp__sub-group mx-2 mx-sm-5" id="accPP2"> 
-                        <div class="panel panel-default la-lp__faq-panel mt-2">
+                        <div class="panel panel-default la-lp__faq-panel  la-lp__faq-subpanel mt-2">
                           <div class="panel-heading la-lp__faq-sub py-2" id="faqPP12"><span class="panel-title la-lp__faq-tag mx-3">
                             <a class="accordion-toggle collapsed" href="#faqPPa2" data-toggle="collapse" aria-expanded="true">How much it cost?</a></span>
                             <div class="panel-collapse collapse" id="faqPPa2" aria-labelledby="faqPP12" data-parent="#accPP2">

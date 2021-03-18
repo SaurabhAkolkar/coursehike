@@ -18150,7 +18150,7 @@ input:-webkit-autofill:active {
   padding: var(--size-6) 0;
   border-bottom: 2px solid #dadada;
 }
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
   .la-courses__featured-container {
     overflow: visible;
   }
@@ -18666,15 +18666,67 @@ input:-webkit-autofill:active {
 @media (min-width: 1200px) {
   .list-view {
     transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    animation: fadeInUp 0.5s linear 1;
+    -webkit-animation: fadeInUp 0.5s linear 1;
+    -moz-animation: fadeInUp 0.5s linear 1;
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+      -webkit-transform: translateY(50px);
+      -moz-transform: translateY(50px);
+      transition: all 0.25s ease-in-out;
+      -webkit-transition: all 0.25s ease-in-out;
+      -moz-transition: all 0.25s ease-in-out;
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      -webkit-transform: translateY(0);
+      -moz-transform: translateY(0);
+      transition: all 0.25s ease-in-out;
+      -webkit-transition: all 0.25s ease-in-out;
+      -moz-transition: all 0.25s ease-in-out;
+    }
+  }
+  @-webkit-keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+      -webkit-transform: translateY(50px);
+      -moz-transform: translateY(50px);
+      transition: all 0.25s ease-in-out;
+      -webkit-transition: all 0.25s ease-in-out;
+      -moz-transition: all 0.25s ease-in-out;
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      -webkit-transform: translateY(0);
+      -moz-transform: translateY(0);
+      transition: all 0.25s ease-in-out;
+      -webkit-transition: all 0.25s ease-in-out;
+      -moz-transition: all 0.25s ease-in-out;
+    }
   }
   .list-view .la-courses {
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
   }
   .list-view .la-courses > .la-courses__nav {
-    max-width: 23%;
-    flex: 0 0 23%;
+    width: 25%;
+    flex: 0 0 25%;
     display: block;
+  }
+  .list-view .la-courses > .la-courses__content {
+    width: 75%;
+  }
+  .list-view .la-courses > .la-courses__content .row > [class*=col-] {
+    max-width: 33.3%;
+    flex: 0 0 100%;
   }
   .list-view .la-courses .la-courses__nav-title {
     display: block;
@@ -18695,14 +18747,6 @@ input:-webkit-autofill:active {
   }
   .list-view .la-courses .la-courses__nav-content {
     padding-top: 0;
-  }
-  .list-view .la-courses > .la-courses__content {
-    max-width: 75%;
-    flex: 0 0 100%;
-  }
-  .list-view .la-courses > .la-courses__content .row > [class*=col-] {
-    max-width: 33.33%;
-    flex: 0 0 100%;
   }
   .list-view .la-courses .la-courses__featured-container {
     padding-top: 0;
@@ -19712,6 +19756,7 @@ input:-webkit-autofill:active {
 }
 .la-playlist__thumbnails--three .la-playlist__thumbnail:nth-child(1) img {
   width: 100%;
+  height: 250px;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: top;
@@ -21350,6 +21395,12 @@ input:-webkit-autofill:active {
   -webkit-transition: all 0.35s ease-in-out;
   -moz-transition: all 0.35s ease-in-out;
 }
+.la-mccourse:hover .la-mccourse__overlay .la-mccourse__learners {
+  opacity: 1;
+  transition: all 0.35s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+}
 .la-mccourse__imgwrap {
   transition: all 0.24s ease-out;
   -webkit-transition: all 0.24s ease-out;
@@ -21534,7 +21585,12 @@ input:-webkit-autofill:active {
 }
 .la-mccourse__learners {
   font-size: var(--text-sm);
-  font-weight: var(--font-light);
+  font-weight: var(--font-normal);
+  padding-left: var(--size-3);
+  transition: all 0.35s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  opacity: 0;
 }
 .la-mccourse__view-more {
   z-index: 99;
@@ -26389,6 +26445,10 @@ section.la-lp--sub-faq {
 }
 .la-lp__faq-panel:not(.collapsed) {
   display: block;
+}
+
+.la-lp__faq-subpanel {
+  box-shadow: none;
 }
 
 .la-lp__faq-sub {

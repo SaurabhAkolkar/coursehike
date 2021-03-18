@@ -74,7 +74,8 @@
                     <circle class='la-mccourse__play-circle circle' id="XMLID_17_" fill="none"  stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="106.8" cy="106.8" r="103.3"/>
                 </svg>
             </a>
-        </div>        
+        </div>   
+        <div class="la-mccourse__learners mt-4">{{ $learners }} Learners</div>      
     </div>
 
     <div class="la-mccourse__btm d-flex flex-column">
@@ -85,8 +86,6 @@
             <div class="la-mccourse__cprofile-name">{{ $profileName }} </div>
         </div>
         <a  role="button" href="/learn/course/{{$id}}/{{$slug}}" class="la-mccourse__title leading-snug">{{ $title }}</a>
-       
-        <!-- <div class="la-mccourse__learners mt-4">{{ $learners }} Learners</div> -->
     </div>
 </div> 
 

@@ -261,7 +261,7 @@
                             padding:var(--size-6) 0;
                             border-bottom: 2px solid #dadada;
 
-                            @include respond-below(md){
+                            @include respond-below(lg){
                                 overflow:visible;
                             }
                         }
@@ -690,16 +690,34 @@
 //- List & Grid View onClick
 @include respond-above(lg){
     .list-view {
-        transition:all 0.25s ease-in-out;
+        transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;
+        animation:fadeInUp 0.5s linear 1;-webkit-animation:fadeInUp 0.5s linear 1;-moz-animation:fadeInUp 0.5s linear 1;
+
+        @keyframes fadeInUp{
+            from{opacity:0; transform: translateY(50px);-webkit-transform: translateY(50px);-moz-transform: translateY(50px); transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;}
+            to{opacity:1; transform:translateY(0);-webkit-transform:translateY(0);-moz-transform:translateY(0); transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;}
+        }
+        @-webkit-keyframes fadeInUp{
+            from{opacity:0; transform: translateY(50px);-webkit-transform: translateY(50px);-moz-transform: translateY(50px); transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;}
+            to{opacity:1; transform:translateY(0);-webkit-transform:translateY(0);-moz-transform:translateY(0); transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;}
+        }
         
         .la-courses {
             display: flex;
-            justify-content: space-between;
+            justify-content: start;
 
             > .la-courses__nav {
-                max-width: 23%;
-                flex: 0 0 23%;
+                width: 25%;
+                flex: 0 0 25%;
                 display: block;
+            }
+            >.la-courses__content {
+                width:75%;
+
+                .row > [class*='col-'] {
+                    max-width: 33.3%;
+                    flex: 0 0 100%;
+                }
             }
             .la-courses__nav-title{
                 display:block;
@@ -721,15 +739,6 @@
             }
             .la-courses__nav-content{
                 padding-top:0;
-            }
-            > .la-courses__content {
-                max-width: 75%;
-                flex: 0 0 100%;
-
-                .row> [class*='col-'] {
-                    max-width: 33.33%;
-                    flex: 0 0 100%;
-                }
             }
             .la-courses__featured-container{
                 padding-top:0;

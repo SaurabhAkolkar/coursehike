@@ -213,84 +213,129 @@
                 @endif
                 
               </ul>
-          </nav>
-
+          </nav>      
+         
           <div class="la-courses__content">
-
+              <!-- Add to Playlist Modal -->
               <x-add-to-playlist 
                 :playlists="$playlists"
               />
-              <!-- Add to Playlist Modal -->
-      
-            @if($filtres_applied)
-                  <div class="la-anim__wrap">
-                    <div class="row row-cols-md-3 row-cols-lg-4 la-anim__stagger-item">
-                                  
-                        @foreach($courses as $course)
-                            <x-course 
-                                :id="$course->id"
-                                :img="$course->preview_image"
-                                :course="$course->title"
-                                :url="$course->slug"
-                                :rating="round($course->average_rating, 2)"
-                                :creatorImg="$course->user->user_img"
-                                :creatorName="$course->user->fname"
-                                :creatorUrl="$course->user->id"
-                                :learnerCount="$course->learnerCount"
-                                :price="$course->price"
-                                :bought="$course->isPurchased()"
-                                :checkWishList="$course->checkWishList"
-                                :checkCart="$course->checkCart"
-                            />
-                          @endforeach
+              
+              @if($filtres_applied)
+                    <div class="la-anim__wrap">
+                      <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
+                                    
+                          @foreach($courses as $course)
+                              <x-course 
+                                  :id="$course->id"
+                                  :img="$course->preview_image"
+                                  :course="$course->title"
+                                  :url="$course->slug"
+                                  :rating="round($course->average_rating, 2)"
+                                  :creatorImg="$course->user->user_img"
+                                  :creatorName="$course->user->fname"
+                                  :creatorUrl="$course->user->id"
+                                  :learnerCount="$course->learnerCount"
+                                  :price="$course->price"
+                                  :bought="$course->isPurchased()"
+                                  :checkWishList="$course->checkWishList"
+                                  :checkCart="$course->checkCart"
+                              />
+                            @endforeach
 
-                    </div>
-                  </div>
-
-                    @if(count($courses) == 0)
-
-                      <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
-                        <div class="la-empty__inner">
-                            <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
-                        </div>
-                        <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
-                            <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
-                                Browse Courses
-                                <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
-                            </a>
-                        </div>
                       </div>
-                      
-                    @endif
-            @else
-                <div class="tab-content la-courses__nav-content la-anim__wrap position-relative" id="nav-tabContent">
-                      @foreach ($categories as $category)
-                        <div class="tab-pane fade show la-anim__wrap @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
-                          
-                              @php
-                                  $courses = $category->courses;
-                                  if($sort_type == 'highest_rated')
-                                  {
-                                    $courses = $category->courses->sortByDesc('average_rating');
-                                  }                
-                              @endphp
+                    </div>
 
-                              <!-- ==== Featured Courses: Start  ====== -->
-                              <div class="swiper-container la-home__course-container la-courses__featured-container">
-                                <h5 class="la-courses__featured-title mb-5 mb-lg-8 ml-0 ml-lg-2 la-anim__fade-in-top">Featured Courses</h5>
-                                <div class="swiper-wrapper la-courses__featured-wrapper ">
-                                                                                                
-                                          @php
-                                            $courses = $category->courses;          
-                                          @endphp
+                      @if(count($courses) == 0)
 
-                                          @foreach($courses as $course)
-                                            @if ($course->featured == 0)
-                                                @continue
-                                            @endif
+                        <div class="container la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
+                          <div class="la-empty__inner">
+                              <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
+                          </div>
+                          <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
+                              <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
+                                  Browse Courses
+                                  <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
+                              </a>
+                          </div>
+                        </div>
+                        
+                      @endif
+                      @else
+                        <div class="tab-content la-courses__nav-content la-anim__wrap position-relative" id="nav-tabContent">
+                              @foreach ($categories as $category)
+                              <div class="tab-pane fade show la-anim__wrap @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
+                                  
+                                      @php
+                                          $courses = $category->courses;
+                                          if($sort_type == 'highest_rated')
+                                          {
+                                            $courses = $category->courses->sortByDesc('average_rating');
+                                          }                
+                                      @endphp
+
+                                      <!-- ==== Featured Courses: Start  ====== -->
+                                      <div class="swiper-container la-home__course-container la-courses__featured-container">
+                                        <h5 class="la-courses__featured-title mb-5 mb-lg-8 ml-0 ml-lg-2 la-anim__fade-in-top">Featured Courses</h5>
+                                        <div class="swiper-wrapper la-courses__featured-wrapper ">
+                                                                                                        
+                                                  @php
+                                                    $courses = $category->courses;          
+                                                  @endphp
+
+                                                  @foreach($courses as $course)
+                                                    @if ($course->featured == 0)
+                                                        @continue
+                                                    @endif
+                                                    
+                                                    <div class="swiper-slide la-courses__featured-slide la-anim__stagger-item">
+                                                      <x-course 
+                                                        :id="$course->id"
+                                                        :img="$course->preview_image"
+                                                        :course="$course->title"
+                                                        :url="$course->slug"
+                                                        :rating="round($course->average_rating, 2)"
+                                                        :creatorImg="$course->user->user_img"
+                                                        :creatorName="$course->user->fname"
+                                                        :creatorUrl="$course->user->id"
+                                                        :learnerCount="$course->learnerCount"
+                                                        :price="$course->price"
+                                                        :bought="$course->isPurchased()"
+                                                        :checkWishList="$course->checkWishList"
+                                                        :checkCart="$course->checkCart"
+                                                      />
+                                                    </div>
+                                                  @endforeach                                  
+                                                
+                                        </div>
+
+                                          @if(count($courses) == 0)
+                                        
+                                              <div class="mb-3 mb-md-8 la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
+                                                <div class="la-empty__inner text-center">
+                                                    <h6 class="la-empty__course-title la-anim__stagger-item">No Courses available currently.</h6>
+                                                </div>
+                                              </div>
                                             
-                                            <div class="swiper-slide la-courses__featured-slide la-anim__stagger-item">
-                                              <x-course 
+                                          @endif
+
+                                          @if(count($courses) != 0)
+                                          <div class="w-100 mt-10 d-md-flex justify-content-end align-items-start">
+                                            <div class="la-slider__navigations la-home__course-navigations d-md-flex  align-items-center">
+                                              <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
+                                            </div>
+                                          </div> 
+                                          @endif
+                                        
+                                      </div>  
+                                      <!-- ==== Featured Courses: End  ====== -->
+                                      
+                                      <div class="la-courses__other la-section__small">
+                                        <h5 class="la-courses__featured-title mb-5 mb-lg-8 la-anim__fade-in-top">Other Courses</h5>
+                                        <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item la-anim__C">
+                                          @foreach($courses as $course)
+                                          
+                                            <x-course 
                                                 :id="$course->id"
                                                 :img="$course->preview_image"
                                                 :course="$course->title"
@@ -304,74 +349,27 @@
                                                 :bought="$course->isPurchased()"
                                                 :checkWishList="$course->checkWishList"
                                                 :checkCart="$course->checkCart"
+
                                               />
-                                            </div>
-                                          @endforeach                                  
-                                        
-                                </div>
-
-                                  @if(count($courses) == 0)
-                                 
-                                      <div class="col-12 mb-3 mb-md-8 la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
-                                        <div class="la-empty__inner text-center">
-                                            <h6 class="la-empty__course-title la-anim__stagger-item">No Courses available currently.</h6>
+                                          @endforeach
                                         </div>
+
+                                        @if(count($courses) == 0)
+
+                                          <div class=" my-3 my-md-8  la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
+                                            <div class="la-empty__inner">
+                                                <h6 class="la-empty__course-title la-anim__stagger-item">No Courses available currently.</h6>
+                                            </div>
+                                          </div>
+                                          
+                                        @endif
                                       </div>
-                                    
-                                  @endif
-
-                                  @if(count($courses) != 0)
-                                  <div class="w-100 mt-10 d-md-flex justify-content-end align-items-start">
-                                    <div class="la-slider__navigations la-home__course-navigations d-md-flex  align-items-center">
-                                      <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
-                                    </div>
-                                  </div> 
-                                  @endif
-                                
-                              </div>  
-                              <!-- ==== Featured Courses: End  ====== -->
-                              
-                              <div class="la-courses__other la-section__small">
-                                <h5 class="la-courses__featured-title mb-5 mb-lg-8 la-anim__fade-in-top">Other Courses</h5>
-                                <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item la-anim__C">
-                                  @foreach($courses as $course)
-                                  
-                                    <x-course 
-                                        :id="$course->id"
-                                        :img="$course->preview_image"
-                                        :course="$course->title"
-                                        :url="$course->slug"
-                                        :rating="round($course->average_rating, 2)"
-                                        :creatorImg="$course->user->user_img"
-                                        :creatorName="$course->user->fname"
-                                        :creatorUrl="$course->user->id"
-                                        :learnerCount="$course->learnerCount"
-                                        :price="$course->price"
-                                        :bought="$course->isPurchased()"
-                                        :checkWishList="$course->checkWishList"
-                                        :checkCart="$course->checkCart"
-
-                                      />
-                                  @endforeach
-                                </div>
-
-                                @if(count($courses) == 0)
-
-                                  <div class=" my-3 my-md-8  la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
-                                    <div class="la-empty__inner">
-                                        <h6 class="la-empty__course-title la-anim__stagger-item">No Courses available currently.</h6>
-                                    </div>
-                                  </div>
-                                  
-                                @endif
                               </div>
+                              @endforeach
                         </div>
-                      @endforeach
-                </div>
-                    
-            @endif
+                            
+                      @endif
             
-            </div>
           </div>
         </div>
       </div>

@@ -138,6 +138,7 @@ $image-center: -30px;
                                                 & img {
                                                     //margin-top: $image-center;
                                                     width:100%;
+                                                    height:250px;
                                                     object-fit: cover;
                                                     object-position: top;
                                                 }

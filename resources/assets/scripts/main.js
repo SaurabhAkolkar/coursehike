@@ -178,7 +178,7 @@ $(function(){
   if($('.la-home__master-container')[0]){   
     var master_slider = new Swiper('.la-home__master-container', {
       slidesPerView: 'auto',
-      spaceBetween: 25,
+      spaceBetween: 20,
       flipEffect: {
         slideShadows: false,
       },
@@ -292,7 +292,7 @@ $(function(){
       },
       speed:1000,
       autoplay: {
-        delay: 2500,
+        delay: 3000,
         disableOnInteraction: false
       },
       pagination: {

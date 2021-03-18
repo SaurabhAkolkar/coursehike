@@ -74,6 +74,10 @@
                               transition:all 0.35s ease-in-out;-webkit-transition:all 0.35s ease-in-out;-moz-transition:all 0.35s ease-in-out;
                           }
                       }
+                      .la-mccourse__learners{
+                          opacity:1;
+                          transition:all 0.35s ease-in-out;-webkit-transition:all 0.35s ease-in-out;-moz-transition:all 0.35s ease-in-out;
+                      }
                 }
             }
         }
@@ -278,7 +282,10 @@
             }
             &learners {
                 font-size: var(--text-sm);
-                font-weight: var(--font-light);
+                font-weight: var(--font-normal);
+                padding-left:var(--size-3);
+                transition:all 0.35s ease-in-out;-webkit-transition:all 0.35s ease-in-out;-moz-transition:all 0.35s ease-in-out;
+                opacity:0;
             }
 
             &view{
