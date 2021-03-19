@@ -17,97 +17,17 @@
     <div class="col-12">
       <div class="box box-primary">
         <div class="d-flex justify-content-between align-items-center ml-2">
-            <h3 class="la-admin__section-title">{{ __('adminstaticword.Category') }}</h3>
-            <button role="button"class="btn btn-info "  data-toggle="modal" data-target="#myModal">
-              <span class="la-icon la-icon--sm icon-plus"></span> {{ __('adminstaticword.AddCategory') }}
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade show" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header d-block">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">{{ __('adminstaticword.AddCategory') }}</h4>
-                  </div>
-                  <div class="modal-body">
-                    <form id="demo-form2" method="post" action="{{url('category/')}}" data-parsley-validate class="form-horizontal form-label-left" autocomplete="off" enctype="multipart/form-data">
-                      {{ csrf_field() }}
-
-                      <div class="row">
-                        <div class="col-md-12 mb-0 mb-md-6">
-                          <label for="c_name">{{ __('adminstaticword.Name') }}:<sup class="redstar">*</sup></label>
-                          <input placeholder="Enter your category" type="text" class="form-control" name="title" required="">
-                        </div>
-                      </div>
-                      
-
-                      <div class="row">
-                        <div class="col-md-12">
-                          <div class="la-admin__preview">
-                            <label for="" class="la-admin__preview-label">{{ __('adminstaticword.Image') }}:</label>
-                            <div class="la-admin__preview-img la-admin__course-imgvid" >
-                                 <div class="la-admin__preview-text">
-                                      <p class="la-admin__preview-size">Preview Image size: 250x150</p>
-                                      <p class="la-admin__preview-file text-uppercase">Choose a File</p>
-                                </div>
-                                <div class="text-center pr-20 mr-10">
-                                  <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:160px;">
-                                    <span class="path1"><span class="path2"></span></span>
-                                  </span>
-                                </div>
-                                <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="image" id="image" />
-                                <img src="" alt="" class="d-none preview-img" required/>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <br>
-
-                      {{-- <div class="row">
-                        <div class="col-md-12">
-                          <label for="icon">{{ __('adminstaticword.Icon') }}:<sup class="redstar">*</sup></label>
-                          <input type="text" class="form-control icp-auto icp" name="icon" required placeholder="Choose Icon">
-                        </div>
-                      </div>
-                      <br> --}}
-
-                      <div class="row">
-                        <div class="col-6 col-md-4">
-                          <label for="exampleInputDetails">{{ __('adminstaticword.Featured') }}:</label>
-                            <li class="tg-list-item">              
-                            <input class="la-admin__toggle-switch" id="featured" type="checkbox" name="featured" >
-                            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="featured"></label>
-                          </li>
-                          <input type="hidden"  name="free" value="0" for="featured" id="featured">
-                        </div>
-                        <div class="col-6 col-md-4">
-                          <label for="exampleInputDetails">{{ __('adminstaticword.Status') }}:</label>
-                          <li class="tg-list-item">              
-                            <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" >
-                            <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
-                          </li>
-                          <input type="hidden"  name="free" value="0" for="status" id="status">
-
-                          
-                        </div>
-                      </div>
-                      <br>
-                      <button type="submit" class="btn btn-primary">{{ __('adminstaticword.Save') }}</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <h3 class="la-admin__section-title">{{ __('adminstaticword.featuredCourses') }}</h3>
         </div>
 
         <div class="box-body">
-            <table id="example1" class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped">
               <thead>
                 <tr>
                   <th>#</th>
                   <th>{{ __('adminstaticword.Title') }}</th>
                   <th>{{ __('adminstaticword.Image') }}</th>
+                  <th>Category</th>
                   <th>{{ __('adminstaticword.Slug') }}</th>
                   <th>{{ __('adminstaticword.Status') }}</th>
                   <th>{{ __('adminstaticword.Edit') }}</th>
@@ -121,6 +41,7 @@
                     <td><?php echo $i;?></td>
                     <td>{{$c->title}}</td>
                     <td><img src="{{$c->preview_image}}" class="img-thumbnail"/></td>
+                    <td>{{$c->category->title}} </td>
                     <td>{{$c->slug}}</td>
                    
                     <td>
