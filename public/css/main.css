@@ -18714,19 +18714,13 @@ input:-webkit-autofill:active {
   }
   .list-view .la-courses {
     display: flex;
-    justify-content: start;
+    width: 100%;
+    align-items: flex-start;
   }
   .list-view .la-courses > .la-courses__nav {
     width: 25%;
     flex: 0 0 25%;
     display: block;
-  }
-  .list-view .la-courses > .la-courses__content {
-    width: 75%;
-  }
-  .list-view .la-courses > .la-courses__content .row > [class*=col-] {
-    max-width: 33.3%;
-    flex: 0 0 100%;
   }
   .list-view .la-courses .la-courses__nav-title {
     display: block;
@@ -18747,6 +18741,11 @@ input:-webkit-autofill:active {
   }
   .list-view .la-courses .la-courses__nav-content {
     padding-top: 0;
+    width: 75%;
+  }
+  .list-view .la-courses .la-courses__nav-content .row > [class*=col-] {
+    max-width: 33.3%;
+    flex: 0 0 100%;
   }
   .list-view .la-courses .la-courses__featured-container {
     padding-top: 0;

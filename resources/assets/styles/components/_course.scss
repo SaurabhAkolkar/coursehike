@@ -704,21 +704,15 @@
         
         .la-courses {
             display: flex;
-            justify-content: start;
+            width:100%;
+            align-items: flex-start;
 
             > .la-courses__nav {
                 width: 25%;
                 flex: 0 0 25%;
                 display: block;
             }
-            >.la-courses__content {
-                width:75%;
-
-                .row > [class*='col-'] {
-                    max-width: 33.3%;
-                    flex: 0 0 100%;
-                }
-            }
+          
             .la-courses__nav-title{
                 display:block;
             }
@@ -739,6 +733,12 @@
             }
             .la-courses__nav-content{
                 padding-top:0;
+                width:75%;
+
+                .row > [class*='col-'] {
+                    max-width: 33.3%;
+                    flex: 0 0 100%;
+                }
             }
             .la-courses__featured-container{
                 padding-top:0;
