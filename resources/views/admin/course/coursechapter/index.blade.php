@@ -82,8 +82,7 @@
                     </select> <br/> 
                   </div>
                 </div>
-
-
+              
                 <div class="row">
                   <div class="col-md-12">
                     <label for="exampleInputTit1e">{{ __('adminstaticword.ClassName') }}:<span class="redstar">*</span> </label>
