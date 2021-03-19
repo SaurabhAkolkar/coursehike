@@ -95,7 +95,7 @@
                                 
                                 @foreach($courses as $course)
                                 
-                                    <div class="col-md-6 col-lg-3 px-0 la-anim__stagger-item">
+                                    <div class="col-md-6 col-lg-4 col-xl-3 px-0 la-anim__stagger-item">
                                       <x-course 
                                           :id="$course->id"
                                           :img="$course->preview_image" 

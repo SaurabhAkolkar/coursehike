@@ -64,7 +64,7 @@
                     <div class="col-md-5 px-0 la-soffer d-flex d-lg-block justify-content-center  mb-lg-auto">
                       <div class="la-soffer__bestprice"> 
                         @if (getLocation() == 'IN')
-                          <sup>₹</sup> 2899 / Month
+                          <sup>₹</sup> 2999 / Month
                         @else
                           <sup>$</sup> 39 / Month
                         @endif
@@ -123,7 +123,7 @@
                   </div>
                   <div class="col-md-6 px-0 pt-4 la-soffer d-flex justify-content-center mx-0">
                     @if (getLocation() == 'IN')
-                      <div class="la-soffer__bestprice"> <sup><small>₹</small></sup>  2899 / Month</div>
+                      <div class="la-soffer__bestprice"> <sup><small>₹</small></sup>  2999 / Month</div>
                       <div class="la-soffer__realprice"> <sup><small>₹</small></sup>  5999 (INR)</div>
                     @else
                       <div class="la-soffer__bestprice"> <sup><small>$</small></sup>  39 / Month</div>
@@ -432,7 +432,7 @@
                                   <div class="la-price__box-soffer la-soffer ml-0">
                                     
                                     @if (getLocation() == 'IN')
-                                      <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x"> <sup><small>₹</small></sup>  2899 / Month</div>
+                                      <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x"> <sup><small>₹</small></sup>  2999 / Month</div>
                                       <div class="la-soffer__realprice la-anim__stagger-item--x"> <sup><small>₹</small></sup>  5999 (INR) </div>
                                     @else
                                       <div class="la-soffer__bestprice la-soffer__bestprice--black la-anim__stagger-item--x"> <sup><small>$</small></sup>  39 / Month</div>

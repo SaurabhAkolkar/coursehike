@@ -12,10 +12,12 @@
 
         position: relative;
         width: var(--mccourse-width);
-        height: var(--mccourse-height);
-        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.55);
+        height: 470px;
+        background:var(--white);
+        //box-shadow: 0px 0px 6px rgba(229, 229, 229, 0.55);
         overflow: hidden;
-        border-radius: var(--size-2);-webkit-border-radius: var(--size-2);-moz-border-radius: var(--size-2);
+        border-radius:10px;-webkit-border-radius:10px;-moz-border-radius:10px;
+        border:none;
         margin-bottom: calc(var(--size-7) + 2px);     
 
         
@@ -44,15 +46,15 @@
         &:hover & {
             &__ {
                 &imgwrap {
-                    transform: scale(1.05);-webkit-transform: scale(1.05);-moz-transform: scale(1.05);
+                    //transform: scale(1.05);-webkit-transform: scale(1.05);-moz-transform: scale(1.05);
                     
-                    @include respond-below(md){
-                        transform:none;
-                    }
+                    //@include respond-below(md){
+                    //    transform:none;
+                    //}
                 }
                 &overlay {
                     // background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
-                    border-radius: var(--size-2);-webkit-border-radius: var(--size-2);-moz-border-radius: var(--size-2);
+                    //border-radius: var(--size-2);-webkit-border-radius: var(--size-2);-moz-border-radius: var(--size-2);
 
                     .la-mccourse__play-triangle {
                         stroke-dashoffset: 0;
@@ -72,6 +74,10 @@
                               transition:all 0.35s ease-in-out;-webkit-transition:all 0.35s ease-in-out;-moz-transition:all 0.35s ease-in-out;
                           }
                       }
+                      .la-mccourse__learners{
+                          opacity:1;
+                          transition:all 0.35s ease-in-out;-webkit-transition:all 0.35s ease-in-out;-moz-transition:all 0.35s ease-in-out;
+                      }
                 }
             }
         }
@@ -80,8 +86,9 @@
             &imgwrap{
                 transition: all 0.24s ease-out;-webkit-transition: all 0.24s ease-out;-moz-transition: all 0.24s ease-out;
                 width:100%;
-                height: 470px;
-                box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+                height: 360px;
+                border:none;
+                //box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
                 overflow: hidden;
                 position:relative;
 
@@ -94,7 +101,7 @@
                 img{
                     position:absolute;
                     width: 100%;
-                    height:100%;
+                    height:360px;
                     top:0;
                     left:0;
                     object-fit: cover;
@@ -108,11 +115,12 @@
                 flex-direction: column;
                 position: absolute;
                 width: 100%;
-                height: 100%;
+                height: 360px;
                 top: 0;
                 left: 0;
-                border-radius: var(--size-2);-webkit-border-radius: var(--size-2);-moz-border-radius: var(--size-2);
-                background:rgba(0,0,0,0.2);    
+                border:none;
+                border-radius: 10px 10px 0 0;-webkit-border-radius: 10px 10px 0 0;-moz-border-radius: 10px 10px 0 0;
+                //background:rgba(0,0,0,0.2);    
                 padding: var(--size-3);
                 color: #fff;
                 transition: all 0.24s ease-out;-webkit-transition: all 0.24s ease-out;-moz-transition: all 0.24s ease-out;
@@ -209,11 +217,14 @@
                     }
                 }
             }
+            &btm{
+                padding:var(--size-5) var(--size-6);
+            }
             &title {
                 margin-top: auto;
-                font-size: var(--text-xl);
-                font-weight: var(--font-semibold);
-                margin-bottom: var(--size-2);
+                font-size: var(--text-md);
+                font-weight: var(--font-normal);
+                //margin-bottom: var(--size-2);
                 //overflow: hidden;
                 //text-overflow: ellipsis;
                 //display: -webkit-box;
@@ -224,13 +235,9 @@
                     color:var(--app-indigo-1);
                 }
 
-                @include respond-above(sm){
-                    font-size: var(--text-2xl);
-                }
-            }
-            &btm {
-                display: flex;
-                align-items: center;
+                //@include respond-above(sm){
+                //    font-size: var(--text-md);
+                //}
             }
             &cprofile {
                 display: flex;
@@ -258,21 +265,32 @@
                     }
                     &name {
                         font-size: var(--text-md);
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        display: -webkit-box;
-                        -webkit-line-clamp: 1; 
-                        -webkit-box-orient: vertical;
+                        font-weight:var(--font-semibold);
+                        text-transform: uppercase;
+                        margin-bottom: var(--size-base);
+                        //overflow: hidden;
+                        //text-overflow: ellipsis;
+                        //display: -webkit-box;
+                        //-webkit-line-clamp: 1; 
+                        //-webkit-box-orient: vertical;
 
                         @include respond-above(sm){
-                            font-size: var(--text-xl);
+                            font-size: var(--text-lg);
                         }
                     }
                 }
             }
             &learners {
                 font-size: var(--text-sm);
-                font-weight: var(--font-light);
+                font-weight: var(--font-medium);
+                color:var(--gray6);
+                padding-left:var(--size-3);
+                transition:all 0.35s ease-in-out;-webkit-transition:all 0.35s ease-in-out;-moz-transition:all 0.35s ease-in-out;
+                opacity:0;
+
+                @include respond-below(md){
+                    opacity:1;
+                }
             }
 
             &view{

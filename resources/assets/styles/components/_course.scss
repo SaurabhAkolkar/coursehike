@@ -30,6 +30,9 @@
                     width:100%;
                     transition:all 0.5s linear;
                     scroll-behavior: smooth;
+                    display:flex;
+                    flex-direction: row;
+                    justify-content: space-between;
                   
                     /*&:hover > .la-courses__nav-tabs::-webkit-scrollbar-thumb{
                         transition:all 0.5s linear;
@@ -43,6 +46,9 @@
                     }*/
 
                     &- {
+                        &title{
+                            display: none;
+                        }
                         &prev,&next{
                             width:30px;
                             height:30px;
@@ -245,6 +251,36 @@
                         }
                     }
                 }
+
+                //- Featured Courses in Browse Courses Page
+                &featured{
+                    &-{
+                        &container{
+                            width:100%;
+                            height:auto !important;
+                            padding:var(--size-6) 0;
+                            border-bottom: 2px solid #dadada;
+
+                            @include respond-below(lg){
+                                overflow:visible;
+                            }
+                        }
+                        &wrapper{
+                            height:auto !important;
+                        }
+                        &slide{
+                            width:310px;
+                            height:470px;
+
+                            .la-lcourse__card{
+                                padding:0;
+                            }
+                        }
+                        &title{
+                            color:var(--gray5);
+                        }
+                    }
+                }
             }
         }
 
@@ -394,6 +430,8 @@
                 }
             }
             &option {
+                cursor:pointer;
+                display:block;
                 &:hover{
                     color:var(--yellow);
                 }
@@ -644,7 +682,67 @@
                 }
             }
         }
-        //- Course List View: End
     }
     // Course: End
+}
+
+
+//- List & Grid View onClick
+@include respond-above(lg){
+    .list-view {
+        transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;
+        animation:fadeInUp 0.5s linear 1;-webkit-animation:fadeInUp 0.5s linear 1;-moz-animation:fadeInUp 0.5s linear 1;
+
+        @keyframes fadeInUp{
+            from{opacity:0; transform: translateY(50px);-webkit-transform: translateY(50px);-moz-transform: translateY(50px); transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;}
+            to{opacity:1; transform:translateY(0);-webkit-transform:translateY(0);-moz-transform:translateY(0); transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;}
+        }
+        @-webkit-keyframes fadeInUp{
+            from{opacity:0; transform: translateY(50px);-webkit-transform: translateY(50px);-moz-transform: translateY(50px); transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;}
+            to{opacity:1; transform:translateY(0);-webkit-transform:translateY(0);-moz-transform:translateY(0); transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;}
+        }
+        
+        .la-courses {
+            display: flex;
+            width:100%;
+            align-items: flex-start;
+
+            > .la-courses__nav {
+                width: 25%;
+                flex: 0 0 25%;
+                display: block;
+            }
+          
+            .la-courses__nav-title{
+                display:block;
+            }
+            .la-courses__nav-tabs{
+                flex-wrap: wrap;
+            }
+            .la-courses__nav-item{
+                width:100%;
+                margin-right:0;
+                margin-bottom:calc(var(--size-base) + 2px);
+            }
+            .la-courses__nav-link{
+                font-size: var(--text-xl);
+
+                &.active:before{
+                    top:-2px;
+                }
+            }
+            .la-courses__nav-content{
+                padding-top:0;
+                width:75%;
+
+                .row > [class*='col-'] {
+                    max-width: 33.3%;
+                    flex: 0 0 100%;
+                }
+            }
+            .la-courses__featured-container{
+                padding-top:0;
+            }
+        }
+    }
 }

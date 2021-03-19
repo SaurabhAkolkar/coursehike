@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-          <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Subscription') }}</h3>
+          <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Add') }} / {{__('adminstaticword.Update')}} {{ __('adminstaticword.Subscription') }}</h3>
         
         <!-- /.box-header -->
         <div class="box-body">

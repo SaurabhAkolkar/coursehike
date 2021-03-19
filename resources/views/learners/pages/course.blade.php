@@ -894,7 +894,7 @@ $course_id = $course->id;
                 </div>         
             @else
 
-            <div class="row row-cols-md-2 row-cols-lg-4 la-anim__stagger-item--x ">
+            <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item--x ">
               @foreach ($mentor_other_courses as $mentor_other_course)
                     <x-course 
                     :id="$mentor_other_course->id"
@@ -937,7 +937,7 @@ $course_id = $course->id;
 
           @else
 
-            <div class="row row-cols-md-2 row-cols-lg-4 la-anim__stagger-item--x ">
+            <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item--x ">
               @foreach ($related_courses as $related_course)
                   <x-course 
                       :id="$related_course->id"

@@ -64,6 +64,7 @@
                           :creatorName="$courses->courses->user->FullName"
                           :creatorUrl="$courses->courses->user->id"
                           :checkWishList="$courses->courses->checkWishList"
+                          :addedToWhishList="$addedToWhishList"
                           :checkCart="$courses->courses->checkCart"
                           :learnerCount="$courses->courses->learnerCount"
                           :price="$courses->courses->price"
