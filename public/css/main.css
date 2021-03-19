@@ -25672,6 +25672,28 @@ section.la-page--how-this-works .la-gcreator__video-content .la-gcreator__list-i
     height: 650px;
   }
 }
+.la-zoho__form-section {
+  background: var(--app-indigo-1);
+  padding-top: var(--size-20);
+  padding-bottom: var(--size-10);
+}
+@media (max-width: 767px) {
+  .la-zoho__form-section {
+    padding-top: var(--size-14);
+    padding-bottom: 0;
+  }
+}
+
+.la-form__iframe {
+  width: 100%;
+  height: 1000px;
+}
+@media (max-width: 767px) {
+  .la-form__iframe {
+    height: 1050px;
+  }
+}
+
 section.la-cdashboard-main {
   background-color: var(--gray);
 }

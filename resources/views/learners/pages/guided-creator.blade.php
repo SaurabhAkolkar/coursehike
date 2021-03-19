@@ -158,19 +158,21 @@
     </div>
   </section>
   <!-- Section: End-->
+  
   <!-- Section: Start-->
-  <section class="">
-    <div class="w-100 h-100">
+  <section class="la-zoho__form-section">
+    <div class="container-fluid w-100 h-100">
       <div class="row la-anim__wrap">
         <!-- Column: Start-->
-        <div class="col-12  la-anim__stagger-item">
-          <iframe frameborder="0" style="height:900px;width:99%;border:none;" src='https://forms.zohopublic.com/aliensart/form/GuidedCreator/formperma/v63ASHAUJuv-VdXhtUtXk9k3nBu6CfbWHDKm-_MJwuk'></iframe>
+        <div class="col-12 px-0 px-md-3 la-anim__stagger-item">
+          <iframe frameborder="0" class="la-form__iframe" style="border:none;" src='https://forms.zohopublic.com/aliensart/form/GuidedCreator/formperma/v63ASHAUJuv-VdXhtUtXk9k3nBu6CfbWHDKm-_MJwuk'></iframe>
         </div>
         <!-- Column: End-->
       </div>
     </div>
   </section>
   <!-- Section: End-->
+
   <!-- Section: Start-->
   <section class="la-bgcreator--faq">
     <div class="container-fluid">
