@@ -197,6 +197,10 @@
         </div>
       </div>        
 
+      <x-add-to-playlist 
+        :playlists="$playlists"
+      />
+      
       <div class="container-fluid grid-container">
         <div class="la-courses mt-1 mt-md-14 la-anim__wrap">
           
@@ -217,9 +221,7 @@
          
           <div class="la-courses__content">
               <!-- Add to Playlist Modal -->
-              <x-add-to-playlist 
-                :playlists="$playlists"
-              />
+             
               
               @if($filtres_applied)
                   <div class="la-courses__content-desc">
@@ -276,7 +278,7 @@
                                       @endphp
 
                                       <!-- ==== Featured Courses: Start  ====== -->
-                                      <div class="swiper-container la-home__course-container la-courses__featured-container">
+                                      <div class="swiper-container  la-courses__featured-container">
                                         <h5 class="la-courses__featured-title mb-5 mb-lg-8 ml-0 ml-lg-2 la-anim__fade-in-top">Featured Courses</h5>
                                         <div class="swiper-wrapper la-courses__featured-wrapper ">
                                                                                                         

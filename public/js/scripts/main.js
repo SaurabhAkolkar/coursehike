@@ -157,7 +157,7 @@ $(function(){
       var paneTarget = $(e.target).attr('href');
       var $thePane = $('.tab-pane' + paneTarget);
       var paneIndex = $thePane.index();
-      if ($thePane.find('.la-home__course-container').length > 0 && 0 === $thePane.find('.swiper-slide-active').length) {
+      if ($thePane.find('.la-home__course-container, .la-courses__featured-container').length > 0 && 0 === $thePane.find('.swiper-slide-active').length) {
         
         course_swiper[paneIndex].update();
 

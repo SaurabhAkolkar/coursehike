@@ -269,7 +269,7 @@
                             height:auto !important;
                         }
                         &slide{
-                            width:310px;
+                            width:320px;
                             height:470px;
 
                             .la-lcourse__card{
@@ -709,8 +709,11 @@
 
             > .la-courses__nav {
                 width: 25%;
-                flex: 0 0 25%;
                 display: block;
+            }
+            > .la-courses__content{
+                width:75%;
+                margin-left:var(--size-10);
             }
           
             .la-courses__nav-title{
@@ -731,9 +734,12 @@
                     top:-2px;
                 }
             }
+            .la-courses__other{
+                width:100%;
+            }
             .la-courses__nav-content{
                 padding-top:0;
-                width:75%;
+                max-width:100%;
 
                 .row > [class*='col-'] {
                     max-width: 33.3%;
