@@ -37,30 +37,24 @@ use App\Announcement;
             @if(!Auth::user()->subscription())
 
               <div class="la-header__menu-item d-none d-lg-block">
-                  <a href="/learning-plans" class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header bg-yellow" role="button">
+                  <a href="/learning-plans" class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header bg-green" role="button">
                       <span class="la-header__menu-cta--text text-sm pr-3">Start free trial</span>
-                      <span class="la-header__menu-cta--yellow la-icon icon-profile"></span>
+                      <span class="la-header__menu-cta--green la-icon icon-profile"></span>
                   </a>
               </div>
-            @endif
 
-            @if(Auth::user()->subscription() && Auth::user()->subscription()->onTrial())
+            @elseif(Auth::user()->subscription() && Auth::user()->subscription()->onTrial())
              @php
-                $user = DB::table('plan_subscriptions')->where('user_id', Auth::user()->id)->first();
-                $created = new Carbon($user->created_at);
-                $now = Carbon::now();
-                $difference = $created->diff($now)->days;
-                
-                @endphp
+                $user_subscription = Auth::user()->subscription();
+                $difference = \Carbon\Carbon::now()->diffInDays($user_subscription->trial_ends_at, false);                
+              @endphp
               <div class="la-header__menu-item d-none d-lg-block">
                   <a href="/learning-plans" class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header border-yellow" role="button">
                       <span class="la-header__menu-cta--text text-sm pr-3">Trial Ends in {{$difference}} days</span>
                       <span class="la-header__menu-cta la-icon la-icon--lg icon-profile"></span>
                   </a>
               </div>
-            @endif
-
-            @if(Auth::user()->subscription() && (Auth::user()->subscription()->ended() || Auth::user()->subscription()->canceled()))
+            @elseif(Auth::user()->subscription() && (Auth::user()->subscription()->ended() || Auth::user()->subscription()->canceled()))
               
                 <div class="la-header__menu-item d-none d-lg-block">
                     <a href="/learning-plans" class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header bg-green" role="button">
