@@ -1,11 +1,11 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-    <title>Subscribe Now | Start Your 7 Days Free Trail | LILA</title>
+    <title>Subscribe Now | Start Your 7 Days Free Trial | LILA</title>
     <meta name='description' itemprop='description' content='Subscribe to the online classes of creativity, craft, art & much more from creators & mentors all around the world. Join & learn real skills with LILA now!' />
 
     <meta property="og:description"content="Subscribe to the online classes of creativity, craft, art & much more from creators & mentors all around the world. Join & learn real skills with LILA now!" />
-    <meta property="og:title"content="Subscribe Now | Start Your 7 Days Free Trail | LILA" />
+    <meta property="og:title"content="Subscribe Now | Start Your 7 Days Free Trial | LILA" />
     <meta property="og:url"content="{{Request::url()}}" />
     <meta property="og:type"content="website" />
     <meta property="og:site_name"content="LILA Art" />
@@ -14,10 +14,10 @@
     <meta property="og:image:size"content="300" />
 
     <meta name="twitter:card"content="summary" />
-    <meta name="twitter:title"content="Subscribe Now | Start Your 7 Days Free Trail | LILA" />
+    <meta name="twitter:title"content="Subscribe Now | Start Your 7 Days Free Trial | LILA" />
     <meta name="twitter:site"content="@lilaaliens" />
     
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Subscribe Now | Start Your 7 Days Free Trail | LILA"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Subscribe Now | Start Your 7 Days Free Trial | LILA"}</script>
 
     <script>
       (function(h,e,a,t,m,p) {

@@ -91,17 +91,19 @@ class SubscriptionController extends Controller
 				// Customer Present
 				$customer = $this->stripe->customers()->find($stripe_id);
 
-				// Already subscribed before
-				$user_subscription = UserSubscription::where('user_id', $user->id)->first();
 
 				if (!array_key_exists('deleted', $customer))
 					$session_data['customer'] = $stripe_id;
 				else
 					$session_data['customer_email'] = $user->email;
 
-				$stripe_subscription = $this->stripe->subscriptions()->find($stripe_id, $user_subscription->subscription_id ?? 0);
-			
-				if (!array_key_exists('deleted', $customer)  && $user->subscription() && $user_subscription && $stripe_subscription){
+				// Already subscribed before
+				// $user_subscription = UserSubscription::where('user_id', $user->id)->first();
+				// $stripe_subscription = $this->stripe->subscriptions()->find($stripe_id, $user_subscription->subscription_id ?? 0);
+				$subscriptions = $this->stripe->subscriptions()->all($stripe_id)['data'];
+
+				// if (!array_key_exists('deleted', $customer)  && $user->subscription() && $user_subscription && $stripe_subscription){
+				if (!array_key_exists('deleted', $customer)  && $user->subscription() && count($subscriptions) > 0){
 					$response = [
 						"redirect" => true,
 					];
