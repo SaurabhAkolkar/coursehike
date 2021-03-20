@@ -336,7 +336,7 @@
                                       <div class="la-courses__other la-section__small">
                                         <h5 class="la-courses__featured-title mb-5 mb-lg-8 la-anim__fade-in-top">Other Courses</h5>
                                         <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item la-anim__C">
-                                          @foreach($courses->where('featured','=','') as $course)
+                                          @foreach($courses->orWhere('featured','=','0')->where('featured','=','') as $course)
                                           
                                             <x-course 
                                                 :id="$course->id"
@@ -357,7 +357,7 @@
                                           @endforeach
                                         </div>
 
-                                        @if(count($courses) == 0 || count($courses->where('featured','=','')) == 0)
+                                        @if(count($courses) == 0 || count($courses->where('featured','=','')) == 0 || count($courses->where('featured','=','0')) == 0 )
 
                                           <div class=" my-3 my-md-8  la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
                                             <div class="la-empty__inner">
