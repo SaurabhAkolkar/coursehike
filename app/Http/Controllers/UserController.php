@@ -115,17 +115,16 @@ class UserController extends Controller
             }
         }
         else if($request->purchase_type == 'all_classes'){
-            $request->class_id = CourseChapter::where(['course_id'=>$request->course_id])->pluck('id');
+            $request->class_id = CourseChapter::where(['course_id'=>$request->course_id])->pluck('id')->toArray();
             
         }   
-        dd(array_values($request->class_id));
-
+                
                 $random = Str::of(Str::orderedUuid())->upper()->explode('-');
                
                 $insert['invoice_id'] = '#LILA-'. date('m-d') . '-'. $random[0]. '-'. $random[1];
                 $insert['user_id'] = $request->user_id;
                 $insert['discount_type'] = 'regular_discount';
-                $insert['purchase_type'] = $request->puchase_type;
+                $insert['purchase_type'] = $request->purchase_type;
                 $insert['status'] = 'successful';
                 $insert['sub_total'] = $request->amount;
                 
@@ -136,7 +135,7 @@ class UserController extends Controller
                 $order['course_id'] = $request->course_id;
                 $classes = array_values($request->class_id);
                 $order['class_id'] = json_encode($classes);
-                $order['purchase_type'] = $request->puchase_type;
+                $order['purchase_type'] = $request->purchase_type;
                 
 
                 UserPurchasedCourse::create($order);
