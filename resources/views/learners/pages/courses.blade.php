@@ -66,9 +66,11 @@
               <!-- Filters : Start -->
             <div class="la-courses__nav-filters  d-flex align-items-start ml-auto ml-md-6 ">
               <div class="la-courses__nav-props d-none d-lg-block">
+                @if(!$filtres_applied)
                 <a class="la-courses__nav-filter  mr-3" id="show_list" role="button">
                   <span class="la-icon icon-list-layout" id="layout_change"></span>
                 </a>
+                @endif
               </div> 
               <div class="la-courses__nav-props ">
                 <a class="la-icon icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
@@ -283,13 +285,11 @@
                                         <div class="swiper-wrapper la-courses__featured-wrapper ">
                                                                                                         
                                                   @php
-                                                    $courses = $category->courses;          
+                                                    $courses = $category->courses;     
                                                   @endphp
 
-                                                  @foreach($courses as $course)
-                                                    @if ($course->featured == 0)
-                                                        @continue
-                                                    @endif
+                                                  @foreach($courses->where('featured','like','1') as $course)
+                                                   
                                                     
                                                     <div class="swiper-slide la-courses__featured-slide la-anim__stagger-item">
                                                       <x-course 
@@ -312,11 +312,11 @@
                                                 
                                         </div>
 
-                                          @if(count($courses) == 0)
+                                          @if(count($courses) == 0 || count($courses->where('featured','like','1')) == 0 )
                                         
                                               <div class="mb-3 mb-md-8 la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
                                                 <div class="la-empty__inner text-center">
-                                                    <h6 class="la-empty__course-title la-anim__stagger-item">No Courses available currently.</h6>
+                                                    <h6 class="la-empty__course-title la-anim__stagger-item">No Featured Courses available currently.</h6>
                                                 </div>
                                               </div>
                                             
@@ -336,7 +336,7 @@
                                       <div class="la-courses__other la-section__small">
                                         <h5 class="la-courses__featured-title mb-5 mb-lg-8 la-anim__fade-in-top">Other Courses</h5>
                                         <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item la-anim__C">
-                                          @foreach($courses as $course)
+                                          @foreach($courses->where('featured','=','') as $course)
                                           
                                             <x-course 
                                                 :id="$course->id"
@@ -357,11 +357,11 @@
                                           @endforeach
                                         </div>
 
-                                        @if(count($courses) == 0)
+                                        @if(count($courses) == 0 || count($courses->where('featured','=','')) == 0)
 
                                           <div class=" my-3 my-md-8  la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
                                             <div class="la-empty__inner">
-                                                <h6 class="la-empty__course-title la-anim__stagger-item">No Courses available currently.</h6>
+                                                <h6 class="la-empty__course-title la-anim__stagger-item">No Courses available Here.</h6>
                                             </div>
                                           </div>
                                           

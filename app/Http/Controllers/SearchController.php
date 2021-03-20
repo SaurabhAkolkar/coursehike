@@ -224,8 +224,12 @@ class SearchController extends Controller
 		$sort_type = "";
 		$filtres_applied = false;
 		$search_input = null;
-		$playlists = Playlist::where('user_id', Auth::user()->id)->get();
-
+		$playlists = [];
+		if(Auth::check())
+		{
+			Playlist::where('user_id', Auth::user()->id)->get();
+		}
+		
 		$categories = Categories::where(['status'=>1])->get();
 
 		if($request->course_name){
