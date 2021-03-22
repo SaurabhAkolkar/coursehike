@@ -342,6 +342,14 @@ use App\Announcement;
             </div>
           </div> 
 
+          <div class="d-none d-md-block position-relative la-header__menu-item">
+            <a href="mailto:lila@learnitlikealiens.com" title="lila@learnitlikealiens.com"><span class="la-icon la-icon--xl icon-mail-id"></span></a>
+          </div>
+
+          <div class="d-none d-md-block position-relative la-header__menu-item">
+            <a href="tel:+91 8779056596" title="+91 8779056596"><span class="la-icon la-icon--lg icon-contact-number"></span></a>
+          </div>
+
           <div class="d-none d-lg-inline-block la-header__menu-item">
             <a class="la-header__menu-link la-header__menu-icon icon-hamburger-menu font-weight-normal" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
             <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" style="border:none;">
@@ -350,7 +358,7 @@ use App\Announcement;
               <a class="dropdown-item la-header__dropdown-item text-sm @if(Request::segment(1) == 'about') active @endif" href="/about">About Us</a>
               <a class="dropdown-item la-header__dropdown-item text-sm @if(Request::segment(1) == 'contact') active @endif" href="/contact">Contact Us</a>
             </div>
-          </div>
+          </div>          
 
           <div class="d-lg-none position-relative la-header__menu-item la-header__sidemenu-btn">
             <span class="la-icon la-icon--xl icon-hamburger-menu"></span>

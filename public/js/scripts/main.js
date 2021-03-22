@@ -551,7 +551,7 @@ $(function(){
       pin: true,
       pinSpacing: false,
       start: "top 20%",
-      end: "+=900",
+      end: "+=850",
     }, opacity: 1
   });
 
