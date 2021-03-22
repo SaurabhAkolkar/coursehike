@@ -46,11 +46,15 @@ use App\Announcement;
             @elseif(Auth::user()->subscription() && Auth::user()->subscription()->onTrial())
              @php
                 $user_subscription = Auth::user()->subscription();
-                $difference = \Carbon\Carbon::now()->diffInDays($user_subscription->trial_ends_at, false);                
+                $created = \Carbon\Carbon::parse($user_subscription->trial_ends_at);
+                $now = \Carbon\Carbon::now();
+                $difference = ($created->diff($now)->days < 1)
+                    ? 'today'
+                    : 'in '.$now->diffInDays($created, false).' days';            
               @endphp
               <div class="la-header__menu-item d-none d-lg-block">
                   <a href="/learning-plans" class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header border-yellow" role="button">
-                      <span class="la-header__menu-cta--text text-sm pr-3">Trial Ends in {{$difference}} days</span>
+                      <span class="la-header__menu-cta--text text-sm pr-3">Trial Ends {{$difference}}</span>
                       <span class="la-header__menu-cta la-icon la-icon--lg icon-profile"></span>
                   </a>
               </div>
