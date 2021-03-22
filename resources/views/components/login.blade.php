@@ -95,19 +95,23 @@
                 </a>
             </div>
             @elseif(Auth::user()->subscription() && Auth::user()->subscription()->onTrial())
-             @php
-                $user_subscription = Auth::user()->subscription();
-                $difference = \Carbon\Carbon::now()->diffInDays($user_subscription->trial_ends_at, false);                
-              @endphp
+                @php
+                    $user_subscription = Auth::user()->subscription();
+                    $created = \Carbon\Carbon::parse($user_subscription->trial_ends_at);
+                    $now = \Carbon\Carbon::now();
+                    $difference = ($created->diff($now)->days < 1)
+                        ? 'today'
+                        : 'in '.$now->diffInDays($created, false).' days';            
+                @endphp
                 <div class="la-header__menu-item la-header__menu-item--cta text-center d-block d-lg-none">
                     <a href="/learning-plans" class="la-header__menu-link la-header__menu-cta btn btn--primary la-btn__header border-yellow" role="button">
-                        <span class="la-header__menu-cta--text text-sm pr-3">2 Days of free trial left</span>
+                        <span class="la-header__menu-cta--text text-sm pr-3">Trial Ends {{$difference}}</span>
                     </a>
                 </div>
             @elseif(Auth::user()->subscription() && (Auth::user()->subscription()->ended() || Auth::user()->subscription()->canceled()))
             <div class="la-header__menu-item la-header__menu-item--cta d-block d-lg-none">
                 <a href="/learning-plans" class="la-header__menu-link la-header__menu-cta btn btn--primary la-btn__header bg-green" role="button">
-                    <span class="la-header__menu-cta--text text-sm pr-3">Subscribe Now</span>
+                    <span class="la-header__menu-cta--text text-sm pr-3">Renew Subscription</span>
                 </a>
             </div>
             @endif
