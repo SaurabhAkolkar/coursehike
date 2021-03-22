@@ -44,6 +44,7 @@
             </div>
           </div>
 
+        
           @php
              if(!$rating){
                 $rating = 0;
@@ -68,7 +69,10 @@
                   :facebook="$creator->facebook_id"
                   :google="$creator->google_id"
               />
-        
+             
+        </div>
+
+        <div class="container-fluid">
               <div class="row py-14 py-md-20">   
                   <div class="col-12 la-anim__wrap">
                     <h4 class="text-2xl text-md-3xl px-0 pb-6 pb-lg-8 la-anim__stagger-item">Courses from <span class="text-capitalize"> {{ucfirst($creator->FullName)}}</span></h4>
@@ -118,7 +122,7 @@
                     @endif
                   </div>
               </div>
-        </div>
+         </div>
       </div>
     </div>
 </section>

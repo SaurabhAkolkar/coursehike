@@ -1,3 +1,4 @@
+<div class="container-fluid">
 <div class="row flex-column-reverse flex-xl-row la-anim__wrap">
     <div class="col-xl-6">
       <div class="la-vcreator__overlay-wrap position-relative">
@@ -116,4 +117,5 @@
         </li>
       </ul>
     </div> -->
+</div>
 </div>
