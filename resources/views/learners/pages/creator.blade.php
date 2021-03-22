@@ -35,9 +35,9 @@
 @endif
 
 <section class="la-cbg--main">
-  <div class="la-page la-page--vcreator ">
+  <div class="la-page la-page--vcreator la-anim__wrap">
       <div class="la-page__header">
-        <div class="container-fluid la-anim__wrap">
+        <div class="container-fluid ">
           <div class="row">
             <div class="col-1 mb-16 mt-2 mt-md-1 la-anim__stagger-item">
               <a href="/mentors" class="la-vcreator__back"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
@@ -75,7 +75,7 @@
                    
                     @if(count($courses) == 0) 
 
-                        <div class="row">
+                        <div class="row la-anim__wrap">
                             <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6">
                               <div class="la-empty__inner">
                                   <h6 class="la-empty__course-title text-xl la-anim__stagger-item">No more Courses from {{ucfirst($creator->FullName)}}</h6>

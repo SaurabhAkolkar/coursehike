@@ -1,4 +1,4 @@
-<div class="row flex-column-reverse flex-xl-row">
+<div class="row flex-column-reverse flex-xl-row la-anim__wrap">
     <div class="col-xl-6">
       <div class="la-vcreator__overlay-wrap position-relative">
         <div class="la-vcreator__overlay--back position-relative d-none d-xl-block mb-xl-8">
@@ -66,7 +66,7 @@
     </div>
 </div>
 
-<div class="row my-md-6">
+<div class="row my-md-6 la-anim__wrap">
     <div class="col-md-6 la-anim__stagger-item">
         <!-- <div class="la-vcreator__desc">
             <p class="la-vcreator__text"> {!! $desc !!} </p>
