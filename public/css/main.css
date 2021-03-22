@@ -22784,6 +22784,7 @@ label.error {
 @media (max-width: 991px) {
   .la-artist__slider-col {
     width: 50%;
+    padding-left: 0;
   }
 }
 .la-artist__slider .swiper-slide-active .la-artist__img {
@@ -22852,9 +22853,14 @@ label.error {
   position: relative;
   text-transform: capitalize;
 }
+@media (min-width: 768px) {
+  .la-artist__name {
+    font-size: 2.5vh;
+  }
+}
 @media (min-width: 992px) {
   .la-artist__name {
-    font-size: var(--text-6xl);
+    font-size: 4vh;
   }
 }
 @media (min-width: 1200px) {
@@ -22865,7 +22871,7 @@ label.error {
 .la-artist__name:before {
   content: "";
   position: absolute;
-  top: 0;
+  top: -8px;
   left: calc(-1 * var(--size-2));
   width: var(--size-5);
   height: var(--size-5);
@@ -22938,7 +22944,7 @@ label.error {
 }
 @media (max-width: 991px) {
   .la-artist__slide-content {
-    padding-right: 15px;
+    padding-right: 12px;
   }
 }
 .la-artist__content-top {
@@ -22997,7 +23003,7 @@ label.error {
   transform: scale(1.2);
 }
 .la-artist__thumbnails {
-  padding: 0 var(--size-5);
+  padding: 0 var(--size-2);
   position: relative;
   z-index: 2;
 }

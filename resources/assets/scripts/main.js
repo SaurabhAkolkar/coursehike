@@ -501,7 +501,7 @@ $(function(){
     gsap.from(section.querySelectorAll(".la-home__customize-slide"), {
       scrollTrigger: section,
       autoAlpha: 0,
-      x: -10,
+      x: -8,
       duration: 0.25,
       stagger: 0.25
     });

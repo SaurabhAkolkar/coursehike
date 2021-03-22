@@ -10,8 +10,10 @@
                     }
                     &col {
                         width:85%;
+
                         @include respond-below(md) {
                             width: 50%;
+                            padding-left:0;
                         }
                     }
                 }
@@ -87,8 +89,12 @@
                 position: relative;
                 text-transform: capitalize;
 
+                @include respond-above(sm) {
+                    font-size: 2.5vh;
+                }
+                
                 @include respond-above(md) {
-                    font-size: var(--text-6xl);
+                    font-size: 4vh;
                 }
 
                 @include respond-above(lg) {
@@ -98,7 +104,7 @@
                 &:before {
                     content: '';
                     position: absolute;
-                    top: 0;
+                    top: -8px;
                     left: calc(-1 * var(--size-2));
                     width: var(--size-5);
                     height: var(--size-5);
@@ -178,7 +184,7 @@
                         position: relative;
 
                         @include respond-below(md){
-                            padding-right:15px;
+                            padding-right:12px;
                         }
                     }
                 }
@@ -246,9 +252,10 @@
 
                 &s {
                     // background-color:var(--gray3) !important;
-                    padding:0 var(--size-5);
+                    padding:0 var(--size-2);
                     position:relative;
                     z-index:2;
+                    
                     @include respond-above(lg){
                         padding:0 var(--size-20);
                     }
