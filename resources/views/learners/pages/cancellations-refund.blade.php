@@ -41,7 +41,7 @@
                             <h5 class="leading-loose  text--black la-anim__stagger-item  la-anim__D">Cancellations</h5>
                             <p class="la-cr__section-para la-anim__stagger-item--x la-anim__D">
                             You may cancel your membership at any time for any or no reason. To cancel your recurring subscription, please send an email to 
-                                <a class="la-lp__lft-link" href="mailto:lila@alienstattoos.com">lila@alienstattoos.com</a>
+                                <a class="la-lp__lft-link" href="mailto:lila@learnitlikealiens.com">lila@learnitlikealiens.com</a>
                             </p>
                         </div>
                     </div>
