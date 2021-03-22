@@ -217,7 +217,11 @@ class InstructorController extends Controller
     public function creator($id, $name = null){
 
         $creator = User::findorfail($id);
-        $playlists = Playlist::where('user_id', Auth::user()->id)->get();
+        
+        $playlists = [];
+        if(Auth::check())
+            $playlists = Playlist::where('user_id', Auth::user()->id)->get();
+        
         if($name == null)
             return redirect()->route('mentor.profile', ['id' => $id, 'name'=> Str::slug($creator->fname.' '.$creator->lname, '-') ]);
 
