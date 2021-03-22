@@ -225,11 +225,11 @@
                 font-size: var(--text-md);
                 font-weight: var(--font-normal);
                 //margin-bottom: var(--size-2);
-                //overflow: hidden;
-                //text-overflow: ellipsis;
-                //display: -webkit-box;
-                //-webkit-line-clamp: 1; 
-                //-webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2; 
+                -webkit-box-orient: vertical;
 
                 &:hover{
                     color:var(--app-indigo-1);
@@ -283,7 +283,7 @@
             &learners {
                 font-size: var(--text-sm);
                 font-weight: var(--font-medium);
-                color:var(--gray6);
+                color:var(--white);
                 padding-left:var(--size-3);
                 transition:all 0.35s ease-in-out;-webkit-transition:all 0.35s ease-in-out;-moz-transition:all 0.35s ease-in-out;
                 opacity:0;
