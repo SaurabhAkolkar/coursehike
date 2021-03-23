@@ -767,3 +767,8 @@ Route::view('/subscription-trial', 'learners.pages.subscription-trial');
 
 Route::view('/terms-conditions', 'learners.pages.terms-conditions');
 Route::view('/privacy-policy', 'learners.pages.terms-conditions');
+
+
+//- Error Pages
+Route::view('/error-404', 'learners.messages.error-404');
+Route::view('/error-wrong', 'learners.messages.error-wrong');
