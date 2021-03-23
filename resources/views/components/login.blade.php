@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="la-header__nav-item">
-                    <a class="la-header__nav-link @if(Request::segment(1) == 'billing') active @endif" href="/billing">
+                    <a class="la-header__nav-link @if(Request::segment(1) == 'billing') active @endif" href="/manage-billing">
                         <div class="la-header__nav-icon">
                             <span class="la-icon la-icon--md icon-card-filled"></span>
                         </div>
