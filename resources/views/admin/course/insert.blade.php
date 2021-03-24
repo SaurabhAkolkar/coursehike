@@ -21,7 +21,7 @@
       <div class="box box-primary">
           <div class="row">
             <div class="col-md-12">
-              <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Course') }}</h3>
+              <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Class') }}</h3>
             </div>
             <div  class="col-md-2">
                 <!--<div><h4 class="admin-form-text"><a href="{{url('course')}}" data-toggle="tooltip" data-original-title="Go back" class="btn-floating"><i class="material-icons"><button class="btn btn-xs btn-success abc"> << {{ __('adminstaticword.Back') }}</button> </i></a></h4></div> -->
@@ -105,7 +105,7 @@
                 </div>
 
                 <div class="col-md-6 mt-4 mt-md-6">
-                      <label for="exampleInputSlug">Course Duration(in Hours)</label>
+                      <label for="exampleInputSlug">Class Duration(in Hours)</label>
                       <input min="1" class="form-control" name="duration" type="number" id="duration"  placeholder="Enter Duration in hours">
                 </div>
               </div>
@@ -196,7 +196,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="la-admin__course-package">
-                      <label for="" class="la-admin__cp-title">Course package type<sup class="redstar">*</sup></label><br/>
+                      <label for="" class="la-admin__cp-title">Class package type<sup class="redstar">*</sup></label><br/>
                       <div class="la-admin__cp-subscription">
                           <input type="radio" id="subPaid" name="package_type" value="1" class="la-admin__cp-input"> 
                            <label for="subPaid"> 
@@ -207,8 +207,8 @@
                              </div>
 
                               <div class="la-admin__cp-desc">
-                                  <p>This course is accessible by all Subscribers & also available for life-time purchase. </p>
-                                  <p>Please enter the Course cost for One-Time Purchase</p>
+                                  <p>This class is accessible by all Subscribers & also available for life-time purchase. </p>
+                                  <p>Please enter the class cost for One-Time Purchase</p>
                                   <div class="form-group row  la-admin__subform-group">
                                       <div class="input-group col-10 col-sm-6 la-admin__subinput-group">
                                         <div class="input-group-prepend la-admin__subinput-prepend" >
@@ -246,7 +246,7 @@
                               </div>
 
                                 <div class="la-admin__cp-desc">
-                                    <p class="">  This course is accessible by any learner </p>
+                                    <p class="">  This class is accessible by any learner </p>
                                 </div>
                             </label>
                         </div>

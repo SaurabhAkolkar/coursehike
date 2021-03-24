@@ -133,7 +133,7 @@
                     <div class="la-header__nav-icon">
                         <span class="la-icon--lg icon-courses"></span>
                     </div>
-                    <span class="la-header__nav-name">Browse Courses</span>
+                    <span class="la-header__nav-name">Browse Classes</span>
                 </a>
             </div>
 

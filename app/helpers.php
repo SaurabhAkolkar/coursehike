@@ -6,24 +6,24 @@ if (isset($_SERVER["HTTP_CF_CONNECTING_IP"]))
     $_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
 
 function getSymbol(){
-    $position = Location::get();
+    // $position = Location::get();
  
-    if($position){
-        $location = $position->countryName;
+    // if($position){
+    //     $location = $position->countryName;
 
-        if($location == 'India'){
-            return '₹';
-        }else{
-            return '$';
-        }
-    }
+    //     if($location == 'India'){
+    //         return '₹';
+    //     }else{
+    //         return '$';
+    //     }
+    // }
     return '$';
 }
 
 function getLocation(){
-    $position = Location::get();
-    if($position){
-        return $position->countryCode;
-    }
+    // $position = Location::get();
+    // if($position){
+    //     return $position->countryCode;
+    // }
     return 'USD';
 }

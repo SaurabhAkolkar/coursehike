@@ -18,7 +18,7 @@
     <div class="col-md-6">
       <!-- general form elements -->
       <div class="box box-primary">
-          <h3 class="la-admin__section-title ml-3">{{ __('adminstaticword.EditCourseChapter') }}</h3>
+          <h3 class="la-admin__section-title ml-3">{{ __('adminstaticword.EditClassChapter') }}</h3>
         
         <!-- /.box-header -->
         <!-- form start -->
@@ -30,7 +30,7 @@
 
               <div class="row">
                 <div class="col-md-12 mb-4">
-                  <label class="">{{ __('adminstaticword.SelectCourse') }}:</label>
+                  <label class="">{{ __('adminstaticword.SelectClass') }}:</label>
                   <select name="course_id" class=" form-control  col-12 display-none">
                     @foreach($courses as $cou)
                       <option value="{{ $cou->id }}" {{$cate->courses->id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
@@ -51,7 +51,7 @@
               <div class="row">
                 <div class="col-12">
                       <div class="la-admin__preview mt-0">
-                        <label for="" class="la-admin__preview-label"> Class Thumbnail:<sup class="redstar">*</sup></label>
+                        <label for="" class="la-admin__preview-label"> Chapter Thumbnail:<sup class="redstar">*</sup></label>
                         <div class="la-admin__preview-img la-admin__course-imgvid2" >
                               <div class="la-admin__preview-text">
                                   <p class="la-admin__preview-size">Thumbnail | 500x350</p>
@@ -115,20 +115,10 @@
                         <label for="addClass-hold" > 
                           <div class="la-admin__cp-circle">
                             <span class="la-admin__cp-radio"></span>
-                            <span class="la-admin__cp-label">On hold</span> 
+                            <span class="la-admin__cp-label">Inactive</span> 
                           </div>
                         </label>
                       </div>
-
-                      <div class="la-admin__class-archive pr-5">
-                        <input type="radio" name="status" id="addClass-archive" value="1" class="la-admin__cp-input" {{ $cate->status == '1' ? 'checked' : '' }} >
-                        <label for="addClass-archive" > 
-                          <div class="la-admin__cp-circle">
-                            <span class="la-admin__cp-radio"></span>
-                            <span class="la-admin__cp-label">Archive</span> 
-                          </div>
-                        </label>
-                    </div>
                   </div>
                   </div>
               </div>

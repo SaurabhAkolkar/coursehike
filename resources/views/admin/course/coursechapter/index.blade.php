@@ -11,8 +11,8 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th>{{ __('adminstaticword.Course') }}</th>
-                <th>{{ __('adminstaticword.ClassName') }}</th>
+                <th>{{ __('adminstaticword.Class') }}</th>
+                <th>{{ __('adminstaticword.ChapterName') }}</th>
                 <th>{{ __('adminstaticword.Status') }}</th>
                 <th>{{ __('adminstaticword.Edit') }}</th>
                 <th>{{ __('adminstaticword.Delete') }}</th>
@@ -76,7 +76,7 @@
 
                 <div class="row">
                   <div class="col-md-12"> 
-                  <label>Course Name:<span class="redstar">*</span> </label>
+                  <label>Class Name:<span class="redstar">*</span> </label>
                     <select name="course_id" class=" form-control  display-none ">
                       <option value="{{ $cor->id }}">{{ $cor->title }}</option>
                     </select> <br/> 
@@ -85,7 +85,7 @@
               
                 <div class="row">
                   <div class="col-md-12">
-                    <label for="exampleInputTit1e">{{ __('adminstaticword.ClassName') }}:<span class="redstar">*</span> </label>
+                    <label for="exampleInputTit1e">{{ __('adminstaticword.ChapterName') }}:<span class="redstar">*</span> </label>
                     <input type="text" placeholder="Enter Your Class Name" class="form-control " name="chapter_name" id="exampleInputTitle" value="">
                   </div>
                   
@@ -96,7 +96,7 @@
                 <div class="row">
                   <div class="col-12">
                         <div class="la-admin__preview">
-                          <label for="" class="la-admin__preview-label"> Class Thumbnail:<sup class="redstar">*</sup></label>
+                          <label for="" class="la-admin__preview-label"> Chapter Thumbnail:<sup class="redstar">*</sup></label>
                           <div class="la-admin__preview-img la-admin__course-imgvid la-admin__course-modal-imgvid" >
                                <div class="la-admin__preview-text">
                                     <p class="la-admin__preview-size">Thumbnail | 500x35</p>
@@ -147,20 +147,10 @@
                           <label for="addClass-hold" > 
                             <div class="la-admin__cp-circle">
                               <span class="la-admin__cp-radio"></span>
-                              <span class="la-admin__cp-label">On hold</span> 
+                              <span class="la-admin__cp-label">Inactive</span> 
                             </div>
                           </label>
                         </div>
-
-                        <div class="la-admin__class-archive pr-5">
-                          <input type="radio" name="status" id="addClass-archive" value="1" class="la-admin__cp-input" >
-                          <label for="addClass-archive" > 
-                            <div class="la-admin__cp-circle">
-                              <span class="la-admin__cp-radio"></span>
-                              <span class="la-admin__cp-label">Archive</span> 
-                            </div>
-                          </label>
-                      </div>
                     </div>
                     </div>
                 </div> <br/>

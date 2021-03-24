@@ -48,7 +48,7 @@
       <div class="container-fluid">
         <div class="la-anim__wrap">  
           <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2 la-anim__stagger-item--x" href="{{URL::previous()}}"></a>
-          <h1 class="la-page__title mb-4 mb-md-8 la-anim__stagger-item">Browse Courses</h1>
+          <h1 class="la-page__title mb-4 mb-md-8 la-anim__stagger-item">Browse Classes</h1>
         </div>
         
         <div class="d-flex justify-content-between align-items-start flex-wrap flex-column flex-md-row">
@@ -255,11 +255,11 @@
 
                         <div class="container la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
                           <div class="la-empty__inner">
-                              <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
+                              <h6 class="la-empty__course-title la-anim__stagger-item">No Classes Found.</h6>
                           </div>
                           <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
                               <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
-                                  Browse Courses
+                                  Browse Classes
                                   <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
                               </a>
                           </div>
@@ -281,7 +281,7 @@
 
                                       <!-- ==== Featured Courses: Start  ====== -->
                                       <div class="swiper-container  la-courses__featured-container">
-                                        <h5 class="la-courses__featured-title mb-5 mb-lg-8 ml-0 ml-lg-2 la-anim__fade-in-top">Featured Courses</h5>
+                                        <h5 class="la-courses__featured-title mb-5 mb-lg-8 ml-0 ml-lg-2 la-anim__fade-in-top">Featured Classes</h5>
                                         <div class="swiper-wrapper la-courses__featured-wrapper ">
                                                                                                         
                                                   @php
@@ -316,7 +316,7 @@
                                         
                                               <div class="mb-3 mb-md-8 la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
                                                 <div class="la-empty__inner text-center">
-                                                    <h6 class="la-empty__course-title la-anim__stagger-item">No Featured Courses available currently.</h6>
+                                                    <h6 class="la-empty__course-title la-anim__stagger-item">No Featured Classes available currently.</h6>
                                                 </div>
                                               </div>
                                             
@@ -366,7 +366,7 @@
 
                                           <div class=" my-3 my-md-8  la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
                                             <div class="la-empty__inner">
-                                                <h6 class="la-empty__course-title la-anim__stagger-item">No Courses available Here.</h6>
+                                                <h6 class="la-empty__course-title la-anim__stagger-item">No Classes available Here.</h6>
                                             </div>
                                           </div>
                                           
