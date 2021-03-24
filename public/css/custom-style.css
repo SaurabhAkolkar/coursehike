@@ -540,7 +540,7 @@ table.table-bordered.dataTable tbody td {
     border-radius:10px;
     background-color: var(--gray);
     object-fit: cover;
-    object-position: center;
+    object-position: top;
     border:1px solid var(--gray);
 }
 @media(max-width:767px){

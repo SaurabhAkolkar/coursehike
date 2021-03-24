@@ -64,7 +64,7 @@
               <div class="la-contact__btm d-none d-sm-block">
                 <div class="la-contact__details la-anim__stagger-item mb-1">
                   <span class="la-contact__details-icon la-icon--xl icon-contact-number mr-2"></span>
-                  <a class="la-contact__details-desc" href="tel:+91 8779056596">+91 8779056596</a>
+                  <a class="la-contact__details-desc" href="tel:+91 9833446017">+91 9833446017</a>
                 </div>
                 <div class="la-contact__details d-flex align-items-center la-anim__stagger-item">
                   <span class="la-contact__details-icon la-icon--xl icon-mail-id mr-3"></span>
@@ -85,7 +85,7 @@
             <div class="la-contact__btm-mobile py-5">
               <div class="la-contact__details la-anim__stagger-item mb-2">
                 <span class="la-contact__details-icon la-icon--lg icon-contact-number mr-2"></span>
-                <a class="la-contact__details-desc text-md" href="tel:+91 8779056596">+91 8779056596</a>
+                <a class="la-contact__details-desc text-md" href="tel:+91 9833446017">+91 9833446017</a>
               </div>
               <div class="la-contact__details d-flex align-items-center la-anim__stagger-item">
                 <span class="la-contact__details-icon la-icon--xl icon-mail-id mr-3"></span>
