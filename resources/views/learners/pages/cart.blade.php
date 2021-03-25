@@ -48,14 +48,16 @@
                       @if(count($carts) > 0)
                         @foreach ($carts as $cart)
                           {{-- {{dd($cart->cartItems)}} --}}
+                        
                             <x-cart
                               :cartId="$cart->id"
                               :cart="$cart"
                               :courseId="$cart->course_id"
                               :collapseId="$cart->collapseId"
                               :courseImg="$cart->courses->preview_image"
-                              :classType="$cart->cartItems->first() && $cart->cartItems->first()->purchase_type"
+                              {{-- :classType="$cart->cartItems->first() && $cart->cartItems->first()->purchase_type" --}}
                               :course="$cart->courses->title"
+                              :classType="'All Chapters'"
                               :creator="$cart->courses->user->fullName"
                               :remove="$remove"
                               :removeUrl="'remove-from-cart/'.$cart->id"
@@ -63,8 +65,8 @@
                               :wishlistUrl="'move-to-wishlist/'.$cart->course_id"
                               :edit="$edit"
                               :allClasses="$cart->allClasses"
-                              :bestPrice="$cart->price"
-                              :realPrice="$cart->offer_price"
+                              :bestPrice="$cart->offer_price"
+                              :realPrice="$cart->price"
                             />
                         @endforeach
                       @else

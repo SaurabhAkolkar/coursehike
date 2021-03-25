@@ -3,7 +3,7 @@
   <div class="row">
     <!-- left column -->
     <div class="col-12 px-0">
-        <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Course') }}</h3>
+        <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Class') }}</h3>
         
         
         <!-- /.box-header -->

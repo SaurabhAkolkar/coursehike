@@ -61,7 +61,7 @@ class CoursechapterController extends Controller
             $data = [];
             $data['title'] = $course->title;
             $data['image'] = $course->preview_image;
-            $data['data'] = 'New Class has been added';
+            $data['data'] = 'New Chapter has been added';
             
             Notification::send($users, new CourseNotification($data));
         }

@@ -91,7 +91,7 @@
 
                 <div class="row">
                   <div class="col-md-12">
-                    <label >{{ __('adminstaticword.ClassName') }}:<sup class="redstar">*</sup></label>
+                    <label >{{ __('adminstaticword.ChapterName') }}:<sup class="redstar">*</sup></label>
                     <select name="course_chapters" class="form-control  col-12 js-example-basic-single" required>
                       @foreach($coursechapters as $c)
                       <option value="{{ $c->id }}">{{ $c->chapter_name }}</option>
@@ -237,11 +237,11 @@
                       <label for="addVideo-hold" > 
                         <div class="la-admin__cp-circle">
                           <span class="la-admin__cp-radio"></span>
-                          <span class="la-admin__cp-label">On hold</span> 
+                          <span class="la-admin__cp-label">Inactive</span> 
                         </div>
                       </label>
                     </div>
-
+{{-- 
                     <div class="la-admin__class-archive pr-5">
                       <input type="radio" name="status" id="addVideo-archive" value="1" class="la-admin__cp-input" >
                       <label for="addVideo-archive" > 
@@ -250,7 +250,7 @@
                           <span class="la-admin__cp-label">Archive</span> 
                         </div>
                       </label>
-                  </div>
+                  </div> --}}
                 </div>
                 </div>
             </div> <br/>
