@@ -2,14 +2,14 @@
     &ctabs{
         &__{
             &about{
-                border-bottom:1px dashed var(--gray2);
-
+                    
                 @include respond-below(md){
                     margin-bottom:var(--size-10);
                 }
 
                 @include respond-below(sm){
                     margin-bottom:0;
+                    border-bottom:1px dashed var(--gray2);
                 }
 
                 &-{

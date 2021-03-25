@@ -18058,7 +18058,6 @@ input:-webkit-autofill:active {
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
   opacity: 1;
-  z-index: 0;
 }
 .la-courses__nav-link:hover {
   color: var(--app-indigo-1);
@@ -19905,9 +19904,6 @@ input:-webkit-autofill:active {
   padding: var(--size-3) 0 !important;
 }
 
-.la-ctabs__about {
-  border-bottom: 1px dashed var(--gray2);
-}
 @media (max-width: 991px) {
   .la-ctabs__about {
     margin-bottom: var(--size-10);
@@ -19916,6 +19912,7 @@ input:-webkit-autofill:active {
 @media (max-width: 767px) {
   .la-ctabs__about {
     margin-bottom: 0;
+    border-bottom: 1px dashed var(--gray2);
   }
 }
 @media (min-width: 1200px) {
