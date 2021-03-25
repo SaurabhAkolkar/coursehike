@@ -61,7 +61,8 @@ class CartController extends Controller
         $course = Course::findOrFail($request->course_id);
        
         $check = Cart::where(['user_id'=>Auth::user()->id, 'course_id'=>$request->course_id])->first();
-        if($check){
+        
+        if(!$check){
             $cart = Cart::create(
                 ['user_id' => Auth::User()->id, 'course_id' => $request->course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id]
             );
