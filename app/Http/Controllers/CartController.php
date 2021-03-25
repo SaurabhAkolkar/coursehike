@@ -58,38 +58,53 @@ class CartController extends Controller
 
     public function addtocartAjax(Request $request)
     {
-
-        $courseCheck = 
-        $cart = Cart::firstOrCreate(
-            ['user_id' => Auth::User()->id, 'course_id' => $request->course_id, 'status' => 1]
-        );
-
-        if($request->classes =='all'){
-            
-            $check_course = CartItem::where(['cart_id' => $cart->id , 'course_id' => $request->course_id , 'class_id' => 0])->first();
-
-            if($check_course){
-                return 'Course already in cart.';
-            }
-            
-            CartItem::where('course_id', $request->course_id)->where('class_id','>',0)->delete();
-
-            $course = Course::findOrFail($request->course_id);
-            
-            $insert['course_id'] = $request->course_id;
-            $insert['class_id'] = 0;
-            $insert['category_id'] = $course->category_id;
-            $insert['price'] = $course->convertedprice?$course->convertedprice:0;
-            $insert['offer_price'] = $course->offer_price;
-            $insert['purchase_type'] = 'all_classes';
-            $insert['cart_id'] = $cart->id;
-           
-            CartItem::insert($insert);
+        $course = Course::findOrFail($request->course_id);
+       
+        $check = Cart::where(['user_id'=>Auth::user()->id, 'course_id'=>$request->course_id])->first();
+        if($check){
+            $cart = Cart::create(
+                ['user_id' => Auth::User()->id, 'course_id' => $request->course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id]
+            );
 
             return 'Course added to cart';
-
         }
-        return 'Something Went Wrong';
+
+        return 'Course already in cart';
+        
+
+        
+        
+        // Old Function
+        // $cart = Cart::firstOrCreate(
+        //     ['user_id' => Auth::User()->id, 'course_id' => $request->course_id, 'status' => 1]
+        // );
+
+        // if($request->classes =='all'){
+            
+        //     $check_course = CartItem::where(['cart_id' => $cart->id , 'course_id' => $request->course_id , 'class_id' => 0])->first();
+
+        //     if($check_course){
+        //         return 'Course already in cart.';
+        //     }
+            
+        //     CartItem::where('course_id', $request->course_id)->where('class_id','>',0)->delete();
+
+        //     $course = Course::findOrFail($request->course_id);
+            
+        //     $insert['course_id'] = $request->course_id;
+        //     $insert['class_id'] = 0;
+        //     $insert['category_id'] = $course->category_id;
+        //     $insert['price'] = $course->convertedprice?$course->convertedprice:0;
+        //     $insert['offer_price'] = $course->offer_price;
+        //     $insert['purchase_type'] = 'all_classes';
+        //     $insert['cart_id'] = $cart->id;
+           
+        //     CartItem::insert($insert);
+
+        //     return 'Course added to cart';
+
+        // }
+        // return 'Something Went Wrong';
     	
     }
 
@@ -213,14 +228,19 @@ class CartController extends Controller
             // $discount = $cartItem->sum('offer_price');
             // dd($carts);
             // $discount = $carts->sum('cartItems.price');
-            $discount = $carts->sum(function ($item) {
-                return array_sum(array_column($item['cartItems']->toArray(), 'offer_price'));
-            });
+            //old code
+            // $discount = $carts->sum(function ($item) {
+            //     return array_sum(array_column($item['cartItems']->toArray(), 'offer_price'));
+            // });
 
-            $subTotal = $carts->sum(function ($item) {
-                return array_sum(array_column($item['cartItems']->toArray(), 'price'));
-            });
+            // $subTotal = $carts->sum(function ($item) {
+            //     return array_sum(array_column($item['cartItems']->toArray(), 'price'));
+            // });
 
+            $discount = $carts->sum('offer_price');
+
+            $subTotal = $carts->sum('price');
+            // dd($subTotal);
          
             // $total = $cartItem->sum('price');
            
@@ -256,8 +276,8 @@ class CartController extends Controller
     public function applyCoupon($id){
 
         $check = Coupon::findOrFail($id);
-        $cart = Cart::where(['user_id' => Auth::User()->id, 'status' =>1 ])->first();
-        $total = CartItem::where('cart_id', $cart->id)->sum('price');
+        // $cart = Cart::where(['user_id' => Auth::User()->id, 'status' =>1 ])->first();
+        $total = Cart::where(['user_id' => Auth::User()->id, 'status' =>1 ])->sum('price');
         if($check){
 
             if($check->expiry_date > Carbon::now()){
@@ -358,7 +378,10 @@ class CartController extends Controller
 
     public function removefromcart($id)
     {
-        $cart = Cart::find($id)->delete();
+        $cart = Cart::find($id);
+        if($cart){
+            $cart->delete();  
+        }
         // $cart->delete();
         CartItem::where(['cart_id' =>  $id ])->delete();
 
@@ -374,9 +397,11 @@ class CartController extends Controller
             return redirect()->back()->with('message','Your cart is empty.');
         }
         
-        $price = $cart->sum(function ($item) {
-            return array_sum(array_column($item['cartItems']->toArray(), 'price'));
-        });
+        // $price = $cart->sum(function ($item) {
+        //     return array_sum(array_column($item['cartItems']->toArray(), 'price'));
+        // });
+
+        $price = $cart->sum('price');
 
         $tax_rates = false;
         $currency = 'USD';
@@ -421,19 +446,20 @@ class CartController extends Controller
         $insert['total'] = ($tax_rates) ? ($price * 1.18) : $price;
         $insert['sub_total'] = $price;
 
-        $insert['purchase_type'] = ($cart->first()->cartItems && $cart->first()->cartItems->first() && $cart->first()->cartItems->first()->purchase_type);
+        // $insert['purchase_type'] = ($cart->first()->cartItems && $cart->first()->cartItems->first() && $cart->first()->cartItems->first()->purchase_type);
+        $insert['purchase_type'] = 'all_classes';
         $insert['status'] = 'payment-pending';
 
         $info = UserInvoiceDetail::create($insert);
         foreach($cart as $single_cart){
             $insertDetails['invoice_id'] = $info->id;
-            foreach($single_cart->cartItems as $c){
-                $insertDetails['course_id'] = $c->course_id;
-                $insertDetails['class_id'] = $c->class_id;
-                $insertDetails['purchase_type'] = $c->purchase_type;
-                $insertDetails['price'] = $c->price;
+            // foreach($single_cart->cartItems as $c){
+                $insertDetails['course_id'] = $single_cart->course_id;
+                $insertDetails['class_id'] = $single_cart->class_id;
+                $insertDetails['purchase_type'] = 'all_classes';
+                $insertDetails['price'] = $single_cart->price;
                 InvoiceDetail::create($insertDetails);
-            }
+            // }
         }
 
         Session::forget('appliedCoupon');

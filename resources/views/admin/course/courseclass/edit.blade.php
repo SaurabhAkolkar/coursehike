@@ -155,11 +155,11 @@
                       <label for="editClass-hold" > 
                         <div class="la-admin__cp-circle d-flex align-items-center">
                           <span class="la-admin__cp-radio"></span>
-                          <span class="la-admin__cp-label">On hold</span> 
+                          <span class="la-admin__cp-label">Inactive</span> 
                         </div>
                       </label>
                     </div>
-
+{{-- 
                     <div class="la-admin__class-archive pr-5">
                       <input type="radio" name="editClass-status" id="editClass-archive" value="archive" class="la-admin__cp-input" {{ $cate->status == '1' ? 'checked' : '' }} >
                       <label for="editClass-archive" > 
@@ -168,7 +168,7 @@
                           <span class="la-admin__cp-label">Archive</span> 
                         </div>
                       </label>
-                    </div>
+                    </div> --}}
                   </div>
                 </div>
               </div>

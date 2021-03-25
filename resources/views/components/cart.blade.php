@@ -1,4 +1,4 @@
-    @php
+    {{-- @php
         if($classType == 'all_classes'){
 
             $classes_id = App\CourseChapter::where('course_id', $courseId)->pluck('id'); 
@@ -10,13 +10,13 @@
             $classes = App\CourseChapter::where('course_id', $courseId)->get(); 
 
         }
-    @endphp
+    @endphp --}}
     <div class="la-cart__items ">
         <div class="la-cart__items mb-8  ">
             <div class="la-cart__item row la-anim__wrap">
                 <div class="la-cart__item-course col-8 col-md-8 col-lg-7 pr-0 la-anim__stagger-item">
                     <div class="">
-                        <div class="la-cart__item-label mb-4 ">Course</div>
+                        <div class="la-cart__item-label mb-4 ">Class</div>
                     </div>
                     <div class="la-cart__item-content d-md-flex">
                         <div class="la-cart__item-left  mr-md-4">
@@ -40,28 +40,15 @@
                             </div>
                         </div>
                     </div>
-                    @if($classType != 'all_classes')
-                        <div class="la-cart__item-cartclasses py-2 ">
-                            <div class="la-cart__item-carttoggler collapsed position-relative mx-md-2" data-toggle="collapse"  href="#cart_class_{{ $collapseId }}" aria-expanded="false">
-                                Classes in the Cart
-                            </div>
-                            
-                            <div class="la-cart__item-cartclass collapse show mx-2 my-2" id="cart_class_{{ $collapseId }}">
-                                <ol class="la-cart__item-cartlist pl-6 pl-md-7 mr-md-7">
-                                    @foreach($cart->cartItems as $class)
-                                        <li class="la-cart__item-cartitem">{{ strlen($class->chapter->chapter_name) > 50? substr($class->chapter->chapter_name, 0, 45).'....': $class->chapter->chapter_name}}</li>
-                                    @endforeach
-                                </ol>
-                            </div>
-                        </div>
-                    @endif
+                    {{-- d --}}
                 </div>
                 
 
                 <div class="col-4 col-md-4 col-lg-5 pl-0 la-cart__item-info d-flex align-items-start la-anim__wrap">
                     <div class="la-cart__item-classes la-anim__stagger-item">
-                        <div class="la-cart__item-label mb-4 ">Classes</div>
-                        <div class="la-cart__item-content leading-snug "><span>@if($classType == 'all_classes') All Classes @else Selected Classes @endif</span></div>
+                        <div class="la-cart__item-label mb-4 ">Chapters</div>
+                        <div class="la-cart__item-content leading-snug "><span>{{$classType}}</span></div>
+                        {{-- <div class="la-cart__item-content leading-snug "><span>@if($classType == 'all_classes') All Classes @else Selected Classes @endif</span></div> --}}
                     </div>
 
                     <div class="la-cart__item-price ml-4 ml-md-20 la-anim__stagger-item">
@@ -69,11 +56,14 @@
                         <div class="la-cart__item-content">
                             <div class="la-soffer ml-0">
                                 <div class="la-soffer__bestprice la-cart__item-cost"> 
-                                   <sup>{{ getSymbol() }}</sup><span>{{ $cart->cartItems->sum('price')}}</span>
+                                   {{-- <sup>{{ getSymbol() }}</sup><span>{{ $cart->cartItems->sum('price')}}</span> --}}
+                                   <sup>{{ getSymbol() }}</sup><span>{{ $realPrice }}</span>
                                 </div>
-                                @if($cart->cartItems->sum('offer_price') != 0)
+                                @if($cart->bestPrice) != 0)
+                                {{-- @if($cart->cartItems->sum('offer_price') != 0) --}}
                                 <div class="la-soffer__realprice "> 
-                                   <sup>{{ getSymbol() }}</sup><span>{{ $cart->cartItems->sum('offer_price') }}</span>
+                                   <sup>{{ getSymbol() }}</sup><span>{{ $bestPrice }}</span>
+                                   {{-- <sup>{{ getSymbol() }}</sup><span>{{ $cart->cartItems->sum('offer_price') }}</span> --}}
                                 </div>
                                 @endif
                             </div>
@@ -86,7 +76,7 @@
 
 
  <!-- Edit Selection Popup: Start -->
- <div class="modal fade la-cart__edit-modal" id="edit_cart_{{$cartId}}">
+ {{-- <div class="modal fade la-cart__edit-modal" id="edit_cart_{{$cartId}}">
                                         <div class="modal-dialog la-cart__edit-dialog">
                                             <div class="modal-content la-cart__edit-content">
                                                 <div class="modal-header la-cart__edit-header">
@@ -185,6 +175,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <!-- Edit Selection Popup: End -->
                                    

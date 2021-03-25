@@ -3,9 +3,9 @@
   <div class="col-12">
     <div class="box box-primary">
       <div class="d-flex justify-content-between align-items-center ml-2">
-        <h3 class="la-admin__section-title">{{ __('adminstaticword.Course') }}</h3>
+        <h3 class="la-admin__section-title">{{ __('adminstaticword.Classes') }}</h3>
         <a class="btn btn-info btn-sm" href="{{url('course/create')}}">
-          <span class="la-icon la-icon--sm icon-plus"></span> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Course') }}
+          <span class="la-icon la-icon--sm icon-plus"></span> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Class') }}
         </a>
       </div>
      

@@ -1,3 +1,6 @@
+@php
+use Carbon\Carbon;
+@endphp
 @extends('admin.layouts.master')
 @section('title', 'View User - Admin')
 @section('body')
@@ -28,6 +31,8 @@
                   <th>{{ __('adminstaticword.Role') }}</th>
                   <th>{{ __('adminstaticword.Mobile') }}</th>
                   <th>{{ __('adminstaticword.Country') }}</th>
+                  <th>{{ __('adminstaticword.Registered') }}</th>
+                  <th>{{ __('adminstaticword.Purchased') }}</th>
                   <th>{{ __('adminstaticword.Subscription') }}</th>
                   <th>{{ __('adminstaticword.Status') }}</th>
                   <th>{{ __('adminstaticword.Edit') }}</th>
@@ -60,6 +65,12 @@
                           @if($user->country_id)
                           {{  $user->country['nicename']  }}
                           @endif
+                        </td>
+                        <td class="text-left">
+                          {{Carbon::parse($user->created_at)->format('d M Y')}}
+                        </td>
+                        <td class="text-left">
+                          @if(!$user->subscription()) No Subscription @else {{$user->subscription()->name}} @endif 
                         </td>
                         <td class="text-left">
                           <a class="btn btn-info text-capitalize font-weight-normal" href="{{ route('user.subscriptions',$user->id) }}">View</a>

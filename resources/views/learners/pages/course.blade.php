@@ -88,7 +88,7 @@ $course_id = $course->id;
             <div class="la-vcourse__primary-info d-flex mt-5">
                 <div class="la-vcourse__classes-info pr-2 la-anim__stagger-item--x">
                   <span class="la--count">{{ $course->chapter->count() }}</span>
-                  <span class="la--label">Classes</span>
+                  <span class="la--label">Chapters</span>
                 </div>
                 <div class="la-vcourse__videos-info pl-2 la-anim__stagger-item--x">
                   <span class="la--count">{{ $course->courseclass->count() }}</span>
@@ -123,14 +123,14 @@ $course_id = $course->id;
                       <input type="hidden" name="course_id" value="{{$course->id}}" />
                       <input type="hidden" value="all-classes" name="classes" />
                       @csrf
-                      <a class="la-vcourse__buy-course btn btn-primary la-btn la-btn--primary color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" @if(Auth::check()) onclick="$('#add_to_cart_form_1').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>Buy this Course</a><br/>
+                      <a class="la-vcourse__buy-course btn btn-primary la-btn la-btn--primary color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" @if(Auth::check()) onclick="$('#add_to_cart_form_1').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>Buy this Class</a><br/>
                       <span class="text-grey">@ {{ getSymbol() }}{{$course->convertedprice}}</span>
                     </form>
                   </div>
 
                   <div class="la-vcourse__buy-btn text-center">
                     <a class="la-vcourse__buy-course btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end mb-2 active" href="/learning-plans">Subscribe for Free</a><br/>
-                    <span class="text-grey">Access all courses</span>
+                    <span class="text-grey">Access all Classes</span>
                   </div>
                 @endif
               </div>
@@ -202,7 +202,7 @@ $course_id = $course->id;
                 </video-js>
               
             </div>
-            <h2 class="la-vlesson__title m-0  text-capitalize la-anim__stagger-item">{{ $course->title}} - Course Preview</h2>
+            <h2 class="la-vlesson__title m-0  text-capitalize la-anim__stagger-item">{{ $course->title}} - Class Preview</h2>
             <small class="la-vlesson__creator text-capitalize la-anim__stagger-item">{{ $course->user->fname }}</small>
           </div>
 
@@ -306,7 +306,7 @@ $course_id = $course->id;
                   @if(count($course->resources) == 0)
                       <div class=" la-anim__wrap text-center">
                           <div class="la-empty__inner la-anim__stagger-item">
-                              <h6 class="la-empty__course-title text-2xl" style="color:var(--gray8);">No Resources available for this Course.</h6>
+                              <h6 class="la-empty__course-title text-2xl" style="color:var(--gray8);">No Resources available for this Class.</h6>
                             </div>
                       </div>
                   @else
@@ -374,7 +374,7 @@ $course_id = $course->id;
               @if(count($course->resources) == 0)
                   <div class=" la-anim__wrap text-center pt-4 pb-10">
                     <div class="la-empty__inner la-anim__stagger-item">
-                      <h6 class="la-empty__course-title text-xl" style="color:var(--gray8);">No Resources available for this Course.</h6>
+                      <h6 class="la-empty__course-title text-xl" style="color:var(--gray8);">No Resources available for this Class.</h6>
                       </div>
                   </div>
               @else
@@ -421,7 +421,7 @@ $course_id = $course->id;
           <div class="row">
             <div class="col">
               <div class="la-lp__benefits la-anim__wrap">
-                <h3 class="la-section__title mb-5 mb-md-8 text-2xl text-md-4xl la-anim__fade-in-bottom">Course Benefits</h3>
+                <h3 class="la-section__title mb-5 mb-md-8 text-2xl text-md-4xl la-anim__fade-in-bottom">Class Benefits</h3>
 
                 <div class="la-cbenefits d-flex my-1 my-md-8">
                   <div class="row text-center">
@@ -431,7 +431,7 @@ $course_id = $course->id;
                           <img class="img-fluid d-block" src="/images/learners/course-benefits/video.svg" alt="Unlimited Learning"/>
                         </div>
                         <h4 class="la-cbenefits__item-title mb-3">Unlimited Learning</h4>
-                        <p class="la-cbenefits__item-desc m-0 text-center">Access to numerous courses of varied art skills</p>
+                        <p class="la-cbenefits__item-desc m-0 text-center">Access to numerous class of varied art skills</p>
                       </div>
                     </div>
 
@@ -469,20 +469,22 @@ $course_id = $course->id;
         {{-- Purchase Course DIV:Start --}}
         <div class="col-md-7 col-lg-7 la-vcourse__purchase-left la-anim__stagger-item">
        
-          <h3 class="la-section__title mb-5 mb-md-8 text-2xl text-md-4xl la-anim__fade-in-bottom">Purchase this Course</h3>
+          <h3 class="la-section__title mb-5 mb-md-8 text-2xl text-md-4xl la-anim__fade-in-bottom">Purchase this Class</h3>
           
             <!-- <div class="la-vcourse__purchase-prize mb-4 mb-lg-8 ">Purchase this Course for lifetime access @ <span class="la-vcourse__purchase-prize--amount"><b>{{ getSymbol() }}{{$course->convertedprice}}</b></span></div> -->
             <form class="la-vcourse__purchase-form" id="add_to_cart_form" name="add_to_cart_form" method="post" action="/add-to-cart">
               <input type="hidden" name="course_id" value="{{$course->id}}" />
+              <input type="hidden" name="classes" value="all-classes" />
+
               @csrf
-              <div class="la-vcourse__purchase-classes">
+              {{-- <div class="la-vcourse__purchase-classes">
                 <div class="la-vcourse__purchase-class la-vcourse__purchase-class--all mb-lg-4 la-anim__stagger-item">
                 
                   <div class="la-form__radio-wrap">
                     <input class="la-form__radio d-none la-vcourse__purchase-input" @if($order_type == null || $order_type == 'all_classes') checked @endif type="radio" value="all-classes" name="classes" id="allClasses">
                     <label class="d-flex align-items-center la-vcourse__purchase-label" for="allClasses">
                       <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
-                      <span class="">All Classes</span>
+                      <span class="">All Chapters</span>
                     </label>
                   </div>
                 
@@ -493,7 +495,7 @@ $course_id = $course->id;
                       <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" value="select-classes" @if($order_type == 'selected_classes') @endif name="classes" id="selectClasses">
                       <label class="d-flex align-items-center la-vcourse__purchase-label" for="selectClasses">
                         <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
-                        <span class="">Select Classes</span>
+                        <span class="">Select Chapters</span>
                       </label>
                     </div>
 
@@ -502,7 +504,7 @@ $course_id = $course->id;
                       <tr class="la-vcourse__sclass-item">
                      
                         <th class="mb-4 la-vcourse__sclass-heading"></th>
-                        <th class="mb-4 la-vcourse__sclass-heading">Class</th>
+                        <th class="mb-4 la-vcourse__sclass-heading">Chapter</th>
                         <th class="mb-4 la-vcourse__sclass-heading">Name</th>
                         <th class="mb-4 la-vcourse__sclass-heading">Mentor</th>
                         <th class="mb-4 la-vcourse__sclass-heading">Price</th>
@@ -539,11 +541,11 @@ $course_id = $course->id;
                     </table>
                   </div>
                 </div>
-              </div>
+              </div> --}}
               <input type="hidden" name="buy_type" id="buy_type" value="add_cart">
               <div class="la-vcourse__purchase-actions d-flex flex-wrap align-items-center mt-8">
                 <div class="la-vcourse__purchase-btn1 w-50">
-                  <a class="btn btn-primary la-btn w-100 text-center" @if(Auth::check()) onclick="(function(){$('#buy_type').val('buy_now');$('#add_to_cart_form').submit()})()" @else data-toggle="modal" data-target="#locked_login_modal" @endif >Buy course</a>
+                  <a class="btn btn-primary la-btn w-100 text-center" @if(Auth::check()) onclick="(function(){$('#buy_type').val('buy_now');$('#add_to_cart_form').submit()})()" @else data-toggle="modal" data-target="#locked_login_modal" @endif >Buy Class</a>
                 </div>
                 <div class="la-vcourse__purchase-btn w-50 text-center">
                   <a class="btn la-btn__plain text--green" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>ADD TO CART</a>
@@ -581,7 +583,7 @@ $course_id = $course->id;
                 </div>
                 <div class="pt-2">
                   <a href="/learning-plans"  class="la-vcourse__purchase-trial--lnk text-left la-anim__stagger-item--x ">
-                    Get access to all courses
+                    Get access to all Classes
                   </a>
                 </div>
             </div>
@@ -617,7 +619,7 @@ $course_id = $course->id;
                         @endfor                      
                         
                       </div>
-                      <div class="la-rtng__course body-font text-sm mt-n1 px-3 px-md-0">Course Rating</div>
+                      <div class="la-rtng__course body-font text-sm mt-n1 px-3 px-md-0">Class Rating</div>
                     </div>
                     <div class="la-rtng__indicators la-anim__stagger-item">
                       <div class="la-rtng__bars d-flex flex-row jsutify-content-between">
@@ -849,7 +851,7 @@ $course_id = $course->id;
           <div class="col-md-7 my-auto la-anim__wrap">
             <div class="la-creator__content offset-lg-1 ">
               <div class="la-creator__detail">
-                  <div class="la-creator__name-label la-anim__fade-in-top">Course by</div>
+                  <div class="la-creator__name-label la-anim__fade-in-top">Class by</div>
                   <div class="la-creator__name text-capitalize position-relative mb-4">
                     <h6 class="la-title la-title--circle la-anim__stagger-item"><span class="position-relative">{{$course->user->fullName}}</span></h6>
                   </div>
@@ -884,11 +886,11 @@ $course_id = $course->id;
           @if(count($mentor_other_courses) == 0)
                <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6 la-anim__stagger-item">
                     <div class="col la-empty__inner">
-                        <h6 class="la-empty__course-title text-xl la-anim__stagger-item">No more Courses from this Mentor</h6>
+                        <h6 class="la-empty__course-title text-xl la-anim__stagger-item">No more Classes from this Mentor</h6>
                     </div>
                     <div class="col text-md-right la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
                         <a href="/browse/courses" class="la-empty__browse">
-                            Browse Courses
+                            Browse Classes
                             <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
                         </a>
                     </div>
@@ -932,7 +934,7 @@ $course_id = $course->id;
 
             <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6 la-anim__stagger-item">
                 <div class="col la-empty__inner">
-                  <h6 class="la-empty__course-title text-xl la-anim__stagger-item--x">No more courses available right now!</h6>
+                  <h6 class="la-empty__course-title text-xl la-anim__stagger-item--x">No more classes available right now!</h6>
                 </div>
             </div>   
 

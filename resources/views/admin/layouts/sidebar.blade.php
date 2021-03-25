@@ -76,7 +76,7 @@
           <li class="{{ Nav::isResource('currency') }}"><a href="{{url('currency')}}"> <i class="flaticon-wallet"></i><span>{{ __('adminstaticword.Currency') }}</span></a></li>
           -->
 
-          <li class="@if(Request::segment(1) == 'category' || Request::segment(1) == 'subcategory' || Request::segment(1) == 'course' ) active menu-open @endif {{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('publishrequest') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('bundle') }} {{ Nav::isResource('courselang') }}  {{Nav::isResource('coursereviewunpublish')}} treeview">
+          <li class="@if(Request::segment(1) == 'category' || Request::segment(1) == 'subcategory' || Request::segment(1) == 'course' || Request::segment(1) == 'featuredcourses' ) active menu-open @endif {{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('publishrequest') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('bundle') }} {{ Nav::isResource('courselang') }}  {{Nav::isResource('coursereviewunpublish')}} treeview">
             <a href="#" class="d-flex align-items-center">
                 <i class="la-icon la-icon--lg icon-courses mr-4"></i>{{ __('adminstaticword.Course') }}
                 <span class="pull-right-container">
@@ -94,9 +94,9 @@
                     {{--<li class="{{ Nav::isResource('childcategory') }}"><a href="{{url('childcategory')}}" class="d-flex align-items-center"><i class="la-icon la-icon--sm icon-child-category mr-4"></i>{{ __('adminstaticword.ChildCategory') }}</a></li> --}}
                   </ul>
 
-                  <li class="@if(Request::segment(1) == 'course') active @endif"><a href="{{url('course')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-courses mr-4"></i><span>{{ __('adminstaticword.Courses') }}</span></a></li>
+                  <li class="@if(Request::segment(1) == 'course') active @endif"><a href="{{url('course')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-courses mr-4"></i><span>{{ __('adminstaticword.Classes') }}</span></a></li>
 
-                  <li class="@if(Request::segment(1) == 'featuredcourses') active @endif"><a href="{{url('featuredcourses')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-courses mr-4"></i><span>{{ __('adminstaticword.featuredCourses') }}</span></a></li>
+                  <li class="@if(Request::segment(1) == 'featuredcourses') active @endif"><a href="{{url('featuredcourses')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-courses mr-4"></i><span>{{ __('adminstaticword.featuredClasses') }}</span></a></li>
 
                   <!-- <li class="{{ Nav::isResource('bundle') }}"><a href="{{url('bundle')}}"><i class="flaticon-interface" aria-hidden="true"></i><span>{{ __('adminstaticword.BundleCourse') }}</span></a></li> -->
 
