@@ -83,8 +83,8 @@ class User extends Authenticatable
     public function wishlist()
     {
         return $this->hasMany('App\Wishlist','user_id');
-    }  
-
+    } 
+        
     public function getUserImgAttribute($value)
     {
         if($value != null){
