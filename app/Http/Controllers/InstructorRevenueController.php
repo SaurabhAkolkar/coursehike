@@ -128,11 +128,12 @@ class InstructorRevenueController extends Controller
                 if($UserSubscribedLastMonth->invoice_currency == 'INR')
                     $user_paid /= 75; //Convert to USD
             }else{
-                $d1 = new DateTime($UserSubscribedYearly->start_date, new DateTimeZone('Europe/London'));
-                $d2 = new DateTime($UserSubscribedYearly->end_date, new DateTimeZone('Europe/London'));
+                $d1 = new DateTime($UserSubscribedYearly->start_date, new DateTimeZone('Asia/Calcutta'));
+                $d2 = new DateTime($UserSubscribedYearly->end_date, new DateTimeZone('Asia/Calcutta'));
                 $diffInMonths = ($d2->diff($d1))->m;
-
-                $$user_paid = ($UserSubscribedYearly->invoice_paid / $diffInMonths );
+                dd($UserSubscribedYearly, $UserSubscribedYearly->start_date, $UserSubscribedYearly->end_date, $diffInMonths);
+                
+                $user_paid = ($UserSubscribedYearly->invoice_paid / $diffInMonths );
                 if($UserSubscribedYearly->invoice_currency == 'INR')
                     $user_paid /= 75; //Convert to USD
             }
