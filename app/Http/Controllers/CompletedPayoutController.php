@@ -10,6 +10,8 @@ use App\UserSubscriptionInvoice;
 use App\UserWatchTime;
 use Auth;
 use Carbon\Carbon;
+use DateTime;
+use DateTimeZone;
 
 class CompletedPayoutController extends Controller
 {
@@ -63,8 +65,8 @@ class CompletedPayoutController extends Controller
     public function payoutCalculate($creator)
     {
         $creator_userid = $creator->id;
-        $start = new Carbon('first day of this month');
-        $end = new Carbon('last day of this month');
+        $start = new Carbon('first day of last month');
+        $end = new Carbon('last day of last month');
 
         $watch_logs =  UserWatchTime::whereHas('courses', function($query) use($creator_userid){
             $query->where('user_id', $creator_userid);
@@ -115,8 +117,8 @@ class CompletedPayoutController extends Controller
                 if($UserSubscribedLastMonth->invoice_currency == 'INR')
                     $user_paid /= 75; //Convert to USD
             }else{
-                $d1 = new DateTime($UserSubscribedYearly->start_date, new DateTimeZone('Europe/London'));
-                $d2 = new DateTime($UserSubscribedYearly->end_date, new DateTimeZone('Europe/London'));
+                $d1 = new DateTime($UserSubscribedYearly->start_date, new DateTimeZone('Asia/Calcutta'));
+                $d2 = new DateTime($UserSubscribedYearly->end_date, new DateTimeZone('Asia/Calcutta'));
                 $diffInMonths = ($d2->diff($d1))->m;
 
                 $$user_paid = ($UserSubscribedYearly->invoice_paid / $diffInMonths );
