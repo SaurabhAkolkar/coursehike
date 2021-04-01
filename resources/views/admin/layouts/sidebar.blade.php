@@ -98,7 +98,7 @@
 
                   <li class="@if(Request::segment(1) == 'featuredcourses') active @endif"><a href="{{url('featuredcourses')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-courses mr-4"></i><span>{{ __('adminstaticword.featuredClasses') }}</span></a></li>
 
-                  <!-- <li class="{{ Nav::isResource('bundle') }}"><a href="{{url('bundle')}}"><i class="flaticon-interface" aria-hidden="true"></i><span>{{ __('adminstaticword.BundleCourse') }}</span></a></li> -->
+                  <li class="{{ Nav::isResource('bundle') }}"><a href="{{url('bundle')}}"><i class="flaticon-interface" aria-hidden="true"></i><span>{{ __('adminstaticword.BundleCourse') }}</span></a></li>
 
                   <li class="{{ Nav::isResource('courselang') }}"><a href="{{url('courselang')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-course-language mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.CourseLanguage') }}</span></a></li>
                   
