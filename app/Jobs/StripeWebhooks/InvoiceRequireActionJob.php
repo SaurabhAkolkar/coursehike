@@ -63,7 +63,7 @@ class InvoiceRequireActionJob implements ShouldQueue
             $user = UserSubscription::where('subscription_id', $subscription_id)->first()->user ?? 0;
             $user->subscription()->cancel(true);
 
-            if($user != 0){
+            if($user != 0 && $invoice_amount_paid > 0){
             // if($user != 0 && $user->subscription()->ended()){
                 
                 // Create Invoice Record
