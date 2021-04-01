@@ -98,8 +98,8 @@ class InstructorRevenueController extends Controller
         foreach($learners_grouped as $learner => $watch_course){
 
             // If user didn't paid/subscribed last month then skip calculating it...
-            $UserSubscribedLastMonth = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid']])->whereBetween('end_date', [$start->startOfMonth(), $end->endOfMonth()])->latest()->first();
-            $UserSubscribedYearly = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid']])->where(function($query) use ($start, $end)
+            $UserSubscribedLastMonth = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_subscription_id', '!=' ,'Admin-Purchased']])->whereBetween('end_date', [$start->startOfMonth(), $end->endOfMonth()])->latest()->first();
+            $UserSubscribedYearly = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_subscription_id', '!=' ,'Admin-Purchased']])->where(function($query) use ($start, $end)
             {
                 $query->where('start_date', '<=', $start->startOfMonth() );
                 $query->where('end_date', '>', $end->endOfMonth() );

@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-          <h3 class="la-admin__section-title ml-2 mb-0">  {{ __('adminstaticword.InstructorRevenue') }}</h3>
+          <h3 class="la-admin__section-title ml-2 mb-0">  {{ __('adminstaticword.InstructorRevenue') }} - Last Month ({{ \Carbon\Carbon::now()->subMonth()->format('F') }})</h3>
         
         <div class="box-body">
           <div class="la-admin__revenue-stats">
