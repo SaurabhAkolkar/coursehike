@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Cartalyst\Stripe\Stripe;
 use DB;
 use DateTime;
+use DateTimeZone;
 use Illuminate\Support\Facades\Auth;
 
 class InstructorRevenueController extends Controller
