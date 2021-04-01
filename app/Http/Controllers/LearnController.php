@@ -126,6 +126,103 @@ class LearnController extends Controller
 
     }
 
+    public function class($id, $slug)
+    {
+        $playlists = [];       
+        $course = Course::with('chapter', 'courseclass', 'review','review.user')->where('id', $id)->first();
+
+        $related_courses =  Course::whereHas('category', function($query) use($course) 
+        {
+            $query->where('id', $course->category_id); 
+        })->where('status', 1)->whereNotIn('id', [$course->id])->take(3)->get();
+
+        $mentor_other_courses =  Course::where('user_id', $course->user_id)->where('status', 1)->whereNotIn('id', [$course->id])->take(3)->get();
+
+        if($course->slug != $slug)
+            return redirect()->route('learn.show', ['id' => $id,'slug'=>$course->slug]);
+
+        $video_access = false;
+        $class_access = false;
+        $in_cart = null;
+        $order_type = null;
+
+        if(Auth::check())
+        {
+        	$order = $course->isPurchased();
+            
+            if( Auth::User()->role == "admin" || 
+                (Auth::User()->subscription() && Auth::User()->subscription()->active()) ||
+                !empty( $order) )
+            {
+                // TODO: Verify the Order Purchased and Subscription area
+                $video_access = true;
+                if($order && $order->purchase_type == 'all_classes')
+                    $class_access = 1;
+                elseif($order && $order->purchase_type == 'selected_classes')
+                    $class_access = json_decode($order->class_id);
+            }
+
+            $cart = Cart::where(['user_id' => Auth::User()->id, 'status' => 1])->first();
+            if($cart){
+                $in_cart = CartItem::where(['cart_id' => $cart->id, 'course_id' => $id])->get();
+             
+                if(count($in_cart) > 0){
+                    foreach($in_cart as $a){
+                        
+                        if($a->purchase_type == 'all_classes'){
+                            $order_type = 'all_classes';
+                        }
+                        if($a->purchase_type == 'selected_classes'){
+                            $order_type = 'selected_classes';
+                        }
+                    }
+                }
+            }
+
+        }
+
+        $reviews = $course->review->sortByDesc('rating');
+        if(Auth::check()){
+			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
+		}
+        // $average_rating = $course->review->average('rating');
+        $average_rating = $course->average_rating;
+        $total_rating = $course->review->count() > 0 ? $course->review->count() : 1 ;
+
+        $five_rating_percentage= round(100*$course->review->where('rating',5)->count()/$total_rating);
+        $four_rating_percentage =  round(100*$course->review->where('rating',4)->count()/$total_rating);
+        $three_rating_percentage = round(100*$course->review->where('rating',3)->count()/$total_rating);
+        $two_rating_percentage = round(100*$course->review->where('rating',2)->count()/$total_rating);
+        $one_rating_percentage = round(100*$course->review->where('rating',1)->count()/$total_rating);
+
+        $subscription_rate = '$39';
+        if (getLocation() == 'IN')
+            $subscription_rate = '₹2999';
+        
+        $data = array(
+            'video_access'=> $video_access,
+            'class_access' => $class_access,
+            'course'=> $course,
+            'related_courses'=> $related_courses,
+            'mentor_other_courses'=> $mentor_other_courses,
+            'reviews'=>$reviews,
+            'average_rating'=> round($average_rating,2),
+            'five_rating_percentage' => $five_rating_percentage,
+            'four_rating_percentage' => $four_rating_percentage,
+            'three_rating_percentage' => $three_rating_percentage,
+            'two_rating_percentage' => $two_rating_percentage,
+            'one_rating_percentage' => $one_rating_percentage,
+            'in_cart'=>$in_cart,
+            'order_type'=>$order_type,
+            'subscription_rate'=>$subscription_rate,
+            'playlists'=>$playlists
+        );
+
+
+        return view('learners.pages.class')->with($data);
+
+    }
+
     public function video($video_id)
     {
         $class_video = CourseClass::where('id', $video_id)->first();

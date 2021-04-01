@@ -631,13 +631,15 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
     });
 
-    Route::get('/learn/course/{id}/{slug}', 'LearnController@show')->name('learn.show');
+    Route::get('/learn/course/{id}/{slug}', 'LearnController@show');
+    Route::get('/learn/class/{id}/{slug}', 'LearnController@class')->name('learn.show');
     Route::post('/learn/course/{video_id}','LearnController@video')->name('learn.video');
     Route::post('/subscribed-courses/{course_id}/{class_id}/progress-logs', 'CourseProgressController@progress_log');
     Route::post('/subscribed-courses/{course_id}/{class_id}/completion', 'CourseProgressController@class_completed');
     Route::get('/watch_time', 'InstructorController@totalWatchTime');
     Route::get('/payoutCalculate', 'InstructorController@payoutCalculate');
-    Route::get('/browse/courses','SearchController@index');
+    Route::get('/browse/classes','SearchController@classes');
+    Route::get('/browse/courses','SearchController@courses');
     Route::get('/master-classes','SearchController@masterClasses');
 
     Route::get('/filter-courses','SearchController@applyFilter')->name('apply.filters');
