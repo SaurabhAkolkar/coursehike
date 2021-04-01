@@ -16,6 +16,7 @@ return [
      * https://stripe.com/docs/api#event_types.
      */
     'jobs' => [
+        'customer_subscription_created' => \App\Jobs\StripeWebhooks\CustomerSubscriptionCreatedJob::class,
         'customer_subscription_updated' => \App\Jobs\StripeWebhooks\CustomerSubscriptionUpdatedJob::class,
         'invoice_paid' => \App\Jobs\StripeWebhooks\InvoicePaymentSucceededJob::class,
         'invoice_payment_failed' => \App\Jobs\StripeWebhooks\InvoicePaymentFailedJob::class,

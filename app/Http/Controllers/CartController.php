@@ -621,18 +621,19 @@ class CartController extends Controller
         $stripe_id = Auth::user()->stripe_id;
 
 		if(!empty($stripe_id)){
-			try {
-				$customer = $this->stripe->customers()->find($stripe_id);
+            $session_obj['customer'] = $stripe_id;
+			// try {
+			// 	$customer = $this->stripe->customers()->find($stripe_id);
 
-				if (!array_key_exists('deleted', $customer)){
-					$session_obj['customer'] = $stripe_id;
-				}else
-					$session_obj['customer_email'] = Auth::user()->email;
+			// 	if (!array_key_exists('deleted', $customer)){
+			// 		$session_obj['customer'] = $stripe_id;
+			// 	}else
+			// 		$session_obj['customer_email'] = Auth::user()->email;
 
-			} catch (NotFoundException $e) {
-				$message = $e->getMessage();
-				$session_obj['customer_email'] = Auth::user()->email;
-			}
+			// } catch (NotFoundException $e) {
+			// 	$message = $e->getMessage();
+			// 	$session_obj['customer_email'] = Auth::user()->email;
+			// }
 		}else
 			$session_obj['customer_email'] = Auth::user()->email;        
         

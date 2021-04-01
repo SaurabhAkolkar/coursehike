@@ -89,27 +89,29 @@ class SubscriptionController extends Controller
 		if(!empty($stripe_id)){
 			try {
 				// Customer Present
-				$customer = $this->stripe->customers()->find($stripe_id);
+				// $customer = $this->stripe->customers()->find($stripe_id);
 
 
-				if (!array_key_exists('deleted', $customer))
-					$session_data['customer'] = $stripe_id;
-				else
-					$session_data['customer_email'] = $user->email;
+				// if (!array_key_exists('deleted', $customer))
+				// 	$session_data['customer'] = $stripe_id;
+				// else
+				// 	$session_data['customer_email'] = $user->email;
 
 				// Already subscribed before
 				// $user_subscription = UserSubscription::where('user_id', $user->id)->first();
 				// $stripe_subscription = $this->stripe->subscriptions()->find($stripe_id, $user_subscription->subscription_id ?? 0);
+				
+				$session_data['customer'] = $stripe_id;
 				$subscriptions = $this->stripe->subscriptions()->all($stripe_id)['data'];
 
 				// if (!array_key_exists('deleted', $customer)  && $user->subscription() && $user_subscription && $stripe_subscription){
-				if (!array_key_exists('deleted', $customer)  && $user->subscription() && count($subscriptions) > 0){
+				// if (!array_key_exists('deleted', $customer)  && $user->subscription() && count($subscriptions) > 0){
+				if ($user->subscription() && count($subscriptions) > 0){
 					$response = [
 						"redirect" => true,
 					];
 					return response()->json($response, 200);
 				}
-
 			} catch (NotFoundException $e) {
 				$message = $e->getMessage();
 				if (!array_key_exists("customer_email", $session_data) && !array_key_exists("customer", $session_data))
@@ -157,7 +159,7 @@ class SubscriptionController extends Controller
 
 			$current_plan = $subscription['plan'];
 
-			if ($subscription['status'] == 'trialing') {
+			// if ($subscription['status'] == 'trialing') {
 
 				$plan_price_id = [
 					config('rinvex.subscriptions.stripe_global_monthly') => 'monthly-global',
@@ -186,9 +188,9 @@ class SubscriptionController extends Controller
 				$plan_subscription = app('rinvex.subscriptions.plan_subscription')->where("user_id", $user->id)->latest()->first();
 				return view('learners.messages.subscription-trial', compact('plan_subscription'));
 
-			} else {
-				return redirect('/user-dashboard');
-			}
+			// } else {
+			// 	return redirect('/user-dashboard');
+			// }
 		} catch (Exception $e) {
 			Session::flash('errors', $e->getMessage());
 			print_r($e->getMessage());

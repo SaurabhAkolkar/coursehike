@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Cartalyst\Stripe\Exception\NotFoundException;
+use Cartalyst\Stripe\Stripe;
 use Rinvex\Subscriptions\Traits\HasSubscriptions;
 
 use Illuminate\Notifications\Notifiable;
@@ -139,10 +141,36 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\UserSubscription','user_id');
     }
+
     public function getFullNameAttribute()
     {
         return ucfirst("{$this->fname} {$this->lname}");
-    }  
+    }
+    
+    public function getStripeIdAttribute($value)
+    {
+        $stripe = Stripe::make(config('services.stripe.secret'));
+
+        if(!empty($value)){
+            try {
+                $customer = $stripe->customers()->find($value);
+
+                if (!array_key_exists('deleted', $customer))
+                    return $value;
+
+            } catch (NotFoundException $e) {
+                $message = $e->getMessage();
+            }
+        }
+
+        $customer = $stripe->customers()->create([
+            'email' => $this->email,
+        ]);
+        $this->attributes['stripe_id'] = $customer['id'];
+        $this->save();
+
+        return $customer['id'];
+    }
 
     public function getAwardCountAttribute(){
         $user = Instructor::where(['user_id' => $this->id ])->first();
