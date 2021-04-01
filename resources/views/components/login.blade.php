@@ -129,11 +129,20 @@
             </div>
 
             <div class="la-header__nav-item">
-                <a class="la-header__nav-link @if(Request::segment(1) == 'browse') active @endif"  href="/browse/courses">
+                <a class="la-header__nav-link @if(Request::segment(1) == 'browse' && Request::segment(2) == 'classes' ) active @endif"  href="/browse/classes">
                     <div class="la-header__nav-icon">
                         <span class="la-icon--lg icon-courses"></span>
                     </div>
                     <span class="la-header__nav-name">Browse Classes</span>
+                </a>
+            </div>
+
+            <div class="la-header__nav-item">
+                <a class="la-header__nav-link @if(Request::segment(1) == 'browse' && Request::segment(2) == 'courses') active @endif"  href="/browse/courses">
+                    <div class="la-header__nav-icon">
+                        <span class="la-icon--lg icon-courses"></span>
+                    </div>
+                    <span class="la-header__nav-name">Browse Course</span>
                 </a>
             </div>
 

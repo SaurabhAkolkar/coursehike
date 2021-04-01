@@ -1,7 +1,7 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-   {{-- <title>Learn Anything & Anywhere Artistic | Online Classes For Creatives</title>
+    <title>Learn Anything & Anywhere Artistic | Online Classes For Creatives</title>
     <meta name='description' itemprop='description' content='Discover online classes on art, creativity, design, digital art, artistic baking & much more. Join LILA & enhance your skills with these online classes.' />
 
     <meta property="og:description"content="Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now" />
@@ -23,7 +23,7 @@
       m=e.createElement(a);m.async=!0;m.src=t;
       p=e.getElementsByTagName(a)[0];p.parentNode.insertBefore(m,p);
       })(window,document,'script','https://u.heatmap.it/log.js');
-    </script> --}}
+    </script>
 @endsection
 
 
