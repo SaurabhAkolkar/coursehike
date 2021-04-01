@@ -144,11 +144,11 @@ class SubscriptionController extends Controller
 		$stripe_id = $user->stripe_id;
 
 		try {
-			if ($stripe_id == null || $stripe_id != $checkout_session['customer']){
-				$user->stripe_id = $checkout_session['customer'];
-				$user->save();
-				$stripe_id = $checkout_session['customer'];
-			}
+			// if ($stripe_id == null || $stripe_id != $checkout_session['customer']){
+			// 	$user->stripe_id = $checkout_session['customer'];
+			// 	$user->save();
+			// 	$stripe_id = $checkout_session['customer'];
+			// }
 
 			$subscription_id = $checkout_session['subscription'];
 
