@@ -144,11 +144,11 @@ class SubscriptionController extends Controller
 		$stripe_id = $user->stripe_id;
 
 		try {
-			// if ($stripe_id == null || $stripe_id != $checkout_session['customer']){
-			// 	$user->stripe_id = $checkout_session['customer'];
-			// 	$user->save();
-			// 	$stripe_id = $checkout_session['customer'];
-			// }
+			if ($stripe_id == null || $stripe_id != $checkout_session['customer']){
+				$user->stripe_id = $checkout_session['customer'];
+				$user->save();
+				$stripe_id = $checkout_session['customer'];
+			}
 
 			$subscription_id = $checkout_session['subscription'];
 
@@ -159,7 +159,7 @@ class SubscriptionController extends Controller
 
 			$current_plan = $subscription['plan'];
 
-			if ($subscription['status'] == 'trialing') {
+			// if ($subscription['status'] == 'trialing') {
 
 				$plan_price_id = [
 					config('rinvex.subscriptions.stripe_global_monthly') => 'monthly-global',
@@ -188,9 +188,9 @@ class SubscriptionController extends Controller
 				$plan_subscription = app('rinvex.subscriptions.plan_subscription')->where("user_id", $user->id)->latest()->first();
 				return view('learners.messages.subscription-trial', compact('plan_subscription'));
 
-			} else {
-				return redirect('/user-dashboard');
-			}
+			// } else {
+			// 	return redirect('/user-dashboard');
+			// }
 		} catch (Exception $e) {
 			Session::flash('errors', $e->getMessage());
 			print_r($e->getMessage());

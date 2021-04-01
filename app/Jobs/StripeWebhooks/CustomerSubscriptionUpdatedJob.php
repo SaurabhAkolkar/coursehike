@@ -2,6 +2,7 @@
 
 namespace App\Jobs\StripeWebhooks;
 
+use App\User;
 use App\UserSubscription;
 use App\UserSubscriptionInvoice;
 use Carbon\Carbon;
@@ -46,12 +47,11 @@ class CustomerSubscriptionUpdatedJob implements ShouldQueue
 
         $customer_id = $subscription['customer'];
 
-        $user_subscription = UserSubscription::where('subscription_id', $subscription['id'])->first();
-        
-        if(!$user_subscription)
+        $user = User::where('stripe_id', $customer_id)->first();
+                
+        if(!$user)
             return;
 
-        $user = $user_subscription->user;
         $plan_subscription = $user->subscription();
 
         if($subscription['cancel_at'] != null){
@@ -101,12 +101,21 @@ class CustomerSubscriptionUpdatedJob implements ShouldQueue
                 $plan_subscription->trial_ends_at = Carbon::createFromTimestamp($subscription['trial_end'])->toDateTimeString(); 
                 $plan_subscription->save();
 
+                $user_subscription = UserSubscription::where('subscription_id', $subscription['id'])->first();
                 $user_subscription->plan_id = $current_plan['id'];
                 $user_subscription->save();
                 // PlanSubscription::where([ ['user_id', $user->id],['slug', 'main'] ])->first();
                 
             }
                 
+        }else if($subscription['status'] == 'trialing' || $subscription['status'] == 'active'){
+            $subscription_start = $subscription['current_period_start'];
+            $subscription_end = $subscription['current_period_end'];
+
+            $plan_subscription->starts_at = Carbon::createFromTimestamp($subscription_start)->toDateTimeString(); 
+            $plan_subscription->ends_at = Carbon::createFromTimestamp($subscription_end)->toDateTimeString(); 
+            $plan_subscription->trial_ends_at = Carbon::createFromTimestamp($subscription['trial_end'])->toDateTimeString(); 
+            $plan_subscription->save();
         }else{
             echo "invalid";
             return;
