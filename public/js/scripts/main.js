@@ -10,7 +10,7 @@ $(function(){
     e.preventDefault();
     console.log(value)
   });
-
+  
 
   //- On click on Entire Course Card
   /*$("#course_card_link").on('click', function() {
@@ -121,7 +121,7 @@ $(function(){
   }
   
 
-  // Swiper JS for Browse Courses in Homepage
+  // Swiper JS for Browse Classes in Homepage
 
   // var course_Sliders = [];
   // if($(this)[0]){
@@ -147,7 +147,6 @@ $(function(){
       // },
     });
   }
-
     /*var course_slider_pagination_first = course_swiper[0].pagination.el;
     var course_slider_pagination_first_width = $(course_slider_pagination_first).width() + 30;
     $(course_slider_pagination_first).css("width", course_slider_pagination_first_width);*/
@@ -164,6 +163,40 @@ $(function(){
         var course_slider_pagination = course_swiper[paneIndex].pagination.el;
         var course_slider_pagination_width = $(course_slider_pagination).width() + 30;
         $(course_slider_pagination).css("width", course_slider_pagination_width);
+      }
+    }); 
+
+  // Swiper JS for Browse Courses in Homepage
+    if($('.la-home__course-container2')[0]){     
+    var course_swiper2 = new Swiper(".la-home__course-container2", {
+      slidesPerView: 'auto',
+      spaceBetween: 20,
+      flipEffect: {
+        slideShadows: false,
+      },
+      speed:1000,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: ".la-home__course-paginations2",
+        clickable: true,
+      },
+    });
+  }
+
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+      var paneTarget2 = $(e.target).attr('href');
+      var $thePane2 = $('.tab-pane' + paneTarget2);
+      var paneIndex2 = $thePane2.index();
+      if ($thePane2.find('.la-home__course-container2').length > 0 && 0 === $thePane2.find('.swiper-slide-active').length) {
+        
+        course_swiper2[paneIndex2].update();
+
+        var course_slider_pagination2 = course_swiper2[paneIndex2].pagination.el;
+        var course_slider_pagination_width2 = $(course_slider_pagination2).width() + 30;
+        $(course_slider_pagination2).css("width", course_slider_pagination_width2);
       }
     }); 
     
@@ -507,8 +540,8 @@ $(function(){
     });
   });
 
-  gsap.utils.toArray(".la-home__course-container, .la-home__master-container").forEach(section => {
-    gsap.from(section.querySelectorAll(".la-home__course-wrapper, .la-home__master-wrapper"), {
+  gsap.utils.toArray(".la-home__course-container, .la-home__course-container2, .la-home__master-container").forEach(section => {
+    gsap.from(section.querySelectorAll(".la-home__course-wrapper, .la-home__course-wrapper2, .la-home__master-wrapper"), {
       scrollTrigger: section,
       autoAlpha: 0,
       x: -35,

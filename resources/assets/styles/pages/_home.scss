@@ -161,16 +161,16 @@
         padding-left:12px;
     }
 }
-.la-home__course-container{
+.la-home__course-container,.la-home__course-container2{
     width:100%;
     height:100%;
 }
-.la-home__course-wrapper{
+.la-home__course-wrapper,.la-home__course-wrapper2{
     @include respond-above(lg){
         // margin-left:150px;
     }
 }
-.la-home__course-slide{
+.la-home__course-slide, .la-home__course-slide2{
     width: 300px !important;
 
     &:first-child{
@@ -270,7 +270,7 @@
         width: 320px !important;
     }
 }
-.la-slider__paginations {
+.la-slider__paginations, .la-slider__paginations2 {
     &-- {
         &purble {
             & .swiper-pagination-bullet-active {
@@ -714,7 +714,7 @@
     bottom: 50px;
 }
 
-.la-slider__navigations {
+.la-slider__navigations, .la-slider__navigations2 {
     display: inline-flex;
     align-items: center;
     padding-bottom: 10px;
@@ -728,7 +728,7 @@
     cursor: pointer;
     opacity:1 !important;
 }
-.la-slider__navigations-dots {
+.la-slider__navigations-dots, .la-slider__navigations-dots2 {
     position: unset;
     margin: 0 20px;
     text-align: left;
@@ -737,7 +737,7 @@
         margin-top:-16px;
     }
 }
-.la-slider__navigations-dots .swiper-pagination-bullet {
+.la-slider__navigations-dots .swiper-pagination-bullet, .la-slider__navigations-dots2 .swiper-pagination-bullet {
     margin-left: 8px;
     margin-right: 0;
     &:first-child {
@@ -767,7 +767,7 @@
     // }
 }
 
-.la-section--courses-inwrap .la-home__course-slide .col-12 {
+.la-section--courses-inwrap .la-home__course-slide .col-12, .la-section--courses-inwrap .la-home__course-slide2 .col-12 {
     padding: 0;
 }
 .la-home__section-customize .la-home__customize-container .swiper-wrapper {

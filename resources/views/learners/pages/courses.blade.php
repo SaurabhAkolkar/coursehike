@@ -231,7 +231,7 @@
                       <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
                                     
                           @foreach($courses as $course)
-                              <x-course 
+                              <x-bundle-course 
                                   :id="$course->id"
                                   :img="$course->preview_image"
                                   :course="$course->title"
@@ -259,7 +259,7 @@
                           </div>
                           <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
                               <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
-                                  Browse Classes
+                                  Browse Courses
                                   <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
                               </a>
                           </div>
@@ -281,7 +281,7 @@
 
                                       <!-- ==== Featured Courses: Start  ====== -->
                                       <div class="swiper-container  la-courses__featured-container">
-                                        <h5 class="la-courses__featured-title mb-5 mb-lg-8 ml-0 ml-lg-2 la-anim__fade-in-top">Featured Classes</h5>
+                                        <h5 class="la-courses__featured-title mb-5 mb-lg-8 ml-0 ml-lg-2 la-anim__fade-in-top">Featured Courses</h5>
                                         <div class="swiper-wrapper la-courses__featured-wrapper ">
                                                                                                         
                                                   @php
@@ -292,7 +292,7 @@
                                                    
                                                     
                                                     <div class="swiper-slide la-courses__featured-slide la-anim__stagger-item">
-                                                      <x-course 
+                                                      <x-bundle-course 
                                                         :id="$course->id"
                                                         :img="$course->preview_image"
                                                         :course="$course->title"
@@ -316,7 +316,7 @@
                                         
                                               <div class="mb-3 mb-md-8 la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
                                                 <div class="la-empty__inner text-center">
-                                                    <h6 class="la-empty__course-title la-anim__stagger-item">No Featured Classes available currently.</h6>
+                                                    <h6 class="la-empty__course-title la-anim__stagger-item">No Featured Courses available currently.</h6>
                                                 </div>
                                               </div>
                                             
@@ -334,7 +334,7 @@
                                       <!-- ==== Featured Courses: End  ====== -->
                                       
                                       <div class="la-courses__other la-section__small">
-                                        <h5 class="la-courses__featured-title mb-5 mb-lg-8 la-anim__fade-in-top">Other Classes</h5>
+                                        <h5 class="la-courses__featured-title mb-5 mb-lg-8 la-anim__fade-in-top">Other Courses</h5>
                                         <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item la-anim__C">
                                           @php
                                             
@@ -343,7 +343,7 @@
                                           @endphp
                                           @foreach($merged as $course)
                                           
-                                            <x-course 
+                                            <x-bundle-course 
                                                 :id="$course->id"
                                                 :img="$course->preview_image"
                                                 :course="$course->title"
@@ -366,7 +366,7 @@
 
                                           <div class=" my-3 my-md-8  la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
                                             <div class="la-empty__inner">
-                                                <h6 class="la-empty__course-title la-anim__stagger-item">No Classes available Here.</h6>
+                                                <h6 class="la-empty__course-title la-anim__stagger-item">No Courses available Here.</h6>
                                             </div>
                                           </div>
                                           

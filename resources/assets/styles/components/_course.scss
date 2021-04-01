@@ -134,6 +134,17 @@
                             @include respond-above(sm){
                                 padding-top:var(--size-6);
                             }
+
+                            &--{
+                                &courses{
+                                    padding:var(--size-12) 0 var(--size-18) 0;
+                                }
+                                &title{
+                                    font-size:var(--text-xl);
+                                    color:var(--gray3);
+                                    padding-left:85px;
+                                }
+                            }
                         }
                         &item {
                             margin-right: var(--size-14);
@@ -273,6 +284,9 @@
                             height:470px;
 
                             .la-lclass__card{
+                                padding:0;
+                            }
+                            .la-lcourse__card{
                                 padding:0;
                             }
                         }

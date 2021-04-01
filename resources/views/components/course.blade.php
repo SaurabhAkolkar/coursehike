@@ -1,5 +1,5 @@
 
-<!--  New Version Course Card -->
+<!--  New Version Class Card -->
 <div class="col-12 la-lclass__card" @if($checkWishList) id="course_{{$id}}" @endif>
     <div class="la-lclass position-relative">
         <div class="la-lclass__inner">
@@ -164,6 +164,5 @@
         </div>
     </div>
 </div>
-
 
 
