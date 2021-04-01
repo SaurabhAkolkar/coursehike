@@ -108,6 +108,25 @@ class InstructorRevenueController extends Controller
             if(!$UserSubscribedLastMonth && !$UserSubscribedYearly)
                 continue;
 
+            $user_paid = 39;
+
+            if($UserSubscribedLastMonth){
+                $user_paid = $UserSubscribedLastMonth->invoice_paid;
+                if($UserSubscribedLastMonth->invoice_currency == 'INR')
+                    $user_paid /= 75; //Convert to USD
+            }else{
+                $d1 = new DateTime($UserSubscribedYearly->start_date, new DateTimeZone('Asia/Calcutta'));
+                $d2 = new DateTime($UserSubscribedYearly->end_date, new DateTimeZone('Asia/Calcutta'));
+                $diffInMonths = ($d2->diff($d1))->m;
+
+                if($diffInMonths < 1)
+                    continue;
+
+                $user_paid = ($UserSubscribedYearly->invoice_paid / $diffInMonths );
+                if($UserSubscribedYearly->invoice_currency == 'INR')
+                    $user_paid /= 75; //Convert to USD
+            }
+
             $totalWatchtime = 0;
             $creatorCourseWatchtime = 0;
             foreach($watch_course as $course_id => $watched_course){
@@ -119,24 +138,7 @@ class InstructorRevenueController extends Controller
             }
             $creator_watch_share = ($creatorCourseWatchtime * 100) / $totalWatchtime;
 
-            $creatorPoolShare = InstructorRevenueController::$REVENUE_POOL * ($creator_watch_share / 100) ;
-
-            $user_paid = 39;
-
-            if($UserSubscribedLastMonth){
-                $user_paid = $UserSubscribedLastMonth->invoice_paid;
-                if($UserSubscribedLastMonth->invoice_currency == 'INR')
-                    $user_paid /= 75; //Convert to USD
-            }else{
-                $d1 = new DateTime($UserSubscribedYearly->start_date, new DateTimeZone('Asia/Calcutta'));
-                $d2 = new DateTime($UserSubscribedYearly->end_date, new DateTimeZone('Asia/Calcutta'));
-                $diffInMonths = ($d2->diff($d1))->m;
-                dd($UserSubscribedYearly, $UserSubscribedYearly->start_date, $UserSubscribedYearly->end_date, $diffInMonths);
-                
-                $user_paid = ($UserSubscribedYearly->invoice_paid / $diffInMonths );
-                if($UserSubscribedYearly->invoice_currency == 'INR')
-                    $user_paid /= 75; //Convert to USD
-            }
+            $creatorPoolShare = InstructorRevenueController::$REVENUE_POOL * ($creator_watch_share / 100);
 
             $creator_per_income = $user_paid * ($creatorPoolShare / 100);
 
