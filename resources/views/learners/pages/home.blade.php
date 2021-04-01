@@ -348,6 +348,7 @@
 
                           @if(count($courses) != 0)
                           <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-start">
+
                             <div class="la-slider__navigations la-home__course-navigations d-md-flex  align-items-center">
                               <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div> -->
                               <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>

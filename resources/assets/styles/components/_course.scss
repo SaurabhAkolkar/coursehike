@@ -272,7 +272,7 @@
                             width:320px;
                             height:470px;
 
-                            .la-lcourse__card{
+                            .la-lclass__card{
                                 padding:0;
                             }
                         }
@@ -285,11 +285,11 @@
         }
 
         &__ {
-            &inner {
+            /* &inner {
                 width:100%;
                 position: relative;
                 transition:all 0.25s ease;-webkit-transition:all 0.25s ease;-moz-transition:all 0.25s ease;
-                // height: var(--courseH);
+                height: var(--courseH);
 
                 &:hover>#{$ap}-course__imgwrap img {
                     transform: scale(1.05);-webkit-transform: scale(1.05);-moz-transform: scale(1.05);
@@ -391,10 +391,10 @@
                 width: 100%;
                 height: 100%;
                 padding: var(--size-3);
-                background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%); /* FF3.6-15 */
-                background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
-                background: radial-gradient(ellipse at center,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#80000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+                background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%); 
+                background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%); 
+                background: radial-gradient(ellipse at center,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%); 
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#80000000',GradientType=1 ); 
                 z-index: var(--z-10);
                 transition:all 0.25 ease;-webkit-transition:all 0.25 ease;-moz-transition:all 0.25 ease;
                 border-radius: var(--size-2);-webkit-border-radius: var(--size-2);-moz-border-radius: var(--size-2);
@@ -513,9 +513,9 @@
                 font-size: var(--text-xs);
                 letter-spacing: 1.05px;
                 color: var(--white);
-                //align-self: flex-end;
+                align-self: flex-end;
                
-                /*&:after{
+                &:after{
                     position:absolute;
                     content:'';
                     right:45px;
@@ -524,7 +524,7 @@
                     height:1px;
                     border-top:1px solid orange;
                     transform:rotate(30deg);
-                } */
+                } 
             }
             &btm {
                 padding: var(--size-3) var(--size-2);
@@ -542,9 +542,6 @@
                 &:hover{
                     color:var(--app-indigo-1);
                 }
-            }
-            &rating {
-
             }
             &creator {
                 
@@ -578,7 +575,7 @@
                         }
                     }
                 }
-            }
+            } */
 
             &progress {
                 position: absolute;
@@ -713,7 +710,6 @@
             }
             > .la-courses__content{
                 width:75%;
-                //margin-left:var(--size-10);
             }
           
             .la-courses__nav-title{
