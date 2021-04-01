@@ -283,18 +283,19 @@ $course_id = $course->id;
               <div class="col-lg-11 px-0">
                 <div class="la-ctabs__about-section la-anim__wrap">
                   <div class="la-ctabs__about la-anim__stagger-item">
-                    <p>{!! $course->short_detail !!}</p>
-                    <span class="la-ctabs__about-collapse collapse" id="about_collapse">
+                    <div>{!! $course->short_detail !!}</div>
+                    <div>{!! $course->detail  !!}</div>
+                    {{--<div class="la-ctabs__about-collapse collapse" id="about_collapse">
                       {!! $course->detail  !!}
-                    </span>
+                    </div> --}}
                     
                   </div>
                   
-                  <div class="la-vcourse__btn-wrap text-right mt-3 la-anim__stagger-item pr-1 pr-lg-4">
+                  {{-- <div class="la-vcourse__btn-wrap text-right mt-3 la-anim__stagger-item pr-1 pr-lg-4">
                     <a class="la-btn__arrow-down la-vcourse__btn-collapse d-inline-block text-center collapsed" data-toggle="collapse" href="#about_collapse">
                       <div class="la-vcourse__btn-text la-btn__text la-btn__text--purple pt-4">Read More</div>
                     </a>
-                  </div>
+                  </div> --}}
                 </div>
               </div>
             </div>

@@ -334,7 +334,7 @@
                                       <!-- ==== Featured Courses: End  ====== -->
                                       
                                       <div class="la-courses__other la-section__small">
-                                        <h5 class="la-courses__featured-title mb-5 mb-lg-8 la-anim__fade-in-top">Other Courses</h5>
+                                        <h5 class="la-courses__featured-title mb-5 mb-lg-8 la-anim__fade-in-top">Other Classes</h5>
                                         <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item la-anim__C">
                                           @php
                                             

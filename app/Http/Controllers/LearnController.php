@@ -136,7 +136,8 @@ class LearnController extends Controller
                 $course = UserPurchasedCourse::where('user_id', Auth::User()->id)->where('course_id', $class_video->course_id)->first();
                 
                 if($course){
-                    $have_purchased = ($course->purchase_type == 'all_classes') ? true : in_array((int)$video_id, json_decode($course->class_id));
+                    $have_purchased = true;
+                    // $have_purchased = ($course->purchase_type == 'all_classes') ? true : in_array((int)$video_id, json_decode($course->class_id));
                 }else
                     $have_purchased = false;
             }

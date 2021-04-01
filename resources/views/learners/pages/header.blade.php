@@ -347,7 +347,7 @@ use App\Announcement;
           </div>
 
           <div class="d-none d-md-block position-relative la-header__menu-item">
-            <a href="tel:+91 8779056596" title="+91 8779056596"><span class="la-icon la-icon--lg icon-contact-number"></span></a>
+            <a href="tel:+91 9833442708" title="+91 9833442708"><span class="la-icon la-icon--lg icon-contact-number"></span></a>
           </div>
 
           <div class="d-none d-lg-inline-block la-header__menu-item">

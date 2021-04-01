@@ -59,7 +59,7 @@
                               <div class="la-status__info-btm">
                                   <div class="la-status__info-moto">Start learning from the best mentors across the globe!</div>
                                   <div class="la-status__info-browse">
-                                      <a href="/my-courses" class="btn btn--primary la-btn__app text-white text-uppercase la-status__info-cta py-3" role="button">Browse Your Courses</a>
+                                      <a href="/my-courses" class="btn btn--primary la-btn__app text-uppercase la-status__info-cta py-3" role="button">Browse Your Courses</a>
                                   </div>
                               </div>
                           </div>
