@@ -634,8 +634,9 @@ class CartController extends Controller
 			// 	$message = $e->getMessage();
 			// 	$session_obj['customer_email'] = Auth::user()->email;
 			// }
-		}else
-			$session_obj['customer_email'] = Auth::user()->email;        
+		}
+        // else
+		// 	$session_obj['customer_email'] = Auth::user()->email;        
         
 		$checkout_session = $this->stripe->checkout()->sessions()->create($session_obj);
 
@@ -698,8 +699,8 @@ class CartController extends Controller
                     $cart->delete();
                 });
                 
-				$user->stripe_id = $checkout_session['customer'];
-				$user->save();
+				// $user->stripe_id = $checkout_session['customer'];
+				// $user->save();
     
                 return view('learners.messages.charge-successful', compact('invoice'));
             }

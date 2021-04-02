@@ -78,18 +78,19 @@ class InvoicePaymentSucceededJob implements ShouldQueue
                 
             // if($user->subscription()->ended()){
                 // Create Invoice Record
-                UserSubscriptionInvoice::create([
-                    'user_id' => $user->id,
-                    'subscription_id' => $user->subscription()->id,
-                    'stripe_subscription_id' => $subscription['id'],
-                    'start_date' => Carbon::createFromTimestamp($subscription_start)->toDateTimeString(),
-                    'end_date' => Carbon::createFromTimestamp($subscription_end)->toDateTimeString(),
-                    'stripe_invoice_id' => $invoice['id'],
-                    'invoice_charge_id' => $invoice_charge,
-                    'payment_intent_id' => $payment_intent_id,
-                    'invoice_paid' => $invoice_amount_paid,
-                    'status' => $invoice_status,
-                ]);
+                if($invoice_amount_paid > 0)
+                    UserSubscriptionInvoice::create([
+                        'user_id' => $user->id,
+                        'subscription_id' => $user->subscription()->id,
+                        'stripe_subscription_id' => $subscription['id'],
+                        'start_date' => Carbon::createFromTimestamp($subscription_start)->toDateTimeString(),
+                        'end_date' => Carbon::createFromTimestamp($subscription_end)->toDateTimeString(),
+                        'stripe_invoice_id' => $invoice['id'],
+                        'invoice_charge_id' => $invoice_charge,
+                        'payment_intent_id' => $payment_intent_id,
+                        'invoice_paid' => $invoice_amount_paid,
+                        'status' => $invoice_status,
+                    ]);
 
                 $plan_price_id = [
 					config('rinvex.subscriptions.stripe_global_monthly') => 'monthly-global',
