@@ -129,6 +129,8 @@ $(function(){
     var course_swiper = new Swiper(".la-home__course-container", {
       slidesPerView: 'auto',
       spaceBetween: 20,
+      observer: true,
+      observeParents: true,
       flipEffect: {
         slideShadows: false,
       },
@@ -171,6 +173,8 @@ $(function(){
     var course_swiper2 = new Swiper(".la-home__course-container2", {
       slidesPerView: 'auto',
       spaceBetween: 20,
+      observer: true,
+      observeParents: true,
       flipEffect: {
         slideShadows: false,
       },
@@ -187,16 +191,16 @@ $(function(){
   }
 
     $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
-      var paneTarget2 = $(e.target).attr('href');
-      var $thePane2 = $('.tab-pane' + paneTarget2);
-      var paneIndex2 = $thePane2.index();
-      if ($thePane2.find('.la-home__course-container2').length > 0 && 0 === $thePane2.find('.swiper-slide-active').length) {
+      var paneTarget = $(e.target).attr('href');
+      var $thePane = $('.tab-pane' + paneTarget);
+      var paneIndex = $thePane.index();
+      if ($thePane.find('.la-home__course-container2').length > 0 && 0 === $thePane.find('.swiper-slide-active').length) {
         
-        course_swiper2[paneIndex2].update();
+        course_swiper2[paneIndex].update();
 
-        var course_slider_pagination2 = course_swiper2[paneIndex2].pagination.el;
-        var course_slider_pagination_width2 = $(course_slider_pagination2).width() + 30;
-        $(course_slider_pagination2).css("width", course_slider_pagination_width2);
+        var course_slider_pagination = course_swiper2[paneIndex].pagination.el;
+        var course_slider_pagination_width = $(course_slider_pagination).width() + 30;
+        $(course_slider_pagination).css("width", course_slider_pagination_width);
       }
     }); 
     

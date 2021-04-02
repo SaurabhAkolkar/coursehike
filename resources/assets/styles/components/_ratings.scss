@@ -1,6 +1,11 @@
 #{$ap}- {
     &rtng{
         &__{
+            &container{
+                @include respond-above(lg){
+                    padding-right:0 !important;
+                }
+            }
             &item{
                 margin:var(--size-12) 0;
 
@@ -34,10 +39,17 @@
                 padding-left:var(--size-6);
             }
             &progress{
-                width:230px;
+                width:200px;
                 height:15px;
                 border-radius:10px;
                 margin-bottom:var(--size-2);
+
+                @include respond-below(lg){
+                    width:110px;
+                }
+                @include respond-below(md){
+                    width:200px;
+                }
             }
             &progress-bar{
                 background-color:#1EC812;
@@ -59,6 +71,8 @@
 
                 &-{
                     &popup{
+                        margin:var(--size-10) var(--size-20) var(--size-10) 0;
+
                         @include respond-below(sm){
                             margin:var(--size-4) 0;
                         }
@@ -135,9 +149,6 @@
                     padding-bottom:var(--size-6);
                     padding-left:0;
                     padding-right:0;
-                }
-                &progress{
-                    width:150px;
                 }
             }
         }

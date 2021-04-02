@@ -57,13 +57,15 @@ $course_id = $course->id;
   :playlists="$playlists"
 />
 
-<section class="la-section__small">
-    <div class="la-vcourse">
+  <!-- Section: Start -->
+  <section class="la-vcourse__section la-section"  style="background:linear-gradient(45deg, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.48)), url('http://127.0.0.1:8000/images/learners/home/course-bg.png') no-repeat center rgba(0, 0, 0, 0.8); background-size:cover;">
+    <div class="la-vcourse la-vcourse__inner">
       <div class="container-fluid">
         <div class="d-flex flex-wrap mb-12 la-anim__wrap"> 
           <div class="la-vcourse__intro-left">
-            <div class="la-vcourse__header d-flex align-items-center ">
-              <h1 class="la-vcourse__title  text-capitalize la-anim__fade-in-top">{{ $course->title }}</h1>
+            <div class="la-vcourse__header d-flex flex-column align-items-start">
+              <h6 class="la-vcourse__tag  text-white text-uppercase la-anim__fade-in-top">Course</h6>
+              <h1 class="la-vcourse__title text-white text-capitalize leading-none la-anim__fade-in-top">{{ $course->title }}</h1>
               {{-- <div class="la-vcourse__badges la-anim__stagger-item">
                 <img src="/images/learners/icons/badge.svg" alt="badge">
               </div> --}}
@@ -77,22 +79,31 @@ $course_id = $course->id;
               @for($counter=1;$counter <= 5-round($average_rating); $counter++)
                   <div class="la-icon la-icon--2xl icon-star la-rtng__unfill"> </div>
               @endfor                      
-              
-            </div>
-            <p class="la-vcourse__excerpt mb-5 la-anim__stagger-item">{{ $course->short_detail }}</p>
-            <div class="la-vcourse__creator d-flex align-items-center la-anim__stagger-item">
-              <div class="la-vcourse__creator-avator la-anim__fade-in-left"><img src="{{ $course->user->user_img }}" class="img-fluid" alt=""></div>
-              <div class="la-vcourse__creator-name text-capitalize la-anim__stagger-item--x">{{ $course->user->fname }}</div>
             </div>
 
-            <div class="la-vcourse__primary-info d-flex mt-5">
-                <div class="la-vcourse__classes-info pr-2 la-anim__stagger-item--x">
-                  <span class="la--count">{{ $course->chapter->count() }}</span>
-                  <span class="la--label">Chapters</span>
+            <p class="la-vcourse__excerpt mb-5  text-white la-anim__stagger-item">{{ $course->short_detail }}</p>
+            
+            <div class="la-vcourse__creator-group position-relative w-100 d-flex align-items-center la-anim__stagger-item">
+              <div class="la-vcourse__creator-group--avator position-relative d-inline-flex la-anim__fade-in-left">
+                <img src="{{ $course->user->user_img }}" alt="" class="img-fluid la-vcourse__creator-group--img1 position-absolute">
+                <img src="{{ $course->user->user_img }}" alt="" class="img-fluid la-vcourse__creator-group--img2 position-absolute">
+                <img src="{{ $course->user->user_img }}" alt="" class="img-fluid la-vcourse__creator-group--img3 position-absolute">
+              </div>
+
+              <div class="la-vcourse__creator-group--name text-white leading-tight text-capitalize la-anim__stagger-item--x">
+                  <h6>{{ $course->user->fname }}</h6>
+                  <div class="text-xs" style="font-weight:var(--font-light)">+3 Mentors</div>
+              </div>
+            </div>
+
+            <div class="la-vcourse__primary-info d-inline-flex align-items-center mt-6">
+                <div class="la-vcourse__classes-info pr-3 la-anim__stagger-item--x">
+                  <span class="la--count2">{{ $course->chapter->count() }}</span>
+                  <span class="la--label2">Classes</span>
                 </div>
-                <div class="la-vcourse__videos-info pl-2 la-anim__stagger-item--x">
-                  <span class="la--count">{{ $course->courseclass->count() }}</span>
-                  <span class="la--label">Videos</span>
+                <div class="la-vcourse__videos-info pl-3 la-anim__stagger-item--x">
+                  <span class="la--count2">{{ $course->courseclass->count() }}</span>
+                  <span class="la--label2">Videos</span>
                   @php
                       $startTime = \Carbon\Carbon::parse('2020-12-05T01:18:36.862+00:30');
                       $finishTime = \Carbon\Carbon::parse('2020-12-05T01:18:36.862+1:30');
@@ -101,72 +112,24 @@ $course_id = $course->id;
                       
                   @endphp
                 </div>
-              </div>
-
-            <div class="row la-anim__wrap mt-3">
-              <div class="col">
-                <ul class="list-unstyled d-block d-lg-flex ">
-                  <li class="la-vcourse__duration mr-14 la-anim__stagger-item"><span class="la-text-gray4">Duration: </span>  <span class="font-normal">{{ $course->duration }} Hrs</span></li>
-                  <li class="la-vcourse__updatedon mr-14 la-anim__stagger-item"><span class="la-text-gray4">Last Updated: </span>  <span class="font-normal">{{ $course->updated_at->format('d-M Y') }}</span></li>
-                  <li class="la-vcourse__languages mr-14 la-anim__stagger-item"> <span class="la-text-gray4">Languages: </span> <span class="font-normal"> {{$course->language->name}}</span> </li>
-                </ul>
-              </div>
             </div>
-          </div>
-          
-          <div class="la-vcourse__intro-right pt-10 d-flex flex-column justify-content-start justify-content-lg-between align-items-center align-items-md-end la-anim__wrap">
-            
-              <div class="la-vcourse__buy w-100 d-md-flex flex-wrap align-items-start justify-content-lg-end text-lg-right mb-1 mb-md-6 la-anim__stagger-item--x">
-                @if ( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription()) || (auth()->check() && !Auth::User()->subscription()->active())  ) )
-                  <div class="la-vcourse__buy-btn text-center">
-                    <form class="la-vcourse__purchase-form" id="add_to_cart_form_1" name="add_to_cart_form" method="post" action="/add-to-cart">
-                      <input type="hidden" name="course_id" value="{{$course->id}}" />
-                      <input type="hidden" value="all-classes" name="classes" />
-                      @csrf
-                      <a class="la-vcourse__buy-course btn btn-primary la-btn la-btn--primary color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" @if(Auth::check()) onclick="$('#add_to_cart_form_1').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>Buy this Class</a><br/>
-                      <span class="text-grey">@ {{ getSymbol() }}{{$course->convertedprice}}</span>
-                    </form>
-                  </div>
 
-                  <div class="la-vcourse__buy-btn text-center">
-                    <a class="la-vcourse__buy-course btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end mb-2 active" href="/learning-plans">Subscribe for Free</a><br/>
-                    <span class="text-grey">Access all Classes</span>
-                  </div>
-                @endif
-              </div>
-
-              <div class="w-100 d-md-flex flex-column flex-lg-row flex-wrap justify-content-lg-end">
-                @if(auth()->check())
-                  <div class="la-vcourse__buy-progress text-center la-anim__stagger-item--x  mb-6 mb-md-0">
-                    <div class="la-vcourse__buy-complete mt-5 mb-1 w-100 text-center text-md-left">
-                      <span class="pr-2" style="color:var(--green)">{{$course->getProgress()}}%</span> <span style="color:var(--gray8)"> Completed</span>
-                    </div>
-                    <div class="progress la-rtng__progress w-100"> 
-                      <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$course->getProgress()}}%" aria-valuenow="{{$course->getProgress()}}" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                @endif
-
-                <div class="la-vcourse__info-items d-flex align-items-center  justify-content-center justify-content-md-start justify-content-lg-end la-anim__stagger-item--x">
-                  <div class="la-vcourse__info-item la-vcourse__info--videos d-flex flex-column align-items-center justify-content-end">
-                    <div class="la--count ">{{ $course->courseclass->count() }}</div>
-                    <span class="la--label mt-2">Videos</span>
-                  </div>
-                  <div class="la-vcourse__info-item la-vcourse__info--learners d-flex flex-column align-items-center justify-content-end mx-10">
-                    <div class="la--count">{{$course->learnerCount}}</div>
-                    <span class="la--label mt-2">Learners</span>
-                  </div>
-                  <div class="la-vcourse__info-item la-vcourse__info--level d-flex flex-column align-items-center justify-content-end">
+            <div class="la-vcourse__info-items mt-8 d-flex align-items-center justify-content-start la-anim__stagger-item--x">
+                <div class="la-vcourse__info-item la-vcourse__info--learners d-flex flex-column align-items-center mr-6">
+                    <div class="la--count text-white">{{$course->learnerCount}}</div>
+                    <span class="la--label2 mt-2">Learners</span>
+                </div>
+                <div class="la-vcourse__info-item la-vcourse__info--level d-flex flex-column align-items-center">
                     <div class="la--icon mt-n3 la-anim__stagger-item--x">
                       @if($course->level == 1)
-                        <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-beginner"></span>
+                        <span class="la-vcourse__info-icon text-white la-icon la-icon--5xl icon-beginner"></span>
                       @elseif($course->level == 2)
-                      <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-intermediate"></span>
+                      <span class="la-vcourse__info-icon text-white la-icon la-icon--5xl icon-intermediate"></span>
                       @else
-                      <span class="la-vcourse__info-icon la-icon la-icon--6xl icon-advanced"></span>
+                      <span class="la-vcourse__info-icon text-white la-icon la-icon--5xl icon-advanced"></span>
                       @endif
                     </div>
-                    <div class="la--label mt-n2 la-anim__stagger-item--x">
+                    <div class="la--label2 mt-n2 la-anim__stagger-item--x">
                       @if($course->level == 1)
                         Beginner
                       @elseif($course->level == 2)
@@ -174,95 +137,82 @@ $course_id = $course->id;
                       @else
                         Advanced
                       @endif
-                    </div>
                   </div>
                 </div>
-              </div>
-
-          </div>
-        </div>
-
-        <div id="vcourse_row" class="la-vcourse__class-row d-flex flex-wrap la-anim__wrap">
-          <div class="la-vcourse__class-col la-vcourse__class-col--video px-md-4 la-anim__stagger-item">
-            <div class="la-player la-vcourse__video-wrap mb-3">
-              
-                <video-js
-                  id="lila-video"
-                  class="la-vcourse__video video-js"
-                  controls
-                  preload="auto"
-                  width="100%"
-                  height="100%"
-                  poster="{{ $course->preview_image }}"
-                  data-setup="{}"
-                  type="application/x-mpegURL" 
-                >
-                  <source src="{{ $course->getSignedStreamURL()}}" type="application/x-mpegURL" />
-                  <p class="vjs-no-js"></p>
-                </video-js>
-              
             </div>
-            <h2 class="la-vlesson__title m-0  text-capitalize la-anim__stagger-item">{{ $course->title}} - Class Preview</h2>
-            <small class="la-vlesson__creator text-capitalize la-anim__stagger-item">{{ $course->user->fname }}</small>
           </div>
-
-          <div class="la-vcourse__class-col la-vcourse__class-col--video-list px-0 px-md-2 la-anim__stagger-item--x">
-            <div class="la-vcourse__curriculam ">
-              @foreach($course->chapter as $class)
-              <div class="la-vcourse__class la-anim__stagger-item">
-                <div class="la-vcourse__class-header d-flex mb-7 ml-5 ">
-                  <div class="la-vcourse__class-thumb mr-3"><img class="img-fluid" src="{{$class->thumbnail}}"></div>
-                  <div class="d-flex flex-column">
-                    <div class="la-vcourse__class-title leading-snug text-lg text-md-xl mb-1">{{$class->chapter_name}}</div><small class="la-vcourse__class-videoscount">{{$class->courseclass->count()}} Videos</small>
+          
+          <div class="la-vcourse__intro-right pt-10 d-flex flex-column justify-content-start justify-content-lg-between align-items-center align-items-md-end la-anim__wrap">
+              <div class="la-vcourse__buy w-100 d-md-flex flex-wrap align-items-start justify-content-lg-end text-lg-right mb-1 mb-md-6 la-anim__stagger-item--x">
+                @if ( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription()) || (auth()->check() && !Auth::User()->subscription()->active())  ) )
+                  <div class="la-vcourse__buy-btn text-center">
+                    <form class="la-vcourse__purchase-form" id="add_to_cart_form_1" name="add_to_cart_form" method="post" action="/add-to-cart">
+                      <input type="hidden" name="course_id" value="{{$course->id}}" />
+                      <input type="hidden" value="all-classes" name="classes" />
+                      @csrf
+                      <a class="la-vcourse__buy-course btn btn-primary la-btn la-btn--app text-white color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" @if(Auth::check()) onclick="$('#add_to_cart_form_1').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>Buy this Class</a><br/>
+                      <span class="text-white">@ {{ getSymbol() }}{{$course->convertedprice}}</span>
+                    </form>
                   </div>
-                </div>
 
-                <div class="la-vcourse__lessons">
-
-                  @foreach ($class->courseclass as $class_video)
-                    @php
-                      // $lesson_access = $class_video->is_preview == '1' ? 'free' : ($video_access ? 'free' : 'locked');  
-                      if($class_video->is_preview == '1')       
-                        $lesson_access = 'free';
-                      else{
-                        if($video_access == true || (is_array($class_access) && in_array($class_video->id, $class_access)) || $class_access === 1)
-                          $lesson_access = 'free';
-                        else 
-                          $lesson_access = 'locked';
-                      }
-                      
-                
-                    @endphp
-
-
-                    
-                    <x-class-video
-                      :id="$class_video->id"
-                      :title="$class_video->title"
-                      :thumbnail="$class_video->image"
-                      :detail="$class_video->detail"
-                      :author="$class_video->courses->user->fname"
-                      :watchduration="$class_video->duration"
-                      :statuspercentage="$class_video->getProgress()"
-                      :access="$lesson_access"
-                    />
-                  @endforeach
-                </div>
+                  <div class="la-vcourse__buy-btn text-center">
+                    <a class="la-vcourse__buy-course btn btn-primary la-btn la-btn--primary text-white d-lg-inline-flex justify-content-end mb-2 active" href="/learning-plans">Subscribe for Free</a><br/>
+                    <span class="text-white">Access all Courses & Classes</span>
+                  </div>
+                @endif
               </div>
-              @endforeach
-            </div>
-            <div class="la-vcourse__btn-wrap text-center mt-3 la-anim__wrap">
-              <div id="vcourseFullView" class="la-btn__arrow-down la-vcourse__btn d-inline-block la-anim__stagger-item">
-                <span class="icon-down-arrow la-btn__icon la-btn__icon--grey"></span>
-                <div class="la-btn__text la-btn__text--purple">See the list</div>
-              </div>
-            </div>
           </div>
-        </div>
+        </div>       
       </div>
     </div>
   </section>
   <!-- Section: End-->
+
+  <!-- Section Course Cards : Start -->
+  <section class="la-section--grey la-section__small">
+    <div class="la-section__inner">
+      <div class="container-fluid la-anim__wrap">
+        @if(count($mentor_other_courses) == 0)
+               <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6 la-anim__stagger-item">
+                    <div class="col la-empty__inner">
+                        <h6 class="la-empty__course-title text-xl la-anim__stagger-item">No more Courses from this Mentor</h6>
+                    </div>
+                    <div class="col text-md-right la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
+                        <a href="/browse/courses" class="la-empty__browse">
+                            Browse Classes
+                            <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                        </a>
+                    </div>
+                </div>         
+            @else
+
+            <div class="la-vcourse__course-cards row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item la-anim__B">
+              @foreach ($mentor_other_courses as $mentor_other_course)
+                    <x-course 
+                    :id="$mentor_other_course->id"
+                    :img="$mentor_other_course->preview_image"
+                    :course="$mentor_other_course->title"
+                    :url="$mentor_other_course->slug"
+                    :rating="round($mentor_other_course->average_rating, 2)"
+                    :creatorImg="$mentor_other_course->user->user_img"
+                    :creatorName="$mentor_other_course->user->fname"
+                    :creatorUrl="$mentor_other_course->user->id"
+                    :learnerCount="$mentor_other_course->learnerCount"
+                    :price="$mentor_other_course->price"
+                    :bought="$mentor_other_course->isPurchased()"
+                    :checkWishList="$course->checkWishList"
+                    :checkCart="$course->checkCart"
+
+                  />
+              @endforeach
+            </div>
+
+            @endif
+      </div>
+    </div>
+  </section>
+  <!-- Section Course Cards : End -->
+
   <!-- Section: Start-->
   <section class="la-section__small">
     <div class="la-section__inner">
@@ -270,7 +220,7 @@ $course_id = $course->id;
         <div class="la-ctabs d-none d-sm-block la-anim__wrap">
           <nav class="la-courses__nav la-anim__stagger-item--x">
             <ul class="nav nav-pills la-courses__nav-tabs " id="cnav-tab" role="tablist">
-              <li class="nav-item la-courses__nav-item "><a class="nav-link la-courses__nav-link active text-capitalize" id="cnav-about-tab" data-toggle="tab" href="#cnav-about" role="tab" aria-controls="cnav-about" aria-selected="true">About</a></li>
+              <li class="nav-item la-courses__nav-item "><a class="nav-link la-courses__nav-link active text-capitalize" id="cnav-about-tab" data-toggle="tab" href="#cnav-about" role="tab" aria-controls="cnav-about" aria-selected="true">About this Course</a></li>
               @if($video_access == true)
                 <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link text-capitalize" id="cnav-resource-tab" data-toggle="tab" href="#cnav-resource" role="tab" aria-controls="cnav-resource" aria-selected="false">Resources</a></li>
                 {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link text-capitalize" id="cnav-certificate-tab" data-toggle="tab" href="#cnav-certificate" role="tab" aria-controls="cnav-certificate" aria-selected="false">Certificate</a></li> --}}
@@ -306,7 +256,7 @@ $course_id = $course->id;
                   @if(count($course->resources) == 0)
                       <div class=" la-anim__wrap text-center">
                           <div class="la-empty__inner la-anim__stagger-item">
-                              <h6 class="la-empty__course-title text-2xl" style="color:var(--gray8);">No Resources available for this Class.</h6>
+                              <h6 class="la-empty__course-title text-2xl" style="color:var(--gray8);">No Resources available for this Course.</h6>
                             </div>
                       </div>
                   @else
@@ -348,8 +298,8 @@ $course_id = $course->id;
         <div class="la-ctabs d-block d-sm-none">
           <div class="la-ctabs__content la-anim__wrap">
             <!-- About -->
-            <div class="col-12 mb-6 px-0 ">
-              <h5 class="la-ctabs__title mb-4 la-anim__stagger-item">About</h5>
+            <div class="col-12 mb-6 px-0">
+              <h5 class="la-ctabs__title mb-4 la-anim__stagger-item">About this Course</h5>
                 <div class="col-12 col-lg px-0">
                   <div class="la-ctabs__about la-anim__stagger-item--x">
                     {!! $course->short_detail !!}
@@ -374,7 +324,7 @@ $course_id = $course->id;
               @if(count($course->resources) == 0)
                   <div class=" la-anim__wrap text-center pt-4 pb-10">
                     <div class="la-empty__inner la-anim__stagger-item">
-                      <h6 class="la-empty__course-title text-xl" style="color:var(--gray8);">No Resources available for this Class.</h6>
+                      <h6 class="la-empty__course-title text-xl" style="color:var(--gray8);">No Resources available for this Course.</h6>
                       </div>
                   </div>
               @else
@@ -414,6 +364,7 @@ $course_id = $course->id;
     </div>
   </section>
   <!-- Section: End-->
+
   <!-- Section: Start-->
   <section class="la-section__small ">
     <div class="la-section__inner">
@@ -421,7 +372,7 @@ $course_id = $course->id;
           <div class="row">
             <div class="col">
               <div class="la-lp__benefits la-anim__wrap">
-                <h3 class="la-section__title mb-5 mb-md-8 text-2xl text-md-4xl la-anim__fade-in-bottom">Class Benefits</h3>
+                <h3 class="la-section__title mb-5 mb-md-8 text-2xl text-md-3xl la-anim__fade-in-bottom">Course Benefits</h3>
 
                 <div class="la-cbenefits d-flex my-1 my-md-8">
                   <div class="row text-center">
@@ -460,148 +411,50 @@ $course_id = $course->id;
   </section>
   <!-- Section: End-->
 
-  <!-- Section: Start-->
-  @if(!Auth::check() || Auth::check() && $course->price != null && $course->isPurchased() == null)
-
-  <section class="la-section--grey la-vcourse__purchase ">
-    <div class="la-vcourse__purchase-inwrap container-fluid">
-      <div class="row la-vcourse__purchase-row la-anim__wrap">
-        {{-- Purchase Course DIV:Start --}}
-        <div class="col-md-7 col-lg-7 la-vcourse__purchase-left la-anim__stagger-item">
-       
-          <h3 class="la-section__title mb-5 mb-md-8 text-2xl text-md-4xl la-anim__fade-in-bottom">Purchase this Class</h3>
-          
-            <!-- <div class="la-vcourse__purchase-prize mb-4 mb-lg-8 ">Purchase this Course for lifetime access @ <span class="la-vcourse__purchase-prize--amount"><b>{{ getSymbol() }}{{$course->convertedprice}}</b></span></div> -->
-            <form class="la-vcourse__purchase-form" id="add_to_cart_form" name="add_to_cart_form" method="post" action="/add-to-cart">
-              <input type="hidden" name="course_id" value="{{$course->id}}" />
-              <input type="hidden" name="classes" value="all-classes" />
-
-              @csrf
-              {{-- <div class="la-vcourse__purchase-classes">
-                <div class="la-vcourse__purchase-class la-vcourse__purchase-class--all mb-lg-4 la-anim__stagger-item">
-                
-                  <div class="la-form__radio-wrap">
-                    <input class="la-form__radio d-none la-vcourse__purchase-input" @if($order_type == null || $order_type == 'all_classes') checked @endif type="radio" value="all-classes" name="classes" id="allClasses">
-                    <label class="d-flex align-items-center la-vcourse__purchase-label" for="allClasses">
-                      <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
-                      <span class="">All Chapters</span>
-                    </label>
-                  </div>
-                
-                </div>
-                <div class="la-vcourse__purchase-class la-vcourse__purchase-class--select ">
-                  
-                    <div class="la-form__radio-wrap la-anim__stagger-item ">
-                      <input class="la-form__radio d-none la-vcourse__purchase-input" type="radio" value="select-classes" @if($order_type == 'selected_classes') @endif name="classes" id="selectClasses">
-                      <label class="d-flex align-items-center la-vcourse__purchase-label" for="selectClasses">
-                        <span class="la-form__radio-circle la-form__radio-circle--typeB d-flex justify-content-center align-items-center mr-2"></span>
-                        <span class="">Select Chapters</span>
-                      </label>
+  
+  <!--  Section PUrchase : Start -->
+  <section class="la-vcourse__purchase">
+      <div class="container-fluid la-vcourse__purchase-inwrap ">
+          <div class="row ">
+              <div class="col-12 text-center position-relative la-anim__wrap">
+                  <div class="la-vcourse__purchase-content la-section--grey la-section la-anim__stagger-item  position-relative">
+                    <div class="la-title  la-title--purple la-vcourse__purchase-title leading-snug  mb-6 mb-md-14 la-anim__fade-in-top la-anim__A">
+                        <span class="la-title--circle position-relative"></span>
+                        <span class="position-relative">Learn your skills</span>
                     </div>
 
-                  <div class="la-vcourse__purchase-items mt-4 mt-lg-8 la-anim__stagger-item" id="selected_class_div">
-                    <table class="w-100 la-vcourse__classes-wrap">
-                      <tr class="la-vcourse__sclass-item">
-                     
-                        <th class="mb-4 la-vcourse__sclass-heading"></th>
-                        <th class="mb-4 la-vcourse__sclass-heading">Chapter</th>
-                        <th class="mb-4 la-vcourse__sclass-heading">Name</th>
-                        <th class="mb-4 la-vcourse__sclass-heading">Mentor</th>
-                        <th class="mb-4 la-vcourse__sclass-heading">Price</th>
-                      </tr>
-                      @foreach ($course->chapter as $class)
-                      
-                        <tr class="la-vcourse__sclass-item align-top">
-                          <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--checkbox">
-                            <div>
-                              <input id="selectItem_{{$class->id}}" name="selected_classes[]" class="la-form__checkbox-input selected_classes custom-control-input" type="checkbox" value="{{$class->id}}" @if($order_type == 'all_classes') checked @endif checked>
-                              
-                              <label class="" for="selectItem_{{$class->id}}">
-                                <svg viewBox="0 0 16 16" height="16" width="16">
-                                  <g id="Group_5052" data-name="Group 5052" transform="translate(-129 -2108)">
-                                    <g id="Rectangle_3239" data-name="Rectangle 3239" transform="translate(129 2108)" fill="none" stroke="#7400d7" stroke-width="1">
-                                      <rect class="la-form__checkbox-rect" x="0.5" y="0.5" width="15" height="15" fill="none" />
-                                    </g>
-                                  </g>
-                                  <path class="la-form__checkbox-mark" id="Path_17096" data-name="Path 17096" d="M147.263,194.53a.857.857,0,0,0,.56.4.994.994,0,0,0,.171.02.854.854,0,0,0,.5-.161l7.175-5.128a.856.856,0,0,0-1-1.392l-6.419,4.589-1.871-3.1a.856.856,0,1,0-1.467.882Z" transform="matrix(0.985, -0.174, 0.174, 0.985, -173.013, -153.894)" fill="#010101"/>
-                                </svg>
-                              </label>
-                            </div>
-                          </td>
-                          
-                          <td class="la-vcourse__sclass-data la-vcourse__sclass-data--thumbnail">
-                            <img src="{{ $class->thumbnail }}" alt="purchase item" class="img-fluid d-block">
-                          </td>
-                          <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--name">{{$class->chapter_name}}</td>
-                          <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--mentor">{{$course->user->fname}}</td>
-                          <td class="la-vcourse__sclass-data pt-3 la-vcourse__sclass-data--price">{{ getSymbol() }}{{$class->convertedprice}}</td>
-                        </tr>
-                      
-                      @endforeach
-                    </table>
+                    <div class="la-vcourse__buy mx-6 mx-md-1 d-md-flex justify-content-center la-anim__stagger-item la-anim__B">
+                        @if ( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription()) || (auth()->check() && !Auth::User()->subscription()->active())  ) )
+                          <div class="la-vcourse__buy-btn text-center">
+                            <form class="la-vcourse__purchase-form" id="add_to_cart_form_1" name="add_to_cart_form" method="post" action="/add-to-cart">
+                              <input type="hidden" name="course_id" value="{{$course->id}}" />
+                              <input type="hidden" value="all-classes" name="classes" />
+                              @csrf
+                              <a class="la-vcourse__buy-course btn  la-btn la-btn--app color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" @if(Auth::check()) onclick="$('#add_to_cart_form_1').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>Buy this Class</a><br/>
+                              <span style="color:var(--gray7)">@ {{ getSymbol() }}{{$course->convertedprice}}</span>
+                            </form>
+                          </div>
+
+                          <div class="la-vcourse__buy-btn text-center">
+                            <a class="la-vcourse__buy-course btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end mb-2 active" href="/learning-plans">Subscribe for Free</a><br/>
+                            <span style="color:var(--gray7)">Access all Courses & Classes</span>
+                          </div>
+                        @endif
+                    </div>
+
                   </div>
-                </div>
-              </div> --}}
-              <input type="hidden" name="buy_type" id="buy_type" value="add_cart">
-              <div class="la-vcourse__purchase-actions d-flex flex-wrap align-items-center mt-8">
-                <div class="la-vcourse__purchase-btn1 w-50">
-                  <a class="btn btn-primary la-btn w-100 text-center" @if(Auth::check()) onclick="(function(){$('#buy_type').val('buy_now');$('#add_to_cart_form').submit()})()" @else data-toggle="modal" data-target="#locked_login_modal" @endif >Buy Class</a>
-                </div>
-                <div class="la-vcourse__purchase-btn w-50 text-center">
-                  <a class="btn la-btn__plain text--green" @if(Auth::check()) onclick="$('#add_to_cart_form').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>ADD TO CART</a>
-                </div>
               </div>
-            </form>              
-         
-        </div>
-
-        {{-- Purchase course DIV:END --}}
-        
-        @if ( !(auth()->check() && auth()->user()->subscription() && auth()->user()->subscription()->active()) )
-          <div class="col-md-5 col-lg-5 la-vcourse__purchase-right la-anim__wrap d-flex align-items-center justify-content-center">
-            <!-- <div class="la-vcourse__purchase-content text-center la-anim__stagger-item--x">
-              <div class="la-vcourse__purchase-prize mb-8 la-anim__stagger-item--x">Subscribe for all Courses @ <span class="la-vcourse__purchase-prize--amount"><b>{{$subscription_rate}}/month</b></span></div>
-              <p class="la-anim__stagger-item--x">Access all the current and future courses at the tiny monthly subscription payment</p>
-              <div class="la-vcourse__purchase-actions d-inline-block text-center mt-8">
-                <div class="la-vcourse__purchase-btn la-anim__stagger-item--x">
-                  <a class="btn btn-primary la-btn text-center"  href="/learning-plans">Subscribe Now</a>
-                </div>
-
-                <div class="pt-2">
-                  <a href="/learning-plans"  class="la-vcourse__purchase-trial--lnk text-left la-anim__stagger-item--x ">
-                    Get free 7 Days trial
-                  </a>
-                </div>
-              </div>
-            </div> -->
-            <div class="la-vcourse__purchase-content--plain position-relative text-center">
-              <div class="la-title la-title--circle la-title--purple la-vcourse__purchase-title position-relative pb-6 la-anim__fade-in-top">
-                <span class="position-relative">Eager to learn a lot?</span>
-              </div>
-              <div class="la-vcourse__purchase-btn la-anim__stagger-item--x">
-                  <a class="btn btn-primary la-btn text-center active"  href="/learning-plans">Subscribe for Free</a>
-                </div>
-                <div class="pt-2">
-                  <a href="/learning-plans"  class="la-vcourse__purchase-trial--lnk text-left la-anim__stagger-item--x ">
-                    Get access to all Classes
-                  </a>
-                </div>
-            </div>
           </div>
-        @endif
-        
-    </div>
+      </div>
   </section>
-  
- @endif
-  <!-- Section: End-->
+  <!--  Section PUrchase : End -->
 
   <!-- Section: Start-->
   <section class="la-section__small">
     <div class="la-section__inner">
-      <div class="container-fluid">
+      <div class="container-fluid la-rtng__container">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-5">
             <li class="la-rtng__item">
               <div class="la-rtng__inner d-flex flex-column flex-md-row justify-content-between ">
                 <div class=" la-anim__wrap">
@@ -611,15 +464,15 @@ $course_id = $course->id;
                       <div class="la-rtng__total body-font text-5xl">{{$average_rating}}</div>
                       <div class="la-rtng__icons d-inline-flex">
                         @for($counter=1;$counter <= round($average_rating); $counter++)
-                            <div class="la-icon la-icon--2xl icon-star la-rtng__fill"> </div>
+                            <div class="la-icon la-icon--xl icon-star la-rtng__fill"> </div>
                         @endfor
 
                         @for($counter=1;$counter <= 5-round($average_rating); $counter++)
-                            <div class="la-icon la-icon--2xl icon-star la-rtng__unfill"> </div>
+                            <div class="la-icon la-icon--xl icon-star la-rtng__unfill"> </div>
                         @endfor                      
                         
                       </div>
-                      <div class="la-rtng__course body-font text-sm mt-n1 px-3 px-md-0">Class Rating</div>
+                      <div class="la-rtng__course body-font text-sm mt-n1 px-3 px-md-0">Course Rating</div>
                     </div>
                     <div class="la-rtng__indicators la-anim__stagger-item">
                       <div class="la-rtng__bars d-flex flex-row jsutify-content-between">
@@ -691,92 +544,96 @@ $course_id = $course->id;
                   </div>
                 </div>
 
-                <div class="la-rtng__review-popup la-anim__wrap">
-                  <a class="la-rtng__review text-uppercase text-center text-md-right text-nowrap la-anim__stagger-item" onclick="openReview()">Leave a Review</a>
-
-                  <!-- Leave a Rating Popup: Start -->
-                  <div class="modal fade la-rtng__review-modal" id="leave_rating">
-                    <div class="modal-dialog la-rtng__review-dialog">
-                        <div class="modal-content la-rtng__review-content">
-                            <div class="modal-header la-rtng__review-header">
-                                <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
-                            </div>
-                            
-                            <div class="modal-body la-rtng__review-body">
-                                  <form action="{{route('rate.course')}}" method="post" id="rate_course_form" name="rate_course_form">
-                                      @csrf
-                                      <div class="la-rtng__review-top">
-                                          <h6 class="la-rtng__review-title">Leave a rating</h6>
-                                          <div class="la-rtng__review-stars">
-                                              <div class="starRatingContainer">
-                                                  <div class="rate2 text-2xl" style="color:#FFC516"></div>
-                                                  <input id="rating_value_input" class="border-0">
-                                                  <input type="hidden" name="course_id" value="{{$course->id}}" class="border-0">
-                                                  <input id="input2" type="hidden" name="rating_value" type="text"></div>
-                                          </div>
-                                      </div>
-
-                                      <div class="la-rtng__review-btm py-8">
-                                          <h6 class="la-rtng__review-title">Review</h6>
-                                          <textarea cols="38" rows="5" class="la-form__textarea la-rtng__review-textarea" name="review" id="review_input" placeholder="Type your Review here..."></textarea>
-                                      </div>
-
-                                      <div class="text-right">
-                                        <a role="button" class="la-rtng__review-btn" onclick="submitRateCourseForm()">Submit Review</a>
-                                      </div>
-                                  </form>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-
-                  {{-- Edit Rating Modal:Starts --}}
-
-                      <div class="modal fade la-rtng__review-modal" id="edit_rating">
-                        <div class="modal-dialog la-rtng__review-dialog">
-                            <div class="modal-content la-rtng__review-content">
-                                <div class="modal-header la-rtng__review-header">
-                                    <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
-                                </div>
-                                
-                                <div class="modal-body la-rtng__review-body">
-                                      <form action="{{route('update.review')}}" method="post" id="edit_rate_form" name="edit_rate_form">
-                                          @csrf
-                                          {{ method_field('PUT') }}
-                                          <div class="la-rtng__review-top">
-                                              <h6 class="la-rtng__review-title">Update Review</h6>
-                                              <div class="la-rtng__review-stars">
-                                                  <div class="starRatingContainer">
-                                                      <div class="rate2 text-2xl" style="color:#FFC516"></div>
-                                                      <input id="rating_value_input" class="border-0">
-                                                      <input type="hidden" name="rating_id" id="rating_id" />
-                                                      <input type="hidden" name="course_id" value="" id="rating_course_id"  class="border-0">
-                                                      <input id="input2" type="hidden" name="rating_value" type="text">
-                                                  </div>
-                                              </div>
-                                          </div>
-
-                                          <div class="la-rtng__review-btm py-8">
-                                              <h6 class="la-rtng__review-title">Review</h6>
-                                              <textarea cols="38" rows="5" class="la-form__textarea la-rtng__review-textarea" name="review" id="update_review_input" placeholder="Type your Review here..."></textarea>
-                                          </div>
-
-                                          <div class="text-right">
-                                            <a role="button" class="la-rtng__review-btn" onclick="$('#edit_rate_form').submit()">Update Review</a>
-                                          </div>
-                                      </form>
-                                </div>
-                            </div>
-                        </div>
-                      </div>
-                  {{-- Edit Rating Modal:Ends --}}
-                  <!-- Leave a Rating Popup: End -->
-                </div>
+               
               </div>
             </li>
           </div>
-          <div class="col-12 pt-4 pt-md-12">
-            <div class="la-mcard__slider-wrap la-anim__wrap px-0">
+
+          <div class="col-lg-7">
+            <div class="la-rtng__review-popup la-anim__wrap">
+                <div class="text-lg-right">
+                  <a class="la-rtng__review text-uppercase text-nowrap la-anim__stagger-item" onclick="openReview()">Leave a Review</a>
+              </div>
+                    <!-- Leave a Rating Popup: Start -->
+                    <div class="modal fade la-rtng__review-modal" id="leave_rating">
+                      <div class="modal-dialog la-rtng__review-dialog">
+                          <div class="modal-content la-rtng__review-content">
+                              <div class="modal-header la-rtng__review-header">
+                                  <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
+                              </div>
+                              
+                              <div class="modal-body la-rtng__review-body">
+                                    <form action="{{route('rate.course')}}" method="post" id="rate_course_form" name="rate_course_form">
+                                        @csrf
+                                        <div class="la-rtng__review-top">
+                                            <h6 class="la-rtng__review-title">Leave a rating</h6>
+                                            <div class="la-rtng__review-stars">
+                                                <div class="starRatingContainer">
+                                                    <div class="rate2 text-2xl" style="color:#FFC516"></div>
+                                                    <input id="rating_value_input" class="border-0">
+                                                    <input type="hidden" name="course_id" value="{{$course->id}}" class="border-0">
+                                                    <input id="input2" type="hidden" name="rating_value" type="text"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="la-rtng__review-btm py-8">
+                                            <h6 class="la-rtng__review-title">Review</h6>
+                                            <textarea cols="38" rows="5" class="la-form__textarea la-rtng__review-textarea" name="review" id="review_input" placeholder="Type your Review here..."></textarea>
+                                        </div>
+
+                                        <div class="text-right">
+                                          <a role="button" class="la-rtng__review-btn" onclick="submitRateCourseForm()">Submit Review</a>
+                                        </div>
+                                    </form>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+
+                    {{-- Edit Rating Modal:Starts --}}
+
+                        <div class="modal fade la-rtng__review-modal" id="edit_rating">
+                          <div class="modal-dialog la-rtng__review-dialog">
+                              <div class="modal-content la-rtng__review-content">
+                                  <div class="modal-header la-rtng__review-header">
+                                      <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
+                                  </div>
+                                  
+                                  <div class="modal-body la-rtng__review-body">
+                                        <form action="{{route('update.review')}}" method="post" id="edit_rate_form" name="edit_rate_form">
+                                            @csrf
+                                            {{ method_field('PUT') }}
+                                            <div class="la-rtng__review-top">
+                                                <h6 class="la-rtng__review-title">Update Review</h6>
+                                                <div class="la-rtng__review-stars">
+                                                    <div class="starRatingContainer">
+                                                        <div class="rate2 text-2xl" style="color:#FFC516"></div>
+                                                        <input id="rating_value_input" class="border-0">
+                                                        <input type="hidden" name="rating_id" id="rating_id" />
+                                                        <input type="hidden" name="course_id" value="" id="rating_course_id"  class="border-0">
+                                                        <input id="input2" type="hidden" name="rating_value" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="la-rtng__review-btm py-8">
+                                                <h6 class="la-rtng__review-title">Review</h6>
+                                                <textarea cols="38" rows="5" class="la-form__textarea la-rtng__review-textarea" name="review" id="update_review_input" placeholder="Type your Review here..."></textarea>
+                                            </div>
+
+                                            <div class="text-right">
+                                              <a role="button" class="la-rtng__review-btn" onclick="$('#edit_rate_form').submit()">Update Review</a>
+                                            </div>
+                                        </form>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                    {{-- Edit Rating Modal:Ends --}}
+                    <!-- Leave a Rating Popup: End -->
+            </div>
+            
+            <div class="la-mcard__slider-wrap mt-6 la-anim__wrap px-0">
             @if(count($reviews))
               <div class="swiper-container h-100 la-lcreviews__container">
                 <div class="swiper-wrapper la-lcreviews__wrapper"> 
@@ -833,23 +690,18 @@ $course_id = $course->id;
   <!-- Section: Start-->
   <section class="la-section__small la-creator__section">
     <div class="la-section__inner pb-md-10">
-      <div class="container">
-        <!-- <div class="la-anim__wrap">
-          <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">Creator</h2>
-        </div> -->
+      <div class="container-fluid">
         <div class="row">
-          <div class="col-md-5 la-creator la-anim__wrap">
-            <div class="la-creator__wrap d-flex justify-content-center position-relative">
+          <div class="col-md-6 col-lg-4 la-creator la-anim__wrap mb-10 mb-md-14">
+            <div class="la-creator__wrap d-flex justify-content-center justify-content-lg-start position-relative">
               <div class="la-creator__inwrap la-anim__stagger-item">
                 <div class="la-creator__img la-anim__fade-in-top text-center">
                   <img class="img-fluid mx-auto d-block" src="{{$course->user->user_img}}" alt="{{$course->user->fullName}}">
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="col-md-7 my-auto la-anim__wrap">
-            <div class="la-creator__content offset-lg-1 ">
+         
+            <div class="la-creator__content-wrap mt-6">
               <div class="la-creator__detail">
                   <div class="la-creator__name-label la-anim__fade-in-top">Class by</div>
                   <div class="la-creator__name text-capitalize position-relative mb-4">
@@ -881,12 +733,12 @@ $course_id = $course->id;
   <section class="la-section__small la-section--grey">
     <div class="la-section__inner">
       <div class="container-fluid la-anim__wrap">
-        <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">More from Mentor</h2>
+        <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">More from Mentors</h2>
         
           @if(count($mentor_other_courses) == 0)
                <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6 la-anim__stagger-item">
                     <div class="col la-empty__inner">
-                        <h6 class="la-empty__course-title text-xl la-anim__stagger-item">No more Classes from this Mentor</h6>
+                        <h6 class="la-empty__course-title text-xl la-anim__stagger-item">No more Courses from this Mentors</h6>
                     </div>
                     <div class="col text-md-right la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
                         <a href="/browse/courses" class="la-empty__browse">
@@ -924,50 +776,7 @@ $course_id = $course->id;
     </div>
   </section>
   <!-- Section: End-->
-  <!-- Section: Start-->
-  <section class="la-section__small la-section--grey">
-    <div class="la-section__inner">
-      <div class="container-fluid la-anim__wrap">
-        <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">Looking for something else?</h2>
-                
-          @if(count($related_courses) == 0)
-
-            <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6 la-anim__stagger-item">
-                <div class="col la-empty__inner">
-                  <h6 class="la-empty__course-title text-xl la-anim__stagger-item--x">No more classes available right now!</h6>
-                </div>
-            </div>   
-
-          @else
-
-            <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item--x ">
-              @foreach ($related_courses as $related_course)
-                  <x-course 
-                      :id="$related_course->id"
-                      :img="$related_course->preview_image"
-                      :course="$related_course->title"
-                      :url="$related_course->slug"
-                      :rating="round($related_course->average_rating, 2)"
-                      :creatorImg="$related_course->user->user_img"
-                      :creatorName="$related_course->user->fname"
-                      :creatorUrl="$related_course->user->id"
-                      :learnerCount="$related_course->learnerCount"
-                      :price="$related_course->price"
-                      :bought="$related_course->isPurchased()"
-                      :checkWishList="$course->checkWishList"
-                      :checkCart="$course->checkCart"
-                  />
-              @endforeach
-            </div>
-          @endif
-
-      </div>
-    </div>
-  </section>
-  <!-- Section: End-->
-
-
-
+  
 @endsection
 
 @section('footerScripts')

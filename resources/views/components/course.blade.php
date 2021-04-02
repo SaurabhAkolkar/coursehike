@@ -151,8 +151,9 @@
                                 <a class="la-lclass__title leading-tight" href= {{ '/learn/course/'.$id.'/'.$url }}> {{ $course }} </a>
                             </div>
 
-                            <div class="text-right">
-                                <div class="la-lclass__count text-sm">10 videos</div>
+                            <div class="d-flex justify-content-end align-items-center">
+                                <div class="la-lclass__classes text-uppercase text-xs pr-2">class 1</div>
+                                <div class="la-lclass__videos text-sm pl-2"><strong>10</strong> Videos</div>
                             </div>
                         </div>
                     </div>
