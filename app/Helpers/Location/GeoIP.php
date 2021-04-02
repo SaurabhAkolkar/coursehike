@@ -19,9 +19,22 @@ class GeoIP extends Driver
     protected function process($ip)
     {
         return rescue(function () use ($ip) {
-            $response = json_decode(file_get_contents($this->url($ip)), true);
-            
-            return new Fluent($response);
+
+            try {
+                $content = @file_get_contents($this->url($ip));
+                if($content === FALSE) { 
+                    return false;
+                }else{
+                    $response = json_decode($content, true);
+                    return new Fluent($response);
+                }
+            }
+            catch (Exception $e) {
+                echo $e->getMessage();
+                return false;
+            }
+
+            return false;
         }, $rescue = false);
     }
 
