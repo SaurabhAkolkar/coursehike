@@ -22,13 +22,19 @@ class GeoIP extends Driver
 
             try {
                 $content = @file_get_contents($this->url($ip));
-                $response = json_decode($content, true);
-                return new Fluent($response);
+                if($content === FALSE) { 
+                    return false;
+                }else{
+                    $response = json_decode($content, true);
+                    return new Fluent($response);
+                }
             }
             catch (Exception $e) {
                 echo $e->getMessage();
                 return false;
-            }            
+            }
+
+            return false;
         }, $rescue = false);
     }
 
