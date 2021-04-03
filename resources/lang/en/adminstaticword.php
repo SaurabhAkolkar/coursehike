@@ -532,5 +532,8 @@ return [
     'featuredClasses' => 'Featured Classes',
     'Registered' => 'Registered At',
     'Purchased' => 'Purchased',
+    'ExitingChapter'=>'Exiting Video',
+    'SelectVideo' => 'Select Video',
+    'Paid'=>'Paid'
 
 ];

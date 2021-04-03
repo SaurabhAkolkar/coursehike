@@ -31,7 +31,9 @@ class CourseclassController extends Controller
     public function index()
     {
         $courseclass = CourseClass::all();
-        return view('admin.course.courseclass.index',compact("courseclass"));
+       
+
+        return view('admin.course.courseclass.index',compact("courseclass",'video'));
     }
 
     /**

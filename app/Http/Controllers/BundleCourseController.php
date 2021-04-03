@@ -10,6 +10,7 @@ use DB;
 use Auth;
 use App\Cart;
 use App\Order;
+use App\Categories;
 
 class BundleCourseController extends Controller
 {
@@ -20,7 +21,7 @@ class BundleCourseController extends Controller
      */
     public function index()
     {
-        $course = BundleCourse::get();
+        $course = BundleCourse::with('category')->get();
         return view('admin.bundle.index', compact('course'));
     }
 
@@ -32,7 +33,8 @@ class BundleCourseController extends Controller
     public function create()
     {
         $courses = Course::get();
-        return view('admin.bundle.create', compact('courses'));
+        $category = Categories::where(['status'=>1])->get();
+        return view('admin.bundle.create', compact('courses','category'));
     }
 
     /**
@@ -49,6 +51,7 @@ class BundleCourseController extends Controller
             'course_id' => 'required',
             'title' => 'required',
             'detail' => 'required',
+            'category_id'=>'required'
         ]);
 
         $input = $request->all();
@@ -95,7 +98,9 @@ class BundleCourseController extends Controller
     {
         $cor = BundleCourse::find($id);
         $courses = Course::get();
-        return view('admin.bundle.edit', compact('cor', 'courses'));
+        $category = Categories::where(['status'=>1])->get();
+
+        return view('admin.bundle.edit', compact('cor', 'courses','category'));
     }
 
     /**

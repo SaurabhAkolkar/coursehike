@@ -49,6 +49,22 @@
                 </select>
               </div>
 
+              <div class="form-group">
+                <label>{{ __('adminstaticword.Category') }}: <span class="redstar">*</span></label>
+                <select class="form-control js-example-basic-single" name="category_id"  placeholder="Select Category">
+
+
+                  @foreach ($category as $cat)
+                    @if($cat->status == 1)
+                    <option value="{{ $cat->id }}" @if($cat->id == $cor->category_id) selected @endif>{{ $cat->title }}
+                    </option>
+                    @endif
+
+                  @endforeach
+
+                </select>
+              </div>
+
               
 
               <div class="row">
