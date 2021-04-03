@@ -179,7 +179,7 @@ class InstructorRevenueController extends Controller
         if($hours <= 0){
             $minutes = floor(($seconds / 60) % 60);
 
-            return ($minutes > 1) ? $minutes . "Minutes" : $seconds. " seconds";
+            return ($minutes > 1) ? $minutes . "+ Minutes" : $seconds. " seconds";
         }
 
         return $this->number_format_short($hours) . " Hours";

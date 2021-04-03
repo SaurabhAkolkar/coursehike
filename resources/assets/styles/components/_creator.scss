@@ -7,12 +7,16 @@
                 }
             }
             &inwrap {
-                width:320px;
-                height: 320px;
+                width:280px;
+                height: 280px;
                 background-color: #FFC516;
                 border-radius: 100%;
                 z-index: -1;
 
+                @include respond-above(lg){
+                    width:320px;
+                    height:320px;
+                }
                 @include respond-below(md){
                     width:250px;
                     height:250px;
@@ -21,13 +25,17 @@
             
             &img {
                 img {
-                    width:300px;
-                    height: 300px;
+                    width:260px;
+                    height: 260px;
                     border-radius:100%;
                     background-color:#FFC516;
                     object-fit: cover;
                     object-position: top;
 
+                    @include respond-above(lg){
+                        width:300px;
+                        height: 300px;
+                    }
                     @include respond-below(md){
                         width:230px;
                         height:230px;

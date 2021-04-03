@@ -79,7 +79,8 @@ class SubscriptionController extends Controller
             'success_url' => config('app.url') . "/subscription-successful/{CHECKOUT_SESSION_ID}",
             'cancel_url' => config('app.url') . "/learning-plans",
 			'subscription_data' => [
-				'trial_period_days' => 7
+				'trial_period_days' => 7,
+				'payment_behavior' => 'allow_incomplete',
 			]
 		];
 
@@ -144,11 +145,11 @@ class SubscriptionController extends Controller
 		$stripe_id = $user->stripe_id;
 
 		try {
-			if ($stripe_id == null || $stripe_id != $checkout_session['customer']){
-				$user->stripe_id = $checkout_session['customer'];
-				$user->save();
-				$stripe_id = $checkout_session['customer'];
-			}
+			// if ($stripe_id == null || $stripe_id != $checkout_session['customer']){
+			// 	$user->stripe_id = $checkout_session['customer'];
+			// 	$user->save();
+			// 	$stripe_id = $checkout_session['customer'];
+			// }
 
 			$subscription_id = $checkout_session['subscription'];
 

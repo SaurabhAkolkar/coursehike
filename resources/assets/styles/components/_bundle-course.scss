@@ -1,13 +1,15 @@
 #{$ap}- {
     &lcourse{
         width:100%;
-        height:470px;
+        height:auto;
+        padding-bottom:var(--size-3);
         background-color:var(--white);
         border-radius:10px 10px 0 0;-webkit-border-radius:10px 10px 0 0;-moz-border-radius:10px 10px 0 0;
         margin-bottom:var(--size-8);
         transform:translateY(0);-webkit-transform:translateY(0);-moz-transform:translateY(0);
         transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;
         overflow:hidden;
+        box-shadow: 0px 6px 10px #00000029;
 
         &:hover{
             transform:translateY(-12px);-webkit-transform:translateY(-12px);-moz-transform:translateY(-12px);
