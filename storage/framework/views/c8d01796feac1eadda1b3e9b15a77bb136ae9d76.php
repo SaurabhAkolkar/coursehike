@@ -188,24 +188,89 @@
 <?php endif; ?>
                 
                  <?php if(!$filtres_applied): ?>
-                  <div class="tab-content la-courses__nav-content position-relative pt-0 la-anim__wrap" id="nav-tabContent">
+                  <div class="tab-content la-courses__nav-content position-relative pt-0 " id="nav-tabContent">
                     <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       <div class="position-relative tab-pane fade show <?php if($loop->first): ?> active <?php endif; ?>" id="nav-<?php echo e($category->slug); ?>" role="tabpanel" aria-labelledby="nav-<?php echo e($category->slug); ?>-tab">
-                      
-                        <div class="swiper-container la-home__course-container">
-                          <div class="swiper-wrapper la-home__course-wrapper ">
-                                                                                          
-                                    <?php
-                                      $courses = $category->courses;          
-                                    ?>
+                        
+                        <!-- Featured Courses Section -->
+                        <div class="la-courses__nav-content--courses la-anim__wrap">
+                          <h2 class="la-courses__nav-content--title la-anim__stagger-item">Featured Courses</h2>
+                          <div class="swiper-container la-home__course-container">
+                            <div class="swiper-wrapper la-home__course-wrapper ">
+                                                                                            
+                                      <?php
+                                        $courses = $category->courses;          
+                                      ?>
 
-                                    <?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                      <?php if($course->featured == 0): ?>
-                                          <?php continue; ?>
-                                      <?php endif; ?>
-                                      
-                                      <div class="swiper-slide la-home__course-slide pt-md-6 la-anim__stagger-item" >
-                                         <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
+                                      <?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if($course->featured == 0): ?>
+                                            <?php continue; ?>
+                                        <?php endif; ?>
+                                        
+                                        <div class="swiper-slide la-home__course-slide pt-md-6 la-anim__stagger-item" >
+                                           <?php if (isset($component)) { $__componentOriginal23a32b964f22d27b622a1670c13d4e84510a875a = $component; } ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\BundleCourse::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => round($course->average_rating, 2),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount,'price' => $course->price,'bought' => $course->isPurchased(),'checkWishList' => $course->checkWishList,'checkCart' => $course->checkCart]); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes([]); ?>
+<?php if (isset($__componentOriginal23a32b964f22d27b622a1670c13d4e84510a875a)): ?>
+<?php $component = $__componentOriginal23a32b964f22d27b622a1670c13d4e84510a875a; ?>
+<?php unset($__componentOriginal23a32b964f22d27b622a1670c13d4e84510a875a); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+                                        </div>
+                                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                  
+                                    
+                            </div>
+
+                            <?php if(count($courses) == 0): ?>
+                            <div class="container pr-6 pr-md-1">
+                              <div class="row">
+                                <div class="col-12  my-3 my-md-8 la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
+                                  <div class="la-empty__inner text-center">
+                                      <h6 class="la-empty__course-title la-anim__stagger-item">No Courses available currently.</h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if(count($courses) != 0): ?>
+                            <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-start">
+
+                              <div class="la-slider__navigations la-home__course-navigations d-md-flex  align-items-center">
+                                <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div> -->
+                                <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
+                                <!-- <div class="swiper-button-next la-slider__navigations-arrow la-home__course-next"></div> -->
+                              </div>
+                              <div class=" position-relative text-center text-md-right la-anim__wrap pb-2">
+                                <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold mr-1 mr-md-7 la-anim__fade-in-right la-anim--B">
+                                  <a href="/browse/courses" >explore more <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
+                                </div>
+                              </div>
+                            </div> 
+                            <?php endif; ?>
+                          </div> 
+                        </div>
+
+                        <div class="la-courses__nav-content--classes la-anim__wrap">
+                          <!-- Featured Classes Section -->
+                          <h2 class="la-courses__nav-content--title la-anim__stagger-item">Featured Classes</h2>
+                          <div class="swiper-container la-home__course-container2">
+                            <div class="swiper-wrapper la-home__course-wrapper2">
+                                                                                            
+                                      <?php
+                                        $courses = $category->courses;          
+                                      ?>
+
+                                      <?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if($course->featured == 0): ?>
+                                            <?php continue; ?>
+                                        <?php endif; ?>
+                                        
+                                        <div class="swiper-slide la-home__course-slide2 pt-md-6 la-anim__stagger-item" >
+                                           <?php if (isset($component)) { $__componentOriginal541dd97498dd76400e36bb15ebc47d888e5f7706 = $component; } ?>
 <?php $component = $__env->getContainer()->make(App\View\Components\Course::class, ['id' => $course->id,'img' => $course->preview_image,'course' => $course->title,'url' => $course->slug,'rating' => round($course->average_rating, 2),'creatorImg' => $course->user->user_img,'creatorName' => $course->user->fname,'creatorUrl' => $course->user->id,'learnerCount' => $course->learnerCount,'price' => $course->price,'bought' => $course->isPurchased(),'checkWishList' => $course->checkWishList,'checkCart' => $course->checkCart]); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -216,41 +281,43 @@
 <?php endif; ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
-                                      </div>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                  
-                                  
-                          </div>
+                                        </div>
+                                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                  
+                                    
+                            </div>
 
-                          <?php if(count($courses) == 0): ?>
-                          <div class="container pr-6 pr-md-1">
-                            <div class="row">
-                              <div class="col-12  my-3 my-md-8 la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
-                                <div class="la-empty__inner text-center">
-                                    <h6 class="la-empty__course-title la-anim__stagger-item">No Courses available currently.</h6>
+                            <?php if(count($courses) == 0): ?>
+                            <div class="container pr-6 pr-md-1">
+                              <div class="row">
+                                <div class="col-12  my-3 my-md-8 la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
+                                  <div class="la-empty__inner text-center">
+                                      <h6 class="la-empty__course-title la-anim__stagger-item">No Courses available currently.</h6>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                          <?php endif; ?>
+                            <?php endif; ?>
 
-                          <?php if(count($courses) != 0): ?>
-                          <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-start">
-                            <div class="la-slider__navigations la-home__course-navigations d-md-flex  align-items-center">
-                              <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div> -->
-                              <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
-                              <!-- <div class="swiper-button-next la-slider__navigations-arrow la-home__course-next"></div> -->
-                            </div>
-                            <div class=" position-relative text-center text-md-right la-anim__wrap pb-2">
-                              <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold mr-1 mr-md-7 la-anim__fade-in-right la-anim--B">
-                                <a href="/browse/courses" >explore more <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
+                            <?php if(count($courses) != 0): ?>
+                            <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-start">
+
+                              <div class="la-slider__navigations2 la-home__course-navigations d-md-flex  align-items-center">
+                                <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div> -->
+                                <div class="swiper-pagination la-slider__navigations-dots2 la-home__course-paginations2 la-slider__paginations2  la-slider__paginations--purble la-right"></div>
+                                <!-- <div class="swiper-button-next la-slider__navigations-arrow la-home__course-next"></div> -->
                               </div>
-                            </div>
-                          </div> 
-                          <?php endif; ?>
+                              <div class=" position-relative text-center text-md-right la-anim__wrap pb-2">
+                                <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold mr-1 mr-md-7 la-anim__fade-in-right la-anim--B">
+                                  <a href="/browse/courses" >explore more <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
+                                </div>
+                              </div>
+                            </div> 
+                            <?php endif; ?>
 
 
 
-                        </div>              
+                          </div>              
+                        </div>
                       </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 

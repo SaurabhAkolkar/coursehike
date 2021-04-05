@@ -58,6 +58,22 @@
 
                   </select>
 				        </div>
+
+                <div class="form-group">
+					        <label>{{ __('adminstaticword.Category') }}: <span class="redstar">*</span></label>
+                  <select class="form-control js-example-basic-single" name="category_id"  placeholder="Select Category">
+
+
+                    @foreach ($category as $cat)
+                      @if($cat->status == 1)
+                      <option value="{{ $cat->id }}">{{ $cat->title }}
+                      </option>
+                      @endif
+
+                    @endforeach
+
+                  </select>
+				        </div>
               
                  
              
@@ -75,10 +91,10 @@
                   <label for="exampleInputDetails">{{ __('adminstaticword.Free') }}:</label>                 
                   <li class="tg-list-item">
                     <input name="type" class="la-admin__toggle-switch" id="cb111" type="checkbox"/>
-                    <label class="la-admin__toggle-label" data-tg-off="Free" data-tg-on="Paid" for="cb111"></label>
+                    <label class="la-admin__toggle-label" data-tg-off="Paid" data-tg-on="Free" for="cb111"></label>
                   </li>
                   <br>
-                  <div class="display-none" id="pricebox">
+                  <div class="" id="pricebox">
                     <label for="exampleInputSlug">{{ __('adminstaticword.Price') }}: <sup class="redstar">*</sup></label>
                     <input type="text" class="form-control" name="price" id="priceMain" placeholder="Please Your Enter price" value="">
         
@@ -166,14 +182,16 @@
   $('#cb111').on('change',function(){
 
     if($('#cb111').is(':checked')){
-      $('#pricebox').show('fast');
-
-      $('#priceMain').prop('required','required');
-
-    }else{
       $('#pricebox').hide('fast');
 
-      $('#priceMain').removeAttr('required');
+$('#priceMain').removeAttr('required'); 
+    }else{
+      
+
+      $('#pricebox').show('fast');
+
+$('#priceMain').prop('required','required');
+
     }
 
   });

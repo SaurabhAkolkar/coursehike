@@ -29,7 +29,7 @@ class BundleCourse extends Model
 
     protected $table = 'bundle_courses';
 
-    protected $fillable = ['user_id', 'course_id', 'title', 'detail', 'price', 'discount_price', 'type', 'slug', 'status', 'featured', 'preview_image'];
+    protected $fillable = ['user_id', 'course_id', 'title', 'category_id','detail', 'price', 'discount_price', 'type', 'slug', 'status', 'featured', 'preview_image'];
 
     protected $casts = [
     	'course_id' => 'array'
@@ -43,6 +43,11 @@ class BundleCourse extends Model
     public function User()
     {
     	return $this->belongsTo('App\User','user_id','id');
+    }
+
+    public function category()
+    {
+    	return $this->belongsTo('App\Categories','category_id','id');
     }
 
     public function order()
