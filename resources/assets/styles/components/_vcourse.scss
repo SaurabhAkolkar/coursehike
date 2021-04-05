@@ -876,3 +876,9 @@
         }
     }
 }
+
+//- Fit the whidth of the course image
+.vjs-poster{
+    background-size: 100% !important;
+    background-color:var(--gray) !important;
+}
