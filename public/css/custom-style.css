@@ -431,7 +431,7 @@ html, body{
 .btn-info:hover{
     background-color:transparent !important;
     color:var(--gray6) !important;
-    font-weight: var(--font-medium);
+    font-weight: var(--font-semibold);
 }
 
 th.sorting_asc, th.sorting{

@@ -1779,6 +1779,37 @@ a.la-admin__edit-btn{
   }
 }
 
+
+/* ============ EXISTING VIDEO SEARCH POPUP IN EDIT VIDEO/COURSE SECTION: START ======== */
+.la-admin__evideo-search{
+  background:rgba(#FFFFFF, 0.75);
+  padding:var(--size-5) 0;
+  border-bottom:1px solid var(--gray8);
+}
+.la-admin__evideo-img{
+  width:120px;
+  height:80px;
+  overflow: hidden;
+  border-radius: 6px;
+
+  @media (max-width:767px){
+    width:80px;
+  }
+}
+.la-admin__evideo-img img{
+  width:120px;
+  height:80px;
+  object-fit: cover;
+  object-position: top;
+
+  @media (max-width:767px){
+    width:80px;
+  }
+}
+
+/* ============ EXISTING VIDEO SEARCH POPUP IN EDIT VIDEO/COURSE SECTION: END ======== */
+
+
 /* =========== BUTTONS AND  ALERT SUCCESS & DANGER: START =========== */
 .la-btn{
   
