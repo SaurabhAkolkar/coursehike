@@ -103,11 +103,12 @@ class SubscriptionController extends Controller
 				// $stripe_subscription = $this->stripe->subscriptions()->find($stripe_id, $user_subscription->subscription_id ?? 0);
 				
 				$session_data['customer'] = $stripe_id;
-				$subscriptions = $this->stripe->subscriptions()->all($stripe_id)['data'];
+				// $subscriptions = $this->stripe->subscriptions()->all($stripe_id)['data'];
 
 				// if (!array_key_exists('deleted', $customer)  && $user->subscription() && $user_subscription && $stripe_subscription){
 				// if (!array_key_exists('deleted', $customer)  && $user->subscription() && count($subscriptions) > 0){
-				if ($user->subscription() && count($subscriptions) > 0){
+				// if ($user->subscription() && count($subscriptions) > 0){
+				if ($user->subscription()){
 					$response = [
 						"redirect" => true,
 					];
