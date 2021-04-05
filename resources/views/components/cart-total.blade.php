@@ -14,7 +14,7 @@
             <div class="la-cart__bill-label">Sub Total</div>
             <div class="la-cart__bill-amount">{{ getSymbol() }} {{ $subTotal }}</div>
         </div>
-        @if($location=='India')
+        @if($location == 'IN')
                 <div class="la-cart__bill-item d-flex justify-content-between mb-2">
                     <div class="la-cart__bill-label">CGST (9%)</div>
                     <div class="la-cart__bill-amount"> ₹  {{ round(($subTotal * 9 )/100, 2)  }}</div>

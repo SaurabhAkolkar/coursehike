@@ -155,8 +155,6 @@ class Course extends Model
     public function getConvertedpriceAttribute(){
 
         $value = $this->price;
-
-        $position = Location::get();
         
         $setting = Setting::first();
         $dollar_price = null;
@@ -167,15 +165,10 @@ class Course extends Model
            $dollar_price = 70;
         }
         
-        if($position){
-            if ( $position->countryName == 'India') {
-                return $value * $dollar_price;
-            } else {
-               
-            }
-        }else{
+        if( getLocation() == 'IN')
+            return $value * $dollar_price;
+        else
             return $value;
-        }   
         
     }
 
