@@ -21,6 +21,7 @@
                         @csrf
                         <input type="hidden" name="course_id" value="{{$course_id}}"/>
                         <input type="hidden" name="video_id" value="{{$c[0]->id}}" />
+                        <input type="hidden" name="chapter_id" value="{{$chapter_id}}" />
                         <input type="submit" value="Select Video" class="btn btn-md btn-primary"/>
                     </form>
                 

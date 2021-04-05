@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Http;
 use Session;
 use Storage;
 use Auth;
+use DB;
 
 use \Firebase\JWT\JWT;
 
@@ -53,16 +54,17 @@ class CourseclassController extends Controller
     function searchVideo(Request $request){
         if($request->title && $request->title !=""){
             $course_id = $request->course_id;
+            $chapter_id = $request->chapter_id;
             if(Auth::user()->role == 'admin'){
-                $courses = CourseClass::where('title','like','%'.$request->title.'%')->where('course_id','!=',$request->course_id)->where('status', 2)->get()->groupBy('video');
+                $courses = CourseClass::where('title','like','%'.$request->title.'%')->where('course_id','!=',$request->course_id)->where('status', 2)->get();
             }
             else{
                 $course_ids = Course::where(['user_id'=>Auth::user()->id])->where('id','!=',$request->course_id)->pluck('id')->toArray();
 
-                $courses = CourseClass::where('title','like','%'.$request->title.'%')->whereIn('course_id',$course_ids)->get()->groupBy('video');
+                $courses = CourseClass::where('title','like','%'.$request->title.'%')->whereIn('course_id',$course_ids)->get();
             }
            
-            return response()->view('admin.course.courseclass.video_search', compact('courses','course_id'));
+            return response()->view('admin.course.courseclass.video_search', compact('courses','course_id','chapter_id'));
         }
         else{
             return "<p class='alert-danger'>Video Title is required</p>";
@@ -70,7 +72,22 @@ class CourseclassController extends Controller
     }
 
     public function saveExitingVideo(Request $request){
-        dd($request);
+        $video = DB::table('course_classes')->where('id',$request->video_id)->first()->toArray();
+        
+        if($video){
+
+            $video->course_id = $request->course_id;
+            $video->coursechapter_id = $request->chapter_id;
+            $video->position = 0;
+            
+            CourseClass::create($video);
+
+            return back()->with('success',' Video is Added');
+
+        }
+
+        return back()->with('success','Something went wrong');
+        
     }
 
     /**

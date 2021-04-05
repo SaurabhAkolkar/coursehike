@@ -49,7 +49,7 @@ class CourseClass extends Model
     }   
 
     public function getClasses(){
-        $course_ids = CourseClass::where('title','like','%'.$this->title.'%')->pluck('course_id')->toArray();
+        $course_ids = CourseClass::where('video','like','%'.$this->video.'%')->pluck('course_id')->toArray();
          
         $courses = Course::whereIn('id',$course_ids)->get();
 

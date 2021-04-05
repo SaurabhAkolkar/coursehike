@@ -282,7 +282,18 @@
         <div class="box box-primary">
           <div class="panel panel-sum">
             <div class="modal-body">
-                       
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <label >{{ __('adminstaticword.ChapterName') }}:<sup class="redstar">*</sup></label>
+                    <select name="course_chapters" id="chapter_id" class="form-control  col-12 js-example-basic-single" required>
+                      @foreach($coursechapters as $c)
+                      <option value="{{ $c->id }}">{{ $c->chapter_name }}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
+
                 <div class="row">
                   <div class="col-md-12">
                     <label >{{ __('adminstaticword.SelectVideo') }}:<sup class="redstar">*</sup></label>
@@ -377,6 +388,7 @@
     function serachVideos(){
 
       let title = $('#search_title').val();
+      let chapter_id = $('#chapter_id').val();
 
       if(title.length > 0){
           $.ajax({
@@ -384,6 +396,7 @@
           url: "{{ route('search-class-video') }}",
           data: {
             title: title,
+            chapter_id : chapter_id,
             course_id:{{$cor->id}},
             _token: "{{ csrf_token() }}",
           },
