@@ -284,7 +284,7 @@
             <div class="modal-body">
 
                 <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-12 px-0 mb-6">
                     <label >{{ __('adminstaticword.ChapterName') }}:<sup class="redstar">*</sup></label>
                     <select name="course_chapters" id="chapter_id" class="form-control  col-12 js-example-basic-single" required>
                       @foreach($coursechapters as $c)

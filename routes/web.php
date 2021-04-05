@@ -344,7 +344,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::resource('announsment','AnnounsmentController');
       Route::resource('announcement','AnnouncementController');
       Route::get('/course/class/search-video','CourseclassController@searchVideo')->name('search-class-video');
-      Route::post('/course/class/save-exiting-video','CourseclassController@saveExitingVideo')->name('save.exiting.video');
+      Route::get('/course/class/save-existing-videos','CourseclassController@saveExitingVideo')->name('save.exiting.videos');
       Route::get('/course/create/{id}','CourseController@showCourse')->name('course.show');
       Route::post('/send-course-to-publish','CourseController@sendToPublish');
       Route::post('/send-course-to-unpublish','CourseController@sendToUnpublish');

@@ -72,14 +72,16 @@ class CourseclassController extends Controller
     }
 
     public function saveExitingVideo(Request $request){
-        $video = DB::table('course_classes')->where('id',$request->video_id)->first()->toArray();
-        
+        $video = CourseClass::findorfail($request->title);
+        dd('wait');
         if($video){
-
+            
             $video->course_id = $request->course_id;
             $video->coursechapter_id = $request->chapter_id;
             $video->position = 0;
-            
+            $video->video = $video->getOriginal('video');
+            $video->image = $video->getOriginal('image');
+            dd($video->toArray());
             CourseClass::create($video);
 
             return back()->with('success',' Video is Added');
