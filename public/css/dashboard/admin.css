@@ -1878,6 +1878,44 @@ a.la-admin__edit-btn:hover {
   color: var(--app-indigo-1) !important;
 }
 
+/* ============ EXISTING VIDEO SEARCH POPUP IN EDIT VIDEO/COURSE SECTION: START ======== */
+
+.la-admin__evideo-search {
+  background: rgba(255, 255, 255, 0.75);
+  padding: var(--size-5) 0;
+  border-bottom: 1px solid var(--gray8);
+}
+
+.la-admin__evideo-img {
+  width: 120px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+@media (max-width: 767px) {
+  .la-admin__evideo-img {
+    width: 80px;
+  }
+}
+
+.la-admin__evideo-img img {
+  width: 120px;
+  height: 80px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+
+@media (max-width: 767px) {
+  .la-admin__evideo-img img {
+    width: 80px;
+  }
+}
+
+/* ============ EXISTING VIDEO SEARCH POPUP IN EDIT VIDEO/COURSE SECTION: END ======== */
+
 /* =========== BUTTONS AND  ALERT SUCCESS & DANGER: START =========== */
 
 .la-btn--danger {
