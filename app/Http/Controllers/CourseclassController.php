@@ -17,6 +17,7 @@ use App\Subtitle;
 use Illuminate\Support\Facades\Http;
 use Session;
 use Storage;
+use Auth;
 
 use \Firebase\JWT\JWT;
 
@@ -47,6 +48,29 @@ class CourseclassController extends Controller
         $courseclass = CourseClass::all();
         return view('admin.course.courseclass.insert',compact('courseclass')); 
  
+    }
+
+    function searchVideo(Request $request){
+        if($request->title && $request->title !=""){
+            $course_id = $request->course_id;
+            if(Auth::user()->role == 'admin'){
+                $courses = CourseClass::where('title','like','%'.$request->title.'%')->where('course_id','!=',$request->course_id)->where('status', 2)->get()->groupBy('video');
+            }
+            else{
+                $course_ids = Course::where(['user_id'=>Auth::user()->id])->where('id','!=',$request->course_id)->pluck('id')->toArray();
+
+                $courses = CourseClass::where('title','like','%'.$request->title.'%')->whereIn('course_id',$course_ids)->get()->groupBy('video');
+            }
+           
+            return response()->view('admin.course.courseclass.video_search', compact('courses','course_id'));
+        }
+        else{
+            return "<p class='alert-danger'>Video Title is required</p>";
+        }
+    }
+
+    public function saveExitingVideo(Request $request){
+        dd($request);
     }
 
     /**
