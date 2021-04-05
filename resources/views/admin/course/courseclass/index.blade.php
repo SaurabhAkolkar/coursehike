@@ -271,211 +271,39 @@
   <!--Model close -->    
 
   
-  <!--Model start-->
+  <!--Model start: Existing Video-->
   <div class="modal fade show" id="exitingVideo" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-md" role="document">
       <div class="modal-content">
         <div class="modal-header d-block">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="modal-title" id="myModalLabel">{{ __('adminstaticword.Add') }} {{ __('adminstaticword.CourseClass') }}</h3>
+          <h3 class="modal-title" id="myModalLabel">{{ __('adminstaticword.ExitingChapter') }} </h3>
         </div>
         <div class="box box-primary">
           <div class="panel panel-sum">
             <div class="modal-body">
-              <form enctype="multipart/form-data" id="demo-form2" method="post" action="{{ route('courseclass.store') }}" data-parsley-validate class="form-horizontal form-label-left">
-                {{ csrf_field() }}
-                          
+                       
                 <div class="row">
                   <div class="col-md-12">
                     <label >{{ __('adminstaticword.SelectVideo') }}:<sup class="redstar">*</sup></label>
-                    <select class="form-control js-example-basic-single" name="video_id"   size="5" row="5" placeholder="Select Video">
-                      @foreach ($videos as $key=>$value )
-                        <option value="{{ $key }}">{{ $value }}
-                        </option>  
-                      @endforeach  
-                    </select>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-12">
-                    <label >{{ __('adminstaticword.ChapterName') }}:<sup class="redstar">*</sup></label>
-                    <select name="course_chapters" class="form-control  col-12 js-example-basic-single" required>
-                      @foreach($coursechapters as $c)
-                      <option value="{{ $c->id }}">{{ $c->chapter_name }}</option>
-                      @endforeach
-                    </select>
-                  </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col-md-12">
-                    <label >{{ __('adminstaticword.CourseClass') }} {{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
-                    <input type="text" class="form-control " name="title" id="exampleInputTitle"   placeholder="Enter Your Title"value="" required>
-                  </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col-md-12">
-                    <label>{{ __('adminstaticword.Detail') }}:</label><br>
-                    <textarea name="detail" rows="3" class="form-control"></textarea>
+                    <input type="text" class="form-control " name="title" id="search_title"   placeholder="Enter Your Title"value="" required>
+                    <button class="btn btn-lg btn-primary col-md-4" onclick="serachVideos()">Search</button>
                   </div>
                 </div>
                 
-                <!-- CLASS THUMBNAIL: START -->
-                <div class="row mt-3">
-                  <div class="col-12">
-                        <div class="la-admin__preview">
-                          <label for="" class="la-admin__preview-label p-0">Thumbnail Image:<sup class="redstar">*</sup></label>
-                          <div class="la-admin__preview-img la-admin__course-imgvid la-admin__course-modal-imgvid" >
-                               <div class="la-admin__preview-text">
-                                    <p class="la-admin__preview-size">Thumbnail | 500x350</p>
-                                    <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
-                              </div>
-                              <div class="text-center pr-20 mr-20">
-                                <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:160px;">
-                                  <span class="path1"><span class="path2"></span></span>
-                                </span>
-                              </div>
-                              <input type="file" class="form-control la-admin__preview-input preview_img" name="preview_image" />
-                              <img src="" alt="" class="d-none preview-img"/>
-                          </div>
-                        </div>
-                  </div>
-                </div>
-                <!-- CLASS THUMBNAIL: END -->
-                
-                <!-- CLASS VIDEO: START -->
-                <div class="row mt-3">
-                  <div class="col-12">
-                        <div class="la-admin__preview">
-                          <label for="" class="la-admin__preview-label p-0">Video Upload:<sup class="redstar">*</sup></label>
-                          <div class="la-admin__preview-img la-admin__course-imgvid" >
-                               <div class="la-admin__preview-text">
-                                    <p class="la-admin__preview-size">Video | 2G</p>
-                                    <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
-                              </div>
-                              <div class="text-center pr-20 mr-20">
-                                <span class="la-icon la-icon--8xl icon-preview-video" style="font-size:150px;">
-                                  <span class="path1"><span class="path2"></span></span>
-                                </span>
-                              </div>
-                              <input type="file" class="form-control la-admin__preview-input preview_video" name="video_upld" />
-                              <video controls  class="d-none preview-video w-100">
-                                <source src="">
-                                  Your browser does not support HTML5 video.
-                              </video>
-                          </div>
-                        </div>
-                  </div>
-                </div>
-                <!-- CLASS VIDEO: END -->
-
-
-                <div class="row mt-3">
-                  <div class="col-12">
-                        <div class="la-admin__preview">
-                          <label for="" class="la-admin__preview-label p-0">Duration<sup class="redstar">*</sup></label>
-                          <input type="text" class="form-control " name="duration" id="exampleInputTitle"   placeholder="Enter duration in hh:mm:ss"  required>
-                        </div>
-                  </div>
+                <div class="video_results">
                 </div>
 
-
-                <div class="row mt-3">  
-                  <div class="col-md-6">    
-                    <label >{{ __('adminstaticword.Is_preview_video') }}:</label>
-                    <li class="tg-list-item">   
-                      <input class="la-admin__toggle-switch" id="c11" name="is_preview"  type="checkbox"/>
-                      <label class="la-admin__toggle-label" data-tg-off="Deactive" data-tg-on="Active" for="c11"></label>
-                    </li>
-                    {{-- <input type="hidden" name="status" value="0" id="t11"> --}}
-                  </div>
-                  <div class="col-md-6">
-                    <label >{{ __('adminstaticword.Featured') }}:</label>    
-                    <li class="tg-list-item">
-                      <input class="la-admin__toggle-switch" id="cb100" name="featured" type="checkbox"/>
-                      <label class="la-admin__toggle-label" data-tg-off="NO" data-tg-on="YES" for="cb100"></label>
-                    </li>
-                  </div>
-                </div> 
-                <br>
-               
-                {{-- <div id="subtitle">
-                  <label>{{ __('adminstaticword.Subtitle') }}:</label>
-                  <table class="table table-bordered" id="dynamic_field">  
-                    <tr> 
-                        <td class="p-0">
-                           <div class="{{ $errors->has('sub_t') ? ' has-error' : '' }} input-file-block">
-                            <input type="file" name="sub_t[]"/>
-                            <p class="info">Choose subtitle file ex. subtitle.srt.,</p>
-                            <small class="text-danger">{{ $errors->first('sub_t') }}</small>
-                          </div>
-                        </td>
-
-                        <td>
-                          <input type="text" name="sub_lang[]" placeholder="Subtitle Language" class="form-control name_list" />
-                        </td>  
-                        <td><button type="button" name="add" id="add" class="btn btn-xs btn-success">
-                          <i class="fa fa-plus"></i>
-                        </button></td>  
-                    </tr>  
-                  </table>
-                </div> --}}
-
-                
-
-              <!--  ADD CLASS STATUS: START -->
-              <div class="row">
-                <div class="col-12">
-                  <label class="la-admin__preview-label"> Status:<sup class="redstar">*</sup></label>
-                  <div class="la-admin__class-status d-flex justify-content-start">
-                    <div class="la-admin__class-active pr-5">
-                        <input type="radio" name="status" id="addVideo-active" value="2" class="la-admin__cp-input" >
-                        <label for="addVideo-active" > 
-                          <div class="la-admin__cp-circle">
-                            <span class="la-admin__cp-radio"></span>
-                            <span class="la-admin__cp-label">Active</span> 
-                          </div>
-                        </label>
-                    </div>
-
-                    <div class="la-admin__class-hold pr-5">
-                      <input type="radio" name="status" id="addVideo-hold" value="0" class="la-admin__cp-input" >
-                      <label for="addVideo-hold" > 
-                        <div class="la-admin__cp-circle">
-                          <span class="la-admin__cp-radio"></span>
-                          <span class="la-admin__cp-label">Inactive</span> 
-                        </div>
-                      </label>
-                    </div>
-{{-- 
-                    <div class="la-admin__class-archive pr-5">
-                      <input type="radio" name="status" id="addVideo-archive" value="1" class="la-admin__cp-input" >
-                      <label for="addVideo-archive" > 
-                        <div class="la-admin__cp-circle">
-                          <span class="la-admin__cp-radio"></span>
-                          <span class="la-admin__cp-label">Archive</span> 
-                        </div>
-                      </label>
-                  </div> --}}
-                </div>
-                </div>
-            </div> <br/>
             <!-- ADD CLASS STATUS: END -->
 
-                <div class="box-footer">
-                  <button type="submit" class="btn btn-lg btn-primary col-md-4">{{ __('adminstaticword.Submit') }}</button>
-                </div>
-             
-              </form>
+               
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!--Model close -->    
+  <!--Model close : Exxiting Video-->    
 
 </section> 
 
@@ -544,6 +372,31 @@
             }
         }
       });
+    }
+
+    function serachVideos(){
+
+      let title = $('#search_title').val();
+
+      if(title.length > 0){
+          $.ajax({
+          type: "GET", 
+          url: "{{ route('search-class-video') }}",
+          data: {
+            title: title,
+            course_id:{{$cor->id}},
+            _token: "{{ csrf_token() }}",
+          },
+          success: function(response) {
+                
+                $('.video_results').html(response);
+              
+          }
+        });
+      }
+      else{
+        alert('Video title is required');
+      }
     }
 </script>
 

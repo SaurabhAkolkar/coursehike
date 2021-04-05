@@ -15,6 +15,7 @@ use App\CourseLanguage;
 use App\MasterClass;
 use App\UserWatchProgress;
 use App\UserWatchTimelog;
+use App\BundleCourse;
 
 class SearchController extends Controller
 {
@@ -149,12 +150,30 @@ class SearchController extends Controller
 		$sort_type = "";
 		$filtres_applied = false;
 		$selected_duration = "";
+		$bundleCoures = [];
 
 		if(Auth::check()){
 			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
 		}	
 
-		if($request->filters == 'applied'){
+		$categories = Categories::where(['featured'=>1,'status'=>1])->get();
+		$bundleCoures = BundleCourse::where(['status'=>1])->get();
+		
+		
+		return view('learners.pages.courses', compact('categories','bundleCoures','filtres_applied', 'selected_duration','sort_type','selected_languages','selected_categories','selected_subcategories','selected_level','playlists','langauges','filter_categories'));
+
+        // if(isset($searchTerm))
+        // {
+        // 	$courses = Course::search($searchTerm)->paginate(20);
+        // 	return view('learners.pages.courses', compact('courses', 'searchTerm'));
+    	// }
+    	// else
+    	// {
+    	// 	return back()->with('delete','No Search Value Found');
+    	// }
+        /*
+		old course page
+			if($request->filters == 'applied'){
 			$filtres_applied = true;
 			if(isset($request->sort_by)){
 				$sort_type = $request->sort_by;
@@ -235,19 +254,7 @@ class SearchController extends Controller
 				$categories = Categories::with(array('courses' => function($query) {$query->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
 		}
 		
-		
-		return view('learners.pages.courses', compact('categories','filtres_applied', 'selected_duration','sort_type','selected_languages','selected_categories','selected_subcategories','selected_level','playlists','langauges','filter_categories'));
-
-        // if(isset($searchTerm))
-        // {
-        // 	$courses = Course::search($searchTerm)->paginate(20);
-        // 	return view('learners.pages.courses', compact('courses', 'searchTerm'));
-    	// }
-    	// else
-    	// {
-    	// 	return back()->with('delete','No Search Value Found');
-    	// }
-        
+		*/
 	}
 	
     public function search(Request $request) 

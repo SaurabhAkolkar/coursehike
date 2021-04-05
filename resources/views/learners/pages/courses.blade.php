@@ -213,7 +213,7 @@
                 @if(!$filtres_applied)
                   @foreach ($categories as $category)
                     <!-- <div class="d-none d-md-block la-courses__nav-prev la-anim__fade-in-left"><span class="la-courses__nav-prev--icon la-icon icon-arrow"></span></div> -->
-                      <li class="nav-item la-courses__nav-item la-anim__stagger-item--x"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative text-nowrap">{{ $category->title}}</span></a></li>
+                      <li class="nav-item la-courses__nav-item la-anim__stagger-item--x"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative text-nowrap">{{ $category->title}}{{$category->id}}</span></a></li>
                     <!-- <div class="d-none d-md-block  la-courses__nav-next la-anim__fade-in-right"><span class="la-courses__nav-next--icon la-icon icon-right-arrow2"></span></div> -->
                   @endforeach
                 @endif
@@ -272,22 +272,23 @@
                               <div class="tab-pane fade show la-anim__wrap @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
                                   
                                       @php
-                                          $courses = $category->courses;
-                                          if($sort_type == 'highest_rated')
-                                          {
-                                            $courses = $category->courses->sortByDesc('average_rating');
-                                          }                
+                                     
+                                          $courses = $bundleCoures->where(['category_id'=>$category->id]);
+                                         
+                                         if(count($courses) > 0){
+                                          dd($courses);
+                                        }     
                                       @endphp
 
                                       <!-- ==== Featured Courses: Start  ====== -->
                                       <div class="swiper-container  la-courses__featured-container">
                                         <h5 class="la-courses__featured-title mb-5 mb-lg-8 ml-0 ml-lg-2 la-anim__fade-in-top">Featured Courses</h5>
                                         <div class="swiper-wrapper la-courses__featured-wrapper ">
-                                                                                                        
-                                                  @php
-                                                    $courses = $category->courses;     
-                                                  @endphp
-
+{{--                                                                                                       
+                                                @php
+                                                  $courses = $category->courses;     
+                                                @endphp --}}
+                                                @if($courses)
                                                   @foreach($courses->where('featured','like','1') as $course)
                                                    
                                                     
@@ -308,7 +309,8 @@
                                                         :checkCart="$course->checkCart"
                                                       />
                                                     </div>
-                                                  @endforeach                                  
+                                                  @endforeach
+                                                  @endif                             
                                                 
                                         </div>
 

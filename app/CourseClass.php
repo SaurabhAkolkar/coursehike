@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
 use Auth;
+use App\Course;
+
 class CourseClass extends Model
 {
     use HasTranslations;
@@ -33,7 +35,7 @@ class CourseClass extends Model
 
     protected $fillable = [
         'course_id', 'coursechapter_id', 'title', 'duration', 'featured', 'status','url', 'size',
-        'image','video','pdf','zip', 'preview_video', 'date_time', 'audio', 'detail', 'position', 'aws_upload', 'type'
+        'image','   ','pdf','zip', 'preview_video', 'date_time', 'audio', 'detail', 'position', 'aws_upload', 'type'
     ];
 
     public function user()
@@ -45,6 +47,14 @@ class CourseClass extends Model
     {
         return $this->belongsTo('App\Course','course_id','id');
     }   
+
+    public function getClasses(){
+        $course_ids = CourseClass::where('title','like','%'.$this->title.'%')->pluck('course_id')->toArray();
+         
+        $courses = Course::whereIn('id',$course_ids)->get();
+
+        return $courses;
+    }
 
 	  public function coursechapters()
     {
