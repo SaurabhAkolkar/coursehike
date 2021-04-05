@@ -65,6 +65,7 @@ class SubscriptionController extends Controller
 		
 		$stripe_plan_id = config('rinvex.subscriptions.plans.'.$request->slug);
 
+
 		$session_data = [
 			'payment_method_types' => ['card'],
             'line_items' => [
@@ -79,10 +80,12 @@ class SubscriptionController extends Controller
             'success_url' => config('app.url') . "/subscription-successful/{CHECKOUT_SESSION_ID}",
             'cancel_url' => config('app.url') . "/learning-plans",
 			'subscription_data' => [
-				'trial_period_days' => 7,
 				'payment_behavior' => 'allow_incomplete',
 			]
 		];
+
+		if(Auth::check() && !Auth::user()->subscription())
+			$session_data['subscription_data']['trial_period_days'] = 7;
 
 		$user = Auth::user();
 		$stripe_id = $user->stripe_id;
@@ -107,6 +110,7 @@ class SubscriptionController extends Controller
 
 				// if (!array_key_exists('deleted', $customer)  && $user->subscription() && $user_subscription && $stripe_subscription){
 				// if (!array_key_exists('deleted', $customer)  && $user->subscription() && count($subscriptions) > 0){
+				// if ($user->subscription() && count($subscriptions) > 0){
 				if ($user->subscription() && count($subscriptions) > 0){
 					$response = [
 						"redirect" => true,
