@@ -1,9 +1,8 @@
 
 <!--  New Version Class Card -->
-<div class="col-12 la-lclass__card" @if($checkWishList) id="course_{{$id}}" @endif>
+<div class="col-12 h-100 la-lclass__card" @if($checkWishList) id="course_{{$id}}" @endif>
     <div class="la-lclass position-relative">
         <div class="la-lclass__inner">
-            <!-- <div class="la-lclass__inner-link stretched-link" id="course_card_link" role="button" href= "{{ '/learn/course/'.$id.'/'.$url }}" > -->
             <div class="la-lclass__inner-link">
                 <div class="la-lclass__inner-wrap">
                     <div class="la-lclass__imgwrap" style="background-image:url('/images/learners/home/course-mask.png'); -webkit-mask-image:url('/images/learners/home/course-mask.png');">
@@ -77,8 +76,8 @@
                             </ul>
                     </div>               
                     
-                    <div class="la-lclass__play position-relative text-center w-100 mt-auto px-2">
-                        <a  role="button" href= "{{ '/learn/course/'.$id.'/'.$url }}" class=" w-100 la-lclass__play-btn">
+                    <div class="la-lclass__play position-relative text-center w-100 h-50 pt-20 px-2">
+                        <a  role="button" href= "{{ '/learn/course/'.$id.'/'.$url }}" class=" w-100 h-100 la-lclass__play-btn stretched-link">
                             <svg class="la-lclass__play-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"  x="0px" y="0px" viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7" xml:space="preserve">
                                 <polygon class='la-lclass__play-triangle triangle' id="XMLID_18_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="73.5,62.5 148.5,105.8 73.5,149.1 "/> 
                                 <circle class='la-lclass__play-circle circle' id="XMLID_17_" fill="none"  stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="106.8" cy="106.8" r="103.3"/>
@@ -86,8 +85,8 @@
                         </a>
                     </div>                
                     
-                    <div class="la-lclass__info w-100 d-flex flex-column my-auto">
-                        <div class="la-lclass__info-inner w-100">
+                    <div class="la-lclass__info w-100 d-flex flex-column  mb-auto">
+                        <div class="la-lclass__info-inner w-100 pt-10">
                             <div class="position-relative d-inline-flex justify-content-between align-items-center w-100">
                                 <div class="col-8 px-0">
                                     <a class="la-lclass__creator d-inline-flex align-items-center" href="/mentor/{{ $creatorUrl }}/{{ $creatorName }}" >
@@ -148,10 +147,10 @@
                             </div>
 
                             <div class="la-lclass__course-name pt-3 pb-4">
-                                <a class="la-lclass__title leading-tight" href= {{ '/learn/course/'.$id.'/'.$url }}> {{ $course }} </a>
+                                <a class="la-lclass__title leading-tight  stretched-link" href= {{ '/learn/course/'.$id.'/'.$url }}> {{ $course }} </a>
                             </div>
 
-                            <div class="d-flex justify-content-end align-items-center">
+                            <div class="d-flex justify-content-end align-items-center pb-3">    
                                 <div class="la-lclass__classes text-uppercase text-xs pr-2">class 1</div>
                                 <div class="la-lclass__videos text-sm pl-2"><strong>10</strong> Videos</div>
                             </div>

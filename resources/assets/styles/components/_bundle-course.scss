@@ -1,8 +1,7 @@
 #{$ap}- {
     &lcourse{
         width:100%;
-        height:auto;
-        padding-bottom:var(--size-3);
+        height:480px;
         background-color:var(--white);
         border-radius:10px 10px 0 0;-webkit-border-radius:10px 10px 0 0;-moz-border-radius:10px 10px 0 0;
         margin-bottom:var(--size-8);
@@ -42,6 +41,7 @@
         &__{
             &inner{
                 border-radius:10px 10px 0 0;-webkit-border-radius:10px 10px 0 0;-moz-border-radius:10px 10px 0 0;
+               
                 &-{
                     &link{
                         width:100%;
@@ -177,6 +177,7 @@
             }
             &progress{
                 border-radius:0 !important;
+                height:3%;
                 &-{
                     &bar{
                         background-color:var(--green);
@@ -190,8 +191,9 @@
                
                 &-{
                     &inner{
+                        height:100%;
                         margin:0 auto;
-                        padding:var(--size-4) var(--size-4);
+                        padding:var(--size-4) var(--size-4) var(--size-6);
                     }
                 }
             }
@@ -211,12 +213,8 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
                 display: -webkit-box;
-                -webkit-line-clamp: 3; 
+                -webkit-line-clamp: 2; 
                 -webkit-box-orient: vertical;
-
-                &:hover{
-                    color:var(--app-indigo-1);
-                }
             }
             &creator {
                 &:hover{

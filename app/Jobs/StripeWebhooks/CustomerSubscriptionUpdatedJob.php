@@ -112,10 +112,33 @@ class CustomerSubscriptionUpdatedJob implements ShouldQueue
             $subscription_start = $subscription['current_period_start'];
             $subscription_end = $subscription['current_period_end'];
 
-            $plan_subscription->starts_at = Carbon::createFromTimestamp($subscription_start)->toDateTimeString(); 
-            $plan_subscription->ends_at = Carbon::createFromTimestamp($subscription_end)->toDateTimeString(); 
-            $plan_subscription->trial_ends_at = Carbon::createFromTimestamp($subscription['trial_end'])->toDateTimeString(); 
-            $plan_subscription->save();
+            $current_plan = $subscription['plan'];
+
+
+            $plan_price_id = [
+                config('rinvex.subscriptions.stripe_global_monthly') => 'monthly-global',
+                config('rinvex.subscriptions.stripe_global_yearly') => 'yearly-global',
+                config('rinvex.subscriptions.stripe_india_monthly') => 'monthly-india',
+                config('rinvex.subscriptions.stripe_india_yearly') => 'yearly-india',
+            ];
+            $plan = app('rinvex.subscriptions.plan')->where('slug', $plan_price_id[$current_plan['id']])->first();
+            
+            $plan_subscription = $user->subscription();
+
+            if(!$plan_subscription){
+                $user->newSubscription('main', $plan);
+            }else{
+                $plan_subscription->starts_at = Carbon::createFromTimestamp($subscription_start)->toDateTimeString(); 
+                $plan_subscription->ends_at = Carbon::createFromTimestamp($subscription_end)->toDateTimeString(); 
+                $plan_subscription->trial_ends_at = Carbon::createFromTimestamp($subscription['trial_end'])->toDateTimeString(); 
+                $plan_subscription->save();
+            }
+
+            UserSubscription::updateOrCreate(
+                ['user_id' => $user->id],
+                ['payment_method_id' => $subscription['default_payment_method'], 'subscription_id' => $subscription['id'], 'plan_id' => $current_plan['id']]
+            );
+            
         }else{
             echo "invalid";
             return;

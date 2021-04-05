@@ -172,6 +172,7 @@
 }
 .la-home__course-slide, .la-home__course-slide2{
     width: 300px !important;
+    height:auto;
 
     &:first-child{
         padding-left:0;
@@ -254,6 +255,7 @@
 }
 .la-home__master-slide{
     width: 300px !important;
+    height:auto;
     
     &:first-child{
         padding-left:0;
