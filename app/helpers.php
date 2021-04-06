@@ -7,7 +7,7 @@ if (isset($_SERVER["HTTP_CF_CONNECTING_IP"]))
 
 function getSymbol(){
 
-    $country_code = $_SERVER["HTTP_CF_IPCOUNTRY"];
+    $country_code = $_SERVER["HTTP_CF_IPCOUNTRY"] ?? '';
 
     if(!empty($country_code)){
         $location = $country_code;
@@ -24,7 +24,8 @@ function getSymbol(){
 
 function getLocation(){
     
-    $country_code = $_SERVER["HTTP_CF_IPCOUNTRY"];
+    $country_code = $_SERVER["HTTP_CF_IPCOUNTRY"] ?? '';
+
     if(!empty($country_code)){
         return $country_code;
     }else{
