@@ -277,7 +277,7 @@
       <div class="modal-content">
         <div class="modal-header pl-0 d-block">
           <button type="button" class="close mt-2" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="la-admin__section-title modal-title" id="myModalLabel">{{ __('adminstaticword.ExistingChapter') }} </h3>
+          <h3 class="la-admin__section-title modal-title mb-0" id="myModalLabel">{{ __('adminstaticword.ExistingChapter') }} </h3>
         </div>
         <div class="box box-primary">
           <div class="panel panel-sum">
@@ -297,14 +297,25 @@
                 <div class="row">
                   <div class="col-md-12 px-0 mb-6">
                     <div class="d-flex flex-wrap justify-content-between align-items-center">
-                        <div class="col-md-8 pl-0 pr-0 pr-md-2">
+                        <label >{{ __('adminstaticword.SelectVideo') }}:<sup class="redstar">*</sup></label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control py-5" name="title" id="search_title"   placeholder="Enter Your Title"value="" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text" style="cursor:pointer;">
+                                  <span class="la-icon icon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+
+                       {{-- <div class="col-md-8 pl-0 pr-0 pr-md-2">
                           <label >{{ __('adminstaticword.SelectVideo') }}:<sup class="redstar">*</sup></label>
                           <input type="text" class="form-control " name="title" id="search_title"   placeholder="Enter Your Title"value="" required>
                         </div>
 
                         <div class="col-md-4 pr-0 mt-3 mt-md-auto">
                           <button class="btn btn-lg btn-primary px-md-14" onclick="serachVideos()">Search</button>
-                        </div>
+                        </div>--}}
                     </div>
                   </div>
                 </div>
