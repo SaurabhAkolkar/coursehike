@@ -206,12 +206,8 @@ class CartController extends Controller
         $playlists = [];
         $gst = Null;
         $subTotal = Null;
-        $position = Location::get();
-        if($position){
-            $location = $position->countryName;
-        }else{
-            $location = [];
-        }
+        
+        $location = getLocation();
         
 
         if(Auth::check()){
@@ -262,7 +258,7 @@ class CartController extends Controller
                 }
             }
 
-            if($location == 'India'){
+            if($location == 'IN'){
                 $total = $subTotal + ($subTotal * 18) / 100;
             }else{
                 $total = $subTotal;
@@ -406,12 +402,9 @@ class CartController extends Controller
 
         $tax_rates = false;
         $currency = 'USD';
-        if ($position = Location::get()) {
-            $country = $position->countryCode;
-			if($country == 'IN'){
-                $tax_rates = true;
-                $currency = 'INR';
-            }
+        if(getLocation() == 'IN'){
+            $tax_rates = true;
+            $currency = 'INR';
         }
 
         $random = Str::of(Str::orderedUuid())->upper()->explode('-');
@@ -586,13 +579,10 @@ class CartController extends Controller
         $total_amount = $order->sub_total * 100;
 
         $setting = Setting::find(1);
-        if ($position = Location::get()) {
-            $country = $position->countryCode;
-			if($country == 'IN'){
-				$tax_rates = [config('rinvex.subscriptions.stripe_tax_rate')];
-                $currency = 'INR';
-                // $total_amount *= ($setting->dollar_price) ? $setting->dollar_price : 75;
-            }
+
+        if(getLocation() == 'IN'){
+            $tax_rates = [config('rinvex.subscriptions.stripe_tax_rate')];
+            $currency = 'INR';
         }
 
         $session_obj = [
