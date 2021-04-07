@@ -26,6 +26,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-bundled-class:before {
+  content: "\e9b3";
+}
+.icon-class:before {
+  content: "\e9b4";
+}
+.icon-featured-class:before {
+  content: "\e9b5";
+}
 .icon-trial:before {
   content: "\e9b2";
 }
