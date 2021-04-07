@@ -14,7 +14,7 @@ class AddCategoryIdToBundleCourse extends Migration
     public function up()
     {
         Schema::table('bundle_courses', function (Blueprint $table) {
-            $table->string('category_id')->after('title');
+            $table->integer('category_id')->after('title');
         });
     }
 

@@ -72,8 +72,10 @@ class CourseclassController extends Controller
     }
 
     public function saveExitingVideo(Request $request){
+
+    
         $video = CourseClass::findorfail($request->title);
-        dd('wait');
+      
         if($video){
             
             $video->course_id = $request->course_id;
