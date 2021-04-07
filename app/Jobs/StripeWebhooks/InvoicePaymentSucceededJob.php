@@ -78,7 +78,7 @@ class InvoicePaymentSucceededJob implements ShouldQueue
                 
             // if($user->subscription()->ended()){
                 // Create Invoice Record
-                if($invoice_amount_paid > 0)
+                if($invoice_amount_paid > 0 && $invoice_charge != null)
                     UserSubscriptionInvoice::create([
                         'user_id' => $user->id,
                         'subscription_id' => $user->subscription()->id,
