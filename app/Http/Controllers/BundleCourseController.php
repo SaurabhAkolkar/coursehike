@@ -11,6 +11,7 @@ use Auth;
 use App\Cart;
 use App\Order;
 use App\Categories;
+use Storage;
 
 class BundleCourseController extends Controller
 {
@@ -51,7 +52,7 @@ class BundleCourseController extends Controller
             'course_id' => 'required',
             'title' => 'required',
             'detail' => 'required',
-            'category_id'=>'required'
+            'category_id'=>'required',
         ]);
 
         $input = $request->all();
@@ -70,13 +71,16 @@ class BundleCourseController extends Controller
 
         if($file = $request->file('preview_image')) 
         {        
-          $optimizeImage = Image::make($file);
-          $optimizePath = public_path().'/images/bundle/';
-          $image = time().$file->getClientOriginalName();
-          $optimizeImage->save($optimizePath.$image, 72);
+          if ($data->preview_image != null) {
+              $exists = Storage::exists(config('path.course.img').$data->preview_image);
+              if ($exists)
+                  Storage::delete(config('path.course.img').$data->preview_image);
+          }
 
-          $data->preview_image = $image;
-          
+          $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+
+          Storage::put(config('path.course.img').$file_name, fopen($file->getRealPath(), 'r+') );
+          $data->preview_image = $file_name;          
         }
 
 
@@ -146,20 +150,18 @@ class BundleCourseController extends Controller
         
         if ($file = $request->file('image')) {
           
-          if($course->preview_image != null) {
-            $content = @file_get_contents(public_path().'/images/bundle/'.$course->preview_image);
-            if ($content) {
-              unlink(public_path().'/images/bundle/'.$course->preview_image);
+         if ($course->preview_image != null) {
+                $exists = Storage::exists(config('path.course.img').$course->preview_image);
+                if ($exists)
+                    Storage::delete(config('path.course.img').$course->preview_image);
             }
-          }
 
-          $optimizeImage = Image::make($file);
-          $optimizePath = public_path().'/images/bundle/';
-          $image = time().$file->getClientOriginalName();
-          $optimizeImage->save($optimizePath.$image, 72);
+            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
 
-          $input['preview_image'] = $image;
-          
+            Storage::put(config('path.course.img').$file_name, fopen($file->getRealPath(), 'r+') );
+            $input['preview_image'] = $file_name;
+
+            
         }
 
 

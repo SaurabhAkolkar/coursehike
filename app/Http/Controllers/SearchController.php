@@ -159,7 +159,6 @@ class SearchController extends Controller
 		$categories = Categories::where(['featured'=>1,'status'=>1])->get();
 		$bundleCoures = BundleCourse::where(['status'=>1])->get();
 		
-		
 		return view('learners.pages.courses', compact('categories','bundleCoures','filtres_applied', 'selected_duration','sort_type','selected_languages','selected_categories','selected_subcategories','selected_level','playlists','langauges','filter_categories'));
 
         // if(isset($searchTerm))

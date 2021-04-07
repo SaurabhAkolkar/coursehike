@@ -273,11 +273,8 @@
                                   
                                       @php
                                      
-                                          $courses = $bundleCoures->where(['category_id'=>$category->id]);
-                                         
-                                         if(count($courses) > 0){
-                                          dd($courses);
-                                        }     
+                                          $courses = $bundleCoures->where('category_id',$category->id)->where('featured', 1);
+                                           
                                       @endphp
 
                                       <!-- ==== Featured Courses: Start  ====== -->
@@ -289,9 +286,8 @@
                                                   $courses = $category->courses;     
                                                 @endphp --}}
                                                 @if($courses)
-                                                  @foreach($courses->where('featured','like','1') as $course)
+                                                  @foreach($courses as $course)
                                                    
-                                                    
                                                     <div class="swiper-slide la-courses__featured-slide la-anim__stagger-item">
                                                       <x-bundle-course 
                                                         :id="$course->id"
@@ -299,8 +295,10 @@
                                                         :course="$course->title"
                                                         :url="$course->slug"
                                                         :rating="round($course->average_rating, 2)"
-                                                        :creatorImg="$course->user->user_img"
-                                                        :creatorName="$course->user->fname"
+                                                        :videoCount="$course->videoCount()"
+                                                        :classesCount="count($course->course_id)"
+                                                        :creatorImg="$course->users()"
+                                                        :creatorName="$course->users()->first()->fname"
                                                         :creatorUrl="$course->user->id"
                                                         :learnerCount="$course->learnerCount"
                                                         :price="$course->price"
@@ -340,8 +338,8 @@
                                         <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item la-anim__C">
                                           @php
                                             
-                                            $collection = $courses->where('featured','=','0');
-                                            $merged = $collection->merge($courses->whereNull('featured'));
+                                            $collection = $bundleCoures->where('category_id',$category->id)->where('featured',0);
+                                            $merged = $collection->merge($bundleCoures->where('category_id',$category->id)->whereNull('featured'));
                                           @endphp
                                           @foreach($merged as $course)
                                           
@@ -351,8 +349,10 @@
                                                 :course="$course->title"
                                                 :url="$course->slug"
                                                 :rating="round($course->average_rating, 2)"
-                                                :creatorImg="$course->user->user_img"
-                                                :creatorName="$course->user->fname"
+                                                :videoCount="$course->videoCount()"
+                                                :classesCount="count($course->course_id)"
+                                                :creatorImg="$course->users()"
+                                                :creatorName="$course->users()->first()->fname"
                                                 :creatorUrl="$course->user->id"
                                                 :learnerCount="$course->learnerCount"
                                                 :price="$course->price"

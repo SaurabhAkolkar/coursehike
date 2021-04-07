@@ -85,24 +85,24 @@ $course_id = $course->id;
             
             <div class="la-vcourse__creator-group position-relative w-100 d-flex align-items-center la-anim__stagger-item">
               <div class="la-vcourse__creator-group--avator position-relative d-inline-flex la-anim__fade-in-left">
-                <img src="{{ $course->user->user_img }}" alt="" class="img-fluid la-vcourse__creator-group--img1 position-absolute">
-                <img src="{{ $course->user->user_img }}" alt="" class="img-fluid la-vcourse__creator-group--img2 position-absolute">
-                <img src="{{ $course->user->user_img }}" alt="" class="img-fluid la-vcourse__creator-group--img3 position-absolute">
+                @foreach($course->users() as $u)
+                  <img src="{{ $u->user_img }}" alt="" class="img-fluid la-vcourse__creator-group--img{{$loop->index+1}} position-absolute">
+                @endforeach
               </div>
 
               <div class="la-vcourse__creator-group--name text-white leading-tight text-capitalize la-anim__stagger-item--x">
                   <h6>{{ $course->user->fname }}</h6>
-                  <div class="text-xs" style="font-weight:var(--font-light)">+3 Mentors</div>
+                  <div class="text-xs" style="font-weight:var(--font-light)">+{{count($course->users())}} Mentors</div>
               </div>
             </div>
 
             <div class="la-vcourse__primary-info d-inline-flex align-items-center mt-6">
                 <div class="la-vcourse__classes-info pr-3 la-anim__stagger-item--x">
-                  <span class="la--count2">{{ $course->chapter->count() }}</span>
+                  <span class="la--count2">{{ count($course->course_id)}}</span>
                   <span class="la--label2">Classes</span>
                 </div>
                 <div class="la-vcourse__videos-info pl-3 la-anim__stagger-item--x">
-                  <span class="la--count2">{{ $course->courseclass->count() }}</span>
+                  <span class="la--count2">{{ $course->videoCount() }}</span>
                   <span class="la--label2">Videos</span>
                   @php
                       $startTime = \Carbon\Carbon::parse('2020-12-05T01:18:36.862+00:30');
@@ -172,7 +172,7 @@ $course_id = $course->id;
   <section class="la-section--grey la-section__small">
     <div class="la-section__inner">
       <div class="container-fluid la-anim__wrap">
-        @if(count($mentor_other_courses) == 0)
+        @if(count($course->getCourses()) <= 0)
                <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6 la-anim__stagger-item">
                     <div class="col la-empty__inner">
                         <h6 class="la-empty__course-title text-xl la-anim__stagger-item">No more Courses from this Mentor</h6>
@@ -187,7 +187,7 @@ $course_id = $course->id;
             @else
 
             <div class="la-vcourse__course-cards row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item la-anim__B">
-              @foreach ($mentor_other_courses as $mentor_other_course)
+              @foreach ($course->getCourses() as $mentor_other_course)
                     <x-course 
                     :id="$mentor_other_course->id"
                     :img="$mentor_other_course->preview_image"
@@ -253,7 +253,7 @@ $course_id = $course->id;
             @if($video_access == true)
               <div class="tab-pane fade" id="cnav-resource" role="tabpanel" aria-labelledby="cnav-resource-tab">
                 
-                  @if(count($course->resources) == 0)
+                  @if(true)
                       <div class=" la-anim__wrap text-center">
                           <div class="la-empty__inner la-anim__stagger-item">
                               <h6 class="la-empty__course-title text-2xl" style="color:var(--gray8);">No Resources available for this Course.</h6>
@@ -321,7 +321,7 @@ $course_id = $course->id;
             <div class="col-12 mb-4 px-0">
               <h5 class="la-ctabs__title mb-4 la-anim__stagger-item">Resources</h5>
 
-              @if(count($course->resources) == 0)
+              @if(true)
                   <div class=" la-anim__wrap text-center pt-4 pb-10">
                     <div class="la-empty__inner la-anim__stagger-item">
                       <h6 class="la-empty__course-title text-xl" style="color:var(--gray8);">No Resources available for this Course.</h6>
@@ -551,9 +551,9 @@ $course_id = $course->id;
 
           <div class="col-lg-7">
             <div class="la-rtng__review-popup la-anim__wrap">
-                <div class="text-lg-right">
+                {{-- <div class="text-lg-right">
                   <a class="la-rtng__review text-uppercase text-nowrap la-anim__stagger-item" onclick="openReview()">Leave a Review</a>
-              </div>
+              </div> --}}
                     <!-- Leave a Rating Popup: Start -->
                     <div class="modal fade la-rtng__review-modal" id="leave_rating">
                       <div class="modal-dialog la-rtng__review-dialog">
@@ -688,6 +688,7 @@ $course_id = $course->id;
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
+  @foreach($course->users() as $user)
   <section class="la-section__small la-creator__section">
     <div class="la-section__inner pb-md-10">
       <div class="container-fluid">
@@ -696,7 +697,7 @@ $course_id = $course->id;
             <div class="la-creator__wrap d-flex justify-content-center justify-content-lg-start position-relative">
               <div class="la-creator__inwrap la-anim__stagger-item">
                 <div class="la-creator__img la-anim__fade-in-top text-center">
-                  <img class="img-fluid mx-auto d-block" src="{{$course->user->user_img}}" alt="{{$course->user->fullName}}">
+                  <img class="img-fluid mx-auto d-block" src="{{$user->user_img}}" alt="{{$user->fullName}}">
                 </div>
               </div>
             </div>
@@ -705,19 +706,19 @@ $course_id = $course->id;
               <div class="la-creator__detail">
                   <div class="la-creator__name-label la-anim__fade-in-top">Class by</div>
                   <div class="la-creator__name text-capitalize position-relative mb-4">
-                    <h6 class="la-title la-title--circle la-anim__stagger-item"><span class="position-relative">{{$course->user->fullName}}</span></h6>
+                    <h6 class="la-title la-title--circle la-anim__stagger-item"><span class="position-relative">{{$user->fullName}}</span></h6>
                   </div>
-                  <div class="la-creator__specialist mt-1 mb-3 text-capitalize la-anim__stagger-item--x">{{ $course->category->title }}</div>
+                  <div class="la-creator__specialist mt-1 mb-3 text-capitalize la-anim__stagger-item--x"></div>
               </div>
               @php
-                    $details = strip_tags($course->user->detail);
+                    $details = strip_tags($user->detail);
                    $details = preg_replace("/&#?[a-z0-9]+;/i"," ",$details); 
               @endphp 
             @if(strlen($details) != 0)
               <div class="la-creator__para mb-6 la-anim__stagger-item--x">{{ substr($details, 0, 200) }}...</div>
                 <div class="la-creator__content-btn la-anim__stagger-item--x  ">
                   <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold ">
-                    <a href="/mentor/{{$course->user->id}}">read about
+                    <a href="/mentor/{{$user->id}}">read about
                     <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow "></span></a>
                   </div>
                 </div>
@@ -728,6 +729,7 @@ $course_id = $course->id;
       </div>
     </div>
   </section>
+  @endforeach
   <!-- Section: End-->
   <!-- Section: Start-->
   <section class="la-section__small la-section--grey">

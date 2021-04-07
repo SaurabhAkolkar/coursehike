@@ -31,15 +31,13 @@ class LearnController extends Controller
 {
     public function show($id, $slug)
     {
-        $playlists = [];       
-        $course = Course::with('chapter', 'courseclass', 'review','review.user')->where('id', $id)->first();
+        $playlists = [];     
+          
+        $course = BundleCourse::where('id', $id)->first();
+        
+        $related_courses =  BundleCourse::where('category_id', $course->category_id)->where('status', 1)->where('id','!=', $course->id)->take(3)->get();
 
-        $related_courses =  Course::whereHas('category', function($query) use($course) 
-        {
-            $query->where('id', $course->category_id); 
-        })->where('status', 1)->whereNotIn('id', [$course->id])->take(3)->get();
-
-        $mentor_other_courses =  Course::where('user_id', $course->user_id)->where('status', 1)->whereNotIn('id', [$course->id])->take(3)->get();
+        $mentor_other_courses =  Course::where('user_id', $course->user_id)->where('status', 1)->where('id','!=', $course->id)->take(3)->get();
 
         if($course->slug != $slug)
             return redirect()->route('learn.show', ['id' => $id,'slug'=>$course->slug]);
@@ -84,19 +82,19 @@ class LearnController extends Controller
 
         }
 
-        $reviews = $course->review->sortByDesc('rating');
+        $reviews = $course->reviews()->sortByDesc('rating');
         if(Auth::check()){
 			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
 		}
         // $average_rating = $course->review->average('rating');
         $average_rating = $course->average_rating;
-        $total_rating = $course->review->count() > 0 ? $course->review->count() : 1 ;
+        $total_rating = $course->reviews()->count() > 0 ? $course->reviews()->count() : 1 ;
 
-        $five_rating_percentage= round(100*$course->review->where('rating',5)->count()/$total_rating);
-        $four_rating_percentage =  round(100*$course->review->where('rating',4)->count()/$total_rating);
-        $three_rating_percentage = round(100*$course->review->where('rating',3)->count()/$total_rating);
-        $two_rating_percentage = round(100*$course->review->where('rating',2)->count()/$total_rating);
-        $one_rating_percentage = round(100*$course->review->where('rating',1)->count()/$total_rating);
+        $five_rating_percentage= round(100*$course->reviews()->where('rating',5)->count()/$total_rating);
+        $four_rating_percentage =  round(100*$course->reviews()->where('rating',4)->count()/$total_rating);
+        $three_rating_percentage = round(100*$course->reviews()->where('rating',3)->count()/$total_rating);
+        $two_rating_percentage = round(100*$course->reviews()->where('rating',2)->count()/$total_rating);
+        $one_rating_percentage = round(100*$course->reviews()->where('rating',1)->count()/$total_rating);
 
         $subscription_rate = '$39';
         if (getLocation() == 'IN')

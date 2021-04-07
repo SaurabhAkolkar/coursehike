@@ -27,9 +27,11 @@ class BundleCourse extends Component
     public $bought;
     public $checkWishList;
     public $checkCart;
+    public $videoCount;
+    public $classesCount;
 
 
-    public function __construct($id, $img, $checkWishList, $checkCart, $bought, $course, $price, $learnerCount, $rating, $url, $creatorImg, $creatorName, $creatorUrl, $addedToWhishList=false, $removeFromPlaylist = false)
+    public function __construct($id, $img, $checkWishList, $videoCount, $classesCount,$checkCart, $bought, $course, $price, $learnerCount, $rating, $url, $creatorImg, $creatorName, $creatorUrl, $addedToWhishList=false, $removeFromPlaylist = false)
     {
         $this->id = $id;
         $this->img = $img;
@@ -48,6 +50,9 @@ class BundleCourse extends Component
         $this->bought = $bought;
         $this->checkWishList = $checkWishList;
         $this->checkCart = $checkCart;
+        $this->videoCount = $videoCount;
+        $this->classesCount = $classesCount;
+
     }
 
     /**

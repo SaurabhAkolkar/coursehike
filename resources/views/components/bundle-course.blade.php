@@ -131,11 +131,11 @@
                     <div class="la-lcourse__info-inner w-100">
                         <div class="position-relative d-inline-flex justify-content-between align-items-center w-100">
                             <div class="col-3 pl-0 pr-1">
-                                <div class="la-lcourse__classes">2 Classes</div>
+                                <div class="la-lcourse__classes">{{$classesCount}} Classes</div>
                             </div>
 
                             <div class="col-3 pl-0 pr-1">
-                                <div class="la-lcourse__videos">10 Videos</div>
+                                <div class="la-lcourse__videos">{{$videoCount}} Videos</div>
                             </div>
 
                             <div class="col-6 px-0 la-lcourse__rating text-right">
@@ -153,13 +153,14 @@
                             <div class="la-lcourse__creator d-flex flex-row align-items-center">
                                 <div class="la-lcourse__creator-name leading-tight text-right">
                                     <span>{{ $creatorName }}</span> <br/>
-                                    <span>+3 Mentors</span>
+                                    <span>+{{count($creatorImg)}} Mentors</span>
                                 </div>
 
                                 <div class="la-lcourse__creator-imgwrap d-inline-flex position-relative">
-                                    <img class="img-fluid la-lcourse__creator-img1 position-absolute" src="{{ $creatorImg }}" alt="{{ $creatorName }}" />
-                                    <img class="img-fluid la-lcourse__creator-img2 position-absolute" src="{{ $creatorImg }}" alt="{{ $creatorName }}" />
-                                    <img class="img-fluid la-lcourse__creator-img3 position-absolute" src="{{ $creatorImg }}" alt="{{ $creatorName }}"/>
+                                    @foreach($creatorImg as $c)
+                                        <img class="img-fluid la-lcourse__creator-img{{$loop->index + 1}} position-absolute" src="{{ $c->user_img }}" alt="{{ $creatorName }}" />
+                                    @endforeach
+                                    
                                 </div>
                             </div>
                         </div>
