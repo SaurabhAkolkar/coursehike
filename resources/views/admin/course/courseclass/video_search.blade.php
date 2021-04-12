@@ -4,7 +4,7 @@
         <div class="row la-admin__evideo-search mb-6">
             <div class="col-3 h-100">
                 <div class="la-admin__evideo-img">
-                    <img src="{{$c->image}}" alt="" class="img-fluid mx-auto d-block">
+                    <a href="/courseclass/{{$c->id}}" target="_{{$c->title}}"><img src="{{$c->image}}" alt="" class="img-fluid mx-auto d-block"></a>
                 </div>
             </div>
             <div class="col-9">
@@ -25,7 +25,7 @@
             </div>
 
             <div class="col-12 text-right mt-3">
-                    <form action ="{{route('save.exiting.videos')}}" method="post">
+                    <form action ="/save-existing-videos" method="post">
                         @csrf
                         <input type="hidden" name="course_id" value="{{$course_id}}"/>
                         <input type="hidden" name="video_id" value="{{$c->id}}" />

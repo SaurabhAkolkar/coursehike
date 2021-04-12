@@ -2,9 +2,9 @@
  
   <div class="row">
     <div class="col-md-12 px-0 px-md-4">
-      <div class="d-flex justify-content-between align-items-center">
+      <div class="text-right">
         <a data-toggle="modal" data-target="#exitingVideo" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.ExistingChapter') }}</a>
-        <a data-toggle="modal" data-target="#myModalab" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.CourseClass') }}</a>
+        <a data-toggle="modal" data-target="#myModalab" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.UploadVideo') }}</a>
       </div><br/>
 
       <div class="la-admin__tab-table">
@@ -74,7 +74,7 @@
       <div class="modal-content">
         <div class="modal-header d-block">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="modal-title" id="myModalLabel">{{ __('adminstaticword.Add') }} {{ __('adminstaticword.CourseClass') }}</h3>
+          <h3 class="modal-title" id="myModalLabel">{{ __('adminstaticword.UploadVideo') }}</h3>
         </div>
         <div class="box box-primary">
           <div class="panel panel-sum">
@@ -300,9 +300,9 @@
                         <label >{{ __('adminstaticword.SelectVideo') }}:<sup class="redstar">*</sup></label>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control py-5" name="title" id="search_title"   placeholder="Enter Your Title"value="" required>
-                            <div class="input-group-append">
+                            <div class="input-group-append" onclick="serachVideos()">
                                 <span class="input-group-text" style="cursor:pointer;">
-                                  <span class="la-icon icon-search" onclick="serachVideos()"></span>
+                                  <span class="la-icon icon-search" ></span>
                                 </span>
                             </div>
                         </div>

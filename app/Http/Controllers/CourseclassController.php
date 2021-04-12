@@ -72,10 +72,10 @@ class CourseclassController extends Controller
     }
 
     public function saveExitingVideo(Request $request){
-
+       
     
-        $video = CourseClass::findorfail($request->title);
-      
+        $video = CourseClass::findorfail($request->video_id);
+        
         if($video){
             
             $video->course_id = $request->course_id;
@@ -83,14 +83,14 @@ class CourseclassController extends Controller
             $video->position = 0;
             $video->video = $video->getOriginal('video');
             $video->image = $video->getOriginal('image');
-            dd($video->toArray());
-            CourseClass::create($video);
+            $video->toArray();
+            CourseClass::create($video->toArray());
 
             return back()->with('success',' Video is Added');
 
         }
 
-        return back()->with('success','Something went wrong');
+        return back('/course/create/'.$request->course_id)->with('success','Something went wrong');
         
     }
 

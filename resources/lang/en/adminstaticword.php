@@ -534,6 +534,7 @@ return [
     'Purchased' => 'Purchased',
     'ExistingChapter'=>'Existing Video',
     'SelectVideo' => 'Select Video',
-    'Paid'=>'Paid'
+    'Paid'=>'Paid',
+    'Course&Class'=>'Course & Classes'
 
 ];
