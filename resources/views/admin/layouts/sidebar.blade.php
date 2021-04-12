@@ -94,13 +94,13 @@
                     {{--<li class="{{ Nav::isResource('childcategory') }}"><a href="{{url('childcategory')}}" class="d-flex align-items-center"><i class="la-icon la-icon--sm icon-child-category mr-4"></i>{{ __('adminstaticword.ChildCategory') }}</a></li> --}}
                   </ul>
 
-                  <li class="@if(Request::segment(1) == 'course') active @endif"><a href="{{url('course')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-class mr-4"></i><span>{{ __('adminstaticword.Classes') }}</span></a></li>
+                  <li class="{{ Nav::isResource('bundle') }}"><a href="{{url('bundle')}}"><i class="flaticon-interface" aria-hidden="true"></i><span>{{ __('adminstaticword.Course') }}</span></a></li>
+
+                  <li class="@if(Request::segment(1) == 'course') active @endif"><a href="{{url('course')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-courses mr-4"></i><span>{{ __('adminstaticword.Classes') }}</span></a></li>
 
                   <li class="@if(Request::segment(1) == 'featuredcourses') active @endif"><a href="{{url('featuredcourses')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-featured-class mr-4"></i><span>{{ __('adminstaticword.featuredClasses') }}</span></a></li>
 
-                  <li class="{{ Nav::isResource('bundle') }}"><a href="{{url('bundle')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-bundled-class mr-4"></i><span>{{ __('adminstaticword.BundleCourse') }}</span></a></li>
-
-                  <li class="{{ Nav::isResource('courselang') }}"><a href="{{url('courselang')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-course-language mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.CourseLanguage') }}</span></a></li>
+                  <li class="{{ Nav::isResource('courselang') }}"><a href="{{url('courselang')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-course-language mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.CourseLanguage') }}</span></a></li>
                   
                   <li class="{{ Nav::isResource('publishrequest') }}"><a href="{{url('publishrequest')}}" class="d-flex align-items-center"><i class="la-icon la-icon--xl icon-published-course mr-3" aria-hidden="true"></i><span>{{ __('adminstaticword.PublishRequest') }}</span></a></li>
                   
