@@ -49,8 +49,10 @@ class CustomerSubscriptionUpdatedJob implements ShouldQueue
 
         $user = User::where('stripe_id', $customer_id)->first();
                 
-        if(!$user)
+        if(!$user){
+            echo 'no user found';
             return;
+        }
 
         $plan_subscription = $user->subscription();
 
