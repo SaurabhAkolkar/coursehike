@@ -1781,14 +1781,19 @@ a.la-admin__edit-btn{
 
 
 /* ============ EXISTING VIDEO SEARCH POPUP IN EDIT VIDEO/COURSE SECTION: START ======== */
+@media(min-width:992px){
+  .la-class__modal-dailog{
+    width:900px !important;
+  }
+}
 .la-admin__evideo-search{
   background:rgba(#FFFFFF, 0.75);
-  padding:var(--size-5) 0;
+  padding:var(--size-4) var(--size-2);
   border-bottom:1px solid var(--gray8);
 }
 .la-admin__evideo-img{
-  width:120px;
-  height:80px;
+  width:100px;
+  height:70px;
   overflow: hidden;
   border-radius: 6px;
 
