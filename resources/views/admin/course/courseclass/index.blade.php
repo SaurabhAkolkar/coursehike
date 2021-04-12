@@ -302,7 +302,7 @@
                             <input type="text" class="form-control py-5" name="title" id="search_title"   placeholder="Enter Your Title"value="" required>
                             <div class="input-group-append">
                                 <span class="input-group-text" style="cursor:pointer;">
-                                  <span class="la-icon icon-search"></span>
+                                  <span class="la-icon icon-search" onclick="serachVideos()"></span>
                                 </span>
                             </div>
                         </div>

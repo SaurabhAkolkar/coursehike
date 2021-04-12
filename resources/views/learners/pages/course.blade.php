@@ -708,7 +708,7 @@ $course_id = $course->id;
                   <div class="la-creator__name text-capitalize position-relative mb-4">
                     <h6 class="la-title la-title--circle la-anim__stagger-item"><span class="position-relative">{{$user->fullName}}</span></h6>
                   </div>
-                  <div class="la-creator__specialist mt-1 mb-3 text-capitalize la-anim__stagger-item--x"></div>
+                  <div class="la-creator__specialist mt-1 mb-3 text-capitalize la-anim__stagger-item--x">{{$user->courses[0]->category->title}}</div>
               </div>
               @php
                     $details = strip_tags($user->detail);

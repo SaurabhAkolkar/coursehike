@@ -824,6 +824,46 @@ function addToCart(id='1', classes='all') {
   }
 }
 
+function addToCart(id='1', classes='all', bundleCourse=false) {
+  let course_id = id;
+  if(classes != 'all'){
+  }
+  if(course_id){
+    $.ajax({
+      headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      type:"get",
+      url: '/add-to-cart',
+      data: {course_id: course_id, classes : classes, bundleCourse:bundleCourse},
+      success:function(data){   
+        $('#alert_div').html(' ');
+     
+        let successAlert = `<div class="la-btn__alert position-relative">
+                              <div class="la-btn__alert-success col-lg-4 offset-lg-4 alert alert-success alert-dismissible fade show" id="wishlist_alert" role="alert">
+                                <span id="wishlist_alert_message" class="la-btn__alert-msg">${data}</span>
+                                <button type="button" class="close la-btn__alert-close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true" style="color:#56188C">&times;</span>
+                                </button>
+                              </div>
+                            </div>`;
+        $('#alert_div').html(successAlert);
+        window.setTimeout(function() {
+          $(".alert").fadeTo(500, 0).slideUp(500, function() {
+              $(this).remove();
+          });
+        }, 3000);
+              
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        console.log(XMLHttpRequest);
+      }
+    });
+  }else{
+    alert('Something went wrong');
+  }
+}
+
 
 
 function addToCategory(id){
