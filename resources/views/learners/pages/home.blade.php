@@ -311,26 +311,28 @@
                                         $courses = $category->courses;          
                                       @endphp
 
-                                      @foreach($courses as $course)
+                                      @foreach($bundleCoures as $course)
                                         @if ($course->featured == 0)
                                             @continue
                                         @endif
                                         
                                         <div class="swiper-slide la-home__course-slide pt-md-6 la-anim__stagger-item" >
                                           <x-bundle-course 
-                                            :id="$course->id"
-                                            :img="$course->preview_image"
-                                            :course="$course->title"
-                                            :url="$course->slug"
-                                            :rating="round($course->average_rating, 2)"
-                                            :creatorImg="$course->user->user_img"
-                                            :creatorName="$course->user->fname"
-                                            :creatorUrl="$course->user->id"
-                                            :learnerCount="$course->learnerCount"
-                                            :price="$course->price"
-                                            :bought="$course->isPurchased()"
-                                            :checkWishList="$course->checkWishList"
-                                            :checkCart="$course->checkCart"
+                                              :id="$course->id"
+                                              :img="$course->preview_image"
+                                              :course="$course->title"
+                                              :url="$course->slug"
+                                              :rating="round($course->average_rating, 2)"
+                                              :videoCount="$course->videoCount()"
+                                              :classesCount="count($course->course_id)"
+                                              :creatorImg="$course->users()"
+                                              :creatorName="$course->users()->first()->fname"
+                                              :creatorUrl="$course->user->id"
+                                              :learnerCount="$course->learnerCount"
+                                              :price="$course->price"
+                                              :bought="$course->isPurchased()"
+                                              :checkWishList="$course->checkWishList"
+                                              :checkCart="$course->checkCart"
                                           />
                                         </div>
                                       @endforeach                                  

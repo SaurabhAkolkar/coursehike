@@ -343,8 +343,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::resource('reviewrating','ReviewratingController');
       Route::resource('announsment','AnnounsmentController');
       Route::resource('announcement','AnnouncementController');
-      Route::get('/course/class/search-video','CourseclassController@searchVideo')->name('search-class-video');
-      Route::get('/course/class/save-existing-videos','CourseclassController@saveExitingVideo')->name('save.exiting.videos');
+      Route::get('/course/class/search-video/','CourseclassController@searchVideo')->name('search-class-video');
       Route::get('/course/create/{id}','CourseController@showCourse')->name('course.show');
       Route::post('/send-course-to-publish','CourseController@sendToPublish');
       Route::post('/send-course-to-unpublish','CourseController@sendToUnpublish');
@@ -584,6 +583,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::post('admin/creatorpayout/store', 'CreatorPayoutController@store')->name('creatorpayout.store');
       Route::get('admin/creatorpayout/edit/{id}', 'CreatorPayoutController@edit')->name('creatorpayout.edit');
       Route::put('admin/creatorpayout/update', 'CreatorPayoutController@update')->name('creatorpayout.update');
+      Route::post('/save-existing-videos','CourseclassController@saveExitingVideo');
+
 
       Route::get('admin/pending/{id}', 'AdminPayoutController@pending')->name('admin.pending');
       Route::get('admin/paid/{id}', 'AdminPayoutController@paid')->name('admin.paid');
@@ -776,3 +777,5 @@ Route::view('/privacy-policy', 'learners.pages.terms-conditions');
 //- Error Pages
 Route::view('/error-404', 'learners.messages.error-404');
 Route::view('/error-wrong', 'learners.messages.error-wrong');
+
+

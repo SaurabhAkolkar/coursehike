@@ -232,19 +232,21 @@
                                     
                           @foreach($courses as $course)
                               <x-bundle-course 
-                                  :id="$course->id"
-                                  :img="$course->preview_image"
-                                  :course="$course->title"
-                                  :url="$course->slug"
-                                  :rating="round($course->average_rating, 2)"
-                                  :creatorImg="$course->user->user_img"
-                                  :creatorName="$course->user->fname"
-                                  :creatorUrl="$course->user->id"
-                                  :learnerCount="$course->learnerCount"
-                                  :price="$course->price"
-                                  :bought="$course->isPurchased()"
-                                  :checkWishList="$course->checkWishList"
-                                  :checkCart="$course->checkCart"
+                              :id="$course->id"
+                              :img="$course->preview_image"
+                              :course="$course->title"
+                              :url="$course->slug"
+                              :rating="round($course->average_rating, 2)"
+                              :videoCount="$course->videoCount()"
+                              :classesCount="count($course->course_id)"
+                              :creatorImg="$course->users()"
+                              :creatorName="$course->users()->first()->fname"
+                              :creatorUrl="$course->user->id"
+                              :learnerCount="$course->learnerCount"
+                              :price="$course->price"
+                              :bought="$course->isPurchased()"
+                              :checkWishList="$course->checkWishList"
+                              :checkCart="$course->checkCart"
                               />
                             @endforeach
 
@@ -290,21 +292,21 @@
                                                    
                                                     <div class="swiper-slide la-courses__featured-slide la-anim__stagger-item">
                                                       <x-bundle-course 
-                                                        :id="$course->id"
-                                                        :img="$course->preview_image"
-                                                        :course="$course->title"
-                                                        :url="$course->slug"
-                                                        :rating="round($course->average_rating, 2)"
-                                                        :videoCount="$course->videoCount()"
-                                                        :classesCount="count($course->course_id)"
-                                                        :creatorImg="$course->users()"
-                                                        :creatorName="$course->users()->first()->fname"
-                                                        :creatorUrl="$course->user->id"
-                                                        :learnerCount="$course->learnerCount"
-                                                        :price="$course->price"
-                                                        :bought="$course->isPurchased()"
-                                                        :checkWishList="$course->checkWishList"
-                                                        :checkCart="$course->checkCart"
+                                                          :id="$course->id"
+                                                          :img="$course->preview_image"
+                                                          :course="$course->title"
+                                                          :url="$course->slug"
+                                                          :rating="round($course->average_rating, 2)"
+                                                          :videoCount="$course->videoCount()"
+                                                          :classesCount="count($course->course_id)"
+                                                          :creatorImg="$course->users()"
+                                                          :creatorName="$course->users()->first()->fname"
+                                                          :creatorUrl="$course->user->id"
+                                                          :learnerCount="$course->learnerCount"
+                                                          :price="$course->price"
+                                                          :bought="$course->isPurchased()"
+                                                          :checkWishList="$course->checkWishList"
+                                                          :checkCart="$course->checkCart"
                                                       />
                                                     </div>
                                                   @endforeach
@@ -359,12 +361,11 @@
                                                 :bought="$course->isPurchased()"
                                                 :checkWishList="$course->checkWishList"
                                                 :checkCart="$course->checkCart"
-
                                               />
                                           @endforeach
                                         </div>
 
-                                        @if(count($courses) == 0 || count($merged) == 0 )
+                                        @if(count($merged) == 0 )
 
                                           <div class=" my-3 my-md-8  la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
                                             <div class="la-empty__inner">

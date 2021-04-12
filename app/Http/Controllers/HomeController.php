@@ -81,7 +81,8 @@ class HomeController extends Controller
         
         $featuredMentor = FeaturedMentor::with('user','courses','courses.category')->where(['status'=>'1'])->get();
 
-
+		$bundleCoures = BundleCourse::where(['status'=>1])->get();
+        
         // if(isset($request->sort_by)){
         //     $sort_type = $request->sort_by;
 
@@ -125,7 +126,8 @@ class HomeController extends Controller
             'filtres_applied' => $filtres_applied,
             'courses' => $courses,
             'langauges' => $langauges,
-            'filter_categories'=>$filter_categories
+            'filter_categories'=>$filter_categories,
+            'bundleCoures' => $bundleCoures
         ];
 
         return view('learners.pages.home')->with($data);

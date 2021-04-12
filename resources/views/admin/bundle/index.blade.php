@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'Bundle - Admin')
+@section('title', 'Course - Admin')
 @section('body')
 
 <section class="content">
@@ -11,7 +11,7 @@
       <div class="box-header with-border">
         <h3 class="box-title">{{ __('adminstaticword.Course') }}</h3>
         <a class="btn btn-info btn-sm" href="{{url('bundle/create')}}">
-          <i class="glyphicon glyphicon">+</i> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.BundleCourse') }}
+          <i class="glyphicon glyphicon">+</i> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Course') }}
         </a>
       </div>
       <!-- /.box-header -->

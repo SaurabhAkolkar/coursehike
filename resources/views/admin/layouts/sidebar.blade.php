@@ -78,7 +78,7 @@
 
           <li class="@if(Request::segment(1) == 'category' || Request::segment(1) == 'subcategory' || Request::segment(1) == 'course' || Request::segment(1) == 'featuredcourses' ) active menu-open @endif {{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('publishrequest') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('bundle') }} {{ Nav::isResource('courselang') }}  {{Nav::isResource('coursereviewunpublish')}} treeview">
             <a href="#" class="d-flex align-items-center">
-                <i class="la-icon la-icon--lg icon-courses mr-4"></i>{{ __('adminstaticword.Course') }}
+                <i class="la-icon la-icon--lg icon-courses mr-4"></i>{{ __('adminstaticword.Course&Class') }}
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>

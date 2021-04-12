@@ -88,6 +88,7 @@ class LearnController extends Controller
 		}
         // $average_rating = $course->review->average('rating');
         $average_rating = $course->average_rating;
+       
         $total_rating = $course->reviews()->count() > 0 ? $course->reviews()->count() : 1 ;
 
         $five_rating_percentage= round(100*$course->reviews()->where('rating',5)->count()/$total_rating);
