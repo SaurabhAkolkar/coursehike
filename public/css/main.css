@@ -17424,9 +17424,14 @@ a, a:hover {
   z-index: 10;
   line-height: 1.2;
 }
-@media (max-width: 1340px) {
+@media (max-width: 1399px) and (min-width: 1200px) {
   .la-header__nav-item {
     margin-right: var(--size-3);
+  }
+}
+@media (max-width: 1150px) {
+  .la-header__nav-item {
+    margin-right: var(--size-2);
   }
 }
 .la-header__nav-link {
@@ -17490,9 +17495,9 @@ a, a:hover {
 .la-header__menu-item {
   margin-left: var(--size-6);
 }
-@media (max-width: 1199px) {
+@media (max-width: 1399px) and (min-width: 992px) {
   .la-header__menu-item {
-    margin-left: var(--size-4);
+    margin-left: var(--size-3);
   }
 }
 @media (max-width: 991px) {
