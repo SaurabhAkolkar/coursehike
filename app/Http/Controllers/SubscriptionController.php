@@ -77,7 +77,7 @@ class SubscriptionController extends Controller
             'success_url' => config('app.url') . "/subscription-successful/{CHECKOUT_SESSION_ID}",
             'cancel_url' => config('app.url') . "/learning-plans",
 			'subscription_data' => [
-				'payment_behavior' => 'allow_incomplete',
+				// 'payment_behavior' => 'allow_incomplete',
 			]
 		];
 

@@ -3,8 +3,8 @@
   <div class="row">
     <div class="col-md-12 px-0 px-md-4">
       <div class="text-right">
-        <a data-toggle="modal" data-target="#exitingVideo" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.ExistingChapter') }}</a>
         <a data-toggle="modal" data-target="#myModalab" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.UploadVideo') }}</a>
+        <a data-toggle="modal" data-target="#exitingVideo" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.ExistingChapter') }}</a>
       </div><br/>
 
       <div class="la-admin__tab-table">
@@ -273,7 +273,7 @@
   
   <!--Model start: Existing Video-->
   <div class="modal fade show" id="exitingVideo" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-md" role="document">
+    <div class="modal-dialog modal-md la-class__modal-dailog" role="document">
       <div class="modal-content">
         <div class="modal-header pl-0 d-block">
           <button type="button" class="close mt-2" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -285,7 +285,10 @@
 
                 <div class="row">
                   <div class="col-md-12 px-0 mb-6">
-                    <label >{{ __('adminstaticword.ChapterName') }}:<sup class="redstar">*</sup></label>
+                    <label >
+                      {{ __('adminstaticword.ChapterName') }}:<sup class="redstar">*</sup> <br/>
+                      <span class="text-xs">(Select the chapter name to which the video will be added)</span>
+                    </label>
                     <select name="course_chapters" id="chapter_id" class="form-control  col-12 js-example-basic-single" required>
                       @foreach($coursechapters as $c)
                       <option value="{{ $c->id }}">{{ $c->chapter_name }}</option>
@@ -299,10 +302,10 @@
                     <div class="d-flex flex-wrap justify-content-between align-items-center">
                         <label >{{ __('adminstaticword.SelectVideo') }}:<sup class="redstar">*</sup></label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control py-5" name="title" id="search_title"   placeholder="Enter Your Title"value="" required>
+                            <input type="text" class="form-control py-6" name="title" id="search_title"   placeholder="Enter Your Title"value="" required>
                             <div class="input-group-append" onclick="serachVideos()">
-                                <span class="input-group-text" style="cursor:pointer;">
-                                  <span class="la-icon icon-search" ></span>
+                                <span class="input-group-text px-6" style="cursor:pointer;">
+                                  <span class="la-icon la-icon--xl icon-search"></span>
                                 </span>
                             </div>
                         </div>
