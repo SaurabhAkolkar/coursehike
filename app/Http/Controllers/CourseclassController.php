@@ -75,16 +75,17 @@ class CourseclassController extends Controller
        
     
         $video = CourseClass::findorfail($request->video_id);
-        
+        $image = DB::table('course_classes')->where('id',$request->video_id)->first()->image;
         if($video){
             
             $video->course_id = $request->course_id;
             $video->coursechapter_id = $request->chapter_id;
             $video->position = 0;
             $video->video = $video->getOriginal('video');
-            $video->image = $video->getOriginal('image');
-            $video->toArray();
-            CourseClass::create($video->toArray());
+            //$image = $video->getOriginal('image');
+            $video = $video->toArray();
+            $video['image'] = $image;
+            CourseClass::create($video);
 
             return back()->with('success',' Video is Added');
 
