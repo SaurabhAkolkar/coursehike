@@ -353,8 +353,8 @@ use App\Announcement;
           <div class="d-none d-lg-inline-block la-header__menu-item">
             <a class="la-header__menu-link la-header__menu-icon icon-hamburger-menu font-weight-normal" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
             <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" style="border:none;">
-              <a class="dropdown-item la-header__dropdown-item text-sm @if(Request::segment(1) == 'become-mentor') active @endif" href="/become-mentor">Become a Creator</a>
-              <a class="dropdown-item la-header__dropdown-item text-sm @if(Request::segment(1) == 'guided-mentor') active @endif" href="/guided-mentor">Guided Creator</a>
+              <a class="dropdown-item la-header__dropdown-item text-sm @if(Request::segment(1) == 'become-mentor') active @endif" href="/become-mentor">Become a Mentor</a>
+              <a class="dropdown-item la-header__dropdown-item text-sm @if(Request::segment(1) == 'guided-mentor') active @endif" href="/guided-mentor">Guided Mentor</a>
               <a class="dropdown-item la-header__dropdown-item text-sm @if(Request::segment(1) == 'about') active @endif" href="/about">About Us</a>
               <a class="dropdown-item la-header__dropdown-item text-sm @if(Request::segment(1) == 'contact') active @endif" href="/contact">Contact Us</a>
             </div>
