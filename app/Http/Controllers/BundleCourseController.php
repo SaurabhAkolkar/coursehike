@@ -22,6 +22,7 @@ class BundleCourseController extends Controller
      */
     public function index()
     {
+     
         if(Auth::user()->role == 'mentors'){
             $course = BundleCourse::with('category')->where('user_id', Auth::user()->id)->get();
         }else{
@@ -38,7 +39,7 @@ class BundleCourseController extends Controller
      */
     public function create()
     {   
-        if(Auth::user()->role == 'admins'){
+        if(Auth::user()->role == 'admin'){
             $courses = Course::get();
         }else{
             $courses = Course::where('user_id', Auth::user()->id)->get();
