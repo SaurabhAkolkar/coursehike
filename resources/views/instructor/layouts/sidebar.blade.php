@@ -32,9 +32,9 @@
             </a>
           </li>
           
-          <li class="{{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('course') }} {{ Nav::isResource('courselang') }} treeview">
+          <li class="{{ Nav::isResource('category') }} {{ Nav::isResource('bundle') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('course') }} {{ Nav::isResource('courselang') }} treeview">
               <a class="d-flex align-items-center" href="#">
-                  <i class="la-icon la-icon--md icon-courses mr-6"></i>{{ __('adminstaticword.Course') }}
+                  <i class="la-icon la-icon--md icon-courses mr-6"></i>{{ __('adminstaticword.Course&Class') }}
                   <span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
                   </span>
@@ -58,7 +58,9 @@
                   @endif                            
                   --}}
 
-                  <li  class="@if(Request::segment(1) == 'course') active @endif"><a class="d-flex align-items-center" href="{{url('course')}}"> <i class="la-icon la-icon--lg icon-courses mr-4"></i><span>{{ __('adminstaticword.Course') }}</span></a></li>
+                  <li class="{{ Nav::isResource('bundle') }}"><a href="{{url('bundle')}}"><i class="flaticon-interface" aria-hidden="true"></i><span>{{ __('adminstaticword.Course') }}</span></a></li>
+
+                  <li  class="@if(Request::segment(1) == 'course') active @endif"><a class="d-flex align-items-center" href="{{url('course')}}"> <i class="la-icon la-icon--lg icon-courses mr-4"></i><span>{{ __('adminstaticword.Class') }}</span></a></li>
 
                   <li class="{{ Nav::isResource('courselang') }}"><a class="d-flex align-items-center" href="{{url('courselang')}}">  <i class="la-icon la-icon--lg icon-course-language mr-4"></i><span> {{ __('adminstaticword.Course') }} {{ __('adminstaticword.Language') }}</span></a></li>
                   
@@ -141,7 +143,7 @@
           <li class="{{ Nav::isResource('instructor.pay') }}"><a  class="d-flex align-items-center" href="{{route('instructor.pay')}}"><i class="la-icon la-icon--lg icon-revenue mr-4"></i> <span>{{ __('adminstaticword.PayoutSettings') }}</span></a></li>
 
           @endif
-          
+{{--           
           <li class="{{ Nav::isResource('instructorquestion') }} {{ Nav::isResource('instructoranswer') }} treeview">
             <a class="d-flex align-items-center" href="#">
               <i class="la-icon la-icon--lg icon-faq mr-5"></i> {{ __('adminstaticword.Faq') }} 
@@ -164,7 +166,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> --}}
 
           <li>
             <a href="/contact" target="_blank" class="d-flex align-items-center">

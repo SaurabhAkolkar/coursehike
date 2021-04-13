@@ -23,7 +23,9 @@
                   <th>{{ __('adminstaticword.Image') }}</th>
                   <th>{{ __('adminstaticword.Title') }}</th>
                   <th>{{ __('adminstaticword.Category') }}</th>
+                  @if(Auth::user()->role == 'admins')
                   <th>{{ __('adminstaticword.Instructor') }}</th>
+                  @endif
                   <th>{{ __('adminstaticword.Slug') }}</th>
                   <th>{{ __('adminstaticword.Featured') }}</th>
                   <th>{{ __('adminstaticword.Status') }}</th>
@@ -34,7 +36,7 @@
 
               <tbody>
                 <?php $i=0;?>
-                  @if(Auth::User()->role == "admin")
+                  @if(true)
                     @foreach($course as $cat)
                       <?php $i++;?>
                       <tr>
@@ -48,7 +50,9 @@
                         </td>
                         <td>{{$cat->title}}</td>
                         <td>{{$cat->category->title}}</td>
+                        @if(Auth::user()->role == 'admins')
                         <td>{{ $cat->user['fname'] }}</td>
+                        @endif
                         <td>{{$cat->slug}}</td>
                         <td>
                          

@@ -59,7 +59,7 @@ class CartController extends Controller
     public function addtocartAjax(Request $request)
     {
         $course = Course::findOrFail($request->course_id);
-       
+        dd($request);
         $check = Cart::where(['user_id'=>Auth::user()->id, 'course_id'=>$request->course_id])->first();
         
         if(!$check){

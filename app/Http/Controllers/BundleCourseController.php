@@ -22,7 +22,12 @@ class BundleCourseController extends Controller
      */
     public function index()
     {
-        $course = BundleCourse::with('category')->get();
+        if(Auth::user()->role == 'mentors'){
+            $course = BundleCourse::with('category')->where('user_id', Auth::user()->id)->get();
+        }else{
+            $course = BundleCourse::with('category')->get();
+        }
+       
         return view('admin.bundle.index', compact('course'));
     }
 
@@ -32,8 +37,12 @@ class BundleCourseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        $courses = Course::get();
+    {   
+        if(Auth::user()->role == 'admins'){
+            $courses = Course::get();
+        }else{
+            $courses = Course::where('user_id', Auth::user()->id)->get();
+        }
         $category = Categories::where(['status'=>1])->get();
         return view('admin.bundle.create', compact('courses','category'));
     }
@@ -101,7 +110,11 @@ class BundleCourseController extends Controller
     public function show($id)
     {
         $cor = BundleCourse::find($id);
-        $courses = Course::get();
+        if(Auth::user()->role == 'admins'){
+            $courses = Course::get();
+        }else{
+            $courses = Course::where('user_id', Auth::user()->id)->get();
+        }
         $category = Categories::where(['status'=>1])->get();
 
         return view('admin.bundle.edit', compact('cor', 'courses','category'));

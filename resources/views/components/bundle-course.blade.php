@@ -21,7 +21,7 @@
                             <li class="la-lcourse__option">
                                 @if(Auth::check())
                                 @if($price && $bought == null)
-                                <span class="d-inline-block la-lcourse__addtocart" onclick="addToCart({{$id}})">
+                                <span class="d-inline-block la-lcourse__addtocart" onclick="addToCart({{$id}}, bundleCourse=true)">
                                     <i class="la-icon la-icon--2xl icon icon-cart @if($checkCart) text-warning @endif"></i>
                                 </span>
                                 @else
