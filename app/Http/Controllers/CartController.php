@@ -28,7 +28,7 @@ use Cartalyst\Stripe\Exception\NotFoundException;
 use Exception;
 use App\Notifications\CourseNotification;
 use Illuminate\Support\Facades\Notification;
-
+use App\BundleCourse;
 
 
 class CartController extends Controller
@@ -58,19 +58,38 @@ class CartController extends Controller
 
     public function addtocartAjax(Request $request)
     {
-        $course = Course::findOrFail($request->course_id);
-        dd($request);
-        $check = Cart::where(['user_id'=>Auth::user()->id, 'course_id'=>$request->course_id])->first();
+        if($request->bundleCourse == 'true'){
+            $course = BundleCourse::findOrFail($request->course_id);
         
-        if(!$check){
-            $cart = Cart::create(
-                ['user_id' => Auth::User()->id, 'course_id' => $request->course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id]
-            );
-
-            return 'Course added to cart';
+            $check = Cart::where(['user_id'=>Auth::user()->id, 'bundle_id'=>$request->course_id])->first();
+            
+            if(!$check){
+                $cart = Cart::create(
+                    ['user_id' => Auth::User()->id, 'course_id'=> 0 ,'bundle_id' => $request->course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id]
+                );
+    
+                return 'Course added to cart';
+            }
+    
+            return 'Course already in cart';
+        }else{
+            $course = Course::findOrFail($request->course_id);
+        
+            $check = Cart::where(['user_id'=>Auth::user()->id, 'course_id'=>$request->course_id])->first();
+            
+            if(!$check){
+                $cart = Cart::create(
+                    ['user_id' => Auth::User()->id, 'course_id' => $request->course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id]
+                );
+    
+                return 'Class added to cart';
+            }
+    
+            return 'Class already in cart';
         }
 
-        return 'Course already in cart';
+        return  'Something went wrong';
+       
         
 
         
@@ -448,11 +467,19 @@ class CartController extends Controller
         foreach($cart as $single_cart){
             $insertDetails['invoice_id'] = $info->id;
             // foreach($single_cart->cartItems as $c){
+            if($single_cart->bundle_id > 0){
+                $insertDetails['course_id'] = 0;
+                $insertDetails['bundle_id'] = $single_cart->bundle_id;
+                $insertDetails['purchase_type'] = 'bundle';
+                
+            }else{
                 $insertDetails['course_id'] = $single_cart->course_id;
-                $insertDetails['class_id'] = $single_cart->class_id;
                 $insertDetails['purchase_type'] = 'all_classes';
-                $insertDetails['price'] = $single_cart->price;
-                InvoiceDetail::create($insertDetails);
+
+            }
+            $insertDetails['class_id'] = $single_cart->class_id;
+            $insertDetails['price'] = $single_cart->price;
+            InvoiceDetail::create($insertDetails);
             // }
         }
 

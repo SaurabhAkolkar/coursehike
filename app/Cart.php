@@ -17,7 +17,22 @@ class Cart extends Model
 
     public function courses()
     {
-    	return $this->belongsTo('App\Course','course_id','id');
+        if($this->bundle_id >0){
+        	return $this->belongsTo('App\BundleCourse','bundle_id','id');
+        }else{
+        	return $this->belongsTo('App\Course','course_id','id');
+        }
+    }
+
+    public function getClassCountAttribute()
+    {
+        if($this->bundle_id >0){
+        	$course = BundleCourse::where(['id'=>$this->bundle_id])->first();
+
+            return count($course->course_id);
+        }else{
+        	return 'All Chapters';
+        }
     }
 
     public function cartItems()

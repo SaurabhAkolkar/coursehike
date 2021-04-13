@@ -308,13 +308,11 @@
                             <div class="swiper-wrapper la-home__course-wrapper ">
                                                                                             
                                       @php
-                                        $courses = $category->courses;          
+                                        $courses = $bundleCoures->where('category_id',$category->id)->where('featured', 1);          
                                       @endphp
 
-                                      @foreach($bundleCoures as $course)
-                                        @if ($course->featured == 0)
-                                            @continue
-                                        @endif
+                                      @foreach($courses as $course)
+                                       
                                         
                                         <div class="swiper-slide la-home__course-slide pt-md-6 la-anim__stagger-item" >
                                           <x-bundle-course 
@@ -427,7 +425,7 @@
                               </div>
                               <div class=" position-relative text-center text-md-right la-anim__wrap pb-2">
                                 <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold mr-1 mr-md-7 la-anim__fade-in-right la-anim--B">
-                                  <a href="/browse/courses" >explore more <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
+                                  <a href="/browse/classes" >explore more <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
                                 </div>
                               </div>
                             </div> 

@@ -57,7 +57,7 @@
                               :courseImg="$cart->courses->preview_image"
                               {{-- :classType="$cart->cartItems->first() && $cart->cartItems->first()->purchase_type" --}}
                               :course="$cart->courses->title"
-                              :classType="'All Chapters'"
+                              :classType="$cart->classCount"
                               :creator="$cart->courses->user->fullName"
                               :remove="$remove"
                               :removeUrl="'remove-from-cart/'.$cart->id"
