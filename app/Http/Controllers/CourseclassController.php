@@ -33,8 +33,6 @@ class CourseclassController extends Controller
     public function index()
     {
         $courseclass = CourseClass::all();
-       
-
         return view('admin.course.courseclass.index',compact("courseclass",'video'));
     }
 
@@ -74,21 +72,52 @@ class CourseclassController extends Controller
     public function saveExitingVideo(Request $request){
        
     
-        $video = CourseClass::findorfail($request->video_id);
-        $image = DB::table('course_classes')->where('id',$request->video_id)->first()->image;
-        if($video){
+        $course = CourseClass::findorfail($request->video_id);
+        $raw_data = DB::table('course_classes')->where('id',$request->video_id)->first();
+        $image = $raw_data->image;
+        $video = $raw_data->video;
+        
+        if($course){
+
+            $course->position = 0;
+            $exists = Storage::exists(config('path.course.video_thumnail').$request->course_id.'/'. $image);
+            if ($exists)
+                Storage::delete(config('path.course.video_thumnail').$request->course_id.'/'. $image);
             
-            $video->course_id = $request->course_id;
-            $video->coursechapter_id = $request->chapter_id;
-            $video->position = 0;
-            $video->video = $video->getOriginal('video');
-            //$image = $video->getOriginal('image');
-            $video = $video->toArray();
-            $video['image'] = $image;
-            CourseClass::create($video);
+            $video_exists = Storage::exists(config('path.course.video').$request->course_id .'/'. $video);
+                if ($video_exists)
+                    Storage::delete(config('path.course.video').$request->course_id .'/'. $video);
 
+            Storage::copy(config('path.course.video_thumnail').$course->course_id.'/'. $image, config('path.course.video_thumnail').$request->course_id .'/'. $image);
+            
+            Storage::copy(config('path.course.video').$course->course_id .'/'. $video, config('path.course.video').$request->course_id .'/'. $video);
+            
+            $response = Http::withHeaders([
+                'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
+                'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
+            ])->post('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/copy', [
+                'url' => Storage::temporaryUrl(config('path.course.video'). $course->course_id.'/'.$video, now()->addMinutes(60)),
+                'meta' => [
+                    'name' => $video
+                ],
+                "requireSignedURLs" => true,
+                // "allowedorigins" => ["*.lila.com","localhost"],
+            ]);
+            if($response->successful()){
+                $res = $response->json();
+                $course->stream_url = $res['result']['uid'];
+            }
+
+            $course->course_id = $request->course_id;
+            $course->coursechapter_id = $request->chapter_id;
+            
+
+            $course = $course->toArray();
+            $course['video'] = $video;
+            $course['image'] = $image;
+               // $video['image'] = $image;
+            CourseClass::create($course);
             return back()->with('success',' Video is Added');
-
         }
 
         return back('/course/create/'.$request->course_id)->with('success','Something went wrong');
@@ -377,71 +406,72 @@ class CourseclassController extends Controller
     {
 
         $courseclass = CourseClass::find($id);
-
-        if($courseclass->type == "video")
-        {
-                
-            $video_file = @file_get_contents(public_path().'/video/class/'.$courseclass->video);
-
-            if($video_file)
+        if($courseclass){
+            if($courseclass->type == "video")
             {
-                unlink(public_path().'/video/class/'.$courseclass->video);
+                    
+                $video_file = @file_get_contents(public_path().'/video/class/'.$courseclass->video);
+    
+                if($video_file)
+                {
+                    unlink(public_path().'/video/class/'.$courseclass->video);
+                }
             }
-        }
-
-        if($courseclass->type == "audio")
-        {
-                
-            $video_file = @file_get_contents(public_path().'/files/audio/'.$courseclass->audio);
-
-            if($video_file)
+    
+            if($courseclass->type == "audio")
             {
-                unlink(public_path().'/files/audio/'.$courseclass->audio);
+                    
+                $video_file = @file_get_contents(public_path().'/files/audio/'.$courseclass->audio);
+    
+                if($video_file)
+                {
+                    unlink(public_path().'/files/audio/'.$courseclass->audio);
+                }
             }
-        }
-
-        if($courseclass->type == "image")
-        {
-                
-            $image_file = @file_get_contents(public_path().'/images/class/'.$courseclass->image);
-
-            if($image_file)
+    
+            if($courseclass->type == "image")
             {
-                unlink(public_path().'/images/class/'.$courseclass->image);
+                    
+                $image_file = @file_get_contents(public_path().'/images/class/'.$courseclass->image);
+    
+                if($image_file)
+                {
+                    unlink(public_path().'/images/class/'.$courseclass->image);
+                }
             }
-        }
-
-        if($courseclass->type == "zip")
-        {
-                
-            $zip_file = @file_get_contents(public_path().'/files/zip/'.$courseclass->zip);
-
-            if($zip_file)
+    
+            if($courseclass->type == "zip")
             {
-                unlink(public_path().'/files/zip/'.$courseclass->zip);
+                    
+                $zip_file = @file_get_contents(public_path().'/files/zip/'.$courseclass->zip);
+    
+                if($zip_file)
+                {
+                    unlink(public_path().'/files/zip/'.$courseclass->zip);
+                }
             }
-        }
-
-        if($courseclass->type == "pdf")
-        {
-                
-            $pdf_file = @file_get_contents(public_path().'/files/pdf/'.$courseclass->pdf);
-
-            if($pdf_file)
+    
+            if($courseclass->type == "pdf")
             {
-                unlink(public_path().'/files/pdf/'.$courseclass->pdf);
+                    
+                $pdf_file = @file_get_contents(public_path().'/files/pdf/'.$courseclass->pdf);
+    
+                if($pdf_file)
+                {
+                    unlink(public_path().'/files/pdf/'.$courseclass->pdf);
+                }
             }
-        }
-
-        if($courseclass->preview_type = "video")
-        {
-            $content = @file_get_contents(public_path().'/video/class/preview/'.$courseclass->preview_video);
-            if($content) {
-              unlink(public_path().'/video/class/preview/'.$courseclass->preview_video);
+    
+            if($courseclass->preview_type = "video")
+            {
+                $content = @file_get_contents(public_path().'/video/class/preview/'.$courseclass->preview_video);
+                if($content) {
+                  unlink(public_path().'/video/class/preview/'.$courseclass->preview_video);
+                }
             }
-        }
-
-        $courseclass->delete();
+    
+            $courseclass->delete();
+        }        
         
         return back();
     }

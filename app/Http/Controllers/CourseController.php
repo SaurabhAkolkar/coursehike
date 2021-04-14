@@ -400,17 +400,7 @@ class CourseController extends Controller
         $topics = QuizTopic::where('course_id', '=', $id)->get();
         $appointment = Appointment::where('course_id', '=', $id)->get();
         $videos = [];
-
-        if(Auth::user()->role =='admin'){
-            $videos = CourseClass::where('course_id','!=', $id)->distinct('video')->pluck('title','id');
-        }else{
-            $course_ids = Course::where('user_id', $user->id)->where('course_id','!=', $id)->pluck('id')->toArray();
-            if(!empty($course_ids)){
-                $videos = CourseClass::whereIn('course_id', $course_ids)->distinct('video')->pluck('title','id');
-
-            }
-        }
-                 
+                         
         return view('admin.course.show', compact('cor', 'users','videos','course', 'categories', 'publisRequest','courseinclude', 'whatlearns', 'coursechapters', 'coursechapter', 'check_master_class','relatedcourse', 'courseclass', 'courseresources', 'announsments', 'answers', 'reports', 'questions', 'quizes', 'topics', 'appointment'));
     }
 
