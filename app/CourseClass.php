@@ -71,6 +71,9 @@ class CourseClass extends Model
 
     public function getImageAttribute($value)
     {
+      if (filter_var($value, FILTER_VALIDATE_URL)) { 
+            return  $value;
+      }
         return Storage::url(config('path.course.video_thumnail').$this->course_id. '/' . $value);
     }
 
@@ -89,13 +92,17 @@ class CourseClass extends Model
         return null;
     }
 
-    // public function getVideoAttribute($value)
-    // {
-    //     return Storage::temporaryUrl(
-    //         config('path.course.video').$this->course_id. '/' . $value, now()->addMinutes(60)
-    //     );
-    //     // return Storage::url(config('path.course.video').$this->course_id. '/' . $value);
-    // }
+    public function getVideoAttribute($value)
+    {
+        if (filter_var($value, FILTER_VALIDATE_URL)) { 
+            return  $value;
+        }
+
+        return Storage::temporaryUrl(
+            config('path.course.video').$this->course_id. '/' . $value, now()->addMinutes(60)
+        );
+        // return Storage::url(config('path.course.video').$this->course_id. '/' . $value);
+    }
 
     public function getSignedStreamURL()
     {

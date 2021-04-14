@@ -62,7 +62,7 @@
 
                   <li  class="@if(Request::segment(1) == 'course') active @endif"><a class="d-flex align-items-center" href="{{url('course')}}"> <i class="la-icon la-icon--lg icon-courses mr-4"></i><span>{{ __('adminstaticword.Class') }}</span></a></li>
 
-                  <li class="{{ Nav::isResource('courselang') }}"><a class="d-flex align-items-center" href="{{url('courselang')}}">  <i class="la-icon la-icon--lg icon-course-language mr-4"></i><span> {{ __('adminstaticword.Course') }} {{ __('adminstaticword.Language') }}</span></a></li>
+                  {{-- <li class="{{ Nav::isResource('courselang') }}"><a class="d-flex align-items-center" href="{{url('courselang')}}">  <i class="la-icon la-icon--lg icon-course-language mr-4"></i><span> {{ __('adminstaticword.Course') }} {{ __('adminstaticword.Language') }}</span></a></li> --}}
                   
                   {{-- @if($gsetting->assignment_enable == 1)
                   <li class="{{ Nav::isRoute('assignment.view') }}"><a class="d-flex align-items-center" href="{{route('assignment.view')}}"><i class="flaticon-computer" aria-hidden="true"></i><span>{{ __('adminstaticword.Assignment') }}</span></a></li>

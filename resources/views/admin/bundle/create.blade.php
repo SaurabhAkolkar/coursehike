@@ -41,7 +41,7 @@
 
                     <div class="col-md-6 col-lg-4  mb-3">
                       <div class="form-group">
-                        <label>{{ __('adminstaticword.SelectCourse') }}: <span class="redstar">*</span></label>
+                        <label>{{ __('adminstaticword.SelectClass') }}: <span class="redstar">*</span></label>
                         <select class="form-control js-example-basic-single" name="course_id[]" multiple="multiple" size="5" row="5" placeholder="Select Courses">
 
 
