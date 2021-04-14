@@ -43,6 +43,9 @@ class CheckoutChargeFailedJob implements ShouldQueue
         // you can access the payload of the webhook call with `$this->webhookCall->payload`
         $invoice = $this->webhookCall->payload['data']['object'];
 
+        if (!array_key_exists("client_reference_id", $invoice))
+            return;
+
         $customer_id = $invoice['customer'];
         $client_reference_id = $invoice['client_reference_id'];
         $payment_status = $invoice['payment_status'];
