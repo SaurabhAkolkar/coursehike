@@ -6,9 +6,9 @@ if (isset($_SERVER["HTTP_CF_CONNECTING_IP"]))
     $_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
 
 function getSymbol(){
-
-    $country_code = $_SERVER["HTTP_CF_IPCOUNTRY"];
-
+    
+    $country_code = array_key_exists('HTTP_CF_IPCOUNTRY',$_SERVER)?$_SERVER["HTTP_CF_IPCOUNTRY"]:[];
+    $location = "";
     if(!empty($country_code)){
         $location = $country_code;
     }else{
@@ -16,6 +16,7 @@ function getSymbol(){
         if($position)
             $location = $position->countryCode;
     }
+
     if($location == 'IN'){
         return '₹';
     }
@@ -24,7 +25,8 @@ function getSymbol(){
 
 function getLocation(){
     
-    $country_code = $_SERVER["HTTP_CF_IPCOUNTRY"];
+    $country_code = array_key_exists('HTTP_CF_IPCOUNTRY',$_SERVER)?$_SERVER["HTTP_CF_IPCOUNTRY"]:[];
+
     if(!empty($country_code)){
         return $country_code;
     }else{
