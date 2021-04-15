@@ -2,6 +2,7 @@
     &lcourse{
         width:100%;
         height:480px;
+        display: table-cell;
         background-color:var(--white);
         border-radius:10px 10px 0 0;-webkit-border-radius:10px 10px 0 0;-moz-border-radius:10px 10px 0 0;
         margin-bottom:var(--size-8);

@@ -142,7 +142,11 @@
                                 &title{
                                     font-size:var(--text-xl);
                                     color:var(--gray3);
-                                    padding-left:85px;
+                                    margin-bottom:var(--size-6);
+                                    
+                                    @include respond-above(lg){
+                                        //padding-left:85px;
+                                    }
                                 }
                             }
                         }

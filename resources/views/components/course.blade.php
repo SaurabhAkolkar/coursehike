@@ -146,7 +146,7 @@
                                 </div>
                             </div>
 
-                            <div class="la-lclass__course-name pt-3 pb-4">
+                            <div class="la-lclass__course-name pt-3 pb-3">
                                 <a class="la-lclass__title leading-tight  stretched-link" href= {{ '/learn/course/'.$id.'/'.$url }}> {{ $course }} </a>
                             </div>
 

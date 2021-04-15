@@ -158,12 +158,13 @@
 
 .la-home__course-fluid{
     @include respond-below(sm){
-        padding-left:12px;
+        //padding-left:12px;
     }
 }
 .la-home__course-container,.la-home__course-container2{
     width:100%;
     height:100%;
+    overflow: visible;
 }
 .la-home__course-wrapper,.la-home__course-wrapper2{
     @include respond-above(lg){
@@ -178,7 +179,7 @@
         padding-left:0;
 
        @include respond-above(lg){
-            margin-left:85px;
+            //margin-left:85px;
        }
     }
     
