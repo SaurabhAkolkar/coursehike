@@ -230,7 +230,7 @@
                     <div class="la-anim__wrap">
                       <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
                                     
-                          @foreach($courses as $course)
+                          @foreach($courses->sortBy('order') as $course)
                               <x-course 
                                   :id="$course->id"
                                   :img="$course->preview_image"
@@ -285,7 +285,7 @@
                                         <div class="swiper-wrapper la-courses__featured-wrapper ">
                                                                                                         
                                                   @php
-                                                    $courses = $category->courses;     
+                                                    $courses = $category->courses->sortBy('order');
                                                   @endphp
 
                                                   @foreach($courses->where('featured','like','1') as $course)
