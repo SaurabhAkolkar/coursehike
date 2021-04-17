@@ -20,6 +20,7 @@
                                 @csrf
                                 <input type="hidden" name="playlist_id" id="playlist_id" value=""/>
                                 <input type="hidden" name="course_id" id="course_id" value=""/>
+                                <input type="hidden" name="bundleCourse" id="bundleCourse" value=""/>
                             </form>
                             <div class="la-playlist__modal-list list-group list-group-flush  playlist_div_height" id="user_playlists" >
                                 @if(!empty($playlists))
