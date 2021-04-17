@@ -58,7 +58,7 @@ $course_id = $course->id;
 />
 
   <!-- Section: Start -->
-  <section class="la-vcourse__section la-section"  style="background:linear-gradient(45deg, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.48)), url('http://127.0.0.1:8000/images/learners/home/course-bg.png') no-repeat center rgba(0, 0, 0, 0.8); background-size:cover;">
+  <section class="la-vcourse__section la-section"  style="background:linear-gradient(45deg, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.48)), url('{{$course->preview_image}}') no-repeat center rgba(0, 0, 0, 0.8); background-size:cover;">
     <div class="la-vcourse la-vcourse__inner">
       <div class="container-fluid">
         <div class="d-flex flex-wrap mb-12 la-anim__wrap"> 
@@ -149,6 +149,7 @@ $course_id = $course->id;
                     <form class="la-vcourse__purchase-form" id="add_to_cart_form_1" name="add_to_cart_form" method="post" action="/add-to-cart">
                       <input type="hidden" name="course_id" value="{{$course->id}}" />
                       <input type="hidden" value="all-classes" name="classes" />
+                      <input type="hidden" value="true" name="bundle_course" />
                       @csrf
                       <a class="la-vcourse__buy-course btn btn-primary la-btn la-btn--app text-white color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" @if(Auth::check()) onclick="$('#add_to_cart_form_1').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>Buy this Class</a><br/>
                       <span class="text-white">@ {{ getSymbol() }}{{$course->convertedprice}}</span>
@@ -429,6 +430,8 @@ $course_id = $course->id;
                             <form class="la-vcourse__purchase-form" id="add_to_cart_form_1" name="add_to_cart_form" method="post" action="/add-to-cart">
                               <input type="hidden" name="course_id" value="{{$course->id}}" />
                               <input type="hidden" value="all-classes" name="classes" />
+                              <input type="hidden" value="true" name="bundle_course" />
+
                               @csrf
                               <a class="la-vcourse__buy-course btn  la-btn la-btn--app color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" @if(Auth::check()) onclick="$('#add_to_cart_form_1').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>Buy this Class</a><br/>
                               <span style="color:var(--gray7)">@ {{ getSymbol() }}{{$course->convertedprice}}</span>

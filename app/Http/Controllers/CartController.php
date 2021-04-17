@@ -130,84 +130,103 @@ class CartController extends Controller
 
     public function addToCart(Request $request){
         
-        $course = Course::findOrFail($request->course_id);
-        if($course){
-            $classes = CourseChapter::where('course_id',$course->id)->count();
-            if($request->classes == 'selected-classes'){
-                if(!$request->selected_classes){
-                    return redirect()->back()->with('message','Please select classes to add to cart.');
-                }
-                if($classes == count($request->selected_classes)){
-                    $request->classes ='all-classes';
-                }
-            }            
+        $bundle_course_id = null;
+        $course_id = 0;
+        if($request->bundle_course == 'true'){
+            $course =  BundleCourse::findOrFail($request->course_id);
+            $bundle_course_id = $request->course_id;
+        }else{
+            $course = Course::findOrFail($request->course_id);
+            $course_id = $request->course_id;
+        }
+        
+        $check = Cart::where(['user_id' => Auth::User()->id, 'course_id' => $course_id, 'bundle_id' => $bundle_course_id])->first();
+        if($check){
+            return redirect()->back()->with('message','Course is already in the cart');
         }
         $cart = Cart::firstOrCreate(
-            ['user_id' => Auth::User()->id, 'course_id' => $request->course_id, 'status' => 1]
+            ['user_id' => Auth::User()->id, 'course_id' => $course_id, 'bundle_id' => $bundle_course_id, 'bundle_id' => $request->course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id]
         );
 
-        if($request->classes =='all-classes'){
+        if($request->has('buy_type') && $request->buy_type == 'buy_now')
+            return redirect('/cart')->with('message','Course added to the cart.');
+        else
+            return redirect()->back()->with('message','Course added to the cart.');
+
+        // Old code for getting classes
+        // if($course){
+        //     $classes = CourseChapter::where('course_id',$course->id)->count();
+        //     if($request->classes == 'selected-classes'){
+        //         if(!$request->selected_classes){
+        //             return redirect()->back()->with('message','Please select classes to add to cart.');
+        //         }
+        //         if($classes == count($request->selected_classes)){
+        //             $request->classes ='all-classes';
+        //         }
+        //     }            
+        // }
+        // if($request->classes =='all-classes'){
            
-            $check_course = CartItem::where(['cart_id' => $cart->id , 'course_id' => $request->course_id , 'class_id' => 0])->first();
+        //     $check_course = CartItem::where(['cart_id' => $cart->id , 'course_id' => $request->course_id , 'class_id' => 0])->first();
            
-            if($check_course){
-                return redirect()->back()->with('message','Course already in cart.');
-            }
+        //     if($check_course){
+        //         return redirect()->back()->with('message','Course already in cart.');
+        //     }
             
-            CartItem::where(['cart_id' => $cart->id,'course_id' => $request->course_id])->where('class_id','>',0)->delete();
+        //     CartItem::where(['cart_id' => $cart->id,'course_id' => $request->course_id])->where('class_id','>',0)->delete();
 
-            $insert['course_id'] = $request->course_id;
-            $insert['class_id'] = 0;
-            $insert['category_id'] = $course->category_id;
-            $insert['price'] = $course->convertedprice;
-            $insert['offer_price'] = $course->offer_price;
-            $insert['purchase_type'] = 'all_classes';
-            $insert['cart_id'] = $cart->id;
-            $insert['created_at'] = Carbon::now();
-            $insert['updated_at'] = Carbon::now();
+        //     $insert['course_id'] = $request->course_id;
+        //     $insert['class_id'] = 0;
+        //     $insert['category_id'] = $course->category_id;
+        //     $insert['price'] = $course->convertedprice;
+        //     $insert['offer_price'] = $course->offer_price;
+        //     $insert['purchase_type'] = 'all_classes';
+        //     $insert['cart_id'] = $cart->id;
+        //     $insert['created_at'] = Carbon::now();
+        //     $insert['updated_at'] = Carbon::now();
 
-            CartItem::insert($insert);
+        //     CartItem::insert($insert);
 
-            if($request->has('buy_type') && $request->buy_type == 'buy_now')
-                return redirect('/cart')->with('message','Course added to the cart.');
-            else
-                return redirect()->back()->with('message','Course added to the cart.');
+        //     if($request->has('buy_type') && $request->buy_type == 'buy_now')
+        //         return redirect('/cart')->with('message','Course added to the cart.');
+        //     else
+        //         return redirect()->back()->with('message','Course added to the cart.');
 
-        }elseif($request->classes == "select-classes"){
+        // }elseif($request->classes == "select-classes"){
             
-            CartItem::where(['cart_id' => $cart->id, 'course_id' => $request->course_id])->delete();
+        //     CartItem::where(['cart_id' => $cart->id, 'course_id' => $request->course_id])->delete();
 
-            $classes = $request->selected_classes;
+        //     $classes = $request->selected_classes;
 
-            if($classes == null){
-                return redirect()->back()->with('message','Please select classes to add.');
-            }  
+        //     if($classes == null){
+        //         return redirect()->back()->with('message','Please select classes to add.');
+        //     }  
 
-            $insert['course_id'] = $request->course_id;
-            $insert['category_id'] = $course->category_id;
-            $insert['purchase_type'] = 'selected_classes';
-            $insert['cart_id'] = $cart->id;
+        //     $insert['course_id'] = $request->course_id;
+        //     $insert['category_id'] = $course->category_id;
+        //     $insert['purchase_type'] = 'selected_classes';
+        //     $insert['cart_id'] = $cart->id;
 
-            $classes = CourseChapter::whereIn('id',$classes)->get();
+        //     $classes = CourseChapter::whereIn('id',$classes)->get();
 
-            foreach($classes as $class){                
-                if($class){
-                    $insert['class_id'] = $class->id;
-                    $insert['price'] = $class->convertedprice; 
-                    $insert['created_at'] = Carbon::now();
-                    $insert['updated_at'] = Carbon::now();              
-                    CartItem::insert($insert);
-                }
-            }
+        //     foreach($classes as $class){                
+        //         if($class){
+        //             $insert['class_id'] = $class->id;
+        //             $insert['price'] = $class->convertedprice; 
+        //             $insert['created_at'] = Carbon::now();
+        //             $insert['updated_at'] = Carbon::now();              
+        //             CartItem::insert($insert);
+        //         }
+        //     }
 
-            if($request->has('buy_type') && $request->buy_type == 'buy_now')
-                return redirect('/cart')->with('message','Course added to the cart.');
-            else
-                return redirect()->back()->with('message','Course added to the cart.');
-        }else{
+        //     if($request->has('buy_type') && $request->buy_type == 'buy_now')
+        //         return redirect('/cart')->with('message','Course added to the cart.');
+        //     else
+        //         return redirect()->back()->with('message','Course added to the cart.');
+        // }else{
 
-            return redirect()->back()->with('message','Please select the type of class.');
-        }
+        //     return redirect()->back()->with('message','Please select the type of class.');
+        // }
 
     }
 

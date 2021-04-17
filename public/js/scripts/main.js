@@ -651,8 +651,11 @@ $.ajaxSetup({
 
 // Add to Playlist JS
 
-function showAddToPlaylist(id){
+function showAddToPlaylist(id, bundleCourse = false){
   $('#course_id').val(id);
+  if(bundleCourse){
+    $('#bundleCourse').val('true');
+  }
   $('#add_to_playlist_modal').modal('show');
 }
 function submitAddToPlaylist(id){
@@ -707,7 +710,7 @@ function searchPlaylist() {
 }
 
 //- Add to Wishlist
-function addToWishList(id){
+function addToWishList(id, bundleCourse=false){
 
   let course_id = id;
   if(course_id){
@@ -717,7 +720,7 @@ function addToWishList(id){
       },
       type:"post",
       url: '/add-to-wishlist',
-      data: {course_id: course_id},
+      data: {course_id: course_id, bundleCourse:bundleCourse},
       success:function(data){   
         $('#alert_div').html(' ');
         let successAlert = `<div class="la-btn__alert position-relative">
