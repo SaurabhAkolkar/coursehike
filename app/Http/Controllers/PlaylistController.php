@@ -32,13 +32,18 @@ class PlaylistController extends Controller
 
     public function show($id)
     {   
-      $courses = PlaylistCourse::with('courses','courses.user')
+      $courses = PlaylistCourse::with('bundle','bundle.user')
                                 ->where('playlist_id', $id)
+                                ->where('bundle_course_id', '>','0')
                                 ->get();
-                               
+                 
+      $classes = PlaylistCourse::with('courses','courses.user')
+                                ->where('playlist_id', $id)
+                                ->where('course_id', '>','0')
+                                ->get();
 
       $playlist = Playlist::findorfail($id);
-      return view('learners.pages.playlist-courses')->with(['courses' => $courses, 'playlist'=>$playlist]);
+      return view('learners.pages.playlist-courses')->with(['courses' => $courses, 'classes' => $classes ,'playlist'=>$playlist]);
     }
 
     public function removeCourse($playlist_id, $id){
@@ -70,19 +75,43 @@ class PlaylistController extends Controller
             'playlist_id' => 'required',
             'course_id' => 'required'
         ]);
-      
-        $input['playlist_id'] = $request->playlist_id;
-        $input['course_id'] = $request->course_id;
 
-        $check_if_exist = PlaylistCourse::where(['course_id'=>$input['course_id'],'playlist_id'=>$input['playlist_id']])->get();
-        if(count($check_if_exist) > 0){
-            return redirect()->back()->with('message','Course Already Exist in Playlist');
+    
+
+        if($request->bundleCourse == 'true'){
+
+            $input['playlist_id'] = $request->playlist_id;
+            $input['course_id'] = 0;
+            $input['bundle_course_id'] = $request->course_id;
+
+            $check_if_exist = PlaylistCourse::where(['bundle_course_id'=>$input['bundle_course_id'],'playlist_id'=>$input['playlist_id']])->get();
+            
+            if(count($check_if_exist) > 0){
+                return redirect()->back()->with('message','Course Already Exist in Playlist');
+            }
+    
+            $courses = PlaylistCourse::create($input);
+            $playlist = Playlist::findOrFail($input['playlist_id']);
+            $playlist->count = $playlist->count + 1;
+            $playlist->save();
+            
+        }else{
+            $input['playlist_id'] = $request->playlist_id;
+            $input['course_id'] = $request->course_id;
+            
+    
+            $check_if_exist = PlaylistCourse::where(['course_id'=>$input['course_id'],'playlist_id'=>$input['playlist_id']])->get();
+            if(count($check_if_exist) > 0){
+                return redirect()->back()->with('message','Course Already Exist in Playlist');
+            }
+    
+            $courses = PlaylistCourse::create($input);
+            $playlist = Playlist::findOrFail($input['playlist_id']);
+            $playlist->count = $playlist->count + 1;
+            $playlist->save();
         }
-
-        $courses = PlaylistCourse::create($input);
-        $playlist = Playlist::findOrFail($input['playlist_id']);
-        $playlist->count = $playlist->count + 1;
-        $playlist->save();
+      
+       
 
       return redirect()->back()->with('message','Course Added to Playlist');
     }

@@ -46,7 +46,7 @@ class WishlistController extends Controller
      */
     public function store(Request $request)
     {
-        DB::table('wishlists')->insert(
+         DB::table('wishlists')->insert(
         array(
              
             'course_id' => $request->course,
