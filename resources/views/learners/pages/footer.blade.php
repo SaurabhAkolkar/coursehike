@@ -48,7 +48,7 @@
                   <div class="la-footer__title">Categories</div>
                   <ul class="la-footer__list">
                     @foreach ($footer_categories as $fc)
-                      <li class="la-footer__list-item"><a href="#" class="la-footer__list-link" >{{$fc->title}}</a></li>
+                      <li class="la-footer__list-item"><a href="/category/{{$fc->id}}/{{$fc->title}}" class="la-footer__list-link" >{{$fc->title}}</a></li>
                     @endforeach
                   </ul><a class="la-footer__more" href="/browse/courses">See all</a>
                 </div>

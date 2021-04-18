@@ -7,8 +7,10 @@ use App\FaqInstructor;
 use App\FaqStudent;
 use App\Testimonial;
 use stdClass;
+use App\BundleCourse;
+use App\Course;
 use Stevebauman\Location\Facades\Location;
-
+use App\Categories;
 
 class WebsiteController extends Controller
 {
@@ -24,6 +26,15 @@ class WebsiteController extends Controller
 
         $faqs = FaqInstructor::where(['status'=>1])->get();
         return view('learners.pages.guided-creator', compact('faqs'));
+    }
+
+    public function categoryPage($id){
+      
+        $courses = BundleCourse::with('user')->where(['status'=>1, 'category_id'=>$id])->get();
+        $classes = Course::with('user')->where(['status'=>1, 'category_id'=>$id])->get();
+        $category = Categories::where('id',$id)->first();
+        //dd($classes);
+        return view('learners.pages.category_courses', compact('classes','category','courses'));
     }
 
     public function learningPlans(){

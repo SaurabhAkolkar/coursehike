@@ -50,9 +50,66 @@
             </div>
 
             <section class="la-section la-wishlist__sec pt-0">
+              <h3 class="py-5">Courses</h3>
               <div class="la-wishlist__inner">
                 <div class="row la-wishlist__row">
-                    @foreach($wishlist_courses as $courses)
+                    @foreach($wishlist_courses as $course)
+                   
+                      <div class="col-md-6 col-lg-4 px-0  la-anim__stagger-item">
+                        <x-bundle-course 
+                          :id="$course->bundle_course_id"
+                          :img="$course->bundle->preview_image"
+                          :course="$course->bundle->title"
+                          :url="$course->bundle->slug"
+                          :rating="round($course->bundle->average_rating, 2)"
+                          :videoCount="$course->bundle->videoCount()"
+                          :classesCount="count($course->bundle->course_id)"
+                          :creatorImg="$course->bundle->users()"
+                          :creatorName="$course->bundle->users()->first()->fname"
+                          :creatorUrl="$course->bundle->user->id"
+                          :learnerCount="$course->bundle->learnerCount"
+                          :price="$course->bundle->price"
+                          :bought="$course->bundle->isPurchased()"
+                          :checkWishList="$course->bundle->checkWishList"
+                          :checkCart="$course->bundle->checkCart"
+                          :addedToWhishList="$addedToWhishList"
+
+                        />
+{{-- 
+                        <x-course 
+                          :id="$courses->course_id"
+                          :img="$courses->courses->preview_image" 
+                          :course="$courses->courses->title" 
+                          :url="$courses->courses->slug" 
+                          :rating="round($courses->courses->average_rating, 2)"
+                          :creatorImg="$courses->courses->user->user_img"
+                          :creatorName="$courses->courses->user->FullName"
+                          :creatorUrl="$courses->courses->user->id"
+                          :checkWishList="$courses->courses->checkWishList"
+                          :addedToWhishList="$addedToWhishList"
+                          :checkCart="$courses->courses->checkCart"
+                          :learnerCount="$courses->courses->learnerCount"
+                          :price="$courses->courses->price"
+                          :bought="$courses->courses->isPurchased()"
+                        /> --}}
+                    </div>
+                    @endforeach
+                
+                    <div class="col-md-6 col-lg-4 d-none d-lg-block  la-anim__stagger-item">
+                      <a class="la-btn__add la-playlist__add-wishlist d-flex justify-content-center align-items-center" href="/browse/courses">
+                        <span class="la-btn__add-icon">+</span>
+                      </a>
+                    </div>
+                </div>
+              </div>
+            </section>
+            
+            <section class="la-section la-wishlist__sec pt-0">
+              <h3 class="py-4">Classes</h3>
+              <div class="la-wishlist__inner">
+                <div class="row la-wishlist__row">
+                    @foreach($wishlist_classes as $courses)
+                   
                       <div class="col-md-6 col-lg-4 px-0  la-anim__stagger-item">
                         <x-course 
                           :id="$courses->course_id"
@@ -74,7 +131,7 @@
                     @endforeach
                 
                     <div class="col-md-6 col-lg-4 d-none d-lg-block  la-anim__stagger-item">
-                      <a class="la-btn__add la-playlist__add-wishlist d-flex justify-content-center align-items-center" href="/browse/courses">
+                      <a class="la-btn__add la-playlist__add-wishlist d-flex justify-content-center align-items-center" href="/browse/classes">
                         <span class="la-btn__add-icon">+</span>
                       </a>
                     </div>

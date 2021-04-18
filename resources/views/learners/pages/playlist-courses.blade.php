@@ -29,18 +29,51 @@
                 </h1>
             </div>
             
+            @php  
+            $removeFromPlaylist = true;
+            @endphp
+
+            <section class="la-section la-wishlist__sec pt-0">
+              <h3 class="py-5">Courses</h3>
+              <div class="la-wishlist__inner">
+                <div class="row la-wishlist__row">
+                    @foreach($courses as $course)
+                   
+                      <div class="col-md-6 col-lg-4 px-0  la-anim__stagger-item">
+                        <x-bundle-course 
+                          :id="$course->bundle_course_id"
+                          :img="$course->bundle->preview_image"
+                          :course="$course->bundle->title"
+                          :url="$course->bundle->slug"
+                          :rating="round($course->bundle->average_rating, 2)"
+                          :videoCount="$course->bundle->videoCount()"
+                          :classesCount="count($course->bundle->course_id)"
+                          :creatorImg="$course->bundle->users()"
+                          :creatorName="$course->bundle->users()->first()->fname"
+                          :creatorUrl="$course->bundle->user->id"
+                          :learnerCount="$course->bundle->learnerCount"
+                          :price="$course->bundle->price"
+                          :bought="$course->bundle->isPurchased()"
+                          :checkWishList="$course->bundle->checkWishList"
+                          :checkCart="$course->bundle->checkCart"
+                          :removeFromPlaylist="$removeFromPlaylist"
+
+                        />
+
+                    </div>
+                    @endforeach
+                  </div>
+              </div>
+            </section>
+
             <section class="la-section la-playlist__sec pt-0">
+              <h3 class="py-4">Classes</h3>
               <div class="la-playlist__wrap">
                 
-                    @php  
-                    $removeFromPlaylist = true;
-                    @endphp
-
-
                         <div class="row la-playlist__items">
 
-                            @if(count($courses) > 0)                              
-                              @foreach($courses as $c)
+                            @if(count($classes) > 0)                              
+                              @foreach($classes as $c)
                               @php
                                 $course = $c->courses;
                               @endphp

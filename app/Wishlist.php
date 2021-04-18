@@ -9,7 +9,7 @@ class Wishlist extends Model
     protected $table = 'wishlists';
     
     protected $fillable = [
-      'user_id', 'course_id', 'status'
+      'user_id', 'course_id', 'status','bundle_course_id'
     ];
 
     public function user()
@@ -19,8 +19,15 @@ class Wishlist extends Model
 
     public function courses()
     {
-    	return $this->belongsTo('App\Course','course_id','id');
+        return $this->belongsTo('App\Course','course_id','id');
+
     }
+
+    public function bundle()
+    {
+        return $this->belongsTo('App\BundleCourse','bundle_course_id','id');
+    }
+
 
     public function order()
     {

@@ -10,6 +10,17 @@ class PlaylistCourse extends Model
 
     public function courses()
     {
-        return $this->hasOne('App\Course','id','course_id');
+        if($this->bundle_course_id > 0){
+            return $this->hasOne('App\BundleCourse','id','bundle_course_id');
+            
+        }else{
+            return $this->hasOne('App\Course','id','course_id');
+        }
     }
+
+    public function bundle()
+    {
+        return $this->hasOne('App\BundleCourse','id','bundle_course_id');
+    }
+    
 }

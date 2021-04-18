@@ -18,12 +18,14 @@ class LearnerWishlistController extends Controller
      */
     public function index()
     {
-        $wishlist_courses = Wishlist::with('courses','courses.review','courses.user')->where('user_id',Auth::User()->id)->get();
+        
+        $wishlist_courses = Wishlist::with('bundle','bundle.user')->where('user_id',Auth::User()->id)->where('bundle_course_id','>','0')->get();
+        $wishlist_classes = Wishlist::with('courses','courses.review','courses.user')->where('user_id',Auth::User()->id)->where('course_id','>',0)->get();
         $playlists = [];
         if(Auth::check()){
 			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
         }
-        return view('learners.pages.wishlist',compact('wishlist_courses','playlists'));
+        return view('learners.pages.wishlist',compact('wishlist_courses','wishlist_classes','playlists'));
     }
 
     /**
@@ -48,17 +50,37 @@ class LearnerWishlistController extends Controller
             'course_id' => 'required',
         ]);
         
-        $input['course_id'] = $request->course_id;
-        $input['user_id'] = Auth::user()->id;
+        if($request->bundleCourse == 'true'){ 
+            
+            $input['course_id'] = 0;
+            $input['user_id'] = Auth::user()->id;
+            $input['bundle_course_id'] = $request->course_id;
 
-        $checkWishlist = Wishlist::where(['user_id'=>$input['user_id'], 'course_id'=>$input['course_id']])->get();
+            $checkWishlist = Wishlist::where(['user_id'=>$input['user_id'], 'bundle_course_id'=>$input['bundle_course_id']])->get();
 
-        if(count($checkWishlist)){
-            return 'Course Already Exist in wishlist';
-        }else{
-            Wishlist::create($input);
+            if(count($checkWishlist)){
+                return 'Course Already Exist in wishlist';
+            }else{
+                Wishlist::create($input);
+            }
+            return 'Added to Wishlist';
+
+        }else
+        {
+
+            $input['course_id'] = $request->course_id;
+            $input['user_id'] = Auth::user()->id;
+
+            $checkWishlist = Wishlist::where(['user_id'=>$input['user_id'], 'course_id'=>$input['course_id']])->get();
+
+            if(count($checkWishlist)){
+                return 'Class Already Exist in wishlist';
+            }else{
+                Wishlist::create($input);
+            }
+            return 'Added to Wishlist';
         }
-        return 'Added to Wishlist';
+        
     }
 
     /**
