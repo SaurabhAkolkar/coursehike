@@ -58,9 +58,9 @@
                   @endif                            
                   --}}
 
-                  <li class="{{ Nav::isResource('bundle') }}"><a href="{{url('bundle')}}"><i class="flaticon-interface" aria-hidden="true"></i><span>{{ __('adminstaticword.Course') }}</span></a></li>
+                  <li class="{{ Nav::isResource('bundle') }}"><a class="d-flex align-items-center" href="{{url('bundle')}}"><i class="la-icon la-icon--md icon-courses mr-4"></i><span>{{ __('adminstaticword.Course') }}</span></a></li>
 
-                  <li  class="@if(Request::segment(1) == 'course') active @endif"><a class="d-flex align-items-center" href="{{url('course')}}"> <i class="la-icon la-icon--lg icon-courses mr-4"></i><span>{{ __('adminstaticword.Class') }}</span></a></li>
+                  <li  class="@if(Request::segment(1) == 'course') active @endif"><a class="d-flex align-items-center" href="{{url('course')}}"> <i class="la-icon la-icon--md icon-class mr-4"></i><span>{{ __('adminstaticword.Class') }}</span></a></li>
 
                   {{-- <li class="{{ Nav::isResource('courselang') }}"><a class="d-flex align-items-center" href="{{url('courselang')}}">  <i class="la-icon la-icon--lg icon-course-language mr-4"></i><span> {{ __('adminstaticword.Course') }} {{ __('adminstaticword.Language') }}</span></a></li> --}}
                   

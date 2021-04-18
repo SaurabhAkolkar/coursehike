@@ -251,7 +251,7 @@
   <!-- Section: Start-->
   <section class="la-section la-section--grey la-section--art-categories position-relative"  id="home_courses">
     <div class="la-section__inner la-anim__wrap la-section--courses-inwrap" >
-      <div class="la-home__course-fluid position-relative" id="home_fluid_container">
+      <div class="container-fluid la-home__course-fluid position-relative" id="home_fluid_container">
         <div class="la-courses">
           <h3 class="la-home__course-mtitle ml-n3 ml-md-0 text-center mb-6 mb-md-10 la-anim__stagger-item">Learn what you love!</h3>
 
@@ -350,7 +350,7 @@
                             @endif
 
                             @if(count($courses) != 0)
-                            <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-start">
+                            <div class="mt-10 w-100 text-center d-md-flex justify-content-between align-items-start">
 
                               <div class="la-slider__navigations la-home__course-navigations d-md-flex  align-items-center">
                                 <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div> -->
@@ -416,7 +416,7 @@
                             @endif
 
                             @if(count($courses) != 0)
-                            <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-start">
+                            <div class=" mt-10 w-100 text-center d-md-flex justify-content-between align-items-start">
 
                               <div class="la-slider__navigations2 la-home__course-navigations d-md-flex  align-items-center">
                                 <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div> -->

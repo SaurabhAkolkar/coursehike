@@ -283,7 +283,7 @@
                                       <div class="swiper-container  la-courses__featured-container">
                                         <h5 class="la-courses__featured-title mb-5 mb-lg-8 ml-0 ml-lg-2 la-anim__fade-in-top">Featured Courses</h5>
                                         <div class="swiper-wrapper la-courses__featured-wrapper ">
-{{--                                                                                                       
+                                        {{--                                                                                                       
                                                 @php
                                                   $courses = $category->courses;     
                                                 @endphp --}}

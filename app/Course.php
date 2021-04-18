@@ -154,15 +154,13 @@ class Course extends Model
 
     public function getConvertedpriceAttribute(){
 
-        $value = $this->price;
+        $value = (int) filter_var($this->price, FILTER_SANITIZE_NUMBER_INT);
         
         $setting = Setting::first();
-        $dollar_price = null;
+        $dollar_price = 70;
 
         if($setting && $setting->dollar_price){
             $dollar_price = $setting->dollar_price;
-        }else{
-           $dollar_price = 70;
         }
         
         if( getLocation() == 'IN')

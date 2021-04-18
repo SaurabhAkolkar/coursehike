@@ -61,69 +61,68 @@ class InvoicePaymentSucceededJob implements ShouldQueue
         $currency = strtoupper($invoice['currency']);
         
 		$invoice_paid = $invoice['paid']; // true
-        $invoice_status = $invoice['status']; //paid
+        $invoice_status = $invoice['status']; //paid        
         
-        $user_subscription = UserSubscription::where('subscription_id', $subscription['id'])->first();
 
-        if($subscription_status == 'active' && $invoice_status == 'paid' && $invoice_paid && $user_subscription){
+        if($subscription_status == 'active' && $invoice_status == 'paid' && $invoice_paid){
 
-                $user = $user_subscription->user;
-                $plan_subscription = $user->subscription();
+            $user = User::where('stripe_id', $customer_id)->first();
+            $plan_subscription = $user->subscription();
 
-                $plan_subscription->starts_at = Carbon::createFromTimestamp($subscription_start)->toDateTimeString(); 
-                $plan_subscription->ends_at = Carbon::createFromTimestamp($subscription_end)->toDateTimeString(); 
-                $plan_subscription->trial_ends_at = Carbon::createFromTimestamp($subscription['trial_end'])->toDateTimeString(); 
-                $plan_subscription->save();
+            $plan_subscription->starts_at = Carbon::createFromTimestamp($subscription_start)->toDateTimeString(); 
+            $plan_subscription->ends_at = Carbon::createFromTimestamp($subscription_end)->toDateTimeString(); 
+            $plan_subscription->trial_ends_at = Carbon::createFromTimestamp($subscription['trial_end'])->toDateTimeString(); 
+            $plan_subscription->save();
 
-                
-            // if($user->subscription()->ended()){
+            $newPlan = $subscription['plan']['id'];
+
+            UserSubscription::updateOrCreate(
+                ['user_id' => $user->id],
+                ['payment_method_id' => $subscription['default_payment_method'], 'subscription_id' => $subscription['id'], 'plan_id' => $newPlan]
+            );
+
+
+            if($invoice_amount_paid > 0 && $invoice_charge && $payment_intent_id){
                 // Create Invoice Record
-                if($invoice_amount_paid > 0 && $invoice_charge != null)
-                    UserSubscriptionInvoice::create([
-                        'user_id' => $user->id,
-                        'subscription_id' => $user->subscription()->id,
-                        'stripe_subscription_id' => $subscription['id'],
-                        'start_date' => Carbon::createFromTimestamp($subscription_start)->toDateTimeString(),
-                        'end_date' => Carbon::createFromTimestamp($subscription_end)->toDateTimeString(),
-                        'stripe_invoice_id' => $invoice['id'],
-                        'invoice_charge_id' => $invoice_charge,
-                        'payment_intent_id' => $payment_intent_id,
-                        'invoice_paid' => $invoice_amount_paid,
-                        'status' => $invoice_status,
-                    ]);
+                UserSubscriptionInvoice::create([
+                    'user_id' => $user->id,
+                    'subscription_id' => $user->subscription()->id,
+                    'stripe_subscription_id' => $subscription['id'],
+                    'start_date' => Carbon::createFromTimestamp($subscription_start)->toDateTimeString(),
+                    'end_date' => Carbon::createFromTimestamp($subscription_end)->toDateTimeString(),
+                    'stripe_invoice_id' => $invoice['id'],
+                    'invoice_charge_id' => $invoice_charge,
+                    'payment_intent_id' => $payment_intent_id,
+                    'invoice_paid' => (int) $invoice_amount_paid,
+                    'status' => $invoice_status,
+                ]);
+            }
 
-                $plan_price_id = [
-					config('rinvex.subscriptions.stripe_global_monthly') => 'monthly-global',
-					config('rinvex.subscriptions.stripe_global_yearly') => 'yearly-global',
-					config('rinvex.subscriptions.stripe_india_monthly') => 'monthly-india',
-					config('rinvex.subscriptions.stripe_india_yearly') => 'yearly-india',
-				];
-
-                $newPlan = $subscription['plan']['id'];
-
-                $user_subscription->plan_id = $newPlan;
-                $user_subscription->save();
-
-                if(preg_match("/yearly/i",$plan_price_id[$newPlan])){
-                    $plan = 'Annual';
-                }else{
-                    $plan = 'Monthly';
-                }
+            $plan_price_id = [
+                config('rinvex.subscriptions.stripe_global_monthly') => 'monthly-global',
+                config('rinvex.subscriptions.stripe_global_yearly') => 'yearly-global',
+                config('rinvex.subscriptions.stripe_india_monthly') => 'monthly-india',
+                config('rinvex.subscriptions.stripe_india_yearly') => 'yearly-india',
+            ];
+            if(preg_match("/yearly/i",$plan_price_id[$newPlan])){
+                $plan = 'Annual';
+            }else{
+                $plan = 'Monthly';
+            }
+            
+            $email_data = [
+                'name' => $user->fullName,
+                'email' => $user->email,
+                'type' => $plan,
+                'currency' => $currency,
+                'amount' => ($invoice_amount_paid/100),
+            ];
+            
+            try{    
+                Mail::to($user->email)->later(now()->addSeconds(5), new UserSubscribed($email_data));                    
+            }catch(\Swift_TransportException $e){
                 
-                $email_data = [
-                    'name' => $user->fullName,
-                    'email' => $user->email,
-                    'type' => $plan,
-                    'currency' => $currency,
-                    'amount' => ($invoice_amount_paid/100),
-                ];
-                
-                try{    
-                    Mail::to($user->email)->later(now()->addSeconds(5), new UserSubscribed($email_data));                    
-                }catch(\Swift_TransportException $e){
-                    
-                }
-            // }
+            }
         }
     }
 }

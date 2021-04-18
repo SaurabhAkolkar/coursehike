@@ -2,6 +2,7 @@
 
 namespace App\Jobs\StripeWebhooks;
 
+use App\User;
 use App\UserSubscription;
 use App\UserSubscriptionInvoice;
 use Carbon\Carbon;
@@ -61,13 +62,13 @@ class InvoicePaymentFailedJob implements ShouldQueue
         
         if($subscription_status != 'active' || $invoice_status != 'paid' || !$invoice_paid){
             
-            $user_subscription = UserSubscription::where('subscription_id', $subscription['id'])->first();
-            $user = $user_subscription->user;
+            $user = User::where('stripe_id', $customer_id)->first();
             
             // $user->subscription()->cancel(true);
             // if($user != 0 && $user->subscription()->ended()){
                 
                 // Create Invoice Record
+            if($invoice_amount_paid > 0 && $invoice_charge && $payment_intent_id)
                 UserSubscriptionInvoice::create([
                     'user_id' => $user->id ?? 0,
                     'subscription_id' => $user->subscription()->id,

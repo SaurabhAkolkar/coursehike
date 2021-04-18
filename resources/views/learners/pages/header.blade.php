@@ -38,8 +38,8 @@ use App\Announcement;
 
               <div class="la-header__menu-item d-none d-lg-block">
                   <a href="/learning-plans" class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header bg-green" role="button">
-                      <span class="la-header__menu-cta--text text-sm pr-3">Start free trial</span>
-                      <span class="la-header__menu-cta--green la-icon icon-profile"></span>
+                      <span class="la-header__menu-cta--text text-sm">Start free trial</span>
+                      <!--<span class="la-header__menu-cta--green la-icon icon-profile pl-3"></span> -->
                   </a>
               </div>
 
@@ -54,16 +54,16 @@ use App\Announcement;
               @endphp
               <div class="la-header__menu-item d-none d-lg-block">
                   <a href="/learning-plans" class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header border-yellow" role="button">
-                      <span class="la-header__menu-cta--text text-sm pr-3">Trial Ends {{$difference}}</span>
-                      <span class="la-header__menu-cta la-icon la-icon--lg icon-profile"></span>
+                      <span class="la-header__menu-cta--text text-sm">Trial Ends {{$difference}}</span>
+                     <!-- <span class="la-header__menu-cta la-icon la-icon--lg icon-profile pl-3"></span>-->
                   </a>
               </div>
             @elseif(Auth::user()->subscription() && (Auth::user()->subscription()->ended() || Auth::user()->subscription()->canceled()))
               
                 <div class="la-header__menu-item d-none d-lg-block">
                     <a href="/learning-plans" class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header bg-green" role="button">
-                        <span class="la-header__menu-cta--text text-sm pr-3">Renew Subscription</span>
-                        <span class="la-header__menu-cta--green la-icon icon-profile"></span>
+                        <span class="la-header__menu-cta--text text-sm">Renew Subscription</span>
+                        <!--<span class="la-header__menu-cta--green la-icon icon-profile pl-3"></span>-->
                     </a>
                 </div>
             @endif

@@ -91,7 +91,7 @@
             @if(!Auth::user()->subscription())
             <div class="la-header__menu-item la-header__menu-item--cta text-center d-block d-lg-none">
                 <a href="/learning-plans" class="la-header__menu-link  la-header__menu-cta btn btn--primary la-btn__header bg-yellow" role="button">
-                    <span class="la-header__menu-cta--text text-sm pr-3">Start free trial</span>
+                    <span class="la-header__menu-cta--text text-sm">Start free trial</span>
                 </a>
             </div>
             @elseif(Auth::user()->subscription() && Auth::user()->subscription()->onTrial())
@@ -105,13 +105,13 @@
                 @endphp
                 <div class="la-header__menu-item la-header__menu-item--cta text-center d-block d-lg-none">
                     <a href="/learning-plans" class="la-header__menu-link la-header__menu-cta btn btn--primary la-btn__header border-yellow" role="button">
-                        <span class="la-header__menu-cta--text text-sm pr-3">Trial Ends {{$difference}}</span>
+                        <span class="la-header__menu-cta--text text-sm">Trial Ends {{$difference}}</span>
                     </a>
                 </div>
             @elseif(Auth::user()->subscription() && (Auth::user()->subscription()->ended() || Auth::user()->subscription()->canceled()))
             <div class="la-header__menu-item la-header__menu-item--cta d-block d-lg-none">
                 <a href="/learning-plans" class="la-header__menu-link la-header__menu-cta btn btn--primary la-btn__header bg-green" role="button">
-                    <span class="la-header__menu-cta--text text-sm pr-3">Renew Subscription</span>
+                    <span class="la-header__menu-cta--text text-sm">Renew Subscription</span>
                 </a>
             </div>
             @endif
@@ -131,7 +131,7 @@
             <div class="la-header__nav-item">
                 <a class="la-header__nav-link @if(Request::segment(1) == 'browse' && Request::segment(2) == 'classes' ) active @endif"  href="/browse/classes">
                     <div class="la-header__nav-icon">
-                        <span class="la-icon--lg icon-courses"></span>
+                        <span class="la-icon--lg icon-class"></span>
                     </div>
                     <span class="la-header__nav-name">Browse Classes</span>
                 </a>
@@ -142,7 +142,7 @@
                     <div class="la-header__nav-icon">
                         <span class="la-icon--lg icon-courses"></span>
                     </div>
-                    <span class="la-header__nav-name">Browse Course</span>
+                    <span class="la-header__nav-name">Browse Courses</span>
                 </a>
             </div>
 

@@ -189,11 +189,11 @@
     </section> --}}
     <!-- Section: End-->
     <!-- Section: Start-->
-    <section class="la-pcourses-section mt-14">
+    <section class="la-pcourses-section la-hp__inner ">
       <div class="container-fluid">
         <div class="row">  
           <div class="col-12 la-anim__wrap">
-            <h5 class="la-pcourses__title  text-2xl text-md-3xl la-anim__stagger-item">Pending Courses</h5>
+            <h5 class="la-pcourses__title  text-2xl text-md-3xl mb-8 la-anim__stagger-item">Pending Courses</h5>
             <div class="row">
             @if(count($pendingCourse) > 0)         
               @foreach($pendingCourse as $c)               
