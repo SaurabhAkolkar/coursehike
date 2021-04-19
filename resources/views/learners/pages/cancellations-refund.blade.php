@@ -40,8 +40,11 @@
                         <div class="la-cr__section-subheading pt-6">
                             <h5 class="leading-loose  text--black la-anim__stagger-item  la-anim__D">Cancellations</h5>
                             <p class="la-cr__section-para la-anim__stagger-item--x la-anim__D">
-                            You may cancel your membership at any time for any or no reason. To cancel your recurring subscription, please send an email to 
-                                <a class="la-lp__lft-link" href="mailto:lila@alienstattoos.com">lila@alienstattoos.com</a>
+                                You can cancel your subscription at any time for any or no reason. You just have to send us an email at 
+                                <a class="la-lp__lft-link" href="mailto:lila@alienstattoos.com">lila@alienstattoos.com</a>, 24 hours before the billing date.
+                            </p>
+                            <p class="la-cr__section-para la-anim__stagger-item--x  la-anim__C">
+                                <sup>*</sup>Please note that if you send  the email within the last 24 hours and if it goes unattended and the payment goes through, the money won't be refunded
                             </p>
                         </div>
                     </div>
