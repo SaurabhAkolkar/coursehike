@@ -68,7 +68,7 @@
     //mask-clip:border-box;-webkit-mask-clip:border-box;
     //mask-size:580px 580px;-webkit-mask-size:580px 580px;
 
-    @include respond-below(sm){
+    @include respond-below(lg){
         width:100%;
         height:600px;
         //mask-size:350px 350px;

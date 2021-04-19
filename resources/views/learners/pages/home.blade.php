@@ -80,7 +80,7 @@
                 <p class="la-hero__lead la-anim__stagger-item">{{$firstSection->sub_heading}}</p>
               
                 <div class="d-md-flex align-items-center">
-                  <div class="la-hero__actions la-anim__stagger-item mt-10">
+                  <div class="la-hero__actions la-anim__stagger-item mt-6 mt-md-10">
                     @if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())
                     <div class="">
                       <a href="/browse/courses" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white px-md-4">Start Learning</a>
@@ -118,7 +118,7 @@
                   @endif
                   </div>
                 
-                  <div class="la-hero__bottom-trial mt-8 mt-md-2 ml-md-6 la-anim__stagger-item ">@if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())  @else<a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary bg-transparent text-white px-md-4" style="letter-spacing:1.8px">Start free trial</a> @endif </div>
+                  <div class="la-hero__bottom-trial mt-6 mt-md-2 ml-md-6 la-anim__stagger-item ">@if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())  @else<a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary bg-transparent text-white px-md-4" style="letter-spacing:1.8px">Start free trial</a> @endif </div>
                 </div>
               </div>
                
@@ -338,7 +338,7 @@
                             </div>
 
                             @if(count($courses) == 0)
-                            <div class="container pr-6 pr-md-1">
+                            <div class="container">
                               <div class="row">
                                 <div class="col-12  my-3 my-md-8 la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
                                   <div class="la-empty__inner text-center">
@@ -404,7 +404,7 @@
                             </div>
 
                             @if(count($courses) == 0)
-                            <div class="container pr-6 pr-md-1">
+                            <div class="container">
                               <div class="row">
                                 <div class="col-12  my-3 my-md-8 la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
                                   <div class="la-empty__inner text-center">
