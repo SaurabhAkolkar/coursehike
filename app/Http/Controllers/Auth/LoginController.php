@@ -7,7 +7,9 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 use Socialite;
 use App\User;
-
+use DB;
+use App\Mail\UserLogged;
+use Illuminate\Support\Facades\Mail;
 
 class LoginController extends Controller
 {
@@ -31,6 +33,23 @@ class LoginController extends Controller
      */
     protected function authenticated()
     {
+
+        $user = Auth::user();
+        // dd($user);
+        //  $login = Session::where('user_id', Auth::id())->count();
+        //$login = DB::table('sessions')->where('user_id', $user->id)->count();
+         
+        //  if ($login > 0)
+        //  {
+             Auth::logoutOtherDevices(request('password'));
+        //  }
+        try{
+            Mail::to($user->email)->later(now()->addSeconds(5), new UserLogged($user));               
+        }
+        catch(\Swift_TransportException $e){
+            header( "refresh:5;url=./login" );            
+            // dd("Your Registration is successfull ! but welcome email is not sent because your webmaster not updated the mail settings in admin dashboard ! Kindly go back and login");
+        }
 
         if (Auth::User()->status == 1)
         {
