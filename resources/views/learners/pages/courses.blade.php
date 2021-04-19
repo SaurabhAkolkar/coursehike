@@ -230,23 +230,21 @@
                     <div class="la-anim__wrap">
                       <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
                                     
-                          @foreach($courses as $course)
-                              <x-bundle-course 
-                              :id="$course->id"
-                              :img="$course->preview_image"
-                              :course="$course->title"
-                              :url="$course->slug"
-                              :rating="round($course->average_rating, 2)"
-                              :videoCount="$course->videoCount()"
-                              :classesCount="count($course->course_id)"
-                              :creatorImg="$course->users()"
-                              :creatorName="$course->users()->first()->fname"
-                              :creatorUrl="$course->user->id"
-                              :learnerCount="$course->learnerCount"
-                              :price="$course->price"
-                              :bought="$course->isPurchased()"
-                              :checkWishList="$course->checkWishList"
-                              :checkCart="$course->checkCart"
+                          @foreach($courses->sortBy('order') as $course)
+                              <x-course 
+                                  :id="$course->id"
+                                  :img="$course->preview_image"
+                                  :course="$course->title"
+                                  :url="$course->slug"
+                                  :rating="round($course->average_rating, 2)"
+                                  :creatorImg="$course->user->user_img"
+                                  :creatorName="$course->user->fname"
+                                  :creatorUrl="$course->user->id"
+                                  :learnerCount="$course->learnerCount"
+                                  :price="$course->price"
+                                  :bought="$course->isPurchased()"
+                                  :checkWishList="$course->checkWishList"
+                                  :checkCart="$course->checkCart"
                               />
                             @endforeach
 
@@ -283,12 +281,12 @@
                                       <div class="swiper-container  la-courses__featured-container">
                                         <h5 class="la-courses__featured-title mb-5 mb-lg-8 ml-0 ml-lg-2 la-anim__fade-in-top">Featured Courses</h5>
                                         <div class="swiper-wrapper la-courses__featured-wrapper ">
-                                        {{--                                                                                                       
-                                                @php
-                                                  $courses = $category->courses;     
-                                                @endphp --}}
-                                                @if($courses)
-                                                  @foreach($courses as $course)
+                                                                                                        
+                                                  @php
+                                                    $courses = $category->courses->sortBy('order');
+                                                  @endphp
+
+                                                  @foreach($courses->where('featured','like','1') as $course)
                                                    
                                                     <div class="swiper-slide la-courses__featured-slide la-anim__stagger-item">
                                                       <x-bundle-course 

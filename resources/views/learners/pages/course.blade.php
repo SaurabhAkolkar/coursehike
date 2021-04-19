@@ -787,7 +787,9 @@ $course_id = $course->id;
 @section('footerScripts')
   <script>var course_id = {!! json_encode($course_id) !!};</script>
   <!-- video js -->
-  <script src="https://unpkg.com/video.js/dist/video.js"></script>
+  <script src="https://unpkg.com/video.js@7.5.4/dist/alt/video.core.min.js"></script>
+  <script src="https://cdn.streamroot.io/videojs-hlsjs-plugin/1/stable/videojs-hlsjs-plugin.js"></script>
+  {{-- <script src="https://unpkg.com/video.js/dist/video.js"></script> --}}
   {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.15.0/videojs-contrib-hls.min.js" integrity="sha512-R1+Pgd+uyqnjx07LGUmp85iW8MSL1iLR2ICPysFAt8Y4gub8C42B+aNG2ddOfCWcDDn1JPWZO4eby4+291xP9g==" crossorigin="anonymous"></script> --}}
   <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
   <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
