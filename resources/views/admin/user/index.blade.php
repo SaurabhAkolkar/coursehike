@@ -18,11 +18,46 @@ use Carbon\Carbon;
         <!-- /.box-header -->
         <div class="box-body">
             <div class="la-admin__filter-icons text-right" style="position:relative; top:50px;z-index:0;">
-              <a href="#" role="button"><span class="la-icon la-icon--3xl icon-sort mr-2" style="color:#000;"></span></a>
-              <!-- <a href="#" role="button"><span class="la-icon la-icon--3xl icon-excel mr-2" style="color:#1D6F42"></span></a> -->
+              <!--<a href="#" role="button"><span class="la-icon la-icon--3xl icon-sort mr-2" style="color:#000;"></span></a>
+               <a href="#" role="button"><span class="la-icon la-icon--3xl icon-excel mr-2" style="color:#1D6F42"></span></a> -->
             </div>
             
               <table id="example1" class="js-dynamitable  table table-bordered table-striped text-center display nowrap">
+
+              <thead class="bg-transparent">
+                  <tr>
+                    <th class="px-0 py-0"></th>
+                    <th class="px-0 py-0">  {{-- <input  class="js-filter  form-control px-2 py-5" type="text" value=""> --}}</th>
+                    <th class="px-0 py-0"><input  class="js-filter  form-control px-2 py-5" type="text" value="" placeholder="First Name"></th>
+                    <th class="px-0 py-0"> <input  class="js-filter  form-control px-2 py-5" type="text" value=""  placeholder="Email"> </th>
+                    <th class="px-0 py-0">
+                      <select class="js-filter form-control px-0" style="height:42px;">
+                        <option value="" selected>Role</option>
+                        <option value="user">User</option>
+                        <option value="mentors">Mentor</option>
+                        <option value="admin">Admin</option>
+                      </select> 
+                      {{-- <input  class="js-filter  form-control px-2" type="text" value=""> --}}
+                    </th>
+                    <th class="px-0 py-0"> <input  class="js-filter  form-control px-2 py-5" type="text" value=""  placeholder="Mobile"></th>
+                    <th  class="px-0 py-0"> <input  class="js-filter  form-control px-2 py-5" type="text" value=""  placeholder="Country"></th>
+                    <th  class="px-0 py-0"> <input  class="js-filter  form-control px-2 py-5" type="text" value=""  placeholder="Registered"></th>
+                    <th  class="px-0 py-0">
+                      <input  class="js-filter  form-control px-2 py-5" type="text" value=""  placeholder="Purchased">
+                      {{--                       
+                      <select class="js-filter  form-control px-0">
+                        <option value=""></option>
+                        <option value="@dynamitable.com">dynamitable.com</option>
+                        <option value="@sample.com">Sample</option>
+                      </select> --}}
+                    </th>
+                    <th  class="px-0 py-0"><input class="js-filter  form-control px-2 py-5" type="text" value=""  placeholder="Subscription"></th>
+                    <th  class="px-0 py-0"><input class="js-filter  form-control px-2 py-5" type="text" value=""  placeholder="Status"></th>
+                    {{-- <th class="px-0 py-0"><input class="js-filter  form-control px-2 py-5" type="text" value=""></th> --}}
+                    <th class="px-0 py-0"></th>
+                  </tr>
+                </thead>
+
                 <thead>
                   <tr>
                   <th>#</th>
@@ -40,54 +75,7 @@ use Carbon\Carbon;
                   <th>{{ __('adminstaticword.Delete') }}</th>
                   </tr>
                 </thead> 
-                <thead class="bg-transparent">
-                  <tr>
-                    <th> <!-- input filter -->
-                    </th>
-                    <th> <!-- input filter -->
-                      {{-- <input  class="js-filter  form-control" type="text" value=""> --}}
-                    </th>
-                    <th> <!-- input filter -->
-                      <input  class="js-filter  form-control" type="text" value="">
-                    </th>
-                    <th> <!-- input filter -->
-                      <input  class="js-filter  form-control" type="text" value="">
-                    </th>
-                    <th> <!-- input filter -->
-                      <select class="js-filter  form-control">
-                        <option value=""></option>
-                        <option value="user">User</option>
-                        <option value="mentors">Mentor</option>
-                        <option value="admin">Admin</option>
-                      </select> 
-                      {{-- <input  class="js-filter  form-control" type="text" value=""> --}}
-                    </th>
-                    <th> <!-- input filter -->
-                      <input  class="js-filter  form-control" type="text" value="">
-                    </th>
-                    <th> <!-- input filter -->
-                      <input  class="js-filter  form-control" type="text" value="">
-                    </th>
-                    <th> <!-- input filter -->
-                      <input  class="js-filter  form-control" type="text" value="">
-                    </th>
-                    <th> <!-- select filter -->
-                      <input  class="js-filter  form-control" type="text" value="">
-
-{{--                       
-                      <select class="js-filter  form-control">
-                        <option value=""></option>
-                        <option value="@dynamitable.com">dynamitable.com</option>
-                        <option value="@sample.com">Sample</option>
-                      </select> --}}
-                    </th>
-                    <th><input class="js-filter  form-control" type="text" value=""></th>
-                    <th><input class="js-filter  form-control" type="text" value=""></th>
-                    {{-- <th><input class="js-filter  form-control" type="text" value=""></th> --}}
-                  </tr>
-                </thead>
                 
-
                 <tbody>
                   <?php $i=0;?>
 

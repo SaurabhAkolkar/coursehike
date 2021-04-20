@@ -479,6 +479,7 @@ thead{
   font-weight:var(--font-light);
   color:var(--white);
   font-size:var(--text-sm);
+  border:1px solid transparent;
 }
 /* == table head == */
 th.sorting {   
@@ -516,7 +517,7 @@ table.dataTable thead>tr>th.sorting_asc{
 /* == Table Columns == */
 
 table.table-bordered.dataTable tbody td {
-    padding:var(--size-6) 0;
+    padding:var(--size-6) var(--size-2);
     font-family:var(--body-font);
     font-weight:var(--font-normal);
     border:none;
@@ -534,10 +535,10 @@ table.table-bordered.dataTable tbody td {
  
 /* == Table Column Course Image ==*/
 .table td img {
-    width: 80px;
+    width: 70px;
     height: 50px;
     display:block;
-    border-radius:10px;
+    border-radius:8px;
     background-color: var(--gray);
     object-fit: cover;
     object-position: top;
@@ -830,7 +831,7 @@ label{
 table, .table-bordered{
     border-collapse: separate !important;
     border-spacing:0 15px;
-    border:none;
+    border:1px solid transparent !important;
 }
 
 table::-webkit-scrollbar{background: rgb(0, 0, 0);
