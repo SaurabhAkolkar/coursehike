@@ -22,8 +22,9 @@ use Carbon\Carbon;
               <!-- <a href="#" role="button"><span class="la-icon la-icon--3xl icon-excel mr-2" style="color:#1D6F42"></span></a> -->
             </div>
             
-              <table id="example1" class="table table-bordered table-striped text-center display nowrap">
+              <table id="example1" class="js-dynamitable  table table-bordered table-striped text-center display nowrap">
                 <thead>
+                  <tr>
                   <th>#</th>
                   <th>{{ __('adminstaticword.Image') }}</th>
                   <th>{{ __('adminstaticword.FirstName') }}</th>
@@ -37,7 +38,55 @@ use Carbon\Carbon;
                   <th>{{ __('adminstaticword.Status') }}</th>
                   <th>{{ __('adminstaticword.Edit') }}</th>
                   <th>{{ __('adminstaticword.Delete') }}</th>
+                  </tr>
                 </thead> 
+                <thead class="bg-transparent">
+                  <tr>
+                    <th> <!-- input filter -->
+                    </th>
+                    <th> <!-- input filter -->
+                      {{-- <input  class="js-filter  form-control" type="text" value=""> --}}
+                    </th>
+                    <th> <!-- input filter -->
+                      <input  class="js-filter  form-control" type="text" value="">
+                    </th>
+                    <th> <!-- input filter -->
+                      <input  class="js-filter  form-control" type="text" value="">
+                    </th>
+                    <th> <!-- input filter -->
+                      <select class="js-filter  form-control">
+                        <option value=""></option>
+                        <option value="user">User</option>
+                        <option value="mentors">Mentor</option>
+                        <option value="admin">Admin</option>
+                      </select> 
+                      {{-- <input  class="js-filter  form-control" type="text" value=""> --}}
+                    </th>
+                    <th> <!-- input filter -->
+                      <input  class="js-filter  form-control" type="text" value="">
+                    </th>
+                    <th> <!-- input filter -->
+                      <input  class="js-filter  form-control" type="text" value="">
+                    </th>
+                    <th> <!-- input filter -->
+                      <input  class="js-filter  form-control" type="text" value="">
+                    </th>
+                    <th> <!-- select filter -->
+                      <input  class="js-filter  form-control" type="text" value="">
+
+{{--                       
+                      <select class="js-filter  form-control">
+                        <option value=""></option>
+                        <option value="@dynamitable.com">dynamitable.com</option>
+                        <option value="@sample.com">Sample</option>
+                      </select> --}}
+                    </th>
+                    <th><input class="js-filter  form-control" type="text" value=""></th>
+                    <th><input class="js-filter  form-control" type="text" value=""></th>
+                    {{-- <th><input class="js-filter  form-control" type="text" value=""></th> --}}
+                  </tr>
+                </thead>
+                
 
                 <tbody>
                   <?php $i=0;?>
@@ -57,7 +106,7 @@ use Carbon\Carbon;
                         </td>
                         <td>{{ $user['fname'] }}</td>
                         <td>{{ $user['email'] }}</td>
-                        <td>{{ $user['role'] }}</td>
+                        <td>{{ ucfirst($user['role']) }}</td>
                         <td>
                           {{$user->mobile}}
                         </td>
@@ -117,6 +166,9 @@ use Carbon\Carbon;
   <!-- /.row -->
 </section>
 
+@endsection
+@section('script')
+<script src="{{url('js/dynamitable.jquery.min.js')}}"></script>
 @endsection
 
 
