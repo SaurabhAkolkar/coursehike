@@ -17470,7 +17470,7 @@ a, a:hover {
   opacity: 0.8;
   z-index: 0;
 }
-@media (max-width: 991px) {
+@media (max-width: 1100px) {
   .la-header__nav-link.active {
     color: var(--app-indigo-1) !important;
   }
@@ -20791,7 +20791,19 @@ input:-webkit-autofill:active {
   border: none;
   border-radius: 10px;
   box-shadow: 0px 0px 20px #00000014;
+}
+.la-choose__card-inner {
   padding: var(--size-10) 0;
+}
+.la-choose__recommend {
+  background: #7400D7 0% 0% no-repeat padding-box;
+  color: var(--white);
+  padding: var(--size-3) 0;
+  border-radius: 10px 10px 0 0;
+}
+.la-choose__recommend-text {
+  color: var(--white);
+  font-size: var(--text-xl);
 }
 .la-choose__ptitle {
   color: #4e4e4e;
@@ -20802,6 +20814,7 @@ input:-webkit-autofill:active {
 }
 .la-choose__subscribe-trial {
   color: var(--green);
+  text-decoration: underline;
 }
 .la-choose__subscribe-date {
   color: var(--gray8);
@@ -20832,23 +20845,24 @@ input:-webkit-autofill:active {
 .la-choose__savings-bg {
   position: relative;
   height: 20px;
-  margin: 0 95px;
+  margin: 0 120px;
 }
-@media (max-width: 1279px) {
+@media (max-width: 1199px) {
   .la-choose__savings-bg {
-    margin: 0 70px;
-    height: 22px;
+    margin: 0 95px;
   }
 }
 .la-choose__savings-red {
   background-color: rgba(255, 197, 22, 0.28);
   color: #FFC516;
   padding: 2px 0;
+  border-radius: 50px;
 }
 .la-choose__savings-green {
   background-color: rgba(80, 222, 10, 0.28);
   color: #47CC05;
   padding: 2px 0;
+  border-radius: 50px;
 }
 .la-choose__content {
   padding: 0 var(--size-4);

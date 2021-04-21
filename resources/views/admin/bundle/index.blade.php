@@ -11,7 +11,7 @@
       <div class="box-header with-border">
         <h3 class="box-title">{{ __('adminstaticword.Course') }}</h3>
         <a class="btn btn-info btn-sm" href="{{url('bundle/create')}}">
-          <i class="glyphicon glyphicon">+</i> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Course') }}
+          <span >+</span> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Course') }}
         </a>
       </div>
       <!-- /.box-header -->

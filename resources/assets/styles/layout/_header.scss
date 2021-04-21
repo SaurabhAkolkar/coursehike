@@ -240,7 +240,7 @@ $sidemenuWidth: 300px;
                                 z-index: 0;
                             }
 
-                            @media(max-width:991px){
+                            @media(max-width:1100px){
                                 color:var(--app-indigo-1) !important;
                                 &:before{
                                     display:none;
