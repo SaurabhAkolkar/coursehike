@@ -40,6 +40,7 @@ use App\Mail\PasswordReset;
 use Illuminate\Support\Facades\Mail;
 use DB;
 use App\Setting;
+use App\InvoiceDetail;
 
 class UserController extends Controller
 {
@@ -73,18 +74,26 @@ class UserController extends Controller
 
         // $subscriptions = UserSubscription::where('user_id', $id)->get();
         // dd($subscriptions);
-        $courses_purchased =  UserPurchasedCourse::with('course')->where('user_id', $id)->get();
+        $class_purchased =  UserPurchasedCourse::with('course')->where('user_id', $id)->where('bundle_id','=',Null)->get();
+        $courses_purchased =  UserPurchasedCourse::with('bundle')->where('user_id', $id)->where('bundle_id','>',0)->groupBy('bundle_id')->get();
         $user_id = $id;
-  
-        return view('admin.user.subscriptions', compact('subscriptions','courses_purchased','user_id'));
+        //dd($class_purchased);
+        return view('admin.user.subscriptions', compact('user','class_purchased','subscriptions','courses_purchased','user_id'));
 
     }
 
-    public function addCourse($id){
+    public function addClass($id){
         $user_id = $id;
         $courses = Course::where(['status'=>1])->get();
         
         return view('admin.user.addcourse', compact('user_id','courses'));
+    }
+
+    public function addCourse($id){
+        $user_id = $id;
+        $courses = BundleCourse::where(['status'=>1])->get();
+        
+        return view('admin.user.addbundle', compact('user_id','courses'));
     }
 
     public function getClasses(Request $request){
@@ -143,6 +152,61 @@ class UserController extends Controller
                 return redirect('/user/subscriptions/'.$request->user_id)->with('success','Courses added successfully.');
 
     }
+
+    public function addBundleCourse(Request $request){
+
+        $request->validate([
+                'course_id' => 'required',
+                'amount' => 'required',
+        ]);
+        
+        //dd($request);
+         
+        $check = UserPurchasedCourse::where(['bundle_id'=>$request->course_id, 'user_id'=>$request->user_id])->get();
+        $course =  BundleCourse::where(['id'=>$request->course_id])->first();
+        $course_ids = $course->course_id;
+        
+        if(count($check) > 0){
+            return redirect()->back()->with('delete','Course is already added for the User.');
+        }
+    
+                
+                $random = Str::of(Str::orderedUuid())->upper()->explode('-');
+               
+                $insert['invoice_id'] = '#LILA-'. date('m-d') . '-'. $random[0]. '-'. $random[1];
+                $insert['user_id'] = $request->user_id;
+                $insert['discount_type'] = 'regular_discount';
+                $insert['purchase_type'] = $request->purchase_type;
+                $insert['status'] = 'successful';
+                $insert['sub_total'] = $request->amount;
+                
+                $get_order_id = UserInvoiceDetail::create($insert);
+               
+                foreach($course_ids as $c){
+ 
+                    $order['order_id'] = $get_order_id;
+                    $order['user_id'] = $request->user_id;
+                    $order['course_id'] = $c;
+                    $order['bundle_id'] = $request->course_id;
+                    $order['class_id'] = 0;
+                    $order['purchase_type'] = 'all_classes';
+
+                    UserPurchasedCourse::create($order);
+
+                    $order['invoice_id'] = $get_order_id;
+                    $order['price'] = $request->amount;
+
+                    InvoiceDetail::create($order);
+
+                }   
+                               
+
+
+                return redirect('/user/subscriptions/'.$request->user_id)->with('success','Courses added successfully.');
+
+    }
+
+
 
     public function addSubscription($id){
         $user_id = $id;

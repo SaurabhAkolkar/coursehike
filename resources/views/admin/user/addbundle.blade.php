@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'Add Class - Admin')
+@section('title', 'Add Course- Admin')
 @section('body')
 
 <section class="content">
@@ -7,12 +7,12 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-          <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Class') }}</h3>
+          <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Course') }}</h3>
        
         <!-- /.box-header -->
         <div class="box-body">
           <div class="form-group">
-            <form id="demo-form" method="post" action="{{route('addusercourse')}}" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
+            <form id="demo-form" method="post" action="{{route('addbundlecourse')}}" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
               {{ csrf_field() }}         
             <input type="hidden" name="user_id" value="{{$user_id}}" />
               <div class="row">
@@ -42,36 +42,6 @@
                           </div>
                     @enderror
                 </div>
-              </div>
-            
-              <div class="row">
-                <div class="col-md-6 mt-3">
-                    <label for="exampleInputTit1e">{{ __('adminstaticword.PurchaseType') }}:<sup class="redstar">*</sup></label>
-                    <select name="purchase_type" id="purchase_type" class="form-control js-example-basic-single col-12">
-                        <option disabled selected>Choose Option</option>
-                        <option value="all_classes" @if(old('purchase_type') == 'all_classes') selected @endif>All Classes</option>
-                        <option value="selected_classes" @if(old('purchase_type') == 'selected_classes') selected @endif>Selected Classes</option>
-                    </select>
-                    @error('purchase_type')
-                          <div class="alert alert-danger">  
-                              {{$message}}
-                          </div>
-                    @enderror
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6 mt-4" id="class_id_div">
-                    <label for="exampleInputTit1e">{{ __('adminstaticword.Classes') }}:<sup class="redstar">*</sup></label>
-                    <select name="class_id[]" id="class_id"  class="form-control js-example-basic-single  col-12" multiple>
-                            <option disabled selected>Please Choose</option>
-                    </select>
-                    @error('class_id')
-                          <div class="alert alert-danger">  
-                              {{$message}}
-                          </div>
-                    @enderror
-                </div>               
               </div>
               <br> <br>      
 

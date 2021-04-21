@@ -8,7 +8,7 @@
     <div class="col-md-12">
       <div class="box box-primary">
         <div class="d-flex justify-content-between align-items-center ml-2">
-          <h3 class="la-admin__section-title">{{ __('adminstaticword.Subscription') }}</h3>
+          <h3 class="la-admin__section-title">{{$user->fullName}}'s {{ __('adminstaticword.Subscription') }}</h3>
           <a class="btn btn-info btn-sm" href="{{route('create.subscription', $user_id)}}"><span class="la-icon la-icon--sm icon-plus"></span> {{ __('adminstaticword.Add') }} / {{__('adminstaticword.Update')}} {{ __('adminstaticword.Subscription') }}</a>
         </div>
        
@@ -55,8 +55,45 @@
     <div class="col-md-12 mt-20">
       <div class="box box-primary">
         <div class="d-flex justify-content-between align-items-center ml-2">
-          <h3 class="la-admin__section-title">{{ __('adminstaticword.Courses') }}</h3>
+          <h3 class="la-admin__section-title">{{$user->fullName}}'s {{ __('adminstaticword.Course') }}</h3>
           <a class="btn btn-info btn-sm" href="/user/subscriptions/add-course/{{$user_id}}"><span class="la-icon la-icon--sm icon-plus"></span> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Courses') }}</a>
+        </div>
+       
+        <!-- /.box-header -->
+        <div class="box-body">            
+              <table id="example2" class="table table-bordered table-striped text-center display nowrap">
+                <thead>
+                  <th>#</th>
+                  <th>{{ __('adminstaticword.Title') }}</th>
+                  <th>{{ __('adminstaticword.PurchaseDate') }}</th>
+                </thead> 
+
+                <tbody>
+                  <?php $i=0;?>
+
+                    @foreach ($courses_purchased as $cp)
+                    
+                        <?php $i++;?>
+
+                      <tr>
+                        <td><?php echo $i;?></td>
+                        <td>{{$cp->bundle->title}}</td>                 
+                        <td>{{Carbon\Carbon::parse($cp->created_at)->format('d-M-Y')}}</td>                 
+                      </tr>
+                  @endforeach
+
+                </tbody>
+              </table>
+          </div>
+        <!-- /.box-body -->
+      </div>
+    </div>
+
+    <div class="col-md-12 mt-20">
+      <div class="box box-primary">
+        <div class="d-flex justify-content-between align-items-center ml-2">
+          <h3 class="la-admin__section-title">{{$user->fullName}}'s {{ __('adminstaticword.Class') }}</h3>
+          <a class="btn btn-info btn-sm" href="/user/subscriptions/add-class/{{$user_id}}"><span class="la-icon la-icon--sm icon-plus"></span> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Class') }}</a>
         </div>
        
         <!-- /.box-header -->
@@ -73,7 +110,7 @@
                 <tbody>
                   <?php $i=0;?>
 
-                    @foreach ($courses_purchased as $cp)
+                    @foreach ($class_purchased as $cp)
                     
                         <?php $i++;?>
 
