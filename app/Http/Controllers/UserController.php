@@ -211,7 +211,21 @@ class UserController extends Controller
     public function addSubscription($id){
         $user_id = $id;
 
-        return view('admin.user.addsubscription', compact('user_id'));
+        $user  = User::find($user_id);
+
+        $plan_subscription = $user->subscription();
+
+        $trial_end_date =  $plan_subscription ? $plan_subscription->trial_ends_at->format('Y-m-d') : '';
+        $start_date =  $plan_subscription ? $plan_subscription->starts_at->format('Y-m-d') : '';
+        $end_date =  $plan_subscription ? $plan_subscription->ends_at->format('Y-m-d') : '';
+
+        $plan_slug = $plan_subscription->plan['slug'] ?? '';
+
+        $user_subscription  = UserSubscription::where('user_id',$user_id)->first();
+        $stripe_subscription_id =  $user_subscription->subscription_id ?? '';
+        $stripe_payment_id =  $user_subscription->payment_method_id ?? '';
+
+        return view('admin.user.addsubscription', compact('user', 'trial_end_date', 'start_date', 'end_date', 'plan_slug', 'stripe_subscription_id', 'stripe_payment_id'));
     }
 
     public function storeSubscription(Request $request){
@@ -234,6 +248,7 @@ class UserController extends Controller
 
             $plan_subscription->changePlan($plan);
 
+            $plan_subscription->trial_ends_at = Carbon::createFromFormat('Y-m-d', $request->trial_end_date)->toDateTimeString();
             $plan_subscription->starts_at = Carbon::createFromFormat('Y-m-d', $request->start_date)->toDateTimeString(); 
             $plan_subscription->ends_at = Carbon::createFromFormat('Y-m-d', $request->end_date)->toDateTimeString();
             $plan_subscription->save();
@@ -241,6 +256,7 @@ class UserController extends Controller
             $user->newSubscription('main', $plan);
             
             $plan_subscription = $user->subscription();
+            $plan_subscription->trial_ends_at = Carbon::createFromFormat('Y-m-d', $request->trial_end_date)->toDateTimeString();
             $plan_subscription->starts_at = Carbon::createFromFormat('Y-m-d', $request->start_date)->toDateTimeString(); 
             $plan_subscription->ends_at = Carbon::createFromFormat('Y-m-d', $request->end_date)->toDateTimeString();
             $plan_subscription->save();
@@ -250,22 +266,23 @@ class UserController extends Controller
 
         UserSubscription::updateOrCreate(
             ['user_id' => $request->user_id],
-            ['subscription_id' => 'Admin-Purchased', 'plan_id' => $plan_id]
+            ['subscription_id' => $request->stripe_subscription_id, 'payment_method_id' => $request->stripe_payment_id, 'plan_id' => $plan_id]
         );
 
-        UserSubscriptionInvoice::create([
-            'user_id' => $user->id,
-            'subscription_id' => $user->subscription()->id,
-            'stripe_subscription_id' => 'Admin-Purchased',
-            'start_date' => Carbon::createFromFormat('Y-m-d', $request->start_date)->toDateTimeString(),
-            'end_date' => Carbon::createFromFormat('Y-m-d', $request->end_date)->toDateTimeString(),
-            'stripe_invoice_id' => 0,
-            'invoice_charge_id' => 0,
-            'payment_intent_id' => 0,
-            'invoice_paid' => $request->amount,
-            // 'plan_selection' => $plan_id,
-            'status' => 'paid',
-        ]);
+        if((int)$request->amount > 0)
+            UserSubscriptionInvoice::create([
+                'user_id' => $user->id,
+                'subscription_id' => $user->subscription()->id,
+                'stripe_subscription_id' => $request->stripe_subscription_id ?? 'Admin-Purchased',
+                'start_date' => Carbon::createFromFormat('Y-m-d', $request->start_date)->toDateTimeString(),
+                'end_date' => Carbon::createFromFormat('Y-m-d', $request->end_date)->toDateTimeString(),
+                'stripe_invoice_id' => 0,
+                'invoice_charge_id' => 0,
+                'payment_intent_id' => 0,
+                'invoice_paid' => $request->amount,
+                // 'plan_selection' => $plan_id,
+                'status' => 'paid',
+            ]);
 
         return redirect('/user/subscriptions/'.$request->user_id)->with('success','Subscription added successfully.');
     }
