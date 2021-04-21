@@ -131,9 +131,11 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::post('/quickupdate/faqinstructor/{id}','QuickUpdateController@faqInstructorQuick')->name('faqInstructor.quick');
 
       Route::post('/quickupdate/order/{id}','QuickUpdateController@orderQuick')->name('order.quick');
+      Route::get('/user/subscriptions/add-class/{id}','UserController@addClass');
       Route::get('/user/subscriptions/add-course/{id}','UserController@addCourse');
       Route::get('/get-classes','UserController@getClasses');
       Route::post('/add-user-course','UserController@addUserCourse')->name('addusercourse');
+      Route::post('/add-user-course','UserController@addBundleCourse')->name('addbundlecourse');
 
       Route::get('/user/subscription/create/{id}','UserController@addSubscription')->name('create.subscription');
       Route::post('/user/subscription/store','UserController@storeSubscription')->name('store.subscription');

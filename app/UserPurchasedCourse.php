@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserPurchasedCourse extends Model
 {
     protected $fillable = [
-        'id', 'order_id', 'user_id', 'course_id', 'class_id', 'purchase_type','created_at', 'updated_at'
+        'id', 'order_id', 'user_id', 'bundle_id','course_id', 'class_id', 'purchase_type','created_at', 'updated_at'
     ];
 
     public function user()
@@ -23,6 +23,12 @@ class UserPurchasedCourse extends Model
     {
         return $this->hasOne('App\Course','id','course_id');
     }
+
+    public function bundle()
+    {
+        return $this->hasOne('App\BundleCourse','id','bundle_id');
+    }
+    
 
     public function chapter()
     {
