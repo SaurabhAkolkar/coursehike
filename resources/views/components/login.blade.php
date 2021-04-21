@@ -127,7 +127,7 @@
                     <span class="la-header__nav-name ">Dashboard</span>
                 </a>
             </div>
-{{-- 
+
             <div class="la-header__nav-item">
                 <a class="la-header__nav-link @if(Request::segment(1) == 'browse' && Request::segment(2) == 'classes' ) active @endif"  href="/browse/classes">
                     <div class="la-header__nav-icon">
@@ -135,7 +135,7 @@
                     </div>
                     <span class="la-header__nav-name">Browse Classes</span>
                 </a>
-            </div> --}}
+            </div>
 
             <div class="la-header__nav-item">
                 <a class="la-header__nav-link @if(Request::segment(1) == 'browse' && Request::segment(2) == 'courses') active @endif"  href="/browse/courses">

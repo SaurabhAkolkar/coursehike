@@ -454,7 +454,7 @@ $course_id = $course->id;
 
     
   <!-- Section: Start-->
-  @foreach($course->users() as $user)
+
   <section class="la-section__small la-creator__section">
     <div class="la-section__inner">
       <div class="container-fluid">
@@ -491,11 +491,12 @@ $course_id = $course->id;
               </div>
             @endif
           </div>
+          @endforeach
         </div>
       </div>
     </div>
   </section>
-  @endforeach
+
   <!-- Section: End-->
 
   <!-- Section: Start-->
