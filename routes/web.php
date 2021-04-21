@@ -391,6 +391,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::resource('order', 'OrderController');
 
+      Route::get('/purchasedcourses','OrderController@purchasedCourses');
+
       Route::post('update-dollar-price','OrderController@updateDollarPrice')->name('update.dollar');
 
       Route::get('/revenue-excel', 'OrderController@getExcel');

@@ -266,6 +266,7 @@
                         </div>
                         
                       @endif
+                      
                       @else
                         <div class="tab-content la-courses__nav-content la-anim__wrap position-relative" id="nav-tabContent">
                               @foreach ($categories as $category)
@@ -282,9 +283,7 @@
                                         <h5 class="la-courses__featured-title mb-5 mb-lg-8 ml-0 ml-lg-2 la-anim__fade-in-top">Featured Courses</h5>
                                         <div class="swiper-wrapper la-courses__featured-wrapper ">
                                                                                                         
-                                                  @php
-                                                    $courses = $category->courses->sortBy('order');
-                                                  @endphp
+                                                  
 
                                                   @foreach($courses->where('featured','like','1') as $course)
                                                    
@@ -308,7 +307,7 @@
                                                       />
                                                     </div>
                                                   @endforeach
-                                                  @endif                             
+                                                                      
                                                 
                                         </div>
 
