@@ -106,6 +106,11 @@ class OrderController extends Controller
         return view('admin.order.create', compact('users', 'courses'));
     }
 
+    public function purchasedCourses(){
+        
+        returnn view('admin.order.purchased_courses');
+    }
+
     public function store(Request $request)
     {
         $created_order = Order::create([

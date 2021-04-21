@@ -100,6 +100,7 @@ return [
     'Edit' => 'Edit',
     'SelectCategory' => 'Select Category',
     'SelectClass'=>'Select Class',
+    'PurchasedCourses'=>'Purchased Courses',
     'Submit' => 'Submit',
     'Title' => 'Title',
     'ChildCategory' => 'Child Categories',
