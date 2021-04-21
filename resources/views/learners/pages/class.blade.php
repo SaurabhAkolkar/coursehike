@@ -64,7 +64,7 @@ $course_id = $course->id;
           <div class="la-vcourse__intro-left">
             <div class="la-vcourse__header d-flex flex-column align-items-start ">
               <h6 class="la-vcourse__tag text-uppercase la-anim__fade-in-top"> Class</h6>
-              <h1 class="la-vcourse__title  text-capitalize leading-none la-anim__stagger-item mb-2">{{ $course->title }}</h1>
+              <h1 class="la-vcourse__title leading-none la-anim__stagger-item mb-2">{{ $course->title }}</h1>
               {{-- <div class="la-vcourse__badges la-anim__stagger-item">
                 <img src="/images/learners/icons/badge.svg" alt="badge">
               </div> --}}
