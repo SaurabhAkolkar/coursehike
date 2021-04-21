@@ -130,7 +130,21 @@
           </li> 
           
 
-          <li class="{{ Nav::isResource('order') }}"><a href="{{url('order')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-revenue mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Order') }}</span></a></li>
+          <li class="{{ Nav::isResource('order') }}   treeview">
+            <a href="#" class="d-flex align-items-center">
+             <i class="la-icon la-icon--lg icon-revenue mr-4" aria-hidden="true"></i> <span>{{ __('adminstaticword.Order') }}</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li class="{{ Nav::isResource('order') }}"><a href="{{url('order')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-revenue mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Order') }}</span></a></li>
+              <li class="{{ Nav::isResource('purchasedcourses') }}"><a href="{{url('purchasedcourses')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-revenue mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.PurchasedCourses') }}</span></a></li>
+            </ul>
+          </li> 
+
+
+          {{-- <li class="{{ Nav::isResource('order') }}"><a href="{{url('order')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-revenue mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Order') }}</span></a></li> --}}
          
          <!-- <li class="{{ Nav::isResource('page') }}"><a href="{{url('page')}}"><i class="la-icon la-icon--lg icon-pages mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Pages') }}</span></a></li> -->
           
