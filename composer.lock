@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "503fe4354e2ad56f1e496013c26cfacd",
+    "content-hash": "e6242419352a14c573a4524e4ff89a15",
     "packages": [
         {
             "name": "anandsiddharth/laravel-paytm-wallet",
@@ -1356,10 +1356,6 @@
                 "geolocation",
                 "maxmind"
             ],
-            "support": {
-                "issues": "https://github.com/maxmind/GeoIP2-php/issues",
-                "source": "https://github.com/maxmind/GeoIP2-php/tree/v2.11.0"
-            },
             "time": "2020-10-01T18:48:34+00:00"
         },
         {
@@ -1794,6 +1790,67 @@
                 "ravepay.co"
             ],
             "time": "2020-04-05T18:48:32+00:00"
+        },
+        {
+            "name": "kyranb/footprints",
+            "version": "3.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kyranb/Footprints.git",
+                "reference": "511d43437f8a6232af6d6cec22dd8e8729cf0475"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kyranb/Footprints/zipball/511d43437f8a6232af6d6cec22dd8e8729cf0475",
+                "reference": "511d43437f8a6232af6d6cec22dd8e8729cf0475",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^7.0|^8.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.15",
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Kyranb\\Footprints\\FootprintsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kyranb\\Footprints\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyran Beasley",
+                    "email": "kyranbeasley@gmail.com"
+                }
+            ],
+            "description": "A simple registration attribution tracking solution for Laravel (UTM Parameters and Referrers)",
+            "homepage": "https://github.com/kyranb/footprints",
+            "keywords": [
+                "UTM",
+                "attribution tracking",
+                "footprints",
+                "tracking",
+                "user tracking",
+                "utm parameters"
+            ],
+            "time": "2021-04-09T07:57:32+00:00"
         },
         {
             "name": "laravel/framework",
@@ -3031,10 +3088,6 @@
                 "geolocation",
                 "maxmind"
             ],
-            "support": {
-                "issues": "https://github.com/maxmind/MaxMind-DB-Reader-php/issues",
-                "source": "https://github.com/maxmind/MaxMind-DB-Reader-php/tree/v1.10.0"
-            },
             "time": "2021-02-09T17:52:47+00:00"
         },
         {
@@ -3081,10 +3134,6 @@
             ],
             "description": "Internal MaxMind Web Service API",
             "homepage": "https://github.com/maxmind/web-service-common-php",
-            "support": {
-                "issues": "https://github.com/maxmind/web-service-common-php/issues",
-                "source": "https://github.com/maxmind/web-service-common-php/tree/v0.8.1"
-            },
             "time": "2020-11-02T17:00:53+00:00"
         },
         {
@@ -6103,10 +6152,6 @@
                 "location",
                 "php"
             ],
-            "support": {
-                "issues": "https://github.com/stevebauman/location/issues",
-                "source": "https://github.com/stevebauman/location/tree/v6.1.0"
-            },
             "time": "2021-02-07T14:43:34+00:00"
         },
         {
@@ -11656,12 +11701,12 @@
             "version": "1.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
+                "url": "https://github.com/webmozarts/assert.git",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "shasum": ""
             },
@@ -11713,5 +11758,5 @@
     "platform-overrides": {
         "php": "7.4.10"
     },
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "1.1.0"
 }

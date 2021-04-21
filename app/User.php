@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Storage;
 use Rinvex\Subscriptions\Services\Period;
 use Rinvex\Subscriptions\Models\Plan;
 
-class User extends Authenticatable 
+use Kyranb\Footprints\TrackableInterface;
+use Kyranb\Footprints\TrackRegistrationAttribution;
+
+class User extends Authenticatable implements TrackableInterface
 {
-    use Notifiable, HasSubscriptions;
+    use Notifiable, HasSubscriptions, TrackRegistrationAttribution;
 
     protected $table = 'users';
 
