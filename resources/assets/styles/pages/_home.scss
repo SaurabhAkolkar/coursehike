@@ -186,10 +186,6 @@
     @include respond-above(md){
         width: 320px !important;
     }
-
-    @include respond-above(lg){
-        width: 320px !important;
-    }
 }
 .la-home__course-pagination{
     .swiper-pagination-bullet{

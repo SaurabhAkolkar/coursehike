@@ -137,7 +137,11 @@
 
                             &--{
                                 &courses{
-                                    padding:var(--size-12) 0 var(--size-18) 0;
+                                    padding:var(--size-6) 0 var(--size-14) 0;
+
+                                    @include respond-above(md){
+                                        padding:var(--size-12) 0 var(--size-18) 0;
+                                    }
                                 }
                                 &title{
                                     font-size:var(--text-xl);
