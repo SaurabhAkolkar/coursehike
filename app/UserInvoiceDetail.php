@@ -19,4 +19,8 @@ class UserInvoiceDetail extends Model
     {
         return $this->belongsTo('App\User','user_id','id');
     }
+
+    public function coupon(){
+        return $this->belongsTo('App\Coupon','coupon_id','id');
+    }
 }

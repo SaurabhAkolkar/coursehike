@@ -691,11 +691,12 @@ $course_id = $course->id;
   </section>
   <!-- Section: End-->
   <!-- Section: Start-->
-  @foreach($course->users() as $user)
+
   <section class="la-section__small la-creator__section">
     <div class="la-section__inner pb-md-10">
       <div class="container-fluid">
         <div class="row">
+          @foreach($course->users() as $user)
           <div class="col-md-6 col-lg-4 la-creator la-anim__wrap mb-10 mb-md-14">
             <div class="la-creator__wrap d-flex justify-content-center justify-content-lg-start position-relative">
               <div class="la-creator__inwrap la-anim__stagger-item">
@@ -728,11 +729,12 @@ $course_id = $course->id;
               </div>
             @endif
           </div>
+          @endforeach
         </div>
       </div>
     </div>
   </section>
-  @endforeach
+
   <!-- Section: End-->
   <!-- Section: Start-->
   <section class="la-section__small la-section--grey">

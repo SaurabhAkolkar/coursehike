@@ -16,69 +16,7 @@
         
         <!-- /.box-header -->
         <div class="box-body">
-            <div class="la-admin__revenue-stats">
-                <!-- SUBSCRIPTION SECTION: START -->
-                <div class="row">
-                    <div class="col-6 col-md-3 mt-4">
-                      <div class="la-admin__revenue-title">Active Trial Subscriptions</div>
-                      <div class="la-admin__revenue-info">
-                          <span class="la-admin__revenue-total">{{$trial_subscriptions}}</span>
-                          {{-- <span class="la-admin__revenue-per">@ $80 each</span> --}}
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-3 mt-4">
-                        <div class="la-admin__revenue-title">Active Monthly Subscriptions</div>
-                        <div class="la-admin__revenue-info">
-                            <span class="la-admin__revenue-total">{{$monthly_subscriptions}}</span>
-                            <span class="la-admin__revenue-per">@ $39 each</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3 mt-4">
-                      <div class="la-admin__revenue-title">Active Yearly Subscriptions</div>
-                      <div class="la-admin__revenue-info">
-                          <span class="la-admin__revenue-total">{{$yearly_subscriptions}}</span>
-                          <span class="la-admin__revenue-per">@ $309 each</span>
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-2 mt-4">
-                      <div class="la-admin__revenue-title">Total Amount</div>
-                      <div class="la-admin__revenue-info">
-                          <span class="la-admin__revenue-price">${{ ($monthly_subscriptions * 39) + ($yearly_subscriptions * 309) }}</span>
-                      </div>
-                    </div>
-                </div>
-                <!-- SUBSCRIPTION SECTION: END -->
 
-                <!-- ONE TIME SUBSCRIPTION SECTION: START -->
-                <div class="row ">
-                  {{-- <div class="col-md-3 mt-4 mt-md-6">
-                      <div class="la-admin__revenue-title">No. of Learners</div>
-                      <div class="la-admin__revenue-info">
-                          <span class="la-admin__revenue-total">{{$learners}}</span>
-                      </div>
-                  </div> --}}
-                  <div class="col-6 col-md-3 mt-4 mt-md-6">
-                    <div class="la-admin__revenue-title">Courses Purchased</div>
-                    <div class="la-admin__revenue-info">
-                        <span class="la-admin__revenue-total">{{$courses_count}}</span>
-                    </div>
-                  </div>
-                  <div class="col-6 col-md-3 mt-4 mt-md-6">
-                    <div class="la-admin__revenue-title">Classes Purchased</div>
-                    <div class="la-admin__revenue-info">
-                        <span class="la-admin__revenue-total">{{$classes_count}}</span>
-                    </div>
-                  </div>
-                  <div class="col-6 col-md-2 mt-4 mt-md-6">
-                    <div class="la-admin__revenue-title">Total Amount</div>
-                      <div class="la-admin__revenue-info">
-                        <span class="la-admin__revenue-price">${{$total_earning}}</span>
-                      </div>
-                  </div>
-
-              </div>
-              <!-- ONE TIME SUBSCRIPTION SECTION: END -->
-            </div>
 
             <div class="la-admin__filter-icons text-right" style="position:relative; top:50px;z-index:0;">
               <a href="#" role="button"><span class="la-icon la-icon--3xl icon-sort mr-2" style="color:#000;"></span></a>
@@ -88,11 +26,14 @@
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
+                  <th>#</th>
                   <th>{{ __('adminstaticword.TransactionId') }}</th>
                   <th>{{ __('adminstaticword.User') }}</th>
                   {{-- <th>{{ __('adminstaticword.Course') }}</th> --}}
                   {{-- <th>{{ __('adminstaticword.PaymentMethod') }}</th> --}}
+                  <th>{{ __('adminstaticword.Currency') }}</th>
                   <th>{{ __('adminstaticword.TotalAmount') }}</th>
+                  <th>{{ __('adminstaticword.Coupon') }}</th>
                   <th>{{ __('adminstaticword.Status') }}</th>
                   <th>{{ __('adminstaticword.Date') }}</th>
                   <th>{{ __('adminstaticword.View') }}</th>
@@ -100,14 +41,16 @@
               </thead>
               <tbody>
               <?php $i=0;?>
-                @foreach($total_purchase as $invoice)
+                @foreach($purchased_courses as $invoice)
                     <tr>
+                      <td><?php echo ++$i;?></td>
                       <td>{{$invoice->invoice_id}}</td>
-                      {{-- <td><?php echo ++$i;?></td> --}}
                       <td>{{$invoice->user->fname.' '.$invoice->user->lname}}</td>
                     
-                      <td>$ {{ $invoice->total }}</td>  
-                      <td>{{ $invoice->status }}</td>   
+                      <td>{{ $invoice->currency?$invoice->currency:'USD' }}</td>  
+                      <td> {{ $invoice->total }}</td>  
+                      <td>{{ $invoice->coupon?$invoice->coupon->code:'No Coupon' }}</td>  
+                      <td>{{ ucfirst($invoice->status) }}</td>   
                       <td>{{ $invoice->created_at }}</td>            
 
                       <td><a class="btn btn-info text-capitalize font-weight-normal px-4 px-md-2" href="{{route('view.order',$invoice->id)}}">{{ __('adminstaticword.View') }}</a>
