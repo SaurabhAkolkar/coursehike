@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'View Category - Admin')
+@section('title', 'Featured Classes - Admin')
 @section('body')
  
 @if ($errors->any())
@@ -25,8 +25,8 @@
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>{{ __('adminstaticword.Title') }}</th>
                   <th>{{ __('adminstaticword.Image') }}</th>
+                  <th>{{ __('adminstaticword.Title') }}</th>
                   <th>Category</th>
                   <th>{{ __('adminstaticword.Slug') }}</th>
                   <th>{{ __('adminstaticword.Status') }}</th>
@@ -39,8 +39,8 @@
                 <?php $i++;?>
                   <tr class="sortable" id="id-{{ $c->id }}">
                     <td><?php echo $i;?></td>
+                    <td><img src="{{$c->preview_image}}" class="img-fluid mx-auto d-block"/></td>
                     <td>{{$c->title}}</td>
-                    <td><img src="{{$c->preview_image}}" class="img-thumbnail"/></td>
                     <td>{{$c->category->title}} </td>
                     <td>{{$c->slug}}</td>
                    

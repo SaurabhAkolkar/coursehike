@@ -34,7 +34,7 @@
             @endphp
 
             <section class="la-section la-wishlist__sec pt-0">
-              <h3 class="py-5">Courses</h3>
+              <h3 class="text-2xl mb-6">Courses</h3>
               <div class="la-wishlist__inner">
                 <div class="row la-wishlist__row">
                   @if(count($courses) > 0) 
@@ -83,7 +83,7 @@
             </section>
 
             <section class="la-section la-playlist__sec pt-0">
-              <h3 class="py-4">Classes</h3>
+              <h3 class="text-2xl mb-6">Classes</h3>
               <div class="la-playlist__wrap">
                 
                         <div class="row la-playlist__items">
@@ -116,11 +116,11 @@
                             <div class="col-12 ">
                             <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
                               <div class="col la-empty__inner">
-                                  <h6 class="la-empty__course-title text-lg text-md-2xl m-0 la-anim__stagger-item">No courses added to this playlist yet! </h6>
+                                  <h6 class="la-empty__course-title text-lg text-md-2xl m-0 la-anim__stagger-item">No Classes added to this playlist yet! </h6>
                               </div>
                               <div class="col text-md-right la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
-                                  <a href="/browse/courses" class="la-empty__browse ">
-                                      Browse Courses
+                                  <a href="/browse/classes" class="la-empty__browse ">
+                                      Browse Classes
                                       <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
                                   </a>
                               </div>

@@ -22,7 +22,7 @@
 
         &__{
             &card{
-                margin-bottom:var(--size-6);
+                margin-bottom:var(--size-8);
             }
 
             &inner{
@@ -71,7 +71,7 @@
                     overflow: hidden;
 
                     @include respond-above(md){
-                        width:320px;
+                        width:350px;
                     }
                 }
             }

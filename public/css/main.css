@@ -7526,6 +7526,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 }
 
 .position-sticky {
+  position: -webkit-sticky !important;
   position: sticky !important;
 }
 
@@ -7545,8 +7546,9 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
   z-index: 1030;
 }
 
-@supports (position: sticky) {
+@supports ((position: -webkit-sticky) or (position: sticky)) {
   .sticky-top {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -9791,7 +9793,7 @@ a.text-dark:focus, a.text-dark:hover {
 @font-face {
   font-family: "icomoon";
   src: url(/fonts/icomoon.eot?28469afca1925a8cb1af17d281f4f508);
-  src: url(/fonts/icomoon.eot?28469afca1925a8cb1af17d281f4f508#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?040689d451f3a62e89154126ff2a12fd) format("truetype"), url(/fonts/icomoon.woff?b5f6b73ae842bfd22ddbc923c53e3340) format("woff"), url(/fonts/icomoon.svg?c637295f4f441466e2d8b172336a2331#icomoon) format("svg");
+  src: url(/fonts/icomoon.eot?28469afca1925a8cb1af17d281f4f508#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?040689d451f3a62e89154126ff2a12fd) format("truetype"), url(/fonts/icomoon.woff?b5f6b73ae842bfd22ddbc923c53e3340) format("woff"), url(/fonts/icomoon.svg?77f7b67fecc38d589305413c3c0416c1#icomoon) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -19843,11 +19845,11 @@ input:-webkit-autofill:active {
   height: 250px;
 }
 .la-playlist__add-wishlist {
-  height: 440px;
+  height: 480px;
 }
 @media (min-width: 1200px) {
   .la-playlist__add-wishlist {
-    height: 440px;
+    height: 480px;
   }
 }
 .la-playlist__mobile {
@@ -21331,7 +21333,7 @@ input:-webkit-autofill:active {
   font-size: var(--text-4xl);
   font-family: var(--head-font);
   font-weight: var(--font-semibold);
-  margin-bottom: var(--size-3);
+  margin-bottom: var(--size-6);
 }
 .la-profile__title-wrap {
   margin-bottom: var(--size-5);
@@ -23656,7 +23658,7 @@ label.error {
   }
 }
 .la-lclass__card {
-  margin-bottom: var(--size-6);
+  margin-bottom: var(--size-8);
 }
 .la-lclass__inner {
   border-radius: 10px 10px 0 0;
@@ -23715,7 +23717,7 @@ label.error {
 }
 @media (min-width: 992px) {
   .la-lclass__imgwrap img {
-    width: 320px;
+    width: 350px;
   }
 }
 .la-lclass__overlay {
@@ -23974,7 +23976,7 @@ label.error {
   -moz-transition: all 0.35s ease-in-out;
 }
 .la-lcourse__card {
-  margin-bottom: var(--size-6);
+  margin-bottom: var(--size-8);
 }
 .la-lcourse__inner {
   border-radius: 10px 10px 0 0;
@@ -24017,7 +24019,7 @@ label.error {
 }
 @media (min-width: 992px) {
   .la-lcourse__imgwrap img {
-    width: 320px;
+    width: 350px;
   }
 }
 .la-lcourse__overlay {

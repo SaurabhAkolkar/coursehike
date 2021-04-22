@@ -37,8 +37,9 @@
             <!-- Global Search: End-->
           </div>
 
+          <!-- Ongoing Courses -->
           <div class="la-anim__wrap">
-              <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Ongoing</div> 
+              <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Ongoing Courses</div> 
                     
               <x-add-to-playlist 
                 :playlists="$playlists"
@@ -85,17 +86,70 @@
 
               </div>
           </div>
+
+          <!-- Ongoing Classes -->
+          <div class="la-anim__wrap pt-10">
+              <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Ongoing Classes</div> 
+                    
+              <x-add-to-playlist 
+                :playlists="$playlists"
+              />
+
+              <div class="col-12 px-0 la-anim__wrap">
+                  @if(count($on_going_courses) != 0)
+                    <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
+                      @foreach($on_going_courses as $course)
+                      
+                      <x-course 
+                          :id="$course->id"
+                          :img="$course->preview_image" 
+                          :course="$course->title" 
+                          :url="$course->slug" 
+                          :rating="round($course->average_rating, 2)"
+                          :creatorImg="$course->user->user_img"
+                          :creatorName="$course->user->fullName"
+                          :creatorUrl="$course->user->id"
+                          :price="$course->price"
+                          :learnerCount="$course->learnerCount"
+                          :bought="$course->isPurchased()"
+                          :checkWishList="$course->checkWishList"
+                          :checkCart="$course->checkCart"
+                        />
+                      @endforeach
+                    </div>
+
+                    @else
+
+                      <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                          <div class="col la-empty__inner">
+                              <h6 class="la-empty__course-title la-anim__stagger-item">No Classes</h6>
+                              <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You have not started any classes yet</p>
+                          </div>
+                          <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
+                              <a href="/browse/classes" class="la-empty__browse">
+                                  Browse Classes
+                                  <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                              </a>
+                          </div>
+                      </div> 
+                    @endif
+
+              </div>
+          </div>
         </div>
       </div>
     </section>
     <!-- Section Ongoing: End-->
+
+
     <!-- Section Yet to Start: Start-->
     <section class="la-section__small">
       <div class="la-section__inner">
         <div class="container-fluid la-anim__wrap">
           <div class="row">
+            <!-- Yet to start - Courses -->
             <div class="col-12">
-                <div class="la-mycourses__subtitle text-2xl mb-6 head-font  la-anim__stagger-item--x">Yet to Start</div>
+                <div class="la-mycourses__subtitle text-2xl mb-6 head-font  la-anim__stagger-item--x">Yet to Start Courses</div>
                 @if($yet_to_start_courses && count($yet_to_start_courses) > 0)
                   <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
                     @foreach($yet_to_start_courses as $course)
@@ -134,6 +188,48 @@
                   
                 @endif
             </div>
+
+            <!-- Yet to start - Classes -->
+            <div class="col-12 pt-10">
+                <div class="la-mycourses__subtitle text-2xl mb-6 head-font  la-anim__stagger-item--x">Yet to Start Classes</div>
+                @if($yet_to_start_courses && count($yet_to_start_courses) > 0)
+                  <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
+                    @foreach($yet_to_start_courses as $course)
+                  
+                    <x-course 
+                        :id="$course->id"
+                        :img="$course->preview_image" 
+                        :course="$course->title" 
+                        :url="$course->slug" 
+                        :rating="round($course->average_rating, 2)"
+                        :creatorImg="$course->user->user_img"
+                        :creatorName="$course->user->fullName"
+                        :creatorUrl="$course->user->id"
+                        :price="$course->price"
+                        :learnerCount="$course->learnerCount"
+                        :bought="$course->isPurchased()"
+                        :checkWishList="$course->checkWishList"
+                        :checkCart="$course->checkCart"
+                      />
+                    @endforeach
+                  </div>
+                @else
+
+                  <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                      <div class="col la-empty__inner">
+                          <h6 class="la-empty__course-title la-anim__stagger-item">No Classes</h6>
+                          <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You haven't bought or subscribed to any class yet</p>
+                      </div>
+                      <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
+                          <a href="/browse/classes" class="la-empty__browse ">
+                              Browse Classes
+                              <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                          </a>
+                      </div>
+                  </div> 
+                  
+                @endif
+            </div>
         </div>
       </div>
     </div>
@@ -145,8 +241,9 @@
       <div class="la-section__inner">
         <div class="container-fluid la-anim__wrap">
           <div class="row">
+            <!-- Completed Courses -->
             <div class="col-12">
-              <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Completed</div>
+                <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Completed Courses</div>
                 @if($completed_courses && count($completed_courses) != 0)
                   <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4  la-anim__stagger-item">
                     @foreach($completed_courses as $course)
@@ -183,7 +280,48 @@
                   </div>
                 @endif
 
-              </div>
+            </div>
+
+            <!-- Completed Classes -->
+            <div class="col-12 pt-10">
+                <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Completed Classes</div>
+                @if($completed_courses && count($completed_courses) != 0)
+                  <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4  la-anim__stagger-item">
+                    @foreach($completed_courses as $course)
+                  
+                    <x-course 
+                        :id="$course->id"
+                        :img="$course->preview_image" 
+                        :course="$course->title" 
+                        :url="$course->slug" 
+                        :rating="round($course->average_rating, 2)"
+                        :creatorImg="$course->user->user_img"
+                        :creatorName="$course->user->fullName"
+                        :creatorUrl="$course->user->id"
+                        :price="$course->price"
+                        :learnerCount="$course->learnerCount"
+                        :bought="$course->isPurchased()"
+                        :checkWishList="$course->checkWishList"
+                        :checkCart="$course->checkCart"
+                      />
+                    @endforeach
+                  </div>
+                @else
+                  <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                    <div class="col la-empty__inner">
+                        <h6 class="la-empty__course-title  la-anim__stagger-item">No Classes</h6>
+                        <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You have not finished any class yet.</p>
+                    </div>
+                    <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
+                        <a href="/browse/classes" class="la-empty__browse ">
+                            Browse Classes
+                            <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                        </a>
+                    </div>
+                  </div>
+                @endif
+
+            </div>
           </div>
         </div>
       </div>

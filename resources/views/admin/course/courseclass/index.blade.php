@@ -304,7 +304,7 @@
                         <div class="input-group mb-3">
                             <input type="text" class="form-control py-6" name="title" id="search_title"   placeholder="Enter Your Title"value="" required>
                             <div class="input-group-append" onclick="serachVideos()">
-                                <span class="input-group-text px-6" style="cursor:pointer;">
+                                <span class="input-group-text px-6" style="cursor:pointer;background:var(--app-indigo-1);color:var(--white);">
                                   <span class="la-icon la-icon--xl icon-search"></span>
                                 </span>
                             </div>

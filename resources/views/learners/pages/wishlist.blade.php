@@ -36,21 +36,18 @@
           <div class="la-profile__main-inner ">
             <div class="la-profile__title-wrap la-anim__stagger-item">
               <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-3" href="{{URL::previous()}}"></a>
-              <h1 class="la-profile__title d-none d-lg-block">Wishlist</h1>
-              
-              <!-- Mobile Version Add Courses Btn -->
-              <div class="la-btn__add-icon d-block d-lg-none">
-                <div class="d-flex justify-content-between align-items-center">
-                  <h1 class="la-profile__title text-3xl">Wishlist</h1>
-                  <a class="la-playlist__mobile text-md text-uppercase" href="/browse/courses"> 
-                    <span class="la-icon la-icon--md icon-plus mr-1 mb-3"></span>Add Courses
-                  </a>
-                </div>
-              </div>
+              <h1 class="la-profile__title">Wishlist</h1>
             </div>
 
             <section class="la-section la-wishlist__sec pt-0">
-              <h3 class="py-5">Courses</h3>
+              
+              <div class="d-flex justify-content-between align-items-center mb-3 la-anim__stagger-item">
+                <h2 class="text-2xl mb-0">Courses</h2>
+                <a class="d-block d-lg-none la-playlist__mobile text-md text-uppercase" href="/browse/courses"> 
+                  <span class="la-icon la-icon--md icon-plus mr-1 mb-3"></span>Add Courses
+                </a>
+              </div>
+           
               <div class="la-wishlist__inner">
                 <div class="row la-wishlist__row">
                     @foreach($wishlist_courses as $course)
@@ -105,7 +102,13 @@
             </section>
             
             <section class="la-section la-wishlist__sec pt-0">
-              <h3 class="py-4">Classes</h3>
+              <div class="d-flex justify-content-between align-items-center mb-3 la-anim__stagger-item">
+                <h2 class="text-2xl mb-0">Classes</h2>
+                <a class="d-block d-lg-none la-playlist__mobile text-md text-uppercase" href="/browse/classes"> 
+                  <span class="la-icon la-icon--md icon-plus mr-1 mb-3"></span>Add Classes
+                </a>
+              </div>
+              
               <div class="la-wishlist__inner">
                 <div class="row la-wishlist__row">
                     @foreach($wishlist_classes as $courses)

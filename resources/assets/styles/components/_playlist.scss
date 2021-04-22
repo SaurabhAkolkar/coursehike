@@ -48,10 +48,10 @@ $image-center: -30px;
                     }
                     //-Wishlist page
                     &wishlist{
-                        height:440px;
+                        height:480px;
 
                         @include respond-above(lg){
-                            height:440px;
+                            height:480px;
                         }
                     }
                 }
