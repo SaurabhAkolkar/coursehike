@@ -648,6 +648,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
     Route::get('/browse/classes','SearchController@classes');
     Route::get('/browse/courses','SearchController@courses');
     Route::get('/master-classes','SearchController@masterClasses');
+    Route::get("/search-course","SearchController@searchCourse");
+
 
     Route::get('/filter-courses','SearchController@applyFilter')->name('apply.filters');
     Route::get('/add-to-cart','CartController@addtocartAjax');
@@ -732,7 +734,6 @@ Route::middleware(['auth'])->group(function () {
 Route::get("allcountry/dropdown","AllCountryController@upload_info");
 Route::get("allcountry/gcity","AllCountryController@gcity");
 
-Route::get("/search-course","LearnController@searchCourse");
 
 Route::get('/activestatus', 'WatchCourseController@active');
 

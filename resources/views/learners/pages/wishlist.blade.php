@@ -57,7 +57,7 @@
                    
                       <div class="col-md-6 col-lg-4 px-0  la-anim__stagger-item">
                         <x-bundle-course 
-                          :id="$course->bundle_course_id"
+                          :id="$course->id"
                           :img="$course->bundle->preview_image"
                           :course="$course->bundle->title"
                           :url="$course->bundle->slug"
@@ -73,7 +73,7 @@
                           :checkWishList="$course->bundle->checkWishList"
                           :checkCart="$course->bundle->checkCart"
                           :addedToWhishList="$addedToWhishList"
-
+                          :wishlistId="$course->id"
                         />
 {{-- 
                         <x-course 
@@ -122,6 +122,7 @@
                           :creatorUrl="$courses->courses->user->id"
                           :checkWishList="$courses->courses->checkWishList"
                           :addedToWhishList="$addedToWhishList"
+                          :wishlistId="$courses->id"
                           :checkCart="$courses->courses->checkCart"
                           :learnerCount="$courses->courses->learnerCount"
                           :price="$courses->courses->price"

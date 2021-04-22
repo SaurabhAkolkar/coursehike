@@ -245,6 +245,8 @@
                                   :bought="$course->isPurchased()"
                                   :checkWishList="$course->checkWishList"
                                   :checkCart="$course->checkCart"
+                                  :videoCount="$course->videoCount"
+                                  :chapterCount="$course->chapterCount"
                               />
                             @endforeach
 
@@ -306,6 +308,8 @@
                                                         :bought="$course->isPurchased()"
                                                         :checkWishList="$course->checkWishList"
                                                         :checkCart="$course->checkCart"
+                                                        :videoCount="$course->videoCount"
+                                                        :chapterCount="$course->chapterCount"
                                                       />
                                                     </div>
                                                   @endforeach                                  
@@ -357,7 +361,9 @@
                                                 :bought="$course->isPurchased()"
                                                 :checkWishList="$course->checkWishList"
                                                 :checkCart="$course->checkCart"
-
+                                                :videoCount="$course->videoCount"
+                                                :chapterCount="$course->chapterCount"
+                                            
                                               />
                                           @endforeach
                                         </div>

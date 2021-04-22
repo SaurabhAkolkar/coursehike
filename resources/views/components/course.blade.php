@@ -38,7 +38,7 @@
                                 <li class="la-lclass__option">
                                     @if(Auth::check())
                                         @if($price && $bought == null)
-                                            <span @if($addedToWhishList) onclick="location.href='/remove-from-wishlist/{{$id}}'" @else onclick="addToWishList({{$id}})" @endif  >
+                                            <span @if($addedToWhishList) onclick="location.href='/remove-from-wishlist/{{$wishlistId}}'" @else onclick="addToWishList({{$id}})" @endif  >
                                                 <span class="d-inline-block la-lclass__like">
                                                     <i class="la-icon la-icon--2xl icon @if($checkWishList) text-warning @endif icon-wishlist @if($addedToWhishList) text-warning @endif"></i>
                                                 </span>
@@ -151,8 +151,8 @@
                             </div>
 
                             <div class="d-flex justify-content-end align-items-center pb-3">    
-                                <div class="la-lclass__classes text-uppercase text-xs pr-2">class 1</div>
-                                <div class="la-lclass__videos text-sm pl-2"><strong>10</strong> Videos</div>
+                                <div class="la-lclass__classes text-uppercase text-xs pr-2"><strong>{{$chapterCount}}</strong> @if($chapterCount > 1) Chapters @else Chapter @endif</div>
+                                <div class="la-lclass__videos text-sm pl-2"><strong>{{$videoCount}}</strong> Videos</div>
                             </div>
                         </div>
                     </div>

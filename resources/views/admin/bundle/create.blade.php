@@ -32,14 +32,14 @@
                   <input type="hidden" class="form-control" name="user_id" id="exampleInputTitle" value="{{ Auth::User()->id }}" required>
                   
                   <div class="row">  
-                    <div class="col-md-6 col-lg-4  mb-3">
+                    <div class="col-md-6 col-lg-6  mb-3">
                       <div class="form-group">
                         <label for="exampleInputTit1e">{{ __('adminstaticword.Title') }}: <sup class="redstar">*</sup></label>
                         <input type="title" class="form-control" name="title" id="exampleInputTitle" placeholder="Please Enter Your Title" value="" required>
                       </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-4  mb-3">
+                    <div class="col-md-6 col-lg-6  mb-3">
                       <div class="form-group">
                         <label>{{ __('adminstaticword.SelectClass') }}: <span class="redstar">*</span></label>
                         <select class="form-control js-example-basic-single" name="course_id[]" multiple="multiple" size="5" row="5" placeholder="Select Courses">
@@ -57,7 +57,19 @@
                       </div>
                     </div>
                  
-                    <div class="col-lg-4  mb-3">
+                    <div class="col-lg-6  mb-3">
+                      <div class="form-group">
+                          <label>{{ __('adminstaticword.level') }}: <span class="redstar">*</span></label>
+                          <select name="level" class="form-control js-example-basic-single">
+                            <option selected disabled > Select Level</option>
+                            <option value="1" > Beginner</option>
+                            <option value="2" > Intermediate</option>
+                            <option value="3" > Advanced</option>
+                          </select> 
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6  mb-3">
                       <div class="form-group">
                         <label>{{ __('adminstaticword.Category') }}: <span class="redstar">*</span></label>
                         <select class="form-control js-example-basic-single" name="category_id"  placeholder="Select Category">
@@ -74,6 +86,7 @@
                         </select>
                       </div>
                     </div>
+
                             
                     <div class="col-md-12 mb-4 mb-md-8">
                       <label for="exampleInputTit1e">{{ __('adminstaticword.Detail') }}: <sup class="redstar">*</sup></label>

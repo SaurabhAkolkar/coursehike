@@ -31,7 +31,7 @@ class BundleCourse extends Model
     
     protected $table = 'bundle_courses';
 
-    protected $fillable = ['user_id', 'course_id', 'title', 'category_id','detail', 'price', 'discount_price', 'type', 'slug', 'status', 'featured', 'preview_image'];
+    protected $fillable = ['user_id', 'course_id', 'title', 'level', 'category_id','detail', 'price', 'discount_price', 'type', 'slug', 'status', 'featured', 'preview_image'];
 
     protected $casts = [
     	'course_id' => 'array'

@@ -230,32 +230,35 @@
                     <div class="la-anim__wrap">
                       <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
                                     
-                          @foreach($courses->sortBy('order') as $course)
-                              <x-course 
-                                  :id="$course->id"
-                                  :img="$course->preview_image"
-                                  :course="$course->title"
-                                  :url="$course->slug"
-                                  :rating="round($course->average_rating, 2)"
-                                  :creatorImg="$course->user->user_img"
-                                  :creatorName="$course->user->fname"
-                                  :creatorUrl="$course->user->id"
-                                  :learnerCount="$course->learnerCount"
-                                  :price="$course->price"
-                                  :bought="$course->isPurchased()"
-                                  :checkWishList="$course->checkWishList"
-                                  :checkCart="$course->checkCart"
-                              />
+                          @foreach($bundleCoures as $course)
+        
+                            <x-bundle-course 
+                                :id="$course->id"
+                                :img="$course->preview_image"
+                                :course="$course->title"
+                                :url="$course->slug"
+                                :rating="round($course->average_rating, 2)"
+                                :videoCount="$course->videoCount()"
+                                :classesCount="count($course->course_id)"
+                                :creatorImg="$course->users()"
+                                :creatorName="$course->users()->first()->fname"
+                                :creatorUrl="$course->user->id"
+                                :learnerCount="$course->learnerCount"
+                                :price="$course->price"
+                                :bought="$course->isPurchased()"
+                                :checkWishList="$course->checkWishList"
+                                :checkCart="$course->checkCart"
+                            />
                             @endforeach
 
                       </div>
                     </div>
 
-                      @if(count($courses) == 0)
+                      @if(count($bundleCoures) == 0)
 
                         <div class="container la-empty__courses d-md-flex justify-content-between align-items-start la-anim__wrap">
                           <div class="la-empty__inner">
-                              <h6 class="la-empty__course-title la-anim__stagger-item">No Classes Found.</h6>
+                              <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
                           </div>
                           <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
                               <a href="{{Url('/browse/courses')}}" class="la-empty__browse">

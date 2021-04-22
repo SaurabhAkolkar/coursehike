@@ -125,7 +125,7 @@ class LearnerWishlistController extends Controller
      */
     public function destroy($id)
     {
-        Wishlist::where(['user_id'=>Auth::user()->id, 'course_id'=>$id])->delete();
+        Wishlist::where(['user_id'=>Auth::user()->id, 'id'=>$id])->delete();
         
         return redirect()->back()->with('message','Course Removed Successfully.');
     }

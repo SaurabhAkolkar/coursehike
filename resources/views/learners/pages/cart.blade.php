@@ -52,6 +52,7 @@
                             <x-cart
                               :cartId="$cart->id"
                               :cart="$cart"
+                              :itemType="$cart->bundle_id>0?'course':'class'"
                               :courseId="$cart->course_id"
                               :collapseId="$cart->collapseId"
                               :courseImg="$cart->courses->preview_image"
