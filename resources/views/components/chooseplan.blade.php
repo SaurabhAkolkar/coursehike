@@ -2,10 +2,11 @@
     <div class="col la-choose__plan-col text-center">
       <div class="la-choose__plans">
         <div class="card la-choose__card text-center">
-
+          @if($plan == 'Yearly')
           <div class="la-choose__recommend">
               <div class="la-choose__recommend-text">Recommended</div>
           </div>
+          @endif
 
           <div class="la-choose__card-inner">
             <div class="la-choose__box mb-8">
