@@ -73,6 +73,7 @@
                     </div>               
                         
                     <div class="la-lcourse__play position-relative text-center w-100 h-100 d-flex flex-column justify-content-center align-items-center pt-20 px-2">
+                        {{$id=$id+1000}}
                         <a  role="button" href= "{{ '/learn/course/'.$id.'/'.$url }}" class=" w-100 h-100 la-lcourse__play-btn stretched-link">
                             <svg class="la-lcourse__play-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"  x="0px" y="0px" viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7" xml:space="preserve">
                                 <polygon class='la-lcourse__play-triangle triangle' id="XMLID_18_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="73.5,62.5 148.5,105.8 73.5,149.1 "/> 

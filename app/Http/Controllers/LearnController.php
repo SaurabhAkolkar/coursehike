@@ -31,6 +31,13 @@ class LearnController extends Controller
 {
     public function show($id, $slug)
     {
+       
+        if($id > 1000){
+            $id = $id - 1000;
+        }else{
+            return redirect('/learn/class/'.$id.'/'.$slug);
+        }
+
         $playlists = [];     
           
         $course = BundleCourse::where('id', $id)->first();
