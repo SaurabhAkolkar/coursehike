@@ -330,6 +330,8 @@
                 </a>
             </div>
         </div> -->
+
+        <div class="la-header__nav-bottom d-lg-none"></div>
     @endif
     
 

@@ -312,7 +312,7 @@
               <div class="col-12">
                 <h3 class="la-admin__section-title">{{ __('adminstaticword.CreatorDetails') }}</h3>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-4 mb-3">
                 <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item--x">
                   <label >Expert In</label>
                   <input class="form-control" type="text" value="{{ $expertise }}" name="expert_in" placeholder="Expert In">
@@ -322,7 +322,7 @@
                   @enderror
               </div>
             
-              <div class="col-md-4">
+              <div class="col-md-4 mb-3">
                 <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item--x">
                   <label>Years Of Experience</label>
                   <input class="form-control" type="number" value="{{ $yoe }}" name="yoe" placeholder="Years of Experience">
@@ -335,7 +335,7 @@
             <br>
 
             <div class="row"> 
-                <div class="col-md-4">
+                <div class="col-md-4 mb-3">
                   <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item--x">
                     <div id="added_to_awards">
 
@@ -351,7 +351,7 @@
                       <input class="form-control" value="" id="awards" name="awards" placeholder="Any Award you want to add"><span class="la-entry__input-icon" style="right:0;cursor:pointer;border:0" onclick="addToAwards();">+</span>
                   </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-3">
                   <div id="added_to_portfolio">
                     @foreach($portfolio_links as $link)
 
@@ -367,13 +367,9 @@
                 </div>
             </div>
 
-            <br>
-            <br>
-
-            
-
+           
             <div class="row">
-              <div class="col-md-8 box-footer">
+              <div class="col-md-8 box-footer mt-6">
                 <button type="submit" class="btn btn-primary px-18">
                    {{ __('adminstaticword.Save') }}
                 </button>
