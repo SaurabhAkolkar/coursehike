@@ -16,7 +16,7 @@
             <div class="la-cart__item row la-anim__wrap">
                 <div class="la-cart__item-course col-8 col-md-8 col-lg-7 pr-0 la-anim__stagger-item">
                     <div class="">
-                        <div class="la-cart__item-label mb-4 ">Class</div>
+                        <div class="la-cart__item-label mb-4 ">@if($itemType=='class')Class @else Course @endif</div>
                     </div>
                     <div class="la-cart__item-content d-md-flex">
                         <div class="la-cart__item-left  mr-md-4">
@@ -45,11 +45,14 @@
                 
 
                 <div class="col-4 col-md-4 col-lg-5 pl-0 la-cart__item-info d-flex align-items-start la-anim__wrap">
+                    @if($itemType=='class') 
+                    @else
                     <div class="la-cart__item-classes la-anim__stagger-item">
-                        <div class="la-cart__item-label mb-4 ">Chapters</div>
+                        <div class="la-cart__item-label mb-4 ">Classes</div>
                         <div class="la-cart__item-content leading-snug "><span>{{$classType}}</span></div>
                         {{-- <div class="la-cart__item-content leading-snug "><span>@if($classType == 'all_classes') All Classes @else Selected Classes @endif</span></div> --}}
                     </div>
+                    @endif
 
                     <div class="la-cart__item-price ml-4 ml-md-20 la-anim__stagger-item">
                         <div class="la-cart__item-label mb-4 ">Price</div>

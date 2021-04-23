@@ -41,7 +41,12 @@ class Categories extends Model
 
     public function courses()
     {   
-        return $this->hasMany('App\Course','category_id');
+        return $this->hasMany('App\Course','category_id')->where('status',1);
+    }
+
+    public function bundle()
+    {   
+        return $this->hasMany('App\BundleCourse','category_id')->where('status',1);
     }
 
     public function getImageAttribute($value)

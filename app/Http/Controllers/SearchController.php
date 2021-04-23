@@ -105,19 +105,19 @@ class SearchController extends Controller
 			$sort_type = $request->sort_by;
 
 			if($request->sort_by == 'latest'){
-				$categories = Categories::with(array('courses' => function($query) {$query->where(['status' => 1])->orderBy('created_at' , 'DESC' );}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+				$categories = Categories::has('courses')->with(array('courses' => function($query) {$query->where(['status' => 1])->orderBy('created_at' , 'DESC' );}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
 			}else if($request->sort_by=='highest_rated'){
 
-				$categories = Categories::with(array('courses' => function($query) {$query->where(['status' => 1]);}),'subcategory')->where('featured' , '1')->orderBy('position','ASC')->get();
+				$categories = Categories::has('courses')->with(array('courses' => function($query) {$query->where(['status' => 1]);}),'subcategory')->where('featured' , '1')->orderBy('position','ASC')->get();
 
 			}else if($request->sort_by=='most_popular'){
-				$categories = Categories::with(array('courses' => function($query) {$query->where([ 'status' => 1])->orderBy('created_at' , 'DESC');}),'courses','subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+				$categories = Categories::has('courses')->with(array('courses' => function($query) {$query->where([ 'status' => 1])->orderBy('created_at' , 'DESC');}),'courses','subcategory')->where('featured','1')->orderBy('position','ASC')->get();
 			}else{
-				$categories = Categories::with(array('courses' => function($query) {$query->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+				$categories = Categories::has('courses')->with(array('courses' => function($query) {$query->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
 			}
 		
 		}else{
-				$categories = Categories::with(array('courses' => function($query) {$query->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+				$categories = Categories::has('courses')->with(array('courses' => function($query) {$query->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
 		}
 		
 		
@@ -156,8 +156,29 @@ class SearchController extends Controller
 			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
 		}	
 
-		$categories = Categories::where(['featured'=>1,'status'=>1])->get();
-		$bundleCoures = BundleCourse::where(['status'=>1])->get();
+		$categories = Categories::has('bundle')->where(['featured'=>1,'status'=>1])->get();
+		if($request->filters == 'applied'){
+			$filtres_applied = true;
+			$bundleCoures = BundleCourse::where(['status'=>1])->get();
+
+			if(isset($request->categories) && $request->categories != null){
+
+				$categories = array_map('intval', explode(',',$request->categories));
+				$selected_categories =$categories;
+				$bundleCoures = $bundleCoures->whereIn('category_id',$categories);			
+			}
+
+			if(isset($request->level) && $request->level != null){
+	
+				$level = array_map('intval', explode(',',$request->level));
+				$selected_level =$level;
+				$bundleCoures = $bundleCoures->whereIn('level',$level);
+			}
+			
+		}
+		else{
+			$bundleCoures = BundleCourse::where(['status'=>1])->get();
+		}
 		
 		return view('learners.pages.courses', compact('categories','bundleCoures','filtres_applied', 'selected_duration','sort_type','selected_languages','selected_categories','selected_subcategories','selected_level','playlists','langauges','filter_categories'));
 
@@ -337,6 +358,75 @@ class SearchController extends Controller
 
 		return view('learners.pages.my-courses',compact('playlists','on_going_courses','yet_to_start_courses', 'completed_courses'));
 	}
+
+	public function searchCourse(Request $request){
+        
+        $input['course_name'] = $request->course_name;
+
+        $langauges = CourseLanguage::where(['status'=>1])->get();
+		$filter_categories = Categories::with('subcategory')->where(['status'=>1])->get();
+		$courses =[];
+		$categories = [];
+		$playlists = [];
+		$selected_categories = [];
+		$selected_subcategories = [];
+		$selected_level = [];
+		$selected_languages = [];
+        $filtres_applied = false;
+        
+        if(isset($request->sort_by)){
+            if($request->sort_by == 'latest'){
+                $courses = Course::with('user')->where('status',1)->where('title','like','%'.$input['course_name'].'%')->orderBy('created_at')->get();
+            }else{
+                $courses = Course::with('user')->where('status',1)->where('title','like','%'.$input['course_name'].'%')->orderBy('created_at')->get();
+            }		
+        }else{
+            $courses = Course::with('user')->where('title','like','%'.$input['course_name'].'%')->where('status',1)->get();
+        }
+
+        if($request->filters == 'applied'){
+            $filtres_applied = true;
+            
+			if(isset($request->categories) && $request->categories != null){
+
+				$categories = array_map('intval', explode(',',$request->categories));
+				$selected_categories =$categories;
+				$courses = $courses->whereIn('category_id',$categories);
+			
+			}
+		
+			if(isset($request->sub_categories ) && $request->categories != null){
+	
+				$sub_categories = array_map('intval', explode(',',$request->sub_categories));
+				$selected_subcategories =$sub_categories;
+				
+				$courses = $courses->whereIn('subcategory_id',$sub_categories);
+			}	
+	
+			if(isset($request->languages) && $request->categories != null){
+	
+				$languages = array_map('intval', explode(',',$request->languages));
+				$selected_languages =$languages;
+				$courses = $courses->whereIn('language_id',$languages);
+			}
+	
+			if(isset($request->level) && $request->level != null){
+	
+				$level = array_map('intval', explode(',',$request->level));
+				$selected_level =$level;
+				$courses = $courses->whereIn('level',$level);
+			}
+        }
+        
+
+		if(Auth::check()){
+			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
+        }	
+        $search_input = $input['course_name'];
+        
+        return view('learners.pages.search_courses', compact('selected_languages','selected_categories','selected_subcategories','selected_level','filtres_applied','courses','playlists','langauges','filter_categories','search_input'));
+    }
+
 
 	public function masterClasses(Request $request){
 

@@ -11,7 +11,7 @@ use App\UserWatchTimelog;
 use Stevebauman\Location\Facades\Location;
 use App\Setting;
 use Illuminate\Support\Facades\Auth;
-
+use App\CourseChapter;
 
 class Course extends Model
 {
@@ -149,6 +149,20 @@ class Course extends Model
     public function getPreviewImageAttribute($value)
     {
         return Storage::url(config('path.course.img'). $value);
+    }
+
+    public function getVideoCountAttribute(){
+
+        $videos = CourseClass::where('course_id', $this->id)->count();
+
+        return $videos;
+    }
+
+    public function getChapterCountAttribute(){
+
+        $chapter = CourseChapter::where('course_id', $this->id)->count();
+        
+        return $chapter;
     }
 
 

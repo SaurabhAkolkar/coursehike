@@ -239,7 +239,7 @@ class CartController extends Controller
 
     public function learnerCart(){
         // dd(Session::all());
-        $carts = Cart::with('user','cartItems')->where(['user_id' => Auth::User()->id, 'status' => 1])->get();
+        $carts = Cart::with('user','cartItems')->where(['user_id' => Auth::User()->id, 'status' => 1])->orderBy('bundle_id','DESC')->orderBy('created_at')->get();
         
 		$countries = DB::table('allcountry')->get();
         $cartItem = [];

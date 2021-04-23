@@ -41,7 +41,7 @@
 
         &__{
             &card{
-                margin-bottom:var(--size-6);
+                margin-bottom:var(--size-8);
             }
             &inner{
                 border-radius:10px 10px 0 0;-webkit-border-radius:10px 10px 0 0;-moz-border-radius:10px 10px 0 0;
@@ -76,7 +76,7 @@
                     overflow: hidden;
 
                     @include respond-above(md){
-                        width:320px;
+                        width:350px;
                     }
                 }
             }

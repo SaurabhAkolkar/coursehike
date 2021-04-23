@@ -523,7 +523,7 @@ table.table-bordered.dataTable tbody td {
     border:none;
     border-bottom-width: 0;
     font-size:var(--text-sm);
-    line-height:1 !important;
+    line-height:1.35 !important;
     vertical-align: middle;
     text-align:left;
  }
@@ -850,7 +850,7 @@ table::-webkit-scrollbar{background: rgb(0, 0, 0);
     border:none;
     border-bottom-width: 0;
     font-size:var(--text-sm);
-    line-height:1 !important;
+    line-height:1.35 !important;
     vertical-align: middle;
 }
 
