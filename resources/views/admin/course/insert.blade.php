@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'Create Course - Admin')
+@section('title', 'Create Class - Admin')
 @section('body')
 
 @if ($errors->any())

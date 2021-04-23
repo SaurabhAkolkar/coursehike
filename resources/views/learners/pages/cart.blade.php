@@ -206,7 +206,7 @@
               @if(count($suggested_courses) == 0)
 
                 <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6 la-anim__stagger-item">
-                  <div class="col la-empty__inner">
+                  <div class="col la-empty__inner mb-0">
                     <h6 class="la-empty__course-title text-xl la-anim__stagger-item--x">No more courses available right now!</h6>
                   </div>
                 </div>  

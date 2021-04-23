@@ -258,7 +258,7 @@ $course_id = $course->id;
                 
                   @if(true)
                       <div class=" la-anim__wrap text-center">
-                          <div class="la-empty__inner la-anim__stagger-item">
+                          <div class="la-empty__inner la-anim__stagger-item mb-0">
                               <h6 class="la-empty__course-title text-2xl" style="color:var(--gray8);">No Resources available for this Course.</h6>
                             </div>
                       </div>
@@ -326,7 +326,7 @@ $course_id = $course->id;
 
               @if(true)
                   <div class=" la-anim__wrap text-center pt-4 pb-10">
-                    <div class="la-empty__inner la-anim__stagger-item">
+                    <div class="la-empty__inner la-anim__stagger-item mb-0">
                       <h6 class="la-empty__course-title text-xl" style="color:var(--gray8);">No Resources available for this Course.</h6>
                       </div>
                   </div>

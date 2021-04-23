@@ -319,7 +319,7 @@
                                           @if(count($courses) == 0 || count($courses->where('featured','like','1')) == 0 )
                                         
                                               <div class="mb-3 mb-md-8 la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
-                                                <div class="la-empty__inner text-center">
+                                                <div class="la-empty__inner text-center mb-0">
                                                     <h6 class="la-empty__course-title la-anim__stagger-item">No Featured Classes available currently.</h6>
                                                 </div>
                                               </div>
@@ -371,7 +371,7 @@
                                         @if(count($courses) == 0 || count($merged) == 0 )
 
                                           <div class=" my-3 my-md-8  la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
-                                            <div class="la-empty__inner">
+                                            <div class="la-empty__inner mb-0">
                                                 <h6 class="la-empty__course-title la-anim__stagger-item">No Classes available Here.</h6>
                                             </div>
                                           </div>

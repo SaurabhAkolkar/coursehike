@@ -341,7 +341,7 @@
                             <div class="container">
                               <div class="row">
                                 <div class="col-12  my-3 my-md-8 la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
-                                  <div class="la-empty__inner text-center">
+                                  <div class="la-empty__inner text-center mb-0">
                                       <h6 class="la-empty__course-title la-anim__stagger-item">No Courses available currently.</h6>
                                   </div>
                                 </div>
@@ -406,7 +406,7 @@
                             <div class="container">
                               <div class="row">
                                 <div class="col-12  my-3 my-md-8 la-empty__courses d-md-flex justify-content-center align-items-start la-anim__wrap">
-                                  <div class="la-empty__inner text-center">
+                                  <div class="la-empty__inner text-center mb-0">
                                       <h6 class="la-empty__course-title la-anim__stagger-item">No Courses available currently.</h6>
                                   </div>
                                 </div>

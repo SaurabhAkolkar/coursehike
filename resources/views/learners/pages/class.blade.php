@@ -321,8 +321,8 @@ $course_id = $course->id;
                 
                   @if(count($course->resources) == 0)
                       <div class=" la-anim__wrap text-center">
-                          <div class="la-empty__inner la-anim__stagger-item">
-                              <h6 class="la-empty__course-title text-2xl" style="color:var(--gray8);">No Resources available for this Class.</h6>
+                          <div class="la-empty__inner mb-0 la-anim__stagger-item">
+                              <h6 class="la-empty__course-title text-2xl py-8" style="color:var(--gray8);">No Resources available for this Class.</h6>
                             </div>
                       </div>
                   @else
@@ -389,7 +389,7 @@ $course_id = $course->id;
 
               @if(count($course->resources) == 0)
                   <div class=" la-anim__wrap text-center pt-4 pb-10">
-                    <div class="la-empty__inner la-anim__stagger-item">
+                    <div class="la-empty__inner mb-0 la-anim__stagger-item">
                       <h6 class="la-empty__course-title text-xl" style="color:var(--gray8);">No Resources available for this Class.</h6>
                       </div>
                   </div>
@@ -766,7 +766,7 @@ $course_id = $course->id;
           @if(count($related_courses) == 0)
 
             <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6 la-anim__stagger-item">
-                <div class="col la-empty__inner">
+                <div class="col la-empty__inner mb-0">
                   <h6 class="la-empty__course-title text-xl la-anim__stagger-item--x">No more Classes available right now!</h6>
                 </div>
             </div>   
