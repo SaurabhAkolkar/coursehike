@@ -210,7 +210,7 @@
                     <div class="la-header__nav-icon">
                         <span class="la-icon la-icon--xl icon-become-creator"></span>
                     </div>
-                    <span class="la-header__nav-name">Become a Mentor</span>
+                    <span class="la-header__nav-name" style="text-transform:none">Become a Mentor</span>
                 </a>
             </div>
             <div class="la-header__nav-item d-lg-none">   
