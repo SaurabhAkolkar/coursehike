@@ -136,4 +136,15 @@ class BundleCourse extends Model
             return Avatar::create($this->title)->toBase64();
         }
     }
+
+    public function getProgressAttribute(){
+        
+        $courses = $this->getCourses();
+        $progress = null;
+        foreach($courses as $c){
+            $progress = $progress + $c->getProgress();
+        }
+
+        return $progress;
+    }
 }

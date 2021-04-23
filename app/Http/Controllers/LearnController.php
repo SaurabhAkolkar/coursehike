@@ -32,8 +32,8 @@ class LearnController extends Controller
     public function show($id, $slug)
     {
        
-        if($id > 1000){
-            $id = $id - 1000;
+        if($id >= 1000){
+
         }else{
             return redirect('/learn/class/'.$id.'/'.$slug);
         }
@@ -44,7 +44,7 @@ class LearnController extends Controller
         
         $related_courses =  BundleCourse::where('category_id', $course->category_id)->where('status', 1)->where('id','!=', $course->id)->take(3)->get();
 
-        $mentor_other_courses =  Course::where('user_id', $course->user_id)->where('status', 1)->where('id','!=', $course->id)->take(3)->get();
+        $mentor_other_courses =  BundleCourse::where('user_id', $course->user_id)->where('status', 1)->where('id','!=', $course->id)->take(3)->get();
 
         if($course->slug != $slug)
             return redirect()->route('learn.show', ['id' => $id,'slug'=>$course->slug]);
