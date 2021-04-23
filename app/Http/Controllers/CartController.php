@@ -65,7 +65,7 @@ class CartController extends Controller
             
             if(!$check){
                 $cart = Cart::create(
-                    ['user_id' => Auth::User()->id, 'course_id'=> 0 ,'bundle_id' => $request->course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id]
+                    ['user_id' => Auth::User()->id, 'course_id'=> 0 ,'bundle_id' => $request->course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id, 'type' => 1]
                 );
     
                 return 'Course added to cart';
@@ -79,7 +79,7 @@ class CartController extends Controller
             
             if(!$check){
                 $cart = Cart::create(
-                    ['user_id' => Auth::User()->id, 'course_id' => $request->course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id]
+                    ['user_id' => Auth::User()->id, 'course_id' => $request->course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id, 'type' => 0]
                 );
     
                 return 'Class added to cart';
@@ -132,20 +132,27 @@ class CartController extends Controller
         
         $bundle_course_id = null;
         $course_id = 0;
+        $type = 0;
         if($request->bundle_course == 'true'){
             $course =  BundleCourse::findOrFail($request->course_id);
             $bundle_course_id = $request->course_id;
+            $type = 1;
         }else{
             $course = Course::findOrFail($request->course_id);
             $course_id = $request->course_id;
         }
         
-        $check = Cart::where(['user_id' => Auth::User()->id, 'course_id' => $course_id, 'bundle_id' => $bundle_course_id])->first();
-        if($check){
-            return redirect()->back()->with('message','Course is already in the cart');
-        }
-        $cart = Cart::firstOrCreate(
-            ['user_id' => Auth::User()->id, 'course_id' => $course_id, 'bundle_id' => $bundle_course_id, 'bundle_id' => $request->course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id]
+        // $check = Cart::where(['user_id' => Auth::User()->id, 'course_id' => $course_id, 'bundle_id' => $bundle_course_id])->first();
+        // if($check){
+        //     return redirect()->back()->with('message','Course is already in the cart');
+        // }
+        // $cart = Cart::firstOrCreate(
+        //     ['user_id' => Auth::User()->id, 'course_id' => $course_id, 'bundle_id' => $bundle_course_id, 'bundle_id' => $request->course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id]
+        // );
+
+        Cart::updateOrCreate(
+            ['user_id' => Auth::User()->id, 'type' => $type],
+            ['course_id' => $course_id, 'bundle_id' => $request->course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id]
         );
 
         if($request->has('buy_type') && $request->buy_type == 'buy_now')
@@ -493,7 +500,7 @@ class CartController extends Controller
                 
             }else{
                 $insertDetails['course_id'] = $single_cart->course_id;
-                $insertDetails['purchase_type'] = 'all_classes';
+                $insertDetails['purchase_type'] = 'classes';
 
             }
             $insertDetails['class_id'] = $single_cart->class_id;
@@ -624,8 +631,6 @@ class CartController extends Controller
         $currency = 'USD';
         $total_amount = $order->sub_total * 100;
 
-        $setting = Setting::find(1);
-
         if(getLocation() == 'IN'){
             $tax_rates = [config('rinvex.subscriptions.stripe_tax_rate')];
             $currency = 'INR';
@@ -705,29 +710,45 @@ class CartController extends Controller
 
                 $invoice_details = InvoiceDetail::having('invoice_id', '=', $transaction_id)->get()->groupBy('course_id');
                 // dd($invoice_details);
-                foreach($invoice_details as $course_id => $invoice_items){
-                    // dd($invoice_items, $invoice->user_id, $course_id);
+                foreach($invoice_details as $invoice_items){
+                    // foreach($invoice_details as $course_id => $invoice_items){
+                    // $already_puchased = UserPurchasedCourse::firstOrNew( ['course_id'=> $course_id , 'user_id'=> $invoice->user_id] );
 
-                    $already_puchased = UserPurchasedCourse::firstOrNew( ['course_id'=> $course_id , 'user_id'=> $invoice->user_id] );
-                    $already_puchased->order_id = $transaction_id;
+                    // $already_puchased->order_id = $transaction_id;
 
-                    if($already_puchased->exists)
-                    $old_classess = json_decode($already_puchased->class_id);
-                    $new_classess = $invoice_items->pluck('class_id')->all();
+                    // if($already_puchased->exists)
+                    // $old_classess = json_decode($already_puchased->class_id);
+                    // $new_classess = $invoice_items->pluck('class_id')->all();
 
-                    $combined_classes = array_unique(array_merge($old_classess ?? [],$new_classess));
+                    // $combined_classes = array_unique(array_merge($old_classess ?? [],$new_classess));
                     
-                    $already_puchased->class_id = json_encode($combined_classes);
-                    $already_puchased->purchase_type = $invoice_items->first()->purchase_type;
-                    $already_puchased->save();
+                    // $already_puchased->class_id = json_encode($combined_classes);
+                    // $already_puchased->purchase_type = $invoice_items->first()->purchase_type;
+                    // $already_puchased->save();
+                    
+                    if($invoice_items->purchase_type == 'bundle'){
 
-                    // UserPurchasedCourse::create([
-                    //     'order_id' => $transaction_id,
-                    //     'user_id' => $invoice->user_id,
-                    //     'course_id' => $course_id,
-                    //     'class_id' => json_encode($invoice_items->pluck('class_id')->all()),
-                    //     'purchase_type' => $invoice_items->first()->purchase_type,
-                    // ]);
+                        $courses = BundleCourse::find($invoice->bundle_id)->courses;
+
+                        UserPurchasedCourse::create([
+                            'order_id' => $transaction_id,
+                            'user_id' => $invoice->user_id,
+                            'course_id' => 0,
+                            'bundle_id' => $invoice->course_id,
+                            'class_id' => json_encode($courses->pluck('id')->all()),
+                            'purchase_type' => $invoice_items->purchase_type,
+                        ]);
+
+                    }else{
+                        UserPurchasedCourse::create([
+                            'order_id' => $transaction_id,
+                            'user_id' => $invoice->user_id,
+                            'course_id' => $invoice->course_id,
+                            'class_id' => json_encode($invoice_items->pluck('class_id')->all()),
+                            'purchase_type' => $invoice_items->purchase_type,
+                        ]);
+                    }
+
                 }
 
                 // Clear Cart
