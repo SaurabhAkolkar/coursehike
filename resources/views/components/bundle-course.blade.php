@@ -56,7 +56,7 @@
 
                             <li class="la-lcourse__option">
                                 @if(Auth::check())
-                                <span  @if($removeFromPlaylist) onclick="location.href='{{url()->current()}}/{{$id}}'"  @else onclick="showAddToPlaylist({{$id}},bundleCourse=true)" @endif>
+                                <span  @if($removeFromPlaylist) onclick="location.href='{{url()->current()}}/{{$id}}/bundle'"  @else onclick="showAddToPlaylist({{$id}},bundleCourse=true)" @endif>
                                     <span class="d-inline-block la-lcourse__like">
                                         <i class="la-icon  la-icon--2xl icon-playlist @if($removeFromPlaylist) text-warning  @endif"></i> 
                                     </span>

@@ -27,7 +27,7 @@
        
          
         <div class="box-body">
-              <form action="{{url('bundle/')}}" method="post" enctype="multipart/form-data">
+              <form action="{{url('bundle/')}}" method="post" enctype="multipart/form-data" id="bundle_course_form">
                 {{ csrf_field() }} 
                   <input type="hidden" class="form-control" name="user_id" id="exampleInputTitle" value="{{ Auth::User()->id }}" required>
                   
@@ -152,7 +152,7 @@
                     </div>
                 
                     <div class="col-12 text-right">
-                      <button type="submit" class="btn btn-primary px-md-16">{{ __('adminstaticword.Submit') }}</button>
+                      <button type="submit" onclick="$('#bundle_course_form').submit()" class="btn btn-primary px-md-16">{{ __('adminstaticword.Submit') }}</button>
                     </div>
 
                   </div>

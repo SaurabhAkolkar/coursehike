@@ -58,7 +58,7 @@
                    
                       <div class="col-md-6 col-lg-4 px-0  la-anim__stagger-item">
                         <x-bundle-course 
-                          :id="$course->id"
+                          :id="$course->bundle->id"
                           :img="$course->bundle->preview_image"
                           :course="$course->bundle->title"
                           :url="$course->bundle->slug"

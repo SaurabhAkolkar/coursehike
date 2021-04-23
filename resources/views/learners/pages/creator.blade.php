@@ -100,11 +100,64 @@
                                 @foreach($courses as $course)
                                 
                                     <div class="col-md-6 col-lg-4 col-xl-3 px-0 la-anim__stagger-item">
+                                         <x-bundle-course 
+                                                :id="$course->id"
+                                                :img="$course->preview_image"
+                                                :course="$course->title"
+                                                :url="$course->slug"
+                                                :rating="round($course->average_rating, 2)"
+                                                :videoCount="$course->videoCount()"
+                                                :classesCount="count($course->course_id)"
+                                                :creatorImg="$course->users()"
+                                                :creatorName="$course->users()->first()->fname"
+                                                :creatorUrl="$course->user->id"
+                                                :learnerCount="$course->learnerCount"
+                                                :price="$course->price"
+                                                :bought="$course->isPurchased()"
+                                                :checkWishList="$course->checkWishList"
+                                                :checkCart="$course->checkCart"
+                                                :progress="$course->progress"
+                                              />
+                                    </div>
+                            
+                                @endforeach
+                          </div>
+                    @endif
+                  </div>
+              </div>
+
+              <div class="row py-14 py-md-20">   
+                  <div class="col-12 la-anim__wrap">
+                    <h4 class="text-2xl text-md-3xl px-0 pb-6 pb-lg-8 la-anim__stagger-item">Classes from <span class="text-capitalize"> {{ucfirst($creator->FullName)}}</span></h4>
+                   
+                    @if(count($classes) == 0) 
+
+                        <div class="row la-anim__wrap">
+                            <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6">
+                              <div class="la-empty__inner">
+                                  <h6 class="la-empty__course-title text-xl la-anim__stagger-item">No more Courses from {{ucfirst($creator->FullName)}}</h6>
+                              </div>
+                              <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
+                                  <a href="/browse/courses" class="la-empty__browse">
+                                      Browse Courses
+                                      <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                                  </a>
+                              </div>
+                            </div>    
+                        </div>
+
+                    @else
+                            
+                        <div class="la-courses__creator-courses row row-cols-md-2 row-cols-lg-3 ">
+                                
+                                @foreach($classes as $course)
+                                
+                                    <div class="col-md-6 col-lg-4 col-xl-3 px-0 la-anim__stagger-item">
                                       <x-course 
                                           :id="$course->id"
                                           :img="$course->preview_image" 
                                           :course="$course->title" 
-                                          :url="$course->title" 
+                                          :url="$course->slug" 
                                           :rating="round($course->average_rating, 2)"
                                           :creatorImg="$course->user->user_img"
                                           :creatorName="$course->user->FullName"

@@ -683,7 +683,7 @@ Route::middleware(['auth'])->group(function () {
 
   Route::get('/playlist','PlaylistController@index');
   Route::get('/playlist/{id}','PlaylistController@show');
-  Route::get('/playlist/{playlist_id}/{id}','PlaylistController@removeCourse');
+  Route::get('/playlist/{playlist_id}/{id}/{slug}','PlaylistController@removeCourse');
   
   Route::post('/add-to-playlist','PlaylistController@addToPlaylist')->name('add.to.playlist');
   Route::post('/create-playlist','PlaylistController@createPlaylist')->name('create.playlist');
