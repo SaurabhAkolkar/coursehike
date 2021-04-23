@@ -148,7 +148,12 @@ class Course extends Model
 
     public function getPreviewImageAttribute($value)
     {
-        return Storage::url(config('path.course.img'). $value);
+        if($value != null){
+            return Storage::url(config('path.course.img'). $value);
+       }else{
+           return asset('/images/default-images/course_default.png');
+       }
+        // return Storage::url(config('path.course.img'). $value);
     }
 
     public function getVideoCountAttribute(){

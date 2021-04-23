@@ -789,6 +789,8 @@ $course_id = $course->id;
                       :bought="$related_course->isPurchased()"
                       :checkWishList="$course->checkWishList"
                       :checkCart="$course->checkCart"
+                      :videoCount="$course->videoCount"
+                      :chapterCount="$course->videoCount"
                   />
               @endforeach
             </div>
