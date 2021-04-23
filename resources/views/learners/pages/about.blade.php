@@ -36,27 +36,27 @@
                         <div class="la-about__reach position-relative d-flex justify-content-between align-items-center la-anim__wrap">
                             <span class="la-section__circle la-section__circle--right2 la-anim__stagger-item--x la-anim__E"></span>
                             <div class="col">
-                                <div class="la-bcreator__stats la-about__stats la-anim__stagger-item">
+                                <div class="la-bcreator__stats la-about__stats la-anim__stagger-item--x">
                                     <div class="la-bcreator__stats-item ">
-                                        <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">150 +</h4>
-                                        <p class="la-bcreator__stats-desc  text-uppercase  mb-0 la-anim__stagger-item">Learners</p>
+                                        <h4 class="la-bcreator__stats-count m-0">150 +</h4>
+                                        <p class="la-bcreator__stats-desc  text-uppercase mb-0">Learners</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
-                                <div class="la-bcreator__stats la-about__stats la-anim__stagger-item">
+                                <div class="la-bcreator__stats la-about__stats la-anim__stagger-item--x">
                                     <div class="la-bcreator__stats-item ">
-                                        <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">60 +</h4>
-                                        <p class="la-bcreator__stats-desc  text-uppercase  mb-0 la-anim__stagger-item">Courses</p>
+                                        <h4 class="la-bcreator__stats-count m-0">60 +</h4>
+                                        <p class="la-bcreator__stats-desc  text-uppercase  mb-0">Courses</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col ">
-                                <div class="la-bcreator__stats la-about__stats la-anim__stagger-item">
+                                <div class="la-bcreator__stats la-about__stats la-anim__stagger-item--x">
                                     <div class="la-bcreator__stats-item ">
-                                        <h4 class="la-bcreator__stats-count m-0 la-anim__stagger-item">15 +</h4>
-                                        <p class="la-bcreator__stats-desc  text-uppercase mb-0 la-anim__stagger-item">Countries</p>
+                                        <h4 class="la-bcreator__stats-count m-0">15 +</h4>
+                                        <p class="la-bcreator__stats-desc  text-uppercase mb-0">Countries</p>
                                     </div>
                                 </div>
                             </div>
