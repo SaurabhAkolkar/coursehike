@@ -64,6 +64,8 @@
                           :bought="$course->isPurchased()"
                           :checkWishList="$course->checkWishList"
                           :checkCart="$course->checkCart"
+                          :videoCount="$course->videoCount"
+                          :chapterCount="$course->chapterCount"
                         />
                       @endforeach
                     </div>
@@ -96,9 +98,9 @@
               />
 
               <div class="col-12 px-0 la-anim__wrap">
-                  @if(count($on_going_courses) != 0)
+                  @if(count($on_going_classes) != 0)
                     <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
-                      @foreach($on_going_courses as $course)
+                      @foreach($on_going_classes as $course)
                       
                       <x-course 
                           :id="$course->id"
@@ -114,6 +116,9 @@
                           :bought="$course->isPurchased()"
                           :checkWishList="$course->checkWishList"
                           :checkCart="$course->checkCart"
+                          :videoCount="$course->videoCount"
+                          :chapterCount="$course->chapterCount"
+
                         />
                       @endforeach
                     </div>
@@ -168,6 +173,9 @@
                         :bought="$course->isPurchased()"
                         :checkWishList="$course->checkWishList"
                         :checkCart="$course->checkCart"
+                        :videoCount="$course->videoCount"
+                        :chapterCount="$course->chapterCount"
+
                       />
                     @endforeach
                   </div>
@@ -192,9 +200,9 @@
             <!-- Yet to start - Classes -->
             <div class="col-12 pt-10">
                 <div class="la-mycourses__subtitle text-2xl mb-6 head-font  la-anim__stagger-item--x">Yet to Start Classes</div>
-                @if($yet_to_start_courses && count($yet_to_start_courses) > 0)
+                @if($yet_to_start_classes && count($yet_to_start_classes) > 0)
                   <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
-                    @foreach($yet_to_start_courses as $course)
+                    @foreach($yet_to_start_classes as $course)
                   
                     <x-course 
                         :id="$course->id"
@@ -210,6 +218,10 @@
                         :bought="$course->isPurchased()"
                         :checkWishList="$course->checkWishList"
                         :checkCart="$course->checkCart"
+                        :videoCount="$course->videoCount"
+                        :chapterCount="$course->chapterCount"
+
+
                       />
                     @endforeach
                   </div>
@@ -262,6 +274,10 @@
                         :bought="$course->isPurchased()"
                         :checkWishList="$course->checkWishList"
                         :checkCart="$course->checkCart"
+                        :videoCount="$course->videoCount"
+                        :chapterCount="$course->chapterCount"
+
+
                       />
                     @endforeach
                   </div>
@@ -285,9 +301,9 @@
             <!-- Completed Classes -->
             <div class="col-12 pt-10">
                 <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Completed Classes</div>
-                @if($completed_courses && count($completed_courses) != 0)
+                @if($completed_classes && count($completed_classes) != 0)
                   <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4  la-anim__stagger-item">
-                    @foreach($completed_courses as $course)
+                    @foreach($completed_classes as $course)
                   
                     <x-course 
                         :id="$course->id"
@@ -303,6 +319,10 @@
                         :bought="$course->isPurchased()"
                         :checkWishList="$course->checkWishList"
                         :checkCart="$course->checkCart"
+                        :videoCount="$course->videoCount"
+                        :chapterCount="$course->chapterCount"
+
+
                       />
                     @endforeach
                   </div>

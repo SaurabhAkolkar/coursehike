@@ -374,14 +374,11 @@
                             <div class="swiper-wrapper la-home__course-wrapper2">
                                                                                             
                                       @php
-                                        $courses = $category->courses;          
+                                        $courses = $category->courses->where('featured', 1);          
                                       @endphp
 
                                       @foreach($courses as $course)
-                                        @if ($course->featured == 0)
-                                            @continue
-                                        @endif
-                                        
+                                                                               
                                         <div class="swiper-slide la-home__course-slide2 pt-md-6 la-anim__stagger-item" >
                                           <x-course 
                                             :id="$course->id"
@@ -397,6 +394,8 @@
                                             :bought="$course->isPurchased()"
                                             :checkWishList="$course->checkWishList"
                                             :checkCart="$course->checkCart"
+                                            :videoCount="$course->videoCount"
+                                            :chapterCount="$course->chapterCount"
                                           />
                                         </div>
                                       @endforeach                                  

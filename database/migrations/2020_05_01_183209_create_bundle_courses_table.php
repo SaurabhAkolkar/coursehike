@@ -30,6 +30,8 @@ class CreateBundleCoursesTable extends Migration {
 				$table->timestamps();
 			});
 		}
+
+		\DB::update("ALTER TABLE bundle_courses AUTO_INCREMENT =1000;");
 	}
 
 
