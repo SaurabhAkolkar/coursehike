@@ -247,6 +247,7 @@
                                   :checkCart="$course->checkCart"
                                   :videoCount="$course->videoCount"
                                   :chapterCount="$course->chapterCount"
+                                  :progress="$course->getProgress()"
                               />
                             @endforeach
 
@@ -310,6 +311,8 @@
                                                         :checkCart="$course->checkCart"
                                                         :videoCount="$course->videoCount"
                                                         :chapterCount="$course->chapterCount"
+                                                        :progress="$course->getProgress()"
+
                                                       />
                                                     </div>
                                                   @endforeach                                  
@@ -363,6 +366,7 @@
                                                 :checkCart="$course->checkCart"
                                                 :videoCount="$course->videoCount"
                                                 :chapterCount="$course->chapterCount"
+                                                :progress="$course->getProgress()"
                                             
                                               />
                                           @endforeach

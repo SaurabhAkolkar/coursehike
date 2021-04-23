@@ -94,6 +94,8 @@
                                   :bought="$course->isPurchased()"
                                   :checkWishList="$course->checkWishList"
                                   :checkCart="$course->checkCart"
+                                  :progress="$course->progress"
+
                               />      
                             @endforeach
                           </div>                     
@@ -155,6 +157,8 @@
                                   :bought="$course->isPurchased()"
                                   :checkWishList="$course->checkWishList"
                                   :checkCart="$course->checkCart"
+                                  :progress="$course->progress"
+
                               />    
 
                             @endforeach
@@ -216,6 +220,8 @@
                                   :bought="$course->isPurchased()"
                                   :checkWishList="$course->checkWishList"
                                   :checkCart="$course->checkCart"
+                                  :progress="$course->progress"
+
                               />   
 
                             @endforeach
@@ -285,7 +291,7 @@
                                 :checkCart="$course->checkCart"
                                 :videoCount="$course->videoCount"
                                 :chapterCount="$course->chapterCount"
-
+                                :progress="$course->getProgress()"
 
                               />
 
@@ -347,6 +353,8 @@
                                 :checkCart="$course->checkCart"
                                 :videoCount="$course->videoCount"
                                 :chapterCount="$course->chapterCount"
+                                :progress="$course->getProgress()"
+
                               />
 
                             @endforeach
@@ -411,6 +419,9 @@
                                 :checkCart="$course->checkCart"
                                 :videoCount="$course->videoCount"
                                 :chapterCount="$course->chapterCount"
+                                :progress="$course->getProgress()"
+                                
+
                               />
                             @endforeach
                           </div>

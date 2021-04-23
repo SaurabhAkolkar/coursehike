@@ -791,6 +791,7 @@ $course_id = $course->id;
                       :checkCart="$course->checkCart"
                       :videoCount="$course->videoCount"
                       :chapterCount="$course->videoCount"
+                      :progress="$course->getProgress()"
                   />
               @endforeach
             </div>

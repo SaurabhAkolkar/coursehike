@@ -331,6 +331,7 @@
                                               :bought="$course->isPurchased()"
                                               :checkWishList="$course->checkWishList"
                                               :checkCart="$course->checkCart"
+                                              :progress="$course->progress"
                                           />
                                         </div>
                                       @endforeach                                  
@@ -396,6 +397,7 @@
                                             :checkCart="$course->checkCart"
                                             :videoCount="$course->videoCount"
                                             :chapterCount="$course->chapterCount"
+                                            :progress="$course->getProgress()"
                                           />
                                         </div>
                                       @endforeach                                  
