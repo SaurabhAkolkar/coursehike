@@ -32,7 +32,7 @@ class Course extends Component
     public $chapterCount;
 
 
-    public function __construct($id, $img, $videoCount, $chapterCount, $wishlistId=false, $checkWishList, $checkCart, $bought, $course, $price, $learnerCount, $rating, $url, $creatorImg, $creatorName, $creatorUrl, $addedToWhishList=false, $removeFromPlaylist = false)
+    public function __construct($id, $img, $videoCount = 0, $chapterCount = 0, $wishlistId=false, $checkWishList, $checkCart, $bought, $course, $price, $learnerCount, $rating, $url, $creatorImg, $creatorName, $creatorUrl, $addedToWhishList=false, $removeFromPlaylist = false)
     // public function __construct()
     {
         $this->id = $id;

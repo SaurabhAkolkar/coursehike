@@ -1,7 +1,7 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-    <title>Learn Anything & Anywhere Artistic | Online Classes For Creatives</title>
+    <title>Browse Classes | Learn Anything & Anywhere Artistic | Online Classes For Creatives</title>
     <meta name='description' itemprop='description' content='Discover online classes on art, creativity, design, digital art, artistic baking & much more. Join LILA & enhance your skills with these online classes.' />
 
     <meta property="og:description"content="Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now" />

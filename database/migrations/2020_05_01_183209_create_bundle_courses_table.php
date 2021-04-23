@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 
 class CreateBundleCoursesTable extends Migration {
 
@@ -30,8 +31,8 @@ class CreateBundleCoursesTable extends Migration {
 				$table->timestamps();
 			});
 		}
+		DB::update("ALTER TABLE bundle_courses AUTO_INCREMENT = 1000;");
 
-		\DB::update("ALTER TABLE bundle_courses AUTO_INCREMENT =1000;");
 	}
 
 

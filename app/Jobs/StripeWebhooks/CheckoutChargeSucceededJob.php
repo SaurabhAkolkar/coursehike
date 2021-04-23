@@ -103,33 +103,51 @@ class CheckoutChargeSucceededJob implements ShouldQueue
                 'currenty' => $user_invoice->currency,
             ];
 
-            $invoice_details = InvoiceDetail::having('invoice_id', '=', $client_reference_id)->get()->groupBy('course_id');
             $user = $user_invoice->user;
             
-                foreach($invoice_details as $course_id => $invoice_items){
+            $invoice_details = InvoiceDetail::having('invoice_id', '=', $client_reference_id)->get();
+            // $invoice_details = InvoiceDetail::having('invoice_id', '=', $client_reference_id)->get()->groupBy('course_id');
+            
+            foreach($invoice_details as $invoice_items){
+                // foreach($invoice_details as $course_id => $invoice_items){
 
-                    $course = Course::findOrFail($course_id);
+                    // $course = Course::findOrFail($course_id);
                     
-                    $already_puchased = UserPurchasedCourse::firstOrNew( ['course_id'=> $course_id , 'user_id'=> $user_invoice->user_id] );
-                    $already_puchased->order_id = $client_reference_id;
-                    $old_classess = json_decode($already_puchased->class_id);
-                    $new_classess = $invoice_items->pluck('class_id')->all();
+                    // $already_puchased = UserPurchasedCourse::firstOrNew( ['course_id'=> $course_id , 'user_id'=> $user_invoice->user_id] );
+                    // $already_puchased->order_id = $client_reference_id;
+                    // $old_classess = json_decode($already_puchased->class_id);
+                    // $new_classess = $invoice_items->pluck('class_id')->all();
 
-                    $combined_classes = array_unique(array_merge($old_classess ?? [],$new_classess));
+                    // $combined_classes = array_unique(array_merge($old_classess ?? [],$new_classess));
 
-                    $already_puchased->class_id = json_encode($combined_classes);
-                    $already_puchased->purchase_type = $invoice_items->first()->purchase_type;
-                    $already_puchased->save();
+                    // $already_puchased->class_id = json_encode($combined_classes);
+                    // $already_puchased->purchase_type = $invoice_items->first()->purchase_type;
+                    // $already_puchased->save();
 
-                    $email_data['course_name'] =  $email_data['course_name'] == '' ? $course->title : $email_data['course_name'].', '.$course->title;
-                    $email_data['purchase_type'] = $email_data['purchase_type'] == '' ? $invoice_items->first()->purchase_type : $email_data['purchase_type'].', '.$invoice_items->first()->purchase_type; 
-                    $data = [
-                        'title' => $course->title,
-                        'image' => $course->preview_image,
-                        'data' => 'You bought this course',
-                    ];
+                    // $email_data['course_name'] =  $email_data['course_name'] == '' ? $course->title : $email_data['course_name'].', '.$course->title;
+                    // $email_data['purchase_type'] = $email_data['purchase_type'] == '' ? $invoice_items->first()->purchase_type : $email_data['purchase_type'].', '.$invoice_items->first()->purchase_type; 
+                    // $data = [
+                    //     'title' => $course->title,
+                    //     'image' => $course->preview_image,
+                    //     'data' => 'You bought this course',
+                    // ];
 
-                    Notification::send( $user, new CourseNotification($data));
+                    // Notification::send( $user, new CourseNotification($data));
+
+                    if($invoice_items->purchase_type == 'bundle'){
+                        $courses = BundleCourse::find($invoice_items->bundle_id)->getCourses();
+
+                        UserPurchasedCourse::updateOrCreate(
+							['order_id' => $client_reference_id, 'user_id' => $invoice->user_id, 'bundle_id' => $invoice_items->bundle_id],
+							['class_id' => json_encode($courses->pluck('id')->all()), 'purchase_type' => $invoice_items->purchase_type]
+						);
+
+                    }else{
+                        UserPurchasedCourse::updateOrCreate(
+							['order_id' => $client_reference_id, 'user_id' => $invoice->user_id],
+							['course_id' => $invoice_items->course_id, 'class_id' => 0, 'purchase_type' => $invoice_items->purchase_type]
+						);
+                    }
                 }
 
                 try{

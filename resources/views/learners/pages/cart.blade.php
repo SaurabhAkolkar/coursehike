@@ -1,5 +1,10 @@
 @extends('learners.layouts.app')
 
+
+@section('seo_content')
+    <title> Cart </title>
+@endsection
+
 @section('content')
 <div class="la-profile">
     <div class="la-profile__wrap">
@@ -47,7 +52,6 @@
 
                       @if(count($carts) > 0)
                         @foreach ($carts as $cart)
-                          {{-- {{dd($cart->cartItems)}} --}}
                         
                             <x-cart
                               :cartId="$cart->id"

@@ -1,5 +1,9 @@
 @extends('learners.layouts.app')
 
+@section('seo_content')
+    <title> New Releases </title>
+@endsection
+
 @section('content')
  <!-- Main Section: Start-->
  <section class="la-section__small la-cbg--main">

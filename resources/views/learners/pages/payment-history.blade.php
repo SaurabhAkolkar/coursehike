@@ -1,5 +1,9 @@
 @extends('learners.layouts.app')
 
+@section('seo_content')
+    <title> Billing - Payment History </title>
+@endsection
+
 @section('content')
 
 <div class="la-profile">

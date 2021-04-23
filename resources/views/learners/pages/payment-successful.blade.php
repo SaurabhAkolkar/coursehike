@@ -1,5 +1,9 @@
 @extends('learners.layouts.app')
 
+@section('seo_content')
+    <title> Payment Successfull </title>
+@endsection
+
 @section('content')
 <section class="la-section la-payment__msg-section">
     <div class="la-section__inner">

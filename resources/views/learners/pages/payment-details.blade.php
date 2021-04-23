@@ -1,5 +1,9 @@
 @extends('learners.layouts.app')
 
+@section('seo_content')
+    <title> Billing - Payment Details </title>
+@endsection
+
 @section('content')
 
 {{-- @if(Session::has('errors'))

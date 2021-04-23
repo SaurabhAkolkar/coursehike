@@ -1,5 +1,9 @@
 @extends('learners.layouts.app')
 
+@section('seo_content')
+    <title> Terms and Conditions </title>
+@endsection
+
 @section('content')
 <section class="la-section__small la-cbg--main">
         <div class="container-fluid pb-1 pb-md-20">
