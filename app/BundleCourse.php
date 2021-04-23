@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use Storage;
 use Avatar;
+use Illuminate\Support\Facades\Auth;
 
 class BundleCourse extends Model
 {
@@ -67,13 +68,13 @@ class BundleCourse extends Model
 
     public function isPurchased()
     {
-        // if(Auth::check())
-        // {
-        //     $purchased_course = UserPurchasedCourse::where(['course_id'=> $this->id , 'user_id'=> Auth::User()->id])->firstOr(function () {
-        //         return null;
-        //     });;
-        //     return $purchased_course;
-        // }
+        if(Auth::check())
+        {
+            $purchased_course = UserPurchasedCourse::where(['bundle_id'=> $this->id , 'user_id'=> Auth::User()->id])->firstOr(function () {
+                return null;
+            });
+            return $purchased_course;
+        }
 
         return null;
     }
