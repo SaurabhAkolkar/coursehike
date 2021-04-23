@@ -1,5 +1,9 @@
 @extends('learners.layouts.app')
 
+@section('seo_content')
+    <title> About LILA </title>
+@endsection
+
 @section('content')
 <section class="la-about__section">
     <div class="la-section__inner">

@@ -1,7 +1,7 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-    <title>{{ $course->title }} | Courses | Best Online Courses for Art & Creativity | LILA</title>
+    <title>{{ $course->title }} | Classes | Best Online Courses for Art & Creativity | LILA</title>
     <meta name='description' itemprop='description' content='Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now' />
 
     <meta property="og:description" content="Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now" />

@@ -1,4 +1,9 @@
 @extends('learners.layouts.app')
+
+@section('seo_content')
+    <title> Master Classes </title>
+@endsection
+
 <!-- Playlist Alert Message-->
 @if(session('message'))
 <div class="la-btn__alert position-relative">

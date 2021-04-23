@@ -1,5 +1,10 @@
 @extends('learners.layouts.app')
 
+
+@section('seo_content')
+    <title> My Courses </title>
+@endsection
+
 @section('content')
 
 @if(session('message'))
