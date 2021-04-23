@@ -1,5 +1,5 @@
 @extends('admin/layouts.master')
-@section('title', 'Edit Course - Admin')
+@section('title', 'Edit Class - Admin')
 @section('body')
 
 <div class="box">

@@ -243,6 +243,15 @@
 
               <div class="row">    
 
+                <div class="col-6 col-md-2">
+                  <label for="exampleInputDetails">Master Class:</label>
+                  <li class="tg-list-item">              
+                    <input class="la-admin__toggle-switch" id="master_class" type="checkbox" name="master_class" @if($check_master_class) checked @endif >
+                    <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="master_class"></label>
+                  </li>
+                  <input type="hidden"  name="master_class"  for="master_class" id="master_class2" @if($check_master_class) value="1" @endif>
+                </div>
+
                 <div class="col-6 col-md-2"> 
                   @if(Auth::User()->role == "admin")
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Featured') }}:</label>
@@ -252,16 +261,7 @@
                   </li>
                   <input type="hidden" name="featured" value="{{ $cor->featured }}" id="f">
                   @endif
-                </div>
-
-                <div class="col-6 col-md-2">
-                  <label for="exampleInputDetails">Master Class:</label>
-                  <li class="tg-list-item">              
-                    <input class="la-admin__toggle-switch" id="master_class" type="checkbox" name="master_class" @if($check_master_class) checked @endif >
-                    <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="master_class"></label>
-                  </li>
-                  <input type="hidden"  name="master_class"  for="master_class" id="master_class2" @if($check_master_class) value="1" @endif>
-                </div>
+                </div>                
 
                 <div class="col-md-4">
                   @if(Auth::User()->role == "admin")

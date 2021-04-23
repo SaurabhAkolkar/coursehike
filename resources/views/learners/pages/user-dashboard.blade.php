@@ -57,7 +57,7 @@
                         @else
 
                         <div class="la-empty__courses text-center mt-0 mb-10 mb-md-1 py-6 py-lg-9 px-10 px-lg-12">
-                            <div class="la-empty__inner la-anim__stagger-item">
+                            <div class="la-empty__inner la-anim__stagger-item mb-0">
                                 <p class="la-empty__course-desc leading-snug m-0">You don't have any last viewed course.</p>
                             </div>
                         </div>

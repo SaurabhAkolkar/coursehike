@@ -144,7 +144,7 @@ $course_id = $course->id;
           
           <div class="la-vcourse__intro-right pt-10 d-flex flex-column justify-content-start justify-content-lg-between align-items-center align-items-md-end la-anim__wrap">
               <div class="la-vcourse__buy w-100 d-md-flex flex-wrap align-items-start justify-content-lg-end text-lg-right mb-1 mb-md-6 la-anim__stagger-item--x">
-                @if ( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription()) || (auth()->check() && !Auth::User()->subscription()->active())  ) )
+                @if ($course->isPurchased() == null)
                   <div class="la-vcourse__buy-btn text-center">
                     <form class="la-vcourse__purchase-form" id="add_to_cart_form_1" name="add_to_cart_form" method="post" action="/add-to-cart">
                       <input type="hidden" name="course_id" value="{{$course->id}}" />
@@ -155,7 +155,9 @@ $course_id = $course->id;
                       <span class="text-white">@ {{ getSymbol() }}{{$course->convertedprice}}</span>
                     </form>
                   </div>
+                @endif
 
+                @if ( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription()) || (auth()->check() && !Auth::User()->subscription()->active())  ) )
                   <div class="la-vcourse__buy-btn text-center">
                     <a class="la-vcourse__buy-course btn btn-primary la-btn la-btn--primary text-white d-lg-inline-flex justify-content-end mb-2 active" href="/learning-plans">Subscribe for Free</a><br/>
                     <span class="text-white">Access all Courses & Classes</span>
@@ -259,7 +261,7 @@ $course_id = $course->id;
                 
                   @if(true)
                       <div class=" la-anim__wrap text-center">
-                          <div class="la-empty__inner la-anim__stagger-item">
+                          <div class="la-empty__inner la-anim__stagger-item mb-0">
                               <h6 class="la-empty__course-title text-2xl" style="color:var(--gray8);">No Resources available for this Course.</h6>
                             </div>
                       </div>
@@ -327,7 +329,7 @@ $course_id = $course->id;
 
               @if(true)
                   <div class=" la-anim__wrap text-center pt-4 pb-10">
-                    <div class="la-empty__inner la-anim__stagger-item">
+                    <div class="la-empty__inner la-anim__stagger-item mb-0">
                       <h6 class="la-empty__course-title text-xl" style="color:var(--gray8);">No Resources available for this Course.</h6>
                       </div>
                   </div>
@@ -428,7 +430,7 @@ $course_id = $course->id;
                     </div>
 
                     <div class="la-vcourse__buy mx-6 mx-md-1 d-md-flex justify-content-center la-anim__stagger-item la-anim__B">
-                        @if ( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription()) || (auth()->check() && !Auth::User()->subscription()->active())  ) )
+                        @if ($course->isPurchased() == null)
                           <div class="la-vcourse__buy-btn text-center">
                             <form class="la-vcourse__purchase-form" id="add_to_cart_form_1" name="add_to_cart_form" method="post" action="/add-to-cart">
                               <input type="hidden" name="course_id" value="{{$course->id}}" />
@@ -436,11 +438,13 @@ $course_id = $course->id;
                               <input type="hidden" value="true" name="bundle_course" />
 
                               @csrf
-                              <a class="la-vcourse__buy-course btn  la-btn la-btn--app color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" @if(Auth::check()) onclick="$('#add_to_cart_form_1').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>Buy this Class</a><br/>
+                              <a class="la-vcourse__buy-course btn  la-btn la-btn--app color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" @if(auth()->check()) onclick="$('#add_to_cart_form_1').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>Buy this Class</a><br/>
                               <span style="color:var(--gray7)">@ {{ getSymbol() }}{{$course->convertedprice}}</span>
                             </form>
                           </div>
+                        @endif
 
+                        @if ( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription()) || (auth()->check() && !Auth::User()->subscription()->active())  ) )
                           <div class="la-vcourse__buy-btn text-center">
                             <a class="la-vcourse__buy-course btn btn-primary la-btn la-btn--primary d-lg-inline-flex justify-content-end mb-2 active" href="/learning-plans">Subscribe for Free</a><br/>
                             <span style="color:var(--gray7)">Access all Courses & Classes</span>
