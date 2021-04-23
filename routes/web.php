@@ -134,8 +134,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::get('/user/subscriptions/add-class/{id}','UserController@addClass');
       Route::get('/user/subscriptions/add-course/{id}','UserController@addCourse');
       Route::get('/get-classes','UserController@getClasses');
-      Route::post('/add-user-course','UserController@addUserCourse')->name('addusercourse');
-      Route::post('/add-user-course','UserController@addBundleCourse')->name('addbundlecourse');
+      Route::post('/add-user-class','UserController@addUserCourse')->name('addusercourse');
+      Route::post('/add-bundle-course','UserController@addBundleCourse')->name('addbundlecourse');
 
       Route::get('/user/subscription/create/{id}','UserController@addSubscription')->name('create.subscription');
       Route::post('/user/subscription/store','UserController@storeSubscription')->name('store.subscription');

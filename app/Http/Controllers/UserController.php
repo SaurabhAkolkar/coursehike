@@ -72,9 +72,7 @@ class UserController extends Controller
         $user = User::find($id);
         $subscriptions = app('rinvex.subscriptions.plan_subscription')->ofUser($user)->latest()->get(); 
 
-        // $subscriptions = UserSubscription::where('user_id', $id)->get();
-        // dd($subscriptions);
-        $class_purchased =  UserPurchasedCourse::with('course')->where('user_id', $id)->where('bundle_id','=',Null)->get();
+        $class_purchased =  UserPurchasedCourse::with('course')->where('user_id', $id)->where('bundle_id','=', Null)->get();
         $courses_purchased =  UserPurchasedCourse::with('bundle')->where('user_id', $id)->where('bundle_id','>',0)->groupBy('bundle_id')->get();
         $user_id = $id;
         //dd($class_purchased);
@@ -106,50 +104,54 @@ class UserController extends Controller
     public function addUserCourse(Request $request){
         $request->validate([
                 'course_id' => 'required',
-                'purchase_type' => 'required',
                 'amount' => 'required',
         ]);
         
          
-        $check = UserPurchasedCourse::where(['course_id'=>$request->course_id, 'user_id'=>$request->user_id])->get();
+        // $check = UserPurchasedCourse::where(['course_id'=>$request->course_id, 'user_id'=>$request->user_id])->get();
       
-        if(count($check) > 0){
-            return redirect()->back()->with('delete','Course is already added for the User.');
-        }
+        // if(count($check) > 0){
+        //     return redirect()->back()->with('delete','Course is already added for the User.');
+        // }
        
-        if($request->purchase_type == 'selected_classes'){
+        // if($request->purchase_type == 'selected_classes'){
            
-            if($request->class_id ==  null){
-                return back()->withErrors(['class_id'=> 'classes are required']);
-            }
-        }
-        else if($request->purchase_type == 'all_classes'){
-            $request->class_id = CourseChapter::where(['course_id'=>$request->course_id])->pluck('id')->toArray();
+        //     if($request->class_id ==  null){
+        //         return back()->withErrors(['class_id'=> 'classes are required']);
+        //     }
+        // }
+        // else if($request->purchase_type == 'all_classes'){
+        //     $request->class_id = CourseChapter::where(['course_id'=>$request->course_id])->pluck('id')->toArray();
             
-        }   
+        // }   
                 
-                $random = Str::of(Str::orderedUuid())->upper()->explode('-');
-               
-                $insert['invoice_id'] = '#LILA-'. date('m-d') . '-'. $random[0]. '-'. $random[1];
-                $insert['user_id'] = $request->user_id;
-                $insert['discount_type'] = 'regular_discount';
-                $insert['purchase_type'] = $request->purchase_type;
-                $insert['status'] = 'successful';
-                $insert['sub_total'] = $request->amount;
-                
-                $get_order_id = UserInvoiceDetail::create($insert);
-               
-                $order['order_id'] = 1;
-                $order['user_id'] = $request->user_id;
-                $order['course_id'] = $request->course_id;
-                $classes = array_values($request->class_id);
-                $order['class_id'] = json_encode($classes);
-                $order['purchase_type'] = $request->purchase_type;
-                
+        $random = Str::of(Str::orderedUuid())->upper()->explode('-');
+        
+        $insert['invoice_id'] = '#LILA-'. date('m-d') . '-'. $random[0]. '-'. $random[1];
+        $insert['user_id'] = $request->user_id;
+        $insert['discount_type'] = 'regular_discount';
+        $insert['purchase_type'] = 'classes';
+        $insert['status'] = 'successful';
+        $insert['sub_total'] = $request->amount;
+        
+        $user_invoice = UserInvoiceDetail::create($insert);
+        
+        // $order['order_id'] = 1;
+        // $order['user_id'] = $request->user_id;
+        // $order['course_id'] = $request->course_id;
+        // $classes = array_values($request->class_id);
+        // $order['class_id'] = json_encode($classes);
+        // $order['purchase_type'] = $request->purchase_type;
+        
 
-                UserPurchasedCourse::create($order);
+        // UserPurchasedCourse::create($order);
 
-                return redirect('/user/subscriptions/'.$request->user_id)->with('success','Courses added successfully.');
+        UserPurchasedCourse::updateOrCreate(
+            ['order_id' => $user_invoice->id, 'user_id' => $request->user_id],
+            ['course_id' => $request->course_id, 'class_id' => 0, 'purchase_type' => 'classes']
+        );
+
+        return redirect('/user/subscriptions/'.$request->user_id)->with('success','Courses added successfully.');
 
     }
 
@@ -160,49 +162,52 @@ class UserController extends Controller
                 'amount' => 'required',
         ]);
         
-        //dd($request);
          
-        $check = UserPurchasedCourse::where(['bundle_id'=>$request->course_id, 'user_id'=>$request->user_id])->get();
-        $course =  BundleCourse::where(['id'=>$request->course_id])->first();
-        $course_ids = $course->course_id;
+        // $check = UserPurchasedCourse::where(['bundle_id'=>$request->course_id, 'user_id'=>$request->user_id])->get();
+        $courses = BundleCourse::find($request->course_id)->getCourses();
+        // $course =  BundleCourse::where(['id'=>$request->course_id])->first();
+        // $course_ids = $course->course_id;
         
-        if(count($check) > 0){
-            return redirect()->back()->with('delete','Course is already added for the User.');
-        }
+        // if(count($check) > 0){
+        //     return redirect()->back()->with('delete','Course is already added for the User.');
+        // }
+
     
                 
-                $random = Str::of(Str::orderedUuid())->upper()->explode('-');
+        $random = Str::of(Str::orderedUuid())->upper()->explode('-');
+        
+        $insert['invoice_id'] = '#LILA-'. date('m-d') . '-'. $random[0]. '-'. $random[1];
+        $insert['user_id'] = $request->user_id;
+        $insert['discount_type'] = 'regular_discount';
+        $insert['purchase_type'] = $request->purchase_type;
+        $insert['status'] = 'successful';
+        $insert['sub_total'] = $request->amount;
+        
+        $user_invoice = UserInvoiceDetail::create($insert);
                
-                $insert['invoice_id'] = '#LILA-'. date('m-d') . '-'. $random[0]. '-'. $random[1];
-                $insert['user_id'] = $request->user_id;
-                $insert['discount_type'] = 'regular_discount';
-                $insert['purchase_type'] = $request->purchase_type;
-                $insert['status'] = 'successful';
-                $insert['sub_total'] = $request->amount;
-                
-                $get_order_id = UserInvoiceDetail::create($insert);
-               
-                foreach($course_ids as $c){
+        UserPurchasedCourse::updateOrCreate(
+            ['order_id' => $user_invoice->id, 'user_id' => $request->user_id, 'bundle_id' => $request->course_id],
+            ['class_id' => json_encode($courses->pluck('id')->all()), 'purchase_type' => 'bundle']
+        );
+                // foreach($course_ids as $c){
  
-                    $order['order_id'] = $get_order_id;
-                    $order['user_id'] = $request->user_id;
-                    $order['course_id'] = $c;
-                    $order['bundle_id'] = $request->course_id;
-                    $order['class_id'] = 0;
-                    $order['purchase_type'] = 'all_classes';
+                //     $order['order_id'] = $get_order_id;
+                //     $order['user_id'] = $request->user_id;
+                //     $order['course_id'] = $c;
+                //     $order['bundle_id'] = $request->course_id;
+                //     $order['class_id'] = 0;
+                //     $order['purchase_type'] = 'all_classes';
 
-                    UserPurchasedCourse::create($order);
+                //     UserPurchasedCourse::create($order);
 
-                    $order['invoice_id'] = $get_order_id;
-                    $order['price'] = $request->amount;
+                //     $order['invoice_id'] = $get_order_id;
+                //     $order['price'] = $request->amount;
 
-                    InvoiceDetail::create($order);
+                //     InvoiceDetail::create($order);
 
-                }   
-                               
+                // }   
 
-
-                return redirect('/user/subscriptions/'.$request->user_id)->with('success','Courses added successfully.');
+        return redirect('/user/subscriptions/'.$request->user_id)->with('success','Courses added successfully.');
 
     }
 
