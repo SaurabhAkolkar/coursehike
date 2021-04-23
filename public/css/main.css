@@ -18178,11 +18178,7 @@ input:-webkit-autofill:active {
   height: auto !important;
   padding: var(--size-6) 0;
   border-bottom: 2px solid #dadada;
-}
-@media (max-width: 1199px) {
-  .la-courses__featured-container {
-    overflow: visible;
-  }
+  overflow: visible;
 }
 .la-courses__featured-wrapper {
   height: auto !important;
@@ -27400,11 +27396,7 @@ section.la-section .la-section__inner .la-mycourses__more:hover:after {
 .la-my__courses-container, .la-my__classes-container {
   width: 100%;
   height: auto !important;
-}
-@media (max-width: 1199px) {
-  .la-my__courses-container, .la-my__classes-container {
-    overflow: visible;
-  }
+  overflow: visible;
 }
 .la-my__courses-wrapper, .la-my__classes-wrapper {
   height: auto !important;

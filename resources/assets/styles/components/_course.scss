@@ -279,10 +279,7 @@
                             height:auto !important;
                             padding:var(--size-6) 0;
                             border-bottom: 2px solid #dadada;
-
-                            @include respond-below(lg){
-                                overflow:visible;
-                            }
+                            overflow:visible;
                         }
                         &wrapper{
                             height:auto !important;
