@@ -68,8 +68,8 @@ use Carbon\Carbon;
                   <th>{{ __('adminstaticword.Mobile') }}</th>
                   <th>{{ __('adminstaticword.Country') }}</th>
                   <th>{{ __('adminstaticword.Registered') }}</th>
-                  <th>{{ __('adminstaticword.Purchased') }}</th>
-                  <th>{{ __('adminstaticword.Subscription') }}</th>
+                  <th>Active {{ __('adminstaticword.Subscription') }}</th>
+                  <th>Add Access</th>
                   <th>{{ __('adminstaticword.Status') }}</th>
                   <th>{{ __('adminstaticword.Edit') }}</th>
                   <th>{{ __('adminstaticword.Delete') }}</th>
@@ -107,7 +107,7 @@ use Carbon\Carbon;
                           {{Carbon::parse($user->created_at)->format('d M Y')}}
                         </td>
                         <td class="text-left">
-                          @if(!$user->subscription()) No Subscription @else {{$user->subscription()->name}} @endif 
+                          @if(!$user->subscription()) No Subscription @else {{$user->subscription()->plan->name}} @endif 
                         </td>
                         <td class="text-left">
                           <a class="btn btn-info text-capitalize font-weight-normal" href="{{ route('user.subscriptions',$user->id) }}">View</a>

@@ -17,7 +17,7 @@
             <input type="hidden" name="user_id" value="{{$user_id}}" />
               <div class="row">
                 <div class="col-md-6">
-                  <label for="exampleInputTit1e">{{ __('adminstaticword.Course') }}:<sup class="redstar">*</sup></label>
+                  <label for="exampleInputTit1e">{{ __('adminstaticword.Classes') }}:<sup class="redstar">*</sup></label>
                   <select name="course_id" id="course_id" class="form-control js-example-basic-single col-md-7 col-12">
                         <option disabled selected>Choose Option</option>
                         @foreach($courses as $c)
@@ -44,7 +44,7 @@
                 </div>
               </div>
             
-              <div class="row">
+              {{-- <div class="row">
                 <div class="col-md-6 mt-3">
                     <label for="exampleInputTit1e">{{ __('adminstaticword.PurchaseType') }}:<sup class="redstar">*</sup></label>
                     <select name="purchase_type" id="purchase_type" class="form-control js-example-basic-single col-12">
@@ -72,7 +72,7 @@
                           </div>
                     @enderror
                 </div>               
-              </div>
+              </div> --}}
               <br> <br>      
 
               <div class="row">
@@ -94,7 +94,7 @@
 </section>
 @endsection
 
-@section('script')
+{{-- @section('script')
 <script>
     $('#purchase_type').change(function() {
         if($('#purchase_type').val() == 'all_classes'){
@@ -130,4 +130,4 @@
         }
       });
 </script>
-@endsection
+@endsection --}}
