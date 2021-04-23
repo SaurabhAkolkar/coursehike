@@ -1,5 +1,9 @@
 @extends('learners.layouts.intro')
 
+@section('seo_content')
+    <title> Mentor Signup </title>
+@endsection
+
 @section('content')
 <section class="la-entry__sec">
     <div class="container-fluid la-entry__sec-inner">

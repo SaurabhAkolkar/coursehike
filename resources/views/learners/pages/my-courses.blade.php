@@ -2,7 +2,7 @@
 
 
 @section('seo_content')
-    <title> My Courses </title>
+    <title> My Courses & Classes </title>
 @endsection
 
 @section('content')
@@ -19,16 +19,15 @@
 @endif
 
 <section class="la-cbg--main">
-    <!-- Section Ongoing: Start-->
     <section class="la-section__small">
       <div class="la-section__inner">
         <!-- Alert Message-->
         <div id="wishlist_alert_div" class="container"></div> 
 
         <div class="container-fluid">
-          <div class="col-12 la-anim__wrap d-md-flex justify-content-between align-items-center px-0 pb-md-12">
+          <div class="col-12 la-anim__wrap d-md-flex justify-content-between align-items-center px-0">
             <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2 la-anim__stagger-item" href="{{URL::previous()}}"></a>
-            <h1 class="la-mycourses__title text-4xl mb-4 mb-lg-8 la-anim__stagger-item">My Courses</h1>
+            <h1 class="la-mycourses__title text-4xl mb-4 la-anim__stagger-item">My Courses & Classes</h1>
 
             <!-- Global Search: Start-->
             <div class="la-gsearch la-anim__stagger-item--x">
@@ -42,315 +41,418 @@
             <!-- Global Search: End-->
           </div>
 
-          <!-- Ongoing Courses -->
-          <div class="la-anim__wrap">
-              <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Ongoing Courses</div> 
+
+
+          <div class="la-courses mt-1 mt-md-10 la-anim__wrap">
+            <nav class="la-courses__nav position-relative">
+                <ul class="nav nav-pills la-courses__nav-tabs mb-0" id="cc_nav-tab" role="tablist" tabindex="0">
+                  <li class="nav-item la-courses__nav-item la-anim__stagger-item--x">
+                    <a class="nav-link la-courses__nav-link text-2xl active" id="course_tab" data-toggle="tab" href="#course_tab-content" role="tab" aria-controls="course_tab" aria-selected="true"> 
+                      <span class="position-relative text-nowrap">Courses</span>
+                    </a>
+                  </li> 
+
+                  <li class="nav-item la-courses__nav-item la-anim__stagger-item--x">
+                    <a class="nav-link la-courses__nav-link text-2xl " id="class_tab" data-toggle="tab" href="#class_tab-content" role="tab" aria-controls="class_tab" aria-selected="true"> 
+                      <span class="position-relative text-nowrap">Classes</span>
+                    </a>
+                  </li>
+                </ul>
+            </nav>
+
+            <div class="tab-content la-courses__nav-content la-anim__wrap position-relative" id="cc_nav-tabContent">
+              
+              <!-- Courses Tab Pane: Start -->
+              <div class="tab-pane fade show la-anim__wrap active" id="course_tab-content" role="tabpanel" aria-labelledby="course_tab">
+                <!-- Ongoing Courses -->
+                <div class="la-section__small">
+                  <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Ongoing</div> 
                     
-              <x-add-to-playlist 
-                :playlists="$playlists"
-              />
+                    <x-add-to-playlist 
+                      :playlists="$playlists"
+                    />
 
-              <div class="col-12 px-0 la-anim__wrap">
-                  @if(count($on_going_courses) != 0)
-                    <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
-                      @foreach($on_going_courses as $course)
-                      
-                      <x-course 
-                          :id="$course->id"
-                          :img="$course->preview_image" 
-                          :course="$course->title" 
-                          :url="$course->slug" 
-                          :rating="round($course->average_rating, 2)"
-                          :creatorImg="$course->user->user_img"
-                          :creatorName="$course->user->fullName"
-                          :creatorUrl="$course->user->id"
-                          :price="$course->price"
-                          :learnerCount="$course->learnerCount"
-                          :bought="$course->isPurchased()"
-                          :checkWishList="$course->checkWishList"
-                          :checkCart="$course->checkCart"
-                          :videoCount="$course->videoCount"
-                          :chapterCount="$course->chapterCount"
-                        />
-                      @endforeach
-                    </div>
+                    <div class="swiper-container  la-my__courses-container">  <!-- Swiper Container : Start -->         
+                      <div class="swiper-wrapper la-my__courses-wrapper ">  <!-- Swiper Wrapper : Start -->  
 
-                    @else
+                        @if(count($on_going_courses) != 0)
+                          <div class="swiper-slide la-my__courses-slide la-anim__stagger-item">
+                            @foreach($on_going_courses as $course)
+                            
+                            <x-course 
+                                :id="$course->id"
+                                :img="$course->preview_image" 
+                                :course="$course->title" 
+                                :url="$course->slug" 
+                                :rating="round($course->average_rating, 2)"
+                                :creatorImg="$course->user->user_img"
+                                :creatorName="$course->user->fullName"
+                                :creatorUrl="$course->user->id"
+                                :price="$course->price"
+                                :learnerCount="$course->learnerCount"
+                                :bought="$course->isPurchased()"
+                                :checkWishList="$course->checkWishList"
+                                :checkCart="$course->checkCart"
+                                :videoCount="$course->videoCount"
+                                :chapterCount="$course->chapterCount"
+                              />
+                            @endforeach
+                          </div>                     
+                     
+                          @else
 
-                      <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
-                          <div class="col la-empty__inner">
-                              <h6 class="la-empty__course-title la-anim__stagger-item">No Courses</h6>
-                              <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You have not started any course yet</p>
+                            <div class="col-12 la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                                <div class="col la-empty__inner">
+                                    <h6 class="la-empty__course-title la-anim__stagger-item">No Courses</h6>
+                                    <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You have not started any course yet</p>
+                                </div>
+                                <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
+                                    <a href="/browse/courses" class="la-empty__browse">
+                                        Browse Courses
+                                        <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                                    </a>
+                                </div>
+                            </div>
+
+                        @endif
+                    </div> <!-- Swiper Wrapper : End -->  
+
+                      @if($on_going_courses != 0)
+                        <div class="w-100 mt-10 d-md-flex justify-content-end align-items-start">
+                          <div class="la-slider__navigations la-home__course-navigations d-md-flex  align-items-center">
+                            <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
                           </div>
-                          <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
-                              <a href="/browse/courses" class="la-empty__browse">
-                                  Browse Courses
-                                  <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
-                              </a>
-                          </div>
-                      </div> 
-                    @endif
+                        </div> 
+                      @endif
+                  </div> <!-- Swiper Container : End -->  
+                </div>
+                <!-- Ongoing Courses: End -->
 
-              </div>
+                <!-- Yet to start - Courses -->
+                <div class="la-section__small">
+                    <div class="la-mycourses__subtitle text-2xl mb-6 head-font  la-anim__stagger-item--x">Yet to Start</div>
+
+                    <div class="swiper-container la-my__courses-container"> <!-- Swiper Container : Start -->        
+                      <div class="swiper-wrapper la-my__courses-wrapper ">  <!-- Swiper Wrapper : Start -->  
+
+                        @if($yet_to_start_courses && count($yet_to_start_courses) > 0)
+
+                        <div class="swiper-slide la-my__courses-slide la-anim__stagger-item">
+                            @foreach($yet_to_start_courses as $course)
+                          
+                            <x-course 
+                                :id="$course->id"
+                                :img="$course->preview_image" 
+                                :course="$course->title" 
+                                :url="$course->slug" 
+                                :rating="round($course->average_rating, 2)"
+                                :creatorImg="$course->user->user_img"
+                                :creatorName="$course->user->fullName"
+                                :creatorUrl="$course->user->id"
+                                :price="$course->price"
+                                :learnerCount="$course->learnerCount"
+                                :bought="$course->isPurchased()"
+                                :checkWishList="$course->checkWishList"
+                                :checkCart="$course->checkCart"
+                                :videoCount="$course->videoCount"
+                                :chapterCount="$course->chapterCount"
+
+                              />
+                            @endforeach
+                          </div>
+
+                        @else
+
+                          <div class="col-12 la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                              <div class="col la-empty__inner">
+                                  <h6 class="la-empty__course-title la-anim__stagger-item">No Courses</h6>
+                                  <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You haven't bought or subscribed to any course yet</p>
+                              </div>
+                              <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
+                                  <a href="/browse/courses" class="la-empty__browse ">
+                                      Browse Courses
+                                      <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                                  </a>
+                              </div>
+                          </div> 
+                          
+                        @endif
+                      </div> <!-- Swiper Wrapper : End -->  
+
+                      @if($yet_to_start_courses  != 0)
+                          <div class="w-100 mt-10 d-md-flex justify-content-end align-items-start">
+                            <div class="la-slider__navigations la-home__course-navigations d-md-flex  align-items-center">
+                              <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
+                            </div>
+                          </div>
+                      @endif
+
+                    </div> <!-- Swiper Container : End -->  
+                </div>
+                <!-- Yet to start - Courses : End -->
+
+                 <!-- Completed Courses -->
+                <div class="la-section__small">
+                    <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Completed</div>
+
+                    <div class="swiper-container la-my__courses-container"> <!-- Swiper Container : Start -->        
+                      <div class="swiper-wrapper la-my__courses-wrapper ">  <!-- Swiper Wrapper : Start -->  
+                        @if($completed_courses && count($completed_courses) != 0)
+                          <div class="swiper-slide la-my__courses-slide la-anim__stagger-item">
+                            @foreach($completed_courses as $course)
+                          
+                            <x-course 
+                                :id="$course->id"
+                                :img="$course->preview_image" 
+                                :course="$course->title" 
+                                :url="$course->slug" 
+                                :rating="round($course->average_rating, 2)"
+                                :creatorImg="$course->user->user_img"
+                                :creatorName="$course->user->fullName"
+                                :creatorUrl="$course->user->id"
+                                :price="$course->price"
+                                :learnerCount="$course->learnerCount"
+                                :bought="$course->isPurchased()"
+                                :checkWishList="$course->checkWishList"
+                                :checkCart="$course->checkCart"
+                                :videoCount="$course->videoCount"
+                                :chapterCount="$course->chapterCount"
+
+
+                              />
+                            @endforeach
+                          </div>
+                        @else
+                          <div class="col-12 la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                            <div class="col la-empty__inner">
+                                <h6 class="la-empty__course-title  la-anim__stagger-item">No Courses</h6>
+                                <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You have not finished any course yet.</p>
+                            </div>
+                            <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
+                                <a href="/browse/courses" class="la-empty__browse ">
+                                    Browse Courses
+                                    <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                                </a>
+                            </div>
+                          </div>
+                        @endif
+
+                      </div> <!-- Swiper Wrapper : End -->  
+
+                        @if($completed_courses != 0)
+                            <div class="w-100 mt-10 d-md-flex justify-content-end align-items-start">
+                              <div class="la-slider__navigations la-home__course-navigations d-md-flex  align-items-center">
+                                <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
+                              </div>
+                            </div>
+                        @endif
+
+                    </div> <!-- Swiper Container : End -->  
+                </div>
+                 <!-- Completed Courses : End -->
+              </div> <!-- Courses Tab Pane: End -->           
+            
+
+
+              <!-- Classes Tab Pane: Start -->
+              <div class="tab-pane fade show la-anim__wrap" id="class_tab-content" role="tabpanel" aria-labelledby="class_tab">
+                <!-- Ongoing Classes -->
+                <div class="la-section__small">
+                    <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Ongoing</div> 
+                          
+                    <x-add-to-playlist 
+                      :playlists="$playlists"
+                    />
+
+                    <div class="swiper-container  la-my__classes-container">  <!-- Swiper Container : Start -->         
+                      <div class="swiper-wrapper la-my__classes-wrapper ">  <!-- Swiper Wrapper : Start -->  
+
+                        @if(count($on_going_classes) != 0)
+                          <div class="swiper-slide la-my__classes-slide la-anim__stagger-item">
+                            @foreach($on_going_classes as $course)
+                            
+                            <x-course 
+                                :id="$course->id"
+                                :img="$course->preview_image" 
+                                :course="$course->title" 
+                                :url="$course->slug" 
+                                :rating="round($course->average_rating, 2)"
+                                :creatorImg="$course->user->user_img"
+                                :creatorName="$course->user->fullName"
+                                :creatorUrl="$course->user->id"
+                                :price="$course->price"
+                                :learnerCount="$course->learnerCount"
+                                :bought="$course->isPurchased()"
+                                :checkWishList="$course->checkWishList"
+                                :checkCart="$course->checkCart"
+                                :videoCount="$course->videoCount"
+                                :chapterCount="$course->chapterCount"
+                              />
+
+                            @endforeach
+                          </div>
+
+                          @else
+
+                            <div class="col-12 la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                                <div class="col la-empty__inner">
+                                    <h6 class="la-empty__course-title la-anim__stagger-item">No Classes</h6>
+                                    <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You have not started any classes yet</p>
+                                </div>
+                                <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
+                                    <a href="/browse/classes" class="la-empty__browse">
+                                        Browse Classes
+                                        <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                                    </a>
+                                </div>
+                            </div> 
+                          @endif
+                      </div> <!-- Swiper Wrapper : End -->  
+
+                        @if($on_going_courses != 0)
+                          <div class="w-100 mt-10 d-md-flex justify-content-end align-items-start">
+                            <div class="la-slider__navigations la-home__course-navigations d-md-flex  align-items-center">
+                              <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
+                            </div>
+                          </div>
+                        @endif
+
+                    </div>  <!-- Swiper Container : End -->  
+                </div>
+                <!-- Ongoing Classes : End -->
+
+                <!-- Yet to start - Classes -->
+                <div class="la-section__small">
+                  <div class="la-mycourses__subtitle text-2xl mb-6 head-font  la-anim__stagger-item--x">Yet to Start</div>
+
+                  <div class="swiper-container  la-my__classes-container">  <!-- Swiper Container : Start -->         
+                      <div class="swiper-wrapper la-my__classes-wrapper ">  <!-- Swiper Wrapper : Start -->  
+                       
+                        @if($yet_to_start_classes && count($yet_to_start_classes) > 0)
+                          <div class="swiper-slide la-my__classes-slide la-anim__stagger-item">
+                            @foreach($yet_to_start_classes as $course)
+                          
+                            <x-course 
+                                :id="$course->id"
+                                :img="$course->preview_image" 
+                                :course="$course->title" 
+                                :url="$course->slug" 
+                                :rating="round($course->average_rating, 2)"
+                                :creatorImg="$course->user->user_img"
+                                :creatorName="$course->user->fullName"
+                                :creatorUrl="$course->user->id"
+                                :price="$course->price"
+                                :learnerCount="$course->learnerCount"
+                                :bought="$course->isPurchased()"
+                                :checkWishList="$course->checkWishList"
+                                :checkCart="$course->checkCart"
+                                :videoCount="$course->videoCount"
+                                :chapterCount="$course->chapterCount"
+
+
+                              />
+                            @endforeach
+                          </div>
+                        @else
+
+                          <div class="col-12 la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                              <div class="col la-empty__inner">
+                                  <h6 class="la-empty__course-title la-anim__stagger-item">No Classes</h6>
+                                  <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You haven't bought or subscribed to any class yet</p>
+                              </div>
+                              <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
+                                  <a href="/browse/classes" class="la-empty__browse ">
+                                      Browse Classes
+                                      <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                                  </a>
+                              </div>
+                          </div> 
+                          
+                        @endif
+                        
+                      </div> <!-- Swiper Wrapper : End -->  
+
+                        @if($on_going_courses != 0)
+                          <div class="w-100 mt-10 d-md-flex justify-content-end align-items-start">
+                            <div class="la-slider__navigations la-home__course-navigations d-md-flex  align-items-center">
+                              <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
+                            </div>
+                          </div>
+                        @endif
+
+                    </div>  <!-- Swiper Container : End -->  
+                </div>
+                <!-- Yet to start - Classes : End -->
+
+
+                <!-- Completed Classes -->
+                <div class="la-section__small">
+                    <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Completed</div>
+
+                    <div class="swiper-container  la-my__classes-container">  <!-- Swiper Container : Start -->         
+                      <div class="swiper-wrapper la-my__classes-wrapper ">  <!-- Swiper Wrapper : Start --> 
+
+                        @if($completed_classes && count($completed_classes) != 0)
+                          <div class="swiper-slide la-my__classes-slide la-anim__stagger-item">
+                            @foreach($completed_classes as $course)
+                          
+                            <x-course 
+                                :id="$course->id"
+                                :img="$course->preview_image" 
+                                :course="$course->title" 
+                                :url="$course->slug" 
+                                :rating="round($course->average_rating, 2)"
+                                :creatorImg="$course->user->user_img"
+                                :creatorName="$course->user->fullName"
+                                :creatorUrl="$course->user->id"
+                                :price="$course->price"
+                                :learnerCount="$course->learnerCount"
+                                :bought="$course->isPurchased()"
+                                :checkWishList="$course->checkWishList"
+                                :checkCart="$course->checkCart"
+                                :videoCount="$course->videoCount"
+                                :chapterCount="$course->chapterCount"
+                              />
+                            @endforeach
+                          </div>
+
+                        @else
+
+                          <div class="col-12 la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                            <div class="col la-empty__inner">
+                                <h6 class="la-empty__course-title  la-anim__stagger-item">No Classes</h6>
+                                <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You have not finished any class yet.</p>
+                            </div>
+                            <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
+                                <a href="/browse/classes" class="la-empty__browse ">
+                                    Browse Classes
+                                    <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                                </a>
+                            </div>
+                          </div>
+
+                        @endif
+                      </div> <!-- Swiper Wrapper : End -->  
+
+                      @if($on_going_courses != 0)
+                        <div class="w-100 mt-10 d-md-flex justify-content-end align-items-start">
+                          <div class="la-slider__navigations la-home__course-navigations d-md-flex  align-items-center">
+                            <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
+                          </div>
+                        </div>
+                      @endif
+
+                    </div>  <!-- Swiper Container : End -->  
+                </div>
+                <!-- Completed Classes : End -->
+              </div> <!-- Classes Tab Pane: End -->  
+
+            </div> 
           </div>
 
-          <!-- Ongoing Classes -->
-          <div class="la-anim__wrap pt-10">
-              <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Ongoing Classes</div> 
-                    
-              <x-add-to-playlist 
-                :playlists="$playlists"
-              />
-
-              <div class="col-12 px-0 la-anim__wrap">
-                  @if(count($on_going_classes) != 0)
-                    <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
-                      @foreach($on_going_classes as $course)
-                      
-                      <x-course 
-                          :id="$course->id"
-                          :img="$course->preview_image" 
-                          :course="$course->title" 
-                          :url="$course->slug" 
-                          :rating="round($course->average_rating, 2)"
-                          :creatorImg="$course->user->user_img"
-                          :creatorName="$course->user->fullName"
-                          :creatorUrl="$course->user->id"
-                          :price="$course->price"
-                          :learnerCount="$course->learnerCount"
-                          :bought="$course->isPurchased()"
-                          :checkWishList="$course->checkWishList"
-                          :checkCart="$course->checkCart"
-                          :videoCount="$course->videoCount"
-                          :chapterCount="$course->chapterCount"
-
-                        />
-                      @endforeach
-                    </div>
-
-                    @else
-
-                      <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
-                          <div class="col la-empty__inner">
-                              <h6 class="la-empty__course-title la-anim__stagger-item">No Classes</h6>
-                              <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You have not started any classes yet</p>
-                          </div>
-                          <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
-                              <a href="/browse/classes" class="la-empty__browse">
-                                  Browse Classes
-                                  <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
-                              </a>
-                          </div>
-                      </div> 
-                    @endif
-
-              </div>
-          </div>
         </div>
       </div>
     </section>
-    <!-- Section Ongoing: End-->
 
-
-    <!-- Section Yet to Start: Start-->
-    <section class="la-section__small">
-      <div class="la-section__inner">
-        <div class="container-fluid la-anim__wrap">
-          <div class="row">
-            <!-- Yet to start - Courses -->
-            <div class="col-12">
-                <div class="la-mycourses__subtitle text-2xl mb-6 head-font  la-anim__stagger-item--x">Yet to Start Courses</div>
-                @if($yet_to_start_courses && count($yet_to_start_courses) > 0)
-                  <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
-                    @foreach($yet_to_start_courses as $course)
-                  
-                    <x-course 
-                        :id="$course->id"
-                        :img="$course->preview_image" 
-                        :course="$course->title" 
-                        :url="$course->slug" 
-                        :rating="round($course->average_rating, 2)"
-                        :creatorImg="$course->user->user_img"
-                        :creatorName="$course->user->fullName"
-                        :creatorUrl="$course->user->id"
-                        :price="$course->price"
-                        :learnerCount="$course->learnerCount"
-                        :bought="$course->isPurchased()"
-                        :checkWishList="$course->checkWishList"
-                        :checkCart="$course->checkCart"
-                        :videoCount="$course->videoCount"
-                        :chapterCount="$course->chapterCount"
-
-                      />
-                    @endforeach
-                  </div>
-                @else
-
-                  <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
-                      <div class="col la-empty__inner">
-                          <h6 class="la-empty__course-title la-anim__stagger-item">No Courses</h6>
-                          <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You haven't bought or subscribed to any course yet</p>
-                      </div>
-                      <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
-                          <a href="/browse/courses" class="la-empty__browse ">
-                              Browse Courses
-                              <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
-                          </a>
-                      </div>
-                  </div> 
-                  
-                @endif
-            </div>
-
-            <!-- Yet to start - Classes -->
-            <div class="col-12 pt-10">
-                <div class="la-mycourses__subtitle text-2xl mb-6 head-font  la-anim__stagger-item--x">Yet to Start Classes</div>
-                @if($yet_to_start_classes && count($yet_to_start_classes) > 0)
-                  <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
-                    @foreach($yet_to_start_classes as $course)
-                  
-                    <x-course 
-                        :id="$course->id"
-                        :img="$course->preview_image" 
-                        :course="$course->title" 
-                        :url="$course->slug" 
-                        :rating="round($course->average_rating, 2)"
-                        :creatorImg="$course->user->user_img"
-                        :creatorName="$course->user->fullName"
-                        :creatorUrl="$course->user->id"
-                        :price="$course->price"
-                        :learnerCount="$course->learnerCount"
-                        :bought="$course->isPurchased()"
-                        :checkWishList="$course->checkWishList"
-                        :checkCart="$course->checkCart"
-                        :videoCount="$course->videoCount"
-                        :chapterCount="$course->chapterCount"
-
-
-                      />
-                    @endforeach
-                  </div>
-                @else
-
-                  <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
-                      <div class="col la-empty__inner">
-                          <h6 class="la-empty__course-title la-anim__stagger-item">No Classes</h6>
-                          <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You haven't bought or subscribed to any class yet</p>
-                      </div>
-                      <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
-                          <a href="/browse/classes" class="la-empty__browse ">
-                              Browse Classes
-                              <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
-                          </a>
-                      </div>
-                  </div> 
-                  
-                @endif
-            </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Section Yet to Start: End-->
-
-  <!-- Section Completed: Start-->
-    <section class="la-section__small">
-      <div class="la-section__inner">
-        <div class="container-fluid la-anim__wrap">
-          <div class="row">
-            <!-- Completed Courses -->
-            <div class="col-12">
-                <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Completed Courses</div>
-                @if($completed_courses && count($completed_courses) != 0)
-                  <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4  la-anim__stagger-item">
-                    @foreach($completed_courses as $course)
-                  
-                    <x-course 
-                        :id="$course->id"
-                        :img="$course->preview_image" 
-                        :course="$course->title" 
-                        :url="$course->slug" 
-                        :rating="round($course->average_rating, 2)"
-                        :creatorImg="$course->user->user_img"
-                        :creatorName="$course->user->fullName"
-                        :creatorUrl="$course->user->id"
-                        :price="$course->price"
-                        :learnerCount="$course->learnerCount"
-                        :bought="$course->isPurchased()"
-                        :checkWishList="$course->checkWishList"
-                        :checkCart="$course->checkCart"
-                        :videoCount="$course->videoCount"
-                        :chapterCount="$course->chapterCount"
-
-
-                      />
-                    @endforeach
-                  </div>
-                @else
-                  <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
-                    <div class="col la-empty__inner">
-                        <h6 class="la-empty__course-title  la-anim__stagger-item">No Courses</h6>
-                        <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You have not finished any course yet.</p>
-                    </div>
-                    <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
-                        <a href="/browse/courses" class="la-empty__browse ">
-                            Browse Courses
-                            <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
-                        </a>
-                    </div>
-                  </div>
-                @endif
-
-            </div>
-
-            <!-- Completed Classes -->
-            <div class="col-12 pt-10">
-                <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Completed Classes</div>
-                @if($completed_classes && count($completed_classes) != 0)
-                  <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4  la-anim__stagger-item">
-                    @foreach($completed_classes as $course)
-                  
-                    <x-course 
-                        :id="$course->id"
-                        :img="$course->preview_image" 
-                        :course="$course->title" 
-                        :url="$course->slug" 
-                        :rating="round($course->average_rating, 2)"
-                        :creatorImg="$course->user->user_img"
-                        :creatorName="$course->user->fullName"
-                        :creatorUrl="$course->user->id"
-                        :price="$course->price"
-                        :learnerCount="$course->learnerCount"
-                        :bought="$course->isPurchased()"
-                        :checkWishList="$course->checkWishList"
-                        :checkCart="$course->checkCart"
-                        :videoCount="$course->videoCount"
-                        :chapterCount="$course->chapterCount"
-
-
-                      />
-                    @endforeach
-                  </div>
-                @else
-                  <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
-                    <div class="col la-empty__inner">
-                        <h6 class="la-empty__course-title  la-anim__stagger-item">No Classes</h6>
-                        <p class="la-empty__course-desc leading-snug m-0 la-anim__stagger-item">You have not finished any class yet.</p>
-                    </div>
-                    <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
-                        <a href="/browse/classes" class="la-empty__browse ">
-                            Browse Classes
-                            <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
-                        </a>
-                    </div>
-                  </div>
-                @endif
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Section Completed: End-->
   </section>
 @endsection

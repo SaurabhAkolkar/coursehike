@@ -2,7 +2,7 @@
 
 
 @section('seo_content')
-    <title> Cart </title>
+    <title> My Cart </title>
 @endsection
 
 @section('content')

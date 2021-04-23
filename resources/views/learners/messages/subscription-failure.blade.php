@@ -1,5 +1,9 @@
 @extends('learners.layouts.app')
 
+@section('seo_content')
+    <title> Subscription Failed </title>
+@endsection
+
 @section('content')
 <section class="la-cbg--main">
     <div class="la-section">

@@ -1,7 +1,7 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-    <title> Payment Successfull </title>
+    <title> Payment Successful </title>
 @endsection
 
 @section('content')

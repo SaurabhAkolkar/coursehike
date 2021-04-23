@@ -1,6 +1,5 @@
 @extends('learners.layouts.app')
 
-
 @section('seo_content')
     <title> Guided Mentor </title>
 @endsection

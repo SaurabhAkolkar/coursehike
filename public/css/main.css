@@ -18189,7 +18189,7 @@ input:-webkit-autofill:active {
 }
 .la-courses__featured-slide {
   width: 320px;
-  height: 470px;
+  height: 480px;
 }
 .la-courses__featured-slide .la-lclass__card {
   padding: 0;
@@ -27395,6 +27395,34 @@ section.la-section .la-section__inner .la-mycourses__more:hover:after {
   content: "See the list";
   position: relative;
   color: var(--app-indigo-1);
+}
+
+.la-my__courses-container, .la-my__classes-container {
+  width: 100%;
+  height: auto !important;
+}
+@media (max-width: 1199px) {
+  .la-my__courses-container, .la-my__classes-container {
+    overflow: visible;
+  }
+}
+.la-my__courses-wrapper, .la-my__classes-wrapper {
+  height: auto !important;
+}
+@media (min-width: 992px) {
+  .la-my__courses-wrapper, .la-my__classes-wrapper {
+    padding: var(--size-3) 0;
+  }
+}
+.la-my__courses-slide, .la-my__classes-slide {
+  width: 320px;
+  height: 480px;
+}
+.la-my__courses-slide .la-lclass__card, .la-my__classes-slide .la-lclass__card {
+  padding: 0;
+}
+.la-my__courses-slide .la-lcourse__card, .la-my__classes-slide .la-lcourse__card {
+  padding: 0;
 }
 
 .la-payment__msg-section {

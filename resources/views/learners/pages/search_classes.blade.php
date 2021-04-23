@@ -1,5 +1,9 @@
 @extends('learners.layouts.app')
 
+@section('seo_content')
+    <title> Search Classes</title>
+@endsection
+
 @section('content')
 <section class="la-section__small la-cbg--main">
     <div class="la-section__inner">

@@ -25,3 +25,44 @@ section.la-section{
         }
     }
 }
+
+
+//- My Courses and Classes Sliders
+#{$ap}- {
+    &my{
+        &__{
+            &courses, &classes{
+                &-{
+                    &container{
+                        width:100%;
+                        height:auto !important;
+                        
+
+                        @include respond-below(lg){
+                            overflow:visible;
+                        }
+                    }
+                    &wrapper{
+                        height:auto !important;
+                        
+                        @include respond-above(md){
+                            padding:var(--size-3) 0;
+                        }
+                    }
+                    &slide{
+                        width:320px;
+                        height:480px;
+
+                        .la-lclass__card{
+                            padding:0;
+                        }
+                        .la-lcourse__card{
+                            padding:0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
