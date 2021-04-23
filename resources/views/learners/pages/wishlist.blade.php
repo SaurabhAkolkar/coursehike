@@ -138,7 +138,7 @@
                           :videoCount="$courses->courses->videoCount"
                           :chapterCount="$courses->courses->chapterCount"
                           :bought="$courses->courses->isPurchased()"
-                          :progress="$course->getProgress()"
+                          :progress="$courses->courses->getProgress()"
 
                         />
                     </div>
