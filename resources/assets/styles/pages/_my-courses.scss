@@ -36,11 +36,7 @@ section.la-section{
                     &container{
                         width:100%;
                         height:auto !important;
-                        
-
-                        @include respond-below(lg){
-                            overflow:visible;
-                        }
+                        overflow:visible;
                     }
                     &wrapper{
                         height:auto !important;
