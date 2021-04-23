@@ -65,7 +65,8 @@
                 <thead>
                   <th>#</th>
                   <th>{{ __('adminstaticword.Title') }}</th>
-                  <th>{{ __('adminstaticword.PurchaseDate') }}</th>
+                  <th>{{ __('adminstaticword.Date') }}</th>
+                  <th>{{ __('adminstaticword.Amount') }}</th>
                 </thead> 
 
                 <tbody>
@@ -77,8 +78,9 @@
 
                       <tr>
                         <td><?php echo $i;?></td>
-                        <td>{{$cp->bundle->title}}</td>                 
-                        <td>{{Carbon\Carbon::parse($cp->created_at)->format('d-M-Y')}}</td>                 
+                        <td>{{$cp->bundle->title}}</td>
+                        <td>{{Carbon\Carbon::parse($cp->created_at)->format('d-M-Y')}}</td>
+                        <td>{{$cp->user_invoice_details->total < 1 ? 'Free Access' : $cp->user_invoice_details->total }}</td>
                       </tr>
                   @endforeach
 
@@ -102,9 +104,8 @@
                 <thead>
                   <th>#</th>
                   <th>{{ __('adminstaticword.Title') }}</th>
-                  <th>{{ __('adminstaticword.Classes') }}</th>
-                  <th>{{ __('adminstaticword.PurchaseType') }}</th>
-                  <th>{{ __('adminstaticword.PurchaseDate') }}</th>
+                  <th>{{ __('adminstaticword.Date') }}</th>
+                  <th>{{ __('adminstaticword.Amount') }}</th>
                 </thead> 
 
                 <tbody>
@@ -117,9 +118,10 @@
                       <tr>
                         <td><?php echo $i;?></td>
                         <td>{{$cp->course->title}}</td>                 
-                        <td>{{count(json_decode($cp->class_id))}}</td>                 
-                        <td>{{$cp->purchase_type=='all_classes'?'All Classes':'Selected Classes'}}</td>                 
-                        <td>{{Carbon\Carbon::parse($cp->created_at)->format('d-M-Y')}}</td>                 
+                        {{-- <td>{{count(json_decode($cp->class_id))}}</td>                  --}}
+                        {{-- <td>{{$cp->purchase_type=='all_classes'?'All Classes':'Selected Classes'}}</td>                  --}}
+                        <td>{{Carbon\Carbon::parse($cp->created_at)->format('d-M-Y')}}</td>
+                        <td>{{$cp->user_invoice_details->total < 1 ? 'Free Access' : $cp->user_invoice_details->total }}</td>  
                       </tr>
                   @endforeach
 
