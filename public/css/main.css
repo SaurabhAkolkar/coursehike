@@ -19156,7 +19156,6 @@ input:-webkit-autofill:active {
      object-fit: cover;
   -o-object-position: top;
      object-position: top;
-  background-color: var(--gray8);
 }
 .la-vcourse__class-title {
   color: var(--green);
@@ -22102,16 +22101,6 @@ input:-webkit-autofill:active {
 .la-cart__item-author {
   font-size: var(--text-sm);
 }
-@media (min-width: 1200px) {
-  .la-cart__item-author {
-    margin-bottom: var(--size-4);
-  }
-}
-@media (max-width: 767px) {
-  .la-cart__item-author {
-    margin-bottom: var(--size-2);
-  }
-}
 .la-cart__item-action:first-child a {
   padding-left: 0;
 }
@@ -24792,12 +24781,18 @@ label.error {
 }
 
 .la-home__course-slide, .la-home__course-slide2 {
-  width: 320px !important;
+  width: 300px !important;
   height: auto;
 }
 .la-home__course-slide:first-child, .la-home__course-slide2:first-child {
   padding-left: 0;
 }
+@media (min-width: 992px) {
+  .la-home__course-slide, .la-home__course-slide2 {
+    width: 320px !important;
+  }
+}
+
 .la-home__course-pagination .swiper-pagination-bullet {
   background: var(--gray6);
   border-radius: 50%;
