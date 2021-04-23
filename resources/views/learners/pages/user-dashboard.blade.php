@@ -299,16 +299,16 @@
                 @else
                     <div class="col-12 pb-10">
                       <div class="la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
-                        <div class="col la-empty__inner la-anim__stagger-item">
+                        <div class="col la-empty__inner text-center la-anim__stagger-item mb-0">
                             <h6 class="la-empty__course-title">No Mentors Found</h6>
-                            <p class="la-empty__course-desc leading-snug m-0">Add Interests To Get Mentor Suggestion</p>
+                            <!--<p class="la-empty__course-desc leading-snug m-0">Add Interests To Get Mentor Suggestion</p> -->
                         </div>
-                        <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
+                        <!--<div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
                             <a href="/my-interests" class="la-empty__browse">
                                 Add Interests
                               <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
                             </a>
-                        </div>
+                        </div> -->
                       </div>
                       </div>
                 @endif

@@ -18178,7 +18178,11 @@ input:-webkit-autofill:active {
   height: auto !important;
   padding: var(--size-6) 0;
   border-bottom: 2px solid #dadada;
-  overflow: visible;
+}
+@media (max-width: 1199px) {
+  .la-courses__featured-container {
+    overflow: visible;
+  }
 }
 .la-courses__featured-wrapper {
   height: auto !important;
@@ -18857,13 +18861,13 @@ input:-webkit-autofill:active {
   transition: all 0.35s ease-in-out;
   -webkit-transition: all 0.35s ease-in-out;
   -moz-transition: all 0.35s ease-in-out;
-  left: 16px;
+  left: 20px;
 }
 .la-vcourse__creator-group:hover > .la-vcourse__creator-group--avator > .la-vcourse__creator-group--img3 {
   transition: all 0.35s ease-in-out;
   -webkit-transition: all 0.35s ease-in-out;
   -moz-transition: all 0.35s ease-in-out;
-  left: 32px;
+  left: 36px;
 }
 .la-vcourse__creator-group:hover > .la-vcourse__creator-group--name {
   transition: all 0.35s ease-in-out;
@@ -22021,6 +22025,7 @@ input:-webkit-autofill:active {
   height: 65px;
   background: var(--gray2);
   border-radius: 10px;
+  border: 1px solid rgba(238, 238, 238, 0.5);
   position: relative;
   overflow: hidden;
 }
