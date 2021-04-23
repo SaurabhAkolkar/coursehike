@@ -364,15 +364,15 @@ class SearchController extends Controller
 
 		// courses variable
 
-		$purchased_courses = UserPurchasedCourse::with('course','course.user','course.review')->where(['user_id'=>Auth::User()->id])->whereNotIn('course_id', $watched_courses)->where('bundle_id','>',0)->pluck('bundle_id')->toArray();
+		// $purchased_courses = UserPurchasedCourse::with('course','course.user','course.review')->where(['user_id'=>Auth::User()->id])->whereNotIn('course_id', $watched_courses)->where('bundle_id','>',0)->pluck('bundle_id')->toArray();
 
-		$ongoing_completed_courses = Course::whereIn('id', $watched_courses)->whereNotIn('id', $purchased_courses)->get();
+		// $ongoing_completed_courses = Course::whereIn('id', $watched_courses)->whereNotIn('id', $purchased_courses)->get();
 
-		$completed_courses = $ongoing_completed_courses->filter->isCompleted()->values();
+		// $completed_courses = $ongoing_completed_courses->filter->isCompleted()->values();
 
-		$on_going_courses = $ongoing_completed_courses->filter(function ($course) {
-			return !$course->isCompleted();
-		})->values();
+		// $on_going_courses = $ongoing_completed_courses->filter(function ($course) {
+		// 	return !$course->isCompleted();
+		// })->values();
 
 		// print_r($on_going_courses);
 		// print_r($completed_courses);
