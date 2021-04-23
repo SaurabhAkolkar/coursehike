@@ -236,11 +236,24 @@ class LearnController extends Controller
         {
             if(Auth::check()){
                 // $have_purchased = UserPurchasedCourse::where('user_id', Auth::User()->id)->where('course_id', $class_video->course_id)->whereJsonContains('class_id', [(int)$video_id])->exists();
-                $course = UserPurchasedCourse::where('user_id', Auth::User()->id)->where('course_id', $class_video->course_id)->first();
+                // $course = UserPurchasedCourse::where('user_id', Auth::User()->id)->where('course_id', $class_video->course_id)->first();
                 
+                $course = UserPurchasedCourse::where(['course_id'=> $class_video->course_id , 'user_id'=> Auth::User()->id])
+                                ->orWhere( function($query) use ($class_video) {
+                                    // Accept int datatype
+                                    $query->whereJsonContains( 'class_id', (int) $class_video->course_id )
+                                        ->where('user_id', '=', Auth::User()->id);
+                                })
+                                ->orWhere( function($query) use ($class_video) {
+                                    // Accept String datatype
+                                    echo $class_video->course_id;
+                                    $query->whereJsonContains( 'class_id', $class_video->course_id.'' )
+                                        ->where('user_id', '=', Auth::User()->id);
+                                })->firstOr(function () {
+                                    return null;
+                                });
                 if($course){
                     $have_purchased = true;
-                    // $have_purchased = ($course->purchase_type == 'all_classes') ? true : in_array((int)$video_id, json_decode($course->class_id));
                 }else
                     $have_purchased = false;
             }
@@ -250,7 +263,7 @@ class LearnController extends Controller
                 $class_video->courses->package_type == '0' ||
                 (Auth::check() && ( Auth::User()->role == "admin" || 
                 (Auth::User()->subscription() && Auth::User()->subscription()->active()) ||
-                $have_purchased )) 
+                $have_purchased ))
             )
             {
                 $response = array(
