@@ -231,7 +231,7 @@ $course_id = $course->id;
                           <span class="la-vcourse__class-title text-sm text-uppercase pr-1">{{$class->chapter_name}}</span>
                           <small class="la-vcourse__class-videoscount pl-2">{{$class->courseclass->count()}} Videos</small>
                     </div>
-                    <div class="la-vcourse__class-title--chapter text-sm">All about tattoo machines</div>                    
+                    <div class="la-vcourse__class-title--chapter text-sm">{{$course->title}}</div>                    
                   </div>
                 </div>
 

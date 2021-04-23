@@ -73,7 +73,7 @@
                 
                 <div class="col-12 mb-4 mb-md-8">
                     <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
-                    <textarea id="editor2" name="detail" rows="3" class="form-control" required >{!! $cor->detail !!}</textarea>
+                    <textarea id="detail" name="detail" rows="3" class="form-control" required >{!! $cor->detail !!}</textarea>
                 </div>
             
                 <div class="col-md-8 col-lg-5  mb-3">
@@ -81,7 +81,7 @@
                     <label for="" class="la-admin__preview-label p-0">Thumbnail Image:<sup class="redstar">*</sup></label>
                     <div class="la-admin__preview-img la-admin__course-imgvid la-admin__course-modal-imgvid" >
                         <div class="la-admin__preview-text">
-                          <p class="la-admin__preview-size">Thumbnail | 250x150</p>
+                          <p class="la-admin__preview-size">Thumbnail | 720 x 540</p>
                           <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
                         </div>
                         <div class="text-center px-20 mr-20">
@@ -90,15 +90,12 @@
                           </span>
                         </div>
                         <input type="file" name="image" id="image" class="form-control la-admin__preview-input inputfile inputfile-1"  />
-                        <img src="" alt="" class="d-none preview-img"/>
+                        <img src="{{ $cor->preview_image }}" alt="" class="preview-img"/>
                     </div>
                   </div>
 
-                  @if($cor['preview_image'] !== NULL && $cor['preview_image'] !== '')
-                      <img src="{{ url('/images/bundle/'.$cor->preview_image) }}" height="100px;" width="100px;" class="mx-auto img-fluid d-block"/>
-                  @else
-                      <img src="{{ Avatar::create($cor->title)->toBase64() }}" alt="course" class="mx-auto img-fluid d-block">
-                  @endif
+                      {{-- <img src="{{ $cor->preview_image }}" height="100px;" width="100px;" class="mx-auto img-fluid d-block"/> --}}
+                  
                 </div>
 
                 <div class="col-md-4 col-lg-3 mb-3">
@@ -169,9 +166,7 @@
 (function($) {
   "use strict";
 
-  $(function () {
-      CKEDITOR.replace('editor2');
-    });
+     tinymce.init({selector:'textarea#detail'});
 
   $(function() {
     $('.js-example-basic-single').select2();
@@ -231,6 +226,21 @@
     }
 
   });
+
+    
+  $(".inputfile").change(function() {
+  readURL(this);
+});
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();    
+    reader.onload = function(e) {
+      $(input).siblings('.preview-img').attr('src', e.target.result).removeClass('d-none');
+    }
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
+}
 
 })(jQuery);
 

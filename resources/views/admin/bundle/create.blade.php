@@ -90,7 +90,7 @@
                             
                     <div class="col-md-12 mb-4 mb-md-8">
                       <label for="exampleInputTit1e">{{ __('adminstaticword.Detail') }}: <sup class="redstar">*</sup></label>
-                      <textarea id="editor2" name="detail" rows="5"  class="form-control" placeholder="Enter Your Detail" required ></textarea>
+                      <textarea id="detail" name="detail" rows="5"  class="form-control" placeholder="Enter Your Detail" required ></textarea>
                     </div>
                                 
                     <div class="col-md-8 col-lg-5  mb-3">
@@ -98,7 +98,7 @@
                           <label for="" class="la-admin__preview-label p-0">Thumbnail Image:<sup class="redstar">*</sup></label>
                           <div class="la-admin__preview-img la-admin__course-imgvid la-admin__course-modal-imgvid" >
                                <div class="la-admin__preview-text">
-                                    <p class="la-admin__preview-size">Thumbnail | 250x150</p>
+                                    <p class="la-admin__preview-size">Thumbnail | 720x540</p>
                                     <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase">Choose a File</p>
                               </div>
                               <div class="text-center px-20 mr-20">
@@ -174,9 +174,7 @@
 (function($) {
 "use strict";
 
-   $(function () {
-      CKEDITOR.replace('editor2');
-    });
+  tinymce.init({selector:'textarea#detail'});
 
   $(function() {
     $('.js-example-basic-single').select2();
@@ -222,6 +220,22 @@ $('#priceMain').prop('required','required');
     }
 
   });
+
+  
+  $(".inputfile").change(function() {
+  readURL(this);
+});
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();    
+    reader.onload = function(e) {
+      $(input).siblings('.preview-img').attr('src', e.target.result).removeClass('d-none');
+    }
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
+}
+
 
   $("#cb3").on('change', function() {
     if ($(this).is(':checked')) {
