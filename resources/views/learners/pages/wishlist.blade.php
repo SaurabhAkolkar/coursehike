@@ -129,6 +129,8 @@
                           :checkCart="$courses->courses->checkCart"
                           :learnerCount="$courses->courses->learnerCount"
                           :price="$courses->courses->price"
+                          :videoCount="$courses->courses->videoCount"
+                          :chapterCount="$courses->courses->chapterCount"
                           :bought="$courses->courses->isPurchased()"
                         />
                     </div>

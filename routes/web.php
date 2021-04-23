@@ -649,6 +649,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
     Route::get('/browse/courses','SearchController@courses');
     Route::get('/master-classes','SearchController@masterClasses');
     Route::get("/search-course","SearchController@searchCourse");
+    Route::get("/search-classes","SearchController@searchClass");
 
 
     Route::get('/filter-courses','SearchController@applyFilter')->name('apply.filters');

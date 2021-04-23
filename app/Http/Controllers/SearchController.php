@@ -339,27 +339,94 @@ class SearchController extends Controller
 	public function myCourses(){
 		
 		$playlists = [];
-		
+
+		$on_going_courses = [];
+		$yet_to_start_courses = [];
+		$completed_courses = [];
+
 		$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
 
 		$watched_courses = UserWatchProgress::where(['user_id'=>Auth::User()->id])->groupBy('course_id')->get()->pluck('course_id')->toArray();
 
-		$purchased_courses = UserPurchasedCourse::with('course','course.user','course.review')->where(['user_id'=>Auth::User()->id])->whereNotIn('course_id', $watched_courses)->pluck('course_id')->toArray();
-		
-		$ongoing_completed_courses = Course::whereIn('id', $watched_courses)->whereNotIn('id', $purchased_courses)->get();
+		$purchased_classes = UserPurchasedCourse::with('course','course.user','course.review')->where(['user_id'=>Auth::User()->id])->whereNotIn('course_id', $watched_courses)->whereNull('bundle_id')->pluck('course_id')->toArray();
+				
+		$ongoing_completed_classes = Course::whereIn('id', $watched_courses)->whereNotIn('id', $purchased_classes)->get();
 
-		$completed_courses = $ongoing_completed_courses->filter->isCompleted()->values();
-		$on_going_courses = $ongoing_completed_courses->filter(function ($course) {
+		$completed_classes = $ongoing_completed_classes->filter->isCompleted()->values();
+
+		$on_going_classes = $ongoing_completed_classes->filter(function ($course) {
 			return !$course->isCompleted();
 		})->values();
 
-		$yet_to_start = array_diff($purchased_courses, $on_going_courses->pluck('course_id')->toArray());
-		$yet_to_start_courses = Course::whereIn('id', $yet_to_start)->get();
+		$yet_to_start = array_diff($purchased_classes, $on_going_classes->pluck('course_id')->toArray());
 
-		return view('learners.pages.my-courses',compact('playlists','on_going_courses','yet_to_start_courses', 'completed_courses'));
+		$yet_to_start_classes = Course::whereIn('id', $yet_to_start)->get();
+
+		// courses variable
+
+		$purchased_courses = UserPurchasedCourse::with('course','course.user','course.review')->where(['user_id'=>Auth::User()->id])->whereNotIn('course_id', $watched_courses)->where('bundle_id','>',0)->pluck('bundle_id')->toArray();
+
+		$ongoing_completed_courses = Course::whereIn('id', $watched_courses)->whereNotIn('id', $purchased_courses)->get();
+
+		
+
+		return view('learners.pages.my-courses',compact('on_going_courses','yet_to_start_courses','completed_courses','playlists','on_going_classes','yet_to_start_classes', 'completed_classes'));
 	}
 
 	public function searchCourse(Request $request){
+        
+        $input['course_name'] = $request->course_name;
+
+        $langauges = CourseLanguage::where(['status'=>1])->get();
+		$filter_categories = Categories::with('subcategory')->where(['status'=>1])->get();
+		$courses =[];
+		$categories = [];
+		$playlists = [];
+		$selected_categories = [];
+		$selected_subcategories = [];
+		$selected_level = [];
+		$selected_languages = [];
+        $filtres_applied = false;
+        
+        // if(isset($request->sort_by)){
+        //     if($request->sort_by == 'latest'){
+        //         $courses = Course::with('user')->where('status',1)->where('title','like','%'.$input['course_name'].'%')->orderBy('created_at')->get();
+        //     }else{
+        //         $courses = Course::with('user')->where('status',1)->where('title','like','%'.$input['course_name'].'%')->orderBy('created_at')->get();
+        //     }		
+        // }else{
+            $courses = BundleCourse::with('user')->where('title','like','%'.$input['course_name'].'%')->where('status',1)->get();
+        // }
+
+        if($request->filters == 'applied'){
+            $filtres_applied = true;
+            
+			if(isset($request->categories) && $request->categories != null){
+
+				$categories = array_map('intval', explode(',',$request->categories));
+				$selected_categories =$categories;
+				$courses = $courses->whereIn('category_id',$categories);
+			
+			}		
+	
+			if(isset($request->level) && $request->level != null){
+	
+				$level = array_map('intval', explode(',',$request->level));
+				$selected_level =$level;
+				$courses = $courses->whereIn('level',$level);
+			}
+        }
+        
+
+		if(Auth::check()){
+			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
+        }	
+        $search_input = $input['course_name'];
+        
+        return view('learners.pages.search_courses', compact('selected_languages','selected_categories','selected_subcategories','selected_level','filtres_applied','courses','playlists','langauges','filter_categories','search_input'));
+    }
+
+	public function searchClass(Request $request){
         
         $input['course_name'] = $request->course_name;
 
@@ -393,22 +460,7 @@ class SearchController extends Controller
 				$selected_categories =$categories;
 				$courses = $courses->whereIn('category_id',$categories);
 			
-			}
-		
-			if(isset($request->sub_categories ) && $request->categories != null){
-	
-				$sub_categories = array_map('intval', explode(',',$request->sub_categories));
-				$selected_subcategories =$sub_categories;
-				
-				$courses = $courses->whereIn('subcategory_id',$sub_categories);
-			}	
-	
-			if(isset($request->languages) && $request->categories != null){
-	
-				$languages = array_map('intval', explode(',',$request->languages));
-				$selected_languages =$languages;
-				$courses = $courses->whereIn('language_id',$languages);
-			}
+			}		
 	
 			if(isset($request->level) && $request->level != null){
 	
@@ -424,7 +476,7 @@ class SearchController extends Controller
         }	
         $search_input = $input['course_name'];
         
-        return view('learners.pages.search_courses', compact('selected_languages','selected_categories','selected_subcategories','selected_level','filtres_applied','courses','playlists','langauges','filter_categories','search_input'));
+        return view('learners.pages.search_classes', compact('selected_languages','selected_categories','selected_subcategories','selected_level','filtres_applied','courses','playlists','langauges','filter_categories','search_input'));
     }
 
 
