@@ -195,25 +195,26 @@
           <div class="col-12 la-anim__wrap">
             <h5 class="la-pcourses__title  text-2xl text-md-3xl mb-8 la-anim__stagger-item">Pending Courses</h5>
             <div class="row">
-            @if(count($pendingCourse) > 0)         
-              @foreach($pendingCourse as $c)               
-                <x-handpicked :hpImg="$c->courses->preview_image" :hpCourse="$c->courses->title" :hpCname="$c->user->fullName" :hpUrl="'/learn/course/'.$c->courses->id.'/'.$c->courses->slug" />
-              @endforeach
-            @else
-                  <div class="la-empty__courses  d-md-flex justify-content-between align-items-start la-anim__stagger-item">
-                    <div class="col la-empty__inner la-anim__stagger-item">
-                        <h6 class="la-empty__course-title">No Courses</h6>
-                        <p class="la-empty__course-desc leading-snug m-0">You currently don't have any pending course, start new course</p>
+              @if(count($pendingCourse) > 0)         
+                @foreach($pendingCourse as $c)               
+                  <x-handpicked :hpImg="$c->courses->preview_image" :hpCourse="$c->courses->title" :hpCname="$c->user->fullName" :hpUrl="'/learn/course/'.$c->courses->id.'/'.$c->courses->slug" />
+                @endforeach
+              @else
+                  <div class="col-12">
+                    <div class="la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                      <div class="col la-empty__inner la-anim__stagger-item">
+                          <h6 class="la-empty__course-title">No Courses</h6>
+                          <p class="la-empty__course-desc leading-snug m-0">You currently don't have any pending course, start new course</p>
+                      </div>
+                      <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
+                          <a href="/browse/courses" class="la-empty__browse">
+                              Browse Courses
+                            <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
+                          </a>
+                      </div>
                     </div>
-                    <div class="col text-md-right la-empty__browse-courses mt-n2 la-anim__stagger-item--x">
-                        <a href="/browse/courses" class="la-empty__browse">
-                            Browse Courses
-                          <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
-                        </a>
-                    </div>
-                </div>
-
-            @endif
+                  </div>
+              @endif
             </div>
           </div>
         </div>

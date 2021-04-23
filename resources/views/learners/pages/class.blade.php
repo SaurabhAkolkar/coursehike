@@ -565,9 +565,7 @@ $course_id = $course->id;
                       </div>
                     </div>
                   </div>
-                </div>
-
-               
+                </div>               
               </div>
             </li>
           </div>

@@ -22104,6 +22104,16 @@ input:-webkit-autofill:active {
 .la-cart__item-author {
   font-size: var(--text-sm);
 }
+@media (min-width: 1200px) {
+  .la-cart__item-author {
+    margin-bottom: var(--size-4);
+  }
+}
+@media (max-width: 767px) {
+  .la-cart__item-author {
+    margin-bottom: var(--size-2);
+  }
+}
 .la-cart__item-action:first-child a {
   padding-left: 0;
 }

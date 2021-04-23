@@ -14,7 +14,7 @@
     <div class="la-cart__items ">
         <div class="la-cart__items mb-8  ">
             <div class="la-cart__item row la-anim__wrap">
-                <div class="la-cart__item-course col-8 col-md-8 col-lg-7 pr-0 la-anim__stagger-item">
+                <div class="la-cart__item-course col-7 col-md-8 col-lg-8  la-anim__stagger-item">
                     <div class="">
                         <div class="la-cart__item-label mb-4 ">@if($itemType=='class')Class @else Course @endif</div>
                     </div>
@@ -26,7 +26,7 @@
                         </div>
                         <div class="la-cart__item-right ">
                             <div class="la-cart__item-name">{{ $course }}</div>
-                            <div class="la-cart__item-author mb-2 mb-lg-4">by <span class="text-capitalize ">{{ $creator}}</span></div>
+                            <div class="la-cart__item-author">by <span class="text-capitalize ">{{ $creator}}</span></div>
                             <div class="la-cart__item-actions d-flex">
                                 <div class="la-cart__item-action remove"> 
                                     <a href= {{ $removeUrl }}>{{ $remove }}</a>
@@ -44,18 +44,20 @@
                 </div>
                 
 
-                <div class="col-4 col-md-4 col-lg-5 pl-0 la-cart__item-info d-flex align-items-start la-anim__wrap">
+                <div class="col-5 col-md-4 col-lg-4 la-cart__item-info d-flex align-items-start la-anim__wrap">
+                    <div class="la-cart__item-classes la-anim__stagger-item">
                     @if($itemType=='class') 
                     @else
-                    <div class="la-cart__item-classes la-anim__stagger-item">
+                    
                         <div class="la-cart__item-label mb-4 ">Classes</div>
                         <div class="la-cart__item-content leading-snug "><span>{{$classType}}</span></div>
                         {{-- <div class="la-cart__item-content leading-snug "><span>@if($classType == 'all_classes') All Classes @else Selected Classes @endif</span></div> --}}
-                    </div>
+                   
                     @endif
+                    </div>
 
-                    <div class="la-cart__item-price ml-4 ml-md-20 la-anim__stagger-item">
-                        <div class="la-cart__item-label mb-4 ">Price</div>
+                    <div class="la-cart__item-price d-flex flex-column ml-auto la-anim__stagger-item">
+                        <div class="la-cart__item-label mb-4 text-right ">Price</div>
                         <div class="la-cart__item-content">
                             <div class="la-soffer ml-0">
                                 <div class="la-soffer__bestprice la-cart__item-cost"> 

@@ -103,6 +103,14 @@
 
                     &author {
                         font-size: var(--text-sm);
+                        
+                        @include respond-above(lg){
+                            margin-bottom:var(--size-4);
+                        }
+
+                        @include respond-below(sm){
+                            margin-bottom:var(--size-2);
+                        }
                     }
 
                     &action {

@@ -43,7 +43,7 @@
                         $remove = 'Remove';
                     @endphp
 
-                    <div class="col-lg-8 ">
+                    <div class="col-lg-7">
                       <div class="la-anim__wrap">
                         <h2 class="la-cart__title text-2xl d-block d-md-none pt-10 pb-3 la-anim__stagger-item">
                             Courses in the Cart
@@ -74,6 +74,7 @@
                               :bestPrice="$cart->offer_price"
                               :realPrice="$cart->price"
                             />
+
                             @else
 
                               <x-cart
@@ -108,7 +109,7 @@
                     </div>
                     <!-- Cousre Cart:  End -->
 
-                    <div class="col-md-8 col-lg-4 mb-5 mb-md-0 la-anim__wrap">
+                    <div class="col-md-8 col-lg-4 offset-lg-1 mb-5 mb-md-0 la-anim__wrap">
                       {{-- <div class="la-profile__title body-font text-xl  la-anim__stagger-item--x">Billing Address</div> --}}
                         {{-- <form class="form-row la-payment__form-row pb-10">                        
                             @php
