@@ -188,21 +188,23 @@ $course_id = $course->id;
             @else
 
             <div class="la-vcourse__course-cards row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item la-anim__B">
-              @foreach ($course->getCourses() as $mentor_other_course)
+              @foreach ($course->getCourses() as $cc)
                     <x-course 
-                    :id="$mentor_other_course->id"
-                    :img="$mentor_other_course->preview_image"
-                    :course="$mentor_other_course->title"
-                    :url="$mentor_other_course->slug"
-                    :rating="round($mentor_other_course->average_rating, 2)"
-                    :creatorImg="$mentor_other_course->user->user_img"
-                    :creatorName="$mentor_other_course->user->fname"
-                    :creatorUrl="$mentor_other_course->user->id"
-                    :learnerCount="$mentor_other_course->learnerCount"
-                    :price="$mentor_other_course->price"
-                    :bought="$mentor_other_course->isPurchased()"
+                    :id="$cc->id"
+                    :img="$cc->preview_image"
+                    :course="$cc->title"
+                    :url="$cc->slug"
+                    :rating="round($cc->average_rating, 2)"
+                    :creatorImg="$cc->user->user_img"
+                    :creatorName="$cc->user->fname"
+                    :creatorUrl="$cc->user->id"
+                    :learnerCount="$cc->learnerCount"
+                    :price="$cc->price"
+                    :bought="$cc->isPurchased()"
                     :checkWishList="$course->checkWishList"
-                    :checkCart="$course->checkCart"
+                    :checkCart="$cc->checkCart"
+                    :videoCount="$cc->videoCount"
+                    :chapterCount="$cc->chapterCount"
 
                   />
               @endforeach
@@ -758,21 +760,22 @@ $course_id = $course->id;
 
             <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item--x ">
               @foreach ($mentor_other_courses as $mentor_other_course)
-                    <x-course 
+                   <x-bundle-course 
                     :id="$mentor_other_course->id"
                     :img="$mentor_other_course->preview_image"
                     :course="$mentor_other_course->title"
                     :url="$mentor_other_course->slug"
                     :rating="round($mentor_other_course->average_rating, 2)"
-                    :creatorImg="$mentor_other_course->user->user_img"
-                    :creatorName="$mentor_other_course->user->fname"
+                    :videoCount="$mentor_other_course->videoCount()"
+                    :classesCount="count($mentor_other_course->course_id)"
+                    :creatorImg="$mentor_other_course->users()"
+                    :creatorName="$mentor_other_course->users()->first()->fname"
                     :creatorUrl="$mentor_other_course->user->id"
                     :learnerCount="$mentor_other_course->learnerCount"
                     :price="$mentor_other_course->price"
                     :bought="$mentor_other_course->isPurchased()"
-                    :checkWishList="$course->checkWishList"
-                    :checkCart="$course->checkCart"
-
+                    :checkWishList="$mentor_other_course->checkWishList"
+                    :checkCart="$mentor_other_course->checkCart"
                   />
               @endforeach
             </div>

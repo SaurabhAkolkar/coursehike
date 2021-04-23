@@ -54,7 +54,7 @@
         <div class="d-flex justify-content-between align-items-start flex-wrap flex-column flex-md-row">
             <!-- Global Search: Start-->
             <div class="la-gsearch la-anim__wrap">
-              <form class="form-inline m-0 la-anim__stagger-item"  action="{{ url('/search-course/') }}">
+              <form class="form-inline m-0 la-anim__stagger-item"  action="{{ url('/search-classes/') }}">
                 <div class="form-group d-flex align-items-center">
                   <input class="la-gsearch__input form-control la-gsearch__input-searchcourses " style="background:transparent" name="course_name" type="text" placeholder="What can we interest you in learning today?" required>
                   <button class="la-gsearch__submit btn mt-0" type="submit"><i class="la-icon icon icon-search la-gsearch__input-icon"></i></button>

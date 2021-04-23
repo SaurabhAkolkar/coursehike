@@ -1,9 +1,5 @@
 @extends('learners.layouts.app')
 
-@section('seo_content')
-    <title> Search Coures & Classes </title>
-@endsection
-
 @section('content')
 <section class="la-section__small la-cbg--main">
     <div class="la-section__inner">
@@ -26,13 +22,13 @@
         
         <div class="d-flex justify-content-between position-relative">  
           <a href="{{URL::previous()}}" class="la-vcreator__back d-none d-md-block" style="top:-6px"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
-          <h1 class="la-page__title mb-8">Search Courses</h1>
+          <h1 class="la-page__title mb-8">Search Classes</h1>
         </div>
 
         <div class="d-flex justify-content-between align-items-start">
             <!-- Global Search: Start-->
             <div class="la-gsearch mb-0">
-              <form class="form-inline "  action="{{ url('/search-course/') }}">
+              <form class="form-inline "  action="{{ url('/search-classes/') }}">
                 <div class="form-group d-flex align-items-center">
                   <input class="la-gsearch__input form-control la-gsearch__input-searchcourses" style=" background:transparent" value="{{$search_input}}" name="course_name" type="text" placeholder="What you want to learn today?" required>
                   <button class="la-gsearch__submit btn mt-0" type="submit"><i class="la-icon icon icon-search la-gsearch__input-icon"></i></button>
@@ -163,7 +159,7 @@
 
                                 <button onclick="$('#filter_form').submit()" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Apply</button> 
                                 <div class="mt-6">
-                                  <a href="/browse/courses" role="button" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Clear</a> 
+                                  <a href="/browse/classes" role="button" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Clear</a> 
                                 </div>
                             </form>
                       </div>
@@ -186,23 +182,24 @@
                     <div class="la-anim__wrap">
                       <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
                         @foreach($courses as $course)
-                                      <x-bundle-course 
-                                      :id="$course->id"
-                                      :img="$course->preview_image"
-                                      :course="$course->title"
-                                      :url="$course->slug"
-                                      :rating="round($course->average_rating, 2)"
-                                      :videoCount="$course->videoCount()"
-                                      :classesCount="count($course->course_id)"
-                                      :creatorImg="$course->users()"
-                                      :creatorName="$course->users()->first()->fname"
-                                      :creatorUrl="$course->user->id"
-                                      :learnerCount="$course->learnerCount"
-                                      :price="$course->price"
-                                      :bought="$course->isPurchased()"
-                                      :checkWishList="$course->checkWishList"
-                                      :checkCart="$course->checkCart"
-                                    />
+                        
+                          <x-course 
+                              :id="$course->id"
+                              :img="$course->preview_image"
+                              :course="$course->title"
+                              :url="$course->slug"
+                              :rating="round($course->average_rating, 2)"
+                              :creatorImg="$course->user->user_img"
+                              :creatorName="$course->user->fname"
+                              :creatorUrl="$course->user->id"
+                              :learnerCount="$course->learnerCount"
+                              :price="$course->price"
+                              :bought="$course->isPurchased()"
+                              :checkWishList="$course->checkWishList"
+                              :checkCart="$course->checkCart"
+                              :videoCount="$course->videoCount"
+                              :chapterCount="$course->chapterCount"
+                            />
                         @endforeach 
                       </div> 
                     </div>                
@@ -213,11 +210,11 @@
                 <div class="col-12 px-0 la-anim__wrap">
                   <div class="la-empty__courses d-md-flex justify-content-between align-items-center la-anim__stagger-item">
                         <div class="la-empty__inner">
-                            <h6 class="la-empty__course-title la-anim__stagger-item">No Courses Found.</h6>
+                            <h6 class="la-empty__course-title la-anim__stagger-item">No Classes Found.</h6>
                         </div>
                         <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
-                            <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
-                                Browse Courses
+                            <a href="{{Url('/browse/classes')}}" class="la-empty__browse">
+                                Browse Classes
                                 <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
                             </a>
                         </div>
