@@ -576,7 +576,7 @@ $course_id = $course->id;
             <div class="la-rtng__review-popup la-anim__wrap">
                 <div class="text-lg-right">
                   <a class="la-rtng__review text-uppercase text-nowrap la-anim__stagger-item" onclick="openReview()">Leave a Review</a>
-                </div> 
+                </div>
                     <!-- Leave a Rating Popup: Start -->
                     <div class="modal fade la-rtng__review-modal" id="leave_rating">
                       <div class="modal-dialog la-rtng__review-dialog">

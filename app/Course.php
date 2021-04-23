@@ -262,17 +262,23 @@ class Course extends Model
 
     public function getProgress()
     {
-        $classes = $this->courseclass->count();
+        if(Auth::check()){
 
-        $lastWatchedCourse = UserWatchProgress::where([ 'course_id'=> $this->id, 'user_id'=>Auth::User()->id ])->get();
+            $classes = $this->courseclass->count();
 
-        $courseCompletion = 0;
-        if($lastWatchedCourse){
-            $lastWatchedCourseAvg = $lastWatchedCourse->avg('current_position');
-            $lastWatchedCourseCount = $lastWatchedCourse->count();
-            $courseCompletion = round(abs($lastWatchedCourseAvg / (abs($classes - $lastWatchedCourseCount)+1)));
+            $lastWatchedCourse = UserWatchProgress::where([ 'course_id'=> $this->id, 'user_id'=>Auth::User()->id ])->get();
+
+            $courseCompletion = 0;
+            if($lastWatchedCourse){
+                $lastWatchedCourseAvg = $lastWatchedCourse->avg('current_position');
+                $lastWatchedCourseCount = $lastWatchedCourse->count();
+                $courseCompletion = round(abs($lastWatchedCourseAvg / (abs($classes - $lastWatchedCourseCount)+1)));
+            }
+            return $courseCompletion;
         }
-        return $courseCompletion;
+        else{
+            return 0;
+        }
     }
 
     public function isCompleted()
