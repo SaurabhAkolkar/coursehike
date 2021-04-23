@@ -17,11 +17,12 @@ class Cart extends Model
 
     public function courses()
     {
-        if($this->bundle_id >0){
-        	return $this->belongsTo('App\BundleCourse','bundle_id','id');
-        }else{
-        	return $this->belongsTo('App\Course','course_id','id');
-        }
+       	return $this->belongsTo('App\Course','course_id','id');
+    }
+
+    public function bundle(){
+        return $this->belongsTo('App\BundleCourse','bundle_id','id');
+
     }
 
     public function getClassCountAttribute()

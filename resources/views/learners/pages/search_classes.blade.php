@@ -203,6 +203,7 @@
                               :checkCart="$course->checkCart"
                               :videoCount="$course->videoCount"
                               :chapterCount="$course->chapterCount"
+                              :progress="$course->getProgress()"
                             />
                         @endforeach 
                       </div> 

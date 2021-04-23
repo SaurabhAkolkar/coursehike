@@ -75,6 +75,8 @@
                           :checkCart="$course->bundle->checkCart"
                           :addedToWhishList="$addedToWhishList"
                           :wishlistId="$course->id"
+                          :progress="$course->bundle->progress"
+
                         />
 {{-- 
                         <x-course 
@@ -136,6 +138,8 @@
                           :videoCount="$courses->courses->videoCount"
                           :chapterCount="$courses->courses->chapterCount"
                           :bought="$courses->courses->isPurchased()"
+                          :progress="$course->getProgress()"
+
                         />
                     </div>
                     @endforeach

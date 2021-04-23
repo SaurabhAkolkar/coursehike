@@ -248,6 +248,8 @@
                                 :bought="$course->isPurchased()"
                                 :checkWishList="$course->checkWishList"
                                 :checkCart="$course->checkCart"
+                                :progress="$course->progress"
+
                             />
                             @endforeach
 
@@ -307,6 +309,8 @@
                                                           :bought="$course->isPurchased()"
                                                           :checkWishList="$course->checkWishList"
                                                           :checkCart="$course->checkCart"
+                                                          :progress="$course->progress"
+
                                                       />
                                                     </div>
                                                   @endforeach
@@ -361,6 +365,7 @@
                                                 :bought="$course->isPurchased()"
                                                 :checkWishList="$course->checkWishList"
                                                 :checkCart="$course->checkCart"
+                                                :progress="$course->progress"
                                               />
                                           @endforeach
                                         </div>

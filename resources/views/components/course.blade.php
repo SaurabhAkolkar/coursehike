@@ -157,7 +157,7 @@
                         </div>
                     </div>
                     <div class="progress la-lclass__progress bg-transparent align-items-end position-relative">
-                        <div class="progress-bar la-lclass__progress-bar" role="progress-bar" aria-valuenow="50%" aria-valuemin="0" aria-valuemax="100" style="width:50%; height:4px;"></div>
+                        <div class="progress-bar la-lclass__progress-bar" role="progress-bar" aria-valuenow="{{$progress}}%" aria-valuemin="0" aria-valuemax="100" style="width:{{$progress}}%; height:4px;"></div>
                     </div>
                 </div>                
             </div>   

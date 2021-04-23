@@ -62,6 +62,8 @@
                           :checkWishList="$course->bundle->checkWishList"
                           :checkCart="$course->bundle->checkCart"
                           :removeFromPlaylist="$removeFromPlaylist"
+                          :progress="$course->bundle->progress"
+
 
                         />
 
@@ -115,6 +117,8 @@
                                     :checkCart="$course->checkCart"
                                     :videoCount="$course->videoCount"
                                     :chapterCount="$course->chapterCount"
+                                    :progress="$course->getProgress()"
+
                                 />
                               </div>
                               @endforeach

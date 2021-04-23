@@ -141,9 +141,12 @@ class BundleCourse extends Model
     public function getProgressAttribute(){
         
         $courses = $this->getCourses();
-        $progress = null;
+        $progress = 0;
         foreach($courses as $c){
             $progress = $progress + $c->getProgress();
+        }
+        if($progress > 0){
+            $progress = $progress/count($courses);
         }
 
         return $progress;

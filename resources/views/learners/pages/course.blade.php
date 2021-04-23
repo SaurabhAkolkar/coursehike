@@ -207,6 +207,7 @@ $course_id = $course->id;
                     :checkCart="$cc->checkCart"
                     :videoCount="$cc->videoCount"
                     :chapterCount="$cc->chapterCount"
+                    :progress="$cc->getProgress()"
 
                   />
               @endforeach
@@ -780,6 +781,7 @@ $course_id = $course->id;
                     :bought="$mentor_other_course->isPurchased()"
                     :checkWishList="$mentor_other_course->checkWishList"
                     :checkCart="$mentor_other_course->checkCart"
+                    :progress="$mentor_other_course->progress"
                   />
               @endforeach
             </div>
