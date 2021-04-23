@@ -364,21 +364,69 @@ class SearchController extends Controller
 
 		// courses variable
 
-		// $purchased_courses = UserPurchasedCourse::with('course','course.user','course.review')->where(['user_id'=>Auth::User()->id])->whereNotIn('course_id', $watched_courses)->where('bundle_id','>',0)->pluck('bundle_id')->toArray();
+		$purchased_courses = UserPurchasedCourse::with('course','course.user','course.review')->where(['user_id'=>Auth::User()->id])->whereNotIn('course_id', $watched_courses)->where('bundle_id','>',0)->pluck('course_id')->toArray();
 
-		// $ongoing_completed_courses = Course::whereIn('id', $watched_courses)->whereNotIn('id', $purchased_courses)->get();
+		$purchased_courses_ids = UserPurchasedCourse::with('course','course.user','course.review')->where(['user_id'=>Auth::User()->id])->whereNotIn('course_id', $watched_courses)->where('bundle_id','>',0)->groupBy('bundle_id')->get()->pluck('bundle_id')->toArray();
 
-		// $completed_courses = $ongoing_completed_courses->filter->isCompleted()->values();
+		$ongoing_completed_courses = Course::whereIn('id', $watched_courses)->whereNotIn('id', $purchased_courses)->get();
 
-		// $on_going_courses = $ongoing_completed_courses->filter(function ($course) {
-		// 	return !$course->isCompleted();
-		// })->values();
+		$completed_courses = $ongoing_completed_courses->filter->isCompleted()->values();
 
-		// print_r($on_going_courses);
-		// print_r($completed_courses);
-		// dd('wait');
+		$on_going_courses = $ongoing_completed_courses->filter(function ($course) {
+			return !$course->isCompleted();
+		})->values();
 
-		return view('learners.pages.my-courses',compact('on_going_courses','yet_to_start_courses','completed_courses','playlists','on_going_classes','yet_to_start_classes', 'completed_classes'));
+		$all_bundle_course = BundleCourse::whereIn('id', $purchased_courses_ids)->get();
+
+		$completed_ids = $completed_courses->pluck('id')->toArray();
+
+		$completed_bundle = [];
+		if(count($completed_ids) > 0){
+			$completed_bundle = $all_bundle_course->filter(function ($course) use($completed_ids){
+				$c = $course->course_id;
+				foreach($completed_ids as $ci){
+					if(in_array($ci , $c)){
+						return $course;
+					}
+				}
+				
+			})->values();
+		}
+
+		$on_going_courses_ids = $on_going_courses->pluck('id')->toArray();
+		$on_going_bundle = [];
+		if(count($on_going_courses_ids) > 0){
+			$on_going_bundle = $all_bundle_course->filter(function ($course) use($on_going_courses_ids){
+				$c = $course->course_id;
+				foreach($on_going_courses_ids as $ci){
+					if(in_array($ci , $c)){
+						return true;
+					}
+				}
+				
+			})->values();
+		}
+
+		$yet_to_start = array_diff($purchased_courses, $on_going_courses->pluck('id')->toArray());
+
+		$yet_to_start_courses = Course::whereIn('id', $yet_to_start)->get();
+
+		$yet_to_start_ids = $yet_to_start_courses->pluck('id')->toArray();		
+		$yet_to_start_bundle = [];
+
+		if(count($yet_to_start_ids) > 0){
+			$yet_to_start_bundle = $all_bundle_course->filter(function ($course) use($yet_to_start_ids){
+				$c = $course->course_id;
+				foreach($yet_to_start_ids as $ci){
+					if(in_array($ci , $c)){
+						return true;
+					}
+				}
+				
+			})->values();
+		}
+
+		return view('learners.pages.my-courses',compact('on_going_bundle','yet_to_start_bundle','completed_bundle','playlists','on_going_classes','yet_to_start_classes', 'completed_classes'));
 	}
 
 	public function searchCourse(Request $request){

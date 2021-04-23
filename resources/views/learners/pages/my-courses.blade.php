@@ -51,27 +51,26 @@
               />
 
               <div class="col-12 px-0 la-anim__wrap">
-                  @if(count($on_going_courses) != 0)
+                  @if(count($on_going_bundle) != 0)
                     <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
-                      @foreach($on_going_courses as $course)
-                      
-                      <x-course 
-                          :id="$course->id"
-                          :img="$course->preview_image" 
-                          :course="$course->title" 
-                          :url="$course->slug" 
-                          :rating="round($course->average_rating, 2)"
-                          :creatorImg="$course->user->user_img"
-                          :creatorName="$course->user->fullName"
-                          :creatorUrl="$course->user->id"
-                          :price="$course->price"
-                          :learnerCount="$course->learnerCount"
-                          :bought="$course->isPurchased()"
-                          :checkWishList="$course->checkWishList"
-                          :checkCart="$course->checkCart"
-                          :videoCount="$course->videoCount"
-                          :chapterCount="$course->chapterCount"
-                        />
+                      @foreach($on_going_bundle as $course)
+                        <x-bundle-course 
+                            :id="$course->id"
+                            :img="$course->preview_image"
+                            :course="$course->title"
+                            :url="$course->slug"
+                            :rating="round($course->average_rating, 2)"
+                            :videoCount="$course->videoCount()"
+                            :classesCount="count($course->course_id)"
+                            :creatorImg="$course->users()"
+                            :creatorName="$course->users()->first()->fname"
+                            :creatorUrl="$course->user->id"
+                            :learnerCount="$course->learnerCount"
+                            :price="$course->price"
+                            :bought="$course->isPurchased()"
+                            :checkWishList="$course->checkWishList"
+                            :checkCart="$course->checkCart"
+                        />                  
                       @endforeach
                     </div>
 
@@ -160,28 +159,27 @@
             <!-- Yet to start - Courses -->
             <div class="col-12">
                 <div class="la-mycourses__subtitle text-2xl mb-6 head-font  la-anim__stagger-item--x">Yet to Start Courses</div>
-                @if($yet_to_start_courses && count($yet_to_start_courses) > 0)
+                @if($yet_to_start_bundle && count($yet_to_start_bundle) > 0)
                   <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
-                    @foreach($yet_to_start_courses as $course)
+                    @foreach($yet_to_start_bundle as $course)
                   
-                    <x-course 
-                        :id="$course->id"
-                        :img="$course->preview_image" 
-                        :course="$course->title" 
-                        :url="$course->slug" 
-                        :rating="round($course->average_rating, 2)"
-                        :creatorImg="$course->user->user_img"
-                        :creatorName="$course->user->fullName"
-                        :creatorUrl="$course->user->id"
-                        :price="$course->price"
-                        :learnerCount="$course->learnerCount"
-                        :bought="$course->isPurchased()"
-                        :checkWishList="$course->checkWishList"
-                        :checkCart="$course->checkCart"
-                        :videoCount="$course->videoCount"
-                        :chapterCount="$course->chapterCount"
-
-                      />
+                   <x-bundle-course 
+                            :id="$course->id"
+                            :img="$course->preview_image"
+                            :course="$course->title"
+                            :url="$course->slug"
+                            :rating="round($course->average_rating, 2)"
+                            :videoCount="$course->videoCount()"
+                            :classesCount="count($course->course_id)"
+                            :creatorImg="$course->users()"
+                            :creatorName="$course->users()->first()->fname"
+                            :creatorUrl="$course->user->id"
+                            :learnerCount="$course->learnerCount"
+                            :price="$course->price"
+                            :bought="$course->isPurchased()"
+                            :checkWishList="$course->checkWishList"
+                            :checkCart="$course->checkCart"
+                        />     
                     @endforeach
                   </div>
                 @else
@@ -261,29 +259,28 @@
             <!-- Completed Courses -->
             <div class="col-12">
                 <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Completed Courses</div>
-                @if($completed_courses && count($completed_courses) != 0)
+                @if($completed_bundle && count($completed_bundle) != 0)
                   <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4  la-anim__stagger-item">
-                    @foreach($completed_courses as $course)
+                    @foreach($completed_bundle as $course)
                   
-                    <x-course 
-                        :id="$course->id"
-                        :img="$course->preview_image" 
-                        :course="$course->title" 
-                        :url="$course->slug" 
-                        :rating="round($course->average_rating, 2)"
-                        :creatorImg="$course->user->user_img"
-                        :creatorName="$course->user->fullName"
-                        :creatorUrl="$course->user->id"
-                        :price="$course->price"
-                        :learnerCount="$course->learnerCount"
-                        :bought="$course->isPurchased()"
-                        :checkWishList="$course->checkWishList"
-                        :checkCart="$course->checkCart"
-                        :videoCount="$course->videoCount"
-                        :chapterCount="$course->chapterCount"
+                      <x-bundle-course 
+                            :id="$course->id"
+                            :img="$course->preview_image"
+                            :course="$course->title"
+                            :url="$course->slug"
+                            :rating="round($course->average_rating, 2)"
+                            :videoCount="$course->videoCount()"
+                            :classesCount="count($course->course_id)"
+                            :creatorImg="$course->users()"
+                            :creatorName="$course->users()->first()->fname"
+                            :creatorUrl="$course->user->id"
+                            :learnerCount="$course->learnerCount"
+                            :price="$course->price"
+                            :bought="$course->isPurchased()"
+                            :checkWishList="$course->checkWishList"
+                            :checkCart="$course->checkCart"
+                        />     
 
-
-                      />
                     @endforeach
                   </div>
                 @else
