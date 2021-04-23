@@ -133,7 +133,7 @@ class BundleCourse extends Model
         if($value != null){
              return Storage::url(config('path.course.img'). $value);
         }else{
-            return Avatar::create($this->title)->toBase64();
+            return asset('/images/default-images/course_default.png');
         }
     }
 

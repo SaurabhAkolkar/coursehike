@@ -368,7 +368,15 @@ class SearchController extends Controller
 
 		$ongoing_completed_courses = Course::whereIn('id', $watched_courses)->whereNotIn('id', $purchased_courses)->get();
 
-		
+		$completed_courses = $ongoing_completed_courses->filter->isCompleted()->values();
+
+		$on_going_courses = $ongoing_completed_courses->filter(function ($course) {
+			return !$course->isCompleted();
+		})->values();
+
+		// print_r($on_going_courses);
+		// print_r($completed_courses);
+		// dd('wait');
 
 		return view('learners.pages.my-courses',compact('on_going_courses','yet_to_start_courses','completed_courses','playlists','on_going_classes','yet_to_start_classes', 'completed_classes'));
 	}
