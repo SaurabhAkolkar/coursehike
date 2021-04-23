@@ -24782,18 +24782,12 @@ label.error {
 }
 
 .la-home__course-slide, .la-home__course-slide2 {
-  width: 300px !important;
+  width: 320px !important;
   height: auto;
 }
 .la-home__course-slide:first-child, .la-home__course-slide2:first-child {
   padding-left: 0;
 }
-@media (min-width: 992px) {
-  .la-home__course-slide, .la-home__course-slide2 {
-    width: 320px !important;
-  }
-}
-
 .la-home__course-pagination .swiper-pagination-bullet {
   background: var(--gray6);
   border-radius: 50%;

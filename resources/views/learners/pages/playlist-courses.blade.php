@@ -71,7 +71,7 @@
                     @endforeach
                     @else
                     <div class="col-12 ">
-                    <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                    <div class="la-empty__courses my-4 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
                       <div class="col la-empty__inner">
                           <h6 class="la-empty__course-title text-lg text-md-2xl m-0 la-anim__stagger-item">No courses added to this playlist yet! </h6>
                       </div>
@@ -124,7 +124,7 @@
                               @endforeach
                             @else
                             <div class="col-12 ">
-                            <div class="la-empty__courses d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                            <div class="la-empty__courses my-4 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
                               <div class="col la-empty__inner">
                                   <h6 class="la-empty__course-title text-lg text-md-2xl m-0 la-anim__stagger-item">No Classes added to this playlist yet! </h6>
                               </div>
