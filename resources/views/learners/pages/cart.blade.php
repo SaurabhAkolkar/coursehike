@@ -52,7 +52,6 @@
 
                       @if(count($carts) > 0)
                         @foreach ($carts as $cart)
-                          {{-- {{dd($cart->cartItems)}} --}}
                         
                             <x-cart
                               :cartId="$cart->id"

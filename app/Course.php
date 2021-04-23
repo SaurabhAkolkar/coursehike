@@ -188,9 +188,19 @@ class Course extends Model
     {
         if(Auth::check())
         {
-            $purchased_course = UserPurchasedCourse::where(['course_id'=> $this->id , 'user_id'=> Auth::User()->id])->firstOr(function () {
-                return null;
-            });;
+            $purchased_course = UserPurchasedCourse::where(['course_id'=> $this->id , 'user_id'=> Auth::User()->id])
+                                ->orWhere( function($query) {
+                                    // Accept int datatype
+                                    $query->orWhereJsonContains( 'class_id', $this->id )
+                                        ->where('user_id', '=', Auth::User()->id);
+                                })
+                                ->orWhere( function($query) {
+                                    // Accept String datatype
+                                    $query->orWhereJsonContains( 'class_id', $this->id.'' )
+                                        ->where('user_id', '=', Auth::User()->id);
+                                })->firstOr(function () {
+                                    return null;
+                                });
             return $purchased_course;
         }
 

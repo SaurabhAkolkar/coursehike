@@ -82,7 +82,7 @@ class InvoicePaymentSucceededJob implements ShouldQueue
             );
 
 
-            if($invoice_amount_paid > 0 && $invoice_charge && $payment_intent_id){
+            if( ((int)$invoice_amount_paid) > 0 && !empty($invoice_charge) && !empty($payment_intent_id) ){
                 // Create Invoice Record
                 UserSubscriptionInvoice::create([
                     'user_id' => $user->id,

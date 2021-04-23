@@ -65,7 +65,7 @@ class CartController extends Controller
             
             if(!$check){
                 $cart = Cart::create(
-                    ['user_id' => Auth::User()->id, 'course_id'=> 0 ,'bundle_id' => $request->course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id]
+                    ['user_id' => Auth::User()->id, 'course_id'=> 0 ,'bundle_id' => $request->course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id, 'type' => 1]
                 );
     
                 return 'Course added to cart';
@@ -79,7 +79,7 @@ class CartController extends Controller
             
             if(!$check){
                 $cart = Cart::create(
-                    ['user_id' => Auth::User()->id, 'course_id' => $request->course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id]
+                    ['user_id' => Auth::User()->id, 'course_id' => $request->course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id, 'type' => 0]
                 );
     
                 return 'Class added to cart';
@@ -132,20 +132,27 @@ class CartController extends Controller
         
         $bundle_course_id = null;
         $course_id = 0;
+        $type = 0;
         if($request->bundle_course == 'true'){
             $course =  BundleCourse::findOrFail($request->course_id);
             $bundle_course_id = $request->course_id;
+            $type = 1;
         }else{
             $course = Course::findOrFail($request->course_id);
             $course_id = $request->course_id;
         }
         
-        $check = Cart::where(['user_id' => Auth::User()->id, 'course_id' => $course_id, 'bundle_id' => $bundle_course_id])->first();
-        if($check){
-            return redirect()->back()->with('message','Course is already in the cart');
-        }
-        $cart = Cart::firstOrCreate(
-            ['user_id' => Auth::User()->id, 'course_id' => $course_id, 'bundle_id' => $bundle_course_id, 'bundle_id' => $request->course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id]
+        // $check = Cart::where(['user_id' => Auth::User()->id, 'course_id' => $course_id, 'bundle_id' => $bundle_course_id])->first();
+        // if($check){
+        //     return redirect()->back()->with('message','Course is already in the cart');
+        // }
+        // $cart = Cart::firstOrCreate(
+        //     ['user_id' => Auth::User()->id, 'course_id' => $course_id, 'bundle_id' => $bundle_course_id, 'bundle_id' => $request->course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id]
+        // );
+
+        Cart::updateOrCreate(
+            ['user_id' => Auth::User()->id, 'type' => $type],
+            ['course_id' => $course_id, 'bundle_id' => $bundle_course_id, 'status' => 1, 'price' => $course->convertedPrice, 'category_id' => $course->category_id]
         );
 
         if($request->has('buy_type') && $request->buy_type == 'buy_now')
@@ -259,26 +266,9 @@ class CartController extends Controller
         }
 
         if($carts){
-            // $cartItem = CartItem::with('courses','courses.user')->where('cart_id', $carts->id)->get();
-            // $discount = $cartItem->sum('offer_price');
-            // dd($carts);
-            // $discount = $carts->sum('cartItems.price');
-            //old code
-            // $discount = $carts->sum(function ($item) {
-            //     return array_sum(array_column($item['cartItems']->toArray(), 'offer_price'));
-            // });
-
-            // $subTotal = $carts->sum(function ($item) {
-            //     return array_sum(array_column($item['cartItems']->toArray(), 'price'));
-            // });
-
             $discount = $carts->sum('offer_price');
 
             $subTotal = $carts->sum('price');
-            // dd($subTotal);
-         
-            // $total = $cartItem->sum('price');
-           
 
             $coupon = Null;
             $coupons = Coupon::where('expirydate', '>',  Carbon::now())->get();
@@ -449,8 +439,6 @@ class CartController extends Controller
         $insert['invoice_id'] = '#LILA-'. date('m-d') . '-'. $random[0]. '-'. $random[1];
         $insert['user_id'] =  Auth::User()->id;
 
-
-
         if(Session::has('appliedCoupon'))
         {
             $coupon = Coupon::findOrFail(Session::get('appliedCoupon'));
@@ -478,22 +466,21 @@ class CartController extends Controller
         $insert['total'] = ($tax_rates) ? ($price * 1.18) : $price;
         $insert['sub_total'] = $price;
 
-        // $insert['purchase_type'] = ($cart->first()->cartItems && $cart->first()->cartItems->first() && $cart->first()->cartItems->first()->purchase_type);
         $insert['purchase_type'] = 'all_classes';
         $insert['status'] = 'payment-pending';
 
         $info = UserInvoiceDetail::create($insert);
         foreach($cart as $single_cart){
+
+
             $insertDetails['invoice_id'] = $info->id;
-            // foreach($single_cart->cartItems as $c){
-            if($single_cart->bundle_id > 0){
+            if($single_cart->bundle_id){
                 $insertDetails['course_id'] = 0;
                 $insertDetails['bundle_id'] = $single_cart->bundle_id;
                 $insertDetails['purchase_type'] = 'bundle';
-                
             }else{
                 $insertDetails['course_id'] = $single_cart->course_id;
-                $insertDetails['purchase_type'] = 'all_classes';
+                $insertDetails['purchase_type'] = 'classes';
 
             }
             $insertDetails['class_id'] = $single_cart->class_id;
@@ -503,11 +490,8 @@ class CartController extends Controller
         }
 
         Session::forget('appliedCoupon');
-        // Cart::where(['user_id'=> Auth::User()->id])->update(['status'=>0]);
 
         return $this->stripeCheckout($info, $request);
-
-        // return redirect()->back()->with('message','Purchase Successful.');
     }
 
     public function cartpage(Request $request)
@@ -624,8 +608,6 @@ class CartController extends Controller
         $currency = 'USD';
         $total_amount = $order->sub_total * 100;
 
-        $setting = Setting::find(1);
-
         if(getLocation() == 'IN'){
             $tax_rates = [config('rinvex.subscriptions.stripe_tax_rate')];
             $currency = 'INR';
@@ -658,21 +640,7 @@ class CartController extends Controller
 
 		if(!empty($stripe_id)){
             $session_obj['customer'] = $stripe_id;
-			// try {
-			// 	$customer = $this->stripe->customers()->find($stripe_id);
-
-			// 	if (!array_key_exists('deleted', $customer)){
-			// 		$session_obj['customer'] = $stripe_id;
-			// 	}else
-			// 		$session_obj['customer_email'] = Auth::user()->email;
-
-			// } catch (NotFoundException $e) {
-			// 	$message = $e->getMessage();
-			// 	$session_obj['customer_email'] = Auth::user()->email;
-			// }
-		}
-        // else
-		// 	$session_obj['customer_email'] = Auth::user()->email;        
+		}       
         
 		$checkout_session = $this->stripe->checkout()->sessions()->create($session_obj);
 
@@ -703,40 +671,36 @@ class CartController extends Controller
                     && strtolower($currency) == strtolower($invoice->currency)
             ){
 
-                $invoice_details = InvoiceDetail::having('invoice_id', '=', $transaction_id)->get()->groupBy('course_id');
-                // dd($invoice_details);
-                foreach($invoice_details as $course_id => $invoice_items){
-                    // dd($invoice_items, $invoice->user_id, $course_id);
+                $invoice_details = InvoiceDetail::having('invoice_id', '=', $transaction_id)->get();
+                
+                if($invoice->status != 'paid')
+                    foreach($invoice_details as $invoice_items){
+                        
+                        if($invoice_items->purchase_type == 'bundle'){
+                            $courses = BundleCourse::find($invoice_items->bundle_id)->getCourses();
 
-                    $already_puchased = UserPurchasedCourse::firstOrNew( ['course_id'=> $course_id , 'user_id'=> $invoice->user_id] );
-                    $already_puchased->order_id = $transaction_id;
+                            UserPurchasedCourse::updateOrCreate(
+                                ['order_id' => $transaction_id, 'user_id' => $invoice->user_id, 'bundle_id' => $invoice_items->bundle_id],
+                                ['class_id' => json_encode($courses->pluck('id')->all()), 'purchase_type' => $invoice_items->purchase_type]
+                            );
 
-                    if($already_puchased->exists)
-                    $old_classess = json_decode($already_puchased->class_id);
-                    $new_classess = $invoice_items->pluck('class_id')->all();
+                        }else{
+                            UserPurchasedCourse::updateOrCreate(
+                                ['order_id' => $transaction_id, 'user_id' => $invoice->user_id],
+                                ['course_id' => $invoice_items->course_id, 'class_id' => 0, 'purchase_type' => $invoice_items->purchase_type]
+                            );
+                        }
 
-                    $combined_classes = array_unique(array_merge($old_classess ?? [],$new_classess));
-                    
-                    $already_puchased->class_id = json_encode($combined_classes);
-                    $already_puchased->purchase_type = $invoice_items->first()->purchase_type;
-                    $already_puchased->save();
-
-                    // UserPurchasedCourse::create([
-                    //     'order_id' => $transaction_id,
-                    //     'user_id' => $invoice->user_id,
-                    //     'course_id' => $course_id,
-                    //     'class_id' => json_encode($invoice_items->pluck('class_id')->all()),
-                    //     'purchase_type' => $invoice_items->first()->purchase_type,
-                    // ]);
-                }
+                    }
 
                 // Clear Cart
                 Cart::where('user_id', $invoice->user->id)->get()->each(function($cart) {
                     $cart->delete();
                 });
+
+                $invoice->status = 'paid';
+                $invoice->save();
                 
-				// $user->stripe_id = $checkout_session['customer'];
-				// $user->save();
     
                 return view('learners.messages.charge-successful', compact('invoice'));
             }
