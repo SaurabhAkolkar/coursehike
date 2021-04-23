@@ -153,7 +153,7 @@ $(function(){
     var course_slider_pagination_first_width = $(course_slider_pagination_first).width() + 30;
     $(course_slider_pagination_first).css("width", course_slider_pagination_first_width);*/
     
-
+    // Home Featured Courses Tabs
     $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
       var paneTarget = $(e.target).attr('href');
       var $thePane = $('.tab-pane' + paneTarget);
@@ -190,6 +190,7 @@ $(function(){
     });
   }
 
+  // Home Featured Classes Tabs
     $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
       var paneTarget = $(e.target).attr('href');
       var $thePane = $('.tab-pane' + paneTarget);
@@ -319,7 +320,7 @@ $(function(){
     });
   }
 
-  // Feature Courses Slider in Browser Courses Page
+  // Featured Slider in Browser Courses & Browse Classes Page
   if($('.la-courses__featured-container')[0]){     
     var course_swiper = new Swiper(".la-courses__featured-container", {
       slidesPerView: 'auto',
@@ -347,6 +348,53 @@ $(function(){
     });
   }
 
+  // My Courses & Classes Sliders
+  if($('.la-my__courses-container, .la-my__classes-container')[0]){     
+      var my_course_swiper = new Swiper(".la-my__courses-container, .la-my__classes-container", {
+        slidesPerView: 'auto',
+        spaceBetween: 30,
+        observer: true,
+        observeParents: true,
+        flipEffect: {
+          slideShadows: false,
+        },
+        speed:1000,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false
+        },
+        pagination: {
+          el: ".la-home__course-paginations",
+          clickable: true,
+        },
+        breakpoints: {  
+          320: {            
+            spaceBetween:15,     
+          },     
+          767:{
+            spaceBetween:30,
+          },
+        }, 
+      });
+  }
+
+  // My Courses & Classes Tabs
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+    var paneTarget = $(e.target).attr('href');
+    var $thePane = $('.tab-pane' + paneTarget);
+    var paneIndex = $thePane.index();
+    if ($thePane.find('.la-my__courses-container, .la-my__classes-container').length > 0 && 0 === $thePane.find('.swiper-slide-active').length) {
+      
+      my_course_swiper[paneIndex].update();
+
+      var course_slider_pagination = my_course_swiper[paneIndex].pagination.el;
+      var course_slider_pagination_width = $(course_slider_pagination).width() + 30;
+      $(course_slider_pagination).css("width", course_slider_pagination_width);
+    }
+  }); 
+
+
+    
   //Swiper Js for Become a Creator
   if($('.la-mcard__container')[0] && $('.la-mcard__container .swiper-slide').length > 1){
     var swiper = new Swiper('.la-mcard__container', {

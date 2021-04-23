@@ -1,7 +1,7 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-    <title> Search Coures & Classes </title>
+    <title> Search Coures </title>
 @endsection
 
 @section('content')
