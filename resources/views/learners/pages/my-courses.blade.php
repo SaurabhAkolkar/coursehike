@@ -76,8 +76,10 @@
                       <div class="swiper-wrapper la-my__courses-wrapper ">  <!-- Swiper Wrapper : Start -->  
 
                         @if(count($on_going_bundle) != 0)
-                          <div class="swiper-slide la-my__courses-slide la-anim__stagger-item">
-                            @foreach($on_going_bundle as $course)                            
+                          
+                            @foreach($on_going_bundle as $course) 
+                              <div class="swiper-slide la-my__courses-slide la-anim__stagger-item"> 
+                                                          
                                 <x-bundle-course 
                                   :id="$course->id"
                                   :img="$course->preview_image"
@@ -95,11 +97,11 @@
                                   :checkWishList="$course->checkWishList"
                                   :checkCart="$course->checkCart"
                                   :progress="$course->progress"
+                                />  
 
-                              />      
+                              </div>       
                             @endforeach
-                          </div>                     
-                     
+                                            
                           @else
 
                             <div class="col-12 la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
@@ -138,32 +140,32 @@
 
                         @if($yet_to_start_bundle && count($yet_to_start_bundle) > 0)
 
-                        <div class="swiper-slide la-my__courses-slide la-anim__stagger-item">
+                        
                             @foreach($yet_to_start_bundle as $course)
-                          
-                            <x-bundle-course 
-                                  :id="$course->id"
-                                  :img="$course->preview_image"
-                                  :course="$course->title"
-                                  :url="$course->slug"
-                                  :rating="round($course->average_rating, 2)"
-                                  :videoCount="$course->videoCount()"
-                                  :classesCount="count($course->course_id)"
-                                  :creatorImg="$course->users()"
-                                  :creatorName="$course->users()->first()->fname"
-                                  :creatorUrl="$course->user->id"
-                                  :learnerCount="$course->learnerCount"
-                                  :price="$course->price"
-                                  :bought="$course->isPurchased()"
-                                  :checkWishList="$course->checkWishList"
-                                  :checkCart="$course->checkCart"
-                                  :progress="$course->progress"
+                              <div class="swiper-slide la-my__courses-slide la-anim__stagger-item">
 
-                              />    
+                                <x-bundle-course 
+                                      :id="$course->id"
+                                      :img="$course->preview_image"
+                                      :course="$course->title"
+                                      :url="$course->slug"
+                                      :rating="round($course->average_rating, 2)"
+                                      :videoCount="$course->videoCount()"
+                                      :classesCount="count($course->course_id)"
+                                      :creatorImg="$course->users()"
+                                      :creatorName="$course->users()->first()->fname"
+                                      :creatorUrl="$course->user->id"
+                                      :learnerCount="$course->learnerCount"
+                                      :price="$course->price"
+                                      :bought="$course->isPurchased()"
+                                      :checkWishList="$course->checkWishList"
+                                      :checkCart="$course->checkCart"
+                                      :progress="$course->progress"
+                                />    
 
+                              </div>
                             @endforeach
-                          </div>
-
+                         
                         @else
 
                           <div class="col-12 la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
@@ -201,31 +203,32 @@
                     <div class="swiper-container la-my__courses-container"> <!-- Swiper Container : Start -->        
                       <div class="swiper-wrapper la-my__courses-wrapper ">  <!-- Swiper Wrapper : Start -->  
                         @if($completed_bundle && count($completed_bundle) != 0)
-                          <div class="swiper-slide la-my__courses-slide la-anim__stagger-item">
+                         
                             @foreach($completed_bundle as $course)
-                          
-                              <x-bundle-course 
-                                  :id="$course->id"
-                                  :img="$course->preview_image"
-                                  :course="$course->title"
-                                  :url="$course->slug"
-                                  :rating="round($course->average_rating, 2)"
-                                  :videoCount="$course->videoCount()"
-                                  :classesCount="count($course->course_id)"
-                                  :creatorImg="$course->users()"
-                                  :creatorName="$course->users()->first()->fname"
-                                  :creatorUrl="$course->user->id"
-                                  :learnerCount="$course->learnerCount"
-                                  :price="$course->price"
-                                  :bought="$course->isPurchased()"
-                                  :checkWishList="$course->checkWishList"
-                                  :checkCart="$course->checkCart"
-                                  :progress="$course->progress"
+                              <div class="swiper-slide la-my__courses-slide la-anim__stagger-item">
 
-                              />   
+                                <x-bundle-course 
+                                    :id="$course->id"
+                                    :img="$course->preview_image"
+                                    :course="$course->title"
+                                    :url="$course->slug"
+                                    :rating="round($course->average_rating, 2)"
+                                    :videoCount="$course->videoCount()"
+                                    :classesCount="count($course->course_id)"
+                                    :creatorImg="$course->users()"
+                                    :creatorName="$course->users()->first()->fname"
+                                    :creatorUrl="$course->user->id"
+                                    :learnerCount="$course->learnerCount"
+                                    :price="$course->price"
+                                    :bought="$course->isPurchased()"
+                                    :checkWishList="$course->checkWishList"
+                                    :checkCart="$course->checkCart"
+                                    :progress="$course->progress"
+                                />  
 
+                              </div>
                             @endforeach
-                          </div>
+                          
                         @else
                           <div class="col-12 la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
                             <div class="col la-empty__inner">
@@ -272,9 +275,10 @@
                       <div class="swiper-wrapper la-my__classes-wrapper ">  <!-- Swiper Wrapper : Start -->  
 
                         @if(count($on_going_classes) != 0)
-                          <div class="swiper-slide la-my__classes-slide la-anim__stagger-item">
+                          
                             @foreach($on_going_classes as $course)
-                            
+                            <div class="swiper-slide la-my__classes-slide la-anim__stagger-item">
+
                               <x-course 
                                 :id="$course->id"
                                 :img="$course->preview_image" 
@@ -292,11 +296,11 @@
                                 :videoCount="$course->videoCount"
                                 :chapterCount="$course->chapterCount"
                                 :progress="$course->getProgress()"
-
                               />
 
+                            </div>
                             @endforeach
-                          </div>
+                          
 
                           @else
 
@@ -334,31 +338,32 @@
                       <div class="swiper-wrapper la-my__classes-wrapper ">  <!-- Swiper Wrapper : Start -->  
                        
                         @if($yet_to_start_classes && count($yet_to_start_classes) > 0)
-                          <div class="swiper-slide la-my__classes-slide la-anim__stagger-item">
-                            @foreach($yet_to_start_classes as $course)
                           
-                              <x-course 
-                                :id="$course->id"
-                                :img="$course->preview_image" 
-                                :course="$course->title" 
-                                :url="$course->slug" 
-                                :rating="round($course->average_rating, 2)"
-                                :creatorImg="$course->user->user_img"
-                                :creatorName="$course->user->fullName"
-                                :creatorUrl="$course->user->id"
-                                :price="$course->price"
-                                :learnerCount="$course->learnerCount"
-                                :bought="$course->isPurchased()"
-                                :checkWishList="$course->checkWishList"
-                                :checkCart="$course->checkCart"
-                                :videoCount="$course->videoCount"
-                                :chapterCount="$course->chapterCount"
-                                :progress="$course->getProgress()"
+                            @foreach($yet_to_start_classes as $course)
+                              <div class="swiper-slide la-my__classes-slide la-anim__stagger-item">
 
-                              />
+                                <x-course 
+                                  :id="$course->id"
+                                  :img="$course->preview_image" 
+                                  :course="$course->title" 
+                                  :url="$course->slug" 
+                                  :rating="round($course->average_rating, 2)"
+                                  :creatorImg="$course->user->user_img"
+                                  :creatorName="$course->user->fullName"
+                                  :creatorUrl="$course->user->id"
+                                  :price="$course->price"
+                                  :learnerCount="$course->learnerCount"
+                                  :bought="$course->isPurchased()"
+                                  :checkWishList="$course->checkWishList"
+                                  :checkCart="$course->checkCart"
+                                  :videoCount="$course->videoCount"
+                                  :chapterCount="$course->chapterCount"
+                                  :progress="$course->getProgress()"
+                                />
 
+                              </div>
                             @endforeach
-                          </div>
+                         
                         @else
 
                           <div class="col-12 la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
@@ -400,31 +405,32 @@
                       <div class="swiper-wrapper la-my__classes-wrapper ">  <!-- Swiper Wrapper : Start --> 
 
                         @if($completed_classes && count($completed_classes) != 0)
-                          <div class="swiper-slide la-my__classes-slide la-anim__stagger-item">
-                            @foreach($completed_classes as $course)
                           
-                            <x-course 
-                                :id="$course->id"
-                                :img="$course->preview_image" 
-                                :course="$course->title" 
-                                :url="$course->slug" 
-                                :rating="round($course->average_rating, 2)"
-                                :creatorImg="$course->user->user_img"
-                                :creatorName="$course->user->fullName"
-                                :creatorUrl="$course->user->id"
-                                :price="$course->price"
-                                :learnerCount="$course->learnerCount"
-                                :bought="$course->isPurchased()"
-                                :checkWishList="$course->checkWishList"
-                                :checkCart="$course->checkCart"
-                                :videoCount="$course->videoCount"
-                                :chapterCount="$course->chapterCount"
-                                :progress="$course->getProgress()"
-                                
+                            @foreach($completed_classes as $course)
+                            <div class="swiper-slide la-my__classes-slide la-anim__stagger-item">
 
-                              />
+                              <x-course 
+                                  :id="$course->id"
+                                  :img="$course->preview_image" 
+                                  :course="$course->title" 
+                                  :url="$course->slug" 
+                                  :rating="round($course->average_rating, 2)"
+                                  :creatorImg="$course->user->user_img"
+                                  :creatorName="$course->user->fullName"
+                                  :creatorUrl="$course->user->id"
+                                  :price="$course->price"
+                                  :learnerCount="$course->learnerCount"
+                                  :bought="$course->isPurchased()"
+                                  :checkWishList="$course->checkWishList"
+                                  :checkCart="$course->checkCart"
+                                  :videoCount="$course->videoCount"
+                                  :chapterCount="$course->chapterCount"
+                                  :progress="$course->getProgress()"                             
+                                />
+
+                              </div>
                             @endforeach
-                          </div>
+                          
 
                         @else
 
