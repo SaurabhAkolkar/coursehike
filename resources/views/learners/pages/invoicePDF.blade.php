@@ -31,7 +31,7 @@
 
                 <td width="70%" colspan="2" style="text-align:right;">
                     <div>
-                        <p style="font-size:15px;color:#252525">Aliens Art School Pvt. ltd. <br>K2, Old Sonal Industrial Est, Kanchpada, <br/> Malad Link Road, Malad West, Mumbai <br/> 400064. MH, India </p> 
+                        <p style="font-size:15px;color:#252525">Aliens Art School Pvt. ltd. <br> K2, Old Sonal Industrial Est, Kanchpada, <br> Malad Link Road, Malad West, Mumbai <br> 400064. MH, India </p> 
                         <div>
                             <a  href="tel: +91 9833442708"  style="color:#252525;text-decoration:none;">
                                 <span>+91 9833442708 </span>
