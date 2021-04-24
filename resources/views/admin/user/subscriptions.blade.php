@@ -121,7 +121,7 @@
                         {{-- <td>{{count(json_decode($cp->class_id))}}</td>                  --}}
                         {{-- <td>{{$cp->purchase_type=='all_classes'?'All Classes':'Selected Classes'}}</td>                  --}}
                         <td>{{Carbon\Carbon::parse($cp->created_at)->format('d-M-Y')}}</td>
-                        <td>{{$cp->user_invoice_details->total < 1 ? 'Free Access' : $cp->user_invoice_details->total }}</td>  
+                        <td>{{($cp->user_invoice_details && $cp->user_invoice_details->total > 1) ? $cp->user_invoice_details->total : 'Free Access' }}</td>  
                       </tr>
                   @endforeach
 

@@ -58,15 +58,27 @@
               <h6>Items</h6>
        
               @if(count($show->details) > 0)
-               
-                <ul class="la-admin__invoice-list">
+               @if($show->details[0]->bundle_id > 0)
+      
+                  <ul class="la-admin__invoice-list">
+                      <x-admin-invoice
+                        :img="$show->details[0]->bundle->preview_image"
+                        :course="$show->details[0]->bundle->title"
+                        :profile="$show->details[0]->bundle->user->fullName"
+                        :price="$show->details[0]->price"
+                        />
+                  </ul>
+                @else
+                    <ul class="la-admin__invoice-list">
                     <x-admin-invoice
                       :img="$show->details[0]->course->preview_image"
                       :course="$show->details[0]->course->title"
                       :profile="$show->details[0]->course->user->fullName"
-                      :price="$show->details[0]->course->total_amount"
+                      :price="$show->details[0]->price"
                       />
-                </ul>
+                    </ul>
+
+                @endif
               @else
                     <h3>No Items Found</h3>
               @endif
