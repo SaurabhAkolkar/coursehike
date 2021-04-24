@@ -22,7 +22,7 @@
                   <div class="col-6 col-md-3 mt-3 mt-md-6">
                     <div class="la-admin__revenue-title">Subscription Estimated Revenue</div>
                     <div class="la-admin__revenue-info">
-                        <span class="la-admin__revenue-price">${{$payout['total_income']}}</span>
+                        <span class="la-admin__revenue-price">${{round($payout['total_income'], 2)}}</span>
                     </div>
                   </div>
               </div>

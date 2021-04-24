@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\CompletedPayout;
+use App\MentorDetail;
 use App\User;
 use App\UserPurchasedCourse;
 use App\UserSubscriptionInvoice;
@@ -85,17 +86,22 @@ class CompletedPayoutController extends Controller
         ], true)->toArray();
 
         $total_income = 0;
+        $exclude_user = [];
         foreach($learners_grouped as $learner => $watch_course){
 
             // If user didn't paid/subscribed last month then skip calculating it...
-            $UserSubscribedLastMonth = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid']])->whereBetween('end_date', [$start->startOfMonth(), $end->endOfMonth()])->latest()->first();
-            $UserSubscribedYearly = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid']])->where(function($query) use ($start, $end)
-            {   $query->where('start_date', '<=', $start->startOfMonth() );
+            
+            $UserSubscribedLastMonth = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_subscription_id', '!=' ,'Admin-Purchased']])->whereBetween('end_date', [$start->startOfMonth(), $end->endOfMonth()])->latest()->first();
+            $UserSubscribedYearly = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_subscription_id', '!=' ,'Admin-Purchased']])->where(function($query) use ($start, $end)
+            {
+                $query->where('start_date', '<=', $start->startOfMonth() );
                 $query->where('end_date', '>', $end->endOfMonth() );
             })->latest()->first();
-
-            if(!$UserSubscribedLastMonth && !$UserSubscribedYearly)
+            
+            if(!$UserSubscribedLastMonth && !$UserSubscribedYearly){
+                $exclude_user[] = $learner;
                 continue;
+            }
 
             $totalWatchtime = 0;
             $creatorCourseWatchtime = 0;
@@ -131,12 +137,21 @@ class CompletedPayoutController extends Controller
             $total_income += $creator_per_income;
 
         }
+
+        $learners = array_filter($learners, function($value) use ($exclude_user)  {
+            return !in_array($value, $exclude_user);
+        });
+
+        $watch_logs = $watch_logs->filter(function ($value, $key) use ($exclude_user) {
+            return !in_array($value->user_id, $exclude_user);
+        });
+
         $watch_time = $watch_logs->count() * InstructorRevenueController::$WATCHTIME_LOG_SECONDS;
 
         return [
             'learners' => $learners,
             'watch_time' => $this->formatSecondsToWord($watch_time),
-            'subscribers_total_income' => $total_income,
+            'subscribers_total_income' => round($total_income, 2),
             'course_sale' => $this->payoutCalculateCoursePurchase($creator),
         ];
     }
@@ -145,6 +160,10 @@ class CompletedPayoutController extends Controller
     {
         
         $creator_userid = $creator->id;
+
+        $mentor_commission = MentorDetail::where('user_id',$creator_userid)->first();
+        $mentor_commission = $mentor_commission->purchase_commission ?? InstructorRevenueController::$CREATOR_COMMISSION;
+        
         $start = new Carbon('first day of last month');
         $end = new Carbon('last day of last month');
 
@@ -156,7 +175,7 @@ class CompletedPayoutController extends Controller
 
         $total_income = 0;
         foreach($purchase_logs as $purchase){
-
+            // dd($purchase);
             // If user didn't paid/subscribed last month then skip calculating it...
             $purchase_order = $purchase->user_invoice_details;
             
@@ -165,11 +184,12 @@ class CompletedPayoutController extends Controller
 
             $order_total = $purchase_order->total;
 
-            $CREATOR_SHARE = InstructorRevenueController::$CREATOR_COMMISSION * ($order_total / 100);
+            $CREATOR_SHARE = $mentor_commission * ($order_total / 100);
 
             $total_income += $CREATOR_SHARE;
 
         }
+
         return [
             'total_income' => $total_income,
             'count' => count($purchase_logs),

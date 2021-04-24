@@ -30,24 +30,44 @@
                         <div class="la-admin__revenue-title">Active Monthly Subscriptions</div>
                         <div class="la-admin__revenue-info">
                             <span class="la-admin__revenue-total">{{$monthly_subscriptions}}</span>
-                            <span class="la-admin__revenue-per">@ $39 each</span>
+                            {{-- <span class="la-admin__revenue-per">@ $39 each</span> --}}
                         </div>
                     </div>
                     <div class="col-6 col-md-3 mt-4">
                       <div class="la-admin__revenue-title">Active Yearly Subscriptions</div>
                       <div class="la-admin__revenue-info">
                           <span class="la-admin__revenue-total">{{$yearly_subscriptions}}</span>
-                          <span class="la-admin__revenue-per">@ $309 each</span>
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-2 mt-4">
-                      <div class="la-admin__revenue-title">Total Amount</div>
-                      <div class="la-admin__revenue-info">
-                          <span class="la-admin__revenue-price">${{ ($monthly_subscriptions * 39) + ($yearly_subscriptions * 309) }}</span>
+                          {{-- <span class="la-admin__revenue-per">@ $309 each</span> --}}
                       </div>
                     </div>
                 </div>
                 <!-- SUBSCRIPTION SECTION: END -->
+
+
+                <!-- SUBSCRIPTION SECTION: START -->
+                <div class="row">
+                  <div class="col-6 col-md-3 mt-4">
+                      <div class="la-admin__revenue-title">Paid Monthly Subscriptions</div>
+                      <div class="la-admin__revenue-info">
+                          <span class="la-admin__revenue-total">{{$monthly_subscriptions}}</span>
+                          <span class="la-admin__revenue-per">@ $39 / INR 2999 each</span>
+                      </div>
+                  </div>
+                  <div class="col-6 col-md-3 mt-4">
+                    <div class="la-admin__revenue-title">Paid Yearly Subscriptions</div>
+                    <div class="la-admin__revenue-info">
+                        <span class="la-admin__revenue-total">{{$yearly_subscriptions}}</span>
+                        <span class="la-admin__revenue-per">@ $309 / INR 24999 each</span>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-2 mt-4">
+                    <div class="la-admin__revenue-title">Total Amount</div>
+                    <div class="la-admin__revenue-info">
+                        <span class="la-admin__revenue-price">${{ ($monthly_subscriptions * 39) + ($yearly_subscriptions * 309) }}</span>
+                    </div>
+                  </div>
+              </div>
+              <!-- SUBSCRIPTION SECTION: END -->
 
                 <!-- ONE TIME SUBSCRIPTION SECTION: START -->
                 <div class="row ">

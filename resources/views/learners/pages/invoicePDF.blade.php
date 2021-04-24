@@ -108,6 +108,7 @@
                     </td>
                 </tr>
             @elese
+                @if($idd->course)
                 <tr>
                     <td width="40%" style="padding-bottom:10px;">
                         <img src="{{$idd->course->preview_image}}" alt="course name" style="width:140px;height:80px;border-radius:10px;background-color:#c3c3c3;"/>
@@ -124,6 +125,7 @@
                         <div style="color:#252525">@if($invoice->currency == 'INR') INR @else $ @endif <span>{{$idd->price}}</span></div>
                     </td>
                 </tr>
+                @endif
             @endif
             @endforeach
 

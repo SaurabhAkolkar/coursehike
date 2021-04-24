@@ -72,10 +72,9 @@ class UserController extends Controller
         $user = User::find($id);
         $subscriptions = app('rinvex.subscriptions.plan_subscription')->ofUser($user)->latest()->get(); 
 
-        $class_purchased =  UserPurchasedCourse::with('course')->where('user_id', $id)->where('bundle_id','=', Null)->get();
+        $class_purchased =  UserPurchasedCourse::with('course','user_invoice_details')->where('user_id', $id)->whereNull('bundle_id')->get();
         $courses_purchased =  UserPurchasedCourse::with('bundle')->where('user_id', $id)->where('bundle_id','>',0)->groupBy('bundle_id')->get();
         $user_id = $id;
-        //dd($class_purchased);
         return view('admin.user.subscriptions', compact('user','class_purchased','subscriptions','courses_purchased','user_id'));
 
     }
@@ -133,6 +132,7 @@ class UserController extends Controller
         $insert['purchase_type'] = 'classes';
         $insert['status'] = 'successful';
         $insert['sub_total'] = $request->amount;
+        $insert['total'] = $request->amount;
         
         $user_invoice = UserInvoiceDetail::create($insert);
         
@@ -150,6 +150,18 @@ class UserController extends Controller
             ['order_id' => $user_invoice->id, 'user_id' => $request->user_id],
             ['course_id' => $request->course_id, 'class_id' => 0, 'purchase_type' => 'classes']
         );
+
+        $data[] = [
+                'invoice_id' => $user_invoice->id,
+                'course_id' => $request->course_id,
+                'bundle_id' => 0,
+                'price' => $request->amount,
+                'purchase_type' => 'classes',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+
+        InvoiceDetail::insert($data);
 
         return redirect('/user/subscriptions/'.$request->user_id)->with('success','Courses added successfully.');
 
@@ -182,6 +194,7 @@ class UserController extends Controller
         $insert['purchase_type'] = $request->purchase_type;
         $insert['status'] = 'successful';
         $insert['sub_total'] = $request->amount;
+        $insert['total'] = $request->amount;
         
         $user_invoice = UserInvoiceDetail::create($insert);
                
@@ -189,6 +202,21 @@ class UserController extends Controller
             ['order_id' => $user_invoice->id, 'user_id' => $request->user_id, 'bundle_id' => $request->course_id],
             ['class_id' => json_encode($courses->pluck('id')->all()), 'purchase_type' => 'bundle']
         );
+
+        $data=[];
+        foreach($courses as $course) {
+            $data[] = [
+                'invoice_id' => $user_invoice->id,
+                'course_id' => $course->id,
+                'bundle_id' => $request->course_id,
+                'price' => $request->amount,
+                'purchase_type' => 'bundle',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+        }
+        InvoiceDetail::insert($data);
+
                 // foreach($course_ids as $c){
  
                 //     $order['order_id'] = $get_order_id;

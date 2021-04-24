@@ -18,6 +18,7 @@ use Crypt;
 use Excel;
 use App\UserInvoiceDetail;
 use App\Exports\UserInvoiceExport;
+use App\UserSubscriptionInvoice;
 use Carbon\Carbon;
 
     
@@ -60,15 +61,20 @@ class OrderController extends Controller
 
         // UserPurchasedCourse::
         $total_purchase = UserInvoiceDetail::with('user')->where('status','successful')->get();
-        $courses_count = $total_purchase->where('purchase_type','all_classes')->count();
-        $classes_count = $total_purchase->where('purchase_type','selected_classes')->count();
+        $courses_count = $total_purchase->where('purchase_type','bundle')->count();
+        $classes_count = $total_purchase->where('purchase_type','classes')->count();
         $total_earning = $total_purchase->sum('total');
 
         $monthly_subscriptions = app('rinvex.subscriptions.plan_subscription')->byPlanId(1)->where([ ['ends_at','>', now()], ['trial_ends_at','<', now()] ])->count() + app('rinvex.subscriptions.plan_subscription')->byPlanId(3)->where([ ['ends_at','>', now()], ['trial_ends_at','<', now()] ])->count();
         $yearly_subscriptions = app('rinvex.subscriptions.plan_subscription')->byPlanId(2)->where([ ['ends_at','>', now()], ['trial_ends_at','<', now()] ])->count() + app('rinvex.subscriptions.plan_subscription')->byPlanId(4)->where([ ['ends_at','>', now()], ['trial_ends_at','<', now()] ])->count();
         $trial_subscriptions = app('rinvex.subscriptions.plan_subscription')->findEndingTrial(7)->count();
-        $settings = Setting::first();
-        return view('admin.order.index', compact('trial_subscriptions', 'settings','monthly_subscriptions', 'yearly_subscriptions','total_purchase','courses_count', 'classes_count','total_earning'));
+        
+
+        // UserPurchasedCourse::
+        $total_subscription = UserSubscriptionInvoice::where([ ['status', '=', 'paid'],['invoice_paid', '>', 0] ,['stripe_subscription_id', '!=', 'Admin-Purchased'] ])->get();
+        // $total_earning = $total_subscription->sum('invoice_paid');
+        
+        return view('admin.order.index', compact('trial_subscriptions', 'monthly_subscriptions', 'yearly_subscriptions','total_purchase','courses_count', 'classes_count','total_earning'));
     }
 
     public function getExcel(){
@@ -138,7 +144,7 @@ class OrderController extends Controller
     public function vieworder($id)
     {
         $setting = Setting::first();
-        $show = UserInvoiceDetail::with('details','details.course','details.course.user','user','user.state','user.country')->where('id', $id)->first();
+        $show = UserInvoiceDetail::with('details','details.course','details.bundle','details.bundle.user','details.course.user','user','user.state','user.country')->where('id', $id)->first();
        
         return view('admin.order.view', compact('show', 'setting'));
     }
