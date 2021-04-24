@@ -638,8 +638,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
     });
 
-    Route::get('/learn/course/{id}/{slug}', 'LearnController@show');
-    Route::get('/learn/class/{id}/{slug}', 'LearnController@class');
+    Route::get('/learn/course/{id}/{slug}', 'LearnController@show')->name('learn.course');
+    Route::get('/learn/class/{id}/{slug}', 'LearnController@class')->name('learn.class');
     Route::post('/learn/course/{video_id}','LearnController@video')->name('learn.video');
     Route::post('/subscribed-courses/{course_id}/{class_id}/progress-logs', 'CourseProgressController@progress_log');
     Route::post('/subscribed-courses/{course_id}/{class_id}/completion', 'CourseProgressController@class_completed');

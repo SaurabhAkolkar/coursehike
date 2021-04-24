@@ -47,7 +47,7 @@ class LearnController extends Controller
         $mentor_other_courses =  BundleCourse::where('user_id', $course->user_id)->where('status', 1)->where('id','!=', $course->id)->take(3)->get();
 
         if($course->slug != $slug)
-            return redirect()->route('learn.show', ['id' => $id,'slug'=>$course->slug]);
+            return redirect()->route('learn.course', ['id' => $id,'slug'=>$course->slug]);
 
         $video_access = false;
         $class_access = false;
@@ -145,7 +145,7 @@ class LearnController extends Controller
         $mentor_other_courses =  Course::where('user_id', $course->user_id)->where('status', 1)->whereNotIn('id', [$course->id])->take(3)->get();
 
         if($course->slug != $slug)
-            return redirect()->route('learn.show', ['id' => $id,'slug'=>$course->slug]);
+            return redirect()->route('learn.class', ['id' => $id,'slug'=>$course->slug]);
 
         $video_access = false;
         $class_access = false;
