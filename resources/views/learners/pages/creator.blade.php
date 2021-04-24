@@ -73,14 +73,14 @@
         </div>
 
         <div class="container-fluid">
-              <div class="row py-14 py-md-20">   
+              <div class="row pt-18 pb-8 pt-md-10 pb-md-10">   
                   <div class="col-12 la-anim__wrap">
                     <h4 class="text-2xl text-md-3xl px-0 pb-6 pb-lg-8 la-anim__stagger-item">Courses from <span class="text-capitalize"> {{ucfirst($creator->FullName)}}</span></h4>
                    
                     @if(count($courses) == 0) 
 
-                        <div class="row la-anim__wrap">
-                            <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6">
+                        <div class="la-anim__wrap">
+                            <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center my-3">
                               <div class="la-empty__inner">
                                   <h6 class="la-empty__course-title text-xl la-anim__stagger-item">No more Courses from {{ucfirst($creator->FullName)}}</h6>
                               </div>
@@ -126,14 +126,14 @@
                   </div>
               </div>
 
-              <div class="row py-14 py-md-20">   
+              <div class="row pt-6 pb-10 pt-md-10 pb-md-16">   
                   <div class="col-12 la-anim__wrap">
                     <h4 class="text-2xl text-md-3xl px-0 pb-6 pb-lg-8 la-anim__stagger-item">Classes from <span class="text-capitalize"> {{ucfirst($creator->FullName)}}</span></h4>
                    
                     @if(count($classes) == 0) 
 
-                        <div class="row la-anim__wrap">
-                            <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6">
+                        <div class="la-anim__wrap">
+                            <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center my-3">
                               <div class="la-empty__inner">
                                   <h6 class="la-empty__course-title text-xl la-anim__stagger-item">No more Courses from {{ucfirst($creator->FullName)}}</h6>
                               </div>

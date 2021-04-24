@@ -293,6 +293,12 @@ html, body{
   padding:10px !important;
 }
 
+@media(max-width:991px){
+    .box-body{
+        padding:0 !important;
+    }
+}
+
 .box-header .box-title {
     font-family:var(--body-font);
     font-weight:var(--font-semibold);
@@ -490,6 +496,14 @@ th.sorting {
     opacity:1;
     text-align: left !important;
 }
+
+
+@media(max-width:767px){
+    .la-admin__user-filters{
+        width:300px;
+        overflow-x: scroll;
+    }
+}
 /* == Sorting Icons after the table head Content == */
 table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting:after{
     font-family: 'icomoon';
@@ -594,7 +608,6 @@ td a:focus{
 /* === Preview Video ==*/
 .box-body video{
   outline:0;
-  
 }
 /* ============  COURSES / ADD COURSE PAGE ============ */
 
