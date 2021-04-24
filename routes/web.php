@@ -713,7 +713,7 @@ Route::middleware(['auth'])->group(function () {
 
   Route::get('/cart','CartController@learnerCart');
 
-  Route::view('/creator-signup','learners.auth.creator-signup')->middleware('check_creator');
+  Route::get('/creator-signup','InstructorController@creatorSignUpPage')->middleware('check_creator');
   Route::post('/creator-signup','InstructorController@creatorSignUp')->middleware('check_creator');
 
   Route::get('/purchase-history','PurchaseHistoryController@index');

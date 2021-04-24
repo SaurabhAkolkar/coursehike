@@ -53,30 +53,7 @@
                       @if(count($carts) > 0)
                     
                         @foreach ($carts as $cart)
-                          @if($cart->bundle_id > 0 || $cart->bundle_id != null)
-                            <x-cart
-                              :cartId="$cart->id"
-                              :cart="$cart"
-                              :itemType="$cart->bundle_id>0?'course':'class'"
-                              :courseId="$cart->course_id"
-                              :collapseId="$cart->collapseId"
-                              :courseImg="$cart->bundle->preview_image"
-                              {{-- :classType="$cart->cartItems->first() && $cart->cartItems->first()->purchase_type" --}}
-                              :course="$cart->bundle->title"
-                              :classType="$cart->classCount"
-                              :creator="$cart->bundle->user->fullName"
-                              :remove="$remove"
-                              :removeUrl="'remove-from-cart/'.$cart->id"
-                              :wishlist="$wishlist"
-                              :wishlistUrl="'move-to-wishlist/'.$cart->course_id"
-                              :edit="$edit"
-                              :allClasses="$cart->allClasses"
-                              :bestPrice="$cart->offer_price"
-                              :realPrice="$cart->price"
-                            />
-
-                            @else
-
+                          @if($cart->courses)
                               <x-cart
                               :cartId="$cart->id"
                               :cart="$cart"
@@ -97,6 +74,31 @@
                               :bestPrice="$cart->offer_price"
                               :realPrice="$cart->price"
                             />
+                          
+                          @else                            
+
+                            <x-cart
+                            :cartId="$cart->id"
+                            :cart="$cart"
+                            :itemType="$cart->bundle_id>0?'course':'class'"
+                            :courseId="$cart->course_id"
+                            :collapseId="$cart->collapseId"
+                            :courseImg="$cart->bundle->preview_image"
+                            {{-- :classType="$cart->cartItems->first() && $cart->cartItems->first()->purchase_type" --}}
+                            :course="$cart->bundle->title"
+                            :classType="$cart->classCount"
+                            :creator="$cart->bundle->user->fullName"
+                            :remove="$remove"
+                            :removeUrl="'remove-from-cart/'.$cart->id"
+                            :wishlist="$wishlist"
+                            :wishlistUrl="'move-to-wishlist/'.$cart->course_id"
+                            :edit="$edit"
+                            :allClasses="$cart->allClasses"
+                            :bestPrice="$cart->offer_price"
+                            :realPrice="$cart->price"
+                          />
+
+
 
                             @endif
                         @endforeach

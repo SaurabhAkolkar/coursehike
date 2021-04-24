@@ -24,24 +24,24 @@
         
             @elseif(count($courses) == 1)    
                 <div class="la-playlist__thumbnail">
-                    <img class="img-fluid" src="{{ $courses[0]->courses->preview_image  }}" alt="thumbnail">
+                    <img class="img-fluid" @if($courses[0]->courses != null ) src="{{ $courses[0]->courses->preview_image  }}" @else src="{{ $courses[0]->bundle->preview_image  }}" @endif alt="thumbnail">
                 </div>
             @elseif(count($courses) == 2)
                 <div class="la-playlist__thumbnail">
-                    <img class="img-fluid" src="{{ $courses[0]->courses->preview_image }}" alt="thumbnail">
+                    <img class="img-fluid" @if($courses[0]->courses != null ) src="{{ $courses[0]->courses->preview_image }}" @else src="{{ $courses[0]->bundle->preview_image  }}" @endif alt="thumbnail">
                 </div>
                 <div class="la-playlist__thumbnail">
-                    <img class="img-fluid" src="{{ $courses[1]->courses->preview_image }}" alt="thumbnail" width="100%">
+                    <img class="img-fluid" @if($courses[1]->courses != null ) src="{{ $courses[1]->courses->preview_image }}" @else src="{{ $courses[0]->bundle->preview_image  }}" @endif alt="thumbnail" width="100%">
                 </div>
             @else
                 <div class="la-playlist__thumbnail">
-                    <img class="img-fluid" src="{{ $courses[0]->courses->preview_image }}" alt="thumbnail">
+                    <img class="img-fluid" @if($courses[0]->courses != null ) src="{{ $courses[0]->courses->preview_image }}" @else src="{{ $courses[0]->bundle->preview_image  }}" @endif alt="thumbnail">
                 </div>
                 <div class="la-playlist__thumbnail">
-                    <img class="img-fluid" src="{{ $courses[1]->courses->preview_image }}" alt="thumbnail">
+                    <img class="img-fluid" @if($courses[1]->courses != null ) src="{{ $courses[1]->courses->preview_image }}" @else src="{{ $courses[0]->bundle->preview_image  }}" @endif alt="thumbnail">
                 </div>
                 <div class="la-playlist__thumbnail">
-                    <img class="img-fluid" src="{{ $courses[2]->courses->preview_image }}" alt="thumbnail">
+                    <img class="img-fluid" @if($courses[2]->courses != null ) src="{{ $courses[2]->courses->preview_image }}" @else src="{{ $courses[0]->bundle->preview_image  }}" @endif alt="thumbnail">
                 </div>
             @endif
         </a>

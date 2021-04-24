@@ -92,7 +92,7 @@ $course_id = $course->id;
 
               <div class="la-vcourse__creator-group--name text-white leading-tight text-capitalize la-anim__stagger-item--x">
                   <h6>{{ $course->user->fname }}</h6>
-                  <div class="text-xs" style="font-weight:var(--font-light)">+{{count($course->users())}} Mentors</div>
+                  @if(count($course->users()) > 1)<div class="text-xs" style="font-weight:var(--font-light)">+{{ (count($course->users())-1) }} Mentors</div> @endif
               </div>
             </div>
 

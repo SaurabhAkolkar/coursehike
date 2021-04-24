@@ -31,7 +31,7 @@
 
                 <td width="70%" colspan="2" style="text-align:right;">
                     <div>
-                        <p style="font-size:15px;color:#252525">Aliens Art School Pvt. ltd. <br>K2, Old Sonal Industrial Est, Kanchpada, <br/> Malad Link Road, Malad West, Mumbai <br/> 400064. MH, India </p> 
+                        <p style="font-size:15px;color:#252525">Aliens Art School Pvt. ltd. <br> K2, Old Sonal Industrial Est, Kanchpada, <br> Malad Link Road, Malad West, Mumbai <br> 400064. MH, India </p> 
                         <div>
                             <a  href="tel: +91 9833442708"  style="color:#252525;text-decoration:none;">
                                 <span>+91 9833442708 </span>
@@ -51,7 +51,7 @@
                     <div>
                         <h5 style="color:#959595;margin:0;">SOLD TO</h5> 
                         <div style="color:#252525;"> {{$user->fullName}} </div>
-                        <div style="color:#252525;">{{$user->address}} {{$user->city ? (', '.$user->city->name) : ''}} {{$user->state ? (',<br>'.$user->state->name) : ''}} {{$user->country ? (',<br>'.$user->country->name. ' - '. $user->pin_code) : ''}}</div>
+                        <div style="color:#252525;">{{$user->address}} {{$user->city ? (', '.$user->city->name) : ''}} {!! $user->state ? (',<br>'.$user->state->name) : '' !!} {!! $user->country ? (',<br />'.$user->country->name. ' - '. $user->pin_code) : '' !!}</div>
                         <div>
                             <a href="tel:9999912345" style="color:#252525;text-decoration:none;">
                                 <span>@if(getLocation() == 'IN') +91 @endif {{$user->mobile}} </span>
