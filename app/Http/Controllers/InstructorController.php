@@ -188,7 +188,7 @@ class InstructorController extends Controller
             if($check){
                 return 'You already have a request for the becoming a mentor.';
             }
-            if(Auth::user()->dob == "" || Auth::user()->address =="" || Auth::user()->state_id =="" || Auth::user()->country_id =="" ){
+            if(Auth::user()->dob == "" || Auth::user()->detail == "" || Auth::user()->address =="" || Auth::user()->state_id =="" || Auth::user()->country_id =="" ){
                 return 'Update your profile to become a creator';
             }
             $portfolio = $request->all_portfolio;
