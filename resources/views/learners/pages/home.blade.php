@@ -312,8 +312,7 @@
                                       @endphp
 
                                       @foreach($courses as $course)
-                                       
-                                        
+                                                                               
                                         <div class="swiper-slide la-home__course-slide pt-md-6 la-anim__stagger-item" >
                                           <x-bundle-course 
                                               :id="$course->id"
@@ -334,6 +333,7 @@
                                               :progress="$course->progress"
                                           />
                                         </div>
+                                        
                                       @endforeach                                  
                                     
                             </div>

@@ -17,14 +17,14 @@ use Carbon\Carbon;
        
         <!-- /.box-header -->
         <div class="box-body">
-            <div class="la-admin__filter-icons text-right" style="position:relative; top:50px;z-index:0;">
-              <!--<a href="#" role="button"><span class="la-icon la-icon--3xl icon-sort mr-2" style="color:#000;"></span></a>
-               <a href="#" role="button"><span class="la-icon la-icon--3xl icon-excel mr-2" style="color:#1D6F42"></span></a> -->
-            </div>
+            <!--<div class="la-admin__filter-icons text-right" style="position:relative; top:50px;z-index:0;">
+              <a href="#" role="button"><span class="la-icon la-icon--3xl icon-sort mr-2" style="color:#000;"></span></a>
+               <a href="#" role="button"><span class="la-icon la-icon--3xl icon-excel mr-2" style="color:#1D6F42"></span></a> 
+            </div>-->
             
               <table id="example1" class="js-dynamitable  table table-bordered table-striped text-center display nowrap">
 
-              <thead class="bg-transparent">
+                <thead class="bg-transparent la-admin__user-filters">
                   <tr>
                     <th class="px-0 py-0"></th>
                     <th class="px-0 py-0">  {{-- <input  class="js-filter  form-control px-2 py-5" type="text" value=""> --}}</th>

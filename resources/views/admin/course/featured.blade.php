@@ -11,6 +11,7 @@
   </ul>
 </div>
 @endif
+
 <section class="content">
   @include('admin.message')
   <div class="row">
@@ -21,7 +22,7 @@
         </div>
 
         <div class="box-body">
-            <table class="table table-bordered table-striped">
+            <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
                   <th>#</th>
@@ -33,6 +34,7 @@
                   <th>{{ __('adminstaticword.Edit') }}</th>
                 </tr>
               </thead>
+
               <tbody id="sortable">
                 <?php $i=0;?>
                 @foreach($courses as $c)

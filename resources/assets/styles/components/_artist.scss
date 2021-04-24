@@ -183,7 +183,7 @@
                         z-index:60 !important;
                         position: relative;
 
-                        @include respond-below(md){
+                        @include respond-below(sm){
                             padding-right:12px;
                         }
                     }

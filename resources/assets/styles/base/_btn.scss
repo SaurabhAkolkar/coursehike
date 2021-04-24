@@ -289,7 +289,7 @@
                         //box-shadow:0 3px 6px #c0c0c0;
                         animation: fadeAlert 0.5s ease 1;
                         transition: all 0.1s ease;
-                        z-index:101;
+                        z-index:1001;
                         overflow:hidden;
                         display:inline-block;
 
@@ -306,7 +306,7 @@
                         //box-shadow:0 3px 6px #c0c0c0;
                         animation: fadeAlert 0.5s ease 1;
                         transition: all 0.1s ease;
-                        z-index:101;
+                        z-index:1001;
                         overflow:hidden;
 
                         @include respond-below(sm){

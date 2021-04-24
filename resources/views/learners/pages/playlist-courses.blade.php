@@ -71,9 +71,9 @@
                     @endforeach
                     @else
                     <div class="col-12 ">
-                    <div class="la-empty__courses my-4 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                    <div class="la-empty__courses my-4 d-md-flex justify-content-between align-items-center la-anim__stagger-item">
                       <div class="col la-empty__inner">
-                          <h6 class="la-empty__course-title text-lg text-md-2xl m-0 la-anim__stagger-item">No courses added to this playlist yet! </h6>
+                          <h6 class="la-empty__course-title text-lg text-md-xl m-0 la-anim__stagger-item">No courses added to this playlist yet! </h6>
                       </div>
                       <div class="col text-md-right la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
                           <a href="/browse/courses" class="la-empty__browse ">
@@ -124,9 +124,9 @@
                               @endforeach
                             @else
                             <div class="col-12 ">
-                            <div class="la-empty__courses my-4 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
+                            <div class="la-empty__courses my-4 d-md-flex justify-content-between align-items-center la-anim__stagger-item">
                               <div class="col la-empty__inner">
-                                  <h6 class="la-empty__course-title text-lg text-md-2xl m-0 la-anim__stagger-item">No Classes added to this playlist yet! </h6>
+                                  <h6 class="la-empty__course-title text-lg text-md-xl m-0 la-anim__stagger-item">No Classes added to this playlist yet! </h6>
                               </div>
                               <div class="col text-md-right la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
                                   <a href="/browse/classes" class="la-empty__browse ">

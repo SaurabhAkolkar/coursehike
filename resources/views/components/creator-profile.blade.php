@@ -1,6 +1,6 @@
 <div class="container-fluid">
 <div class="row flex-column-reverse flex-xl-row la-anim__wrap">
-    <div class="col-xl-6">
+    <div class="col-xl-6 px-0">
       <div class="la-vcreator__overlay-wrap position-relative">
         <div class="la-vcreator__overlay--back position-relative d-none d-xl-block mb-xl-8">
           <div class="la-vcreator__name la-anim__text-move la-title--circle"> <span class="position-relative">{{ $name }}</span> </div>
@@ -32,7 +32,7 @@
         </div>
       </div>
     </div>
-    <div class="col-xl-6 mb-4 mb-md-0">
+    <div class="col-xl-6 px-0 mb-4 mb-md-0">
       <div class="la-vcreator__profile la-anim__stagger-item">
           <div class="la-vcreator__profile--img position-relative">
             <img class="img-fluid d-block" src= "{{ $img }}" alt= "{{ $name }}" />
