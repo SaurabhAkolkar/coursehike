@@ -90,22 +90,43 @@
                 </td>
             </tr>
             @foreach($invoiceDetailData as $idd)         
-            <tr>
-                <td width="40%" style="padding-bottom:10px;">
-                    <img src="{{$idd->course->preview_image}}" alt="course name" style="width:140px;height:80px;border-radius:10px;background-color:#c3c3c3;"/>
-                </td>
+            @if($idd->bundle_id > 0)
+                <tr>
+                    <td width="40%" style="padding-bottom:10px;">
+                        <img src="{{$idd->bundle->preview_image}}" alt="course name" style="width:140px;height:80px;border-radius:10px;background-color:#c3c3c3;"/>
+                    </td>
 
-                <td width="30%" style="text-align:left;padding-bottom:10px;">
-                    <div>
-                        <strong>{{$idd->course->title}}</strong> <br/>
-                        <span style="color:#252525">by {{$idd->course->user->fullName}} </span>
-                    </div>
-                </td>
-                
-                <td width="30%" style="text-align:right;padding-bottom:10px;">
-                    <div style="color:#252525">@if($invoice->currency == 'INR') INR @else $ @endif <span>{{$idd->price}}</span></div>
-                </td>
-            </tr>
+                    <td width="30%" style="text-align:left;padding-bottom:10px;">
+                        <div>
+                            <strong>{{$idd->bundle->title}}</strong> <br/>
+                            <span style="color:#252525">by {{$idd->bundle->user->fullName}} </span>
+                        </div>
+                    </td>
+                    
+                    <td width="30%" style="text-align:right;padding-bottom:10px;">
+                        <div style="color:#252525">@if($invoice->currency == 'INR') INR @else $ @endif <span>{{$idd->price}}</span></div>
+                    </td>
+                </tr>
+            @elese
+                @if($idd->course)
+                <tr>
+                    <td width="40%" style="padding-bottom:10px;">
+                        <img src="{{$idd->course->preview_image}}" alt="course name" style="width:140px;height:80px;border-radius:10px;background-color:#c3c3c3;"/>
+                    </td>
+
+                    <td width="30%" style="text-align:left;padding-bottom:10px;">
+                        <div>
+                            <strong>{{$idd->course->title}}</strong> <br/>
+                            <span style="color:#252525">by {{$idd->course->user->fullName}} </span>
+                        </div>
+                    </td>
+                    
+                    <td width="30%" style="text-align:right;padding-bottom:10px;">
+                        <div style="color:#252525">@if($invoice->currency == 'INR') INR @else $ @endif <span>{{$idd->price}}</span></div>
+                    </td>
+                </tr>
+                @endif
+            @endif
             @endforeach
 
             <tr>

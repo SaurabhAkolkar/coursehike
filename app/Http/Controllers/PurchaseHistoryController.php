@@ -20,7 +20,7 @@ class PurchaseHistoryController extends Controller
     public function downloadPdf($id){
         $invoice = UserInvoiceDetail::findorfail($id);
         $date = Carbon::parse($invoice->create_at)->isoFormat('D/M/YYYY');
-        $invoiceDetailData = InvoiceDetail::with('course','course.user')->where('invoice_id', $id)->get()->unique('course_id');
+        $invoiceDetailData = InvoiceDetail::with('course','course.user','bundle','bundle.user')->where('invoice_id', $id)->get()->unique('course_id');
         $user = User::findOrFail(Auth::user()->id);
 
         $pdf = PDF::loadView('learners.pages.invoicePDF', compact('invoice','invoiceDetailData', 'user','date'))->stream('lila-invoice.pdf');
