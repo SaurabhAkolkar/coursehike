@@ -25430,13 +25430,17 @@ section.la-page--bcreator {
 }
 
 .la-bcreator__banner {
-  background-position: 100%;
   padding: 260px 0;
   background-blend-mode: multiply;
 }
 @media (max-width: 991px) {
   .la-bcreator__banner {
     padding: 100px 0;
+  }
+}
+@media (max-width: 767px) {
+  .la-bcreator__banner {
+    background-position: 65% 50% !important;
   }
 }
 
@@ -25458,6 +25462,15 @@ a.la-bcreator__back-link:hover {
   }
 }
 
+.la-bcreator {
+  padding: 0 var(--size-8);
+}
+@media (min-width: 1200px) {
+  .la-bcreator {
+    padding-left: 100px;
+  }
+}
+
 .la-bcreator__content {
   position: relative;
   top: -75px;
@@ -25471,7 +25484,7 @@ a.la-bcreator__back-link:hover {
 .la-bcreator__title--mini {
   font-family: var(--head-font);
   font-weight: var(--font-bold);
-  font-size: var(--text-3xl);
+  font-size: var(--text-2xl);
   color: var(--white);
 }
 @media (max-width: 991px) {
@@ -25482,8 +25495,13 @@ a.la-bcreator__back-link:hover {
 
 .la-bcreator__title {
   font-weight: var(--font-black);
-  font-size: calc(var(--text-4xl) * 3);
+  font-size: calc(var(--text-4xl) * 2);
   color: var(--white);
+}
+@media (min-width: 1330px) {
+  .la-bcreator__title {
+    font-size: calc(var(--text-3xl) * 3);
+  }
 }
 @media (max-width: 991px) {
   .la-bcreator__title {
@@ -25495,7 +25513,7 @@ a.la-bcreator__back-link:hover {
 .la-bcreator__tag {
   font-weight: var(--font-light);
   color: var(--gray2);
-  font-size: var(--text-3xl);
+  font-size: var(--text-2xl);
 }
 @media (max-width: 991px) {
   .la-bcreator__tag {
@@ -25520,9 +25538,6 @@ a.la-bcreator__back-link:hover {
   }
 }
 
-.la-bcreator__left-text {
-  padding-left: var(--size-14);
-}
 @media (max-width: 991px) {
   .la-bcreator__left-text {
     padding: var(--size-4) 0;
