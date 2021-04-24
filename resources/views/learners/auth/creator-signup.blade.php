@@ -22,11 +22,13 @@
         <div class="col-md-5 la-entry__col la-entry__col-right h-100">
           <div class="la-entry__content-wrap d-flex flex-column justify-content-center la-anim__wrap">
             <div class="la-entry__content-top" id="creator_signup_div">
+              @if($check == null)
               <div class="la-entry__interests-title la-entry__content-title text-center mb-8 la-anim__stagger-item">Tell us about your work</div>
               @if($errors->any())
               <h4></h4>
               <div class="alert alert-danger">{{$errors->first()}}</div>
               @endif
+             
               <form class="la-entry__form" action="" method="post" name="creator-signup">
                       @csrf
                           <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item--x">
@@ -69,6 +71,9 @@
                           </div>
                 <button class="btn la-btn la-btn__secondary la-anim__stagger-item--x w-100" type="submit">CONTINUE</button>
               </form>
+              @else
+              <h3> Your request has been sent to Admin. Our team will contact you soon.</h3>
+              @endif
               <!-- <div class="la-entry__other-option text-center mt-5">Already have an account? <span class="la-btn__plain text--burple text--md ml-2"><a href="">Login</a></span></div> -->
             </div>
             </div>

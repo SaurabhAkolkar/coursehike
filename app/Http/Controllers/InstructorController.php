@@ -36,6 +36,15 @@ class InstructorController extends Controller
         }
     }
 
+    public function creatorSignUpPage(){
+        $check = null;
+        if(Auth::check()){
+                $check = Instructor::where('user_id',Auth::user()->id)->first();
+
+        }
+        return view('learners.auth.creator-signup',compact('check'));
+    }
+
     public function payoutCalculate()
     {
 
@@ -179,7 +188,7 @@ class InstructorController extends Controller
             if($check){
                 return 'You already have a request for the becoming a mentor.';
             }
-            if(Auth::user()->dob == "" || Auth::user()->detail =="" || Auth::user()->address =="" || Auth::user()->state_id =="" || Auth::user()->country_id =="" ){
+            if(Auth::user()->dob == "" || Auth::user()->address =="" || Auth::user()->state_id =="" || Auth::user()->country_id =="" ){
                 return 'Update your profile to become a creator';
             }
             $portfolio = $request->all_portfolio;
@@ -204,7 +213,7 @@ class InstructorController extends Controller
 
             Instructor::create($input);
 
-            return 'Your request has been sent to Admin. Out team will contact you soon.';
+            return 'Your request has been sent to Admin. Our team will contact you soon.';
     }
 
     public function allMentors(){
