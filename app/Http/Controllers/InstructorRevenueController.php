@@ -73,7 +73,9 @@ class InstructorRevenueController extends Controller
     public function payoutCalculate()
     {
 
-        $stripe = Stripe::make(config('services.stripe.secret'));
+        // $stripe = Stripe::make(config('services.stripe.secret'));
+
+        // If no learners has watch show zero.
         
         $start = new Carbon('first day of last month');
         $end = new Carbon('last day of last month');
@@ -84,7 +86,7 @@ class InstructorRevenueController extends Controller
 
         $learners = $watch_logs->unique('user_id')->pluck('user_id')->all();
         $creator_courses = $watch_logs->unique('course_id')->pluck('course_id')->all();
-
+        
         $learners_grouped = UserWatchTime::whereIn('user_id', $learners)
         ->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get()
         ->groupBy([
@@ -95,6 +97,7 @@ class InstructorRevenueController extends Controller
         ], true)->toArray();
 
         $total_income = 0;
+        $exclude_user = [];
         foreach($learners_grouped as $learner => $watch_course){
 
             // If user didn't paid/subscribed last month then skip calculating it...
@@ -105,8 +108,10 @@ class InstructorRevenueController extends Controller
                 $query->where('end_date', '>', $end->endOfMonth() );
             })->latest()->first();
 
-            if(!$UserSubscribedLastMonth && !$UserSubscribedYearly)
+            if(!$UserSubscribedLastMonth && !$UserSubscribedYearly){
+                $exclude_user[] = $learner;
                 continue;
+            }
 
             $user_paid = 39;
 
@@ -119,8 +124,10 @@ class InstructorRevenueController extends Controller
                 $d2 = new DateTime($UserSubscribedYearly->end_date, new DateTimeZone('Asia/Calcutta'));
                 $diffInMonths = ($d2->diff($d1))->m;
 
-                if($diffInMonths < 1)
+                if($diffInMonths < 1){
+                    $exclude_user[] = $learner;
                     continue;
+                }
 
                 $user_paid = ($UserSubscribedYearly->invoice_paid / $diffInMonths );
                 if($UserSubscribedYearly->invoice_currency == 'INR')
@@ -143,16 +150,23 @@ class InstructorRevenueController extends Controller
             $creator_per_income = $user_paid * ($creatorPoolShare / 100);
 
             $total_income += $creator_per_income;
-
-            // echo "User:".$learner.
-            //         " userTotaltime:".$totalWatchtime.
-            //         " creatorCourseWatchtime:".$creatorCourseWatchtime.
-            //         " creator_watch_share:".round($creator_watch_share, 1)."%".
-            //         " creatorPoolShare:".round($creatorPoolShare, 1)."%".
-            //         " creator_per_income: $".round($creator_per_income, 1).
-            //          "<br/>";
         }
+        // $learners = $learners->filter(function ($value, $key) use ($exclude_user) {
+        //     return in_array($value, $exclude_user);
+        // });
+
+        $learners = array_filter($learners, function($value) use ($exclude_user)  {
+            return !in_array($value, $exclude_user);
+        });
+
+        $watch_logs = $watch_logs->filter(function ($value, $key) use ($exclude_user) {
+            return !in_array($value->user_id, $exclude_user);
+        });
+
         $watch_time = $watch_logs->count() * InstructorRevenueController::$WATCHTIME_LOG_SECONDS;
+
+        // dd($watch_time);
+
         return [
             'learners' => $learners,
             'watch_time' => $this->formatSecondsToWord($watch_time),
