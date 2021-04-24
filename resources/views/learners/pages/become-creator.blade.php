@@ -22,7 +22,7 @@
     <div class="w-100 h-100">
       <div class="row la-anim__wrap">
         <!-- Column: Start-->
-        <div class="col-12 col-sm-12 la-bcreator__banner" style="background:url('../images/learners/creator/bcreator-banner.jpg') no-repeat bottom rgba(0, 0, 0, 0.5); background-size:cover;">
+        <div class="col-12 col-sm-12 la-bcreator__banner" style="background:url('../images/learners/creator/bcreator-banner2.png') no-repeat top rgba(0, 0, 0, 0.5); background-size:cover;">
           <div class="la-bcreator text-left text-sm-center px-8">
 
             <a class="la-bcreator__back-link position-absolute la-anim__stagger-item--x" href="{{URL::previous()}}"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>

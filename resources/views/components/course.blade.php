@@ -1,7 +1,7 @@
 
 <!--  New Version Class Card -->
 <div class="col-12 h-100 la-lclass__card" @if($checkWishList) id="course_{{$id}}" @endif>
-    <div class="la-lclass position-relative">
+    <div class="la-lclass position-relative" id="lclass_card">
         <div class="la-lclass__inner">
             <div class="la-lclass__inner-link">
                 <div class="la-lclass__inner-wrap">
@@ -157,7 +157,7 @@
                         </div>
                     </div>
                     <div class="progress la-lclass__progress bg-transparent align-items-end position-relative">
-                        <div class="progress-bar la-lclass__progress-bar" role="progress-bar" aria-valuenow="{{$progress}}%" aria-valuemin="0" aria-valuemax="100" style="width:{{$progress}}%; height:4px;"></div>
+                        <div class="progress-bar la-lclass__progress-bar" role="progress-bar" aria-valuenow="{{$progress}}%" aria-valuemin="0" aria-valuemax="100" style="width:{{$progress}}%; height:4px;" id="course_progress_bar"></div>
                     </div>
                 </div>                
             </div>   

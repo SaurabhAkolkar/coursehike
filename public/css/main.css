@@ -23644,9 +23644,9 @@ label.error {
   height: 480px;
   display: table-cell;
   background-color: var(--white);
-  border-radius: 10px 10px 0 0;
-  -webkit-border-radius: 10px 10px 0 0;
-  -moz-border-radius: 10px 10px 0 0;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
   transform: translateY(0);
   -webkit-transform: translateY(0);
   -moz-transform: translateY(0);
@@ -23654,7 +23654,7 @@ label.error {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   overflow: hidden;
-  box-shadow: 0px 6px 10px #00000029;
+  box-shadow: 0px 10px 10px #00000029;
 }
 .la-lclass:hover {
   transform: translateY(-12px);
@@ -23673,16 +23673,16 @@ label.error {
   margin-bottom: var(--size-8);
 }
 .la-lclass__inner {
-  border-radius: 10px 10px 0 0;
-  -webkit-border-radius: 10px 10px 0 0;
-  -moz-border-radius: 10px 10px 0 0;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
 }
 .la-lclass__inner-link {
   width: 100%;
   height: 100%;
-  border-radius: 10px 10px 0 0;
-  -webkit-border-radius: 10px 10px 0 0;
-  -moz-border-radius: 10px 10px 0 0;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
   position: relative;
   display: block;
   z-index: 1;
@@ -23940,9 +23940,9 @@ label.error {
   height: 480px;
   display: table-cell;
   background-color: var(--white);
-  border-radius: 10px 10px 0 0;
-  -webkit-border-radius: 10px 10px 0 0;
-  -moz-border-radius: 10px 10px 0 0;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
   transform: translateY(0);
   -webkit-transform: translateY(0);
   -moz-transform: translateY(0);
@@ -23950,7 +23950,7 @@ label.error {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   overflow: hidden;
-  box-shadow: 0px 6px 10px #00000029;
+  box-shadow: 0px 10px 10px #00000029;
 }
 .la-lcourse:hover {
   transform: translateY(-12px);
@@ -23991,16 +23991,16 @@ label.error {
   margin-bottom: var(--size-8);
 }
 .la-lcourse__inner {
-  border-radius: 10px 10px 0 0;
-  -webkit-border-radius: 10px 10px 0 0;
-  -moz-border-radius: 10px 10px 0 0;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
 }
 .la-lcourse__inner-link {
   width: 100%;
   height: 100%;
-  border-radius: 10px 10px 0 0;
-  -webkit-border-radius: 10px 10px 0 0;
-  -moz-border-radius: 10px 10px 0 0;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
   position: relative;
   display: block;
   z-index: 1;
