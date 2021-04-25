@@ -11,7 +11,7 @@
       <div class="col-12">
           <div class="la-admin__invoice d-flex justify-content-between">
               <div class="la-admin__invoice-logo position-relative">
-                  <img src="{{ asset('images/logo/'.$setting->logo) }}" alt="logo"  class="img-fluid d-block"  style="width:60px;height:60px;"/>
+                  <img src="{{ asset('images/logo/'.$setting->logo) }}" alt="logo"  class="d-block"  style="width:80px;height:80px;"/>
               </div>
 
               <div class="la-admin__invoice-address text-right">
@@ -56,29 +56,31 @@
       <div class="col-12">
           <div class="la-admin__invoice-solditems">
               <h6>Items</h6>
-       
               @if(count($show->details) > 0)
-               @if($show->details[0]->bundle_id > 0)
-      
-                  <ul class="la-admin__invoice-list">
-                      <x-admin-invoice
-                        :img="$show->details[0]->bundle->preview_image"
-                        :course="$show->details[0]->bundle->title"
-                        :profile="$show->details[0]->bundle->user->fullName"
-                        :price="$show->details[0]->price"
-                        />
-                  </ul>
-                @else
-                    <ul class="la-admin__invoice-list">
-                    <x-admin-invoice
-                      :img="$show->details[0]->course->preview_image"
-                      :course="$show->details[0]->course->title"
-                      :profile="$show->details[0]->course->user->fullName"
-                      :price="$show->details[0]->price"
-                      />
-                    </ul>
+                  @foreach ($show->details as $item)
+                    
+                    @php $price = $show->currency. " ". $item->price; @endphp
+                      @if($item->bundle_id != null)
+                        <ul class="la-admin__invoice-list">
+                            <x-admin-invoice
+                              :img="$item->bundle->preview_image"
+                              :course="$item->bundle->title"
+                              :profile="$item->bundle->user->fullName"
+                              :price="$price"
+                              />
+                        </ul>
+                      @else
+                          <ul class="la-admin__invoice-list">
+                          <x-admin-invoice
+                            :img="$item->course->preview_image"
+                            :course="$item->course->title"
+                            :profile="$item->course->user->fullName"
+                            :price="$price"
+                            />
+                          </ul>
 
-                @endif
+                      @endif
+                  @endforeach
               @else
                     <h3>No Items Found</h3>
               @endif
@@ -128,7 +130,7 @@
 
               <div class="la-admin__invoice-total d-flex justify-content-end">
                   <p class="la-admin__total-title mr-5"> Total </p>
-                  <p class="la-admin__total-price" > $ <span>{{$show->total}}</span> </p>
+                  <p class="la-admin__total-price" ><span>{{$show->currency }} {{$show->total}}</span> </p>
               </div>
           </div>
       </div>

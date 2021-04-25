@@ -121,7 +121,7 @@
                       {{-- <td><?php echo ++$i;?></td> --}}
                       <td>{{$invoice->user->fname.' '.$invoice->user->lname}}</td>
                     
-                      <td>$ {{ $invoice->total }}</td>  
+                      <td> {{ $invoice->currency , $invoice->total }}</td>  
                       <td>{{ $invoice->status }}</td>   
                       <td>{{ $invoice->created_at }}</td>            
 

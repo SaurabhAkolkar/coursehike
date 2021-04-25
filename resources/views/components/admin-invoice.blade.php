@@ -10,5 +10,5 @@
         </div>
     </div>
 
-    <div class="la-admin__item-price">$ <span>{{ $price }}</span></div>
+    <div class="la-admin__item-price"> <span>{{ $price }}</span></div>
 </li>
