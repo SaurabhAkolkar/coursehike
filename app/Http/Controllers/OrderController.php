@@ -24,12 +24,14 @@ use Carbon\Carbon;
     
 class OrderController extends Controller 
 {
-    public function index()
+    public function index(Request $request)
     {
+        // $start = new Carbon('first day of last month');
+        // $end = new Carbon('last day of last month');
 
-        $start = new Carbon('first day of last month');
-        $end = new Carbon('last day of last month');
-
+        $start = Carbon::now()->subMonth($request->month ?? 0);
+        $end = Carbon::now()->subMonth($request->month ?? 0);
+        
         // UserPurchasedCourse::
         $total_purchase = UserInvoiceDetail::with('user')->where( [ ['status','paid'], ['total', '>' , 0] ])->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get();
         $courses_count = $total_purchase->where('purchase_type','bundle')->count();

@@ -8,8 +8,20 @@
     <div class="col-12">
       <div class="box box-primary">
 
-        <div class="d-flex justify-content-between align-items-center ml-2">
-          <h3 class="la-admin__section-title"> {{ __('adminstaticword.Order') }}  - Last Month ({{ \Carbon\Carbon::now()->subMonth()->format('F') }})</h3>
+        <div class="row">
+          <div class="col-md-6 mt-3">
+              <label for="exampleInputTit1e">Choose a Month:<sup class="redstar">*</sup></label>
+              <select name="revenue_month" id="revenue_month" class="form-control js-example-basic-single col-12">
+                
+                  @for ($i = 0; $i < 5; $i++)
+                    <option value="{{$i}}" @if( app('request')->input('month') == $i) selected @endif>{{ \Carbon\Carbon::now()->subMonth($i)->format('F Y') }}</option>
+                  @endfor                  
+              </select>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center ml-2 mt-6">
+          <h3 class="la-admin__section-title"> {{ __('adminstaticword.Order') }}  - Last Month ({{ \Carbon\Carbon::now()->subMonth(app('request')->input('month') ?? 0)->format('F') }})</h3>
         </div>
         
         <!-- /.box-header -->
@@ -193,4 +205,14 @@
   </div>
   <!-- /.row -->
 </section>
+@endsection
+
+@section('scripts')
+<script>
+    $('#revenue_month').change(function() {
+      console.log(this.value)
+      window.location.href = '/order?month='+this.value;
+    });
+
+</script>
 @endsection

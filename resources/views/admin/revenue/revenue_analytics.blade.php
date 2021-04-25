@@ -7,7 +7,21 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
-        <h3 class="la-admin__section-title ml-3">  {{ __('adminstaticword.CreatorPayoutAnalytics') }} - Last Month ({{ \Carbon\Carbon::now()->subMonth()->format('F') }})</h3>
+
+        <div class="row">
+          <div class="col-md-6 mt-3">
+              <label for="exampleInputTit1e">Choose a Month:<sup class="redstar">*</sup></label>
+              {{-- @dd(app('request')->input('month')) --}}
+              <select name="revenue_month" id="revenue_month" class="form-control js-example-basic-single col-12">
+                
+                  @for ($i = 0; $i < 5; $i++)
+                    <option value="{{$i}}" @if( app('request')->input('month') == $i) selected @endif>{{ \Carbon\Carbon::now()->subMonth($i)->format('F Y') }}</option>
+                  @endfor                  
+              </select>
+          </div>
+        </div>
+
+        <h3 class="la-admin__section-title"> {{ __('adminstaticword.CreatorPayoutAnalytics') }}  - ({{ \Carbon\Carbon::now()->subMonth(app('request')->input('month') ?? 0)->format('F') }})</h3>
         
         
         <!-- /.box-header -->
@@ -66,4 +80,15 @@
   </div>
   <!-- /.row -->
 </section>
+@endsection
+
+
+@section('scripts')
+<script>
+    $('#revenue_month').change(function() {
+      console.log(this.value)
+      window.location.href = '/payout/analytics?month='+this.value;
+    });
+
+</script>
 @endsection
