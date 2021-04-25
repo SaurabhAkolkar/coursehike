@@ -38,7 +38,7 @@
                             <div class="col">
                                 <div class="la-bcreator__stats la-about__stats la-anim__stagger-item--x">
                                     <div class="la-bcreator__stats-item ">
-                                        <h4 class="la-bcreator__stats-count m-0">150 +</h4>
+                                        <h4 class="la-bcreator__stats-count m-0">500 +</h4>
                                         <p class="la-bcreator__stats-desc  text-uppercase mb-0">Learners</p>
                                     </div>
                                 </div>

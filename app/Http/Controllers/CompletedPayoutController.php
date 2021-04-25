@@ -172,17 +172,19 @@ class CompletedPayoutController extends Controller
         })->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get();
 
         $purchase_logs = $purchase_logs->unique('order_id')->all();
-
+        
         $total_income = 0;
         foreach($purchase_logs as $purchase){
-            // dd($purchase);
             // If user didn't paid/subscribed last month then skip calculating it...
             $purchase_order = $purchase->user_invoice_details;
             
-            if($purchase_order->status != "paid")
+            if($purchase_order->status != "paid" || (int) $purchase_order->total < 1)
                 continue;
 
             $order_total = $purchase_order->total;
+
+            if($purchase_order->currency == 'INR' || empty($purchase_order->currency))
+                $order_total /= 75; //Convert to USD
 
             $CREATOR_SHARE = $mentor_commission * ($order_total / 100);
 
