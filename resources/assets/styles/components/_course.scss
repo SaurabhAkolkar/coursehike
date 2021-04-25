@@ -291,11 +291,11 @@
                             width:320px;
                             height:480px;
 
-                            .la-lclass__card{
+                            .la-lclass__card, .la-lcourse__card{
                                 padding:0;
-                            }
-                            .la-lcourse__card{
-                                padding:0;
+                            }   
+                            .la-lclass, .la-lcourse{
+                                min-width:320px;
                             }
                         }
                         &title{

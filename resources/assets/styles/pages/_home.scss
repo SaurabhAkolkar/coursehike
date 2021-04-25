@@ -182,6 +182,10 @@
             //margin-left:85px;
        }
     }
+
+    .la-lclass, .la-lcourse{
+        min-width:320px;
+    }
 }
 .la-home__course-pagination{
     .swiper-pagination-bullet{
@@ -730,7 +734,8 @@
     text-align: left;
 
     @include respond-below(sm){
-        margin-top:-16px;
+        margin:-16px 0 0 0;
+        text-align: center;
     }
 }
 .la-slider__navigations-dots .swiper-pagination-bullet, .la-slider__navigations-dots2 .swiper-pagination-bullet {
@@ -744,6 +749,7 @@
     width: 15px;
     border-radius:10px;
     transition: all 0.4s ease;
+    margin-bottom:var(--size-2);
 }
 .la-slider__paginations--purble .swiper-pagination-bullet-active {
     width:30px;

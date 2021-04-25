@@ -1,6 +1,7 @@
 #{$ap}- {
     &lclass{
         width:100%;
+        max-width:450px;
         height:480px;
         display: table-cell;
         background-color:var(--white);
@@ -23,6 +24,7 @@
         &__{
             &card{
                 margin-bottom:var(--size-8);
+                max-width:450px;
             }
 
             &inner{
