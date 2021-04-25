@@ -137,7 +137,7 @@ class CompletedPayoutController extends Controller
             $total_income += $creator_per_income;
 
         }
-
+        
         $learners = array_filter($learners, function($value) use ($exclude_user)  {
             return !in_array($value, $exclude_user);
         });
@@ -193,7 +193,7 @@ class CompletedPayoutController extends Controller
         }
 
         return [
-            'total_income' => $total_income,
+            'total_income' => round($total_income, 2),
             'count' => count($purchase_logs),
         ];
     }
