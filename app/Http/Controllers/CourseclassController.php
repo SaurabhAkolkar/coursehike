@@ -32,8 +32,9 @@ class CourseclassController extends Controller
      */
     public function index()
     {
-        $courseclass = CourseClass::all();
-        return view('admin.course.courseclass.index',compact("courseclass",'video'));
+        // $courseclass = CourseClass::all();
+        // return view('admin.course.courseclass.index',compact("courseclass"));
+        return redirect()->to('/course');
     }
 
     /**
@@ -44,9 +45,9 @@ class CourseclassController extends Controller
     public function create()
     {
 
-        $courseclass = CourseClass::all();
-        return view('admin.course.courseclass.insert',compact('courseclass')); 
- 
+        // $courseclass = CourseClass::all();
+        // return view('admin.course.courseclass.insert',compact('courseclass'));
+        return redirect()->to('/course');
     }
 
     function searchVideo(Request $request){
