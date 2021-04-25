@@ -50,7 +50,7 @@ class OrderController extends Controller
         $current_yearly_subscriptions = $plan_subscription->whereIn('plan_id', [2, 4])->count();
 
         
-        $current_month_subscriptions = UserSubscriptionInvoice::where([ ['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_invoice_id', '!=' , 0] , ['stripe_subscription_id', '!=' ,'Admin-Purchased']])->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get();        
+        $current_month_subscriptions = UserSubscriptionInvoice::where([ ['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_subscription_id', '!=' ,'Admin-Purchased']])->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get();        
 
         $current_month_susbcription_income = 0;
         foreach ($current_month_subscriptions as $invoice) {
