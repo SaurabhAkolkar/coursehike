@@ -87,7 +87,7 @@
                   <div class="col-6 col-md-2 mt-4 mt-md-6">
                     <div class="la-admin__revenue-title">Total Amount</div>
                       <div class="la-admin__revenue-info">
-                        <span class="la-admin__revenue-price">${{$total_earning}}</span>
+                        <span class="la-admin__revenue-price">${{$current_month_purchase_income}}</span>
                       </div>
                   </div>
 

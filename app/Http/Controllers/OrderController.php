@@ -27,32 +27,37 @@ class OrderController extends Controller
     public function index()
     {
 
-        // UserPurchasedCourse::
-        $total_purchase = UserInvoiceDetail::with('user')->where('status','successful')->get();
-        $courses_count = $total_purchase->where('purchase_type','bundle')->count();
-        $classes_count = $total_purchase->where('purchase_type','classes')->count();
-        $total_earning = $total_purchase->sum('total');
-        
-
-        // User Subscription Data:
-
         $start = new Carbon('first day of last month');
         $end = new Carbon('last day of last month');
 
+        // UserPurchasedCourse::
+        $total_purchase = UserInvoiceDetail::with('user')->where( [ ['status','paid'], ['total', '>' , 0] ])->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get();
+        $courses_count = $total_purchase->where('purchase_type','bundle')->count();
+        $classes_count = $total_purchase->where('purchase_type','classes')->count();
+
+        $current_month_purchase_income = 0;
+        foreach ($total_purchase as $invoice) {
+            if(strtoupper($invoice->currency) == 'INR')
+                $current_month_purchase_income += round((int)$invoice->total / 75, 2);
+            else
+                $current_month_purchase_income += round((int)$invoice->total, 2);
+        }
+
+        // User Subscription Data:
         $plan_subscription =  app('rinvex.subscriptions.plan_subscription')::whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get();
 
         $current_monthly_subscriptions = $plan_subscription->whereIn('plan_id', [1, 3])->count();
         $current_yearly_subscriptions = $plan_subscription->whereIn('plan_id', [2, 4])->count();
 
         
-        $current_month_susbcriptions = UserSubscriptionInvoice::where([ ['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_subscription_id', '!=' ,'Admin-Purchased']])->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get();        
+        $current_month_subscriptions = UserSubscriptionInvoice::where([ ['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_subscription_id', '!=' ,'Admin-Purchased']])->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get();        
 
         $current_month_susbcription_income = 0;
-        foreach ($current_month_susbcriptions as $invoice) {
+        foreach ($current_month_subscriptions as $invoice) {
             if(strtoupper($invoice->invoice_currency) == 'INR')
-                $current_month_susbcription_income += ((int)$invoice->invoice_paid / 75);
+                $current_month_susbcription_income += round((int)$invoice->invoice_paid / 75, 2);
             else
-                $current_month_susbcription_income += (int)$invoice->invoice_paid;
+                $current_month_susbcription_income += round((int)$invoice->invoice_paid, 2);
         }
 
 
@@ -62,12 +67,10 @@ class OrderController extends Controller
         
 
         // UserPurchasedCourse::
-        $total_subscription = UserSubscriptionInvoice::where([ ['status', '=', 'paid'],['invoice_paid', '>', 0] ,['stripe_subscription_id', '!=', 'Admin-Purchased'] ])->get();
-        // $total_earning = $total_subscription->sum('invoice_paid');
         
         return view('admin.order.index', compact(   'current_month_susbcription_income', 'current_monthly_subscriptions', 'current_yearly_subscriptions',
                                                     'total_trial_subscriptions', 'total_active_monthly_subscriptions', 'total_active_yearly_subscriptions',
-                                                    'total_purchase','courses_count', 'classes_count','total_earning'));
+                                                    'total_purchase','courses_count', 'classes_count','current_month_purchase_income'));
     }
 
     public function getExcel(){
