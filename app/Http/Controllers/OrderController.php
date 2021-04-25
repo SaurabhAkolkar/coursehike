@@ -49,7 +49,9 @@ class OrderController extends Controller
 
         $current_month_susbcription_income = 0;
         foreach ($current_month_susbcriptions as $invoice) {
-            if($invoice->invoice_currency == 'INR')
+            if(strtoupper($invoice->invoice_currency) == 'INR')
+                $current_month_susbcription_income += ((int)$invoice->invoice_paid / 75);
+            else
                 $current_month_susbcription_income += (int)$invoice->invoice_paid;
         }
 
