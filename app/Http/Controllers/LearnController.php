@@ -246,7 +246,6 @@ class LearnController extends Controller
                                 })
                                 ->orWhere( function($query) use ($class_video) {
                                     // Accept String datatype
-                                    echo $class_video->course_id;
                                     $query->whereJsonContains( 'class_id', $class_video->course_id.'' )
                                         ->where('user_id', '=', Auth::User()->id);
                                 })->firstOr(function () {

@@ -22,16 +22,13 @@
     <div class="w-100 h-100">
       <div class="row la-anim__wrap">
         <!-- Column: Start-->
-        <div class="col-12 col-sm-12 la-bcreator__banner" style="background:url('../images/learners/creator/bcreator-banner.jpg') no-repeat bottom rgba(0, 0, 0, 0.5); background-size:cover;">
-          <div class="la-bcreator text-left text-sm-center px-8">
-
-            <a class="la-bcreator__back-link position-absolute la-anim__stagger-item--x" href="{{URL::previous()}}"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
+        <div class="col-12 col-sm-12 la-bcreator__banner" style="background:url('../images/learners/creator/bcreator-banner2.png') no-repeat bottom rgba(0, 0, 0, 0.5); background-size:cover;">
+        <a class="la-bcreator__back-link position-absolute la-anim__stagger-item--x" href="{{URL::previous()}}"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
+        <div class="col-12  la-bcreator text-left">
             <div class="la-bcreator__content ">
               <strong class=" la-bcreator__title--mini  text-uppercase m-0 la-anim__fade-in-top">Design your own course!</strong>
-              <h1 class="la-bcreator__title text-uppercase d-none d-md-block la-anim__stagger-item">Become a Mentor</h1>
-              <h1 class="la-bcreator__title text-uppercase d-block d-md-none la-anim__stagger-item">Become <br/> a Mentor</h1>
-              <h6 class="la-bcreator__tag  leading-tight d-none d-md-block la-anim__stagger-item--x ">Join LILA’s inspiring community, <br/> share knowledge and start earning for your values</h6>
-              <h6 class="la-bcreator__tag  leading-tight d-block d-md-none la-anim__stagger-item--x">Join LILA’s inspiring community, share knowledge and start earning for your values</h6>
+              <h1 class="la-bcreator__title text-uppercase ml-n1 la-anim__stagger-item">Become <br class="d-block d-md-none" /> a Mentor</h1>
+              <h6 class="la-bcreator__tag  leading-tight  la-anim__stagger-item--x ">Join LILA’s inspiring community, <br class="d-none d-md-block"/> share knowledge and start earning for your values</h6>
             </div>
             <div class="la-bcreator__content-btn la-anim__stagger-item--x"><a class="btn btn--primary la-btn__app text-white text-uppercase" role="button" href="/creator-signup">Start Teaching</a></div>
           </div>
