@@ -21,7 +21,7 @@
         </div>
 
         <div class="d-flex justify-content-between align-items-center ml-2 mt-6">
-          <h3 class="la-admin__section-title"> {{ __('adminstaticword.Order') }}  - Last Month ({{ \Carbon\Carbon::now()->subMonth(app('request')->input('month') ?? 0)->format('F') }})</h3>
+          <h3 class="la-admin__section-title"> {{ __('adminstaticword.Order') }}  - ({{ \Carbon\Carbon::now()->subMonth(app('request')->input('month') ?? 0)->format('F') }})</h3>
         </div>
         
         <!-- /.box-header -->

@@ -38,8 +38,8 @@
                 <th><small>Subscribers Total Revenue</small></th>
                 <th><small>Courses & Classes Purchased</small></th>
                 <th><small>Purchase Revenue</small></th>
-                <th><small>Month</small></th>
-                <th><small>Year</small></th>
+                {{-- <th><small>Month</small></th>
+                <th><small>Year</small></th> --}}
                 {{-- <th>Actions</th> --}}
               
               </tr>
@@ -57,8 +57,8 @@
                   <td>${{$creator['payout']['subscribers_total_income']}}</td>
                   <td>{{$creator['payout']['course_sale']['count']}}</td>
                   <td>${{$creator['payout']['course_sale']['total_income']}}</td>
-                  <td>{{$creator['month']}}</td>
-                  <td>{{$creator['year']}}</td>
+                  {{-- <td>{{$creator['month']}}</td>
+                  <td>{{$creator['year']}}</td> --}}
 
                   {{-- <td>
                     <a class="btn btn-primary btn-sm" href="">{{ __('adminstaticword.View') }}</a>
@@ -81,7 +81,6 @@
   <!-- /.row -->
 </section>
 @endsection
-
 
 @section('scripts')
 <script>

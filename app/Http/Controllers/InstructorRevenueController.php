@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Course;
 use App\InvoiceDetail;
+use App\MentorDetail;
 use App\UserInvoiceDetail;
+use App\UserPurchasedCourse;
 use App\UserSubscriptionInvoice;
 use App\UserWatchTime;
 use Carbon\Carbon;
@@ -20,15 +22,15 @@ class InstructorRevenueController extends Controller
     public static $REVENUE_POOL = 40;
     public static $LEARNER_PAID = 39;
 
-    public static $CREATOR_COMMISSION = 30;
+    public static $CREATOR_COMMISSION = 60;
 
 
     public static $WATCHTIME_LOG_SECONDS = 20;
 
 
-    public function instructorRevenue(){
+    public function instructorRevenue(Request $request){
         
-        $courses = Course::where(['user_id'=>Auth()->user()->id])->pluck('id');
+        $courses = Course::where(['user_id'=> Auth::user()->id])->pluck('id');
 
         $invoiceDetails = DB::table('invoice_details as id')
                                 ->join('user_invoice_details as uid', 'id.invoice_id', '=', 'uid.id')
@@ -64,21 +66,25 @@ class InstructorRevenueController extends Controller
                         ->join('invoice_details as id', 'id.invoice_id', '=', 'uid.id')
                         ->where(['uid.status' => 'successful'])
                         ->sum('uid.sub_total');
-        
-        $payout = $this->payoutCalculate();
 
-        return view('instructor.revenue.instructorRevenue',compact('invoiceDetails','total_earning','classes','courses_count','learners', 'payout'));
+        $total_earning = $this->payoutCalculateCoursePurchase(Auth::user(), $request);
+        
+        $payout = $this->payoutCalculate($request);
+
+        $mentor_commission = MentorDetail::where('user_id', Auth::user()->id)->first();
+        $mentor_commission = $mentor_commission->purchase_commission ?? InstructorRevenueController::$CREATOR_COMMISSION;
+
+        return view('instructor.revenue.instructorRevenue',compact('invoiceDetails','total_earning','classes','courses_count','learners', 'payout', 'mentor_commission'));
     }
 
-    public function payoutCalculate()
+    public function payoutCalculate($request)
     {
-
-        // $stripe = Stripe::make(config('services.stripe.secret'));
-
-        // If no learners has watch show zero.
         
-        $start = new Carbon('first day of last month');
-        $end = new Carbon('last day of last month');
+        // $start = new Carbon('first day of last month');
+        // $end = new Carbon('last day of last month');
+
+        $start = Carbon::now()->subMonth($request->month ?? 0);
+        $end = Carbon::now()->subMonth($request->month ?? 0);
 
         $watch_logs =  UserWatchTime::whereHas('courses', function($query){
             $query->where('user_id', Auth::User()->id);
@@ -151,9 +157,6 @@ class InstructorRevenueController extends Controller
 
             $total_income += $creator_per_income;
         }
-        // $learners = $learners->filter(function ($value, $key) use ($exclude_user) {
-        //     return in_array($value, $exclude_user);
-        // });
 
         $learners = array_filter($learners, function($value) use ($exclude_user)  {
             return !in_array($value, $exclude_user);
@@ -165,12 +168,56 @@ class InstructorRevenueController extends Controller
 
         $watch_time = $watch_logs->count() * InstructorRevenueController::$WATCHTIME_LOG_SECONDS;
 
-        // dd($watch_time);
-
         return [
             'learners' => $learners,
             'watch_time' => $this->formatSecondsToWord($watch_time),
             'total_income' => $total_income,
+        ];
+    }
+
+    public function payoutCalculateCoursePurchase($creator, $request)
+    {
+        
+        $creator_userid = $creator->id;
+
+        $mentor_commission = MentorDetail::where('user_id',$creator_userid)->first();
+        $mentor_commission = $mentor_commission->purchase_commission ?? InstructorRevenueController::$CREATOR_COMMISSION;
+        
+        // $start = new Carbon('first day of last month');
+        // $end = new Carbon('last day of last month');
+
+        $start = Carbon::now()->subMonth($request->month ?? 0);
+        $end = Carbon::now()->subMonth($request->month ?? 0);
+
+        $purchase_logs =  UserPurchasedCourse::whereHas('course', function($query) use($creator_userid){
+            $query->where('user_id', $creator_userid ?? 1);
+        })->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get();
+
+        $purchase_logs = $purchase_logs->unique('order_id')->all();
+        
+        $total_income = 0;
+        foreach($purchase_logs as $purchase){
+            // If user didn't paid/subscribed last month then skip calculating it...
+            $purchase_order = $purchase->user_invoice_details;
+            
+            if($purchase_order->status != "paid" || (int) $purchase_order->total < 1)
+                continue;
+
+            $order_total = $purchase_order->total;
+
+            if($purchase_order->currency == 'INR' || empty($purchase_order->currency))
+                $order_total /= 75; //Convert to USD
+
+            $CREATOR_SHARE = $mentor_commission * ($order_total / 100);
+
+            $total_income += $CREATOR_SHARE;
+
+        }
+
+        return [
+            'total_income' => round($total_income, 2),
+            'purchase_logs' => $purchase_logs,
+            'count' => count($purchase_logs),
         ];
     }
 
