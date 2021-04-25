@@ -7,63 +7,58 @@
   <div class="row">
     <div class="col-12">
       <div class="box box-primary">
+
         <div class="d-flex justify-content-between align-items-center ml-2">
-          <h3 class="la-admin__section-title"> {{ __('adminstaticword.Order') }}</h3>
-          {{-- @if(Auth::User()->role == "admin")
-            <a class="btn btn-info btn-md" href="{{route('order.create')}}">+ Enroll&nbsp; {{ __('adminstaticword.User') }}</a>
-          @endif --}}
+          <h3 class="la-admin__section-title"> {{ __('adminstaticword.Order') }}  - Last Month ({{ \Carbon\Carbon::now()->subMonth()->format('F') }})</h3>
         </div>
         
         <!-- /.box-header -->
         <div class="box-body">
             <div class="la-admin__revenue-stats">
                 <!-- SUBSCRIPTION SECTION: START -->
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-6 col-md-3 mt-4">
-                      <div class="la-admin__revenue-title">Active Trial Subscriptions</div>
+                      <div class="la-admin__revenue-title">Total Active Trial Subscriptions</div>
                       <div class="la-admin__revenue-info">
-                          <span class="la-admin__revenue-total">{{$trial_subscriptions}}</span>
-                          {{-- <span class="la-admin__revenue-per">@ $80 each</span> --}}
+                          <span class="la-admin__revenue-total">{{$total_trial_subscriptions}}</span>
                       </div>
                     </div>
                     <div class="col-6 col-md-3 mt-4">
-                        <div class="la-admin__revenue-title">Active Monthly Subscriptions</div>
+                        <div class="la-admin__revenue-title">Total Active Monthly Subscriptions</div>
                         <div class="la-admin__revenue-info">
-                            <span class="la-admin__revenue-total">{{$monthly_subscriptions}}</span>
-                            {{-- <span class="la-admin__revenue-per">@ $39 each</span> --}}
+                            <span class="la-admin__revenue-total">{{$total_active_monthly_subscriptions}}</span>
                         </div>
                     </div>
                     <div class="col-6 col-md-3 mt-4">
-                      <div class="la-admin__revenue-title">Active Yearly Subscriptions</div>
+                      <div class="la-admin__revenue-title">Total Active Yearly Subscriptions</div>
                       <div class="la-admin__revenue-info">
-                          <span class="la-admin__revenue-total">{{$yearly_subscriptions}}</span>
-                          {{-- <span class="la-admin__revenue-per">@ $309 each</span> --}}
+                          <span class="la-admin__revenue-total">{{$total_active_yearly_subscriptions}}</span>
                       </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- SUBSCRIPTION SECTION: END -->
 
 
                 <!-- SUBSCRIPTION SECTION: START -->
                 <div class="row">
                   <div class="col-6 col-md-3 mt-4">
-                      <div class="la-admin__revenue-title">Paid Monthly Subscriptions</div>
+                      <div class="la-admin__revenue-title">({{ \Carbon\Carbon::now()->subMonth()->format('F') }}) Monthly Subscriptions</div>
                       <div class="la-admin__revenue-info">
-                          <span class="la-admin__revenue-total">{{$monthly_subscriptions}}</span>
+                          <span class="la-admin__revenue-total">{{$current_monthly_subscriptions}}</span>
                           <span class="la-admin__revenue-per">@ $39 / INR 2999 each</span>
                       </div>
                   </div>
                   <div class="col-6 col-md-3 mt-4">
-                    <div class="la-admin__revenue-title">Paid Yearly Subscriptions</div>
+                    <div class="la-admin__revenue-title">({{ \Carbon\Carbon::now()->subMonth()->format('F') }}) Yearly Subscriptions</div>
                     <div class="la-admin__revenue-info">
-                        <span class="la-admin__revenue-total">{{$yearly_subscriptions}}</span>
+                        <span class="la-admin__revenue-total">{{$current_yearly_subscriptions}}</span>
                         <span class="la-admin__revenue-per">@ $309 / INR 24999 each</span>
                     </div>
                   </div>
                   <div class="col-6 col-md-2 mt-4">
-                    <div class="la-admin__revenue-title">Total Amount</div>
+                    <div class="la-admin__revenue-title">({{ \Carbon\Carbon::now()->subMonth()->format('F') }}): Total Subscription Revenue</div>
                     <div class="la-admin__revenue-info">
-                        <span class="la-admin__revenue-price">${{ ($monthly_subscriptions * 39) + ($yearly_subscriptions * 309) }}</span>
+                        <span class="la-admin__revenue-price">${{ $current_month_susbcription_income }}</span>
                     </div>
                   </div>
               </div>

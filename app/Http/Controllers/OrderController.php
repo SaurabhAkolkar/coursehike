@@ -26,55 +26,46 @@ class OrderController extends Controller
 {
     public function index()
     {
-        // $invoiceDetails = DB::table('invoice_details as id')
-        //         ->join('user_invoice_details as uid', 'id.invoice_id', '=', 'uid.id')
-        //         ->join('courses as c','c.id','=','id.course_id')
-        //         ->leftJoin('course_chapters as cc','cc.id','=','id.class_id')
-        //         ->join('users as u','uid.user_id','=','u.id')
-        //         ->where(['uid.status' => 'successful'])
-        //         ->get(['c.title','uid.sub_total', 'uid.status','uid.coupon_id','c.title','id.id','id.course_id','cc.chapter_name','u.fname','u.lname']);
-
-        // $learners = DB::table('user_invoice_details as uid')
-        //                 ->rightJoin('invoice_details as id', 'id.invoice_id', '=', 'uid.id')
-        //                 ->where(['uid.status' => 'successful'])
-        //                 ->count('uid.user_id');
-
-        // $courses_count = DB::table('invoice_details as id')
-        //                         ->rightJoin('user_invoice_details as uid', 'id.invoice_id', '=', 'uid.id')
-        //                         ->where(['id.class_id'=>0])
-        //                         ->where(['uid.status' => 'successful'])
-        //                         ->groupBy('course_id')
-        //                         ->count('course_id');
-
-        // $classes = DB::table('invoice_details as id')
-        //                     ->rightJoin('user_invoice_details as uid', 'id.invoice_id', '=', 'uid.id')
-        //                     ->where('id.class_id','>' , 0 )
-        //                     ->where(['uid.status' => 'successful'])
-        //                     ->count('course_id');
-
-        // $total_earning = DB::table('user_invoice_details as uid')
-        //                         ->join('invoice_details as id', 'id.invoice_id', '=', 'uid.id')
-        //                         ->where(['uid.status' => 'successful'])
-        //                         ->sum('uid.sub_total');
-
-        // $orders = Order::all();
 
         // UserPurchasedCourse::
         $total_purchase = UserInvoiceDetail::with('user')->where('status','successful')->get();
         $courses_count = $total_purchase->where('purchase_type','bundle')->count();
         $classes_count = $total_purchase->where('purchase_type','classes')->count();
         $total_earning = $total_purchase->sum('total');
+        
 
-        $monthly_subscriptions = app('rinvex.subscriptions.plan_subscription')->byPlanId(1)->where([ ['ends_at','>', now()], ['trial_ends_at','<', now()] ])->count() + app('rinvex.subscriptions.plan_subscription')->byPlanId(3)->where([ ['ends_at','>', now()], ['trial_ends_at','<', now()] ])->count();
-        $yearly_subscriptions = app('rinvex.subscriptions.plan_subscription')->byPlanId(2)->where([ ['ends_at','>', now()], ['trial_ends_at','<', now()] ])->count() + app('rinvex.subscriptions.plan_subscription')->byPlanId(4)->where([ ['ends_at','>', now()], ['trial_ends_at','<', now()] ])->count();
-        $trial_subscriptions = app('rinvex.subscriptions.plan_subscription')->findEndingTrial(7)->count();
+        // User Subscription Data:
+
+        $start = new Carbon('first day of last month');
+        $end = new Carbon('last day of last month');
+
+        $plan_subscription =  app('rinvex.subscriptions.plan_subscription')::whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get();
+
+        $current_monthly_subscriptions = $plan_subscription->whereIn('plan_id', [1, 3])->count();
+        $current_yearly_subscriptions = $plan_subscription->whereIn('plan_id', [2, 4])->count();
+
+        
+        $current_month_susbcriptions = UserSubscriptionInvoice::where([ ['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_subscription_id', '!=' ,'Admin-Purchased']])->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get();        
+
+        $current_month_susbcription_income = 0;
+        foreach ($current_month_susbcriptions as $invoice) {
+            if($invoice->invoice_currency == 'INR')
+                $current_month_susbcription_income += (int)$invoice->invoice_paid;
+        }
+
+
+        $total_active_monthly_subscriptions = app('rinvex.subscriptions.plan_subscription')->byPlanId(1)->where([ ['ends_at','>', now()], ['trial_ends_at','<', now()] ])->count() + app('rinvex.subscriptions.plan_subscription')->byPlanId(3)->where([ ['ends_at','>', now()], ['trial_ends_at','<', now()] ])->count();
+        $total_active_yearly_subscriptions = app('rinvex.subscriptions.plan_subscription')->byPlanId(2)->where([ ['ends_at','>', now()], ['trial_ends_at','<', now()] ])->count() + app('rinvex.subscriptions.plan_subscription')->byPlanId(4)->where([ ['ends_at','>', now()], ['trial_ends_at','<', now()] ])->count();
+        $total_trial_subscriptions = app('rinvex.subscriptions.plan_subscription')->findEndingTrial(7)->count();
         
 
         // UserPurchasedCourse::
         $total_subscription = UserSubscriptionInvoice::where([ ['status', '=', 'paid'],['invoice_paid', '>', 0] ,['stripe_subscription_id', '!=', 'Admin-Purchased'] ])->get();
         // $total_earning = $total_subscription->sum('invoice_paid');
         
-        return view('admin.order.index', compact('trial_subscriptions', 'monthly_subscriptions', 'yearly_subscriptions','total_purchase','courses_count', 'classes_count','total_earning'));
+        return view('admin.order.index', compact(   'current_month_susbcription_income', 'current_monthly_subscriptions', 'current_yearly_subscriptions',
+                                                    'total_trial_subscriptions', 'total_active_monthly_subscriptions', 'total_active_yearly_subscriptions',
+                                                    'total_purchase','courses_count', 'classes_count','total_earning'));
     }
 
     public function getExcel(){
