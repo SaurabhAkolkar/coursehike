@@ -35,20 +35,18 @@ class CompletedPayoutController extends Controller
     	return view('admin.revenue.view', compact('payout'));
     }
 
-    public function analytics()
+    public function analytics(Request $request)
     {
         $mentors = User::where([['role','mentors'],['status','1']])->get();
 
         $creators = array();
         foreach ($mentors as $mentor) {
 
-            // $mentor->push($this->payoutCalculate($mentor->id));
-
             $creator = [
                 'id' => $mentor->id,
                 'name' => $mentor->fname,
                 'email' => $mentor->email,
-                'payout' => $this->payoutCalculate($mentor),
+                'payout' => $this->payoutCalculate($mentor, $request),
                 'month' => Carbon::now()->subMonth()->format('F'),
                 'year' => Carbon::now()->subMonth()->format('Y'),
             ];
@@ -63,11 +61,14 @@ class CompletedPayoutController extends Controller
     }
 
 
-    public function payoutCalculate($creator)
+    public function payoutCalculate($creator, $request)
     {
         $creator_userid = $creator->id;
-        $start = new Carbon('first day of last month');
-        $end = new Carbon('last day of last month');
+        // $start = new Carbon('first day of last month');
+        // $end = new Carbon('last day of last month');
+
+        $start = Carbon::now()->subMonth($request->month ?? 0);
+        $end = Carbon::now()->subMonth($request->month ?? 0);
 
         $watch_logs =  UserWatchTime::whereHas('courses', function($query) use($creator_userid){
             $query->where('user_id', $creator_userid);
@@ -137,7 +138,7 @@ class CompletedPayoutController extends Controller
             $total_income += $creator_per_income;
 
         }
-
+        
         $learners = array_filter($learners, function($value) use ($exclude_user)  {
             return !in_array($value, $exclude_user);
         });
@@ -152,11 +153,11 @@ class CompletedPayoutController extends Controller
             'learners' => $learners,
             'watch_time' => $this->formatSecondsToWord($watch_time),
             'subscribers_total_income' => round($total_income, 2),
-            'course_sale' => $this->payoutCalculateCoursePurchase($creator),
+            'course_sale' => $this->payoutCalculateCoursePurchase($creator, $request),
         ];
     }
 
-    public function payoutCalculateCoursePurchase($creator)
+    public function payoutCalculateCoursePurchase($creator, $request)
     {
         
         $creator_userid = $creator->id;
@@ -164,25 +165,30 @@ class CompletedPayoutController extends Controller
         $mentor_commission = MentorDetail::where('user_id',$creator_userid)->first();
         $mentor_commission = $mentor_commission->purchase_commission ?? InstructorRevenueController::$CREATOR_COMMISSION;
         
-        $start = new Carbon('first day of last month');
-        $end = new Carbon('last day of last month');
+        // $start = new Carbon('first day of last month');
+        // $end = new Carbon('last day of last month');
+
+        $start = Carbon::now()->subMonth($request->month ?? 0);
+        $end = Carbon::now()->subMonth($request->month ?? 0);
 
         $purchase_logs =  UserPurchasedCourse::whereHas('course', function($query) use($creator_userid){
             $query->where('user_id', $creator_userid ?? 1);
         })->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get();
 
         $purchase_logs = $purchase_logs->unique('order_id')->all();
-
+        
         $total_income = 0;
         foreach($purchase_logs as $purchase){
-            // dd($purchase);
             // If user didn't paid/subscribed last month then skip calculating it...
             $purchase_order = $purchase->user_invoice_details;
             
-            if($purchase_order->status != "paid")
+            if($purchase_order->status != "paid" || (int) $purchase_order->total < 1)
                 continue;
 
             $order_total = $purchase_order->total;
+
+            if($purchase_order->currency == 'INR' || empty($purchase_order->currency))
+                $order_total /= 75; //Convert to USD
 
             $CREATOR_SHARE = $mentor_commission * ($order_total / 100);
 
@@ -191,7 +197,7 @@ class CompletedPayoutController extends Controller
         }
 
         return [
-            'total_income' => $total_income,
+            'total_income' => round($total_income, 2),
             'count' => count($purchase_logs),
         ];
     }

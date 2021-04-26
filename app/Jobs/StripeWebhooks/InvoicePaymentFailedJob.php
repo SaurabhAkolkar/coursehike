@@ -56,6 +56,7 @@ class InvoicePaymentFailedJob implements ShouldQueue
         $invoice_charge = $invoice['charge']; // charge_id
         $payment_intent_id = $invoice['payment_intent']; // payment_intent_id
         $invoice_amount_paid = $invoice['amount_paid'];
+        $currency = strtoupper($invoice['currency']);
         
 		$invoice_paid = $invoice['paid']; // true
         $invoice_status = $invoice['status']; //paid
@@ -79,6 +80,7 @@ class InvoicePaymentFailedJob implements ShouldQueue
                     'invoice_charge_id' => $invoice_charge,
                     'payment_intent_id' => $payment_intent_id,
                     'invoice_paid' => $invoice_amount_paid,
+                    'invoice_currency' => $currency,
                     'status' => 'failed',
                 ]);
                 

@@ -60,9 +60,11 @@ class CourseProgressController extends Controller
 		$user = Auth::User();
 		$order = UserPurchasedCourse::where('user_id', $user->id)->where('course_id', $course_id)->first();
 		
-		if( $user->role != "admin" || 
+		if( $user->role != "admin" && (
 			($user->subscription() && $user->subscription()->active() && !$user->subscription()->onTrial() ) ||
-			(!empty( $order) && ( $order->purchase_type == 'all_classes' || in_array($class_id, json_decode($order->class_id))) ) )
+			!empty( $order) )
+		)
+			// (!empty( $order) && ( $order->purchase_type == 'all_classes' || in_array($class_id, json_decode($order->class_id))) ) )
 		{
 			// TODO: Verify the Order Purchased and Subscription area
 
