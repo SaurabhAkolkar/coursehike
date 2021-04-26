@@ -372,7 +372,7 @@
                         </div>
 
                         <!-- Featured Courses Section -->
-                        <div class="la-courses__nav-content--courses la-anim__wrap">
+                        <div class="la-courses__nav-content--classes pt-8 la-anim__wrap">
                           <h2 class="la-courses__nav-content--title la-anim__stagger-item text-center">Featured Courses</h2>
                           <div class="swiper-container la-home__course-container">
                             <div class="swiper-wrapper la-home__course-wrapper ">
