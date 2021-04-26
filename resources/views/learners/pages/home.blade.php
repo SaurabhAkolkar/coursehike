@@ -253,9 +253,10 @@
     <div class="la-section__inner la-anim__wrap la-section--courses-inwrap" >
       <div class="container-fluid la-home__course-fluid position-relative" id="home_fluid_container">
         <div class="la-courses">
-          <h3 class="la-home__course-mtitle ml-n3 ml-md-0 text-center mb-6 mb-md-10 la-anim__stagger-item">Learn what you love!</h3>
+          <h3 class="la-home__course-mtitle ml-n3 ml-md-0 text-center mb-3 mb-md-10 la-anim__stagger-item">Learn what you love!</h3>
+          <h2 class="la-courses__nav-content--title la-anim__stagger-item mb-3 mb-md-6 text-center">Featured Classes</h2>
 
-          <nav class="la-courses__nav d-inline-flex justify-content-start justify-content-md-center position-relative">
+          <nav class="la-courses__nav mb-3 mb-md-3 d-inline-flex justify-content-start justify-content-md-center position-relative">
               <ul class="nav nav-pills la-courses__nav-tabs justify-content-center" id="nav-tab" role="tablist" tabindex="0">
               
                 @if(!$filtres_applied)
@@ -304,7 +305,6 @@
                         <!-- Featured Classes Section -->
                         <div class="la-courses__nav-content--classes la-anim__wrap">
                           
-                          <h2 class="la-courses__nav-content--title la-anim__stagger-item">Featured Classes</h2>
                           <div class="swiper-container la-home__course-container2">
                             <div class="swiper-wrapper la-home__course-wrapper2">
                                                                                             
@@ -373,7 +373,7 @@
 
                         <!-- Featured Courses Section -->
                         <div class="la-courses__nav-content--courses la-anim__wrap">
-                          <h2 class="la-courses__nav-content--title la-anim__stagger-item">Featured Courses</h2>
+                          <h2 class="la-courses__nav-content--title la-anim__stagger-item text-center">Featured Courses</h2>
                           <div class="swiper-container la-home__course-container">
                             <div class="swiper-wrapper la-home__course-wrapper ">
                                                                                             
