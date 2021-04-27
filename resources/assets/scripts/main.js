@@ -1015,6 +1015,23 @@ function clearNotification(){
   });
 }
 
+function markReleaseRead(){
+  $.ajax({
+    headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    type:"get",
+    url: '/mark-nofification-read',
+    success:function(data){   
+         
+           $('#notificationBadgeRelease').html(0);
+    },
+    error: function(XMLHttpRequest, textStatus, errorThrown) {
+      console.log(XMLHttpRequest);
+    }
+  });
+}
+
 
 // vcourse video lish dynamic height
 

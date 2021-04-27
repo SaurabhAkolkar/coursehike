@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Announcement;
+use App\LearnerAnnouncement;
 use Illuminate\Http\Request;
 use App\User;
 use App\Course;
@@ -24,7 +24,9 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
-        //
+        $announcement = LearnerAnnouncement::where('status',1)->get();
+        return view('admin.course.announcement.index',compact('announcement'));
+        
     }
 
     /**
@@ -47,7 +49,6 @@ class AnnouncementController extends Controller
     {
         $request->validate([
             'announcement_title' => 'required',
-            'announcement_category' => 'required',
             'announcement_short' => 'required',
             'announcement_long' => 'required',
             'layouts' => 'required',
@@ -55,9 +56,9 @@ class AnnouncementController extends Controller
             'preview_image'=>'mimes:jpg,jpeg',
             'preview_video'=>'mimes:mp4,avi,wmv'
           ]);
+
   
         $input['title'] = $request->announcement_title;
-        $input['category_id'] = $request->announcement_category;
         $input['short_description'] = $request->announcement_short;
         $input['long_description'] = $request->announcement_long;
         $input['status'] = $request->status;
@@ -100,7 +101,7 @@ class AnnouncementController extends Controller
 
         }
 
-        $anno = Announcement::create($input);      
+        $anno = LearnerAnnouncement::create($input);      
 
         return redirect()->back()->with('success','Announcement Created Successfully');
     }
@@ -113,12 +114,10 @@ class AnnouncementController extends Controller
      */
     public function show($id)
     {
-        $annou = Announcement::find($id);
+        $annou = LearnerAnnouncement::find($id);
         $user =  User::all();
-        $courses = Course::all();
-        $categories= Categories::where('status',1)->pluck('title','id');
 
-        return view('admin.course.announcement.edit',compact('annou','courses','user','categories'));
+        return view('admin.course.announcement.edit',compact('annou'));
     }
 
     /**
@@ -152,7 +151,6 @@ class AnnouncementController extends Controller
           ]);
   
         $input['title'] = $request->announcement_title;
-        $input['category_id'] = $request->announcement_category;
         $input['short_description'] = $request->announcement_short;
         $input['long_description'] = $request->announcement_long;
         $input['status'] = $request->status="on"?1:0;
@@ -160,7 +158,7 @@ class AnnouncementController extends Controller
         $input['course_id'] = $request->course_id;
         $input['user_id'] = Auth::user()->id;
         
-        $annou = Announcement::find($id);
+        $annou = LearnerAnnouncement::find($id);
 
         if ($file = $request->file('preview_image')) {
 
@@ -233,13 +231,13 @@ class AnnouncementController extends Controller
     }
 
     public function showAllRelease(){
-        $allReleases = Announcement::where(['status'=>1])->get();
+        $allReleases = LearnerAnnouncement::where(['status'=>1])->get();
         // dd($allReleases);
         return view('learners.pages.new-releases',compact('allReleases'));
     }
 
     public function showRelease($id){
-        $release = Announcement::where(['status'=>1, 'id'=>$id])->first();
+        $release = LearnerAnnouncement::where(['status'=>1, 'id'=>$id])->first();
         if($release == null){
             return redirect()->back();
         }

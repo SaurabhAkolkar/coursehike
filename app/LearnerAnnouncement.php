@@ -5,9 +5,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
-class Announcement extends Model
+
+class LearnerAnnouncement extends Model
 {
-	use HasTranslations;
+    use HasTranslations;
     
     public $translatable = ['announsment'];
 
@@ -27,7 +28,7 @@ class Announcement extends Model
       return $attributes;
     }
 
-    protected $table = 'announcements';
+    protected $table = 'learner_announcements';
 
     protected $fillable = ['user_id', 'title','short_description', 'category_id','long_description','preview_image','stream_video','layout','preview_video','status'];
 
@@ -35,5 +36,4 @@ class Announcement extends Model
     {
         return $this->belongsTo('App\User','user_id','id');
     }
-
 }

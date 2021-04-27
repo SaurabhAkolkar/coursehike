@@ -1,7 +1,7 @@
 @php
 use Carbon\Carbon;
 use App\CourseProgress;
-use App\Announcement;
+use App\LearnerAnnouncement;
 @endphp
 @if (Auth::check())
 
@@ -125,31 +125,22 @@ use App\Announcement;
               @php
                   $announcements = [];
                   $old_announcements = [];
-                  if(Auth::User()->subscription() && Auth::User()->subscription()->active())
-                  {
-                      $courses_id = CourseProgress::where('user_id', Auth::User()->id)->pluck('course_id');
+                
                       $last_annoucement_check = Auth::user()->last_annoucement_check;
                     
                     if($last_annoucement_check==null){
                       $last_annoucement_check = Auth::user()->created_at;
                     }
-                      $announcements = Announcement::where('updated_at','>=', $last_annoucement_check)
-                                                      ->whereIn('course_id', $courses_id)
-                                                      ->where('status',1)
-                                                      ->orderBy('updated_at', 'DESC')
-                                                      ->get();
-                      
-                      $old_announcements = Announcement::where('updated_at','<', $last_annoucement_check)
-                                                      ->whereIn('course_id', $courses_id)
-                                                      ->where('status',1)
-                                                      ->orderBy('updated_at', 'DESC')
-                                                      ->get();
-                      
-                      
-                  }
+                  
+                  $announcements = LearnerAnnouncement::query()
+                                                  ->where('status',1)
+                                                  ->orderBy('updated_at', 'DESC')
+                                                  ->get();
+                  $new_announcements = $announcements->where('updated_at','>=',$last_annoucement_check);
+                  $old_anno = $announcements->where('updated_at','<',$last_annoucement_check);
                   
               @endphp
-            <a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-announcement" onclick="markNotificationRead()" id="announcementPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <sup class="la-header__menu-badge badge badge-light" id="releaseNotificationBadge">{{count($announcements)}}</sup></a>
+            <a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-announcement" onclick="markReleaseRead()" id="announcementPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <sup class="la-header__menu-badge badge badge-light" id="notificationBadgeRelease">{{count($new_announcements)}}</sup></a>
               <div class="la-notification__dropdown dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="announcementPanel" style="border:none;">
                 <div class="card la-announcement__card">
                   <div class="la-announcement__name d-flex justify-content-between">
@@ -160,7 +151,7 @@ use App\Announcement;
                   </div>
                       <!-- Announcements Panel: Start -->
                       
-                       @foreach ($announcements as $anno)
+                       @foreach ($new_announcements as $anno)
                          
                               @php
                                 
@@ -183,7 +174,7 @@ use App\Announcement;
                  
                       @endforeach 
 
-                        @foreach ($old_announcements as $anno)
+                        @foreach ($old_anno as $anno)
                          
                               @php
                                 

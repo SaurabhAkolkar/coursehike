@@ -1,3 +1,8 @@
+@extends('admin/layouts.master')
+@section('title', 'View Classes - Admin')
+@section('body')
+
+
 <section class="content">
  
   <div class="row">
@@ -10,7 +15,6 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>{{ __('adminstaticword.Course') }}</th>
               <th>{{ __('adminstaticword.Announcement') }}</th>
               <th>{{ __('adminstaticword.Status') }}</th>
               <th>{{ __('adminstaticword.Edit') }}</th>
@@ -19,11 +23,10 @@
           </thead>
           <tbody>
             <?php $i=0;?>
-            @foreach($cor->announsment as $an)
+            @foreach($announcement as $an)
               <tr>
                 <?php $i++;?>
                 <td><?php echo $i;?></td>
-                <td>{{$an->courses->title}}</td>
                 <td>{{ str_limit($an->title, $limit = 70, $end = '....')}}</td> 
                 <td>
                   @if($an->status==1)
@@ -68,23 +71,12 @@
             
             <form class="la-admin__announce-form" name="announcement_form" action="/announcement" method="post"  enctype="multipart/form-data">
               @csrf
-              <input type="hidden" name="course_id" value="{{$cor->id}}" />
               <div class="row">
                 <div class="form-group col-md-12">
                     <label for="announcement_title">Title:</label>
                     <input type="text" class="form-control" name="announcement_title" id="announcement_title" placeholder="Enter Title for the announcement">
                 </div>
 
-                <div class="form-group col-md-12">
-                    <label for="announcement_category">Category:</label>
-                    <select name="announcement_category" id="announcement_category" class="form-control js-example-basic-single">
-                        <option selected disabled>Select</option>
-                        @foreach($categories as $key=>$value)
-                            <option value="{{$key}}">{{$value}}</option>
-                        @endforeach
-                    </select>
-                </div>
-               
                 <div class="form-group col-md-12">
                     <label for="announcement_short">Short Description:</label>
                     <textarea cols="30" rows="4" class="form-control" name="announcement_short" id="announcement_short" placeholder="Short discription on the preview of the announcement"></textarea>
@@ -112,28 +104,6 @@
                             </div>
                             <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="preview_image" id="image" />
                             <img src="" alt="" class="d-none preview-img"/>
-                        </div>
-                      </div>
-                </div>
-               
-                <div class="col-md-12 mt-md-4">
-                      <div class="la-admin__preview">
-                        <label for="" class="la-admin__preview-label"> {{ __('adminstaticword.PreviewVideo') }}:</label>
-                        <div class="la-admin__preview-video la-admin__course-imgvid">
-                            <div class="la-admin__preview-text">
-                                  <p class="la-admin__preview-size">Preview video size: 20MB</p>
-                                  <p class="text-uppercase la-admin__preview-file">Choose a File</p>
-                            </div>
-                            <div class="text-center pr-20 mr-10">
-                              <span class="la-icon la-icon--8xl icon-preview-video" style="font-size:160px;">
-                                <span class="path1"><span class="path2"></span></span>
-                              </span>
-                            </div>
-                            <input type="file" class="form-control la-admin__preview-input preview_video" name="preview_video" />
-                            <video controls class="d-none preview-video w-100">
-                              <source src="">
-                                Your browser does not support HTML5 video.
-                            </video>
                         </div>
                       </div>
                 </div>
@@ -247,4 +217,4 @@
 
      <!--Model close -->    
 </section> 
-
+@endsection

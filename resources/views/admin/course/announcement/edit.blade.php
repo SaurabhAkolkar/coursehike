@@ -24,65 +24,13 @@
         </div>   
         @endif 
         <div class="box-body">
-          <!-- <div class="form-group">
-            <form id="demo-form" method="post" action="{{url('announsment/'.$annou->id)}}" data-parsley-validate class="form-horizontal form-label-left">
-              {{ csrf_field() }}
-              {{ method_field('PUT') }}
-
-              <label class="display-none" for="exampleInputSlug">{{ __('adminstaticword.SelectCourse') }}</label>
-              <select name="course_id" class="form-control col-md-7 col-12 display-none">
-                @foreach($courses as $cou)
-                  <option class="display-none" value="{{ $cou->id }}" {{$annou->courses->id == $cou->id  ? 'selected' : ''}}>{{ $cou->title}}</option>
-                @endforeach
-              </select>
-
-              <label class="display-none" for="exampleInputSlug">{{ __('adminstaticword.User') }}</label>
-              <select  name="user" class="form-control col-md-7 col-12 display-none">
-                @foreach($user as $cu)
-                  <option class="display-none" value="{{ $cu->id }}" {{$annou->user->id == $cu->id  ? 'selected' : ''}}>{{ $cu->fname}}</option>
-                @endforeach
-              </select>
-                 
-              <div class="row">
-                <div class="col-md-9">
-                  <label for="exampleInputDetails">{{ __('adminstaticword.Announcement') }}:<sup class="redstar">*</sup></label>
-                  <textarea name="announsment" rows="3" class="form-control" >{{$annou->announsment}}</textarea>
-                </div>
-                <div class="col-md-3">
-                  <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
-                  <li class="tg-list-item">              
-                      <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" {{ $annou->status == '1' ? 'checked' : '' }} >
-                      <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
-                  </li>
-                  <input type="hidden"  name="free" value="0" for="status" id="status">
-                </div>
-              </div>
-              <br>
-           
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-md col-md-2 btn-primary">{{ __('adminstaticword.Save') }}</button>
-              </div>
-            </form>
-          </div> -->
-
-          <form class="la-admin__announce-form mr-20 pr-20" name="announcement_form" enctype="multipart/form-data" action="{{url('announcement/'.$annou->id)}}" method="post">
+         <form class="la-admin__announce-form mr-20 pr-20" name="announcement_form" enctype="multipart/form-data" action="{{url('announcement/'.$annou->id)}}" method="post">
           @method('PUT')
           @csrf
-            <input type="hidden" name="course_id" value="{{$annou->course_id}}" />
             <div class="row">
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-12">
                   <label for="announcement_title">Title:</label>
                   <input type="text" class="form-control" name="announcement_title" id="announcement_title" value="{{$annou->title}}" placeholder="Enter Title for the announcement">
-              </div>
-
-              <div class="form-group col-md-6">
-                  <label for="announcement_category">Category:</label>
-                  <select name="announcement_category" id="announcement_category" class="form-control js-example-basic-single">
-                      @foreach($categories as $key=>$value)
-                          <option value="{{$key}}" @if($key == $annou->category_id) selected @endif >{{$value}}</option> 
-                      @endforeach
-                  </select>
               </div>
 
               <div class="form-group col-md-12">
@@ -115,29 +63,7 @@
                       </div>
                     </div>
               </div>
-             
-              <div class="col-md-6">
-                    <div class="la-admin__preview">
-                      <label for="" class="la-admin__preview-label"> {{ __('adminstaticword.PreviewVideo') }}:</label>
-                      <div class="la-admin__preview-video la-admin__course-imgvid">
-                          <div class="la-admin__preview-text">
-                                <p class="la-admin__preview-size">Preview video size: 20MB</p>
-                                <p class="text-uppercase la-admin__preview-file">Choose a File</p>
-                          </div>
-                          <div class="text-center pr-20 mr-10">
-                            <span class="la-icon la-icon--8xl icon-preview-video" style="font-size:160px;">
-                              <span class="path1"><span class="path2"></span></span>
-                            </span>
-                          </div>
-                          <input type="file" class="form-control la-admin__preview-input preview_video" name="preview_video" />
-                          <video controls class="d-none preview-video w-100">
-                            <source src="">
-                              Your browser does not support HTML5 video.
-                          </video>
-                      </div>
-                    </div>
-              </div>
-            </div>
+             </div>
              <!-- PREVIEW IMAGE & VIDEO FILES: END -->
              <label class="la-admin__announce-layouts pt-5">Layout:</label> 
              <div class="row">

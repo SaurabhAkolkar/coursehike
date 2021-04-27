@@ -21,10 +21,33 @@ use Carbon\Carbon;
               <a href="#" role="button"><span class="la-icon la-icon--3xl icon-sort mr-2" style="color:#000;"></span></a>
                <a href="#" role="button"><span class="la-icon la-icon--3xl icon-excel mr-2" style="color:#1D6F42"></span></a> 
             </div>-->
-            
+            <div class='filters'>
+             
+              <div class='filter-container row' >
+                  <input autocomplete='off' class='filter col' name='image' placeholder='Name'  data-col="FirstName" />
+                  <input autocomplete='off' class='filter col' name='drink' placeholder='Email' data-col="Email" />
+                  <input autocomplete='off' class='filter col' name='pizza' placeholder='Role' data-col="Role" />
+                  <input autocomplete='off' class='filter col' name='movie' placeholder='Mobile' data-col="Mobile"/>
+                  <input autocomplete='off' class='filter col' name='movie' placeholder='Country' data-col="Country"/>
+                  <input autocomplete='off' class='filter col' name='movie' placeholder='Subscription' data-col="Subscription"/>
+
+              </div>
+             
+              {{-- <div class='filter-container'>
+              </div>
+          
+              <div class='filter-container'>
+              </div>
+
+              <div class='filter-container'>
+              </div> --}}
+              <div class='clearfix'></div>
+              </div>
+
+              
               <table id="example1" class="js-dynamitable  table table-bordered table-striped text-center display nowrap">
 
-                <thead class="bg-transparent la-admin__user-filters">
+                <!-- <thead class="bg-transparent la-admin__user-filters">
                   <tr>
                     <th class="px-0 py-0"></th>
                     <th class="px-0 py-0">  {{-- <input  class="js-filter  form-control px-2 py-5" type="text" value=""> --}}</th>
@@ -56,7 +79,7 @@ use Carbon\Carbon;
                     {{-- <th class="px-0 py-0"><input class="js-filter  form-control px-2 py-5" type="text" value=""></th> --}}
                     <th class="px-0 py-0"></th>
                   </tr>
-                </thead>
+                </thead> -->
 
                 <thead>
                   <tr>
@@ -156,7 +179,21 @@ use Carbon\Carbon;
 
 @endsection
 @section('script')
-<script src="{{url('js/dynamitable.jquery.min.js')}}"></script>
+<script src="{{url('js/multifilter.min.js')}}"></script>
+
+<script type='text/javascript'>
+ 
+  $(document).ready(function() {
+
+  $('.filter').multifilter({
+    'target' : $('#example1')
+  })
+
+  $('#example1_filter').hide();
+  })
+  
+  </script>
+  
 @endsection
 
 

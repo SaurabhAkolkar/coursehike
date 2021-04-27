@@ -266,7 +266,8 @@
 
          <!-- <li class="{{ Nav::isRoute('show.lang') }}"><a href="{{route('show.lang')}}"><i class="flaticon-translation" aria-hidden="true"></i><span>{{ __('adminstaticword.Language') }}</span></a></li> -->
 
-          <li class="{{ Nav::isResource('usermessage') }}"><a href="{{url('usermessage')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-messages mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.AllMessages') }}</span></a></li>
+         <li class="{{ Nav::isResource('usermessage') }}"><a href="{{url('usermessage')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-messages mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.AllMessages') }}</span></a></li>
+         <li class="{{ Nav::isResource('announcement') }}"><a href="{{url('announcement')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-messages mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Announcement') }}</span></a></li>
         
 
          <!-- <li class="mt-md-20 pt-md-10">

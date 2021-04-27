@@ -27,12 +27,15 @@
                               :title="$release->title"
                               :timestamp="$release->created_at"
                               :desc="$release->short_description.' '.$release->long_description"
+                              :eventId="$release->id"
                           />
                   @elseif($release->layout == 2)
                           <x-app-update
                                 :title="$release->title"
                                 :timestamp="$release->created_at"
                                 :desc="$release->short_description.' '.$release->long_description"
+                                :appId="$release->id"
+
                             />
 
                   @else
@@ -42,6 +45,8 @@
                             :about="$release->short_description"
                             :img="asset('images/announcement/'.$release->preview_image)"
                             :desc="$release->long_description"
+                            :eventId="$release->id"
+
                           />
                   @endif
                     
