@@ -209,7 +209,7 @@ if(Auth::check()){
                  
                       @endforeach     
 
-                      @if(count($old_announcements) == 0 && count($announcements) == 0)
+                      @if(count($old_anno) == 0 && count($old_anno) == 0)
                       <div class="d-flex justify-content-center align-items-center my-auto">
                         <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-semibold)">No New Releases Found</div>
                       </div>
