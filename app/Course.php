@@ -239,11 +239,11 @@ class Course extends Model
         $purchased_courses = UserPurchasedCourse::where(['course_id' => $this->id])->groupBy('user_id')->pluck('user_id')->toArray();
         
         if($purchased_courses !=null){
-            $subscribers = UserWatchTimelog::where(['course_id'=>$this->id])->whereNotIn('user_id', $purchased_courses)->groupBy('course_id')->count();            
+            $subscribers = UserWatchTimelog::where(['course_id'=>$this->id])->whereNotIn('user_id', $purchased_courses)->groupBy('user_id')->count();            
             // $count = $count + $subscribers;
             $count = $subscribers + count($purchased_courses);
         }else{
-            $subscribers = UserWatchTimelog::where(['course_id'=>$this->id])->groupBy('course_id')->count();
+            $subscribers = UserWatchTimelog::where(['course_id'=>$this->id])->groupBy('user_id')->count();
             // $count = $count + $subscribers;
             $count = $subscribers;
         }
