@@ -54,7 +54,7 @@
               <h2 class="la-section__title la-section__title--big">
                 <span class="la-anim__text-move--content">{{$firstSection->image_text}}</span>
               </h2>
-              <img class="img-fluid la-hero__img-bg" src="{{$firstSection->image}}" alt="{{$firstSection->image_text}}">
+              <img class="img-fluid la-hero__img-bg" src="{{$firstSection->image}}" alt="{{$firstSection->image_text}}" />
             </div> 
 
             @else
@@ -188,7 +188,7 @@
               <h2 class="la-section__title la-section__title--big">
                 <span class="la-anim__text-move--content">{{$firstSection->image_text}}</span>
               </h2>
-              <img class="img-fluid" src="{{$firstSection->image}}" alt="{{$firstSection->image_text}}">
+              <img class="img-fluid" src="{{$firstSection->image}}" alt="{{$firstSection->image_text}}" />
             </div> 
 
             @else
@@ -491,7 +491,7 @@
         <div class="swiper-wrapper la-artist__thumbnails">
 
           @foreach($featuredMentor as $feat)
-            <div class="swiper-slide la-artist__thumbnail"><img src="{{ $feat->user_thumbnail }}" alt=""></div>
+            <div class="swiper-slide la-artist__thumbnail"><img src="{{ $feat->user_thumbnail }}" data-src="{{ $feat->user_thumbnail }}" alt="FM" class="lazy d-block" /></div>
           @endforeach
         
         </div>
@@ -579,19 +579,19 @@
                             <div class="swiper-wrapper la-home__customize-wrapper la-home__customize-wrapper--desktop">
                                 <div class="swiper-slide la-home__customize-slide la-home__customize-slide--desktop" data-swiper-autoplay="1500" href="#clm_dashboard">
                                     <div class="la-home__customize-info--desktop">
-                                        <img src="./images/learners/home/clap1.jpg" alt="Personalised dashboard" class="img-fluid mx-auto d-block la-home__customize-img">
+                                        <img src="./images/learners/home/clap1.jpg" data-src="./images/learners/home/clap1.jpg" alt="Personalised dashboard" class="img-fluid mx-auto d-block la-home__customize-img lazy" />
                                       </div>
                                 </div>
 
                                 <div class="swiper-slide la-home__customize-slide la-home__customize-slide--desktop" data-swiper-autoplay="1500" href="#clm_course">
                                     <div class="la-home__customize-info--desktop">
-                                        <img src="./images/learners/home/clap2.jpg" alt="Unique tattoo styles" class="img-fluid mx-auto d-block la-home__customize-img">
+                                        <img src="./images/learners/home/clap2.jpg" data-src="./images/learners/home/clap2.jpg"  alt="Unique tattoo styles" class="img-fluid mx-auto d-block la-home__customize-img lazy" />
                                     </div>
                                 </div>
 
                                 <div class="swiper-slide la-home__customize-slide la-home__customize-slide--desktop" data-swiper-autoplay="1500" href="#clm_playlist">
                                     <div class="la-home__customize-info--desktop">
-                                        <img src="./images/learners/home/clap3.jpg" alt="Personal Playlist" class="img-fluid mx-auto d-block la-home__customize-img">
+                                        <img src="./images/learners/home/clap3.jpg" data-src="./images/learners/home/clap3.jpg" alt="Personal Playlist" class="img-fluid mx-auto d-block la-home__customize-img lazy" />
                                       </div>
                                 </div>
                             </div>
@@ -605,19 +605,19 @@
                               <div class="swiper-wrapper la-home__customize-wrapper la-home__customize-wrapper--mobile">
                                   <div class="swiper-slide la-home__customize-slide la-home__customize-slide--mobile" data-swiper-autoplay="1500" href="#clm_dashboard">
                                       <div class="la-home__customize-info--mobile">
-                                          <img src="./images/learners/home/cmob1.jpg" alt="Personalised dashboard" class="img-fluid mx-auto d-block la-home__customize-img">
+                                          <img src="./images/learners/home/cmob1.jpg" alt="Personalised dashboard" class="img-fluid mx-auto d-block la-home__customize-img" />
                                         </div>
                                   </div>
 
                                   <div class="swiper-slide la-home__customize-slide la-home__customize-slide--mobile" data-swiper-autoplay="1500" href="#clm_course">
                                       <div class="la-home__customize-info--mobile">
-                                          <img src="./images/learners/home/cmob2.jpg" alt="Unique tattoo styles" class="img-fluid mx-auto d-block la-home__customize-img">
+                                          <img src="./images/learners/home/cmob2.jpg" alt="Unique tattoo styles" class="img-fluid mx-auto d-block la-home__customize-img" />
                                       </div>
                                   </div>
 
                                   <div class="swiper-slide la-home__customize-slide la-home__customize-slide--mobile" data-swiper-autoplay="1500" href="#clm_playlist">
                                       <div class="la-home__customize-info--mobile">
-                                          <img src="./images/learners/home/cmob3.jpg" alt="Personal Playlist" class="img-fluid mx-auto d-block la-home__customize-img">
+                                          <img src="./images/learners/home/cmob3.jpg" alt="Personal Playlist" class="img-fluid mx-auto d-block la-home__customize-img" />
                                         </div>
                                   </div>
                               </div>

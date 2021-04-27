@@ -15,7 +15,7 @@
                 <div class="col-12 d-block d-md-none la-anim__wrap">
                     <div class="la-status__mobile-banner pt-8 pb-16 la-anim__stagger-item">
                       <div class="la-status__mobile-img ">
-                          <img src="../images/learners/status/success.svg" class="img-fluid mx-auto d-block" alt="Successful">
+                          <img src="../images/learners/status/success.svg" data-src="../images/learners/status/success.svg" class="lazy img-fluid mx-auto d-block" alt="Subscription Successful" />
                       </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
 
                           <div class="la-status__info-banner d-none d-md-block la-anim__wrap">
                               <div class="la-status__info-showcase la-anim__stagger-item--x ">
-                                  <img src="../images/learners/status/success.svg" class="d-block la-status__info-successimg" alt="Successful">
+                                  <img src="../images/learners/status/success.svg" data-src="../images/learners/status/success.svg"  class="lazy d-block la-status__info-successimg" alt="Subscription Successful" />
                               </div>
                           </div>
                       </div>

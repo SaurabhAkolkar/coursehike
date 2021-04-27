@@ -39,7 +39,7 @@ if(Auth::check()){
       <div class="la-header__inner  d-flex align-items-center">
         <div class="la-header__lft d-inline-flex align-items-center">
           <a class="la-header__brandwrap" href="/">
-            <img class="la-header__brand" src="/images/learners/logo.svg" alt="Lila">
+            <img class="la-header__brand" src="/images/learners/logo.svg" alt="Lila" />
           </a>
           <!-- <div class="la-header__nav d-none d-md-inline-flex  align-items-center">
             <div class="la-header__nav-item"><a class="la-header__nav-link" href="/user-dashboard">Dashboard</a></div>
@@ -130,7 +130,7 @@ if(Auth::check()){
               <div class="la-notification__dropdown dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="notificationPanel" style="border:none !important;">
                   <ul class="card la-notification__card">
                     <!-- Notification Panel: Start -->
-
+    
                     @foreach (Auth::user()->unreadNotifications as $notification)
                      
                       <x-notification  :img="$notification->data['image']" :name="$notification->data['id']" :comment="$notification->data['data']" :timestamp="Carbon::parse($notification->created_at)->format('d-m-Y')" />
@@ -263,7 +263,7 @@ if(Auth::check()){
     <div class="la-header__inner px-5 py-3 d-flex align-items-center">
       <div class="la-header__lft d-inline-flex align-items-center">
         <a class="la-header__brandwrap" href="/">
-          <img class="la-header__brand" src="/images/learners/logo.svg" alt="Lila">
+          <img class="la-header__brand" src="/images/learners/logo.svg" alt="Lila" />
         </a>
         
         <!-- header nav links -->

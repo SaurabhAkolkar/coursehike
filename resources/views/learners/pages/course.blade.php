@@ -67,7 +67,7 @@ $course_id = $course->id;
               <h6 class="la-vcourse__tag  text-white text-uppercase la-anim__fade-in-top">Course</h6>
               <h1 class="la-vcourse__title text-white text-capitalize leading-none la-anim__fade-in-top">{{ $course->title }}</h1>
               {{-- <div class="la-vcourse__badges la-anim__stagger-item">
-                <img src="/images/learners/icons/badge.svg" alt="badge">
+                <img src="/images/learners/icons/badge.svg" alt="badge" />
               </div> --}}
             </div>
 
@@ -86,7 +86,7 @@ $course_id = $course->id;
             <div class="la-vcourse__creator-group position-relative w-100 d-flex align-items-center la-anim__stagger-item">
               <div class="la-vcourse__creator-group--avator position-relative d-inline-flex la-anim__fade-in-left">
                 @foreach($course->users() as $u)
-                  <img src="{{ $u->user_img }}" alt="" class="img-fluid la-vcourse__creator-group--img{{$loop->index+1}} position-absolute">
+                  <img src="{{ $u->user_img }}" data-src="{{ $u->user_img }}" alt="M" class="img-fluid lazy la-vcourse__creator-group--img{{$loop->index+1}} position-absolute" />
                 @endforeach
               </div>
 
@@ -385,7 +385,7 @@ $course_id = $course->id;
                     <div class="col-md-6 col-lg-4 la-cbenefits__item-col la-anim__stagger-item--x">
                       <div class="la-cbenefits__item d-flex flex-column align-items-center">
                         <div class="mb-7">
-                          <img class="img-fluid d-block" src="/images/learners/course-benefits/video.svg" alt="Unlimited Learning"/>
+                          <img class="img-fluid d-block lazy" src="/images/learners/course-benefits/video.svg" data-src="/images/learners/course-benefits/video.svg" alt="Unlimited Learning" />
                         </div>
                         <h4 class="la-cbenefits__item-title mb-3">Unlimited Learning</h4>
                         <p class="la-cbenefits__item-desc m-0 text-center">Access to numerous class of varied art skills</p>
@@ -394,7 +394,9 @@ $course_id = $course->id;
 
                     <div class="col-md-6 col-lg-4 la-cbenefits__item-col la-anim__stagger-item--x">
                       <div class="la-cbenefits__item d-flex flex-column align-items-center">
-                        <div class="mb-7"><img class="img-fluid d-block w-100" src="/images/learners/course-benefits/artist-original.svg" alt="Artist's Original Content" /></div>
+                        <div class="mb-7">
+                          <img class="img-fluid d-block w-100 lazy" src="/images/learners/course-benefits/artist-original.svg" data-src="/images/learners/course-benefits/artist-original.svg" alt="Artist's Original Content" />
+                        </div>
                         <h4 class="la-cbenefits__item-title mb-3">Artist's Original Content</h4>
                         <p class="la-cbenefits__item-desc m-0 text-center">Made with Lila's principles of explanation methods</p>
                       </div>
@@ -402,7 +404,9 @@ $course_id = $course->id;
 
                     <div class="col-md-12 col-lg-4 la-cbenefits__item-col la-anim__stagger-item--x">
                       <div class="la-cbenefits__item d-flex flex-column align-items-center">
-                        <div class="mb-7"><img class="img-fluid d-block" src="/images/learners/course-benefits/online-course.svg" alt="Resources"></div>
+                        <div class="mb-7">
+                          <img class="img-fluid d-block lazy" src="/images/learners/course-benefits/online-course.svg" data-src="/images/learners/course-benefits/online-course.svg" alt="Resources" />
+                        </div>
                         <h4 class="la-cbenefits__item-title mb-3">Resources</h4>
                         <p class="la-cbenefits__item-desc m-0 text-center">Extra resources to practice and hone your skills</p>
                       </div>
@@ -656,7 +660,7 @@ $course_id = $course->id;
                           <div class="d-flex justify-content-between align-item-start ">
                             <div class="la-lcreviews__prfle d-inline-flex align-items-center ">
                               <div class="la-lcreviews__prfle-img">
-                                <img class="img-fluid rounded-circle d-block" src="{{ $review->user->user_img }}" alt="{{$review->user->fname}}">
+                                <img class="img-fluid rounded-circle d-block lazy" src="{{ $review->user->user_img }}"  data-src="{{ $review->user->user_img }}" alt="{{$review->user->fname}}" />
                               </div>
                               <div class="la-lcreviews__prfle-info ml-2 ">
                                 <div class="la-lcreviews__timestamp text-sm">
@@ -709,7 +713,7 @@ $course_id = $course->id;
             <div class="la-creator__wrap d-flex justify-content-center justify-content-lg-start position-relative">
               <div class="la-creator__inwrap la-anim__stagger-item">
                 <div class="la-creator__img la-anim__fade-in-top text-center">
-                  <img class="img-fluid mx-auto d-block" src="{{$user->user_img}}" alt="{{$user->fullName}}">
+                  <img class="img-fluid mx-auto d-block lazy" src="{{$user->user_img}}" data-src="{{$user->user_img}}" alt="{{$user->fullName}}" />
                 </div>
               </div>
             </div>

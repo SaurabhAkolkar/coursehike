@@ -22,7 +22,7 @@
     <div class="w-100 h-100">
       <div class="row la-anim__wrap">
         <!-- Column: Start-->
-        <div class="col-12 col-sm-12 la-bcreator__banner" style="background:url('../images/learners/creator/bcreator-banner2.png') no-repeat bottom rgba(0, 0, 0, 0.5); background-size:cover;">
+        <div class="col-12 col-sm-12 la-bcreator__banner " style="background:url('../images/learners/creator/bcreator-banner2.png') no-repeat bottom rgba(0, 0, 0, 0.5); background-size:cover;">
         <a class="la-bcreator__back-link position-absolute la-anim__stagger-item--x" href="{{URL::previous()}}"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
         <div class="col-12  la-bcreator text-left">
             <div class="la-bcreator__content ">
@@ -61,7 +61,7 @@
                       <div class="la-mcard__item">
                         <div class="la-mcard__info d-flex align-items-center">
                           <div class="li-mcard__prfle mr-4 mr-lg-10 la-anim__stagger-item--x">
-                            <img class="rounded-circle d-block la-mcard__img" src="{{ asset('images/testimonial/'.$t->image) }}" alt="{{ $t->client_name }}">
+                            <img class="rounded-circle d-block la-mcard__img lazy" src="{{ asset('images/testimonial/'.$t->image) }}" data-src="{{ asset('images/testimonial/'.$t->image) }}" alt="{{ $t->client_name }}" />
                           </div>
                           <div class="la-mcard__details my-2">
                             <div class="la-mcard__name text-lg text-lg-xl la-anim__stagger-item--x">{{ $t->client_name }}</div>
@@ -200,7 +200,7 @@
         <div class="col-sm-12" id="how_you_earn">
           <div class="la-earn__blog la-anim__wrap">
             <h3 class="la-earn__blog-title la-anim__stagger-item text-4xl text-md-5xl" >How you earn?</h3>
-            <img class="img-fluid mx-auto d-block la-anim__stagger-item--x la-anim__A" src="../images/learners/creator/earn.svg" alt="How you Earn?">
+            <img class="img-fluid mx-auto d-block la-anim__stagger-item--x lazy" src="../images/learners/creator/earn.svg" data-src="../images/learners/creator/earn.svg" alt="How you Earn?" />
           </div>
         </div>
         <!-- Column: End-->

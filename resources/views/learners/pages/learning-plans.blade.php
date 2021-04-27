@@ -102,7 +102,9 @@
                 <div class="row">
                   <div class="col-md-6 col-lg-4 la-cbenefits__item-col">
                     <div class="la-cbenefits__item bg-white d-flex flex-column align-items-center la-anim__stagger-item--x">
-                      <div class="mb-7 "><img class="img-fluid d-block" src="./images/learners/course-benefits/video.svg" alt="Unlimited Learning"></div>
+                      <div class="mb-7 ">
+                        <img class="img-fluid d-block lazy" src="./images/learners/course-benefits/video.svg" data-src="./images/learners/course-benefits/video.svg" alt="Unlimited Learning" />
+                      </div>
                       <h4 class="la-cbenefits__item-title mb-3">Unlimited Learning</h4>
                       <p class="la-cbenefits__item-desc text-center">Access to numerous courses of varied art skills</p>
                     </div>
@@ -110,7 +112,9 @@
 
                   <div class="col-md-6 col-lg-4  la-cbenefits__item-col">
                     <div class="la-cbenefits__item bg-white d-flex flex-column align-items-center la-anim__stagger-item--x">
-                      <div class="mb-4"><img class="img-fluid d-block w-100" src="./images/learners/course-benefits/trial.svg" alt="Free Trials"></div>
+                      <div class="mb-4">
+                        <img class="img-fluid d-block w-100 lazy" src="./images/learners/course-benefits/trial.svg" data-src="./images/learners/course-benefits/trial.svg" alt="Free Trials" />
+                      </div>
                       <h4 class="la-cbenefits__item-title mb-3">Free Trials</h4>
                       <p class="la-cbenefits__item-desc text-center">A 7 day free trial to help choose the right course</p>
                     </div>
@@ -118,7 +122,9 @@
 
                   <div class="col-md-12 col-lg-4  la-cbenefits__item-col">
                     <div class="la-cbenefits__item  bg-white d-flex flex-column align-items-center la-anim__stagger-item--x">
-                      <div class="mb-7"><img class="img-fluid d-block" src="./images/learners/course-benefits/online-course.svg" alt="Resources"></div>
+                      <div class="mb-7">
+                        <img class="img-fluid d-block lazy" src="./images/learners/course-benefits/online-course.svg" data-src="./images/learners/course-benefits/online-course.svg" alt="Resources" />
+                      </div>
                       <h4 class="la-cbenefits__item-title mb-3">Resources</h4>
                       <p class="la-cbenefits__item-desc text-center">Extra resources to practice and hone your skills</p>
                     </div>
@@ -140,7 +146,7 @@
         <div class="row  la-anim__wrap">
           <!-- Column: Start-->
           <div class="col-12 la-anim__stagger-item">
-            <div class="la-bgcreator__ad-content text-center text-white" style="background:url('../images/learners/creator/plans-cta.jpg') no-repeat top rgba(0, 0, 0, 0.68); background-size:cover;">
+            <div class="la-bgcreator__ad-content text-center text-white " style="background:url('../images/learners/creator/plans-cta.jpg') no-repeat top rgba(0, 0, 0, 0.68); background-size:cover;">
               <div class="py-2 px-5 ">
                 <div class="la-bgcreator__ad-para pb-8 mb-6 la-anim__stagger-item">Learn real skills from real artists from around the world</div>
                 <a class="la-btn la-btn-secondary text-white text-uppercase px-5 la-anim__stagger-item" role="button" href="/browse/courses">Get Started</a>
@@ -365,7 +371,7 @@
                       <div class="card la-lp__card-itm" >
                         <div class="la-card__top d-md-flex justify-content-between ">
                           <div class="la-lp__profile d-flex justify-content-start align-items-center">
-                            <img class="img-fluid d-block rounded-circle" src="{{ asset('images/testimonial/'.$test->image) }}" alt="{{ $test->client_name }}">
+                            <img class="img-fluid d-block rounded-circle lazy" src="{{ asset('images/testimonial/'.$test->image) }}" data-src="{{ asset('images/testimonial/'.$test->image) }}" alt="{{ $test->client_name }}" />
                             <div class="col">
                               <h5 class="la-lp__name head-font m-0 text-md text-md-lg">{{ $test->client_name }}</h5>
                               <span class="la-lp__desg text-sm">Learner</span>

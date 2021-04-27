@@ -42,14 +42,14 @@
                           <div class="col-6 la-anim__stagger-item--x">
                             <div class="la-form__img-wrap">
                               <div class="la-form__img-title">Current</div>
-                              <div class="la-form__img d-inline-block d-flex justify-content-center content-fit"><img src="{{Auth::user()->user_img}}" id="user_image" alt="" class="mw-100 mh-100"></div>
+                              <div class="la-form__img d-inline-block d-flex justify-content-center content-fit"><img src="{{Auth::user()->user_img}}" id="user_image" alt="" class="mw-100 mh-100" /></div>
                             </div>
                           </div>
                           <div class="col-6 la-anim__stagger-item--x">
                             <div class="la-form__img-wrap">
                               <div class="la-form__img-title">Upload new</div>
                               <input class="d-none" id="file-upload" type="file" name="user_img">
-                              <label class="la-form__img la-form__img-upload d-inline-block text-center" for="file-upload"><a class="d-inline-block" href="#" onclick="$('#file-upload').click()">CHOOSE A FILE </a> <br/><span class="la-form__img-info">Thumbnail | 500x500</span><img src="" alt=""></label>
+                              <label class="la-form__img la-form__img-upload d-inline-block text-center" for="file-upload"><a class="d-inline-block" href="#" onclick="$('#file-upload').click()">CHOOSE A FILE </a> <br/><span class="la-form__img-info">Thumbnail | 500x500</span><img src="" alt="" /></label>
                               @error('user_img')
                                 <div class="alert alert-danger">{{ $message }}</div>
                               @enderror

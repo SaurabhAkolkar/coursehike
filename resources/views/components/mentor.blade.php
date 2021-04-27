@@ -4,7 +4,7 @@
     <div class="la-mentor la-anim__stagger-item">
       <a href="/mentor/{{$id}}">
         <div class="la-mentor__profile">
-            <img class="img-fluid" src="{{ $img }}" alt={{ $name }} width="400" height="400">
+            <img class="img-fluid lazy" src="{{ $img }}"  data-src="{{ $img }}" alt= "{{ $name }}"  width="400" height="400" />
         </div>
       </a>
       <div class="la-mentor__btm d-flex justify-content-between align-items-center">

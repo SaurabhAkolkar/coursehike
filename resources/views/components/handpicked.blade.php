@@ -2,7 +2,7 @@
     <a class="la-hp__card position-relative" href= {{ $hpUrl }} >
         <div class="la-hp__card-item position-relative la-anim__stagger-item--x la-anim__B">
             <div class="la-hp__card-thumbnail w-100" >
-                <img class="img-fluid d-block la-hp__card-thumbnail--img" src={{ $hpImg }} alt={{ $hpCourse }}>
+                <img class="img-fluid d-block la-hp__card-thumbnail--img lazy" src="{{ $hpImg }}"  data-src="{{ $hpImg }}" alt="{{ $hpCourse }}" />
             </div>
 
             <div class="la-hp__card-overlay">

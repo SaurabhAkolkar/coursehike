@@ -687,6 +687,8 @@ $(function(){
   
 }); 
 
+
+
 // Popover Js for Dashboard Page: Start
 $('[data-toggle="popover"]').popover();
 // Popover Js for Dashboard Page: End
@@ -1048,3 +1050,66 @@ course_video_height();
 $(window).resize(function() {
   course_video_height();
 });
+
+
+
+
+
+
+//lazy loading of images : Start
+
+window.addEventListener("DOMContentLoaded", function () {
+  var lazy = document.getElementsByClassName("lazy");
+  initializeLoad(lazy);
+});
+
+function initializeLoad(imgs) {
+  if (imgs.length > 0) {
+    if ("IntersectionObserver" in window) {
+      lazyLoad(imgs);
+    } else {
+      loadIntersection(imgs);
+    }
+  } else {
+    return;
+  }
+}
+
+function lazyLoad(lazy) {
+  var options = {
+    threshold: 0.5
+  };
+
+  var observer = new IntersectionObserver(function (entries, self) {
+    for (var i = 0; i < entries.length; i++) {
+      var entry = entries[i];
+      if (entry.isIntersecting) {
+        var src = entry.target.getAttribute("data-src");
+        TweenMax.set(entry.target, { attr: { src: src } });
+        TweenMax.fromTo(
+          entry.target,
+          1,
+          { css: { opacity: 0, y: "-8px" } },
+          { css: { opacity: 1, y: 0 } },
+          1.5
+        );
+        self.unobserve(entry.target);
+      }
+    }
+  }, options);
+  for (var i = 0; i < lazy.length; i++) {
+    var lazyItem = lazy[i];
+    observer.observe(lazyItem);
+  }
+}
+
+function loadIntersection(lazy) {
+  var io = document.createElement("script");
+  io.src =
+    "https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver";
+  document.head.appendChild(io);
+  return (io.onload = function () {
+    lazyLoad(lazy);
+  });
+}
+//Lazy Loading of images : Ends

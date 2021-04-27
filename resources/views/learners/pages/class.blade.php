@@ -66,7 +66,7 @@ $course_id = $course->id;
               <h6 class="la-vcourse__tag text-uppercase la-anim__fade-in-top"> Class</h6>
               <h1 class="la-vcourse__title leading-none la-anim__stagger-item mb-2">{{ $course->title }}</h1>
               {{-- <div class="la-vcourse__badges la-anim__stagger-item">
-                <img src="/images/learners/icons/badge.svg" alt="badge">
+                <img src="/images/learners/icons/badge.svg" alt="badge" />
               </div> --}}
             </div>
 
@@ -82,7 +82,9 @@ $course_id = $course->id;
 
             <p class="la-vcourse__excerpt mb-5 la-anim__stagger-item">{{ $course->short_detail }}</p>
             <div class="la-vcourse__creator d-flex align-items-center la-anim__stagger-item">
-              <div class="la-vcourse__creator-avator la-anim__fade-in-left"><img src="{{ $course->user->user_img }}" class="img-fluid" alt=""></div>
+              <div class="la-vcourse__creator-avator la-anim__fade-in-left">
+                <img src="{{ $course->user->user_img }}" data-src="{{ $course->user->user_img }}" class="img-fluid lazy" alt="{{ $course->user->fname }}" />
+              </div>
               <div class="la-vcourse__creator-name text-capitalize la-anim__stagger-item--x">{{ $course->user->fname }}</div>
             </div>
 
@@ -225,7 +227,9 @@ $course_id = $course->id;
               @foreach($course->chapter as $class)
               <div class="la-vcourse__class la-anim__stagger-item">
                 <div class="la-vcourse__class-header d-flex mb-7 ml-5 ">
-                  <div class="la-vcourse__class-thumb"><img class="img-fluid mx-auto" src="{{$class->thumbnail}}"></div>
+                  <div class="la-vcourse__class-thumb">
+                    <img class="img-fluid mx-auto lazy" src="{{$class->thumbnail}}" data-src="{{$class->thumbnail}}" alt="M" />
+                  </div>
                   <div class="d-flex flex-column ml-3">
                     <div class=" leading-snug ">
                           <span class="la-vcourse__class-title text-sm text-uppercase pr-1">{{$class->chapter_name}}</span>
@@ -667,7 +671,7 @@ $course_id = $course->id;
                           <div class="d-flex justify-content-between align-item-start ">
                             <div class="la-lcreviews__prfle d-inline-flex align-items-center ">
                               <div class="la-lcreviews__prfle-img">
-                                <img class="img-fluid rounded-circle d-block" src="{{ $review->user->user_img }}" alt="{{$review->user->fname}}">
+                                <img class="img-fluid rounded-circle d-block lazy" src="{{ $review->user->user_img }}" data-src="{{ $review->user->user_img }}" alt="{{$review->user->fname}}" />
                               </div>
                               <div class="la-lcreviews__prfle-info ml-2 ">
                                 <div class="la-lcreviews__timestamp text-sm">
@@ -721,7 +725,7 @@ $course_id = $course->id;
             <div class="la-creator__wrap d-flex justify-content-center position-relative">
               <div class="la-creator__inwrap la-anim__stagger-item">
                 <div class="la-creator__img la-anim__fade-in-top text-center">
-                  <img class="img-fluid mx-auto d-block" src="{{$course->user->user_img}}" alt="{{$course->user->fullName}}">
+                  <img class="img-fluid mx-auto d-block lazy" src="{{$course->user->user_img}}" data-src="{{$course->user->user_img}}" alt="{{$course->user->fullName}}" />
                 </div>
               </div>
             </div>

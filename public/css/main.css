@@ -18403,13 +18403,14 @@ input:-webkit-autofill:active {
   height: 100%;
 }
 .la-course__free {
-  margin-left: var(--size-2);
-  margin-top: var(--size-2);
+  width: 100px;
+  height: 50px;
+  margin: var(--size-2) var(--size-2);
   opacity: 1;
 }
 .la-course__free img {
   width: 100px;
-  height: 30px;
+  height: 40px;
   opacity: 1;
 }
 .la-course__option {
@@ -20126,14 +20127,13 @@ input:-webkit-autofill:active {
   }
 }
 .la-notification__card {
-  margin-top: var(--size-4);
+  margin-top: var(--size-5);
   background: #ffffff;
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 10px 10px 0 0;
   border: none !important;
   width: 275px;
   height: 400px;
-  padding-top: var(--size-2);
   overflow: scroll;
   z-index: -1;
   overflow: -moz-scrollbars-none;
@@ -20149,11 +20149,13 @@ input:-webkit-autofill:active {
   width: 0 !important;
 }
 .la-notification__item {
-  padding: var(--size-2) var(--size-6);
+  padding: var(--size-3) var(--size-6);
   border-bottom: 1px solid rgba(158, 158, 158, 0.15);
+  border-right: 3px solid transparent;
 }
 .la-notification__item:hover {
-  border-right: 3px solid #707070;
+  border-right: 3px solid var(--app-indigo-1);
+  background-color: rgba(238, 238, 238, 0.35);
 }
 .la-notification__prfle img {
   width: 48px;
@@ -20164,7 +20166,12 @@ input:-webkit-autofill:active {
   background-color: var(--gray);
 }
 .la-notification__msg {
-  padding: var(--size-base) var(--size-2);
+  margin-left: var(--size-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 .la-notification__title {
   font-weight: var(--font-medium);
@@ -20213,7 +20220,7 @@ input:-webkit-autofill:active {
 }
 
 .la-announcement__card {
-  margin-top: var(--size-4);
+  margin-top: var(--size-5);
   background: #ffffff;
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 10px;
@@ -20263,9 +20270,12 @@ input:-webkit-autofill:active {
 }
 .la-announcement__item {
   padding: var(--size-2) var(--size-6);
+  border-bottom: 1px solid rgba(158, 158, 158, 0.15);
+  border-right: 3px solid transparent;
 }
 .la-announcement__item:hover {
-  border-right: 3px solid #707070;
+  border-right: 3px solid var(--app-indigo-1);
+  background-color: rgba(238, 238, 238, 0.35);
 }
 .la-announcement__eprfle img {
   width: 48px;
@@ -20276,9 +20286,13 @@ input:-webkit-autofill:active {
   background-color: var(--gray);
 }
 .la-announcement__event {
-  padding: var(--size-2);
   font-weight: var(--font-normal);
   color: var(--gray-6);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical;
 }
 .la-announcement__timestamp {
   color: #FFCE31;
@@ -24061,13 +24075,14 @@ label.error {
   -moz-border-radius: 10px 10px 0 0;
 }
 .la-lcourse__free {
-  margin-left: var(--size-2);
-  margin-top: var(--size-2);
+  width: 100px;
+  height: 50px;
+  margin: var(--size-2) var(--size-2);
   opacity: 1;
 }
 .la-lcourse__free img {
   width: 100px;
-  height: 30px;
+  height: 40px;
   opacity: 1;
 }
 .la-lcourse__option {
@@ -27335,7 +27350,7 @@ section.la-new--releases .la-new__meet-events {
   margin-right: calc(var(--size-20)*3);
 }
 
-@media (max-width: 1279px) {
+@media (max-width: 1199px) {
   section.la-new--releases .la-new__announcements, section.la-new--releases .la-new__meet-events {
     margin-right: 0;
   }

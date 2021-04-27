@@ -15,7 +15,7 @@
                 <div class="col-12 d-block d-md-none">
                     <div class="la-status__mobile-banner pt-8 pb-16">
                       <div class="la-status__mobile-img ">
-                          <img src="../images/learners/status/success.svg" class="img-fluid mx-auto d-block" alt="Successful">
+                          <img src="../images/learners/status/success.svg" data-src="../images/learners/status/success.svg" class="lazy img-fluid mx-auto d-block" alt="Successful" />
                       </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
 
                           <div class="la-status__info-banner d-none d-md-block">
                               <div class="la-status__info-showcase  ">
-                                  <img src="../images/learners/status/success.svg" class="d-block la-status__info-successimg" alt="Successful">
+                                  <img src="../images/learners/status/success.svg" data-src="../images/learners/status/success.svg" class="lazy d-block la-status__info-successimg" alt="Successful" />
                               </div>
                           </div>
                       </div>

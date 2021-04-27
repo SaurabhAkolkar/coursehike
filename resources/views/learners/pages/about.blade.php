@@ -20,13 +20,13 @@
                             </h1>
                             <p class="la-about__tag la-anim__stagger-item--x">Embracing Self Learning</p>
 
-                            <div class="la-about__info pt-6 pt-md-16">
-                                <h5 class="la-about__info-title la-anim__stagger-item la-anim__A">About Lila</h5>
-                                <p class="la-about__info-desc la-anim__stagger-item la-anim__A">Learn It Like Aliens is a brainchild of Sunny Bhanushali, the founder and CEO at LILA. His belief in serving people with knowledge led to the establishment of this comprehensive Online Learning Platform. </p>
-                                <p class="la-about__info-desc la-anim__stagger-item la-anim__A">LILA, at present is in pursuit of bringing mentors from around the world to teach varied skills in the most simplest ways to everybody who wish to learn.</p>
+                            <div class="la-about__info pt-6 pt-md-16 la-anim__stagger-item">
+                                <h5 class="la-about__info-title">About Lila</h5>
+                                <p class="la-about__info-desc">Learn It Like Aliens is a brainchild of Sunny Bhanushali, the founder and CEO at LILA. His belief in serving people with knowledge led to the establishment of this comprehensive Online Learning Platform. </p>
+                                <p class="la-about__info-desc">LILA, at present is in pursuit of bringing mentors from around the world to teach varied skills in the most simplest ways to everybody who wish to learn.</p>
                             </div>
 
-                            <div class="la-about__info-cta  mt-12 la-anim__stagger-item la-anim__B">
+                            <div class="la-about__info-cta  mt-12 la-anim__stagger-item la-anim__A">
                                 <a class="la-btn__app text-uppercase" role="button" href="/browse/courses">Start Learning</a>
                             </div>
                         </div>
@@ -34,7 +34,7 @@
 
                     <div class="col-lg-5 offset-lg-2 my-auto position-relative py-10 py-md-1 px-0 px-2">
                         <div class="la-about__reach position-relative d-flex justify-content-between align-items-center la-anim__wrap">
-                            <span class="la-section__circle la-section__circle--right2 la-anim__stagger-item--x la-anim__E"></span>
+                            <span class="la-section__circle la-section__circle--right2 la-anim__stagger-item--x la-anim__D"></span>
                             <div class="col">
                                 <div class="la-bcreator__stats la-about__stats la-anim__stagger-item--x">
                                     <div class="la-bcreator__stats-item ">
@@ -69,14 +69,14 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="la-about__motto position-relative la-anim__wrap">
-                            <div class="la-about__motto-sq la-anim__fade-in-top la-anim__A"></div>
+                            <div class="la-about__motto-sq la-anim__fade-in-top"></div>
                             <div class="la-about__motto-box la-anim__stagger-item ">
                                 <div class="la-about__motto-text leading-tight la-anim__stagger-item--x la-anim__B">
                                     <span>"The thing</span>
                                     <span style="color:#fff"> I thought couldn’t be possible a year or two ago,</span>
                                     <span>is actually happening."</span> 
                                 </div>
-                                <div class="la-about__motto-author text-right mt-8 la-anim__stagger-item--x la-anim__E">
+                                <div class="la-about__motto-author text-right mt-8 la-anim__stagger-item--x la-anim__C">
                                     – Allan Gois, artist, student & Lila mentor
                                 </div>
                             </div>
@@ -106,7 +106,7 @@
                     </div>
                     <div class="col-md-5 col-lg-7 my-md-auto">
                         <div class="la-about__mvt-rgt la-anim__wrap">
-                            <img src="../images/learners/about/about-mission.svg" alt="Our Mission" class="img-fluid d-block mx-auto la-anim__stagger-item--x">
+                            <img src="../images/learners/about/about-mission.svg" data-src="../images/learners/about/about-mission.svg" alt="Our Mission" class="lazy img-fluid d-block mx-auto la-anim__stagger-item--x" />
                         </div>
                     </div>
                 </div>
@@ -133,7 +133,7 @@
                     </div>
                     <div class="col-md-5 col-lg-7 my-md-auto">
                         <div class="la-about__mvt-rgt la-anim__wrap">
-                            <img src="../images/learners/about/about-vision.svg" alt="Our Vision" class="img-fluid d-block mx-auto la-anim__stagger-item--x">
+                            <img src="../images/learners/about/about-vision.svg" data-src="../images/learners/about/about-vision.svg" alt="Our Vision" class="lazy img-fluid d-block mx-auto la-anim__stagger-item--x" />
                         </div>
                     </div>
                 </div>
@@ -163,7 +163,7 @@
                     </div>
                     <div class="col-md-5 col-lg-7 my-md-auto">
                         <div class="la-about__mvt-rgt la-anim__wrap">
-                            <img src="../images/learners/about/about-teaching.svg" alt="Our Way of Teaching" class="img-fluid d-block mx-auto la-anim__stagger-item--x ">
+                            <img src="../images/learners/about/about-teaching.svg" data-src="../images/learners/about/about-teaching.svg" alt="Our Way of Teaching" class="lazy img-fluid d-block mx-auto la-anim__stagger-item--x " />
                         </div>
                     </div>
                 </div>

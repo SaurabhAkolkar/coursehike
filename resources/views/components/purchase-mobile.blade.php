@@ -4,7 +4,7 @@
         <div class="la-purchaseh__item align-items-center mb-4 ">           
             <div class="la-purchaseh__item-info d-flex align-items-start">
                 <div class="la-purchaseh__item-img mr-4 la-anim__stagger-item">
-                    <img class="d-inline-block" src={{ $img }} alt= {{ $course }}>
+                    <img class="d-inline-block " src= "{{ $img }}" alt= "{{ $course }}" />
                 </div>
                 <div class="la-purcaseh__item-by la-anim__stagger-item">
                     <div class="la-purchaseh__item-title text-2xl">{{ $course }}</div>

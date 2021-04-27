@@ -283,7 +283,7 @@
                     <div class="col-md-6 col-lg-4 ">
                       <div class="la-mentor">
                         <div class="la-mentor__profile  la-anim__stagger-item">
-                            <img class="img-fluid" src="{{ $u[0]->user->user_img }}" alt="{{$u[0]->user->fullName}}">
+                            <img class="img-fluid lazy" src="{{ $u[0]->user->user_img }}" data-src="{{ $u[0]->user->user_img }}" alt="{{$u[0]->user->fullName}}" />
                         </div>
                         <div class="la-mentor__btm d-flex justify-content-between align-items-center la-anim__stagger-item la-anim__B">
                           <div class="la-mentor__info ">

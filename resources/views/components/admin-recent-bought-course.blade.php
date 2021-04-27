@@ -2,7 +2,7 @@
 <li class="la-dash__recent-item">
     <div class="col-7 col-md-8 la-dash__recent-info">
         <div class="la-dash__recent-img">
-            <img src= {{ $courseImg }} class="d-block" alt= {{ $courseName }}>
+            <img src= "{{ $courseImg }}" class="d-block" alt= "{{ $courseName }}" />
         </div>
         
         <div class="la-dash__recent-desc">

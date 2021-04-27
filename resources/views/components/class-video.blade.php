@@ -13,7 +13,7 @@
     </div>
     <div class="la-vcourse__lesson-left position-relative">
         <div class="la-vcourse__lesson-thumbnail"  @if($access == "locked") data-toggle="modal" @if(Auth::check()) data-target="#locked_subscribe"  @else data-target="#locked_login_modal"  @endif @endif>
-            <img class="img-fluid" src= {{ $thumbnail ?? '' }} alt= {{ $title ?? '' }}>
+            <img class="img-fluid lazy" src= "{{ $thumbnail ?? '' }}" data-src= "{{ $thumbnail ?? '' }}" alt= "{{ $title ?? '' }}" />
         </div>
         <div class="la-vcourse__lesson-playbtn">
             <span></span>

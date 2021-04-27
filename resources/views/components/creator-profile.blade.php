@@ -35,7 +35,7 @@
     <div class="col-xl-6 px-0 mb-4 mb-md-0">
       <div class="la-vcreator__profile la-anim__stagger-item">
           <div class="la-vcreator__profile--img position-relative">
-            <img class="img-fluid d-block" src= "{{ $img }}" alt= "{{ $name }}" />
+            <img class="img-fluid d-block lazy" src= "{{ $img }}" data-src= "{{ $img }}" alt= "{{ $name }}" />
           </div>
           <div class="la-vcreator__overlay mb-xl-8 ">
             <div class="la-vcreator__name la-anim__text-move la-title--circle"> <span class="position-relative">{{ $name }}</span> </div>

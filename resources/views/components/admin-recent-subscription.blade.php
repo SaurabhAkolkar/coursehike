@@ -1,7 +1,7 @@
 <li class="la-dash__recent-item">
     <div class="la-dash__recent-info">
         <div class="la-dash__recent-img">
-            <img src= "{{ $userImg }}" class="img-fluid d-block" alt= {{ $userName }}>
+            <img src= "{{ $userImg }}" class="img-fluid d-block" alt= "{{ $userName }}" />
         </div>
         
         <div class="la-dash__recent-desc">

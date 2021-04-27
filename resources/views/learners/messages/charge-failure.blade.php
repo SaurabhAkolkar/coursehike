@@ -15,7 +15,7 @@
             <div class="col-12 d-block d-md-none">
                 <div class="la-status__mobile-banner pt-8 pb-16">
                   <div class="la-status__mobile-img ">
-                      <img src="/images/learners/status/failure.svg" class="img-fluid mx-auto d-block" alt="Successful">
+                      <img src="/images/learners/status/failure.svg" data-src="/images/learners/status/failure.svg" class="lazy img-fluid mx-auto d-block" alt="Payment Failed" />
                   </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
 
                       <div class="la-status__info-banner d-none d-md-block">
                           <div class="la-status__info-showcase  ">
-                              <img src="/images/learners/status/failure.svg" class="d-block la-status__info-failureimg" alt="Successful">
+                              <img src="/images/learners/status/failure.svg" data-src="/images/learners/status/failure.svg" class="lazy d-block la-status__info-failureimg" alt="Payment Failed" />
                           </div>
                       </div>
                   </div>

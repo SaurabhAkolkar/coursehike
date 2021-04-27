@@ -28,7 +28,7 @@
                     <div class="col-4 la-entry__interest la-anim__stagger-item--x">
                       <div class="la-entry__interest-inner position-relative d-flex align-items-end">
                         <span class="la-entry__interest-thumbnail z-0" role="button" onclick="addToInterest({{$c->id}})" id="interest_span_{{$c->id}}">
-                          <img class="img-fluid" src="{{ $c->image }}" alt="" />
+                          <img class="img-fluid lazy" src="{{ $c->image }}" data-src="{{ $c->image }}" alt="Interests" />
                         </span>
                       </div>
                       <div class="la-entry__interest-name pt-1 text-capitalize">{{$c->title}}</div>

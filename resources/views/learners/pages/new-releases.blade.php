@@ -12,8 +12,8 @@
       <div class="container la-new__events ">
         <div class="row la-anim__wrap">
           <div class="col-12">
-            <div class="la-announcement__main-title d-md-flex ">
-                <a class="la-new__back la-icon la-icon--5xl icon-back-arrow ml-n2 ml-md-n5 mt-n1 pr-md-3 la-anim__stagger-item--x" href="{{URL::previous()}}"></a>
+            <div class="la-announcement__main-title d-lg-flex ">
+                <a class="la-new__back la-icon la-icon--5xl icon-back-arrow ml-n2 ml-lg-n5 mt-n1 pr-lg-3 la-anim__stagger-item--x" href="{{URL::previous()}}"></a>
                 <h1 class="text-3xl text-md-4xl mb-4 la-anim__stagger-item">New Releases</h1>
             </div>
           </div>

@@ -442,12 +442,14 @@
                 }
             }
             &free{
-                margin-left:var(--size-2);
-                margin-top:var(--size-2);
+                width:100px;
+                height:50px;
+                margin:var(--size-2) var(--size-2);
                 opacity:1;
+
                 img{
                     width:100px;
-                    height:30px;
+                    height:40px;
                     opacity:1;
                 }
             }
