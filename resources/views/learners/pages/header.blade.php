@@ -3,6 +3,35 @@ use Carbon\Carbon;
 use App\CourseProgress;
 use App\LearnerAnnouncement;
 @endphp
+@php
+$announcements = [];
+$new_announcements = [];
+$old_anno = [];
+$last_annoucement_check = now();
+$announcements = LearnerAnnouncement::query()
+                                  ->where('status',1)
+                                  ->orderBy('updated_at', 'DESC')
+                                  ->get();
+
+if(Auth::check()){
+  $last_annoucement_check = Auth::user()->last_annoucement_check;
+
+  if($last_annoucement_check==null){
+    $last_annoucement_check = Auth::user()->created_at;
+  }
+
+ 
+  $new_announcements = $announcements->where('updated_at','>=',$last_annoucement_check);
+  $old_anno = $announcements->where('updated_at','<',$last_annoucement_check);
+
+
+}
+  
+
+
+
+
+@endphp
 @if (Auth::check())
 
   <!-- Header: Start-->
@@ -122,24 +151,7 @@ use App\LearnerAnnouncement;
             </div>
             
             <div class="la-header__menu-item dropdown d-none d-lg-block">
-              @php
-                  $announcements = [];
-                  $old_announcements = [];
-                
-                      $last_annoucement_check = Auth::user()->last_annoucement_check;
-                    
-                    if($last_annoucement_check==null){
-                      $last_annoucement_check = Auth::user()->created_at;
-                    }
-                  
-                  $announcements = LearnerAnnouncement::query()
-                                                  ->where('status',1)
-                                                  ->orderBy('updated_at', 'DESC')
-                                                  ->get();
-                  $new_announcements = $announcements->where('updated_at','>=',$last_annoucement_check);
-                  $old_anno = $announcements->where('updated_at','<',$last_annoucement_check);
-                  
-              @endphp
+           
             <a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-announcement" onclick="markReleaseRead()" id="announcementPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <sup class="la-header__menu-badge badge badge-light" id="notificationBadgeRelease">{{count($new_announcements)}}</sup></a>
               <div class="la-notification__dropdown dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="announcementPanel" style="border:none;">
                 <div class="card la-announcement__card">
@@ -293,12 +305,7 @@ use App\LearnerAnnouncement;
                   </a>
                 </div>
                     <!-- Announcements Panel: Start -->
-                    @php
-                          $announcements = Announcement::where('status',1)
-                                                      ->orderBy('updated_at', 'DESC')
-                                                      ->get();
-                      
-                    @endphp 
+                   
 
                       @foreach ($announcements as $anno)
                                               
