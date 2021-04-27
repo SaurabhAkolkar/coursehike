@@ -470,12 +470,24 @@ table {
     border-spacing: 0 25px !important; 
     border:none;
 }
-@media(max-width:991px){
-    .dataTables_wrapper{
-        width:100%;
-        overflow-x:scroll;
-    }
+.dataTables_wrapper{
+    width:100%;
+    overflow-x:scroll;
+    
 }
+.dataTables_wrapper::-webkit-scrollbar {
+    width:100%;
+    height:8px;
+    border-radius: 10px;
+    background: #dedede; 
+    margin:10px;
+}
+.dataTables_wrapper::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.28);
+    border-radius: 10px;
+}
+
+
 /* == table head == */
 thead{
     background-color:var(--gray3);
@@ -906,6 +918,9 @@ button.close:focus{
     padding-left:5px !important;
 }
 
+div.dataTables_wrapper div.dataTables_info{
+    margin:15px 0;
+}
 @media (max-width:767px){
     div.dataTables_wrapper div.dataTables_paginate{
         margin:0 auto !important;

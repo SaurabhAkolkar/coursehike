@@ -8,7 +8,7 @@ use Carbon\Carbon;
 <section class="content">
   @include('admin.message')
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-12">
       <div class="box box-primary">
         <div class="d-flex justify-content-between align-items-center ml-2">
           <h3 class="la-admin__section-title mb-0">{{ __('adminstaticword.Users') }}</h3>
@@ -21,31 +21,30 @@ use Carbon\Carbon;
               <a href="#" role="button"><span class="la-icon la-icon--3xl icon-sort mr-2" style="color:#000;"></span></a>
                <a href="#" role="button"><span class="la-icon la-icon--3xl icon-excel mr-2" style="color:#1D6F42"></span></a> 
             </div>-->
-            <div class='filters'>
+            <div class='filters pt-6 mx-4'>
              
               <div class='filter-container row' >
-                  <input autocomplete='off' class='filter col' name='image' placeholder='Name'  data-col="FirstName" />
-                  <input autocomplete='off' class='filter col' name='drink' placeholder='Email' data-col="Email" />
-                  <input autocomplete='off' class='filter col' name='pizza' placeholder='Role' data-col="Role" />
-                  <input autocomplete='off' class='filter col' name='movie' placeholder='Mobile' data-col="Mobile"/>
-                  <input autocomplete='off' class='filter col' name='movie' placeholder='Country' data-col="Country"/>
-                  <input autocomplete='off' class='filter col' name='movie' placeholder='Subscription' data-col="Subscription"/>
+                  <input autocomplete='off' class='filter col p-1 mb-3' name='image' placeholder='Name'  data-col="FirstName" />
+                  <input autocomplete='off' class='filter col p-1  mb-3' name='drink' placeholder='Email' data-col="Email" />
+                  <input autocomplete='off' class='filter col p-1  mb-3' name='pizza' placeholder='Role' data-col="Role" />
+                  <input autocomplete='off' class='filter col p-1  mb-3' name='movie' placeholder='Mobile' data-col="Mobile"/>
+                  <input autocomplete='off' class='filter col p-1  mb-3' name='movie' placeholder='Country' data-col="Country"/>
+                  <input autocomplete='off' class='filter col p-1  mb-3' name='movie' placeholder='Subscription' data-col="Subscription"/>
 
               </div>
              
               {{-- <div class='filter-container'>
               </div>
-          
               <div class='filter-container'>
               </div>
-
               <div class='filter-container'>
               </div> --}}
+
               <div class='clearfix'></div>
-              </div>
+            </div>
 
               
-              <table id="example1" class="js-dynamitable  table table-bordered table-striped text-center display nowrap">
+            <table id="example1" class=" table table-bordered table-striped js-dynamitable">
 
                 <!-- <thead class="bg-transparent la-admin__user-filters">
                   <tr>
@@ -83,19 +82,19 @@ use Carbon\Carbon;
 
                 <thead>
                   <tr>
-                  <th>#</th>
-                  <th>{{ __('adminstaticword.Image') }}</th>
-                  <th>{{ __('adminstaticword.FirstName') }}</th>
-                  <th>{{ __('adminstaticword.Email') }}</th>
-                  <th>{{ __('adminstaticword.Role') }}</th>
-                  <th>{{ __('adminstaticword.Mobile') }}</th>
-                  <th>{{ __('adminstaticword.Country') }}</th>
-                  <th>{{ __('adminstaticword.Registered') }}</th>
-                  <th>Active {{ __('adminstaticword.Subscription') }}</th>
-                  <th>Add Access</th>
-                  <th>{{ __('adminstaticword.Status') }}</th>
-                  <th>{{ __('adminstaticword.Edit') }}</th>
-                  <th>{{ __('adminstaticword.Delete') }}</th>
+                    <th>#</th>
+                    <th>{{ __('adminstaticword.Image') }}</th>
+                    <th>{{ __('adminstaticword.FirstName') }}</th>
+                    <th>{{ __('adminstaticword.Email') }}</th>
+                    <th>{{ __('adminstaticword.Role') }}</th>
+                    <th>{{ __('adminstaticword.Mobile') }}</th>
+                    <th>{{ __('adminstaticword.Country') }}</th>
+                    <th>{{ __('adminstaticword.Registered') }}</th>
+                    <th>Active {{ __('adminstaticword.Subscription') }}</th>
+                    <th>Add Access</th>
+                    <th>{{ __('adminstaticword.Status') }}</th>
+                    <th>{{ __('adminstaticword.Edit') }}</th>
+                    <th>{{ __('adminstaticword.Delete') }}</th>
                   </tr>
                 </thead> 
                 
@@ -167,7 +166,7 @@ use Carbon\Carbon;
                     @endforeach
 
                 </tbody>
-              </table>
+            </table>
           </div>
         <!-- /.box-body -->
       </div>
@@ -185,13 +184,14 @@ use Carbon\Carbon;
  
   $(document).ready(function() {
 
-  $('.filter').multifilter({
-    'target' : $('#example1')
-  })
+    $('.filter').multifilter({
+      'target' : $('#example1')
+    })
 
-  $('#example1_filter').hide();
-  })
-  
+    $('#example1_filter').hide();
+
+  });
+    
   </script>
   
 @endsection
