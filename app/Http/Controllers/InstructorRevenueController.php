@@ -88,7 +88,7 @@ class InstructorRevenueController extends Controller
             $start = Carbon::now()->subMonth($duration ?? 0);
             $end = Carbon::now()->subMonth($duration ?? 0);
         }else{
-            $start = Carbon::createFromDate(2000, 01, 01);
+            $start = Carbon::createFromDate(2021, 02, 01);
             $end = Carbon::now();
         }
 
@@ -196,7 +196,7 @@ class InstructorRevenueController extends Controller
             $start = Carbon::now()->subMonth($duration ?? 0);
             $end = Carbon::now()->subMonth($duration ?? 0);
         }else{
-            $start = Carbon::createFromDate(2000, 01, 01);
+            $start = Carbon::createFromDate(2021, 02, 01);
             $end = Carbon::now();
         }
 

@@ -32,7 +32,6 @@ class InstructorController extends Controller
             $payout = $instructor_revenue->payoutCalculate( Auth::User(), "all");
 
             $total_earning = $instructor_revenue->payoutCalculateCoursePurchase(Auth::user(), "all");
-            // dd($payout, $total_earning);
             return view('instructor.dashboard', compact('payout', 'total_earning'));
         }
         else
