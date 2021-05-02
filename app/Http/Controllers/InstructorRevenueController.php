@@ -89,7 +89,7 @@ class InstructorRevenueController extends Controller
             $end = Carbon::now()->subMonth($duration ?? 0);
         }else{
             $start = Carbon::createFromDate(2021, 02, 01);
-            $end = Carbon::now();
+            $end = Carbon::now()->subMonth(1);
         }
 
         $watch_logs =  UserWatchTime::whereHas('courses', function($query) use ($creator_userid){
@@ -197,7 +197,7 @@ class InstructorRevenueController extends Controller
             $end = Carbon::now()->subMonth($duration ?? 0);
         }else{
             $start = Carbon::createFromDate(2021, 02, 01);
-            $end = Carbon::now();
+            $end = Carbon::now()->subMonth(1);
         }
 
         $purchase_logs =  UserPurchasedCourse::whereHas('course', function($query) use($creator_userid){
