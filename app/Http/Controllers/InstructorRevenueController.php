@@ -67,9 +67,9 @@ class InstructorRevenueController extends Controller
                         ->where(['uid.status' => 'successful'])
                         ->sum('uid.sub_total');
 
-        $total_earning = $this->payoutCalculateCoursePurchase(Auth::user(), $request);
+        $total_earning = $this->payoutCalculateCoursePurchase(Auth::user(), $request->month);
         
-        $payout = $this->payoutCalculate($request);
+        $payout = $this->payoutCalculate(Auth::user(), $request->month);
 
         $mentor_commission = MentorDetail::where('user_id', Auth::user()->id)->first();
         $mentor_commission = $mentor_commission->purchase_commission ?? InstructorRevenueController::$CREATOR_COMMISSION;
@@ -77,17 +77,23 @@ class InstructorRevenueController extends Controller
         return view('instructor.revenue.instructorRevenue',compact('invoiceDetails','total_earning','classes','courses_count','learners', 'payout', 'mentor_commission'));
     }
 
-    public function payoutCalculate($request)
+    public function payoutCalculate($creator, $duration)
     {
         
+        $creator_userid = $creator->id;
         // $start = new Carbon('first day of last month');
         // $end = new Carbon('last day of last month');
 
-        $start = Carbon::now()->subMonth($request->month ?? 0);
-        $end = Carbon::now()->subMonth($request->month ?? 0);
+        if($duration != "all"){
+            $start = Carbon::now()->subMonth($duration ?? 0);
+            $end = Carbon::now()->subMonth($duration ?? 0);
+        }else{
+            $start = Carbon::createFromDate(2000, 01, 01);
+            $end = Carbon::now();
+        }
 
-        $watch_logs =  UserWatchTime::whereHas('courses', function($query){
-            $query->where('user_id', Auth::User()->id);
+        $watch_logs =  UserWatchTime::whereHas('courses', function($query) use ($creator_userid){
+            $query->where('user_id', $creator_userid);
         })->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get();
 
         $learners = $watch_logs->unique('user_id')->pluck('user_id')->all();
@@ -175,7 +181,7 @@ class InstructorRevenueController extends Controller
         ];
     }
 
-    public function payoutCalculateCoursePurchase($creator, $request)
+    public function payoutCalculateCoursePurchase($creator, $duration)
     {
         
         $creator_userid = $creator->id;
@@ -186,8 +192,13 @@ class InstructorRevenueController extends Controller
         // $start = new Carbon('first day of last month');
         // $end = new Carbon('last day of last month');
 
-        $start = Carbon::now()->subMonth($request->month ?? 0);
-        $end = Carbon::now()->subMonth($request->month ?? 0);
+        if($duration != "all"){
+            $start = Carbon::now()->subMonth($duration ?? 0);
+            $end = Carbon::now()->subMonth($duration ?? 0);
+        }else{
+            $start = Carbon::createFromDate(2000, 01, 01);
+            $end = Carbon::now();
+        }
 
         $purchase_logs =  UserPurchasedCourse::whereHas('course', function($query) use($creator_userid){
             $query->where('user_id', $creator_userid ?? 1);
