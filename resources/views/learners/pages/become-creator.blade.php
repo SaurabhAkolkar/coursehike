@@ -1,7 +1,20 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-    <title> Become a Mentor </title>
+    <title> Become a Mentor | Become mentors and earn online sharing skills | Online art school</title>
+    <meta name='description' itemprop='description' content='Looking for ways to earn sharing your skills? Join LILA, teach online, share your knowledge and start earning for your values. Join best online art school.' />
+
+    <meta property="og:description" content="Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now" />
+    <meta property="og:title" content="Become mentors and earn online sharing skills | Online art school" />
+    <meta property="og:url" content="{{Request::url()}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LILA Art" />
+    <meta property="og:image" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:url" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:size" content="300" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Become mentors and earn online sharing skills | Online art school" />
+    <meta name="twitter:site" content="@lilaaliens" />
 @endsection
 
 @section('content')

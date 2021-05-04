@@ -5,8 +5,6 @@
     <meta content="width=device-width,initial-scale=1" name="viewport">
     
     @yield('seo_content')
-    
-    <title>Learn Anything Artistic Online | Start For Free Today | LILA</title>
 
     <link rel="icon" type="image/icon" href="{{ asset('images/favicon/favicon.svg') }}"> 
     
