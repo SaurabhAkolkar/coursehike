@@ -538,6 +538,9 @@ return [
     'ExistingChapter'=>'Existing Video',
     'SelectVideo' => 'Select Video',
     'Paid'=>'Paid',
-    'Course&Class'=>'Course & Classes'
+    'Course&Class'=>'Course & Classes',
+    'Learners'=>'Learners',
+    'Subscribed'=>'Subscribed',
+    'OnTrial'=>'OnTrial',
 
 ];

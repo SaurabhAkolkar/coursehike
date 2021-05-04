@@ -25,7 +25,23 @@
         
           <li class="{{ Nav::isRoute('admin.index') }}"><a href="{{route('admin.index')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-dashboard mr-5" aria-hidden="true"></i><span>{{ __('adminstaticword.Dashboard') }}</span></a></li>
 
-          <li class="{{ Nav::isRoute('user.index') }} {{ Nav::isRoute('create.subscription') }} {{ Nav::isRoute('store.user.course') }} {{ Nav::isRoute('user.add') }} {{ Nav::isRoute('user.edit') }}"><a href="{{route('user.index')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Users') }}</span></a></li>
+          {{-- <li class="{{ Nav::isRoute('user.index') }} {{ Nav::isRoute('create.subscription') }} {{ Nav::isRoute('store.user.course') }} {{ Nav::isRoute('user.add') }} {{ Nav::isRoute('user.edit') }}">
+            <a href="{{route('user.index')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Users') }}</span></a></li> --}}
+
+          <li class="{{ Nav::isRoute('user.index') }} {{ Nav::isRoute('create.subscription') }} {{ Nav::isRoute('store.user.course') }} {{ Nav::isRoute('user.add') }} {{ Nav::isRoute('user.edit') }} treeview">
+            <a href="#">
+              <i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Users') }}</span>
+              <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li class="{{ Nav::isRoute('user.index') }} {{ Nav::isRoute('create.subscription') }} {{ Nav::isRoute('store.user.course') }} {{ Nav::isRoute('user.add') }} {{ Nav::isRoute('user.edit') }}"><a href="{{route('user.index')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Users') }}</span></a></li>
+              <li class="{{ Nav::isRoute('user.learners') }} "><a href="{{route('user.learners')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Learners') }}</span></a></li>
+              <li class="{{ Nav::isRoute('user.subscribed') }} "><a href="{{route('user.subscribed')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Subscribed') }}</span></a></li>
+              <li class="{{ Nav::isRoute('user.ontrial') }} "><a href="{{route('user.ontrial')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.OnTrial') }}</span></a></li>
+            </ul>
+          </li>
 
           @if(isset($zoom_enable) && $zoom_enable == 1)
           <li class="{{ Nav::isRoute('meeting.create') }} {{ Nav::isRoute('zoom.show') }} {{ Nav::isRoute('zoom.edit') }} {{ Nav::isRoute('zoom.setting') }} {{ Nav::isRoute('zoom.index') }} {{ Nav::isRoute('meeting.show') }} treeview">
@@ -140,6 +156,7 @@
             <ul class="treeview-menu">
               <li class="{{ Nav::isResource('order') }}"><a href="{{url('order')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-revenue mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Order') }}</span></a></li>
               <li class="{{ Nav::isResource('purchasedcourses') }}"><a href="{{url('purchasedcourses')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-revenue mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.PurchasedCourses') }}</span></a></li>
+              <li class="{{ Nav::isResource('subscriptions') }}"><a href="{{url('subscriptions')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-revenue mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Subscriptions') }}</span></a></li>
             </ul>
           </li> 
 

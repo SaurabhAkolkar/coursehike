@@ -142,6 +142,9 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::prefix('user')->group(function (){
         Route::get('/','UserController@viewAllUser')->name('user.index');
+        Route::get('/learners','UserController@learners')->name('user.learners');
+        Route::get('/subscribed','UserController@subscribed')->name('user.subscribed');
+        Route::get('/ontrial','UserController@ontrial')->name('user.ontrial');
         Route::get('/adduser','UserController@create')->name('user.add');
         Route::post('/insertuser','UserController@store')->name('user.store');
         Route::get('/subscriptions/{id}','UserController@subscriptions')->name('user.subscriptions');
@@ -392,6 +395,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::resource('order', 'OrderController');
 
       Route::get('/purchasedcourses','OrderController@purchasedCourses');
+
+      Route::get('/subscriptions','OrderController@subscriptions');
 
       Route::post('update-dollar-price','OrderController@updateDollarPrice')->name('update.dollar');
 

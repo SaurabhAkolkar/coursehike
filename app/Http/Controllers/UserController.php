@@ -79,6 +79,37 @@ class UserController extends Controller
 
     }
 
+    public function learners(){
+        $users = User::where('role','user')->get();
+        return view('admin.user.learners', compact('users'));
+
+    }
+
+    public function subscribed(){
+        $user_ids = DB::table('plan_subscriptions')
+                        ->where('trial_ends_at','<', Carbon::now()->format('Y-m-d H:i:s') )
+                        ->where('ends_at','>', Carbon::now()->format('Y-m-d H:i:s') )
+                        ->pluck('user_id')
+                        ->toArray();
+        
+        $users = User::whereIN('id',$user_ids)->get();
+        
+        return view('admin.user.learners', compact('users'));
+
+    }
+
+    public function ontrial(){
+
+        $user_ids = DB::table('plan_subscriptions')
+                        ->where('trial_ends_at','>', Carbon::now()->format('Y-m-d H:i:s') )
+                        ->pluck('user_id')
+                        ->toArray();
+           
+        $users = User::whereIN('id',$user_ids)->get();
+        return view('admin.user.ontrial', compact('users'));
+
+    }
+
     public function addClass($id){
         $user_id = $id;
         $courses = Course::where(['status'=>1])->get();
