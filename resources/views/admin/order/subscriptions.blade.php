@@ -41,7 +41,7 @@
               </thead>
               <tbody>
               <?php $i=0;?>
-                @foreach($purchased_courses as $invoice)
+                @foreach($subscriptions as $invoice)
                     <tr>
                       <td><?php echo ++$i;?></td>
                       <td>{{$invoice->invoice_id}}</td>
