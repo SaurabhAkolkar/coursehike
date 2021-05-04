@@ -36,9 +36,10 @@ class UploadController extends Controller
           
             // save the file and return any response you need, current example uses `move` function. If you are
             // not using move, you need to manually delete the file by unlink($save->getFile()->getPathname())
-            //return $this->saveFile($save->getFile());
+            $response = $this->saveFile($save->getFile());
         //    return false;
-            return event(new UploadFileToCloudEvent($save->getFile(), $request->course_id));
+            event(new UploadFileToCloudEvent($response['name'], $request->course_class_id));
+            return response()->json($response);
         }
         // we are in chunk mode, lets send the current progress
         /** @var AbstractHandler $handler */
@@ -66,11 +67,16 @@ class UploadController extends Controller
         $mime = str_replace('/', '-', $file->getMimeType());
         // We need to delete the file when uploaded to s3
         unlink($file->getPathname());
-        return response()->json([
+        // return response()->json([
+        //     'path' => $disk->url($fileName),
+        //     'name' => $fileName,
+        //     'mime_type' =>$mime
+        // ]);
+        return [
             'path' => $disk->url($fileName),
             'name' => $fileName,
             'mime_type' =>$mime
-        ]);
+        ];
     }
     /**
      * Saves the file
@@ -87,15 +93,16 @@ class UploadController extends Controller
         // Group files by the date (week
         $dateFolder = date("Y-m-W");
         // Build the file path
-        $filePath = "upload/{$mime}/{$dateFolder}/";
+        $filePath = "upload/course/";
+        // $filePath = "upload/{$mime}/{$dateFolder}/";
         $finalPath = storage_path("app/".$filePath);
         // move the file name
         $file->move($finalPath, $fileName);
-        return response()->json([
+        return [
             'path' => $filePath,
             'name' => $fileName,
             'mime_type' => $mime
-        ]);
+        ];
     }
     /**
      * Create unique filename for uploaded file

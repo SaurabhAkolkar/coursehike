@@ -14,16 +14,16 @@ class UploadFileToCloudEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
     public $file;
-    public $course_id;
+    public $course_class_id;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($file, $course_id)
+    public function __construct($file, $course_class_id)
     {
         $this->file = $file;
-        $this->course_id = $course_id;
+        $this->course_class_id = $course_class_id;
     }
 
 }

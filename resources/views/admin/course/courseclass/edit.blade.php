@@ -444,7 +444,7 @@
                 // Get the url from data-url tag
                 target: $fileUpload.data('url'),
                 // Append token to the request - required for web routes
-                query:{_token : $('input[name=_token]').val(), course_id : {{$cate->course_id}} }
+                query:{_token : $('input[name=_token]').val(), course_class_id : {{$cate->id}} }
             });
 
         // Resumable.js isn't supported, fall back on a different method
