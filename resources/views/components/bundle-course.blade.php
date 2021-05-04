@@ -132,11 +132,11 @@
                     <div class="la-lcourse__info-inner w-100">
                         <div class="position-relative d-inline-flex justify-content-between align-items-center w-100">
                             <div class="col-3 pl-0 pr-1">
-                                <div class="la-lcourse__classes">{{$classesCount}} Classes</div>
+                                <div class="la-lcourse__classes leading-none">{{$classesCount}} Classes</div>
                             </div>
 
                             <div class="col-3 pl-0 pr-1">
-                                <div class="la-lcourse__videos">{{$videoCount}} Videos</div>
+                                <div class="la-lcourse__videos leading-none">{{$videoCount}} Videos</div>
                             </div>
 
                             <div class="col-6 px-0 la-lcourse__rating text-right">

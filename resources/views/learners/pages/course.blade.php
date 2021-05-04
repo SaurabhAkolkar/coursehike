@@ -151,7 +151,7 @@ $course_id = $course->id;
                       <input type="hidden" value="all-classes" name="classes" />
                       <input type="hidden" value="true" name="bundle_course" />
                       @csrf
-                      <a class="la-vcourse__buy-course btn btn-primary la-btn la-btn--app text-white color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" @if(Auth::check()) onclick="$('#add_to_cart_form_1').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>Buy this Class</a><br/>
+                      <a class="la-vcourse__buy-course btn btn-primary la-btn la-btn--app bg-purple text-white color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" @if(Auth::check()) onclick="$('#add_to_cart_form_1').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>Buy this Class</a><br/>
                       <span class="text-white">@ {{ getSymbol() }}{{$course->convertedprice}}</span>
                     </form>
                   </div>
@@ -159,7 +159,7 @@ $course_id = $course->id;
 
                 @if ( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription()) || (auth()->check() && !Auth::User()->subscription()->active())  ) )
                   <div class="la-vcourse__buy-btn text-center">
-                    <a class="la-vcourse__buy-course btn btn-primary la-btn la-btn--primary text-white d-lg-inline-flex justify-content-end mb-2 active" href="/learning-plans">Subscribe for Free</a><br/>
+                    <a class="la-vcourse__buy-course btn btn-primary la-btn la-btn--primary bg-purple text-white d-lg-inline-flex justify-content-end mb-2 active" href="/learning-plans">Subscribe for Free</a><br/>
                     <span class="text-white">Access all Courses & Classes</span>
                   </div>
                 @endif

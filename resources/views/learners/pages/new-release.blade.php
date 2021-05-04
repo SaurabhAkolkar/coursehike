@@ -1,7 +1,7 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-    <title> New Releases </title>
+    <title> New Release </title>
 @endsection
 
 @section('content')

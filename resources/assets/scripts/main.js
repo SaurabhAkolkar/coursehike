@@ -1089,7 +1089,7 @@ function lazyLoad(lazy) {
         TweenMax.fromTo(
           entry.target,
           1,
-          { css: { opacity: 0, y: "-8px" } },
+          { css: { opacity: 0, y: "-5px" } },
           { css: { opacity: 1, y: 0 } },
           1.5
         );
