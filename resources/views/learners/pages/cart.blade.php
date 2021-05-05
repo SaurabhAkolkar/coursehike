@@ -2,7 +2,7 @@
 
 
 @section('seo_content')
-    <title> My Cart </title>
+    <title> My Cart  | Learn Tattoo & Graphic Design | LILA </title>
 @endsection
 
 @section('content')

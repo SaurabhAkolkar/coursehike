@@ -4,18 +4,18 @@
     <title>Subscribe Now | Start Your 7 Days Free Trial | LILA</title>
     <meta name='description' itemprop='description' content='Subscribe to the online classes of creativity, craft, art & much more from creators & mentors all around the world. Join & learn real skills with LILA now!' />
 
-    <meta property="og:description"content="Subscribe to the online classes of creativity, craft, art & much more from creators & mentors all around the world. Join & learn real skills with LILA now!" />
-    <meta property="og:title"content="Subscribe Now | Start Your 7 Days Free Trial | LILA" />
-    <meta property="og:url"content="{{Request::url()}}" />
-    <meta property="og:type"content="website" />
-    <meta property="og:site_name"content="LILA Art" />
-    <meta property="og:image"content="{{config('app.url')}}/images/learners/logo.svg" />
-    <meta property="og:image:url"content="{{config('app.url')}}/images/learners/logo.svg" />
-    <meta property="og:image:size"content="300" />
+    <meta property="og:description" content="Subscribe to the online classes of creativity, craft, art & much more from creators & mentors all around the world. Join & learn real skills with LILA now!" />
+    <meta property="og:title" content="Subscribe Now | Start Your 7 Days Free Trial | LILA" />
+    <meta property="og:url" content="{{Request::url()}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LILA Art" />
+    <meta property="og:image" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:url" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:size" content="300" />
 
-    <meta name="twitter:card"content="summary" />
-    <meta name="twitter:title"content="Subscribe Now | Start Your 7 Days Free Trial | LILA" />
-    <meta name="twitter:site"content="@lilaaliens" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Subscribe Now | Start Your 7 Days Free Trial | LILA" />
+    <meta name="twitter:site" content="@lilaaliens" />
     
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Subscribe Now | Start Your 7 Days Free Trial | LILA"}</script>
 

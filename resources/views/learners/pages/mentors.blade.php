@@ -1,23 +1,23 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-    <title>Mentors | Best Online Courses for Art & Creativity | LILA</title>
-    <meta name='description' itemprop='description' content='Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now' />
+    <title>Mentors  | Learn Tattoo & Graphic Design | LILA</title>
+    <meta name='description' itemprop='description' content='Check out about your mentor.Learn about them how they carved there niche in the world of Tattoo design .Join LILA & enhance your skills with these online classes.' />
 
-    <meta property="og:description"content="Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now" />
-    <meta property="og:title"content="Mentors | Best Online Courses for Art & Creativity | LILA" />
-    <meta property="og:url"content="{{Request::url()}}" />
-    <meta property="og:type"content="website" />
-    <meta property="og:site_name"content="LILA Art" />
-    <meta property="og:image"content="{{config('app.url')}}/images/learners/logo.svg" />
-    <meta property="og:image:url"content="{{config('app.url')}}/images/learners/logo.svg" />
-    <meta property="og:image:size"content="300" />
+    <meta property="og:description" content="Check out about your mentor.Learn about them how they carved there niche in the world of Tattoo design .Join LILA & enhance your skills with these online classes." />
+    <meta property="og:title" content="Mentors | Learn Tattoo & Graphic Design | LILA" />
+    <meta property="og:url" content="{{Request::url()}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LILA Art" />
+    <meta property="og:image" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:url" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:size" content="300" />
 
-    <meta name="twitter:card"content="summary" />
-    <meta name="twitter:title"content="Mentors | Best Online Courses for Art & Creativity | LILA" />
-    <meta name="twitter:site"content="@lilaaliens" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Mentors | Learn Tattoo & Graphic Design | LILA" />
+    <meta name="twitter:site" content="@lilaaliens" />
     
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Mentors | Best Online Courses for Art & Creativity | LILA"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Mentors | Learn Tattoo & Graphic Design | LILA"}</script>
 @endsection
 
 @section('content')

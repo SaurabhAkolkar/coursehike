@@ -40,8 +40,14 @@ $(function(){
 
   // Home Video On scroll Pause/Play: Start
   $(window).on("scroll",function(){
-    if($(window).scrollTop()>500){      
+    var video = $('#home_video')[0];
+    if($(window).scrollTop() >= 600){      
        $('#home_video').trigger('pause');
+
+       //- To start video from beginning
+       $('video').on('pause', function(){
+          this.currentTime = 0;
+       });
      }
      else
      {

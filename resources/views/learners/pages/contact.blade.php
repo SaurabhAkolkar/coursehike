@@ -4,7 +4,7 @@
     <title>Contact | Best Online Creativity Platform |Explore Your Creativity</title>
     <meta name='description' itemprop='description' content='Join the best online art coursed & creativity platform for online tattoo learning, digital protraits, artistic baking and much more online courses. ' />
 
-    <meta property="og:description" content="Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now" />
+    <meta property="og:description" content="Join the best online art coursed & creativity platform for online tattoo learning, digital protraits, artistic baking and much more online courses. " />
     <meta property="og:title" content="Contact | Best Online Creativity Platform |Explore Your Creativity" />
     <meta property="og:url" content="{{Request::url()}}" />
     <meta property="og:type" content="website" />

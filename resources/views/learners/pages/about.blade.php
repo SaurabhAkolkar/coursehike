@@ -1,11 +1,11 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-    <title> About Us | Learn about online courses, learning plans & careers | Join LILA </title>
-    <meta name='description' itemprop='description' content='Discover new courses & master the art skills with LILA. Join online learning platform LILA to know more about courses, plans, career opportunities, etc' />
+    <title>About the Team | Learn Tattoo & Graphic Design | LILA </title>
+    <meta name='description' itemprop='description' content='We at LILA are in a pursuit of bringing mentors from around the world to teach varied skills in the most simplest ways to everybody who wish to learn.' />
 
-    <meta property="og:description" content="Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now" />
-    <meta property="og:title" content="Learn about online courses, learning plans & careers | Join LILA" />
+    <meta property="og:description" content="We at LILA are in a pursuit of bringing mentors from around the world to teach varied skills in the most simplest ways to everybody who wish to learn." />
+    <meta property="og:title" content="About the Team | Learn Tattoo & Graphic Design | LILA" />
     <meta property="og:url" content="{{Request::url()}}" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="LILA Art" />
@@ -13,8 +13,10 @@
     <meta property="og:image:url" content="{{config('app.url')}}/images/learners/logo.svg" />
     <meta property="og:image:size" content="300" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Learn about online courses, learning plans & careers | Join LILA" />
+    <meta name="twitter:title" content="About the Team | Learn Tattoo & Graphic Design | LILA" />
     <meta name="twitter:site" content="@lilaaliens" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"About the Team | Learn Tattoo & Graphic Design | LILA"}</script>
 @endsection
 
 @section('content')

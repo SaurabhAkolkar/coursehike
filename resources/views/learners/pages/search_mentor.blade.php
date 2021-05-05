@@ -1,7 +1,23 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-    <title> Search Mentors </title>
+    <title> Search Mentors | Learn Tattoo & Graphic Design | LILA </title>
+    <meta name='description' itemprop='description' content='Search Mentors who teach on LILA Platform on tattoo, graphic design, digital art .Join LILA & enhance your skills with these online classes.' />
+
+    <meta property="og:description" content="Search Mentors who teach on LILA Platform on tattoo, graphic design, digital art .Join LILA & enhance your skills with these online classes." />
+    <meta property="og:title" content="Search Mentors | Learn Tattoo & Graphic Design | LILA" />
+    <meta property="og:url" content="{{Request::url()}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LILA Art" />
+    <meta property="og:image" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:url" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:size" content="300" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Search Mentors | Learn Tattoo & Graphic Design | LILA" />
+    <meta name="twitter:site" content="@lilaaliens" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Search Mentors | Learn Tattoo & Graphic Design | LILA"}</script>
 @endsection
 
 @section('content')
