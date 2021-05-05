@@ -542,5 +542,6 @@ return [
     'Learners'=>'Learners',
     'Subscribed'=>'Subscribed',
     'OnTrial'=>'OnTrial',
+    'Subscriptions'=>'Subscriptions',
 
 ];

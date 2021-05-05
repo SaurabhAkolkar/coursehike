@@ -119,8 +119,8 @@ class OrderController extends Controller
 
     public function subscriptions(){    
 
-        $subscriptions = UserSubscriptionInvoice::with('user','coupon')->get();
-
+        $subscriptions = UserSubscriptionInvoice::with('user','subscription')->get();
+        
         return view('admin.order.subscriptions',compact('subscriptions'));
 
     }

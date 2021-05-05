@@ -8,7 +8,29 @@
           <span class="la-icon la-icon--sm icon-plus"></span> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Class') }}
         </a>
       </div>
-     
+      
+      <div class='filters pt-6 mx-4'>
+             
+        <div class='filter-container row' >
+            <input autocomplete='off' class='filter col p-1 mb-3' name='Title' placeholder='Title'  data-col="Title" />
+            <input autocomplete='off' class='filter col p-1  mb-3' name='Category' placeholder='Category' data-col="Category" />
+            @if(Auth::User()->role == "admin")<input autocomplete='off' class='filter col p-1  mb-3' name='Mentor' placeholder='Mentor' data-col="Mentor" />@endif
+            @if(Auth::User()->role == "admin")<input autocomplete='off' class='filter col p-1  mb-3' name='Slug' placeholder='Slug' data-col="Slug"/>@endif
+            <input autocomplete='off' class='filter col p-1  mb-3' name='Featured' placeholder='Featured' data-col="Featured"/>
+            <input autocomplete='off' class='filter col p-1  mb-3' name='movie' placeholder='Subscription' data-col="Subscription"/>
+
+        </div>
+       
+        {{-- <div class='filter-container'>
+        </div>
+        <div class='filter-container'>
+        </div>
+        <div class='filter-container'>
+        </div> --}}
+
+        <div class='clearfix'></div>
+      </div>
+
       <!-- /.box-header -->
         <div class="box-body">
             <div class="la-admin__filter-icons text-right" style="position:relative; top:50px;z-index:0;">

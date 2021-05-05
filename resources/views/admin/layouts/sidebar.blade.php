@@ -146,7 +146,7 @@
           </li> 
           
 
-          <li class="{{ Nav::isResource('order') }}   treeview">
+          <li class="{{ Nav::isResource('order')}} {{ Nav::isResource('subscriptions') }} {{ Nav::isResource('purchasedcourses')   }}   treeview">
             <a href="#" class="d-flex align-items-center">
              <i class="la-icon la-icon--lg icon-revenue mr-4" aria-hidden="true"></i> <span>{{ __('adminstaticword.Order') }}</span>
               <span class="pull-right-container">
