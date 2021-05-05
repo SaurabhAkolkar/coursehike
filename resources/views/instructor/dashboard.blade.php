@@ -74,7 +74,7 @@
             </div>
             <p class="m-0"> Revenue</p>
             <h3 class="m-0">
-              ${{ $payout['total_income'] + ($total_earning['total_income'])}}
+              ${{ round($payout['total_income'] + $total_earning['total_income'], 2)}}
             </h3>
           </div>
           <a href="{{route('instructor.revenue')}}" class="small-box-footer"> 

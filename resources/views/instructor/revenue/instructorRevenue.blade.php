@@ -110,7 +110,7 @@
 							<td>{{ $invoice_details->invoice_id }}</td>
 						@endif
 
-						<td>$ {{ $price }}</td>
+						<td>$ {{ round($price, 2) }}</td>
 						<td style="color:#d44141">- $ {{ round($price * ( (100 - $mentor_commission) / 100), 2) }}</td>
 						<td style="color:#1EC812">$ {{ round($price * ($mentor_commission / 100), 2) }}</td>
 					</tr>
