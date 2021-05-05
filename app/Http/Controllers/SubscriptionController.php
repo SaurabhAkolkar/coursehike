@@ -175,6 +175,7 @@ class SubscriptionController extends Controller
 
 				if(!$plan_subscription){
 					$user->newSubscription('main', $plan);
+					$plan_subscription = $user->subscription();
 				}else{
 					$plan_subscription->starts_at = Carbon::createFromTimestamp($subscription_start)->toDateTimeString(); 
 					$plan_subscription->ends_at = Carbon::createFromTimestamp($subscription_end)->toDateTimeString(); 
