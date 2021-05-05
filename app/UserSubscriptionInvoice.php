@@ -14,4 +14,8 @@ class UserSubscriptionInvoice extends Model
     {
         return $this->belongsTo('App\User','user_id','id');
     }
+
+    public function subscription(){
+        return $plan = app('rinvex.subscriptions.plan')->where('id', $this->subscription_id)->first();
+    }
 }

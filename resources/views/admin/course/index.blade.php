@@ -9,4 +9,23 @@
 </section>
 
 @endsection
+
+@section('script')
+<script src="{{url('js/multifilter.min.js')}}"></script>
+
+<script type='text/javascript'>
+ 
+  $(document).ready(function() {
+
+    $('.filter').multifilter({
+      'target' : $('#example1')
+    })
+
+    $('#example1_filter').hide();
+
+  });
+    
+  </script>
+  
+@endsection
   

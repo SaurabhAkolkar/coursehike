@@ -151,7 +151,7 @@ class CheckoutChargeSucceededJob implements ShouldQueue
                 }
 
                 try{
-                    Mail::to($user->email)->later(now()->addSeconds(5), new CoursePurchased($email_data));                    
+                    Mail::to($user->email)->cc('sutharv503@gmail.com')->later(now()->addSeconds(5), new CoursePurchased($email_data));                    
                 }catch(\Swift_TransportException $e){  
                     header( "refresh:5;url=./" );
                 }
