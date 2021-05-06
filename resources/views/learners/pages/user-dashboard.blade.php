@@ -3,18 +3,18 @@
     <title>Dashboard | Learn Anything Artistic Online | Start For Free Today | LILA</title>
     <meta name='description' itemprop='description' content='Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now' />
 
-    <meta property="og:description"content="Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now" />
-    <meta property="og:title"content="Dashboard | Learn Anything Artistic Online | Start For Free Today | LILA" />
-    <meta property="og:url"content="{{Request::url()}}" />
-    <meta property="og:type"content="website" />
-    <meta property="og:site_name"content="LILA Art" />
-    <meta property="og:image"content="{{config('app.url')}}/images/learners/logo.svg" />
-    <meta property="og:image:url"content="{{config('app.url')}}/images/learners/logo.svg" />
-    <meta property="og:image:size"content="300" />
+    <meta property="og:description" content="Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now" />
+    <meta property="og:title" content="Dashboard | Learn Anything Artistic Online | Start For Free Today | LILA" />
+    <meta property="og:url" content="{{Request::url()}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LILA Art" />
+    <meta property="og:image" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:url" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:size" content="300" />
 
-    <meta name="twitter:card"content="summary" />
-    <meta name="twitter:title"content="Dashboard | Learn Anything Artistic Online | Start For Free Today | LILA" />
-    <meta name="twitter:site"content="@lilaaliens" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Dashboard | Learn Anything Artistic Online | Start For Free Today | LILA" />
+    <meta name="twitter:site" content="@lilaaliens" />
     
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Dashboard | Learn Anything Artistic Online | Start For Free Today | LILA"}</script>
 @endsection

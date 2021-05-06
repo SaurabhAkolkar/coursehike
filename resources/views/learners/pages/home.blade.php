@@ -4,18 +4,17 @@
     <title>Learn Anything Artistic Online | Start For Free Today | LILA</title>
     <meta name='description' itemprop='description' content='Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now' />
 
-    <meta property="og:description"content="Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now" />
-    <meta property="og:title"content="Learn Anything Artistic Online | Start For Free Today | LILA" />
-    <meta property="og:url"content="{{Request::url()}}" />
-    <meta property="og:type"content="website" />
-    <meta property="og:site_name"content="LILA Art" />
-    <meta property="og:image"content="{{config('app.url')}}/images/learners/logo.svg" />
-    <meta property="og:image:url"content="{{config('app.url')}}/images/learners/logo.svg" />
-    <meta property="og:image:size"content="300" />
-
-    <meta name="twitter:card"content="summary" />
-    <meta name="twitter:title"content="Learn Anything Artistic Online | Start For Free Today | LILA" />
-    <meta name="twitter:site"content="@lilaaliens" />
+    <meta property="og:description" content="Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now" />
+    <meta property="og:title" content="Learn Anything Artistic Online | Start For Free Today | LILA" />
+    <meta property="og:url" content="{{Request::url()}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LILA Art" />
+    <meta property="og:image" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:url" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:size" content="300" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Learn Anything Artistic Online | Start For Free Today | LILA" />
+    <meta name="twitter:site" content="@lilaaliens" />
     
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Learn Anything Artistic Online | Start For Free Today | LILA"}</script>
 
@@ -44,7 +43,7 @@
 <!-- Section: Start-->
 <section class="la-section la-section--hero clearfix p-0 position-relative">
     <div class="la-section__inner">
-      <div class="jumbotron jumbotron-fluid p-0 m-0">
+      <div class="jumbotron jumbotron-fluid p-0 m-0 bg-transparent">
         <div class="la-hero__top row la-anim__wrap">
           <!-- Column: Start-->
           <div class="col-12 position-relative my-auto">
@@ -60,7 +59,7 @@
             @else
 
             <!-- Video Section: Start -->
-            <div class="la-hero__video-main position-relative la-anim__stagger-item--x">
+            <div class="la-hero__video-main position-relative">
               <div class="la-hero__video">
                 <video autoplay playsinline muted loop id="home_video" poster="../images/learners/home/home-fallback.jpg">
                   <source src='{{$firstSection->video_url}}'  type='video/mp4' />
@@ -73,14 +72,14 @@
 
             <!-- Video Content Section: Start -->
             <div class="container-fluid la-hero la-hero__video-content d-flex justify-content-center flex-column align-items-center">
-              <div class="la-hero__video-info text-center text-md-left">
-                <p class="la-hero__tag mb-2 mb-md-0 d-none d-md-block la-anim__stagger-item">Ace the learning curve with Courses & Classes by</p>
-                <p class="la-hero__tag mb-2 mb-md-0 d-block d-md-none la-anim__stagger-item">Courses & Classes by</p>
-                <h1 class="la-hero__title la-anim__stagger-item mb-5">World’s finest <span class="la-hero__subtitle">Artists</span></h1>
-                <p class="la-hero__lead la-anim__stagger-item">{{$firstSection->sub_heading}}</p>
+              <div class="la-hero__video-info text-center text-md-left la-anim__stagger-item">
+                <p class="la-hero__tag mb-2 mb-md-0 d-none d-md-block">Ace the learning curve with Courses & Classes by</p>
+                <p class="la-hero__tag mb-2 mb-md-0 d-block d-md-none">Courses & Classes by</p>
+                <h1 class="la-hero__title mb-5">World’s finest <span class="la-hero__subtitle">Artists</span></h1>
+                <p class="la-hero__lead">{{$firstSection->sub_heading}}</p>
               
                 <div class="d-md-flex align-items-center">
-                  <div class="la-hero__actions la-anim__stagger-item mt-6 mt-md-10">
+                  <div class="la-hero__actions mt-6 mt-md-10">
                     @if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())
                     <div class="">
                       <a href="/browse/courses" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white px-md-4">Start Learning</a>
@@ -118,7 +117,7 @@
                   @endif
                   </div>
                 
-                  <div class="la-hero__bottom-trial mt-6 mt-md-2 ml-md-6 la-anim__stagger-item ">@if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())  @else<a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary bg-transparent text-white px-md-4" style="letter-spacing:1.8px">Start free trial</a> @endif </div>
+                  <div class="la-hero__bottom-trial mt-6 mt-md-2 ml-md-6">@if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())  @else<a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary bg-transparent text-white px-md-4" style="letter-spacing:1.8px">Start free trial</a> @endif </div>
                 </div>
               </div>
                

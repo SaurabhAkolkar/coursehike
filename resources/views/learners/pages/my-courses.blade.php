@@ -2,7 +2,23 @@
 
 
 @section('seo_content')
-    <title> My Courses & Classes </title>
+    <title> My Courses & Classes | Learn Tattoo & Graphic Design | LILA </title>
+    <meta name='description' itemprop='description' content='Check out all the classes on tattoo, graphic design you subscribed.' />
+
+    <meta property="og:description" content="Check out all the classes on tattoo, graphic design you subscribed." />
+    <meta property="og:title" content="My Courses & Classes | Learn Tattoo & Graphic Design | LILA " />
+    <meta property="og:url" content="{{Request::url()}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LILA Art" />
+    <meta property="og:image" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:url" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:size" content="300" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="My Courses & Classes | Learn Tattoo & Graphic Design | LILA " />
+    <meta name="twitter:site" content="@lilaaliens" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"My Courses & Classes | Learn Tattoo & Graphic Design | LILA"}</script>
 @endsection
 
 @section('content')
