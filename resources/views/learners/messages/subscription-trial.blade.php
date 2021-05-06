@@ -4,6 +4,15 @@
     <title> Subscription Trial Started </title>
 @endsection
 
+@section('body_scripts')
+<script>
+  fbq('track', 'Subscribe', {
+    value: {{$plan_subscription->plan->price}},
+    currency: {{getLocation() == 'IN' ? 'INR' : 'USD'}},
+  });
+</script>
+@endsection
+
 @section('content')
 <section class="la-cbg--main">
     <div class="la-section">

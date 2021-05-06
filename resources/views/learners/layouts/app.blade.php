@@ -77,6 +77,9 @@
 </head>
 
 <body>
+
+    @yield('body_scripts')
+
     <div class="la-app__inner">
         @include ('learners.pages.header')
        
