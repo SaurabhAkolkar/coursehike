@@ -299,6 +299,97 @@
               </table>
             </div>
           </div>
+
+          {{-- <div class="box box-primary">
+            <div class="box-header d-flex align-items-center">
+              <h3 class="box-title"> {{ __('adminstaticword.AdditionalVideos') }}</h3>
+              <a data-toggle="modal" data-target="#myModalSubtitle" href="#" class="btn btn-info btn-sm ml-auto">+  {{ __('adminstaticword.Add') }} {{ __('adminstaticword.AdditionalVideos') }}</a>
+            </div>
+            <div class="box-body p-0">
+              <!--Model start-->
+              <div class="modal fade" id="myModalSubtitle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="myModalLabel"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.AdditionalVideos') }}</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="box box-primary">
+                      <div class="panel panel-sum">
+                        <div  class="modal-body">
+                          <form enctype="multipart/form-data" id="demo-form3" method="post" action="{{ route('add.additional',$cate->id) }}" data-parsley-validate class="form-horizontal form-label-left">
+                            {{ csrf_field() }}
+        
+                            <div id="additional_video">
+        
+                              <label>{{ __('adminstaticword.AdditionalVideos') }}:</label>
+                              <table class="table table-bordered" id="dynamic_field">  
+                                <tr> 
+                                    <td>
+                                        <div class="{{ $errors->has('video') ? ' has-error' : '' }} input-file-block">
+                                        <input type="file" name="video"/>
+                                        <p class="info">Choose subtitle file only in vtt format</p>
+                                        <small class="text-danger">{{ $errors->first('video') }}</small>
+                                      </div>
+                                    </td>
+        
+                                    <td>
+                                      <select name="sub_lang" class="">
+                                        @foreach ($languages as $language)
+                                          <option value="{{$language->iso_code}}">{{$language->name}}</option>
+                                        @endforeach
+                                      </select>
+                                    </td>  
+                                </tr>  
+                              </table>
+                              
+                            </div>
+                            <div class="box-footer">
+                              <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                            </div>
+        
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <br>
+                  <tr>
+                    <th>#</th>
+                    <th>{{ __('adminstaticword.SubtitleLanguage') }} </th>
+                    <th>{{ __('adminstaticword.Delete') }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $i=0;?>
+                  {{-- {{ dd($subtitles)}} --}}
+                  @foreach($subtitles as $subtitle)
+                    <?php $i++;?>
+                    <tr>
+                      <td><?php echo $i;?></td>
+                      <td>{{$subtitle->sub_lang}}</td>
+                      <td>
+                        <form  method="post" action="{{ route('del.subtitle',$subtitle->id) }}"
+                              data-parsley-validate class="form-horizontal form-label-left">
+                          {{ csrf_field() }}
+      
+                          <button type="submit" class="btn btn-danger d-inline">
+                            <i class="la-icon la-icon--lg icon-delete"></i>
+                          </button>
+                        </form>
+                      </td>
+                    </tr>
+                  @endforeach 
+                </tbody> 
+              </table>
+            </div>
+          </div> --}}
+
         </div>
         <!-- SUBTITLE SECTION: END -->
 

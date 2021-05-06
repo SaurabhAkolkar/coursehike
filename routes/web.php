@@ -229,6 +229,9 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::post('admin/class/{id}/addsubtitle','SubtitleController@post')->name('add.subtitle');
       Route::post('admin/class/{id}/delete/subtitle','SubtitleController@delete')->name('del.subtitle');
 
+      Route::post('admin/class/{id}/additionalVideo','SubtitleController@post')->name('add.subtitle');
+
+
       Route::post('admin/class/{id}/audiotrack','AudioTrackController@post')->name('add.audiotrack');
       Route::delete('admin/class/{id}/audiotrack','AudioTrackController@delete')->name('del.audiotrack');
 

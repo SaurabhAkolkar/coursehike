@@ -543,5 +543,6 @@ return [
     'Subscribed'=>'Subscribed',
     'OnTrial'=>'OnTrial',
     'Subscriptions'=>'Subscriptions',
+    'AdditionalVideos'=>'Additional Videos',
 
 ];
