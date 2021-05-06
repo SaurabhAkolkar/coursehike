@@ -1,6 +1,6 @@
 
 <!--  New Version Class Card -->
-<div class="col-12 h-100 la-lclass__card" @if($checkWishList) id="course_{{$id}}" @endif>
+<div class="col-12  la-lclass__card" @if($checkWishList) id="course_{{$id}}" @endif>
     <div class="la-lclass position-relative" id="lclass_card">
         <div class="la-lclass__inner">
             <div class="la-lclass__inner-link">

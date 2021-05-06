@@ -1,5 +1,5 @@
 <!--  New Version Course Card -->
-<div class="col-12 h-100 la-lcourse__card">
+<div class="col-12 la-lcourse__card">
     <div class="la-lcourse position-relative">
         <div class="la-lcourse__inner">
             <div class="la-lcourse__inner-link">
