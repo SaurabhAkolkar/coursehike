@@ -2,28 +2,25 @@
 
 namespace App\Events;
 
-use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class UploadFileToCloudEvent 
+class UploadFileToCloudEvent implements ShouldQueue
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $file;
-    public $course_class_id;
+    public $video_local_path;
+    public $request;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($file, $course_class_id)
+    public function __construct($video_local_path, $request)
     {
-        $this->file = $file;
-        $this->course_class_id = $course_class_id;
+        $this->video_local_path = $video_local_path;
+        $this->request = $request;
     }
 
 }

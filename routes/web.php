@@ -694,7 +694,7 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/remove-from-wishlist/{id}','LearnerWishlistController@destroy');
 
   Route::get('/playlist-delete/{id}','LearnerWishlistController@deletePlaylist');
-  Route::post('/upload', 'UploadController@upload');
+  // Route::post('/upload', 'UploadController@upload');
   Route::post('/profile',"ProfileController@updateProfile");
   Route::get('/profile','ProfileController@index');
   Route::post('/update-password','ProfileController@updatePassword')->name('update.password');

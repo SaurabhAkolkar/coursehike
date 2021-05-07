@@ -10,6 +10,7 @@ use Image;
 use App\CourseChapter;
 use App\Course;
 use App\CourseLanguage;
+use App\Events\UploadFileToCloudEvent;
 use App\Order;
 use App\User;
 use App\Notifications\CourseNotification;
@@ -21,7 +22,10 @@ use Auth;
 use DB;
 
 use \Firebase\JWT\JWT;
-
+use League\Flysystem\File;
+use Pion\Laravel\ChunkUpload\Exceptions\UploadMissingFileException;
+use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
+use Pion\Laravel\ChunkUpload\Receiver\FileReceiver;
 
 class CourseclassController extends Controller
 {
@@ -132,123 +136,88 @@ class CourseclassController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    { 
+    {
         
-        // $request->validate([
-        //     'video_upld' => 'mimes:mp4,avi,wmv'
-        // ]);
-        $courseclass = new CourseClass;
-        $courseclass->course_id = $request->course_id;
-        $courseclass->coursechapter_id =  $request->course_chapters;
-        $courseclass->title = $request->title;
-        $courseclass->duration = $request->duration;
-        $courseclass->status = $request->status;
-        $courseclass->featured = $request->featured;
-        $courseclass->video = $request->video;
-        $courseclass->date_time = $request->date_time;
-        $courseclass->detail = $request->detail;
+        $courseclass = null;
 
-        $courseclass['position'] = (CourseClass::count()+1);
-
-        $courseclass->status = $request->status;
+        $receiver = new FileReceiver("file", $request, HandlerFactory::classFromRequest($request));
+        if ($receiver->isUploaded() !== false ) {
+            $save = $receiver->receive();
         
+            if ($save->isFinished()) {
 
-        if(isset($request->featured))
-        {
-            $courseclass->featured = '1';
-        }
-        else
-        {
-            $courseclass->featured = '0';
-        }
+                $video_local_path = Storage::disk('local')->putFile('upload/course', $save->getFile());
+                unset($request['file']);
+                UploadFileToCloudEvent::dispatch($video_local_path, $courseclass);
 
-        if(isset($request->is_preview))
-        {
-            $courseclass->is_preview = '1';
-        }
-        else
-        {
-            $courseclass->is_preview = '0';
-        }
+                $courseclass = new CourseClass;
+                $courseclass->course_id = $request->course_id;
+                $courseclass->coursechapter_id =  $request->course_chapters;
+                $courseclass->title = $request->title;
+                $courseclass->duration = $request->duration;
+                $courseclass->status = $request->status;
+                $courseclass->featured = $request->featured;
+                $courseclass->video = $request->video;
+                $courseclass->date_time = $request->date_time;
+                $courseclass->detail = $request->detail;
 
-           
-        $courseclass->type = "video";
-                
-        if($file = $request->file('video_upld'))
-        {
-            $file_name = basename(Storage::putFile(config('path.course.video'). $request->course_id, $file , 'private'));
-            $courseclass->video = $file_name;
+                $courseclass['position'] = (CourseClass::count()+1);
+                $courseclass->type = "video";
 
-            $response = Http::withHeaders([
-                'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
-                'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
-            ])->post('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/copy', [
-                'url' => Storage::temporaryUrl(config('path.course.video'). $courseclass->course_id.'/'.$file_name, now()->addMinutes(60)),
-                'meta' => [
-                    'name' => $file_name
-                ],
-                "requireSignedURLs" => true,
-                // "allowedorigins" => ["*.lila.com","localhost"],
-            ]);
-            
-            if($response->successful()){
-                $res = $response->json();
-                $courseclass->stream_url = $res['result']['uid'];
+                $courseclass->status = $request->status;        
+
+                $courseclass->featured = isset($request->featured) ? '1' : '0';
+                $courseclass->is_preview = isset($request->is_preview) ? '1' : '0';
+                $courseclass->save();
+
+                if($file = $request->file('preview_image'))
+                {
+                    $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+                    Storage::put(config('path.course.video_thumnail').$request->course_id .'/'. $file_name, fopen($file->getRealPath(), 'r+') );
+                    $courseclass->image = $file_name;
+                }
+
+                $courseclass->save();
+
+            }else{
+                $handler = $save->handler();
+                return response()->json([
+                    "done" => $handler->getPercentageDone(),
+                    'status' => true
+                ]);
             }
 
-        }
+        }else
+            return back()->with('error','Video must be uploaded');
   
-        if($file = $request->file('preview_image'))
-        {
+        
 
-            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
-            Storage::put(config('path.course.video_thumnail').$request->course_id .'/'. $file_name, fopen($file->getRealPath(), 'r+') );
-            $courseclass->image = $file_name;
-        }
+        // TODO: Notification when course class add
+        // $cor = Course::where('id', $request->course_id)->first();
 
-        // Notification when course class add
-        $cor = Course::where('id', $request->course_id)->first();
+        // $course = [
+        //   'title' => $cor->title,
+        //   'image' => $cor->preview_image,
+        // ];
 
-        $course = [
-          'title' => $cor->title,
-          'image' => $cor->preview_image,
-        ];
+        // $enroll = Order::where('course_id', $request->course_id)->get();
 
-        $enroll = Order::where('course_id', $request->course_id)->get();
-
-        if(!$enroll->isEmpty())
-        {
-            foreach($enroll as $enrol)
-            {
-              if($courseclass->save()) 
-              {
-                $user = User::where('id', $enrol->user_id)->get();
-                Notification::send($user,new CourseNotification($course));
-              }
-            }
-        }
-        else
-        {
-            $courseclass->save();
-        }
-          
-        // Subtitle 
-        // if($request->has('sub_t')){
-        // foreach($request->file('sub_t') as $key=> $image)
-        //   {
-          
-        //     $name = $image->getClientOriginalName();
-        //     $image->move(public_path().'/subtitles/', $name);  
-           
-        //     $form= new Subtitle();
-        //     $form->sub_lang = $request->sub_lang[$key];
-        //     $form->sub_t=$name;
-        //     $form->c_id = $courseclass->id;
-        //     $form->save(); 
-        //   }
+        // if(!$enroll->isEmpty())
+        // {
+        //     foreach($enroll as $enrol)
+        //     {
+        //       if($courseclass->save()) 
+        //       {
+        //         $user = User::where('id', $enrol->user_id)->get();
+        //         Notification::send($user,new CourseNotification($course));
+        //       }
+        //     }
+        // }
+        // else
+        // {
+        //     $courseclass->save();
         // }
 
-        return back()->with('success','Class Video is Added');
     }
 
     /**
@@ -257,7 +226,7 @@ class CourseclassController extends Controller
      * @param  \App\courseclass  $courseclass
      * @return \Illuminate\Http\Response
      */
-    public function show( $id)
+    public function show($id)
     {
     
         $languages = CourseLanguage::all();
@@ -273,19 +242,8 @@ class CourseclassController extends Controller
         $live_date = str_replace(" ", "T", $pd);
 
         return view('admin.course.courseclass.edit',compact('cate','coursechapt', 'languages','subtitles', 'live_date')); 
-
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\courseclass  $courseclass
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(courseclass $courseclass)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -296,71 +254,28 @@ class CourseclassController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $request->validate([
-            'video' => 'mimes:mp4,avi,wmv'
-        ]);
-
-        // ini_set('max_execution_time', 400);
-
         $courseclass = CourseClass::findOrFail($id);
 
-        $courseclass->coursechapter_id=$request->coursechapter_id;
-        $courseclass->title = $request->title;
-        $courseclass->duration = $request->duration;
-        $courseclass->status = $request->status;
-        $courseclass->featured = $request->featured;
-        $courseclass->date_time = $request->date_time;
-        $courseclass->detail = $request->detail;
-         
-        $coursefind  = CourseChapter::findOrFail($request->coursechapter);
-        $maincourse = Course::findorfail($coursefind->course_id);
-
-        $courseclass->type = "video";
-
-        if($file = $request->file('video_upld'))
-        {
-
-            if ($courseclass->stream_url != "") {
-                // $exists = Storage::exists(config('path.course.video'). $courseclass->course_id .'/'. $courseclass->video);
-                // if ($exists) {
-                Storage::delete(config('path.course.video'). $courseclass->course_id .'/'. $courseclass->video);
-
-                $response = Http::withHeaders([
-                    'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
-                    'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
-                ])->delete('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/'.$courseclass->stream_url);
-                // }
-            }
-
-            // $file_name = md5(microtime().rand()). time().'.'.$file->getClientOriginalExtension();
-            $file_name = basename(Storage::putFile(config('path.course.video'). $courseclass->course_id, $file , 'private'));
-            $courseclass->video = $file_name;
-
-            $response = Http::withHeaders([
-                'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
-                'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
-            ])->post('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/copy', [
-                'url' => Storage::temporaryUrl(config('path.course.video'). $courseclass->course_id.'/'.$file_name, now()->addMinutes(10)),
-                'meta' => [
-                    'name' => $file_name
-                ],
-                "requireSignedURLs" => true,
-                // "allowedorigins" => ["*.lila.com","localhost","*.thestudiohash.com", "*"],
-            ]);
+        $receiver = new FileReceiver("file", $request, HandlerFactory::classFromRequest($request));
+        if ($receiver->isUploaded() !== false ) {
+            $save = $receiver->receive();
+        
+            if ($save->isFinished()) {
             
-            if($response->successful()){
-                $res = $response->json();
-                $courseclass->stream_url = $res['result']['uid'];
+                $video_local_path = Storage::disk('local')->putFile('upload/course', $save->getFile());
+                unset($request['file']);
+                UploadFileToCloudEvent::dispatch($video_local_path, $courseclass);
+            }else{
+                $handler = $save->handler();
+                return response()->json([
+                    "done" => $handler->getPercentageDone(),
+                    'status' => true
+                ]);
             }
-            
-            $courseclass->date_time = null;
-            $courseclass->aws_upload = null;
-
         }
 
         if($file = $request->file('preview_image'))
         {
-
             if ($courseclass->image != null) {
                 $exists = Storage::exists(config('path.course.video_thumnail').$courseclass->course_id .'/'.$courseclass->image);
                 if ($exists)
@@ -372,29 +287,27 @@ class CourseclassController extends Controller
             $courseclass->image = $file_name;
         }
 
-        if(isset($request->status))
-        {
-            $courseclass['status'] = '1';
-        }
-        else
-        {
-            $courseclass['status'] = '0';
-        }
+        $courseclass->coursechapter_id=$request->coursechapter_id;
+        $courseclass->title = $request->title;
+        $courseclass->duration = $request->duration;
+        $courseclass->status = $request->status;
+        $courseclass->featured = $request->featured;
+        $courseclass->date_time = $request->date_time;
+        $courseclass->detail = $request->detail;         
 
-        if(isset($request->featured))
-        {
-            $courseclass['featured'] = '1';
-        }
-        else
-        {
-            $courseclass['featured'] = '0';
-        }   
-        $courseclass['is_preview'] = $request->is_preview =='on'?'1':'0';
+        $courseclass->type = "video";
 
-   
+        $courseclass['status'] = isset($request->status) ? '1' : '0';
+
+        $courseclass['featured'] = isset($request->featured) ? '1' : '0';
+        $courseclass['is_preview'] = $request->is_preview =='on' ? '1' : '0';
+
         $courseclass->save();
-        Session::flash('success','Updated Successfully !');
-        return redirect()->route('course.show',$maincourse->id); 
+
+        if ($receiver->isUploaded() === false) {
+            Session::flash('success','Updated Successfully !');
+            return redirect()->route('course.show', $courseclass->course_id); 
+        }
     }
 
     /**
