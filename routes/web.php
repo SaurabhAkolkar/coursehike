@@ -80,7 +80,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
     });
   
 
-    Route::middleware(['web', 'is_active', 'auth', 'is_admin', 'switch_languages'])->group(function () {
+    Route::middleware(['web', 'auth', 'is_admin', 'switch_languages'])->group(function () {
 
       // Player Settings
       Route::get('/admin/playersetting','PlayerSettingController@get')->name('player.set');
@@ -283,7 +283,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
     });
 
-    Route::middleware(['web', 'is_active', 'auth', 'admin_instructor', 'switch_languages'])->group(function () {      
+    Route::middleware(['web', 'auth', 'admin_instructor', 'switch_languages'])->group(function () {      
 
       // if(\DB::connection()->getDatabaseName()){
       //     if(env('IS_INSTALLED') == 1){
