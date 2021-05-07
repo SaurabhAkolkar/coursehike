@@ -42,7 +42,7 @@ class UploadFileListener implements ShouldQueue
             ])->delete('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/'.$courseclass->stream_url);            
         }
 
-        $file_name = basename(Storage::putFileAs(config('path.course.video').$courseclass->course_id, Storage::disk('local')->get($event->video_local_path) , 'private'));
+        $file_name = basename(Storage::putFile( config('path.course.video').$courseclass->course_id, Storage::disk('local')->path($event->video_local_path)));
         $courseclass->video = $file_name;
 
         $response = Http::withHeaders([

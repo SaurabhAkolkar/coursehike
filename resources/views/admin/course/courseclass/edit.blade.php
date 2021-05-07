@@ -415,6 +415,7 @@
             var resumable = new Resumable({
                 chunkSize: 1 * 1024 * 1024, // 1MB
                 simultaneousUploads: 1,
+				maxFiles: 1,
                 testChunks: false,
                 throttleProgressCallbacks: 1,
 				fileType: ['mov', 'mp4', 'mkv'],
@@ -434,6 +435,7 @@
 					$($source).removeClass('d-none');
                 });
                 resumable.on('fileSuccess', function (file, message) {
+					resumable.removeFile(file);
                     $('.progress').addClass('d-none');
 					$("#edit-form").append('<div class="alert alert-success">Updated Successfully!</div>');
                 });

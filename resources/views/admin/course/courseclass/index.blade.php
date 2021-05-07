@@ -355,6 +355,7 @@
 		var resumable = new Resumable({
 			chunkSize: 1 * 1024 * 1024, // 1MB
 			simultaneousUploads: 1,
+      maxFiles: 1,
 			testChunks: false,
 			throttleProgressCallbacks: 1,
 			fileType: ['mov', 'mp4', 'mkv'],
@@ -366,25 +367,27 @@
 			resumable.assignDrop($fileUpload[0]);
 			resumable.assignBrowse($fileUploadDrop[0]);
 
-			resumable.on('fileAdded', function (file) {
-				
+			resumable.on('fileAdded', function (file) {				
 				var $source = $('.preview-video');
 				$source.find("source").attr("src", URL.createObjectURL(file.file));
 				$source.load();
 				$($source).removeClass('d-none');
 			});
+
 			resumable.on('fileSuccess', function (file, message) {
+        resumable.removeFile(file);
 				$('.progress').addClass('d-none');
 				$("#create-form").append('<div class="alert alert-success">Updated Successfully!</div>');
 				setTimeout(function () {
 					location.reload(true);
 				}, 2000);
 
-
 			});
+      
 			resumable.on('fileError', function (file, message) {
 				$('.resumable-file-' + file.uniqueIdentifier + ' .resumable-file-progress').html('(file could not be uploaded: ' + message + ')');
 			});
+      
 			resumable.on('fileProgress', function (file) {
 				$('.progress-bar').css({width: Math.floor(resumable.progress() * 100) + '%'});
 				$('.progress-bar').html(Math.floor(file.progress() * 100) + '%');

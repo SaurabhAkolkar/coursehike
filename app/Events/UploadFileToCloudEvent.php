@@ -11,16 +11,16 @@ class UploadFileToCloudEvent implements ShouldQueue
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
     public $video_local_path;
-    public $request;
+    public $courseclass;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($video_local_path, $request)
+    public function __construct($video_local_path, $courseclass)
     {
         $this->video_local_path = $video_local_path;
-        $this->request = $request;
+        $this->courseclass = $courseclass;
     }
 
 }

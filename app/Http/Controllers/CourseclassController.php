@@ -146,10 +146,6 @@ class CourseclassController extends Controller
         
             if ($save->isFinished()) {
 
-                $video_local_path = Storage::disk('local')->putFile('upload/course', $save->getFile());
-                unset($request['file']);
-                UploadFileToCloudEvent::dispatch($video_local_path, $courseclass);
-
                 $courseclass = new CourseClass;
                 $courseclass->course_id = $request->course_id;
                 $courseclass->coursechapter_id =  $request->course_chapters;
@@ -169,6 +165,11 @@ class CourseclassController extends Controller
                 $courseclass->featured = isset($request->featured) ? '1' : '0';
                 $courseclass->is_preview = isset($request->is_preview) ? '1' : '0';
                 $courseclass->save();
+
+
+                $video_local_path = Storage::disk('local')->putFile('upload/course', $save->getFile());
+                unset($request['file']);
+                UploadFileToCloudEvent::dispatch($video_local_path, $courseclass);
 
                 if($file = $request->file('preview_image'))
                 {
