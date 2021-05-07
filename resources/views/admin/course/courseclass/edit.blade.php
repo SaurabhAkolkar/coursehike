@@ -300,14 +300,14 @@
             </div>
           </div>
 
-          {{-- <div class="box box-primary">
+          <div class="box box-primary">
             <div class="box-header d-flex align-items-center">
               <h3 class="box-title"> {{ __('adminstaticword.AdditionalVideos') }}</h3>
-              <a data-toggle="modal" data-target="#myModalSubtitle" href="#" class="btn btn-info btn-sm ml-auto">+  {{ __('adminstaticword.Add') }} {{ __('adminstaticword.AdditionalVideos') }}</a>
+              <a data-toggle="modal" data-target="#myModalAdditionVideo" href="#" class="btn btn-info btn-sm ml-auto">+  {{ __('adminstaticword.Add') }} {{ __('adminstaticword.AdditionalVideos') }}</a>
             </div>
             <div class="box-body p-0">
               <!--Model start-->
-              <div class="modal fade" id="myModalSubtitle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal fade" id="myModalAdditionVideo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog modal-lg" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -321,14 +321,15 @@
                             {{ csrf_field() }}
         
                             <div id="additional_video">
-        
+                              <input type="hidden" name="course_class_id" value="{{$cate->id}}">
+                              <input type="hidden" name="course_id" value="{{$cate->course_id}}">
                               <label>{{ __('adminstaticword.AdditionalVideos') }}:</label>
                               <table class="table table-bordered" id="dynamic_field">  
                                 <tr> 
                                     <td>
                                         <div class="{{ $errors->has('video') ? ' has-error' : '' }} input-file-block">
                                         <input type="file" name="video"/>
-                                        <p class="info">Choose subtitle file only in vtt format</p>
+                                        <p class="info"></p>
                                         <small class="text-danger">{{ $errors->first('video') }}</small>
                                       </div>
                                     </td>
@@ -361,23 +362,27 @@
                   <br>
                   <tr>
                     <th>#</th>
-                    <th>{{ __('adminstaticword.SubtitleLanguage') }} </th>
+                    <th>{{ __('adminstaticword.AdditionalVideos') }} </th>
+                    <th>{{ __('adminstaticword.Language') }} </th>
                     <th>{{ __('adminstaticword.Delete') }}</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php $i=0;?>
                   {{-- {{ dd($subtitles)}} --}}
-                  @foreach($subtitles as $subtitle)
+                  @foreach($additional_videos as $video)
                     <?php $i++;?>
                     <tr>
                       <td><?php echo $i;?></td>
-                      <td>{{$subtitle->sub_lang}}</td>
+                      <td>  <video src="{{$video->video_path}}" controls>
+                      </video></td>
+                      <td>{{$video->vid_lang}}</td>
                       <td>
-                        <form  method="post" action="{{ route('del.subtitle',$subtitle->id) }}"
+                        <form method="post" action="{{ route('del.additionalVideo',$video->id) }}"
                               data-parsley-validate class="form-horizontal form-label-left">
                           {{ csrf_field() }}
-      
+                          <input type="hidden" name="course_id" value="{{$cate->course_id}}"/>
+                          <input type="hidden" name="course_class_id" value="{{$cate->id}}"/>
                           <button type="submit" class="btn btn-danger d-inline">
                             <i class="la-icon la-icon--lg icon-delete"></i>
                           </button>
@@ -388,7 +393,7 @@
                 </tbody> 
               </table>
             </div>
-          </div> --}}
+          </div> 
 
         </div>
         <!-- SUBTITLE SECTION: END -->

@@ -19,7 +19,7 @@ use Session;
 use Storage;
 use Auth;
 use DB;
-
+use App\AdditionalVideo;
 use \Firebase\JWT\JWT;
 
 
@@ -264,6 +264,7 @@ class CourseclassController extends Controller
         $cate = CourseClass::find($id);
         $coursechapt = CourseChapter::where('course_id', $cate->course_id)->get();
         $subtitles = Subtitle::where('c_id', $id)->get();
+        $additional_videos = AdditionalVideo::where('course_class_id',$id)->get();
         // $audio_tracks = AudioTrack::where('c_id', $id)->get();
 
         $datetimevalue= strtotime($cate->date_time);
@@ -272,7 +273,7 @@ class CourseclassController extends Controller
         $pd = $cate['date_time'];
         $live_date = str_replace(" ", "T", $pd);
 
-        return view('admin.course.courseclass.edit',compact('cate','coursechapt', 'languages','subtitles', 'live_date')); 
+        return view('admin.course.courseclass.edit',compact('cate','coursechapt', 'languages','subtitles', 'additional_videos','live_date')); 
 
     }
 

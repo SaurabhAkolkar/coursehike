@@ -42,7 +42,9 @@ use Carbon\Carbon;
 
               <div class='clearfix'></div>
             </div>
-
+            <div class="row text-right">
+            <a href="/users-excel" role="button"><span class="la-icon la-icon--3xl icon-excel mr-2 " style="color:#1D6F42"></span></a>
+            </div>
               
             <table id="example1" class=" table table-bordered table-striped js-dynamitable">
 

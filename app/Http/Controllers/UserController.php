@@ -41,6 +41,9 @@ use Illuminate\Support\Facades\Mail;
 use DB;
 use App\Setting;
 use App\InvoiceDetail;
+use App\Exports\UsersExport;
+use Excel;
+
 
 class UserController extends Controller
 {
@@ -292,6 +295,33 @@ class UserController extends Controller
         return view('admin.user.addsubscription', compact('user', 'trial_end_date', 'start_date', 'end_date', 'plan_slug', 'stripe_subscription_id', 'stripe_payment_id'));
     }
 
+    public function UserExcel(){
+
+        $user = User::all();
+        $data = [];
+        $i = 0;
+
+        foreach($user as $d){
+                $data[$i]['Sr#'] = $i+1 ;
+                $data[$i]['User Name'] = $d->fullName; 
+                $data[$i]['Email'] = $d->email;
+                $data[$i]['Role'] = ucfirst($d->role); 
+                $data[$i]['Mobile Number'] = $d->mobile; 
+                $data[$i]['Date of Birth'] = Carbon::parse($d->dob)->format('d/m/Y');
+                $data[$i]['Gender'] = $d->gender=='mail'?'Male':'Female';
+                $data[$i]['Registred_at'] = Carbon::parse($d->created_at)->format('d/m/Y');
+                $data[$i]['City'] = $d->city;
+                $data[$i]['State'] = $d->state;
+                $data[$i]['Country'] = $d->country;
+                $i++;
+        }
+      
+        $export = new UsersExport($data);
+        ob_end_clean(); // this
+        ob_start(); // and this
+        return Excel::download($export, 'invoice.xlsx');
+
+    }
     public function storeSubscription(Request $request){
         
         $request->validate([
