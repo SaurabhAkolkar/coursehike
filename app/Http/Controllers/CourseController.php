@@ -6,7 +6,7 @@ use App\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-
+use App\AdditionalVideo;
 use DB;
 use Image;
 use App\CourseInclude;

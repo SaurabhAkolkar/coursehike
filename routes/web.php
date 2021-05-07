@@ -133,6 +133,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::post('/quickupdate/order/{id}','QuickUpdateController@orderQuick')->name('order.quick');
       Route::get('/user/subscriptions/add-class/{id}','UserController@addClass');
       Route::get('/user/subscriptions/add-course/{id}','UserController@addCourse');
+      Route::get('/users-excel','UserController@UserExcel');
       Route::get('/get-classes','UserController@getClasses');
       Route::post('/add-user-class','UserController@addUserCourse')->name('addusercourse');
       Route::post('/add-bundle-course','UserController@addBundleCourse')->name('addbundlecourse');
@@ -228,6 +229,10 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::post('admin/class/{id}/addsubtitle','SubtitleController@post')->name('add.subtitle');
       Route::post('admin/class/{id}/delete/subtitle','SubtitleController@delete')->name('del.subtitle');
+
+      Route::post('admin/class/{id}/additionalVideo','AdditionalVideoController@post')->name('add.additional');
+      Route::post('admin/class/{id}/delete/additionalVideo','AdditionalVideoController@delete')->name('del.additionalVideo');
+
 
       Route::post('admin/class/{id}/audiotrack','AudioTrackController@post')->name('add.audiotrack');
       Route::delete('admin/class/{id}/audiotrack','AudioTrackController@delete')->name('del.audiotrack');
