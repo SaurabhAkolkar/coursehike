@@ -11,7 +11,7 @@
       <div class="col-12">
           <div class="la-admin__invoice d-flex justify-content-between">
               <div class="la-admin__invoice-logo position-relative">
-                  <img src="{{ asset('images/logo/'.$setting->logo) }}" alt="logo"  class="d-block"  style="width:80px;height:80px;"/>
+                  <img src="{{ asset('images/logo/'.$setting->logo) }}" alt="logo"  class="d-block mx-auto"  style="width:80px;height:80px;"/>
               </div>
 
               <div class="la-admin__invoice-address text-right">

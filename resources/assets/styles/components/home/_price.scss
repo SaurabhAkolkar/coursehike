@@ -41,6 +41,10 @@
                     }
                     &para {
                         font-weight: var(--font-light);
+                        
+                        @include respond-below(sm){
+                            font-size: var(--text-sm);
+                        }
                     }
                 }
             }

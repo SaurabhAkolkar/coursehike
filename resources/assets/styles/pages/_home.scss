@@ -1,8 +1,8 @@
 .la-hero__top{
     .la-hero{
         .la-hero__tag{
-            font-size:var(--text-2xl);
-            line-height: var(--text-2xl + 6px);
+            font-size:var(--text-xl);
+            line-height: calc(var(--text-2xl) + 6px);
             color:var(--white);
         }
         .la-hero__title{
@@ -25,10 +25,11 @@
             padding-right:var(--size-10); 
 
             @include respond-below(sm) {
-                font-size:var(--text-md);
+                font-size:var(--text-sm);
                 width: 90%;
                 margin: 0 auto;
                 padding-right:0;
+                line-height: 1.5;
             }
         }
         .la-hero__cta{
@@ -106,7 +107,7 @@
     }
 }
 .la-home__bestprice{
-    font-size:var(--text-md);
+    font-size:var(--text-sm);
     sup{
         color:var(--white);
         font-weight:var(--font-light);
@@ -147,8 +148,8 @@
 //- Browse Courses Carousel
 .la-home__course-mtitle{
     color:var(--app-indigo-1);
-    font-weight:var(--font-extrabold);
-    font-size:var(--text-4xl);
+    font-weight:var(--font-bold);
+    font-size:var(--text-3xl);
 
     @include respond-above(md){
         font-size:var(--text-5xl);
@@ -379,14 +380,14 @@
 }
 .la-home__customize-title{
     font-size: var(--text-5xl);
-    font-weight: var(--font-black);
+    font-weight: var(--font-bold);
     color:var(--white);
     z-index:1;
     
     &:before{
         content:"";
         position:absolute;
-        left:-19px;
+        left:-12px;
         top:-12px;
         width:var(--size-8);
         height:var(--size-8);
@@ -395,9 +396,10 @@
         z-index:-1;
 
         @include respond-below(md){
-            width:var(--size-6);
-            height:var(--size-6);
-            left:-10px;
+            width:var(--size-7);
+            height:var(--size-7);
+            left:-9px;
+            top:-7px;
         }
     }
 }
@@ -553,7 +555,7 @@
 }
 .la-home__customize-infotitle{
     color:var(--yellow);
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
     font-weight: var(--font-semibold);
 }
 .la-home__customize-infopara{

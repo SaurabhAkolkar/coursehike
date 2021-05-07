@@ -28,7 +28,7 @@ return [
     'AllInstructor' => 'All Mentors',
     'Order' => 'Revenue',
     'Pages' => 'Pages',
-    'Faq' => 'FAQ\'s',
+    'Faq' => 'FAQs',
     'FaqStudent' => 'FAQ Learners',
     'FaqInstructor' => 'FAQ Mentors',
     'Report' => 'Reports',

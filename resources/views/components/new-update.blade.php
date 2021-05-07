@@ -5,7 +5,7 @@
         </div>
 
         <div class="la-news__etitle">
-            <h6 class="la-news__title text-lg text-sm-2xl head-font m-0 la-anim__stagger-item--x"> {{ $title }} </h6>
+            <h6 class="la-news__title text-lg text-md-xl head-font m-0 la-anim__stagger-item--x"> {{ $title }} </h6>
             <span class="la-news__timestamp text-sm la-anim__stagger-item--x"> {{ $timestamp }} </span>
             <div class="la-news__content text-md text-sm-sm mb-3">
                 <span class="la-anim__stagger-item--x"> {{ $desc }}  </span>

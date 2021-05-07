@@ -824,8 +824,8 @@
 }
 
 :root {
-  --body-font: "Roboto", sans-serif !important;
-  --head-font: "Raleway", sans-serif !important;
+  --body-font: "Poppins", sans-serif !important;
+  --head-font: "Poppins", sans-serif !important;
   --text-base: 0.25rem;
   --text-xxs: calc(var(--text-base) * 2.5);
   --text-xs: calc(var(--text-base) * 3);

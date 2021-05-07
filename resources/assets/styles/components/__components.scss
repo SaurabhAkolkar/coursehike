@@ -41,11 +41,11 @@
 
     &title {
         font-size: 2.8vh;
-        font-weight: var(--font-black);
+        font-weight: var(--font-bold);
         font-family: var(--head-font);
 
         @include respond-above(lg){
-            font-size: 5.4vh;
+            font-size: 5.2vh;
         }
         @include respond-below(sm){
             font-size: 4.8vh;
@@ -150,7 +150,7 @@
                         text-transform: uppercase;
                         color: var(--gray2);
                         
-                        @include respond-above(md){
+                        @include respond-above(lg){
                             font-size:calc(var(--text-6xl) + var(--text-2xl));
                         }
                     }
@@ -175,7 +175,7 @@
 
             &subtitle {
                 // Bold 32px/37px Raleway;
-                font-weight: var(--font-bold);
+                font-weight: var(--font-semibold);
                 font-size: var(--text-4xl);
                 font-family: var(--head-font);
                 margin-bottom: var(--size-5);
@@ -420,13 +420,6 @@
     // Hero: Start
     &hero {
         &__ {
-            &tag {
-                font-size: var(--text-2xl);
-                font-weight: var(--font-light);
-                font-family: var(--head-font);
-                color: #222;
-            }
-
             &title {
                 font-size: calc(var(--text-2xl) * 3);
                 font-weight: var(--font-black);

@@ -61,8 +61,8 @@
             &review{
                 font-size:var(--text-md);
                 color:var(--app-indigo-1);
-                font-weight:var(--font-bold);   
-                letter-spacing: 3.2px;
+                font-weight:var(--font-semibold);   
+                letter-spacing: 2.8px;
                 cursor: pointer;
                
                 &:hover{
@@ -113,9 +113,9 @@
                     &btn{
                         text-transform: uppercase;
                         color: var(--app-indigo-1);
-                        letter-spacing: 2.8px;
+                        letter-spacing: 2.5px;
                         font-size: var(--text-md);
-                        font-weight: var(--font-bold);
+                        font-weight: var(--font-semibold);
                         &:hover{
                             color: var(--dark);
                         }

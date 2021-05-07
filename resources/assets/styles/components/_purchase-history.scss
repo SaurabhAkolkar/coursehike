@@ -36,13 +36,16 @@
                 color:var(--gray6);
                 font-weight:var(--font-normal);
             }
-            &item-date, &item-paymode, &item-total, &item-paystatus{
+            &item-date, &item-paymode, &item-total{
                 color:var(--gray6);
                 font-weight:var(--font-normal);
             }
+            &item-paystatus{
+                color:#1EC812;
+            }
             &item-invoice{
                 color:var(--gray6);
-                font-weight:var(--font-bold);
+                font-weight:var(--font-medium);
 
                 &:hover{
                     color:var(--app-indigo-1);
@@ -65,9 +68,6 @@
                     img{
                         width:100px;
                     }
-                }
-                &item-paystatus{
-                    color:#1EC812;
                 }
                 &item-invoice{
                     color:var(--app-indigo-1);

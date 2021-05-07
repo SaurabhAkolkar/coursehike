@@ -11,7 +11,7 @@ use Carbon\Carbon;
     <div class="col-12">
       <div class="box box-primary">
         <div class="d-flex justify-content-between align-items-center ml-2">
-          <h3 class="la-admin__section-title mb-0">{{ __('adminstaticword.Subscribed') }}</h3>
+          <h3 class="la-admin__section-title mb-0"> {{ __('adminstaticword.Subscribed') }} </h3>
         </div>
        
         <!-- /.box-header -->
