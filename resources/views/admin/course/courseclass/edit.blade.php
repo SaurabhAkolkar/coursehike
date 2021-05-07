@@ -413,7 +413,7 @@
         if ($fileUpload.length > 0 && $fileUploadDrop.length > 0) {
 
             var resumable = new Resumable({
-                chunkSize: 1 * 1024 * 1024, // 1MB
+                chunkSize: 7 * 1024 * 1024, // 1MB
                 simultaneousUploads: 1,
 				maxFiles: 1,
                 testChunks: false,

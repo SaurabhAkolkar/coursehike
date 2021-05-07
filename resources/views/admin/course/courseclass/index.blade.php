@@ -353,7 +353,7 @@
 	if ($fileUpload.length > 0 && $fileUploadDrop.length > 0) {
 
 		var resumable = new Resumable({
-			chunkSize: 1 * 1024 * 1024, // 1MB
+			chunkSize: 7 * 1024 * 1024, // 1MB
 			simultaneousUploads: 1,
       maxFiles: 1,
 			testChunks: false,
@@ -383,11 +383,11 @@
 				}, 2000);
 
 			});
-      
+
 			resumable.on('fileError', function (file, message) {
 				$('.resumable-file-' + file.uniqueIdentifier + ' .resumable-file-progress').html('(file could not be uploaded: ' + message + ')');
 			});
-      
+
 			resumable.on('fileProgress', function (file) {
 				$('.progress-bar').css({width: Math.floor(resumable.progress() * 100) + '%'});
 				$('.progress-bar').html(Math.floor(file.progress() * 100) + '%');
