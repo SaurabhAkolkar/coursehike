@@ -67,7 +67,7 @@ class Kernel extends HttpKernel
         'admin_instructor' => \App\Http\Middleware\AdminIntructor::class,
         'switch_languages' => \App\Http\Middleware\SwitchLanguage::class,
         'IsInstalled' => \App\Http\Middleware\IsInstalled::class,
-        'is_active' => \App\Http\Middleware\IsActive::class,
+        //'is_active' => \App\Http\Middleware\IsActive::class,
         'optimizeImages' => \Spatie\LaravelImageOptimizer\Middlewares\OptimizeImages::class,
         'is_verified' => \App\Http\Middleware\IsVerified::class,
         'ip_block' => \App\Http\Middleware\IpBlock::class,

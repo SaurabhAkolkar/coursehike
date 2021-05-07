@@ -310,9 +310,10 @@ class UserController extends Controller
                 $data[$i]['Date of Birth'] = Carbon::parse($d->dob)->format('d/m/Y');
                 $data[$i]['Gender'] = $d->gender=='mail'?'Male':'Female';
                 $data[$i]['Registred_at'] = Carbon::parse($d->created_at)->format('d/m/Y');
-                $data[$i]['City'] = $d->city;
-                $data[$i]['State'] = $d->state;
-                $data[$i]['Country'] = $d->country;
+                $data[$i]['City'] = $d->city?$d->city->name:'';
+                $data[$i]['State'] = $d->state?$d->state->name:'';
+                $data[$i]['Country'] = $d->country?$d->country->name:'';
+                $data[$i]['Pincode'] = $d->pincode;
                 $i++;
         }
       
