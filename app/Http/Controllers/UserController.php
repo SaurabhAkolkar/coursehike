@@ -57,7 +57,7 @@ class UserController extends Controller
 
     public function viewAllUser()
     {
-        $users = User::with('country')->get();
+        $users = User::with('country')->where('id', '!=', Auth::User()->id)->get()->sortByDesc('id');
         return view('admin.user.index', compact('users'));
     }
 
@@ -80,7 +80,7 @@ class UserController extends Controller
     }
 
     public function learners(){
-        $users = User::where('role','user')->get();
+        $users = User::where('role','user')->get()->sortByDesc('id');
         return view('admin.user.learners', compact('users'));
 
     }
@@ -92,7 +92,7 @@ class UserController extends Controller
                         ->pluck('user_id')
                         ->toArray();
         
-        $users = User::whereIN('id',$user_ids)->get();
+        $users = User::whereIN('id',$user_ids)->get()->sortByDesc('id');
         
         return view('admin.user.learners', compact('users'));
 
@@ -105,7 +105,7 @@ class UserController extends Controller
                         ->pluck('user_id')
                         ->toArray();
            
-        $users = User::whereIN('id',$user_ids)->get();
+        $users = User::whereIN('id',$user_ids)->get()->sortByDesc('id');
         return view('admin.user.ontrial', compact('users'));
 
     }

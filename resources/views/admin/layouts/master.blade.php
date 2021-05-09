@@ -179,6 +179,7 @@ $global_settings = App\Setting::first();
     <div class="content-wrapper">
       <!-- Main content -->
       @yield('body')
+
       <!-- Main content end-->
     </div>
     <!-- /.content-wrapper -->
@@ -199,6 +200,13 @@ $global_settings = App\Setting::first();
   <script src="{{ asset('/installer/js/jquery.validate.min.js') }} "></script>
   <script src="https://unpkg.com/@popperjs/core@2"></script>
   <!-- Bootstrap 3.3.7 -->
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+
   <script src="{{url('js/dashboard/bootstrap.min.js')}}"></script> <!-- DataTables -->
   <script src="{{url('js/dashboard/jquery.dataTables.min.js')}}"></script>
   <script src="{{url('js/dashboard/dataTables.bootstrap.min.js')}}"></script> <!-- SlimScroll -->
@@ -237,7 +245,7 @@ $global_settings = App\Setting::first();
   <!-- page script -->
   <script>
     $(function () {
-      $('#example1').DataTable({
+      var oTable = $('#example1').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
@@ -247,9 +255,54 @@ $global_settings = App\Setting::first();
         'searching'   : true,
         'ordering'    : true,
         'info'        : true,
-        'autoWidth'   : true
+        'autoWidth'   : true,
+        "order": [],
+        // "oLanguage": {
+      	// "sSearch": "Search Name & Email"
+    	// },
       })
-    }) 
+
+    $('.input-daterange input').daterangepicker({
+      opens: 'left',
+	  showDropdowns: true,
+	  minDate: "02/01/2021",
+	  applyButtonClasses: "btn-success",
+	  locale: {
+          cancelLabel: 'Clear'
+      }
+    }, function(start, end, label) {
+      console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+      minDateFilter = new Date(start.format('YYYY-MM-DD')).getTime();
+      maxDateFilter = new Date(end.format('YYYY-MM-DD')).getTime();
+      oTable.draw();
+    });
+  }) 
+
+  // Date range filter
+  minDateFilter = "";
+  maxDateFilter = "";
+
+  // Extend dataTables search
+  $.fn.dataTableExt.afnFiltering.push(
+    function(oSettings, aData, iDataIndex) {
+      if (typeof aData._date == 'undefined' || isNaN(aData._date)) {
+        aData._date = new Date(aData[7]).getTime();
+      }
+
+      if (minDateFilter && !isNaN(minDateFilter)) {
+        if (aData._date < minDateFilter) {
+          return false;
+        }
+      }
+      if (maxDateFilter && !isNaN(maxDateFilter)) {
+        if (aData._date > maxDateFilter) {
+          return false;
+        }
+      }
+      return true;
+    }
+  );
+
   </script>
 
   <script>

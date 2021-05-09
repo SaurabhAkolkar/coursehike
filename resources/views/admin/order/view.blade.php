@@ -143,10 +143,10 @@
                   <span class="col">Successful</span>
               </div>
 
-              <div class="la-admin__payment-method d-flex flex-row no-gutters">
+              {{-- <div class="la-admin__payment-method d-flex flex-row no-gutters">
                 <span class="col mr-auto">Payment Method</span>
                 <span class="col">PayTM</span>
-              </div>
+              </div> --}}
 
               <div class="la-admin__payment-id  d-flex flex-row no-gutters">
                 <span class="col mr-auto">Transaction Id</span>

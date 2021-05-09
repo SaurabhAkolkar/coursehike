@@ -489,10 +489,13 @@ table {
 
 
 /* == table head == */
-thead{
+.table-bordered > thead{
     background-color:var(--gray3);
     color:var(--white) !important; 
 }
+/* .table-bordered>thead{
+
+} */
 .table-bordered>thead>tr>th{
   font-weight:var(--font-light);
   color:var(--white);

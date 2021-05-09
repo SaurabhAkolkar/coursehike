@@ -21,7 +21,7 @@ use Carbon\Carbon;
               <a href="#" role="button"><span class="la-icon la-icon--3xl icon-sort mr-2" style="color:#000;"></span></a>
                <a href="#" role="button"><span class="la-icon la-icon--3xl icon-excel mr-2" style="color:#1D6F42"></span></a> 
             </div>-->
-            <div class='filters pt-6 mx-4'>
+            {{-- <div class='filters pt-6 mx-4'>
              
               <div class='filter-container row' >
                   <input autocomplete='off' class='filter col p-1 mb-3' name='image' placeholder='Name'  data-col="FirstName" />
@@ -33,15 +33,21 @@ use Carbon\Carbon;
 
               </div>
              
-              {{-- <div class='filter-container'>
-              </div>
               <div class='filter-container'>
               </div>
               <div class='filter-container'>
-              </div> --}}
+              </div>
+              <div class='filter-container'>
+              </div>
 
               <div class='clearfix'></div>
-            </div>
+            </div> --}}
+
+			<div class="col-md-4 pull-right">
+				<div class="input-group input-daterange">			  
+				<input type="text" id="min-date" class="form-control date-range-filter" data-date-format="yyyy-mm-dd" placeholder="Filter Date Range">			  
+				</div>
+			</div>
 
               
             <table id="example1" class=" table table-bordered table-striped js-dynamitable">
@@ -184,11 +190,11 @@ use Carbon\Carbon;
  
   $(document).ready(function() {
 
-    $('.filter').multifilter({
+    $('.filters').multifilter({
       'target' : $('#example1')
     })
 
-    $('#example1_filter').hide();
+    // $('#example1_filter').hide();
 
   });
     
