@@ -25,7 +25,7 @@
             <div class="icon">
               <span class="la-icon la-icon--5xl icon-courses"></span>
             </div>
-            <p class="m-0">{{ __('adminstaticword.Course') }}</p>
+            <p class="m-0">{{ __('adminstaticword.Classes') }}</p>
             <h3 class="m-0">
             	@php
             		$course = App\Course::where('user_id', Auth::User()->id)->get();
@@ -55,15 +55,7 @@
             </div>
             <p class="m-0"> Learners</p>
             <h3 class="m-0">
-            	@php
-            		$cat = App\Order::where('instructor_id', Auth::User()->id)->get();
-            		if(count($cat)>0){
-            			echo count($cat);
-            		}
-            		else{
-            			echo "0";
-            		}
-            	@endphp
+            	{{ count($payout['learners']) + ($total_earning['count'])}}
             </h3>
           </div>
           <a href="{{url('userenroll')}}" class="small-box-footer"> {{-- {{ __('adminstaticword.Moreinfo') }} --}}
@@ -82,7 +74,7 @@
             </div>
             <p class="m-0"> Revenue</p>
             <h3 class="m-0">
-              0
+              ${{ round($payout['total_income'] + $total_earning['total_income'], 2)}}
             </h3>
           </div>
           <a href="{{route('instructor.revenue')}}" class="small-box-footer"> 
@@ -146,10 +138,10 @@
       <div class="col-md-6 col-lg-5">
         <div class="la-dash__recent-section">
           <div class="la-dash__recent-head">
-            <h4 class="la-dash__recent-htitle">Recent Learners</h4>
+            <h4 class="la-dash__recent-htitle">Recent Purchased Learners</h4>
           </div>
               <ul class="la-dash__recent-list">
-                  @php
+                  @php            		
                     if($course){
                         $courses_id = $course->pluck('id');
                         $users = App\UserPurchasedCourse::with('user')->whereIn('course_id', $courses_id)->groupBy('user_id')->limit(5)->get();

@@ -241,7 +241,7 @@ $course_id = $course->id;
 
                 <div class="la-vcourse__lessons">
 
-                  @foreach ($class->courseclass as $class_video)
+                  @foreach ($class->courseclass->sortBy('position') as $class_video)
                     @php
                       // $lesson_access = $class_video->is_preview == '1' ? 'free' : ($video_access ? 'free' : 'locked');  
                       if($class_video->is_preview == '1')       

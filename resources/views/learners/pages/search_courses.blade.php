@@ -202,7 +202,7 @@
                     <div class="la-anim__wrap">
                       <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
                         @foreach($courses as $course)
-                                      <x-bundle-course 
+                                      <x-bundle-course
                                       :id="$course->id"
                                       :img="$course->preview_image"
                                       :course="$course->title"
@@ -218,6 +218,7 @@
                                       :bought="$course->isPurchased()"
                                       :checkWishList="$course->checkWishList"
                                       :checkCart="$course->checkCart"
+                                      :progress="$course->progress"
                                     />
                         @endforeach 
                       </div> 

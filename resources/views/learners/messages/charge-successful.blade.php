@@ -4,6 +4,15 @@
     <title> Payment Successful </title>
 @endsection
 
+@section('body_scripts')
+<script>
+  fbq('track', 'Purchase', {
+    value: {{ $invoice->total }},
+    currency: {{$invoice->currency}},
+  });
+</script>
+@endsection
+
 @section('content')
 <section class="la-cbg--main">
     <div class="la-section">
