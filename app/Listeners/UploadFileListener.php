@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Http;
 
 class UploadFileListener implements ShouldQueue
 {
+
+    public $timeout = 600;
+    public $tries = 5;
+    
     /**
      * Create the event listener.
      *

@@ -175,7 +175,7 @@
                 </div>
               </div>
 
-              <div class="progress d-none" style="height: 20px;">
+              <div class="progress d-none" style="height: 30px;">
                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
               </div>
 
@@ -413,12 +413,12 @@
         if ($fileUpload.length > 0 && $fileUploadDrop.length > 0) {
 
             var resumable = new Resumable({
-                chunkSize: 7 * 1024 * 1024, // 1MB
+                chunkSize: 15 * 1024 * 1024, // 1MB
                 simultaneousUploads: 1,
 				maxFiles: 1,
                 testChunks: false,
                 throttleProgressCallbacks: 1,
-				fileType: ['mov', 'mp4', 'mkv'],
+			    fileType: ['mov', 'mp4', 'mkv', 'm4v'],
                 target: "{{url('courseclass/'.$cate->id)}}",
             });
 
@@ -434,14 +434,18 @@
 					$source.load();
 					$($source).removeClass('d-none');
                 });
+
                 resumable.on('fileSuccess', function (file, message) {
 					resumable.removeFile(file);
+					$(window).off("beforeunload");
                     $('.progress').addClass('d-none');
 					$("#edit-form").append('<div class="alert alert-success">Updated Successfully!</div>');
                 });
+
                 resumable.on('fileError', function (file, message) {
                     $('.resumable-file-' + file.uniqueIdentifier + ' .resumable-file-progress').html('(file could not be uploaded: ' + message + ')');
                 });
+
                 resumable.on('fileProgress', function (file) {
                     $('.progress-bar').css({width: Math.floor(resumable.progress() * 100) + '%'});
                     $('.progress-bar').html(Math.floor(file.progress() * 100) + '%');
@@ -467,6 +471,10 @@
 					resumable.opts.query = serializeData;
 
 					resumable.upload();
+
+					$(window).on("beforeunload", function() {
+						return "Are you sure?";
+					});
 				});
 
             }
