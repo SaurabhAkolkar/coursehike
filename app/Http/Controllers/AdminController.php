@@ -31,16 +31,16 @@ class AdminController extends Controller
             $categories = Categories::where(['status'=>1])->count();
             $courses = Course::where(['status'=>1])->count();
             $mentor = User::where(['role'=>'mentors'])->count();
-            $recent_subscriptions = UserSubscriptionInvoice::with('user')->where(['status'=>'successful'])->groupBy('user_id')->limit(5)->get();
+            $recent_subscriptions = UserSubscriptionInvoice::with('user')->where(['status'=>'paid'])->groupBy('user_id')->limit(5)->get();
             $recent_courses = InvoiceDetail::with('invoice','course','course.user')
                                                     ->whereHas('invoice', function ($query) {
-                                                        $query->where(['status'=>'successful']);
+                                                        $query->where(['status'=>'paid']);
                                                     })
                                                     ->limit(5)
                                                     ->get();
                                                    
-            $course_amount = UserInvoiceDetail::where(['status'=>'successful'])->sum('total');
-            $subscription_amount = UserSubscriptionInvoice::where(['status'=>'successful'])->sum('invoice_paid');
+            $course_amount = UserInvoiceDetail::where(['status'=>'paid'])->sum('total');
+            $subscription_amount = UserSubscriptionInvoice::where(['status'=>'paid'])->sum('invoice_paid');
             $total = $course_amount + $subscription_amount;
 
             return view('admin.dashboard', compact('users','categories','courses','recent_courses','mentor','total','recent_subscriptions'));

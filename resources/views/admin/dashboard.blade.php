@@ -27,19 +27,7 @@
                   <span class="la-icon la-icon--5xl icon-users"></span>
                 </div>
                 <p class="m-0">{{ __('adminstaticword.Users') }}</p>
-                <h3 class="m-0">
-                    @php
-                      
-                      if($users>0){
-
-                        echo $users;
-                      }
-                      else{
-
-                        echo "0";
-                      }
-                    @endphp
-                </h3>
+                <h3 class="m-0">{{$users}}</h3>
             </div>
 
               <span class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> 
@@ -52,7 +40,7 @@
         <!-- ./col -->
         <div class="col-6  col-md-4">
           <!-- small box -->
-          <a href="href="{{url('category')}}"" >
+          <a href="{{url('category')}}" >
             <div class="small-box">
               <div class="inner">
               <div class="icon py-2">
@@ -61,19 +49,7 @@
               
               </div>
               <p>{{ __('adminstaticword.Categories') }}</p>
-                <h3  class="m-0">
-                  @php
-                  
-                    if($categories != null){
-
-                      echo $categories;
-                    }
-                    else{
-
-                      echo "0";
-                    }
-                  @endphp
-                </h3>
+                <h3  class="m-0">{{$categories}}</h3>
               </div>
               <span  class="small-box-footer"><!--{{ __('adminstaticword.Moreinfo') }}-->
                 <span class="la-icon la-icon--5xl icon-black-arrow"></span>
@@ -93,15 +69,8 @@
               <p>{{ __('adminstaticword.Courses') }}</p>
               <h3  class="m-0">
                 @php
-                  $course = App\Course::all();
-                  if(count($course)>0){
-
-                    echo count($course);
-                  }
-                  else{
-
-                    echo "0";
-                  }
+                  $course = App\Course::all()->count();
+                  echo $course;
                 @endphp
               </h3>       
             </div>  
@@ -124,17 +93,7 @@
                   <span class="la-icon la-icon--5xl icon-revenue"></span>
                 </div>
                 <p>{{ __('adminstaticword.Orders') }}</p>
-                <h3  class="m-0">
-                  @php
-                  
-                    if($total != null){
-                      echo ' $ '.$total;
-                    }
-                    else{
-                      echo '0';
-                    }
-                  @endphp
-                </h3>
+                <h3  class="m-0">$ {{$total}}</h3>
               </div>
               <span class="small-box-footer"><!--{{ __('adminstaticword.Moreinfo') }} --> 
                 <!--<i class="fa fa-arrow-circle-right"></i>-->
@@ -154,15 +113,8 @@
               <p>{{ __('adminstaticword.Faqs') }}</p>
               <h3  class="m-0">
               	@php
-              		$faq = App\FaqStudent::all();
-              		if(count($faq)>0){
-
-              			echo count($faq);
-              		}
-              		else{
-
-              			echo "0";
-              		}
+              		$faq = App\FaqStudent::all()->count();
+              		echo $faq;
               	@endphp
               </h3>        
             </div>
@@ -181,14 +133,7 @@
                <p>{{ __('adminstaticword.Pages') }}</p>
               <h3  class="m-0">@php
               		$review = App\Page::all();
-              		if(count($review)>0){
-
-              			echo count($review);
-              		}
-              		else{
-
-              			echo "0";
-              		}
+              		echo count($review);
               	@endphp
               </h3>       
             </div>
@@ -207,19 +152,7 @@
                   
                   </div>
                   <p>{{ __('adminstaticword.Instructors') }}</p>
-                  <h3  class="m-0">
-                    @php
-                    
-                      if($mentor != null ){
-
-                        echo $mentor;
-                      }
-                      else{
-
-                        echo "0";
-                      }
-                    @endphp
-                  </h3>
+                  <h3  class="m-0">{{$mentor}}</h3>
                 </div>
                 <span class="small-box-footer"><!-- {{ __('adminstaticword.Moreinfo') }} --> 
                   <!-- <i class="fa fa-arrow-circle-right"></i> -->

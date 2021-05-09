@@ -127,7 +127,7 @@
               </thead>
               <tbody>
               <?php $i=0;?>
-                @foreach($total_purchase as $invoice)
+                @foreach($total_purchase->reverse() as $invoice)
                     <tr>
                       <td>{{$invoice->invoice_id}}</td>
                       {{-- <td><?php echo ++$i;?></td> --}}
