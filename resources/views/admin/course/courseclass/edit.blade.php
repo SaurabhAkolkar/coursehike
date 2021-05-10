@@ -11,7 +11,7 @@
         
         <div class="box-body">
           <div class="form-group">
-            <form enctype="multipart/form-data" id="demo-form" method="post" action="{{url('courseclass/'.$cate->id)}}"data-parsley-validate class="form-horizontal form-label-left">
+            <form enctype="multipart/form-data" id="edit-form" method="post" action="{{url('courseclass/'.$cate->id)}}" data-parsley-validate class="form-horizontal form-label-left">
               {{ csrf_field() }}
               {{ method_field('PUT') }}
                         
@@ -54,20 +54,31 @@
                 </div>
               </div>
               <br>
-              
-                
-              <div class="row">
-                <div class="col-md-12">
-                  <div id="videoUpload" @if($cate->url !=NULL || $cate->iframe_url !=NULL || $cate->aws_upload !=NULL) class="display-none" @endif >
-                    <label for="">{{ __('adminstaticword.UploadVideo') }}: </label>
-                    <input type="file" name="video_upld" class="form-control">
-                    @if($cate->video !="")
-                      <video src="{{ $cate->video }}" controls>
-                      </video>
-                    @endif
-                  </div>
-                </div>
-              </div>
+
+			  <div class="row mt-3">
+				<div class="col-12">
+					  <div class="la-admin__preview">
+						<label for="" class="la-admin__preview-label p-0">Video Upload:<sup class="redstar">*</sup></label>
+						<div class="la-admin__preview-img la-admin__course-imgvid" id="resumable-drop" style="display: none">
+							 <div class="la-admin__preview-text">
+								  <p class="la-admin__preview-size">Video | 2G</p>
+								  <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase" id="resumable-browse" data-url="{{ url('upload') }}" >Choose a File</p>
+							</div>
+							<div class="text-center pr-20 mr-20">
+							  <span class="la-icon la-icon--8xl icon-preview-video" style="font-size:150px;">
+								<span class="path1"><span class="path2"></span></span>
+							  </span>
+							</div>
+							@if($cate->video !="")
+							<video class="preview-video w-100" controls>
+							  <source src="{{ $cate->video }}" >
+								Your browser does not support HTML5 video.
+							</video>							
+							@endif
+						</div>
+					  </div>
+				</div>
+			  </div>
               
               <div class="row">
                 <div  class="col-md-12 mt-4" id="duration">
@@ -159,39 +170,24 @@
                         </div>
                       </label>
                     </div>
-{{-- 
-                    <div class="la-admin__class-archive pr-5">
-                      <input type="radio" name="editClass-status" id="editClass-archive" value="archive" class="la-admin__cp-input" {{ $cate->status == '1' ? 'checked' : '' }} >
-                      <label for="editClass-archive" > 
-                        <div class="la-admin__cp-circle d-flex align-items-center">
-                          <span class="la-admin__cp-radio"></span>
-                          <span class="la-admin__cp-label">Archive</span> 
-                        </div>
-                      </label>
-                    </div> --}}
+
                   </div>
                 </div>
               </div>
-            <!-- ADD CLASS STATUS: END --> 
 
-            <!-- ADD CLASS MASTER TOGGLER: START -->
-            {{-- <div class="row">
-              <div class="col-12">
-                  <div class="la-admin__master-toggler">
-                    <label for="" class="la-admin__preview-label"> Master Class<sup class="redstar">*</sup></label>
-                    <div class="la-admin__master-class">
-                        <input type="checkbox" id="edit-switch" name="edit-switch" class="la-admin__toggle-switch" />
-                        <label for="edit-switch" class="la-admin__toggle-label"></label> 
-                    </div>
-                  </div>
+              <div class="progress d-none" style="height: 30px;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
               </div>
-            </div> --}}
-            <!-- ADD CLASS MASTER TOGGLER: END -->
 
               <div class="box-footer mt-12">
                 <button type="submit" class="btn btn-lg col-md-4 btn-primary">{{ __('adminstaticword.Save') }}</button>
               </div>
+			  
             </form>
+
+			
+            
+          
           </div>
       </div>
       </div>
@@ -300,7 +296,7 @@
             </div>
           </div>
 
-          <div class="box box-primary">
+          {{-- <div class="box box-primary">
             <div class="box-header d-flex align-items-center">
               <h3 class="box-title"> {{ __('adminstaticword.AdditionalVideos') }}</h3>
               <a data-toggle="modal" data-target="#myModalAdditionVideo" href="#" class="btn btn-info btn-sm ml-auto">+  {{ __('adminstaticword.Add') }} {{ __('adminstaticword.AdditionalVideos') }}</a>
@@ -369,7 +365,6 @@
                 </thead>
                 <tbody>
                   <?php $i=0;?>
-                  {{-- {{ dd($subtitles)}} --}}
                   @foreach($additional_videos as $video)
                     <?php $i++;?>
                     <tr>
@@ -393,7 +388,7 @@
                 </tbody> 
               </table>
             </div>
-          </div> 
+          </div>  --}}
 
         </div>
         <!-- SUBTITLE SECTION: END -->
@@ -501,6 +496,95 @@
 
 
 @section('script')
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/resumable.js/1.1.0/resumable.min.js"></script>
+
+<script>
+        var $ = window.$; // use the global jQuery instance
+
+        var $fileUpload = $('#resumable-browse');
+        var $fileUploadDrop = $('#resumable-drop');
+
+        if ($fileUpload.length > 0 && $fileUploadDrop.length > 0) {
+
+            var resumable = new Resumable({
+                chunkSize: 15 * 1024 * 1024, // 1MB
+                simultaneousUploads: 1,
+				maxFiles: 1,
+                testChunks: false,
+                throttleProgressCallbacks: 1,
+			    fileType: ['mov', 'mp4', 'mkv', 'm4v'],
+                target: "{{url('courseclass/'.$cate->id)}}",
+            });
+
+            if (resumable.support) {
+                $fileUploadDrop.show();
+                resumable.assignDrop($fileUpload[0]);
+                resumable.assignBrowse($fileUploadDrop[0]);
+
+                resumable.on('fileAdded', function (file) {
+                    
+					var $source = $('.preview-video');
+					$source.find("source").attr("src", URL.createObjectURL(file.file));
+					$source.load();
+					$($source).removeClass('d-none');
+                });
+
+                resumable.on('fileSuccess', function (file, message) {
+					resumable.removeFile(file);
+					$(window).off("beforeunload");
+                    $('.progress').addClass('d-none');
+					$("#edit-form").append('<div class="alert alert-success">Updated Successfully!</div>');
+                });
+
+                resumable.on('fileError', function (file, message) {
+                    $('.resumable-file-' + file.uniqueIdentifier + ' .resumable-file-progress').html('(file could not be uploaded: ' + message + ')');
+                });
+
+                resumable.on('fileProgress', function (file) {
+                    $('.progress-bar').css({width: Math.floor(resumable.progress() * 100) + '%'});
+                    $('.progress-bar').html(Math.floor(file.progress() * 100) + '%');
+                });
+
+				$(document).on('submit','#edit-form',function(e){
+
+					if(resumable.files.length > 0)
+						e.preventDefault();
+
+					$('.progress').removeClass('d-none');
+
+					var serializeArray = $('#edit-form').serializeArray();
+					var serializeData = {};
+
+					$.map(serializeArray, function(n, i){
+						serializeData[n['name']] = n['value'];
+					});
+
+					if($('input[name="preview_image"]')[0].files.length > 0)
+						serializeData['preview_image'] = $('input[name="preview_image"]')[0].files[0];
+
+					resumable.opts.query = serializeData;
+
+					resumable.upload();
+
+					$(window).on("beforeunload", function() {
+						return "Are you sure?";
+					});
+				});
+
+            }
+			
+
+        }
+
+		$(document).on("change", ".preview_video", function(evt) {
+			var $source = $(this).siblings('.preview-video');
+			$source.find("source").attr("src", URL.createObjectURL(this.files[0]));
+			$source.load();
+			$($source).removeClass('d-none');
+		});
+
+</script>
 
 <script>
 (function($) {
@@ -633,9 +717,6 @@
   })(jQuery);
    
   </script>
-
-  
-
   
  @endif
 @endsection

@@ -267,14 +267,13 @@ $global_settings = App\Setting::first();
 
     $('.input-daterange input').daterangepicker({
       opens: 'left',
-	  showDropdowns: true,
-	  minDate: "02/01/2021",
-	  applyButtonClasses: "btn-success",
-	  locale: {
+      showDropdowns: true,
+      minDate: "02/01/2021",
+      applyButtonClasses: "btn-success",
+      locale: {
           cancelLabel: 'Clear'
       }
     }, function(start, end, label) {
-      console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
       minDateFilter = new Date(start.format('YYYY-MM-DD')).getTime();
       maxDateFilter = new Date(end.format('YYYY-MM-DD')).getTime();
       oTable.draw();
@@ -289,7 +288,7 @@ $global_settings = App\Setting::first();
   $.fn.dataTableExt.afnFiltering.push(
     function(oSettings, aData, iDataIndex) {
       if (typeof aData._date == 'undefined' || isNaN(aData._date)) {
-        aData._date = new Date(aData[7]).getTime();
+        aData._date = new Date(aData[DateTableColumn]).getTime();
       }
 
       if (minDateFilter && !isNaN(minDateFilter)) {
