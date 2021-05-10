@@ -17,7 +17,7 @@
   </ul>
 </div>
 @endif
- 
+
 <section class="content">
   @include('admin.message')
   <div class="row">
@@ -60,7 +60,7 @@
                   <img src="" alt="">
                 </label>
               </div>
-            </div> 
+            </div>
 
             <div class="row">
               <div class="col-md-4 mt-3">
@@ -79,7 +79,7 @@
                 <input value="{{ $user->lname }}" required name="lname" type="text" class="form-control" placeholder="Enter last name"/>
               </div>
             </div>
-           
+
             <div class="row">
               <div class="col-md-4 mt-3">
                 <label for="mobile"> {{ __('adminstaticword.Mobile') }}:<sup class="redstar">*</sup></label>
@@ -90,7 +90,7 @@
                 <input value="{{ $user->email }}" required type="email" name="email" placeholder="Enter email" class="form-control">
               </div>
             </div>
-            
+
             <div class="row">
               <div class="col-md-8 mt-3">
                   <label for="address">{{ __('adminstaticword.Address') }}:<sup class="redstar">*</sup> </label>
@@ -109,7 +109,7 @@
                   <input type="date" id="date" name="dob" class="form-control" placeholder="" value="{{ $user->dob }}" max="{{Carbon\Carbon::now()->subYears(18)->format('Y-m-d')}}" >
                 </div>
               </div>
-           
+
               <div class="col-md-4 mt-3">
                <label for="gender">{{ __('adminstaticword.Gender') }}:</label>
                 <br>
@@ -118,7 +118,7 @@
                 <label class="mr-2 font-weight-normal"><input type="radio" name="gender" id="ch3" value="o" {{ $user->gender == 'o' ? 'checked' : '' }}>  {{ __('adminstaticword.Other') }} </label>
               </div>
             </div>
-            
+
             @if(Auth::User()->role=="admin")
             <div class="row mt-6">
               <div class="col-md-8">
@@ -128,7 +128,7 @@
                     <option {{ $user->role == 'admin' ? 'selected' : ''}} value="admin">{{ __('adminstaticword.Admin') }}</option>
                     <option {{ $user->role == 'mentors' ? 'selected' : ''}} value="mentors">{{ __('adminstaticword.Instructor') }}</option>
                   </select>
-                 
+
                   @if(Auth::User()->role=="mentors")
                   <select class="form-control js-example-basic-single" name="role">
                     <option {{ $user->role == 'user' ? 'selected' : ''}} value="user">{{ __('adminstaticword.User') }}</option>
@@ -148,10 +148,10 @@
               <div class="col-md-4 mt-3">
                 <label for="city_id">{{ __('adminstaticword.Country') }}:</label>
                 <select id="country_id" class="form-control js-example-basic-single" name="country_id">
-                  <option value="none" selected disabled hidden> 
+                  <option value="none" selected disabled hidden>
                       {{ __('adminstaticword.SelectanOption') }}
                     </option>
-                  
+
                   @foreach ($countries as $coun)
                     <option value="{{ $coun->id }}" {{ $user->country_id == $coun->id ? 'selected' : ''}}>{{ $coun->nicename }}
                     </option>
@@ -162,7 +162,7 @@
               <div class="col-md-4 mt-3">
                 <label for="city_id">{{ __('adminstaticword.State') }}:</label>
                 <select id="upload_id" class="form-control js-example-basic-single" name="state_id">
-                  <option value="none" selected disabled hidden> 
+                  <option value="none" selected disabled hidden>
                     {{ __('adminstaticword.SelectanOption') }}
                   </option>
                   @foreach ($states as $s)
@@ -177,7 +177,7 @@
               <div class="col-md-4 mt-3 mt-md-4">
                 <label for="city_id">{{ __('adminstaticword.City') }}:</label>
                 <select id="grand" class="form-control js-example-basic-single" name="city_id">
-                  <option value="none" selected disabled hidden> 
+                  <option value="none" selected disabled hidden>
                      {{ __('adminstaticword.SelectanOption') }}
                   </option>
                   @foreach ($cities as $c)
@@ -186,7 +186,7 @@
                   @endforeach
                 </select>
               </div>
-          
+
               <div class="col-md-4 mt-3  mt-md-4">
                 <label for="pin_code">{{ __('adminstaticword.Pincode') }}:</label>
                 <input value="{{ $user->pin_code }}" placeholder="Enter Pincode" type="text" name="pin_code" class="form-control">
@@ -198,15 +198,15 @@
               <div class="col-md-3">
                   <label  for="married_status">{{ __('adminstaticword.ChooseMarrigeStatus') }}: </label>
                   <select class="form-control js-example-basic-single" id="married_status" name="married_status">
-                    <option value="none" selected disabled hidden> 
+                    <option value="none" selected disabled hidden>
                        {{ __('adminstaticword.SelectanOption') }}
-                    </option> 
+                    </option>
                     <option id="Unmarried" {{ $user->married_status == 'Unmarried' ? 'selected' : ''}} value="Unmarried">{{ __('adminstaticword.Unmarried') }}</option>
                     <option id="Married" {{ $user->married_status == 'Married' ? 'selected' : ''}} value="Married">{{ __('adminstaticword.Married') }}</option>
                     <option id="Divorced" {{ $user->married_status == 'Divorced' ? 'selected' : ''}} value="Divorced">{{ __('adminstaticword.Divorced') }}</option>
                     <option id="Widowed" {{ $user->married_status == 'Widowed' ? 'selected' : ''}} value="Widowed">{{ __('adminstaticword.Widowed') }}</option>
                   </select>
-                  <br> 
+                  <br>
               </div>
 
 
@@ -214,10 +214,10 @@
                 <label for="dob">{{ __('adminstaticword.DateofAnniversary') }}: </label>
                 <input value="{{ $user->doa }}" name="doa" id="doa" type="text" class="form-control" placeholder="Enter Date of anniversary">
               </div>
-            </div> 
-            <br>  -->         
+            </div>
+            <br>  -->
 
-        
+
             <div class="row">
               <div class="col-md-8">
                 <label for="detail">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
@@ -259,7 +259,7 @@
                   <div class="col-6 col-md-2">
                     <div class="d-flex align-items-center">
                       <label for="exampleInputTit1e" class="mb-4 mr-2">{{ __('adminstaticword.Status') }}:</label>
-                      <li class="tg-list-item">              
+                      <li class="tg-list-item">
                         <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" {{ $user->status == '1' ? 'checked' : '' }} >
                         <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
                       </li>
@@ -268,7 +268,7 @@
                   </div>
                 @endif
             </div>
-              
+
 
             <div class="row mt-10">
               <div class="col-12">
@@ -290,7 +290,7 @@
               </div>
             </div>
 
-            <div class="row">            
+            <div class="row">
               <div class="col-md-4">
                 <label for="twitter_url">
                 {{ __('adminstaticword.TwitterUrl') }}:
@@ -307,7 +307,7 @@
             <br>
             <br>
 
-
+            @if($user->role=='mentors')
             <div class="row mt-10">
               <div class="col-12">
                 <h3 class="la-admin__section-title">{{ __('adminstaticword.CreatorDetails') }}</h3>
@@ -321,7 +321,7 @@
                   <div class="alert alert-danger">{{ $message }}</div>
                   @enderror
               </div>
-            
+
               <div class="col-md-4 mb-3">
                 <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item--x">
                   <label>Years Of Experience</label>
@@ -334,7 +334,7 @@
             </div>
             <br>
 
-            <div class="row"> 
+            <div class="row">
                 <div class="col-md-4 mb-3">
                   <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item--x">
                     <div id="added_to_awards">
@@ -366,8 +366,9 @@
                   </div>
                 </div>
             </div>
+            @endif
 
-           
+
             <div class="row">
               <div class="col-md-8 box-footer mt-6">
                 <button type="submit" class="btn btn-primary px-18">
@@ -404,10 +405,10 @@
       dateFormat: 'yy/mm/dd',
     });
   });
-  
+
 
   $('#married_status').change(function() {
-      
+
     if($(this).val() == 'Married')
     {
       $('#doaboxxx').show();
@@ -424,7 +425,7 @@
     var urlLike = '{{ url('country/dropdown') }}';
     $('#country_id').change(function() {
       var up = $('#upload_id').empty();
-      var cat_id = $(this).val();    
+      var cat_id = $(this).val();
       if(cat_id){
         $.ajax({
           headers: {
@@ -433,7 +434,7 @@
           type:"GET",
           url: urlLike,
           data: {catId: cat_id},
-          success:function(data){   
+          success:function(data){
             console.log(data);
             up.append('<option value="0">Please Choose</option>');
             $.each(data, function(id, title) {
@@ -452,7 +453,7 @@
     var urlLike = '{{ url('country/gcity') }}';
     $('#upload_id').change(function() {
       var up = $('#grand').empty();
-      var cat_id = $(this).val();    
+      var cat_id = $(this).val();
       if(cat_id){
         $.ajax({
           headers: {
@@ -461,7 +462,7 @@
           type:"GET",
           url: urlLike,
           data: {catId: cat_id},
-          success:function(data){   
+          success:function(data){
             console.log(data);
             up.append('<option value="0">Please Choose</option>');
             $.each(data, function(id, title) {
@@ -497,31 +498,31 @@
         if(award && !awardInput.includes(award)){
             let badge = `<span class="la-entry__badge badge badge-pill" id="award_${award}">${award} <span class="ml-2" role="button" onclick="removeAward('${award}')">x</span></span>`;
             if(awardInput){
-              awardInput = awardInput+', '+award; 
+              awardInput = awardInput+', '+award;
             }else{
               awardInput = award;
             }
-            
+
             $('#all_awards').val(awardInput);
             $('#added_to_awards').append(badge);
-            $('#awards').val(''); 
+            $('#awards').val('');
         }
     }
     let addToLinks = () =>{
        let portfolio = $('#portfolio_links').val();
         let portfolioInput = $('#all_portfolio').val();
-        
+
         if(portfolio && !portfolioInput.includes(portfolio)){
             let badge = `<span class="la-entry__badge badge badge-pill" id="portfolio_${portfolio}">${portfolio} <span class="ml-2" role="button" onclick="removePortfolio('${portfolio}')">x</span></span>`;
             if(portfolioInput){
-              portfolioInput = portfolioInput+','+portfolio; 
+              portfolioInput = portfolioInput+','+portfolio;
             }else{
               portfolioInput = portfolio;
             }
-            
+
             $('#all_portfolio').val(portfolioInput);
             $('#added_to_portfolio').append(badge);
-            $('#portfolio_links').val(''); 
+            $('#portfolio_links').val('');
         }
     }
 

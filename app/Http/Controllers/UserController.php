@@ -493,6 +493,7 @@ class UserController extends Controller
 
         $request->validate([
               'email' => 'required|email|unique:users,email,'.$user->id,
+
             //   'mobile' => 'required|integer|min:10',
           ]);
 
@@ -541,21 +542,34 @@ class UserController extends Controller
         }
 
         $user->update($input);
+        if($user->role=='mentors'){
 
-        $input['yoe'] = $request->yoe;
-        $input['expertise'] = $request->expert_in;
+            $request->validate([
+                'email' => 'required|email|unique:users,email,'.$user->id,
+                'dob' => 'required',
+                'detail'=>'required'
 
-        $portfolio = explode(',',$request->all_portfolio);
-        $portfolio = json_encode(array_values(array_filter($portfolio , function($a){ if(strlen(trim($a)) > 0){ return trim($a); } else { return null; } })));
-        $input['portfolio_links']= $portfolio;
-        $awards = explode(",",$request->all_awards);
-        $awards = json_encode(array_values(array_filter($awards , function($a){ if(strlen(trim($a)) > 0){ return trim($a); } else { return null; } })));
-        $input['awards']= $awards;
-        $input['user_id'] = $id;
-        Instructor::updateOrCreate(
-            ['user_id' => $request->$id],
-            $input
-        );
+            ]);
+
+            $input['yoe'] = $request->yoe;
+            $input['expertise'] = $request->expert_in;
+
+            $portfolio = explode(',',$request->all_portfolio);
+            $portfolio = json_encode(array_values(array_filter($portfolio , function($a){ if(strlen(trim($a)) > 0){ return trim($a); } else { return null; } })));
+            $input['portfolio_links']= $portfolio;
+            $awards = explode(",",$request->all_awards);
+            $awards = json_encode(array_values(array_filter($awards , function($a){ if(strlen(trim($a)) > 0){ return trim($a); } else { return null; } })));
+            $input['awards']= $awards;
+            $input['dob'] = $user->dob?$user->dob:Carbon::now()->subYear('18')->format('Y-m-d');
+            $input['user_id'] = $id;
+
+            Instructor::updateOrCreate(
+                ['user_id' => $request->id],
+                $input
+            );
+
+        }
+
 
         if($user->id == Auth::user()->id)
         {
