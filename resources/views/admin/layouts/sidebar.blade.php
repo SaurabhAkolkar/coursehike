@@ -37,9 +37,9 @@
             </a>
             <ul class="treeview-menu">
               <li class="{{ Nav::isRoute('user.index') }} {{ Nav::isRoute('create.subscription') }} {{ Nav::isRoute('store.user.course') }} {{ Nav::isRoute('user.add') }} {{ Nav::isRoute('user.edit') }}"><a href="{{route('user.index')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Users') }}</span></a></li>
-              <li class="{{ Nav::isRoute('user.learners') }} "><a href="{{route('user.learners')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Learners') }}</span></a></li>
-              <li class="{{ Nav::isRoute('user.subscribed') }} "><a href="{{route('user.subscribed')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Subscribed') }}</span></a></li>
-              <li class="{{ Nav::isRoute('user.ontrial') }} "><a href="{{route('user.ontrial')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.OnTrial') }}</span></a></li>
+              <li class="{{ Nav::isRoute('user.learners') }} "><a href="{{route('user.learners')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-learners  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Learners') }}</span></a></li>
+              <li class="{{ Nav::isRoute('user.subscribed') }} "><a href="{{route('user.subscribed')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-subscribed  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Subscribed') }}</span></a></li>
+              <li class="{{ Nav::isRoute('user.ontrial') }} "><a href="{{route('user.ontrial')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-on-trial  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.OnTrial') }}</span></a></li>
             </ul>
           </li>
 

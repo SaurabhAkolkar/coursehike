@@ -318,6 +318,7 @@
 
         &__ {
             &bestprice {
+                font-family: 'Roboto','Poppins', sans-serif;
                 font-size: var(--text-2xl);
                 color: #1EC812;
 
@@ -334,6 +335,7 @@
             }
 
             &realprice {
+                font-family: 'Roboto','Poppins', sans-serif;
                 font-weight: var(--font-thin);
                 font-size: var(--text-lg);
                 color: #6D6D6D;
