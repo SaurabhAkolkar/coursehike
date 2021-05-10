@@ -27,8 +27,10 @@
     @include respond-below(sm){
         font-size: var(--text-6xl);
     }
-
     @include respond-above(md){
+        font-size: calc(var(--text-6xl) * 2);
+    }
+    @include respond-above(lg){
         font-size:var(--text-abnormal);
     }
 }
@@ -36,14 +38,17 @@
     background-color:rgba(245,244,240, 0.7);
     box-shadow: 0px 0px 20px #C5C5C529;
     padding:var(--size-12) var(--size-4);
-    margin-top:-40px;
+    margin-top:-32px;
 
+    @include respond-above(md){
+        margin-top:-55px;
+    }
     @include respond-above(lg){
         padding:var(--size-20) var(--size-12);
         margin-top:-75px;
     }
     @include respond-below(sm){
-        margin-top:-28px;
+        margin-top:-26px;
     }
 }
 .la-lp__rgt-content{

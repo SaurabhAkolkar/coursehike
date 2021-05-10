@@ -10,22 +10,22 @@
 
           <div class="la-choose__card-inner">
             <div class="la-choose__box mb-8">
-              <div class="la-choose__ptitle text-lg text-sm-2xl">{{ $plan }}</div>
+              <div class="la-choose__ptitle text-lg text-md-2xl">{{ $plan }}</div>
               <div class="la-choose__price mt-2">
                   {{-- <sup class="la-choose__tag text-lg">$</sup> --}}
-                  <span class="la-choose__discount text-2xl text-sm-5xl mr-1"> {{ $discount }}</span>
+                  <span class="la-choose__discount text-3xl text-md-5xl mr-1"> {{ $discount }}</span>
                   {{-- <span class="la-choose__oldprice text-sm p-1">{{ $oldPrice }}</span> --}}
               </div>
               <div class="la-choose__billing text-sm mt-1">Billed {{ $plan }}</div>
               @if($saving && $saving != 0)
                 <div class="la-choose__savings-bg">
-                  <div class="la-choose__savings-{{ $class }} text-sm mt-1">You save {{ $saving }}%</div>
+                  <div class="la-choose__savings-{{ $class }} text-xs mt-1">You save {{ $saving }}%</div>
                 </div>
                 
                 @else
                 
                 <div class="la-choose__savings-bg" style="visibility:hidden;">
-                  <div class="la-choose__savings-{{ $class }}  text-sm mt-1">You save {{ $saving }}%</div>
+                  <div class="la-choose__savings-{{ $class }}  text-xs mt-1">You save {{ $saving }}%</div>
                 </div>
               @endif
               

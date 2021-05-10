@@ -36,11 +36,11 @@
         <div class="row ">
           <a class="la-icon--5xl icon-back-arrow d-block d-lg-none my-3 my-md-6 px-3" href="{{URL::previous()}}"></a>
           <!-- Column: Start-->
-          <div class="col-12 col-lg-6">
+          <div class="col-12 col-lg-7 col-xl-6">
             <div class=" la-anim__stagger-item">
-              <h6 class="la-lp__tag text-3xl">The right plans</h6>
+              <h6 class="la-lp__tag text-2xl text-md-3xl">The right plans</h6>
               <h2 class="la-lp__title text-4xl text-md-6xl la-anim__stagger-item">for all your interests</h2>
-              <p class="la-lp__title-para text-lg text-sm-xl py-3 la-anim__stagger-item">Whether you want to dabble with new art forms or hone your skills, we have got you covered!</p>
+              <p class="la-lp__title-para text-lg text-md-xl py-3 la-anim__stagger-item">Whether you want to dabble with new art forms or hone your skills, we have got you covered!</p>
             </div>
           </div>
           <!-- Column: End-->
@@ -96,7 +96,7 @@
         <div class="row">
           <div class="col">
             <div class="la-lp__benefits la-anim__wrap">
-              <h3 class="la-lp__benefits-title mb-5 mb-md-8 head-font text-center text-md-left text-md-4xl la-anim__fade-in-bottom">All plans include</h3>
+              <h3 class="la-lp__benefits-title mb-5 mb-md-8 head-font text-center text-md-left text-3xl text-md-4xl la-anim__fade-in-bottom">All plans include</h3>
              
               <div class="la-cbenefits d-flex my-1 my-md-8">
                 <div class="row">
@@ -166,7 +166,7 @@
           <!-- Column: Start-->
           <div class="col-12 col-md-6 col-lg-5 la-anim__stagger-item">
             <div class="la-lp__lft-content">
-              <h4 class="la-lp__lft-title text-4xl text-md-5xl head-font mb-3">Manual Payment <br/> Option</h4>
+              <h4 class="la-lp__lft-title text-3xl text-md-4xl head-font mb-3">Manual Payment <br/> Option</h4>
               <p class="la-lp__lft-desc">If you have trouble making payment through all the available options, you can choose to do the manual payment to get started with LILA.</p>
               <p class="la-lp__lft-desc">Please write to us at
                     <a class="la-lp__lft-link" href="mailto:lila@learnitlikealiens.com"> lila@learnitlikealiens.com</a>
@@ -188,7 +188,7 @@
           <!-- Column: Start-->
           <div class="col-12 col-md-6 col-lg-6 px-3 la-anim__stagger-item">
             <div class="la-lp__rgt-content" id="accordion">
-              <h4 class="faq-title  text-4xl">FAQ's</h4>
+              <h4 class="faq-title text-3xl text-md-4xl">FAQs</h4>
                 <!-- Free Trial: Start-->
 
                 <div class="panel-group la-lp__faq-group" id="accFree">
@@ -355,7 +355,7 @@
           <div class="col-12 col-lg-4">
             <div class="mb-6 la-anim__wrap-pin3">
               <div class="la-lp__test-lft la-anim__pin3">
-                <h4 class=" text-4xl text-md-5xl head-font mb-3">What people say<br>about us?</h4>
+                <h4 class=" text-3xl text-md-4xl head-font mb-3">What people say<br>about us?</h4>
                 <p class="text-md body-font pr-md-5"> LILA has happy clients all over the world. And we're proud to share some of those experiences!</p>
               </div>
             </div>

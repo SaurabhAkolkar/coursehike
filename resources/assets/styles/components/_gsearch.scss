@@ -13,7 +13,7 @@
                 border-left: 1px solid rgba(#000, 0.48);
                 border-radius: 0;
                 font-weight: var(--font-light);
-                font-size: var(--text-sm);
+                font-size: var(--text-xs);
                 color: rgba(#000, 0.48);
                 
                 &:focus, &:hover {
@@ -21,7 +21,7 @@
                 }
 
                 @include respond-above(md){
-                    font-size:var(--text-xl);
+                    font-size:var(--text-lg);
                 }
 
                     &-{
@@ -30,7 +30,7 @@
                             width:100% !important;
 
                             @include respond-above(md){
-                                width:420px !important;
+                                width:430px !important;
                             }
                             @include respond-below(md){
                                 width:300px !important;
@@ -53,7 +53,7 @@
                             width:100% !important;
 
                             @include respond-above(md){
-                                width:410px !important;
+                                width:420px !important;
                             }
                             @include respond-below(md){
                                 width:300px !important;

@@ -37,7 +37,7 @@ class LoginController extends Controller
     {
         if (Auth::User()->role == "user")
             auth()->logoutOtherDevices($request->password);
-        
+
         Mail::to($user->email)->later(now()->addSeconds(5), new UserLogged($user));
 
         if (Auth::User()->status == 1)
@@ -49,9 +49,9 @@ class LoginController extends Controller
             else
                 return redirect('/');
         }
-        else{            
+        else{
             Auth::logout();
-            return redirect()->route('login')->with('delete','You are deactivated !'); 
+            return redirect()->route('login')->with('delete','You are deactivated !');
         }
     }
 
@@ -82,7 +82,7 @@ class LoginController extends Controller
         $auth = Auth::attempt(
             [
                 'email'  => strtolower(Input::get('email')),
-                'password'  => Input::get('password')    
+                'password'  => Input::get('password')
             ], $remember
         );
 
@@ -91,7 +91,7 @@ class LoginController extends Controller
             return redirect()-> action('HomeController@index');
         }
         else {
-            return view('auth.register', ['name'=> $userSocial->getName(), 
+            return view('auth.register', ['name'=> $userSocial->getName(),
                                             'email' => $userSocial->getEmail()]);
         }
     }

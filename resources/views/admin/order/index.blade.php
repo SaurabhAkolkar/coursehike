@@ -20,7 +20,7 @@
           </div>
         </div>
 
-        <div class="d-flex justify-content-between align-items-center ml-2 mt-6">
+        <div class="ml-2 mt-2">
           <h3 class="la-admin__section-title"> {{ __('adminstaticword.Order') }}  - ({{ \Carbon\Carbon::now()->subMonth(app('request')->input('month') ?? 0)->format('F') }})</h3>
         </div>
         

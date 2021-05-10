@@ -34,7 +34,7 @@
             <section class="la-purchase--history">
                 <div class="container px-0 la-anim__stagger-item">
                   <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-3" href="{{URL::previous()}}"></a>
-                  <div class="la-purchaseh__main-title text-3xl head-font mb-5 mb-lg-10">Purchase History</div>
+                  <div class="la-purchaseh__main-title text-3xl text-lg-4xl head-font mb-5 mb-lg-10">Purchase History</div>
                 </div>
                   <!-- Purchased Desktop Version: Start -->
 
@@ -43,7 +43,7 @@
                       <div class="d-none d-md-block">
                         <div class="la-purchaseh__item row mb-5 ">          
                           <div class="col-3 col-lg-4 la-anim__stagger-item--x">
-                            <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-sm text-md-2xl head-font">Invoice ID                            </div>
+                            <div class="la-purchaseh__item-label la-purchaseh__item-label2 text-sm text-md-xl head-font">Invoice ID                            </div>
                           </div>
                           {{-- <div class="col-lg-1 "></div> --}}
 

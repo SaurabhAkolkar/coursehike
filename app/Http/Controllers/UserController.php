@@ -41,6 +41,9 @@ use Illuminate\Support\Facades\Mail;
 use DB;
 use App\Setting;
 use App\InvoiceDetail;
+use App\Exports\UsersExport;
+use Excel;
+
 
 class UserController extends Controller
 {
@@ -70,7 +73,7 @@ class UserController extends Controller
     public function subscriptions($id){
 
         $user = User::find($id);
-        $subscriptions = app('rinvex.subscriptions.plan_subscription')->ofUser($user)->latest()->get(); 
+        $subscriptions = app('rinvex.subscriptions.plan_subscription')->ofUser($user)->latest()->get();
 
         $class_purchased =  UserPurchasedCourse::with('course','user_invoice_details')->where('user_id', $id)->whereNull('bundle_id')->get();
         $courses_purchased =  UserPurchasedCourse::with('bundle')->where('user_id', $id)->where('bundle_id','>',0)->groupBy('bundle_id')->get();
@@ -91,10 +94,10 @@ class UserController extends Controller
                         ->where('ends_at','>', Carbon::now()->format('Y-m-d H:i:s') )
                         ->pluck('user_id')
                         ->toArray();
-        
+
         $users = User::whereIN('id',$user_ids)->get()->sortByDesc('id');
-        
-        return view('admin.user.learners', compact('users'));
+
+        return view('admin.user.subscribed', compact('users'));
 
     }
 
@@ -104,7 +107,7 @@ class UserController extends Controller
                         ->where('trial_ends_at','>', Carbon::now()->format('Y-m-d H:i:s') )
                         ->pluck('user_id')
                         ->toArray();
-           
+
         $users = User::whereIN('id',$user_ids)->get()->sortByDesc('id');
         return view('admin.user.ontrial', compact('users'));
 
@@ -113,21 +116,21 @@ class UserController extends Controller
     public function addClass($id){
         $user_id = $id;
         $courses = Course::where(['status'=>1])->get();
-        
+
         return view('admin.user.addcourse', compact('user_id','courses'));
     }
 
     public function addCourse($id){
         $user_id = $id;
         $courses = BundleCourse::where(['status'=>1])->get();
-        
+
         return view('admin.user.addbundle', compact('user_id','courses'));
     }
 
     public function getClasses(Request $request){
         $course_id = $request->course_id;
         $classes = CourseChapter::where(['course_id'=>$course_id])->pluck('chapter_name','id');
-        
+
         return $classes;
     }
 
@@ -136,27 +139,27 @@ class UserController extends Controller
                 'course_id' => 'required',
                 'amount' => 'required',
         ]);
-        
-         
+
+
         // $check = UserPurchasedCourse::where(['course_id'=>$request->course_id, 'user_id'=>$request->user_id])->get();
-      
+
         // if(count($check) > 0){
         //     return redirect()->back()->with('delete','Course is already added for the User.');
         // }
-       
+
         // if($request->purchase_type == 'selected_classes'){
-           
+
         //     if($request->class_id ==  null){
         //         return back()->withErrors(['class_id'=> 'classes are required']);
         //     }
         // }
         // else if($request->purchase_type == 'all_classes'){
         //     $request->class_id = CourseChapter::where(['course_id'=>$request->course_id])->pluck('id')->toArray();
-            
-        // }   
-                
+
+        // }
+
         $random = Str::of(Str::orderedUuid())->upper()->explode('-');
-        
+
         $insert['invoice_id'] = '#LILA-'. date('m-d') . '-'. $random[0]. '-'. $random[1];
         $insert['user_id'] = $request->user_id;
         $insert['discount_type'] = 'regular_discount';
@@ -164,16 +167,16 @@ class UserController extends Controller
         $insert['status'] = 'successful';
         $insert['sub_total'] = $request->amount;
         $insert['total'] = $request->amount;
-        
+
         $user_invoice = UserInvoiceDetail::create($insert);
-        
+
         // $order['order_id'] = 1;
         // $order['user_id'] = $request->user_id;
         // $order['course_id'] = $request->course_id;
         // $classes = array_values($request->class_id);
         // $order['class_id'] = json_encode($classes);
         // $order['purchase_type'] = $request->purchase_type;
-        
+
 
         // UserPurchasedCourse::create($order);
 
@@ -204,21 +207,21 @@ class UserController extends Controller
                 'course_id' => 'required',
                 'amount' => 'required',
         ]);
-        
-         
+
+
         // $check = UserPurchasedCourse::where(['bundle_id'=>$request->course_id, 'user_id'=>$request->user_id])->get();
         $courses = BundleCourse::find($request->course_id)->getCourses();
         // $course =  BundleCourse::where(['id'=>$request->course_id])->first();
         // $course_ids = $course->course_id;
-        
+
         // if(count($check) > 0){
         //     return redirect()->back()->with('delete','Course is already added for the User.');
         // }
 
-    
-                
+
+
         $random = Str::of(Str::orderedUuid())->upper()->explode('-');
-        
+
         $insert['invoice_id'] = '#LILA-'. date('m-d') . '-'. $random[0]. '-'. $random[1];
         $insert['user_id'] = $request->user_id;
         $insert['discount_type'] = 'regular_discount';
@@ -226,9 +229,9 @@ class UserController extends Controller
         $insert['status'] = 'successful';
         $insert['sub_total'] = $request->amount;
         $insert['total'] = $request->amount;
-        
+
         $user_invoice = UserInvoiceDetail::create($insert);
-               
+
         UserPurchasedCourse::updateOrCreate(
             ['order_id' => $user_invoice->id, 'user_id' => $request->user_id, 'bundle_id' => $request->course_id],
             ['class_id' => json_encode($courses->pluck('id')->all()), 'purchase_type' => 'bundle']
@@ -249,7 +252,7 @@ class UserController extends Controller
         InvoiceDetail::insert($data);
 
                 // foreach($course_ids as $c){
- 
+
                 //     $order['order_id'] = $get_order_id;
                 //     $order['user_id'] = $request->user_id;
                 //     $order['course_id'] = $c;
@@ -264,7 +267,7 @@ class UserController extends Controller
 
                 //     InvoiceDetail::create($order);
 
-                // }   
+                // }
 
         return redirect('/user/subscriptions/'.$request->user_id)->with('success','Courses added successfully.');
 
@@ -292,8 +295,36 @@ class UserController extends Controller
         return view('admin.user.addsubscription', compact('user', 'trial_end_date', 'start_date', 'end_date', 'plan_slug', 'stripe_subscription_id', 'stripe_payment_id'));
     }
 
+    public function UserExcel(){
+
+        $user = User::all();
+        $data = [];
+        $i = 0;
+
+        foreach($user as $d){
+                $data[$i]['Sr#'] = $i+1 ;
+                $data[$i]['User Name'] = $d->fullName;
+                $data[$i]['Email'] = $d->email;
+                $data[$i]['Role'] = ucfirst($d->role);
+                $data[$i]['Mobile Number'] = $d->mobile;
+                $data[$i]['Date of Birth'] = Carbon::parse($d->dob)->format('d/m/Y');
+                $data[$i]['Gender'] = $d->gender=='mail'?'Male':'Female';
+                $data[$i]['Registred_at'] = Carbon::parse($d->created_at)->format('d/m/Y');
+                $data[$i]['City'] = $d->city?$d->city->name:'';
+                $data[$i]['State'] = $d->state?$d->state->name:'';
+                $data[$i]['Country'] = $d->country?$d->country->name:'';
+                $data[$i]['Pincode'] = $d->pincode;
+                $i++;
+        }
+
+        $export = new UsersExport($data);
+        ob_end_clean(); // this
+        ob_start(); // and this
+        return Excel::download($export, 'invoice.xlsx');
+
+    }
     public function storeSubscription(Request $request){
-        
+
         $request->validate([
             'start_date' => 'required',
             'end_date' => 'required',
@@ -313,19 +344,19 @@ class UserController extends Controller
             $plan_subscription->changePlan($plan);
 
             $plan_subscription->trial_ends_at = Carbon::createFromFormat('Y-m-d', $request->trial_end_date)->toDateTimeString();
-            $plan_subscription->starts_at = Carbon::createFromFormat('Y-m-d', $request->start_date)->toDateTimeString(); 
+            $plan_subscription->starts_at = Carbon::createFromFormat('Y-m-d', $request->start_date)->toDateTimeString();
             $plan_subscription->ends_at = Carbon::createFromFormat('Y-m-d', $request->end_date)->toDateTimeString();
             $plan_subscription->save();
         }else{
             $user->newSubscription('main', $plan);
-            
+
             $plan_subscription = $user->subscription();
             $plan_subscription->trial_ends_at = Carbon::createFromFormat('Y-m-d', $request->trial_end_date)->toDateTimeString();
-            $plan_subscription->starts_at = Carbon::createFromFormat('Y-m-d', $request->start_date)->toDateTimeString(); 
+            $plan_subscription->starts_at = Carbon::createFromFormat('Y-m-d', $request->start_date)->toDateTimeString();
             $plan_subscription->ends_at = Carbon::createFromFormat('Y-m-d', $request->end_date)->toDateTimeString();
             $plan_subscription->save();
         }
-        
+
         $plan_id = config('rinvex.subscriptions.plans.'.$request->plan_selection);
 
         UserSubscription::updateOrCreate(
@@ -391,9 +422,9 @@ class UserController extends Controller
 
         $input['password'] = Hash::make($request->password);
         $input['detail'] = $request->detail;
-        $input['email_verified_at'] = \Carbon\Carbon::now()->toDateTimeString();           
+        $input['email_verified_at'] = \Carbon\Carbon::now()->toDateTimeString();
         $data = User::create($input);
-        $data->save(); 
+        $data->save();
 
         Session::flash('success','User Added Successfully !');
         return redirect('user');
@@ -420,7 +451,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        
+
         $user = User::findorfail($id);
         $cities = Allcity::where(['state_id'=>$user->id])->get();
         $states = State::all();
@@ -457,7 +488,7 @@ class UserController extends Controller
 
     public function update(Request $request,$id)
     {
-      
+
         $user = User::findorfail($id);
 
         $request->validate([
@@ -493,7 +524,7 @@ class UserController extends Controller
 
 
         if(isset($request->update_pass)){
-          
+
             $input['password'] = Hash::make($request->password);
         }
         else{
@@ -513,7 +544,7 @@ class UserController extends Controller
 
         $input['yoe'] = $request->yoe;
         $input['expertise'] = $request->expert_in;
-       
+
         $portfolio = explode(',',$request->all_portfolio);
         $portfolio = json_encode(array_values(array_filter($portfolio , function($a){ if(strlen(trim($a)) > 0){ return trim($a); } else { return null; } })));
         $input['portfolio_links']= $portfolio;
@@ -552,7 +583,7 @@ class UserController extends Controller
 
             if ($user->user_img != null)
             {
-                    
+
                 $image_file = @file_get_contents(public_path().'/images/user_img/'.$user->user_img);
 
                 if($image_file)
@@ -599,7 +630,7 @@ class UserController extends Controller
         $input['course_id_all']=array_filter($input['category_id']);
         UserInterest::where('user_id', Auth::User()->id)->delete();
         foreach($input['course_id_all'] as $c){
-            $input['category_id'] = $c; 
+            $input['category_id'] = $c;
             $check = UserInterest::where(['user_id'=>Auth::User()->id, 'category_id'=>$c])->first();
 
             if(!$check){
@@ -621,18 +652,18 @@ class UserController extends Controller
             $myInterests = UserInterest::create(['user_id'=>Auth::User()->id, 'category_id' => $request->category_id]);
 
             return 'Interest added Successfully';
-        }        
+        }
         return 'No course selected';
     }
 
     public function removeInterest(Request $request){
 
         if($request->category_id){
-   
+
             $myInterests = UserInterest::where(['user_id'=>Auth::User()->id, 'category_id' => $request->category_id])->delete();
 
             return 'Interest removed Successfully';
-        }        
+        }
         return 'No course selected';
     }
 
@@ -654,7 +685,7 @@ class UserController extends Controller
     public function verifyEmail($id, $hash, Request $request){
 
 
-        $user = User::where([ 'id' => $id ,'token' => $hash])->first();  
+        $user = User::where([ 'id' => $id ,'token' => $hash])->first();
 
         if($user){
             if(Carbon::createFromTimestamp($request->expiry)->gt(Carbon::now())){
@@ -668,17 +699,17 @@ class UserController extends Controller
             }else{
                 return redirect('/')->with('success','Email expired. Please send another one.');
             }
-         
+
         }
-        
+
         return redirect('/')->with('success','Email expired. Please send another one.');
-        
+
     }
 
     public function resetPasswordMail(Request $request){
 
         $token = sha1(uniqid(rand(), true));
-        
+
         DB::table('password_resets')->insert(['email'=>$request->email, 'token' => Hash::make($token), 'created_at' => Carbon::now()->toDateTimeString() ]);
         $email = $request->email;
 
@@ -691,5 +722,5 @@ class UserController extends Controller
         return redirect()->back()->with('success','Password reset link sent successfully.');
 
     }
-    
+
 }

@@ -1,5 +1,5 @@
 <li class="la-news__meet-item la-anim__wrap">
-    <h6 class="la-news__meet-title head-font text-lg text-sm-2xl m-0 text-capitalize la-anim__stagger-item--x"> {{ $title }} </h6>
+    <h6 class="la-news__meet-title head-font text-lg text-md-xl m-0 text-capitalize la-anim__stagger-item--x"> {{ $title }} </h6>
     <p class="text-sm la-news__meet-timestamp la-anim__stagger-item--x"> {{ $timestamp }}</p>
 
     <div class="la-news__meet-content">

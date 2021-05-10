@@ -71,7 +71,7 @@ $course_id = $course->id;
               </div> --}}
             </div>
 
-            <div class="la-rtng__icons d-inline-flex la-anim__stagger-item">
+            <div class="la-rtng__icons d-inline-flex mt-1 la-anim__stagger-item">
               @for($counter=1;$counter <= round($average_rating); $counter++)
                   <div class="la-icon la-icon--2xl icon-star la-rtng__fill"> </div>
               @endfor
@@ -262,7 +262,7 @@ $course_id = $course->id;
                   @if(true)
                       <div class=" la-anim__wrap text-center">
                           <div class="la-empty__inner la-anim__stagger-item mb-0">
-                              <h6 class="la-empty__course-title text-2xl" style="color:var(--gray8);">No Resources available for this Course.</h6>
+                              <h6 class="la-empty__course-title text-2xl" style="color:var(--gray8);font-weight:var(--font-medium);">No Resources available for this Course.</h6>
                             </div>
                       </div>
                   @else
@@ -751,7 +751,7 @@ $course_id = $course->id;
   <section class="la-section__small la-section--grey">
     <div class="la-section__inner">
       <div class="container-fluid la-anim__wrap">
-        <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">More from Mentors</h2>
+        <h2 class="la-section__title text-3xl text-md-4xl mb-10 la-anim__stagger-item">More from Mentors</h2>
         
           @if(count($mentor_other_courses) == 0)
                <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6 la-anim__stagger-item">

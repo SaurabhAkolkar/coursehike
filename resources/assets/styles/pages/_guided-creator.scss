@@ -39,7 +39,7 @@
 }
 .la-gcbanner__para{
     font-family:var(--body-font);
-    font-size: var(--text-xl);
+    font-size: var(--text-xl);  
 }
         
 
@@ -98,7 +98,7 @@ section.la-page--how-this-works{
         font-weight: var(--font-semibold);
 
         @include respond-below(md){
-            font-size:var(--text-4xl);
+            font-size:var(--text-3xl);
         }
     }
     .la-gcreator__works img{
@@ -142,26 +142,27 @@ section.la-page--how-this-works{
         }
         .la-gcreator__video-title{
             font-family: var(--head-font);
-            font-size: var(--text-3xl);
+            font-size: var(--text-2xl);
             font-weight: var(--font-medium);
             color: var(--gray6);
 
             @include respond-below(md){
-                font-size:var(--text-2xl);
+                font-size:var(--text-xl);
             }
         }
         .la-gcreator__video-para{
             color: var(--gray3);
-            font-size: var(--text-lg);
+            font-size: var(--text-md);
 
             @include respond-below(md){
-                font-size:var(--text-md);
+                font-size:var(--text-sm);
             }
         }
         .la-gcreator__list-item{  
             font-family: var(--body-font);
             color:var(--gray5);
             font-size: var(--text-md);
+            font-weight: var(--font-light);
 
             @include respond-below(md){
                 font-size:var(--text-sm);
@@ -219,7 +220,7 @@ section.la-page--how-this-works{
     section.la-page--how-this-works {
         margin:0;
         .la-gcreator__works-mobile{margin:-20px 0 0 40px !important;}
-        .la-gcreator__video-content {margin-left: 20px;}
+        .la-gcreator__video-content {margin: 0 5px 0 15px;}
         .la-gvline{  height:650px; }
         .la-gvline-last{ height:650px;}
     }

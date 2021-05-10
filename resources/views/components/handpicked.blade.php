@@ -1,4 +1,4 @@
-<div class="col-6 col-lg-3 px-2">
+<div class="col-6 col-lg-3 px-2 px-md-4 py-md-2">
     <a class="la-hp__card position-relative" href= {{ $hpUrl }} >
         <div class="la-hp__card-item position-relative la-anim__stagger-item--x la-anim__B">
             <div class="la-hp__card-thumbnail w-100" >
