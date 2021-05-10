@@ -39,9 +39,25 @@ class AdminController extends Controller
                                                     ->limit(5)
                                                     ->get();
                                                    
-            $course_amount = UserInvoiceDetail::where(['status'=>'paid'])->sum('total');
-            $subscription_amount = UserSubscriptionInvoice::where(['status'=>'paid'])->sum('invoice_paid');
-            $total = $course_amount + $subscription_amount;
+            $purchased_invoices = UserInvoiceDetail::where([ ['status','paid'], ['stripe_session_id', '!=' ,''] ])->get();
+            $course_amount = 0;
+            foreach ($purchased_invoices as $purchased_invoice) {                
+                $order_total = $purchased_invoice->total;
+                if($purchased_invoice->currency == 'INR' || empty($purchased_invoice->currency))
+                    $order_total /= 75; //Convert to USD
+                $course_amount += $order_total;
+            }
+
+            $subscription_invoices = UserSubscriptionInvoice::where([ ['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_subscription_id', '!=' ,'Admin-Purchased'] ])->get();
+            $subscription_amount = 0;
+            foreach ($subscription_invoices as $subscription_invoice) {                
+                $order_total = $subscription_invoice->invoice_paid;
+                if($subscription_invoice->invoice_currency == 'INR' || empty($subscription_invoice->invoice_currency))
+                    $order_total /= 75; //Convert to USD
+                $subscription_amount += $order_total;
+            }
+
+            $total = round($course_amount + $subscription_amount);
 
             return view('admin.dashboard', compact('users','categories','courses','recent_courses','mentor','total','recent_subscriptions'));
         }
