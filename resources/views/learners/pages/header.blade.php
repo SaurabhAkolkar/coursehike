@@ -195,7 +195,7 @@ if(Auth::check()){
 
                       @endforeach
 
-                      @if(count($old_anno) == 0 && count($old_anno) == 0)
+                      @if(count($new_announcements) == 0 && count($old_anno) == 0)
                       <div class="d-flex justify-content-center align-items-center my-auto">
                         <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-medium)">No New Releases Found</div>
                       </div>
@@ -308,10 +308,27 @@ if(Auth::check()){
                       <x-announcement :url="$anno->id" :img="$anno->preview_image" :event="$anno->title" :timestamp="$timestamp" />
 
                       @endforeach
-                      @if(count($announcements) == 0)
-                      <div class="d-flex justify-content-center align-items-center my-auto">
-                        <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-semibold)">No New Releases Found</div>
-                      </div>
+
+                    @foreach ($old_anno as $anno)
+
+                        @php
+
+                        $timestamp = $anno->created_at->diffInDays(Carbon::now());
+                        if($timestamp > 0){
+                            $timestamp = $timestamp.' Days Ago';
+                        }else{
+                            $timestamp = 'Today';
+                        }
+                    @endphp
+
+                        <x-announcement :url="$anno->id" :img="$anno->preview_image" :event="$anno->title" :timestamp="$timestamp" />
+
+                    @endforeach
+
+                    @if(count($new_announcements) == 0 && count($old_anno) == 0)
+                        <div class="d-flex justify-content-center align-items-center my-auto">
+                        <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-medium)">No New Releases Found</div>
+                        </div>
                     @endif
 
                     <!-- Announcements Panel: End -->
