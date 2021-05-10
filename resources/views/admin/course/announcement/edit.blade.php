@@ -21,8 +21,8 @@
               @endforeach
             </ul>
           </div>
-        </div>   
-        @endif 
+        </div>
+        @endif
         <div class="box-body">
          <form class="la-admin__announce-form mr-20 pr-20" name="announcement_form" enctype="multipart/form-data" action="{{url('announcement/'.$annou->id)}}" method="post">
           @method('PUT')
@@ -60,21 +60,21 @@
                             </span>
                           </div>
                           <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="preview_image" id="image" />
-                          <img src="{{asset('images/announcement/'.$annou->preview_image)}}" alt="" class="@if($annou->preview_image) @else d-none @endif preview-img"/>
+                          <img src="{{$annou->preview_image)}}" alt="" class="@if($annou->preview_image) @else d-none @endif preview-img"/>
                       </div>
                     </div>
               </div>
              </div>
              <!-- PREVIEW IMAGE & VIDEO FILES: END -->
-             <label class="la-admin__announce-layouts pt-5">Layout:</label> 
+             <label class="la-admin__announce-layouts pt-5">Layout:</label>
              <div class="row">
                 <!-- Layout 1 -->
                 <div class="col-md-4">
                   <input type="radio" id="layout1" name="layouts" value="1" class="la-admin__cp-input" @if($annou->layout == 1) checked @endif>
-                  <label for="layout1" class="w-100"> 
+                  <label for="layout1" class="w-100">
                     <div class="la-admin__cp-circle">
                       <span class="la-admin__cp-radio"></span>
-                      <span class="la-admin__cp-label">Layout 1</span> 
+                      <span class="la-admin__cp-label">Layout 1</span>
                     </div>
 
                     <div class="d-flex justify-content-between align-items-start">
@@ -85,7 +85,7 @@
                             </span>
                           </div>
                         </div>
-            
+
                         <div class="col-6 px-0">
                           <div class="">
                               <div class="la-admin__layout-title py-2 mb-2">Title</div>
@@ -103,11 +103,11 @@
 
                 <!-- Layout 2 -->
                 <div class="col-md-4">
-                  <input type="radio" id="layout2" name="layouts" value="2" class="la-admin__cp-input" @if($annou->layout == 2) checked @endif> 
-                  <label for="layout2" class="w-100"> 
+                  <input type="radio" id="layout2" name="layouts" value="2" class="la-admin__cp-input" @if($annou->layout == 2) checked @endif>
+                  <label for="layout2" class="w-100">
                     <div class="la-admin__cp-circle">
                       <span class="la-admin__cp-radio"></span>
-                      <span class="la-admin__cp-label">Layout 2</span> 
+                      <span class="la-admin__cp-label">Layout 2</span>
                     </div>
 
                     <div class="d-flex justify-content-between align-items-start">
@@ -127,10 +127,10 @@
                 <!-- Layout 3 -->
                 <div class="col-md-4 pb-4">
                   <input type="radio" id="layout3" name="layouts" value="3" class="la-admin__cp-input" @if($annou->layout == 3) checked @endif>
-                  <label for="layout3" class="w-100"> 
+                  <label for="layout3" class="w-100">
                     <div class="la-admin__cp-circle">
                       <span class="la-admin__cp-radio"></span>
-                      <span class="la-admin__cp-label">Layout 3</span> 
+                      <span class="la-admin__cp-label">Layout 3</span>
                     </div>
 
                     <div class="d-flex justify-content-between align-items-start">
@@ -154,13 +154,13 @@
              <div class="row">
               <div class="col-md-12">
                 <label for="exampleInputTit1e">{{ __('adminstaticword.Status') }}:</label>
-                <li class="tg-list-item">              
+                <li class="tg-list-item">
                     <input class="la-admin__toggle-switch" id="status" type="checkbox" name="status" {{ $annou->status == '1' ? 'checked' : '' }} >
                     <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="status"></label>
                 </li>
               </div>
             </div>
-            
+
              <div class="row box-footer mt-6">
                <div class="col-md-12 px-0">
                 <button type="submit" class="btn btn-md btn-primary col-md-3 mx-2">POST</button>
@@ -175,7 +175,7 @@
     <!--/.col (right) -->
   </div>
   <!-- /.row -->
-</section> 
+</section>
 
 @endsection
 
