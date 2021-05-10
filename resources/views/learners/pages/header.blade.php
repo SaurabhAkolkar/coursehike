@@ -175,7 +175,7 @@ if(Auth::check()){
                                   }
                               @endphp
 
-                            <x-announcement :url="$anno->id" :img="$anno->previewImage" :event="$anno->title" :timestamp="$timestamp" />
+                            <x-announcement :url="$anno->id" :img="$anno->preview_image" :event="$anno->title" :timestamp="$timestamp" />
 
                       @endforeach
 
@@ -191,7 +191,7 @@ if(Auth::check()){
                                   }
                               @endphp
 
-                            <x-announcement :url="$anno->id" :img="$anno->previewImage" :event="$anno->title" :timestamp="$timestamp" />
+                            <x-announcement :url="$anno->id" :img="$anno->preview_image" :event="$anno->title" :timestamp="$timestamp" />
 
                       @endforeach
 
@@ -296,6 +296,7 @@ if(Auth::check()){
                       @foreach ($announcements as $anno)
 
                       @php
+
                           $timestamp = $anno->created_at->diffInDays(Carbon::now());
                           if($timestamp > 0){
                             $timestamp = $timestamp.' Days Ago';
@@ -304,7 +305,7 @@ if(Auth::check()){
                           }
                       @endphp
 
-                      <x-announcement :url="$anno->id" :img="$anno->previewImage" :event="$anno->title" :timestamp="$timestamp" />
+                      <x-announcement :url="$anno->id" :img="$anno->preview_image" :event="$anno->title" :timestamp="$timestamp" />
 
                       @endforeach
                       @if(count($announcements) == 0)
