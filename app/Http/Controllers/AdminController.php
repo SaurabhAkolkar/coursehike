@@ -39,7 +39,7 @@ class AdminController extends Controller
                                                     ->limit(5)
                                                     ->get();
                                                    
-            $purchased_invoices = UserInvoiceDetail::where([['status','paid']])->get();
+            $purchased_invoices = UserInvoiceDetail::where([ ['status','paid'], ['stripe_session_id', '!=' ,''] ])->get();
             $course_amount = 0;
             foreach ($purchased_invoices as $purchased_invoice) {                
                 $order_total = $purchased_invoice->total;
@@ -57,7 +57,7 @@ class AdminController extends Controller
                 $subscription_amount += $order_total;
             }
 
-            $total = $course_amount + $subscription_amount;
+            $total = round($course_amount + $subscription_amount);
 
             return view('admin.dashboard', compact('users','categories','courses','recent_courses','mentor','total','recent_subscriptions'));
         }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserInvoiceDetail extends Model
 {
     protected $fillable = [
-        'id', 'invoice_id', 'user_id', 'sub_total', 'taxes', 'total','currency', 'discount', 'discount_type', 'purchase_type','coupon_applied', 'coupon_id', 'status','created_at', 'updated_at'
+        'id', 'invoice_id', 'user_id', 'sub_total', 'taxes', 'total','currency', 'discount', 'discount_type', 'purchase_type','coupon_applied' ,'stripe_session_id', 'coupon_id', 'status','created_at', 'updated_at'
     ];
 
     public function details()
