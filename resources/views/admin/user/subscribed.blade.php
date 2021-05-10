@@ -133,6 +133,7 @@ use Carbon\Carbon;
 <script src="{{url('js/multifilter.min.js')}}"></script>
 
 <script type='text/javascript'>
+    var DateTableColumn = 7;
 
   $(document).ready(function() {
 
