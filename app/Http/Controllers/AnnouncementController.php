@@ -140,7 +140,6 @@ class AnnouncementController extends Controller
     {
         $request->validate([
             'announcement_title' => 'required',
-            'announcement_category' => 'required',
             'announcement_short' => 'required',
             'announcement_long' => 'required',
             'layouts' => 'required',
@@ -211,7 +210,7 @@ class AnnouncementController extends Controller
 
         $annou->update($input);
 
-        return redirect('/course/create/'.$annou->course_id)->with('success','Announcement edited successfully.');
+        return redirect('/announcement')->with('success','Announcement edited successfully.');
     }
 
     /**
