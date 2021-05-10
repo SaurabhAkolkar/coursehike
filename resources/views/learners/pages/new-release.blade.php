@@ -59,7 +59,7 @@
                             :title="$release->title"
                             :timestamp="$release->created_at"
                             :about="$release->short_description"
-                            :img="$release->preview_image"
+                            :img="$release->previewImage"
                             :desc="$release->long_description"
                             :eventId="$release->id"
 

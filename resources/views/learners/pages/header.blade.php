@@ -175,7 +175,7 @@ if(Auth::check()){
                                   }
                               @endphp
 
-                            <x-announcement :url="$anno->id" :img="$anno->preview_image" :event="$anno->title" :timestamp="$timestamp" />
+                            <x-announcement :url="$anno->id" :img="$anno->previewImage" :event="$anno->title" :timestamp="$timestamp" />
 
                       @endforeach
 
@@ -191,7 +191,7 @@ if(Auth::check()){
                                   }
                               @endphp
 
-                            <x-announcement :url="$anno->id" :img="$anno->preview_image" :event="$anno->title" :timestamp="$timestamp" />
+                            <x-announcement :url="$anno->id" :img="$anno->previewImage" :event="$anno->title" :timestamp="$timestamp" />
 
                       @endforeach
 
