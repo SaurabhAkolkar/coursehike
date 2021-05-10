@@ -40,7 +40,7 @@ class AdminController extends Controller
                                                     ->get();
                                                    
             $course_amount = UserInvoiceDetail::where(['status'=>'paid'])->sum('total');
-            $subscription_amount = UserSubscriptionInvoice::where(['status'=>'paid'])->sum('invoice_paid');
+            $subscription_amount = UserSubscriptionInvoice::where([ ['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_subscription_id', '!=' ,'Admin-Purchased'] ])->sum('invoice_paid');
             $total = $course_amount + $subscription_amount;
 
             return view('admin.dashboard', compact('users','categories','courses','recent_courses','mentor','total','recent_subscriptions'));
