@@ -35,7 +35,7 @@
                             </h1>
                             <p class="la-about__tag la-anim__stagger-item--x">Embracing Self Learning</p>
 
-                            <div class="la-about__info pt-6 pt-md-16 la-anim__stagger-item">
+                            <div class="la-about__info pt-6 pt-md-10 la-anim__stagger-item">
                                 <h5 class="la-about__info-title">About Lila</h5>
                                 <p class="la-about__info-desc">Learn It Like Aliens is a brainchild of Sunny Bhanushali, the founder and CEO at LILA. His belief in serving people with knowledge led to the establishment of this comprehensive Online Learning Platform. </p>
                                 <p class="la-about__info-desc">LILA, at present is in pursuit of bringing mentors from around the world to teach varied skills in the most simplest ways to everybody who wish to learn.</p>
@@ -47,7 +47,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-5 offset-lg-2 my-auto position-relative py-10 py-md-1 px-0 px-2">
+                    <div class="col-lg-5 offset-lg-1 my-auto position-relative py-10 py-md-1 px-0 px-lg-3">
                         <div class="la-about__reach position-relative d-flex justify-content-between align-items-center la-anim__wrap">
                             <span class="la-section__circle la-section__circle--right2 la-anim__stagger-item--x la-anim__D"></span>
                             <div class="col">
@@ -67,7 +67,7 @@
                                 </div>
                             </div>
 
-                            <div class="col ">
+                            <div class="col">
                                 <div class="la-bcreator__stats la-about__stats la-anim__stagger-item--x">
                                     <div class="la-bcreator__stats-item ">
                                         <h4 class="la-bcreator__stats-count m-0">15 +</h4>

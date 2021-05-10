@@ -138,7 +138,7 @@ if(Auth::check()){
                     @endforeach 
                     @if(count(Auth::user()->unreadNotifications) == 0)
                       <div class="d-flex justify-content-center align-items-center my-auto">
-                        <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-semibold)">No Notifications Found</div>
+                        <div class="text-xl" style="color:var(--gray8);font-weight:var(--font-medium)">No Notifications Found</div>
                       </div>                                                   
                     @endif
 
@@ -211,7 +211,7 @@ if(Auth::check()){
 
                       @if(count($old_anno) == 0 && count($old_anno) == 0)
                       <div class="d-flex justify-content-center align-items-center my-auto">
-                        <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-semibold)">No New Releases Found</div>
+                        <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-medium)">No New Releases Found</div>
                       </div>
                       @endif
                       <!-- Announcements Panel: End -->          

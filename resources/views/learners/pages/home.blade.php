@@ -252,7 +252,7 @@
     <div class="la-section__inner la-anim__wrap la-section--courses-inwrap" >
       <div class="container-fluid la-home__course-fluid position-relative" id="home_fluid_container">
         <div class="la-courses">
-          <h3 class="la-home__course-mtitle ml-n3 ml-md-0 text-center mb-3 mb-md-10 la-anim__stagger-item">Learn what you love!</h3>
+          <h3 class="la-home__course-mtitle  text-center mb-3 mb-md-10 la-anim__stagger-item">Learn what you love!</h3>
           <h2 class="la-courses__nav-content--title la-anim__stagger-item mb-3 mb-md-6 text-center">Featured Classes</h2>
 
           <nav class="la-courses__nav mb-3 mb-md-3 d-inline-flex justify-content-start justify-content-md-center position-relative">
@@ -358,7 +358,7 @@
                                 <!-- <div class="swiper-button-next la-slider__navigations-arrow la-home__course-next"></div> -->
                               </div>
                               <div class=" position-relative text-center text-md-right la-anim__wrap pb-2">
-                                <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold mr-1 mr-md-7 la-anim__fade-in-right la-anim--B">
+                                <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--medium mr-1 mr-md-7 la-anim__fade-in-right la-anim--B">
                                   <a href="/browse/classes" >explore more <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
                                 </div>
                               </div>
@@ -428,7 +428,7 @@
                                 <!-- <div class="swiper-button-next la-slider__navigations-arrow la-home__course-next"></div> -->
                               </div>
                               <div class=" position-relative text-center text-md-right la-anim__wrap pb-2">
-                                <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold mr-1 mr-md-7 la-anim__fade-in-right la-anim--B">
+                                <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--medium mr-1 mr-md-7 la-anim__fade-in-right la-anim--B">
                                   <a href="/browse/courses" >explore more <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
                                 </div>
                               </div>
@@ -541,7 +541,7 @@
                 <!-- <div class="swiper-button-next la-slider__navigations-arrow la-home__master-next"></div> -->
               </div>
               <div class="la-mccourse__view-more position-relative text-center text-md-right ">
-                <div class=" la-btn__arrow text-white text-uppercase text-spacing font-weight--bold mr-1 mr-md-1">
+                <div class=" la-btn__arrow text-white text-uppercase text-spacing font-weight--medium mr-1 mr-md-1">
                   <a href="/master-classes" >explore more <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
                 </div>
               </div>
@@ -562,10 +562,10 @@
             <div class="row">
                 <div class="col-lg-4 my-auto h-100">
                     <div class="la-home__customize position-relative">
-                        <h3 class="la-home__customize-title leading-none position-relative la-anim__stagger-item">Customized Learning with you in mind!</h3>
+                        <h3 class="la-home__customize-title position-relative la-anim__stagger-item">Customized Learning with you in mind!</h3>
                         <p class="la-home__customize-para mb-0 la-anim__stagger-item">A learning platform just for you. An approach that aims to customize learning for each student's strengths, needs, skills, and interests.</p>
                         
-                        <div class="la-btn__arrow la-btn__text--yellow text-uppercase text-spacing font-weight--bold mr-5 mr-md-1 la-anim__stagger-item--x">
+                        <div class="la-btn__arrow la-btn__text--yellow text-uppercase text-spacing font-weight--medium mr-5 mr-md-1 la-anim__stagger-item--x">
                           <a @if(Auth::check()) href="/user-dashboard" @else data-toggle="modal" data-target="#locked_login_modal" @endif >explore more <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
                         </div>
                     </div>
@@ -797,26 +797,26 @@
                     <div class="la-home__subscription-main ">
                       <div class="la-home__subscription-ques la-home__subscription__ques--first">
                         <h3 class="la-section__subtitle la-home__subscription-title la-anim__stagger-item">LILA's way of teaching</h3>
-                        <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x ">We strongly believe observation is integral to honing art. Learn from artists who have created their niche in the world of tattooing with consistent practice, and become the master of your niche!</p>
-                        <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-4 pt-md-8 la-anim__stagger-item--x">
+                        <p class="la-section__text text-md text-md-lg la-anim__stagger-item--x ">We strongly believe observation is integral to honing art. Learn from artists who have created their niche in the world of tattooing with consistent practice, and become the master of your niche!</p>
+                        <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--medium pt-4 pt-md-8 la-anim__stagger-item--x">
                           <a href="/about">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                         </div>
                       </div>
 
                       <div class="la-home__subscription-ques la-home__subscription__ques--second">
                         <h3 class="la-section__subtitle--medium la-anim__stagger-item">How does subscription works?</h3>
-                        <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x ">Learning need not be expensive. At LILA, our subscription model gives you the benefit to choose from any number of courses or individual classes, as you please.</p>
-                        <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x ">  All at nominal fees! So, learn away! </p>
-                        <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-4 pt-md-8 la-anim__stagger-item--x">
+                        <p class="la-section__text text-md text-md-lg la-anim__stagger-item--x ">Learning need not be expensive. At LILA, our subscription model gives you the benefit to choose from any number of courses or individual classes, as you please.</p>
+                        <p class="la-section__text text-md text-md-lg la-anim__stagger-item--x ">  All at nominal fees! So, learn away! </p>
+                        <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--medium pt-4 pt-md-8 la-anim__stagger-item--x">
                           <a href="/learning-plans">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                         </div>
                       </div>
 
                       <div class="la-home__subscription-ques la-home__subscription__ques--third la-anim__wrap">
                         <h3 class="la-section__subtitle--medium la-anim__stagger-item">What’s LILA for you ?</h3>
-                        <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x">Our mission is to Encourage, Empower and Embrace self-learning among all curious individuals who wish to learn, expand their potential and make a mark in the world.</p>
-                        <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x">   Through our Radical team, we strive every day to make knowledge Affordable, Accessible for everyone regardless of who or where they are</p>
-                        <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold  pt-4 pt-md-8  la-anim__stagger-item--x">
+                        <p class="la-section__text text-md text-md-lg la-anim__stagger-item--x">Our mission is to Encourage, Empower and Embrace self-learning among all curious individuals who wish to learn, expand their potential and make a mark in the world.</p>
+                        <p class="la-section__text text-md text-md-lg la-anim__stagger-item--x">   Through our Radical team, we strive every day to make knowledge Affordable, Accessible for everyone regardless of who or where they are</p>
+                        <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--medium  pt-4 pt-md-8  la-anim__stagger-item--x">
                           <a href="/about">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                         </div>
                       </div>

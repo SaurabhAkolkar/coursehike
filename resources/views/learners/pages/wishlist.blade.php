@@ -59,12 +59,12 @@
               <h1 class="la-profile__title">Wishlist</h1>
             </div>
 
-            <section class="la-section la-wishlist__sec pt-0">
+            <section class="la-section la-wishlist__sec pt-4">
               
-              <div class="d-flex justify-content-between align-items-center mb-3 la-anim__stagger-item">
-                <h2 class="text-2xl mb-0">Courses</h2>
-                <a class="d-block d-lg-none la-playlist__mobile text-md text-uppercase" href="/browse/courses"> 
-                  <span class="la-icon la-icon--md icon-plus mr-1 mb-3"></span>Add Courses
+              <div class="d-flex justify-content-between align-items-center mb-6 mb-lg-10 la-anim__stagger-item">
+                <h2 class="text-xl text-lg-2xl mb-0">Courses</h2>
+                <a class="d-block d-lg-none la-playlist__mobile text-sm text-lg-md text-uppercase" href="/browse/courses"> 
+                  <span class="la-icon la-icon--sm icon-plus mr-1"></span>Add Courses
                 </a>
               </div>
            
@@ -124,10 +124,10 @@
             </section>
             
             <section class="la-section la-wishlist__sec pt-0">
-              <div class="d-flex justify-content-between align-items-center mb-3 la-anim__stagger-item">
-                <h2 class="text-2xl mb-0">Classes</h2>
-                <a class="d-block d-lg-none la-playlist__mobile text-md text-uppercase" href="/browse/classes"> 
-                  <span class="la-icon la-icon--md icon-plus mr-1 mb-3"></span>Add Classes
+              <div class="d-flex justify-content-between align-items-center mb-6 mb-lg-10 la-anim__stagger-item">
+                <h2 class="text-xl text-lg-2xl mb-0">Classes</h2>
+                <a class="d-block d-lg-none la-playlist__mobile text-sm text-lg-md text-uppercase" href="/browse/classes"> 
+                  <span class="la-icon la-icon--sm icon-plus mr-1"></span>Add Classes
                 </a>
               </div>
               

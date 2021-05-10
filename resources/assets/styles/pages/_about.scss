@@ -46,6 +46,7 @@
 }
 //- Motto Section
 .la-about__motto{
+    z-index: var(--z-20);
     @include respond-above(md){
         margin-top:var(--size-20);
     }
@@ -66,18 +67,21 @@
 .la-about__motto-box{
     background-color:var(--yellow);
     border-radius: 10px;
-    padding:calc(var(--size-20) + var(--size-4)) calc(var(--size-20) * 3);
+    padding:var(--size-20)  var(--size-20);
     margin:0 var(--size-20);
     position:relative;
     z-index:var(--z-2);
 
+    @include respond-above(lg){
+        padding:calc(var(--size-20) + var(--size-4)) calc(var(--size-20) * 3);
+    }
     @include respond-below(md){
         padding:var(--size-14);
         margin:0 var(--size-16);
     }
     @include respond-below(sm){
-        padding:var(--size-6);
-        margin:0 var(--size-4);
+        padding:var(--size-10) var(--size-6);
+        margin:0 var(--size-3);
     }
 }
 .la-about__motto-text{
@@ -87,11 +91,15 @@
     font-weight: var(--font-semibold);
 
     @include respond-below(sm){
-        font-size:var(--text-3xl);
+        font-size:var(--text-2xl);
     }
 }
 .la-about__motto-author{
     color:var(--gray5);
+
+    @include respond-below(sm){
+        font-size: var(--text-sm);
+    }
 }
 
 //- About Bottom Section

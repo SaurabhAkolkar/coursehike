@@ -231,7 +231,7 @@
                 <div class="col-12 px-0 la-anim__wrap">
                   <div class="la-empty__courses d-md-flex justify-content-between align-items-center la-anim__stagger-item">
                         <div class="la-empty__inner">
-                            <h6 class="la-empty__course-title la-anim__stagger-item">No Classes Found.</h6>
+                            <h6 class="la-empty__course-title mb-0 la-anim__stagger-item">No Classes Found.</h6>
                         </div>
                         <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
                             <a href="{{Url('/browse/classes')}}" class="la-empty__browse">

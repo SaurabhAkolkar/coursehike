@@ -73,10 +73,10 @@ a.la-bcreator__back-link{
 .la-bcreator__tag{
 	font-weight:var(--font-light);
 	color:var(--gray2);
-	font-size: var(--text-2xl);
+	font-size: var(--text-xl);
 
 	@include respond-below(md){
-		font-size: var(--text-xl);
+		font-size: var(--text-lg);
 		margin-bottom:var(--size-14);
 		padding-top:var(--size-4);
 	}
@@ -103,12 +103,12 @@ a.la-bcreator__back-link{
 .la-bcreator__left-title{
 	font-family:var(--body-font);
 	font-weight:var(--font-medium);
-	font-size: var(--text-3xl);
+	font-size: var(--text-2xl);
 	color:var(--white);
 
 	@include respond-below(md){
 		color:var(--gray6);
-		font-size: var(--text-2xl);
+		font-size: var(--text-xl);
 	}
 }
 .la-bcreator__left-para{
@@ -192,19 +192,23 @@ section.la-start-creating{
 		font-family: var(--body-font);
 		margin-left:65px;
 
-		@include respond-below(sm){
+		@include respond-below(md){
 			margin-left:40px;
 		}
 
 		.la-vicon__title{
 			font-size: var(--text-2xl);
 
-			@include respond-below(sm){
+			@include respond-below(md){
 				font-size:var(--text-xl);
 			}
 		}
 		.la-vicon__desc{
 			font-size: var(--text-md);
+
+			@include respond-below(md){
+				font-size: var(--text-sm);
+			}
 		}
 	}
 	.la-vicon__link{
@@ -254,7 +258,7 @@ section.la-start-creating{
 .la-bcreator__calc-itm{
 	font-family:var(--head-font);
 	color:var(--gray4);
-	font-weight: var(--font-semibold);
+	font-weight: var(--font-medium);
 
 	@include respond-below(sm){
 		margin:0 var(--size-7);
@@ -306,7 +310,7 @@ section.la-bcreator-reach-stats{
 .la-bcreator__stats-desc{
 	font-family:var(--head-font);
 	font-size: var(--text-lg);
-	font-weight: var(--font-bold);
+	font-weight: var(--font-semibold);
 	color: var(--gray7);
 }
 .la-bcreator__stats-btn{
@@ -343,15 +347,21 @@ section.la-bcreator--benefits{
 	border-radius:10px;
 	margin-top:-95px;
 	height:300px;
+	padding:var(--size-4) var(--size-6);
 
 	&:hover{
 		background-color:#ffffff;
 	}
-
 	@include respond-below(md){
-		margin:-40px 0 70px 0;
+		margin:-45px 0 70px 0;
 		height:300px;
+		padding:var(--size-4) var(--size-8);
 	}
+	@include respond-above(lg){
+		padding:var(--size-4) var(--size-10);
+	}
+
+	
 }
 .la-bcreator__benefits-icon{
 	font-size: 90px;
@@ -360,7 +370,7 @@ section.la-bcreator--benefits{
 .la-bcreator__benefits-title{
 	font-family: var(--head-font);
 	font-size: var(--text-2xl);
-	font-weight: var(--font-bold);
+	font-weight: var(--font-semibold);
 	color: var(--gray7);
 }
 .la-bcreator__benefits-para{
@@ -391,7 +401,7 @@ section.la-bgcreator--ad-banner{
 			font-size: var(--text-3xl);
 
 			@include respond-below(md){
-				font-size: var(--text-2xl);
+				font-size: var(--text-xl);
 			}
 		}
 		.la-arrow-link{
@@ -448,7 +458,7 @@ section.la-bgcreator--faq{
 	padding-bottom: var(--size-6);
 
 	@include respond-below(md){
-		font-size: var(--text-4xl);
+		font-size: var(--text-3xl);
 	}
 }
 .la-bgcreator__panel-head {

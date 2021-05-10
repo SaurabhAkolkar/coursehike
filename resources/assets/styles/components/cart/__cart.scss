@@ -70,6 +70,7 @@
                         border: 1px solid var(--gray4);
                         border-radius: 10px 0px 0px 10px;
                         padding: var(--size-2) var(--size-3);
+                        width: 100%;
                     }
                     &input::-webkit-input-placeholder{
                         font-size: var(--text-sm);
@@ -80,9 +81,9 @@
                         border: 2px solid var(--app-indigo-1);
                         border-radius: 0px 10px 10px 0px;
                         font-size: var(--text-sm);
-                        font-weight: var(--font-bold);
+                        font-weight: var(--font-semibold);
                         text-transform: uppercase;
-                        letter-spacing: 2.8px;
+                        letter-spacing: 2.5px;
                         color: var(--gray6);
                         background-color: var(--white);
                         padding: 9px var(--size-4);

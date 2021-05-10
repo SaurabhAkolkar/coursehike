@@ -431,7 +431,7 @@
                       @endforeach 
                       @if(count($requests) == 0)
                         <div class="text-center py-12">
-                            <h4 style="color:var(--gray8)">No Requests Found</h4>
+                            <h4 style="color:var(--gray8);font-weight:var(--font-medium);">No Requests Found</h4>
                         </div>
                       @endif
                   </ul>

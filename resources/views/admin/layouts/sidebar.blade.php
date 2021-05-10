@@ -29,7 +29,7 @@
             <a href="{{route('user.index')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Users') }}</span></a></li> --}}
 
           <li class="{{ Nav::isRoute('user.index') }} {{ Nav::isRoute('user.ontrial') }} {{Nav::isRoute('user.subscribed')}} {{Nav::isRoute('user.learners')}} {{ Nav::isRoute('create.subscription') }} {{ Nav::isRoute('store.user.course') }} {{ Nav::isRoute('user.add') }} {{ Nav::isRoute('user.edit') }} treeview">
-            <a href="#">
+            <a href="#" class="d-flex align-items-center">
               <i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Users') }}</span>
               <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>

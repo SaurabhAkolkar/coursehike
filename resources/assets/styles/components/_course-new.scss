@@ -98,7 +98,8 @@
                 overflow: hidden;
                 z-index:2;
                 border-radius:10px 10px 0 0;-webkit-border-radius:10px 10px 0 0;-moz-border-radius:10px 10px 0 0;
-                
+                transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;
+                                
                 @media (max-width:1399px) and (min-width:1200px){
                     height:420px;
                 }
@@ -106,7 +107,8 @@
                 &:hover{
                     border-radius:10px 10px 0 0;-webkit-border-radius:10px 10px 0 0;-moz-border-radius:10px 10px 0 0;
                     background:rgba(0,0,0,0.08);
-
+                    transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;
+                
                     .la-lclass__imgwrap img{
                         background:rgba(0,0,0,1);
                     }                    
@@ -269,18 +271,18 @@
                 color: var(--app-indigo-1);
             }
             &title{
-                font-weight: var(--font-medium);
+                font-weight: var(--font-semibold);
                 color:var(--gray6);
-                font-size: var(--text-lg);
+                font-size: var(--text-md);
                 overflow: hidden;
                 text-overflow: ellipsis;
                 display: -webkit-box;
                 -webkit-line-clamp: 2; 
                 -webkit-box-orient: vertical;
 
-                @media (max-width:1399px) and (min-width:1200px){
+                /*@media (max-width:1399px) and (min-width:1200px){
                     font-size: var(--text-md);
-                }
+                }*/
             }
             &progress{
                 border-radius:0 !important;

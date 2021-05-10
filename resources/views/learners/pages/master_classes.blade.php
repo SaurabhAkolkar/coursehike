@@ -20,6 +20,8 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Master Classes | Learn Tattoo & Graphic Design | LILA "}</script>
 @endsection
 
+<link rel="icon" type="image/icon" href="{{ asset('images/favicon/favicon.svg') }}"> 
+
 <!-- Playlist Alert Message-->
 @if(session('message'))
 <div class="la-btn__alert position-relative">
@@ -142,7 +144,7 @@
                 <div class="col-12 la-anim__stagger-item ">           
                      
                         @if(count($master_classes) == 0)
-                        <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mx-5 mt-0 mt-md-6">
+                        <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center ">
                             <div class="la-empty__inner">
                                 <h6 class="col la-empty__course-title text-xl la-anim__stagger-item">No master classes Found! </h6>
                             </div>

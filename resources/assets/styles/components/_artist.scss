@@ -98,7 +98,7 @@
                 }
 
                 @include respond-above(lg) {
-                    font-size: 8vh;
+                    font-size: 7vh;
                 }
 
                 &:before {
@@ -147,7 +147,7 @@
                         -webkit-box-orient: vertical;
 
                         @include respond-above(md) {
-                            font-size: var(--text-2xl);
+                            font-size: var(--text-xl);
                         }
                     }
                 }

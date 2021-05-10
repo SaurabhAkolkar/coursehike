@@ -22,7 +22,7 @@
 <!-- Main Section: Start-->
 <section class="la-cdashboard-main">
     <!-- Section: Start-->
-    <section class="la-cdashboard py-md-5">
+    <section class="la-cdashboard pt-md-6 pb-6 pb-md-12">
       <div class="la-cdashboard__inner pt-5">
         <div class="container-fluid pt-0 pt-sm-3">
           <div class="row d-flex flex-row justify-content-between">
@@ -36,7 +36,7 @@
 
               <div class="la-course__last-view la-lastview-card d-flex flex-column justify-content-end">
                 <div class="la-anim__wrap">
-                  <h5 class="la-course__tile-title text-xl mb-4 la-anim__stagger-item">Last Viewed</h5>
+                  <h5 class="la-course__tile-title text-lg mb-4 la-anim__stagger-item">Last Viewed</h5>
                 </div>
                 <div class="la-course__tile-card d-block">
                   <div class="row no-gutters la-anim__wrap">
@@ -67,7 +67,6 @@
                   </div>
                 </div>
               </div>
-
             </div>
 
             <div class="col-12 col-md-6 col-lg-4  h-100 la-anim__wrap">
@@ -75,7 +74,7 @@
                 <div class="card la-course__ad-card la-anim__stagger-item--x">
                   <div class="card-body la-course__ad-body my-0 position-relative">
                     <p class="la-course__ad-tag leading-snug text-sm pt-4 la-anim__stagger-item">Got something different? <br/> Let’s share it with the world!</p>
-                    <h2 class="la-course__ad-title text-3xl text-md-4xl la-anim__stagger-item--x">become an <br><span>Alien Mentor, today!</span></h2>
+                    <h2 class="la-course__ad-title text-2xl text-md-3xl la-anim__stagger-item--x">become an <br><span>Alien Mentor, today!</span></h2>
                   
                     <div class="la-course__ad-learnmore text-right mr-md-n5 la-anim__stagger-item--x">
                       <a class="la-course__ad-learn text-uppercase " href="/become-mentor">Learn More
@@ -189,18 +188,20 @@
     </section> --}}
     <!-- Section: End-->
     <!-- Section: Start-->
-    <section class="la-pcourses-section la-hp__inner ">
+    <section class="la-pcourses-section la-hp__inner">
       <div class="container-fluid">
         <div class="row">  
           <div class="col-12 la-anim__wrap">
-            <h5 class="la-pcourses__title  text-2xl text-md-3xl mb-8 la-anim__stagger-item">Pending Courses</h5>
+            <h5 class="la-pcourses__title  text-2xl text-md-3xl mb-6 mb-md-8 la-anim__stagger-item">Pending Courses</h5>
             <div class="row">
+              
               @if(count($pendingCourse) > 0)         
                 @foreach($pendingCourse as $c)               
                   <x-handpicked :hpImg="$c->courses->preview_image" :hpCourse="$c->courses->title" :hpCname="$c->user->fullName" :hpUrl="'/learn/course/'.$c->courses->id.'/'.$c->courses->slug" />
                 @endforeach
+
               @else
-                  <div class="col-12">
+                  <div class="col-12 px-0">
                     <div class="la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
                       <div class="col la-empty__inner la-anim__stagger-item">
                           <h6 class="la-empty__course-title">No Courses</h6>
@@ -228,7 +229,7 @@
         <div class="row">
           <div class="col-12">
             <div class="la-hp__inner la-anim__wrap">
-              <h5 class="text-2xl text-md-3xl la-hp__title mb-8 la-anim__stagger-item">Hand Picked for you! </h5>
+              <h5 class="text-2xl text-md-3xl la-hp__title mb-6 mb-md-8 la-anim__stagger-item">Hand Picked for you! </h5>
               <div class="la-hp__data">
                 <div class="row">
                     <!-- Hand Picked: Start -->
@@ -272,7 +273,7 @@
         <div class="container-fluid">
             <div class="row ">
               <div class="col-12 la-anim__wrap">
-                <h5 class="text-2xl text-md-3xl mb-8 px-0 la-anim__stagger-item ">Alien Mentors</h5>
+                <h5 class="text-2xl text-md-3xl mb-6 mb-md-8 px-0 la-anim__stagger-item ">Alien Mentors</h5>
               </div>
             </div>
           

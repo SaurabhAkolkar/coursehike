@@ -158,15 +158,15 @@
       <div class="row">
         <!-- Column: Start-->
         <div class="col-md-5 col-lg-5 py-5 py-sm-2 px-5 px-sm-2 d-flex flex-row align-items-center la-anim__wrap">
-          <div class="mb-8 la-anim__stagger-item"><span class="la-vdotted__lft-tag text-2xl text-md-3xl">Easy steps to start</span>
-            <h2 class="la-vdotted__lft-title text-4xl text-md-5xl la-anim__stagger-item">Sharing Values</h2><br>
+          <div class="mb-8 la-anim__stagger-item"><span class="la-vdotted__lft-tag text-xl text-md-2xl">Easy steps to start</span>
+            <h2 class="la-vdotted__lft-title text-4xl text-lg-5xl la-anim__stagger-item">Sharing Values</h2><br>
             <a class="la-btn__app text-uppercase la-anim__stagger-item" role="button" href="/creator-signup">Start Teaching</a>
           </div>
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
         <div class="col-md-6 col-lg-6 px-4 px-sm-0 py-8 py-sm-0 ml-6 la-vdot__class ">
-          <div class="la-vdotted__bar position-relative px-4">
+          <div class="la-vdotted__bar position-relative pl-4">
             <div class="la-vicon d-flex align-items-start la-anim__wrap">
               <div class="la-icon__vline la-anim__stagger-item"><span class="la-icon la-icon--7xl icon-video-unfilled position-absolute "></span></div>
               <div class="la-vicon__text">
@@ -214,7 +214,7 @@
         <!-- Column: Start-->
         <div class="col-sm-12" id="how_you_earn">
           <div class="la-earn__blog la-anim__wrap">
-            <h3 class="la-earn__blog-title la-anim__stagger-item text-4xl text-md-5xl" >How you earn?</h3>
+            <h3 class="la-earn__blog-title la-anim__stagger-item text-3xl text-lg-5xl" >How you earn?</h3>
             <img class="img-fluid mx-auto d-block la-anim__stagger-item--x lazy" src="../images/learners/creator/earn.svg" data-src="../images/learners/creator/earn.svg" alt="How you Earn?" />
           </div>
         </div>
@@ -229,7 +229,7 @@
           <div class="col-lg-8 offset-lg-2 la-anim__wrap py-8">
               <h6 class="la-bcreator__calc-title text-center text-xl text-md-2xl pb-md-6 la-anim__stagger-item">How do we calculate your earnings?</h6>
               
-              <div class="pt-14 pt-md-8 la-bcreator__calc-inner d-flex justify-content-between align-items-start flex-wrap">
+              <div class="pt-10 pt-md-8 la-bcreator__calc-inner d-flex justify-content-between align-items-start flex-wrap">
                   <div class="la-bcreator__calc-itm  la-anim__stagger-item--x">
                       <div class="mb-2">Per Play Cost<sub class="text-4xl">*</sub></div>
                       <div class="text-center text-lg" style="color:#1EC812;">$ xxx</div>
@@ -333,34 +333,28 @@
         <!-- Column: End-->
         <!-- Column: Start-->
         <div class="col-md-6 col-lg-4 text-center la-anim__wrap">
-          <div class="la-bcreator__benefits-card p-5 p-sm-3 py-lg-3 px-lg-12 la-anim__stagger-item--x">
-            <div class="p-2">
+          <div class="la-bcreator__benefits-card la-anim__stagger-item--x">
               <span class="la-bcreator__benefits-icon la-icon la-icon--7xl icon-earnings-image ml-md-n4 la-anim__stagger-item"></span>
-              <h5 class="la-bcreator__benefits-title pt-3 pt-sm-5 la-anim__stagger-item">Earnings</h5>
+              <h5 class="la-bcreator__benefits-title pt-3 pt-sm-5 mb-0 la-anim__stagger-item">Earnings</h5>
               <p class="la-bcreator__benefits-para pt-3 la-anim__stagger-item">Make a living, earn values all while sharing with the world, what you are best at</p>
-            </div>
           </div>
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
         <div class="col-md-6 col-lg-4 text-center la-anim__wrap">
-          <div class="la-bcreator__benefits-card p-5 p-sm-1 py-lg-3 px-lg-10 la-anim__stagger-item--x">
-            <div class="p-2">
+          <div class="la-bcreator__benefits-card  la-anim__stagger-item--x">
               <span class="la-bcreator__benefits-icon la-icon la-icon--8xl icon-recognition-image ml-md-n4 mt-md-1 la-anim__stagger-item"></span>
-              <h5 class="la-bcreator__benefits-title  pt-3 pt-sm-5 la-anim__stagger-item">Recognition</h5>
+              <h5 class="la-bcreator__benefits-title  pt-3 pt-sm-5 mb-0  la-anim__stagger-item">Recognition</h5>
               <p class="la-bcreator__benefits-para pt-3 la-anim__stagger-item">With students from all parts of the world, become a household name in the art of your expertise</p>
-            </div>
           </div>
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
         <div class="col-md-12 col-lg-4 text-center la-anim__wrap">
-          <div class="la-bcreator__benefits-card p-5 p-sm-3 py-lg-3 px-lg-14 la-anim__stagger-item--x">
-            <div class="p-2">
+          <div class="la-bcreator__benefits-card  la-anim__stagger-item--x">
               <span class="la-bcreator__benefits-icon la-icon la-icon--8xl icon-inspire-image ml-md-n4 la-anim__stagger-item"></span>
-              <h5 class="la-bcreator__benefits-title  pt-3 pt-sm-5 la-anim__stagger-item">Inspire Students</h5>
+              <h5 class="la-bcreator__benefits-title  pt-3 pt-sm-5 mb-0 la-anim__stagger-item">Inspire Students</h5>
               <p class="la-bcreator__benefits-para pt-3 la-anim__stagger-item">Help people realize their potential and bring out the true artist in them</p>
-            </div>
           </div>
         </div>
         <!-- Column: End-->
@@ -376,7 +370,7 @@
         <!-- Column: Start-->
         <div class="col-12 la-anim__stagger-item">
           <div class="la-bgcreator__ad-content text-center text-white" style="background:url('../images/learners/creator/become-cta.jpg') no-repeat center rgba(0, 0, 0, 0.65); background-size:cover;">
-            <div class="">
+            <div class="col-12 px-0 px-md-8">
               <p class="la-bgcreator__ad-para la-anim__stagger-item">Broaden your reach! Help students hone their skills through your courses</p>
               
               <div class="pt-10">
@@ -401,7 +395,7 @@
         <!-- Column: Start-->
         <div class="col-12 px-3 px-sm-0 la-anim__wrap">
           <div class="panel-group" id="accordion">
-            <h4 class="la-bgcreator__faq-title la-anim__stagger-item">FAQ&#39;s</h4>
+            <h4 class="la-bgcreator__faq-title la-anim__stagger-item">FAQs</h4>
 
               @foreach($faqs->take(3) as $f)
                 <div class="panel panel-default la-bgcreator__faq-panel la-anim__stagger-item">

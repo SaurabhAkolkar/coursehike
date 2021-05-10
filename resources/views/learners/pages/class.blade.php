@@ -328,7 +328,7 @@ $course_id = $course->id;
                   @if(count($course->resources) == 0)
                       <div class=" la-anim__wrap text-center">
                           <div class="la-empty__inner mb-0 la-anim__stagger-item">
-                              <h6 class="la-empty__course-title text-2xl py-8" style="color:var(--gray8);">No Resources available for this Class.</h6>
+                              <h6 class="la-empty__course-title text-2xl py-8" style="color:var(--gray8);font-weight:var(--font-medium);">No Resources available for this Class.</h6>
                             </div>
                       </div>
                   @else
@@ -747,7 +747,7 @@ $course_id = $course->id;
             @if(strlen($details) != 0)
               <div class="la-creator__para mb-6 la-anim__stagger-item--x">{{ substr($details, 0, 200) }}...</div>
                 <div class="la-creator__content-btn la-anim__stagger-item--x  ">
-                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold ">
+                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--medium ">
                     <a href="/mentor/{{$course->user->id}}">read about
                     <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow "></span></a>
                   </div>
@@ -766,7 +766,7 @@ $course_id = $course->id;
   <section class="la-section__small">
     <div class="la-section__inner">
       <div class="container-fluid la-anim__wrap">
-        <h2 class="la-section__title text-2xl text-md-4xl mb-9 la-anim__stagger-item">Related Classes</h2>
+        <h2 class="la-section__title text-3xl text-md-4xl mb-10 la-anim__stagger-item">Related Classes</h2>
                 
           @if(count($related_courses) == 0)
 

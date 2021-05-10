@@ -42,8 +42,7 @@
               <div class="la-gcbanner__inner">
                 <h1 class="la-gcbanner__title m-0 leading-none la-anim__stagger-item">Your Knowledge. </h1>
                 <h2 class="la-gcbanner__tag la-anim__stagger-item"> Our Expertise.</h2>
-                <p class="d-none d-md-block la-gcbanner__para mt-md-6 mb-md-14 la-anim__stagger-item">Get guidance to build exceptional coursework,<br/> the way you need!</p>
-                <p class="d-block d-md-none la-gcbanner__para mt-2 mb-12 la-anim__stagger-item">Get guidance to build exceptional coursework, the way you need!</p>
+                <p class="la-gcbanner__para mt-6  mb-14 la-anim__stagger-item">Get guidance to build exceptional coursework,<br class="d-none d-md-block"/> the way you need!</p>
                 
                 <a class="la-btn__app text-uppercase la-anim__stagger-item" role="button" href="/creator-signup">Get Started</a>
               </div>
@@ -177,7 +176,7 @@
         <!-- Column: Start-->
         <div class="col-12  la-anim__stagger-item">
           <div class="la-bgcreator__ad-content text-center text-white" style="background:url('../images/learners/creator/guided-cta.jpg') no-repeat center rgba(0, 0, 0, 0.65); background-size:cover;">
-            <div class="">
+            <div class="col-12 px-0 px-md-8">
               <p class="la-bgcreator__ad-para la-anim__stagger-item mb-8 mb-md-14">Ready to share your Creations?</p>
               <a class="la-btn__app text-white la-anim__stagger-item" role="button" href="/creator-signup">Get Started</a>
             </div>
@@ -210,7 +209,7 @@
         <!-- Column: Start-->
         <div class="col-12 px-3 px-sm-0 la-anim__wrap">
           <div class="panel-group" id="accordion">
-            <h4 class="la-bgcreator__faq-title">FAQ&#39;s</h4>
+            <h4 class="la-bgcreator__faq-title">FAQs</h4>
 
             @foreach($faqs->take(3) as $f)
               <div class="panel panel-default la-bgcreator__faq-panel la-anim__stagger-item">
