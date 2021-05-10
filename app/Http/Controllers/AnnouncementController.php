@@ -220,7 +220,7 @@ class AnnouncementController extends Controller
      */
     public function destroy($id)
     {
-        Announcement::where('id',$id)->delete();
+        LearnerAnnouncement::where('id',$id)->delete();
         return redirect()->back();
     }
 
