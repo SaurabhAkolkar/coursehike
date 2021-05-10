@@ -211,7 +211,7 @@
                 @include respond-below(md){
                     width:60px !important;
                     height:60px !important;
-                    margin:var(--size-base) 0;
+                    //-margin:var(--size-base) 0;
                 }
 
                 img{
