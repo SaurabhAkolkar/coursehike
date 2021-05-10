@@ -159,11 +159,10 @@ class AnnouncementController extends Controller
 
         if ($file = $request->file('preview_image')){
 
-            $exists = Storage::exists(config('path.announcement.img').$annou->preview_video);
+           // $exists = Storage::exists(config('path.announcement.img').$annou->preview_image);
+            if ($annou->preview_image){
 
-            if ($exists){
-
-                Storage::delete(config('path.announcement.img').$annou->preview_video);
+                Storage::delete(config('path.announcement.img').$annou->preview_image);
 
             }
             $file_name = basename(Storage::putFile(config('path.announcement.img'), $file ));

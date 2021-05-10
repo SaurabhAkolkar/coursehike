@@ -15,7 +15,7 @@ return array(
     'profile' => 'img/userprofile/',
     'firstsection' => 'img/firstsection/',
     'announcement'=>[
-        'img'=>'images/announcement/',
+        'img'=>'img/announcement/',
         'preview_video'=>'assets/video/announcement/'
     ],
     'firstsection_video' => 'assets/video/first_section/',

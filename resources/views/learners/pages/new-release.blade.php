@@ -39,7 +39,7 @@
 
                   @if($release->layout == 1)
                         <x-new-update
-                              :img="asset('images/announcement/'.$release->preview_image)"
+                              :img="$release->previewImage"
                               :title="$release->title"
                               :timestamp="$release->created_at"
                               :desc="$release->short_description.' '.$release->long_description"
@@ -59,7 +59,7 @@
                             :title="$release->title"
                             :timestamp="$release->created_at"
                             :about="$release->short_description"
-                            :img="asset('images/announcement/'.$release->preview_image)"
+                            :img="$release->preview_image"
                             :desc="$release->long_description"
                             :eventId="$release->id"
 

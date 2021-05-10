@@ -20,13 +20,13 @@ if(Auth::check()){
     $last_annoucement_check = Auth::user()->created_at;
   }
 
- 
+
   $new_announcements = $announcements->where('updated_at','>=',$last_annoucement_check);
   $old_anno = $announcements->where('updated_at','<',$last_annoucement_check);
 
 
 }
-  
+
 
 
 
@@ -79,7 +79,7 @@ if(Auth::check()){
                 $now = \Carbon\Carbon::now();
                 $difference = ($created->diff($now)->days < 1)
                     ? 'today'
-                    : 'in '.$now->diffInDays($created, false).' days';            
+                    : 'in '.$now->diffInDays($created, false).' days';
               @endphp
               <div class="la-header__menu-item d-none d-lg-block">
                   <a href="/learning-plans" class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header border-yellow" role="button">
@@ -88,7 +88,7 @@ if(Auth::check()){
                   </a>
               </div>
             @elseif(Auth::user()->subscription() && (Auth::user()->subscription()->ended() || Auth::user()->subscription()->canceled()))
-              
+
                 <div class="la-header__menu-item d-none d-lg-block">
                     <a href="/learning-plans" class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header bg-green" role="button">
                         <span class="la-header__menu-cta--text text-sm">Renew Subscription</span>
@@ -97,7 +97,7 @@ if(Auth::check()){
                 </div>
             @endif
           @endif
-<!-- 
+<!--
             <div class="la-header__menu-item d-none d-lg-block">
                 <a class="la-header__menu-link d-inline-flex align-items-center la-header__menu-cta btn btn--primary la-btn__header border-green" role="button">
                     <span class="la-header__menu-cta--text text-sm pr-3">Annual Subscription</span>
@@ -105,10 +105,10 @@ if(Auth::check()){
                 </a>
             </div> -->
             <!-- Header Buttons: End -->
-            
+
             <div class="la-header__menu-item d-none d-xl-block">
               <!-- Global Search: Start-->
-              <div class="la-gsearch  mb-0" > 
+              <div class="la-gsearch  mb-0" >
                   <button class="la-gsearch__submit btn px-0" type="submit" id="header_search">
                     <i class="la-icon la-icon--lg icon icon-search la-header__gsearch-icon"></i>
                   </button>
@@ -125,21 +125,21 @@ if(Auth::check()){
             <div class="la-header__menu-item d-none d-lg-block @if(Request::segment(1) == 'profile') active @endif">
               <a class="la-header__menu-link la-header__menu-icon la-icon icon-profile" href="/profile"></a>
             </div>
-            
+
             <div class="la-header__menu-item dropdown"><a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-notification " id="notificationPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><sup class="la-header__menu-badge badge badge-light" id="notificationBadge">{{count(Auth::user()->unreadNotifications)}}</sup> </a>
               <div class="la-notification__dropdown dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="notificationPanel" style="border:none !important;">
                   <ul class="card la-notification__card">
                     <!-- Notification Panel: Start -->
-    
+
                     @foreach (Auth::user()->unreadNotifications as $notification)
-                     
+
                       <x-notification  :img="$notification->data['image']" :name="$notification->data['id']" :comment="$notification->data['data']" :timestamp="Carbon::parse($notification->created_at)->format('d-m-Y')" />
 
-                    @endforeach 
+                    @endforeach
                     @if(count(Auth::user()->unreadNotifications) == 0)
                       <div class="d-flex justify-content-center align-items-center my-auto">
                         <div class="text-xl" style="color:var(--gray8);font-weight:var(--font-medium)">No Notifications Found</div>
-                      </div>                                                   
+                      </div>
                     @endif
 
                     <!-- Notification Panel: End -->
@@ -149,9 +149,9 @@ if(Auth::check()){
                 </a>
               </div>
             </div>
-            
+
             <div class="la-header__menu-item dropdown d-none d-lg-block">
-           
+
             <a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-announcement" onclick="markReleaseRead()" id="announcementPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <sup class="la-header__menu-badge badge badge-light" id="notificationBadgeRelease">{{count($new_announcements)}}</sup></a>
               <div class="la-notification__dropdown dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="announcementPanel" style="border:none;">
                 <div class="card la-announcement__card">
@@ -162,59 +162,45 @@ if(Auth::check()){
                     </a>
                   </div>
                       <!-- Announcements Panel: Start -->
-                      
+
                        @foreach ($new_announcements as $anno)
-                         
+
                               @php
-                                
-                                  if($anno->preview_image == "")
-                                  {
-                                    $anno->preview_image = "https://picsum.photos/50";
-                                  }else{
-                                    $anno->preview_image = asset('/images/announcement/'.$anno->preview_image);
-                                  }
-                                 
+
                                   $timestamp = $anno->created_at->diffInDays(Carbon::now());
                                   if($timestamp > 0){
                                     $timestamp = $timestamp.' Days Ago';
                                   }else{
                                     $timestamp = 'Today';
-                                  }                      
+                                  }
                               @endphp
-                            
+
                             <x-announcement :url="$anno->id" :img="$anno->preview_image" :event="$anno->title" :timestamp="$timestamp" />
-                 
-                      @endforeach 
+
+                      @endforeach
 
                         @foreach ($old_anno as $anno)
-                         
+
                               @php
-                                
-                                  if($anno->preview_image == "")
-                                  {
-                                    $anno->preview_image = "https://picsum.photos/50";
-                                  }else{
-                                    $anno->preview_image = asset('/images/announcement/'.$anno->preview_image);
-                                  }
-                                 
+
                                   $timestamp = $anno->created_at->diffInDays(Carbon::now());
                                   if($timestamp > 0){
                                     $timestamp = $timestamp.' Days Ago';
                                   }else{
                                     $timestamp = 'Today';
-                                  }                      
+                                  }
                               @endphp
-                            
+
                             <x-announcement :url="$anno->id" :img="$anno->preview_image" :event="$anno->title" :timestamp="$timestamp" />
-                 
-                      @endforeach     
+
+                      @endforeach
 
                       @if(count($old_anno) == 0 && count($old_anno) == 0)
                       <div class="d-flex justify-content-center align-items-center my-auto">
                         <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-medium)">No New Releases Found</div>
                       </div>
                       @endif
-                      <!-- Announcements Panel: End -->          
+                      <!-- Announcements Panel: End -->
                 </div>
               </div>
             </div>
@@ -222,7 +208,7 @@ if(Auth::check()){
             <div class="la-header__menu-item ">
               @php
                   $cart = App\Cart::with('cartItems')->where(['user_id' => Auth::User()->id, 'status' => 1])->get();
-                                
+
               @endphp
               <a class="la-header__menu-link la-header__menu-icon la-icon icon-cart position-relative @if(Request::segment(1) == 'cart') active @endif" href="/cart"><sup class="la-header__menu-badge badge badge-light" >{{count($cart)}}</sup></a>
             </div>
@@ -256,7 +242,7 @@ if(Auth::check()){
   </header>
    <!-- Header: End-->
 
-@else 
+@else
 
   <!-- Header: Start-->
   <header class="la-header">
@@ -265,7 +251,7 @@ if(Auth::check()){
         <a class="la-header__brandwrap" href="/">
           <img class="la-header__brand" src="/images/learners/logo.svg" alt="Lila" />
         </a>
-        
+
         <!-- header nav links -->
         <x-login />
 
@@ -282,18 +268,18 @@ if(Auth::check()){
 
           <div class="la-header__menu-item d-none d-xl-block">
               <!-- Global Search: Start-->
-              <div class="la-gsearch mt-1 mb-0" > 
+              <div class="la-gsearch mt-1 mb-0" >
                   <button class="la-gsearch__submit btn px-0" type="submit" id="header_search">
                     <i class="la-icon la-icon--lg icon icon-search la-header__gsearch-icon"></i>
                   </button>
               </div>
               <!-- Global Search: End-->
           </div>
-          
+
           <div class="la-header__menu-item">
             <a class="la-header__nav-link la-header__nav-link--login" href="/login">Login</a>
           </div>
-          
+
           <div class="la-header__menu-item dropdown">
             <a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-announcement" id="announcementPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
             <div class="la-notification__dropdown  dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="announcementPanel" style="border:none !important;">
@@ -305,40 +291,32 @@ if(Auth::check()){
                   </a>
                 </div>
                     <!-- Announcements Panel: Start -->
-                   
+
 
                       @foreach ($announcements as $anno)
-                                              
+
                       @php
-                        
-                          if($anno->preview_image == "")
-                          {
-                            $anno->preview_image = "https://picsum.photos/50";
-                          }else{
-                            $anno->preview_image = asset('/images/announcement/'.$anno->preview_image);
-                          }
-                        
                           $timestamp = $anno->created_at->diffInDays(Carbon::now());
                           if($timestamp > 0){
                             $timestamp = $timestamp.' Days Ago';
                           }else{
                             $timestamp = 'Today';
-                          }                      
+                          }
                       @endphp
 
-                      <x-announcement :url="$anno->id" :img="$anno->preview_image" :event="$anno->title" :timestamp="$timestamp" />
+                      <x-announcement :url="$anno->id" :img="$anno->previewImage" :event="$anno->title" :timestamp="$timestamp" />
 
-                      @endforeach   
+                      @endforeach
                       @if(count($announcements) == 0)
                       <div class="d-flex justify-content-center align-items-center my-auto">
                         <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-semibold)">No New Releases Found</div>
-                      </div>                                                   
+                      </div>
                     @endif
 
-                    <!-- Announcements Panel: End -->          
+                    <!-- Announcements Panel: End -->
               </div>
             </div>
-          </div> 
+          </div>
 
           <div class="d-none d-md-block position-relative la-header__menu-item">
             <a href="mailto:lila@learnitlikealiens.com" title="lila@learnitlikealiens.com"><span class="la-icon la-icon--xl icon-mail-id"></span></a>
@@ -356,14 +334,14 @@ if(Auth::check()){
               <a class="dropdown-item la-header__dropdown-item text-sm @if(Request::segment(1) == 'about') active @endif" href="/about">About Us</a>
               <a class="dropdown-item la-header__dropdown-item text-sm @if(Request::segment(1) == 'contact') active @endif" href="/contact">Contact Us</a>
             </div>
-          </div>          
+          </div>
 
           <div class="d-lg-none position-relative la-header__menu-item la-header__sidemenu-btn">
             <span class="la-icon la-icon--xl icon-hamburger-menu"></span>
           </div>
 
         </div>
-        
+
       </div>
     </div>
   </header>
