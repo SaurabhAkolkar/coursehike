@@ -48,30 +48,30 @@ class InvoicePaymentSucceededJob implements ShouldQueue
 		// $customer = $this->stripe->customers()->find($customer_id);
 
         $subscription_id = $invoice['subscription'];
-        
+
         $subscription = $this->stripe->subscriptions()->find($customer_id, $subscription_id);
 
 		$subscription_start = $subscription['current_period_start'];
 		$subscription_end = $subscription['current_period_end'];
         $subscription_status = $subscription['status']; //active
-        
+
         $invoice_charge = $invoice['charge']; // charge_id
         $payment_intent_id = $invoice['payment_intent']; // payment_intent_id
         $invoice_amount_paid = $invoice['amount_paid'];
         $currency = strtoupper($invoice['currency']);
-        
+
 		$invoice_paid = $invoice['paid']; // true
-        $invoice_status = $invoice['status']; //paid        
-        
+        $invoice_status = $invoice['status']; //paid
+
 
         if($subscription_status == 'active' && $invoice_status == 'paid' && $invoice_paid){
 
             $user = User::where('stripe_id', $customer_id)->first();
             $plan_subscription = $user->subscription();
 
-            $plan_subscription->starts_at = Carbon::createFromTimestamp($subscription_start)->toDateTimeString(); 
-            $plan_subscription->ends_at = Carbon::createFromTimestamp($subscription_end)->toDateTimeString(); 
-            $plan_subscription->trial_ends_at = Carbon::createFromTimestamp($subscription['trial_end'])->toDateTimeString(); 
+            $plan_subscription->starts_at = Carbon::createFromTimestamp($subscription_start)->toDateTimeString();
+            $plan_subscription->ends_at = Carbon::createFromTimestamp($subscription_end)->toDateTimeString();
+            $plan_subscription->trial_ends_at = Carbon::createFromTimestamp($subscription['trial_end'])->toDateTimeString();
             $plan_subscription->save();
 
             $newPlan = $subscription['plan']['id'];
@@ -110,7 +110,7 @@ class InvoicePaymentSucceededJob implements ShouldQueue
             }else{
                 $plan = 'Monthly';
             }
-            
+
             $email_data = [
                 'name' => $user->fullName,
                 'email' => $user->email,
@@ -118,11 +118,11 @@ class InvoicePaymentSucceededJob implements ShouldQueue
                 'currency' => $currency,
                 'amount' => ($invoice_amount_paid/100),
             ];
-            
-            try{    
-                Mail::to($user->email)->cc('sutharv503@gmail.com')->later(now()->addSeconds(5), new UserSubscribed($email_data));                    
+
+            try{
+                Mail::to($user->email)->cc('aliens@learnitlikealiens.com')->later(now()->addSeconds(5), new UserSubscribed($email_data));
             }catch(\Swift_TransportException $e){
-                
+
             }
         }
     }

@@ -59,7 +59,7 @@ class CheckoutChargeSucceededJob implements ShouldQueue
 
         $user_invoice = UserInvoiceDetail::with('user')->where([['id', $client_reference_id],['status', '!=' , 'failed']])->first();
 
-        if($payment_status == 'paid' 
+        if($payment_status == 'paid'
             && $invoice['mode'] == "payment"
             && $user_invoice
             && intval($user_invoice->total * 100) == $amount_total
@@ -104,15 +104,15 @@ class CheckoutChargeSucceededJob implements ShouldQueue
             ];
 
             $user = $user_invoice->user;
-            
+
             $invoice_details = InvoiceDetail::having('invoice_id', '=', $client_reference_id)->get();
             // $invoice_details = InvoiceDetail::having('invoice_id', '=', $client_reference_id)->get()->groupBy('course_id');
-            
+
             foreach($invoice_details as $invoice_items){
                 // foreach($invoice_details as $course_id => $invoice_items){
 
                     // $course = Course::findOrFail($course_id);
-                    
+
                     // $already_puchased = UserPurchasedCourse::firstOrNew( ['course_id'=> $course_id , 'user_id'=> $user_invoice->user_id] );
                     // $already_puchased->order_id = $client_reference_id;
                     // $old_classess = json_decode($already_puchased->class_id);
@@ -125,7 +125,7 @@ class CheckoutChargeSucceededJob implements ShouldQueue
                     // $already_puchased->save();
 
                     // $email_data['course_name'] =  $email_data['course_name'] == '' ? $course->title : $email_data['course_name'].', '.$course->title;
-                    // $email_data['purchase_type'] = $email_data['purchase_type'] == '' ? $invoice_items->first()->purchase_type : $email_data['purchase_type'].', '.$invoice_items->first()->purchase_type; 
+                    // $email_data['purchase_type'] = $email_data['purchase_type'] == '' ? $invoice_items->first()->purchase_type : $email_data['purchase_type'].', '.$invoice_items->first()->purchase_type;
                     // $data = [
                     //     'title' => $course->title,
                     //     'image' => $course->preview_image,
@@ -151,8 +151,8 @@ class CheckoutChargeSucceededJob implements ShouldQueue
                 }
 
                 try{
-                    Mail::to($user->email)->cc('sutharv503@gmail.com')->later(now()->addSeconds(5), new CoursePurchased($email_data));                    
-                }catch(\Swift_TransportException $e){  
+                    Mail::to($user->email)->cc('aliens@learnitlikealiens.com')->later(now()->addSeconds(5), new CoursePurchased($email_data));
+                }catch(\Swift_TransportException $e){
                     header( "refresh:5;url=./" );
                 }
 
@@ -161,6 +161,6 @@ class CheckoutChargeSucceededJob implements ShouldQueue
                     $cart->delete();
                 });
         }
-        
+
     }
 }
