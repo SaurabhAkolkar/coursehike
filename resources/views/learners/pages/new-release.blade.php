@@ -35,15 +35,15 @@
           </div>
 
           <div class="col-12">
-            <div class="la-new__announcements">       
-                
+            <div class="la-new__announcements">
+
                   @if($release->layout == 1)
                         <x-new-update
                               :img="asset('images/announcement/'.$release->preview_image)"
                               :title="$release->title"
                               :timestamp="$release->created_at"
                               :desc="$release->short_description.' '.$release->long_description"
-                              :eventId="$release->id"
+                              :updateId="$release->id"
                           />
                   @elseif($release->layout == 2)
                           <x-app-update
@@ -65,7 +65,7 @@
 
                           />
                   @endif
-                    
+
             </div>
           </div>
 
