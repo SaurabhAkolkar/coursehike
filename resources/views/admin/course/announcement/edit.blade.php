@@ -60,7 +60,7 @@
                             </span>
                           </div>
                           <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="preview_image" id="image" />
-                          <img src="{{$annou->preview_image)}}" alt="" class="@if($annou->preview_image) @else d-none @endif preview-img"/>
+                          <img src="{{$annou->preview_image}}" alt="" class="@if($annou->preview_image) @else d-none @endif preview-img"/>
                       </div>
                     </div>
               </div>
