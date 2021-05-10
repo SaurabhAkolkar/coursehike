@@ -26,7 +26,7 @@ class AnnouncementController extends Controller
     {
         $announcement = LearnerAnnouncement::where('status',1)->get();
         return view('admin.course.announcement.index',compact('announcement'));
-        
+
     }
 
     /**
@@ -57,7 +57,7 @@ class AnnouncementController extends Controller
             'preview_video'=>'mimes:mp4,avi,wmv'
           ]);
 
-  
+
         $input['title'] = $request->announcement_title;
         $input['short_description'] = $request->announcement_short;
         $input['long_description'] = $request->announcement_long;
@@ -65,15 +65,13 @@ class AnnouncementController extends Controller
         $input['layout'] = $request->layouts;
         $input['course_id'] = $request->course_id;
         $input['user_id'] = Auth::user()->id;
-        
+
         if ($file = $request->file('preview_image')) {
 
-            $optimizeImage = Image::make($file);
-            $optimizePath = public_path().'/images/announcement/';
-            $image = time().$file->getClientOriginalName();
-            $optimizeImage->save($optimizePath.$image, 72);
-            $input['preview_image'] = $image;
-          
+            $file_name = basename(Storage::putFile(config('path.announcement.img'), $file ));
+
+            $input['preview_image'] = $file_name;
+
         }
 
         if ($file = $request->file('preview_video')) {
@@ -92,16 +90,16 @@ class AnnouncementController extends Controller
                 ],
                 "requireSignedURLs" => true,
             ]);
-            
+
             if($response->successful()){
                 $res = $response->json();
-              
+
                 $input['stream_video'] = $res['result']['uid'];
             }
 
         }
 
-        $anno = LearnerAnnouncement::create($input);      
+        $anno = LearnerAnnouncement::create($input);
 
         return redirect()->back()->with('success','Announcement Created Successfully');
     }
@@ -139,7 +137,7 @@ class AnnouncementController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {   
+    {
         $request->validate([
             'announcement_title' => 'required',
             'announcement_category' => 'required',
@@ -149,7 +147,7 @@ class AnnouncementController extends Controller
             'preview_image'=>'mimes:jpg,jpeg',
             'preview_video'=>'mimes:mp4,avi,wmv'
           ]);
-  
+
         $input['title'] = $request->announcement_title;
         $input['short_description'] = $request->announcement_short;
         $input['long_description'] = $request->announcement_long;
@@ -157,24 +155,22 @@ class AnnouncementController extends Controller
         $input['layout'] = $request->layouts;
         $input['course_id'] = $request->course_id;
         $input['user_id'] = Auth::user()->id;
-        
+
         $annou = LearnerAnnouncement::find($id);
 
-        if ($file = $request->file('preview_image')) {
+        if ($file = $request->file('preview_image')){
 
-            if($annou->preview_image != null) {
-                $content = @file_get_contents(public_path().'/images/announcement/'.$annou->user_img);
-                if ($content) {
-                  unlink(public_path().'/images/announcement/'.$annou->user_img);
-                }
+            $exists = Storage::exists(config('path.announcement.img').$annou->preview_video);
+
+            if ($exists){
+
+                Storage::delete(config('path.announcement.img').$annou->preview_video);
+
             }
+            $file_name = basename(Storage::putFile(config('path.announcement.img'), $file ));
 
-            $optimizeImage = Image::make($file);
-            $optimizePath = public_path().'/images/announcement/';
-            $image = time().$file->getClientOriginalName();
-            $optimizeImage->save($optimizePath.$image, 72);
-            $input['preview_image'] = $image;
-          
+            $input['preview_image'] = $file_name;
+
         }
 
         if ($file = $request->file('preview_video')) {
@@ -204,10 +200,10 @@ class AnnouncementController extends Controller
                 ],
                 "requireSignedURLs" => true,
             ]);
-            
+
             if($response->successful()){
                 $res = $response->json();
-              
+
                 $input['stream_video'] = $res['result']['uid'];
             }
 
