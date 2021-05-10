@@ -9,7 +9,7 @@
         </a>
       </div>
       
-      <div class='filters pt-6 mx-4'>
+      {{-- <div class='filters pt-6 mx-4'>
              
         <div class='filter-container row' >
             <input autocomplete='off' class='filter col p-1 mb-3' name='Title' placeholder='Title'  data-col="Title" />
@@ -21,15 +21,15 @@
 
         </div>
        
-        {{-- <div class='filter-container'>
-        </div>
         <div class='filter-container'>
         </div>
         <div class='filter-container'>
-        </div> --}}
+        </div>
+        <div class='filter-container'>
+        </div>
 
         <div class='clearfix'></div>
-      </div>
+      </div> --}}
 
       <!-- /.box-header -->
         <div class="box-body">

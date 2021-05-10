@@ -296,7 +296,7 @@
             </div>
           </div>
 
-          <div class="box box-primary">
+          {{-- <div class="box box-primary">
             <div class="box-header d-flex align-items-center">
               <h3 class="box-title"> {{ __('adminstaticword.AdditionalVideos') }}</h3>
               <a data-toggle="modal" data-target="#myModalAdditionVideo" href="#" class="btn btn-info btn-sm ml-auto">+  {{ __('adminstaticword.Add') }} {{ __('adminstaticword.AdditionalVideos') }}</a>
@@ -365,7 +365,6 @@
                 </thead>
                 <tbody>
                   <?php $i=0;?>
-                  {{-- {{ dd($subtitles)}} --}}
                   @foreach($additional_videos as $video)
                     <?php $i++;?>
                     <tr>
@@ -389,7 +388,7 @@
                 </tbody> 
               </table>
             </div>
-          </div> 
+          </div>  --}}
 
         </div>
         <!-- SUBTITLE SECTION: END -->
