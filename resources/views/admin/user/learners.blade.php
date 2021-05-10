@@ -13,15 +13,15 @@ use Carbon\Carbon;
         <div class="d-flex justify-content-between align-items-center ml-2">
           <h3 class="la-admin__section-title mb-0">{{ __('adminstaticword.Learners') }}</h3>
         </div>
-       
+
         <!-- /.box-header -->
         <div class="box-body">
             <!--<div class="la-admin__filter-icons text-right" style="position:relative; top:50px;z-index:0;">
               <a href="#" role="button"><span class="la-icon la-icon--3xl icon-sort mr-2" style="color:#000;"></span></a>
-               <a href="#" role="button"><span class="la-icon la-icon--3xl icon-excel mr-2" style="color:#1D6F42"></span></a> 
+               <a href="#" role="button"><span class="la-icon la-icon--3xl icon-excel mr-2" style="color:#1D6F42"></span></a>
             </div>-->
             <div class='filters pt-6 mx-4'>
-             
+
               <div class='filter-container row' >
                   <input autocomplete='off' class='filter col p-1 mb-3' name='Name' placeholder='Name'  data-col="FirstName" />
                   <input autocomplete='off' class='filter col p-1  mb-3' name='Email' placeholder='Email' data-col="Email" />
@@ -30,11 +30,11 @@ use Carbon\Carbon;
                   <input autocomplete='off' class='filter col p-1  mb-3' name='Subscription' placeholder='Subscription' data-col="Subscription"/>
 
               </div>
-            
+
               <div class='clearfix'></div>
             </div>
 
-              
+
             <table id="example1" class=" table table-bordered table-striped js-dynamitable">
                 <thead>
                   <tr>
@@ -51,8 +51,8 @@ use Carbon\Carbon;
                     <th>{{ __('adminstaticword.Edit') }}</th>
                     <th>{{ __('adminstaticword.Delete') }}</th>
                   </tr>
-                </thead> 
-                
+                </thead>
+
                 <tbody>
                   <?php $i=0;?>
 
@@ -83,7 +83,7 @@ use Carbon\Carbon;
                           {{Carbon::parse($user->created_at)->format('d M Y')}}
                         </td>
                         <td class="text-left">
-                          @if(!$user->subscription()) No Subscription @else {{$user->subscription()->plan->name}} @endif 
+                          @if(!$user->subscription()) No Subscription @else {{$user->subscription()->plan->name}} @endif
                         </td>
                         <td class="text-left">
                           <a class="btn btn-info text-capitalize font-weight-normal" href="{{ route('user.subscriptions',$user->id) }}">View</a>
@@ -100,18 +100,18 @@ use Carbon\Carbon;
                             </button>
                           </form>
                         </td>
-                       
+
                         <td>
                           <a class="btn btn-success btn-sm" href="{{ route('user.update',$user->id) }}">
                             <i class="la-icon la-icon--lg icon-edit"></i></a>
                         </td>
-                              
+
                         <td>
                           <form  method="post" action="{{ route('user.delete',$user->id) }}
                             "data-parsley-validate class="form-horizontal form-label-left">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                             
+
                               <button onclick="return confirm('Are you sure you want to delete?')"  type="submit" class="btn btn-danger btn-sm"><i class="la-icon la-icon--lg icon-delete"></i></button>
                             </form>
                         </td>
@@ -135,7 +135,7 @@ use Carbon\Carbon;
 <script src="{{url('js/multifilter.min.js')}}"></script>
 
 <script type='text/javascript'>
- 
+    var DateTableColumn = 7;
   $(document).ready(function() {
 
     $('.filter').multifilter({
@@ -145,9 +145,9 @@ use Carbon\Carbon;
     $('#example1_filter').hide();
 
   });
-    
+
   </script>
-  
+
 @endsection
 
 

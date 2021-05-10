@@ -11,10 +11,10 @@ $global_settings = App\Setting::first();
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>@yield('title') | {{ $global_settings->project_title }}</title>
-  <!-- Tell the browser to be 
+  <!-- Tell the browser to be
    to screen width -->
 
- 
+
   <meta name="description" content="{{ $global_settings->meta_data_desc }}">
   <meta name="keywords" content="{{ $global_settings->meta_data_keyword }}">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -39,7 +39,7 @@ $global_settings = App\Setting::first();
   @else
   <link rel="stylesheet" href="{{url('css/dashboard/AdminLTE.min.css')}}">
   @endif
-  
+
   <link rel="stylesheet" href="{{url('css/toggle.css')}}">
   <link rel="stylesheet" type="text/css" href="{{url('css/component.css')}}">
   <link rel="stylesheet" type="text/css" href="{{url('css/normalize.css')}}">
@@ -54,16 +54,16 @@ $global_settings = App\Setting::first();
   <link rel="stylesheet" href="{{ url('css/dashboard/admin.css') }}">
   @endif
   <link rel="stylesheet" href="{{ asset('css/custom-style.css') }}"/>
-  
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
-  
+
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
   <link rel="stylesheet" href="{{ url('css/dashboard/flaticon.css') }}" /> <!-- fontawesome css -->
 
   @yield('stylesheets')
-  
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini fixed">
@@ -93,7 +93,7 @@ $global_settings = App\Setting::first();
           <ul class="nav navbar-nav d-inline-block mx-lg-10">
             <!-- Messages: style can be found in dropdown.less-->
             @php
-                $languages = App\Language::all(); 
+                $languages = App\Language::all();
             @endphp
             <li class="dropdown admin-nav language">
             <!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-globe"></i> {{Session::has('changed_language') ? Session::get('changed_language') : ''}}</button> -->
@@ -105,7 +105,7 @@ $global_settings = App\Setting::first();
                   @endforeach
                 @endif
               </ul>
-              
+
             </li>
             <!-- User Account: style can be found in dropdown.less -->
             <li><a href="{{ url('/') }}" target="_blank" class="visit site" >{{ __('adminstaticword.VisitSite') }}</a></li>
@@ -132,7 +132,7 @@ $global_settings = App\Setting::first();
                    {{Auth::User()->fname}}
                     <small>{{ __('adminstaticword.MemberSince') }}: {{ date('jS F Y',strtotime( Auth::User()->created_at))}}</small>
                   </p>
-                  
+
                 </li>
 
                 <li class="user-footer">
@@ -177,7 +177,7 @@ $global_settings = App\Setting::first();
     @if(Auth::User()->role == "mentors")
       @include('instructor.layouts.sidebar')
     @endif
-    
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Main content -->
@@ -190,7 +190,7 @@ $global_settings = App\Setting::first();
       <div class="pull-right hidden-xs">
         {{ $global_settings->project_title }} ({{ config('app.version') }})
       </div>
-     {{ $global_settings->cpy_txt }} 
+     {{ $global_settings->cpy_txt }}
     </footer>
     <!-- /.control-sidebar -->
     <div class="control-sidebar-bg"></div>
@@ -218,7 +218,7 @@ $global_settings = App\Setting::first();
   <!-- AdminLTE App -->
   <script src="{{url('js/dashboard/adminlte.min.js')}}"></script> <!-- AdminLTE for demo purposes -->
   <script src="{{url('js/dashboard/demo.js')}}"></script>
-  <script src="{{ URL::asset('js/dashboard/pace.min.js') }}"></script> 
+  <script src="{{ URL::asset('js/dashboard/pace.min.js') }}"></script>
   <!-- PACE -->
   <script src="{{ URL::asset('js/dashboard/ckeditor/ckeditor.js') }}"></script>
   <!-- CK Editor -->
@@ -228,14 +228,14 @@ $global_settings = App\Setting::first();
   <script src="{{ url('js/custom-file-input.js')}}"></script>
   <script src="{{ url('js/fontawesome-iconpicker.js')}}"></script>
   <script src="{{ url('js/dashboard/courseclass.js')}}"></script>
-   
+
   <script src="{{ url('js/tinymce.min.js')}}"></script>
   <script src="{{ url('js/dashboard/moment.js') }}"></script>
   <script src="{{ url('js/datepicker.js') }}"></script>
   <script src="{{ url('js/custom-js.js')}}"></script>
 
-  <script src="{{ url('js/dashboard/dataTables.buttons.min.js')}}"></script> 
-  <script src="{{ url('js/dashboard/buttons.flash.min.js')}}"></script> 
+  <script src="{{ url('js/dashboard/dataTables.buttons.min.js')}}"></script>
+  <script src="{{ url('js/dashboard/buttons.flash.min.js')}}"></script>
   <script src="{{ url('js/dashboard/jszip.min.js')}}"></script>
   <script src="{{ url('js/dashboard/pdfmake.min.js')}}"></script>
   <script src="{{ url('js/dashboard/vfs_fonts.js')}}"></script>
@@ -243,8 +243,8 @@ $global_settings = App\Setting::first();
   <script src="{{ url('js/dashboard/buttons.print.min.js')}}"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
- 
-  
+
+
   <!-- page script -->
   <script>
     $(function () {
@@ -278,7 +278,7 @@ $global_settings = App\Setting::first();
       maxDateFilter = new Date(end.format('YYYY-MM-DD')).getTime();
       oTable.draw();
     });
-  }) 
+  })
 
   // Date range filter
   minDateFilter = "";
@@ -323,10 +323,10 @@ $global_settings = App\Setting::first();
       });
     });
   </script>
- 
+
   <script>
   (function($) {
-    "use strict"; 
+    "use strict";
     tinymce.init({
       mode : "specific_textareas",
       editor_selector : "myTextEditor",
@@ -355,7 +355,7 @@ $global_settings = App\Setting::first();
   </script>
 
   <script>
- 
+
     $(function () {
       $('.action-destroy').on('click', function () {
         $.iconpicker.batch('.icp.iconpicker-element', 'destroy');
@@ -371,7 +371,7 @@ $global_settings = App\Setting::first();
         $('.icp-auto').iconpicker();
 
         $('.icp-dd').iconpicker({
-          
+
         });
         $('.icp-opts').iconpicker({
           title: 'With custom options',
@@ -425,7 +425,7 @@ $global_settings = App\Setting::first();
         }).data('iconpicker').show();
       }).trigger('click');
 
-      
+
       $('.icp').on('iconpickerSelected', function (e) {
         $('.lead .picker-target').get(0).className = 'picker-target fa-3x ' +
           e.iconpickerInstance.options.iconBaseClass + ' ' +
@@ -434,7 +434,7 @@ $global_settings = App\Setting::first();
     });
 
   </script>
-  
+
   <script>
     $('#datepicker').datepicker({
       autoclose: true,
@@ -514,9 +514,9 @@ $global_settings = App\Setting::first();
 @yield('script')
 
 <script>
-  
+
   $("form[name='announcement_form']").validate({
-      
+
       // Specify validation rules
       rules: {
         // The key name on the left side is the name attribute
@@ -547,7 +547,7 @@ $global_settings = App\Setting::first();
       submitHandler: function(form) {
         form.submit();
       }
-      
+
     });
 </script>
 </body>
