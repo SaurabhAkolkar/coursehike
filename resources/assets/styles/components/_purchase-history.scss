@@ -36,7 +36,12 @@
                 color:var(--gray6);
                 font-weight:var(--font-normal);
             }
-            &item-date, &item-paymode, &item-total{
+            &item-date, &item-paymode{
+                color:var(--gray6);
+                font-weight:var(--font-normal);
+            }
+            &item-total{
+                font-family:'Roboto','Poppins', sans-serif;
                 color:var(--gray6);
                 font-weight:var(--font-normal);
             }

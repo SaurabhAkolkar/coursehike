@@ -139,7 +139,7 @@ $course_id = $course->id;
                       <input type="hidden" value="all-classes" name="classes" />
                       @csrf
                       <a class="la-vcourse__buy-course btn  la-btn la-btn--app color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" @if(Auth::check()) onclick="$('#add_to_cart_form_1').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>Buy this Class</a><br/>
-                      <span class="text-grey">@ {{ getSymbol() }}{{$course->convertedprice}}</span>
+                      <span class="text-grey" style="font-family:'Roboto','Poppins', sans-serif">@ {{ getSymbol() }}{{$course->convertedprice}}</span>
                     </form>
                   </div>
                   @endif
@@ -457,7 +457,7 @@ $course_id = $course->id;
                               <input type="hidden" value="all-classes" name="classes" />
                               @csrf
                               <a class="la-vcourse__buy-course btn  la-btn la-btn--app color-grey d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" @if(auth()->check()) onclick="$('#add_to_cart_form_1').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>Buy this Class</a><br/>
-                              <span style="color:var(--gray7)">@ {{ getSymbol() }}{{$course->convertedprice}}</span>
+                              <span style="color:var(--gray7); font-family:'Roboto','Poppins', sans-serif ">@ {{ getSymbol() }}{{$course->convertedprice}}</span>
                             </form>
                           </div>
                         @endif

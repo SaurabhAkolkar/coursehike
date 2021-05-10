@@ -26,6 +26,21 @@
     -moz-osx-font-smoothing: grayscale;
   }
   
+  .icon-learners:before {
+    content: "\e9b7";
+  }
+  .icon-on-trial:before {
+    content: "\e9b8";
+  }
+  .icon-subscribed:before {
+    content: "\e9b9";
+  }
+  .icon-user:before {
+    content: "\e9ba";
+  }
+  .icon-change-language:before {
+    content: "\e9b6";
+  }
   .icon-bundled-class:before {
     content: "\e9b3";
   }

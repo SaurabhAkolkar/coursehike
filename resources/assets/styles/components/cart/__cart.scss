@@ -24,6 +24,8 @@
                     }
 
                     &amount {
+                        font-family:'Roboto','Poppins', sans-serif;
+
                         & .text {
                             color: var(--app-indigo-1);
                             font-size: var(--text-sm);
