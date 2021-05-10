@@ -39,7 +39,15 @@ class AdminController extends Controller
                                                     ->limit(5)
                                                     ->get();
                                                    
-            $course_amount = UserInvoiceDetail::where(['status'=>'paid'])->sum('total');
+            $purchased_invoices = UserInvoiceDetail::where([['status','paid']])->get();
+            $course_amount = 0;
+            foreach ($purchased_invoices as $purchased_invoice) {                
+                $order_total = $purchased_invoice->total;
+                if($purchased_invoice->currency == 'INR' || empty($purchased_invoice->currency))
+                    $order_total /= 75; //Convert to USD
+                $course_amount += $order_total;
+            }
+
             $subscription_amount = UserSubscriptionInvoice::where([ ['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_subscription_id', '!=' ,'Admin-Purchased'] ])->sum('invoice_paid');
             $total = $course_amount + $subscription_amount;
 
