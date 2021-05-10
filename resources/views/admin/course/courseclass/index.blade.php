@@ -12,8 +12,8 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>{{ __('adminstaticword.CourseChapter') }}</th>
               <th>{{ __('adminstaticword.Title') }}</th>
+              <th>{{ __('adminstaticword.CourseChapter') }}</th>
               <th>{{ __('adminstaticword.Status') }}</th>
               <th>{{ __('adminstaticword.Featured') }}</th>
               <th>{{ __('adminstaticword.Edit') }}</th>
@@ -26,15 +26,13 @@
               <tr class="sortable row1" data-id="{{ $cat->id }}">
                 <?php $i++;?>
                 <td><?php echo $i;?></td>
+                <td>{{$cat->title}}</td>
                 @php
-                $chname = App\CourseChapter::where('id','=',$cat->coursechapter_id)->get();
+                	$chname = App\CourseChapter::where('id','=',$cat->coursechapter_id)->first();
                 @endphp
                 <td>
-                  @foreach($chname as $cc)
-                  {{ $cc->chapter_name }}
-                  @endforeach
+                  {{ $chname->chapter_name }}
                 </td>
-                <td>{{$cat->title}}</td>
                 <td>
                   @if($cat->status==1)
                    {{ __('adminstaticword.Active') }}
@@ -79,7 +77,7 @@
         <div class="box box-primary">
           <div class="panel panel-sum">
             <div class="modal-body">
-              <form enctype="multipart/form-data" id="demo-form2" method="post" action="{{ route('courseclass.store') }}" data-parsley-validate class="form-horizontal form-label-left">
+              <form enctype="multipart/form-data" id="create-form" method="post" action="{{ route('courseclass.store') }}" data-parsley-validate class="form-horizontal form-label-left">
                 {{ csrf_field() }}
                           
                 <div class="row">
@@ -130,7 +128,7 @@
                                   <span class="path1"><span class="path2"></span></span>
                                 </span>
                               </div>
-                              <input type="file" class="form-control la-admin__preview-input preview_img" name="preview_image" />
+                              <input type="file" class="form-control la-admin__preview-input preview_img" name="preview_video_image" />
                               <img src="" alt="" class="d-none preview-img"/>
                           </div>
                         </div>
@@ -139,7 +137,7 @@
                 <!-- CLASS THUMBNAIL: END -->
                 
                 <!-- CLASS VIDEO: START -->
-                <div class="row mt-3">
+                {{-- <div class="row mt-3">
                   <div class="col-12">
                         <div class="la-admin__preview">
                           <label for="" class="la-admin__preview-label p-0">Video Upload:<sup class="redstar">*</sup></label>
@@ -161,7 +159,29 @@
                           </div>
                         </div>
                   </div>
-                </div>
+                </div> --}}
+				<div class="row mt-3">
+					<div class="col-12">
+						  <div class="la-admin__preview">
+							<label for="" class="la-admin__preview-label p-0">Video Upload:<sup class="redstar">*</sup></label>
+							<div class="la-admin__preview-img la-admin__course-imgvid" id="resumable-drop" style="display: none">
+								 <div class="la-admin__preview-text">
+									  <p class="la-admin__preview-size">Video | 2G</p>
+									  <p class="la-admin__preview-file la-admin__preview-filebg text-uppercase" id="resumable-browse">Choose a File</p>
+								</div>
+								<div class="text-center pr-20 mr-20">
+								  <span class="la-icon la-icon--8xl icon-preview-video" style="font-size:150px;">
+									<span class="path1"><span class="path2"></span></span>
+								  </span>
+								</div>
+								<video class="preview-video w-100" controls>
+								  <source src="" >
+									Your browser does not support HTML5 video.
+								</video>
+							</div>
+						  </div>
+					</div>
+				  </div>
                 <!-- CLASS VIDEO: END -->
 
 
@@ -193,30 +213,6 @@
                   </div>
                 </div> 
                 <br>
-               
-                {{-- <div id="subtitle">
-                  <label>{{ __('adminstaticword.Subtitle') }}:</label>
-                  <table class="table table-bordered" id="dynamic_field">  
-                    <tr> 
-                        <td class="p-0">
-                           <div class="{{ $errors->has('sub_t') ? ' has-error' : '' }} input-file-block">
-                            <input type="file" name="sub_t[]"/>
-                            <p class="info">Choose subtitle file ex. subtitle.srt.,</p>
-                            <small class="text-danger">{{ $errors->first('sub_t') }}</small>
-                          </div>
-                        </td>
-
-                        <td>
-                          <input type="text" name="sub_lang[]" placeholder="Subtitle Language" class="form-control name_list" />
-                        </td>  
-                        <td><button type="button" name="add" id="add" class="btn btn-xs btn-success">
-                          <i class="fa fa-plus"></i>
-                        </button></td>  
-                    </tr>  
-                  </table>
-                </div> --}}
-
-                
 
               <!--  ADD CLASS STATUS: START -->
               <div class="row">
@@ -254,8 +250,12 @@
                   </div> --}}
                 </div>
                 </div>
-            </div> <br/>
+            	</div> <br/>
             <!-- ADD CLASS STATUS: END -->
+
+				<div class="progress d-none" style="height: 30px;">
+					<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+				</div>
 
                 <div class="box-footer">
                   <button type="submit" class="btn btn-lg btn-primary col-md-4">{{ __('adminstaticword.Submit') }}</button>
@@ -341,6 +341,93 @@
  
 
 @section('script')
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/resumable.js/1.1.0/resumable.min.js"></script>
+<script>
+	var $ = window.$; // use the global jQuery instance
+
+	var $fileUpload = $('#resumable-browse');
+	var $fileUploadDrop = $('#resumable-drop');
+
+	if ($fileUpload.length > 0 && $fileUploadDrop.length > 0) {
+
+		var resumable = new Resumable({
+			chunkSize: 15 * 1024 * 1024, // 1MB
+			simultaneousUploads: 1,
+      maxFiles: 1,
+			testChunks: false,
+			throttleProgressCallbacks: 1,
+			fileType: ['mov', 'mp4', 'mkv', 'm4v'],
+			target: "{{ route('courseclass.store') }}",
+		});
+
+		if (resumable.support) {
+			$fileUploadDrop.show();
+			resumable.assignDrop($fileUpload[0]);
+			resumable.assignBrowse($fileUploadDrop[0]);
+
+			resumable.on('fileAdded', function (file) {				
+				var $source = $('.preview-video');
+				$source.find("source").attr("src", URL.createObjectURL(file.file));
+				$source.load();
+				$($source).removeClass('d-none');
+			});
+
+			resumable.on('fileSuccess', function (file, message) {
+        resumable.removeFile(file);
+				$('.progress').addClass('d-none');
+				$("#create-form").append('<div class="alert alert-success">Updated Successfully!</div>');
+				setTimeout(function () {
+					location.reload(true);
+				}, 2000);
+
+			});
+
+			resumable.on('fileError', function (file, message) {
+				$('.resumable-file-' + file.uniqueIdentifier + ' .resumable-file-progress').html('(file could not be uploaded: ' + message + ')');
+			});
+
+			resumable.on('fileProgress', function (file) {
+				$('.progress-bar').css({width: Math.floor(resumable.progress() * 100) + '%'});
+				$('.progress-bar').html(Math.floor(file.progress() * 100) + '%');
+			});
+
+			$(document).on('submit','#create-form',function(e){
+
+				if(resumable.files.length > 0)
+				e.preventDefault();
+				$('.progress').removeClass('d-none');
+
+				var serializeArray = $('#create-form').serializeArray();
+				var serializeData = {};
+
+				$.map(serializeArray, function(n, i){
+					serializeData[n['name']] = n['value'];
+				});
+
+				if($('input[name="preview_video_image"]')[0].files.length > 0)
+					serializeData['preview_image'] = $('input[name="preview_video_image"]')[0].files[0];
+
+				resumable.opts.query = serializeData;
+
+				resumable.upload();
+			});
+
+		}
+		
+
+	}
+
+	$(document).on("change", ".preview_video", function(evt) {
+		var $source = $(this).siblings('.preview-video');
+		$source.find("source").attr("src", URL.createObjectURL(this.files[0]));
+		$source.load();
+		$($source).removeClass('d-none');
+	});
+
+</script>
+
 <!--courseclass.js is included -->
 
 <script>
