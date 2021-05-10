@@ -13,7 +13,7 @@
             <!-- Column: Start-->
             <div class="col-12 col-md-6 col-lg-4 mb-10 mb-md-1">
               <div class="la-footer__brand mb-4 mb-md-5">
-                <a href="/"><img class="img-fluid" src="/images/learners/logo.svg" alt="Lila"></a>
+                <a href="/"><img class="img-fluid" src="/images/learners/logo.svg" alt="Lila" /></a>
               </div>
               <div class="la-footer__contact">
                 <!-- <p class="la-footer__contact-address mb-2">K2, Old Sonal Industrial Est., Kanchpada, Malad Link Road, Malad West, Mumbai 400064. MH, India</p> -->

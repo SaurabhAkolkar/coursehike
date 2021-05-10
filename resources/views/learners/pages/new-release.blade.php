@@ -1,7 +1,23 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-    <title> New Releases </title>
+    <title>New Releases | Learn Tattoo & Graphic Design | LILA </title>
+    <meta name='description' itemprop='description' content='Check out all the New Releases on tattoo, graphic design, digital art from basic to advanced mentored by Globally reconginized artists' />
+
+    <meta property="og:description" content="Check out all the New Releases on tattoo, graphic design, digital art from basic to advanced mentored by Globally reconginized artists" />
+    <meta property="og:title" content="New Releases | Learn Tattoo & Graphic Design | LILA" />
+    <meta property="og:url" content="{{Request::url()}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LILA Art" />
+    <meta property="og:image" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:url" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:size" content="300" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="New Releases | Learn Tattoo & Graphic Design | LILA" />
+    <meta name="twitter:site" content="@lilaaliens" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"New Releases | Learn Tattoo & Graphic Design | LILA"}</script>
 @endsection
 
 @section('content')
@@ -12,8 +28,8 @@
       <div class="container la-new__events ">
         <div class="row la-anim__wrap">
           <div class="col-12">
-            <div class="la-announcement__main-title d-md-flex ">
-                <a class="la-new__back la-icon la-icon--5xl icon-back-arrow ml-n2 ml-md-n5 mt-n1 pr-md-3 la-anim__stagger-item--x" href="{{URL::previous()}}"></a>
+            <div class="la-announcement__main-title d-lg-flex ">
+                <a class="la-new__back la-icon la-icon--5xl icon-back-arrow ml-n2 ml-lg-n5 mt-n1 pr-lg-3 la-anim__stagger-item--x" href="{{URL::previous()}}"></a>
                 <h1 class="text-3xl text-md-4xl mb-4 la-anim__stagger-item">New Releases</h1>
             </div>
           </div>

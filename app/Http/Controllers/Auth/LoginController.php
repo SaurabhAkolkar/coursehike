@@ -10,6 +10,8 @@ use App\User;
 use DB;
 use App\Mail\UserLogged;
 use Illuminate\Support\Facades\Mail;
+use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -31,42 +33,23 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected function authenticated()
+    protected function authenticated(Request $request, User $user)
     {
+        if (Auth::User()->role == "user")
+            auth()->logoutOtherDevices($request->password);
 
-        $user = Auth::user();
-        // dd($user);
-        //  $login = Session::where('user_id', Auth::id())->count();
-        //$login = DB::table('sessions')->where('user_id', $user->id)->count();
-
-        //  if ($login > 0)
-        //  {
-            Auth::logoutOtherDevices(request('password'));
-        //  }
-        try{
-            Mail::to($user->email)->later(now()->addSeconds(5), new UserLogged($user));
-        }
-        catch(\Swift_TransportException $e){
-            header( "refresh:5;url=./login" );
-            // dd("Your Registration is successfull ! but welcome email is not sent because your webmaster not updated the mail settings in admin dashboard ! Kindly go back and login");
-        }
+        Mail::to($user->email)->later(now()->addSeconds(5), new UserLogged($user));
 
         if (Auth::User()->status == 1)
         {
-
-            if ( Auth::User()->role == "admin" || Auth::User()->role == "mentors" )
-            {
-                // do your magic here
+            if (Auth::User()->role == "admin")
                 return redirect()->route('admin.index');
-            }
+            else if (Auth::User()->role == "mentors")
+                return redirect()->route('instructor.index');
             else
-            {
-                 return redirect('/');
-
-            }
+                return redirect('/');
         }
         else{
-
             Auth::logout();
             return redirect()->route('login')->with('delete','You are deactivated !');
         }

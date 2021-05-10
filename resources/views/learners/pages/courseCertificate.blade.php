@@ -32,7 +32,7 @@
                     <div class="la-cert__main">
                         
                             <div class="la-cert__logo text-center " >
-                                <img src="./images/learners/logo.svg" alt="logo" class="img-fluid  d-block">
+                                <img src="./images/learners/logo.svg" alt="logo" class="img-fluid  d-block" />
                             </div>
                             
                             <div class="la-cert__head  pt-3 pb-4">

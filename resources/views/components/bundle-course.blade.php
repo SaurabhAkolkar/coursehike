@@ -5,7 +5,7 @@
             <div class="la-lcourse__inner-link">
                 <div class="la-lcourse__inner-wrap">
                     <div class="la-lcourse__imgwrap">
-                        <img class="img-fluid" src= "{{ $img }}?width=560&height=460&auto_optimize=true" alt= "{{ $course }}" />
+                        <img class="img-fluid lazy" src= "{{ $img }}?width=560&height=460&auto_optimize=true" data-src= "{{ $img }}?width=560&height=460&auto_optimize=true" alt= "{{ $course }}" />
                     </div> 
                 </div>
                 
@@ -14,7 +14,7 @@
                         @if($price)
                         @else
                         <div class="la-lcourse__free">
-                            <img src="{{ asset('images/learners/home/free-class.svg') }}" class="img-fluid" alt="Free Class">
+                            <img src="{{ asset('images/learners/home/free-class.svg') }}" data-src="{{ asset('images/learners/home/free-class.svg') }}" class="img-fluid lazy" alt="Free Class" />
                         </div>
                         @endif
                         <ul class="la-lcourse__options list-unstyled text-white" id="la-course__nested-links">
@@ -132,11 +132,11 @@
                     <div class="la-lcourse__info-inner w-100">
                         <div class="position-relative d-inline-flex justify-content-between align-items-center w-100">
                             <div class="col-3 pl-0 pr-1">
-                                <div class="la-lcourse__classes">{{$classesCount}} Classes</div>
+                                <div class="la-lcourse__classes leading-none">{{$classesCount}} Classes</div>
                             </div>
 
                             <div class="col-3 pl-0 pr-1">
-                                <div class="la-lcourse__videos">{{$videoCount}} Videos</div>
+                                <div class="la-lcourse__videos leading-none">{{$videoCount}} Videos</div>
                             </div>
 
                             <div class="col-6 px-0 la-lcourse__rating text-right">
@@ -159,7 +159,7 @@
 
                                 <div class="la-lcourse__creator-imgwrap d-inline-flex position-relative">
                                     @foreach($creatorImg as $c)
-                                        <img class="img-fluid la-lcourse__creator-img{{$loop->index + 1}} position-absolute" src="{{ $c->user_img }}" alt="{{ $creatorName }}" />
+                                        <img class="img-fluid lazy la-lcourse__creator-img{{$loop->index + 1}} position-absolute" src="{{ $c->user_img }}" data-src="{{ $c->user_img }}" alt="{{ $creatorName }}" />
                                     @endforeach
                                     
                                 </div>

@@ -5,7 +5,7 @@
             <div class="la-header__nav-item d-flex align-items-center d-lg-none ">
                 <a class="la-header__nav-link @if(Request::segment(1) == 'login') active @endif la-header__nav-link--collapsed collapsed" href="/login" data-toggle="collapse" data-target="#profileItems">
                     <div class="la-header__profile-img">
-                        <img class="img-fluid" src="{{ Auth::user()->user_img }}" alt="{{Auth::user()->fullName}}">
+                        <img class="img-fluid lazy" src="{{ Auth::user()->user_img }}" data-src="{{ Auth::user()->user_img }}"  alt="{{Auth::user()->fullName}}" />
                     </div>
                     <span class="la-header__nav-name ml-4 mt-0 ">{{Auth::user()->fullName}}</span>
                 </a>

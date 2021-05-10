@@ -6,7 +6,7 @@
             <div class="la-lclass__inner-link">
                 <div class="la-lclass__inner-wrap">
                     <div class="la-lclass__imgwrap" style="background-image:url('/images/learners/home/course-mask.png'); -webkit-mask-image:url('/images/learners/home/course-mask.png');">
-                        <img class="img-fluid" src= "{{ $img }}?width=560&height=460&auto_optimize=true" alt= "{{ $course }}" />
+                        <img class="img-fluid lazy" src= "{{ $img }}?width=560&height=460&auto_optimize=true" data-src= "{{ $img }}?width=560&height=460&auto_optimize=true" alt= "{{ $course }}" />
                     </div> 
                 </div>
             
@@ -15,7 +15,7 @@
                             @if($price)
                             @else
                                 <div class="la-lclass__free">
-                                    <img src="{{ asset('images/learners/home/free-class.svg') }}" class="img-fluid" alt="Free Class">
+                                    <img src="{{ asset('images/learners/home/free-class.svg') }}" data-src="{{ asset('images/learners/home/free-class.svg') }}"  class="img-fluid lazy" alt="Free Class" />
                                 </div>
                             @endif
                             <ul class="la-lclass__options list-unstyled text-white" id="la-course__nested-links">
@@ -91,7 +91,7 @@
                                 <div class="col-8 px-0">
                                     <a class="la-lclass__creator d-inline-flex align-items-center" href="/mentor/{{ $creatorUrl }}/{{ $creatorName }}" >
                                         <div class="la-lclass__creator-imgwrap">
-                                            <img class="img-fluid" src="{{ $creatorImg }}" alt="{{ $creatorName }}" />
+                                            <img class="img-fluid lazy" src="{{ $creatorImg }}" data-src="{{ $creatorImg }}" alt="{{ $creatorName }}" />
                                         </div>
                                         <div class="la-lclass__creator-name mt-3">{{ $creatorName }}</div>
                                     </a>

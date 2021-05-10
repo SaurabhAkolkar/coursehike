@@ -3,7 +3,7 @@
         {{-- <div class="col-lg-4 ">
             <div class="la-purchaseh__item-info d-flex align-items-center">
                 <div class="col la-purchaseh__item-img px-0">
-                    <img class="d-inline-block" src= {{ $img }}  alt= {{ $course }}  />
+                    <img class="d-inline-block" src= "{{ $img }}"  alt= "{{ $course }}"  />
                 </div>
                 <div class="col la-purcaseh__item-by">
                     <div class="la-purchaseh__item-title text-lg text-md-xl"> {{ $course }} </div>

@@ -16,12 +16,13 @@
                 
                   @for ($i = 0; $i < 5; $i++)
                     <option value="{{$i}}" @if( app('request')->input('month') == $i) selected @endif>{{ \Carbon\Carbon::now()->subMonth($i)->format('F Y') }}</option>
-                  @endfor                  
+                  @endfor
+                  <option value="all" @if( app('request')->input('month') == 'all') selected @endif>All time Revenue</option>
               </select>
           </div>
         </div>
 
-        <h3 class="la-admin__section-title ml-2 mb-0">  {{ __('adminstaticword.InstructorRevenue') }} - ({{ \Carbon\Carbon::now()->subMonth(app('request')->input('month') ?? 0)->format('F') }})</h3>
+        <h3 class="la-admin__section-title ml-2 mb-0">  {{ __('adminstaticword.InstructorRevenue') }} - ({{ app('request')->input('month') == "all" ? "All time" : \Carbon\Carbon::now()->subMonth(app('request')->input('month') ?? 0)->format('F') }})</h3>
         
         <div class="box-body">
           <div class="la-admin__revenue-stats">
@@ -76,6 +77,7 @@
               <thead>
               
                 <th>#</th>
+                <th>{{ __('adminstaticword.Date') }}</th>
                 <th>{{ __('adminstaticword.User') }}</th>
                 <th>{{ __('adminstaticword.Course') }}</th>
                 <th>{{ __('adminstaticword.TransactionId') }}</th>
@@ -86,8 +88,7 @@
               </thead>
               <tbody>
                     <?php $i=0;?>
-
-                    @foreach($total_earning['purchase_logs'] as $purchase_invoice)
+                    @foreach( array_reverse($total_earning['purchase_logs']) as $purchase_invoice)
                     
                       @php 
                       $invoice_details = $purchase_invoice->user_invoice_details;
@@ -98,6 +99,7 @@
                       @endphp
 					<tr>
 						<td>{{++$i}}</td>
+						<td>{{ $purchase_invoice->created_at }}</td>
 						<td>{{ $purchase_invoice->user->fname.' '.$purchase_invoice->user->lname }}</td>
 
 						@if($purchase_invoice->bundle_id != null)
@@ -108,7 +110,7 @@
 							<td>{{ $invoice_details->invoice_id }}</td>
 						@endif
 
-						<td>$ {{ $price }}</td>
+						<td>$ {{ round($price, 2) }}</td>
 						<td style="color:#d44141">- $ {{ round($price * ( (100 - $mentor_commission) / 100), 2) }}</td>
 						<td style="color:#1EC812">$ {{ round($price * ($mentor_commission / 100), 2) }}</td>
 					</tr>

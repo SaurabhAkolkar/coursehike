@@ -32,6 +32,12 @@
                 color:var(--white) !important;
             }
         }
+        &.bg-purple{
+            &:hover{
+                background-color: var(--app-indigo-1) !important;
+                border-color: var(--app-indigo-1) !important;
+            }
+        }
         
 
         &__ {

@@ -6,8 +6,6 @@
     
     @yield('seo_content')
     
-    <title>Learn Anything Artistic Online | Start For Free Today | LILA</title>
-    
     <link rel="icon" type="image/icon" href="{{ asset('images/favicon/favicon.svg') }}"> 
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -33,6 +31,15 @@
         gtag('js', new Date());
 
         gtag('config', 'G-6T463JS9YB');
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22027114-21"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-22027114-21');
     </script>
 
     <!-- Google Tag Manager -->

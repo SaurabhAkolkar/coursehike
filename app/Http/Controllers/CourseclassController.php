@@ -55,7 +55,7 @@ class CourseclassController extends Controller
             $course_id = $request->course_id;
             $chapter_id = $request->chapter_id;
             if(Auth::user()->role == 'admin'){
-                $courses = CourseClass::where('title','like','%'.$request->title.'%')->where('course_id','!=',$request->course_id)->where('status', 2)->get();
+                $courses = CourseClass::where('title','like','%'.$request->title.'%')->where('course_id','!=',$request->course_id)->get();
             }
             else{
                 $course_ids = Course::where(['user_id'=>Auth::user()->id])->where('id','!=',$request->course_id)->pluck('id')->toArray();
@@ -86,12 +86,14 @@ class CourseclassController extends Controller
                 Storage::delete(config('path.course.video_thumnail').$request->course_id.'/'. $image);
             
             $video_exists = Storage::exists(config('path.course.video').$request->course_id .'/'. $video);
-                if ($video_exists)
-                    Storage::delete(config('path.course.video').$request->course_id .'/'. $video);
+            if ($video_exists)
+                Storage::delete(config('path.course.video').$request->course_id .'/'. $video);
 
-            Storage::copy(config('path.course.video_thumnail').$course->course_id.'/'. $image, config('path.course.video_thumnail').$request->course_id .'/'. $image);
+            $image_filename = uniqid() .'.'. pathinfo($image, PATHINFO_EXTENSION);
+            Storage::copy(config('path.course.video_thumnail').$course->course_id.'/'. $image, config('path.course.video_thumnail').$request->course_id .'/'. $image_filename);
             
-            Storage::copy(config('path.course.video').$course->course_id .'/'. $video, config('path.course.video').$request->course_id .'/'. $video);
+            $video_filename = uniqid() .'.'. pathinfo($video, PATHINFO_EXTENSION);
+            Storage::copy(config('path.course.video').$course->course_id .'/'. $video, config('path.course.video').$request->course_id .'/'. $video_filename);
             
             $response = Http::withHeaders([
                 'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
@@ -104,19 +106,20 @@ class CourseclassController extends Controller
                 "requireSignedURLs" => true,
                 // "allowedorigins" => ["*.lila.com","localhost"],
             ]);
+            $stream_url = '';
             if($response->successful()){
                 $res = $response->json();
-                $course->stream_url = $res['result']['uid'];
+                $stream_url = $res['result']['uid'];
             }
 
             $course->course_id = $request->course_id;
             $course->coursechapter_id = $request->chapter_id;
             
-
             $course = $course->toArray();
-            $course['video'] = $video;
-            $course['image'] = $image;
-               // $video['image'] = $image;
+            $course['video'] = $video_filename;
+            $course['image'] = $image_filename;
+            $course['stream_url'] = $stream_url;
+            
             CourseClass::create($course);
             return back()->with('success',' Video is Added');
         }

@@ -1,7 +1,22 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-    <title> Guided Mentor </title>
+    <title> Guided Mentor | Step-by-step guidance to become a creator | Become an online tutor</title>
+    <meta name='description' itemprop='description' content='Get step-by-step guidance for becoming a professional online tutor. Learn everything from recording videos to editing and earn sharing your knowledge' />
+
+    <meta property="og:description" content="Get step-by-step guidance for becoming a professional online tutor. Learn everything from recording videos to editing and earn sharing your knowledge" />
+    <meta property="og:title" content="Guided Mentor | Step-by-step guidance to become a creator | Become an online tutor" />
+    <meta property="og:url" content="{{Request::url()}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LILA Art" />
+    <meta property="og:image" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:url" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:size" content="300" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Guided Mentor | Step-by-step guidance to become a creator | Become an online tutor" />
+    <meta name="twitter:site" content="@lilaaliens" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Guided Mentor | Step-by-step guidance to become a creator | Become an online tutor"}</script>
 @endsection
 
 @section('content')
@@ -34,7 +49,7 @@
               </div>
             </div>
             <div class="col-12 col-lg p-0 la-anim__stagger-item--x">
-              <div class="la-gcbanner__bg"><img class="img-fluid d-block" src="./images/learners/guided-creator/gc-banner-1a.png" alt="Guided Creator"></div>
+              <div class="la-gcbanner__bg"><img class="img-fluid d-block" src="./images/learners/guided-creator/gc-banner-1a.png" alt="Guided Creator" /></div>
             </div>
           </div>
         </div>
@@ -57,9 +72,15 @@
       <div class="row ">
         <!-- Column: Start-->
         <div class="col-12 col-lg-5 d-none d-lg-block la-anim__wrap">
-          <div class="la-gcreator__works mt-n5 "><img class="img-fluid d-block img-rounded la-anim__stagger-item" src="../images/learners/creator/gcreator-1a.png" alt="Record a Video"></div>
-          <div class="la-gcreator__works mt-2 "><img class="img-fluid d-block img-rounded la-anim__stagger-item" src="../images/learners/creator/gcreator-2a.png" alt="Edit a Video"></div>
-          <div class="la-gcreator__works mt-n5 "><img class="img-fluid d-block img-rounded la-anim__stagger-item" src="../images/learners/creator/gcreator-3a.png" alt="Share Video"></div>
+          <div class="la-gcreator__works mt-n5 ">
+            <img class="img-fluid d-block img-rounded la-anim__stagger-item lazy" src="../images/learners/creator/gcreator-1a.png" data-src="../images/learners/creator/gcreator-1a.png" alt="Record a Video" />
+          </div>
+          <div class="la-gcreator__works mt-2 ">
+            <img class="img-fluid d-block img-rounded la-anim__stagger-item lazy" src="../images/learners/creator/gcreator-2a.png" data-src="../images/learners/creator/gcreator-2a.png" alt="Edit a Video" />
+          </div>
+          <div class="la-gcreator__works mt-n5 ">
+            <img class="img-fluid d-block img-rounded la-anim__stagger-item lazy" src="../images/learners/creator/gcreator-3a.png" data-src="../images/learners/creator/gcreator-3a.png" alt="Share Video" />
+          </div>
         </div>
         <!-- Column: End-->
         <!-- Column: Start-->
@@ -67,7 +88,9 @@
           <div class="la-gcreator__video-content position-relative">
             <div class="la-gvline d-flex align-items-start flex-column mt-5 la-anim__wrap">
               <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5 la-anim__stagger-item">
-                <img class="img-fluid mx-auto d-block img-rounded mt-n5" src="./images/learners/creator/gcreator-1a.png" alt="Record a Video"></div>
+                <img class="img-fluid mx-auto d-block img-rounded mt-n5 lazy" src="./images/learners/creator/gcreator-1a.png" data-src="./images/learners/creator/gcreator-1a.png" alt="Record a Video" />
+              </div>
+
               <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-video-unfilled "></span></div>
               <div class="la-gcreator__video-content mt-5">
                 <h5 class="la-gcreator__video-title la-anim__stagger-item">We'll record a Video</h5>
@@ -92,7 +115,7 @@
 
             <div class="la-gvline d-flex align-items-start flex-column la-anim__wrap">
               <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5 la-anim__stagger-item">
-                <img class="img-fluid mx-auto d-block img-rounded mt-n5" src="./images/learners/creator/gcreator-2a.png" alt="Edit a Video">
+                <img class="img-fluid mx-auto d-block img-rounded mt-n5 lazy" src="./images/learners/creator/gcreator-2a.png" data-src="./images/learners/creator/gcreator-2a.png" alt="Edit a Video" />
               </div>
               <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-edit-image "></span></div>
               <div class="la-gcreator__video-content mt-5">
@@ -117,7 +140,9 @@
             </div>
 
             <div class="la-gvline-last d-flex align-items-start flex-column la-anim__wrap">
-              <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5 la-anim__stagger-item"><img class="img-fluid mx-auto d-block img-rounded mt-n5" src="./images/learners/creator/gcreator-3a.png" alt="Share Video"></div>
+              <div class="la-gcreator__works-mobile d-block d-lg-none pl-5 ml-5 mt-n5 la-anim__stagger-item">
+                <img class="img-fluid mx-auto d-block img-rounded mt-n5 lazy" src="./images/learners/creator/gcreator-3a.png" data-src="./images/learners/creator/gcreator-3a.png" alt="Share Video" />
+              </div>
               <div class="la-gcreator__video-icon la-anim__stagger-item"><span class="la-icon la-icon--6xl icon-share-image "></span></div>
               <div class="la-gcreator__video-content mt-5">
                 <h5 class="la-gcreator__video-title la-anim__stagger-item">Share it with the World</h5>
@@ -127,7 +152,8 @@
                   <li class="la-gcreator__list-item d-flex align-items-start"><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Use the power of digital media to connect with artists all over the globe</li>
                   <li class="la-gcreator__list-item d-flex align-items-start"><span class="la-gcreator__list-tick la-icon la-icon--md icon-tick"></span>Build a community of passionate artists and help each other grow</li>
                 </ul>
-{{-- 
+                
+                {{-- 
                 <div class="form-group mt-8 la-anim__stagger-item">
                   <button class="la-btn__app py-3 py-md-4" type="submit">Submit</button>
                 </div> --}}

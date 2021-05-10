@@ -25,6 +25,7 @@ use PDF;
 use Carbon\Carbon;
 use App\CourseLanguage;
 use App\Categories;
+use Illuminate\Support\Str;
 use Stevebauman\Location\Facades\Location;
 
 class LearnController extends Controller
@@ -32,11 +33,8 @@ class LearnController extends Controller
     public function show($id, $slug)
     {
        
-        if($id >= 1000){
-
-        }else{
+        if($id < 1000)
             return redirect('/learn/class/'.$id.'/'.$slug);
-        }
 
         $playlists = [];     
           
@@ -46,8 +44,9 @@ class LearnController extends Controller
 
         $mentor_other_courses =  BundleCourse::where('user_id', $course->user_id)->where('status', 1)->where('id','!=', $course->id)->take(3)->get();
 
-        if($course->slug != $slug)
-            return redirect()->route('learn.course', ['id' => $id,'slug'=>$course->slug]);
+        $course_slug = Str::slug($course->title, '-');
+        if($course_slug != $slug)
+            return redirect()->route('learn.course', ['id' => $id, 'slug' => $course_slug]);
 
         $video_access = false;
         $class_access = false;
@@ -144,8 +143,9 @@ class LearnController extends Controller
 
         $mentor_other_courses =  Course::where('user_id', $course->user_id)->where('status', 1)->whereNotIn('id', [$course->id])->take(3)->get();
 
-        if($course->slug != $slug)
-            return redirect()->route('learn.class', ['id' => $id,'slug'=>$course->slug]);
+        $course_slug = Str::slug($course->title, '-');
+        if($course_slug != $slug)
+            return redirect()->route('learn.course', ['id' => $id, 'slug' => $course_slug]);
 
         $video_access = false;
         $class_access = false;

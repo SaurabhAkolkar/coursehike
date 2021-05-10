@@ -50,7 +50,10 @@ $image-center: -30px;
                     &wishlist{
                         height:480px;
 
-                        @include respond-above(lg){
+                        @media (max-width:1399px) and (min-width:1200px){
+                            height:440px;
+                        }
+                        @media (min-width:1400px){
                             height:480px;
                         }
                     }

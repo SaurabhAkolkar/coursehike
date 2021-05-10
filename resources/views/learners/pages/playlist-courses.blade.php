@@ -38,7 +38,7 @@
             @endphp
 
             <section class="la-section la-wishlist__sec pt-0">
-              <h3 class="text-2xl mb-6">Courses</h3>
+              <h3 class="text-2xl mb-6 la-anim__stagger-item">Courses</h3>
               <div class="la-wishlist__inner">
                 <div class="row la-wishlist__row">
                   @if(count($courses) > 0) 
@@ -89,7 +89,7 @@
             </section>
 
             <section class="la-section la-playlist__sec pt-0">
-              <h3 class="text-2xl mb-6">Classes</h3>
+              <h3 class="text-2xl mb-6 la-anim__stagger-item">Classes</h3>
               <div class="la-playlist__wrap">
                 
                         <div class="row la-playlist__items">

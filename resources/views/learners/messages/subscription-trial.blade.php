@@ -4,6 +4,15 @@
     <title> Subscription Trial Started </title>
 @endsection
 
+@section('body_scripts')
+<script>
+  fbq('track', 'Subscribe', {
+    value: {{$plan_subscription->plan->price}},
+    currency: {{getLocation() == 'IN' ? 'INR' : 'USD'}},
+  });
+</script>
+@endsection
+
 @section('content')
 <section class="la-cbg--main">
     <div class="la-section">
@@ -15,7 +24,7 @@
                 <div class="col-12 d-block d-md-none la-anim__wrap">
                     <div class="la-status__mobile-banner pt-8 pb-16 la-anim__stagger-item">
                       <div class="la-status__mobile-img ">
-                          <img src="../images/learners/status/trial.svg" class="img-fluid mx-auto d-block" alt="Successful">
+                          <img src="../images/learners/status/trial.svg" data-src="../images/learners/status/trial.svg" class="lazy img-fluid mx-auto d-block" alt="Trial Started" />
                       </div>
                     </div>
                 </div>
@@ -76,7 +85,7 @@
 
                           <div class="la-status__info-banner d-none d-md-block la-anim__wrap">
                               <div class="la-status__info-showcase la-anim__stagger-item--x ">
-                                  <img src="../images/learners/status/trial.svg" class="d-block la-status__info-successimg" alt="Trial">
+                                  <img src="../images/learners/status/trial.svg"  data-src="../images/learners/status/trial.svg" class="lazy d-block la-status__info-successimg" alt="Trial Started" /> 
                               </div>
                           </div>
                       </div>

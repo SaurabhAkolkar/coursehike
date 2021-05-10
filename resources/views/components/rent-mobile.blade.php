@@ -3,7 +3,7 @@
     <div class="la-rto__item d-flex justify-content-between mb-4">           
         <div class="la-rto__item-info d-flex align-items-center">
             <div class="la-rto__item-img mr-4 la-anim__stagger-item">
-                <img class="d-inline-block" src=  {{ $img }}   alt= {{ $course }}  />
+                <img class="d-inline-block" src=  "{{ $img }}"   alt= "{{ $course }}"  />
             </div>
             <div class="la-purcaseh__item-by la-anim__stagger-item">  
                 <div class="la-rto__categories text-sm"> {{ $classes }} </div>

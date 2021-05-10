@@ -1,7 +1,23 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-    <title> My Playlist </title>
+    <title> My Playlist | Learn Tattoo & Graphic Design | LILA </title>
+    <meta name='description' itemprop='description' content='Check out your Playlist' />
+
+    <meta property="og:description" content="Check out your Playlist" />
+    <meta property="og:title" content="My Playlist | Learn Tattoo & Graphic Design | LILA" />
+    <meta property="og:url" content="{{Request::url()}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LILA Art" />
+    <meta property="og:image" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:url" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:size" content="300" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="My Playlist | Learn Tattoo & Graphic Design | LILA" />
+    <meta name="twitter:site" content="@lilaaliens" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"My Playlist | Learn Tattoo & Graphic Design | LILA"}</script>
 @endsection
 
 @section('content')

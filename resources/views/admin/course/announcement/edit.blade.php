@@ -28,21 +28,22 @@
           @method('PUT')
           @csrf
             <div class="row">
-              <div class="form-group col-md-12">
+              <div class="form-group col-12 mb-5">
                   <label for="announcement_title">Title:</label>
                   <input type="text" class="form-control" name="announcement_title" id="announcement_title" value="{{$annou->title}}" placeholder="Enter Title for the announcement">
               </div>
 
-              <div class="form-group col-md-12">
+              <div class="form-group col-md-6">
                   <label for="announcement_short">Short Description:</label>
-                  <textarea cols="30" rows="4" class="form-control" name="announcement_short" id="announcement_short" placeholder="Short discription on the preview of the announcement">{{$annou->short_description}}</textarea>
+                  <textarea cols="30" rows="5" class="form-control" name="announcement_short" id="announcement_short" placeholder="Short discription on the preview of the announcement">{{$annou->short_description}}</textarea>
               </div>
 
-              <div class="form-group col-md-12">
+              <div class="form-group col-md-6">
                 <label for="announcement_long">Long Description:</label>
                 <textarea id="announcement_long" name="announcement_long" rows="5" class="form-control" placeholder="Long description appear when someone clicks 'Read More'">{{$annou->long_description}}</textarea>
               </div>
             </div>
+
              <!-- PREVIEW IMAGE & VIDEO FILES: START -->
              <div class="row">
               <div class="col-md-6">

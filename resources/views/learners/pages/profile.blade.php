@@ -1,7 +1,23 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-    <title> Profile </title>
+    <title> My Profile | Learn Tattoo & Graphic Design | LILA </title>
+    <meta name='description' itemprop='description' content='Check out your Profile & keep a track on your subscribed courses.Join LILA & enhance your skills with these online classes.' />
+
+    <meta property="og:description" content="Check out your Profile & keep a track on your subscribed courses.Join LILA & enhance your skills with these online classes." />
+    <meta property="og:title" content="My Profile | Learn Tattoo & Graphic Design | LILA" />
+    <meta property="og:url" content="{{Request::url()}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LILA Art" />
+    <meta property="og:image" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:url" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:size" content="300" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="My Profile | Learn Tattoo & Graphic Design | LILA" />
+    <meta name="twitter:site" content="@lilaaliens" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"My Profile | Learn Tattoo & Graphic Design | LILA"}</script>
 @endsection
 
 @section('content')
@@ -42,14 +58,14 @@
                           <div class="col-6 la-anim__stagger-item--x">
                             <div class="la-form__img-wrap">
                               <div class="la-form__img-title">Current</div>
-                              <div class="la-form__img d-inline-block d-flex justify-content-center content-fit"><img src="{{Auth::user()->user_img}}" id="user_image" alt="" class="mw-100 mh-100"></div>
+                              <div class="la-form__img d-inline-block d-flex justify-content-center content-fit"><img src="{{Auth::user()->user_img}}" id="user_image" alt="" class="mw-100 mh-100" /></div>
                             </div>
                           </div>
                           <div class="col-6 la-anim__stagger-item--x">
                             <div class="la-form__img-wrap">
                               <div class="la-form__img-title">Upload new</div>
                               <input class="d-none" id="file-upload" type="file" name="user_img">
-                              <label class="la-form__img la-form__img-upload d-inline-block text-center" for="file-upload"><a class="d-inline-block" href="#" onclick="$('#file-upload').click()">CHOOSE A FILE </a> <br/><span class="la-form__img-info">Thumbnail | 500x500</span><img src="" alt=""></label>
+                              <label class="la-form__img la-form__img-upload d-inline-block text-center" for="file-upload"><a class="d-inline-block" href="#" onclick="$('#file-upload').click()">CHOOSE A FILE </a> <br/><span class="la-form__img-info">Thumbnail | 500x500</span><img src="" alt="" /></label>
                               @error('user_img')
                                 <div class="alert alert-danger">{{ $message }}</div>
                               @enderror

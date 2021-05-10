@@ -66,8 +66,6 @@
         <div class="box box-primary">
           <div class="panel panel-sum">
             <div class="modal-body">
-
-
             
             <form class="la-admin__announce-form" name="announcement_form" action="/announcement" method="post"  enctype="multipart/form-data">
               @csrf

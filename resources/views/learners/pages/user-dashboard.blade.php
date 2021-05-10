@@ -3,18 +3,18 @@
     <title>Dashboard | Learn Anything Artistic Online | Start For Free Today | LILA</title>
     <meta name='description' itemprop='description' content='Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now' />
 
-    <meta property="og:description"content="Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now" />
-    <meta property="og:title"content="Dashboard | Learn Anything Artistic Online | Start For Free Today | LILA" />
-    <meta property="og:url"content="{{Request::url()}}" />
-    <meta property="og:type"content="website" />
-    <meta property="og:site_name"content="LILA Art" />
-    <meta property="og:image"content="{{config('app.url')}}/images/learners/logo.svg" />
-    <meta property="og:image:url"content="{{config('app.url')}}/images/learners/logo.svg" />
-    <meta property="og:image:size"content="300" />
+    <meta property="og:description" content="Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now" />
+    <meta property="og:title" content="Dashboard | Learn Anything Artistic Online | Start For Free Today | LILA" />
+    <meta property="og:url" content="{{Request::url()}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LILA Art" />
+    <meta property="og:image" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:url" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:size" content="300" />
 
-    <meta name="twitter:card"content="summary" />
-    <meta name="twitter:title"content="Dashboard | Learn Anything Artistic Online | Start For Free Today | LILA" />
-    <meta name="twitter:site"content="@lilaaliens" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Dashboard | Learn Anything Artistic Online | Start For Free Today | LILA" />
+    <meta name="twitter:site" content="@lilaaliens" />
     
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Dashboard | Learn Anything Artistic Online | Start For Free Today | LILA"}</script>
 @endsection
@@ -283,7 +283,7 @@
                     <div class="col-md-6 col-lg-4 ">
                       <div class="la-mentor">
                         <div class="la-mentor__profile  la-anim__stagger-item">
-                            <img class="img-fluid" src="{{ $u[0]->user->user_img }}" alt="{{$u[0]->user->fullName}}">
+                            <img class="img-fluid lazy" src="{{ $u[0]->user->user_img }}" data-src="{{ $u[0]->user->user_img }}" alt="{{$u[0]->user->fullName}}" />
                         </div>
                         <div class="la-mentor__btm d-flex justify-content-between align-items-center la-anim__stagger-item la-anim__B">
                           <div class="la-mentor__info ">

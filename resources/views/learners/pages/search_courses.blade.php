@@ -1,7 +1,23 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-    <title> Search Coures </title>
+    <title> Search Courses | Learn Tattoo & Graphic Design | LILA </title>
+    <meta name='description' itemprop='description' content='Search course on tattoo, graphic design, digital art from basic to advanced .Join LILA & enhance your skills with these online classes.' />
+
+    <meta property="og:description" content="Search course on tattoo, graphic design, digital art from basic to advanced .Join LILA & enhance your skills with these online classes." />
+    <meta property="og:title" content="Search Courses | Learn Tattoo & Graphic Design | LILA" />
+    <meta property="og:url" content="{{Request::url()}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LILA Art" />
+    <meta property="og:image" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:url" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:size" content="300" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Search Courses | Learn Tattoo & Graphic Design | LILA" />
+    <meta name="twitter:site" content="@lilaaliens" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Search Courses | Learn Tattoo & Graphic Design | LILA"}</script>
 @endsection
 
 @section('content')
@@ -186,7 +202,7 @@
                     <div class="la-anim__wrap">
                       <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
                         @foreach($courses as $course)
-                                      <x-bundle-course 
+                                      <x-bundle-course
                                       :id="$course->id"
                                       :img="$course->preview_image"
                                       :course="$course->title"
@@ -202,6 +218,7 @@
                                       :bought="$course->isPurchased()"
                                       :checkWishList="$course->checkWishList"
                                       :checkCart="$course->checkCart"
+                                      :progress="$course->progress"
                                     />
                         @endforeach 
                       </div> 

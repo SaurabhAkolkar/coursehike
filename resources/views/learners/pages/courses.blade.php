@@ -1,23 +1,23 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-    <title>Browse Courses | Learn Anything & Anywhere Artistic | Online Classes For Creatives</title>
-    <meta name='description' itemprop='description' content='Discover online classes on art, creativity, design, digital art, artistic baking & much more. Join LILA & enhance your skills with these online classes.' />
+    <title>Browse Courses | Learn Tattoo & Graphic Design | LILA</title>
+    <meta name='description' itemprop='description' content='Discover course on tattoo, graphic design, digital art from basic to advanced mentored by Globally reconginized artists.Join LILA & enhance your skills with these online classes.' />
 
-    <meta property="og:description"content="Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now" />
-    <meta property="og:title"content="Learn Anything & Anywhere Artistic | Online Classes For Creatives" />
-    <meta property="og:url"content="{{Request::url()}}" />
-    <meta property="og:type"content="website" />
-    <meta property="og:site_name"content="LILA Art" />
-    <meta property="og:image"content="{{config('app.url')}}/images/learners/logo.svg" />
-    <meta property="og:image:url"content="{{config('app.url')}}/images/learners/logo.svg" />
-    <meta property="og:image:size"content="300" />
+    <meta property="og:description" content="Discover course on tattoo, graphic design, digital art from basic to advanced mentored by Globally reconginized artists.Join LILA & enhance your skills with these online classes." />
+    <meta property="og:title" content="Browse Courses | Learn Tattoo & Graphic Design | LILA" />
+    <meta property="og:url" content="{{Request::url()}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LILA Art" />
+    <meta property="og:image" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:url" content="{{config('app.url')}}/images/learners/logo.svg" />
+    <meta property="og:image:size" content="300" />
 
-    <meta name="twitter:card"content="summary" />
-    <meta name="twitter:title"content="Learn Anything & Anywhere Artistic | Online Classes For Creatives" />
-    <meta name="twitter:site"content="@lilaaliens" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Browse Courses | Learn Tattoo & Graphic Design | LILA" />
+    <meta name="twitter:site" content="@lilaaliens" />
     
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Learn Anything & Anywhere Artistic | Online Classes For Creatives"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Browse Courses | Learn Tattoo & Graphic Design | LILA"}</script>
     <script>
       (function(h,e,a,t,m,p) {
       m=e.createElement(a);m.async=!0;m.src=t;
@@ -25,7 +25,7 @@
       })(window,document,'script','https://u.heatmap.it/log.js');
     </script>
 @endsection
-
+<link rel="icon" type="image/icon" href="{{ asset('images/favicon/favicon.svg') }}"> 
 
 <!-- Playlist Alert Message-->
 @if(session('message'))

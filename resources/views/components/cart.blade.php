@@ -21,7 +21,7 @@
                     <div class="la-cart__item-content d-md-flex">
                         <div class="la-cart__item-left  mr-md-4">
                             <div class="la-cart__item-img">
-                                <img src= "{{ $courseImg }}" class="img-fluid" alt= {{ $course }} />
+                                <img src= "{{ $courseImg }}" data-src= "{{ $courseImg }}" class="lazy img-fluid" alt= "{{ $course }}" />
                             </div>
                         </div>
                         <div class="la-cart__item-right ">
