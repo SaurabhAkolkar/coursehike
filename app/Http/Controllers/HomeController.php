@@ -19,7 +19,7 @@ use App\FirstSection;
 use App\FeaturedMentor;
 use Auth;
 use App\CourseLanguage;
-
+use Illuminate\Support\Facades\Cache;
 use stdClass;
 class HomeController extends Controller
 {
@@ -41,19 +41,29 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $categories = [];
-        $sliders = Slider::orderBy('position', 'ASC')->get();
-        $facts = SliderFacts::limit(3)->get();
+        // $sliders = Slider::orderBy('position', 'ASC')->get();
+        // $facts = SliderFacts::limit(3)->get();
         // $categories = CategorySlider::first();
-        $cor = Course::all();
-        $bundles = BundleCourse::get();
-        $meetings = Meeting::where('link_by', NULL)->get();
-        $bigblue = BBL::where('is_ended','!=',1)->where('link_by', NULL)->get();
-        $testi = Testimonial::all();
-        $trusted = Trusted::all();
+
+        // $cor = Course::with('review')->get();
+        $cor = Cache::remember('course', $seconds = 86400, function () {
+            return Course::with('review')->get();
+        });
+
+        // $bundles = BundleCourse::all();
+
+        // $meetings = Meeting::where('link_by', NULL)->get();
+        // $bigblue = BBL::where('is_ended','!=',1)->where('link_by', NULL)->get();
+        // $testi = Testimonial::all();
+        // $trusted = Trusted::all();
         $playlists = [];
-        $firstSection = FirstSection::first();
-        $langauges = CourseLanguage::where(['status'=>1])->get();
-		$filter_categories = Categories::with('subcategory')->where(['status'=>1])->get();
+        
+        // $langauges = CourseLanguage::where(['status'=>1])->get();
+		// $filter_categories = Categories::with('subcategory')->where(['status'=>1])->get();
+        $filter_categories = Cache::remember('categories', $seconds = 86400, function () {
+            return Categories::with('subcategory')->where(['status'=>1])->get();
+        });
+
         $selected_categories = [];
 		$selected_level = [];
 		$selected_languages = [];
@@ -61,27 +71,43 @@ class HomeController extends Controller
 		$filtres_applied = false;
         $selected_duration = "";
         $courses = [];
+                
+        // $firstSection = FirstSection::first();
+        // if($firstSection == null){
+        //     $firstSection = new stdClass;
+        //     $firstSection->sub_heading = 'Observe, learn and converse with creators to master your arts';
+        //     $firstSection->image = asset('images/learners/home/design-a@2x.png');
+        //     $firstSection->image_text = 'DESIGN';            
+        // }
+        $firstSection = Cache::remember('HomeFirstSection', $seconds = 86400, function () {
+            $firstSection = FirstSection::first();
+            if($firstSection == null){
+                $firstSection = new stdClass;
+                $firstSection->sub_heading = 'Observe, learn and converse with creators to master your arts';
+                $firstSection->image = asset('images/learners/home/design-a@2x.png');
+                $firstSection->image_text = 'DESIGN';            
+            }
+            return $firstSection;
+        });
+
+        if(Auth::check())
+            $playlists = Playlist::where('user_id', Auth::user()->id)->get();
+
+        // $master_classes = MasterClass::with(array('courses' => function($query) {$query->where('status', 1)->orderBy('order');}),'courses.user', 'review')->get();
+        $master_classes = Cache::remember('master_classes', $seconds = 86400, function () {
+            return MasterClass::with(array('courses' => function($query) {$query->where('status', 1)->orderBy('order');}),'courses.user', 'review')->get();
+        });
         
+        // $featuredMentor = FeaturedMentor::with('user','courses','courses.category')->where(['status'=>'1'])->get();
+        $featuredMentor = Cache::remember('featuredMentor', $seconds = 86400, function () {
+            return FeaturedMentor::with('user','courses','courses.category')->where(['status'=>'1'])->get();
+        });
 
-        
 
-        if($firstSection == null){
-            $firstSection = new stdClass;
-            $firstSection->sub_heading = 'Observe, learn and converse with creators to master your arts';
-            $firstSection->image = asset('images/learners/home/design-a@2x.png');
-            $firstSection->image_text = 'DESIGN';
-            //- $firstSection->video_url = 'https://static.wixstatic.com/media/86f3ff_12683ef001af42d593da862ef103a9b6f000.jpg/v1/fill/w_760,h_476,al_c,q_85,usm_0.33_1.00_0.00/86f3ff_12683ef001af42d593da862ef103a9b6f000.webp';
-            
-        }
-
-        if(Auth::check()){
-            $playlists = Playlist::where('user_id', Auth::user()->id)->get();   
-        }
-        $master_classes = MasterClass::with(array('courses' => function($query) {$query->where('status', 1)->orderBy('order');}),'courses.user')->get();
-        
-        $featuredMentor = FeaturedMentor::with('user','courses','courses.category')->where(['status'=>'1'])->get();
-
-		$bundleCoures = BundleCourse::where(['status'=>1])->get();
+		// $bundleCoures = BundleCourse::where(['status'=>1])->get();
+        $bundleCoures = Cache::remember('bundle', $seconds = 86400, function () {
+            return BundleCourse::where(['status'=>1])->get();
+        });
         
         // if(isset($request->sort_by)){
         //     $sort_type = $request->sort_by;
@@ -101,7 +127,10 @@ class HomeController extends Controller
         // }else{
         // }
 
-        $categories = Categories::with(array('courses' => function($query) {$query->orderBy('order')->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+        // $categories = Categories::with(array('courses' => function($query) {$query->orderBy('order')->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+        $categories = Cache::remember('categories', $seconds = 86400, function () {
+            return Categories::with(array('courses' => function($query) {$query->orderBy('order')->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+        });
 
         
         $data = [
@@ -110,14 +139,14 @@ class HomeController extends Controller
             'firstSection' => $firstSection,
             'featuredMentor' => $featuredMentor,
             'master_classes' => $master_classes,
-            'sliders' => $sliders,
-            'facts' => $facts,
+            // 'sliders' => $sliders,
+            // 'facts' => $facts,
             'cor' => $cor,
-            'bundles' => $bundles,
-            'meetings' => $meetings,
-            'bigblue' => $bigblue,
-            'testi' => $testi,
-            'trusted' => $trusted,
+            // 'bundles' => $bundles,
+            // 'meetings' => $meetings,
+            // 'bigblue' => $bigblue,
+            // 'testi' => $testi,
+            // 'trusted' => $trusted,
             'selected_duration' => $selected_duration,
             'sort_type' => $sort_type,
             'selected_languages' => $selected_languages,
@@ -125,7 +154,7 @@ class HomeController extends Controller
             'selected_level' => $selected_level,
             'filtres_applied' => $filtres_applied,
             'courses' => $courses,
-            'langauges' => $langauges,
+            // 'langauges' => $langauges,
             'filter_categories'=>$filter_categories,
             'bundleCoures' => $bundleCoures
         ];
