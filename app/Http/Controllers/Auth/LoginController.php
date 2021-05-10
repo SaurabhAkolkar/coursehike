@@ -38,23 +38,23 @@ class LoginController extends Controller
         // dd($user);
         //  $login = Session::where('user_id', Auth::id())->count();
         //$login = DB::table('sessions')->where('user_id', $user->id)->count();
-         
+
         //  if ($login > 0)
         //  {
-            // Auth::logoutOtherDevices(request('password'));
+            Auth::logoutOtherDevices(request('password'));
         //  }
         try{
-            Mail::to($user->email)->later(now()->addSeconds(5), new UserLogged($user));               
+            Mail::to($user->email)->later(now()->addSeconds(5), new UserLogged($user));
         }
         catch(\Swift_TransportException $e){
-            header( "refresh:5;url=./login" );            
+            header( "refresh:5;url=./login" );
             // dd("Your Registration is successfull ! but welcome email is not sent because your webmaster not updated the mail settings in admin dashboard ! Kindly go back and login");
         }
 
         if (Auth::User()->status == 1)
         {
-           
-            if ( Auth::User()->role == "admin" || Auth::User()->role == "mentors" ) 
+
+            if ( Auth::User()->role == "admin" || Auth::User()->role == "mentors" )
             {
                 // do your magic here
                 return redirect()->route('admin.index');
@@ -62,13 +62,13 @@ class LoginController extends Controller
             else
             {
                  return redirect('/');
-      
+
             }
         }
         else{
-            
+
             Auth::logout();
-            return redirect()->route('login')->with('delete','You are deactivated !'); 
+            return redirect()->route('login')->with('delete','You are deactivated !');
         }
     }
 
@@ -99,7 +99,7 @@ class LoginController extends Controller
         $auth = Auth::attempt(
             [
                 'email'  => strtolower(Input::get('email')),
-                'password'  => Input::get('password')    
+                'password'  => Input::get('password')
             ], $remember
         );
 
@@ -108,7 +108,7 @@ class LoginController extends Controller
             return redirect()-> action('HomeController@index');
         }
         else {
-            return view('auth.register', ['name'=> $userSocial->getName(), 
+            return view('auth.register', ['name'=> $userSocial->getName(),
                                             'email' => $userSocial->getEmail()]);
         }
     }

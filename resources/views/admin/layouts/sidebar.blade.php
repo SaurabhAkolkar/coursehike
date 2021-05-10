@@ -22,13 +22,13 @@
       @if(Auth::User()->role == "admin")
         <ul class="sidebar-menu" data-widget="tree">
           <!-- <li class="header">{{ __('adminstaticword.Navigation') }}</li> -->
-        
+
           <li class="{{ Nav::isRoute('admin.index') }}"><a href="{{route('admin.index')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-dashboard mr-5" aria-hidden="true"></i><span>{{ __('adminstaticword.Dashboard') }}</span></a></li>
 
           {{-- <li class="{{ Nav::isRoute('user.index') }} {{ Nav::isRoute('create.subscription') }} {{ Nav::isRoute('store.user.course') }} {{ Nav::isRoute('user.add') }} {{ Nav::isRoute('user.edit') }}">
             <a href="{{route('user.index')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Users') }}</span></a></li> --}}
 
-          <li class="{{ Nav::isRoute('user.index') }} {{ Nav::isRoute('create.subscription') }} {{ Nav::isRoute('store.user.course') }} {{ Nav::isRoute('user.add') }} {{ Nav::isRoute('user.edit') }} treeview">
+          <li class="{{ Nav::isRoute('user.index') }} {{ Nav::isRoute('user.ontrial') }} {{Nav::isRoute('user.subscribed')}} {{Nav::isRoute('user.learners')}} {{ Nav::isRoute('create.subscription') }} {{ Nav::isRoute('store.user.course') }} {{ Nav::isRoute('user.add') }} {{ Nav::isRoute('user.edit') }} treeview">
             <a href="#">
               <i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Users') }}</span>
               <span class="pull-right-container">
@@ -98,12 +98,12 @@
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
-            </a>                            
+            </a>
 
             <ul class="treeview-menu">
               <li class="{{ Nav::isResource('category') }}  {{ Nav::isResource('subcategory') }} {{ Nav::isResource('childcategory') }}  treeview">
                   <a href="#" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-categories mr-5"></i>{{ __('adminstaticword.Category') }}<i class="fa fa-angle-left pull-right"></i></a>
-                  
+
                   <ul class="treeview-menu">
                     <li class="@if(Request::segment(1) == 'category') active @endif"><a href="{{url('category')}}" class="d-flex align-items-center"><i class="la-icon la-icon--sm icon-categories mr-4"></i>{{ __('adminstaticword.Category') }}</a></li>
                     <li class="@if(Request::segment(1) == 'subcategory') active @endif"><a href="{{url('subcategory')}}" class="d-flex align-items-center"><i class="la-icon la-icon--sm icon-sub-category mr-4"></i>{{ __('adminstaticword.SubCategory') }}</a></li>
@@ -117,15 +117,15 @@
                   <li class="@if(Request::segment(1) == 'featuredcourses') active @endif"><a href="{{url('featuredcourses')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-featured-class mr-4"></i><span>{{ __('adminstaticword.featuredClasses') }}</span></a></li>
 
                   <li class="{{ Nav::isResource('courselang') }}"><a href="{{url('courselang')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-course-language mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.CourseLanguage') }}</span></a></li>
-                  
+
                   <li class="{{ Nav::isResource('publishrequest') }}"><a href="{{url('publishrequest')}}" class="d-flex align-items-center"><i class="la-icon la-icon--xl icon-published-course mr-3" aria-hidden="true"></i><span>{{ __('adminstaticword.PublishRequest') }}</span></a></li>
-                  
+
                   <li class="{{ Nav::isResource('coursereviewunpublish') }}"><a href="{{url('coursereviewunpublish')}}" class="d-flex align-items-center"><i class="la-icon la-icon--xl icon-unpublished-course mr-3" aria-hidden="true"></i><span>{{ __('adminstaticword.UnpublishRequest') }}</span></a></li>
 
                   {{-- @if($global_settings->assignment_enable == 1)
                     <li class="{{ Nav::isRoute('assignment.view') }}"><a href="{{route('assignment.view')}}" class="d-flex align-items-center"><i class="flaticon-computer" aria-hidden="true"></i><span>{{ __('adminstaticword.Assignment') }}</span></a></li>
                   @endif --}}
-                  
+
               </li>
             </ul>
           </li>
@@ -143,8 +143,8 @@
               <li class="{{ Nav::isRoute('all.instructor') }}"><a href="{{route('all.instructor')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-all-mentors mr-3"></i>{{ __('adminstaticword.AllInstructor') }}</a></li>
               <li class="{{ Nav::isResource('requestinstructor') }}"><a href="{{url('requestinstructor')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-request mr-4"></i>{{ __('adminstaticword.InstructorRequest') }}</a></li>
             </ul>
-          </li> 
-          
+          </li>
+
 
           <li class="{{ Nav::isResource('order')}} {{ Nav::isResource('subscriptions') }} {{ Nav::isResource('purchasedcourses')   }}   treeview">
             <a href="#" class="d-flex align-items-center">
@@ -158,13 +158,13 @@
               <li class="{{ Nav::isResource('purchasedcourses') }}"><a href="{{url('purchasedcourses')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-revenue mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.PurchasedCourses') }}</span></a></li>
               <li class="{{ Nav::isResource('subscriptions') }}"><a href="{{url('subscriptions')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-revenue mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Subscriptions') }}</span></a></li>
             </ul>
-          </li> 
+          </li>
 
 
           {{-- <li class="{{ Nav::isResource('order') }}"><a href="{{url('order')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-revenue mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Order') }}</span></a></li> --}}
-         
+
          <!-- <li class="{{ Nav::isResource('page') }}"><a href="{{url('page')}}"><i class="la-icon la-icon--lg icon-pages mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Pages') }}</span></a></li> -->
-          
+
           <li class="{{ Nav::isResource('faq') }} {{ Nav::isResource('faqinstructor') }}  treeview">
             <a href="#" class="d-flex align-items-center">
              <i class="la-icon la-icon--lg icon-faq mr-4" aria-hidden="true"></i> <span>{{ __('adminstaticword.Faq') }}</span>
@@ -176,7 +176,7 @@
               <li class="@if(Request::segment(1) == 'faq') active @endif"><a href="{{url('faq')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-learner-faq mr-3"></i> <span>{{ __('adminstaticword.FaqStudent') }}</span></a></li>
               <li class="{{ Nav::isResource('faqinstructor') }}"><a href="{{url('faqinstructor')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-mentor-faq mr-3"></i><span>{{ __('adminstaticword.FaqInstructor') }}</span></a></li>
             </ul>
-          </li> 
+          </li>
 
          <li class="{{ Nav::isRoute('instructor.settings') }} {{ Nav::isRoute('admin.instructor') }} {{ Nav::isRoute('admin.completed') }}  treeview">
            <a href="#" class="d-flex align-items-center">
@@ -189,12 +189,12 @@
               {{-- <li class="{{ Nav::isRoute('instructor.settings') }}"><a href="{{route('instructor.settings')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-payout-settings mr-3"></i>{{ __('adminstaticword.PayoutSettings') }}</a></li>
               <li class="{{ Nav::isRoute('admin.instructor') }}"><a href="{{route('admin.instructor')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-pending-payout mr-3"></i>{{ __('adminstaticword.PendingPayout') }}</a></li>
               <li class="{{ Nav::isRoute('admin.completed') }}"><a href="{{route('admin.completed')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-completed-payout mr-3"></i>{{ __('adminstaticword.CompletedPayout') }}</a></li> --}}
-              
+
               <li class="{{ Nav::isRoute('admin.creatorpayoutanalytics') }}"><a href="{{route('admin.creatorpayoutanalytics')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-mentor-payout mr-3"></i>Payout Analytics</a></li>
               <li class="{{ Nav::isRoute('admin.creatorpayout') }}"><a href="{{route('admin.creatorpayout')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-mentor-payout mr-3"></i>{{ __('adminstaticword.CreatorPayout') }}</a></li>
-            
+
             </ul>
-          </li> 
+          </li>
 
           <!-- <li class="{{ Nav::isResource('user/course/report') }}  treeview">
            <a href="#">
@@ -230,7 +230,7 @@
               <li class="@if(Request::segment(1) == 'featuredMentors') active @endif"><a href="{{url('featuredMentors')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-featured-mentor mr-4"></i>{{ __('adminstaticword.FeaturedMentors') }}</a></li>
             </ul>
           </li>
-          
+
            <!--<li class="{{ Nav::isRoute('gen.set') }} {{ Nav::isRoute('api.setApiView') }} {{ Nav::isResource('blog') }} {{ Nav::isRoute('about.page') }} {{ Nav::isRoute('careers.page') }} {{ Nav::isRoute('comingsoon.page') }} {{ Nav::isRoute('termscondition') }} {{ Nav::isRoute('policy') }} {{ Nav::isRoute('bank.transfer') }} {{ Nav::isRoute('show.pwa') }} {{ Nav::isRoute('adsense') }} treeview">
            <a href="#">
              <i class="flaticon-tools" aria-hidden="true"></i> <span>{{ __('adminstaticword.SiteSetting') }}</span>
@@ -241,7 +241,7 @@
             <ul class="treeview-menu">
               <li class="{{ Nav::isRoute('gen.set') }}"><a href="{{route('gen.set')}}"><i class="flaticon-admin"></i><span>{{ __('adminstaticword.Setting') }}</span></a></li>
               <li class="{{ Nav::isRoute('api.setApiView') }}"><a href="{{route('api.setApiView')}}"><i class="flaticon-report"></i>{{ __('adminstaticword.APISetting') }}</a></li>
-              
+
               <li class="{{ Nav::isResource('blog') }}"><a href="{{url('blog')}}"><i class="flaticon-real-state"></i>{{ __('adminstaticword.Blog') }}</a></li>
               <li class="{{ Nav::isRoute('about.page') }}"><a href="{{route('about.page')}}"><i class="flaticon-book"></i>{{ __('adminstaticword.About') }}</a></li>
               <li class="{{ Nav::isRoute('careers.page') }}"><a href="{{route('careers.page')}}"><i class="flaticon-mobile-marketing"></i>{{ __('adminstaticword.Career') }}</a></li>
@@ -253,7 +253,7 @@
 
               <li class="{{ Nav::isRoute('show.pwa') }}"><a href="{{route('show.pwa')}}"><i class="flaticon-mobile-marketing" aria-hidden="true"></i><span> {{ __('adminstaticword.PWASetting') }}</span></a></li>
               <li class="{{ Nav::isRoute('adsense') }}"><a href="{{url('/admin/adsensesetting')}}" title="Page Setting"><span><i class="flaticon-settings-3"></i> &nbsp;&nbsp;{{ __('adminstaticword.AdsenseSetting') }}</span></a></li>
-              
+
               @if(isset($global_settings) && $global_settings->ipblock_enable == 1)
               <li class="{{ Nav::isRoute('ipblock.view') }}"><a href="{{url('admin/ipblock')}}" title="Page Setting"><span><i class="flaticon-error"></i> &nbsp;&nbsp;{{ __('adminstaticword.IPBlockSettings') }}</span></a></li>
               @endif
@@ -285,7 +285,7 @@
 
          <li class="{{ Nav::isResource('usermessage') }}"><a href="{{url('usermessage')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-messages mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.AllMessages') }}</span></a></li>
          <li class="{{ Nav::isResource('announcement') }}"><a href="{{url('announcement')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-messages mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Announcement') }}</span></a></li>
-        
+
 
          <!-- <li class="mt-md-20 pt-md-10">
           <a href="" class="d-flex align-items-center">
