@@ -1,7 +1,7 @@
 @extends('admin/layouts.master')
 @section('title', 'Featured Classes - Admin')
 @section('body')
- 
+
 @if ($errors->any())
 <div class="alert alert-danger">
   <ul>
@@ -45,7 +45,7 @@
                     <td>{{$c->title}}</td>
                     <td>{{$c->category->title}} </td>
                     <td>{{$c->slug}}</td>
-                   
+
                     <td>
                         <form action="{{ route('category.quick',$c->id) }}" method="POST">
                           {{ csrf_field() }}
@@ -58,10 +58,10 @@
                           </button>
                         </form>
                     </td>
-            
+
                     <td>
-                      <a class="btn btn-success btn-sm" href="{{url('category/'.$c->id)}}"><i class="la-icon la-icon--lg icon-edit"></i></a></td>
-                    
+                      <a class="btn btn-success btn-sm" href="{{url('/course/create/'.$c->id)}}"><i class="la-icon la-icon--lg icon-edit"></i></a></td>
+
                   </tr>
                 @endforeach
               </tbody>
@@ -88,7 +88,7 @@
    $("#sortable").sortable({
    update: function (e, u) {
     var data = $(this).sortable('serialize');
-   
+
     $.ajax({
         url: "{{ route('course_reposition') }}",
         type: 'get',
@@ -105,7 +105,7 @@
 
 function readURL(input) {
   if (input.files && input.files[0]) {
-    var reader = new FileReader();    
+    var reader = new FileReader();
     reader.onload = function(e) {
       $(input).siblings('.preview-img').attr('src', e.target.result).removeClass('d-none');
     }
