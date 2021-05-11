@@ -158,7 +158,7 @@
                 &- {
                     &btn {
                         font-size: var(--text-sm);
-                        color: var(--gray4);
+                        //color: var(--gray4);
                         font-weight: var(--font-medium);
 
                         @include respond-below(sm){

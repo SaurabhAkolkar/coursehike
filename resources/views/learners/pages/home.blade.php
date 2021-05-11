@@ -82,12 +82,12 @@
                   <div class="la-hero__actions mt-6 mt-md-10">
                     @if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())
                     <div class="">
-                      <a href="/browse/courses" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white px-md-4">Start Learning</a>
+                      <a href="/browse/courses" class="btn btn-primary la-hero__cta la-btn__app active text-white px-md-4">Start Learning</a>
                     </div>
 
                     @else
                     <div class="">
-                        <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white px-md-4" style="letter-spacing:1.5px">
+                        <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn__app active text-white px-md-4" style="letter-spacing:1.5px">
                           Subscribe for
                           <span class="la-soffer__bestprice la-home__bestprice" style="color:var(--white)"> 
                             @if (getLocation() == 'IN')
@@ -117,7 +117,7 @@
                   @endif
                   </div>
                 
-                  <div class="la-hero__bottom-trial mt-6 mt-md-2 ml-md-6">@if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())  @else<a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary bg-transparent text-white px-md-4" style="letter-spacing:1.8px">Start free trial</a> @endif </div>
+                  <div class="la-hero__bottom-trial mt-6 mt-md-2 ml-md-6">@if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())  @else<a href="/learning-plans" class="btn btn-primary la-btn__app text-white px-md-4" style="letter-spacing:1.8px">Start free trial</a> @endif </div>
                 </div>
               </div>
                
@@ -845,7 +845,7 @@
                           <div class="la-anim__wrap la-anim__wrap-pin2">
                               <div class="la-price__box la-anim__pin2 ">
                                 <div class="la-price__box-inner la-anim__stagger-item">
-                                    <a href="/learning-plans" class="btn btn-primary la-btn w-100">SUBSCRIBE NOW</a>
+                                    <a href="/learning-plans" class="btn btn-primary la-btn__app w-100">SUBSCRIBE NOW</a>
                                     <p class="la-price__box-para mt-8 mb-2 la-anim__stagger-item--x">Get <span class="la-color--primary">35% savings </span>on Annual Plan</p>
                                     <div class="la-price__box-soffer la-soffer ml-0">
                                       

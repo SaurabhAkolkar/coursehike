@@ -187,9 +187,9 @@
                                 </div>
         
                                 
-                                <button onclick="$('#filter_form').submit()" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Apply</button> 
-                                <div class="mt-6">
-                                  <a href="/browse/courses" role="button" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Clear</a> 
+                                <button onclick="$('#filter_form').submit()" class="btn btn-primary la-btn__app text-uppercase text-center py-3 mt-6">Apply</button> 
+                                <div>
+                                  <a href="/browse/courses" role="button" class="btn btn-primary la-btn__app text-uppercase text-center py-3 mt-4">Clear</a> 
                                 </div>
                             </form>
                       </div>

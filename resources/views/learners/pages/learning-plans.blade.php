@@ -149,7 +149,7 @@
             <div class="la-bgcreator__ad-content text-center text-white " style="background:url('../images/learners/creator/plans-cta.jpg') no-repeat top rgba(0, 0, 0, 0.68); background-size:cover;">
               <div class="py-2 px-5 ">
                 <div class="la-bgcreator__ad-para pb-8 mb-6 la-anim__stagger-item">Learn real skills from real artists from around the world</div>
-                <a class="la-btn la-btn-secondary text-white text-uppercase px-5 la-anim__stagger-item" role="button" href="/browse/courses">Get Started</a>
+                <a class="btn btn-primary la-btn__app text-white text-uppercase  la-anim__stagger-item" role="button" href="/browse/courses">Get Started</a>
               </div>
             </div>
           </div>

@@ -116,40 +116,7 @@ a.la-back__page{
 .la-contact__btn{
     padding-top:var(--size-6);
 }
-.la-contact__btn-desktop{
-    width:160px;
-    height:48px;
-    border: 2px solid #7400D7;
-    border-radius: 10px;
-    font-weight:var(--font-bold);
-    letter-spacing: 3.2px;
-    padding:10px 50px;
-    color:#222222;
 
-    &:hover{
-        background-color:var(--app-indigo-1);
-        color:#ffffff;
-    }
-}
 // Contact Section End
 
 
-//- Button for Mobile Version
-.la-contact__btn-mobile{
-    @include respond-below(sm){
-        width:100%;
-        height:50px;
-        border: 2px solid #7400D7;
-        border-radius: 10px;
-        font-family:var(--body-font);
-        font-weight:var(--font-bold);
-        letter-spacing: 3.2px;
-        padding:10px 50px;
-        color:#222222;
-
-        &:hover{
-            background-color:var(--app-indigo-1);
-            color:#ffffff;
-        }
-    }
-}

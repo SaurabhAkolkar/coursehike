@@ -234,7 +234,8 @@
             &app{
                 // width:100%;
                 // height: 100%;
-                border: 2px solid #7400D7;
+                background-color: transparent !important;
+                border: 2px solid #7400D7 !important;
                 border-radius: 10px;
                 padding: var(--size-4) var(--size-9);
                 text-transform:uppercase;
@@ -248,11 +249,25 @@
 
 
                 &:hover, &:focus {
-                    background:var(--app-indigo-1);
+                    background:var(--app-indigo-1) !important;
                     color:#ffffff;
                     border-radius: 10px;
                 }
 
+                &.active{
+                    background-color:var(--app-indigo-1) !important;
+                    
+                    &:hover{
+                        background-color: transparent !important;
+                        border:2px solid var(--app-indigo-1) !important;
+
+                        &.color-black{
+                            color:var(--gray6) !important;
+                        }
+                    }
+                }
+
+               
                 @media(max-width:767px){
                     width:100% !important;
                 }

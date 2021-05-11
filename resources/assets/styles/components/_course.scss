@@ -28,22 +28,22 @@
             &__ {
                 &nav {
                     width:100%;
-                    transition:all 0.5s linear;
+                    transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;
                     scroll-behavior: smooth;
                     display:flex;
                     flex-direction: row;
                     justify-content: space-between;
                   
-                    /*&:hover > .la-courses__nav-tabs::-webkit-scrollbar-thumb{
-                        transition:all 0.5s linear;
+                    &:hover > .la-courses__nav-tabs::-webkit-scrollbar-thumb{
+                        transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;
                         height:8px;
                         background:rgb(197, 197, 197);
                         border-radius:10px;
-
-                        @include respond-below(sm){
-                            height:4px;
+                    
+                        @include respond-below(lg){
+                            height:0;
                         }
-                    }*/
+                    }
 
                     &- {
                         &title{
@@ -112,23 +112,37 @@
                             scroll-behavior: smooth;
                             //margin-bottom: var(--size-10);
                             //padding-bottom:var(--size-2);
-                            transition:all 0.5s linear;
+                            transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;
                             
                             @include respond-below(sm){
                                 margin:var(--size-6) 0;
                             }
+
+                            &:hover::-webkit-scrollbar {
+                                height:8px;
+                                width:8px;
+                                background:rgba(229,229,229,0.25);
+                                border-radius:10px;
+                                visibility: visible;
+                                overflow: visible;
+                                transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;
+                               
+                                @include respond-below(lg){
+                                    visibility: hidden;
+                                }
+                            }
                         }
                         &tabs::-webkit-scrollbar {
-                            //height:8px;
-                            //width:8px;
-                            //background:rgba(229,229,229,0.25);
-                            //border-radius:10px;
-                            //visibility: hidden;
-                            display: none;
+                            height:8px;
+                            width:8px;
+                            background:rgba(229,229,229,0.25);
+                            border-radius:10px;
+                            visibility: hidden;
+                            //display: none;
 
-                            /*@include respond-below(sm){
-                                height:4px;
-                            }*/
+                            @include respond-below(lg){
+                                display: none;
+                            }
                         }
                         &content{
                             @include respond-above(sm){

@@ -124,11 +124,11 @@
                   <textarea class="form-control  la-form__textarea p-2" id="contMsg" rows="5" cols="50" name="message" placeholder="Type here" required></textarea>
                 </div>
                 <div class="la-contact__btn text-right d-none d-sm-block la-anim__stagger-item--x">
-                  <button class="btn la-contact__btn-desktop text-lg text-center" type="submit" >SEND</button>
+                  <button class="btn btn-primary la-btn__app py-3 px-12 text-md" type="submit" >SEND</button>
                 </div>
                 <!-- Mobile Button: Start-->
                 <div class="la-contact__btn text-center pt-5 d-block d-sm-none la-anim__stagger-item">
-                  <button class="btn  btn-block la-contact__btn-mobile text-lg text-center" type="submit">SEND</button>
+                  <button class="btn btn-primary btn-block la-btn__app text-md" type="submit">SEND</button>
                 </div>
                 <!-- Mobile Button: End-->
               </form>

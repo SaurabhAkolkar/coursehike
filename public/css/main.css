@@ -10865,7 +10865,8 @@ ul, li {
   color: #7400D7;
 }
 .la-btn__app {
-  border: 2px solid #7400D7;
+  background-color: transparent !important;
+  border: 2px solid #7400D7 !important;
   border-radius: 10px;
   padding: var(--size-4) var(--size-9);
   text-transform: uppercase;
@@ -10878,9 +10879,19 @@ ul, li {
   transition: all 0.1s ease;
 }
 .la-btn__app:hover, .la-btn__app:focus {
-  background: var(--app-indigo-1);
+  background: var(--app-indigo-1) !important;
   color: #ffffff;
   border-radius: 10px;
+}
+.la-btn__app.active {
+  background-color: var(--app-indigo-1) !important;
+}
+.la-btn__app.active:hover {
+  background-color: transparent !important;
+  border: 2px solid var(--app-indigo-1) !important;
+}
+.la-btn__app.active:hover.color-black {
+  color: var(--gray6) !important;
 }
 @media (max-width: 767px) {
   .la-btn__app {
@@ -11061,6 +11072,7 @@ ul, li {
 html, body {
   font-family: var(--body-font);
   overflow-x: hidden !important;
+  scroll-behavior: smooth;
 }
 
 h1, .h1,
@@ -17942,21 +17954,26 @@ input:-webkit-autofill:active {
 }
 .la-courses__nav {
   width: 100%;
-  transition: all 0.5s linear;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
   scroll-behavior: smooth;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /*&:hover > .la-courses__nav-tabs::-webkit-scrollbar-thumb{
-      transition:all 0.5s linear;
-      height:8px;
-      background:rgb(197, 197, 197);
-      border-radius:10px;
-
-      @include respond-below(sm){
-          height:4px;
-      }
-  }*/
+}
+.la-courses__nav:hover > .la-courses__nav-tabs::-webkit-scrollbar-thumb {
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  height: 8px;
+  background: #c5c5c5;
+  border-radius: 10px;
+}
+@media (max-width: 1199px) {
+  .la-courses__nav:hover > .la-courses__nav-tabs::-webkit-scrollbar-thumb {
+    height: 0;
+  }
 }
 .la-courses__nav-title {
   display: none;
@@ -18031,18 +18048,42 @@ input:-webkit-autofill:active {
   display: -moz-box;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-  transition: all 0.5s linear;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
 }
 @media (max-width: 767px) {
   .la-courses__nav-tabs {
     margin: var(--size-6) 0;
   }
 }
+.la-courses__nav-tabs:hover::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+  background: rgba(229, 229, 229, 0.25);
+  border-radius: 10px;
+  visibility: visible;
+  overflow: visible;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+}
+@media (max-width: 1199px) {
+  .la-courses__nav-tabs:hover::-webkit-scrollbar {
+    visibility: hidden;
+  }
+}
 .la-courses__nav-tabs::-webkit-scrollbar {
-  display: none;
-  /*@include respond-below(sm){
-      height:4px;
-  }*/
+  height: 8px;
+  width: 8px;
+  background: rgba(229, 229, 229, 0.25);
+  border-radius: 10px;
+  visibility: hidden;
+}
+@media (max-width: 1199px) {
+  .la-courses__nav-tabs::-webkit-scrollbar {
+    display: none;
+  }
 }
 @media (min-width: 768px) {
   .la-courses__nav-content {
@@ -18967,7 +19008,6 @@ input:-webkit-autofill:active {
 }
 .la-vcourse__buy-btn {
   font-size: var(--text-sm);
-  color: var(--gray4);
   font-weight: var(--font-medium);
 }
 @media (max-width: 767px) {
@@ -20866,7 +20906,7 @@ input:-webkit-autofill:active {
   font-weight: var(--font-light);
 }
 .la-choose__subscribe-trial {
-  color: var(--green);
+  color: var(--app-indigo-1);
   text-decoration: underline;
 }
 .la-choose__subscribe-date {
@@ -27057,39 +27097,6 @@ a.la-back__page span:hover {
 
 .la-contact__btn {
   padding-top: var(--size-6);
-}
-
-.la-contact__btn-desktop {
-  width: 160px;
-  height: 48px;
-  border: 2px solid #7400D7;
-  border-radius: 10px;
-  font-weight: var(--font-bold);
-  letter-spacing: 3.2px;
-  padding: 10px 50px;
-  color: #222222;
-}
-.la-contact__btn-desktop:hover {
-  background-color: var(--app-indigo-1);
-  color: #ffffff;
-}
-
-@media (max-width: 767px) {
-  .la-contact__btn-mobile {
-    width: 100%;
-    height: 50px;
-    border: 2px solid #7400D7;
-    border-radius: 10px;
-    font-family: var(--body-font);
-    font-weight: var(--font-bold);
-    letter-spacing: 3.2px;
-    padding: 10px 50px;
-    color: #222222;
-  }
-  .la-contact__btn-mobile:hover {
-    background-color: var(--app-indigo-1);
-    color: #ffffff;
-  }
 }
 
 .la-lp__section {

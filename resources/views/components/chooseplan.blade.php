@@ -33,9 +33,9 @@
             <div class="la-choose__subscribe mt-5 mx-4">
               {{-- <a href="/subscription/{{ $slug }}" role="button" target="_self"> --}}
               @if (auth()->check() && Auth::user()->subscription())
-                <div class="btn la-btn la-btn-secondary py-3 plan-subscribe" data-plan={{ $slug }}>View Billing</div>
+                <div class="btn btn-primary la-btn__app py-3 plan-subscribe" data-plan={{ $slug }}>View Billing</div>
               @else
-                <div class="btn la-btn la-btn-secondary py-3 plan-subscribe" data-plan={{ $slug }}>Try it now</div>
+                <div class="btn btn-primary la-btn__app py-3 plan-subscribe" data-plan={{ $slug }}>Try it now</div>
               @endif
               {{-- <a> --}}
               <p class="text-sm pt-2">Get access to all the Courses</p>
