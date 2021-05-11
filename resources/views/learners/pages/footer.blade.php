@@ -1,8 +1,8 @@
 @php
-  $creators = App\User::where(['role'=>'mentors', 'status'=>1])->limit(6)->get();
-  $footer_categories = App\Categories::where(['status'=>1])->orderBy('featured','DESC')->limit(6)->get();
-  $courses = App\Course::where(['status'=>1])->orderBy('created_at','DESC')->limit(6)->get();
-  $master_classes = App\MasterClass::with(array('courses' => function($query) {$query->where(['status' => 1]);}))->orderBy('created_at','DESC')->limit(6)->get();
+  $creators = Cache::remember('footers_creators', config('cache.time'), function () { return App\User::where(['role'=>'mentors', 'status'=>1])->limit(6)->get(); });
+  $footer_categories = Cache::remember('footers_categories', config('cache.time'), function () { return App\Categories::where(['status'=>1])->orderBy('featured','DESC')->limit(6)->get(); });
+  $courses = Cache::remember('footers_courses', config('cache.time'), function () { return App\Course::where(['status'=>1])->orderBy('created_at','DESC')->limit(6)->get(); });
+  $master_classes = Cache::remember('footers_master_classes', config('cache.time'), function () { return App\MasterClass::with(array('courses' => function($query) {$query->where(['status' => 1]);}))->orderBy('created_at','DESC')->limit(6)->get(); });
 @endphp
 <!-- Footer: Start-->
 <footer class="la-footer">

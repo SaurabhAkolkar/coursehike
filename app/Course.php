@@ -12,6 +12,7 @@ use Stevebauman\Location\Facades\Location;
 use App\Setting;
 use Illuminate\Support\Facades\Auth;
 use App\CourseChapter;
+use Illuminate\Support\Facades\Cache;
 
 class Course extends Model
 {
@@ -158,16 +159,18 @@ class Course extends Model
 
     public function getVideoCountAttribute(){
 
-        $videos = CourseClass::where('course_id', $this->id)->count();
-
-        return $videos;
+        return Cache::remember('class_video_count_'.$this->id, config('cache.time'), function () {
+            return CourseClass::where('course_id', $this->id)->count();
+        });
     }
 
     public function getChapterCountAttribute(){
 
-        $chapter = CourseChapter::where('course_id', $this->id)->count();
-        
-        return $chapter;
+        // $chapter = CourseChapter::where('course_id', $this->id)->count();
+
+        return Cache::remember('class_chapter_count_'.$this->id, config('cache.time'), function () {
+            return CourseChapter::where('course_id', $this->id)->count();
+        });
     }
 
 
@@ -236,27 +239,41 @@ class Course extends Model
     public function getLearnerCountAttribute()
     {
         // $count = (100 + $this->id + strlen($this->title) + $this->courseclass->count());
-        $purchased_courses = UserPurchasedCourse::where(['course_id' => $this->id])->groupBy('user_id')->pluck('user_id')->toArray();
+        // $purchased_courses = UserPurchasedCourse::where(['course_id' => $this->id])->groupBy('user_id')->pluck('user_id')->toArray();
         
-        if($purchased_courses !=null){
-            $subscribers = UserWatchTimelog::where(['course_id'=>$this->id])->whereNotIn('user_id', $purchased_courses)->groupBy('course_id')->count();            
-            // $count = $count + $subscribers;
-            $count = $subscribers + count($purchased_courses);
-        }else{
-            $subscribers = UserWatchTimelog::where(['course_id'=>$this->id])->groupBy('course_id')->count();
-            // $count = $count + $subscribers;
-            $count = $subscribers;
-        }
-        return $count;
+        // if($purchased_courses !=null){
+        //     $subscribers = UserWatchTimelog::where(['course_id'=>$this->id])->whereNotIn('user_id', $purchased_courses)->groupBy('course_id')->count();            
+        //     // $count = $count + $subscribers;
+        //     $count = $subscribers + count($purchased_courses);
+        // }else{
+        //     $subscribers = UserWatchTimelog::where(['course_id'=>$this->id])->groupBy('course_id')->count();
+        //     // $count = $count + $subscribers;
+        //     $count = $subscribers;
+        // }
+
+        return Cache::remember('class_learners_count_'.$this->id, config('cache.time'), function () {
+            $purchased_courses = UserPurchasedCourse::where(['course_id' => $this->id])->groupBy('user_id')->pluck('user_id')->toArray();
+            if($purchased_courses !=null){
+                $subscribers = UserWatchTimelog::where(['course_id'=>$this->id])->whereNotIn('user_id', $purchased_courses)->groupBy('course_id')->count();
+                $count = $subscribers + count($purchased_courses);
+            }else{
+                $subscribers = UserWatchTimelog::where(['course_id'=>$this->id])->groupBy('course_id')->count();
+                $count = $subscribers;
+            }
+            return $count;
+        });
     }
 
     public function getAverageRatingAttribute()
     {
-        $avgRating = $this->review->avg('rating');
-        
-        if($avgRating == 0 || empty($avgRating))
-            $avgRating = $this->masterclass ? 5 : 4;
+        $avgRating = Cache::remember('class_avg_rating_'.$this->id, config('cache.time'), function () {
+            $avgRating = $this->review->avg('rating');
+            
+            if($avgRating == 0 || empty($avgRating))
+                $avgRating = $this->masterclass ? 5 : 4;
 
+            return $avgRating;
+        });
         return $avgRating;
     }
 

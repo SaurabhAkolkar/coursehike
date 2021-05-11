@@ -41,27 +41,14 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $categories = [];
-        // $sliders = Slider::orderBy('position', 'ASC')->get();
-        // $facts = SliderFacts::limit(3)->get();
-        // $categories = CategorySlider::first();
+        $playlists = [];
 
-        // $cor = Course::with('review')->get();
-        $cor = Cache::remember('course', $seconds = 86400, function () {
-            return Course::with('review')->get();
+        $cor = Cache::remember('classes', $seconds = 86400, function () {
+            return Course::with('review', 'user')->get();
         });
 
-        // $bundles = BundleCourse::all();
-
-        // $meetings = Meeting::where('link_by', NULL)->get();
-        // $bigblue = BBL::where('is_ended','!=',1)->where('link_by', NULL)->get();
-        // $testi = Testimonial::all();
-        // $trusted = Trusted::all();
-        $playlists = [];
-        
-        // $langauges = CourseLanguage::where(['status'=>1])->get();
-		// $filter_categories = Categories::with('subcategory')->where(['status'=>1])->get();
         $filter_categories = Cache::remember('categories', $seconds = 86400, function () {
-            return Categories::with('subcategory')->where(['status'=>1])->get();
+            return Categories::with('subcategory', 'courses', 'courses.user')->where(['status'=>1])->get();
         });
 
         $selected_categories = [];
@@ -71,14 +58,7 @@ class HomeController extends Controller
 		$filtres_applied = false;
         $selected_duration = "";
         $courses = [];
-                
-        // $firstSection = FirstSection::first();
-        // if($firstSection == null){
-        //     $firstSection = new stdClass;
-        //     $firstSection->sub_heading = 'Observe, learn and converse with creators to master your arts';
-        //     $firstSection->image = asset('images/learners/home/design-a@2x.png');
-        //     $firstSection->image_text = 'DESIGN';            
-        // }
+
         $firstSection = Cache::remember('HomeFirstSection', $seconds = 86400, function () {
             $firstSection = FirstSection::first();
             if($firstSection == null){
@@ -93,41 +73,18 @@ class HomeController extends Controller
         if(Auth::check())
             $playlists = Playlist::where('user_id', Auth::user()->id)->get();
 
-        // $master_classes = MasterClass::with(array('courses' => function($query) {$query->where('status', 1)->orderBy('order');}),'courses.user', 'review')->get();
         $master_classes = Cache::remember('master_classes', $seconds = 86400, function () {
-            return MasterClass::with(array('courses' => function($query) {$query->where('status', 1)->orderBy('order');}),'courses.user', 'review')->get();
+            return MasterClass::with(array('courses' => function($query) {$query->with('user')->where('status', 1)->orderBy('order');}),'courses.user', 'review')->get();
         });
         
-        // $featuredMentor = FeaturedMentor::with('user','courses','courses.category')->where(['status'=>'1'])->get();
         $featuredMentor = Cache::remember('featuredMentor', $seconds = 86400, function () {
             return FeaturedMentor::with('user','courses','courses.category')->where(['status'=>'1'])->get();
         });
 
-
-		// $bundleCoures = BundleCourse::where(['status'=>1])->get();
         $bundleCoures = Cache::remember('bundle', $seconds = 86400, function () {
-            return BundleCourse::where(['status'=>1])->get();
+            return BundleCourse::with('user')->where(['status'=>1])->get();
         });
         
-        // if(isset($request->sort_by)){
-        //     $sort_type = $request->sort_by;
-
-        //     if($request->sort_by == 'latest'){
-        //         $categories = Categories::with(array('courses' => function($query) {$query->where(['status' => 1])->orderBy('created_at' , 'DESC' );}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
-        //     }else if($request->sort_by=='highest_rated'){
-
-        //         $categories = Categories::with(array('courses' => function($query) {$query->where(['status' => 1]);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
-
-        //     }else if($request->sort_by=='most_popular'){
-        //         $categories = Categories::with(array('courses' => function($query) {$query->where([ 'status' => 1])->orderBy('created_at' , 'DESC');}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
-        //     }else{
-        //         $categories = Categories::with(array('courses' => function($query) {$query->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
-        //     }
-        
-        // }else{
-        // }
-
-        // $categories = Categories::with(array('courses' => function($query) {$query->orderBy('order')->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
         $categories = Cache::remember('categories', $seconds = 86400, function () {
             return Categories::with(array('courses' => function($query) {$query->orderBy('order')->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
         });
