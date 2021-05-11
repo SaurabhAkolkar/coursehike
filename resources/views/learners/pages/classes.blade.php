@@ -230,8 +230,7 @@
                   <div class="la-courses__content-desc">
                     <div class="la-anim__wrap">
                       <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
-                                    
-                          @foreach($courses as $course)
+                          @foreach($courses->sortBy('order') as $course)
                               <x-course 
                                   :id="$course->id"
                                   :img="$course->preview_image"
