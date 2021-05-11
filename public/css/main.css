@@ -23251,7 +23251,6 @@ label.error {
   .la-artist__thumbnail {
     width: 60px !important;
     height: 60px !important;
-    margin: var(--size-base) 0;
   }
 }
 .la-artist__thumbnail img {

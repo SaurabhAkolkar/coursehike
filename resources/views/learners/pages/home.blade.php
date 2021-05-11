@@ -490,7 +490,7 @@
         <div class="swiper-wrapper la-artist__thumbnails">
 
           @foreach($featuredMentor as $feat)
-            <div class="swiper-slide la-artist__thumbnail"><img src="{{ $feat->user_thumbnail }}" data-src="{{ $feat->user_thumbnail }}" alt="FM" class="lazy d-block" /></div>
+            <div class="swiper-slide la-artist__thumbnail"><img src="{{ $feat->user_thumbnail }}" alt="FM" class="d-block" /></div>
           @endforeach
         
         </div>
