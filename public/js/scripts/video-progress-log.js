@@ -9,6 +9,16 @@ $.ajaxSetup({
 var video_id;
 var lilaPlayer = videojs('lila-video',{errorDisplay: false}).ready(function () {
 
+  var promise = this.play();
+  var that = this;
+
+  if (promise !== undefined) {
+    promise.catch(function(error) {
+      that.muted(true);
+      that.play();
+    });
+  }
+
     var progress_log = [], debounce = true;
 
     var updateProgress = function() {

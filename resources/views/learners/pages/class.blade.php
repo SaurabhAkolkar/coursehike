@@ -206,6 +206,7 @@ $course_id = $course->id;
                   id="lila-video"
                   class="la-vcourse__video video-js"
                   controls
+                  autoplay
                   preload="auto"
                   width="100%"
                   height="100%"
