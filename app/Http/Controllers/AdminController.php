@@ -24,7 +24,7 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         if(Auth::User()->role == "admin")
         {
             $users = User::where(['status'=>1])->count();
@@ -38,10 +38,10 @@ class AdminController extends Controller
                                                     })
                                                     ->limit(5)
                                                     ->get();
-                                                   
+
             $purchased_invoices = UserInvoiceDetail::where([ ['status','paid'], ['stripe_session_id', '!=' ,''] ])->get();
             $course_amount = 0;
-            foreach ($purchased_invoices as $purchased_invoice) {                
+            foreach ($purchased_invoices as $purchased_invoice) {
                 $order_total = $purchased_invoice->total;
                 if($purchased_invoice->currency == 'INR' || empty($purchased_invoice->currency))
                     $order_total /= 75; //Convert to USD
@@ -50,7 +50,7 @@ class AdminController extends Controller
 
             $subscription_invoices = UserSubscriptionInvoice::where([ ['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_subscription_id', '!=' ,'Admin-Purchased'] ])->get();
             $subscription_amount = 0;
-            foreach ($subscription_invoices as $subscription_invoice) {                
+            foreach ($subscription_invoices as $subscription_invoice) {
                 $order_total = $subscription_invoice->invoice_paid;
                 if($subscription_invoice->invoice_currency == 'INR' || empty($subscription_invoice->invoice_currency))
                     $order_total /= 75; //Convert to USD
@@ -63,13 +63,13 @@ class AdminController extends Controller
         }
         elseif(Auth::User()->role == "mentors")
         {
-            return view('instructor.dashboard');
+            return redirect('/instructor');
         }
         else
         {
             abort(404, 'Page Not Found.');
         }
-        
+
     }
 
     /**
