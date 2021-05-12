@@ -38,7 +38,7 @@
             	@endphp
             </h3>
           </div>
-         
+
           <a href="{{url('course')}}" class="small-box-footer"> {{-- {{ __('adminstaticword.Moreinfo') }} --}}
            <!-- <i class="fa fa-arrow-circle-right"></i> -->
             <span class="la-icon la-icon--5xl icon-black-arrow"></span>
@@ -59,7 +59,7 @@
             </h3>
           </div>
           <a href="{{url('userenroll')}}" class="small-box-footer"> {{-- {{ __('adminstaticword.Moreinfo') }} --}}
-            
+
             <span class="la-icon la-icon--5xl icon-black-arrow"></span>
           </a>
         </div>
@@ -77,7 +77,7 @@
               ${{ round($payout['total_income'] + $total_earning['total_income'], 2)}}
             </h3>
           </div>
-          <a href="{{route('instructor.revenue')}}" class="small-box-footer"> 
+          <a href="{{route('instructor.revenue')}}" class="small-box-footer">
             <span class="la-icon la-icon--5xl icon-black-arrow"></span>
           </a>
         </div>
@@ -141,7 +141,7 @@
             <h4 class="la-dash__recent-htitle">Recent Purchased Learners</h4>
           </div>
               <ul class="la-dash__recent-list">
-                  @php            		
+                  @php
                     if($course){
                         $courses_id = $course->pluck('id');
                         $users = App\UserPurchasedCourse::with('user')->whereIn('course_id', $courses_id)->groupBy('user_id')->limit(5)->get();
@@ -149,7 +149,7 @@
                   @endphp
 
                   @foreach ($users as $user)
-                      <x-admin-recent-subscription 
+                      <x-admin-recent-subscription
                           :userImg="$user->user->userImg"
                           :userName="$user->user->fullName"
                           :userTag="$user->user->role=='mentors'?'Creator':'Learner'"
@@ -182,7 +182,7 @@
                 @endphp
 
                   @foreach ($courses as $course)
-                      <x-admin-recent-bought-course 
+                      <x-admin-recent-bought-course
                           :courseImg="$course->course->preview_image"
                           :courseName="$course->course->title"
                           :courseTag="$course->course->user->fullName"

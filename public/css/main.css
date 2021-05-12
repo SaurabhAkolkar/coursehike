@@ -7526,7 +7526,6 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 }
 
 .position-sticky {
-  position: -webkit-sticky !important;
   position: sticky !important;
 }
 
@@ -7546,9 +7545,8 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
   z-index: 1030;
 }
 
-@supports ((position: -webkit-sticky) or (position: sticky)) {
+@supports (position: sticky) {
   .sticky-top {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -9793,7 +9791,7 @@ a.text-dark:focus, a.text-dark:hover {
 @font-face {
   font-family: "icomoon";
   src: url(/fonts/icomoon.eot?bdb1b93d60f43fcc48ed16c9f5377df7);
-  src: url(/fonts/icomoon.eot?bdb1b93d60f43fcc48ed16c9f5377df7#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?82781ab81105506036d42ac8d82ddcc8) format("truetype"), url(/fonts/icomoon.woff?3afc935a659163b4b771bc4e4c6a423f) format("woff"), url(/fonts/icomoon.svg?e705746d2b02285a1c7efb80165e412a#icomoon) format("svg");
+  src: url(/fonts/icomoon.eot?bdb1b93d60f43fcc48ed16c9f5377df7#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?82781ab81105506036d42ac8d82ddcc8) format("truetype"), url(/fonts/icomoon.woff?3afc935a659163b4b771bc4e4c6a423f) format("woff"), url(/fonts/icomoon.svg?3a9c1336bcf3a725f4dc3ff2004a418b#icomoon) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;

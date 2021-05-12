@@ -29,7 +29,7 @@ class InstructorRevenueController extends Controller
 
 
     public function instructorRevenue(Request $request){
-        
+
         $courses = Course::where(['user_id'=> Auth::user()->id])->pluck('id');
 
         $invoiceDetails = DB::table('invoice_details as id')
@@ -61,14 +61,14 @@ class InstructorRevenueController extends Controller
                         ->where('id.class_id','>' , 0 )
                         ->where(['uid.status' => 'successful'])
                         ->count('course_id');
-        
+
         $total_earning = DB::table('user_invoice_details as uid')
                         ->join('invoice_details as id', 'id.invoice_id', '=', 'uid.id')
                         ->where(['uid.status' => 'successful'])
                         ->sum('uid.sub_total');
 
         $total_earning = $this->payoutCalculateCoursePurchase(Auth::user(), $request->month);
-        
+
         $payout = $this->payoutCalculate(Auth::user(), $request->month);
 
         $mentor_commission = MentorDetail::where('user_id', Auth::user()->id)->first();
@@ -79,7 +79,7 @@ class InstructorRevenueController extends Controller
 
     public function payoutCalculate($creator, $duration)
     {
-        
+
         $creator_userid = $creator->id;
         // $start = new Carbon('first day of last month');
         // $end = new Carbon('last day of last month');
@@ -98,7 +98,7 @@ class InstructorRevenueController extends Controller
 
         $learners = $watch_logs->unique('user_id')->pluck('user_id')->all();
         $creator_courses = $watch_logs->unique('course_id')->pluck('course_id')->all();
-        
+
         $learners_grouped = UserWatchTime::whereIn('user_id', $learners)
         ->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get()
         ->groupBy([
@@ -183,12 +183,12 @@ class InstructorRevenueController extends Controller
 
     public function payoutCalculateCoursePurchase($creator, $duration)
     {
-        
+
         $creator_userid = $creator->id;
 
         $mentor_commission = MentorDetail::where('user_id',$creator_userid)->first();
         $mentor_commission = $mentor_commission->purchase_commission ?? InstructorRevenueController::$CREATOR_COMMISSION;
-        
+
         // $start = new Carbon('first day of last month');
         // $end = new Carbon('last day of last month');
 
@@ -205,23 +205,26 @@ class InstructorRevenueController extends Controller
         })->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get();
 
         $purchase_logs = $purchase_logs->unique('order_id')->all();
-        
+
         $total_income = 0;
         foreach($purchase_logs as $purchase){
             // If user didn't paid/subscribed last month then skip calculating it...
             $purchase_order = $purchase->user_invoice_details;
-            
-            if($purchase_order->status != "paid" || (int) $purchase_order->total < 1)
+            if($purchase_order){
+
+                if($purchase_order && $purchase_order->status != "paid" || (int) $purchase_order->total < 1)
                 continue;
 
-            $order_total = $purchase_order->total;
+                $order_total = $purchase_order->total;
 
-            if($purchase_order->currency == 'INR' || empty($purchase_order->currency))
-                $order_total /= 75; //Convert to USD
+                if($purchase_order->currency == 'INR' || empty($purchase_order->currency))
+                    $order_total /= 75; //Convert to USD
 
-            $CREATOR_SHARE = $mentor_commission * ($order_total / 100);
+                $CREATOR_SHARE = $mentor_commission * ($order_total / 100);
 
-            $total_income += $CREATOR_SHARE;
+                $total_income += $CREATOR_SHARE;
+            }
+
 
         }
 
@@ -237,7 +240,7 @@ class InstructorRevenueController extends Controller
 
         $watch_logs =  UserWatchTime::whereHas('courses', function($query)
         {
-            $query->where('user_id', Auth::User()->id); 
+            $query->where('user_id', Auth::User()->id);
         })->get();
 
         $watch_time = $watch_logs->count() * InstructorRevenueController::$WATCHTIME_LOG_SECONDS;
@@ -279,7 +282,7 @@ class InstructorRevenueController extends Controller
             $n_format = floor($n / 1000000000000);
             $suffix = 'T+';
         }
-    
+
         return !empty($n_format . $suffix) ? $n_format . $suffix : 0;
     }
 }
