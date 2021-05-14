@@ -76,7 +76,7 @@ class InvoiceRequireActionJob implements ShouldQueue
                     'stripe_invoice_id' => $invoice['id'],
                     'invoice_charge_id' => $invoice_charge,
                     'payment_intent_id' => $payment_intent_id,
-                    'invoice_paid' => $invoice_amount_paid,
+                    'invoice_paid' => (((int) $invoice_amount_paid) / 100),
                     'status' => 'require_action',
                 ]);
 

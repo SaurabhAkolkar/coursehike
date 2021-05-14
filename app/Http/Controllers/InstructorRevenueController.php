@@ -117,11 +117,13 @@ class InstructorRevenueController extends Controller
 
             // If user didn't paid/subscribed last month then skip calculating it...
             $UserSubscribedLastMonth = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_subscription_id', '!=' ,'Admin-Purchased']])->whereBetween('end_date', [$startDate, $endDate])->latest()->first();
-            $UserSubscribedYearly = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_subscription_id', '!=' ,'Admin-Purchased']])->where(function($query) use ($startDate, $endDate)
-            {
-                $query->where('start_date', '<=', $startDate );
-                $query->where('end_date', '>', $endDate );
-            })->latest()->first();
+            
+            if(!$UserSubscribedLastMonth)
+                $UserSubscribedYearly = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_subscription_id', '!=' ,'Admin-Purchased']])->where(function($query) use ($startDate, $endDate)
+                {
+                    $query->where('start_date', '<=', $startDate );
+                    $query->where('end_date', '>', $endDate );
+                })->latest()->first();
 
             if(!$UserSubscribedLastMonth && !$UserSubscribedYearly){
                 $exclude_user[] = $learner;
