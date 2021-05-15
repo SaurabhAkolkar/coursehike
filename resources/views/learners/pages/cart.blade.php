@@ -8,7 +8,7 @@
 @section('content')
 <div class="la-profile">
     <div class="la-profile__wrap">
-    
+
        <!-- Side Navbar: Start -->
        @include ('learners.pages.sidebar')
        <!-- Side Navbar: End -->
@@ -51,7 +51,7 @@
                       </div>
 
                       @if(count($carts) > 0)
-                    
+
                         @foreach ($carts as $cart)
                           @if($cart->courses)
                               <x-cart
@@ -74,8 +74,8 @@
                               :bestPrice="$cart->offer_price"
                               :realPrice="$cart->price"
                             />
-                          
-                          @else                            
+
+                          @else
 
                             <x-cart
                             :cartId="$cart->id"
@@ -107,13 +107,13 @@
                               <h2 class="text-center my-20 py-10 la-anim__stagger-item" style="color: var(--gray8);">Cart is empty</h2>
                           </div>
                       @endif
-                      
+
                     </div>
                     <!-- Cousre Cart:  End -->
 
                     <div class="col-md-8 col-lg-4 offset-lg-1 mb-5 mb-md-0 la-anim__wrap">
                       {{-- <div class="la-profile__title body-font text-xl  la-anim__stagger-item--x">Billing Address</div> --}}
-                        {{-- <form class="form-row la-payment__form-row pb-10">                        
+                        {{-- <form class="form-row la-payment__form-row pb-10">
                             @php
                                 $address1 = new stdClass;
                                 $address1->inputLabel = "House No./Street/Area";
@@ -148,7 +148,7 @@
                             @endphp
 
                             <div class="col-12 col-md-12">
-                                <x-payment 
+                                <x-payment
                                     :inputLabel="$address1->inputLabel"
                                     :inputType="$address1->inputType"
                                     :inputValue="$address1->inputValue"
@@ -171,7 +171,7 @@
 
                             @foreach ($addresses as $address)
                                 <div class="col-12 col-md-6">
-                                    <x-payment 
+                                    <x-payment
                                         :inputLabel="$address->inputLabel"
                                         :inputType="$address->inputType"
                                         :inputValue="$address->inputValue"
@@ -180,9 +180,9 @@
                                     />
                                 </div>
                             @endforeach
-                            
+
                         </form> --}}
-                      
+
 
                         <!-- Cart Checkout: Start -->
                         @php
@@ -202,8 +202,8 @@
                         @endphp
 
                         @if(count($carts) > 0)
-                        
-                            <x-cart-total 
+
+                            <x-cart-total
                               :totalAmount="$total"
                               :subTotal="$subTotal"
                               :offerAmount="$discount"
@@ -213,7 +213,7 @@
                               :checkoutUrl="$checkout->checkoutUrl"
                               :location="$location"
                             />
-                        
+
                         <!-- Cart Checkout: End -->
                         @endif
 
@@ -226,30 +226,30 @@
               <h2 class="la-cart__product-title la-cart__product-title--light la-anim__stagger-item">You might also like</h2>
 
               <!-- playlist : Start  -->
-                <x-add-to-playlist 
+                <x-add-to-playlist
                   :playlists="$playlists"
                 />
               <!-- Playlist : End -->
-              
+
               @if(count($suggested_courses) == 0)
 
                 <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6 la-anim__stagger-item">
                   <div class="col la-empty__inner mb-0">
                     <h6 class="la-empty__course-title text-xl la-anim__stagger-item--x">No more courses available right now!</h6>
                   </div>
-                </div>  
+                </div>
               @else
 
                 <div class="row row-cols-md-2 row-cols-lg-3 la-anim__stagger-item">
                   @foreach($suggested_courses as $sc)
-                      <x-course 
+                      <x-course
                           :id="$sc->id"
                           :img="$sc->preview_image"
                           :course="$sc->title"
                           :url="$sc->slug"
                           :rating="round($sc->average_rating, 2)"
                           :creatorImg="$sc->user->user_img"
-                          :creatorName="$sc->user->fname"
+                          :creatorName="$sc->user->fullName"
                           :creatorUrl="$sc->user->id"
                           :learnerCount="$sc->learnerCount"
                           :price="$sc->price"
@@ -258,7 +258,7 @@
                           :bought="$sc->isPurchased()"
                           :progress="$sc->getProgress()"
                         />
-                  @endforeach       
+                  @endforeach
                   <div class="col-md-6 col-lg-4 offset-lg-8 text-right la-anim__stagger-item--x">
                       <div class=" la-btn__plain text--burple text-md h-75 d-flex align-items-center justify-content-center justify-content-lg-end">
                         <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--medium pt-8 la-anim__fade-in-right">
@@ -279,7 +279,7 @@
 
 @section('footerScripts')
 <script src="https://js.stripe.com/v3/"></script>
-<script>    
+<script>
   function checkBoxs(type, id){
         if(type == 'all'){
             $('.selected_classes'+id).prop('checked', true);
@@ -293,12 +293,12 @@
   function changeInputs(){
 
     $('.cart_radio_button').attr('name','classes');
-    
+
   }
   </script>
 
 <script>
-    @if(session('couponModal')) 
+    @if(session('couponModal'))
         $('#cartCoupons').modal('show');
     @endif
 
@@ -322,7 +322,7 @@
         console.log(XMLHttpRequest);
       }
     });
- 
+
   });
 
   function toggleRadioButton(id){

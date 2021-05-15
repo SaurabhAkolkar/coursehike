@@ -36,11 +36,11 @@
           </div>
         @endif
         <!-- Wishlist Alert Message -->
-        <div id="wishlist_alert_div"></div> 
-        
-        <a class="la-icon la-icon--5xl icon-back-arrow ml-n1 mt-n2 mb-5 d-block d-md-none" href="{{URL::previous()}}"></a> 
-        
-        <div class="d-flex justify-content-between position-relative">  
+        <div id="wishlist_alert_div"></div>
+
+        <a class="la-icon la-icon--5xl icon-back-arrow ml-n1 mt-n2 mb-5 d-block d-md-none" href="{{URL::previous()}}"></a>
+
+        <div class="d-flex justify-content-between position-relative">
           <a href="{{URL::previous()}}" class="la-vcreator__back d-none d-md-block" style="top:-6px"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
           <h1 class="la-page__title mb-8">Search Classes</h1>
         </div>
@@ -104,7 +104,7 @@
                                 <input type="hidden" name="level" id="filter_level" value="{{implode(',',$selected_level)}}"/>
                                 <input type="hidden" name="filters" value="applied" />
 
-                                
+
                                 {{-- <div class="form-group pt-2">
                                   <div class="glabel-main mb-1"> Course Duration</div>
                                     <div class="glabel d-flex  align-items-center m-0">
@@ -145,7 +145,7 @@
 
                                 {{-- <div class="form-group pt-2">
                                   <div class="glabel-main mb-2"> Language</div>
-                              
+
                                   @foreach($langauges as $l)
                                     <label class="glabel d-flex" for="lang_{{$l->id}}">
                                       <input class="d-none" id="lang_{{$l->id}}" @if(in_array($l->id, $selected_languages)) checked @endif type="checkbox" onclick="addToLanguage({{$l->id}})" value="{{$l->id}}">
@@ -153,7 +153,7 @@
                                       <span class="pl-2 mt-n1 text-capitalize">{{$l->name}}</span>
                                     </label>
                                   @endforeach
-                              
+
                                 </div> --}}
 
                                 <div class="form-group pt-2">
@@ -177,9 +177,9 @@
                                   </label>
                                 </div>
 
-                                <button onclick="$('#filter_form').submit()" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Apply</button> 
+                                <button onclick="$('#filter_form').submit()" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Apply</button>
                                 <div class="mt-6">
-                                  <a href="/browse/classes" role="button" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Clear</a> 
+                                  <a href="/browse/classes" role="button" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Clear</a>
                                 </div>
                             </form>
                       </div>
@@ -192,25 +192,25 @@
 
 
         <div class="la-courses py-4 py-md-10">
-             
-                   <x-add-to-playlist 
+
+                   <x-add-to-playlist
                       :playlists="$playlists"
                     />
                   <!-- Add to Playlist Modal -->
-                                
+
                 @if(count($courses) > 0)
                     <div class="la-anim__wrap">
                       <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
                         @foreach($courses as $course)
-                        
-                          <x-course 
+
+                          <x-course
                               :id="$course->id"
                               :img="$course->preview_image"
                               :course="$course->title"
                               :url="$course->slug"
                               :rating="round($course->average_rating, 2)"
                               :creatorImg="$course->user->user_img"
-                              :creatorName="$course->user->fname"
+                              :creatorName="$course->user->fullName"
                               :creatorUrl="$course->user->id"
                               :learnerCount="$course->learnerCount"
                               :price="$course->price"
@@ -221,12 +221,12 @@
                               :chapterCount="$course->chapterCount"
                               :progress="$course->getProgress()"
                             />
-                        @endforeach 
-                      </div> 
-                    </div>                
+                        @endforeach
+                      </div>
+                    </div>
                 @endif
 
-                
+
                 @if(count($courses) == 0)
                 <div class="col-12 px-0 la-anim__wrap">
                   <div class="la-empty__courses d-md-flex justify-content-between align-items-center la-anim__stagger-item">
@@ -247,7 +247,7 @@
     </div>
   </section>
 
-  
+
   @endsection
 
   @section('footerScripts')
@@ -258,4 +258,3 @@
           });
       </script>
   @endsection
-  

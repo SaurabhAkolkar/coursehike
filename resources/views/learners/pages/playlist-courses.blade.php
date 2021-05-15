@@ -12,7 +12,7 @@
        @include ('learners.pages.sidebar')
        <!-- Side Navbar: End -->
 
-      
+
       <div class="la-profile__main">
         <div class="container la-anim__wrap">
         @if(session('message'))
@@ -28,12 +28,12 @@
           <div class="la-profile__main-inner">
             <div class="la-profile__title-wrap">
                 <h1 class="la-profile__title la-profile__title-crumbs la-anim__stagger-item">
-                    <a href="/playlist" role="button" style="color:var(--app-indigo-1)">My Playlist</a> / 
+                    <a href="/playlist" role="button" style="color:var(--app-indigo-1)">My Playlist</a> /
                     <span class="text-capitalize">{{$playlist->name}}</span>
                 </h1>
             </div>
-            
-            @php  
+
+            @php
             $removeFromPlaylist = true;
             @endphp
 
@@ -41,11 +41,11 @@
               <h3 class="text-xl text-lg-2xl mb-6 mb-lg-10 la-anim__stagger-item">Courses</h3>
               <div class="la-wishlist__inner">
                 <div class="row la-wishlist__row">
-                  @if(count($courses) > 0) 
+                  @if(count($courses) > 0)
                     @foreach($courses as $course)
-                   
+
                       <div class="col-md-6 col-lg-4 px-0  la-anim__stagger-item">
-                        <x-bundle-course 
+                        <x-bundle-course
                           :id="$course->bundle_course_id"
                           :img="$course->bundle->preview_image"
                           :course="$course->bundle->title"
@@ -54,7 +54,7 @@
                           :videoCount="$course->bundle->videoCount()"
                           :classesCount="count($course->bundle->course_id)"
                           :creatorImg="$course->bundle->users()"
-                          :creatorName="$course->bundle->users()->first()->fname"
+                          :creatorName="$course->bundle->users()->first()->fullName"
                           :creatorUrl="$course->bundle->user->id"
                           :learnerCount="$course->bundle->learnerCount"
                           :price="$course->bundle->price"
@@ -81,7 +81,7 @@
                               <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
                           </a>
                       </div>
-                    </div>  
+                    </div>
                     @endif
 
                   </div>
@@ -91,20 +91,20 @@
             <section class="la-section la-playlist__sec pt-0">
               <h3 class="text-xl text-lg-2xl mb-6 mb-lg-10 la-anim__stagger-item">Classes</h3>
               <div class="la-playlist__wrap">
-                
+
                         <div class="row la-playlist__items">
 
-                            @if(count($classes) > 0)                              
+                            @if(count($classes) > 0)
                               @foreach($classes as $c)
                               @php
                                 $course = $c->courses;
                               @endphp
                               <div class="col-md-6 col-lg-4 px-0 la-anim__stagger-item">
-                                <x-course   
+                                <x-course
                                     :id="$course->id"
-                                    :img="$course->preview_image" 
-                                    :course="$course->title" 
-                                    :url="$course->slug" 
+                                    :img="$course->preview_image"
+                                    :course="$course->title"
+                                    :url="$course->slug"
                                     :rating="round($course->average_rating, 2)"
                                     :creatorImg="$course->user->user_img"
                                     :creatorName="$course->user->fullName"
@@ -134,11 +134,11 @@
                                       <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
                                   </a>
                               </div>
-                            </div>  
+                            </div>
                             @endif
 
                         </div>
-                   
+
               </div>
             </section>
           </div>
