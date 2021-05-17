@@ -1,11 +1,11 @@
 <div class="swiper-slide la-artist__slider">
-    <div class="row la-artist__slider-row la-anim__stagger">
-        <div class="col-md-4 offset-md-1 px-0 la-artist__slider-col la-artist__slide-img la-anim__B la-anim__stagger-item--x">
+    <div class="row la-artist__slider-row">
+        <div class="col-md-4 offset-md-1 px-0 la-artist__slider-col la-artist__slide-img">
             <div class="la-artist__img text-center">
                 <img class="img-fluid d-block lazy"  src="{{$artistImage}}" data-src="{{$artistImage}}" alt="M" />
             </div>
         </div>
-        <div class="col-md-7 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end la-anim__A la-anim__stagger-item--x">
+        <div class="col-md-7 la-artist__slider-col la-artist__slide-content d-flex flex-column justify-content-around align-items-end">
             <div class="la-artist__content-top d-flex flex-column align-items-end">
                 <div class="la-artist__name leading-none"> {{ $artistName }} </div>
                 <div class="la-artist__about la-btn__arrow text--burple text-uppercase text-spacing font-weight--medium">

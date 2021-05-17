@@ -137,14 +137,14 @@ $(function(){
       spaceBetween: 20,
       observer: true,
       observeParents: true,
-      flipEffect: {
+      /*flipEffect: {
         slideShadows: false,
       },
       speed:1000,
       autoplay: {
         delay: 2500,
         disableOnInteraction: false
-      },
+      },*/
       pagination: {
         el: ".la-home__course-paginations",
         clickable: true,
@@ -181,14 +181,14 @@ $(function(){
       spaceBetween: 20,
       observer: true,
       observeParents: true,
-      flipEffect: {
+      /*flipEffect: {
         slideShadows: false,
       },
       speed:1000,
       autoplay: {
         delay: 2500,
         disableOnInteraction: false
-      },
+      },*/
       pagination: {
         el: ".la-home__course-paginations2",
         clickable: true,
@@ -223,14 +223,14 @@ $(function(){
     var master_slider = new Swiper('.la-home__master-container', {
       slidesPerView: 'auto',
       spaceBetween: 20,
-      flipEffect: {
+      /*flipEffect: {
         slideShadows: false,
       },
       speed:1000,
       autoplay: {
         delay: 2500,
         disableOnInteraction: false
-      },
+      },*/
       pagination: {
         el: '.la-home__master-pagination',
         clickable: true,
@@ -1095,7 +1095,7 @@ function lazyLoad(lazy) {
         TweenMax.fromTo(
           entry.target,
           1,
-          { css: { opacity: 0, y: "-5px" } },
+          { css: { opacity: 0, y: 0 } },
           { css: { opacity: 1, y: 0 } },
           1.5
         );
