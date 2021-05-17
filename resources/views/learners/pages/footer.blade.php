@@ -23,7 +23,7 @@
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li> -->
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Testimonials</a></li> -->
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/learning-plans">Learning Plans</a></li>
-                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/become-mentor">Become a Mentor</a></li>
+                @if(Auth::check() && Auth::user()->role != 'mentors')<li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/become-mentor">Become a Mentor</a></li>@endif
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/guided-mentor">Guided Mentor</a></li>
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Request a Tutorial</a></li> -->
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">Teaching Techniques</a></li> -->
@@ -61,7 +61,7 @@
                     @endforeach
                   </ul><a class="la-footer__more" href="/browse/courses">See all</a>
                 </div>
-                
+
 
               </div>
             </div>
@@ -103,7 +103,7 @@
                 </div> -->
                 <!-- Global Search: End-->
               <!-- </div> -->
-              
+
             </div>
             <!-- Column: End-->
           </div>
