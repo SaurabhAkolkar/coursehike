@@ -308,7 +308,7 @@
                             <div class="swiper-wrapper la-home__course-wrapper2">
                                                                                             
                                       @php
-                                        $courses = $category->courses->where('featured', 1);          
+                                        $courses = $category->courses->where('featured', 1);
                                       @endphp
 
                                       @foreach($courses as $course)

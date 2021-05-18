@@ -180,6 +180,12 @@
 		  </div>
 	</div>
 
+	<div class="row">
+		<div class="col-12 col-md-10 text-right mt-12">
+			<button type="Submit" class="btn btn-lg  btn-primary px-20">{{ __('adminstaticword.Save') }}</button>
+		</div>
+	</div>
+
 
 	{{-- <h4 class="box-title">{{ __('adminstaticword.MapCoordinates') }}</h4>						
 	<div class="row">
@@ -465,10 +471,23 @@
     	</div>
     </div> --}}
 	
-	<div class="row">
-		<div class="col-12 col-md-10 text-right mt-12">
-			<button type="Submit" class="btn btn-lg  btn-primary px-20">{{ __('adminstaticword.Save') }}</button>
-		</div>
-	</div>
 
+</form>
+
+
+<form method="POST" action="{{ route('clear_cache.redis') }}" class="mt-12 p-4 bg-white">
+	@csrf
+	<div class="row ">
+		<div class="col-md-12 mt-3">
+			<div class="form-group">
+				<label for="project_title">Clear Application Redis Cache<sup class="redstar">*</sup></label>
+				<p>Don't clear the application cache too often, it will impact the application performance</p>
+			  	
+	        </div>
+		</div>
+		<div class="col-12 col-md-12 mt-3">
+			<button type="Submit" class="btn btn-lg float-none btn-primary px-20">Clear Cache</button>
+		</div>
+		
+	</div>
 </form>
