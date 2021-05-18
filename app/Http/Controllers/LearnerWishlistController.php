@@ -18,12 +18,12 @@ class LearnerWishlistController extends Controller
      */
     public function index()
     {
-        
-        $wishlist_courses = Wishlist::with('bundle','bundle.user')->where('user_id',Auth::User()->id)->where('bundle_course_id','>','0')->get();
+
+        $wishlist_courses = Wishlist::has('bundle')->with('bundle','bundle.user')->where('user_id',Auth::User()->id)->where('bundle_course_id','>','0')->get();
         $wishlist_classes = Wishlist::with('courses','courses.review','courses.user')->where('user_id',Auth::User()->id)->where('course_id','>',0)->get();
         $playlists = [];
         if(Auth::check()){
-			$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
+			$playlists = Playlist::where('user_id', Auth::user()->id)->get();
         }
         return view('learners.pages.wishlist',compact('wishlist_courses','wishlist_classes','playlists'));
     }
@@ -49,9 +49,9 @@ class LearnerWishlistController extends Controller
         $request->validate([
             'course_id' => 'required',
         ]);
-        
-        if($request->bundleCourse == 'true'){ 
-            
+
+        if($request->bundleCourse == 'true'){
+
             $input['course_id'] = 0;
             $input['user_id'] = Auth::user()->id;
             $input['bundle_course_id'] = $request->course_id;
@@ -80,7 +80,7 @@ class LearnerWishlistController extends Controller
             }
             return 'Added to Wishlist';
         }
-        
+
     }
 
     /**
@@ -126,20 +126,20 @@ class LearnerWishlistController extends Controller
     public function destroy($id)
     {
         Wishlist::where(['user_id'=>Auth::user()->id, 'id'=>$id])->delete();
-        
+
         return redirect()->back()->with('message','Course Removed Successfully.');
     }
 
     public function deletePlaylist($id){
-   
+
         $check = Playlist::where(['id'=>$id, 'user_id'=>Auth::user()->id])->first();
 
         if(empty($check)){
             return redirect()->back()->with('success','This Playlist Cannot be deleted By You.');
         }
-        
+
         Playlist::where('id',$id)->delete();
-        
+
         $delete = PlaylistCourse::where('playlist_id',$id)->delete();
 
         return redirect()->back()->with('success','Playlist Deleted Successfully');

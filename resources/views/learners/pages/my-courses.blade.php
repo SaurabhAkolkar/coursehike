@@ -38,7 +38,7 @@
     <section class="la-section__small">
       <div class="la-section__inner">
         <!-- Alert Message-->
-        <div id="wishlist_alert_div" class="container"></div> 
+        <div id="wishlist_alert_div" class="container"></div>
 
         <div class="container-fluid">
           <div class="col-12 la-anim__wrap d-md-flex justify-content-between align-items-center px-0">
@@ -63,13 +63,13 @@
             <nav class="la-courses__nav position-relative">
                 <ul class="nav nav-pills la-courses__nav-tabs mb-0" id="cc_nav-tab" role="tablist" tabindex="0">
                   <li class="nav-item la-courses__nav-item la-anim__stagger-item--x">
-                    <a class="nav-link la-courses__nav-link text-2xl active" id="course_tab" data-toggle="tab" href="#course_tab-content" role="tab" aria-controls="course_tab" aria-selected="true"> 
+                    <a class="nav-link la-courses__nav-link text-2xl active" id="course_tab" data-toggle="tab" href="#course_tab-content" role="tab" aria-controls="course_tab" aria-selected="true">
                       <span class="position-relative text-nowrap">Courses</span>
                     </a>
-                  </li> 
+                  </li>
 
                   <li class="nav-item la-courses__nav-item la-anim__stagger-item--x">
-                    <a class="nav-link la-courses__nav-link text-2xl " id="class_tab" data-toggle="tab" href="#class_tab-content" role="tab" aria-controls="class_tab" aria-selected="true"> 
+                    <a class="nav-link la-courses__nav-link text-2xl " id="class_tab" data-toggle="tab" href="#class_tab-content" role="tab" aria-controls="class_tab" aria-selected="true">
                       <span class="position-relative text-nowrap">Classes</span>
                     </a>
                   </li>
@@ -77,26 +77,26 @@
             </nav>
 
             <div class="tab-content la-courses__nav-content la-anim__wrap position-relative" id="cc_nav-tabContent">
-              
+
               <!-- Courses Tab Pane: Start -->
               <div class="tab-pane fade show la-anim__wrap active" id="course_tab-content" role="tabpanel" aria-labelledby="course_tab">
                 <!-- Ongoing Courses -->
                 <div class="la-section__small">
-                  <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Ongoing</div> 
-                  
-                    <x-add-to-playlist 
+                  <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Ongoing</div>
+
+                    <x-add-to-playlist
                       :playlists="$playlists"
                     />
 
-                    <div class="swiper-container  la-my__courses-container">  <!-- Swiper Container : Start -->         
-                      <div class="swiper-wrapper la-my__courses-wrapper ">  <!-- Swiper Wrapper : Start -->  
+                    <div class="swiper-container  la-my__courses-container">  <!-- Swiper Container : Start -->
+                      <div class="swiper-wrapper la-my__courses-wrapper ">  <!-- Swiper Wrapper : Start -->
 
                         @if(count($on_going_bundle) != 0)
-                          
-                            @foreach($on_going_bundle as $course) 
-                              <div class="swiper-slide la-my__courses-slide la-anim__stagger-item"> 
-                                                          
-                                <x-bundle-course 
+
+                            @foreach($on_going_bundle as $course)
+                              <div class="swiper-slide la-my__courses-slide la-anim__stagger-item">
+
+                                <x-bundle-course
                                   :id="$course->id"
                                   :img="$course->preview_image"
                                   :course="$course->title"
@@ -105,7 +105,7 @@
                                   :videoCount="$course->videoCount()"
                                   :classesCount="count($course->course_id)"
                                   :creatorImg="$course->users()"
-                                  :creatorName="$course->users()->first()->fname"
+                                  :creatorName="$course->users()->first()->fullName"
                                   :creatorUrl="$course->user->id"
                                   :learnerCount="$course->learnerCount"
                                   :price="$course->price"
@@ -113,11 +113,11 @@
                                   :checkWishList="$course->checkWishList"
                                   :checkCart="$course->checkCart"
                                   :progress="$course->progress"
-                                />  
+                                />
 
-                              </div>       
+                              </div>
                             @endforeach
-                                            
+
                           @else
 
                             <div class="col-12 la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
@@ -134,16 +134,16 @@
                             </div>
 
                         @endif
-                    </div> <!-- Swiper Wrapper : End -->  
+                    </div> <!-- Swiper Wrapper : End -->
 
                       @if(count($on_going_bundle) != 0)
                         <div class="w-100 mt-10 d-md-flex justify-content-end align-items-start">
                           <div class="la-slider__navigations la-home__course-navigations d-md-flex  align-items-center">
                             <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
                           </div>
-                        </div> 
+                        </div>
                       @endif
-                  </div> <!-- Swiper Container : End -->  
+                  </div> <!-- Swiper Container : End -->
                 </div>
                 <!-- Ongoing Courses: End -->
 
@@ -151,16 +151,16 @@
                 <div class="la-section__small">
                     <div class="la-mycourses__subtitle text-2xl mb-6 head-font  la-anim__stagger-item--x">Yet to Start</div>
 
-                    <div class="swiper-container la-my__courses-container"> <!-- Swiper Container : Start -->        
-                      <div class="swiper-wrapper la-my__courses-wrapper ">  <!-- Swiper Wrapper : Start -->  
+                    <div class="swiper-container la-my__courses-container"> <!-- Swiper Container : Start -->
+                      <div class="swiper-wrapper la-my__courses-wrapper ">  <!-- Swiper Wrapper : Start -->
 
                         @if($yet_to_start_bundle && count($yet_to_start_bundle) > 0)
 
-                        
+
                             @foreach($yet_to_start_bundle as $course)
                               <div class="swiper-slide la-my__courses-slide la-anim__stagger-item">
 
-                                <x-bundle-course 
+                                <x-bundle-course
                                       :id="$course->id"
                                       :img="$course->preview_image"
                                       :course="$course->title"
@@ -169,7 +169,7 @@
                                       :videoCount="$course->videoCount()"
                                       :classesCount="count($course->course_id)"
                                       :creatorImg="$course->users()"
-                                      :creatorName="$course->users()->first()->fname"
+                                      :creatorName="$course->users()->first()->fullName"
                                       :creatorUrl="$course->user->id"
                                       :learnerCount="$course->learnerCount"
                                       :price="$course->price"
@@ -177,11 +177,11 @@
                                       :checkWishList="$course->checkWishList"
                                       :checkCart="$course->checkCart"
                                       :progress="$course->progress"
-                                />    
+                                />
 
                               </div>
                             @endforeach
-                         
+
                         @else
 
                           <div class="col-12 la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
@@ -195,10 +195,10 @@
                                       <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
                                   </a>
                               </div>
-                          </div> 
-                          
+                          </div>
+
                         @endif
-                      </div> <!-- Swiper Wrapper : End -->  
+                      </div> <!-- Swiper Wrapper : End -->
 
                       @if(count($yet_to_start_bundle)  != 0)
                           <div class="w-100 mt-10 d-md-flex justify-content-end align-items-start">
@@ -208,7 +208,7 @@
                           </div>
                       @endif
 
-                    </div> <!-- Swiper Container : End -->  
+                    </div> <!-- Swiper Container : End -->
                 </div>
                 <!-- Yet to start - Courses : End -->
 
@@ -216,14 +216,14 @@
                 <div class="la-section__small">
                     <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Completed</div>
 
-                    <div class="swiper-container la-my__courses-container"> <!-- Swiper Container : Start -->        
-                      <div class="swiper-wrapper la-my__courses-wrapper ">  <!-- Swiper Wrapper : Start -->  
+                    <div class="swiper-container la-my__courses-container"> <!-- Swiper Container : Start -->
+                      <div class="swiper-wrapper la-my__courses-wrapper ">  <!-- Swiper Wrapper : Start -->
                         @if($completed_bundle && count($completed_bundle) != 0)
-                         
+
                             @foreach($completed_bundle as $course)
                               <div class="swiper-slide la-my__courses-slide la-anim__stagger-item">
 
-                                <x-bundle-course 
+                                <x-bundle-course
                                     :id="$course->id"
                                     :img="$course->preview_image"
                                     :course="$course->title"
@@ -232,7 +232,7 @@
                                     :videoCount="$course->videoCount()"
                                     :classesCount="count($course->course_id)"
                                     :creatorImg="$course->users()"
-                                    :creatorName="$course->users()->first()->fname"
+                                    :creatorName="$course->users()->first()->fullName"
                                     :creatorUrl="$course->user->id"
                                     :learnerCount="$course->learnerCount"
                                     :price="$course->price"
@@ -240,11 +240,11 @@
                                     :checkWishList="$course->checkWishList"
                                     :checkCart="$course->checkCart"
                                     :progress="$course->progress"
-                                />  
+                                />
 
                               </div>
                             @endforeach
-                          
+
                         @else
                           <div class="col-12 la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
                             <div class="col la-empty__inner">
@@ -260,7 +260,7 @@
                           </div>
                         @endif
 
-                      </div> <!-- Swiper Wrapper : End -->  
+                      </div> <!-- Swiper Wrapper : End -->
 
                         @if(count($completed_bundle) != 0)
                             <div class="w-100 mt-10 d-md-flex justify-content-end align-items-start">
@@ -270,36 +270,36 @@
                             </div>
                         @endif
 
-                    </div> <!-- Swiper Container : End -->  
+                    </div> <!-- Swiper Container : End -->
                 </div>
                  <!-- Completed Courses : End -->
-              </div> <!-- Courses Tab Pane: End -->           
-            
+              </div> <!-- Courses Tab Pane: End -->
+
 
 
               <!-- Classes Tab Pane: Start -->
               <div class="tab-pane fade show la-anim__wrap" id="class_tab-content" role="tabpanel" aria-labelledby="class_tab">
                 <!-- Ongoing Classes -->
                 <div class="la-section__small">
-                    <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Ongoing</div> 
-                          
-                    <x-add-to-playlist 
+                    <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Ongoing</div>
+
+                    <x-add-to-playlist
                       :playlists="$playlists"
                     />
 
-                    <div class="swiper-container  la-my__classes-container">  <!-- Swiper Container : Start -->         
-                      <div class="swiper-wrapper la-my__classes-wrapper ">  <!-- Swiper Wrapper : Start -->  
+                    <div class="swiper-container  la-my__classes-container">  <!-- Swiper Container : Start -->
+                      <div class="swiper-wrapper la-my__classes-wrapper ">  <!-- Swiper Wrapper : Start -->
 
                         @if(count($on_going_classes) != 0)
-                          
+
                             @foreach($on_going_classes as $course)
                             <div class="swiper-slide la-my__classes-slide la-anim__stagger-item">
 
-                              <x-course 
+                              <x-course
                                 :id="$course->id"
-                                :img="$course->preview_image" 
-                                :course="$course->title" 
-                                :url="$course->slug" 
+                                :img="$course->preview_image"
+                                :course="$course->title"
+                                :url="$course->slug"
                                 :rating="round($course->average_rating, 2)"
                                 :creatorImg="$course->user->user_img"
                                 :creatorName="$course->user->fullName"
@@ -316,7 +316,7 @@
 
                             </div>
                             @endforeach
-                          
+
 
                           @else
 
@@ -331,9 +331,9 @@
                                         <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
                                     </a>
                                 </div>
-                            </div> 
+                            </div>
                           @endif
-                      </div> <!-- Swiper Wrapper : End -->  
+                      </div> <!-- Swiper Wrapper : End -->
 
                         @if(count($on_going_classes) != 0)
                           <div class="w-100 mt-10 d-md-flex justify-content-end align-items-start">
@@ -342,7 +342,7 @@
                             </div>
                           </div>
                         @endif
-                    </div>  <!-- Swiper Container : End -->  
+                    </div>  <!-- Swiper Container : End -->
                 </div>
                 <!-- Ongoing Classes : End -->
 
@@ -350,19 +350,19 @@
                 <div class="la-section__small">
                   <div class="la-mycourses__subtitle text-2xl mb-6 head-font  la-anim__stagger-item--x">Yet to Start</div>
 
-                  <div class="swiper-container  la-my__classes-container">  <!-- Swiper Container : Start -->         
-                      <div class="swiper-wrapper la-my__classes-wrapper ">  <!-- Swiper Wrapper : Start -->  
-                       
+                  <div class="swiper-container  la-my__classes-container">  <!-- Swiper Container : Start -->
+                      <div class="swiper-wrapper la-my__classes-wrapper ">  <!-- Swiper Wrapper : Start -->
+
                         @if($yet_to_start_classes && count($yet_to_start_classes) > 0)
-                          
+
                             @foreach($yet_to_start_classes as $course)
                               <div class="swiper-slide la-my__classes-slide la-anim__stagger-item">
 
-                                <x-course 
+                                <x-course
                                   :id="$course->id"
-                                  :img="$course->preview_image" 
-                                  :course="$course->title" 
-                                  :url="$course->slug" 
+                                  :img="$course->preview_image"
+                                  :course="$course->title"
+                                  :url="$course->slug"
                                   :rating="round($course->average_rating, 2)"
                                   :creatorImg="$course->user->user_img"
                                   :creatorName="$course->user->fullName"
@@ -379,7 +379,7 @@
 
                               </div>
                             @endforeach
-                         
+
                         @else
 
                           <div class="col-12 la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
@@ -393,11 +393,11 @@
                                       <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
                                   </a>
                               </div>
-                          </div> 
-                          
+                          </div>
+
                         @endif
-                        
-                      </div> <!-- Swiper Wrapper : End -->  
+
+                      </div> <!-- Swiper Wrapper : End -->
 
                         @if(count($yet_to_start_classes) != 0)
                           <div class="w-100 mt-10 d-md-flex justify-content-end align-items-start">
@@ -408,7 +408,7 @@
                         @endif
 
 
-                    </div>  <!-- Swiper Container : End -->  
+                    </div>  <!-- Swiper Container : End -->
                 </div>
                 <!-- Yet to start - Classes : End -->
 
@@ -417,19 +417,19 @@
                 <div class="la-section__small">
                     <div class="la-mycourses__subtitle text-2xl mb-6 head-font la-anim__stagger-item--x">Completed</div>
 
-                    <div class="swiper-container  la-my__classes-container">  <!-- Swiper Container : Start -->         
-                      <div class="swiper-wrapper la-my__classes-wrapper ">  <!-- Swiper Wrapper : Start --> 
+                    <div class="swiper-container  la-my__classes-container">  <!-- Swiper Container : Start -->
+                      <div class="swiper-wrapper la-my__classes-wrapper ">  <!-- Swiper Wrapper : Start -->
 
                         @if($completed_classes && count($completed_classes) != 0)
-                          
+
                             @foreach($completed_classes as $course)
                             <div class="swiper-slide la-my__classes-slide la-anim__stagger-item">
 
-                              <x-course 
+                              <x-course
                                   :id="$course->id"
-                                  :img="$course->preview_image" 
-                                  :course="$course->title" 
-                                  :url="$course->slug" 
+                                  :img="$course->preview_image"
+                                  :course="$course->title"
+                                  :url="$course->slug"
                                   :rating="round($course->average_rating, 2)"
                                   :creatorImg="$course->user->user_img"
                                   :creatorName="$course->user->fullName"
@@ -441,12 +441,12 @@
                                   :checkCart="$course->checkCart"
                                   :videoCount="$course->videoCount"
                                   :chapterCount="$course->chapterCount"
-                                  :progress="$course->getProgress()"                             
+                                  :progress="$course->getProgress()"
                                 />
 
                               </div>
                             @endforeach
-                          
+
 
                         @else
 
@@ -464,7 +464,7 @@
                           </div>
 
                         @endif
-                      </div> <!-- Swiper Wrapper : End -->  
+                      </div> <!-- Swiper Wrapper : End -->
 
                       @if(count($completed_classes) != 0)
                         <div class="w-100 mt-10 d-md-flex justify-content-end align-items-start">
@@ -474,12 +474,12 @@
                         </div>
                       @endif
 
-                    </div>  <!-- Swiper Container : End -->  
+                    </div>  <!-- Swiper Container : End -->
                 </div>
                 <!-- Completed Classes : End -->
-              </div> <!-- Classes Tab Pane: End -->  
+              </div> <!-- Classes Tab Pane: End -->
 
-            </div> 
+            </div>
           </div>
 
         </div>

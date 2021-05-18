@@ -2,7 +2,7 @@
 <!-- Side Navbar: Start -->
 <div class="la-anim__wrap">
 <div class="la-profile__sidebar position-fixed d-none d-md-flex flex-column justify-content-between align-items-start la-anim__fade-in-left">
-    <div class="la-profile__sidebar-top ">  
+    <div class="la-profile__sidebar-top ">
       <ul class="la-profile__sidebar-items la-anim__stagger-item--x ">
         <li id="sidebar_menu_btn" class="la-profile__sidebar-item d-flex align-items-center ">
           <a href="/profile" class="la-profile__sidebar-link la-profile__sidebar-link--name d-flex align-items-center">
@@ -66,12 +66,14 @@
     </div>
     <div class="la-profile__sidebar-bottom la-anim__wrap">
       <ul class="la-profile__sidebar-items la-anim__stagger-item--x">
+        @if(Auth::user()->role !='mentors')
         <li class="la-profile__sidebar-item ">
           <a class="la-profile__sidebar-link d-flex align-items-center @if(Request::segment(1) == 'become-mentor') active @endif " href="/become-mentor">
             <span class="la-icon la-icon--2xl icon-become-creator"></span>
             <span class="la-profile__sidebar-text pl-2">Become a Mentor</span>
           </a>
         </li>
+        @endif
         <li class="la-profile__sidebar-item  ">
           <a class="la-profile__sidebar-link d-flex align-items-center @if(Request::segment(1) == 'contact') active @endif " href="/contact">
             <span class="la-icon la-icon--xl icon-contact-number"></span>

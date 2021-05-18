@@ -16,7 +16,7 @@
     <meta name="twitter:card"content="summary" />
     <meta name="twitter:title"content="Courses | Best Online Courses for Art & Creativity | LILA" />
     <meta name="twitter:site"content="@lilaaliens" />
-    
+
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Courses | Best Online Courses for Art & Creativity | LILA"}</script>
 @endsection
 
@@ -53,7 +53,7 @@ $course_id = $course->id;
   </div>
 @endif
 
-<x-add-to-playlist 
+<x-add-to-playlist
   :playlists="$playlists"
 />
 
@@ -61,7 +61,7 @@ $course_id = $course->id;
   <section class="la-vcourse__section la-section"  style="background:linear-gradient(45deg, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.48)), url('{{$course->preview_image}}') no-repeat center rgba(0, 0, 0, 0.8); background-size:cover;">
     <div class="la-vcourse la-vcourse__inner">
       <div class="container-fluid">
-        <div class="d-flex flex-wrap mb-12 la-anim__wrap"> 
+        <div class="d-flex flex-wrap mb-12 la-anim__wrap">
           <div class="la-vcourse__intro-left">
             <div class="la-vcourse__header d-flex flex-column align-items-start">
               <h6 class="la-vcourse__tag  text-white text-uppercase la-anim__fade-in-top">Course</h6>
@@ -78,11 +78,11 @@ $course_id = $course->id;
 
               @for($counter=1;$counter <= 5-round($average_rating); $counter++)
                   <div class="la-icon la-icon--2xl icon-star la-rtng__unfill"> </div>
-              @endfor                      
+              @endfor
             </div>
 
             <p class="la-vcourse__excerpt mb-5  text-white la-anim__stagger-item">{{ $course->short_detail }}</p>
-            
+
             <div class="la-vcourse__creator-group position-relative w-100 d-flex align-items-center la-anim__stagger-item">
               <div class="la-vcourse__creator-group--avator position-relative d-inline-flex la-anim__fade-in-left">
                 @foreach($course->users() as $u)
@@ -91,7 +91,7 @@ $course_id = $course->id;
               </div>
 
               <div class="la-vcourse__creator-group--name text-white leading-tight text-capitalize la-anim__stagger-item--x">
-                  <h6>{{ $course->user->fname }}</h6>
+                  <h6>{{ $course->user->fullName }}</h6>
                   @if(count($course->users()) > 1)<div class="text-xs" style="font-weight:var(--font-light)">+{{ (count($course->users())-1) }} Mentors</div> @endif
               </div>
             </div>
@@ -109,7 +109,7 @@ $course_id = $course->id;
                       $finishTime = \Carbon\Carbon::parse('2020-12-05T01:18:36.862+1:30');
 
                       $totalDuration = $finishTime->diffInHours($startTime);
-                      
+
                   @endphp
                 </div>
             </div>
@@ -141,7 +141,7 @@ $course_id = $course->id;
                 </div>
             </div>
           </div>
-          
+
           <div class="la-vcourse__intro-right pt-10 d-flex flex-column justify-content-start justify-content-lg-between align-items-center align-items-md-end la-anim__wrap">
               <div class="la-vcourse__buy w-100 d-md-flex flex-wrap align-items-start justify-content-lg-end text-lg-right mb-1 mb-md-6 la-anim__stagger-item--x">
                 @if ($course->isPurchased() == null)
@@ -165,7 +165,7 @@ $course_id = $course->id;
                 @endif
               </div>
           </div>
-        </div>       
+        </div>
       </div>
     </div>
   </section>
@@ -186,19 +186,19 @@ $course_id = $course->id;
                             <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
                         </a>
                     </div>
-                </div>         
+                </div>
             @else
 
             <div class="la-vcourse__course-cards row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item la-anim__B">
               @foreach ($course->getCourses() as $cc)
-                    <x-course 
+                    <x-course
                     :id="$cc->id"
                     :img="$cc->preview_image"
                     :course="$cc->title"
                     :url="$cc->slug"
                     :rating="round($cc->average_rating, 2)"
                     :creatorImg="$cc->user->user_img"
-                    :creatorName="$cc->user->fname"
+                    :creatorName="$cc->user->fullName"
                     :creatorUrl="$cc->user->id"
                     :learnerCount="$cc->learnerCount"
                     :price="$cc->price"
@@ -233,7 +233,7 @@ $course_id = $course->id;
               @endif
             </ul>
           </nav>
-          
+
           <div class="tab-content la-courses__nav-content" id="cnav-tabContent">
             <div class="tab-pane fade show active" id="cnav-about" role="tabpanel" aria-labelledby="cnav-about-tab">
               <div class="col-lg-11 px-0">
@@ -244,9 +244,9 @@ $course_id = $course->id;
                     {{--<div class="la-ctabs__about-collapse collapse" id="about_collapse">
                       {!! $course->detail  !!}
                     </div> --}}
-                    
+
                   </div>
-                  
+
                   {{-- <div class="la-vcourse__btn-wrap text-right mt-3 la-anim__stagger-item pr-1 pr-lg-4">
                     <a class="la-btn__arrow-down la-vcourse__btn-collapse d-inline-block text-center collapsed" data-toggle="collapse" href="#about_collapse">
                       <div class="la-vcourse__btn-text la-btn__text la-btn__text--purple pt-4">Read More</div>
@@ -258,7 +258,7 @@ $course_id = $course->id;
 
             @if($video_access == true)
               <div class="tab-pane fade" id="cnav-resource" role="tabpanel" aria-labelledby="cnav-resource-tab">
-                
+
                   @if(true)
                       <div class=" la-anim__wrap text-center">
                           <div class="la-empty__inner la-anim__stagger-item mb-0">
@@ -313,7 +313,7 @@ $course_id = $course->id;
                       {!! $course->detail !!}
                     </span>
                   </div>
-                 
+
                   <div class="la-vcourse__btn-wrap text-center la-anim__stagger-item--x">
                     <a class="la-btn__arrow-down la-vcourse__btn-collapse d-inline-block text-center collapsed" data-toggle="collapse" href="#read_more">
                       <div class="la-vcourse__btn-text la-btn__text la-btn__text--purple pt-4">Read More</div>
@@ -347,8 +347,8 @@ $course_id = $course->id;
                   <!-- <div class="col-12 mb-4 text-right la-anim__wrap"><a class="la-ctabs__download-all la-anim__stagger-item--x" href=""><span class="text-uppercase text-sm">DOWNLOAD ALL<span class="pl-1 la-icon icon-download"> </span></span></a></div> -->
               @endif
             </div>
-            
-            
+
+
 
             <!-- Certificate -->
             {{-- <div class="col-12 mb-4 px-0">
@@ -421,7 +421,7 @@ $course_id = $course->id;
   </section>
   <!-- Section: End-->
 
-  
+
   <!--  Section PUrchase : Start -->
   <section class="la-vcourse__purchase">
       <div class="container-fluid la-vcourse__purchase-inwrap ">
@@ -483,8 +483,8 @@ $course_id = $course->id;
 
                         @for($counter=1;$counter <= 5-round($average_rating); $counter++)
                             <div class="la-icon la-icon--xl icon-star la-rtng__unfill"> </div>
-                        @endfor                      
-                        
+                        @endfor
+
                       </div>
                       <div class="la-rtng__course body-font text-sm mt-n1 px-3 px-md-0">Course Rating</div>
                     </div>
@@ -515,7 +515,7 @@ $course_id = $course->id;
                         </div>
                         <div class="la-rtng__percent body-font text-xs">{{$four_rating_percentage}}%</div>
                       </div>
-                      <div class="la-rtng__bars d-flex flex-row jsutify-content-between">       
+                      <div class="la-rtng__bars d-flex flex-row jsutify-content-between">
                         <div class="progress la-rtng__progress">
                           <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$three_rating_percentage}}%" aria-valuenow="{{$three_rating_percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
@@ -528,7 +528,7 @@ $course_id = $course->id;
                         </div>
                         <div class="la-rtng__percent body-font text-xs">{{$three_rating_percentage}}%</div>
                       </div>
-                      <div class="la-rtng__bars d-flex flex-row jsutify-content-between">       
+                      <div class="la-rtng__bars d-flex flex-row jsutify-content-between">
                         <div class="progress la-rtng__progress">
                           <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$two_rating_percentage}}%" aria-valuenow="{{$two_rating_percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
@@ -541,7 +541,7 @@ $course_id = $course->id;
                         </div>
                         <div class="la-rtng__percent body-font text-xs">{{$two_rating_percentage}}%</div>
                       </div>
-                      <div class="la-rtng__bars d-flex flex-row jsutify-content-between">       
+                      <div class="la-rtng__bars d-flex flex-row jsutify-content-between">
                         <div class="progress la-rtng__progress">
                           <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$one_rating_percentage}}%" aria-valuenow="{{$one_rating_percentage}}" aria-valuemin="0" aria-valuemax="100">  </div>
                         </div>
@@ -558,7 +558,7 @@ $course_id = $course->id;
                   </div>
                 </div>
 
-               
+
               </div>
             </li>
           </div>
@@ -575,7 +575,7 @@ $course_id = $course->id;
                               <div class="modal-header la-rtng__review-header">
                                   <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
                               </div>
-                              
+
                               <div class="modal-body la-rtng__review-body">
                                     <form action="{{route('rate.course')}}" method="post" id="rate_course_form" name="rate_course_form">
                                         @csrf
@@ -612,7 +612,7 @@ $course_id = $course->id;
                                   <div class="modal-header la-rtng__review-header">
                                       <button type="button" class="close text--black" data-dismiss="modal">&times;</button> <br/>
                                   </div>
-                                  
+
                                   <div class="modal-body la-rtng__review-body">
                                         <form action="{{route('update.review')}}" method="post" id="edit_rate_form" name="edit_rate_form">
                                             @csrf
@@ -646,33 +646,33 @@ $course_id = $course->id;
                     {{-- Edit Rating Modal:Ends --}}
                     <!-- Leave a Rating Popup: End -->
             </div>
-            
+
             <div class="la-mcard__slider-wrap mt-6 la-anim__wrap px-0">
             @if(count($reviews))
               <div class="swiper-container h-100 la-lcreviews__container">
-                <div class="swiper-wrapper la-lcreviews__wrapper"> 
-              
+                <div class="swiper-wrapper la-lcreviews__wrapper">
+
                     @foreach($reviews as $review)
 
-                    <div class="swiper-slide la-lcreviews__slider la-anim__stagger-item">  
+                    <div class="swiper-slide la-lcreviews__slider la-anim__stagger-item">
                       <div class="la-lcreviews__item">
                         <div class="la-lcreviews__wrapper ">
                           <div class="d-flex justify-content-between align-item-start ">
                             <div class="la-lcreviews__prfle d-inline-flex align-items-center ">
                               <div class="la-lcreviews__prfle-img">
-                                <img class="img-fluid rounded-circle d-block lazy" src="{{ $review->user->user_img }}"  data-src="{{ $review->user->user_img }}" alt="{{$review->user->fname}}" />
+                                <img class="img-fluid rounded-circle d-block lazy" src="{{ $review->user->user_img }}"  data-src="{{ $review->user->user_img }}" alt="{{$review->user->fullName}}" />
                               </div>
                               <div class="la-lcreviews__prfle-info ml-2 ">
                                 <div class="la-lcreviews__timestamp text-sm">
-                                              @if($review->created_at->diffInWeeks(Carbon::now())> 0) 
+                                              @if($review->created_at->diffInWeeks(Carbon::now())> 0)
                                                   {{$review->created_at->diffInWeeks(Carbon::now())}} weeks ago
                                               @elseif($review->created_at->diffInDays(Carbon::now())>0)
-                                                  {{$review->created_at->diffInDays(Carbon::now())}} days ago 
+                                                  {{$review->created_at->diffInDays(Carbon::now())}} days ago
                                               @else
-                                                  Today                                      
+                                                  Today
                                               @endif
                                 </div>
-                                <h4 class="la-lcreviews__uname text-md text-uppercase ">{{$review->user->fname.' '.$review->user->lname}}</h4>
+                                <h4 class="la-lcreviews__uname text-md text-uppercase ">{{$review->user->fullName}}</h4>
                               </div>
                             </div>
                             <div class="d-none d-md-block la-lcreviews__ratings"> @for($couter=1 ; $couter <= $review->rating; $couter++)<span class="la-icon--lg icon-star la-rtng__fill"></span>@endfor  @for($couter=1 ; $couter <= 5 - $review->rating; $couter++)<span class="la-icon--lg icon-star la-rtng__unfill"></span>@endfor</div>
@@ -688,11 +688,11 @@ $course_id = $course->id;
                         </div>
                       </div>
                     </div>
-                    
+
                     @endforeach
-                </div> 
+                </div>
               </div>
-              <div class="swiper-pagination swiper-pagination-custom la-lcreviews__pagination la-anim__stagger-item--x"></div> 
+              <div class="swiper-pagination swiper-pagination-custom la-lcreviews__pagination la-anim__stagger-item--x"></div>
             </div>
             @endif
           </div>
@@ -707,7 +707,7 @@ $course_id = $course->id;
     <div class="la-section__inner pb-md-10">
       <div class="container-fluid">
         <div class="row">
-         
+
           @foreach($course->users() as $user)
           <div class="col-md-6 col-lg-4 la-creator la-anim__wrap mb-10 mb-md-14">
             <div class="la-creator__wrap d-flex justify-content-center justify-content-lg-start position-relative">
@@ -727,8 +727,8 @@ $course_id = $course->id;
               </div>
               @php
                     $details = strip_tags($user->detail);
-                   $details = preg_replace("/&#?[a-z0-9]+;/i"," ",$details); 
-              @endphp 
+                   $details = preg_replace("/&#?[a-z0-9]+;/i"," ",$details);
+              @endphp
             @if(strlen($details) != 0)
               <div class="la-creator__para mb-6 la-anim__stagger-item--x">{{ substr($details, 0, 200) }}...</div>
                 <div class="la-creator__content-btn la-anim__stagger-item--x  ">
@@ -752,7 +752,7 @@ $course_id = $course->id;
     <div class="la-section__inner">
       <div class="container-fluid la-anim__wrap">
         <h2 class="la-section__title text-3xl text-md-4xl mb-10 la-anim__stagger-item">More from Mentors</h2>
-        
+
           @if(count($mentor_other_courses) == 0)
                <div class="la-empty__courses w-100 d-md-flex justify-content-between align-items-center mt-0 mt-md-6 la-anim__stagger-item">
                     <div class="col la-empty__inner">
@@ -764,12 +764,12 @@ $course_id = $course->id;
                             <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow "></span>
                         </a>
                     </div>
-                </div>         
+                </div>
             @else
 
             <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item--x ">
               @foreach ($mentor_other_courses as $mentor_other_course)
-                   <x-bundle-course 
+                   <x-bundle-course
                     :id="$mentor_other_course->id"
                     :img="$mentor_other_course->preview_image"
                     :course="$mentor_other_course->title"
@@ -778,7 +778,7 @@ $course_id = $course->id;
                     :videoCount="$mentor_other_course->videoCount()"
                     :classesCount="count($mentor_other_course->course_id)"
                     :creatorImg="$mentor_other_course->users()"
-                    :creatorName="$mentor_other_course->users()->first()->fname"
+                    :creatorName="$mentor_other_course->users()->first()->fullName"
                     :creatorUrl="$mentor_other_course->user->id"
                     :learnerCount="$mentor_other_course->learnerCount"
                     :price="$mentor_other_course->price"
@@ -791,12 +791,12 @@ $course_id = $course->id;
             </div>
 
             @endif
-                  
+
       </div>
     </div>
   </section>
   <!-- Section: End-->
-  
+
 @endsection
 
 @section('footerScripts')
@@ -817,10 +817,10 @@ $course_id = $course->id;
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   <script src="/js/scripts/video-progress-log.js"></script>
   <script>
-          
+
 
             $("form[name='rate_course_form']").validate({
-      
+
                   rules: {
                     review: {
                       required: true,
@@ -839,21 +839,21 @@ $course_id = $course->id;
                   submitHandler: function(form) {
                     form.submit();
                   }
-                  
+
                 });
 
-                
+
                 function submitRateCourseForm(){
                     $('#rate_course_form').submit();
                 }
 
                 $("form[name='add_to_cart_form']").validate({
-      
+
                     rules: {
 
                       classes: {
                         required: true,
-                      }, 
+                      },
                       selected_classes: {
                         required: true,
                       }
@@ -872,7 +872,7 @@ $course_id = $course->id;
                     submitHandler: function(form) {
                       form.submit();
                     }
-                    
+
                 });
 
                 $('input[type=radio][name=classes]').change(function() {
@@ -881,12 +881,12 @@ $course_id = $course->id;
                     }
                     if(this.value == 'select-classes'){
                       $('.selected_classes').removeAttr('checked');
-                    } 
-                  
+                    }
+
                 });
 
                 $('.selected_classes').change(function(){
-                  
+
                     if($('.selected_classes').not(":checked"))
                     {
                       $('#selectClasses').prop('checked', true);
@@ -896,7 +896,7 @@ $course_id = $course->id;
                       $('#allClasses').prop('checked', true);
                     }
                 });
-              
+
               function openReview(){
 
                   var options = {
@@ -925,16 +925,16 @@ $course_id = $course->id;
                     initial_value: rating_value,
                     update_input_field_name: $("#input2, #rating_value_input, #rating_value_input2, #input3"),
                   }
-                // $('#input2').change(function(){   
+                // $('#input2').change(function(){
                 //     $('#reating_value_input').val($this.val());
                 // });
                 $(".rate2").rate(options);
 
                 $('#edit_rating').modal('show');
-               
+
               }
 
-  
+
 
 
 
