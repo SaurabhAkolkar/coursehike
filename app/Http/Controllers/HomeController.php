@@ -43,13 +43,16 @@ class HomeController extends Controller
         $categories = [];
         $playlists = [];
 
-        $cor = Cache::remember('classes', $seconds = 86400, function () {
-            return Course::with('review', 'user')->get();
-        });
+        // $cor = Cache::remember('classes', $seconds = 86400, function () {
+        //     return Course::with('review', 'user')->get();
+        // });
 
-        $filter_categories = Cache::remember('categories', $seconds = 86400, function () {
-            return Categories::with('subcategory', 'courses', 'courses.user')->where(['status'=>1])->get();
-        });
+        $cor = Course::with('review', 'user')->get();
+
+        // $filter_categories = Cache::remember('categories', $seconds = 86400, function () {
+        //     return Categories::with('subcategory', 'courses', 'courses.user')->where(['status'=>1])->get();
+        // });
+        $filter_categories = Categories::with('subcategory', 'courses', 'courses.user')->where(['status'=>1])->get();
 
         $selected_categories = [];
 		$selected_level = [];
@@ -59,35 +62,51 @@ class HomeController extends Controller
         $selected_duration = "";
         $courses = [];
 
-        $firstSection = Cache::remember('HomeFirstSection', $seconds = 86400, function () {
-            $firstSection = FirstSection::first();
-            if($firstSection == null){
-                $firstSection = new stdClass;
-                $firstSection->sub_heading = 'Observe, learn and converse with creators to master your arts';
-                $firstSection->image = asset('images/learners/home/design-a@2x.png');
-                $firstSection->image_text = 'DESIGN';            
-            }
-            return $firstSection;
-        });
+        // $firstSection = Cache::remember('HomeFirstSection', $seconds = 86400, function () {
+        //     $firstSection = FirstSection::first();
+        //     if($firstSection == null){
+        //         $firstSection = new stdClass;
+        //         $firstSection->sub_heading = 'Observe, learn and converse with creators to master your arts';
+        //         $firstSection->image = asset('images/learners/home/design-a@2x.png');
+        //         $firstSection->image_text = 'DESIGN';            
+        //     }
+        //     return $firstSection;
+        // });
+
+        $firstSection = FirstSection::first();
+        if($firstSection == null){
+            $firstSection = new stdClass;
+            $firstSection->sub_heading = 'Observe, learn and converse with creators to master your arts';
+            $firstSection->image = asset('images/learners/home/design-a@2x.png');
+            $firstSection->image_text = 'DESIGN';            
+        }
 
         if(Auth::check())
             $playlists = Playlist::where('user_id', Auth::user()->id)->get();
 
-        $master_classes = Cache::remember('master_classes', $seconds = 86400, function () {
-            return MasterClass::with(array('courses' => function($query) {$query->with('user')->where('status', 1)->orderBy('order');}),'courses.user', 'review')->get();
-        });
-        
-        $featuredMentor = Cache::remember('featuredMentor', $seconds = 86400, function () {
-            return FeaturedMentor::with('user','courses','courses.category')->where(['status'=>'1'])->get();
-        });
+        // $master_classes = Cache::remember('master_classes', $seconds = 86400, function () {
+        //     return MasterClass::with(array('courses' => function($query) {$query->with('user')->where('status', 1)->orderBy('order');}),'courses.user', 'review')->get();
+        // });
 
-        $bundleCoures = Cache::remember('bundle', $seconds = 86400, function () {
-            return BundleCourse::with('user')->where(['status'=>1])->get();
-        });
+        $master_classes = MasterClass::with(array('courses' => function($query) {$query->with('user')->where('status', 1)->orderBy('order');}),'courses.user', 'review')->get();
         
-        $categories = Cache::remember('categories', $seconds = 86400, function () {
-            return Categories::with(array('courses' => function($query) {$query->orderBy('order')->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
-        });
+        // $featuredMentor = Cache::remember('featuredMentor', $seconds = 86400, function () {
+        //     return FeaturedMentor::with('user','courses','courses.category')->where(['status'=>'1'])->get();
+        // });
+
+        $featuredMentor = FeaturedMentor::with('user','courses','courses.category')->where(['status'=>'1'])->get();;
+
+        // $bundleCoures = Cache::remember('bundle', $seconds = 86400, function () {
+        //     return BundleCourse::with('user')->where(['status'=>1])->get();
+        // });
+
+        $bundleCoures = BundleCourse::with('user')->where(['status'=>1])->get();
+        
+        // $categories = Cache::remember('categories', $seconds = 1, function () {
+        //     return Categories::with(array('courses' => function($query) {$query->orderBy('order')->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+        // });
+
+        $categories = Categories::with(array('courses' => function($query) {$query->orderBy('order')->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();;
 
         
         $data = [
