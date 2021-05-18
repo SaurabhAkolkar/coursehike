@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Setting;
+use Illuminate\Support\Facades\Cache;
 
 class SettingController extends Controller
 {
@@ -602,5 +603,11 @@ class SettingController extends Controller
           return false;
         }
     }
+  }
+
+  public function clearRedisCache()
+  {
+    Cache::flush();
+    return redirect()->back()->with('success','Cache Cleared Successfully !');
   }
 }

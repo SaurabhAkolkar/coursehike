@@ -18,12 +18,11 @@ class IsVerified
     public function handle($request, Closure $next)
     {
 
-        $setting = Setting::first();
-
         if(Auth::check())
         {
             if(Auth::user()->role != "admin")
             {
+                $setting = Setting::first();
                 if($setting->verify_enable == 1)
                 {
                     if(Auth::user()->email_verified_at == NULL)

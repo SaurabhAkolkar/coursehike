@@ -7,6 +7,7 @@ use Spatie\Translatable\HasTranslations;
 use Storage;
 use Avatar;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class BundleCourse extends Model
 {
@@ -43,9 +44,11 @@ class BundleCourse extends Model
     	return $this->belongsTo('App\Course','course_id','id');
     }
 
-    public function getCourses(){
-
-        return $course_id = Course::whereIn('id', $this->course_id)->get();
+    public function getCourses()
+    {
+        return Cache::remember('courses_get_classes_'.  $this->id, config('cache.time'), function () {
+            return Course::whereIn('id', $this->course_id)->get();
+        });
     }
 
     public function getAverageRatingAttribute()
@@ -53,12 +56,13 @@ class BundleCourse extends Model
         $avgRating = $this->getCourses()->average('average_rating');
         return $avgRating;
     }
+
     public function reviews(){
-        $course_ids = $this->getCourses()->pluck('id')->toArray();
 
-        $reviews = ReviewRating::whereIn('course_id',$course_ids)->get();
-
-        return $reviews;
+        return Cache::remember('courses_review_'.  $this->id, config('cache.time'), function () {
+            $course_ids = $this->getCourses()->pluck('id')->toArray();
+            return ReviewRating::whereIn('course_id',$course_ids)->get();
+        });
     }
 
     public function User()
@@ -101,22 +105,26 @@ class BundleCourse extends Model
     }
 
     public function users(){
-        $user_id = $this->getCourses()->pluck('user_id')->toArray();
-
-        $users = User::whereIn('id', $user_id)->get();
-
-        return $users;
+        
+        return Cache::remember('courses_users_'.  $this->id, config('cache.time'), function () {
+            $user_id = $this->getCourses()->pluck('user_id')->toArray();
+            $users = User::whereIn('id', $user_id)->get();
+            return $users;
+        });
     }
 
     public function getLearnerCountAttribute(){
-        $learnerCount = $this->getCourses()->sum('learnerCount');
-        return $learnerCount;
+        return Cache::remember('courses_learner_count_'.  $this->id, config('cache.time'), function () {
+            return $this->getCourses()->sum('learnerCount');
+        });
     }
 
     public function videoCount(){
-        $videos = CourseClass::whereIn('course_id', $this->course_id)->count();
+        // $videos = CourseClass::whereIn('course_id', $this->course_id)->count();
 
-        return $videos;
+        return Cache::remember('courses_video_count_'.  $this->id, config('cache.time'), function () {
+            return CourseClass::whereIn('course_id', $this->course_id)->count();;
+        });
     }
 
     public function category()

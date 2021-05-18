@@ -81,40 +81,40 @@
                 <div class="d-md-flex align-items-center">
                   <div class="la-hero__actions mt-6 mt-md-10">
                     @if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())
-                    <div class="">
-                      <a href="/browse/courses" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white px-md-4">Start Learning</a>
-                    </div>
+											<div class="">
+												<a href="/browse/courses" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white px-md-4">Start Learning</a>
+											</div>
 
                     @else
-                    <div class="">
-                        <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white px-md-4" style="letter-spacing:1.5px">
-                          Subscribe for
-                          <span class="la-soffer__bestprice la-home__bestprice" style="color:var(--white)"> 
-                            @if (getLocation() == 'IN')
-                              <sup>₹</sup>2999/<span class="text-xxs">Month</span>
-                            @else
-                              <sup>$</sup>39/<span class="text-xxs">Month</span>
-                            @endif
-                        </span>
-                        </a>
-                    </div>
-                    
-                    <div class="la-soffer mt-2 d-inline-flex justify-content-center flex-column align-items-md-center">
-                        {{-- <div class="la-soffer__bestprice" style="color:var(--white)"> 
-                          @if (getLocation() == 'IN')
-                            <sup>₹</sup> 2999 / Month
-                          @else
-                            <sup>$</sup> 39 / Month
-                          @endif
-                        </div> --}}
+												<div class="">
+														<a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary active text-white px-md-4" style="letter-spacing:1.5px">
+															Subscribe for
+															<span class="la-soffer__bestprice la-home__bestprice" style="color:var(--white)"> 
+																@if (getLocation() == 'IN')
+																	<sup>₹</sup>2999/<span class="text-xxs">Month</span>
+																@else
+																	<sup>$</sup>39/<span class="text-xxs">Month</span>
+																@endif
+														</span>
+														</a>
+												</div>
+												
+												<div class="la-soffer mt-2 d-inline-flex justify-content-center flex-column align-items-md-center">
+														{{-- <div class="la-soffer__bestprice" style="color:var(--white)"> 
+															@if (getLocation() == 'IN')
+																<sup>₹</sup> 2999 / Month
+															@else
+																<sup>$</sup> 39 / Month
+															@endif
+														</div> --}}
 
-                        @if (getLocation() == 'IN')
-                          <div class="la-soffer__realprice la-home__realprice" style="color:var(--white)"> <sup>₹</sup> 5999 (INR)</div>
-                        @else
-                          <div class="la-soffer__realprice la-home__realprice" style="color:var(--white)"> <sup>$</sup> 99 (USD)</div>
-                        @endif
-                    </div>
-                  @endif
+														@if (getLocation() == 'IN')
+															<div class="la-soffer__realprice la-home__realprice" style="color:var(--white)"> <sup>₹</sup> 5999 (INR)</div>
+														@else
+															<div class="la-soffer__realprice la-home__realprice" style="color:var(--white)"> <sup>$</sup> 99 (USD)</div>
+														@endif
+												</div>
+											@endif
                   </div>
                 
                   <div class="la-hero__bottom-trial mt-6 mt-md-2 ml-md-6">@if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())  @else<a href="/learning-plans" class="btn btn-primary la-btn la-btn--primary bg-transparent text-white px-md-4" style="letter-spacing:1.8px">Start free trial</a> @endif </div>
@@ -308,7 +308,7 @@
                             <div class="swiper-wrapper la-home__course-wrapper2">
                                                                                             
                                       @php
-                                        $courses = $category->courses->where('featured', 1);          
+                                        $courses = $category->courses->where('featured', 1);
                                       @endphp
 
                                       @foreach($courses as $course)

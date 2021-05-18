@@ -168,6 +168,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::post('mailsetting/update','SettingController@updateMailSetting')->name('update.mail.set');
       Route::get('settings','SettingController@genreal')->name('gen.set');
       Route::post('setting/store','SettingController@store')->name('setting.store');
+      Route::post('setting/clear_cache','SettingController@clearRedisCache')->name('clear_cache.redis');
       Route::post('setting/seo','SettingController@updateSeo')->name('seo.set');
       Route::post('setting/addcss','SettingController@storeCSS')->name('css.store');
       Route::post('setting/addjs','SettingController@storeJS')->name('js.store');
