@@ -14,7 +14,7 @@ use Hash;
 use App\User;
 
 class ProfileController extends Controller
-{   
+{
     public function __construct()
     {
         return $this->middleware('auth');
@@ -27,7 +27,7 @@ class ProfileController extends Controller
      */
 
     public function index()
-    {   
+    {
         $cities = [];
         $states = Allstate::pluck('name','id')->all();
         $countries = Allcountry::pluck('name','id')->all();
@@ -51,9 +51,9 @@ class ProfileController extends Controller
      */
     public function updateProfile(Request $request)
     {
-       
+
         $user = Auth::user();
-        
+
         $request->validate([
             //   'email' => 'required|email|unique:users,email,'.$user->id,
               'first_name' => 'required|min:3',
@@ -65,7 +65,7 @@ class ProfileController extends Controller
               'country' => 'required',
               'state' => 'required',
               'city' => 'required',
-              'zipcode' => 'required|min:6',
+              'zipcode' => 'required',
               'user_img' => 'max:5000|mimes:jpg,jpeg,png',
           ]);
        //   dd($request->all());
@@ -89,7 +89,7 @@ class ProfileController extends Controller
                         Storage::delete(config('path.profile').$user->user_img);
                 }
 
-                
+
                 $photo = Image::make($file);
 
                 $file_name = time().rand().'.'.$file->getClientOriginalExtension();
@@ -98,7 +98,7 @@ class ProfileController extends Controller
             }
 
         if(isset($request->update_pass)){
-          
+
             $input['password'] = Hash::make($request->password);
         }
         else{
@@ -112,13 +112,13 @@ class ProfileController extends Controller
     }
 
     public function updatePassword(Request $request){
-        
+
         $user = User::where('id',Auth::user()->id)->firstOrFail();
         $request->validate([
             'new_password' => 'required|min:6',
             'current_password' => 'required|min:6',
         ]);
-             
+
         if(Hash::check($request->current_password, $user->password) || $user->password == ""){
             $input['password'] = Hash::make($request->new_password);
             $user->password= $input['password'];
