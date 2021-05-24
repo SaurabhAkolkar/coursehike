@@ -48,7 +48,7 @@ Route::middleware(['web'])->group(function () {
 
 Route::view('/ipblock','ipblock')->name('ip.block');
 
-  
+
 Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(function () {
 
     // Auth Routes
@@ -57,7 +57,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
 
     Route::middleware(['is_verified'])->group(function () {
-  
+
         //  Route::get('/', function () {
         //     return view('home');
         //  });
@@ -73,12 +73,12 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
     Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
     Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
     Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
- 
+
 
     Route::prefix('admins')->group(function (){
         Route::get('/', 'AdminController@index')->name('admin.index');
     });
-  
+
 
     Route::middleware(['web', 'auth', 'is_admin', 'switch_languages'])->group(function () {
 
@@ -151,7 +151,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
         Route::get('/subscriptions/{id}','UserController@subscriptions')->name('user.subscriptions');
         Route::get('/subscriptions/add','UserController@addSubscriptions')->name('user.addSubscription');
         Route::get('edit/{id}','UserController@edit')->name('user.edit');
-        Route::put('/edit/{id}','UserController@update')->name('user.update');   
+        Route::put('/edit/{id}','UserController@update')->name('user.update');
         Route::delete('delete/{id}','UserController@destroy')->name('user.delete');
       });
 
@@ -163,7 +163,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::resource('/testimonial','TestimonialController');
       Route::resource('slider','SliderController');
       Route::resource('trusted','TrustedController');
-      
+
 
       Route::post('mailsetting/update','SettingController@updateMailSetting')->name('update.mail.set');
       Route::get('settings','SettingController@genreal')->name('gen.set');
@@ -196,7 +196,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::put('privacypolicy', 'TermsController@updatepolicy');
 
       Route::resource('reports','ReportReviewController');
-      
+
       Route::get('aboutpage', 'AboutController@show')->name('about.page');
       Route::put('aboutupdate', 'AboutController@update');
       Route::get('comingsoon', 'ComingSoonController@show')->name('comingsoon.page');
@@ -209,7 +209,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::get('currency', 'CurrencyController@show');
       Route::put('currency/update', 'CurrencyController@update');
-      
+
 
       Route::get('widget', 'WidgetController@edit')->name('widget.setting');
       Route::put('widget/update', 'WidgetController@update');
@@ -217,7 +217,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::get('/firstsection', 'FirstSectionController@index');
       Route::get('/firstsection/remove-video', 'FirstSectionController@removeVideo');
       Route::put('firstsection/update', 'FirstSectionController@update');
-      
+
       Route::get('/featuredMentors', 'FeaturedMentorController@index');
       Route::get('/featuredMentors/create', 'FeaturedMentorController@create');
       Route::post('/featuredMentors/store', 'FeaturedMentorController@store');
@@ -251,7 +251,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::get('instructor/edit-addition-details/{id}', 'InstructorRequestController@editMentorDetails');
 
       Route::post('instructor/update-addition-details','InstructorRequestController@updateDetails')->name('instructor.update.details');
-      
+
       Route::get('view/order/admin/{id}', 'OrderController@vieworder')->name('view.order');
 
       Route::resource('user/course/report','CourseReportController');
@@ -289,16 +289,16 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
     });
 
-    Route::middleware(['web', 'auth', 'admin_instructor', 'switch_languages'])->group(function () {      
+    Route::middleware(['web', 'auth', 'admin_instructor', 'switch_languages'])->group(function () {
 
       // if(\DB::connection()->getDatabaseName()){
       //     if(env('IS_INSTALLED') == 1){
       //         $zoom_enable = Setting::first()->zoom_enable;
 
       //         $bbl_enable  = Setting::first()->bbl_enable;
-              
+
       //         if(isset($zoom_enable) && $zoom_enable == 1){
-                  
+
       //             Route::prefix('zoom')->group(function (){
       //                 Route::get('setting','ZoomController@setting')->name('zoom.setting');
       //                 Route::get('dashboard','ZoomController@dashboard')->name('zoom.index');
@@ -324,7 +324,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       //                 Route::delete('meeting/delete/{id}','BigBlueController@delete')->name('bbl.delete');
       //                 Route::get('api/create/meeting/{id}','BigBlueController@apiCreate')->name('api.create.meeting');
 
-                      
+
       //             });
       //         }
 
@@ -338,7 +338,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       });
 
       Route::resource('category','CategoriesController');
-      Route::get('/category/{slug}','CategoriesController@show')->name('category.show'); 
+      Route::get('/category/{slug}','CategoriesController@show')->name('category.show');
       Route::resource('subcategory','SubcategoryController');
       Route::resource('childcategory','ChildcategoryController');
       Route::resource('course','CourseController');
@@ -441,7 +441,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::get('show/help', function(){
       $data = FaqStudent::first();
       $item = FaqInstructor::first();
-      return view('front.help.faq',compact('data', 'item')); 
+      return view('front.help.faq',compact('data', 'item'));
       })->name('help.show');
 
       Route::get('pages/{slug}','PageController@showpage')->name('page.show');
@@ -467,13 +467,13 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::get('all/cart', 'CartController@cartpage')->name('cart.show');
 
       Route::post('gotocheckout', 'CheckoutController@checkoutpage');
-      
+
       Route::get('notifications/{id}', 'NotificationController@markAsRead')
       ->name('markAsRead');
       Route::get('delete/notifications', 'NotificationController@delete')
       ->name('deleteNotification');
 
-      Route::get('/view', 'DownloadController@getDownload'); 
+      Route::get('/view', 'DownloadController@getDownload');
 
       Route::get('/download/{id}', 'DownloadController@getDownload')->name('downloadPdf')->middleware('auth');
 
@@ -495,7 +495,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::get('all/purchase', 'OrderController@purchasehistory')->name('purchase.show');
       Route::get('invoice/show/{id}', 'OrderController@invoice')->name('invoice.show');
 
-      
+
       Route::get('profile/show/{id}', 'UserProfileController@userprofilepage')->name('profile.show');
       Route::put('/edit/{id}','UserProfileController@userprofile')->name('user.profile');
 
@@ -544,7 +544,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::post('dopayment', 'RazorpayController@dopayment')->name('dopayment');
 
       Route::post('/paywithpaystack', 'PayStackController@redirectToGateway')->name('paywithpaystack');
-      Route::get('callback', 'PayStackController@handleGatewayCallback'); 
+      Route::get('callback', 'PayStackController@handleGatewayCallback');
 
       Route::post('apply/coupon', 'ApplyCouponController@applycoupon');
 
@@ -555,7 +555,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::post('payment/status', 'PaytmController@paymentCallback');
 
       Route::post('process/banktransfer', 'BankTransferController@banktransfer');
-      
+
       Route::get('watchcourse/in/frame/{url}/{course_id}', 'WatchController@view')->name('watchinframe');
 
       Route::get('start_quiz/{id}', 'QuizStartController@quizstart')->name('start_quiz');
@@ -626,7 +626,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::get('join/meeting/{meetingid}','BigBlueController@joinview')->name('bbluserjoin');
       Route::post('api/join/meeting','BigBlueController@apiJoin')->name('bbl.api.join');
-      
+
 
       Route::post('course/assignment/{id}', 'AssignmentController@submit')->name('assignment.submit');
       Route::post('assignment/delete/{id}', 'AssignmentController@delete');
@@ -635,7 +635,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::post('course/appointment/{id}', 'AppointmentController@request')->name('appointment.request');
       Route::post('appointment/delete/{id}', 'AppointmentController@delete');
-      
+
       Route::get('/my-courses','SearchController@myCourses');
 
       //- Payment Info of Learners
@@ -645,7 +645,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       // Route::view('/payment-cards', 'learners.pages.payment-cards');
       Route::get('/payment-details', 'SubscriptionController@payment_update');
       Route::post('/payment-details/update', 'SubscriptionController@payment_update');
-      
+
 
     });
 
@@ -682,7 +682,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
     Route::get('/jwt', 'CourseclassController@token_generate');
 
     Route::stripeWebhooks('/hooks');
-    
+
 
 });
 
@@ -695,7 +695,7 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/playlist','PlaylistController@index');
   Route::get('/playlist/{id}','PlaylistController@show');
   Route::get('/playlist/{playlist_id}/{id}/{slug}','PlaylistController@removeCourse');
-  
+
   Route::post('/add-to-playlist','PlaylistController@addToPlaylist')->name('add.to.playlist');
   Route::post('/create-playlist','PlaylistController@createPlaylist')->name('create.playlist');
   Route::post('/edit-playlist','PlaylistController@editPlaylist');
@@ -728,7 +728,7 @@ Route::middleware(['auth'])->group(function () {
   Route::post('/creator-signup','InstructorController@creatorSignUp')->middleware('check_creator');
 
   Route::get('/purchase-history','PurchaseHistoryController@index');
-  
+
   Route::get('/download-invoice/{id}','PurchaseHistoryController@downloadPdf');
 
   Route::get('/subscription/{slug}', 'SubscriptionController@plans');
@@ -795,5 +795,6 @@ Route::view('/privacy-policy', 'learners.pages.terms-conditions');
 //- Error Pages
 Route::view('/error-404', 'learners.messages.error-404');
 Route::view('/error-wrong', 'learners.messages.error-wrong');
+
 
 

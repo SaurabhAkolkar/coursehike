@@ -265,7 +265,7 @@
 
     <!-- Section: Start-->
       @php
-          $users = $courses->take(3)->groupBy('user_id');
+          $users = $courses->unique('user_id')->take(3);
      @endphp
     <section class="la-section__small">
       <div class="la-section__inner">
@@ -283,12 +283,12 @@
                     <div class="col-md-6 col-lg-4 ">
                       <div class="la-mentor">
                         <div class="la-mentor__profile  la-anim__stagger-item">
-                            <img class="img-fluid lazy" src="{{ $u[0]->user->user_img }}" data-src="{{ $u[0]->user->user_img }}" alt="{{$u[0]->user->fullName}}" />
+                            <img class="img-fluid lazy" src="{{ $u->user->user_img }}" data-src="{{ $u->user->user_img }}" alt="{{$u->user->fullName}}" />
                         </div>
                         <div class="la-mentor__btm d-flex justify-content-between align-items-center la-anim__stagger-item la-anim__B">
                           <div class="la-mentor__info ">
-                            <h3 class="la-mentor__name">{{$u[0]->user->fullName}}</h3>
-                            <p class="la-mentor__skill">{{$u[0]->category->title}}</p>
+                            <h3 class="la-mentor__name">{{$u->user->fullName}}</h3>
+                            <p class="la-mentor__skill">{{$u->category?$u->category->first()->title:''}}</p>
                           </div>
                           <a class="la-mentor__detailview " href="/mentor/{{1}}">
                             <span class="la-icon la-icon--6xl icon-grey-arrow mt-n2"></span>

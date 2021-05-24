@@ -47,7 +47,7 @@ use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -58,7 +58,7 @@ class CourseController extends Controller
     {
         $course = Course::all();
         $coursechapter = CourseChapter::all()->sortByDesc('id');
-           
+
         return view('admin.course.index', compact("course", 'coursechapter'));
     }
 
@@ -86,7 +86,7 @@ class CourseController extends Controller
 
     public function store(Request $request)
     {
- 
+
         $this->validate($request, [
             'category_id' => 'required',
             'subcategory_id' => 'required',
@@ -116,7 +116,7 @@ class CourseController extends Controller
             $data->preview_image = $file_name;
 
         }
-                  
+
         if ($file = $request->file('preview_video')) {
 
             $file_name = time().rand().'.'.$file->getClientOriginalExtension();
@@ -134,7 +134,7 @@ class CourseController extends Controller
                 ],
                 "requireSignedURLs" => true,
             ]);
-            
+
             if($response->successful()){
                 $res = $response->json();
                 $data->stream_video = $res['result']['uid'];
@@ -143,7 +143,7 @@ class CourseController extends Controller
 
         $data->slug = Str::slug($request->title, '-');
         $data->status = 0;
-        
+
 
         $data->save();
 
@@ -159,7 +159,7 @@ class CourseController extends Controller
     public function show($id)
     {
         $cor = Course::find($id);
-        
+
         return view('admin.course.editcor', compact('cor'));
     }
 
@@ -196,15 +196,15 @@ class CourseController extends Controller
                 MasterClass::create(['course_id' => $id]);
             }
         }else{
-            MasterClass::where('course_id', $id)->delete(); 
+            MasterClass::where('course_id', $id)->delete();
         }
-        
+
         $course = Course::findOrFail($id);
         $input = $request->all();
-  
+
         $course->package_type = $request->package_type;
 
-        
+
         if ($file = $request->file('preview_image')) {
             if ($course->preview_image != null) {
                 $exists = Storage::exists(config('path.course.img').$course->preview_image);
@@ -244,14 +244,14 @@ class CourseController extends Controller
                 ],
                 "requireSignedURLs" => true,
             ]);
-            
+
             if($response->successful()){
                 $res = $response->json();
                 $course->stream_video = $input['stream_video'] = $res['result']['uid'];
             }
 
         }
-        
+
         if(isset($input['status'])){
 
             if(($course->status == '0' || $course->status == '2') && $input['status'] == '1' ){
@@ -261,10 +261,10 @@ class CourseController extends Controller
                  PublishRequest::where(['status'=>1, 'request_type' => 'unpublish','course_id'=> $id ])->update(['status'=>0]);
              }
 
-        }       
-        
+        }
 
-       
+
+
         CartItem::where('course_id', $id)
          ->update([
              'price' => $request->price,
@@ -272,7 +272,7 @@ class CourseController extends Controller
           ]);
 
         $course->update($input);
-        
+
         return back()->with('success', 'Updated Successfully !');;
     }
 
@@ -291,7 +291,7 @@ class CourseController extends Controller
                 return back()->with('delete', 'Users are Enrolled in Course');
             } else {
                 $course = Course::find($id);
-          
+
                 if ($course->preview_image != null) {
                     $exists = Storage::exists(config('path.course.img').$course->preview_image);
                     if ($exists)
@@ -317,7 +317,7 @@ class CourseController extends Controller
                 CourseChapter::where('course_id', $id)->delete();
                 RelatedCourse::where('course_id', $id)->delete();
                 CourseClass::where('course_id', $id)->delete();
-          
+
                 return back()->with('delete', 'Course is Deleted');
             }
         } else {
@@ -335,15 +335,15 @@ class CourseController extends Controller
     {
 
         $data= $request->all();
-        
+
         $posts = Course::where(['featured'=>1])->get();
         $pos = $data['id'];
 
-        
-        
-       
+
+
+
         $position =json_encode($data);
-     
+
         foreach ($pos as $key => $item) {
           Course::where('id', $item)->update(array('order' => $key));
           // $new_data = Course::findOrFail($itme->id)
@@ -378,7 +378,7 @@ class CourseController extends Controller
     public function showCourse($id)
     {
         $course = Course::all();
-        
+
         $cor = Course::with('user')->findOrFail($id);
         $categories = Categories::where('status',1)->pluck('title','id');
         $publisRequest = PublishRequest::where(['status' => 1, 'course_id' => $id, 'user_id' => Auth::User()->id])->first();
@@ -399,15 +399,14 @@ class CourseController extends Controller
         $quizes = Quiz::where('course_id', '=', $id)->get();
         $topics = QuizTopic::where('course_id', '=', $id)->get();
         $appointment = Appointment::where('course_id', '=', $id)->get();
-        $videos = [];
-                         
+
         return view('admin.course.show', compact('cor', 'users','videos','course', 'categories', 'publisRequest','courseinclude', 'whatlearns', 'coursechapters', 'coursechapter', 'check_master_class','relatedcourse', 'courseclass', 'courseresources', 'announsments', 'answers', 'reports', 'questions', 'quizes', 'topics', 'appointment'));
     }
 
 
     public function sendToPublish(Request $request){
         $check = PublishRequest::where(['course_id'=> $request->course_id , 'user_id' => Auth::User()->id , 'request_type'=>'publish','status' => 1])->first();
-  
+
         if($check){
             return redirect()->back()->with('success','Class has already sent for publish approval.');
         }
@@ -420,7 +419,7 @@ class CourseController extends Controller
     public function sendToUnPublish(Request $request){
 
         $check = PublishRequest::where(['course_id'=> $request->course_id ,  'user_id' => Auth::User()->id , 'request_type'=>'unpublish','status' => 1])->first();
-  
+
         if($check){
             return redirect()->back()->with('success','Class has already sent for unpublish unapproval.');
         }
@@ -434,7 +433,7 @@ class CourseController extends Controller
     public function CourseDetailPage($id, $slug)
     {
         $course = Course::findOrFail($id);
-       
+
         $courseinclude = CourseInclude::where('course_id', '=', $id)->get();
         $whatlearns = WhatLearn::where('course_id', '=', $id)->get();
         $coursechapters = CourseChapter::where('course_id', '=', $id)->get();
@@ -462,7 +461,7 @@ class CourseController extends Controller
                     $bundle = Order::where('user_id', Auth::User()->id)->where('bundle_id', '!=', null)->get();
 
                     $course_id = array();
-            
+
 
                     foreach ($bundle as $b) {
                         $bundle = BundleCourse::where('id', $b->bundle_id)->first();
@@ -486,7 +485,7 @@ class CourseController extends Controller
     }
 
     public function storeAnnoucement(Request $request){
-        
+
 
         $request->validate([
             'announcement_title' => 'required',
@@ -498,7 +497,7 @@ class CourseController extends Controller
             'preview_image'=>'mimes:jpg,jpeg',
             'preview_video'=>'mimes:mp4,avi,wmv'
           ]);
-  
+
         $input['title'] = $request->announcement_title;
         $input['category_id'] = $request->announcement_category;
         $input['short_description'] = $request->announcement_short;
@@ -507,7 +506,7 @@ class CourseController extends Controller
         $input['layout'] = $request->layouts;
         $input['course_id'] = $request->course_id;
         $input['user_id'] = Auth::user()->id;
-        
+
         if ($file = $request->file('preview_image')) {
 
             $optimizeImage = Image::make($file);
@@ -515,7 +514,7 @@ class CourseController extends Controller
             $image = time().$file->getClientOriginalName();
             $optimizeImage->save($optimizePath.$image, 72);
             $input['preview_image'] = $image;
-          
+
         }
 
         if ($file = $request->file('preview_video')) {
@@ -534,10 +533,10 @@ class CourseController extends Controller
                 ],
                 "requireSignedURLs" => true,
             ]);
-            
+
             if($response->successful()){
                 $res = $response->json();
-              
+
                 $input['stream_video'] = $res['result']['uid'];
             }
 
@@ -553,7 +552,7 @@ class CourseController extends Controller
     public function CourseContentPage($id)
     {
         $course = Course::findOrFail($id);
-       
+
         $courseinclude = CourseInclude::where('course_id', '=', $id)->get();
         $whatlearns = WhatLearn::where('course_id', '=', $id)->get();
         $coursechapters = CourseChapter::where('course_id', '=', $id)->get();
@@ -567,10 +566,10 @@ class CourseController extends Controller
             $assignment = Assignment::where('course_id', '=', $id)->where('user_id', Auth::User()->id)->get();
 
             $appointment = Appointment::where('course_id', '=', $id)->where('user_id', Auth::User()->id)->get();
-      
+
             return view('front.course_content', compact('course', 'courseinclude', 'whatlearns', 'coursechapters', 'courseclass', 'coursequestions', 'announsments', 'progress', 'assignment', 'appointment'));
         }
-     
+
         return Redirect::route('login')->withInput()->with('delete', 'Please Login to access restricted area.');
     }
 
@@ -578,7 +577,7 @@ class CourseController extends Controller
     {
         $course = Course::all();
         $enroll = Order::where('user_id', Auth::user()->id)->get();
-        
+
         return view('front.my_course', compact('course', 'enroll'));
     }
 }
