@@ -19043,7 +19043,7 @@ input:-webkit-autofill:active {
 .la-vcourse__video {
   width: 100%;
   padding-top: 56.2%;
-  background: var(--gray);
+  /* background: var(--gray); */
 }
 @media (min-width: 1200px) {
   .la-vcourse__video {
