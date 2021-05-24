@@ -1,5 +1,5 @@
     
- <div class="la-mccourse d-block la-anim__stagger-item"  >
+ <div class="la-mccourse d-block">
  <!--<div class="la-mccourse d-block la-anim__stagger-item"  role="button" onclick="window.location='/learn/course/{{$id}}/{{$slug}}';">-->
     <div class="la-mccourse__imgwrap">
         <img class="img-fluid  mx-auto d-block lazy" src= "{{ $img }}" data-src= "{{ $img }}" alt= "{{ $title }}" />
