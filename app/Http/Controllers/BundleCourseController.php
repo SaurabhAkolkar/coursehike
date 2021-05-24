@@ -111,7 +111,7 @@ class BundleCourseController extends Controller
     public function show($id)
     {
         $cor = BundleCourse::find($id);
-        if(Auth::user()->role == 'admins'){
+        if(Auth::user()->role == 'admin'){
             $courses = Course::get();
         }else{
             $courses = Course::where('user_id', Auth::user()->id)->get();
