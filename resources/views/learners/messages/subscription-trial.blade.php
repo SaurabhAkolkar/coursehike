@@ -98,3 +98,29 @@
 </section>
 {{-- {{dd($plan_subscription)}} --}}
 @endsection
+
+@section('footer_scripts')
+<script>
+  gtag('event', 'purchase', {
+    "transaction_id": {{$plan_subscription->id}},
+    "affiliation": "LILA Subscription",
+    "value": {{$plan_subscription->plan->price}},
+    "currency": {{getLocation() == 'IN' ? "INR" : "USD"}},
+    "tax": 0,
+    "shipping": 0,
+    "items": [
+      {
+        "id": {{$plan_subscription->plan->id}},
+        "name": {{$plan_subscription->plan->name}},
+        "list_name": "Search Results",
+        "brand": "LILA",
+        "category": "Free Trial",
+        "variant": {{$plan_subscription->plan->name}},
+        "list_position": {{$plan_subscription->plan->id}},
+        "quantity": 1,
+        "price": {{$plan_subscription->plan->price}},
+      }
+    ]
+  });
+</script>
+@endsection
