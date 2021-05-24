@@ -314,7 +314,7 @@ class Course extends Model
         $payload = array(
             // "iss" => "example.org",
             // "aud" => "example.com",
-            'exp' => time() + 60,
+            'exp' => time() + 28800,
             'kid' => env('CLOUDFLARE_Signing_KEY'),
             'sub' => $this->stream_video,
         );
