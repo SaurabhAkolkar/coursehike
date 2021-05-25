@@ -139,13 +139,13 @@ class CheckoutChargeSucceededJob implements ShouldQueue
                         $courses = BundleCourse::find($invoice_items->bundle_id)->getCourses();
 
                         UserPurchasedCourse::updateOrCreate(
-							['order_id' => $client_reference_id, 'user_id' => $invoice->user_id, 'bundle_id' => $invoice_items->bundle_id],
+							['order_id' => $client_reference_id, 'user_id' => $user->id, 'bundle_id' => $invoice_items->bundle_id],
 							['class_id' => json_encode($courses->pluck('id')->all()), 'purchase_type' => $invoice_items->purchase_type]
 						);
 
                     }else{
                         UserPurchasedCourse::updateOrCreate(
-							['order_id' => $client_reference_id, 'user_id' => $invoice->user_id],
+							['order_id' => $client_reference_id, 'user_id' => $user->id],
 							['course_id' => $invoice_items->course_id, 'class_id' => 0, 'purchase_type' => $invoice_items->purchase_type]
 						);
                     }
