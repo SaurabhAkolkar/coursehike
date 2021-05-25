@@ -159,4 +159,9 @@ class BundleCourse extends Model
 
         return $progress;
     }
+
+    public function isCompleted()
+    {
+        return ($this->progress == 100);
+    }
 }
