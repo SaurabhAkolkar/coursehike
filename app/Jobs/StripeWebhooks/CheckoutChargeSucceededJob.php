@@ -2,6 +2,7 @@
 
 namespace App\Jobs\StripeWebhooks;
 
+use App\BundleCourse;
 use App\Cart;
 use App\InvoiceDetail;
 use App\UserInvoiceDetail;
