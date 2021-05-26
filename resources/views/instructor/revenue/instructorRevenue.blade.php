@@ -27,6 +27,7 @@
         <div class="box-body">
           <div class="la-admin__revenue-stats">
             <!-- TOTAL WATCH TIME SECTION: START -->
+            <h6 class="mt-8"><u>Subscription:</u></h6>
             <div class="row ">
                   <div class="col-6 col-md-3 mt-3 mt-md-6">
                       <div class="la-admin__revenue-title">No. of Learners</div>
@@ -47,6 +48,7 @@
                     </div>
                   </div>
               </div>
+              <h6 class="mt-8"><u>Purchase Sales:</u></h6>
               <div class="row mb-md-6">
                 <div class="col-6 col-md-3 mt-3 mt-md-6">
                   <div class="la-admin__revenue-title">Courses & Classes Purchased</div>
@@ -62,7 +64,7 @@
                 </div> --}}
                 {{-- @dd($total_earning) --}}
                 <div class="col-6 col-md-2 mt-3 mt-md-6">
-                  <div class="la-admin__revenue-title">Total Amount</div>
+                  <div class="la-admin__revenue-title">Purchase Sales Amount</div>
                     <div class="la-admin__revenue-info">
                       <span class="la-admin__revenue-price">${{$total_earning['total_income']}}</span>
                     </div>
@@ -82,7 +84,7 @@
                 <th>{{ __('adminstaticword.Course') }}</th>
                 <th>{{ __('adminstaticword.TransactionId') }}</th>
                 <th>{{ __('adminstaticword.SoldAmount') }}</th>
-                <th>{{ __('adminstaticword.PurchaseCommission') }}</th>
+                {{-- <th>{{ __('adminstaticword.PurchaseCommission') }}</th> --}}
                 <th>{{ __('adminstaticword.ReceivableAmount') }}</th>
               </tr>
               </thead>
@@ -111,7 +113,7 @@
 						@endif
 
 						<td>$ {{ round($price, 2) }}</td>
-						<td style="color:#d44141">- $ {{ round($price * ( (100 - $mentor_commission) / 100), 2) }}</td>
+						{{-- <td style="color:#d44141">- $ {{ round($price * ( (100 - $mentor_commission) / 100), 2) }}</td> --}}
 						<td style="color:#1EC812">$ {{ round($price * ($mentor_commission / 100), 2) }}</td>
 					</tr>
                     @endforeach

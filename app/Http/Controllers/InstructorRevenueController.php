@@ -83,7 +83,7 @@ class InstructorRevenueController extends Controller
         $creator_userid = $creator->id;
         // $start = new Carbon('first day of last month');
         // $end = new Carbon('last day of last month');
-
+        
         if($duration != "all"){
             $start = Carbon::now()->subMonth($duration ?? 0);
             $end = Carbon::now()->subMonth($duration ?? 0);
@@ -92,15 +92,18 @@ class InstructorRevenueController extends Controller
             $end = Carbon::now()->subMonth(1);
         }
 
+        $startDate = $start->startOfMonth();
+        $endDate = ($duration == null || (int) $duration == 0) ? $end->today() : $end->endOfMonth();
+
         $watch_logs =  UserWatchTime::whereHas('courses', function($query) use ($creator_userid){
             $query->where('user_id', $creator_userid);
-        })->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get();
+        })->whereBetween('created_at', [$startDate, $endDate])->get();
 
         $learners = $watch_logs->unique('user_id')->pluck('user_id')->all();
         $creator_courses = $watch_logs->unique('course_id')->pluck('course_id')->all();
 
         $learners_grouped = UserWatchTime::whereIn('user_id', $learners)
-        ->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get()
+        ->whereBetween('created_at', [$startDate, $endDate])->get()
         ->groupBy([
             'user_id',
             function ($item,$key) {
@@ -113,12 +116,14 @@ class InstructorRevenueController extends Controller
         foreach($learners_grouped as $learner => $watch_course){
 
             // If user didn't paid/subscribed last month then skip calculating it...
-            $UserSubscribedLastMonth = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_subscription_id', '!=' ,'Admin-Purchased']])->whereBetween('end_date', [$start->startOfMonth(), $end->endOfMonth()])->latest()->first();
-            $UserSubscribedYearly = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_subscription_id', '!=' ,'Admin-Purchased']])->where(function($query) use ($start, $end)
-            {
-                $query->where('start_date', '<=', $start->startOfMonth() );
-                $query->where('end_date', '>', $end->endOfMonth() );
-            })->latest()->first();
+            $UserSubscribedLastMonth = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_subscription_id', '!=' ,'Admin-Purchased']])->whereBetween('end_date', [$startDate, $endDate])->latest()->first();
+            
+            if(!$UserSubscribedLastMonth)
+                $UserSubscribedYearly = UserSubscriptionInvoice::where([['user_id',$learner],['status','paid'], ['invoice_paid', '!=' , 0], ['stripe_subscription_id', '!=' ,'Admin-Purchased']])->where(function($query) use ($startDate, $endDate)
+                {
+                    $query->where('start_date', '<=', $startDate );
+                    $query->where('end_date', '>', $endDate );
+                })->latest()->first();
 
             if(!$UserSubscribedLastMonth && !$UserSubscribedYearly){
                 $exclude_user[] = $learner;
@@ -200,9 +205,12 @@ class InstructorRevenueController extends Controller
             $end = Carbon::now()->subMonth(1);
         }
 
+        $startDate = $start->startOfMonth();
+        $endDate = ($duration == null || (int) $duration == 0) ? $end->today() : $end->endOfMonth();
+
         $purchase_logs =  UserPurchasedCourse::whereHas('course', function($query) use($creator_userid){
             $query->where('user_id', $creator_userid ?? 1);
-        })->whereBetween('created_at', [$start->startOfMonth(), $end->endOfMonth()])->get();
+        })->whereBetween('created_at', [$startDate, $endDate])->get();
 
         $purchase_logs = $purchase_logs->unique('order_id')->all();
 

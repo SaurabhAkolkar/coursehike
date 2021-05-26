@@ -44,14 +44,14 @@
             <!-- Column: Start-->
             <div class="col-12  col-md-6  col-lg-5">
               <div class="row row-cols-2 mt-md-18">
-                <div class="col-6 mb-10">
+                {{-- <div class="col-6 mb-10">
                   <div class="la-footer__title">Categories</div>
                   <ul class="la-footer__list">
                     @foreach ($footer_categories as $fc)
                       <li class="la-footer__list-item"><a href="/category/{{$fc->id}}/{{$fc->title}}" class="la-footer__list-link" >{{$fc->title}}</a></li>
                     @endforeach
                   </ul><a class="la-footer__more" href="/browse/courses">See all</a>
-                </div>
+                </div> --}}
 
                 <div class="col-6 mb-10">
                   <div class="la-footer__title">Courses</div>

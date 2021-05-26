@@ -54,8 +54,6 @@ class CompletedPayoutController extends Controller
             $creators[] = $creator;
 
         }
-
-        // dd($creators);
         
     	return view('admin.revenue.revenue_analytics', compact('creators'));
     }
@@ -128,7 +126,12 @@ class CompletedPayoutController extends Controller
                 $d2 = new DateTime($UserSubscribedYearly->end_date, new DateTimeZone('Asia/Calcutta'));
                 $diffInMonths = ($d2->diff($d1))->m;
 
-                $$user_paid = ($UserSubscribedYearly->invoice_paid / $diffInMonths );
+                if($diffInMonths < 1){
+                    $exclude_user[] = $learner;
+                    continue;
+                }
+
+                $user_paid = ($UserSubscribedYearly->invoice_paid / $diffInMonths );
                 if($UserSubscribedYearly->invoice_currency == 'INR')
                     $user_paid /= 75; //Convert to USD
             }

@@ -101,22 +101,17 @@
                 <div class="col-md-4 col-lg-3 mb-3">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Free') }}:</label>  
                   <li class="tg-list-item"> 
-                    <input  class="la-admin__toggle-switch" id="cb112" name="type" type="checkbox" {{ $cor->price == null ? 'checked' : '' }}/>
+                    <input  class="la-admin__toggle-switch" id="cb112" name="type" type="checkbox" {{ $cor->type == 1 ? 'checked' : '' }}/>
                     <label class="la-admin__toggle-label" data-tg-off="Free" data-tg-on="Paid" for="cb112" ></label>
                   </li>
                   <input type="hidden" name="free" value="0" id="j111">
                   <br>     
-                  <div id="pricebox">
-                      <div @if($cor->price =="" && $cor->price =="") class="display-none" @endif id="doabox">
+                  <div id="pricebox" style="display: {{$cor->type == 1 ? 'none' : 'block'}}">
                         <label for="exampleInputSlug">{{ __('adminstaticword.Price') }}: <sup class="redstar">*</sup></label>
                         <input type="number" min="1"   class="form-control" name="price" id="exampleInputPassword1" placeholder="Please Your Enter paid" value="{{ $cor->price }}">
-                      </div>
-
-                      <div @if($cor->price =="" && $cor->discount_price =="") class="display-none" @endif id="doaboxx">
                       <br>
                         <label for="exampleInputSlug">{{ __('adminstaticword.DiscountPrice') }}: <sup class="redstar">*</sup></label>
-                        <input type="number" min="1"  class="form-control" name="discount_price" id="exampleInputPassword1" placeholder="Please Your Enter paid" value="{{ $cor->discount_price }}">
-                      </div>
+                        <input type="number" min="0"  class="form-control" name="discount_price" id="exampleInputPassword1" placeholder="Please Your Enter paid" value="{{ $cor->discount_price }}">
                   </div>
                 </div>
 
