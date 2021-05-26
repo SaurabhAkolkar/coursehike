@@ -231,8 +231,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::post('admin/class/{id}/addsubtitle','SubtitleController@post')->name('add.subtitle');
       Route::post('admin/class/{id}/delete/subtitle','SubtitleController@delete')->name('del.subtitle');
 
-      Route::post('admin/class/{id}/additionalVideo','AdditionalVideoController@post')->name('add.additional');
-      Route::post('admin/class/{id}/delete/additionalVideo','AdditionalVideoController@delete')->name('del.additionalVideo');
+      Route::post('admin/class/{id}/multilingual','CourseclassController@post_multilingual')->name('add.multilingual');
+      Route::post('admin/class/{id}/delete/multilingual','CourseclassController@delete_multilingual')->name('del.multilingual');
 
 
       Route::post('admin/class/{id}/audiotrack','AudioTrackController@post')->name('add.audiotrack');
@@ -678,8 +678,6 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
     //- Checkout Status for Learners
     Route::get('/checkout-successful/{id}', 'CartController@checkoutSuccessful');
     Route::get('/checkout-failure/{id}', 'CartController@checkoutFailed');
-
-    Route::get('/jwt', 'CourseclassController@token_generate');
 
     Route::stripeWebhooks('/hooks');
     

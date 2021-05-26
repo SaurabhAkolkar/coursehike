@@ -232,6 +232,7 @@ class LearnController extends Controller
     public function video($video_id)
     {
         $class_video = CourseClass::where('id', $video_id)->first();
+
         if(Auth::check() || $class_video->is_preview == '1')
         {
             if(Auth::check()){
@@ -265,6 +266,11 @@ class LearnController extends Controller
                 $have_purchased ))
             )
             {
+
+                $multilingual = $class_video->multilingual->mapWithKeys(function ($model) {
+                    return [[ 'lang' => $model->vid_lang , 'lang_code' => $model->lang_code, 'stream_url' => $model->getSignedStreamURL()]];
+                });
+
                 $response = array(
                     'status' => 'success',
                     'data' => [
@@ -272,7 +278,7 @@ class LearnController extends Controller
                         'url' => $class_video->getSignedStreamURL(),
                         'poster' => $class_video->image,
                         'subtitles' => $class_video->subtitle,
-                        'audio_tracks' => $class_video->audio,
+                        'multilingual' => $multilingual,
                     ],
                 );
                 return response()->json($response, 200);

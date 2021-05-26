@@ -6,14 +6,10 @@ use App\AudioTrack;
 use App\CourseClass;
 use Illuminate\Http\Request;
 use Notification;
-use Image;
 use App\CourseChapter;
 use App\Course;
 use App\CourseLanguage;
 use App\Events\UploadFileToCloudEvent;
-use App\Order;
-use App\User;
-use App\Notifications\CourseNotification;
 use App\Subtitle;
 use Illuminate\Support\Facades\Http;
 use Session;
@@ -21,9 +17,8 @@ use Storage;
 use Auth;
 use DB;
 use App\AdditionalVideo;
-use \Firebase\JWT\JWT;
-use League\Flysystem\File;
-use Pion\Laravel\ChunkUpload\Exceptions\UploadMissingFileException;
+use App\CourseClassMultilingual;
+use App\Events\UploadMultilingualVideoToCloudEvent;
 use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
 use Pion\Laravel\ChunkUpload\Receiver\FileReceiver;
 
@@ -232,12 +227,11 @@ class CourseclassController extends Controller
      */
     public function show($id)
     {
-    
         $languages = CourseLanguage::all();
         $cate = CourseClass::find($id);
         $coursechapt = CourseChapter::where('course_id', $cate->course_id)->get();
         $subtitles = Subtitle::where('c_id', $id)->get();
-        // $additional_videos = AdditionalVideo::where('course_class_id',$id)->get();
+        $additional_videos = CourseClassMultilingual::where('class_id',$id)->get();
         // $audio_tracks = AudioTrack::where('c_id', $id)->get();
 
         $datetimevalue= strtotime($cate->date_time);
@@ -246,8 +240,7 @@ class CourseclassController extends Controller
         $pd = $cate['date_time'];
         $live_date = str_replace(" ", "T", $pd);
 
-        return view('admin.course.courseclass.edit',compact('cate','coursechapt', 'languages','subtitles', 'live_date')); 
-
+        return view('admin.course.courseclass.edit',compact('cate','coursechapt', 'languages','subtitles', 'live_date', 'additional_videos')); 
     }
 
 
@@ -324,152 +317,132 @@ class CourseclassController extends Controller
      */
     public function destroy($id)
     {
-
         $courseclass = CourseClass::find($id);
         if($courseclass){
-            if($courseclass->type == "video")
-            {
-                    
-                $video_file = @file_get_contents(public_path().'/video/class/'.$courseclass->video);
-    
+            if($courseclass->type == "video"){                    
+                $video_file = @file_get_contents(public_path().'/video/class/'.$courseclass->video);    
                 if($video_file)
-                {
                     unlink(public_path().'/video/class/'.$courseclass->video);
-                }
             }
     
-            if($courseclass->type == "audio")
-            {
-                    
-                $video_file = @file_get_contents(public_path().'/files/audio/'.$courseclass->audio);
-    
+            if($courseclass->type == "audio"){
+                $video_file = @file_get_contents(public_path().'/files/audio/'.$courseclass->audio);    
                 if($video_file)
-                {
                     unlink(public_path().'/files/audio/'.$courseclass->audio);
-                }
             }
     
-            if($courseclass->type == "image")
-            {
-                    
+            if($courseclass->type == "image"){
                 $image_file = @file_get_contents(public_path().'/images/class/'.$courseclass->image);
-    
                 if($image_file)
-                {
                     unlink(public_path().'/images/class/'.$courseclass->image);
-                }
             }
     
-            if($courseclass->type == "zip")
-            {
-                    
+            if($courseclass->type == "zip"){
                 $zip_file = @file_get_contents(public_path().'/files/zip/'.$courseclass->zip);
-    
                 if($zip_file)
-                {
                     unlink(public_path().'/files/zip/'.$courseclass->zip);
-                }
             }
     
-            if($courseclass->type == "pdf")
-            {
-                    
+            if($courseclass->type == "pdf"){
                 $pdf_file = @file_get_contents(public_path().'/files/pdf/'.$courseclass->pdf);
-    
                 if($pdf_file)
-                {
                     unlink(public_path().'/files/pdf/'.$courseclass->pdf);
-                }
             }
     
-            if($courseclass->preview_type = "video")
-            {
+            if($courseclass->preview_type = "video"){
                 $content = @file_get_contents(public_path().'/video/class/preview/'.$courseclass->preview_video);
-                if($content) {
+                if($content)
                   unlink(public_path().'/video/class/preview/'.$courseclass->preview_video);
-                }
             }
     
             $courseclass->delete();
-        }        
-        
+        }                
         return back();
     }
 
+    public function post_multilingual(Request $request)
+    {
 
-    public function sort(Request $request){
+        $multilingual = null;
+
+        $receiver = new FileReceiver("file", $request, HandlerFactory::classFromRequest($request));
+        if ($receiver->isUploaded() !== false ) {
+            $save = $receiver->receive();
         
-        $posts = CourseClass::all();
+            if ($save->isFinished()) {
 
-        foreach ($posts as $post) {
+                $language = CourseLanguage::where('iso_code', $request->sub_lang)->first();
 
-            foreach ($request->order as $order) {
+                $multilingual = new CourseClassMultilingual;
+                $multilingual->course_id = $request->course_id;
+                $multilingual->class_id = $request->course_class_id;
+                $multilingual->vid_lang = $language->name;
+                $multilingual->lang_code = $request->sub_lang;
+                $multilingual->save();
 
-                if($order['id'] == $post->id) {
+                $video_local_path = Storage::disk('local')->putFile('upload/course', $save->getFile());
+                unset($request['file']);
+                UploadMultilingualVideoToCloudEvent::dispatch($video_local_path, $multilingual);
 
-                    \DB::table('course_classes')->where('id',$post->id)->update(['position' => $order['position']]);
-                    
-                }
+                $multilingual->save();
+
+            }else{
+                $handler = $save->handler();
+                return response()->json([
+                    "done" => $handler->getPercentageDone(),
+                    'status' => true
+                ]);
             }
-        }
+
+        }else
+            return back()->with('error','Video must be uploaded');
         
-        return response()->json('Update Successfully.', 200);
+    //     $request->validate([
+    //             'video_upld' => 'mimes:mp4,avi,wmv',
+    //             'sub_lang' => 'required'
+    //         ]);
+
+    //    $input = [];
+    //    $input['course_class_id'] = $request->course_class_id;
+    //    $input['vid_lang'] = $language->name;
+    //    $input['lang_code'] = $request->sub_lang;
+        
+    //    if($file = $request->file('video'))
+    //    {
+    //        $file_name = basename(Storage::putFile(config('path.course.video'). $request->course_id, $file , 'private'));
+    //        $input['video_path'] = $file_name;
+
+    //        $response = Http::withHeaders([
+    //            'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
+    //            'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
+    //        ])->post('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/copy', [
+    //            'url' => Storage::temporaryUrl(config('path.course.video'). $request->course_id.'/'.$file_name, now()->addMinutes(60)),
+    //            'meta' => [
+    //                'name' => $file_name
+    //            ],
+    //            "requireSignedURLs" => true,
+    //            // "allowedorigins" => ["*.lila.com","localhost"],
+    //        ]);
+           
+    //        if($response->successful()){
+    //            $res = $response->json();
+    //            $video['stream_url'] = $res['result']['uid'];
+    //        }
+
+    //    }     
+       
     }
 
-    public function token_generate()
-    {
-        // $expiration = time() + 3600;
-        // $issuer = 'localhost';
 
-        // $token = Token::getToken('userIdentifier', 'secret', $expiration, $issuer);
-        // $payload = [
-        //     'iat' => time(),
-        //     'uid' => 1,
-        //     'exp' => time() + 3600,
-        //     // 'iss' => 'localhost',
-        //     'kid' => 'e629e2b6fe352f9fe49415fdc36fc8f8',
-        //     'sub' => '048850df97dc19cf7137aaf583a281ef',
-        // ];
-        // $secret = base64_decode(env('CLOUDFLARE_PEM_KEY'));
-        // // dd($secret);
-
-        // $token = Token::customPayload($payload, $secret);
-
-        // $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
-
-        // // Create token payload as a JSON string
-        // $payload = json_encode(['kid' => 'e629e2b6fe352f9fe49415fdc36fc8f8',
-        // 'sub' => '048850df97dc19cf7137aaf583a281ef','exp' => time() + 3600]);
-
-        // // Encode Header to Base64Url String
-        // $base64UrlHeader = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($header));
-
-        // // Encode Payload to Base64Url String
-        // $base64UrlPayload = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($payload));
-
-        // // Create Signature Hash
-        // $signature = hash_hmac('sha256', $base64UrlHeader . "." . $base64UrlPayload, base64_decode(env('CLOUDFLARE_PEM_KEY')), true);
-
-        // // Encode Signature to Base64Url String
-        // $base64UrlSignature = str_replace(['+', '/', '='], ['-', '_', ''], env('CLOUDFLARE_PEM_KEY'));
-
-        // // Create JWT
-        // $jwt = $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
-
-        // echo $jwt;
-
-        $privateKey = base64_decode(env('CLOUDFLARE_PEM_KEY'));
-        $payload = array(
-            // "iss" => "example.org",
-            // "aud" => "example.com",
-            'exp' => time() + 3600,
-            // 'iss' => 'localhost',
-            'kid' => 'e629e2b6fe352f9fe49415fdc36fc8f8',
-            'sub' => '048850df97dc19cf7137aaf583a281ef',
-        );
-        
-        $jwt = JWT::encode($payload, $privateKey, 'RS256');
-        echo print_r($jwt, true);
+    public function sort(Request $request){        
+        $posts = CourseClass::all();
+        foreach ($posts as $post) {
+            foreach ($request->order as $order) {
+                if($order['id'] == $post->id)
+                    \DB::table('course_classes')->where('id',$post->id)->update(['position' => $order['position']]);
+            }
+        }        
+        return response()->json('Update Successfully.', 200);
     }
 
    

@@ -69,6 +69,11 @@ class CourseClass extends Model
       return $this->hasMany('App\AudioTrack','c_id');
     }
 
+    public function multilingual()
+    {
+      return $this->hasMany('App\CourseClassMultilingual','class_id');
+    }
+
     public function getImageAttribute($value)
     {
       if (filter_var($value, FILTER_VALIDATE_URL)) { 
