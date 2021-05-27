@@ -1,11 +1,4 @@
 // Section Hero Page Start
-.la-lp__section{
-    padding: var(--size-14) 0;
-
-    @include respond-below(md){
-        padding:0;
-    }
-}
 .la-lp__tag{
     font-size:var(--text-3xl);
     color:var(--app-indigo-1);
@@ -47,8 +40,10 @@
         padding:var(--size-20) var(--size-12);
         margin-top:-75px;
     }
-    @include respond-below(sm){
-        margin-top:-26px;
+    @include respond-below(md){
+        padding:var(--size-10) var(--size-3);
+        box-shadow: none;
+        background-color: transparent;
     }
 }
 .la-lp__rgt-content{

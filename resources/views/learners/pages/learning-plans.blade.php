@@ -33,38 +33,62 @@
     <!-- Section: Start-->
     <section class="la-lp--page">
       <div class="container-fluid la-anim__wrap">
-        <div class="row ">
+         <!--<div class="row ">
           <a class="la-icon--5xl icon-back-arrow d-block d-lg-none my-3 my-md-6 px-3" href="{{URL::previous()}}"></a>
-          <!-- Column: Start-->
-          <div class="col-12 col-lg-7 col-xl-6">
+         <div class="col-12 col-lg-7 col-xl-6">
             <div class=" la-anim__stagger-item">
               <h6 class="la-lp__tag text-2xl text-md-3xl">The right plans</h6>
               <h2 class="la-lp__title text-4xl text-md-6xl la-anim__stagger-item">for all your interests</h2>
               <p class="la-lp__title-para text-lg text-md-xl py-3 la-anim__stagger-item">Whether you want to dabble with new art forms or hone your skills, we have got you covered!</p>
             </div>
-          </div>
-          <!-- Column: End-->
-        </div>
+          </div> 
+        </div>-->
 
         <div class="row la-lp__choose-main">
           <!-- Column: Start-->
           <div class="col-12">
-            <div class="text-center">
-              <h1 class="la-lp__choose-title head-font la-anim__fade-in-top la-anim__A">CHOOSE PLAN</h1>
+            <div class="d-none d-lg-block text-center">
+              <h1 class="la-lp__choose-title head-font la-anim__fade-in-top la-anim__A ">RIGHT PLANS</h1>
               <!-- <h1 class="head-font d-block d-sm-none text-left px-5 m-0 la-anim__fade-in-top la-anim__A">CHOOSE<span class="text-left px-5 mx-5">PLAN</span></h1> -->
             </div>
           </div>
-          <div class="col-12 px-0 px-lg-3">
+          <div class="col-12 px-0">
             <div class="la-lp__choose-bg">
-              <div class="d-block">
                 <div class="row d-flex flex-row justify-content-center">
+                  <div class="col-12 col-md-12 col-lg-4  la-choose__plan la-anim__stagger-item px-0">
+                    <div class="col la-choose__plan-col--purple">
+                      <div class="la-choose__plans">
+                        <div class="card la-choose__card la-choose__card-purple">
+                          <div class="la-choose__card-inner p-0">
+                            <div class="la-choose__box">
+                              <div class="la-choose__box-img position-relative">
+                                <img src="../images/learners/course-benefits/choose-plan.jpg" alt="Choose Plan"  class="img-fluid d-none d-lg-block mx-auto" />
+                                <img src="../images/learners/course-benefits/choose-plan-bg.jpg" alt="Choose Plan"  class="img-fluid d-block d-lg-none mx-auto" />
+                              </div> 
+
+                              <div class="la-choose__box-overlay col-md-6 col-lg-12">
+                                <a class="la-icon--5xl icon-back-arrow d-block d-lg-none mb-3" href="{{URL::previous()}}"></a>
+                                
+                                <div class="la-choose__box-content my-auto">
+                                  <h6 class="la-choose__box-tag mb-2">The Right Plans</h6>
+                                  <h5 class="la-choose__box-title mb-6">For all your Interests.</h5>
+                                  <p class="la-choose__box-para mb-3">Whether you want to dabble with new art forms or hone your skills, we have got you covered!</p>
+                                </div>
+                              </div>                              
+                            </div>                         
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>              
+
                     <!-- Choose Plans: Start -->
                     @foreach ($plans as $plan)
                         <x-chooseplan :plan="$plan->plan" :discount="$plan->discount" :oldPrice="$plan->oldPrice" :class="$plan->class" :saving="$plan->saving" :slug="$plan->slug" />
                     @endforeach
                     <!-- Choose Plans: End -->
                 </div>
-              </div>
+              
 
               <!-- Choose Plans Swiper Slide for Mobile Version: Start -->
               {{-- <div class="swiper-container h-100 la-choose__slider mt-4 d-block d-lg-none">

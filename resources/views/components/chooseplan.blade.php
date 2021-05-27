@@ -1,53 +1,76 @@
-<div class="col-12 col-md-6 my-md-auto la-choose__plan la-anim__stagger-item px-0">
-    <div class="col la-choose__plan-col text-center">
+<div class="col-12 col-md-6 col-lg-4  la-choose__plan la-anim__stagger-item px-0">
+    <div class="col la-choose__plan-col">
       <div class="la-choose__plans">
-        <div class="card la-choose__card text-center">
+        <div class="card la-choose__card">
           @if($plan == 'Yearly')
-          <div class="la-choose__recommend">
-              <div class="la-choose__recommend-text">Recommended</div>
+          <div class="la-choose__recommend d-flex justify-content-end">
+              <img src="../images/learners/course-benefits/popular-plan.png" alt="Recommended" class="img-fluid d-block" />
           </div>
           @endif
 
           <div class="la-choose__card-inner">
-            <div class="la-choose__box mb-8">
-              <div class="la-choose__ptitle text-lg text-md-2xl">{{ $plan }}</div>
-              <div class="la-choose__price mt-2">
-                  {{-- <sup class="la-choose__tag text-lg">$</sup> --}}
-                  <span class="la-choose__discount text-3xl text-md-5xl mr-1"> {{ $discount }}</span>
-                  {{-- <span class="la-choose__oldprice text-sm p-1">{{ $oldPrice }}</span> --}}
+            <div class="la-choose__box">
+              <div class="la-choose__ptitle text-2xl mb-3">{{ $plan }} Plan</div>
+              
+              <div class="la-choose__plan-info">
+                  <h5 class="la-choose__plan-info--title">What You'll Get</h5>
+                  <ul class="la-choose__plan-info--list">
+                    <li class="la-choose__plan-info--item d-flex align-items-start">
+                      <span class="la-icon la-icon--md icon-tick mr-1"></span>
+                      <span>Get access to all the Courses</span>
+                    </li>
+                    <li class="la-choose__plan-info--item d-flex align-items-start">
+                      <span class="la-icon la-icon--md icon-tick mr-1"></span>
+                      <span>Exclusive Master Classes from best of the world</span>
+                    </li>
+                    <li class="la-choose__plan-info--item d-flex align-items-start">
+                      <span class="la-icon la-icon--md icon-tick mr-1"></span>
+                      <span>Access to 600+ videos</span>
+                    </li>
+                  </ul>
               </div>
-              <div class="la-choose__billing text-sm mt-1">Billed {{ $plan }}</div>
-              @if($saving && $saving != 0)
-                <div class="la-choose__savings-bg">
-                  <div class="la-choose__savings-{{ $class }} text-xs mt-1">You save {{ $saving }}%</div>
-                </div>
+            </div>
+
+            <div class="la-choose__btm text-center">
+              <div class="la-choose__price mt-8">
+                  {{-- <sup class="la-choose__tag text-lg">$</sup> --}}
+                  <span class="la-choose__discount text-3xl text-md-5xl"> {{ $discount }}</span>/<small class="la-choose__billing text-sm">{{ $plan }}</small>
+              </div>
+
+              <div class="la-choose__oldprice-info d-flex flex-row mx-auto align-items-center justify-content-center">
+                {{--<div class="la-choose__oldprice text-sm mr-2">{{ $oldPrice }}</div> --}}
+
+                @if($saving && $saving != 0)
+                  <div class="la-choose__savings-bg">
+                    <div class="la-choose__savings-{{ $class }} text-xxs">{{ $saving }}% OFF</div>
+                  </div>
                 
                 @else
                 
-                <div class="la-choose__savings-bg" style="visibility:hidden;">
-                  <div class="la-choose__savings-{{ $class }}  text-xs mt-1">You save {{ $saving }}%</div>
-                </div>
-              @endif
-              
+                  <div class="la-choose__savings-bg" style="visibility:hidden;">
+                    <div class="la-choose__savings-{{ $class }}  text-xxs">{{ $saving }}% OFF</div>
+                  </div>
+                @endif
+              </div>
+             
+            
+
+              <div class="la-choose__subscribe mt-8">
+                <p class="la-choose__subscribe-trial text-sm mb-2">Get free 7 Days trial</p>
+                {{-- <a href="/subscription/{{ $slug }}" role="button" target="_self"> --}}
+                @if (auth()->check() && Auth::user()->subscription())
+                  <div class="btn btn-primary btn-block la-btn__white py-3 mb-3 plan-subscribe text-capitalize" data-plan={{ $slug }}>View Billing</div>
+                @else
+                  <div class="btn btn-primary  btn-block la-btn__white py-3 mb-3 plan-subscribe text-capitalize" data-plan={{ $slug }}>Try it now</div>
+                @endif
+
+                  <div class="btn btn-primary  btn-block la-btn la-btn--primary active py-3 plan-subscribe text-capitalize">Subscribe Now!</div>
+                {{-- <a> --}}
+                <!--<p class="text-sm pt-2">Get access to all the Courses</p> -->
+                
+                {{--<p class="la-choose__subscribe-date text-sm mb-1">You won't be charged until {{ \Carbon\Carbon::now()->addDays(7)->format('M d, Y') }}</p>--}}
+              </div>
             </div>
-            <div class="la-choose__subscribe mt-5 mx-4">
-              {{-- <a href="/subscription/{{ $slug }}" role="button" target="_self"> --}}
-              @if (auth()->check() && Auth::user()->subscription())
-                <div class="btn btn-primary la-btn__app py-3 plan-subscribe" data-plan={{ $slug }}>View Billing</div>
-              @else
-                <div class="btn btn-primary la-btn__app py-3 plan-subscribe" data-plan={{ $slug }}>Try it now</div>
-              @endif
-              {{-- <a> --}}
-              <p class="text-sm pt-2">Get access to all the Courses</p>
-              <p class="la-choose__subscribe-trial text-sm mb-1">Get free 7 Days trial</p>
-              <p class="la-choose__subscribe-date text-sm mb-1">You won't be charged until {{ \Carbon\Carbon::now()->addDays(7)->format('M d, Y') }}</p>
-            </div>
-            <!--<hr>
-            <div class="la-choose__content mb-3 text-left">
-              <i class="la-icon--sm mr-5 icon-tick "></i><span class="text-sm">Global, experienced mentors</span><br>
-              <i class="la-icon--sm mr-5 icon-tick"></i><span class="text-sm">Vast array of courses</span><br>
-              <i class="la-icon--sm mr-5 icon-tick"></i><span class="text-sm">Flexible modes of learning</span>
-            </div> -->
           </div>
         </div>
       </div>

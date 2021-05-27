@@ -440,7 +440,7 @@
 
             &img {
                 @include respond-above(md) {
-                    height: 650px;
+                    //height: 650px;
                 }
             }
 
@@ -454,11 +454,11 @@
 
             &lead {
                 // Regular 24px/29px Roboto;
-                font-size: var(--text-2xl);
-                margin-bottom: var(--size-7);
-                @include respond-above(lg) {
-                    width: 60%;
-                }
+                //font-size: var(--text-2xl);
+                //margin-bottom: var(--size-7);
+                //@include respond-above(lg) {
+                    //width: 60%;
+                //}
             }
 
             &img {

@@ -2,26 +2,35 @@
     &choose {
             &__ {
                 &plan{
-                    @include respond-above(md){
-                        width: 360px;
-                        max-width: 360px;
-                        margin:0 var(--size-4);
-                    }
-
-                    @include respond-above(lg){
-                        width: 400px;
-                        max-width: 400px;
-                        margin:0 var(--size-4);
-                    }
-
-                    @include respond-below(sm){
+                    @include respond-below(md){
                         margin-bottom:var(--size-6);
-                    }
+                    }                 
 
                     &-{
                         &col{
-                            @include respond-above(md){
-                                padding:0;
+                            &--{
+                                &purple{
+                                    @include respond-below(md){
+                                        padding:0;
+                                    }
+                                }
+                            }
+                        }
+                        &info{
+                            padding:var(--size-5) 0;
+                            border-bottom:2px dashed rgba(#7A7A7A, 0.45);
+
+                            &--{
+                                &title{
+                                    margin-bottom: var(--size-3);
+                                    color:var(--gray12);
+                                    font-size: var(--text-lg);
+                                    font-weight: var(--font-light);
+                                }
+                                &item{
+                                    font-size: var(--text-sm);
+                                    color:var(--gray3);
+                                }
                             }
                         }
                     }
@@ -34,30 +43,112 @@
                     border:none;
                     border-radius:10px;
                     box-shadow: 0px 0px 20px #00000014;
+                    height:550px;                   
                     
                     &-{
+                        &purple{
+                            background: #7400D7 0% 0% no-repeat padding-box;
+                            color:var(--white);
+                            overflow: hidden;
+
+                            @include respond-below(md){
+                                height:100%;
+                                border-radius: 0;
+                            }
+                            @include respond-below(sm){
+                                height:calc(100vh - var(--inner-padding));
+                            }
+                        }
+
                         &inner{
-                            padding: var(--size-10) 0;
+                            padding: var(--size-8) var(--size-8);
+
+                            @include respond-above(lg){
+                                padding: var(--size-8) var(--size-10);
+                            }
                         }
                     }
                 }
-                &recommend{
-                    background: #7400D7 0% 0% no-repeat padding-box;
-                    color:var(--white);
-                    padding:var(--size-3) 0;
-                    border-radius:10px 10px 0 0;
-
+                &box{
                     &-{
-                        &text{
-                            color:var(--white);
-                            font-size:var(--text-xl);
+                        &img{
+                            width:100%;
+                            height:550px;
+                            overflow: hidden;
+                            z-index: var(--z-1);
+                            margin:0 auto;
+                           
+                            @include respond-below(sm){
+                                height:100vh;
+                            }
+                                                       
+                            img{
+                                height:550px;
+                                object-fit: cover;
+                                object-position: bottom;
+                                
+                                @include respond-below(md){
+                                    width:100%;
+                                    object-position: right;
+                                }
+                                @include respond-below(sm){
+                                    height:100vh;
+                                }
+                            }
                         }
+                        &overlay{
+                            position: absolute;
+                            width:100%;
+                            height: 100%;
+                            top: 0;
+                            left:0;
+                            z-index: var(--z-2);
+                            padding: var(--size-8) var(--size-6) 0;
+
+                            @include respond-above(lg){
+                                padding: var(--size-8) var(--size-10) 0;
+                            } 
+                            @include respond-below(md){
+                                display: flex;
+                                flex-direction: column;
+                                align-items: flex-start;
+                                justify-content: space-between;
+                            }     
+                            @include respond-below(sm){
+                                background-color: rgba(#000000, 0.3);
+                            }                    
+                        }
+                        &tag{
+                            font-size: var(--text-xl);
+                            font-weight: var(--font-light);
+                            color:var(--white);
+                        }
+                        &title{
+                            font-size: var(--text-3xl);
+                            font-weight: var(--font-semibold);
+                            color:var(--white);
+                        }
+                        &para{
+                            font-size: var(--text-md);
+                            font-weight: var(--font-light);
+                            color:var(--white);
+                        }
+                       
+                    }
+                }
+              
+                &recommend{
+                    img{
+                        position: absolute;
+                        top:32px;
+                        right:-10px;
                     }
                 }
 
                 &ptitle{
-                    color:#4e4e4e;
-                    font-weight:var(--font-medium);
+                    color:var(--gray6);
+                    font-weight:var(--font-bold);
+                    letter-spacing: 0.26px;
                 }
 
                 &price{
@@ -82,69 +173,64 @@
                     color:var(--gray6);
                 }
                 &oldprice{
-                    font-weight:var(--font-normal);
-                    color:var(--gray9);
+                    font-weight:var(--font-semibold);
+                    color:var(--gray6);
                     position:relative;
+                    text-decoration: line-through;
 
                     &:before{
-                        position: absolute;
-                        content: "";
-                        left: 0;
-                        top: 50%;
-                        right: 0;
-                        border-top: 1px solid var(--danger);
-                        transform:rotate(15deg);
+                        //position: absolute;
+                        //content: "";
+                        //left: 0;
+                        //top: 50%;
+                        //right: 0;
+                        //border-top: 1px solid var(--danger);
+                        //transform:rotate(15deg);
                     }
                 }
 
                 &billing{
                     font-family:var(--body-font);
                     font-weight:var(--font-normal);
-                    color:var(--gray8);
+                    color:var(--gray6);
                 }
 
                 &savings{
                     &-{
                         &bg{
                             position:relative;
-                            height:20px;
-                            margin:0 120px; 
+                            //height:20px;
+                            //margin:0 120px; 
                                                         
                             @include respond-below(lg){
-                                margin:0 95px;
+                                //margin:0 95px;
                             }
                         }
                         &red{
-                            background-color:rgba(255, 197, 22, 0.28);                  
-                            color:#FFC516;
-                            padding:2px 0;
+                            background-color:rgba(255, 197, 22, 1);                  
+                            color:var(--white);
+                            padding:var(--size-base) var(--size-2);
                             border-radius: 50px;
+                            font-weight: var(--font-semibold);
                         }
                         &green{
-                            background-color:rgba(80,222,10,0.28);
-                            color:#47CC05;
-                            padding:2px 0;
+                            background-color:rgba(80,222,10,1);
+                            color:var(--white);
+                            padding:var(--size-base) var(--size-2);
                             border-radius: 50px;
+                            font-weight: var(--font-semibold);
                         }
                     }
                 }
                 
-                /*&subscribe{
-                    cursor:pointer;
-                    a{
-                        color:#000000;
-                        font-weight:var(--font-normal);
-                        text-decoration:underline;
-                        cursor:pointer;
-                    }
+                &subscribe{
                     &-{
                         &trial{
-                            &:hover{
-                                color:var(--app-indigo-1);
-                            }
+                            color:var(--gray10);
+                            text-decoration: none;
                         }
                     }
-                }*/
+                }
 
                 &content{
                     padding:0 var(--size-4);

@@ -42,65 +42,11 @@
 
 <!-- Section: Start-->
 <section class="la-section la-section--hero clearfix p-0 position-relative">
-    <div class="la-section__inner la-section__small">
-      <div class="container-fluid">
+    <div class="la-section__inner">
+      <div class="jumbotron jumbotron-fluid p-0 m-0 bg-transparent">
         <div class="la-hero__top row">
-          <div class="col-md-7 col-lg-6 my-auto">
-            <div class="la-hero__home-info text-center text-md-left">
-              <p class="la-hero__tag mb-2 mb-md-0">Courses & Classes by</p>
-              <h1 class="la-hero__title mb-5 text-capitalize">World’s Finest <span class="la-hero__subtitle">Artists</span></h1>
-              <p class="la-hero__lead">Master the art of professional tattoos and find your niche in the world of tattooing with LILA
-                {{--{{$firstSection->sub_heading}}--}}
-              </p>
-
-              <div class="la-hero__actions d-md-flex align-items-center">
-                <div class="mt-6 mt-md-2">
-                  <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn__app active color-black px-md-5" style="letter-spacing:1.5px"> Subscribe Now</a>
-                </div>             
-                <div class="la-hero__bottom-trial mt-6 mt-md-2 ml-md-6">
-                  <a href="/learning-plans" class="btn btn-primary la-btn__app px-md-5" style="letter-spacing:1.8px">Start free trial</a> 
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-5 col-lg-6 my-auto">
-            <div class="la-hero__img position-relative d-flex align-items-center">
-              {{--<h2 class="la-section__title la-section__title--big">
-                <span class="">{{$firstSection->image_text}}</span>
-              </h2>--}}
-              <img class="img-fluid d-block mx-auto la-hero__img-bg" src="../images/learners/home/home-banner.png" alt="Home Banner" />
-              {{--<img class="img-fluid la-hero__img-bg" src="{{$firstSection->image}}" alt="{{$firstSection->image_text}}" />--}}
-            </div>
-          </div>
-
-          <div class="col-12">
-            <div class="position-relative d-flex justify-content-between align-items-center my-10 my-lg-6">
-              <div class="la-hero__bottom-info">
-                  <a href="#home_video_popup" role="button" class="la-hero__bottom-video d-flex align-items-center" data-toggle="modal" data-target="#home_video_popup">
-                    <span class="mr-2">Watch Video</span>
-                    <span>
-                      <svg class="la-hero__play-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"  x="0px" y="0px" viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7" xml:space="preserve">
-                        <polygon class='la-hero__play-triangle triangle' id="XMLID_18_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="73.5,62.5 148.5,105.8 73.5,149.1 "/> 
-                        <circle class='la-hero__play-circle circle' id="XMLID_17_" fill="none"  stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="106.8" cy="106.8" r="103.3"/>
-                      </svg>
-                    </span>
-                  </a>
-              </div>
-            
-              <div class="la-hero__btn--scroll-down">
-                <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text-uppercase text--burple text--md font-weight--semibold text-spacing d-none d-lg-block">
-                  <a href="#home_courses" id="home_courses_redirect">BROWSE COURSES
-                    <span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span>
-                  </a>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
           <!-- Column: Start-->
-           {{--<div class="col-12 position-relative my-auto">
+          <div class="col-12 position-relative my-auto">
             @if($firstSection->video_url == null)
 
             <div class="la-hero__img position-relative d-flex align-items-center">
@@ -108,46 +54,198 @@
                 <span class="">{{$firstSection->image_text}}</span>
               </h2>
               <img class="img-fluid la-hero__img-bg" src="{{$firstSection->image}}" alt="{{$firstSection->image_text}}" />
-            </div> 
+            </div>
 
-            @else --}}
+            @else
 
             <!-- Video Section: Start -->
-            {{-- <div class="la-hero__video-main position-relative">
+            <div class="la-hero__video-main position-relative">
               <div class="la-hero__video">
                 <video autoplay playsinline muted loop id="home_video" poster="../images/learners/home/home-fallback.jpg">
                   <source src='{{$firstSection->video_url}}'  type='video/mp4' />
                 </video>
               </div>
             </div>
+            <!-- Video Section: End -->
+
             @endif
-          </div> --}}
-    
+
+            <!-- Video Content Section: Start -->
+            <div class="container-fluid la-hero la-hero__video-content d-flex justify-content-center flex-column align-items-center">
+              <div class="la-hero__video-info text-center text-md-left">
+                <p class="la-hero__tag mb-2 mb-md-0 d-none d-md-block">Ace the learning curve with Courses & Classes by</p>
+                <p class="la-hero__tag mb-2 mb-md-0 d-block d-md-none">Courses & Classes by</p>
+                <h1 class="la-hero__title mb-5">World’s finest <span class="la-hero__subtitle">Artists</span></h1>
+                <p class="la-hero__lead">{{$firstSection->sub_heading}}</p>
+
+                <div class="d-md-flex align-items-center">
+                  <div class="la-hero__actions mt-6 mt-md-10">
+                    @if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())
+                    <div class="">
+                      <a href="/browse/courses" class="btn btn-primary la-hero__cta la-btn__app active text-white px-md-4">Start Learning</a>
+                    </div>
+
+                    @else
+                    <div class="">
+                        <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn__app active text-white px-md-4" style="letter-spacing:1.5px">
+                          Subscribe for
+                          <span class="la-soffer__bestprice la-home__bestprice" style="color:var(--white)">
+                            @if (getLocation() == 'IN')
+                              <sup>₹</sup>2999/<span class="text-xxs">Month</span>
+                            @else
+                              <sup>$</sup>39/<span class="text-xxs">Month</span>
+                            @endif
+                        </span>
+                        </a>
+                    </div>
+
+                    <div class="la-soffer mt-2 d-inline-flex justify-content-center flex-column align-items-md-center">
+                        {{-- <div class="la-soffer__bestprice" style="color:var(--white)">
+                          @if (getLocation() == 'IN')
+                            <sup>₹</sup> 2999 / Month
+                          @else
+                            <sup>$</sup> 39 / Month
+                          @endif
+                        </div> --}}
+
+                        @if (getLocation() == 'IN')
+                          <div class="la-soffer__realprice la-home__realprice" style="color:var(--white)"> <sup>₹</sup> 5999 (INR)</div>
+                        @else
+                          <div class="la-soffer__realprice la-home__realprice" style="color:var(--white)"> <sup>$</sup> 99 (USD)</div>
+                        @endif
+                    </div>
+                  @endif
+                  </div>
+
+                  <div class="la-hero__bottom-trial mt-6 mt-md-2 ml-md-6">@if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())  @else<a href="/learning-plans" class="btn btn-primary la-btn__app text-white px-md-4" style="letter-spacing:1.8px">Start free trial</a> @endif </div>
+                </div>
+              </div>
+
+              <div class="la-hero__btn--scroll-down">
+                <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text-white text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block">
+                  <a href="#home_courses" id="home_courses_redirect">BROWSE COURSES
+                    <span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+             <!-- Video Content Section: End -->
+          </div>
+          <!-- Column: End -->
         </div>
+
+          <!-- Column: Start-->
+         {{-- <div class="col-12 col-lg-5 la-anim__item la-anim__item--left my-auto">
+            <div class="la-hero pt-6 pt-lg-2 la-anim__stagger">
+              <p class="la-hero__tag mb-2 mb-md-0 la-anim__stagger-item">Ace the learning curve with Courses & Classes by</p>
+              <h1 class="la-hero__title la-anim__stagger-item">World’s finest <span class="la-hero__subtitle">Tattooists</span></h1>
+              <p class="la-hero__lead la-anim__stagger-item">{{$firstSection->sub_heading}}</p>
+
+              <div class="d-none d-lg-block">
+                <div class="la-hero__actions d-md-flex align-items-center la-anim__stagger-item">
+                  @if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())
+
+                    <div class="col-md-7 px-0">
+                      <a href="/browse/course" class="btn btn-primary la-hero__cta la-btn la-btn--primary">Start Learning</a>
+                    </div>
+
+                  @else
+
+                  <div class="col-md-7 px-0">
+                      <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary">Subscribe Now</a>
+                      <p class="m-0 pt-1 pl-1 text-sm text-center text-md-left">Instant access to all courses <!-- at nominal monthly fees --></p>
+                  </div>
+
+                    <div class="col-md-5 px-0 la-soffer d-flex d-lg-block justify-content-center  mb-lg-auto">
+                      <div class="la-soffer__bestprice">
+                        @if (getLocation() == 'IN')
+                          <sup>₹</sup> 2999 / Month
+                        @else
+                          <sup>$</sup> 39 / Month
+                        @endif
+                      </div>
+                      @if (getLocation() == 'IN')
+                        <div class="la-soffer__realprice"> <sup>₹</sup> 5999 (INR)</div>
+                      @else
+                        <div class="la-soffer__realprice"> <sup>$</sup> 99 (USD)</div>
+                      @endif
+                    </div>
+                  @endif
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- Column: End-->
+
+          <!-- Column: Start-->
+          <div class="col-12 col-lg-6 offset-lg-1 la-anim__item la-anim__item--right">
+
+            @if($firstSection->video_url == null)
+
+            <div class="la-hero__img position-relative d-flex align-items-center la-anim__fade-in-right">
+              <h2 class="la-section__title la-section__title--big">
+                <span class="la-anim__text-move--content">{{$firstSection->image_text}}</span>
+              </h2>
+              <img class="img-fluid" src="{{$firstSection->image}}" alt="{{$firstSection->image_text}}" />
+            </div>
+
+            @else
+            <!-- Video Section: Start -->
+            <div class="la-hero__video-main position-relative la-anim__stagger-item--x la-anim__C" >
+              <div class="la-hero__video" style="mask-image:url('../../images/learners/home/home-mask.png'); -webkit-mask-image:url('../../images/learners/home/home-mask.png');">
+                  <video autoplay='' playsinline muted='muted' loop='loop' id="home_video">
+                      <source src='{{$firstSection->video_url}}'  type='video/mp4' />
+                  </video>
+              </div>
+            </div>
+             <!-- Video Section: End -->
+            @endif
+
+            <div class="d-block d-lg-none">
+              @if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())
+
+                <div class="col-md-6 px-0">
+                  <a href="/browse/course" class="btn btn-primary la-hero__cta la-btn la-btn--primary btn-block">Browse Course</a>
+                </div>
+
+              @else
+
+                <div class="la-hero__actions pb-8 pb-md-10 d-md-flex align-items-start  la-anim__stagger-item la-anim__C">
+                  <div class="col-md-6 px-0">
+                        <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn la-btn--primary btn-block">Subscribe Now</a>
+                        <p class="m-0 pt-2 pl-1 text-sm text-center text-md-left">Instant access to all courses <!-- at nominal monthly fees --></p>
+                  </div>
+                  <div class="col-md-6 px-0 pt-4 la-soffer d-flex justify-content-center mx-0">
+                    @if (getLocation() == 'IN')
+                      <div class="la-soffer__bestprice"> <sup><small>₹</small></sup>  2999 / Month</div>
+                      <div class="la-soffer__realprice"> <sup><small>₹</small></sup>  5999 (INR)</div>
+                    @else
+                      <div class="la-soffer__bestprice"> <sup><small>$</small></sup>  39 / Month</div>
+                      <div class="la-soffer__realprice"> <sup><small>$</small></sup>  99 (USD)</div>
+                    @endif
+                  </div>
+                </div>
+
+              @endif
+            </div>
+          </div>
+          <!-- Column: End-->
+
+
+        <!-- Row: Start-->
+        <div class="la-anim__wrap">
+          <div class="la-hero__bottom d-flex justify-content-center justify-content-lg-between align-items-center pt-4 pb-14 la-anim__fade-in-bottom la-anim__D">
+            <div class="la-hero__bottom-trial la-btn__arrow text--green text-uppercase text--md font-weight--medium text-spacing">@if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())  @else<a href="/learning-plans">Start free trial<span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a> @endif </div>
+            <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text--burple text-uppercase text--md font-weight--medium text-spacing d-none d-lg-block"><a href="#home_courses">BROWSE COURSES</a><span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span></div>
+          </div>
+        </div>
+        <!-- Row: End-->
+        --}}
       </div>
     </div>
   </section>
   <!-- Section: End-->
-
-  <!-- Video Popup -->
-  <div class="modal fade la-hero__modal pr-0" id="home_video_popup">
-    <div class="modal-dialog la-hero__modal-dialog">
-        <div class="modal-content la-hero__modal-content">  
-            <div class="modal-body la-hero__modal-body p-0">
-              <div class="la-hero__video-main position-relative">
-                <div class="la-hero__video">
-                  <button type="button" class="close text-4xl la-hero__modal-close" data-dismiss="modal">&times;</button>
-                  <video controls id="home_video" >
-                    <source src='{{$firstSection->video_url}}'  type='video/mp4' />
-                  </video>
-                </div>
-              </div>
-            </div>
-        </div>
-    </div>
-  </div>
-  <!-- Video Popup -->
-
 
   <!-- Section: Start-->
   <section class="la-section la-section--grey la-section--art-categories position-relative"  id="home_courses">
@@ -159,6 +257,8 @@
 
           <nav class="la-courses__nav mb-3 mb-md-3 d-inline-flex justify-content-start justify-content-md-center position-relative">
               <ul class="nav nav-pills la-courses__nav-tabs justify-content-center" id="nav-tab" role="tablist" tabindex="0">
+
+
                   {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"> <span class="position-relative">Tattoo</span></a></li>
                   <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
                   <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
@@ -167,8 +267,12 @@
                     <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative text-nowrap">{{ $category->title}}</span></a></li>
                     <!-- <div class="d-none d-md-block  la-courses__nav-next la-anim__fade-in-right"><span class="la-courses__nav-next--icon la-icon icon-right-arrow2"></span></div> -->
                   @endforeach
+
+
               </ul>
           </nav>
+
+
 
               <x-add-to-playlist
                    :playlists="$playlists"
@@ -243,6 +347,8 @@
                             </div>
                             @endif
 
+
+
                           </div>
                         </div>
 
@@ -280,6 +386,7 @@
                                         </div>
 
                                       @endforeach
+
                             </div>
 
                             @if(count($courses) == 0)
@@ -315,8 +422,11 @@
                       </div>
                     @endforeach
 
+
+
                         {{-- Categories Tab : END --}}
                   </div>
+
 
           </div>
         </div>
@@ -425,74 +535,6 @@
     </div>
   </section>
   <!-- Section: End-->
-
-  <!-- Section: Start-->
-  <section class="la-section--watch">
-    <div class="la-section__inner">
-      <div class="container-fluid la-home__watch-fluid">
-        <div class="row">
-            <div class="col-12 d-inline-flex my-auto">
-              <div class="swiper-container la-home__watch-container">
-                <div class="swiper-wrapper la-home__watch-wrapper">
-                  
-                  <div class="swiper-slide la-home__watch-slide position-relative" style="background:url('../../images/learners/home/watch-bg.png') no-repeat center top;">   
-                      <div class="la-home__watch-overlay d-flex flex-column justify-content-around align-items-start h-100">
-                        <div class="col-md-8 col-xl-6 la-home__watch-content my-auto d-flex flex-column justify-content-center">
-                          <h2 class="la-home__watch-title mb-3">Master the Art of Colour Realism with Steve Butcher</h2>
-                          <p class="la-home__watch-para">Steve is one of the most prominent icons of hyper-realism tattoos in the world. 
-                            His work has been featured on ESPN, CBS, CBC, USA Today, Bleacher Report, VICE, and many other reputed media outlets.
-                          </p>
-
-                          <div class="mt-6">
-                            <a role="button" href="" class="btn btn-primary la-btn__black"> Watch Now</a>
-                          </div>
-                        </div>                      
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide la-home__watch-slide position-relative" style="background:url('../../images/learners/home/watch-bg.png') no-repeat center top;">   
-                    <div class="la-home__watch-overlay d-flex flex-column justify-content-around align-items-start h-100">
-                      <div class="col-md-8 col-xl-6 la-home__watch-content my-auto d-flex flex-column justify-content-center">
-                        <h2 class="la-home__watch-title mb-3">Master the Art of Colour Realism with Steve Butcher</h2>
-                        <p class="la-home__watch-para">Steve is one of the most prominent icons of hyper-realism tattoos in the world. 
-                          His work has been featured on ESPN, CBS, CBC, USA Today, Bleacher Report, VICE, and many other reputed media outlets.
-                        </p>
-
-                        <div class="mt-6">
-                          <a role="button" href="" class="btn btn-primary la-btn__black"> Watch Now</a>
-                        </div>
-                      </div>                      
-                    </div>
-                </div>
-
-                <div class="swiper-slide la-home__watch-slide position-relative" style="background:url('../../images/learners/home/watch-bg.png') no-repeat center top;">   
-                  <div class="la-home__watch-overlay d-flex flex-column justify-content-around align-items-start h-100">
-                    <div class="col-md-8 col-xl-6 la-home__watch-content my-auto d-flex flex-column justify-content-center">
-                      <h2 class="la-home__watch-title mb-3">Master the Art of Colour Realism with Steve Butcher</h2>
-                      <p class="la-home__watch-para">Steve is one of the most prominent icons of hyper-realism tattoos in the world. 
-                        His work has been featured on ESPN, CBS, CBC, USA Today, Bleacher Report, VICE, and many other reputed media outlets.
-                      </p>
-
-                      <div class="mt-6">
-                        <a role="button" href="" class="btn btn-primary la-btn__black"> Watch Now</a>
-                      </div>
-                    </div>                      
-                  </div>
-                </div>
-
-              </div>
-
-                <div class="la-slider__navigations la-home__watch-navigations d-flex align-items-center justify-content-end">
-                  <div class="swiper-pagination la-slider__navigations-dots la-home__watch-pagination la-slider__paginations la-slider__paginations--purble la-right"></div>
-                </div>
-
-              </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Section: End -->
 
   <!-- Section: Start -->
   <div class="la-section  la-section--purple la-home__section-customize position-relative">

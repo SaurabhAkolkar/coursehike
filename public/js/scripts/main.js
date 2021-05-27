@@ -39,7 +39,7 @@ $(function(){
 
 
   // Home Video On scroll Pause/Play: Start
-  $(window).on("scroll",function(){
+  /*$(window).on("scroll",function(){
     var video = $('#home_video')[0];
     if($(window).scrollTop() >= 600){      
        $('#home_video').trigger('pause');
@@ -53,9 +53,13 @@ $(function(){
      {
        $('#home_video').trigger('play');
      }
-  });
+  });*/
   // Home Video On scroll Pause/Play: End
 
+  //- Pause Video on Modal Popup closed
+  $('#home_video_popup').on('hidden.bs.modal', function (e) {
+    $(this).find('video')[0].pause();
+  });
 
   // Global Alert Animation for Learners: Start
   window.setTimeout(function() {
@@ -252,6 +256,18 @@ $(function(){
   /*var menu = ['Personalised dashboard for focused learning', 'Unique tattoo styles from around of the world', 'Personal Playlist to help you organise'];
   var menu2 = ['Courses based on your interests, favourite mentors, on one easy learning platform','Learn unique styles created by incredible artists from across the world','Create playlist to save all the courses you want to learn in a personal space and learn whenever, wherever yo want!']
   */
+
+  // Swiper JS for Watch Now section in Homepage
+  if($('.la-home__watch-container')[0]){   
+    var master_slider = new Swiper('.la-home__watch-container', {
+      slidesPerView: 'auto',
+      pagination: {
+        el: '.la-home__watch-pagination',
+        clickable: true,
+      },
+    });
+  }
+
   if($('.la-home__customize-container')[0]){   
     var swiper = new Swiper('.la-home__customize-container', {
       slidesPerView: 'auto',
