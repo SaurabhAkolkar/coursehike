@@ -26,8 +26,8 @@
     <link rel="stylesheet" href="{{('/css/main.css')}}" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <script type="text/javascript">
-        var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode:"4f8506d3301d7456fde4e9f7b70cc2898b8053dba2d293f5c5cf1103214edd9e", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);d.write("<div id='zsiqwidget'></div>");
+    <script type="text/javascript" id="zsiqchat">
+        var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode:"fc16ef71440a05d1ba035fe972cd8e475c2bcceb972328403f4263b676d80cad", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);
     </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -54,7 +54,7 @@
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5CW2KJ5');</script>
+    })(window,document,'script','dataLayer','GTM-WPPRZG6');</script>
     <!-- End Google Tag Manager -->
 
     <!-- Facebook Pixel Code -->
@@ -78,7 +78,11 @@
 </head>
 
 <body>
-
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPPRZG6"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
     @yield('body_scripts')
 
     <div class="la-app__inner">
@@ -118,6 +122,7 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CW2KJ5"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-        
+    
+    @yield('footer_scripts')
 </body>
 </html>

@@ -54,21 +54,21 @@
                 <!-- SUBSCRIPTION SECTION: START -->
                 <div class="row">
                   <div class="col-6 col-md-3 mt-4">
-                      <div class="la-admin__revenue-title">({{ \Carbon\Carbon::now()->subMonth()->format('F') }}) Monthly Subscriptions</div>
+                      <div class="la-admin__revenue-title">Monthly Subscriptions</div>
                       <div class="la-admin__revenue-info">
                           <span class="la-admin__revenue-total">{{$current_monthly_subscriptions}}</span>
                           <span class="la-admin__revenue-per">@ $39 / INR 2999 each</span>
                       </div>
                   </div>
                   <div class="col-6 col-md-3 mt-4">
-                    <div class="la-admin__revenue-title">({{ \Carbon\Carbon::now()->subMonth()->format('F') }}) Yearly Subscriptions</div>
+                    <div class="la-admin__revenue-title">Yearly Subscriptions</div>
                     <div class="la-admin__revenue-info">
                         <span class="la-admin__revenue-total">{{$current_yearly_subscriptions}}</span>
                         <span class="la-admin__revenue-per">@ $309 / INR 24999 each</span>
                     </div>
                   </div>
                   <div class="col-6 col-md-2 mt-4">
-                    <div class="la-admin__revenue-title">({{ \Carbon\Carbon::now()->subMonth()->format('F') }}): Total Subscription Revenue</div>
+                    <div class="la-admin__revenue-title">Total Subscription Revenue</div>
                     <div class="la-admin__revenue-info">
                         <span class="la-admin__revenue-price">${{ $current_month_susbcription_income }}</span>
                     </div>

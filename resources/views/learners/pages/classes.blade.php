@@ -224,15 +224,14 @@
 
           <div class="la-courses__content">
               <!-- Add to Playlist Modal -->
-
-
-              @if($filtres_applied)
+             
+              
+            @if($filtres_applied)
                   <div class="la-courses__content-desc">
                     <div class="la-anim__wrap">
                       <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
-
-                          @foreach($courses as $course)
-                              <x-course
+                          @foreach($courses->sortBy('order') as $course)
+                              <x-course 
                                   :id="$course->id"
                                   :img="$course->preview_image"
                                   :course="$course->title"
@@ -270,7 +269,7 @@
                         </div>
 
                       @endif
-                      @else
+        	@else
                         <div class="tab-content la-courses__nav-content la-anim__wrap position-relative" id="nav-tabContent">
                               @foreach ($categories as $category)
                               <div class="tab-pane fade show la-anim__wrap @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
@@ -292,9 +291,9 @@
                                                     $courses = $category->courses;
                                                   @endphp
 
-                                                  @foreach($courses->where('featured','like','1') as $course)
-
-
+                                                  @foreach($courses->where('featured','like','1')->sortBy('order') as $course)
+                                                   
+                                                    
                                                     <div class="swiper-slide la-courses__featured-slide la-anim__stagger-item">
                                                       <x-course
                                                         :id="$course->id"
@@ -386,9 +385,9 @@
                               </div>
                               @endforeach
                         </div>
-                  </div>
-                 @endif
-
+                  </div>        
+            @endif
+            
           </div>
         </div>
       </div>

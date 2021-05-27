@@ -17,7 +17,6 @@ class UserDashboardController extends Controller
         $userInterest = UserInterest::where(['user_id'=>Auth::User()->id])->pluck('category_id');
         $lastViewed = UserWatchTimelog::with('course', 'course.courseclass','course.user')->where(['user_id'=>Auth::User()->id])->latest()->first();
         $pendingCourse= UserWatchProgress::with('courses','user')->where(['user_id'=>Auth::User()->id])->latest()->groupBy('course_id')->limit(4)->get();
-        $courses = [];
         $recentWatchedCourseCompletion = 0;
 
         if($lastViewed){

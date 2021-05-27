@@ -39,11 +39,11 @@ class HomeController extends Controller
         $categories = [];
         $playlists = [];
 
-        $cor = Cache::remember('classes', $seconds = 86400, function () {
+        $cor = Cache::remember('home_classes', $seconds = 86400, function () {
             return Course::with('review', 'user')->get();
         });
 
-        $filter_categories = Cache::remember('categories', $seconds = 86400, function () {
+        $filter_categories = Cache::remember('home_filter_categories', $seconds = 86400, function () {
             return Categories::with('subcategory', 'courses', 'courses.user')->where(['status'=>1])->get();
         });
 
@@ -55,7 +55,7 @@ class HomeController extends Controller
         $selected_duration = "";
         $courses = [];
 
-        $firstSection = Cache::remember('HomeFirstSection', $seconds = 86400, function () {
+        $firstSection = Cache::remember('home_FirstSection', $seconds = 86400, function () {
             $firstSection = FirstSection::first();
             if($firstSection == null){
                 $firstSection = new stdClass;
@@ -69,19 +69,19 @@ class HomeController extends Controller
         if(Auth::check())
             $playlists = Playlist::where('user_id', Auth::user()->id)->get();
 
-        $master_classes = Cache::remember('master_classes', $seconds = 86400, function () {
+        $master_classes = Cache::remember('home_master_classes', $seconds = 86400, function () {
             return MasterClass::with(array('courses' => function($query) {$query->with('user')->where('status', 1)->orderBy('order');}),'courses.user', 'review')->get();
         });
-
-        $featuredMentor = Cache::remember('featuredMentor', $seconds = 86400, function () {
+        
+        $featuredMentor = Cache::remember('home_featuredMentor', $seconds = 86400, function () {
             return FeaturedMentor::with('user','courses','courses.category')->where(['status'=>'1'])->get();
         });
 
-        $bundleCoures = Cache::remember('bundle', $seconds = 86400, function () {
+        $bundleCoures = Cache::remember('home_bundle', $seconds = 86400, function () {
             return BundleCourse::with('user')->where(['status'=>1])->get();
         });
-
-        $categories = Cache::remember('categories', $seconds = 86400, function () {
+        
+        $categories = Cache::remember('home_categories', $seconds = 86400, function () {
             return Categories::with(array('courses' => function($query) {$query->orderBy('order')->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
         });
 

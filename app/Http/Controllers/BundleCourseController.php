@@ -111,7 +111,7 @@ class BundleCourseController extends Controller
     public function show($id)
     {
         $cor = BundleCourse::find($id);
-        if(Auth::user()->role == 'admins'){
+        if(Auth::user()->role == 'admin'){
             $courses = Course::get();
         }else{
             $courses = Course::where('user_id', Auth::user()->id)->get();
@@ -149,22 +149,18 @@ class BundleCourseController extends Controller
           
         $course = BundleCourse::findOrFail($id);
         $input = $request->all();
-           
 
-
-        if(isset($request->type))
-        {
+        if(isset($request->type)){
           $input['type'] = "1";
-        }
-        else
-        {
+          $input['price'] = "0";
+          $input['discount_price'] = "0";
+        }else{
           $input['type'] = "0";
         }
-
         
         if ($file = $request->file('image')) {
           
-         if ($course->preview_image != null) {
+            if ($course->preview_image != null) {
                 $exists = Storage::exists(config('path.course.img').$course->preview_image);
                 if ($exists)
                     Storage::delete(config('path.course.img').$course->preview_image);
@@ -173,19 +169,12 @@ class BundleCourseController extends Controller
             $file_name = time().rand().'.'.$file->getClientOriginalExtension();
 
             Storage::put(config('path.course.img').$file_name, fopen($file->getRealPath(), 'r+') );
-            $input['preview_image'] = $file_name;
-
-            
-        }
-
-
-        
+            $input['preview_image'] = $file_name;            
+        }        
 
         $slug = str_slug($input['title'],'-');
         $input['slug'] = $slug;
-
        
-
         Cart::where('bundle_id', $id)
          ->update([
              'price' => $request->price,

@@ -194,9 +194,108 @@
     </div>
 
     <div class="col-md-5 offset-md-1">
-        <!-- SUBTITLE SECTION: START -->
 
         <div class="row pr-md-10">
+
+          <div class="box box-primary">
+            <div class="box-header d-flex align-items-center">
+              <h3 class="box-title"> {{ __('adminstaticword.MultilingualVideos') }}</h3>
+              <a data-toggle="modal" data-target="#myModalAdditionVideo" href="#" class="btn btn-info btn-sm ml-auto">+  {{ __('adminstaticword.Add') }} {{ __('adminstaticword.MultilingualVideos') }}</a>
+            </div>
+            <div class="box-body p-0">
+              <!--Model start-->
+              <div class="modal fade" id="myModalAdditionVideo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="myModalLabel"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.MultilingualVideos') }}</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="box box-primary">
+                      <div class="panel panel-sum">
+                        <div  class="modal-body">
+                          <form enctype="multipart/form-data" id="multilingual-form" method="post" action="{{ route('add.multilingual',$cate->id) }}" data-parsley-validate class="form-horizontal form-label-left">
+                            {{ csrf_field() }}
+        
+                            <div id="additional_video">
+                              <input type="hidden" name="course_class_id" value="{{$cate->id}}">
+                              <input type="hidden" name="course_id" value="{{$cate->course_id}}">
+                              <label>{{ __('adminstaticword.MultilingualVideos') }}:</label>
+                              <table class="table table-bordered" id="dynamic_field">  
+                                <tr> 
+                                    <td>
+                                        <div class="{{ $errors->has('video') ? ' has-error' : '' }} input-file-block">
+                                        <input type="file" name="video" id="multilingual-browse"/>
+                                        <p class="info"></p>
+                                        <small class="text-danger">{{ $errors->first('video') }}</small>
+                                      </div>
+                                    </td>
+        
+                                    <td>
+                                      <select name="sub_lang" class="">
+                                        @foreach ($languages as $language)
+                                          <option value="{{$language->iso_code}}">{{$language->name}}</option>
+                                        @endforeach
+                                      </select>
+                                    </td>  
+                                </tr>  
+                              </table>
+                              
+                              <div class="progress d-none" style="height: 30px;">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                              </div>
+
+                            </div>
+                            <div class="box-footer">
+                              <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
+                            </div>
+        
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <br>
+                  <tr>
+                    <th>#</th>
+                    <th>{{ __('adminstaticword.MultilingualVideos') }} </th>
+                    <th>{{ __('adminstaticword.Language') }} </th>
+                    <th>{{ __('adminstaticword.Delete') }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $i=0;?>
+                  @foreach($additional_videos as $video)
+                    <?php $i++;?>
+                    <tr>
+                      <td><?php echo $i;?></td>
+                      <td>  <video src="{{$video->video_path}}" controls>
+                      </video></td>
+                      <td>{{$video->vid_lang}}</td>
+                      <td>
+                        <form method="post" action="{{ route('del.multilingual',$video->id) }}"
+                              data-parsley-validate class="form-horizontal form-label-left">
+                          {{ csrf_field() }}
+                          <input type="hidden" name="course_id" value="{{$cate->course_id}}"/>
+                          <input type="hidden" name="course_class_id" value="{{$cate->id}}"/>
+                          <button type="submit" class="btn btn-danger d-inline">
+                            <i class="la-icon la-icon--lg icon-delete"></i>
+                          </button>
+                        </form>
+                      </td>
+                    </tr>
+                  @endforeach 
+                </tbody> 
+              </table>
+            </div>
+          </div> 
+
+        <!-- SUBTITLE SECTION: START -->
           <div class="box box-primary">
             <div class="box-header d-flex align-items-center">
               <h3 class="box-title"> {{ __('adminstaticword.Subtitle') }}</h3>
@@ -231,16 +330,10 @@
                                     </td>
         
                                     <td>
-                                      {{-- <input type="text" name="sub_lang[]" placeholder="Subtitle Language" class="form-control name_list" /> --}}
                                       <select name="sub_lang[]" class="">
                                         @foreach ($languages as $language)
                                           <option value="{{$language->iso_code}}">{{$language->name}}</option>
                                         @endforeach
-                                        {{-- <option value="fr">French</option>
-                                        <option value="zh">Chinese</option>
-                                        <option value="hi">Hindi</option>
-                                        <option value="tr">Turkish</option>
-                                        <option value="ta">Tamil</option> --}}
                                       </select>
                                     </td>  
                                     {{-- <td><button type="button" name="add" id="add" class="btn btn-xs btn-success">
@@ -295,100 +388,6 @@
               </table>
             </div>
           </div>
-
-          {{-- <div class="box box-primary">
-            <div class="box-header d-flex align-items-center">
-              <h3 class="box-title"> {{ __('adminstaticword.AdditionalVideos') }}</h3>
-              <a data-toggle="modal" data-target="#myModalAdditionVideo" href="#" class="btn btn-info btn-sm ml-auto">+  {{ __('adminstaticword.Add') }} {{ __('adminstaticword.AdditionalVideos') }}</a>
-            </div>
-            <div class="box-body p-0">
-              <!--Model start-->
-              <div class="modal fade" id="myModalAdditionVideo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h4 class="modal-title" id="myModalLabel"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.AdditionalVideos') }}</h4>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </div>
-                    <div class="box box-primary">
-                      <div class="panel panel-sum">
-                        <div  class="modal-body">
-                          <form enctype="multipart/form-data" id="demo-form3" method="post" action="{{ route('add.additional',$cate->id) }}" data-parsley-validate class="form-horizontal form-label-left">
-                            {{ csrf_field() }}
-        
-                            <div id="additional_video">
-                              <input type="hidden" name="course_class_id" value="{{$cate->id}}">
-                              <input type="hidden" name="course_id" value="{{$cate->course_id}}">
-                              <label>{{ __('adminstaticword.AdditionalVideos') }}:</label>
-                              <table class="table table-bordered" id="dynamic_field">  
-                                <tr> 
-                                    <td>
-                                        <div class="{{ $errors->has('video') ? ' has-error' : '' }} input-file-block">
-                                        <input type="file" name="video"/>
-                                        <p class="info"></p>
-                                        <small class="text-danger">{{ $errors->first('video') }}</small>
-                                      </div>
-                                    </td>
-        
-                                    <td>
-                                      <select name="sub_lang" class="">
-                                        @foreach ($languages as $language)
-                                          <option value="{{$language->iso_code}}">{{$language->name}}</option>
-                                        @endforeach
-                                      </select>
-                                    </td>  
-                                </tr>  
-                              </table>
-                              
-                            </div>
-                            <div class="box-footer">
-                              <button type="submit" class="btn btn-lg col-md-3 btn-primary">{{ __('adminstaticword.Submit') }}</button>
-                            </div>
-        
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                  <br>
-                  <tr>
-                    <th>#</th>
-                    <th>{{ __('adminstaticword.AdditionalVideos') }} </th>
-                    <th>{{ __('adminstaticword.Language') }} </th>
-                    <th>{{ __('adminstaticword.Delete') }}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php $i=0;?>
-                  @foreach($additional_videos as $video)
-                    <?php $i++;?>
-                    <tr>
-                      <td><?php echo $i;?></td>
-                      <td>  <video src="{{$video->video_path}}" controls>
-                      </video></td>
-                      <td>{{$video->vid_lang}}</td>
-                      <td>
-                        <form method="post" action="{{ route('del.additionalVideo',$video->id) }}"
-                              data-parsley-validate class="form-horizontal form-label-left">
-                          {{ csrf_field() }}
-                          <input type="hidden" name="course_id" value="{{$cate->course_id}}"/>
-                          <input type="hidden" name="course_class_id" value="{{$cate->id}}"/>
-                          <button type="submit" class="btn btn-danger d-inline">
-                            <i class="la-icon la-icon--lg icon-delete"></i>
-                          </button>
-                        </form>
-                      </td>
-                    </tr>
-                  @endforeach 
-                </tbody> 
-              </table>
-            </div>
-          </div>  --}}
 
         </div>
         <!-- SUBTITLE SECTION: END -->
@@ -566,6 +565,64 @@
 					resumable.opts.query = serializeData;
 
 					resumable.upload();
+
+					$(window).on("beforeunload", function() {
+						return "Are you sure?";
+					});
+				});
+            }
+        }
+
+
+		var $fileUpload = $('#multilingual-browse');
+
+        if ($fileUpload.length > 0) {
+
+            var resumableMultilingual = new Resumable({
+                chunkSize: 15 * 1024 * 1024, // 1MB
+                simultaneousUploads: 1,
+				maxFiles: 1,
+                testChunks: false,
+                throttleProgressCallbacks: 1,
+			    fileType: ['mov', 'mp4', 'mkv', 'm4v'],
+                target: "{{route('add.multilingual',$cate->id)}}",
+            });
+
+            if (resumableMultilingual.support) {
+                resumableMultilingual.assignBrowse($fileUpload[0]);
+
+                resumableMultilingual.on('fileSuccess', function (file, message) {
+					resumableMultilingual.removeFile(file);
+					$(window).off("beforeunload");
+                    $('.progress').addClass('d-none');
+					$("#multilingual-form").append('<div class="alert alert-success">Updated Successfully!</div>');
+                });
+
+                resumableMultilingual.on('fileProgress', function (file) {
+                    $('.progress-bar').css({width: Math.floor(resumableMultilingual.progress() * 100) + '%'});
+                    $('.progress-bar').html(Math.floor(file.progress() * 100) + '%');
+                });
+
+				$(document).on('submit','#multilingual-form',function(e){
+
+					if(resumableMultilingual.files.length > 0)
+						e.preventDefault();
+
+					$('.progress').removeClass('d-none');
+
+					var serializeArray = $('#multilingual-form').serializeArray();
+					var serializeData = {};
+
+					$.map(serializeArray, function(n, i){
+						serializeData[n['name']] = n['value'];
+					});
+
+					if($('input[name="preview_image"]')[0].files.length > 0)
+						serializeData['preview_image'] = $('input[name="preview_image"]')[0].files[0];
+
+					resumableMultilingual.opts.query = serializeData;
+
+					resumableMultilingual.upload();
 
 					$(window).on("beforeunload", function() {
 						return "Are you sure?";
