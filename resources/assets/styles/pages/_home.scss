@@ -49,6 +49,10 @@
         width:550px;
         height:550px;
     }
+    @include respond-below(sm){
+        margin-bottom:var(--size-3);
+        padding:0 var(--size-6) var(--size-6);
+    }
 }
 
 .la-hero__video{
@@ -149,6 +153,15 @@
     }
 }
 
+//- Video Popup Button
+.la-hero__bottom{
+    @include respond-above(sm){
+        margin-top:var(--size-16);
+    }
+    @include respond-above(lg){
+        margin-top:var(--size-8);
+    }
+}
 .la-hero__bottom-video{
     position:absolute;
     left:-50px;
@@ -160,13 +173,14 @@
     padding:var(--size-4) var(--size-8) var(--size-4) var(--size-20);
     border-radius: 0 50px 50px 0;
 
-    @include respond-below(md){
-        left:-50px;
-        bottom:-40px;
+  
+    @include respond-below(sm){
+        left:-20px;
+        bottom:10px;
+        padding:var(--size-3) var(--size-6);
     }
     @include respond-above(lg){
         left:-100px;
-        bottom:-25px;
     }
 
     &:hover{
@@ -203,6 +217,11 @@
 .la-hero__play-svg{
     width:25px;
     height:25px;
+
+    @include respond-below(sm){
+        width:30px;
+        height:30px;
+    }
 }
 .la-hero__play-triangle{
     transition: all 1s ease-in-out;-webkit-transition: all 1s ease-in-out;-moz-transition: all 1s ease-in-out;-o-transition: all 1s ease-in-out;
@@ -460,6 +479,7 @@
 //- Watch Now Section
 .la-home__watch-fluid{
     padding:0 !important;
+    width:100vw;
 }
 .la-home__watch-container{
     width:100%;
@@ -469,17 +489,39 @@
 }
 .la-home__watch-slide{
     background-size: cover !important;
-    background-position: 0 50% !important;
+    background-position: center top !important;
     width:100%;
-    height:650px;
+    height:100%;
     overflow: hidden;
 
-    @include respond-below(sm){
+    @include respond-above(lg){
+        height:calc(100vh - var(--inner-padding));
+    }
+    @include respond-below(md){
         background-position: 40% !important;
+        height:auto;
+    }
+}
+.la-home__watch-artist{
+    position:absolute;
+    right:0;
+    top:80px;
+    color:var(--white);
+    font-weight: var(--font-light);
+    transform:rotate(-90deg);
+
+    @include respond-above(lg){
+        right:10px;
+        top:100px;
     }
 }
 .la-home__watch-overlay{
     background-color:rgba(#000000, 0.4);
+    padding:calc(var(--size-16) * 2) 0;
+
+    @include respond-below(sm){
+        padding:var(--size-20) 0;
+    }
 }
 .la-home__watch-content{
     padding-left:var(--size-4);
@@ -492,7 +534,7 @@
     }
 }
 .la-home__watch-title{
-    font-size: calc(var(--text-5xl) + 4px);
+    font-size: var(--text-5xl);
     font-weight: var(--font-bold);
     color:var(--white);
 

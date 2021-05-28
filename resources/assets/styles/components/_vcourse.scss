@@ -253,6 +253,62 @@
                     font-weight: var(--font-medium);
                 }
             }
+            &language{
+                &-{
+                    &switcher{
+                        position:relative;
+                        background-color: var(--gray);
+                        display: inline-block;
+                        border-radius: 50px;      
+                        height:100%;
+                        //overflow-x: auto;
+                        
+                        &:hover{
+                           // overflow-x: scroll;
+
+                            &::-webkit-scrollbar{
+                                visibility: visible;
+                                height:6px;
+                            }
+                            &::-webkit-scrollbar-track{
+                                padding:0;
+                                width:6px;
+                                height:6px;
+                                border-radius: 10px;
+                            }
+                            &::-webkit-scrollbar-thumb{
+                                background:var(--gray9);
+                                border-radius: 10px;
+                                padding:0;
+                            }
+                        }
+                        &::-webkit-scrollbar{
+                            width:6px;
+                            height:6px;
+                            visibility: hidden;
+                            background-color: transparent;
+                        }
+                    }
+                    &switch{
+                        display:none;
+                        visibility: hidden;
+                    }
+                    &label{
+                        color: var(--gray6);
+                        display: inline-block;
+                        cursor: pointer;
+                        font-weight: var(--font-normal);
+                        font-size: var(--text-sm);
+                        padding: calc(var(--size-2) - 2px) var(--size-6);
+                        margin:0;
+                        transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;-moz-transition:all 0.2s ease-in-out;
+                        opacity: 1;
+                        user-select: none;
+                        -webkit-user-select: none;
+                    }
+                }
+            }
+            
 
             &video {
                 width: 100%;
@@ -284,11 +340,12 @@
                     & .vjs-multilngual_list{
                         position: absolute;
                         right: 0;
-                        width: 137px;
+                        width: 140px;
                         background: #58595E;
                         box-shadow: 0px 6px 12px #00000029;
                         border-radius: 10px;
                         opacity: 0.98;
+                        padding:var(--size-2) var(--size-3);
                     }
 
                     & .icon-change-language{
@@ -929,4 +986,23 @@
 .vjs-poster{
     background-size: 100% !important;
     background-color:var(--gray) !important;
+}
+
+
+//- Custom Radio buttons for Language Switcher
+input[type=radio]:checked + label.la-vcourse__language-label{
+    color: var(--white);
+    background: var(--black);
+    border-radius:50px;
+    transition:all 0.25s ease-in-out;-webkit-transition:all 0.2s ease-in-out;-moz-transition:all 0.2s ease-in-out;
+    animation:switcher 0.3s ease-in-out 1;-webkit-animation:switcher 0.3s ease-in-out 1;-moz-animation:switcher 0.3s ease-in-out 1;
+                        
+    @keyframes switcher{
+        from{opacity:0;transform:translateX(-5px);-webkit-transform:translateX(-5px);-moz-transform:translateX(-5px);}
+        to{opacity: 1;transform:translateX(0px);-webkit-transform:translateX(0px);-moz-transform:translateX(0px);}
+    }
+    @-webkit-keyframes switcher{
+        from{opacity:0;transform:translateX(-5px);-webkit-transform:translateX(-5px);-moz-transform:translateX(-5px);}
+        to{opacity: 1;transform:translateX(0px);-webkit-transform:translateX(0px);-moz-transform:translateX(0px);}
+    }
 }

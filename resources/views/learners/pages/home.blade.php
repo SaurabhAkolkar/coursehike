@@ -44,8 +44,9 @@
 <section class="la-section la-section--hero clearfix p-0 position-relative">
     <div class="la-section__inner la-section__small">
       <div class="container-fluid">
-        <div class="la-hero__top row py-6">
-          <div class="col-md-7 col-lg-6 my-auto">
+        <div class="la-hero__top row py-lg-6">
+
+          <div class="col-md-7 col-lg-6 my-auto order-3 order-md-1">
             <div class="la-hero__home-info text-center text-md-left">
               <p class="la-hero__tag mb-2 mb-md-0">Courses & Classes by</p>
               <h1 class="la-hero__title mb-5 text-capitalize">World’s Finest <br/><span class="la-hero__subtitle">Artists</span></h1>
@@ -57,14 +58,14 @@
                 <div class="mt-6 mt-md-2">
                   <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn__app active color-black px-md-5" style="letter-spacing:1.5px"> Subscribe Now</a>
                 </div>             
-                <div class="la-hero__bottom-trial mt-6 mt-md-2 ml-md-6">
+                <div class="la-hero__bottom-trial mt-4 mt-md-2 ml-md-6">
                   <a href="/learning-plans" class="btn btn-primary la-btn__app px-md-5" style="letter-spacing:1.8px">Start free trial</a> 
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-md-5 col-lg-6 my-auto">
+          <div class="col-md-5 col-lg-6 my-auto order-1 order-md-2">
             <div class="la-hero__img position-relative d-flex align-items-center">
               {{--<h2 class="la-section__title la-section__title--big">
                 <span class="">{{$firstSection->image_text}}</span>
@@ -74,11 +75,11 @@
             </div>
           </div>
 
-          <div class="col-12">
-            <div class="position-relative d-flex justify-content-between align-items-center my-10 my-lg-6">
+          <div class="col-12 order-2 order-md-3">
+            <div class="la-hero__bottom position-relative d-flex justify-content-between align-items-center">
               <div class="la-hero__bottom-info">
                   <a href="#home_video_popup" role="button" class="la-hero__bottom-video d-flex align-items-center" data-toggle="modal" data-target="#home_video_popup">
-                    <span class="mr-2">Watch Video</span>
+                    <span class="mr-2 d-none d-md-block">Watch Video</span>
                     <span>
                       <svg class="la-hero__play-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"  x="0px" y="0px" viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7" xml:space="preserve">
                         <polygon class='la-hero__play-triangle triangle' id="XMLID_18_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="73.5,62.5 148.5,105.8 73.5,149.1 "/> 
@@ -88,8 +89,8 @@
                   </a>
               </div>
             
-              <div class="la-hero__btn--scroll-down">
-                <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text-uppercase text--burple text--md font-weight--semibold text-spacing d-none d-lg-block">
+              <div class="la-hero__btn--scroll-down mr-md-3">
+                <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text-uppercase text--burple text--md font-weight--semibold text-spacing d-none d-md-block">
                   <a href="#home_courses" id="home_courses_redirect">BROWSE COURSES
                     <span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span>
                   </a>
@@ -437,6 +438,7 @@
                   
                   <div class="swiper-slide la-home__watch-slide position-relative" style="background:url('../../images/learners/home/watch-bg.png') no-repeat center top;">   
                       <div class="la-home__watch-overlay d-flex flex-column justify-content-around align-items-start h-100">
+                        <span class="la-home__watch-artist d-none d-md-block">Artists Choice</span>
                         <div class="col-md-8 col-xl-6 la-home__watch-content my-auto d-flex flex-column justify-content-center">
                           <h2 class="la-home__watch-title mb-3">Master the Art of Colour Realism with Steve Butcher</h2>
                           <p class="la-home__watch-para">Steve is one of the most prominent icons of hyper-realism tattoos in the world. 
@@ -452,6 +454,7 @@
 
                   <div class="swiper-slide la-home__watch-slide position-relative" style="background:url('../../images/learners/home/watch-bg.png') no-repeat center top;">   
                     <div class="la-home__watch-overlay d-flex flex-column justify-content-around align-items-start h-100">
+                      <span class="la-home__watch-artist d-none d-md-block">Artists Choice</span>
                       <div class="col-md-8 col-xl-6 la-home__watch-content my-auto d-flex flex-column justify-content-center">
                         <h2 class="la-home__watch-title mb-3">Master the Art of Colour Realism with Steve Butcher</h2>
                         <p class="la-home__watch-para">Steve is one of the most prominent icons of hyper-realism tattoos in the world. 
@@ -467,6 +470,7 @@
 
                 <div class="swiper-slide la-home__watch-slide position-relative" style="background:url('../../images/learners/home/watch-bg.png') no-repeat center top;">   
                   <div class="la-home__watch-overlay d-flex flex-column justify-content-around align-items-start h-100">
+                    <span class="la-home__watch-artist d-none d-md-block">Artists Choice</span>
                     <div class="col-md-8 col-xl-6 la-home__watch-content my-auto d-flex flex-column justify-content-center">
                       <h2 class="la-home__watch-title mb-3">Master the Art of Colour Realism with Steve Butcher</h2>
                       <p class="la-home__watch-para">Steve is one of the most prominent icons of hyper-realism tattoos in the world. 

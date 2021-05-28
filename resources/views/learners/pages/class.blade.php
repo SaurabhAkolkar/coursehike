@@ -107,7 +107,7 @@ $course_id = $course->id;
               </div> --}}
 
             <div class="row la-anim__wrap mt-6">
-              <div class="col">
+              <div class="col-12">
                 <ul class="list-unstyled d-block d-lg-flex align-items-center">
                   <li class="la-vcourse__videos-info mr-6 mr-lg-8 la-anim__stagger-item text-sm">
                     <span class="la--count">{{ $course->courseclass->count() }}</span>
@@ -122,8 +122,27 @@ $course_id = $course->id;
                   </li>
                   <li class="la-vcourse__duration mr-6 mr-lg-8 la-anim__stagger-item"><span class="la-text-gray4">Duration: </span>  <span class="font-normal">{{ $course->duration }} Hrs</span></li>
                   <li class="la-vcourse__updatedon mr-6 mr-lg-8 la-anim__stagger-item"><span class="la-text-gray4">Last Updated: </span>  <span class="font-normal">{{ $course->updated_at->format('d-M Y') }}</span></li>
-                  <li class="la-vcourse__languages mr-6 mr-lg-8 la-anim__stagger-item"> <span class="la-text-gray4">Languages: </span> <span class="font-normal"> {{$course->language->name}}</span> </li>
+                  
                 </ul>
+              </div>
+
+              <div class="col-xl-11 mt-1 mt-lg-5">
+                <div class="la-vcourse__languages d-md-flex align-items-start la-anim__stagger-item"> 
+                  <div class="la-text-gray4 mb-2 mt-md-2 mr-4">Languages: </div> 
+
+                 
+                  <div class="la-vcourse__language-switcher d-flex align-items-center justify-content-between justify-content-md-start flex-wrap">
+                    <input type="radio" class="la-vcourse__language-switch" id="lang_1" name="language_selector"  checked/>
+                    <label for="lang_1" class="la-vcourse__language-label">{{$course->language->name}}</label>
+                    
+                    <input type="radio" class="la-vcourse__language-switch" id="lang_2" name="language_selector" />
+                    <label for="lang_2" class="la-vcourse__language-label">Spanish</label>
+
+                    <input type="radio" class="la-vcourse__language-switch" id="lang_3" name="language_selector" />
+                    <label for="lang_3" class="la-vcourse__language-label">Telugu</label>
+                  </div>
+                            
+                </div>
               </div>
             </div>
           </div>
