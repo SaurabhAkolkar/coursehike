@@ -772,6 +772,7 @@ Route::get("zoho/module","ZohoController@createRecords");
 // Zoho module
 Route::get('/requests', 'CourseReviewController@instructorRequests');
 Route::post('/delete-course-request', 'CourseReviewController@deleteCourseRequest');
+
 // Route for Learner's View
 Route::view('/signup','learners.auth.signup');
 Route::view('/signin','learners.auth.signin');
@@ -779,6 +780,8 @@ Route::get('/mentors','InstructorController@allMentors');
 Route::get('/category/{id}/{category}','WebsiteController@categoryPage');
 Route::get('/search-mentor','InstructorController@searchMentor');
 Route::get('/mentor/{id}/{name?}','InstructorController@creator')->name('mentor.profile');
+
+Route::view('/user-interests', 'learners.pages.user-interests');
 
 Route::view('/payment-successful','learners.pages.payment-successful');
 Route::view('/contact','learners.pages.contact')->name('contactus');

@@ -26,6 +26,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-circle-tick:before {
+  content: "\e9bb";
+}
+.icon-uparrow-send:before {
+  content: "\e9bd";
+}
 .icon-learners:before {
   content: "\e9b7";
 }

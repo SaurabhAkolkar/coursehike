@@ -257,16 +257,16 @@
               <div class="la-admin__hr-line"></div>
                <!-- PREVIEW IMAGE & VIDEO FILES: START -->
               <div class="row">
-                <div class="col-md-5">
+                  <div class="col-md-6 col-xl-5">
                       <div class="la-admin__preview">
                         <label for="" class="la-admin__preview-label">{{ __('adminstaticword.PreviewImage') }}:<sup class="redstar">*</sup></label>
                         <div class="la-admin__preview-img la-admin__course-imgvid" >
                              <div class="la-admin__preview-text">
-                                  <p class="la-admin__preview-size">Preview Image size: 250x150</p>
+                                  <p class="la-admin__preview-size">Vertical Preview Image size: 500x500</p>
                                   <p class="la-admin__preview-file text-uppercase">Choose a File</p>
                             </div>
                             <div class="text-center pr-20 mr-10">
-                              <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:160px;">
+                              <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:150px;">
                                 <span class="path1"><span class="path2"></span></span>
                               </span>
                             </div>
@@ -274,9 +274,28 @@
                             <img src="" alt="" class="d-none preview-img"/>
                         </div>
                       </div>
-                </div>
+                  </div>
 
-                <div class="col-md-2"></div>
+                  <div class="col-md-6 col-xl-7">
+                    <div class="la-admin__preview">
+                      <label for="" class="la-admin__preview-label">{{ __('adminstaticword.PreviewImage') }}:<sup class="redstar">*</sup></label>
+                      <div class="la-admin__preview-img la-admin__course-imgvid" >
+                          <div class="la-admin__preview-text">
+                                <p class="la-admin__preview-size">Horizontal Preview Image size: 1280x600</p>
+                                <p class="la-admin__preview-file text-uppercase">Choose a File</p>
+                          </div>
+                          <div class="text-center pr-20 mr-10">
+                            <span class="la-icon la-icon--8xl icon-preview-image" style="font-size:150px;">
+                              <span class="path1"><span class="path2"></span></span>
+                            </span>
+                          </div>
+                          <input type="file" class="form-control la-admin__preview-input" name="" id="" />
+                      </div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="row mt-6">  
                 <div class="col-md-5">
                       <div class="la-admin__preview">
                         <label for="" class="la-admin__preview-label"> {{ __('adminstaticword.PreviewVideo') }}:</label>

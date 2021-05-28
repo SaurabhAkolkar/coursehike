@@ -16,15 +16,15 @@
                   <h5 class="la-choose__plan-info--title">What You'll Get</h5>
                   <ul class="la-choose__plan-info--list">
                     <li class="la-choose__plan-info--item d-flex align-items-start">
-                      <span class="la-icon la-icon--md icon-tick mr-1"></span>
+                      <span class="la-icon la-icon--lg icon-circle-tick mr-1"></span>
                       <span>Get access to all the Courses</span>
                     </li>
                     <li class="la-choose__plan-info--item d-flex align-items-start">
-                      <span class="la-icon la-icon--md icon-tick mr-1"></span>
+                      <span class="la-icon la-icon--lg icon-circle-tick mr-1"></span>
                       <span>Exclusive Master Classes from best of the world</span>
                     </li>
                     <li class="la-choose__plan-info--item d-flex align-items-start">
-                      <span class="la-icon la-icon--md icon-tick mr-1"></span>
+                      <span class="la-icon la-icon--lg icon-circle-tick mr-1"></span>
                       <span>Access to 600+ videos</span>
                     </li>
                   </ul>
@@ -38,7 +38,7 @@
               </div>
 
               <div class="la-choose__oldprice-info d-flex flex-row mx-auto align-items-center justify-content-center">
-                {{--<div class="la-choose__oldprice text-sm mr-2">{{ $oldPrice }}</div> --}}
+                <div class="la-choose__oldprice text-sm mr-2">{{ $oldPrice }}</div> 
 
                 @if($saving && $saving != 0)
                   <div class="la-choose__savings-bg">

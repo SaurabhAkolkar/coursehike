@@ -1222,7 +1222,7 @@ a.dt-button {
 .la-admin__preview .la-admin__preview-video .la-admin__preview-text .la-admin__preview-size {
   font-family: var(--body-font);
   font-weight: var(--font-light);
-  font-size: var(--text-lg);
+  font-size: var(--text-md);
   color: #BCBCBC;
 }
 
