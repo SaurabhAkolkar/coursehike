@@ -133,46 +133,41 @@ $('.la-vcourse__lesson').on('click', function() {
 }); 
 
 function loadPlayer(data) {
-	$('.la-vlesson__title').text(data.title);         
+	$('.la-vlesson__title').text(data.title);
 
-	// lilaPlayer = videojs('lila-video', {
-	// 	preload: 'auto',
-	// 	errorDisplay: false
-	// });
-
-	lilaPlayer.src([
-	{
-		src: data.url,
-		type: 'application/x-mpegURL',
-		label: 'Auto',
-		selected: true,
-	},
-	{
-		src: data.url+'?clientBandwidthHint=5',
-		type: 'application/x-mpegURL',
-		label: '1080P',
-	},
-	{
-		src: data.url+'?clientBandwidthHint=3.6',
-		type: 'application/x-mpegURL',
-		label: '720P',
-	},
-	{
-		src: data.url+'?clientBandwidthHint=2.4',
-		type: 'application/x-mpegURL',
-		label: '480P',
-	},
-	{
-		src: data.url+'?clientBandwidthHint=1',
-		type: 'application/x-mpegURL',
-		label: '360P',
-	},
-	{
-		src: data.url+'?clientBandwidthHint=0.6',
-		type: 'application/x-mpegURL',
-		label: '240p',
-	},
-	]);
+	// lilaPlayer.src([
+	// {
+	// 	src: data.url,
+	// 	type: 'application/x-mpegURL',
+	// 	label: 'Auto',
+	// 	selected: true,
+	// },
+	// {
+	// 	src: data.url+'?clientBandwidthHint=5',
+	// 	type: 'application/x-mpegURL',
+	// 	label: '1080P',
+	// },
+	// {
+	// 	src: data.url+'?clientBandwidthHint=3.6',
+	// 	type: 'application/x-mpegURL',
+	// 	label: '720P',
+	// },
+	// {
+	// 	src: data.url+'?clientBandwidthHint=2.4',
+	// 	type: 'application/x-mpegURL',
+	// 	label: '480P',
+	// },
+	// {
+	// 	src: data.url+'?clientBandwidthHint=1',
+	// 	type: 'application/x-mpegURL',
+	// 	label: '360P',
+	// },
+	// {
+	// 	src: data.url+'?clientBandwidthHint=0.6',
+	// 	type: 'application/x-mpegURL',
+	// 	label: '240p',
+	// },
+	// ]);
 
 	lilaPlayer.poster(data.poster)
 
@@ -190,46 +185,30 @@ function loadPlayer(data) {
 	default_item.addClass('vjs-multilngual_default_item');
 	langMenu.addItem(default_item);
 
+
+	const default_stream_video = lang_list.filter((video_list) => {
+		return (localStorage.getItem("multilingual_choice") == video_list.lang_code);
+	});
+
+
+	if(default_stream_video.length == 1)
+		setVideoPlayerSrc(default_stream_video.stream_url);
+
 	for(let i=0; i < lang_list.length; i++){
 		var lang_item = new MenuItem(lilaPlayer,{label:lang_list[i].lang, selectable: true});
 		lang_item.addClass('vjs-multilngual_item');
-		if(i == 0)
+
+		const stream_path = lang_list[i].stream_url;
+
+		if( ( default_stream_video.length > 0 && lang_list[i].lang_code == default_stream_video[0].lang_code) || (default_stream_video.length == 0 && i == 0) ){
+			setVideoPlayerSrc(stream_path);
 			lang_item.selected(true);
+		}
+
 		lang_item.on('click',function(){
-			const stream_path = lang_list[i].stream_url;
-			lilaPlayer.src([
-				{
-					src: stream_path,
-					type: 'application/x-mpegURL',
-					label: 'Auto',
-					selected: true,
-				},
-				{
-					src: stream_path+'?clientBandwidthHint=5',
-					type: 'application/x-mpegURL',
-					label: '1080P',
-				},
-				{
-					src: stream_path+'?clientBandwidthHint=3.6',
-					type: 'application/x-mpegURL',
-					label: '720P',
-				},
-				{
-					src: stream_path+'?clientBandwidthHint=2.4',
-					type: 'application/x-mpegURL',
-					label: '480P',
-				},
-				{
-					src: stream_path+'?clientBandwidthHint=1',
-					type: 'application/x-mpegURL',
-					label: '360P',
-				},
-				{
-					src: stream_path+'?clientBandwidthHint=0.6',
-					type: 'application/x-mpegURL',
-					label: '240p',
-				},
-			]);
+
+			localStorage.setItem("multilingual_choice", lang_list[i].lang_code);
+			setVideoPlayerSrc(stream_path);
 
 			const referenceTrack = this;
 			const tracks = langMenu.children();
@@ -273,6 +252,42 @@ function loadPlayer(data) {
 			var error = this.player().error();
 			console.log('error!', error.code, error.type , error.message);
 	});
+}
+
+function setVideoPlayerSrc(stream_path) {
+	lilaPlayer.src([
+		{
+			src: stream_path,
+			type: 'application/x-mpegURL',
+			label: 'Auto',
+			selected: true,
+		},
+		{
+			src: stream_path+'?clientBandwidthHint=5',
+			type: 'application/x-mpegURL',
+			label: '1080P',
+		},
+		{
+			src: stream_path+'?clientBandwidthHint=3.6',
+			type: 'application/x-mpegURL',
+			label: '720P',
+		},
+		{
+			src: stream_path+'?clientBandwidthHint=2.4',
+			type: 'application/x-mpegURL',
+			label: '480P',
+		},
+		{
+			src: stream_path+'?clientBandwidthHint=1',
+			type: 'application/x-mpegURL',
+			label: '360P',
+		},
+		{
+			src: stream_path+'?clientBandwidthHint=0.6',
+			type: 'application/x-mpegURL',
+			label: '240p',
+		},
+	]);
 }
 
 var date = new Date();
