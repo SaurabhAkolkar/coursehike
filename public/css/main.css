@@ -20954,7 +20954,11 @@ input:-webkit-autofill:active {
 }
 @media (max-width: 767px) {
   .la-choose__box-img img {
-    height: 100vh;
+    height: calc(100vh - var(--inner-padding));
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: right;
+       object-position: right;
   }
 }
 .la-choose__box-overlay {
@@ -20981,7 +20985,8 @@ input:-webkit-autofill:active {
 }
 @media (max-width: 767px) {
   .la-choose__box-overlay {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.23);
+    padding: var(--size-8) var(--size-4) 0;
   }
 }
 .la-choose__box-tag {
@@ -20998,6 +21003,12 @@ input:-webkit-autofill:active {
   font-size: var(--text-md);
   font-weight: var(--font-light);
   color: var(--white);
+}
+@media (max-width: 767px) {
+  .la-choose__box-para {
+    font-weight: var(--font-normal);
+    font-size: var(--text-lg);
+  }
 }
 .la-choose__recommend img {
   position: absolute;
@@ -24936,8 +24947,8 @@ label.error {
 }
 @media (min-width: 1200px) {
   .la-hero__img img {
-    width: 500px;
-    height: 500px;
+    width: 550px;
+    height: 550px;
   }
 }
 
@@ -25043,7 +25054,7 @@ label.error {
 @media (min-width: 1200px) {
   .la-hero__bottom-video {
     left: -100px;
-    bottom: -20px;
+    bottom: -25px;
   }
 }
 .la-hero__bottom-video:hover .la-hero__play-triangle {

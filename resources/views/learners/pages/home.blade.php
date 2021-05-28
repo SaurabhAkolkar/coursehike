@@ -44,11 +44,11 @@
 <section class="la-section la-section--hero clearfix p-0 position-relative">
     <div class="la-section__inner la-section__small">
       <div class="container-fluid">
-        <div class="la-hero__top row">
+        <div class="la-hero__top row py-6">
           <div class="col-md-7 col-lg-6 my-auto">
             <div class="la-hero__home-info text-center text-md-left">
               <p class="la-hero__tag mb-2 mb-md-0">Courses & Classes by</p>
-              <h1 class="la-hero__title mb-5 text-capitalize">World’s Finest <span class="la-hero__subtitle">Artists</span></h1>
+              <h1 class="la-hero__title mb-5 text-capitalize">World’s Finest <br/><span class="la-hero__subtitle">Artists</span></h1>
               <p class="la-hero__lead">Master the art of professional tattoos and find your niche in the world of tattooing with LILA
                 {{--{{$firstSection->sub_heading}}--}}
               </p>
@@ -69,7 +69,7 @@
               {{--<h2 class="la-section__title la-section__title--big">
                 <span class="">{{$firstSection->image_text}}</span>
               </h2>--}}
-              <img class="img-fluid d-block mx-auto la-hero__img-bg" src="../images/learners/home/home-banner.png" alt="Home Banner" />
+              <img class="img-fluid d-block ml-auto la-hero__img-bg" src="../images/learners/home/home-banner.png" alt="Home Banner" />
               {{--<img class="img-fluid la-hero__img-bg" src="{{$firstSection->image}}" alt="{{$firstSection->image_text}}" />--}}
             </div>
           </div>

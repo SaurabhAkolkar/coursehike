@@ -46,8 +46,8 @@
     //object-position: top;
 
     @include respond-above(lg){
-        width:500px;
-        height:500px;
+        width:550px;
+        height:550px;
     }
 }
 
@@ -166,7 +166,7 @@
     }
     @include respond-above(lg){
         left:-100px;
-        bottom:-20px;
+        bottom:-25px;
     }
 
     &:hover{
