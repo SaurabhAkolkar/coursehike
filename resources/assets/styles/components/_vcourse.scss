@@ -360,7 +360,7 @@
                         &:not(:last-child){
                             border-bottom: 1px solid #9E9E9E;
                         }
-                        &:hover{
+                        &:hover:not(.vjs-selected){
                             background: #434347;
                             opacity: 1;
                         }
