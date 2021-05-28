@@ -19159,7 +19159,7 @@ input:-webkit-autofill:active {
 .la-vcourse__video .language-switcher .vjs-multilngual_item:not(:last-child) {
   border-bottom: 1px solid #9E9E9E;
 }
-.la-vcourse__video .language-switcher .vjs-multilngual_item:hover {
+.la-vcourse__video .language-switcher .vjs-multilngual_item:hover:not(.vjs-selected) {
   background: #434347;
   opacity: 1;
 }

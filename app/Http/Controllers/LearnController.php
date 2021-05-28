@@ -269,7 +269,9 @@ class LearnController extends Controller
 
                 $multilingual = $class_video->multilingual->mapWithKeys(function ($model, $i) {
                     return [$i => [ 'lang' => $model->vid_lang , 'lang_code' => $model->lang_code, 'stream_url' => $model->getSignedStreamURL()]];
-                });
+                })->toArray();
+
+                array_unshift($multilingual, [  'lang' => 'English' , 'lang_code' => 'en', 'stream_url' => $class_video->getSignedStreamURL() ]);
 
                 $response = array(
                     'status' => 'success',
