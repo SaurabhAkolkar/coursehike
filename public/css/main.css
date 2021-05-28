@@ -19132,6 +19132,46 @@ input:-webkit-autofill:active {
   right: 0;
   margin: auto;
 }
+.la-vcourse__video .language-switcher {
+  position: absolute;
+  top: 5%;
+  right: 2%;
+  width: auto;
+  height: auto;
+}
+.la-vcourse__video .language-switcher .vjs-multilngual_list {
+  position: absolute;
+  right: 0;
+  width: 137px;
+  background: #58595E;
+  box-shadow: 0px 6px 12px #00000029;
+  border-radius: 10px;
+  opacity: 0.98;
+}
+.la-vcourse__video .language-switcher .icon-change-language {
+  font-size: 5em;
+}
+.la-vcourse__video .language-switcher .vjs-multilngual_item {
+  padding: 5px;
+  text-transform: capitalize;
+  font-size: 10px;
+}
+.la-vcourse__video .language-switcher .vjs-multilngual_item:not(:last-child) {
+  border-bottom: 1px solid #9E9E9E;
+}
+.la-vcourse__video .language-switcher .vjs-multilngual_item:hover {
+  background: #434347;
+  opacity: 1;
+}
+.la-vcourse__video .language-switcher .vjs-multilngual_default_item {
+  padding: 5px;
+  text-align: left;
+  text-transform: capitalize;
+  font-size: 1.2em;
+}
+.la-vcourse__video .language-switcher .vjs-multilngual_default_item:hover {
+  background: none;
+}
 .la-vcourse__curriculam {
   border-bottom: 1px dashed var(--gray2);
   box-shadow: 0 8px 6px -6px #00000014;
