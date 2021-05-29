@@ -7,12 +7,28 @@ $.ajaxSetup({
     }
   });
 
+var currentStreamingVideo = null;
 $(function() {
 	$('#lila-video').on('mouseenter', '.language-switcher', function() {
 		$(this).find(".vjs-multilngual_list").removeClass("invisible");
 	 }).on('mouseleave', '.language-switcher', function() {
 		$(this).find(".vjs-multilngual_list").addClass("invisible");
 	 });
+
+	var $language_selector = $('input[type=radio][name=language_selector]');
+    $language_selector.filter('[value='+localStorage.getItem("multilingual_choice")+']').prop('checked', true);
+
+	$language_selector.on('change', function() {
+
+		if(!currentStreamingVideo) return;
+		const selected_lang = this.value
+		const default_stream_video = currentStreamingVideo.filter((video_list) => {
+			return (selected_lang == video_list.lang_code);
+		});
+
+		if(default_stream_video.length > 0)
+			setVideoPlayerSrc(default_stream_video[0]);
+	});
 })
 
 var video_id;
@@ -172,6 +188,7 @@ function loadPlayer(data) {
 	lilaPlayer.poster(data.poster)
 
 	var lang_list = data.multilingual;
+	currentStreamingVideo = lang_list;
 
 	const MenuButton = videojs.getComponent('MenuButton');
 	const MenuItem = videojs.getComponent('MenuItem');
@@ -190,25 +207,24 @@ function loadPlayer(data) {
 		return (localStorage.getItem("multilingual_choice") == video_list.lang_code);
 	});
 
-
 	if(default_stream_video.length == 1)
-		setVideoPlayerSrc(default_stream_video.stream_url);
+		setVideoPlayerSrc(default_stream_video[0]);
 
 	for(let i=0; i < lang_list.length; i++){
-		var lang_item = new MenuItem(lilaPlayer,{label:lang_list[i].lang, selectable: true});
+
+		const currentLangList = lang_list[i];
+		var lang_item = new MenuItem(lilaPlayer,{label:currentLangList.lang, selectable: true});
 		lang_item.addClass('vjs-multilngual_item');
 
-		const stream_path = lang_list[i].stream_url;
-
-		if( ( default_stream_video.length > 0 && lang_list[i].lang_code == default_stream_video[0].lang_code) || (default_stream_video.length == 0 && i == 0) ){
-			setVideoPlayerSrc(stream_path);
+		if( ( default_stream_video.length > 0 && currentLangList.lang_code == default_stream_video[0].lang_code) || (default_stream_video.length == 0 && i == 0) ){
+			setVideoPlayerSrc(currentLangList);
 			lang_item.selected(true);
 		}
 
 		lang_item.on('click',function(){
 
-			localStorage.setItem("multilingual_choice", lang_list[i].lang_code);
-			setVideoPlayerSrc(stream_path);
+			localStorage.setItem("multilingual_choice", currentLangList.lang_code);
+			setVideoPlayerSrc(currentLangList);
 
 			const referenceTrack = this;
 			const tracks = langMenu.children();
@@ -254,7 +270,9 @@ function loadPlayer(data) {
 	});
 }
 
-function setVideoPlayerSrc(stream_path) {
+function setVideoPlayerSrc(currentLangList) {
+	
+	const stream_path = currentLangList.stream_url;
 	lilaPlayer.src([
 		{
 			src: stream_path,

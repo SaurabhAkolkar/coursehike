@@ -545,5 +545,6 @@ return [
     'Subscriptions'=>'Subscriptions',
     'AdditionalVideos'=>'Additional Videos',
     'MultilingualVideos'=>'Multilingual Videos',
+    'MultilingualPreviewVideos'=>'Multilingual Preview Videos',
 
 ];

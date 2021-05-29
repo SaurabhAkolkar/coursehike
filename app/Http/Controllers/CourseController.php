@@ -38,6 +38,8 @@ use App\Adsense;
 use App\Assignment;
 use App\Appointment;
 use App\BBL;
+use App\CourseClassMultilingual;
+use App\CourseLanguage;
 use App\Meeting;
 use App\PublishRequest;
 use App\Currency;
@@ -399,8 +401,12 @@ class CourseController extends Controller
         $quizes = Quiz::where('course_id', '=', $id)->get();
         $topics = QuizTopic::where('course_id', '=', $id)->get();
         $appointment = Appointment::where('course_id', '=', $id)->get();
+        
+        $preview_languages = CourseLanguage::where('iso_code', '!=', 'en')->get();
+        // dd($languages);
+        $additional_videos = CourseClassMultilingual::where('course_id',$id)->where('type', 'preview')->get();
 
-        return view('admin.course.show', compact('cor', 'users','course', 'categories', 'publisRequest','courseinclude', 'whatlearns', 'coursechapters', 'coursechapter', 'check_master_class','relatedcourse', 'courseclass', 'courseresources', 'announsments', 'answers', 'reports', 'questions', 'quizes', 'topics', 'appointment'));
+        return view('admin.course.show', compact('cor', 'users','course', 'categories', 'additional_videos', 'preview_languages', 'publisRequest','courseinclude', 'whatlearns', 'coursechapters', 'coursechapter', 'check_master_class','relatedcourse', 'courseclass', 'courseresources', 'announsments', 'answers', 'reports', 'questions', 'quizes', 'topics', 'appointment'));
     }
 
 

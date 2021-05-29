@@ -227,7 +227,7 @@ class CourseclassController extends Controller
      */
     public function show($id)
     {
-        $languages = CourseLanguage::all();
+        $languages = CourseLanguage::where('iso_code', '!=', 'en')->get();
         $cate = CourseClass::find($id);
         $coursechapt = CourseChapter::where('course_id', $cate->course_id)->get();
         $subtitles = Subtitle::where('c_id', $id)->get();

@@ -132,14 +132,14 @@ $course_id = $course->id;
 
                  
                   <div class="la-vcourse__language-switcher d-flex align-items-center justify-content-between justify-content-md-start flex-wrap">
-                    <input type="radio" class="la-vcourse__language-switch" id="lang_1" name="language_selector"  checked/>
+                    <input type="radio" class="la-vcourse__language-switch" id="lang_1" name="language_selector" value="en"  checked/>
                     <label for="lang_1" class="la-vcourse__language-label">{{$course->language->name}}</label>
                     
-                    <input type="radio" class="la-vcourse__language-switch" id="lang_2" name="language_selector" />
+                    <input type="radio" class="la-vcourse__language-switch" id="lang_2" name="language_selector" value="es" />
                     <label for="lang_2" class="la-vcourse__language-label">Spanish</label>
 
-                    <input type="radio" class="la-vcourse__language-switch" id="lang_3" name="language_selector" />
-                    <label for="lang_3" class="la-vcourse__language-label">Telugu</label>
+                    <input type="radio" class="la-vcourse__language-switch" id="lang_3" name="language_selector" value="ru" />
+                    <label for="lang_3" class="la-vcourse__language-label">Russian</label>
                   </div>
                             
                 </div>
