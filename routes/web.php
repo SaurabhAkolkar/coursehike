@@ -356,6 +356,10 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::resource('announcement','AnnouncementController');
       Route::get('/course/class/search-video/','CourseclassController@searchVideo')->name('search-class-video');
       Route::get('/course/create/{id}','CourseController@showCourse')->name('course.show');
+
+      Route::post('course/class_preview/{id}/multilingual','CourseController@post_multilingual')->name('add.multilingual_preview');
+      Route::post('course/class_preview/{id}/delete/multilingual','CourseController@delete_multilingual')->name('del.multilingual_preview');
+
       Route::post('/send-course-to-publish','CourseController@sendToPublish');
       Route::post('/send-course-to-unpublish','CourseController@sendToUnpublish');
       // Route::post('/course/annoucement','CourseController@storeAnnoucement')->name('annoucement.store');
@@ -652,6 +656,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
     Route::get('/learn/course/{id}/{slug}', 'LearnController@show')->name('learn.course');
     Route::get('/learn/class/{id}/{slug}', 'LearnController@class')->name('learn.class');
     Route::post('/learn/course/{video_id}','LearnController@video')->name('learn.video');
+    Route::post('/learn/course_preview/{course_id}','LearnController@preview_video')->name('learn.preview_video');
     Route::post('/subscribed-courses/{course_id}/{class_id}/progress-logs', 'CourseProgressController@progress_log');
     Route::post('/subscribed-courses/{course_id}/{class_id}/completion', 'CourseProgressController@class_completed');
     Route::get('/watch_time', 'InstructorController@totalWatchTime');

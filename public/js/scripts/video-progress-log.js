@@ -29,6 +29,18 @@ $(function() {
 		if(default_stream_video.length > 0)
 			setVideoPlayerSrc(default_stream_video[0]);
 	});
+
+	$.ajax({
+		type: 'POST',
+		url: "/learn/course_preview/" + course_id,
+		success: function(response){
+			let data = response.data;
+			loadPlayer(data);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) { 
+			$('#locked_login').modal('show');
+		}  
+    });
 })
 
 var video_id;
@@ -151,40 +163,6 @@ $('.la-vcourse__lesson').on('click', function() {
 function loadPlayer(data) {
 	$('.la-vlesson__title').text(data.title);
 
-	// lilaPlayer.src([
-	// {
-	// 	src: data.url,
-	// 	type: 'application/x-mpegURL',
-	// 	label: 'Auto',
-	// 	selected: true,
-	// },
-	// {
-	// 	src: data.url+'?clientBandwidthHint=5',
-	// 	type: 'application/x-mpegURL',
-	// 	label: '1080P',
-	// },
-	// {
-	// 	src: data.url+'?clientBandwidthHint=3.6',
-	// 	type: 'application/x-mpegURL',
-	// 	label: '720P',
-	// },
-	// {
-	// 	src: data.url+'?clientBandwidthHint=2.4',
-	// 	type: 'application/x-mpegURL',
-	// 	label: '480P',
-	// },
-	// {
-	// 	src: data.url+'?clientBandwidthHint=1',
-	// 	type: 'application/x-mpegURL',
-	// 	label: '360P',
-	// },
-	// {
-	// 	src: data.url+'?clientBandwidthHint=0.6',
-	// 	type: 'application/x-mpegURL',
-	// 	label: '240p',
-	// },
-	// ]);
-
 	lilaPlayer.poster(data.poster)
 
 	var lang_list = data.multilingual;
@@ -217,6 +195,9 @@ function loadPlayer(data) {
 		lang_item.addClass('vjs-multilngual_item');
 
 		if( ( default_stream_video.length > 0 && currentLangList.lang_code == default_stream_video[0].lang_code) || (default_stream_video.length == 0 && i == 0) ){
+			var $language_selector = $('input[type=radio][name=language_selector]');
+    		$language_selector.filter('[value='+currentLangList.lang_code+']').prop('checked', true);
+			
 			setVideoPlayerSrc(currentLangList);
 			lang_item.selected(true);
 		}
@@ -224,6 +205,8 @@ function loadPlayer(data) {
 		lang_item.on('click',function(){
 
 			localStorage.setItem("multilingual_choice", currentLangList.lang_code);
+			var $language_selector = $('input[type=radio][name=language_selector]');
+    		$language_selector.filter('[value='+currentLangList.lang_code+']').prop('checked', true);
 			setVideoPlayerSrc(currentLangList);
 
 			const referenceTrack = this;
@@ -240,9 +223,8 @@ function loadPlayer(data) {
 		langMenu.addItem(lang_item);
 	}
 
-	if($(lilaPlayer.controlBar).find('.language-switcher').length > 0){
-		$(lilaPlayer.controlBar).find('.language-switcher').remove();
-	}
+	if($('.language-switcher').length > 0)
+		$('.language-switcher').remove();
 
 	var button = lilaPlayer.addChild('button', { text: "Lang" });
 	button.addClass("language-switcher");

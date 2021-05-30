@@ -310,12 +310,11 @@
 					<div class="box box-primary">
 					<div class="panel panel-sum">
 						<div  class="modal-body">
-						<form enctype="multipart/form-data" id="multilingual-form" method="post" action="{{ route('add.multilingual',$cor->id) }}" data-parsley-validate class="form-horizontal form-label-left">
+						<form enctype="multipart/form-data" id="multilingual-preview-form" method="post" action="{{ route('add.multilingual_preview',$cor->id) }}" data-parsley-validate class="form-horizontal form-label-left">
 							{{ csrf_field() }}
 		
 							<div id="additional_video">
-							<input type="hidden" name="course_class_id" value="{{$cor->id}}">
-							<input type="hidden" name="course_id" value="{{$cor->course_id}}">
+							<input type="hidden" name="course_id" value="{{$cor->id}}">
 							<label>{{ __('adminstaticword.MultilingualPreviewVideos') }}:</label>
 							<table class="table table-bordered" id="dynamic_field">  
 								<tr> 
@@ -396,6 +395,7 @@
 
 @section('scripts')
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/resumable.js/1.1.0/resumable.min.js"></script>
 <script>
 (function($) {
   "use strict";
@@ -554,9 +554,9 @@ $(document).on("change", ".preview_video", function(evt) {
 });
 
 
-var $fileUpload = $('#multilingual-browse');
+var $multilingualFileUpload = $('#multilingual-browse');
 
-if ($fileUpload.length > 0) {
+if ($multilingualFileUpload.length > 0) {
 
 	var resumableMultilingual = new Resumable({
 		chunkSize: 15 * 1024 * 1024, // 1MB
@@ -565,17 +565,18 @@ if ($fileUpload.length > 0) {
 		testChunks: false,
 		throttleProgressCallbacks: 1,
 		fileType: ['mov', 'mp4', 'mkv', 'm4v'],
-		target: "{{route('add.multilingual',$cor->id)}}",
+		target: "{{route('add.multilingual_preview',$cor->id)}}",
 	});
 
 	if (resumableMultilingual.support) {
-		resumableMultilingual.assignBrowse($fileUpload[0]);
+		resumableMultilingual.assignBrowse($multilingualFileUpload[0]);
 
 		resumableMultilingual.on('fileSuccess', function (file, message) {
 			resumableMultilingual.removeFile(file);
 			$(window).off("beforeunload");
 			$('.progress').addClass('d-none');
-			$("#multilingual-form").append('<div class="alert alert-success">Updated Successfully!</div>');
+			$("#multilingual-preview-form").append('<div class="alert alert-success">Updated Successfully!</div>');
+      window.location.reload();
 		});
 
 		resumableMultilingual.on('fileProgress', function (file) {
@@ -583,22 +584,20 @@ if ($fileUpload.length > 0) {
 			$('.progress-bar').html(Math.floor(file.progress() * 100) + '%');
 		});
 
-		$(document).on('submit','#multilingual-form',function(e){
+		$(document).on('submit','#multilingual-preview-form',function(e){
+      console.log('multilingual-preview-form', resumableMultilingual);
 
 			if(resumableMultilingual.files.length > 0)
 				e.preventDefault();
 
 			$('.progress').removeClass('d-none');
 
-			var serializeArray = $('#multilingual-form').serializeArray();
+			var serializeArray = $('#multilingual-preview-form').serializeArray();
 			var serializeData = {};
 
 			$.map(serializeArray, function(n, i){
 				serializeData[n['name']] = n['value'];
 			});
-
-			if($('input[name="preview_image"]')[0].files.length > 0)
-				serializeData['preview_image'] = $('input[name="preview_image"]')[0].files[0];
 
 			resumableMultilingual.opts.query = serializeData;
 

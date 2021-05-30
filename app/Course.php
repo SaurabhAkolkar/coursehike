@@ -142,6 +142,11 @@ class Course extends Model
         return $this->belongsTo('App\User','user_id','id');
     }
 
+    public function multilingual()
+    {
+      return $this->hasMany('App\CourseClassMultilingual','course_id')->where('type', 'preview');
+    }
+
     public static function scopeSearch($query, $searchTerm)
     {
         return $query->where('title', 'like', '%' .$searchTerm. '%');

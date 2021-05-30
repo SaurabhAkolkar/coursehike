@@ -43,9 +43,12 @@ use App\CourseLanguage;
 use App\Meeting;
 use App\PublishRequest;
 use App\Currency;
+use App\Events\UploadMultilingualVideoToCloudEvent;
 use App\MasterClass;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
+use Pion\Laravel\ChunkUpload\Receiver\FileReceiver;
 
 class CourseController extends Controller
 {
@@ -585,5 +588,43 @@ class CourseController extends Controller
         $enroll = Order::where('user_id', Auth::user()->id)->get();
 
         return view('front.my_course', compact('course', 'enroll'));
+    }
+    
+    public function post_multilingual(Request $request)
+    {
+
+        $multilingual = null;
+
+        $receiver = new FileReceiver("file", $request, HandlerFactory::classFromRequest($request));
+        if ($receiver->isUploaded() !== false ) {
+            $save = $receiver->receive();
+        
+            if ($save->isFinished()) {
+
+                $language = CourseLanguage::where('iso_code', $request->sub_lang)->first();
+
+                $multilingual = new CourseClassMultilingual;
+                $multilingual->course_id = $request->course_id;
+                $multilingual->vid_lang = $language->name;
+                $multilingual->lang_code = $request->sub_lang;
+                $multilingual->type = 'preview';
+                $multilingual->save();
+
+                $video_local_path = Storage::disk('local')->putFile('upload/course_preview', $save->getFile());
+                unset($request['file']);
+                UploadMultilingualVideoToCloudEvent::dispatch($video_local_path, $multilingual);
+
+                $multilingual->save();
+
+            }else{
+                $handler = $save->handler();
+                return response()->json([
+                    "done" => $handler->getPercentageDone(),
+                    'status' => true
+                ]);
+            }
+
+        }else
+            return back()->with('error','Video must be uploaded');
     }
 }

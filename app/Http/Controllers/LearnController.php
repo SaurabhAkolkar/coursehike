@@ -229,6 +229,39 @@ class LearnController extends Controller
 
     }
 
+    public function preview_video($class_id)
+    {
+        $class_video = Course::where('id', $class_id)->first();
+
+        if(count($class_video->multilingual) > 0)
+        {
+
+            $multilingual = $class_video->multilingual->mapWithKeys(function ($model, $i) {
+                return [$i => [ 'lang' => $model->vid_lang , 'lang_code' => $model->lang_code, 'stream_url' => $model->getSignedStreamURL()]];
+            })->toArray();
+
+            array_unshift($multilingual, [  'lang' => 'English' , 'lang_code' => 'en', 'stream_url' => $class_video->getSignedStreamURL() ]);
+
+            $response = array(
+                'status' => 'success',
+                'data' => [
+                    'title' => $class_video->title,
+                    'url' => $class_video->getSignedStreamURL(),
+                    'poster' => $class_video->image,
+                    'subtitles' => $class_video->subtitle,
+                    'multilingual' => $multilingual,
+                ],
+            );
+            return response()->json($response, 200);
+        }
+
+        $response = array(
+            'status' => 'failed'
+        );
+
+        return response()->json($response, 400);
+    }
+
     public function video($video_id)
     {
         $class_video = CourseClass::where('id', $video_id)->first();

@@ -112,13 +112,6 @@ $course_id = $course->id;
                   <li class="la-vcourse__videos-info mr-6 mr-lg-8 la-anim__stagger-item text-sm">
                     <span class="la--count">{{ $course->courseclass->count() }}</span>
                     <span class="la--label">Videos</span>
-                    @php
-                        $startTime = \Carbon\Carbon::parse('2020-12-05T01:18:36.862+00:30');
-                        $finishTime = \Carbon\Carbon::parse('2020-12-05T01:18:36.862+1:30');
-
-                        $totalDuration = $finishTime->diffInHours($startTime);
-
-                    @endphp
                   </li>
                   <li class="la-vcourse__duration mr-6 mr-lg-8 la-anim__stagger-item"><span class="la-text-gray4">Duration: </span>  <span class="font-normal">{{ $course->duration }} Hrs</span></li>
                   <li class="la-vcourse__updatedon mr-6 mr-lg-8 la-anim__stagger-item"><span class="la-text-gray4">Last Updated: </span>  <span class="font-normal">{{ $course->updated_at->format('d-M Y') }}</span></li>
@@ -132,14 +125,16 @@ $course_id = $course->id;
 
                  
                   <div class="la-vcourse__language-switcher d-flex align-items-center justify-content-between justify-content-md-start flex-wrap">
+                    {{-- @dd($course->multilingual) --}}
                     <input type="radio" class="la-vcourse__language-switch" id="lang_1" name="language_selector" value="en"  checked/>
-                    <label for="lang_1" class="la-vcourse__language-label">{{$course->language->name}}</label>
-                    
-                    <input type="radio" class="la-vcourse__language-switch" id="lang_2" name="language_selector" value="es" />
-                    <label for="lang_2" class="la-vcourse__language-label">Spanish</label>
+                    <label for="lang_1" class="la-vcourse__language-label">English</label>
+                    @foreach ($course->multilingual as $multilingual)
+                      <input type="radio" class="la-vcourse__language-switch" id="lang_{{$multilingual->lang_code}}" name="language_selector" value="{{$multilingual->lang_code}}" />
+                      <label for="lang_{{$multilingual->lang_code}}" class="la-vcourse__language-label">{{$multilingual->vid_lang}}</label>
+                    @endforeach
 
-                    <input type="radio" class="la-vcourse__language-switch" id="lang_3" name="language_selector" value="ru" />
-                    <label for="lang_3" class="la-vcourse__language-label">Russian</label>
+                    {{-- <input type="radio" class="la-vcourse__language-switch" id="lang_3" name="language_selector" value="ru" />
+                    <label for="lang_3" class="la-vcourse__language-label">Russian</label> --}}
                   </div>
                             
                 </div>
@@ -233,7 +228,7 @@ $course_id = $course->id;
                   data-setup="{}"
                   type="application/x-mpegURL"
                 >
-                  <source src="{{ $course->getSignedStreamURL()}}" type="application/x-mpegURL" />
+                  {{-- <source src="{{ $course->getSignedStreamURL()}}" type="application/x-mpegURL" /> --}}
                   <p class="vjs-no-js"></p>
                 </video-js>
 
