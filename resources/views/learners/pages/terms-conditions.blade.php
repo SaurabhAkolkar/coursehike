@@ -21,30 +21,34 @@
 @endsection
 
 @section('content')
-<section class="la-section__small la-cbg--main">
+<section class="la-section__small pt-0">
+        <div class="container-fluid la-anim__wrap"  style="background:var(--gray)">
+            <div class="py-10 py-md-16">
+                <h1 class="la-section-title mb-6 text-3xl text-md-5xl la-anim__fade-in-top" style="color:var(--app-indigo-1);font-weight:var(--font-bold)">Terms of Use</h1>
+                <p class="la-cr__section-para la-anim__stagger-item">These Terms of Use ("Terms") were last updated on February 25, 2021.</p>
+                <p class="la-cr__section-para la-anim__stagger-item">
+                    LILA’s mission is to improve lives through learning. We enable anyone anywhere to create
+                    and share educational courses (instructors) and to enroll in these educational courses to
+                    learn (students). We consider our marketplace model the best way to offer valuable
+                    educational content to our users. We need rules to keep our platform and services safe for
+                    you, us, and our student and instructor community. These Terms apply to all your activities
+                    on the LILA website, the LILA mobile applications, our TV applications, our APIs, and other
+                    related services (“Services”).
+                </p>
+                <p class="la-cr__section-para la-anim__stagger-item">
+                    If you publish a course on the LILA platform, you must also agree to the Instructor Terms.
+                    We also provide details regarding our processing of the personal data of our students and
+                    instructors in our Privacy Policy. If you are using LILA as part of your employer’s LILA For
+                    Business learning and development program, you can consult our LILA for Business Privacy
+                    Statement.
+                </p>
+            </div>
+        </div>
+        
         <div class="container-fluid pb-1 pb-md-20">
             <div class="row">
-                <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 px-md-0">
+                <div class="col-md-12">
                     <div class="la-cr__section la-anim__wrap">
-                        <h1 class="la-section-title mb-6 text-3xl text-md-5xl la-anim__fade-in-top" style="color:var(--app-indigo-1);font-weight:var(--font-bold)">Terms of Use</h1>
-                        <p class="la-cr__section-para la-anim__stagger-item">These Terms of Use ("Terms") were last updated on February 25, 2021.</p>
-                        <p class="la-cr__section-para la-anim__stagger-item">
-                            LILA’s mission is to improve lives through learning. We enable anyone anywhere to create
-                            and share educational courses (instructors) and to enroll in these educational courses to
-                            learn (students). We consider our marketplace model the best way to offer valuable
-                            educational content to our users. We need rules to keep our platform and services safe for
-                            you, us, and our student and instructor community. These Terms apply to all your activities
-                            on the LILA website, the LILA mobile applications, our TV applications, our APIs, and other
-                            related services (“Services”).
-                        </p>
-                        <p class="la-cr__section-para la-anim__stagger-item">
-                            If you publish a course on the LILA platform, you must also agree to the Instructor Terms.
-                            We also provide details regarding our processing of the personal data of our students and
-                            instructors in our Privacy Policy. If you are using LILA as part of your employer’s LILA For
-                            Business learning and development program, you can consult our LILA for Business Privacy
-                            Statement.
-                        </p>
-
                         <div class="la-cr__section-index pt-6">
                             <h3 class="text-xl text-2xl mb-2 body-font la-anim__stagger-item">Table of Content</h3>
                             <ol class="la-cr__section-list la-anim__stagger-item">

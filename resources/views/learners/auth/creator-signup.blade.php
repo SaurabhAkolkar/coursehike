@@ -69,7 +69,21 @@
                             <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-portfolio-link"></span></span>
                             <input class="la-form__input la-entry__input"value="" id="portfolio_links" name="portfolio_links" placeholder="Portfolio Links (if any)"><span class="la-entry__input-icon" style="right:0;cursor:pointer;border:0" onclick="addToLinks();">+</span>
                           </div>
-                <button class="btn la-btn la-btn__secondary la-anim__stagger-item--x w-100" type="submit">CONTINUE</button>
+                  
+                  <div class="form-group pt-3 mb-4 la-anim__stagger-item">
+                    <label class="d-flex justify-content-center" for="mentor_terms">
+                      <input type="checkbox" class="d-none" id="mentor_terms" name="mentor_terms">
+                      <span class="gcheck position-relative" style="opacity: 1">
+                        <div class="gcheck-icon la-icon icon-tick text-xs position-absolute"></div>
+                      </span>
+                      <div class="pl-2 mt-n1 text-sm la-entry__terms" style="color:var(--gray6);opacity:1" >
+                        I have read & agree to the 
+                        <a href="mentor-terms-conditions" class="la-entry__terms-creator" title="Read the Terms & Conditions">terms & conditions</a>
+                      </div>
+                    </label>
+                  </div>
+
+                <button class="btn  la-btn__app la-anim__stagger-item--x w-100" type="submit">CONTINUE</button>
               </form>
               @else
               <h3> Your request has been sent to Admin. Our team will contact you soon.</h3>
