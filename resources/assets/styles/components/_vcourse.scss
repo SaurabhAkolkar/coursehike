@@ -345,7 +345,7 @@
                         box-shadow: 0px 6px 12px #00000029;
                         border-radius: 10px;
                         opacity: 0.98;
-                        padding:var(--size-2) var(--size-3);
+                        // padding:var(--size-2) var(--size-3);
                     }
 
                     & .icon-change-language{
@@ -364,12 +364,19 @@
                             background: #434347;
                             opacity: 1;
                         }
+
+                        &.vjs-selected:before{
+                            font-family: "icomoon" !important;
+                            content: "\E938";
+                            margin-right: 5px;
+                        }
                     }
                     & .vjs-multilngual_default_item {
-                        padding: 5px;
+                        padding: 10px 12px;
                         text-align: left;
                         text-transform: capitalize;
                         font-size: 1.2em;
+                        border-bottom: 1px solid #fff;
 
                         &:hover{
                             background: none;
@@ -981,7 +988,9 @@
         }
     }
 }
-
+.video-js .vjs-tech{
+    object-fit: cover;
+}
 //- Fit the whidth of the course image
 .vjs-poster{
     background-size: 100% !important;

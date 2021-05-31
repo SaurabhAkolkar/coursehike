@@ -19204,7 +19204,6 @@ input:-webkit-autofill:active {
   box-shadow: 0px 6px 12px #00000029;
   border-radius: 10px;
   opacity: 0.98;
-  padding: var(--size-2) var(--size-3);
 }
 .la-vcourse__video .language-switcher .icon-change-language {
   font-size: 5em;
@@ -19221,11 +19220,17 @@ input:-webkit-autofill:active {
   background: #434347;
   opacity: 1;
 }
+.la-vcourse__video .language-switcher .vjs-multilngual_item.vjs-selected:before {
+  font-family: "icomoon" !important;
+  content: "\E938";
+  margin-right: 5px;
+}
 .la-vcourse__video .language-switcher .vjs-multilngual_default_item {
-  padding: 5px;
+  padding: 10px 12px;
   text-align: left;
   text-transform: capitalize;
   font-size: 1.2em;
+  border-bottom: 1px solid #fff;
 }
 .la-vcourse__video .language-switcher .vjs-multilngual_default_item:hover {
   background: none;
@@ -19734,6 +19739,11 @@ input:-webkit-autofill:active {
   .la-vlesson__creator {
     padding: 0 var(--size-4);
   }
+}
+
+.video-js .vjs-tech {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .vjs-poster {

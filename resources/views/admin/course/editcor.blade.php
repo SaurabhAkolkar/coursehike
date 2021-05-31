@@ -215,7 +215,7 @@
                 
                 <div class="col-md-6 col-xl-7">
                   <div class="la-admin__preview">
-                    <label for="" class="la-admin__preview-label">{{ __('adminstaticword.PreviewImage') }}:<sup class="redstar">*</sup></label>
+                    <label for="" class="la-admin__preview-label">Video Player {{ __('adminstaticword.PreviewImage') }}:<sup class="redstar">*</sup></label>
                     <div class="la-admin__preview-img la-admin__course-imgvid" >
                         <div class="la-admin__preview-text">
                               <p class="la-admin__preview-size">Horizontal Preview Image size: 1280x600</p>
@@ -226,7 +226,10 @@
                             <span class="path1"><span class="path2"></span></span>
                           </span>
                         </div>
-                        <input type="file" class="form-control la-admin__preview-input" name="" id="" />
+                        <input type="file" class="form-control la-admin__preview-input preview_img" name="video_preview_img" />
+                        @if($cor['video_preview_img'] !== NULL && $cor['video_preview_img'] !== '')
+                              <img src="{{ $cor->video_preview_img }}" class="preview-img" />
+                        @endif
                     </div>
                   </div>
               </div>

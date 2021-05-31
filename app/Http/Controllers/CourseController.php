@@ -223,6 +223,19 @@ class CourseController extends Controller
             $input['preview_image'] = $file_name;
         }
 
+        if ($file = $request->file('video_preview_img')) {
+            if ($course->video_preview_img != null) {
+                $exists = Storage::exists(config('path.course.img').$course->video_preview_img);
+                if ($exists)
+                    Storage::delete(config('path.course.img').$course->video_preview_img);
+            }
+
+            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+
+            Storage::put(config('path.course.img').$file_name, fopen($file->getRealPath(), 'r+') );
+            $input['video_preview_img'] = $file_name;
+        }
+
         if ($file = $request->file('preview_video')) {
             if ($course->preview_video != "") {
                 $exists = Storage::exists(config('path.course.preview_video').$course->preview_video);

@@ -215,7 +215,7 @@ $course_id = $course->id;
         <div id="vcourse_row" class="la-vcourse__class-row d-flex flex-wrap la-anim__wrap">
           <div class="la-vcourse__class-col la-vcourse__class-col--video  la-anim__stagger-item">
             <div class="la-player la-vcourse__video-wrap mb-3">
-
+              
                 <video-js
                   id="lila-video"
                   class="la-vcourse__video video-js"
@@ -224,8 +224,8 @@ $course_id = $course->id;
                   preload="auto"
                   width="100%"
                   height="100%"
-                  poster="{{ $course->preview_image }}"
-                  data-setup="{}"
+                  poster="{{ $course->video_preview_img }}"
+                  data-setup='{"fluid": true, "aspectRatio": "16:9"}'
                   type="application/x-mpegURL"
                 >
                   {{-- <source src="{{ $course->getSignedStreamURL()}}" type="application/x-mpegURL" /> --}}

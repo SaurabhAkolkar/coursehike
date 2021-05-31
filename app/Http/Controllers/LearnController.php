@@ -247,7 +247,7 @@ class LearnController extends Controller
                 'data' => [
                     'title' => $class_video->title,
                     'url' => $class_video->getSignedStreamURL(),
-                    'poster' => $class_video->image,
+                    'poster' => $class_video->video_preview_img,
                     'subtitles' => $class_video->subtitle,
                     'multilingual' => $multilingual,
                 ],
