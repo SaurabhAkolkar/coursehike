@@ -19243,6 +19243,9 @@ input:-webkit-autofill:active {
 .la-vcourse__video .language-switcher .vjs-multilngual_default_item:hover {
   background: none;
 }
+.la-vcourse__video .language-switcher:active > .language-switcher {
+  visibility: visible !important;
+}
 .la-vcourse__curriculam {
   border-bottom: 1px dashed var(--gray2);
   box-shadow: 0 8px 6px -6px #00000014;

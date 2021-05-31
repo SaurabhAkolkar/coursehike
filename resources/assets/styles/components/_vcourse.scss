@@ -391,6 +391,9 @@
                             background: none;
                         }
                     }
+                    &:active > .language-switcher{
+                        visibility: visible !important;
+                    }
                     
                 }
             }

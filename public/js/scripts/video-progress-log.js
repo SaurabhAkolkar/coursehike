@@ -13,6 +13,8 @@ $(function() {
 		$(this).find(".vjs-multilngual_list").removeClass("invisible");
 	 }).on('mouseleave', '.language-switcher', function() {
 		$(this).find(".vjs-multilngual_list").addClass("invisible");
+	 }).on('touchstart', '.language-switcher', function() {
+		$(this).find(".vjs-multilngual_list").toggleClass("invisible");
 	 });
 
 	var $language_selector = $('input[type=radio][name=language_selector]');
@@ -199,23 +201,11 @@ function loadPlayer(data) {
 			lang_item.selected(true);
 		}
 
+		lang_item.on('tap',function(){
+			choosingLang(currentLangList, langMenu, this);
+		})
 		lang_item.on('click',function(){
-
-			localStorage.setItem("multilingual_choice", currentLangList.lang_code);
-			var $language_selector = $('input[type=radio][name=language_selector]');
-    		$language_selector.filter('[value='+currentLangList.lang_code+']').prop('checked', true);
-			setVideoPlayerSrc(currentLangList);
-
-			const referenceTrack = this;
-			const tracks = langMenu.children();
-			for (let i = 0; i < tracks.length; i++) {
-				const track = tracks[i];
-				if (track !== referenceTrack) {
-					track.removeClass('vjs-selected')
-					track.mode = 'disabled';
-				}
-			}
-			$(".vjs-multilngual_list").addClass("invisible");
+			choosingLang(currentLangList, langMenu, this);
 		})
 		langMenu.addItem(lang_item);
 	}
@@ -247,6 +237,23 @@ function loadPlayer(data) {
 			var error = this.player().error();
 			console.log('error!', error.code, error.type , error.message);
 	});
+}
+
+function choosingLang(currentLangList, langMenu, referenceTrack) {
+	localStorage.setItem("multilingual_choice", currentLangList.lang_code);
+	var $language_selector = $('input[type=radio][name=language_selector]');
+	$language_selector.filter('[value='+currentLangList.lang_code+']').prop('checked', true);
+	setVideoPlayerSrc(currentLangList);
+
+	const tracks = langMenu.children();
+	for (let i = 0; i < tracks.length; i++) {
+		const track = tracks[i];
+		if (track !== referenceTrack) {
+			track.removeClass('vjs-selected')
+			track.mode = 'disabled';
+		}
+	}
+	$(".vjs-multilngual_list").addClass("invisible");
 }
 
 function setVideoPlayerSrc(currentLangList) {
