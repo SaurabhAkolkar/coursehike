@@ -445,7 +445,7 @@
                           <p class="la-home__watch-para">This is one of the most comprehensive tattoo courses ever designed by master artist Sunny Bhanushali. This course is full of his tried and tested techniques, they will be really useful in your tattoo process! Wondering how professional artists make photo-realistic tattoos/portrait tattoos look so easy?</p>
 
                           <div class="mt-6">
-                            <a role="button" href="https://lila.art/learn/class/98/realistic-portrait-tattoo-of-muhammad-ali" class="btn btn-primary la-btn__black"> Watch Now</a>
+                            <a role="button" href="https://lila.art/learn/class/98/realistic-portrait-tattoo-of-muhammad-ali" class="btn btn-primary la-btn__app active"> Watch Now</a>
                           </div>
                         </div>                      
                       </div>
@@ -460,7 +460,7 @@
                         <p class="la-home__watch-para">Watch how Black & Grey Realism Expert, Allan Gois, walks you through the making of this Portrait Tattoo of Marilyn Monroe. From the perfect shading techniques to finishing your tattoo without skin damage, we'll look at how experts render customised portrait tattoos to get the best outputs.</p>
 
                         <div class="mt-6">
-                          <a role="button" href="https://lila.art/learn/class/97/realistic-portrait-of-marilyn-monroe-advanced-course" class="btn btn-primary la-btn__black"> Watch Now</a>
+                          <a role="button" href="https://lila.art/learn/class/97/realistic-portrait-of-marilyn-monroe-advanced-course" class="btn btn-primary la-btn__app active"> Watch Now</a>
                         </div>
                       </div>                      
                     </div>
@@ -475,7 +475,7 @@
                       <p class="la-home__watch-para">Learn Colour Realism from the legendary artist</p>
 
                       <div class="mt-6">
-                        <a role="button" href="https://lila.art/learn/class/75/master-class-steve-butcher" class="btn btn-primary la-btn__black"> Watch Now</a>
+                        <a role="button" href="https://lila.art/learn/class/75/master-class-steve-butcher" class="btn btn-primary la-btn__app active"> Watch Now</a>
                       </div>
                     </div>                      
                   </div>
