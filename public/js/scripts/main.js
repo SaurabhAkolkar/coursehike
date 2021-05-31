@@ -353,12 +353,13 @@ $(function(){
       direction: 'vertical',
       slidersPerView: 1,
       loop:true,
-      /*autoplay: {
+      autoplay: {
         delay: 2000,
         disableOnInteraction: false,
-      },*/
+      },
     });
   }
+  
 
   // Featured Slider in Browser Courses & Browse Classes Page
   if($('.la-courses__featured-container')[0]){     
