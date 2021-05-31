@@ -556,8 +556,12 @@ $(function(){
 
     if($('#vcourse_row').hasClass('full-view')) {
       $('#vcourseFullView .la-btn__text').text('Collapse the list');
+      course_video_height(true);
+
     } else {
       $('#vcourseFullView .la-btn__text').text('See the list');
+      course_video_height(false);
+      $('.la-vcourse__languages')[0].scrollIntoView();
     }
   });
 
@@ -1111,11 +1115,12 @@ function markReleaseRead(){
 // vcourse video lish dynamic height
 
 
-var course_video_height = function() {
+var course_video_height = function(skip = false) {
   var course_video = $('.la-vcourse__video-wrap').height();
-  if(course_video > 100) {
+  if(course_video > 100 && skip ==  false) {
     $('.la-vcourse__curriculam').css('height', course_video);
-  }
+  }else
+    $('.la-vcourse__curriculam').css('height', 'auto');
 }
 
 course_video_height();
