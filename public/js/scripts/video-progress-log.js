@@ -241,7 +241,7 @@ function loadPlayer(data) {
 
 	lilaPlayer.on('error', function(e) {
 		console.log(e);
-		console.log(player.error());
+		console.log(lilaPlayer.error());
 
 		e.stopImmediatePropagation();
 			var error = this.player().error();

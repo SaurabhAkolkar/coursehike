@@ -599,7 +599,9 @@ if ($multilingualFileUpload.length > 0) {
 			$(window).off("beforeunload");
 			$('.progress').addClass('d-none');
 			$("#multilingual-preview-form").append('<div class="alert alert-success">Updated Successfully!</div>');
-      window.location.reload();
+      setTimeout(function () {
+					location.reload(true);
+				}, 2000);
 		});
 
 		resumableMultilingual.on('fileProgress', function (file) {

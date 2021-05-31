@@ -534,6 +534,7 @@
 					$(window).off("beforeunload");
                     $('.progress').addClass('d-none');
 					$("#edit-form").append('<div class="alert alert-success">Updated Successfully!</div>');
+					window.location.reload();
                 });
 
                 resumable.on('fileError', function (file, message) {
@@ -596,6 +597,9 @@
 					$(window).off("beforeunload");
                     $('.progress').addClass('d-none');
 					$("#multilingual-form").append('<div class="alert alert-success">Updated Successfully!</div>');
+					setTimeout(function () {
+						location.reload(true);
+					}, 2000);
                 });
 
                 resumableMultilingual.on('fileProgress', function (file) {
