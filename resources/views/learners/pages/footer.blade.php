@@ -30,6 +30,7 @@
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/about">About Us</a></li>
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/contact">Contact Us</a></li>
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/learning-plans">Start Free Trial</a></li>
+                <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/terms-conditions" target="_blank">Terms & Conditions</a></li>
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="/cancellations-refund">Cancellations & Refund</a></li>
                 <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="https://www.alienstattooschool.com/" target="_blank">Aliens Tattoo School</a></li>
               </ul>

@@ -340,7 +340,7 @@
                     & .vjs-multilngual_list{
                         position: absolute;
                         right: 0;
-                        width: 140px;
+                        width: 150px;
                         background: #58595E;
                         box-shadow: 0px 6px 12px #00000029;
                         border-radius: 10px;
@@ -352,17 +352,26 @@
                         font-size: 5em;
                     }
 
+                    & .vjs-menu-content{
+                        border-radius: 10px !important;
+                    }
+
                     & .vjs-multilngual_item {
-                        padding: 5px;
+                        padding: var(--size-3) var(--size-3);
                         text-transform: capitalize;
-                        font-size: 10px;
+                        font-size: var(--text-xs);
 
                         &:not(:last-child){
-                            border-bottom: 1px solid #9E9E9E;
+                            border-bottom: 1px solid rgba(#9E9E9E, 0.25);
                         }
                         &:hover:not(.vjs-selected){
                             background: #434347;
                             opacity: 1;
+                        }
+                        &.vjs-selected{
+                            background:#333;
+                            color:#fff;
+                            text-align: left;
                         }
 
                         &.vjs-selected:before{
@@ -372,11 +381,11 @@
                         }
                     }
                     & .vjs-multilngual_default_item {
-                        padding: 10px 12px;
+                        padding: var(--size-3) var(--size-3);
                         text-align: left;
                         text-transform: capitalize;
                         font-size: 1.2em;
-                        border-bottom: 1px solid #fff;
+                        border-bottom: 1px solid rgba(#fff, 0.45);
 
                         &:hover{
                             background: none;

@@ -50,8 +50,8 @@
             <div class="la-hero__home-info text-center text-md-left">
               <p class="la-hero__tag mb-2 mb-md-0">Courses & Classes by</p>
               <h1 class="la-hero__title mb-5 text-capitalize">World’s Finest <br/><span class="la-hero__subtitle">Artists</span></h1>
-              <p class="la-hero__lead">Master the art of professional tattoos and find your niche in the world of tattooing with LILA
-                {{--{{$firstSection->sub_heading}}--}}
+              <p class="la-hero__lead"> {{--Master the art of professional tattoos and find your niche in the world of tattooing with LILA--}}
+               {{$firstSection->sub_heading}}
               </p>
 
               <div class="la-hero__actions d-md-flex align-items-center">
@@ -69,9 +69,9 @@
             <div class="la-hero__img position-relative d-flex align-items-center">
               {{--<h2 class="la-section__title la-section__title--big">
                 <span class="">{{$firstSection->image_text}}</span>
-              </h2>--}}
-              <img class="img-fluid d-block ml-auto la-hero__img-bg" src="../images/learners/home/home-banner.png" alt="Home Banner" />
-              {{--<img class="img-fluid la-hero__img-bg" src="{{$firstSection->image}}" alt="{{$firstSection->image_text}}" />--}}
+              </h2>
+              <img class="img-fluid d-block ml-auto la-hero__img-bg" src="../images/learners/home/home-banner.png" alt="Home Banner" />--}}
+              <img class="img-fluid d-block ml-auto la-hero__img-bg" src="{{$firstSection->image}}" alt="{{$firstSection->image_text}}" />
             </div>
           </div>
 
