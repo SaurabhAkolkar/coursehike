@@ -44,7 +44,7 @@
 <section class="la-section la-section--hero clearfix p-0 position-relative">
     <div class="la-section__inner la-section__small">
       <div class="container-fluid">
-        <div class="la-hero__top row py-lg-6">
+        <div class="la-hero__top row">
 
           <div class="col-md-7 col-lg-6 my-auto order-3 order-md-1">
             <div class="la-hero__home-info text-center text-md-left">
