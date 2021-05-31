@@ -38,7 +38,7 @@
               </div>
 
               <div class="la-choose__oldprice-info d-flex flex-row mx-auto align-items-center justify-content-center">
-                <div class="la-choose__oldprice text-sm mr-2">{{ $oldPrice }}</div> 
+                <div class="la-choose__oldprice la-choose__discount text-sm mr-2">{{ $oldPrice }}</div> 
 
                 @if($saving && $saving != 0)
                   <div class="la-choose__savings-bg">
@@ -61,10 +61,10 @@
                 @if (auth()->check() && Auth::user()->subscription())
                   <div class="btn btn-primary btn-block la-btn__white py-3 mb-3 plan-subscribe text-capitalize" data-plan={{ $slug }}>View Billing</div>
                 @else
-                  <div class="btn btn-primary  btn-block la-btn__white py-3 mb-3 plan-subscribe text-capitalize" data-plan={{ $slug }}>Try it now</div>
+                  <div class="btn btn-primary  btn-block la-btn__white py-3 mb-3 plan-subscribe text-capitalize" data-plan={{ $slug }} data-mode='try_now'>Try it for Free</div>
                 @endif
 
-                  <div class="btn btn-primary  btn-block la-btn la-btn--primary active py-3 plan-subscribe text-capitalize">Subscribe Now!</div>
+                  <div class="btn btn-primary  btn-block la-btn la-btn--primary active py-3 plan-subscribe text-capitalize" data-plan={{ $slug }} data-mode='subscribe_now'>Subscribe Now!</div>
                 {{-- <a> --}}
                 <!--<p class="text-sm pt-2">Get access to all the Courses</p> -->
                 

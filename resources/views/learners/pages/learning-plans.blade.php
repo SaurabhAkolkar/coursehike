@@ -530,14 +530,14 @@
   <script>
     var stripe = Stripe('{{ config("services.stripe.key") }}');
     $(document).ready(function() {
-      $( ".plan-subscribe" ).click(function( ) {
+      $( ".plan-subscribe" ).click(function() {
           $.ajax({
             headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             type:"POST",
             url: "/subscription-checkout",
-            data: {slug: $(this).attr('data-plan')},
+            data: {slug: $(this).attr('data-plan'), mode: $(this).attr('data-mode')},
             success:function(session){
               if(session.redirect)
                 window.location.href = '/manage-billing';

@@ -81,7 +81,7 @@ class SubscriptionController extends Controller
 			]
 		];
 
-		if(Auth::check() && !Auth::user()->subscription())
+		if(Auth::check() && !Auth::user()->subscription() && $request->mode == 'try_now')
 			$session_data['subscription_data']['trial_period_days'] = 7;
 
 		$user = Auth::user();
