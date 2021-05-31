@@ -155,7 +155,7 @@ class Course extends Model
 
     public function getSlugAttribute($value)
     {
-        if(empty($value)){
+        if(!empty($value)){
             return $value;
        }else{
            return Str::of($this->title)->slug('-');
