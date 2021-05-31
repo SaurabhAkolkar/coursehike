@@ -10,7 +10,7 @@
 
           <div class="la-choose__card-inner">
             <div class="la-choose__box">
-              <div class="la-choose__ptitle text-2xl mb-3">{{ $plan }} Plan</div>
+              <div class="la-choose__ptitle text-2xl mb-2">{{ $plan }} Plan</div>
               
               <div class="la-choose__plan-info">
                   <h5 class="la-choose__plan-info--title">What You'll Get</h5>
@@ -32,9 +32,9 @@
             </div>
 
             <div class="la-choose__btm text-center">
-              <div class="la-choose__price mt-8">
+              <div class="la-choose__price mt-6">
                   {{-- <sup class="la-choose__tag text-lg">$</sup> --}}
-                  <span class="la-choose__discount text-3xl text-md-5xl"> {{ $discount }}</span>/<small class="la-choose__billing text-sm">{{ $plan }}</small>
+                  <span class="la-choose__discount text-4xl"> {{ $discount }}</span>/<small class="la-choose__billing text-sm">{{ $plan }}</small>
               </div>
 
               <div class="la-choose__oldprice-info d-flex flex-row mx-auto align-items-center justify-content-center">
@@ -55,7 +55,7 @@
              
             
 
-              <div class="la-choose__subscribe mt-8">
+              <div class="la-choose__subscribe mt-7">
                 <p class="la-choose__subscribe-trial text-sm mb-2">Get free 7 Days trial</p>
                 {{-- <a href="/subscription/{{ $slug }}" role="button" target="_self"> --}}
                 @if (auth()->check() && Auth::user()->subscription())
@@ -64,7 +64,7 @@
                   <div class="btn btn-primary  btn-block la-btn__white py-3 mb-3 plan-subscribe text-capitalize" data-plan={{ $slug }} data-mode='try_now'>Try it for Free</div>
                 @endif
 
-                  <div class="btn btn-primary  btn-block la-btn la-btn--primary active py-3 plan-subscribe text-capitalize" data-plan={{ $slug }} data-mode='subscribe_now'>Subscribe Now!</div>
+                <div class="btn btn-primary  btn-block la-btn la-btn--primary active py-3 plan-subscribe text-capitalize" data-plan={{ $slug }} data-mode='subscribe_now'>Subscribe Now!</div>
                 {{-- <a> --}}
                 <!--<p class="text-sm pt-2">Get access to all the Courses</p> -->
                 

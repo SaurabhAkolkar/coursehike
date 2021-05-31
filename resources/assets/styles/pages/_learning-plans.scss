@@ -37,7 +37,7 @@
         margin-top:-55px;
     }
     @include respond-above(lg){
-        padding:var(--size-20) var(--size-12);
+        padding:var(--size-14) var(--size-12);
         margin-top:-75px;
     }
     @include respond-below(md){

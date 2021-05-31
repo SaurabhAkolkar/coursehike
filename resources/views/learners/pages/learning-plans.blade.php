@@ -70,7 +70,7 @@
                                 <a class="la-icon--5xl icon-back-arrow d-block d-lg-none mb-3" href="{{URL::previous()}}"></a>
                                 
                                 <div class="la-choose__box-content my-auto">
-                                  <h6 class="la-choose__box-tag mb-2">The Right Plans</h6>
+                                  <h6 class="la-choose__box-tag mb-1">The Right Plans</h6>
                                   <h5 class="la-choose__box-title mb-6">For all your Interests.</h5>
                                   <p class="la-choose__box-para mb-3">Whether you want to dabble with new art forms or hone your skills, we have got you covered!</p>
                                 </div>

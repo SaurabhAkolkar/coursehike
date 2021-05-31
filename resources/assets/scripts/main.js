@@ -129,10 +129,17 @@ $(function(){
         effect: "fade"
     });
   }
-  
+  //- Autoplay Stop on Mouse Hover
+  $('.entry-swiper-container').on('mouseover touchstart', function() {
+    this.swiper.autoplay.stop();
+  });
+  $('.entry-swiper-container').on('mouseout touchend', function() {
+    this.swiper.autoplay.start();
+  });
+
+
 
   // Swiper JS for Browse Classes in Homepage
-
   // var course_Sliders = [];
   // if($(this)[0]){
   if($('.la-home__course-container')[0]){     
@@ -178,6 +185,8 @@ $(function(){
       }
     }); 
 
+
+
   // Swiper JS for Browse Courses in Homepage
     if($('.la-home__course-container2')[0]){     
     var course_swiper2 = new Swiper(".la-home__course-container2", {
@@ -214,9 +223,10 @@ $(function(){
         $(course_slider_pagination).css("width", course_slider_pagination_width);
       }
     }); 
-    
+
   // } 
 
+  
   // Home Banner Browser Courses ONclick
   $('#home_courses_redirect').on("click", function(){
     $('.la-section--courses-inwrap').addClass('la-home__course-animate');
@@ -246,6 +256,7 @@ $(function(){
     });
   }
 
+
     /*var master_slider_pagination_first = master_slider.pagination.el;
     var master_slider_pagination_first_width = $(master_slider_pagination_first).width() + 30;
     $(master_slider_pagination_first).css("width", master_slider_pagination_first_width); */
@@ -260,13 +271,19 @@ $(function(){
   // Swiper JS for Watch Now section in Homepage
   if($('.la-home__watch-container')[0]){   
     var master_slider = new Swiper('.la-home__watch-container', {
-      slidesPerView: 'auto',
+      slidesPerView: 1,
+      /*speed: 1500,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+      },*/
       pagination: {
         el: '.la-home__watch-pagination',
         clickable: true,
       },
     });
   }
+  
 
   if($('.la-home__customize-container')[0]){   
     var swiper = new Swiper('.la-home__customize-container', {
@@ -292,6 +309,7 @@ $(function(){
       }*/
     });
   }
+  
   
 
   //Swiper Js for Artist gallery
@@ -335,12 +353,13 @@ $(function(){
       direction: 'vertical',
       slidersPerView: 1,
       loop:true,
-      /*autoplay: {
+      autoplay: {
         delay: 2000,
         disableOnInteraction: false,
-      },*/
+      },
     });
   }
+  
 
   // Featured Slider in Browser Courses & Browse Classes Page
   if($('.la-courses__featured-container')[0]){     
@@ -369,6 +388,15 @@ $(function(){
       } 
     });
   }
+
+  //- Autoplay Stop on Mouse Hover
+  $('.la-courses__featured-container').on('mouseover touchstart', function() {
+    this.swiper.autoplay.stop();
+  });
+  $('.la-courses__featured-container').on('mouseout touchend', function() {
+    this.swiper.autoplay.start();
+  });
+  
 
   // My Courses & Classes Sliders
   if($('.la-my__courses-container, .la-my__classes-container')[0]){     
@@ -415,6 +443,13 @@ $(function(){
     }
   }); 
 
+ //- Autoplay Stop on Mouse Hover
+  $('.la-my__courses-container, .la-my__classes-container').on('mouseover touchstart', function() {
+    this.swiper.autoplay.stop();
+  });
+  $('.la-my__courses-container, .la-my__classes-container').on('mouseout touchend', function() {
+    this.swiper.autoplay.start();
+  });
 
     
   //Swiper Js for Become a Creator
@@ -436,6 +471,15 @@ $(function(){
       },
     });
   }
+
+  //- Autoplay Stop on Mouse Hover
+   $('.la-mcard__container').on('mouseover touchstart', function() {
+    this.swiper.autoplay.stop();
+  });
+  $('.la-mcard__container').on('mouseout touchend', function() {
+    this.swiper.autoplay.start();
+  });
+
   
   //Swiper Js for Learning Plans
   /*if($('.la-choose__slider')[0]){
@@ -480,14 +524,21 @@ $(function(){
     });
   }
 
+  //- Autoplay Stop on Mouse Hover
+   $('.la-lcreviews__container').on('mouseover touchstart', function() {
+    this.swiper.autoplay.stop();
+  });
+  $('.la-lcreviews__container').on('mouseout touchend', function() {
+    this.swiper.autoplay.start();
+  });
   
   //- Autoplay Stop on Mouse Hover
-  $('.swiper-container').on('mouseover touchstart', function() {
+  /*$('.swiper-container').on('mouseover touchstart', function() {
     this.swiper.autoplay.stop();
   });
   $('.swiper-container').on('mouseout touchend', function() {
     this.swiper.autoplay.start();
-  });
+  });*/
 
   // Rating 
   $("#rateYo").rateYo({

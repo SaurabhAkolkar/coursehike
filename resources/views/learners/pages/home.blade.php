@@ -436,49 +436,46 @@
               <div class="swiper-container la-home__watch-container">
                 <div class="swiper-wrapper la-home__watch-wrapper">
                   
-                  <div class="swiper-slide la-home__watch-slide position-relative" style="background:url('../../images/learners/home/watch-bg.png') no-repeat center top;">   
+                  <div class="swiper-slide la-home__watch-slide position-relative" style="background:url('../../images/learners/home/watch-bg1.jpg') no-repeat center top;">   
                       <div class="la-home__watch-overlay d-flex flex-column justify-content-around align-items-start h-100">
-                        <span class="la-home__watch-artist d-none d-md-block">Artists Choice</span>
+                        <span class="la-home__watch-artist d-none d-lg-block">Artists Choice</span>
                         <div class="col-md-8 col-xl-6 la-home__watch-content my-auto d-flex flex-column justify-content-center">
-                          <h2 class="la-home__watch-title mb-3">Master the Art of Colour Realism with Steve Butcher</h2>
-                          <p class="la-home__watch-para">Steve is one of the most prominent icons of hyper-realism tattoos in the world. 
-                            His work has been featured on ESPN, CBS, CBC, USA Today, Bleacher Report, VICE, and many other reputed media outlets.
-                          </p>
+                          <span class="la-home__watch-artist--mobile d-block d-lg-none">Artists Choice</span>
+                          <h2 class="la-home__watch-title mb-3">Realistic Portrait Tattoo of Muhammad Ali</h2>
+                          <p class="la-home__watch-para">This is one of the most comprehensive tattoo courses ever designed by master artist Sunny Bhanushali. This course is full of his tried and tested techniques, they will be really useful in your tattoo process! Wondering how professional artists make photo-realistic tattoos/portrait tattoos look so easy?</p>
 
                           <div class="mt-6">
-                            <a role="button" href="" class="btn btn-primary la-btn__black"> Watch Now</a>
+                            <a role="button" href="https://lila.art/learn/class/98/realistic-portrait-tattoo-of-muhammad-ali" class="btn btn-primary la-btn__black"> Watch Now</a>
                           </div>
                         </div>                      
                       </div>
                   </div>
 
-                  <div class="swiper-slide la-home__watch-slide position-relative" style="background:url('../../images/learners/home/watch-bg.png') no-repeat center top;">   
+                  <div class="swiper-slide la-home__watch-slide position-relative" style="background:url('../../images/learners/home/watch-bg2.jpg') no-repeat center top;">   
                     <div class="la-home__watch-overlay d-flex flex-column justify-content-around align-items-start h-100">
-                      <span class="la-home__watch-artist d-none d-md-block">Artists Choice</span>
+                      <span class="la-home__watch-artist d-none d-lg-block">Artists Choice</span>
                       <div class="col-md-8 col-xl-6 la-home__watch-content my-auto d-flex flex-column justify-content-center">
-                        <h2 class="la-home__watch-title mb-3">Master the Art of Colour Realism with Steve Butcher</h2>
-                        <p class="la-home__watch-para">Steve is one of the most prominent icons of hyper-realism tattoos in the world. 
-                          His work has been featured on ESPN, CBS, CBC, USA Today, Bleacher Report, VICE, and many other reputed media outlets.
-                        </p>
+                        <span class="la-home__watch-artist--mobile d-block d-lg-none">Artists Choice</span>
+                        <h2 class="la-home__watch-title mb-3">Realistic Portrait of Marilyn Monroe - Advanced Course</h2>
+                        <p class="la-home__watch-para">Watch how Black & Grey Realism Expert, Allan Gois, walks you through the making of this Portrait Tattoo of Marilyn Monroe. From the perfect shading techniques to finishing your tattoo without skin damage, we'll look at how experts render customised portrait tattoos to get the best outputs.</p>
 
                         <div class="mt-6">
-                          <a role="button" href="" class="btn btn-primary la-btn__black"> Watch Now</a>
+                          <a role="button" href="https://lila.art/learn/class/97/realistic-portrait-of-marilyn-monroe-advanced-course" class="btn btn-primary la-btn__black"> Watch Now</a>
                         </div>
                       </div>                      
                     </div>
                 </div>
 
-                <div class="swiper-slide la-home__watch-slide position-relative" style="background:url('../../images/learners/home/watch-bg.png') no-repeat center top;">   
+                <div class="swiper-slide la-home__watch-slide position-relative" style="background:url('../../images/learners/home/watch-bg3.png') no-repeat center top;">   
                   <div class="la-home__watch-overlay d-flex flex-column justify-content-around align-items-start h-100">
-                    <span class="la-home__watch-artist d-none d-md-block">Artists Choice</span>
+                    <span class="la-home__watch-artist d-none d-lg-block">Artists Choice</span>
                     <div class="col-md-8 col-xl-6 la-home__watch-content my-auto d-flex flex-column justify-content-center">
-                      <h2 class="la-home__watch-title mb-3">Master the Art of Colour Realism with Steve Butcher</h2>
-                      <p class="la-home__watch-para">Steve is one of the most prominent icons of hyper-realism tattoos in the world. 
-                        His work has been featured on ESPN, CBS, CBC, USA Today, Bleacher Report, VICE, and many other reputed media outlets.
-                      </p>
+                      <span class="la-home__watch-artist--mobile d-block d-lg-none">Artists Choice</span>
+                      <h2 class="la-home__watch-title mb-3">Master Class: Steve Butcher</h2>
+                      <p class="la-home__watch-para">Learn Colour Realism from the legendary artist</p>
 
                       <div class="mt-6">
-                        <a role="button" href="" class="btn btn-primary la-btn__black"> Watch Now</a>
+                        <a role="button" href="https://lila.art/learn/class/75/master-class-steve-butcher" class="btn btn-primary la-btn__black"> Watch Now</a>
                       </div>
                     </div>                      
                   </div>
