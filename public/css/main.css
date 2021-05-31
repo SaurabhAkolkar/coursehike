@@ -25123,8 +25123,8 @@ label.error {
 }
 @media (min-width: 1200px) {
   .la-hero__img img {
-    width: 550px;
-    height: 550px;
+    width: 500px;
+    height: 500px;
   }
 }
 @media (max-width: 767px) {
