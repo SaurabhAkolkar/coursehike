@@ -75,7 +75,7 @@
             </div>
           </div>
 
-          <div class="col-12 order-2 order-md-3">
+          <div class="col-12 order-2 order-md-3 ">
             <div class="la-hero__bottom position-relative d-flex justify-content-between align-items-center">
               <div class="la-hero__bottom-info">
                   <a href="#home_video_popup" role="button" class="la-hero__bottom-video d-flex align-items-center" data-toggle="modal" data-target="#home_video_popup">

@@ -177,7 +177,6 @@
     padding:var(--size-4) var(--size-8) var(--size-4) calc(var(--size-20) + var(--size-5));
     border-radius: 0 50px 50px 0;
 
-  
     
     @include respond-below(lg){
         padding:var(--size-4) var(--size-8) var(--size-4) calc(var(--size-14) - 3px);
@@ -187,9 +186,18 @@
         bottom:10px;
         padding:var(--size-3) var(--size-6);
     }
+    @media(min-width:1920px){
+       border-radius: 50px 50px;
+       position: relative !important;
+       left:0 !important;
+       bottom:0 !important;
+       padding:var(--size-4) var(--size-8);
+    }
     @include respond-above(lg){
         left:-100px;
     }
+
+   
 
     &:hover{
         .la-hero__play-triangle {
