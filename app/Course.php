@@ -13,6 +13,7 @@ use App\Setting;
 use Illuminate\Support\Facades\Auth;
 use App\CourseChapter;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Str;
 
 class Course extends Model
 {
@@ -152,6 +153,15 @@ class Course extends Model
         return $query->where('title', 'like', '%' .$searchTerm. '%');
     }
 
+    public function getSlugAttribute($value)
+    {
+        if(!empty($value)){
+            return $value;
+       }else{
+           return Str::of($this->title)->slug('-');
+       }
+    }
+
     public function getPreviewImageAttribute($value)
     {
         if($value != null){
@@ -159,7 +169,6 @@ class Course extends Model
        }else{
            return asset('/images/default-images/course_default.png');
        }
-        // return Storage::url(config('path.course.img'). $value);
     }
 
     public function getVideoPreviewImgAttribute($value)
@@ -167,7 +176,7 @@ class Course extends Model
         if($value != null){
             return Storage::url(config('path.course.img'). $value);
        }else{
-           return asset('/images/default-images/course_default.png');
+           return $this->preview_image;
        }
     }
 

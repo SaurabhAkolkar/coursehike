@@ -70,8 +70,7 @@ class CourseclassController extends Controller
     }
 
     public function saveExitingVideo(Request $request){
-       
-    
+           
         $course = CourseClass::findorfail($request->video_id);
         $raw_data = DB::table('course_classes')->where('id',$request->video_id)->first();
         $image = $raw_data->image;
@@ -80,13 +79,6 @@ class CourseclassController extends Controller
         if($course){
 
             $course->position = 0;
-            $exists = Storage::exists(config('path.course.video_thumnail').$request->course_id.'/'. $image);
-            if ($exists)
-                Storage::delete(config('path.course.video_thumnail').$request->course_id.'/'. $image);
-            
-            $video_exists = Storage::exists(config('path.course.video').$request->course_id .'/'. $video);
-            if ($video_exists)
-                Storage::delete(config('path.course.video').$request->course_id .'/'. $video);
 
             $image_filename = uniqid() .'.'. pathinfo($image, PATHINFO_EXTENSION);
             Storage::copy(config('path.course.video_thumnail').$course->course_id.'/'. $image, config('path.course.video_thumnail').$request->course_id .'/'. $image_filename);
@@ -114,12 +106,22 @@ class CourseclassController extends Controller
             $course->course_id = $request->course_id;
             $course->coursechapter_id = $request->chapter_id;
             
-            $course = $course->toArray();
-            $course['video'] = $video_filename;
-            $course['image'] = $image_filename;
-            $course['stream_url'] = $stream_url;
-            
-            CourseClass::create($course);
+            $courseArray = $course->toArray();
+            $courseArray['video'] = $video_filename;
+            $courseArray['image'] = $image_filename;
+            $courseArray['stream_url'] = $stream_url;
+
+
+            $newCourse = CourseClass::create($courseArray);
+
+            foreach ($course->multilingual as $multilingual) {
+                $a = $multilingual->replicate()->fill([
+                    'class_id' => $newCourse->id
+                ]);
+                $a->save();
+            }
+
+
             return back()->with('success',' Video is Added');
         }
 
@@ -395,42 +397,27 @@ class CourseclassController extends Controller
             }
 
         }else
-            return back()->with('error','Video must be uploaded');
-        
-    //     $request->validate([
-    //             'video_upld' => 'mimes:mp4,avi,wmv',
-    //             'sub_lang' => 'required'
-    //         ]);
-
-    //    $input = [];
-    //    $input['course_class_id'] = $request->course_class_id;
-    //    $input['vid_lang'] = $language->name;
-    //    $input['lang_code'] = $request->sub_lang;
-        
-    //    if($file = $request->file('video'))
-    //    {
-    //        $file_name = basename(Storage::putFile(config('path.course.video'). $request->course_id, $file , 'private'));
-    //        $input['video_path'] = $file_name;
-
-    //        $response = Http::withHeaders([
-    //            'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
-    //            'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
-    //        ])->post('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/copy', [
-    //            'url' => Storage::temporaryUrl(config('path.course.video'). $request->course_id.'/'.$file_name, now()->addMinutes(60)),
-    //            'meta' => [
-    //                'name' => $file_name
-    //            ],
-    //            "requireSignedURLs" => true,
-    //            // "allowedorigins" => ["*.lila.com","localhost"],
-    //        ]);
-           
-    //        if($response->successful()){
-    //            $res = $response->json();
-    //            $video['stream_url'] = $res['result']['uid'];
-    //        }
-
-    //    }     
+            return back()->with('error','Video must be uploaded');  
        
+    }
+
+    public function delete_multilingual(Request $request, $id)
+    {
+    	$record = CourseClassMultilingual::findorfail($id);
+        $exists = Storage::exists(config('path.course.video'). $request->course_id .'/'. $record->video_path);
+        // if ($exists){
+        //     Storage::delete(config('path.course.video'). $request->course_id .'/'. $record->video_path);
+
+        //     if($record->stream_url){
+        //         $response = Http::withHeaders([
+        //             'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
+        //             'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
+        //         ])->delete('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/'.$record->stream_url);
+        //     }
+        // }
+        $record->delete();
+         
+    	return back()->with('deleted','Video has been deleted !');
     }
 
 
