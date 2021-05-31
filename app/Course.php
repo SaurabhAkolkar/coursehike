@@ -13,6 +13,7 @@ use App\Setting;
 use Illuminate\Support\Facades\Auth;
 use App\CourseChapter;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Str;
 
 class Course extends Model
 {
@@ -150,6 +151,15 @@ class Course extends Model
     public static function scopeSearch($query, $searchTerm)
     {
         return $query->where('title', 'like', '%' .$searchTerm. '%');
+    }
+
+    public function getSlugAttribute($value)
+    {
+        if(empty($value)){
+            return $value;
+       }else{
+           return Str::of($value)->slug('-');
+       }
     }
 
     public function getPreviewImageAttribute($value)
