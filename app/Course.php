@@ -158,7 +158,7 @@ class Course extends Model
         if(empty($value)){
             return $value;
        }else{
-           return Str::of($value)->slug('-');
+           return Str::of($this->title)->slug('-');
        }
     }
 
