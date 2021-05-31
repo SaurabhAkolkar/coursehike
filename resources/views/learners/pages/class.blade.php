@@ -267,12 +267,8 @@ $course_id = $course->id;
                         else
                           $lesson_access = 'locked';
                       }
-
-
                     @endphp
-
-
-
+                    
                     <x-class-video
                       :id="$class_video->id"
                       :title="$class_video->title"

@@ -109,11 +109,7 @@ lilaPlayer.ready(function () {
             data: JSON.stringify({currentTime: parseInt(this.currentTime())}),
             contentType: "application/json",
             dataType: 'json',
-            success: function(response){
-              let data = response.data;
-              console.log(data);
-            }
-          });
+        });
 
         $.ajax({
             type: 'POST',
@@ -121,11 +117,12 @@ lilaPlayer.ready(function () {
             data: JSON.stringify(progress_log),
             contentType: "application/json",
             dataType: 'json',
-            success: function(response){
-              let data = response.data;
-              console.log(data);
-            }
-          });
+        });
+		
+		if(!video_id){
+			$($('.la-vcourse__lesson')[0]).trigger("click");
+		}else if($('#vcourse__lesson_'+(1+parseInt(video_id))).length > 0)
+			$('#vcourse__lesson_'+(1+parseInt(video_id))).trigger("click");
   };
 
     this.on('timeupdate', updateProgress);
