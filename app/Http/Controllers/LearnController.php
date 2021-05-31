@@ -232,13 +232,15 @@ class LearnController extends Controller
     public function preview_video($class_id)
     {
         $class_video = Course::where('id', $class_id)->first();
+        $multilingual = [];
 
-        if(count($class_video->multilingual) > 0)
+        if($class_video)
         {
 
-            $multilingual = $class_video->multilingual->mapWithKeys(function ($model, $i) {
-                return [$i => [ 'lang' => $model->vid_lang , 'lang_code' => $model->lang_code, 'stream_url' => $model->getSignedStreamURL()]];
-            })->toArray();
+            if(count($class_video->multilingual) > 0)
+                $multilingual = $class_video->multilingual->mapWithKeys(function ($model, $i) {
+                    return [$i => [ 'lang' => $model->vid_lang , 'lang_code' => $model->lang_code, 'stream_url' => $model->getSignedStreamURL()]];
+                })->toArray();
 
             array_unshift($multilingual, [  'lang' => 'English' , 'lang_code' => 'en', 'stream_url' => $class_video->getSignedStreamURL() ]);
 

@@ -68,12 +68,14 @@ class CustomerSubscriptionCreatedJob implements ShouldQueue
 
             if(!$plan_subscription){
                 $user->newSubscription('main', $plan);
-            }else{
+                $plan_subscription = $user->subscription();
+            }
+            // else{
                 $plan_subscription->starts_at = Carbon::createFromTimestamp($subscription_start)->toDateTimeString(); 
                 $plan_subscription->ends_at = Carbon::createFromTimestamp($subscription_end)->toDateTimeString(); 
                 $plan_subscription->trial_ends_at = Carbon::createFromTimestamp($subscription['trial_end'])->toDateTimeString(); 
                 $plan_subscription->save();
-            }
+            // }
 
             UserSubscription::updateOrCreate(
                 ['user_id' => $user->id],

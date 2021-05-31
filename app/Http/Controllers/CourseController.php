@@ -418,8 +418,7 @@ class CourseController extends Controller
         $topics = QuizTopic::where('course_id', '=', $id)->get();
         $appointment = Appointment::where('course_id', '=', $id)->get();
         
-        $preview_languages = CourseLanguage::where('iso_code', '!=', 'en')->get();
-        // dd($languages);
+        $preview_languages = CourseLanguage::where('iso_code', '!=', 'en')->get();        
         $additional_videos = CourseClassMultilingual::where('course_id',$id)->where('type', 'preview')->get();
 
         return view('admin.course.show', compact('cor', 'users','course', 'categories', 'additional_videos', 'preview_languages', 'publisRequest','courseinclude', 'whatlearns', 'coursechapters', 'coursechapter', 'check_master_class','relatedcourse', 'courseclass', 'courseresources', 'announsments', 'answers', 'reports', 'questions', 'quizes', 'topics', 'appointment'));
