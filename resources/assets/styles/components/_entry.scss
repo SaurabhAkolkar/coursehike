@@ -99,6 +99,18 @@
                 height: 120px;
                 padding: 3px;
                 margin-bottom:10px;
+
+                &--{
+                    &dashboard{
+                        height:100px;
+                        padding:0 12px;
+
+                        @include respond-below(sm){
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+
                 &s  {
                         width: 300px;
                         height: 300px;
@@ -138,6 +150,16 @@
                         //     font-weight: var(--font-bold);
                         // } 
                      }
+
+                     &--{
+                         &dashboard{
+                            width: 440px;
+
+                            @include respond-below(sm){
+                                width:320px;
+                            }
+                         }
+                     }
                 }
                 &- {
                     &inner {
@@ -159,11 +181,30 @@
                             //opacity: 0.25;
                             //overflow: hidden;
                         }
+                        &--{
+                            &img{
+                                width:90px;
+                                height:90px;
+                                overflow: hidden;
+
+                                @include respond-below(sm){
+                                    width:100px;
+                                }
+
+                                img{
+                                    width:90px;
+
+                                    @include respond-below(sm){
+                                        width:100px;
+                                    }
+                                }
+                            }
+                        }
                         img{
                             width:100px;
                             height:90px;
                             object-fit: cover;
-                            //object-position: center;
+                            object-position: top;
                         }
                     }
                     &name {
@@ -173,6 +214,27 @@
                         //bottom: -2px;
                         //left: 0;
                         line-height:1;
+
+                        &--{
+                            &overlay{
+                                position:absolute;
+                                width:90px;
+                                height:90px;
+                                top:0;
+                                left:0;
+                                overflow: hidden;
+                                background-color: rgba(0,0,0,0.25);
+
+                                @include respond-below(sm){
+                                    width:100px;
+                                }
+                            }
+                            &title{
+                                position: absolute;
+                                bottom:-1px;
+                                left:0;
+                            }
+                        }
                     }
                     &border{
                         border:3px solid var(--green);

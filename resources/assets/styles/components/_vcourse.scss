@@ -403,10 +403,10 @@
                 border-bottom: 1px dashed var(--gray2);
                 box-shadow: 0 8px 6px -6px  #00000014;
                 overflow: auto;
-                padding:var(--size-5) 0 var(--size-5) var(--size-6);
+                //padding:var(--size-5) 0 var(--size-5) var(--size-6);
 
                 @include respond-below(md){
-                    padding-left:var(--size-4);
+                    //padding-left:var(--size-4);
                     margin-top:var(--size-10);
                 }
                 
@@ -476,18 +476,19 @@
                 --classThumbW: 32px;
                 --classThumbH: 32px;
                 position: relative;
+
                 
                 &:not(:last-child) {
-                    padding-bottom: var(--size-10);
+                    //padding-bottom: var(--size-10);
                 }
                 &:before {
                     content: '';
                     position: absolute;
                     top: 20px;
                     left: 0;
-                    width: 2px;
+                    //width: 2px;
                     height: 100%;
-                    background: var(--gray7);
+                    //background: var(--gray7);
                     z-index: 1;
                 }
                 &:first-child:before{
@@ -517,6 +518,25 @@
                 &- {
                     &header {
                         position: relative;
+                        background: #FFFFFF 0% 0% no-repeat padding-box;
+                        padding:var(--size-3) 0;
+
+                        &:after{
+                            font-family: "icomoon";
+                            content:"\e96d";
+                            position:absolute;
+                            right:12px;
+                            top:18px;
+                            font-size: var(--text-lg);
+                            transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;
+                            transform: rotate(180deg);-webkit-transform: rotate(180deg);-moz-transform: rotate(180deg)  
+                        }
+                        
+                        &.collapsed:after {
+                            transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;
+                            transform: rotate(0deg);-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);                            
+                        }
+
                         &:before {
                             content: '';
                             position: absolute;
@@ -526,12 +546,13 @@
                             left: calc((var(--size-7) - 1px) * -1);
                             width: var(--size-4);
                             height: var(--size-4);
-                            border: 2px solid var(--gray7);
-                            background: var(--white);
-                            border-radius: var(--rounded-full);
+                            //border: 2px solid var(--gray7);
+                            //background: var(--white);
+                            //border-radius: var(--rounded-full);
                             z-index: 2;
                         }
                     }
+                    
 
                     &thumb {
                         width: 40px;
@@ -550,13 +571,14 @@
                     }
                     &title{
                         color:var(--green);
-                        letter-spacing: 1.2px;
+                        //letter-spacing: 1px;
                         font-weight: var(--font-medium);
                     }
 
                     &videoscount {
                         color: var(--gray3);
                         border-left:1px solid var(--gray9);
+                        font-weight: var(--font-medium);
                     }
 
                     &row {
@@ -581,11 +603,11 @@
                                         max-height: inherit;
                                         // overflow-y: hidden;
                                         overflow-x: unset;
-                                        padding-top: 80px;
-                                        padding-left: 20px !important;
+                                        padding-top: 60px;
+                                        //padding-left: 20px !important;
 
                                         @include respond-below(md){
-                                            padding-top:20px;
+                                            padding-top:0;
                                         }
                                     }
 
@@ -679,24 +701,59 @@
                 --videoH: 84px;
                 
                 & {
+                    background: #FFFFFF 0% 0% no-repeat padding-box;
                     display: flex;
                     padding-top: var(--size-3);
                     padding-bottom: var(--size-3);
-                    padding-left: var(--size-6);
-                    padding-right: var(--size-6);
+                    padding-left: var(--size-12);
+                    padding-right: var(--size-4);
                     transition: all 0.2s ease;-webkit-transition: all 0.2s ease;-moz-transition: all 0.2s ease;
+                    cursor: pointer;
 
                     @include respond-below(sm){
                         padding-right:var(--size-base);
                         padding-top:var(--size-4);
                         padding-bottom:var(--size-4);
+                        padding-left: var(--size-10);
                     }
 
                     &.active{
-                        background-color:var(--gray);
+                        background-color:var(--app-indigo-1);
+                        color:var(--white);
+
+                        & #{$ap}- {
+                            &vcourse{
+                                &__{
+                                    &lesson{
+                                        &-{
+                                            &title, &creator{
+                                                color:var(--white);
+                                            }
+                                        }
+                                    }
+                                    &access{
+                                        &-{
+                                            &icon{
+                                                &--{
+                                                    &white{
+                                                        color:var(--app-indigo-1);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        &--{
+                                            &free{
+                                                background-color: var(--white);
+                                                color:var(--app-indigo-1);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                     &:hover {
-                        background: var(--gray);
+                        background: var(--gray11);
 
                         & #{$ap}- {
                             &vcourse {
@@ -704,7 +761,7 @@
                                     &access {
                                         &:before {
                                             opacity: 1;
-                                            transform: scale(1.6) rotate(0);-webkit-transform: scale(1.6) rotate(0);-moz-transform: scale(1.6) rotate(0);
+                                            transform: scale(1.5) rotate(0);-webkit-transform: scale(1.5) rotate(0);-moz-transform: scale(1.5) rotate(0);
                                         }
                                     }
                                 }
@@ -713,18 +770,18 @@
                     }
                     &- {
                         &left {
-                            width: 150px;
-                            border-radius: 10px;
+                            width: 120px;
+                            height:60px;
+                            border-radius: 6px;
                             overflow: hidden;
 
                             @include respond-below(sm){
-                                height:100px;
                                 margin:auto 0;
                             }
                         }
 
                         &right {
-                            width: calc(100% - 150px);
+                            width: calc(100% - 50px);
                             padding-left: 20px;
 
                             @include respond-below(sm){
@@ -786,10 +843,11 @@
 
                         &title {
                             color: var(--gray5);
+                            font-size: var(--text-sm);
                         }
 
                         &creator {
-                            font-size: var(--text-sm);
+                            font-size: var(--text-xs);
                             color: rgba($gray6, 0.5);
                         }
 
@@ -811,31 +869,34 @@
                 &- {
                     &wrap {
                         position: absolute;
-                        width: 24px;
-                        height: 24px;
+                        width: 18px;
+                        height: 18px;
                         top: 0;
                         bottom: 0;
-                        left: -11px;
+                        left: 12px;
                         margin: auto;
                         border-radius: 100px;
                         z-index: 1;
                     }
                     &icon {
                         position: absolute;
-                        top:4px;
-                        left:5px;
+                        top:4.5px;
+                        left:4px;
                         // padding-left: 2px;
                         &-- {
                             &white {
                                 color: #ffffff;
+                                font-size: var(--text-xxs);
                             }   
                             &danger {
                                 color: var(--danger);
-                                left:4.5px;
+                                left:3px;
                                 top:3px;
+                                font-size: var(--text-xs);
                             }
                             &green {
                                 color: var(--green);
+                                font-size: var(--text-xs);
                             }
                         }
                     }
@@ -850,6 +911,7 @@
                     position: absolute;
                     left: 0;
                     right: 0;
+                    top:-1px;
                     width: 100%;
                     height: 100%;
                     background: #ffffff;
@@ -866,7 +928,7 @@
                         background-color: var(--app-indigo-1);
                     }
                     &locked {
-                        border: 2px solid var(--danger);
+                        border: 1px solid var(--danger);
                         background-color: #ffffff;
 
                         &:before {

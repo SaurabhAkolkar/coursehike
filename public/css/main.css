@@ -19250,11 +19250,9 @@ input:-webkit-autofill:active {
   border-bottom: 1px dashed var(--gray2);
   box-shadow: 0 8px 6px -6px #00000014;
   overflow: auto;
-  padding: var(--size-5) 0 var(--size-5) var(--size-6);
 }
 @media (max-width: 991px) {
   .la-vcourse__curriculam {
-    padding-left: var(--size-4);
     margin-top: var(--size-10);
   }
 }
@@ -19318,17 +19316,12 @@ input:-webkit-autofill:active {
   --classThumbH: 32px;
   position: relative;
 }
-.la-vcourse__class:not(:last-child) {
-  padding-bottom: var(--size-10);
-}
 .la-vcourse__class:before {
   content: "";
   position: absolute;
   top: 20px;
   left: 0;
-  width: 2px;
   height: 100%;
-  background: var(--gray7);
   z-index: 1;
 }
 .la-vcourse__class:first-child:before {
@@ -19350,6 +19343,30 @@ input:-webkit-autofill:active {
 }
 .la-vcourse__class-header {
   position: relative;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  padding: var(--size-3) 0;
+}
+.la-vcourse__class-header:after {
+  font-family: "icomoon";
+  content: "\E96D";
+  position: absolute;
+  right: 12px;
+  top: 18px;
+  font-size: var(--text-lg);
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+}
+.la-vcourse__class-header.collapsed:after {
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
 }
 .la-vcourse__class-header:before {
   content: "";
@@ -19360,9 +19377,6 @@ input:-webkit-autofill:active {
   left: calc((var(--size-7) - 1px) * -1);
   width: var(--size-4);
   height: var(--size-4);
-  border: 2px solid var(--gray7);
-  background: var(--white);
-  border-radius: var(--rounded-full);
   z-index: 2;
 }
 .la-vcourse__class-thumb {
@@ -19383,12 +19397,12 @@ input:-webkit-autofill:active {
 }
 .la-vcourse__class-title {
   color: var(--green);
-  letter-spacing: 1.2px;
   font-weight: var(--font-medium);
 }
 .la-vcourse__class-videoscount {
   color: var(--gray3);
   border-left: 1px solid var(--gray9);
+  font-weight: var(--font-medium);
 }
 .la-vcourse__class-row.full-view .la-vcourse__class-col {
   width: 100% !important;
@@ -19409,12 +19423,11 @@ input:-webkit-autofill:active {
 .la-vcourse__class-row.full-view .la-vcourse__curriculam {
   max-height: inherit;
   overflow-x: unset;
-  padding-top: 80px;
-  padding-left: 20px !important;
+  padding-top: 60px;
 }
 @media (max-width: 991px) {
   .la-vcourse__class-row.full-view .la-vcourse__curriculam {
-    padding-top: 20px;
+    padding-top: 0;
   }
 }
 .la-vcourse__class-row.full-view .la-vcourse__lesson-content {
@@ -19492,47 +19505,61 @@ input:-webkit-autofill:active {
   --videoH: 84px;
 }
 .la-vcourse__lesson {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
   display: flex;
   padding-top: var(--size-3);
   padding-bottom: var(--size-3);
-  padding-left: var(--size-6);
-  padding-right: var(--size-6);
+  padding-left: var(--size-12);
+  padding-right: var(--size-4);
   transition: all 0.2s ease;
   -webkit-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
+  cursor: pointer;
 }
 @media (max-width: 767px) {
   .la-vcourse__lesson {
     padding-right: var(--size-base);
     padding-top: var(--size-4);
     padding-bottom: var(--size-4);
+    padding-left: var(--size-10);
   }
 }
 .la-vcourse__lesson.active {
-  background-color: var(--gray);
+  background-color: var(--app-indigo-1);
+  color: var(--white);
+}
+.la-vcourse__lesson.active .la-vcourse__lesson-title, .la-vcourse__lesson.active .la-vcourse__lesson-creator {
+  color: var(--white);
+}
+.la-vcourse__lesson.active .la-vcourse__access-icon--white {
+  color: var(--app-indigo-1);
+}
+.la-vcourse__lesson.active .la-vcourse__access--free {
+  background-color: var(--white);
+  color: var(--app-indigo-1);
 }
 .la-vcourse__lesson:hover {
-  background: var(--gray);
+  background: var(--gray11);
 }
 .la-vcourse__lesson:hover .la-vcourse__access:before {
   opacity: 1;
-  transform: scale(1.6) rotate(0);
-  -webkit-transform: scale(1.6) rotate(0);
-  -moz-transform: scale(1.6) rotate(0);
+  transform: scale(1.5) rotate(0);
+  -webkit-transform: scale(1.5) rotate(0);
+  -moz-transform: scale(1.5) rotate(0);
 }
 .la-vcourse__lesson-left {
-  width: 150px;
-  border-radius: 10px;
+  width: 120px;
+  height: 60px;
+  border-radius: 6px;
   overflow: hidden;
 }
 @media (max-width: 767px) {
   .la-vcourse__lesson-left {
-    height: 100px;
     margin: auto 0;
   }
 }
 .la-vcourse__lesson-right {
-  width: calc(100% - 150px);
+  width: calc(100% - 50px);
   padding-left: 20px;
 }
 @media (max-width: 767px) {
@@ -19586,9 +19613,10 @@ input:-webkit-autofill:active {
 }
 .la-vcourse__lesson-title {
   color: var(--gray5);
+  font-size: var(--text-sm);
 }
 .la-vcourse__lesson-creator {
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   color: rgba(1, 1, 1, 0.5);
 }
 .la-vcourse__lesson-learnt {
@@ -19602,36 +19630,40 @@ input:-webkit-autofill:active {
 }
 .la-vcourse__access-wrap {
   position: absolute;
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   top: 0;
   bottom: 0;
-  left: -11px;
+  left: 12px;
   margin: auto;
   border-radius: 100px;
   z-index: 1;
 }
 .la-vcourse__access-icon {
   position: absolute;
-  top: 4px;
-  left: 5px;
+  top: 4.5px;
+  left: 4px;
 }
 .la-vcourse__access-icon--white {
   color: #ffffff;
+  font-size: var(--text-xxs);
 }
 .la-vcourse__access-icon--danger {
   color: var(--danger);
-  left: 4.5px;
+  left: 3px;
   top: 3px;
+  font-size: var(--text-xs);
 }
 .la-vcourse__access-icon--green {
   color: var(--green);
+  font-size: var(--text-xs);
 }
 .la-vcourse__access:before {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
+  top: -1px;
   width: 100%;
   height: 100%;
   background: #ffffff;
@@ -19650,7 +19682,7 @@ input:-webkit-autofill:active {
   background-color: var(--app-indigo-1);
 }
 .la-vcourse__access--locked {
-  border: 2px solid var(--danger);
+  border: 1px solid var(--danger);
   background-color: #ffffff;
 }
 .la-vcourse__access--locked:before {
@@ -23231,6 +23263,15 @@ textarea {
   padding: 3px;
   margin-bottom: 10px;
 }
+.la-entry__interest--dashboard {
+  height: 100px;
+  padding: 0 12px;
+}
+@media (max-width: 767px) {
+  .la-entry__interest--dashboard {
+    margin-bottom: 0;
+  }
+}
 .la-entry__interests {
   width: 300px;
   height: 300px;
@@ -23260,17 +23301,64 @@ textarea {
     height: 340px;
   }
 }
+.la-entry__interests--dashboard {
+  width: 440px;
+}
+@media (max-width: 767px) {
+  .la-entry__interests--dashboard {
+    width: 320px;
+  }
+}
+.la-entry__interest-thumbnail--img {
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  .la-entry__interest-thumbnail--img {
+    width: 100px;
+  }
+}
+.la-entry__interest-thumbnail--img img {
+  width: 90px;
+}
+@media (max-width: 767px) {
+  .la-entry__interest-thumbnail--img img {
+    width: 100px;
+  }
+}
 .la-entry__interest-thumbnail img {
   width: 100px;
   height: 90px;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
 }
 .la-entry__interest-name {
   position: relative;
   font-size: var(--text-sm);
   color: var(--gray6);
   line-height: 1;
+}
+.la-entry__interest-name--overlay {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+@media (max-width: 767px) {
+  .la-entry__interest-name--overlay {
+    width: 100px;
+  }
+}
+.la-entry__interest-name--title {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
 }
 .la-entry__interest-border {
   border: 3px solid var(--green);

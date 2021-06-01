@@ -1,4 +1,4 @@
-<div class="la-vcourse__lesson position-relative" id="vcourse__lesson_{{$id}}" data-video-id="{{$id}}">
+<div class="la-vcourse__lesson w-100 position-relative" id="vcourse__lesson_{{$id}}" data-video-id="{{$id}}">
 
     <div class="la-vcourse__access-wrap">
         <div class="la-vcourse__access la-vcourse__access--{{ $access ?? '' }} d-flex align-items-center justify-content-center">

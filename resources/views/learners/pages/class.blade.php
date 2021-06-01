@@ -57,7 +57,7 @@ $course_id = $course->id;
   :playlists="$playlists"
 />
 
-<section class="la-section__small">
+  <section class="la-section__small" style="background: var(--gray)">
     <div class="la-vcourse">
       <div class="container-fluid">
         <div class="d-flex flex-wrap mb-12 la-anim__wrap">
@@ -238,52 +238,55 @@ $course_id = $course->id;
           </div>
 
           <div class="la-vcourse__class-col la-vcourse__class-col--video-list px-0 px-md-2 la-anim__stagger-item--x">
-            <div class="la-vcourse__curriculam ">
+            <div class="la-vcourse__curriculam panel-group" id="accordion" role="tablist" aria-multiselectable="true">
               @foreach($course->chapter as $class)
-              <div class="la-vcourse__class la-anim__stagger-item">
-                <div class="la-vcourse__class-header d-flex mb-7 ml-5 ">
-                  <div class="la-vcourse__class-thumb">
-                    <img class="img-fluid mx-auto lazy" src="{{$class->thumbnail}}" data-src="{{$class->thumbnail}}" alt="M" />
-                  </div>
-                  <div class="d-flex flex-column ml-3">
-                    <div class=" leading-snug ">
-                          <span class="la-vcourse__class-title text-sm text-uppercase pr-1">{{$class->chapter_name}}</span>
-                          <small class="la-vcourse__class-videoscount pl-2">{{$class->courseclass->count()}} Videos</small>
+              <div class="panel panel-default">
+                <div class="la-vcourse__class  panel-heading mb-2 la-anim__stagger-item" role="tab" id="videoHeader">
+                  <a class="la-vcourse__class-header d-flex collapsed" role="button" id="videoToggle" data-toggle="collapse" data-parent="#accordion" href="#videoCollapse" aria-expanded="true" aria-controls="videoCollapse">
+                    {{-- <div class="la-vcourse__class-thumb">
+                      <img class="img-fluid mx-auto lazy" src="{{$class->thumbnail}}" data-src="{{$class->thumbnail}}" alt="M" />
+                    </div> --}}
+                    <div class="d-flex flex-column ml-3">
+                      <div class=" leading-snug pr-3">
+                            <span class="la-vcourse__class-title text-xs text-uppercase pr-1">{{$class->chapter_name}}</span>
+                            <small class="la-vcourse__class-videoscount pl-2">{{$class->courseclass->count()}} Videos</small>
+                      </div>
+                      <div class="la-vcourse__class-title--chapter text-xs">{{$course->title}}</div>
                     </div>
-                    <div class="la-vcourse__class-title--chapter text-sm">{{$course->title}}</div>
-                  </div>
-                </div>
+                  </a>
 
-                <div class="la-vcourse__lessons">
-
-                  @foreach ($class->courseclass->sortBy('position') as $class_video)
-                    @php
-                      // $lesson_access = $class_video->is_preview == '1' ? 'free' : ($video_access ? 'free' : 'locked');
-                      if($class_video->is_preview == '1')
-                        $lesson_access = 'free';
-                      else{
-                        if($video_access == true || (is_array($class_access) && in_array($class_video->id, $class_access)) || $class_access === 1)
+                  <div class="la-vcourse__lessons collapse" id="videoCollapse" role="tabpanel" aria-labelledby="videoHeader">
+                    @foreach ($class->courseclass->sortBy('position') as $class_video)
+                      @php
+                        // $lesson_access = $class_video->is_preview == '1' ? 'free' : ($video_access ? 'free' : 'locked');
+                        if($class_video->is_preview == '1')
                           $lesson_access = 'free';
-                        else
-                          $lesson_access = 'locked';
-                      }
-                    @endphp
-                    
-                    <x-class-video
-                      :id="$class_video->id"
-                      :title="$class_video->title"
-                      :thumbnail="$class_video->image"
-                      :detail="$class_video->detail"
-                      :author="$class_video->courses->user->fullName"
-                      :watchduration="$class_video->duration"
-                      :statuspercentage="$class_video->getProgress()"
-                      :access="$lesson_access"
-                    />
-                  @endforeach
+                        else{
+                          if($video_access == true || (is_array($class_access) && in_array($class_video->id, $class_access)) || $class_access === 1)
+                            $lesson_access = 'free';
+                          else
+                            $lesson_access = 'locked';
+                        }
+                      @endphp
+                      
+                      <x-class-video
+                        :id="$class_video->id"
+                        :title="$class_video->title"
+                        :thumbnail="$class_video->image"
+                        :detail="$class_video->detail"
+                        :author="$class_video->courses->user->fullName"
+                        :watchduration="$class_video->duration"
+                        :statuspercentage="$class_video->getProgress()"
+                        :access="$lesson_access"
+                      />
+                    @endforeach
+                  </div>
+
                 </div>
-              </div>
+            </div>
               @endforeach
             </div>
+
             <div class="la-vcourse__btn-wrap text-center mt-3 la-anim__wrap">
               <div id="vcourseFullView" class="la-btn__arrow-down la-vcourse__btn d-inline-block la-anim__stagger-item">
                 <span class="icon-down-arrow la-btn__icon la-btn__icon--grey"></span>
@@ -300,10 +303,12 @@ $course_id = $course->id;
   <section class="la-section__small">
     <div class="la-section__inner">
       <div class="container-fluid">
-        <div class="la-ctabs d-none d-sm-block la-anim__wrap">
+        <div class="la-ctabs la-anim__wrap">
           <nav class="la-courses__nav la-anim__stagger-item--x">
             <ul class="nav nav-pills la-courses__nav-tabs " id="cnav-tab" role="tablist">
-              <li class="nav-item la-courses__nav-item "><a class="nav-link la-courses__nav-link active text-capitalize" id="cnav-about-tab" data-toggle="tab" href="#cnav-about" role="tab" aria-controls="cnav-about" aria-selected="true">About</a></li>
+              <li class="nav-item la-courses__nav-item "><a class="nav-link la-courses__nav-link active text-capitalize" id="cnav-chapters-tab" data-toggle="tab" href="#cnav-chapters" role="tab" aria-controls="cnav-chapters" aria-selected="true">Chapters</a></li>
+              <li class="nav-item la-courses__nav-item "><a class="nav-link la-courses__nav-link text-capitalize" id="cnav-about-tab" data-toggle="tab" href="#cnav-about" role="tab" aria-controls="cnav-about" aria-selected="true">About</a></li>
+              
               @if($video_access == true)
                 <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link text-capitalize" id="cnav-resource-tab" data-toggle="tab" href="#cnav-resource" role="tab" aria-controls="cnav-resource" aria-selected="false">Resources</a></li>
                 {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link text-capitalize" id="cnav-certificate-tab" data-toggle="tab" href="#cnav-certificate" role="tab" aria-controls="cnav-certificate" aria-selected="false">Certificate</a></li> --}}
@@ -312,7 +317,21 @@ $course_id = $course->id;
           </nav>
 
           <div class="tab-content la-courses__nav-content" id="cnav-tabContent">
-            <div class="tab-pane fade show active" id="cnav-about" role="tabpanel" aria-labelledby="cnav-about-tab">
+            <div class="tab-pane fade show active d-block d-md-none" id="cnav-chapters" role="tabpanel" aria-labelledby="cnav-chapters-tab">
+              <div class="">
+                <h1 class="la-vcourse__title leading-none la-anim__stagger-item mb-2">{{ $course->title }}</h1>
+                
+                <div class="la-vcourse__creator d-flex align-items-center la-anim__stagger-item">
+                  <div class="la-vcourse__creator-avator la-anim__fade-in-left">
+                    <img src="{{ $course->user->user_img }}" data-src="{{ $course->user->user_img }}" class="img-fluid lazy" alt="{{ $course->user->fullName }}" />
+                  </div>
+                  <div class="la-vcourse__creator-name text-capitalize la-anim__stagger-item--x">{{ $course->user->fullName }}</div>
+                </div>
+
+              </div>  
+            </div>
+
+            <div class="tab-pane fade show" id="cnav-about" role="tabpanel" aria-labelledby="cnav-about-tab">
               <div class="col-lg-11 px-0">
                 <div class="la-ctabs__about-section la-anim__wrap">
                   <div class="la-ctabs__about la-anim__stagger-item">
@@ -378,7 +397,7 @@ $course_id = $course->id;
         </div>
 
         <!-- Mobile Version: Start -->
-        <div class="la-ctabs d-block d-sm-none">
+        <div class="la-ctabs d-none">
           <div class="la-ctabs__content la-anim__wrap">
             <!-- About -->
             <div class="col-12 mb-6 px-0 ">
@@ -424,8 +443,6 @@ $course_id = $course->id;
                   <!-- <div class="col-12 mb-4 text-right la-anim__wrap"><a class="la-ctabs__download-all la-anim__stagger-item--x" href=""><span class="text-uppercase text-sm">DOWNLOAD ALL<span class="pl-1 la-icon icon-download"> </span></span></a></div> -->
               @endif
             </div>
-
-
 
             <!-- Certificate -->
             {{-- <div class="col-12 mb-4 px-0">

@@ -4,14 +4,14 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class UserInterests extends Component
+class LearnerInterest extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-
+    
     public $img;
     public $name;
     public $id;
@@ -23,6 +23,7 @@ class UserInterests extends Component
         $this->id = $id;
     }
 
+
     /**
      * Get the view / contents that represent the component.
      *
@@ -30,6 +31,6 @@ class UserInterests extends Component
      */
     public function render()
     {
-        return view('components.user-interests');
+        return view('components.learner-interest');
     }
 }
