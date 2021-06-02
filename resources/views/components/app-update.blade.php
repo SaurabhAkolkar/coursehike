@@ -7,7 +7,7 @@
         <span>{{ $desc }}</span>
         <span class="la-news__app-desc collapse" id="app_{{ $appId }}"> 
             <span>{{ $desc }} </span> <br/>
-            <a role="button" href="" class="btn btn-primary la-btn__app py-3  mt-8 mt-md-5">Explore</a>
+            {{-- <a role="button" href="" class="btn btn-primary la-btn__app py-3  mt-8 mt-md-5">Explore</a> --}}
         </span>
     </div>
     <p class="la-news__readmore collapsed text-center text-sm-right mt-3 la-anim__stagger-item" role="button" href="#app_{{ $appId }}" data-toggle="collapse" aria-expanded="true">Read More</p>

@@ -4,12 +4,12 @@
 
     <div class="la-news__meet-content la-anim__stagger-item">
         <p class="text-md"> {{ $about }} </p>
-        <a  href="" role="button" class="la-news__meet-banner ">
+        <div class="la-news__meet-banner ">
           <img class="d-block lazy" src= "{{ $img }}" data-src= "{{ $img }}" alt="{{ $title }}" />
-        </a>
+        </div>
         <p class="text-md my-3 collapse" id= "event_{{ $eventId }}" > 
           <span>{{ $desc }}</span> <br/>
-          <a role="button" href="" class="btn btn-primary la-btn__app py-3  mt-8 mt-md-5">Explore</a>
+          {{-- <a role="button" href="" class="btn btn-primary la-btn__app py-3  mt-8 mt-md-5">Explore</a> --}}
         </p>
     </div>
     <p class="la-news__readmore collapsed text-center text-sm-right mt-3 la-anim__stagger-item" role="button" href="#event_{{ $eventId }}" data-toggle="collapse" aria-expanded="true">Read More</p>
