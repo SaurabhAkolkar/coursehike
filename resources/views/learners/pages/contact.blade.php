@@ -67,7 +67,7 @@
                 </div>
                 <div class="la-contact__details d-flex align-items-center la-anim__stagger-item">
                   <span class="la-contact__details-icon la-icon--xl icon-mail-id mr-3"></span>
-                  <a  class="la-contact__details-desc" href="mailto:lila@learnitlikealiens.com">lila@learnitlikealiens.com</a>
+                  <a  class="la-contact__details-desc" href="mailto:support@lila.art">support@lila.art</a>
                 </div>
                 <div class="la-contact__smedia mt-6">
                   <a class="la-contact__smedia-link la-anim__stagger-item" href="https://www.facebook.com/learnitlikealiens" target="_blank"><span class="la-icon la-icon--6xl icon-facebook"></a>
@@ -88,7 +88,7 @@
               </div>
               <div class="la-contact__details d-flex align-items-center la-anim__stagger-item">
                 <span class="la-contact__details-icon la-icon--xl icon-mail-id mr-3"></span>
-                <a class="la-contact__details-desc text-md" href="mailto:lila@learnitlikealiens.com">lila@learnitlikealiens.com</a>
+                <a class="la-contact__details-desc text-md" href="mailto:support@lila.art">support@lila.art</a>
               </div>
               <div class="la-contact__smedia la-anim__stagger-item mt-8">
                 <a class="la-contact__smedia-link mr-1" href="https://www.facebook.com/learnitlikealiens" target="_blank"><span class="la-icon la-icon--5xl icon-facebook"></span></a>

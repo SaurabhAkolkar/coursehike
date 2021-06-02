@@ -337,7 +337,7 @@ if(Auth::check()){
           </div>
 
           <div class="d-none d-md-block position-relative la-header__menu-item">
-            <a href="mailto:lila@learnitlikealiens.com" title="lila@learnitlikealiens.com"><span class="la-icon la-icon--xl icon-mail-id"></span></a>
+            <a href="mailto:support@lila.art" title="support@lila.art"><span class="la-icon la-icon--xl icon-mail-id"></span></a>
           </div>
 
           <div class="d-none d-md-block position-relative la-header__menu-item">

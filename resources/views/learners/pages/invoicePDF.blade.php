@@ -38,8 +38,8 @@
                             </a>
                         </div>
                         <div>
-                            <a href="mailto:  lila@learnitlikealiens.com" style="color:#252525;text-decoration:none;">
-							    <span> lila@learnitlikealiens.com</span>
+                            <a href="mailto:  support@lila.art" style="color:#252525;text-decoration:none;">
+							    <span> support@lila.art</span>
                             </a>
                         </div>
                      </div>

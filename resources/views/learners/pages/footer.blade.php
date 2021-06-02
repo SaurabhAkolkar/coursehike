@@ -17,7 +17,7 @@
               </div>
               <div class="la-footer__contact">
                 <!-- <p class="la-footer__contact-address mb-2">K2, Old Sonal Industrial Est., Kanchpada, Malad Link Road, Malad West, Mumbai 400064. MH, India</p> -->
-                <a class="la-footer__contact-link" href="mailto:lila@learnitlikealiens.com"> <strong>lila@learnitlikealiens.com</strong></a>
+                <a class="la-footer__contact-link" href="mailto:support@lila.art"> <strong>support@lila.art</strong></a>
               </div>
               <ul class="la-footer__nav">
                 <!-- <li class="la-footer__nav-item"><a class="la-footer__nav-link" href="">About Us</a></li> -->
