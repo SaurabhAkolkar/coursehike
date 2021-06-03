@@ -111,6 +111,8 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
+        $user->stripe_id;
+
     // $zohoData = [];
         // $zohoData['email'] = $data['email'];
         // $zohoData['mobile'] = $data['mobile'];
