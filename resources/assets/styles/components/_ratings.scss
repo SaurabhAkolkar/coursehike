@@ -15,14 +15,14 @@
                
             }
             &wrapper{
-                padding-top:var(--size-14);
+                //padding-top:var(--size-14);
             }
             &title{
                 font-weight:var(--font-semibold);
                 color:var(--gray5);
             }
             &total{
-                color:#1EC812;
+                color:var(--app-indigo-1);
                 font-weight:var(--font-bold);
             }
             &fill{
@@ -40,9 +40,9 @@
             }
             &progress{
                 width:200px;
-                height:15px;
+                height:14px;
                 border-radius:10px;
-                margin-bottom:var(--size-2);
+                margin-bottom:var(--size-3);
 
                 @include respond-below(lg){
                     width:110px;
@@ -52,7 +52,7 @@
                 }
             }
             &progress-bar{
-                background-color:#1EC812;
+                background-color:var(--yellow);
             }
             &percent{
                 color:var(--gray5);
@@ -71,7 +71,7 @@
 
                 &-{
                     &popup{
-                        margin:var(--size-10) var(--size-20) var(--size-10) 0;
+                        margin:var(--size-12) var(--size-20) var(--size-8) 0;
 
                         @include respond-below(sm){
                             margin:var(--size-4) 0;
@@ -95,27 +95,31 @@
                         padding-bottom: 0;
                     }
                     &body{
-                        padding: var(--size-6) var(--size-8);
+                        padding: 0 var(--size-8) var(--size-8);
 
                         @include respond-below(sm){
-                            padding:var(--size-6) var(--size-4);
+                            padding:0 var(--size-6) var(--size-6);
                         }
                     }
                     &title{
-                        font-size: var(--text-lg);
+                        font-size: var(--text-sm);
                         color: var(--gray3);
                         font-weight: var(--font-medium);
-                        padding-bottom: var(--size-base);
+                       
                     }
                     &textarea{
                         padding:var(--size-2) !important;
+                        font-size: var(--text-sm) !important;
                     }
                     &btn{
                         text-transform: uppercase;
                         color: var(--app-indigo-1);
-                        letter-spacing: 2.5px;
-                        font-size: var(--text-md);
+                        letter-spacing: 1.2px;
+                        font-size: var(--text-sm);
                         font-weight: var(--font-semibold);
+                        user-select: none;
+                        -webkit-user-select: none;
+
                         &:hover{
                             color: var(--dark);
                         }

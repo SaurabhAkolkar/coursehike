@@ -152,7 +152,7 @@ $course_id = $course->id;
                       <input type="hidden" value="true" name="bundle_course" />
                       @csrf
                       <a class="la-vcourse__buy-course btn btn-primary la-btn__app text-white d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" @if(Auth::check()) onclick="$('#add_to_cart_form_1').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>Buy this Class</a><br/>
-                      <span class="text-white"  style="font-family:'Roboto','Poppins', sans-serif" >@ {{ getSymbol() }}{{$course->convertedprice}}</span>
+                      <span class="text-white"  style="font-family:'Roboto',sans-serif" >@ {{ getSymbol() }}{{$course->convertedprice}}</span>
                     </form>
                   </div>
                 @endif
@@ -427,7 +427,7 @@ $course_id = $course->id;
       <div class="container-fluid la-vcourse__purchase-inwrap ">
           <div class="row ">
               <div class="col-12 text-center position-relative la-anim__wrap">
-                  <div class="la-vcourse__purchase-content la-section--grey la-section la-anim__stagger-item  position-relative">
+                  <div class="la-vcourse__purchase-content la-section la-anim__stagger-item  position-relative">
                     <div class="la-title  la-title--purple la-vcourse__purchase-title leading-snug  mb-6 mb-md-14 la-anim__fade-in-top la-anim__A">
                         <span class="la-title--circle position-relative"></span>
                         <span class="position-relative">Learn your skills</span>
@@ -442,8 +442,8 @@ $course_id = $course->id;
                               <input type="hidden" value="true" name="bundle_course" />
 
                               @csrf
-                              <a class="la-vcourse__buy-course btn btn btn-primary la-btn__app d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" @if(auth()->check()) onclick="$('#add_to_cart_form_1').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>Buy this Class</a><br/>
-                              <span style="color:var(--gray7); font-family:'Roboto','Poppins', sans-serif">@ {{ getSymbol() }}{{$course->convertedprice}}</span>
+                              <a class="la-vcourse__buy-course btn btn btn-primary la-btn__app border-black d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" @if(auth()->check()) onclick="$('#add_to_cart_form_1').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>Buy this Class</a><br/>
+                              <span class="text-gray4" style="opacity:0.55; font-family:'Roboto',sans-serif">@ {{ getSymbol() }}{{$course->convertedprice}}</span>
                             </form>
                           </div>
                         @endif
@@ -451,7 +451,7 @@ $course_id = $course->id;
                         @if ( !auth()->check() ||  ( (auth()->check() && !Auth::User()->subscription()) || (auth()->check() && !Auth::User()->subscription()->active())  ) )
                           <div class="la-vcourse__buy-btn text-center">
                             <a class="la-vcourse__buy-course btn btn-primary la-btn__app active color-black text-white d-lg-inline-flex justify-content-end mb-2" href="/learning-plans">Subscribe for Free</a><br/>
-                            <span style="color:var(--gray7)">Access all Courses & Classes</span>
+                            <span class="text-gray4" style="opacity:0.55;">Access all Courses & Classes</span>
                           </div>
                         @endif
                     </div>
@@ -468,90 +468,100 @@ $course_id = $course->id;
     <div class="la-section__inner">
       <div class="container-fluid la-rtng__container">
         <div class="row">
-          <div class="col-lg-5">
-            <li class="la-rtng__item">
-              <div class="la-rtng__inner d-flex flex-column flex-md-row justify-content-between ">
+          <div class="col-lg-3">
+            <div class="la-rtng__item">
+              <div class="la-rtng__inner">
                 <div class=" la-anim__wrap">
-                    <h3 class="la-rtng__title text-xl text-2xl la-anim__stagger-item">Reviews &amp; Ratings</h3>
-                  <div class="la-rtng__wrapper d-flex flex-column flex-md-row justify-content-between">
-                    <div class="la-rtng__overall text-left text-md-center la-anim__stagger-item">
-                      <div class="la-rtng__total body-font text-5xl">{{$average_rating}}</div>
+                  <h3 class="la-rtng__title text-xl text-2xl mb-4 la-anim__stagger-item">Reviews &amp; Ratings</h3>
+
+                  <div class="la-rtng__wrapper la-anim__stagger-item">
+                    <div class="la-rtng__overall mb-6">
+                      <div class="la-rtng__total body-font text-3xl mb-0">{{$average_rating}}</div>
                       <div class="la-rtng__icons d-inline-flex">
                         @for($counter=1;$counter <= round($average_rating); $counter++)
-                            <div class="la-icon la-icon--xl icon-star la-rtng__fill"> </div>
+                            <div class="la-icon la-icon--lg icon-star la-rtng__fill"> </div>
                         @endfor
 
                         @for($counter=1;$counter <= 5-round($average_rating); $counter++)
-                            <div class="la-icon la-icon--xl icon-star la-rtng__unfill"> </div>
+                            <div class="la-icon la-icon--lg icon-star la-rtng__unfill"> </div>
                         @endfor
-
                       </div>
-                      <div class="la-rtng__course body-font text-sm mt-n1 px-3 px-md-0">Course Rating</div>
+                      <div class="la-rtng__course body-font text-sm">Course Rating</div>
                     </div>
-                    <div class="la-rtng__indicators la-anim__stagger-item">
+
+                    <div class="la-rtng__indicators p-0 la-anim__stagger-item">
                       <div class="la-rtng__bars d-flex flex-row jsutify-content-between">
-                        <div class="progress la-rtng__progress">
+                        <div class="la-rtng__pg-rtng text-xs">5 star</div>
+                        <div class="progress la-rtng__progress mx-3">
                           <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$five_rating_percentage}}%" aria-valuenow="{{$five_rating_percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <div class="la-rtng__pg-rtng d-inline-flex px-3">
+                        {{-- <div class="la-rtng__pg-rtng d-inline-flex px-3">
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
-                        </div>
+                        </div> --}}
                         <div class="la-rtng__percent body-font text-xs">{{$five_rating_percentage}}%</div>
                       </div>
+
                       <div class="la-rtng__bars d-flex flex-row jsutify-content-between">
-                        <div class="progress la-rtng__progress">
+                        <div class="la-rtng__pg-rtng text-xs">4 star</div>
+                        <div class="progress la-rtng__progress mx-3">
                           <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$four_rating_percentage}}%" aria-valuenow="{{$four_rating_percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <div class="la-rtng__pg-rtng d-inline-flex px-3">
+                        {{-- <div class="la-rtng__pg-rtng d-inline-flex px-3">
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
-                        </div>
+                        </div> --}}
                         <div class="la-rtng__percent body-font text-xs">{{$four_rating_percentage}}%</div>
                       </div>
+
                       <div class="la-rtng__bars d-flex flex-row jsutify-content-between">
-                        <div class="progress la-rtng__progress">
+                        <div class="la-rtng__pg-rtng text-xs">3 star</div>
+                        <div class="progress la-rtng__progress mx-3">
                           <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$three_rating_percentage}}%" aria-valuenow="{{$three_rating_percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <div class="la-rtng__pg-rtng d-inline-flex px-3">
+                        {{-- <div class="la-rtng__pg-rtng d-inline-flex px-3">
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
-                        </div>
+                        </div> --}}
                         <div class="la-rtng__percent body-font text-xs">{{$three_rating_percentage}}%</div>
                       </div>
+
                       <div class="la-rtng__bars d-flex flex-row jsutify-content-between">
-                        <div class="progress la-rtng__progress">
+                        <div class="la-rtng__pg-rtng text-xs">2 star</div>
+                        <div class="progress la-rtng__progress mx-3">
                           <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$two_rating_percentage}}%" aria-valuenow="{{$two_rating_percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <div class="la-rtng__pg-rtng d-inline-flex px-3">
+                        {{-- <div class="la-rtng__pg-rtng d-inline-flex px-3">
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
-                        </div>
+                        </div> --}}
                         <div class="la-rtng__percent body-font text-xs">{{$two_rating_percentage}}%</div>
                       </div>
+
                       <div class="la-rtng__bars d-flex flex-row jsutify-content-between">
-                        <div class="progress la-rtng__progress">
+                        <div class="la-rtng__pg-rtng text-xs mr-1">1 star</div>
+                        <div class="progress la-rtng__progress mx-3">
                           <div class="progress-bar la-rtng__progress-bar" role="progressbar" style="width:{{$one_rating_percentage}}%" aria-valuenow="{{$one_rating_percentage}}" aria-valuemin="0" aria-valuemax="100">  </div>
                         </div>
-                        <div class="la-rtng__pg-rtng d-inline-flex px-3">
+                        {{-- <div class="la-rtng__pg-rtng d-inline-flex px-3">
                           <div class="la-icon--md icon-star la-rtng__fill"></div>
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
                           <div class="la-icon--md icon-star la-rtng__unfill"></div>
-                        </div>
+                        </div> --}}
                         <div class="la-rtng__percent body-font text-xs">{{$one_rating_percentage}}%</div>
                       </div>
                     </div>
@@ -560,14 +570,14 @@ $course_id = $course->id;
 
 
               </div>
-            </li>
+            </div>
           </div>
 
-          <div class="col-lg-7">
+          <div class="col-lg-9">
             <div class="la-rtng__review-popup la-anim__wrap">
                 {{-- <div class="text-lg-right">
                   <a class="la-rtng__review text-uppercase text-nowrap la-anim__stagger-item" onclick="openReview()">Leave a Review</a>
-              </div> --}}
+                </div> --}}
                     <!-- Leave a Rating Popup: Start -->
                     <div class="modal fade la-rtng__review-modal" id="leave_rating">
                       <div class="modal-dialog la-rtng__review-dialog">
@@ -590,8 +600,8 @@ $course_id = $course->id;
                                             </div>
                                         </div>
 
-                                        <div class="la-rtng__review-btm py-8">
-                                            <h6 class="la-rtng__review-title">Review</h6>
+                                        <div class="la-rtng__review-btm py-6">
+                                            <h6 class="la-rtng__review-title mb-2">Review</h6>
                                             <textarea cols="38" rows="5" class="la-form__textarea la-rtng__review-textarea" name="review" id="review_input" placeholder="Type your Review here..."></textarea>
                                         </div>
 
@@ -605,7 +615,6 @@ $course_id = $course->id;
                     </div>
 
                     {{-- Edit Rating Modal:Starts --}}
-
                         <div class="modal fade la-rtng__review-modal" id="edit_rating">
                           <div class="modal-dialog la-rtng__review-dialog">
                               <div class="modal-content la-rtng__review-content">
@@ -630,8 +639,8 @@ $course_id = $course->id;
                                                 </div>
                                             </div>
 
-                                            <div class="la-rtng__review-btm py-8">
-                                                <h6 class="la-rtng__review-title">Review</h6>
+                                            <div class="la-rtng__review-btm py-6">
+                                                <h6 class="la-rtng__review-title mb-2">Review</h6>
                                                 <textarea cols="38" rows="5" class="la-form__textarea la-rtng__review-textarea" name="review" id="update_review_input" placeholder="Type your Review here..."></textarea>
                                             </div>
 
@@ -648,45 +657,64 @@ $course_id = $course->id;
             </div>
 
             <div class="la-mcard__slider-wrap mt-6 la-anim__wrap px-0">
-            @if(count($reviews))
+              @if(count($reviews))
               <div class="swiper-container h-100 la-lcreviews__container">
-                <div class="swiper-wrapper la-lcreviews__wrapper">
+                <div class="swiper-wrapper la-lcreviews__wrapper my-lg-20">
 
                     @foreach($reviews as $review)
 
                     <div class="swiper-slide la-lcreviews__slider la-anim__stagger-item">
                       <div class="la-lcreviews__item">
-                        <div class="la-lcreviews__wrapper ">
-                          <div class="d-flex justify-content-between align-item-start ">
-                            <div class="la-lcreviews__prfle d-inline-flex align-items-center ">
-                              <div class="la-lcreviews__prfle-img">
-                                <img class="img-fluid rounded-circle d-block lazy" src="{{ $review->user->user_img }}"  data-src="{{ $review->user->user_img }}" alt="{{$review->user->fullName}}" />
-                              </div>
-                              <div class="la-lcreviews__prfle-info ml-2 ">
-                                <div class="la-lcreviews__timestamp text-sm">
-                                              @if($review->created_at->diffInWeeks(Carbon::now())> 0)
-                                                  {{$review->created_at->diffInWeeks(Carbon::now())}} weeks ago
-                                              @elseif($review->created_at->diffInDays(Carbon::now())>0)
-                                                  {{$review->created_at->diffInDays(Carbon::now())}} days ago
-                                              @else
-                                                  Today
-                                              @endif
-                                </div>
-                                <h4 class="la-lcreviews__uname text-md text-uppercase ">{{$review->user->fullName}}</h4>
-                              </div>
+                        <div class="d-flex justify-content-between align-item-start ">
+                          <div class="la-lcreviews__prfle d-inline-flex align-items-center ">
+                            <div class="la-lcreviews__prfle-img">
+                              <img class="img-fluid rounded-circle d-block lazy" src="{{ $review->user->user_img }}"  data-src="{{ $review->user->user_img }}" alt="{{$review->user->fullName}}" />
                             </div>
-                            <div class="d-none d-md-block la-lcreviews__ratings"> @for($couter=1 ; $couter <= $review->rating; $couter++)<span class="la-icon--lg icon-star la-rtng__fill"></span>@endfor  @for($couter=1 ; $couter <= 5 - $review->rating; $couter++)<span class="la-icon--lg icon-star la-rtng__unfill"></span>@endfor</div>
+                            <div class="la-lcreviews__prfle-info ml-2 ">
+                              <div class="la-lcreviews__timestamp text-sm">
+                                @if($review->created_at->diffInWeeks(Carbon::now())> 0)
+                                  {{$review->created_at->diffInWeeks(Carbon::now())}} weeks ago
+                                @elseif($review->created_at->diffInDays(Carbon::now())>0)
+                                  {{$review->created_at->diffInDays(Carbon::now())}} days ago
+                                @else
+                                  Today
+                                @endif
+                              </div>
+                              <h4 class="la-lcreviews__uname text-sm text-capitalize ">{{$review->user->fullName}}</h4>
+                            </div>
                           </div>
+                          <div class="d-none d-md-block la-lcreviews__ratings"> @for($couter=1 ; $couter <= $review->rating; $couter++)<span class="la-icon--lg icon-star la-rtng__fill"></span>@endfor  @for($couter=1 ; $couter <= 5 - $review->rating; $couter++)<span class="la-icon--lg icon-star la-rtng__unfill"></span>@endfor</div>
+                        </div>
 
-                          <div class="la-lcreviews__content">
-                            <div class="d-block d-md-none la-lcreviews__ratings"> @for($couter=1 ; $couter <= $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__fill"></span>@endfor  @for($couter=1 ; $couter <= 5 - $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__unfill"></span>@endfor</div>
-                            <div class="la-lcreviews__comment text-sm">{{$review->review}}</div>
-                            <div class="la-lcreviews__edit-comment text-right">
-                              @if(Auth::check() && Auth::user()->id == $review->user_id)<a class="text-sm la-rtng__review-edit"  role="button" onclick="editReview({{ $review->id }}, {{ $review->course_id }}, '{{ $review->review }}', {{ $review->rating }})">Edit</a>@endif
-                            </div>
-                          </div>
+                        <div class="la-lcreviews__content">
+                          <div class="d-block d-md-none la-lcreviews__ratings"> @for($couter=1 ; $couter <= $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__fill"></span>@endfor  @for($couter=1 ; $couter <= 5 - $review->rating; $couter++)<span class="la-icon--xl icon-star la-rtng__unfill"></span>@endfor</div>
+                          <div class="la-lcreviews__comment text-sm">{{$review->review}}</div>
+                          {{-- <div class="la-lcreviews__edit-comment text-right">
+                            @if(Auth::check() && Auth::user()->id == $review->user_id)<a class="text-sm la-rtng__review-edit"  role="button" onclick="editReview({{ $review->id }}, {{ $review->course_id }}, '{{ $review->review }}', {{ $review->rating }})">Edit</a>@endif
+                          </div> --}}
                         </div>
                       </div>
+
+                      <div class="d-flex justify-content-between align-items-center mx-2 mt-1">
+                        <div class="d-flex align-items-center">
+                          <a class="la-lcreviews__comment-reply" role="button">Reply</a>
+                          <div class="la-lcreviews__comment-count ml-2 pl-3">4 Comments</div>
+                        </div>
+  
+                        <div class="d-flex align-items-center">
+                          @if(Auth::check() && Auth::user()->id == $review->user_id)
+                          <a class="la-lcreviews__comment-edit" role="button" onclick="editReview({{ $review->id }}, {{ $review->course_id }}, '{{ $review->review }}', {{ $review->rating }})">
+                            {{-- <span class="la-icon icon-edit la-creviews__comment-edit--icon"></span> --}}
+                            Edit
+                          </a>
+                          @endif
+
+                          <a class="la-lcreviews__comment-delete ml-3" role="button">Delete
+                            {{-- <span class="la-icon icon-delete la-creviews__comment-delete--icon"></span> --}}
+                          </a>
+                        </div>
+                      </div>
+                 
                     </div>
 
                     @endforeach

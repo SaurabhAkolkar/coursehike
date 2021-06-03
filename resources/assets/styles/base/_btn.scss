@@ -287,7 +287,7 @@
 
                 &:hover, &:focus {
                     background:var(--app-indigo-1) !important;
-                    color:#ffffff;
+                    color:var(--white);
                     border-radius: 10px;
                 }
 
@@ -301,6 +301,16 @@
                         &.color-black{
                             color:var(--gray6) !important;
                         }
+                    }
+                }
+
+                &.border-black{
+                    color:var(--gray10);
+                    border: 2px solid rgba(#252525, 0.55) !important;
+
+                    &:hover{
+                        border:2px solid var(--app-indigo-1) !important;
+                        color:var(--white);
                     }
                 }
 

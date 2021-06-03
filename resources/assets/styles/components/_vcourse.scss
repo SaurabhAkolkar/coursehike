@@ -53,8 +53,7 @@
                 color: var(--gray5);
             }
             &creator {
-               
-                &- {
+                &-{
                     &avator {
                         width: var(--size-14);
                         height: var(--size-14);
@@ -73,8 +72,6 @@
                             object-fit: cover;
                             background-color: var(--gray);
                         }
-
-                       
                     }
                     &group{
                         &:hover{
@@ -133,14 +130,14 @@
                         }
                     }
                     &name {
-                        margin-left: var(--size-4);
-                        font-size: var(--text-xl);
-                        color: var(--gray5);
+                        //margin-left: var(--size-4);
+                        font-size: var(--text-md);
+                        color: var(--gray7);
+                        font-weight: var(--font-semibold);
 
                         @include respond-below(sm){
-                            font-size:var(--text-lg);
+                            //font-size:var(--text-lg);
                         }
-
                     }
                 }
             }
@@ -185,7 +182,7 @@
                 }
             }
             &info {
-                &- {
+                &-{
                     &item {
                         & #{$ap}-- {
                             &count {
@@ -215,7 +212,7 @@
             }
 
             &video {
-                &- {
+                &-{
                     &progress {
                         bottom: 0;
                     }
@@ -308,7 +305,6 @@
                     }
                 }
             }
-            
 
             &video {
                 width: 100%;
@@ -350,6 +346,10 @@
 
                     & .icon-change-language{
                         font-size: 5em;
+
+                        @include respond-below(sm){
+                            font-size: 3em;
+                        }
                     }
 
                     & .vjs-menu-content{
@@ -385,7 +385,7 @@
                         text-align: left;
                         text-transform: capitalize;
                         font-size: 1.2em;
-                        border-bottom: 1px solid rgba(#fff, 0.45);
+                        border-bottom: 1px solid rgba(#fff, 0.25);
 
                         &:hover{
                             background: none;
@@ -428,7 +428,9 @@
                         & #{$ap} {
                             &--{
                                 &count {
-                                    color:var(--green);
+                                    //color:var(--green);
+                                    color:var(--gray3);
+                                    font-weight: var(--font-semibold);
                                 }
                                 &label {
                                     color: var(--gray4);
@@ -448,7 +450,7 @@
                 }
             }
 
-            &btn {
+            &btn{
                 cursor: pointer;
                 &-{
                     &collapse{
@@ -570,15 +572,21 @@
                         }
                     }
                     &title{
-                        color:var(--green);
+                        color:var(--gray3);
                         //letter-spacing: 1px;
-                        font-weight: var(--font-medium);
+                        font-weight: var(--font-semibold);
+
+                        &--{
+                            &chapter{
+                                color:var(--gray7);
+                            }
+                        }
                     }
 
                     &videoscount {
                         color: var(--gray3);
                         border-left:1px solid var(--gray9);
-                        font-weight: var(--font-medium);
+                        font-weight: var(--font-semibold);
                     }
 
                     &row {
@@ -761,7 +769,7 @@
                                     &access {
                                         &:before {
                                             opacity: 1;
-                                            transform: scale(1.5) rotate(0);-webkit-transform: scale(1.5) rotate(0);-moz-transform: scale(1.5) rotate(0);
+                                            transform: scale(1.6) rotate(0);-webkit-transform: scale(1.6) rotate(0);-moz-transform: scale(1.6) rotate(0);
                                         }
                                     }
                                 }
@@ -864,9 +872,8 @@
                 }
             }
 
-            &access {
-
-                &- {
+            &access{
+                &-{
                     &wrap {
                         position: absolute;
                         width: 18px;
@@ -909,9 +916,9 @@
                 &:before {
                     content: "";
                     position: absolute;
-                    left: 0;
+                    left: -0.35px;
                     right: 0;
-                    top:-1px;
+                    top:-0.4px;
                     width: 100%;
                     height: 100%;
                     background: #ffffff;
@@ -941,6 +948,28 @@
 
                         & #{$ap}-vcourse__access-icon {
                             font-size: calc(var(--text-xs) - 1px);
+                        }
+                    }
+                }
+            }
+
+            &nav{
+                &-{
+                    &link{
+                        font-size: var(--text-lg) !important;
+                        padding:var(--size-2) var(--size-8);
+
+                        &:before{
+                            display: none;
+                        }
+
+                        &.active{
+                            border-bottom:3px solid var(--app-indigo-1);
+                            color:var(--app-indigo-1) !important;
+                        }
+
+                        &:first-child{
+                            margin:0 !important;
                         }
                     }
                 }
@@ -1030,6 +1059,7 @@
                         //border-radius:10px;
                         //padding:var(--size-8) var(--size-6);
                         //box-shadow: 0px 0px 30px #d4d4d47a;
+                        background: #FBFBF9 0% 0% no-repeat padding-box;
                         border-radius: 10px;
                         
                         @include respond-above(md){
