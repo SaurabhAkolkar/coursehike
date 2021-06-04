@@ -39,7 +39,7 @@ $(function(){
 
 
   // Home Video On scroll Pause/Play: Start
-  /*$(window).on("scroll",function(){
+  $(window).on("scroll",function(){
     var video = $('#home_video')[0];
     if($(window).scrollTop() >= 600){      
        $('#home_video').trigger('pause');
@@ -53,13 +53,13 @@ $(function(){
      {
        $('#home_video').trigger('play');
      }
-  });*/
+  });
   // Home Video On scroll Pause/Play: End
 
   //- Pause Video on Modal Popup closed
-  $('#home_video_popup').on('hidden.bs.modal', function (e) {
+  /*$('#home_video_popup').on('hidden.bs.modal', function (e) {
     $(this).find('video')[0].pause();
-  });
+  });*/
 
   // Global Alert Animation for Learners: Start
   window.setTimeout(function() {
@@ -366,6 +366,8 @@ $(function(){
     var course_swiper = new Swiper(".la-courses__featured-container", {
       slidesPerView: 'auto',
       spaceBetween: 30,
+      slidesPerColumn: 1,
+      slidesPerGroup:4,
       flipEffect: {
         slideShadows: false,
       },
@@ -380,10 +382,12 @@ $(function(){
       },
       breakpoints: {  
         320: {            
-          spaceBetween:15,     
+          spaceBetween:15, 
+          slidesPerGroup:1,    
         },     
         767:{
           spaceBetween:30,
+          slidesPerGroup:3,
         },
       } 
     });
