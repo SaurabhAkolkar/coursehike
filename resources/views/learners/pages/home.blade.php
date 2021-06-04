@@ -137,7 +137,7 @@
   <!-- Section: End-->
 
   <!-- Video Popup -->
-  <div class="modal fade la-hero__modal pr-0" id="home_video_popup">
+  {{-- <div class="modal fade la-hero__modal pr-0" id="home_video_popup">
     <div class="modal-dialog la-hero__modal-dialog">
         <div class="modal-content la-hero__modal-content">  
             <div class="modal-body la-hero__modal-body p-0">
@@ -152,7 +152,7 @@
             </div>
         </div>
     </div>
-  </div>
+  </div> --}}
   <!-- Video Popup -->
 
 
