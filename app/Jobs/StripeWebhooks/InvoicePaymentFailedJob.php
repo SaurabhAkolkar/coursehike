@@ -64,6 +64,15 @@ class InvoicePaymentFailedJob implements ShouldQueue
         if($subscription_status != 'active' || $invoice_status != 'paid' || !$invoice_paid){
             
             $user = User::where('stripe_id', $customer_id)->first();
+
+            $plan_subscription = $user->subscription();
+
+            if($plan_subscription && $subscription_status == 'past_due'){
+                $plan_subscription->starts_at = Carbon::createFromTimestamp($subscription_start)->toDateTimeString(); 
+                $plan_subscription->ends_at = Carbon::createFromTimestamp($subscription_end)->toDateTimeString(); 
+                $plan_subscription->trial_ends_at = Carbon::createFromTimestamp($subscription['trial_end'])->toDateTimeString(); 
+                $plan_subscription->save();
+            }
             
             // $user->subscription()->cancel(true);
             // if($user != 0 && $user->subscription()->ended()){
