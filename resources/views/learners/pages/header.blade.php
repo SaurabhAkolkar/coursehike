@@ -250,7 +250,8 @@ if(Auth::check()){
     <div class="la-header__inner px-5 py-3 d-flex align-items-center">
       <div class="la-header__lft d-inline-flex align-items-center">
         <a class="la-header__brandwrap" href="/">
-          <img class="la-header__brand" src="/images/learners/logo.svg" alt="Lila" />
+          <lottie-player src="https://assets4.lottiefiles.com/private_files/lf30_wiqvp9w0.json" background="transparent" speed="1" style="width: ; height: ;" class="la-header__brand" loop autoplay></lottie-player>
+          {{-- <img class="la-header__brand" src="/images/learners/logo.svg" alt="Lila" /> --}}
         </a>
 
         <!-- header nav links -->
