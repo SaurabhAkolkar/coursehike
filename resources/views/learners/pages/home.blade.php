@@ -42,96 +42,102 @@
 
 <!-- Section: Start-->
 <section class="la-section la-section--hero clearfix p-0 position-relative">
-    <div class="la-section__inner la-section__small">
-      <div class="container-fluid">
-        <div class="la-hero__top row">
+    <div class="jumbotron jumbotron-fluid p-0 m-0 bg-transparent">
+        <div class="la-hero__top row">      
+          <!-- Column: Start-->
+          <div class="col-12 position-relative my-auto">
+            @if($firstSection->video_url == null)
 
-          <div class="col-md-7 col-lg-6 my-auto order-3 order-md-1">
-            <div class="la-hero__home-info text-center text-md-left">
-              <p class="la-hero__tag mb-2 mb-md-0">Courses & Classes by</p>
-              <h1 class="la-hero__title mb-5 text-capitalize">World’s Finest <br/><span class="la-hero__subtitle">Tattoo Artists</span></h1>
-              <p class="la-hero__lead"> {{--Master the art of professional tattoos and find your niche in the world of tattooing with LILA--}}
-               {{$firstSection->sub_heading}}
-              </p>
+              <div class="la-hero__img position-relative d-flex align-items-center">
+                <h2 class="la-section__title la-section__title--big">
+                  {{-- <span class="">{{$firstSection->image_text}}</span> --}}
+                </h2>
+                <img class="img-fluid ml-auto la-hero__img-bg" src="{{$firstSection->image}}" alt="{{$firstSection->image_text}}" />
+              </div> 
 
-              <div class="la-hero__actions d-md-flex align-items-center">
-                <div class="mt-6 mt-md-2">
-                  <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn__app active color-black px-md-5" style="letter-spacing:1.5px"> Subscribe Now</a>
-                </div>             
-                <div class="la-hero__bottom-trial mt-4 mt-md-2 ml-md-6">
-                  <a href="/learning-plans" class="btn btn-primary la-btn__app px-md-5" style="letter-spacing:1.8px">Start free trial</a> 
+            @else 
+
+            <!-- Video Section: Start -->
+              <div class="la-hero__video-main position-relative">
+                <div class="la-hero__video">
+                  <video autoplay playsinline muted loop id="home_video" poster="../images/learners/home/home-fallback.jpg">
+                    <source src='{{$firstSection->video_url}}'  type='video/mp4' />
+                  </video>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <div class="col-md-5 col-lg-6 my-auto order-1 order-md-2">
-            <div class="la-hero__img position-relative d-flex align-items-center">
-              {{--<h2 class="la-section__title la-section__title--big">
-                <span class="">{{$firstSection->image_text}}</span>
-              </h2>
-              <img class="img-fluid d-block ml-auto la-hero__img-bg" src="../images/learners/home/home-banner.png" alt="Home Banner" />--}}
-              <img class="img-fluid d-block ml-auto la-hero__img-bg" src="{{$firstSection->image}}" alt="{{$firstSection->image_text}}" />
-            </div>
-          </div>
+            @endif
 
-          <div class="col-12 order-2 order-md-3">
-            <div class="la-hero__bottom position-relative d-flex justify-content-between align-items-center">
-              <div class="la-hero__bottom-info">
-                  <a href="#home_video_popup" role="button" class="la-hero__bottom-video d-flex align-items-center" data-toggle="modal" data-target="#home_video_popup">
-                    <span class="mr-2 d-none d-md-block">Watch Video</span>
-                    <span>
-                      <svg class="la-hero__play-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"  x="0px" y="0px" viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7" xml:space="preserve">
-                        <polygon class='la-hero__play-triangle triangle' id="XMLID_18_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="73.5,62.5 148.5,105.8 73.5,149.1 "/> 
-                        <circle class='la-hero__play-circle circle' id="XMLID_17_" fill="none"  stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="106.8" cy="106.8" r="103.3"/>
-                      </svg>
-                    </span>
-                  </a>
+             <!-- Video Content Section: Start -->
+             <div class="container-fluid la-hero la-hero__video-content d-flex justify-content-center flex-column align-items-center">
+              <div class="la-hero__video-info text-center text-md-left">
+                <p class="la-hero__tag mb-2 mb-md-0 d-none d-md-block">Ace the learning curve with Courses & Classes by</p>
+                <p class="la-hero__tag mb-2 mb-md-0 d-block d-md-none">Courses & Classes by</p>
+                <h1 class="la-hero__title mb-5">World’s Finest <span class="la-hero__subtitle">Tattoo Artists</span></h1>
+                <p class="la-hero__lead">{{$firstSection->sub_heading}}</p>
+
+                <div class="d-md-flex align-items-center">
+                  <div class="la-hero__actions mt-6 mt-md-10">
+                    @if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())
+                    <div class="">
+                      <a href="/browse/courses" class="btn btn-primary la-hero__cta la-btn__app active text-white px-md-4">Start Learning</a>
+                    </div>
+
+                    @else
+                    <div class="">
+                        <a href="/learning-plans" class="btn btn-primary la-hero__cta la-btn__app active text-white  px-md-4" style="letter-spacing:1.5px">
+                          Subscribe for
+                          <span class="la-soffer__bestprice la-home__bestprice" style="color:var(--white)">
+                            @if (getLocation() == 'IN')
+                              <sup>₹</sup>2999/<span class="text-xxs">Month</span>
+                            @else
+                              <sup>$</sup>39/<span class="text-xxs">Month</span>
+                            @endif
+                        </span>
+                        </a>
+                    </div>
+
+                    <div class="la-soffer mt-2 d-inline-flex justify-content-center flex-column align-items-md-center">
+                        {{-- <div class="la-soffer__bestprice" style="color:var(--white)">
+                          @if (getLocation() == 'IN')
+                            <sup>₹</sup> 2999 / Month
+                          @else
+                            <sup>$</sup> 39 / Month
+                          @endif
+                        </div> --}}
+
+                        @if (getLocation() == 'IN')
+                          <div class="la-soffer__realprice la-home__realprice" style="color:var(--white)"> <sup>₹</sup> 5999 (INR)</div>
+                        @else
+                          <div class="la-soffer__realprice la-home__realprice" style="color:var(--white)"> <sup>$</sup> 99 (USD)</div>
+                        @endif
+                    </div>
+
+                  @endif
+                  </div>
+
+                  <div class="la-hero__bottom-trial mt-6 mt-md-2 ml-md-6">@if(Auth::check() && Auth::User()->subscription() && Auth::User()->subscription()->active())  @else<a href="/learning-plans" class="btn btn-primary la-btn__app text-white px-md-4" style="letter-spacing:1.8px">Start free trial</a> @endif </div>
+                </div>
               </div>
-            
-              <div class="la-hero__btn--scroll-down mr-md-3">
-                <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text-uppercase text--burple text--md font-weight--semibold text-spacing d-none d-md-block">
+
+              <div class="la-hero__btn--scroll-down">
+                <div class="la-hero__bottom-browse la-btn__arrow la-btn__arrow-down text-uppercase text-white text--md font-weight--medium text-spacing d-none d-md-block">
                   <a href="#home_courses" id="home_courses_redirect">BROWSE COURSES
                     <span class="la-btn__arrow-icon arrow-down la-icon la-icon--7xl icon-grey-arrow"> </span>
                   </a>
                 </div>
               </div>
-
             </div>
-          </div>
+             <!-- Video Content Section: End -->
+          </div> 
 
-          <!-- Column: Start-->
-           {{--<div class="col-12 position-relative my-auto">
-            @if($firstSection->video_url == null)
-
-            <div class="la-hero__img position-relative d-flex align-items-center">
-              <h2 class="la-section__title la-section__title--big">
-                <span class="">{{$firstSection->image_text}}</span>
-              </h2>
-              <img class="img-fluid la-hero__img-bg" src="{{$firstSection->image}}" alt="{{$firstSection->image_text}}" />
-            </div> 
-
-            @else --}}
-
-            <!-- Video Section: Start -->
-            {{-- <div class="la-hero__video-main position-relative">
-              <div class="la-hero__video">
-                <video autoplay playsinline muted loop id="home_video" poster="../images/learners/home/home-fallback.jpg">
-                  <source src='{{$firstSection->video_url}}'  type='video/mp4' />
-                </video>
-              </div>
-            </div>
-            @endif
-          </div> --}}
-    
         </div>
-      </div>
     </div>
   </section>
   <!-- Section: End-->
 
   <!-- Video Popup -->
-  <div class="modal fade la-hero__modal pr-0" id="home_video_popup">
+  {{-- <div class="modal fade la-hero__modal pr-0" id="home_video_popup">
     <div class="modal-dialog la-hero__modal-dialog">
         <div class="modal-content la-hero__modal-content">  
             <div class="modal-body la-hero__modal-body p-0">
@@ -146,7 +152,7 @@
             </div>
         </div>
     </div>
-  </div>
+  </div> --}}
   <!-- Video Popup -->
 
 

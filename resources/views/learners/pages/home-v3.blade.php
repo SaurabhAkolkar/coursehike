@@ -244,8 +244,8 @@
         --}}
       </div>
     </div>
-  </section>
-  <!-- Section: End-->
+</section>
+<!-- Section: End-->
 
   <!-- Section: Start-->
   <section class="la-section la-section--grey la-section--art-categories position-relative"  id="home_courses">

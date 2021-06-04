@@ -31,7 +31,7 @@
 <!-- Main Section: Start-->
 <section class="la-cbg--main la-lp__section">
     <!-- Section: Start-->
-    <section class="la-lp--page">
+    <section class="la-lp--page pt-lg-4 pb-10 pb-lg-20">
       <div class="container-fluid la-anim__wrap">
          <!--<div class="row ">
           <a class="la-icon--5xl icon-back-arrow d-block d-lg-none my-3 my-md-6 px-3" href="{{URL::previous()}}"></a>
@@ -47,12 +47,11 @@
         <div class="row la-lp__choose-main">
           <!-- Column: Start-->
           <div class="col-12">
-            <div class="d-none d-lg-block text-center">
-              <h1 class="la-lp__choose-title head-font la-anim__fade-in-top la-anim__A ">RIGHT PLANS</h1>
-              <!-- <h1 class="head-font d-block d-sm-none text-left px-5 m-0 la-anim__fade-in-top la-anim__A">CHOOSE<span class="text-left px-5 mx-5">PLAN</span></h1> -->
+            <div class="d-none d-md-block text-center la-anim__fade-in-top la-anim__A ">
+              <h1 class="la-lp__choose-title">RIGHT PLANS</h1>
             </div>
           </div>
-          <div class="col-12 px-0">
+          <div class="col-12">
             <div class="la-lp__choose-bg">
                 <div class="row d-flex flex-row justify-content-center">
                   <div class="col-12 col-md-12 col-lg-4  la-choose__plan la-anim__stagger-item px-0">

@@ -1,49 +1,31 @@
 // Section Hero Page Start
-.la-lp__tag{
-    font-size:var(--text-3xl);
-    color:var(--app-indigo-1);
-    font-weight: var(--font-bold);
+.la-lp--page{
+    background-color: var(--white);
 }
-.la-lp__title{
-    font-weight:var(--font-extrabold);
-    color:var(--gray6);
-}
-.la-lp__title-para{
-    font-weight:var(--font-light);
-}
-
 .la-lp__choose-title{
-    font-size:var(--text-8xl);
+    font-size:var(--text-6xl);
     color:var(--gray2);
+    opacity:0.32;
     font-weight:var(--font-black);
 
-    @include respond-below(sm){
-        font-size: var(--text-6xl);
-    }
     @include respond-above(md){
-        font-size: calc(var(--text-6xl) * 2);
-    }
-    @include respond-above(lg){
         font-size:var(--text-abnormal);
     }
 }
 .la-lp__choose-bg{
-    background-color:rgba(245,244,240, 0.7);
-    box-shadow: 0px 0px 20px #C5C5C529;
-    padding:var(--size-12) var(--size-4);
-    margin-top:-32px;
+    //background-color:rgba(245,244,240, 0.7);
+    //box-shadow: 0px 0px 20px #C5C5C529;
+    //padding:var(--size-12) var(--size-4);
+    margin-top:-70px;
 
-    @include respond-above(md){
-        margin-top:-55px;
-    }
     @include respond-above(lg){
-        padding:var(--size-14) var(--size-12);
-        margin-top:-75px;
+        //padding:var(--size-14) var(--size-12);
+        //margin-top:-65px;
     }
     @include respond-below(md){
-        padding:var(--size-10) var(--size-3);
-        box-shadow: none;
-        background-color: transparent;
+        //padding:var(--size-10) var(--size-3);
+        //box-shadow: none;
+        //background-color: transparent;
     }
 }
 .la-lp__rgt-content{
