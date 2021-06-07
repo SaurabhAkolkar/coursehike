@@ -14,10 +14,11 @@ use Illuminate\Support\Facades\Auth;
 use App\CourseChapter;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
+use Laravel\Scout\Searchable;
 
 class Course extends Model
 {
-    use HasTranslations;
+    use HasTranslations, Searchable;
     
     public $translatable = ['title', 'short_detail', 'detail', 'requirement'];
 

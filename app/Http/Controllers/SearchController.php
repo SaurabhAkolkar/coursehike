@@ -496,6 +496,9 @@ class SearchController extends Controller
         
         $input['course_name'] = $request->course_name;
 
+		$courses = Course::search($request->course_name)->get();
+
+
         $langauges = CourseLanguage::where(['status'=>1])->get();
 		$filter_categories = Categories::with('subcategory')->where(['status'=>1])->get();
 		$courses =[];

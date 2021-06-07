@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
 use Auth;
 use App\Course;
+use Laravel\Scout\Searchable;
 
 class CourseClass extends Model
 {
-    use HasTranslations;
+    use HasTranslations, Searchable;
     
     public $translatable = ['title'];
 
