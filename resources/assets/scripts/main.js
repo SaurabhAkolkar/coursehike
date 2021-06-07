@@ -451,6 +451,28 @@ $(function(){
     this.swiper.autoplay.start();
   });
 
+  //- Active Tab in Class Main Page for Mobile & Desktop : start
+  function changeTab() {
+    if ($(window).width()< 767) {
+        $("#cnav-about-tab").removeClass("active");
+        $("#cnav-about").removeClass("active show");
+
+        $("#cnav-chapters-tab").addClass("active");
+        $("#cnav-chapters").addClass("active show");
+    }else{
+        $("#cnav-about-tab").addClass("active");
+        $("#cnav-about").addClass("active show");
+
+        $("#cnav-chapters-tab").removeClass("active");
+        $("#cnav-chapters").removeClass("active show");
+    }
+}
+changeTab();
+// Bind the function, it will be executed once window is resized.
+$(window).on('resize', changeTab);
+
+//- Active Tab in Class Main Page for Mobile & Desktop : End
+
     
   //Swiper Js for Become a Creator
   if($('.la-mcard__container')[0] && $('.la-mcard__container .swiper-slide').length > 1){
@@ -564,6 +586,7 @@ $(function(){
       $('.la-vcourse__languages')[0].scrollIntoView();
     }
   });
+  
 
   //Sidemenu
   $('#sidebar_menu_btn').on('click', function() {
@@ -728,14 +751,11 @@ $(function(){
     });
 
     var item_priceSlide = elem.querySelectorAll(".la-anim__slide-box");
-
     tl.to(item_priceSlide, {opacity: 1, y: -40, duration: 0.4, ease: "Expo.ease"})
-
   });
 
   //For Header scroll to hide and show
   var actionNav = gsap.to('.la-header', {y:'-=80', duration:0.5, ease:'power2.in', paused:true});
-
   ScrollTrigger.create({
     trigger: ".la-header",
     start: "10px top",
@@ -759,9 +779,34 @@ $(function(){
       toggleActions: "restart none reset none"
     }, 
     // boxShadow:"rgba(0, 0, 0, 0.14) 0px 0px 10px 6px"
-  })
+  });
 
-  
+  //For Video Player scroll to top
+  var actionVideo = gsap.to('.la-vcourse__class-col, .la-vcourse__nav', {y:'-=80', duration:0.4, ease:'power2.in', paused:true});
+  ScrollTrigger.create({
+    trigger: ".la-vcourse__class-col, .la-vcourse__nav",
+    start: "10px top",
+    end: 99999,
+    onUpdate: ({progress, direction, isActive}) => {
+      if (direction == -1) {
+        actionVideo.reverse()
+      } if (direction == 1 ) {
+        actionVideo.play()
+      } else if (direction == 1 && isActive == true) {
+        actionVideo.play()
+      }
+    }
+  });
+
+  gsap.to('.la-vcourse__class-col, .la-vcourse__nav', {
+    scrollTrigger: {
+      trigger: ".la-vcourse__class-col, .la-vcourse__nav",
+      start: "80px top",
+      toggleActions: "restart none reset none"
+    }, 
+  });
+
+   
 }); 
 
 
@@ -1125,11 +1170,9 @@ var course_video_height = function(skip = false) {
 
 course_video_height();
 
-$(window).resize(function() {
+$(window).on('resize', function() {
   course_video_height();
 });
-
-
 
 
 

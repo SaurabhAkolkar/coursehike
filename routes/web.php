@@ -781,6 +781,8 @@ Route::post('/delete-course-request', 'CourseReviewController@deleteCourseReques
 // Route for Learner's View
 Route::view('/signup','learners.auth.signup');
 Route::view('/signin','learners.auth.signin');
+Route::view('/social-verification', 'learners.auth.social-verification');
+
 Route::get('/mentors','InstructorController@allMentors');
 Route::get('/category/{id}/{category}','WebsiteController@categoryPage');
 Route::get('/search-mentor','InstructorController@searchMentor');

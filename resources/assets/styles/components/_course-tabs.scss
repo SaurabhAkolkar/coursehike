@@ -1,6 +1,11 @@
 #{$ap}- {
     &ctabs{
         &__{
+            &section{
+                @include respond-below(sm){
+                    padding: 0 !important;
+                }
+            }
             &about{
                 @include respond-below(md){
                     margin-bottom:var(--size-10);
@@ -14,7 +19,7 @@
                 &-{
                     &section{
                         @include respond-above(lg){
-                            padding-right:var(--size-20);
+                            //padding-right:var(--size-20);
                         }
                     }
                     &desc{
