@@ -94,7 +94,7 @@
                     padding-top:var(--size-10);
                 }
                 @include respond-above(md){
-                    padding-top:calc(var(--size-20) * 2);
+                   // padding-top:calc(var(--size-20) * 2);
                 }
             }
             &courses-inwrap {

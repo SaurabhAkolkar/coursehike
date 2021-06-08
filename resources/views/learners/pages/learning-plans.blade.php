@@ -371,6 +371,8 @@
       </div>
     </section>
     <!-- Section: End-->
+
+    
     <!-- Section: Start-->
     <section class="la-lp--testimonials">
       <div class="container-fluid pb-5 la-anim__wrap">
@@ -379,24 +381,23 @@
           <div class="col-12 col-lg-4">
             <div class="mb-6 la-anim__wrap-pin3">
               <div class="la-lp__test-lft la-anim__pin3">
-                <h4 class=" text-3xl text-md-4xl head-font mb-3">What people say<br>about us?</h4>
-                <p class="text-md body-font pr-md-5"> LILA has happy clients all over the world. And we're proud to share some of those experiences!</p>
+                <h4 class="la-lp__test-lft--title">What people say<br>about us?</h4>
+                <p class="la-lp__test-lft--para"> LILA has happy clients all over the world. And we're proud to share some of those experiences!</p>
               </div>
             </div>
-
-            
           </div>
           <!-- Column: End-->
+
           <!-- Column: Start-->
           <div class="col-12 col-lg-8 px-0 px-lg-3"> 
-            <div class="la-lp__test-rgt ">      
+            <div class="la-lp__test-rgt">      
                 @foreach($testimonial as $test)            
                     <div class="la-lp__test-cards d-flex @if($loop->index == 1) justify-content @else justify-content-end @endif la-anim__stagger-item--x" id="testCard_{{ $loop->index }}">
                       <div class="card la-lp__card-itm" >
                         <div class="la-card__top d-md-flex justify-content-between ">
                           <div class="la-lp__profile d-flex justify-content-start align-items-center">
-                            <img class="img-fluid d-block rounded-circle lazy" src="{{ asset('images/testimonial/'.$test->image) }}" data-src="{{ asset('images/testimonial/'.$test->image) }}" alt="{{ $test->client_name }}" />
-                            <div class="col">
+                            <img class="img-fluid d-block lazy" src="{{ asset('images/testimonial/'.$test->image) }}" data-src="{{ asset('images/testimonial/'.$test->image) }}" alt="{{ $test->client_name }}" />
+                            <div class="col leading-tight">
                               <h5 class="la-lp__name head-font m-0 text-md text-md-lg">{{ $test->client_name }}</h5>
                               <span class="la-lp__desg text-sm">Learner</span>
                             </div>
@@ -460,7 +461,9 @@
                             <div class="d-flex align-items-center justify-content-end ml-auto">
                               <ul class="la-lp__card-list d-none d-md-block">
                                 @foreach($testimonial as $t)
-                                <li> <a role="button" href="#testCard_{{ $loop->index }}"></a></li>
+                                <li class="la-lp__card-list--item"> 
+                                  <a class="la-lp__card-list--link" role="button" href="#testCard_{{ $loop->index }}"></a>
+                                </li>
                                 @endforeach
                               </ul>
                             </div>

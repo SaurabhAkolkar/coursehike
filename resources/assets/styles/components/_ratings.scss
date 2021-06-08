@@ -12,7 +12,6 @@
                 @include respond-below(md){
                     margin:0;
                 }
-               
             }
             &wrapper{
                 //padding-top:var(--size-14);
@@ -92,7 +91,7 @@
                     }
                     &header{
                         border:none !important;
-                        padding-bottom: 0;
+                        padding: var(--size-6) var(--size-8);
                     }
                     &body{
                         padding: 0 var(--size-8) var(--size-8);
@@ -102,34 +101,26 @@
                         }
                     }
                     &title{
-                        font-size: var(--text-sm);
+                        font-size: var(--text-md);
                         color: var(--gray3);
                         font-weight: var(--font-medium);
-                       
                     }
                     &textarea{
                         padding:var(--size-2) !important;
                         font-size: var(--text-sm) !important;
+                        border-radius: 8px;
+                        background: #FFFFFF 0% 0% no-repeat padding-box !important;
+                        border: 1px solid var(--gray15);
                     }
-                    &btn{
-                        text-transform: uppercase;
-                        color: var(--app-indigo-1);
-                        letter-spacing: 1.2px;
-                        font-size: var(--text-sm);
-                        font-weight: var(--font-semibold);
-                        user-select: none;
-                        -webkit-user-select: none;
-
-                        &:hover{
-                            color: var(--dark);
-                        }
+                    &stars{
+                        border-bottom: 1px solid var(--gray15);
                     }
                     &edit{
-                        color:var(--app-indigo-1);
+                        color:var(--gray3);
                         font-weight: var(--font-semibold);
 
                         &:hover{
-                            color:var(--black);
+                            color:var(--app-indigo-1);
                         }
                     }
                 }
