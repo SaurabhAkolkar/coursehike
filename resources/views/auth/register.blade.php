@@ -295,11 +295,11 @@
             autoFormat: true,
             autoHideDialCode: false,
             autoPlaceholder: "polite",
-            defaultCountry: @php echo array_key_exists('HTTP_CF_IPCOUNTRY',$_SERVER) ? $_SERVER["HTTP_CF_IPCOUNTRY"] : "''"; @endphp,
+            defaultCountry: @php echo array_key_exists('HTTP_CF_IPCOUNTRY',$_SERVER) ? "'".$_SERVER["HTTP_CF_IPCOUNTRY"]."'" : "''"; @endphp,
             nationalMode: false,
             formatOnDisplay: true,
             numberType: "MOBILE",
-            initialCountry: @php echo array_key_exists('HTTP_CF_IPCOUNTRY',$_SERVER) ? $_SERVER["HTTP_CF_IPCOUNTRY"] : "'IN'"; @endphp,
+            initialCountry: @php echo array_key_exists('HTTP_CF_IPCOUNTRY',$_SERVER) ? "'".$_SERVER["HTTP_CF_IPCOUNTRY"]."'" : "'IN'"; @endphp,
             separateDialCode: true,
             preventInvalidNumbers: true,
             utilsScript: "/vendor/intl-tel-input/js/utils.js"
