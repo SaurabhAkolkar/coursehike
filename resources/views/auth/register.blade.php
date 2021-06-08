@@ -25,6 +25,8 @@
         p=e.getElementsByTagName(a)[0];p.parentNode.insertBefore(m,p);
         })(window,document,'script','https://u.heatmap.it/log.js');
     </script>
+
+    <link rel="stylesheet" href="/vendor/intl-tel-input/css/intlTelInput.min.css">
 @endsection
 @include('admin.message')
 
@@ -79,7 +81,6 @@
                 {{-- <div class="signup-heading">
                     {{ __('frontstaticword.StartLearning') }}!
                 </div> --}}
-
                 <div class="la-entry__content-wrap d-flex flex-column justify-content-center la-anim__stagger-item" >     
                     <div class="d-flex flex-column la-entry__content-top">
                         <form class="la-entry__form " method="POST" action="{{ route('register') }}">
@@ -117,10 +118,11 @@
                             {{-- @if($gsetting->mobile_enable == 0) --}}
                             <div class="la-form__input-wrap la-entry__input-wrap ">
                                 <!-- <i class="fa fa-phone" aria-hidden="true"></i> -->
-                                <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-contact-number"></span></span>
-                                <input type="text" class="la-form__input la-entry__input{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile') }}" id="mobile" placeholder="Mobile Number" maxlength="10">
+                                <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-contact-numbers"></span></span>
+                                <input type="text" class="la-form__input la-entry__input{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile') }}" id="mobile" placeholder="Mobile Number" required>
+                                <input type="hidden" name="phone" value="{{ old('phone') }}" id="phone">
                                 @if($errors->has('mobile'))
-                                    <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
+                                    <span class="invalid-feedback {{ $errors->has('mobile') ? ' d-block' : '' }}" role="alert" style="margin-left:60px;position:absolute">
                                         <strong>{{ $errors->first('mobile') }}</strong>
                                     </span>
                                 @endif
@@ -272,6 +274,7 @@
 <!-- end jquery -->
 
 @section('footerScripts')
+<script src="/vendor/intl-tel-input/js/intlTelInput-jquery.min.js"></script>
 <script>
     $('#password_show_icon').click(function(){
         $(this).addClass('d-none');
@@ -283,6 +286,36 @@
         $(this).addClass('d-none');
         $('#password_show_icon').removeClass('d-none');
         $('#password').prop('type', 'password');
+    });
+
+    $(function() {
+        var telInput = $("#mobile");
+        telInput.intlTelInput({
+            allowExtensions: true,
+            autoFormat: true,
+            autoHideDialCode: false,
+            autoPlaceholder: "polite",
+            defaultCountry: @php echo array_key_exists('HTTP_CF_IPCOUNTRY',$_SERVER) ? $_SERVER["HTTP_CF_IPCOUNTRY"] : "''"; @endphp,
+            nationalMode: false,
+            formatOnDisplay: true,
+            numberType: "MOBILE",
+            initialCountry: @php echo array_key_exists('HTTP_CF_IPCOUNTRY',$_SERVER) ? $_SERVER["HTTP_CF_IPCOUNTRY"] : "'IN'"; @endphp,
+            separateDialCode: true,
+            preventInvalidNumbers: true,
+            utilsScript: "/vendor/intl-tel-input/js/utils.js"
+        });
+
+        telInput.on("keyup change", resetIntlTelInput);
+
+        function resetIntlTelInput() {
+            if (typeof intlTelInputUtils !== 'undefined') {
+                var currentText = telInput.intlTelInput("getNumber", intlTelInputUtils.numberFormat.E164);
+                if (typeof currentText === 'string') {
+                    telInput.intlTelInput('setNumber', currentText);
+                    $('#phone').val(currentText);
+                }
+            }
+        }
     });
 </script>
 @endsection
