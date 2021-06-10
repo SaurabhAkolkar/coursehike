@@ -9,7 +9,7 @@
             <span class="la-profile__sidebar-img">
               <img src="{{ Auth::user()->user_img }}" data-src="{{ Auth::user()->user_img }}" class="img-fluid lazy" alt="{{Auth::user()->fullName}}" />
             </span>
-            <span class="la-profile__sidebar-text la-profile__sidebar-text--name pl-2">{{Auth::user()->fullName}}</span>
+            <span class="la-profile__sidebar-text la-profile__sidebar-text--name pl-1">{{Auth::user()->fullName}}</span>
           </a>
           <div href="" class="la-profile__sidebar-btn active"><span class="la-icon la-icon--xl icon-hamburger-menu"></span></div>
         </li>
@@ -62,6 +62,13 @@
             <span class="la-profile__sidebar-text pl-2">Interests</span>
           </a>
         </li>
+
+        <li class="la-profile__sidebar-item">
+          <a href="/referrals" class="la-profile__sidebar-link d-flex align-items-center @if(Request::segment(1) == 'referrals') active @endif ">
+            <span class="la-icon la-icon--3xl icon-referral"></span>
+            <span class="la-profile__sidebar-text">Referrals</span>
+          </a>
+        </li>
       </ul>
     </div>
     <div class="la-profile__sidebar-bottom la-anim__wrap">
@@ -70,7 +77,7 @@
         <li class="la-profile__sidebar-item ">
           <a class="la-profile__sidebar-link d-flex align-items-center @if(Request::segment(1) == 'become-mentor') active @endif " href="/become-mentor">
             <span class="la-icon la-icon--2xl icon-become-creator"></span>
-            <span class="la-profile__sidebar-text pl-2">Become a Mentor</span>
+            <span class="la-profile__sidebar-text pl-1">Become a Mentor</span>
           </a>
         </li>
         @endif
@@ -83,7 +90,7 @@
         <li class="la-profile__sidebar-item ">
           <a class="la-profile__sidebar-link d-flex align-items-center" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             <span class="la-icon la-icon--lg icon-logout"></span>
-            <span class="la-profile__sidebar-text pl-2">Logout</span>
+            <span class="la-profile__sidebar-text pl-3">Logout</span>
             <form id="logout-form" action="{{ route('logout') }}" method="POST">
               @csrf
             </form>

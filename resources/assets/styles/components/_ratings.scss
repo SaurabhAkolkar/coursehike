@@ -72,6 +72,10 @@
                     &popup{
                         margin:var(--size-12) var(--size-20) var(--size-8) 0;
 
+                        @include respond-below(md){
+                            margin:var(--size-8) 0;
+                        }
+
                         @include respond-below(sm){
                             margin:var(--size-4) 0;
                         }
@@ -84,6 +88,7 @@
                         height:auto;
                         box-shadow: 0px 6px 12px #00000029;
                         border-radius: 10px;
+                        margin:0 auto;
 
                         @include respond-below(sm){
                             width:100% !important;

@@ -60,7 +60,7 @@ $(function(){
 
   // Global Alert Animation for Learners: Start
   window.setTimeout(function() {
-    $(".alert").fadeTo(500, 0).slideUp(2500, function() {
+    $(".la-btn__alert-success, .la-btn__alert-danger").fadeTo(500, 0).slideUp(2500, function() {
         $(this).remove();
     });
   }, 5000);
@@ -510,10 +510,12 @@ $(window).on('resize', changeTab);
   } */
 
   //Swiper Js for Reviews in Course Page
-  if($('.la-lcreviews__container')[0] && $('.la-lcreviews__container .swiper-slide').length >= 2){
-    var swiper = new Swiper('.la-lcreviews__container', {
+  if($('.la-lcreviews__container')[0]){
+    var reviews_swiper = new Swiper('.la-lcreviews__container', {
       slidesPerView: 'auto',
       spaceBetween: 30,
+      observer: true,
+      observeParents: true,
       flipEffect: {
         slideShadows: false,
       },
@@ -528,6 +530,21 @@ $(window).on('resize', changeTab);
       }
     });
   }
+
+  // Reviews Tab in Class Main Page
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+    var paneTarget = $(e.target).attr('href');
+    var $thePane = $('.tab-pane' + paneTarget);
+    var paneIndex = $thePane.index();
+    if ($thePane.find('.la-lcreviews__container').length > 0 && 0 === $thePane.find('.swiper-slide-active').length) {
+      
+      reviews_swiper[paneIndex].update();
+
+      var course_slider_pagination = reviews_swiper[paneIndex].pagination.el;
+      var course_slider_pagination_width = $(course_slider_pagination).width() + 30;
+      $(course_slider_pagination).css("width", course_slider_pagination_width);
+    }
+  }); 
   
 
   //- Autoplay Stop on Mouse Hover
@@ -766,9 +783,9 @@ $(window).on('resize', changeTab);
   });
 
   //For Video Player scroll to top
-  var actionVideo = gsap.to('.la-vcourse__class-col, .la-vcourse__nav', {y:'-=80', duration:0.4, ease:'power2.in', paused:true});
+  var actionVideo = gsap.to('.la-vcourse__class-col', {y:'-=80', duration:0.4, ease:'power2.in', paused:true});
   ScrollTrigger.create({
-    trigger: ".la-vcourse__class-col, .la-vcourse__nav",
+    trigger: ".la-vcourse__class-col",
     start: "10px top",
     end: 99999,
     onUpdate: ({progress, direction, isActive}) => {
@@ -782,9 +799,9 @@ $(window).on('resize', changeTab);
     }
   });
 
-  gsap.to('.la-vcourse__class-col, .la-vcourse__nav', {
+  gsap.to('.la-vcourse__class-col', {
     scrollTrigger: {
-      trigger: ".la-vcourse__class-col, .la-vcourse__nav",
+      trigger: ".la-vcourse__class-col",
       start: "80px top",
       toggleActions: "restart none reset none"
     }, 

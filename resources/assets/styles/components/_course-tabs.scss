@@ -8,7 +8,7 @@
             }
             &about{
                 @include respond-below(md){
-                    margin-bottom:var(--size-10);
+                    //margin-bottom:var(--size-6);
                 }
 
                 @include respond-below(sm){

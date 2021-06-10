@@ -9792,8 +9792,8 @@ a.text-dark:focus, a.text-dark:hover {
 }
 @font-face {
   font-family: "icomoon";
-  src: url(/fonts/icomoon.eot?c4556a5b6d04102c0433147f1b46eb95);
-  src: url(/fonts/icomoon.eot?c4556a5b6d04102c0433147f1b46eb95#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?b18c39273350d3afadb796e78aa03941) format("truetype"), url(/fonts/icomoon.woff?c3f9cf3abf86a77abb3c900eefaaa2eb) format("woff"), url(/fonts/icomoon.svg?f20532c457880fc2ae0df154e0e94720#icomoon) format("svg");
+  src: url(/fonts/icomoon.eot?e69d3705711e4a182437ceb212bb5ee6);
+  src: url(/fonts/icomoon.eot?e69d3705711e4a182437ceb212bb5ee6#iefix) format("embedded-opentype"), url(/fonts/icomoon.ttf?ce698b18099507617b3feb48f2a9b906) format("truetype"), url(/fonts/icomoon.woff?595f8ccf3d50b3f3de906feb704cdd9c) format("woff"), url(/fonts/icomoon.svg?8520388cbbda61182063796228fd3a91#icomoon) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -9810,6 +9810,10 @@ a.text-dark:focus, a.text-dark:hover {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-referral:before {
+  content: "\E9BC";
 }
 
 .icon-circle-tick:before {
@@ -11020,7 +11024,7 @@ ul, li {
 }
 @-webkit-keyframes fadeAlert {
   from {
-    transform: translateY(-30px);
+    transform: translateY(-20px);
     opacity: 0;
   }
   to {
@@ -11030,7 +11034,7 @@ ul, li {
 }
 @keyframes fadeAlert {
   from {
-    transform: translateY(-30px);
+    transform: translateY(-20px);
     opacity: 0;
   }
   to {
@@ -11045,6 +11049,60 @@ ul, li {
 }
 .la-btn__alert-close {
   margin: 2px 0 !important;
+}
+.la-btn__alert-refer {
+  position: relative;
+  top: 74px;
+  background: transparent linear-gradient(270deg, #FAB46D 0%, #FF9822 100%) 0% 0% no-repeat padding-box !important;
+  color: var(--white);
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0;
+  transition: all 0.1s ease;
+  z-index: 99;
+  overflow: hidden;
+  display: inline-block;
+  -webkit-animation: fadeAlert 0.5s ease 1;
+          animation: fadeAlert 0.5s ease 1;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: var(--size-2) !important;
+  padding: var(--size-2) !important;
+}
+@media (min-width: 1200px) {
+  .la-btn__alert-refer {
+    padding: 0 var(--size-20) !important;
+  }
+}
+.la-btn__alert-refer--msg {
+  color: var(--white);
+  font-size: var(--text-sm);
+  font-weight: var(--font-normal);
+}
+@media (max-width: 767px) {
+  .la-btn__alert-refer--msg {
+    font-size: var(--text-xs);
+    margin-bottom: var(--size-base);
+  }
+}
+.la-btn__alert-refer--link {
+  color: var(--white);
+  font-size: var(--text-sm);
+  font-weight: var(--font-normal);
+  text-decoration: underline;
+}
+.la-btn__alert-refer--link:hover {
+  color: var(--gray6);
+  text-decoration: underline;
+}
+@media (max-width: 767px) {
+  .la-btn__alert-refer--link {
+    font-size: var(--text-xs);
+  }
+}
+.la-btn__alert-refer--close {
+  position: relative !important;
+  color: var(--gray6) !important;
+  padding: 0 !important;
 }
 
 :root {
@@ -18976,18 +19034,23 @@ input:-webkit-autofill:active {
 .la-vcourse__intro-left {
   width: 100%;
 }
-@media (min-width: 992px) {
-  .la-vcourse__intro-left {
-    width: calc(100% - 550px);
-  }
-}
 .la-vcourse__intro-right {
   width: 100%;
 }
-@media (min-width: 992px) {
-  .la-vcourse__intro-right {
+.la-vcourse__intro-top {
+  width: 100%;
+}
+@media (min-width: 1200px) {
+  .la-vcourse__intro-top {
+    width: calc(100% - 550px);
+  }
+}
+.la-vcourse__intro-bottom {
+  width: 100%;
+}
+@media (min-width: 1200px) {
+  .la-vcourse__intro-bottom {
     width: 550px;
-    padding-left: 65px;
   }
 }
 .la-vcourse__excerpt {
@@ -19089,8 +19152,11 @@ input:-webkit-autofill:active {
 }
 .la-vcourse__creator-name {
   font-size: var(--text-md);
-  color: var(--gray7);
+  color: var(--app-indigo-1);
   font-weight: var(--font-semibold);
+}
+.la-vcourse__creator-name:hover {
+  color: var(--gray3);
 }
 @media (max-width: 767px) {
   .la-vcourse__creator-name {
@@ -19120,6 +19186,23 @@ input:-webkit-autofill:active {
   .la-vcourse__buy-course {
     width: 100%;
   }
+}
+.la-vcourse__buy-course--mobile {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  background: #191B2C;
+  backdrop-filter: blur(46px);
+  -webkit-backdrop-filter: blur(46px);
+  padding: var(--size-4) var(--size-3);
+}
+.la-vcourse__buy-course--mobile-btn {
+  padding: var(--size-3) var(--size-5) !important;
+  font-size: var(--text-xs);
+  letter-spacing: 1.4px;
+  font-weight: var(--font-medium) !important;
 }
 .la-vcourse__buy-progress {
   width: 50%;
@@ -19363,14 +19446,21 @@ input:-webkit-autofill:active {
 }
 .la-vcourse__btn-collapse {
   position: relative;
+  font-family: var(--head-font);
 }
 .la-vcourse__btn-collapse:after {
-  font-family: "icomoon";
+  font-family: "icomoon", "Poppins";
   position: absolute;
-  content: "\E977";
+  content: "Read Less \E977";
   top: 0;
-  left: 30px;
-  color: var(--gray4);
+  left: 0;
+  width: 130px;
+  color: var(--app-indigo-1);
+  text-transform: uppercase;
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  letter-spacing: 2px;
+  word-spacing: -4px;
   transition: all 0.25s linear;
   -webkit-transition: all 0.25s linear;
   -moz-transition: all 0.25s linear;
@@ -19378,17 +19468,15 @@ input:-webkit-autofill:active {
   -o-transition: all 0.25s linear;
 }
 .la-vcourse__btn-collapse.collapsed:after {
-  content: "\E977";
+  content: "Read More \E978";
+  width: 130px;
+  top: 0;
+  left: 0;
   transition: all 0.25s linear;
   -webkit-transition: all 0.25s linear;
   -moz-transition: all 0.25s linear;
   -ms-transition: all 0.25s linear;
   -o-transition: all 0.25s linear;
-  transform: rotate(-180deg);
-  -webkit-transform: rotate(-180deg);
-  -moz-transform: rotate(-180deg);
-  -ms-transform: rotate(-180deg);
-  -o-transform: rotate(-180deg);
 }
 .la-vcourse__class {
   --classThumbW: 32px;
@@ -19809,8 +19897,6 @@ input:-webkit-autofill:active {
 }
 @media (max-width: 767px) {
   .la-vcourse__nav {
-    position: fixed !important;
-    top: 285px !important;
     background-color: var(--white);
     z-index: 60;
   }
@@ -19828,13 +19914,23 @@ input:-webkit-autofill:active {
     margin: 0;
   }
 }
+@media (min-width: 768px) {
+  .la-vcourse__nav-item {
+    margin-right: var(--size-4) !important;
+  }
+}
+@media (max-width: 767px) {
+  .la-vcourse__nav-item {
+    margin: 0 auto !important;
+  }
+}
 .la-vcourse__nav-link {
   font-size: var(--text-lg) !important;
   padding: var(--size-2) var(--size-8);
 }
 @media (max-width: 767px) {
   .la-vcourse__nav-link {
-    padding: var(--size-3) var(--size-4);
+    padding: var(--size-3) var(--size-7);
     font-weight: var(--font-semibold) !important;
     margin: 0 auto !important;
   }
@@ -19859,7 +19955,7 @@ input:-webkit-autofill:active {
 }
 @media (max-width: 767px) {
   .la-vcourse__nav-content {
-    margin-top: 265px;
+    margin-top: 280px;
   }
 }
 .la-vcourse__purchase- {
@@ -20540,11 +20636,6 @@ input[type=radio]:checked + label.la-vcourse__language-label {
     padding: 0 !important;
   }
 }
-@media (max-width: 991px) {
-  .la-ctabs__about {
-    margin-bottom: var(--size-10);
-  }
-}
 @media (max-width: 767px) {
   .la-ctabs__about {
     margin-bottom: 0;
@@ -21022,6 +21113,11 @@ input[type=radio]:checked + label.la-vcourse__language-label {
 .la-rtng__review-popup {
   margin: var(--size-12) var(--size-20) var(--size-8) 0;
 }
+@media (max-width: 991px) {
+  .la-rtng__review-popup {
+    margin: var(--size-8) 0;
+  }
+}
 @media (max-width: 767px) {
   .la-rtng__review-popup {
     margin: var(--size-4) 0;
@@ -21035,6 +21131,7 @@ input[type=radio]:checked + label.la-vcourse__language-label {
   height: auto;
   box-shadow: 0px 6px 12px #00000029;
   border-radius: 10px;
+  margin: 0 auto;
 }
 @media (max-width: 767px) {
   .la-rtng__review-content {
@@ -21709,8 +21806,8 @@ input[type=radio]:checked + label.la-vcourse__language-label {
   opacity: 1;
 }
 .la-profile__sidebar.menu-open .la-profile__sidebar-img img {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   background-color: var(--white);
   -o-object-fit: cover;
      object-fit: cover;
@@ -21784,8 +21881,8 @@ input[type=radio]:checked + label.la-vcourse__language-label {
   color: var(--app-indigo-1);
 }
 .la-profile__sidebar-img {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   background-color: darkgray;
   border-radius: 100px;
   opacity: 0;
@@ -22486,6 +22583,22 @@ input[type=radio]:checked + label.la-vcourse__language-label {
 }
 .la-form__input-wrap {
   margin-bottom: var(--size-8);
+}
+.la-form__input-border {
+  border: 1px solid var(--gray15) !important;
+  border-right: none !important;
+  border-radius: 5px 0 0 5px !important;
+  padding: var(--size-5) var(--size-2) !important;
+}
+.la-form__input-btn {
+  border: 1px solid var(--gray15);
+  border-radius: 0 5px 5px 0;
+  color: var(--app-indigo-1);
+  padding: calc(var(--size-3) - 4px) var(--size-2) !important;
+}
+.la-form__input-btn:hover, .la-form__input-btn:focus {
+  color: var(--gray3) !important;
+  border: 1px solid var(--gray15) !important;
 }
 .la-form__textarea {
   margin-top: 0px;
@@ -23570,9 +23683,9 @@ textarea {
   border: 3px solid var(--green);
 }
 .la-entry__interest-next {
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   color: var(--app-indigo-1);
-  font-weight: var(--font-bold);
+  font-weight: var(--font-semibold);
   letter-spacing: 4px;
   position: relative;
 }
@@ -25044,6 +25157,47 @@ label.error {
   transition: all 0.35s ease-in-out;
   -webkit-transition: all 0.35s ease-in-out;
   -moz-transition: all 0.35s ease-in-out;
+}
+
+.la-refer__card {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 12px 24px #00000014;
+  border-radius: 10px;
+  padding: var(--size-8) var(--size-8);
+}
+@media (max-width: 767px) {
+  .la-refer__card {
+    padding: var(--size-6);
+  }
+}
+.la-refer__card-title {
+  font-size: var(--text-md);
+  color: var(--black);
+  font-weight: var(--font-normal);
+  margin-bottom: var(--size-6);
+}
+.la-refer__card-label {
+  color: var(--black) !important;
+  font-weight: var(--font-normal) !important;
+}
+.la-refer__share-title {
+  color: var(--black);
+  font-weight: var(--font-normal);
+  font-size: var(--text-sm);
+}
+.la-refer__status-icon {
+  color: #48ACF8;
+}
+.la-refer__status-info {
+  color: var(--black);
+  font-size: var(--text-md);
+  font-weight: var(--font-medium);
+  margin-bottom: var(--size-4);
+}
+.la-refer__status-count {
+  color: var(--black);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-medium);
 }
 
 .la-title {

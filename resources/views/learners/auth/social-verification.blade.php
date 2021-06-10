@@ -46,12 +46,13 @@
                     </div> 
                 </div>
 
-                <div class="col-md-5 la-entry__col la-entry__col-right h-100 la-anim__wrap">
-                    <div class="la-entry__content-wrap d-flex flex-column justify-content-center">  
-                        <div class="d-flex flex-column la-entry__content-top mt-md-5 ">
+                <div class="col-md-5 la-entry__col la-entry__col-right h-100 pt-20 la-anim__wrap">
+                    <div class="la-entry__content-wrap d-flex flex-column justify-content-center la-anim__stagger-item">
+                        <h1 class="la-entry__content-title text-xl text-center mb-6" style="font-weight: var(--font-medium);">Verify your Details</h1>  
+                        <div class="d-flex flex-column la-entry__content-top mt-5">
                             <form method="POST" class="signup-form la-entry__form" action="">
                                 @csrf
-                                <div class="la-form__input-wrap la-entry__input-wrap mb-md-10 la-anim__stagger-item">
+                                <div class="la-form__input-wrap la-entry__input-wrap mb-md-10">
                                     <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-mail-id"></span></span>
                                     <input id="social_email" type="email" class="la-form__input la-entry__input{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Enter Your E-Mail"   name="social_email" value="" required autofocus>
                 
@@ -62,7 +63,7 @@
                                     @endif
                                 </div>
                 
-                                <div class="la-form__input-wrap la-entry__input-wrap  mb-md-14 la-anim__stagger-item">
+                                <div class="la-form__input-wrap la-entry__input-wrap mb-md-14">
                                     <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-contact-number"></span></span>
                                     <input id="social_mobile" type="number" class="la-form__input la-entry__input{{ $errors->has('') ? ' is-invalid' : '' }}" placeholder="Enter Your Mobile Number" name="social_mobile" required>
                                        
@@ -73,7 +74,7 @@
                                     @endif
                                 </div>
                 
-                                <div class="form-group la-anim__stagger-item ">
+                                <div class="form-group">
                                     <button type="submit"  class="la-btn__app la-btn__secondary py-md-4 text-sm w-100">
                                         Verify
                                     </button>   
@@ -83,13 +84,13 @@
                             
                         
                         <div class="la-anim__wrap">
-                            <div class="text-center la-entry__other-option mt-md-8 la-anim__stagger-item">Create a new account?
+                            <div class="text-center la-entry__other-option mt-4 mt-md-8">Create a new account?
                                 <span class="la-btn__plain text--burple text--md ml-2 ">
                                     <a href="{{ route('register') }}" title="sign-up">  {{ __('frontstaticword.Signup') }}</a>
                                 </span>
                             </div>  
                         
-                            <div class="text-center la-entry__other-option mt-md-4 la-anim__stagger-item">Facing an issue?
+                            <div class="text-center la-entry__other-option mt-2 mt-md-4">Facing an issue?
                                 <span class="la-btn__plain text--burple text--md ml-2">
                                     <a href="https://desk.zoho.com/portal/alienstattoo/en/newticket" title="support">Get support</a>
                                 </span>

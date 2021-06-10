@@ -46,15 +46,27 @@
                         width: 100%;
                         
                         @include respond-above(md) {
-                            width: calc(100% - 550px);
+                            //width: calc(100% - 550px);
                         }
                     }
                     &right {
                         width: 100%;
 
                         @include respond-above(md) {
+                            //width: 550px;
+                            //padding-left: 65px;
+                        }
+                    }
+                    &top{
+                        width: 100%;
+                        @include respond-above(lg) {
+                            width: calc(100% - 550px);
+                        }
+                    }
+                    &bottom{
+                        width: 100%;
+                        @include respond-above(lg) {
                             width: 550px;
-                            padding-left: 65px;
                         }
                     }
                 }
@@ -154,8 +166,12 @@
                     &name {
                         //margin-left: var(--size-4);
                         font-size: var(--text-md);
-                        color: var(--gray7);
+                        color: var(--app-indigo-1);
                         font-weight: var(--font-semibold);
+
+                        &:hover{
+                            color:var(--gray3);
+                        }
 
                         @include respond-below(sm){
                             font-size:var(--text-sm);
@@ -188,7 +204,7 @@
                         font-size: var(--text-sm);
                         //color: var(--gray4);
                         font-weight: var(--font-medium);
-
+                        
                         @include respond-below(sm){
                            margin-bottom:var(--size-3);
                         }
@@ -196,6 +212,27 @@
                     &course{
                         @include respond-below(sm){
                             width:100%;
+                        }
+
+                        &--{
+                            &mobile{
+                                position:fixed;
+                                bottom:0;
+                                left:0;
+                                z-index:100;
+                                width:100%;
+                                background: #191B2C;
+                                backdrop-filter: blur(46px);
+                                -webkit-backdrop-filter: blur(46px);
+                                padding:var(--size-4) var(--size-3);
+
+                                &-btn{
+                                    padding:var(--size-3) var(--size-5) !important;
+                                    font-size: var(--text-xs);
+                                    letter-spacing: 1.4px;
+                                    font-weight: var(--font-medium) !important;
+                                }
+                            }
                         }
                     }
                     &progress{
@@ -210,6 +247,7 @@
                             width:100%;
                         }
                     }
+                    
                 }
             }
             &info {
@@ -504,20 +542,30 @@
                 &-{
                     &collapse{
                         position: relative;
+                        font-family: var(--head-font);
                 
                         &:after{
-                            font-family: 'icomoon';
+                            font-family: 'icomoon', 'Poppins';
                             position:absolute;
-                            content:'\e977';
+                            content:'Read Less \e977';
                             top:0;
-                            left:30px;
-                            color:var(--gray4);
+                            left:0;
+                            width:130px;
+                            color:var(--app-indigo-1);
+                            text-transform: uppercase;
+                            font-size: var(--text-sm);
+                            font-weight: var(--font-semibold);
+                            letter-spacing: 2px;
+                            word-spacing: -4px;
                             transition:all 0.25s linear;-webkit-transition:all 0.25s linear;-moz-transition:all 0.25s linear;-ms-transition:all 0.25s linear;-o-transition:all 0.25s linear;
                         }
                         &.collapsed:after{
-                            content:'\e977';
+                            content:'Read More \e978';
+                            width:130px;
+                            top:0;
+                            left:0;
                             transition:all 0.25s linear;-webkit-transition:all 0.25s linear;-moz-transition:all 0.25s linear;-ms-transition:all 0.25s linear;-o-transition:all 0.25s linear;
-                            transform:rotate(-180deg);-webkit-transform:rotate(-180deg);-moz-transform:rotate(-180deg);-ms-transform:rotate(-180deg);-o-transform:rotate(-180deg);
+                            //transform:rotate(-180deg);-webkit-transform:rotate(-180deg);-moz-transform:rotate(-180deg);-ms-transform:rotate(-180deg);-o-transform:rotate(-180deg);
                         }
                     }
                 }
@@ -1074,8 +1122,8 @@
 
             &nav{
                 @include respond-below(sm){
-                    position:fixed !important;
-                    top:285px !important;
+                    //position:fixed !important;
+                    //top:285px !important;
                     background-color: var(--white);
                     z-index:60;
                 }
@@ -1091,8 +1139,11 @@
                         }
                     }
                     &item{
+                        @include respond-above(sm){
+                            margin-right: var(--size-4) !important;
+                        }
                         @include respond-below(sm){
-                            //margin-right: var(--size-6) !important;
+                            margin:0 auto !important;
                         }
                     }
                     &link{
@@ -1100,7 +1151,7 @@
                         padding:var(--size-2) var(--size-8);
 
                         @include respond-below(sm){
-                            padding:var(--size-3) var(--size-4);
+                            padding:var(--size-3) var(--size-7);
                             font-weight: var(--font-semibold) !important;
                             margin:0 auto !important;
                         }
@@ -1125,7 +1176,7 @@
                             padding:var(--size-10) 0;
                         }
                         @include respond-below(sm){
-                            margin-top:265px;
+                            margin-top:280px;
                         }
                     }                    
                 }

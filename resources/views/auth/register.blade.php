@@ -75,7 +75,7 @@
                </div> 
            </div>
 
-            <div class="col-md-5  la-entry__col la-entry__col-right h-100 la-anim__wrap">
+            <div class="col-md-5  la-entry__col la-entry__col-right h-100 la-anim__wrap pt-20">
                 {{-- <div class="signup-heading">
                     {{ __('frontstaticword.StartLearning') }}!
                 </div> --}}
@@ -242,19 +242,19 @@
                         {{ __('frontstaticword.Bysigningup') }} <a href="{{url('terms_condition')}}" title="Policy">{{ __('frontstaticword.Terms&Condition') }} </a>, <a href="{{url('privacy_policy')}}" title="Policy">{{ __('frontstaticword.PrivacyPolicy') }}.</a>
                     </div> -->
 
-                    <div class="la-entry__other-option text-center mt-md-4">
+                    <div class="la-entry__other-option text-center mt-4">
                         {{ __('frontstaticword.Alreadyhaveanaccount') }}? 
                         <span class="la-btn__plain text--burple text--md ml-2">
                             <a href="{{ route('login') }}" >{{ __('frontstaticword.Login') }}</a>
                         </span>
                     </div>
 
-                    <div class="la-entry__terms text-center mt-1">
+                    <div class="la-entry__terms text-center mt-2">
                         <a href="/terms-conditions" class="la-entry__terms-link text-sm">Terms of Use</a>
                     </div>
                         
                     <div class="la-anim__wrap">
-                        <div class="text-center la-entry__other-option mt-md-8 la-anim__fade-in-left">Facing an issue?
+                        <div class="text-center la-entry__other-option mt-2 mt-md-8 la-anim__fade-in-left">Facing an issue?
                             <span class="la-btn__plain text--burple text--md ml-2 la-anim__stagger-item--x">
                                 <a href="https://desk.zoho.com/portal/alienstattoo/en/newticket" title="support">Get support</a>
                             </span>

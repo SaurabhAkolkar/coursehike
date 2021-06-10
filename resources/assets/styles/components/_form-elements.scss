@@ -54,6 +54,23 @@
                     &wrap {
                         margin-bottom: var(--size-8);
                     }
+                    &border{
+                        border:1px solid var(--gray15) !important;
+                        border-right:none !important;
+                        border-radius: 5px 0 0 5px !important;
+                        padding:var(--size-5) var(--size-2) !important;
+                    }
+                    &btn{
+                        border:1px solid var(--gray15);
+                        border-radius: 0 5px 5px 0;
+                        color:var(--app-indigo-1);
+                        padding:calc(var(--size-3) - 4px) var(--size-2) !important;
+
+                        &:hover, &:focus{
+                            color:var(--gray3) !important;
+                            border:1px solid var(--gray15) !important;
+                        }
+                    }
                 }
             }
 

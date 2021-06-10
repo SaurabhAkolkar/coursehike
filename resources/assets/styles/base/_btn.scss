@@ -402,7 +402,7 @@
                         }
                     }
                     @keyframes fadeAlert{
-                        from{transform:translateY(-30px); opacity:0;}
+                        from{transform:translateY(-20px); opacity:0;}
                         to{transform:translateY(0px);opacity:1}
                     }
                     &msg{
@@ -412,6 +412,61 @@
                     }
                     &close{
                         margin:2px 0 !important;
+                    }
+
+                    &refer{
+                        position:relative;
+                        top:74px;
+                        background: transparent linear-gradient(270deg, #FAB46D 0%, #FF9822 100%) 0% 0% no-repeat padding-box !important;
+                        color:var(--white);
+                        border:none !important;
+                        box-shadow:none !important;
+                        border-radius: 0;
+                        transition: all 0.1s ease;
+                        z-index:99;
+                        overflow:hidden;
+                        display:inline-block;
+                        animation: fadeAlert 0.5s ease 1;
+                        transition:all 0.2s ease-in-out;
+                        margin-bottom:var(--size-2) !important;
+                        padding:var(--size-2) !important;
+
+                        @include respond-above(lg){
+                            padding:0 var(--size-20) !important;
+                        }
+
+                        &--{
+                            &msg{
+                                color:var(--white);
+                                font-size: var(--text-sm);
+                                font-weight: var(--font-normal);
+
+                                @include respond-below(sm){
+                                    font-size: var(--text-xs);
+                                    margin-bottom: var(--size-base);
+                                }
+                            }
+                            &link{
+                                color:var(--white);
+                                font-size:var(--text-sm);
+                                font-weight: var(--font-normal);
+                                text-decoration: underline;
+
+                                &:hover{
+                                    color:var(--gray6);
+                                    text-decoration: underline;
+                                }
+
+                                @include respond-below(sm){
+                                    font-size: var(--text-xs);
+                                }
+                            }
+                            &close{
+                                position: relative !important;
+                                color:var(--gray6) !important;
+                                padding:0 !important;
+                            }
+                        }
                     }
                 }
             }

@@ -78,16 +78,16 @@
                     </div> 
                 </div>
 
-                <div class="col-md-5 la-entry__col la-entry__col-right h-100 la-anim__wrap">
+                <div class="col-md-5 la-entry__col la-entry__col-right h-100 pt-20 la-anim__wrap">
                     {{-- <div class="signup-heading">
                         {{ __('frontstaticword.LogIntoYour') }} {{ $project_title }} {{ __('frontstaticword.Account') }}!
                     </div> --}}
 
-                    <div class="la-entry__content-wrap d-flex flex-column justify-content-center">  
+                    <div class="la-entry__content-wrap d-flex flex-column justify-content-center la-anim__stagger-item">  
                         <div class="d-flex flex-column la-entry__content-top mt-md-5 ">
                                 <form method="POST" class="signup-form la-entry__form" action="{{ route('login') }}">
                                     @csrf
-                                    <div class="la-form__input-wrap la-entry__input-wrap mb-md-10 la-anim__stagger-item">
+                                    <div class="la-form__input-wrap la-entry__input-wrap mb-md-10">
                                         <!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
                                         <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-mail-id"></span></span>
                                         <input id="email" type="email" class="la-form__input la-entry__input{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Enter Your E-Mail"   name="email" value="{{ old('email') }}" required autofocus>
@@ -99,7 +99,7 @@
                                         @endif
                                     </div>
                 
-                                    <div class="la-form__input-wrap la-entry__input-wrap  mb-md-6 la-anim__stagger-item">
+                                    <div class="la-form__input-wrap la-entry__input-wrap  mb-md-6">
                                         <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
                                         <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-password"></span></span>
                                         <input id="password" type="password" class="la-form__input la-entry__input{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Enter Your Password" name="password" required>
@@ -201,7 +201,7 @@
                         </div>
                         
                         <div class="la-anim__wrap">
-                            <div class="text-center la-entry__other-option mt-md-8 la-anim__fade-in-left">Create a new account?
+                            <div class="text-center la-entry__other-option mt-5 mt-md-8 la-anim__fade-in-left">Create a new account?
                                 <span class="la-btn__plain text--burple text--md ml-2 la-anim__stagger-item--x">
                                     <a href="{{ route('register') }}" title="sign-up">  {{ __('frontstaticword.Signup') }}</a>
                                 </span>
@@ -209,7 +209,7 @@
                         </div>
 
                         <div class="la-anim__wrap">
-                            <div class="text-center la-entry__other-option mt-md-8 la-anim__fade-in-left">Facing an issue?
+                            <div class="text-center la-entry__other-option mt-2 mt-md-8 la-anim__fade-in-left">Facing an issue?
                                 <span class="la-btn__plain text--burple text--md ml-2 la-anim__stagger-item--x">
                                     <a href="https://desk.zoho.com/portal/alienstattoo/en/newticket" title="support">Get support</a>
                                 </span>

@@ -789,6 +789,7 @@ Route::get('/search-mentor','InstructorController@searchMentor');
 Route::get('/mentor/{id}/{name?}','InstructorController@creator')->name('mentor.profile');
 
 Route::view('/user-interests', 'learners.pages.user-interests');
+Route::view('/referrals', 'learners.pages.referrals');
 
 Route::view('/payment-successful','learners.pages.payment-successful');
 Route::view('/contact','learners.pages.contact')->name('contactus');
