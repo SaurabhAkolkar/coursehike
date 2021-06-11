@@ -2,14 +2,14 @@
     &announcement{
         &__{
             &card{
-                margin-top:var(--size-5);
-                background:#ffffff;
+                margin-top:calc(var(--size-4) + 2px);
+                padding-top:var(--size-2);
+                background-color: var(--white);
                 box-shadow: 0px 3px 6px #00000029;
                 border-radius: 10px;
                 border:none;
-                width:275px;
+                width:420px;
                 height:440px;
-                padding-top:var(--size-2);
                 overflow:scroll;
                 z-index:-1;
                 overflow:-moz-scrollbars-none;
@@ -18,18 +18,20 @@
                 @include respond-below(sm){
                     width:100%;
                     border-radius: 0 0 10px 10px;
+                    
                 }
             }
             &card::-webkit-scrollbar{
                 width:0 !important;
             }
-            &name{ 
-                padding:var(--size-2) var(--size-6);
-                h6{
-                    font-weight:var(--font-normal);
-                    color:var(--gray-6);
-                }
+            &top{ 
+                padding:var(--size-3) var(--size-5) 0;
             }
+            &title{
+                font-weight:var(--font-normal);
+                color:var(--gray-6);
+            }
+
             &view-more{
                 transition:all 0.2s ease-in;-webkit-transition:all 0.2s ease-in;-moz-transition:all 0.2s ease-in;-ms-transition:all 0.2s ease-in;-o-transition:all 0.2s ease-in;
                 &:hover{
@@ -38,7 +40,7 @@
                 }
             }
             &item{  
-                padding:var(--size-2) var(--size-6);
+                padding:var(--size-4) var(--size-5);
                 border-bottom: 1px solid rgba(158,158,158,0.15);
                 border-right:3px solid transparent;
 
@@ -48,25 +50,57 @@
                 }
             }
             &eprfle{
+                width:120px;
+                height:80px;
+                max-width:120px;
+                max-height:80px;
+                border-radius: 8px;
+                background-color: var(--gray);
+            
                 img{
-                    width:48px;
-                    height:48px;
-                    border-radius:var(--rounded-full);
-                    object-fit: cover;
+                    width:120px;
+                    height:80px;
+                    max-width:120px;
+                    max-height:80px;
+                    border-radius: 8px;
                     background-color: var(--gray);
+                    object-fit: cover;
+                    font-size: var(--text-xs);
                 }
             }
-            &event{
-                font-weight:var(--font-normal);
-                color:var(--gray-6);
-                overflow: hidden;
-                text-overflow: ellipsis;
-                display: -webkit-box;
-                -webkit-line-clamp: 2 !important;
-                -webkit-box-orient: vertical;
+            &info{
+                &-{
+                    &tag{
+                        font-size: var(--text-xxs);
+                        color:var(--app-indigo-1);
+                        font-weight: var(--font-medium);
+                    }
+                    &event{
+                        font-size: var(--text-sm);
+                        font-weight:var(--font-normal);
+                        color:var(--black);
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2 !important;
+                        -webkit-box-orient: vertical;
+                    }
+                    &name{
+                        font-size:var(--text-xxs);
+                        color:var(--black);
+                        opacity: 0.8;
+                    }
+                    &duration{
+                        font-size:var(--text-xxs);
+                        color:var(--black);
+                        opacity: 0.8;
+                    }
+                }
             }
+           
             &timestamp{
                 color:#FFCE31;
+                font-size: var(--text-xxs);
             }
         }
     }
