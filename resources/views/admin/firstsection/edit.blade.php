@@ -16,12 +16,14 @@
 		                
 		              
                             <div class="row">
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-12 mt-3">
                                 <label for="exampleInputTit1e">{{ __('adminstaticword.Heading') }}:<sup class="redstar">*</sup></label>
                                 <input type="text" class="form-control" name="heading" id="exampleInputTitle" value="{{$show['heading']}}" placeholder="Enter Section Heading">
                                 </div>
-                            
-                                <div class="col-md-4 mt-3">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 mt-3">
                                 <label for="exampleInputTit1e">{{ __('adminstaticword.SubHeading') }}:<sup class="redstar">*</sup></label>
                                 <input type="text" class="form-control" name="sub_heading" id="exampleInputTitle" value="{{$show['sub_heading']}}" placeholder="Enter Section Sub Heading">
                                 </div>
