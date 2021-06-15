@@ -259,7 +259,7 @@ $course_id = $course->id;
                   </a>
                 </li>
                 <li class="nav-item la-courses__nav-item la-vcourse__nav-item">
-                  <a class="nav-link la-courses__nav-link la-vcourse__nav-link text-capitalize" id="cnav-about-tab" data-toggle="tab" href="#cnav-about" role="tab" aria-controls="cnav-about">
+                  <a class="nav-link la-courses__nav-link la-vcourse__nav-link text-capitalize active" id="cnav-about-tab" data-toggle="tab" href="#cnav-about" role="tab" aria-controls="cnav-about">
                     About
                   </a>
                 </li>

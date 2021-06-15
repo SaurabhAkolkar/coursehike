@@ -48,16 +48,16 @@
     <div class="la-section__inner">
       <div class="container-fluid">
         <div class="la-anim__wrap">
-          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 mb-2 la-anim__stagger-item--x" href="{{URL::previous()}}"></a>
-          <h1 class="la-page__title mb-4 mb-md-8 la-anim__stagger-item">Browse Classes</h1>
+          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 la-anim__stagger-item--x" href="{{URL::previous()}}"></a>
+          <h1 class="la-page__title mb-3 mb-lg-8 la-anim__stagger-item">Browse Classes</h1>
         </div>
 
         <div class="d-flex justify-content-between align-items-start flex-wrap flex-column flex-md-row">
             <!-- Global Search: Start-->
-            <div class="la-gsearch la-anim__wrap">
+            <div class="la-gsearch mb-0 la-anim__wrap">
               <form class="form-inline m-0 la-anim__stagger-item"  action="{{ url('/search-classes/') }}">
                 <div class="form-group d-flex align-items-center">
-                  <input class="la-gsearch__input form-control la-gsearch__input-searchcourses " style="background:transparent" name="course_name" type="text" placeholder="What can we interest you in learning today?" required>
+                  <input class="la-gsearch__input form-control la-gsearch__input-browsecourses" style="background:transparent" name="course_name" type="text" placeholder="What can we interest you in learning today?" required>
                   <button class="la-gsearch__submit btn mt-0" type="submit"><i class="la-icon icon icon-search la-gsearch__input-icon"></i></button>
                 </div>
               </form>
@@ -74,9 +74,9 @@
                 @endif
               </div>
               <div class="la-courses__nav-props ">
-                <a class="la-icon icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
+                <a class="la-icon icon-sort la-courses__nav-filter mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                 <!-- Sort Courses Dropdown -->
-                <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses"  style="border:none !important;">
+                <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu mt-3" aria-labelledby="sortCourses"  style="border:none !important;">
                   <div class="la-form__input-wrap px-5">
                       <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-2 text-dark">Sort by</div>
                       <div class=" pt-2">
@@ -102,7 +102,7 @@
 
 
                   <div class="la-courses__nav-filterdropdown" id="filtered_sidebar">
-                      <div class="la-form__input-wrap px-5">
+                      <div class="la-form__input-wrap px-md-5">
                           <div class="d-flex justify-content-between align-items-center">
                             <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
                             <button class="la-courses__nav-filterclose close text-4xl mt-1" type="button" id="filter_close">&times;</button>

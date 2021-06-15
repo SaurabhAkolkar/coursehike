@@ -85,7 +85,7 @@
         <main class="la-main">
             <div class="la-main__inner p-0">
 
-                @include ('learners.pages.referral-toggle')
+                {{-- @include ('learners.pages.referral-toggle') --}}
 
                 @yield('content')
                 

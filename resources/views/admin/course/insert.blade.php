@@ -208,7 +208,17 @@
 
                               <div class="la-admin__cp-desc">
                                   <p>This class is accessible by all Subscribers & also available for life-time purchase. </p>
-                                  <p>Please enter the class cost for One-Time Purchase</p>
+                               
+                                  <div class="form-group">
+                                    <p class="text-sm mb-2">Class can be purchased individually?</p>
+                                    <li class="tg-list-item">              
+                                      <input class="la-admin__toggle-switch" id="individual_class" type="checkbox" name="individual_class" >
+                                      <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="individual_class"></label>
+                                    </li>
+                                    <input type="hidden"  name="individual_class" value="0" for="individual_class" id="individual_class">
+                                  </div>
+
+                                  <p class="mb-2">Please enter the class cost for One-Time Purchase</p>
                                   <div class="form-group row  la-admin__subform-group">
                                       <div class="input-group col-10 col-sm-6 la-admin__subinput-group">
                                         <div class="input-group-prepend la-admin__subinput-prepend" >

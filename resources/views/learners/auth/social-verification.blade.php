@@ -1,10 +1,10 @@
 @extends('learners.layouts.intro')
 @section('seo_content')
-    <title>Login | Start For Free Today | LILA</title>
+    <title>Social Login | Start For Free Today | LILA</title>
     <meta name='description' itemprop='description' content='Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now' />
 
     <meta property="og:description"content="Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now" />
-    <meta property="og:title"content="Login | Start For Free Today | LILA" />
+    <meta property="og:title"content="Social Login | Start For Free Today | LILA" />
     <meta property="og:url"content="{{Request::url()}}" />
     <meta property="og:type"content="website" />
     <meta property="og:site_name"content="LILA Art" />
@@ -13,10 +13,10 @@
     <meta property="og:image:size"content="300" />
 
     <meta name="twitter:card"content="summary" />
-    <meta name="twitter:title"content="Login | Start For Free Today | LILA" />
+    <meta name="twitter:title"content="Social Login | Start For Free Today | LILA" />
     <meta name="twitter:site"content="@lilaaliens" />
     
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Login | Start For Free Today | LILA"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Social Login | Start For Free Today | LILA"}</script>
 
     <script>
         (function(h,e,a,t,m,p) {

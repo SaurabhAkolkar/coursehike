@@ -725,16 +725,28 @@
 //- List & Grid View onClick
 @include respond-above(lg){
     .list-view {
-        transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;
-        animation:fadeInUp 0.5s linear 1;-webkit-animation:fadeInUp 0.5s linear 1;-moz-animation:fadeInUp 0.5s linear 1;
+        transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;-moz-transition:all 0.2s ease-in-out;
+        animation:fadeInUp 0.3s linear 1;-webkit-animation:fadeInUp 0.3s linear 1;-moz-animation:fadeInUp 0.3s linear 1;
 
         @keyframes fadeInUp{
-            from{opacity:0; transform: translateY(50px);-webkit-transform: translateY(50px);-moz-transform: translateY(50px); transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;}
-            to{opacity:1; transform:translateY(0);-webkit-transform:translateY(0);-moz-transform:translateY(0); transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;}
+            from{
+                opacity:0; transform: translateY(30px);-webkit-transform: translateY(30px);-moz-transform: translateY(30px); 
+                transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;-moz-transition:all 0.2s ease-in-out;
+            }
+            to{
+                opacity:1; transform:translateY(0);-webkit-transform:translateY(0);-moz-transform:translateY(0); 
+                transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;-moz-transition:all 0.2s ease-in-out;
+            }
         }
         @-webkit-keyframes fadeInUp{
-            from{opacity:0; transform: translateY(50px);-webkit-transform: translateY(50px);-moz-transform: translateY(50px); transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;}
-            to{opacity:1; transform:translateY(0);-webkit-transform:translateY(0);-moz-transform:translateY(0); transition:all 0.25s ease-in-out;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;}
+            from{
+                opacity:0; transform: translateY(30px);-webkit-transform: translateY(30px);-moz-transform: translateY(30px); 
+                transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;-moz-transition:all 0.2s ease-in-out;
+            }
+            to{
+                opacity:1; transform:translateY(0);-webkit-transform:translateY(0);-moz-transform:translateY(0); 
+                transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;-moz-transition:all 0.2s ease-in-out;
+            }
         }
         
         .la-courses {

@@ -92,7 +92,7 @@
             <div id="alert_div" >
             </div>
             
-            @include ('learners.pages.referral-toggle')
+            {{-- @include ('learners.pages.referral-toggle') --}}
 
             <div class="la-main__inner">
                 @yield('content')

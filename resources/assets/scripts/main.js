@@ -332,6 +332,8 @@ $(function(){
     var swiper = new Swiper('.la-home__testimonials-container', {
       slidesPerView: 'auto',
       spaceBetween: 30,
+      slidesPerColumn:1,
+      slidesPerGroup: 2,
       pagination: {
         el: '.la-home__testimonials-pagination',
         clickable: true,
@@ -346,12 +348,15 @@ $(function(){
       } 
     });
   }
+    
 
   // Featured Slider in Browser Courses & Browse Classes Page
   if($('.la-courses__featured-container')[0]){     
     var course_swiper = new Swiper(".la-courses__featured-container", {
       slidesPerView: 'auto',
       spaceBetween: 30,
+      observer: true,
+      observeParents: true,
       flipEffect: {
         slideShadows: false,
       },
@@ -450,29 +455,7 @@ $(function(){
     this.swiper.autoplay.start();
   });
 
-  //- Active Tab in Class Main Page for Mobile & Desktop : start
-  function changeTab() {
-    if ($(window).width()< 767) {
-        $("#cnav-about-tab").removeClass("active");
-        $("#cnav-about").removeClass("active show");
-
-        $("#cnav-chapters-tab").addClass("active");
-        $("#cnav-chapters").addClass("active show");
-    }else{
-        $("#cnav-about-tab").addClass("active");
-        $("#cnav-about").addClass("active show");
-
-        $("#cnav-chapters-tab").removeClass("active");
-        $("#cnav-chapters").removeClass("active show");
-    }
-}
-changeTab();
-// Bind the function, it will be executed once window is resized.
-$(window).on('resize', changeTab);
-
-//- Active Tab in Class Main Page for Mobile & Desktop : End
-
-    
+ 
   //Swiper Js for Become a Creator
   if($('.la-mcard__container')[0] && $('.la-mcard__container .swiper-slide').length > 1){
     var swiper = new Swiper('.la-mcard__container', {
@@ -532,13 +515,14 @@ $(window).on('resize', changeTab);
       spaceBetween: 30,
       observer: true,
       observeParents: true,
+      keyboard:true,
       flipEffect: {
         slideShadows: false,
       },
       speed:1000,
       autoplay: {
         delay: 2500,
-        disableOnInteraction: false,
+        disableOnInteraction: true,
       },
       pagination: {
         el: '.la-lcreviews__pagination',
@@ -556,13 +540,12 @@ $(window).on('resize', changeTab);
       
       reviews_swiper[paneIndex].update();
 
-      var course_slider_pagination = reviews_swiper[paneIndex].pagination.el;
-      var course_slider_pagination_width = $(course_slider_pagination).width() + 30;
-      $(course_slider_pagination).css("width", course_slider_pagination_width);
+      var reviews_slider_pagination = reviews_swiper[paneIndex].pagination.el;
+      var reviews_slider_pagination_width = $(reviews_slider_pagination).width() + 30;
+      $(reviews_slider_pagination).css("width", reviews_slider_pagination_width);
     }
   }); 
   
-
   //- Autoplay Stop on Mouse Hover
    $('.la-lcreviews__container').on('mouseover touchstart', function() {
     this.swiper.autoplay.stop();
@@ -827,6 +810,29 @@ $(window).on('resize', changeTab);
 }); 
 
 
+//- Active Tab in Class Main Page for Mobile & Desktop : start
+function changeTab() {
+    if($(window).width() <= 767) {
+        $("#cnav-about-tab").removeClass("active");
+        $("#cnav-about").removeClass("active show");
+  
+        $("#cnav-chapters-tab").addClass("active");
+        $("#cnav-chapters").addClass("active show");
+  
+  }else{
+  
+        $("#cnav-about-tab").addClass("active");
+        $("#cnav-about").addClass("active show");
+  
+        $("#cnav-chapters-tab").removeClass("active");
+        $("#cnav-chapters").removeClass("active show");
+  }
+}
+changeTab();
+// Bind the function, it will be executed once window is resized.
+$(window).on('resize', changeTab);
+
+//- Active Tab in Class Main Page for Mobile & Desktop : End
 
 // Popover Js for Dashboard Page: Start
 $('[data-toggle="popover"]').popover();

@@ -887,7 +887,74 @@
                       </div>
                     </div>
                   </div>
+                  
+                  <div class="swiper-slide la-home__testimonials-slider">       
+                    <div class="la-lp__test-cards p-0 d-flex">
+                      <div class="card la-lp__card-itm la-lp__card-itm--home-testimonials">
+                        <div class="la-card__top d-md-flex justify-content-between ">
+                          <div class="la-lp__profile d-flex justify-content-start align-items-center">
+                            <img class="img-fluid d-block lazy" src="" data-src="" alt="" />
+                            <div class="col leading-tight">
+                              <h5 class="la-lp__name m-0 text-md text-md-lg">Nathan Spark</h5>
+                              <span class="la-lp__desg text-sm">Learner</span>
+                            </div>
+                          </div>
+                          <div class="la-lp__test-rating d-flex flex-row">
+                              {{-- @if($test->rating == 5)
 
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+
+                              @elseif($test->rating >= 4)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @elseif($test->rating >= 3)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @elseif($test->rating >= 2)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @elseif($test->rating >= 1)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @else
+
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @endif --}}
+                          </div>
+                        </div>
+                        <div class="la-lp__test-review text-sm">I am really pleased with the online tattoo learning program by Sunny sir about placement and size, depth of field and others. It will help me in my realism tattoo art in my tattoo career. I love the programme and next I will attend all the learning programmes to learn more about Realism Tattoo art from the greatest teacher - Sunny sir. Thank you LILA!</div>
+                      </div>
+                    </div>
+                  </div>
                                     
               </div>
               <div class="la-slider__navigations la-home__testimonials-navigations d-flex align-items-center justify-content-end">
