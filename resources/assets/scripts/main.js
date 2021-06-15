@@ -209,14 +209,30 @@ $(function(){
   });
    
   // Swiper JS for Master Classes in Homepage
-  if($('.la-home__master-container')[0]){   
-    var master_slider = new Swiper('.la-home__master-container', {
-      slidesPerView: 'auto',
-      spaceBetween: 20,
+  if($('.la-home__multilingual-container')[0]){   
+    var master_slider = new Swiper('.la-home__multilingual-container', {
+      slidesPerView: 2,
+      //spaceBetween: 25,
+      slidesPerColumn:1,
+      slidesPerGroup: 2,
       pagination: {
-        el: '.la-home__master-pagination',
+        el: '.la-home__multilingual-pagination',
         clickable: true,
       },
+      navigation: {
+        nextEl: '.la-home__multilingual-next',
+        prevEl: '.la-home__multilingual-prev',
+      },
+      breakpoints:{
+        320: {       
+          slidesPerView: 1, 
+          slidesPerGroup: 1,        
+        },       
+        992: {
+          slidersPerView: 2,
+          slidesPerGroup: 2, 
+        },  
+      }
     });
   }
 

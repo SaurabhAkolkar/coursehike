@@ -366,34 +366,22 @@
 }
 
 //- Master Class Carousel
-.la-home__master-fluid{
-    @include respond-below(sm){
-        padding:0 12px;
-    }
-}
-.la-home__master-container{
+.la-home__multilingual-container{
     width:100%;
     height:100%;
 }
-.la-home__master-slide{
-    width: 300px !important;
-    height:auto;
+.la-home__multilingual-wrapper{
+   width:100%;
+   display: flex;
+   justify-content: start;
+   margin:0 auto;
+}
+.la-home__multilingual-slide{
+    width:100% !important;
     
-    &:first-child{
-        padding-left:0;
-
-        @include respond-above(lg){
-                margin-left:85px;
-        }
-    }
-
-    @include respond-below(md){
-        width: 300px !important;
-    }
-
-    @include respond-above(lg){
-        width: 320px !important;
-    }
+    @include respond-above(md){
+        width:48% !important;
+    }     
 }
 .la-slider__paginations, .la-slider__paginations2 {
     &-- {
@@ -412,11 +400,9 @@
         }
     }
 }
-.la-home__master-pagination{
+.la-home__multilingual-pagination{
     margin-top:var(--size-16);
-    left: 50%;
-    bottom:-20px;
-
+   
 	.swiper-pagination-bullet{
 		background:#ffffff;
 		border-radius:50%;
@@ -428,57 +414,55 @@
         opacity: 1 !important;
 	}
 
-    @include respond-below(sm){
-        left: 45%;
-        bottom:-20px;
-    }
-    @include respond-above(lg){
-        // display:none;
-        right: 0;
-        left: unset;
-        bottom: -57px;
-    }
+   
 }
-.la-home__master-prev, .la-home__master-next{
-    background-color:var(--gray2);
+.la-home__multilingual-prev, .la-home__multilingual-next{
+    background-color:rgba(#fff, 0.1) !important;
     border-radius:var(--rounded-full);
-    width:35px;
-    height:35px;
+    width:45px;
+    height:45px;
+    position: absolute;
+    margin: 0;
+    box-shadow: 0px 2px 4px 3px #0000002e;
+    background-color: #ffffff;
+    cursor: pointer;
+    opacity:1 !important;
+    
 
     &:hover{
-        background-color:var(--yellow);
+        background-color:var(--yellow) !important;
         transform:all 0.25s ease;
     }
     &:after{
-        font-size:var(--text-md);
-        color:var(--gray6);
+        font-size:var(--text-xl);
+        color:var(--white);
         font-weight:var(--font-semibold);
     }
     &:hover:after{
         color:var(--white);
     }
 }
-.la-home__master-next{
-    right:-60px;
-    top:48%;
+.la-home__multilingual-next{
+    right:20px !important;
+    top:40% !important;
 
-    @media(min-width:1200px){
-        right:-60px;
-        top:48%;
+    @media (min-width:1330px){
+        right:60px !important;
     }
-    @media(max-width:1199px){
+    @include respond-below(sm){
+        right:0 !important;
         display: none;
     }
 }
-.la-home__master-prev{
-    left:-60px;
-    top:48%;
+.la-home__multilingual-prev{
+    left:20px !important;
+    top:40% !important;
 
-    @media(min-width:1200px){
-        left:-60px;
-        top:48%;
+    @media (min-width:1330px){
+        left:60px !important;
     }
-    @media(max-width:1199px){
+    @include respond-below(sm){
+        left:0 !important;
         display: none;
     }
 }

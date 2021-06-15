@@ -419,52 +419,91 @@
   <!-- Master Classes Section: Start-->
   <section class="la-section la-section--dark la-section--classes position-relative">
     <div class="la-section__inner">
-      <div class="la-home__master-fluid">
-        <div class="">
-          <h2 class="la-section--classes-title text-center la-section__title la-section__title--big  position-relative ">Master <span>classes</span></h2>
-        </div>
+      <div class="container px-0">
+       
+        <div class="swiper-container la-home__multilingual-container pt-6">
+          <div class="swiper-wrapper la-home__multilingual-wrapper">
+              
+            @php
+                    $multilang1 = new stdClass;
+                    $multilang1->id = "1";
+                    $multilang1->img = "https://picsum.photos/500/500";
+                    $multilang1->title = "Mastery to photo realism Webinar II";
+                    $multilang1->url = "";
+                    $multilang1->creatorName = "Sunny Bhanushali";
+                    $multilang1->creatorUrl = "";
+                    $multilang1->videoCount = "25";
+                    $multilang1->chapterCount = "3";
+                    $multilang1->duration = "12h 10m";
 
-        <div class="la-mccourses pt-20 pt-md-6">
-            <div class="swiper-container la-home__master-container">
-              <div class="swiper-wrapper la-home__master-wrapper">
+                    $multilang2 = new stdClass;
+                    $multilang2->id = "1";
+                    $multilang2->img = "https://picsum.photos/500/500";
+                    $multilang2->title = "Mastery to photo realism Webinar II";
+                    $multilang2->url = "";
+                    $multilang2->creatorName = "Sunny Bhanushali";
+                    $multilang2->creatorUrl = "";
+                    $multilang2->videoCount = "25";
+                    $multilang2->chapterCount = "3";
+                    $multilang2->duration = "14h 20m";
 
-                @foreach ($master_classes as $master)
-                  @if($master->courses != null)
-                    <div class="swiper-slide la-home__master-slide">
-                      <x-master-class
-                        :img="$master->courses->preview_image"
-                        :title="$master->courses->title"
-                        :url="$master->courses->slug"
-                        :profileImg="$master->courses->user->user_img"
-                        :profileName="$master->courses->user->fullName"
-                        :learners="$master->courses->learnerCount"
-                        :id="$master->courses->id"
-                        :slug="$master->courses->slug"
-                        :price="$master->courses->price"
-                        :bought="$master->courses->isPurchased()"
-                        :checkWishList="$master->courses->checkWishList"
-                        :checkCart="$master->courses->checkCart"
-                      />
-                    </div>
-                  @endif
-                @endforeach
-              </div>
+                    $multilang3 = new stdClass;
+                    $multilang3->id = "1";
+                    $multilang3->img = "https://picsum.photos/500/500";
+                    $multilang3->title = "Mastery to photo realism Webinar II";
+                    $multilang3->url = "";
+                    $multilang3->creatorName = "Sunny Bhanushali";
+                    $multilang3->creatorUrl = "";
+                    $multilang3->videoCount = "25";
+                    $multilang3->chapterCount = "3";
+                    $multilang3->duration = "14h 20m";
+
+                    $multilang4 = new stdClass;
+                    $multilang4->id = "1";
+                    $multilang4->img = "https://picsum.photos/500/500";
+                    $multilang4->title = "Mastery to photo realism Webinar II";
+                    $multilang4->url = "";
+                    $multilang4->creatorName = "Sunny Bhanushali";
+                    $multilang4->creatorUrl = "";
+                    $multilang4->videoCount = "25";
+                    $multilang4->chapterCount = "3";
+                    $multilang4->duration = "14h 20m";
+                    
+                    $multilanguages = array($multilang1, $multilang2, $multilang3, $multilang4);
+
+          @endphp
+
+          @foreach ($multilanguages as $multilang)
+                    
+            <div class="swiper-slide la-home__multilingual-slide col-lg-6">
+                      
+              <x-classes-multilingual
+                :id="$multilang->id"
+                :img="$multilang->img"
+                :title="$multilang->title"
+                :url="$multilang->url"
+                :creatorName="$multilang->creatorName"
+                :creatorUrl="$multilang->creatorUrl"
+                :videoCount="$multilang->videoCount"
+                :chapterCount="$multilang->chapterCount"
+                :duration="$multilang->duration"
+               />
+
             </div>
-            <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-start mt-6 mt-md-16">
-              <div class="la-slider__navigations la-home__course-navigations d-md-flex align-items-center">
-                <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__master-prev"></div> -->
-                <div class="swiper-pagination la-slider__navigations-dots la-home__master-pagination la-slider__paginations la-slider__paginations--purble la-right"></div>
-                <!-- <div class="swiper-button-next la-slider__navigations-arrow la-home__master-next"></div> -->
-              </div>
-              <div class="la-mccourse__view-more position-relative text-center text-md-right ">
-                <div class=" la-btn__arrow text-white text-uppercase text-spacing font-weight--medium mr-1 mr-md-1">
-                  <a href="/master-classes" >explore more <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
-                </div>
-              </div>
-            </div>
 
+          @endforeach
         </div>
+      </div>
 
+      <div class="w-100 text-center d-flex justify-content-center align-items-start mt-12">
+        <div class="swiper-button-prev  la-home__multilingual-prev"></div>
+        <div class="la-slider__navigations la-home__course-navigations d-md-flex align-items-center p-0">
+          <div class="swiper-pagination la-slider__navigations-dots la-home__multilingual-pagination la-slider__paginations la-slider__paginations--purble la-right"></div>
+        </div>
+        <div class="swiper-button-next la-home__multilingual-next"></div>
+      </div>
+
+        
       </div>
     </div>
   </section>
