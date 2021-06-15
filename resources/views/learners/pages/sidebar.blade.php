@@ -63,12 +63,12 @@
           </a>
         </li>
 
-        <li class="la-profile__sidebar-item">
+        {{-- <li class="la-profile__sidebar-item">
           <a href="/referrals" class="la-profile__sidebar-link d-flex align-items-center @if(Request::segment(1) == 'referrals') active @endif ">
             <span class="la-icon la-icon--3xl icon-referral"></span>
             <span class="la-profile__sidebar-text">Referrals</span>
           </a>
-        </li>
+        </li> --}}
       </ul>
     </div>
     <div class="la-profile__sidebar-bottom la-anim__wrap">

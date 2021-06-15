@@ -29,7 +29,7 @@
                         padding-bottom:var(--size-4);
 
                         @include respond-below(md){
-                            border-bottom:1px dashed var(--gray8);
+                            //border-bottom:1px dashed var(--gray8);
                         }
                     }
                     &banner{
@@ -37,24 +37,22 @@
                         height:250px;
                         border-radius:10px;
                         background-color: var(--white);
+                        overflow: hidden;
 
                         @include respond-below(md){
                             width:100%;
-                            height:auto;
-                            margin:0 auto;
                         }
-
+                        
                         img{
                             width:850px;
                             height:250px;
                             object-fit: cover;
+                            object-position: top;
                             background-color: var(--white);
                             
                             @include respond-below(md){
                                 width:100%;
-                                height: auto;
-                            }
-                            
+                            }                            
                         }
                     }
                 }

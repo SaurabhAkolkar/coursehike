@@ -20900,23 +20900,63 @@ input[type=radio]:checked + label.la-vcourse__language-label {
 }
 @media (max-width: 991px) {
   .la-news__item {
+    padding: var(--size-6) 0;
     margin-right: 0;
   }
 }
+.la-news__eimg {
+  min-width: 350px;
+  min-height: 280px;
+  border-radius: 10px;
+  background-color: var(--white);
+  overflow: hidden;
+}
+@media (max-width: 991px) {
+  .la-news__eimg {
+    min-width: 300px;
+  }
+}
+@media (max-width: 767px) {
+  .la-news__eimg {
+    width: 100%;
+    min-height: 250px;
+  }
+}
 .la-news__eimg img {
-  width: 350px;
-  height: 280px;
+  min-width: 350px;
+  min-height: 280px;
   border-radius: 10px;
   background-color: var(--white);
   -o-object-fit: cover;
      object-fit: cover;
-}
-.la-news__etitle {
-  padding: 0 var(--size-12);
+  -o-object-position: top;
+     object-position: top;
 }
 @media (max-width: 991px) {
+  .la-news__eimg img {
+    min-width: 300px;
+  }
+}
+@media (max-width: 767px) {
+  .la-news__eimg img {
+    width: 100%;
+    min-height: 250px;
+    margin: 0;
+  }
+}
+@media (max-width: 767px) {
   .la-news__etitle {
     padding: var(--size-6) 0;
+  }
+}
+@media (min-width: 768px) {
+  .la-news__etitle {
+    padding: 0 0 0 var(--size-5);
+  }
+}
+@media (min-width: 992px) {
+  .la-news__etitle {
+    padding: 0 var(--size-12);
   }
 }
 .la-news__title {
@@ -20932,7 +20972,6 @@ input[type=radio]:checked + label.la-vcourse__language-label {
   font-weight: var(--font-normal);
   padding-top: var(--size-2);
   padding-bottom: var(--size-4);
-  border-bottom: 1px dashed var(--gray8);
 }
 .la-news__content span {
   color: var(--gray5);
@@ -20945,46 +20984,25 @@ input[type=radio]:checked + label.la-vcourse__language-label {
   display: block;
   position: relative;
 }
-.la-news__readmore:before {
-  font-family: "icomoon";
-  content: "\E978";
+.la-news__readmore:after {
+  font-family: var(--head-font);
+  content: "Read Less...";
   position: absolute;
   top: -15px;
-  right: 25px;
-  color: var(--gray9) !important;
+  left: 0;
+  color: var(--app-indigo-1) !important;
   font-weight: var(--font-normal);
-  transform: rotate(180deg);
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
   transition: all 0.25s ease-in;
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   -ms-transition: all 0.25s ease-in;
   -o-transition: all 0.25s ease-in;
 }
-
-@media (max-width: 991px) {
-  .la-news__eimg img {
-    max-width: 100%;
-    height: auto;
-    margin: 0;
-  }
-  .la-news__readmore:before {
-    top: -15px;
-    left: 22px;
-  }
-  .la-news__readmore:hover {
-    font-size: var(--text-sm);
-  }
-}
-.la-news__readmore.collapsed:before {
-  content: "\E978";
-  transform: rotate(0);
-  transition: all 0.25s ease-in;
-  -webkit-transition: all 0.25s ease-in;
-  -moz-transition: all 0.25s ease-in;
-  -ms-transition: all 0.25s ease-in;
-  -o-transition: all 0.25s ease-in;
+.la-news__readmore.collapsed:after {
+  content: "Read More...";
+  position: absolute;
+  top: -15px;
+  left: 0;
 }
 
 .la-news__app-item {
@@ -21009,7 +21027,6 @@ input[type=radio]:checked + label.la-vcourse__language-label {
   color: var(--gray5);
   font-weight: var(--font-normal);
   padding-bottom: var(--size-4);
-  border-bottom: 1px dashed var(--gray8);
 }
 .la-news__app-desc {
   color: var(--gray5);
@@ -21039,22 +21056,16 @@ input[type=radio]:checked + label.la-vcourse__language-label {
   font-weight: var(--font-normal);
   padding-bottom: var(--size-4);
 }
-@media (max-width: 991px) {
-  .la-news__meet-content {
-    border-bottom: 1px dashed var(--gray8);
-  }
-}
 .la-news__meet-banner {
   width: 850px;
   height: 250px;
   border-radius: 10px;
   background-color: var(--white);
+  overflow: hidden;
 }
 @media (max-width: 991px) {
   .la-news__meet-banner {
     width: 100%;
-    height: auto;
-    margin: 0 auto;
   }
 }
 .la-news__meet-banner img {
@@ -21062,12 +21073,13 @@ input[type=radio]:checked + label.la-vcourse__language-label {
   height: 250px;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
   background-color: var(--white);
 }
 @media (max-width: 991px) {
   .la-news__meet-banner img {
     width: 100%;
-    height: auto;
   }
 }
 

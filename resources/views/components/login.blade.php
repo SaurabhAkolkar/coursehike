@@ -75,14 +75,14 @@
                     </a>
                 </div>
 
-                <div class="la-header__nav-item">
+                {{-- <div class="la-header__nav-item">
                     <a class="la-header__nav-link @if(Request::segment(1) == 'referrals') active @endif" href="/referrals">
                         <div class="la-header__nav-icon">
                             <span class="la-icon la-icon--lg icon-referral"></span>
                         </div>
                         <span class="la-header__nav-name">Referrals</span>
                     </a>
-                </div>
+                </div> --}}
 
                 <div class="la-header__nav-item">
                     <a class="la-header__nav-link @if(Request::segment(1) == 'releases') active @endif" href="/releases">
