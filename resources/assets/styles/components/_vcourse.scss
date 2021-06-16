@@ -48,6 +48,17 @@
                         @include respond-above(md) {
                             //width: calc(100% - 550px);
                         }
+
+                        //-For Course Main Page
+                        &--{
+                            &course{
+                                width:100%;
+
+                                @include respond-above(md){
+                                    width:50%;
+                                }
+                            }
+                        }
                     }
                     &right {
                         width: 100%;
@@ -55,6 +66,20 @@
                         @include respond-above(md) {
                             //width: 550px;
                             //padding-left: 65px;
+                        }
+
+                        //-For Course Main Page
+                        &--{
+                            &course{
+                                width:100%;
+
+                                @include respond-above(md){
+                                    width:50%;
+                                }
+                                @include respond-below(lg){
+                                    padding-top:var(--size-10);
+                                }
+                            }
                         }
                     }
                     &top{
@@ -1174,9 +1199,6 @@
 
                         @include respond-above(sm){
                             padding:var(--size-10) 0;
-                        }
-                        @include respond-below(sm){
-                            margin-top:280px;
                         }
                     }                    
                 }

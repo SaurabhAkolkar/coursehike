@@ -62,7 +62,7 @@ $course_id = $course->id;
     <div class="la-vcourse la-vcourse__inner">
       <div class="container-fluid">
         <div class="d-flex flex-wrap mb-12 la-anim__wrap">
-          <div class="la-vcourse__intro-left">
+          <div class="la-vcourse__intro-left--course">
             <div class="la-vcourse__header d-flex flex-column align-items-start">
               <h6 class="la-vcourse__tag  text-white text-uppercase la-anim__fade-in-top">Course</h6>
               <h1 class="la-vcourse__title text-white text-capitalize leading-none la-anim__fade-in-top">{{ $course->title }}</h1>
@@ -142,7 +142,7 @@ $course_id = $course->id;
             </div>
           </div>
 
-          <div class="la-vcourse__intro-right pt-10 d-flex flex-column justify-content-start justify-content-lg-between align-items-center align-items-md-end la-anim__wrap">
+          <div class="la-vcourse__intro-right--course d-flex flex-column justify-content-start justify-content-lg-between align-items-center align-items-md-end la-anim__wrap">
               <div class="la-vcourse__buy w-100 d-md-flex flex-wrap align-items-start justify-content-lg-end text-lg-right mb-1 mb-md-6 la-anim__stagger-item--x">
                 @if ($course->isPurchased() == null)
                   <div class="la-vcourse__buy-btn text-center">
@@ -314,9 +314,9 @@ $course_id = $course->id;
                     </span>
                   </div>
 
-                  <div class="la-vcourse__btn-wrap text-center la-anim__stagger-item--x">
-                    <a class="la-btn__arrow-down la-vcourse__btn-collapse d-inline-block text-center collapsed" data-toggle="collapse" href="#read_more">
-                      <div class="la-vcourse__btn-text la-btn__text la-btn__text--purple pt-4">Read More</div>
+                  <div class="la-vcourse__btn-wrap  la-anim__stagger-item--x">
+                    <a class="la-btn__arrow-down la-vcourse__btn-collapse d-inline-block collapsed" data-toggle="collapse" href="#read_more">
+                      <div class="la-vcourse__btn-text la-btn__text la-btn__text--purple pt-4"></div>
                     </a>
                   </div>
                 </div>

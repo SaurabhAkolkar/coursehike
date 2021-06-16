@@ -46,16 +46,16 @@
 
 <section class="la-section__small la-cbg--main">
     <div class="la-section__inner">
-      <div class="container-fluid">
-        <div class="la-anim__wrap">
-          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 la-anim__stagger-item--x" href="{{URL::previous()}}"></a>
-          <h1 class="la-page__title mb-3 mb-lg-8 la-anim__stagger-item">Browse Classes</h1>
+      <div class="container-fluid la-anim__wrap">
+        <div class="la-anim__stagger-item">
+          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 " href="{{URL::previous()}}"></a>
+          <h1 class="la-page__title mb-3 mb-lg-8">Browse Classes</h1>
         </div>
 
         <div class="d-flex justify-content-between align-items-start flex-wrap flex-column flex-md-row">
             <!-- Global Search: Start-->
-            <div class="la-gsearch mb-0 la-anim__wrap">
-              <form class="form-inline m-0 la-anim__stagger-item"  action="{{ url('/search-classes/') }}">
+            <div class="la-gsearch mb-0 la-anim__stagger-item">
+              <form class="form-inline m-0"  action="{{ url('/search-classes/') }}">
                 <div class="form-group d-flex align-items-center">
                   <input class="la-gsearch__input form-control la-gsearch__input-browsecourses" style="background:transparent" name="course_name" type="text" placeholder="What can we interest you in learning today?" required>
                   <button class="la-gsearch__submit btn mt-0" type="submit"><i class="la-icon icon icon-search la-gsearch__input-icon"></i></button>
@@ -228,8 +228,8 @@
               
             @if($filtres_applied)
                   <div class="la-courses__content-desc">
-                    <div class="la-anim__wrap">
-                      <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item">
+                   
+                      <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
                           @foreach($courses->sortBy('order') as $course)
                               <x-course 
                                   :id="$course->id"
@@ -252,7 +252,7 @@
                             @endforeach
 
                       </div>
-                    </div>
+                    
 
                       @if(count($courses) == 0)
 
@@ -270,7 +270,7 @@
 
                       @endif
         	@else
-                        <div class="tab-content la-courses__nav-content la-anim__wrap position-relative" id="nav-tabContent">
+                        <div class="tab-content la-courses__nav-content position-relative" id="nav-tabContent">
                               @foreach ($categories as $category)
                               <div class="tab-pane fade show la-anim__wrap @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
 
@@ -284,7 +284,7 @@
 
                                       <!-- ==== Featured Courses: Start  ====== -->
                                       <div class="swiper-container  la-courses__featured-container">
-                                        <h5 class="la-courses__featured-title mb-5 mb-lg-8 ml-0 ml-lg-2 la-anim__fade-in-top">Featured Classes</h5>
+                                        <h5 class="la-courses__featured-title mb-5 mb-lg-8 ml-0 ml-lg-2 la-anim__stagger-item">Featured Classes</h5>
                                         <div class="swiper-wrapper la-courses__featured-wrapper ">
 
                                                   @php
@@ -294,7 +294,7 @@
                                                   @foreach($courses->where('featured','like','1')->sortBy('order') as $course)
                                                    
                                                     
-                                                    <div class="swiper-slide la-courses__featured-slide la-anim__stagger-item">
+                                                    <div class="swiper-slide la-courses__featured-slide">
                                                       <x-course
                                                         :id="$course->id"
                                                         :img="$course->preview_image"
@@ -341,8 +341,8 @@
                                       <!-- ==== Featured Courses: End  ====== -->
 
                                       <div class="la-courses__other la-section__small">
-                                        <h5 class="la-courses__featured-title mb-5 mb-lg-8 la-anim__fade-in-top">Other Classes</h5>
-                                        <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 la-anim__stagger-item la-anim__C">
+                                        <h5 class="la-courses__featured-title mb-5 mb-lg-8 la-anim__stagger-item">Other Classes</h5>
+                                        <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
                                           @php
 
                                             $collection = $courses->where('featured','=','0');

@@ -59,9 +59,9 @@
                 <p class="la-choose__subscribe-trial text-sm mb-2">Get free 7 Days trial</p>
                 {{-- <a href="/subscription/{{ $slug }}" role="button" target="_self"> --}}
                 @if (auth()->check() && Auth::user()->subscription())
-                  <div class="btn btn-primary btn-block la-btn__white py-3 mb-3 plan-subscribe text-capitalize" data-plan={{ $slug }}>View Billing</div>
+                  <div class="btn btn-primary btn-block la-btn__white border-black py-3 mb-3 plan-subscribe text-capitalize" data-plan={{ $slug }}>View Billing</div>
                 @else
-                  <div class="btn btn-primary  btn-block la-btn__white py-3 mb-3 plan-subscribe text-capitalize" data-plan={{ $slug }} data-mode='try_now'>Try it for Free</div>
+                  <div class="btn btn-primary  btn-block la-btn__white border-black py-3 mb-3 plan-subscribe text-capitalize" data-plan={{ $slug }} data-mode='try_now'>Try it for Free</div>
                 @endif
 
                 <div class="btn btn-primary  btn-block la-btn la-btn--primary active py-3 plan-subscribe text-capitalize" data-plan={{ $slug }} data-mode='subscribe_now'>Subscribe Now!</div>

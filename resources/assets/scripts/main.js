@@ -228,8 +228,7 @@ $(function(){
           slidesPerView: 1, 
           slidesPerGroup: 1,        
         },       
-        992: {
-          slidersPerView: 2,
+        991: {
           slidesPerGroup: 2, 
         },  
       }
@@ -340,7 +339,8 @@ $(function(){
       },
       breakpoints: {  
         320: {            
-          spaceBetween:15,     
+          spaceBetween:15,    
+          slidesPerGroup: 1,
         },     
         767:{
           spaceBetween:20,
@@ -355,27 +355,34 @@ $(function(){
     var course_swiper = new Swiper(".la-courses__featured-container", {
       slidesPerView: 'auto',
       spaceBetween: 30,
+      slidespPerColumn:1,
+      slidesPerGroup:4,
       observer: true,
       observeParents: true,
       flipEffect: {
         slideShadows: false,
       },
-      speed:1000,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false
-      },
+      // speed:1000,
+      // autoplay: {
+      //   delay: 3000,
+      //   disableOnInteraction: false
+      // },
       pagination: {
         el: ".la-home__course-paginations",
         clickable: true,
       },
       breakpoints: {  
-        320: {            
+        320: {    
+          slidesPerGroup:1,        
           spaceBetween:15,     
         },     
         767:{
+          slidesPerGroup:2,
           spaceBetween:30,
         },
+        1200:{
+          slidesPerGroup:3,
+        }
       } 
     });
   }
@@ -829,10 +836,20 @@ function changeTab() {
   }
 }
 changeTab();
-// Bind the function, it will be executed once window is resized.
 $(window).on('resize', changeTab);
 
 //- Active Tab in Class Main Page for Mobile & Desktop : End
+
+
+//- On Scroll Video in Class Page - height fix in mobile responsive
+function FixedHeight(){
+  if($(window).width() <= 767){
+    var height = jQuery(".vjs-tech").height() + 70;
+    jQuery(".la-vcourse__nav-content").css("padding-top", height);
+  }
+}
+FixedHeight();
+$(window).on('resize', FixedHeight);
 
 // Popover Js for Dashboard Page: Start
 $('[data-toggle="popover"]').popover();

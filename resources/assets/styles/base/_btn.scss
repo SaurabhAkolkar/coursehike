@@ -276,6 +276,16 @@
                     color:var(--white) !important;
                     border:2px solid var(--white) !important;
                 }
+
+                &.border-black{
+                    color:var(--gray10);
+                    border: 2px solid rgba(#252525, 0.55) !important;
+
+                    &:hover,&:focus{
+                        background-color: var(--gray3) !important;
+                        border:2px solid var(--gray3) !important;
+                    }
+                }
             }
 
             &app{
@@ -330,7 +340,7 @@
                     &:hover, &:focus{
                         background-color: var(--white) !important;
                         border:2px solid var(--white) !important;
-                        color:var(--gray6);
+                        color:var(--gray6) !important;
                     }
                 }
 
