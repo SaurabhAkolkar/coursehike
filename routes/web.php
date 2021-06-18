@@ -796,7 +796,7 @@ Route::view('/subscription-trial', 'learners.pages.subscription-trial');
 
 Route::view('/mentor-terms-conditions', 'learners.pages.mentor-terms-conditions');
 Route::view('/terms-conditions', 'learners.pages.terms-conditions');
-Route::view('/privacy-policy', 'learners.pages.terms-conditions');
+Route::view('/privacy-policy', 'learners.pages.privacy-policy');
 
 
 //- Error Pages

@@ -9,6 +9,9 @@
             &sec {
                 &-{
                     &inner {
+                        @include respond-above(sm){
+                            //padding-left:0 !important;
+                        }
                         // min-height: calc(100vh - 66px);
                     }
                 }
