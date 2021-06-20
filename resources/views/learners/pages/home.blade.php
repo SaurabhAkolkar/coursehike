@@ -71,9 +71,8 @@
              <!-- Video Content Section: Start -->
              <div class="container-fluid la-hero la-hero__video-content d-flex justify-content-center flex-column align-items-center">
               <div class="la-hero__video-info text-center text-md-left">
-                <p class="la-hero__tag mb-2 mb-md-0 d-none d-md-block">Ace the learning curve with Courses & Classes by</p>
-                <p class="la-hero__tag mb-2 mb-md-0 d-block d-md-none">Courses & Classes by</p>
-                <h1 class="la-hero__title mb-5">World’s Finest <span class="la-hero__subtitle">Artists</span></h1>
+                <p class="la-hero__tag mb-2 mb-md-0 d-block">Courses & Classes</p>
+                <h1 class="la-hero__title mb-5">{!!$firstSection->heading!!}</h1>
                 <p class="la-hero__lead">{{$firstSection->sub_heading}}</p>
 
                 <div class="d-md-flex align-items-center">
@@ -319,7 +318,7 @@
                               <div class="row">
                                 <div class="col-12  my-3 my-md-8 la-empty__courses d-md-flex justify-content-center align-items-start">
                                   <div class="la-empty__inner text-center mb-0">
-                                      <h6 class="la-empty__course-title">No Courses available currently.</h6>
+                                      <h6 class="la-empty__course-title">No Course Bundle available currently.</h6>
                                   </div>
                                 </div>
                               </div>

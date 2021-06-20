@@ -192,7 +192,7 @@
               <h4 class="la-lp__lft-title text-3xl text-md-4xl head-font mb-3">Manual Payment <br/> Option</h4>
               <p class="la-lp__lft-desc">If you have trouble making payment through all the available options, you can choose to do the manual payment to get started with LILA.</p>
               <p class="la-lp__lft-desc">Please write to us at
-                    <a class="la-lp__lft-link" href="mailto:lila@learnitlikealiens.com"> lila@learnitlikealiens.com</a>
+                    <a class="la-lp__lft-link" href="mailto:support@lila.art"> support@lila.art</a>
               </p>
 
               <div class="pt-8">
@@ -202,7 +202,7 @@
               </div>
                 
               <div class="pt-4">
-                <a  class="la-lp__lft-link"  href="mailto:lila@learnitlikealiens.com" class="mt-4">Have more queries?</a>
+                <a  class="la-lp__lft-link"  href="mailto:support@lila.art" class="mt-4">Have more queries?</a>
               </div>
             </div>
           </div>

@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
 
     
-    <link rel="stylesheet" href="{{('/css/main.css')}}" />
+    <link rel="stylesheet" href="{{('/css/main.css?v=1.2')}}" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <script type="text/javascript" id="zsiqchat">

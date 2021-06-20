@@ -1,11 +1,11 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-    <title>Browse Courses | Learn Tattoo & Graphic Design | LILA</title>
+    <title>Course Bundles | Learn Tattoo & Graphic Design | LILA</title>
     <meta name='description' itemprop='description' content='Discover course on tattoo, graphic design, digital art from basic to advanced mentored by Globally reconginized artists.Join LILA & enhance your skills with these online classes.' />
 
     <meta property="og:description" content="Discover course on tattoo, graphic design, digital art from basic to advanced mentored by Globally reconginized artists.Join LILA & enhance your skills with these online classes." />
-    <meta property="og:title" content="Browse Courses | Learn Tattoo & Graphic Design | LILA" />
+    <meta property="og:title" content="Course Bundles | Learn Tattoo & Graphic Design | LILA" />
     <meta property="og:url" content="{{Request::url()}}" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="LILA Art" />
@@ -14,10 +14,10 @@
     <meta property="og:image:size" content="300" />
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Browse Courses | Learn Tattoo & Graphic Design | LILA" />
+    <meta name="twitter:title" content="Course Bundles | Learn Tattoo & Graphic Design | LILA" />
     <meta name="twitter:site" content="@lilaaliens" />
 
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Browse Courses | Learn Tattoo & Graphic Design | LILA"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Course Bundles | Learn Tattoo & Graphic Design | LILA"}</script>
     <script>
       (function(h,e,a,t,m,p) {
       m=e.createElement(a);m.async=!0;m.src=t;
@@ -45,10 +45,10 @@
 
 <section class="la-section__small la-cbg--main">
     <div class="la-section__inner">
-      <div class="container-fluid la-anim__wrap">
-        <div class="la-anim__stagger-item">
-          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2 " href="{{URL::previous()}}"></a>
-          <h1 class="la-page__title mb-3 mb-lg-8">Bundle Courses</h1>
+      <div class="container-fluid">
+        <div class="la-anim__wrap">
+          <a class="la-icon la-icon--5xl icon-back-arrow d-block d-md-none ml-n1 mt-n2" href="{{URL::previous()}}"></a>
+          <h1 class="la-page__title mb-4 mb-md-8 la-anim__stagger-item">Browse Course Bundles</h1>
         </div>
 
         <div class="d-flex justify-content-between align-items-start flex-wrap flex-column flex-md-row">
@@ -264,7 +264,7 @@
                           </div>
                           <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">
                               <a href="{{Url('/browse/courses')}}" class="la-empty__browse">
-                                  Browse Courses
+                                  Course Bundles
                                   <span class="la-empty__browse-icon la-icon la-icon--5xl icon-grey-arrow"></span>
                               </a>
                           </div>

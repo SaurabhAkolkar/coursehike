@@ -92,12 +92,16 @@ class AuthController extends Controller
 
         $verified = \Carbon\Carbon::now()->toDateTimeString();
 
-        return User::create([
+        $newUser = User::create([
             'fname'     => $user->name,
             'email'    => $user->email,
             'user_img'    => $profile_img,
             'email_verified_at'  => $verified,
             $providerField => $user->id,
         ]);
+        
+        $newUser->stripe_id;
+
+        return $newUser;
     }
 }

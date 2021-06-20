@@ -8,6 +8,7 @@ $.ajaxSetup({
   });
 
 var currentStreamingVideo = null;
+var nextPlayVideo = 0;
 $(function() {
 	$('#lila-video').on('mouseenter', '.language-switcher', function() {
 		$(this).find(".vjs-multilngual_list").removeClass("invisible");
@@ -121,10 +122,11 @@ lilaPlayer.ready(function () {
             dataType: 'json',
         });
 		
-		if(!video_id){
-			$($('.la-vcourse__lesson')[0]).trigger("click");
-		}else if($('#vcourse__lesson_'+(1+parseInt(video_id))).length > 0)
-			$('#vcourse__lesson_'+(1+parseInt(video_id))).trigger("click");
+		if(nextPlayVideo > -1){
+			$($('.la-vcourse__lesson')[nextPlayVideo]).trigger("click");
+			console.log(parseInt(nextPlayVideo));
+			++nextPlayVideo;
+		}
   };
 
     this.on('timeupdate', updateProgress);
@@ -143,6 +145,7 @@ $('.la-vcourse__lesson').on('click', function() {
     video_id = $(this).attr('data-video-id');
     $('.la-vcourse__lesson').removeClass('active');
     $(this).addClass('active');
+	nextPlayVideo = $(this).index()+1;
   
 	$.ajax({
 		type: 'POST',

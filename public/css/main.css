@@ -20080,8 +20080,8 @@ input:-webkit-autofill:active {
 }
 
 .video-js .vjs-tech {
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .vjs-poster {
@@ -20127,6 +20127,10 @@ input[type=radio]:checked + label.la-vcourse__language-label {
     -webkit-transform: translateX(0px);
     -moz-transform: translateX(0px);
   }
+}
+
+.zsiq_custommain.siq_bR {
+  z-index: 1000;
 }
 
 .la-creator__inwrap {

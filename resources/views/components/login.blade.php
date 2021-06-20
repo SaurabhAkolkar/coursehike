@@ -151,7 +151,7 @@
                     <div class="la-header__nav-icon">
                         <span class="la-icon--lg icon-courses"></span>
                     </div>
-                    <span class="la-header__nav-name">Bundle Courses</span>
+                    <span class="la-header__nav-name">Course Bundle</span>
                 </a>
             </div>
 
@@ -270,7 +270,7 @@
                     <div class="la-header__nav-icon">
                         <span class="la-icon--lg icon-class"></span>
                     </div>
-                    <span class="la-header__nav-name">Browse Classes</span>
+                    <span class="la-header__nav-name">Course Bundle</span>
                 </a>
             </div>
 

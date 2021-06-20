@@ -1325,7 +1325,7 @@
     }
 }
 .video-js .vjs-tech{
-    object-fit: cover;
+    object-fit: contain;
 }
 //- Fit the whidth of the course image
 .vjs-poster{
@@ -1350,4 +1350,8 @@ input[type=radio]:checked + label.la-vcourse__language-label{
         from{opacity:0;transform:translateX(-5px);-webkit-transform:translateX(-5px);-moz-transform:translateX(-5px);}
         to{opacity: 1;transform:translateX(0px);-webkit-transform:translateX(0px);-moz-transform:translateX(0px);}
     }
+}
+
+.zsiq_custommain.siq_bR{
+    z-index: 1000;
 }

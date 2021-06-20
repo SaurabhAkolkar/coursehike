@@ -60,32 +60,23 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
-    {   
-        
-        $setting = Setting::first();
-
-        if($setting->captcha_enable == 1){
-
-            return Validator::make($data, [
-                'fname' => ['required', 'string', 'max:255'],
-                'lname' => ['required', 'string', 'max:255'],
-                'mobile' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'string', 'min:6'],
-                // 'g-recaptcha-response' => 'required|captcha',
-            ]);
-        }
-        else{
-
-            return Validator::make($data, [
-                'fname' => ['required', 'string', 'max:255'],
-                'lname' => ['required', 'string', 'max:255'],
-                'mobile' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'string', 'min:6'],
-            ]);
-
-        }
+    {
+        return Validator::make($data, [
+            'fname' => ['required', 'string', 'max:255'],
+            'lname' => ['required', 'string', 'max:255'],
+            'mobile' => ['required', 'string', 'min:6', 'max:255', 'between:9,25'],
+            'phone' => ['required', 'string', 'min:6', 'max:255', 'between:9,25'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:6'],
+            // 'g-recaptcha-response' => 'required|captcha',
+        ], [
+            'mobile.min' => 'Enter a valid mobile number.',
+        ], [
+            'fname' => 'first name',
+            'lname' => 'last name',
+            'email' => 'email address',
+            'mobile' => 'mobile number',
+        ]);
     }
 
     /**
@@ -104,12 +95,14 @@ class RegisterController extends Controller
             'fname' => $data['fname'],
             'lname' => $data['lname'],
             'email' => $data['email'],
-            'mobile' => $data['mobile'],
+            'mobile' => $data['phone'],
             'email_verified_at'  => $verified,
             'dob' => $data['dob'],
             'token' => $token,
             'password' => Hash::make($data['password']),
         ]);
+
+        $user->stripe_id;
 
     // $zohoData = [];
         // $zohoData['email'] = $data['email'];
