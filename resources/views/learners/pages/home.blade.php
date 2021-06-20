@@ -161,7 +161,7 @@
       <div class="container-fluid la-home__course-fluid position-relative" id="home_fluid_container">
         <div class="la-courses">
           <h3 class="la-home__course-mtitle  text-center mb-3 mb-md-10">Learn what you love!</h3>
-          <h2 class="la-courses__nav-content--title mb-3 mb-md-6 text-center">Featured Classes</h2>
+          {{-- <h2 class="la-courses__nav-content--title mb-3 mb-md-6 text-center">Featured Classes</h2> --}}
 
           <nav class="la-courses__nav mb-3 mb-md-3 d-inline-flex justify-content-start justify-content-md-center position-relative">
               <ul class="nav nav-pills la-courses__nav-tabs justify-content-center" id="nav-tab" role="tablist" tabindex="0">
@@ -254,7 +254,7 @@
 
                         <!-- Featured Courses Section -->
                         <div class="la-courses__nav-content--classes pt-8">
-                          <h2 class="la-courses__nav-content--title text-center">Featured Courses</h2>
+                          {{-- <h2 class="la-courses__nav-content--title text-center">Featured Courses</h2> --}}
                           <div class="swiper-container la-home__course-container">
                             <div class="swiper-wrapper la-home__course-wrapper ">
 
@@ -293,7 +293,7 @@
                               <div class="row">
                                 <div class="col-12  my-3 my-md-8 la-empty__courses d-md-flex justify-content-center align-items-start">
                                   <div class="la-empty__inner text-center mb-0">
-                                      <h6 class="la-empty__course-title">No Courses available currently.</h6>
+                                      <h6 class="la-empty__course-title">No Course Bundle available currently.</h6>
                                   </div>
                                 </div>
                               </div>
