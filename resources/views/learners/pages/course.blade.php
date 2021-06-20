@@ -1,7 +1,7 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-    <title>{{ $course->title }} | Courses | Best Online Courses for Art & Creativity | LILA</title>
+    <title>{{ $course->title }} | Course Bundle | Best Online Courses for Art & Creativity | LILA</title>
     <meta name='description' itemprop='description' content='Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now' />
 
     <meta property="og:description" content="Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now" />
@@ -64,7 +64,7 @@ $course_id = $course->id;
         <div class="d-flex flex-wrap mb-12 la-anim__wrap">
           <div class="la-vcourse__intro-left">
             <div class="la-vcourse__header d-flex flex-column align-items-start">
-              <h6 class="la-vcourse__tag  text-white text-uppercase la-anim__fade-in-top">Course</h6>
+              <h6 class="la-vcourse__tag  text-white text-uppercase la-anim__fade-in-top">Course Bundle</h6>
               <h1 class="la-vcourse__title text-white text-capitalize leading-none la-anim__fade-in-top">{{ $course->title }}</h1>
               {{-- <div class="la-vcourse__badges la-anim__stagger-item">
                 <img src="/images/learners/icons/badge.svg" alt="badge" />
@@ -151,7 +151,7 @@ $course_id = $course->id;
                       <input type="hidden" value="all-classes" name="classes" />
                       <input type="hidden" value="true" name="bundle_course" />
                       @csrf
-                      <a class="la-vcourse__buy-course btn btn-primary la-btn__app text-white d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" @if(Auth::check()) onclick="$('#add_to_cart_form_1').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>Buy this Class</a><br/>
+                      <a class="la-vcourse__buy-course btn btn-primary la-btn__app text-white d-lg-inline-flex justify-content-end mr-2 mb-2 px-4 mb-md-0" @if(Auth::check()) onclick="$('#add_to_cart_form_1').submit()" @else data-toggle="modal" data-target="#locked_login_modal" @endif>Buy this Course</a><br/>
                       <span class="text-white"  style="font-family:'Roboto','Poppins', sans-serif" >@ {{ getSymbol() }}{{$course->convertedprice}}</span>
                     </form>
                   </div>
