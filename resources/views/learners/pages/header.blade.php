@@ -151,13 +151,13 @@ if(Auth::check()){
               </div>
             </div>
 
-            <div class="la-header__menu-item dropdown d-none d-lg-block">
+            <div class="la-header__menu-item dropdown">
 
             <a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-announcement" onclick="markReleaseRead()" id="announcementPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <sup class="la-header__menu-badge badge badge-light" id="notificationBadgeRelease">{{count($new_announcements)}}</sup></a>
               <div class="la-notification__dropdown dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="announcementPanel" style="border:none;">
-                <div class="card la-announcement__card">
-                  <div class="la-announcement__name d-flex justify-content-between">
-                    <h6 class="text-xl body-font">New Releases</h6>
+                <div class=" la-announcement__card">
+                  <div class="la-announcement__top d-flex justify-content-between">
+                    <h6 class="la-announcement__title text-lg">Announcements</h6>
                     <a class="la-announcement__view-more" href="/releases">
                       <span class="la-announcement__view-icon la-icon la-icon--6xl icon-grey-arrow mt-n3"></span>
                     </a>
@@ -198,7 +198,7 @@ if(Auth::check()){
 
                       @if(count($new_announcements) == 0 && count($old_anno) == 0)
                       <div class="d-flex justify-content-center align-items-center my-auto">
-                        <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-medium)">No New Releases Found</div>
+                        <div class="text-lg text-md-xl" style="color:var(--gray8);font-weight:var(--font-medium)">No New Announcements Found</div>
                       </div>
                       @endif
                       <!-- Announcements Panel: End -->
@@ -284,9 +284,9 @@ if(Auth::check()){
           <div class="la-header__menu-item dropdown">
             <a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-announcement" id="announcementPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
             <div class="la-notification__dropdown  dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="announcementPanel" style="border:none !important;">
-              <div class="card la-announcement__card">
-                <div class="la-announcement__name d-flex justify-content-between">
-                  <h6 class="text-xl body-font">New Releases</h6>
+              <div class="la-announcement__card">
+                <div class="la-announcement__top d-flex justify-content-between">
+                  <h6 class="la-announcement__title text-lg">Announcements</h6>
                   <a class="la-announcement__view-more" href="/releases">
                     <span class="la-announcement__view-icon la-icon la-icon--6xl icon-grey-arrow mt-n3"></span>
                   </a>
@@ -328,7 +328,7 @@ if(Auth::check()){
 
                     @if(count($new_announcements) == 0 && count($old_anno) == 0)
                         <div class="d-flex justify-content-center align-items-center my-auto">
-                        <div class="text-xl head-font" style="color:var(--gray8);font-weight:var(--font-medium)">No New Releases Found</div>
+                        <div class="text-lg text-md-xl" style="color:var(--gray8);font-weight:var(--font-medium)">No New Announcements Found</div>
                         </div>
                     @endif
 

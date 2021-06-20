@@ -134,7 +134,7 @@
         </div>
     </div>
   </section>
-  <!-- Section: End-->
+  <!-- Home Banner Section: End-->
 
   <!-- Video Popup -->
   {{-- <div class="modal fade la-hero__modal pr-0" id="home_video_popup">
@@ -156,42 +156,70 @@
   <!-- Video Popup -->
 
 
-  <!-- Section: Start-->
+  <!-- Featured Classes/Courses Section: Start-->
   <section class="la-section la-section--grey la-section--art-categories position-relative"  id="home_courses">
     <div class="la-section__inner la-section--courses-inwrap" >
       <div class="container-fluid la-home__course-fluid position-relative" id="home_fluid_container">
         <div class="la-courses">
-          <h3 class="la-home__course-mtitle  text-center mb-3 mb-md-10">Learn what you love!</h3>
-          <h2 class="la-courses__nav-content--title mb-3 mb-md-6 text-center">Featured Classes</h2>
+          <h3 class="la-home__course-mtitle text-center mb-10">Learn what you love!</h3>
+         
+            <x-add-to-playlist
+              :playlists="$playlists"
+            />
 
-          <nav class="la-courses__nav mb-3 mb-md-3 d-inline-flex justify-content-start justify-content-md-center position-relative">
-              <ul class="nav nav-pills la-courses__nav-tabs justify-content-center" id="nav-tab" role="tablist" tabindex="0">
-                  {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"> <span class="position-relative">Tattoo</span></a></li>
-                  <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
-                  <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
-                  @foreach ($categories as $category)
-                    <!-- <div class="d-none d-md-block la-courses__nav-prev la-anim__fade-in-left"><span class="la-courses__nav-prev--icon la-icon icon-arrow"></span></div> -->
-                    <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative text-nowrap">{{ $category->title}}</span></a></li>
-                    <!-- <div class="d-none d-md-block  la-courses__nav-next la-anim__fade-in-right"><span class="la-courses__nav-next--icon la-icon icon-right-arrow2"></span></div> -->
+            <div class="row">
+                @foreach ($categories as $category)
+
+                  @php
+                    $courses = $category->courses->where('featured', 1);
+                  @endphp
+
+                  @foreach($courses as $course)
+                    <div class="col-md-6 col-lg-4 col-xl-3 px-0" >
+                      <x-course
+                        :id="$course->id"
+                        :img="$course->preview_image"
+                        :course="$course->title"
+                        :url="$course->slug"
+                        :rating="round($course->average_rating, 2)"
+                        :creatorImg="$course->user->user_img"
+                        :creatorName="$course->user->fullName"
+                        :creatorUrl="$course->user->id"
+                        :learnerCount="$course->learnerCount"
+                        :price="$course->price"
+                        :bought="$course->isPurchased()"
+                        :checkWishList="$course->checkWishList"
+                        :checkCart="$course->checkCart"
+                        :videoCount="$course->videoCount"
+                        :chapterCount="$course->chapterCount"
+                        :progress="$course->getProgress()"
+                      />
+                    </div>
                   @endforeach
-              </ul>
-          </nav>
 
-              <x-add-to-playlist
-                   :playlists="$playlists"
-              />
+                @endforeach 
+
+                <div class="col-12 text-center mt-10">
+                  <a class="btn btn-primary la-btn__app text-uppercase py-3" role="button" href="/browse/classes">Explore More</a>
+                </div>
+            </div>
+             
+              {{-- <h2 class="la-courses__nav-content--title mb-3 mb-md-6 text-center">Featured Classes</h2>
+              <nav class="la-courses__nav mb-3 mb-md-3 d-inline-flex justify-content-start justify-content-md-center position-relative">
+                  <ul class="nav nav-pills la-courses__nav-tabs justify-content-center" id="nav-tab" role="tablist" tabindex="0">
+                      @foreach ($categories as $category)
+                        <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link @if ($loop->first) active @endif " id="nav-{{$category->slug}}-tab" data-toggle="tab" href="#nav-{{$category->slug}}" role="tab" aria-controls="nav-{{$category->slug}}" aria-selected="true"> <span class="position-relative text-nowrap">{{ $category->title}}</span></a></li>     
+                      @endforeach
+                  </ul>
+              </nav> --}}
+
                 {{-- Categories Tab :Start --}}
-
-                  <div class="tab-content la-courses__nav-content position-relative pt-0 " id="nav-tabContent">
+                  {{-- <div class="tab-content la-courses__nav-content position-relative pt-0 " id="nav-tabContent">
                     @foreach ($categories as $category)
                       <div class="position-relative tab-pane fade show @if ($loop->first) active @endif" id="nav-{{$category->slug}}" role="tabpanel" aria-labelledby="nav-{{$category->slug}}-tab">
-
-                        <!-- Featured Classes Section -->
                         <div class="la-courses__nav-content--classes">
-
                           <div class="swiper-container la-home__course-container2">
                             <div class="swiper-wrapper la-home__course-wrapper2">
-
                                       @php
                                         $courses = $category->courses->where('featured', 1);
                                       @endphp
@@ -238,9 +266,7 @@
                             <div class=" mt-10 w-100 text-center d-md-flex justify-content-between align-items-start">
 
                               <div class="la-slider__navigations2 la-home__course-navigations d-md-flex  align-items-center">
-                                <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div> -->
                                 <div class="swiper-pagination la-slider__navigations-dots2 la-home__course-paginations2 la-slider__paginations2  la-slider__paginations--purble la-right"></div>
-                                <!-- <div class="swiper-button-next la-slider__navigations-arrow la-home__course-next"></div> -->
                               </div>
                               <div class=" position-relative text-center text-md-right pb-2">
                                 <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--medium mr-1 mr-md-7">
@@ -249,11 +275,10 @@
                               </div>
                             </div>
                             @endif
-
                           </div>
                         </div>
 
-                        <!-- Featured Courses Section -->
+                        
                         <div class="la-courses__nav-content--classes pt-8">
                           <h2 class="la-courses__nav-content--title text-center">Featured Courses</h2>
                           <div class="swiper-container la-home__course-container">
@@ -305,9 +330,7 @@
                             <div class="mt-10 w-100 text-center d-md-flex justify-content-between align-items-start">
 
                               <div class="la-slider__navigations la-home__course-navigations d-md-flex  align-items-center">
-                                <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__course-prev"></div> -->
                                 <div class="swiper-pagination la-slider__navigations-dots la-home__course-paginations la-slider__paginations la-slider__paginations--purble la-right"></div>
-                                <!-- <div class="swiper-button-next la-slider__navigations-arrow la-home__course-next"></div> -->
                               </div>
                               <div class=" position-relative text-center text-md-right pb-2">
                                 <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--medium mr-1 mr-md-7">
@@ -320,120 +343,17 @@
                         </div>
 
                       </div>
-                    @endforeach
-
-                        {{-- Categories Tab : END --}}
-                  </div>
-
+                    @endforeach                      
+                  </div> --}}
+              {{-- Categories Tab : END --}}
           </div>
         </div>
       </div>
   </section>
-  <!-- Section: End-->
+  <!-- Featured Classes/Courses Section: End-->
 
-  <!-- Section: Start-->
-  <section class="la-section--artists position-relative">
-    <div class="la-section__inner position-relative">
-      <span class="la-section__circle"></span>
-      <h2 class="d-block d-md-none text-center la-section__title la-section__title--big position-relative" style="z-index:4;">Lila Mentors</h2>
-      <div class="swiper-container gallery-top la-artist__slider container-fluid">
 
-        <div class="swiper-wrapper">
-          <div class="d-none d-md-block">
-            <div class="la-artist__designation la-artist__designation--front position-absolute w-50 pt-10 my-auto d-flex align-items-center justify-content-left">
-                <h2 class="la-artist__designation-title mb-0  d-flex flex-row justify-content-center align-items-center">
-                    <span style="opacity:0.25">Lila</span>
-                </h2>
-            </div>
-
-            <div class="la-artist__designation position-absolute w-100 pt-10 my-auto d-flex align-items-center justify-content-center">
-                <h2 class="la-artist__designation-title mb-0  d-flex flex-row justify-content-center align-items-center">
-                    <span class="ml-6" style="color: var(--gray);"> Mentors </span>
-                </h2>
-            </div>
-          </div>
-            @foreach ($featuredMentor as $feat)
-                <x-artist
-                  :artistName="ucfirst($feat->user->fullName)"
-                  :artistImage="$feat->user_image"
-                  :artistCategory="$feat->courses->category->title"
-                  :artistCampany="$feat->courses->title"
-                  :course="$feat->courses"
-                  :artistId="$feat->user->id"
-                />
-            @endforeach
-        </div>
-      </div>
-
-      <div class="swiper-container gallery-thumbs la-artist__thumbnails-wrap">
-        <div class="swiper-wrapper la-artist__thumbnails">
-
-          @foreach($featuredMentor as $feat)
-            <div class="swiper-slide la-artist__thumbnail"><img src="{{ $feat->user_thumbnail }}" alt="FM" class="d-block" /></div>
-          @endforeach
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-  <!-- Section: End-->
-
-  <!-- Section: Start-->
-  <section class="la-section la-section--dark la-section--classes position-relative">
-    <div class="la-section__inner">
-      <div class="la-home__master-fluid">
-        <div class="">
-          <h2 class="la-section--classes-title text-center la-section__title la-section__title--big  position-relative ">Master <span>classes</span></h2>
-        </div>
-
-        <div class="la-mccourses pt-20 pt-md-6">
-            <div class="swiper-container la-home__master-container">
-              <div class="swiper-wrapper la-home__master-wrapper">
-
-                @foreach ($master_classes as $master)
-                  @if($master->courses != null)
-                    <div class="swiper-slide la-home__master-slide">
-                      <x-master-class
-                        :img="$master->courses->preview_image"
-                        :title="$master->courses->title"
-                        :url="$master->courses->slug"
-                        :profileImg="$master->courses->user->user_img"
-                        :profileName="$master->courses->user->fullName"
-                        :learners="$master->courses->learnerCount"
-                        :id="$master->courses->id"
-                        :slug="$master->courses->slug"
-                        :price="$master->courses->price"
-                        :bought="$master->courses->isPurchased()"
-                        :checkWishList="$master->courses->checkWishList"
-                        :checkCart="$master->courses->checkCart"
-                      />
-                    </div>
-                  @endif
-                @endforeach
-              </div>
-            </div>
-            <div class="container-fluid  w-100 text-center d-md-flex justify-content-between align-items-start mt-6 mt-md-16">
-              <div class="la-slider__navigations la-home__course-navigations d-md-flex align-items-center">
-                <!-- <div class="swiper-button-prev la-slider__navigations-arrow la-home__master-prev"></div> -->
-                <div class="swiper-pagination la-slider__navigations-dots la-home__master-pagination la-slider__paginations la-slider__paginations--purble la-right"></div>
-                <!-- <div class="swiper-button-next la-slider__navigations-arrow la-home__master-next"></div> -->
-              </div>
-              <div class="la-mccourse__view-more position-relative text-center text-md-right ">
-                <div class=" la-btn__arrow text-white text-uppercase text-spacing font-weight--medium mr-1 mr-md-1">
-                  <a href="/master-classes" >explore more <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
-                </div>
-              </div>
-            </div>
-
-        </div>
-
-      </div>
-    </div>
-  </section>
-  <!-- Section: End-->
-
-  <!-- Section: Start-->
+  <!-- Artists Choice Section: Start-->
   <section class="la-section--watch">
     <div class="la-section__inner">
       <div class="container-fluid la-home__watch-fluid">
@@ -499,10 +419,154 @@
       </div>
     </div>
   </section>
-  <!-- Section: End -->
+  <!-- Artists Choice Section: End -->
 
-  <!-- Section: Start -->
-  <div class="la-section  la-section--purple la-home__section-customize position-relative">
+
+  <!-- Master Classes Section: Start-->
+  <section class="la-section la-section--dark la-section--classes position-relative">
+    <div class="la-section__inner">
+      <div class="container px-0">
+       
+        <div class="swiper-container la-home__multilingual-container pt-6">
+          <div class="swiper-wrapper la-home__multilingual-wrapper">
+              
+            @php
+                    $multilang1 = new stdClass;
+                    $multilang1->id = "1";
+                    $multilang1->img = "https://picsum.photos/500/500";
+                    $multilang1->title = "Mastery to photo realism Webinar II";
+                    $multilang1->url = "";
+                    $multilang1->creatorName = "Sunny Bhanushali";
+                    $multilang1->creatorUrl = "";
+                    $multilang1->videoCount = "25";
+                    $multilang1->chapterCount = "3";
+                    $multilang1->duration = "12h 10m";
+
+                    $multilang2 = new stdClass;
+                    $multilang2->id = "1";
+                    $multilang2->img = "https://picsum.photos/500/500";
+                    $multilang2->title = "Mastery to photo realism Webinar II";
+                    $multilang2->url = "";
+                    $multilang2->creatorName = "Sunny Bhanushali";
+                    $multilang2->creatorUrl = "";
+                    $multilang2->videoCount = "25";
+                    $multilang2->chapterCount = "3";
+                    $multilang2->duration = "14h 20m";
+
+                    $multilang3 = new stdClass;
+                    $multilang3->id = "1";
+                    $multilang3->img = "https://picsum.photos/500/500";
+                    $multilang3->title = "Mastery to photo realism Webinar II";
+                    $multilang3->url = "";
+                    $multilang3->creatorName = "Sunny Bhanushali";
+                    $multilang3->creatorUrl = "";
+                    $multilang3->videoCount = "25";
+                    $multilang3->chapterCount = "3";
+                    $multilang3->duration = "14h 20m";
+
+                    $multilang4 = new stdClass;
+                    $multilang4->id = "1";
+                    $multilang4->img = "https://picsum.photos/500/500";
+                    $multilang4->title = "Mastery to photo realism Webinar II";
+                    $multilang4->url = "";
+                    $multilang4->creatorName = "Sunny Bhanushali";
+                    $multilang4->creatorUrl = "";
+                    $multilang4->videoCount = "25";
+                    $multilang4->chapterCount = "3";
+                    $multilang4->duration = "14h 20m";
+                    
+                    $multilanguages = array($multilang1, $multilang2, $multilang3, $multilang4);
+
+          @endphp
+
+          @foreach ($multilanguages as $multilang)
+                    
+            <div class="swiper-slide la-home__multilingual-slide col-lg-6">
+                      
+              <x-classes-multilingual
+                :id="$multilang->id"
+                :img="$multilang->img"
+                :title="$multilang->title"
+                :url="$multilang->url"
+                :creatorName="$multilang->creatorName"
+                :creatorUrl="$multilang->creatorUrl"
+                :videoCount="$multilang->videoCount"
+                :chapterCount="$multilang->chapterCount"
+                :duration="$multilang->duration"
+               />
+
+            </div>
+
+          @endforeach
+        </div>
+      </div>
+
+      <div class="w-100 text-center d-flex justify-content-center align-items-start mt-12">
+        <div class="swiper-button-prev  la-home__multilingual-prev"></div>
+        <div class="la-slider__navigations la-home__course-navigations d-md-flex align-items-center p-0">
+          <div class="swiper-pagination la-slider__navigations-dots la-home__multilingual-pagination la-slider__paginations la-slider__paginations--purble la-right"></div>
+        </div>
+        <div class="swiper-button-next la-home__multilingual-next"></div>
+      </div>
+
+        
+      </div>
+    </div>
+  </section>
+  <!-- Master Classes Section: End-->
+
+ 
+  <!-- LILA Featured Mentors Section: Start-->
+  <section class="la-section--artists position-relative">
+    <div class="la-section__inner position-relative">
+      <span class="la-section__circle"></span>
+      <h2 class="d-block d-md-none text-center la-section__title la-section__title--big position-relative" style="z-index:4;">Lila Mentors</h2>
+      <div class="swiper-container gallery-top la-artist__slider container-fluid">
+
+        <div class="swiper-wrapper">
+          <div class="d-none d-md-block">
+            <div class="la-artist__designation la-artist__designation--front position-absolute w-50 pt-10 my-auto d-flex align-items-center justify-content-left">
+                <h2 class="la-artist__designation-title mb-0  d-flex flex-row justify-content-center align-items-center">
+                    <span style="opacity:0.25">Lila</span>
+                </h2>
+            </div>
+
+            <div class="la-artist__designation position-absolute w-100 pt-10 my-auto d-flex align-items-center justify-content-center">
+                <h2 class="la-artist__designation-title mb-0  d-flex flex-row justify-content-center align-items-center">
+                    <span class="ml-6" style="color: var(--gray);"> Mentors </span>
+                </h2>
+            </div>
+          </div>
+            @foreach ($featuredMentor as $feat)
+                <x-artist
+                  :artistName="ucfirst($feat->user->fullName)"
+                  :artistImage="$feat->user_image"
+                  :artistCategory="$feat->courses->category->title"
+                  :artistCampany="$feat->courses->title"
+                  :course="$feat->courses"
+                  :artistId="$feat->user->id"
+                />
+            @endforeach
+        </div>
+      </div>
+
+      <div class="swiper-container gallery-thumbs la-artist__thumbnails-wrap">
+        <div class="swiper-wrapper la-artist__thumbnails">
+
+          @foreach($featuredMentor as $feat)
+            <div class="swiper-slide la-artist__thumbnail"><img src="{{ $feat->user_thumbnail }}" alt="FM" class="d-block" /></div>
+          @endforeach
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- LILA Featured Mentors Section: End--> 
+
+
+  <!-- Customized Section: Start -->
+  <section class="la-section  la-section--purple la-home__section-customize position-relative">
     <div class="la-section__inner position-relative">
       <span class="la-section__circle la-section__circle--right la-section__circle-learn d-none d-md-block"></span>
         <div class="container-fluid la-home__customize-fluid">
@@ -604,113 +668,322 @@
                     <div class="swiper-pagination  la-home__pagination-top " id="slideshow"></div>
                   </div>-->
 
-                  <div class="la-slider__navigations  la-home__course-navigations d-flex justify-content-end align-items-start">
+                  <div class="la-slider__navigations  la-home__course-navigations d-flex justify-content-end align-items-start pb-0">
                     <div class="swiper-pagination la-slider__navigations-dots la-home__customize-pagination la-slider__paginations la-slider__paginations--purble la-right"></div>
                   </div>
                 </div>
             </div>
         </div>
     </div>
-  </div>
-  <!-- Section: End -->
+  </section>
+  <!-- Customized Section: End -->
 
-  <!-- Section: Start -->
-  <!-- <div class="la-section  la-home__section-learn position-relative la-anim__wrap">
-      <div class="la-section__inner position-relative">
-        <span class="la-section__circle la-section__circle-learn d-none d-md-block"></span>
-          <div class="container-fluid">
-              <div class="row">
-                  <div class="col-lg-2">
-                      <div class="la-home__learn position-relative">
-                          <h3 class="la-home__learn-title leading-none mb-4 la-anim__stagger-item">How do you learn?</h3>
 
-                          <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-md-8 mr-5 mr-md-1 la-anim__stagger-item--x">
-                            <a href="/browse/courses" >Get Started</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col-lg-10">
-                      <div class="la-home__learn-info position-relative la-anim__stagger-item--x">
-                            <img src="./images/learners/home/learn.png" alt="How do you Learn?" class="img-fluid mx-auto d-block la-home__learn-img">
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div> -->
-  <!-- Section: End -->
-
-  <!-- Section: Start-->
-  <!-- <section class="la-section la-section--trail position-relative la-section--grey  la-anim__wrap">
+  <!-- Testimonials Section: Start -->
+  <section class="la-section la-section__home-testimonials">
     <div class="la-section__inner">
-      <span class="la-section__circle la-section__circle--right"></span>
       <div class="container-fluid">
-
         <div class="row">
-          <div class="col-12 col-md-5 la-trail__left  position-relative">
-            <div class="la-trail__img-wrap la-anim__fade-in-right la-anim__B">
-              <div class="la-trail__img position-relative">
-                <img class="w-100" src="./images/learners/home/observe.png" alt="observe">
+          <div class="col-12 pb-10">
+            <h3 class="la-home__course-mtitle text-center mb-3">Our Happy Learners!</h3>
+
+            <div class="swiper-container la-home__testimonials-container">
+              <div class="swiper-wrapper la-home__testimonials-wrapper d-flex flex-row mx-auto">
+               
+                  <div class="swiper-slide la-home__testimonials-slider">       
+                    <div class="la-lp__test-cards p-0 d-flex">
+                      <div class="card la-lp__card-itm la-lp__card-itm--home-testimonials">
+                        <div class="la-card__top d-md-flex justify-content-between ">
+                          <div class="la-lp__profile d-flex justify-content-start align-items-center">
+                            <img class="img-fluid d-block lazy" src="" data-src="" alt="" />
+                            <div class="col leading-tight">
+                              <h5 class="la-lp__name m-0 text-md text-md-lg">Nathan Spark</h5>
+                              <span class="la-lp__desg text-sm">Learner</span>
+                            </div>
+                          </div>
+                          <div class="la-lp__test-rating d-flex flex-row">
+                              {{-- @if($test->rating == 5)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+
+                              @elseif($test->rating >= 4)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @elseif($test->rating >= 3)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @elseif($test->rating >= 2)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @elseif($test->rating >= 1)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @else
+
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @endif --}}
+                          </div>
+                        </div>
+                        <div class="la-lp__test-review text-sm">I am really pleased with the online tattoo learning program by Sunny sir about placement and size, depth of field and others. It will help me in my realism tattoo art in my tattoo career. I love the programme and next I will attend all the learning programmes to learn more about Realism Tattoo art from the greatest teacher - Sunny sir. Thank you LILA!</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide la-home__testimonials-slider">       
+                    <div class="la-lp__test-cards p-0 d-flex">
+                      <div class="card la-lp__card-itm la-lp__card-itm--home-testimonials">
+                        <div class="la-card__top d-md-flex justify-content-between ">
+                          <div class="la-lp__profile d-flex justify-content-start align-items-center">
+                            <img class="img-fluid d-block lazy" src="" data-src="" alt="" />
+                            <div class="col leading-tight">
+                              <h5 class="la-lp__name m-0 text-md text-md-lg">Nathan Spark</h5>
+                              <span class="la-lp__desg text-sm">Learner</span>
+                            </div>
+                          </div>
+                          <div class="la-lp__test-rating d-flex flex-row">
+                              {{-- @if($test->rating == 5)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+
+                              @elseif($test->rating >= 4)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @elseif($test->rating >= 3)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @elseif($test->rating >= 2)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @elseif($test->rating >= 1)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @else
+
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @endif --}}
+                          </div>
+                        </div>
+                        <div class="la-lp__test-review text-sm">I am really pleased with the online tattoo learning program by Sunny sir about placement and size, depth of field and others. It will help me in my realism tattoo art in my tattoo career. I love the programme and next I will attend all the learning programmes to learn more about Realism Tattoo art from the greatest teacher - Sunny sir. Thank you LILA!</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide la-home__testimonials-slider">       
+                    <div class="la-lp__test-cards p-0 d-flex">
+                      <div class="card la-lp__card-itm la-lp__card-itm--home-testimonials">
+                        <div class="la-card__top d-md-flex justify-content-between ">
+                          <div class="la-lp__profile d-flex justify-content-start align-items-center">
+                            <img class="img-fluid d-block lazy" src="" data-src="" alt="" />
+                            <div class="col leading-tight">
+                              <h5 class="la-lp__name m-0 text-md text-md-lg">Nathan Spark</h5>
+                              <span class="la-lp__desg text-sm">Learner</span>
+                            </div>
+                          </div>
+                          <div class="la-lp__test-rating d-flex flex-row">
+                              {{-- @if($test->rating == 5)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+
+                              @elseif($test->rating >= 4)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @elseif($test->rating >= 3)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @elseif($test->rating >= 2)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @elseif($test->rating >= 1)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @else
+
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @endif --}}
+                          </div>
+                        </div>
+                        <div class="la-lp__test-review text-sm">I am really pleased with the online tattoo learning program by Sunny sir about placement and size, depth of field and others. It will help me in my realism tattoo art in my tattoo career. I love the programme and next I will attend all the learning programmes to learn more about Realism Tattoo art from the greatest teacher - Sunny sir. Thank you LILA!</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="swiper-slide la-home__testimonials-slider">       
+                    <div class="la-lp__test-cards p-0 d-flex">
+                      <div class="card la-lp__card-itm la-lp__card-itm--home-testimonials">
+                        <div class="la-card__top d-md-flex justify-content-between ">
+                          <div class="la-lp__profile d-flex justify-content-start align-items-center">
+                            <img class="img-fluid d-block lazy" src="" data-src="" alt="" />
+                            <div class="col leading-tight">
+                              <h5 class="la-lp__name m-0 text-md text-md-lg">Nathan Spark</h5>
+                              <span class="la-lp__desg text-sm">Learner</span>
+                            </div>
+                          </div>
+                          <div class="la-lp__test-rating d-flex flex-row">
+                              {{-- @if($test->rating == 5)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+
+                              @elseif($test->rating >= 4)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @elseif($test->rating >= 3)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @elseif($test->rating >= 2)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @elseif($test->rating >= 1)
+
+                                  <div class="la-icon--lg icon-star la-rtng__fill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @else
+
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+                                  <div class="la-icon--lg icon-star la-rtng__unfill"></div>
+
+                              @endif --}}
+                          </div>
+                        </div>
+                        <div class="la-lp__test-review text-sm">I am really pleased with the online tattoo learning program by Sunny sir about placement and size, depth of field and others. It will help me in my realism tattoo art in my tattoo career. I love the programme and next I will attend all the learning programmes to learn more about Realism Tattoo art from the greatest teacher - Sunny sir. Thank you LILA!</div>
+                      </div>
+                    </div>
+                  </div>
+                                    
+              </div>
+              <div class="la-slider__navigations la-home__testimonials-navigations d-flex align-items-center justify-content-end">
+                <div class="swiper-pagination la-slider__navigations-dots la-home__testimonials-pagination la-slider__paginations la-slider__paginations--purble la-right"></div>
               </div>
             </div>
-          </div>
-
-          <div class="col-12 col-md-7 pl-md-0 mt-auto position-relative">
-            <div class="la-trail__title-main">
-              <div class="swiper-container la-trail__title-container ">
-                <div class="swiper-wrapper la-trail__title-wrapper">
-                  <div class="swiper-slide la-trail__title-slide">
-                      <div class="la-trail__title text-left la-trail__title--black la-section__title la-section__title--big">Observe.</div>
-                  </div>
-                  <div class="swiper-slide la-trail__title-slide">
-                      <div class="la-trail__title text-left la-trail__title--black la-section__title la-section__title--big">Learn.</div>
-                  </div>
-                  <div class="swiper-slide la-trail__title-slide">
-                      <div class="la-trail__title text-left la-trail__title--black la-section__title la-section__title--big">Practice.</div>
-                  </div>
-                  <div class="swiper-slide la-trail__title-slide">
-                      <div class="la-trail__title text-left la-trail__title--black la-section__title la-section__title--big">Repeat.</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="la-trail__right position-relative d-flex align-items-end">
-              <div class="la-trail__content-wrap la-anim__stagger">
-                <div class="la-home__trail-btn la-btn__plain d-flex justify-content-start align-items-start la-anim__fade-in-left">
-                  <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold la-anim__fade-in-right" style="transform: translate(0px, 0px); opacity: 1;">
-                      <a href="/about">ALIENS WAY OF TEACHING <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
-                  </div>
-                </div>
-
-                <div class="la-trail__para la-anim__stagger-item la-anim__B">We strongly believe observation is integral to honing art. Learn from artists who have created their niche in the world of tattooing with consistent practice, and become the master of your niche!</div>
-                @if(Auth::check())
-                  @if(Auth::user()->subscription() )
-                    <a class="btn btn-primary la-btn  mt-md-10 la-anim__stagger-item" href="/browse/course/">Browse Course</a>
-                  @else
-                    <a class="btn btn-primary la-btn  mt-md-6 la-anim__stagger-item" href="/login">Start free trial</a>
-                  @endif
-                @else
-                  <a class="btn btn-primary la-btn  mt-md-6 la-anim__stagger-item" href="/login">Start free trial</a>
-                @endif
-              </div>
-            </div>
+           
           </div>
         </div>
       </div>
     </div>
-  </section> -->
-  <!-- Section: End-->
+  </section>
+  <!-- Testimonials Section: End -->
 
-  <!-- Section: Start-->
+
+  <!-- Learn it Like aliens Section: Start-->
   <section class="la-section__small la-section--price la-section--grey  la-anim__wrap la-anim__wrap-pin">
     <div class="la-section__inner ">
       <div class="container-fluid">
         <div class="la-price__container">
 
-          <div class="col-12 px-0 mt-auto position-relative la-anim__wrap-pin">
-            <div class="la-trail__title-main la-anim__pin">
+          <div class="col-12 px-0 mt-auto position-relative">
+            <div class="la-trail__title-main">
               <div class="swiper-container la-trail__title-container ">
                 <div class="swiper-wrapper la-trail__title-wrapper">
                   <div class="swiper-slide la-trail__title-slide">
@@ -759,14 +1032,14 @@
                         </div>
                       </div>
 
-                      <div class="la-home__subscription-ques la-home__subscription__ques--third">
+                      {{-- <div class="la-home__subscription-ques la-home__subscription__ques--third">
                         <h3 class="la-section__subtitle--medium">What’s LILA for you ?</h3>
                         <p class="la-section__text text-md text-md-lg">Our mission is to Encourage, Empower and Embrace self-learning among all curious individuals who wish to learn, expand their potential and make a mark in the world.</p>
                         <p class="la-section__text text-md text-md-lg">   Through our Radical team, we strive every day to make knowledge Affordable, Accessible for everyone regardless of who or where they are</p>
                         <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--medium  pt-4 pt-md-8 ">
                           <a href="/about">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
                         </div>
-                      </div>
+                      </div> --}}
                     </div>
                   </div>
 
@@ -834,5 +1107,149 @@
       </div>
     </div>
   </section>
-  <!-- Section: End-->
+  <!-- Learn it Like aliens Section: End-->
+
+
+  <!-- Learner FAQs Section: Start -->
+  <section class="la-section__small la-section--grey">
+    <div class="la-section__inner">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="la-lp__rgt-content" id="accordion">
+              <h4 class="faq-title text-3xl text-md-4xl">FAQs</h4>
+              
+              <!-- Free Trial: Start-->
+              {{-- <div class="panel-group la-lp__faq-group" id="accFree">
+                <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
+                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqFree">
+                    <div class="panel-title la-lp__faq-title ">
+                      <a class="main-toggle text-uppercase collapsed" href="#faqFreePre" data-toggle="collapse" aria-expanded="true">Free Trial</a>
+                    </div>
+                  </div>
+
+                  <div class="panel-collapse collapse" id="faqFreePre" aria-labelledby="faqFree"  data-parent="#accordion">
+                    <div class="panel-group la-lp__sub-group mx-2"> 
+            
+                      @foreach($faqs->where('type','%','free_trial') as $f)
+                      <div class="panel panel-default la-lp__faq-panel la-lp__faq-subpanel">
+                        <div class="panel-heading la-lp__faq-sub py-2">
+                          <div class="panel-title la-lp__faq-tag px-2">
+                            <a class="accordion-toggle main-toggle collapsed" href="#faqFT_{{ $f->id }}" data-toggle="collapse" aria-expanded="true">{{ $f->title }}</a>
+                          </div>
+                        </div>
+
+                        <div class="panel-collapse collapse" id="faqFT_{{ $f->id }}" aria-labelledby="faqFT_{{ $f->id }}" data-parent="#accFree">
+                          <div class="panel-body pt-2 px-2">
+                            <div class="panel-text">{!! $f->details !!}</div>
+                          </div>
+                        </div>
+                      </div>
+                      @endforeach
+
+                    </div>
+                  </div>
+                </div>
+              </div> --}}
+              <!-- Free Trial: End-->
+       
+              <!-- Subscription: Start-->
+              {{-- <div class="panel-group la-lp__faq-group" id="accSubMain">
+                <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
+                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSub">
+                    <span class="panel-title la-lp__faq-title">
+                      <a class="main-toggle text-uppercase collapsed" href="#faqSubs" data-toggle="collapse" aria-expanded="true">SUBSCRIPTION</a>
+                    </span>
+                  </div>
+                  <div class="panel-collapse collapse show" id="faqSubs" aria-labelledby="faqSub" data-parent="#accordion">
+                    <div class="panel-group la-lp__sub-group mx-2"> 
+
+                      @foreach($faqs->where('type','%','subscription') as $f)
+                        <div class="panel panel-default la-lp__faq-panel  la-lp__faq-subpanel">
+                          <div class="panel-heading la-lp__faq-sub py-2">
+                            <div class="panel-title la-lp__faq-tag px-2">
+                              <a class="accordion-toggle main-toggle collapsed" href="#faqSa_{{ $f->id }}" data-toggle="collapse" aria-expanded="true">{{ $f->title }}</a>
+                            </div>
+                          </div>
+
+                          <div class="panel-collapse collapse" id="faqSa_{{ $f->id }}" aria-labelledby="faqSa_{{ $f->id }}" data-parent="#accSubMain">
+                            <div class="panel-body pt-2 px-2">
+                              <div class="panel-text">{!! $f->details !!}</div>
+                            </div>
+                          </div>
+                        </div>
+                      @endforeach
+
+                    </div>
+                  </div>
+                </div> 
+              </div>  --}}
+              <!-- Subscription: End-->
+
+              <!-- Single Purchase: Start-->
+              {{-- <div class="panel-group la-lp__faq-group" id="accSPMain">
+                <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
+                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqSP"><span class="panel-title la-lp__faq-title"><a class="main-toggle text-uppercase collapsed" href="#faqSing" data-toggle="collapse" aria-expanded="true">SINGLE PURCHASE</a></span></div>
+                  <div class="panel-collapse collapse" id="faqSing" aria-labelledby="faqSP"  data-parent="#accordion">
+                    <div class="panel-group la-lp__sub-group mx-2"> 
+
+                      @foreach($faqs->where('type','%','single_course') as $f)
+                      <div class="panel panel-default la-lp__faq-panel  la-lp__faq-subpanel">
+                        <div class="panel-heading la-lp__faq-sub py-2">
+                          <div class="panel-title la-lp__faq-tag px-2">
+                            <a class="accordion-toggle main-toggle collapsed" href="#faqSPa_{{ $f->id }}" data-toggle="collapse" aria-expanded="true">{{ $f->title }}</a>
+                          </div>
+                        </div>
+
+                        <div class="panel-collapse collapse" id="faqSPa_{{ $f->id }}" aria-labelledby="faqSPa_{{ $f->id }}" data-parent="#accSPMain">
+                          <div class="panel-body pt-2 px-2">
+                            <div class="panel-text">{!! $f->details !!}</div>
+                          </div>
+                        </div>
+                      </div>
+                      @endforeach
+
+                    </div>
+                  </div>
+                </div> 
+              </div> --}}
+               <!-- Single Purchase: End-->
+
+              <!-- Payment Methods: Start-->
+              {{-- <div class="panel-group la-lp__faq-group" id="accPPMain">
+                <div class="panel panel-default la-lp__faq-panel mt-2" style="background:#fff;">
+                  <div class="panel-heading la-lp__faq-main py-2 px-3" id="faqPP"><span class="panel-title la-lp__faq-title"><a class="main-toggle text-uppercase collapsed" href="#faqPre" data-toggle="collapse" aria-expanded="true">Payment Methods</a></span></div>
+                  <div class="panel-collapse collapse" id="faqPre" aria-labelledby="faqPP"  data-parent="#accordion">
+                    <div class="panel-group la-lp__sub-group mx-2"> 
+        
+                        @foreach($faqs->where('type','%','payment_methods') as $f)
+                        <div class="panel panel-default la-lp__faq-panel  la-lp__faq-subpanel">
+                          <div class="panel-heading la-lp__faq-sub py-2">
+                            <div class="panel-title la-lp__faq-tag px-2">
+                              <a class="accordion-toggle main-toggle collapsed" href="#faqPPa_{{ $f->id }}" data-toggle="collapse" aria-expanded="true">{{ $f->title }}</a>
+                            </div>
+                          </div>
+                          <div class="panel-collapse collapse" id="faqPPa_{{ $f->id }}" aria-labelledby="faqPPa_{{ $f->id }}" data-parent="#accPPMain">
+                            <div class="panel-body pt-2 px-2">
+                              <div class="panel-text">{!! $f->details !!}</div>
+                            </div>
+                          </div>
+                        </div>
+                      @endforeach
+
+                    </div>
+                  </div>
+                </div>
+              </div> --}}
+               <!-- Payment Methods: End -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Learner FAQs Section: End -->
+
+
   @endsection

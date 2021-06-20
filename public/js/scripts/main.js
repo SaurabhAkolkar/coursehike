@@ -3,7 +3,6 @@ $(function(){
   $('.dropdown-toggle').dropdown()
   // Global Dropdown Toggle: End
 
-  
   // Nested Links in Course Cards
   $('#la-course__nested-links li').on('click', function(e) {
     var value = $(this).children('a').attr('value');
@@ -11,7 +10,6 @@ $(function(){
     console.log(value)
   });
   
-
   //- On click on Entire Course Card
   /*$("#course_card_link").on('click', function() {
     window.location = $(this).find("a").attr("href"); 
@@ -36,7 +34,6 @@ $(function(){
     $('.icon-list-layout').toggleClass('icon-grid-layout');
   });
   //- Grid and List View in Browse Courses Page: End
-
 
   // Home Video On scroll Pause/Play: Start
   $(window).on("scroll",function(){
@@ -63,7 +60,7 @@ $(function(){
 
   // Global Alert Animation for Learners: Start
   window.setTimeout(function() {
-    $(".alert").fadeTo(500, 0).slideUp(2500, function() {
+    $(".la-btn__alert-success, .la-btn__alert-danger").fadeTo(500, 0).slideUp(2500, function() {
         $(this).remove();
     });
   }, 5000);
@@ -79,16 +76,13 @@ $(function(){
           $(".la-courses__nav-next").show();
       }
     });
-
     console.log( 'init-scroll: ' + $(".la-courses__nav-next").scrollLeft() );
     $(".la-courses__nav-next").on("click", function(){
       $(".la-courses__nav-tabs").animate( { scrollLeft: '+=250' }, 200);
     });
-
     $(".la-courses__nav-prev").on("click", function(){
       $(".la-courses__nav-tabs").animate( { scrollLeft: '-=250' }, 200);
     });
-
   })(jQuery);
   */
   //- Carousel Indiactors for Nav Tabs
@@ -138,92 +132,74 @@ $(function(){
   });
 
 
-
   // Swiper JS for Browse Classes in Homepage
   // var course_Sliders = [];
   // if($(this)[0]){
-  if($('.la-home__course-container')[0]){     
-    var course_swiper = new Swiper(".la-home__course-container", {
-      slidesPerView: 'auto',
-      spaceBetween: 20,
-      observer: true,
-      observeParents: true,
-      /*flipEffect: {
-        slideShadows: false,
-      },
-      speed:1000,
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false
-      },*/
-      pagination: {
-        el: ".la-home__course-paginations",
-        clickable: true,
-      },
-      // navigation: {
-      //   nextEl: '.la-home__course-next',
-      //   prevEl: '.la-home__course-prev',
-      // },
-    });
-  }
+  // if($('.la-home__course-container')[0]){     
+  //   var course_swiper = new Swiper(".la-home__course-container", {
+  //     slidesPerView: 'auto',
+  //     spaceBetween: 20,
+  //     observer: true,
+  //     observeParents: true,
+  //     pagination: {
+  //       el: ".la-home__course-paginations",
+  //       clickable: true,
+  //     },
+  //     // navigation: {
+  //     //   nextEl: '.la-home__course-next',
+  //     //   prevEl: '.la-home__course-prev',
+  //     // },
+  //   });
+  // }
     /*var course_slider_pagination_first = course_swiper[0].pagination.el;
     var course_slider_pagination_first_width = $(course_slider_pagination_first).width() + 30;
     $(course_slider_pagination_first).css("width", course_slider_pagination_first_width);*/
     
     // Home Featured Courses Tabs
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
-      var paneTarget = $(e.target).attr('href');
-      var $thePane = $('.tab-pane' + paneTarget);
-      var paneIndex = $thePane.index();
-      if ($thePane.find('.la-home__course-container, .la-courses__featured-container').length > 0 && 0 === $thePane.find('.swiper-slide-active').length) {
+    // $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+    //   var paneTarget = $(e.target).attr('href');
+    //   var $thePane = $('.tab-pane' + paneTarget);
+    //   var paneIndex = $thePane.index();
+    //   if ($thePane.find('.la-courses__course-container').length > 0 && 0 === $thePane.find('.swiper-slide-active').length) {
         
-        course_swiper[paneIndex].update();
+    //     course_swiper[paneIndex].update();
 
-        var course_slider_pagination = course_swiper[paneIndex].pagination.el;
-        var course_slider_pagination_width = $(course_slider_pagination).width() + 30;
-        $(course_slider_pagination).css("width", course_slider_pagination_width);
-      }
-    }); 
+    //     var course_slider_pagination = course_swiper[paneIndex].pagination.el;
+    //     var course_slider_pagination_width = $(course_slider_pagination).width() + 30;
+    //     $(course_slider_pagination).css("width", course_slider_pagination_width);
+    //   }
+    // }); 
 
 
 
   // Swiper JS for Browse Courses in Homepage
-    if($('.la-home__course-container2')[0]){     
-    var course_swiper2 = new Swiper(".la-home__course-container2", {
-      slidesPerView: 'auto',
-      spaceBetween: 20,
-      observer: true,
-      observeParents: true,
-      /*flipEffect: {
-        slideShadows: false,
-      },
-      speed:1000,
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false
-      },*/
-      pagination: {
-        el: ".la-home__course-paginations2",
-        clickable: true,
-      },
-    });
-  }
+  //   if($('.la-home__course-container2')[0]){     
+  //   var course_swiper2 = new Swiper(".la-home__course-container2", {
+  //     slidesPerView: 'auto',
+  //     spaceBetween: 20,
+  //     observer: true,
+  //     observeParents: true,
+  //     pagination: {
+  //       el: ".la-home__course-paginations2",
+  //       clickable: true,
+  //     },
+  //   });
+  // }
 
   // Home Featured Classes Tabs
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
-      var paneTarget = $(e.target).attr('href');
-      var $thePane = $('.tab-pane' + paneTarget);
-      var paneIndex = $thePane.index();
-      if ($thePane.find('.la-home__course-container2').length > 0 && 0 === $thePane.find('.swiper-slide-active').length) {
+    // $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+    //   var paneTarget = $(e.target).attr('href');
+    //   var $thePane = $('.tab-pane' + paneTarget);
+    //   var paneIndex = $thePane.index();
+    //   if ($thePane.find('.la-home__course-container2').length > 0 && 0 === $thePane.find('.swiper-slide-active').length) {
         
-        course_swiper2[paneIndex].update();
+    //     course_swiper2[paneIndex].update();
 
-        var course_slider_pagination = course_swiper2[paneIndex].pagination.el;
-        var course_slider_pagination_width = $(course_slider_pagination).width() + 30;
-        $(course_slider_pagination).css("width", course_slider_pagination_width);
-      }
-    }); 
-
+    //     var course_slider_pagination = course_swiper2[paneIndex].pagination.el;
+    //     var course_slider_pagination_width = $(course_slider_pagination).width() + 30;
+    //     $(course_slider_pagination).css("width", course_slider_pagination_width);
+    //   }
+    // }); 
   // } 
 
   
@@ -233,29 +209,31 @@ $(function(){
   });
    
   // Swiper JS for Master Classes in Homepage
-  if($('.la-home__master-container')[0]){   
-    var master_slider = new Swiper('.la-home__master-container', {
-      slidesPerView: 'auto',
-      spaceBetween: 20,
-      /*flipEffect: {
-        slideShadows: false,
-      },
-      speed:1000,
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false
-      },*/
+  if($('.la-home__multilingual-container')[0]){   
+    var master_slider = new Swiper('.la-home__multilingual-container', {
+      slidesPerView: 2,
+      //spaceBetween: 25,
+      slidesPerColumn:1,
+      slidesPerGroup: 2,
       pagination: {
-        el: '.la-home__master-pagination',
+        el: '.la-home__multilingual-pagination',
         clickable: true,
       },
-      // navigation: {
-      //   nextEl: '.la-home__master-next',
-      //   prevEl: '.la-home__master-prev',
-      // },
+      navigation: {
+        nextEl: '.la-home__multilingual-next',
+        prevEl: '.la-home__multilingual-prev',
+      },
+      breakpoints:{
+        320: {       
+          slidesPerView: 1, 
+          slidesPerGroup: 1,        
+        },       
+        991: {
+          slidesPerGroup: 2, 
+        },  
+      }
     });
   }
-
 
     /*var master_slider_pagination_first = master_slider.pagination.el;
     var master_slider_pagination_first_width = $(master_slider_pagination_first).width() + 30;
@@ -269,32 +247,11 @@ $(function(){
   */
 
   // Swiper JS for Watch Now section in Homepage
-  if($('.la-home__watch-container')[0]){   
-    var master_slider = new Swiper('.la-home__watch-container', {
-      slidesPerView: 1,
-      /*speed: 1500,
-      autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-      },*/
-      pagination: {
-        el: '.la-home__watch-pagination',
-        clickable: true,
-      },
-    });
-  }
-  
-
   if($('.la-home__customize-container')[0]){   
     var swiper = new Swiper('.la-home__customize-container', {
       slidesPerView: 'auto',
       loop:true,
       freeMode: true,
-      /*speed: 1500,
-      autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-      },*/
       simulateTouch:false,
       pagination: {
         el: '.la-home__customize-pagination',
@@ -310,8 +267,17 @@ $(function(){
     });
   }
   
+  // Swiper JS for Watch Now section in Homepage
+  if($('.la-home__watch-container')[0]){   
+    var master_slider = new Swiper('.la-home__watch-container', {
+      slidesPerView: 1,
+      pagination: {
+        el: '.la-home__watch-pagination',
+        clickable: true,
+      },
+    });
+  }
   
-
   //Swiper Js for Artist gallery
   if($('.gallery-thumbs')[0]){
       var galleryThumbs = new Swiper('.gallery-thumbs', {
@@ -347,51 +313,93 @@ $(function(){
       });
   }
 
-  //- Swiper JS for Observe Section
-  if($('.la-trail__title-container')[0]){
-    var swiper = new Swiper('.la-trail__title-container', {
-      direction: 'vertical',
-      slidersPerView: 1,
-      loop:true,
-      autoplay: {
-        delay: 2000,
-        disableOnInteraction: false,
+  //- Swiper JS for Observe Section in Homepage
+  // if($('.la-trail__title-container')[0]){
+  //   var swiper = new Swiper('.la-trail__title-container', {
+  //     direction: 'vertical',
+  //     slidersPerView: 1,
+  //     loop:true,
+  //     autoplay: {
+  //       delay: 2000,
+  //       disableOnInteraction: false,
+  //     },
+  //   });
+  // }
+  
+  //Swiper Js for Testimonials in Homee Page
+  if($('.la-home__testimonials-container')[0] && $('.la-home__testimonials-container .swiper-slide').length >= 2){
+    var swiper = new Swiper('.la-home__testimonials-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 30,
+      slidesPerColumn:1,
+      slidesPerGroup: 2,
+      pagination: {
+        el: '.la-home__testimonials-pagination',
+        clickable: true,
       },
+      breakpoints: {  
+        320: {            
+          spaceBetween:15,    
+          slidesPerGroup: 1,
+        },     
+        767:{
+          spaceBetween:20,
+        },
+      } 
     });
   }
-  
+    
 
   // Featured Slider in Browser Courses & Browse Classes Page
   if($('.la-courses__featured-container')[0]){     
     var course_swiper = new Swiper(".la-courses__featured-container", {
       slidesPerView: 'auto',
       spaceBetween: 30,
-      slidesPerColumn: 1,
+      slidespPerColumn:1,
       slidesPerGroup:4,
+      observer: true,
+      observeParents: true,
       flipEffect: {
         slideShadows: false,
       },
-      speed:1000,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false
-      },
+      // speed:1000,
+      // autoplay: {
+      //   delay: 3000,
+      //   disableOnInteraction: false
+      // },
       pagination: {
         el: ".la-home__course-paginations",
         clickable: true,
       },
       breakpoints: {  
-        320: {            
-          spaceBetween:15, 
-          slidesPerGroup:1,    
+        320: {    
+          slidesPerGroup:1,        
+          spaceBetween:15,     
         },     
         767:{
+          slidesPerGroup:2,
           spaceBetween:30,
           slidesPerGroup:3,
         },
+        1200:{
+          slidesPerGroup:3,
+        }
       } 
     });
   }
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+    var paneTarget = $(e.target).attr('href');
+    var $thePane = $('.tab-pane' + paneTarget);
+    var paneIndex = $thePane.index();
+    if ($thePane.find('.la-courses__featured-container').length > 0 && 0 === $thePane.find('.swiper-slide-active').length) {
+      
+      course_swiper[paneIndex].update();
+
+      var course_slider_pagination = course_swiper[paneIndex].pagination.el;
+      var course_slider_pagination_width = $(course_slider_pagination).width() + 30;
+      $(course_slider_pagination).css("width", course_slider_pagination_width);
+    }
+  }); 
 
   //- Autoplay Stop on Mouse Hover
   $('.la-courses__featured-container').on('mouseover touchstart', function() {
@@ -455,7 +463,7 @@ $(function(){
     this.swiper.autoplay.start();
   });
 
-    
+ 
   //Swiper Js for Become a Creator
   if($('.la-mcard__container')[0] && $('.la-mcard__container .swiper-slide').length > 1){
     var swiper = new Swiper('.la-mcard__container', {
@@ -509,17 +517,20 @@ $(function(){
   } */
 
   //Swiper Js for Reviews in Course Page
-  if($('.la-lcreviews__container')[0] && $('.la-lcreviews__container .swiper-slide').length >= 2){
-    var swiper = new Swiper('.la-lcreviews__container', {
+  if($('.la-lcreviews__container')[0]){
+    var reviews_swiper = new Swiper('.la-lcreviews__container', {
       slidesPerView: 'auto',
       spaceBetween: 30,
+      observer: true,
+      observeParents: true,
+      keyboard:true,
       flipEffect: {
         slideShadows: false,
       },
       speed:1000,
       autoplay: {
         delay: 2500,
-        disableOnInteraction: false,
+        disableOnInteraction: true,
       },
       pagination: {
         el: '.la-lcreviews__pagination',
@@ -528,6 +539,21 @@ $(function(){
     });
   }
 
+  // Reviews Tab in Class Main Page
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+    var paneTarget = $(e.target).attr('href');
+    var $thePane = $('.tab-pane' + paneTarget);
+    var paneIndex = $thePane.index();
+    if ($thePane.find('.la-lcreviews__container').length > 0 && 0 === $thePane.find('.swiper-slide-active').length) {
+      
+      reviews_swiper[paneIndex].update();
+
+      var reviews_slider_pagination = reviews_swiper[paneIndex].pagination.el;
+      var reviews_slider_pagination_width = $(reviews_slider_pagination).width() + 30;
+      $(reviews_slider_pagination).css("width", reviews_slider_pagination_width);
+    }
+  }); 
+  
   //- Autoplay Stop on Mouse Hover
    $('.la-lcreviews__container').on('mouseover touchstart', function() {
     this.swiper.autoplay.stop();
@@ -560,10 +586,15 @@ $(function(){
 
     if($('#vcourse_row').hasClass('full-view')) {
       $('#vcourseFullView .la-btn__text').text('Collapse the list');
+      course_video_height(true);
+
     } else {
       $('#vcourseFullView .la-btn__text').text('See the list');
+      course_video_height(false);
+      $('.la-vcourse__languages')[0].scrollIntoView();
     }
   });
+  
 
   //Sidemenu
   $('#sidebar_menu_btn').on('click', function() {
@@ -694,16 +725,16 @@ $(function(){
   });
 
   //- Subscription Card on Homepage
-  gsap.to(".la-anim__pin2", {
-    scrollTrigger: {
-      trigger: ".la-anim__pin2",
-      scrub: true,
-      pin: true,
-      pinSpacing: false,
-      start: "top 45%",
-      end: "+=600",
-    }, opacity: 1
-  });
+  // gsap.to(".la-anim__pin2", {
+  //   scrollTrigger: {
+  //     trigger: ".la-anim__pin2",
+  //     scrub: true,
+  //     pin: true,
+  //     pinSpacing: false,
+  //     start: "top 45%",
+  //     end: "+=600",
+  //   }, opacity: 1
+  // });
   
   //- Testimonials Section in Learning Plans
   gsap.to(".la-anim__pin3", {
@@ -717,25 +748,22 @@ $(function(){
     }, opacity: 1
   });
 
-  // For Home Page
-  gsap.utils.toArray('.la-anim__slide').forEach(function(elem) {
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: elem,
-        start: "top 40%",
-        toggleActions: "restart none none reset"
-      }
-    });
+  // For Home Page Learn it like aliens section
+  // gsap.utils.toArray('.la-anim__slide').forEach(function(elem) {
+  //   let tl = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: elem,
+  //       start: "top 40%",
+  //       toggleActions: "restart none none reset"
+  //     }
+  //   });
 
-    var item_priceSlide = elem.querySelectorAll(".la-anim__slide-box");
-
-    tl.to(item_priceSlide, {opacity: 1, y: -40, duration: 0.4, ease: "Expo.ease"})
-
-  });
+  //   var item_priceSlide = elem.querySelectorAll(".la-anim__slide-box");
+  //   tl.to(item_priceSlide, {opacity: 1, y: -40, duration: 0.4, ease: "Expo.ease"})
+  // });
 
   //For Header scroll to hide and show
   var actionNav = gsap.to('.la-header', {y:'-=80', duration:0.5, ease:'power2.in', paused:true});
-
   ScrollTrigger.create({
     trigger: ".la-header",
     start: "10px top",
@@ -759,12 +787,70 @@ $(function(){
       toggleActions: "restart none reset none"
     }, 
     // boxShadow:"rgba(0, 0, 0, 0.14) 0px 0px 10px 6px"
-  })
+  });
 
-  
+  //For Video Player scroll to top
+  var actionVideo = gsap.to('.la-vcourse__class-col', {y:'-=80', duration:0.4, ease:'power2.in', paused:true});
+  ScrollTrigger.create({
+    trigger: ".la-vcourse__class-col",
+    start: "10px top",
+    end: 99999,
+    onUpdate: ({progress, direction, isActive}) => {
+      if (direction == -1) {
+        actionVideo.reverse()
+      } if (direction == 1 ) {
+        actionVideo.play()
+      } else if (direction == 1 && isActive == true) {
+        actionVideo.play()
+      }
+    }
+  });
+
+  gsap.to('.la-vcourse__class-col', {
+    scrollTrigger: {
+      trigger: ".la-vcourse__class-col",
+      start: "80px top",
+      toggleActions: "restart none reset none"
+    }, 
+  });
+
+   
 }); 
 
 
+//- Active Tab in Class Main Page for Mobile & Desktop : start
+function changeTab() {
+    if($(window).width() <= 767) {
+        $("#cnav-about-tab").removeClass("active");
+        $("#cnav-about").removeClass("active show");
+  
+        $("#cnav-chapters-tab").addClass("active");
+        $("#cnav-chapters").addClass("active show");
+  
+  }else{
+  
+        $("#cnav-about-tab").addClass("active");
+        $("#cnav-about").addClass("active show");
+  
+        $("#cnav-chapters-tab").removeClass("active");
+        $("#cnav-chapters").removeClass("active show");
+  }
+}
+changeTab();
+$(window).on('resize', changeTab);
+
+//- Active Tab in Class Main Page for Mobile & Desktop : End
+
+
+//- On Scroll Video in Class Page - height fix in mobile responsive
+function FixedHeight(){
+  if($(window).width() <= 767){
+    var height = jQuery(".vjs-tech").height() + 70;
+    jQuery(".la-vcourse__nav-content").css("padding-top", height);
+  }
+}
+FixedHeight();
+$(window).on('resize', FixedHeight);
 
 // Popover Js for Dashboard Page: Start
 $('[data-toggle="popover"]').popover();
@@ -1115,20 +1201,19 @@ function markReleaseRead(){
 // vcourse video lish dynamic height
 
 
-var course_video_height = function() {
+var course_video_height = function(skip = false) {
   var course_video = $('.la-vcourse__video-wrap').height();
-  if(course_video > 100) {
+  if(course_video > 100 && skip ==  false) {
     $('.la-vcourse__curriculam').css('height', course_video);
-  }
+  }else
+    $('.la-vcourse__curriculam').css('height', 'auto');
 }
 
 course_video_height();
 
-$(window).resize(function() {
+$(window).on('resize', function() {
   course_video_height();
 });
-
-
 
 
 

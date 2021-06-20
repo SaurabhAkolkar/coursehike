@@ -1,0 +1,58 @@
+#{$ap}- {
+    &refer{
+        &__{
+            &card{
+                background: #FFFFFF 0% 0% no-repeat padding-box;
+                box-shadow: 0px 12px 24px #00000014;
+                border-radius: 10px;
+                padding:var(--size-8) var(--size-8);
+
+                @include respond-below(sm){
+                    padding:var(--size-6);
+                }
+            
+                &-{
+                    &title{
+                        font-size:var(--text-md);
+                        color:var(--black);
+                        font-weight: var(--font-normal);
+                        margin-bottom:var(--size-6);
+                    }
+                    &label{
+                        color:var(--black) !important;
+                        font-weight: var(--font-normal) !important;
+                    }
+                }
+            }
+            &share{
+                &-{
+                    &title{
+                        color:var(--black);
+                        font-weight: var(--font-normal);
+                        font-size: var(--text-sm);
+                    }
+                }
+            }
+
+            //- Small Cards
+            &status{
+                &-{
+                    &icon{
+                        color:#48ACF8;
+                    }
+                    &info{
+                        color: var(--black);
+                        font-size: var(--text-md);
+                        font-weight: var(--font-medium);
+                        margin-bottom: var(--size-4);
+                    }
+                    &count{
+                        color: var(--black);
+                        font-size: var(--text-4xl);
+                        font-weight: var(--font-medium);
+                    }
+                }
+            }
+        }
+    }
+}

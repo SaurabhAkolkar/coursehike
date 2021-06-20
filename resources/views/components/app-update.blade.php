@@ -1,14 +1,21 @@
 <!-- New App Releases -->
 
-<li class="la-news__app-item la-anim__wrap">
-    <h6 class="la-news__app-title head-font text-lg text-md-xl text-capitalize m-0 la-anim__stagger-item"> {{ $title }} </h6>
-    <p class="text-sm la-news__app-timestamp la-anim__stagger-item"> {{ $timestamp }}</p>
-    <div class="la-news__app-content text-md  la-anim__stagger-item"> 
-        <span>{{ $desc }}</span>
-        <span class="la-news__app-desc collapse" id="app_{{ $appId }}"> 
-            <span>{{ $desc }} </span> <br/>
-            {{-- <a role="button" href="" class="btn btn-primary la-btn__app py-3  mt-8 mt-md-5">Explore</a> --}}
-        </span>
+<div class="la-news__app-item la-anim__wrap">
+    <div class="la-anim__stagger-item">
+        <h6 class="la-news__app-title head-font text-lg text-md-xl text-capitalize m-0"> {{ $title }} </h6>
+        <p class="text-sm la-news__app-timestamp"> {{ $timestamp }}</p>
+        
+        <div class="la-news__app-content"> 
+            <span class="text-sm">{{ $desc }}</span>
+            <span class="la-news__app-desc collapse text-sm" id="app_{{ $appId }}"> {{ $desc }} </span>
+        </div>
+        <p class="la-news__readmore collapsed mt-3" role="button" href="#app_{{ $appId }}" data-toggle="collapse" aria-expanded="true"></p>
     </div>
-    <p class="la-news__readmore collapsed text-center text-sm-right mt-3 la-anim__stagger-item" role="button" href="#app_{{ $appId }}" data-toggle="collapse" aria-expanded="true">Read More</p>
-</li>
+
+    <div class="text-right mt-6 la-anim__stagger-item">
+        <a href="" role="button" class="la-btn__arrow la-btn__arrow-right text-uppercase text--burple text--sm font-weight--semibold text-spacing">
+            <span>Explore More</span>
+            <span class="la-btn__arrow-icon arrow-right la-icon la-icon--7xl icon-grey-arrow"> </span>
+        </a>
+    </div>
+</div>

@@ -83,8 +83,12 @@
         @include ('learners.pages.header')
 
         <main class="la-main">
-            <div class="la-main__inner">
+            <div class="la-main__inner p-0">
+
+                {{-- @include ('learners.pages.referral-toggle') --}}
+
                 @yield('content')
+                
             </div>
         </main>
     </div>

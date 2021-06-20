@@ -12,17 +12,16 @@
                 @include respond-below(md){
                     margin:0;
                 }
-               
             }
             &wrapper{
-                padding-top:var(--size-14);
+                //padding-top:var(--size-14);
             }
             &title{
                 font-weight:var(--font-semibold);
                 color:var(--gray5);
             }
             &total{
-                color:#1EC812;
+                color:var(--app-indigo-1);
                 font-weight:var(--font-bold);
             }
             &fill{
@@ -40,9 +39,9 @@
             }
             &progress{
                 width:200px;
-                height:15px;
+                height:14px;
                 border-radius:10px;
-                margin-bottom:var(--size-2);
+                margin-bottom:var(--size-3);
 
                 @include respond-below(lg){
                     width:110px;
@@ -52,7 +51,7 @@
                 }
             }
             &progress-bar{
-                background-color:#1EC812;
+                background-color:var(--yellow);
             }
             &percent{
                 color:var(--gray5);
@@ -71,7 +70,11 @@
 
                 &-{
                     &popup{
-                        margin:var(--size-10) var(--size-20) var(--size-10) 0;
+                        margin:var(--size-12) var(--size-20) var(--size-8) 0;
+
+                        @include respond-below(md){
+                            margin:var(--size-8) 0;
+                        }
 
                         @include respond-below(sm){
                             margin:var(--size-4) 0;
@@ -85,6 +88,7 @@
                         height:auto;
                         box-shadow: 0px 6px 12px #00000029;
                         border-radius: 10px;
+                        margin:0 auto;
 
                         @include respond-below(sm){
                             width:100% !important;
@@ -92,40 +96,36 @@
                     }
                     &header{
                         border:none !important;
-                        padding-bottom: 0;
+                        padding: var(--size-6) var(--size-8);
                     }
                     &body{
-                        padding: var(--size-6) var(--size-8);
+                        padding: 0 var(--size-8) var(--size-8);
 
                         @include respond-below(sm){
-                            padding:var(--size-6) var(--size-4);
+                            padding:0 var(--size-6) var(--size-6);
                         }
                     }
                     &title{
-                        font-size: var(--text-lg);
+                        font-size: var(--text-md);
                         color: var(--gray3);
                         font-weight: var(--font-medium);
-                        padding-bottom: var(--size-base);
                     }
                     &textarea{
                         padding:var(--size-2) !important;
+                        font-size: var(--text-sm) !important;
+                        border-radius: 8px;
+                        background: #FFFFFF 0% 0% no-repeat padding-box !important;
+                        border: 1px solid var(--gray15);
                     }
-                    &btn{
-                        text-transform: uppercase;
-                        color: var(--app-indigo-1);
-                        letter-spacing: 2.5px;
-                        font-size: var(--text-md);
-                        font-weight: var(--font-semibold);
-                        &:hover{
-                            color: var(--dark);
-                        }
+                    &stars{
+                        border-bottom: 1px solid var(--gray15);
                     }
                     &edit{
-                        color:var(--app-indigo-1);
+                        color:var(--gray3);
                         font-weight: var(--font-semibold);
 
                         &:hover{
-                            color:var(--black);
+                            color:var(--app-indigo-1);
                         }
                     }
                 }

@@ -38,18 +38,18 @@
         <!-- Wishlist Alert Message -->
         <div id="wishlist_alert_div"></div>
 
-        <a class="la-icon la-icon--5xl icon-back-arrow ml-n1 mt-n2 mb-5 d-block d-md-none" href="{{URL::previous()}}"></a>
+        <a class="la-icon la-icon--5xl icon-back-arrow ml-n1 mt-n2 d-block d-xl-none" href="{{URL::previous()}}"></a>
 
         <div class="d-flex justify-content-between position-relative">
-          <a href="{{URL::previous()}}" class="la-vcreator__back d-none d-md-block" style="top:-6px"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
-          <h1 class="la-page__title mb-8">Search Classes</h1>
+          <a href="{{URL::previous()}}" class="la-vcreator__back d-none d-xl-block" style="top:-6px"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
+          <h1 class="la-page__title mb-4 mb-lg-8">Search Classes</h1>
         </div>
 
-        <div class="d-flex justify-content-between align-items-start">
+        <div class="d-flex justify-content-between align-items-center">
             <!-- Global Search: Start-->
             <div class="la-gsearch mb-0">
               <form class="form-inline "  action="{{ url('/search-classes/') }}">
-                <div class="form-group d-flex align-items-center">
+                <div class="form-group mb-0 d-flex align-items-center">
                   <input class="la-gsearch__input form-control la-gsearch__input-searchcourses" style=" background:transparent" value="{{$search_input}}" name="course_name" type="text" placeholder="What you want to learn today?" required>
                   <button class="la-gsearch__submit btn mt-0" type="submit"><i class="la-icon icon icon-search la-gsearch__input-icon"></i></button>
                 </div>
@@ -65,7 +65,7 @@
               <div class="la-courses__nav-props">
                 <a class="la-icon icon-sort la-courses__nav-filter  mr-3" id="sortCourses" data-toggle="dropdown" href="javascript:void(0);" role="button"></a>
                 <!-- Sort Courses Dropdown -->
-                <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu" aria-labelledby="sortCourses"  style="border:none !important;">
+                <div class="dropdown-menu dropdown-menu-right la-header__dropdown-menu mt-3" aria-labelledby="sortCourses"  style="border:none !important;">
                   <div class="la-form__input-wrap px-5">
                       <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-2 text-dark">Sort by</div>
                       <div class=" pt-2">
@@ -91,7 +91,7 @@
 
                   <!-- Filter Courses Dropdown -->
                   <div class="la-courses__nav-filterdropdown" id="filtered_sidebar">
-                      <div class="la-form__input-wrap px-5">
+                      <div class="la-form__input-wrap px-md-5">
                           <div class="d-flex justify-content-between align-items-center">
                             <div class="la-form__lable la-form__lable--medium mb-2 text-md pt-3 text-dark">Filter by</div>
                             <button class="la-courses__nav-filterclose close text-4xl mt-1" type="button" id="filter_close">&times;</button>
@@ -177,9 +177,9 @@
                                   </label>
                                 </div>
 
-                                <button onclick="$('#filter_form').submit()" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Apply</button>
-                                <div class="mt-6">
-                                  <a href="/browse/classes" role="button" class="la-btn la-btn__secondary bg-transparent text-uppercase text-center py-3 mt-6">Clear</a>
+                                <button onclick="$('#filter_form').submit()" class="btn btn-primary la-btn__app text-uppercase text-center py-3 mt-6">Apply</button>
+                                <div>
+                                  <a href="/browse/classes" role="button" class="btn btn-primary la-btn__app bg-transparent text-uppercase text-center py-3 mt-4">Clear</a>
                                 </div>
                             </form>
                       </div>
@@ -191,7 +191,7 @@
                 <!-- filter div : END -->
 
 
-        <div class="la-courses py-4 py-md-10">
+        <div class="la-courses py-10">
 
                    <x-add-to-playlist
                       :playlists="$playlists"
@@ -230,7 +230,7 @@
                 @if(count($courses) == 0)
                 <div class="col-12 px-0 la-anim__wrap">
                   <div class="la-empty__courses d-md-flex justify-content-between align-items-center la-anim__stagger-item">
-                        <div class="la-empty__inner">
+                        <div class="la-empty__inner mb-0">
                             <h6 class="la-empty__course-title mb-0 la-anim__stagger-item">No Classes Found.</h6>
                         </div>
                         <div class="la-empty__browse-courses mt-n4 la-anim__stagger-item--x">

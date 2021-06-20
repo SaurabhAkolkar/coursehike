@@ -56,7 +56,7 @@
                           />
                         @else
 
-                        <div class="la-empty__courses text-center mt-0 mb-10 mb-md-1 py-6 py-lg-9 px-10 px-lg-12">
+                        <div class="la-empty__courses text-center mt-0 mb-10 mb-md-1 py-6 py-lg-9 px-6">
                             <div class="la-empty__inner la-anim__stagger-item mb-0">
                                 <p class="la-empty__course-desc leading-snug m-0">You don't have any last viewed course.</p>
                             </div>
@@ -72,11 +72,13 @@
             <div class="col-12 col-md-6 col-lg-4  h-100 la-anim__wrap">
               <div class="la-course__alien-ad">
                 <div class="card la-course__ad-card la-anim__stagger-item--x">
-                  <div class="card-body la-course__ad-body my-0 position-relative">
-                    <p class="la-course__ad-tag leading-snug text-sm pt-4 la-anim__stagger-item">Got something different? <br/> Let’s share it with the world!</p>
-                    <h2 class="la-course__ad-title text-2xl text-md-3xl la-anim__stagger-item--x">become an <br><span>Alien Mentor, today!</span></h2>
+                  <div class="card-body la-course__ad-body my-0 position-relative d-flex flex-column justify-content-between">
+                    <div>
+                      <p class="la-course__ad-tag leading-snug text-sm pt-4 la-anim__stagger-item">Got something different? <br/> Let’s share it with the world!</p>
+                      <h2 class="la-course__ad-title text-2xl text-md-3xl la-anim__stagger-item--x">become an <br><span>Alien Mentor, today!</span></h2>
+                    </div>
 
-                    <div class="la-course__ad-learnmore text-right mr-md-n5 la-anim__stagger-item--x">
+                    <div class="la-course__ad-learnmore d-flex justify-content-end la-anim__stagger-item--x">
                       <a class="la-course__ad-learn text-uppercase " href="/become-mentor">Learn More
                         <span class="la-icon la-icon--5xl icon-black-arrow "></span>
                       </a>
@@ -84,7 +86,26 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> 
+
+            {{-- <div class="col-12 col-md-6 col-lg-4  h-100 la-anim__wrap">
+              <div class="la-course__alien-ad">
+                <div class="card la-course__ad-card la-anim__stagger-item--x">
+                  <div class="card-body la-course__ad-body my-0 position-relative d-flex flex-column justify-content-between">
+                    <div>
+                      <p class="la-course__ad-tag leading-snug text-sm pt-4 la-anim__stagger-item">Got something different? <br/> Let’s share it with the world!</p>
+                      <h2 class="la-course__ad-title text-2xl text-md-3xl la-anim__stagger-item--x">Upload Classes <br><span>Now!</span></h2>
+                    </div>
+
+                    <div class="la-course__ad-learnmore d-flex justify-content-end la-anim__stagger-item--x">
+                      <a class="la-course__ad-learn text-uppercase" href="/">Mentor Dashboard
+                        <span class="la-icon la-icon--5xl icon-black-arrow "></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> --}}
 
             <!-- Dashboard Badges : Start -->
             <!-- <div class="col-12 col-md-5 offset-md-1 col-lg-4 offset-lg-4 px-0">
@@ -188,7 +209,7 @@
     </section> --}}
     <!-- Section: End-->
     <!-- Section: Start-->
-    <section class="la-pcourses-section la-hp__inner">
+    <section class="la-pcourses-section la-section__small">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12 la-anim__wrap">
@@ -201,7 +222,7 @@
                 @endforeach
 
               @else
-                  <div class="col-12 px-0">
+                  <div class="col-12">
                     <div class="la-empty__courses m-0 d-md-flex justify-content-between align-items-start la-anim__stagger-item">
                       <div class="col la-empty__inner la-anim__stagger-item">
                           <h6 class="la-empty__course-title">No Courses</h6>

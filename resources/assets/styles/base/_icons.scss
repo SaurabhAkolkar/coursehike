@@ -26,6 +26,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-referral:before {
+  content: "\e9bc";
+}
 .icon-circle-tick:before {
   content: "\e9bb";
 }

@@ -781,12 +781,18 @@ Route::post('/delete-course-request', 'CourseReviewController@deleteCourseReques
 // Route for Learner's View
 Route::view('/signup','learners.auth.signup');
 Route::view('/signin','learners.auth.signin');
+Route::view('/social-verification', 'learners.auth.social-verification');
+Route::view('/social-otp-verify', 'learners.auth.social-otp-verify');
+
 Route::get('/mentors','InstructorController@allMentors');
 Route::get('/category/{id}/{category}','WebsiteController@categoryPage');
 Route::get('/search-mentor','InstructorController@searchMentor');
 Route::get('/mentor/{id}/{name?}','InstructorController@creator')->name('mentor.profile');
 
+Route::view('/search-global', 'learners.pages.search_global');
+
 Route::view('/user-interests', 'learners.pages.user-interests');
+Route::view('/referrals', 'learners.pages.referrals');
 
 Route::view('/payment-successful','learners.pages.payment-successful');
 Route::view('/contact','learners.pages.contact')->name('contactus');

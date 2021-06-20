@@ -19,7 +19,7 @@
                         </div>
                       </div>
         </div>
-        <div class="col-md-5 la-entry__col la-entry__col-right h-100">
+        <div class="col-md-5 la-entry__col la-entry__col-right h-100 pt-20">
           <div class="la-entry__content-wrap d-flex flex-column justify-content-center">
             <div class="la-entry__interests-wrap la-anim__wrap">
               <div class="la-entry__interests-title la-entry__content-title text-center mb-4 la-anim__stagger-item">Your Interests</div>

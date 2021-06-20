@@ -27,14 +27,15 @@
       <div class="container-fluid">
       <div class="row">
           <div class="col-12 ">
-            <div class="d-md-flex justify-content-between align-items-center">
-              <a class="la-icon la-icon--5xl icon-back-arrow ml-n1 mt-n4 mb-2 d-block d-md-none" href="/mentors"></a> 
-              <a href="/mentors" class="la-vcreator__back d-none d-lg-block" style="margin-top:-28px;"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
-              <h1 class="la-page__title mb-8">Alien Mentors</h1>
+            <a class="mt-n4 ml-n1 d-block d-xl-none" href="{{URL::previous()}}" style="color:var(--gray4)"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a> 
+            
+            <div class="d-md-flex justify-content-between align-items-center">              
+              <a  href="{{URL::previous()}}" class="la-vcreator__back d-none d-xl-block" style="margin-top:-30px;"><span class="la-icon la-icon--5xl icon-back-arrow"></span></a>
+              <h1 class="la-page__title mb-2 mb-lg-8">Alien Mentors</h1>
               <!-- Global Search: Start-->
               <div class="la-gsearch">
                 <form class="form-inline" action="/search-mentor" method="get">
-                  <div class="form-group">
+                  <div class="form-group mb-0 w-75">
                     <input class="la-gsearch__input w-100 form-control" value="{{$inputValue}}" name="name" type="text" style="background:transparent;" placeholder="Search Alien Mentor" required>
                   </div>
                   <button class="la-gsearch__submit btn" type="submit"><i class="la-icon la-icon--3xl icon icon-search"></i></button>
@@ -43,7 +44,7 @@
               <!-- Global Search: End-->
             </div>
             
-            <div class="la-mentors">
+            <div class="la-mentors py-6">
               <div class="row la-anim__wrap">
                   @if(count($mentors))
                   @foreach($mentors as $mentor)

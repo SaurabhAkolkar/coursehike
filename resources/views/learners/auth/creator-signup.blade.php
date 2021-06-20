@@ -19,7 +19,7 @@
                 </div>
               </div>
         </div>
-        <div class="col-md-5 la-entry__col la-entry__col-right h-100">
+        <div class="col-md-5 la-entry__col la-entry__col-right h-100 pt-20">
           <div class="la-entry__content-wrap d-flex flex-column justify-content-center la-anim__wrap">
             <div class="la-entry__content-top" id="creator_signup_div">
               @if($check == null)
@@ -78,7 +78,7 @@
                       </span>
                       <div class="pl-2 mt-n1 text-sm la-entry__terms" style="color:var(--gray6);opacity:1" >
                         I have read & agree to the 
-                        <a href="mentor-terms-conditions" class="la-entry__terms-creator" title="Read the Terms & Conditions">terms & conditions</a>
+                        <a href="/mentor-terms-conditions" class="la-entry__terms-creator" title="Read the Terms & Conditions">terms & conditions</a>
                       </div>
                     </label>
                   </div>
