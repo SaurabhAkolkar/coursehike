@@ -450,7 +450,7 @@ class SubscriptionController extends Controller
 	public function billing()
 	{
 		$user = Auth::User();
-		$active_plan = app('rinvex.subscriptions.plan_subscription')->ofUser($user)->latest()->first(); 
+		$active_plan = app('rinvex.subscriptions.plan_subscription')->ofSubscriber($user)->latest()->first(); 
 		$card = null;
 		$canceled_subscription = null;
 		if($active_plan){

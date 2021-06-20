@@ -73,7 +73,7 @@ class UserController extends Controller
     public function subscriptions($id){
 
         $user = User::find($id);
-        $subscriptions = app('rinvex.subscriptions.plan_subscription')->ofUser($user)->latest()->get();
+        $subscriptions = app('rinvex.subscriptions.plan_subscription')->ofSubscriber($user)->latest()->get();
 
         $class_purchased =  UserPurchasedCourse::with('course','user_invoice_details')->where('user_id', $id)->whereNull('bundle_id')->get();
         $courses_purchased =  UserPurchasedCourse::with('bundle')->where('user_id', $id)->where('bundle_id','>',0)->groupBy('bundle_id')->get();
