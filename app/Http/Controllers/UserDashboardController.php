@@ -19,8 +19,9 @@ class UserDashboardController extends Controller
         $pendingCourse= UserWatchProgress::with('courses','user')->where(['user_id'=>Auth::User()->id])->latest()->groupBy('course_id')->limit(4)->get();
         $recentWatchedCourseCompletion = 0;
 
-        if($lastViewed){
+        if($lastViewed && $lastViewed->course){
             //Total Class Videos
+            dd($lastViewed, $lastViewed->course);
             $lastViewedTotalVideo = $lastViewed->course->courseclass->count();
 
             // User watched videos

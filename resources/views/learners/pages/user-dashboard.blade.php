@@ -43,7 +43,7 @@
                     <div class="col la-anim__stagger-item">
 
 
-                        @if($lastViewed != null)
+                        @if($lastViewed != null  && $lastViewed->course != null)
 
                           <x-last-viewed
                               :img="$lastViewed->course->preview_image"
