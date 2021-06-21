@@ -19,6 +19,7 @@ use DB;
 use App\AdditionalVideo;
 use App\CourseClassMultilingual;
 use App\Events\UploadMultilingualVideoToCloudEvent;
+use Illuminate\Support\Facades\File as IlluminateFile;
 use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
 use Pion\Laravel\ChunkUpload\Receiver\FileReceiver;
 
@@ -168,6 +169,8 @@ class CourseclassController extends Controller
 
 
                 $video_local_path = Storage::disk('local')->putFile('upload/course', $save->getFile());
+                IlluminateFile::delete($save->getPathName());
+
                 unset($request['file']);
                 UploadFileToCloudEvent::dispatch($video_local_path, $courseclass);
 
