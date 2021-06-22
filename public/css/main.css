@@ -23159,12 +23159,20 @@ textarea {
 .la-entry .la-footer {
   display: none;
 }
+@media (min-width: 768px) {
+  .la-entry__sec-inner {
+    padding-left: 0 !important;
+  }
+}
+.la-entry__col-left {
+  padding: 0 !important;
+}
 .la-entry__col-right {
   background: var(--white);
 }
 .la-entry__content-wrap {
   min-height: calc(100vh - var(--inner-padding));
-  padding: 30px 0;
+  padding: 40px 0;
 }
 @media (min-width: 992px) {
   .la-entry__content-wrap {
@@ -23346,11 +23354,7 @@ textarea {
   border: 1px solid #ffffff;
 }
 .la-entry__slider-wrap {
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 58.333%;
+  height: calc(100vh + var(--inner-padding));
   z-index: 11;
   background: #7322b7;
   /* Old browsers */

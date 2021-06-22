@@ -1,4 +1,4 @@
-@extends('learners.layouts.intro')
+@extends('learners.layouts.app')
 
 @section('seo_content')
     <title> Interests </title>
@@ -31,7 +31,7 @@
                           <img class="img-fluid lazy" src="{{ $c->image }}" data-src="{{ $c->image }}" alt="Interests" />
                         </span>
                       </div>
-                      <div class="la-entry__interest-name pt-1 text-capitalize">{{$c->title}}</div>
+                      <div class="la-entry__interest-name pt-1 text-xs text-capitalize">{{$c->title}}</div>
                     </div>
                 @endforeach
               </div>

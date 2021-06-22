@@ -1,4 +1,4 @@
-@extends('learners.layouts.intro')
+@extends('learners.layouts.app')
 
 @section('seo_content')
     <title> Mentor Signup </title>
@@ -70,7 +70,7 @@
                             <input class="la-form__input la-entry__input"value="" id="portfolio_links" name="portfolio_links" placeholder="Portfolio Links (if any)"><span class="la-entry__input-icon" style="right:0;cursor:pointer;border:0" onclick="addToLinks();">+</span>
                           </div>
                   
-                  <div class="form-group pt-3 mb-4 la-anim__stagger-item">
+                  <div class="form-group pt-3 mb-4 la-anim__stagger-item--x">
                     <label class="d-flex justify-content-center" for="mentor_terms">
                       <input type="checkbox" class="d-none" id="mentor_terms" name="mentor_terms">
                       <span class="gcheck position-relative" style="opacity: 1">
@@ -78,7 +78,7 @@
                       </span>
                       <div class="pl-2 mt-n1 text-sm la-entry__terms" style="color:var(--gray6);opacity:1" >
                         I have read & agree to the 
-                        <a href="mentor-terms-conditions" class="la-entry__terms-creator" title="Read the Terms & Conditions">terms & conditions</a>
+                        <a href="mentor-terms-conditions" class="la-entry__terms-creator" target="_blank" title="Read the Terms & Conditions">terms & conditions</a>
                       </div>
                     </label>
                   </div>
