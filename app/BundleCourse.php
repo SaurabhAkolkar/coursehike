@@ -8,10 +8,11 @@ use Storage;
 use Avatar;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
+use Laravel\Scout\Searchable;
 
 class BundleCourse extends Model
 {
-    use HasTranslations;
+    use HasTranslations, Searchable;
     
     public $translatable = ['title', 'detail'];
 

@@ -22270,7 +22270,7 @@ input[type=radio]:checked + label.la-vcourse__language-label {
 }
 .la-global__search-list--img img {
   min-width: 250px;
-  min-height: 150px;
+  max-height: 150px;
   border-radius: 4px;
   background-color: var(--white);
   -o-object-fit: cover;

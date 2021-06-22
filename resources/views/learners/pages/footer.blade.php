@@ -93,7 +93,7 @@
               <!-- <div class="la-footer__search"> -->
                  <!-- Global Search: Start-->
                 <!-- <div class="la-gsearch mb-md-4">
-                  <form class="form-inline d-flex align-items-start" action="{{ url('/search-course/') }}" method="get">
+                  <form class="form-inline d-flex align-items-start" action="{{ url('/explore') }}" method="get">
                     <div class="form-group ">
                       <input class="la-gsearch__input w-100 form-control la-gsearch__input-footersearch" style="border-left:1px solid rgba(229,229,229,0.2); background:transparent;font-size:15px" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" required placeholder="What you want to learn today?">
                     </div>

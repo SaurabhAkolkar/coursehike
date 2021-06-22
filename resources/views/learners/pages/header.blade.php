@@ -53,9 +53,9 @@ if(Auth::check()){
 
         </div>
 
-        <form class="form-inline mb-0 d-none d-xl-block" action="{{ url('/search-course/') }}" method="get">
+        <form class="form-inline mb-0 d-none d-xl-block" action="{{ url('/explore') }}" method="get">
           <div class="form-group la-header__gsearch"  >
-            <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input" id="header_search_input" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Looking for creative courses by the best artists in the world?" required>
+            <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input" id="header_search_input" type="text" name="q" value="{{isset($search_input)?$search_input:''}}" placeholder="Looking for creative courses by the best artists in the world?" required>
           </div>
         </form>
 
@@ -258,9 +258,9 @@ if(Auth::check()){
 
       </div>
 
-      <form class="form-inline mb-0 d-none d-xl-block" action="{{ url('/search-course/') }}" method="get">
-        <div class="form-group la-header__gsearch"  >
-          <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input px-0" id="header_search_input" type="text" name="course_name" value="{{isset($search_input)?$search_input:''}}" placeholder="Looking for creative courses by the best artists in the world?" required>
+      <form class="form-inline mb-0 d-none d-xl-block" action="{{ url('/explore') }}" method="get">
+        <div class="form-group la-header__gsearch">
+          <input class="la-gsearch__input form-control text-md px-0 la-header__gsearch-input px-0" id="header_search_input" type="text" name="q" value="{{isset($search_input)?$search_input:''}}" placeholder="Looking for creative courses by the best artists in the world?" required>
         </div>
       </form>
 

@@ -16,6 +16,7 @@ use App\MasterClass;
 use App\UserWatchProgress;
 use App\UserWatchTimelog;
 use App\BundleCourse;
+use App\CourseClass;
 
 class SearchController extends Controller
 {
@@ -546,6 +547,167 @@ class SearchController extends Controller
         $search_input = $input['course_name'];
         
         return view('learners.pages.search_classes', compact('selected_languages','selected_categories','selected_subcategories','selected_level','filtres_applied','courses','playlists','langauges','filter_categories','search_input'));
+    }
+
+	public function global_search(Request $request){
+		
+        $search_query = $request->q;
+
+
+        $langauges = CourseLanguage::where(['status'=>1])->get();
+		$filter_categories = Categories::with('subcategory')->where(['status'=>1])->get();
+		$courses =[];
+		$categories = [];
+		$playlists = [];
+		$selected_categories = [];
+		$selected_subcategories = [];
+		$selected_level = [];
+		$selected_languages = [];
+        $filtres_applied = false;
+
+
+		$courses = Course::search($search_query)->where('status', '1')->get();
+
+		$results = $courses->map(function ($item, $key) {			
+			return [
+				'img' => $item->preview_image,
+				'title' => $item->title,
+				'desc' => $item->detail,
+				'mentor_name' => $item->user->fullName,
+				'video_count' => $item->video_count,
+				'duration' => $item->duration,
+				'url' => '/learn/course/'.$item->id.'/'.$item->url,
+				'tag' => 'class',
+			];
+		});
+
+		$bundle_courses = BundleCourse::search($search_query)->get();
+
+		$results = $results->merge($bundle_courses->map(function ($item, $key) {
+			return [
+				'img' => $item->preview_image,
+				'title' => $item->title,
+				'desc' => $item->detail,
+				'mentor_name' => $item->user->fullName,
+				'video_count' => $item->video_count,
+				'duration' => $item->duration,
+				'url' => '/learn/course/'.$item->id.'/'.$item->url,
+				'tag' => 'Bundled Course',
+			];
+		}));
+
+		$course_class = CourseClass::search($search_query)->get();
+
+		$results = $results->merge($course_class->map(function ($item, $key) {
+			$course = $item->courses;
+			return [
+				'img' => $course->preview_image,
+				'title' => $item->title,
+				'desc' => $item->detail,
+				'mentor_name' => $course->user->fullName,
+				'video_count' => $course->video_count,
+				'duration' => $course->duration,
+				'url' => '/learn/course/'.$course->id.'/'.$course->url,
+				'tag' => 'Video',
+			];
+		}));
+
+
+		// $results = [
+		// 	$courses,
+		// 	$bundle_courses,
+		// 	$course_class
+		// ];
+        
+        // if(isset($request->sort_by)){
+        //     if($request->sort_by == 'latest'){
+        //         $courses = Course::with('user')->where('status',1)->where('title','like','%'.$search_query.'%')->orderBy('created_at')->get();
+        //     }else{
+        //         $courses = Course::with('user')->where('status',1)->where('title','like','%'.$search_query.'%')->orderBy('created_at')->get();
+        //     }		
+        // }else{
+        //     $courses = Course::with('user')->where('title','like','%'.$search_query.'%')->where('status',1)->get();
+        // }
+
+        // if($request->filters == 'applied'){
+        //     $filtres_applied = true;
+            
+		// 	if(isset($request->categories) && $request->categories != null){
+
+		// 		$categories = array_map('intval', explode(',',$request->categories));
+		// 		$selected_categories =$categories;
+		// 		$courses = $courses->whereIn('category_id',$categories);
+			
+		// 	}		
+	
+		// 	if(isset($request->level) && $request->level != null){
+	
+		// 		$level = array_map('intval', explode(',',$request->level));
+		// 		$selected_level =$level;
+		// 		$courses = $courses->whereIn('level',$level);
+		// 	}
+        // }
+        
+
+		// if(Auth::check()){
+		// 	$playlists = Playlist::where('user_id', Auth::user()->id)->get();   
+        // }	
+        // $search_input = $search_query;
+        
+        return view('learners.pages.search_global', compact('results', 'search_query'));
+    }
+
+	public function global_search_ajax(Request $request){
+		
+        $search_query = $request->q;
+
+		$courses = Course::search($search_query)->get();
+
+		$results = $courses->map(function ($item, $key) {			
+			return [
+				'img' => $item->preview_image,
+				'title' => $item->title,
+				'desc' => $item->detail,
+				'mentor_name' => $item->user->fullName,
+				'video_count' => $item->video_count,
+				'duration' => $item->duration,
+				'url' => '/learn/course/'.$item->id.'/'.$item->url,
+				'tag' => 'class',
+			];
+		});
+
+		$bundle_courses = BundleCourse::search($search_query)->get();
+
+		$results = $results->merge($bundle_courses->map(function ($item, $key) {			
+			return [
+				'img' => $item->preview_image,
+				'title' => $item->title,
+				'desc' => $item->detail,
+				'mentor_name' => $item->user->fullName,
+				'video_count' => $item->video_count,
+				'duration' => $item->duration,
+				'url' => '/learn/course/'.$item->id.'/'.$item->url,
+				'tag' => 'Bundled Course',
+			];
+		}));
+
+		$course_class = CourseClass::search($search_query)->get();
+
+		$results = $results->merge($course_class->map(function ($item, $key) {
+			$course = $item->courses;
+			return [
+				'img' => $course->preview_image,
+				'title' => $item->title,
+				'desc' => $item->detail,
+				'mentor_name' => $course->user->fullName,
+				'video_count' => $course->video_count,
+				'duration' => $course->duration,
+				'url' => '/learn/course/'.$course->id.'/'.$course->url,
+				'tag' => 'Video',
+			];
+		}));
+        
+		return response()->view('learners.partials.search_global', ['results' => $results], 200);
     }
 
 

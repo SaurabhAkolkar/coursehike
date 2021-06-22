@@ -665,6 +665,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
     Route::get('/browse/courses','SearchController@courses');
     Route::get('/master-classes','SearchController@masterClasses');
     Route::get("/search-course","SearchController@searchCourse");
+    Route::get("/explore","SearchController@global_search");
+    Route::get("/explore-ajax","SearchController@global_search_ajax");
     Route::get("/search-classes","SearchController@searchClass");
 
 
@@ -808,6 +810,3 @@ Route::view('/privacy-policy', 'learners.pages.terms-conditions');
 //- Error Pages
 Route::view('/error-404', 'learners.messages.error-404');
 Route::view('/error-wrong', 'learners.messages.error-wrong');
-
-
-

@@ -48,9 +48,9 @@
         <div class="d-flex justify-content-between align-items-center">
             <!-- Global Search: Start-->
             <div class="la-gsearch mb-0">
-              <form class="form-inline"  action="{{ url('/search-course/') }}">
+              <form class="form-inline"  action="{{ url('/explore') }}">
                 <div class="form-group mb-0 d-flex align-items-center">
-                  <input class="la-gsearch__input form-control la-gsearch__input-searchcourses" style=" background:transparent" value="{{$search_input}}" name="course_name" type="text" placeholder="What you want to learn today?" required>
+                  <input class="la-gsearch__input form-control la-gsearch__input-searchcourses" style=" background:transparent" value="{{$search_input}}" name="q" type="text" placeholder="What you want to learn today?" required>
                   <button class="la-gsearch__submit btn mt-0" type="submit"><i class="la-icon icon icon-search la-gsearch__input-icon"></i></button>
                 </div>
               </form>

@@ -47,9 +47,9 @@
 
             <!-- Global Search: Start-->
             <div class="la-gsearch la-anim__stagger-item--x">
-              <form class="form-inline" action="{{ url('/search-course/') }}">
+              <form class="form-inline" action="{{ url('/explore') }}">
                 <div class="form-group d-flex align-items-center">
-                  <input class="la-gsearch__input form-control w-75 la-gsearch__input-browsecourses" style="background:transparent" type="text" name="course_name" placeholder="Search your Courses and Classes">
+                  <input class="la-gsearch__input form-control w-75 la-gsearch__input-browsecourses" style="background:transparent" type="text" name="q" placeholder="Search your Courses and Classes">
                 </div>
                 <button class="la-gsearch__submit btn" type="submit"><i class="la-icon  icon icon-search la-gsearch__input-icon"></i></button>
               </form>

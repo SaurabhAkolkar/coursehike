@@ -1,10 +1,10 @@
 @extends('learners.layouts.app')
 
 @section('seo_content')
-    <title> Search Global | Learn Tattoo & Graphic Design | LILA </title>
-    <meta name='description' itemprop='description' content='Search classes on tattoo, graphic design, digital art from basic to advanced .Join LILA & enhance your skills with these online classes.' />
+    <title> Explore LILA | Learn Tattoo & Graphic Design | LILA </title>
+    <meta name='description' itemprop='description' content='Explore LILA on tattoo, graphic design, digital art from basic to advanced .Join LILA & enhance your skills with these online classes.' />
 
-    <meta property="og:description" content="Search classes on tattoo, graphic design, digital art from basic to advanced .Join LILA & enhance your skills with these online classes." />
+    <meta property="og:description" content="Explore LILA on tattoo, graphic design, digital art from basic to advanced .Join LILA & enhance your skills with these online classes." />
     <meta property="og:title" content="Search Global | Learn Tattoo & Graphic Design | LILA" />
     <meta property="og:url" content="{{Request::url()}}" />
     <meta property="og:type" content="website" />
@@ -17,7 +17,7 @@
     <meta name="twitter:title" content="Search Global | Learn Tattoo & Graphic Design | LILA" />
     <meta name="twitter:site" content="@lilaaliens" />
 
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Search Classes | Learn Tattoo & Graphic Design | LILA"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Explore LILA | Learn Tattoo & Graphic Design | LILA"}</script>
 @endsection
 
 @section('content')
@@ -49,9 +49,9 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <!-- Global Search: Start-->
                     <div class="la-gsearch mb-0 la-anim__stagger-item">
-                        <form class="form-inline "  action=" ">
+                        <form class="form-inline" action="{{ url('/explore') }}">
                             <div class="form-group mb-0 d-flex align-items-center">
-                                <input class="la-gsearch__input form-control la-gsearch__input-searchglobal text-md" style="background:transparent;" value="" name="course_name" type="text" placeholder="Type to search" required>
+                                <input class="la-gsearch__input form-control la-gsearch__input-searchglobal text-md" style="background:transparent;" value={{$search_query}} name="q" type="text" placeholder="Type to search" required>
                                 <button class="la-gsearch__submit btn mt-0" type="submit"><i class="la-icon icon icon-search la-gsearch__input-icon"></i></button>
                             </div>
                         </form>
@@ -59,7 +59,7 @@
                     <!-- Global Search: End-->
 
                     <!-- Filters : Start -->
-                    <div class="la-courses__nav-filters d-flex align-items-start ml-6">
+                    {{-- <div class="la-courses__nav-filters d-flex align-items-start ml-6">
                         <div class="la-courses__nav-props d-none d-lg-block">
                             <a class="la-courses__nav-filter  mr-3" id="show_list" role="button">
                                 <span class="la-icon icon-list-layout" id="layout_change"></span>
@@ -145,11 +145,11 @@
                                         <div>
                                             <a href="/browse/classes" role="button" class="btn btn-primary la-btn__app text-uppercase text-center py-3 mt-4">Clear</a>
                                         </div>
-                                    </form>  --}}
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- Filters : End -->
                 </div>
                 <!-- filter div : END -->
@@ -157,13 +157,49 @@
         </div>
     </div>
 
-
-
     <div class="container-fluid grid-container py-10 la-anim__wrap">
-        <h2 class="text-md text-lg text-md-xl mb-6 la-anim__stagger-item">Search Result for "Tattoo" </h2>
+        <h2 class="text-md text-lg text-md-xl mb-6 la-anim__stagger-item">Search Result for "{{$search_query}}" </h2>
 
-        <div class="row">           
-            <div class="col-12 la-global__search-col la-anim__stagger-item">
+        <div class="row search-results">
+
+            @if ($results)
+
+                @foreach ($results as $result)
+                    <div class="col-12 la-global__search-col la-anim__stagger-item">
+                        <div class="la-global__search-list">
+                            <div class="d-md-flex align-items-start">
+                                <div class="la-global__search-list--img">
+                                    <img src={{$result['img']}} alt="Search List" class="d-block mx-0" />
+                                </div>
+
+                                <div class="la-global__search-list--info">
+                                    <div class="la-global__searc-list--inner d-lg-flex align-items-start justify-content-between">
+                                        <div class="la-global__search-list--lft">
+                                            <div class="la-global__search-list--tag text-xs text-capitalize">{{$result['tag']}}</div>
+                                            <h6 class="la-global__search-list--title mb-1">{{$result['title']}}</h6>
+                                        </div>
+                                        <div class="la-global__search-list--rgt leading-none">
+                                            <span class="la-global__search-list--seq text-xs pr-1">{{$result['mentor_name']}}</span>
+                                            <span class="la-global__search-list--seq text-xs pr-1">{{$result['video_count']}} Video</span>
+                                            <span class="la-global__search-list--seq text-xs pr-1">{{$result['duration']}}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="la-global__search-list--desc text-xs mt-2">
+                                        {{strip_tags($result['desc'])}}
+                                    </div>
+
+                                    <div class="la-global__search-list--grid leading-none">
+                                        <span class="la-global__search-list--seq text-xs pr-1">{{$result['mentor_name']}}</span>
+                                        <span class="la-global__search-list--seq text-xs pr-1">{{$result['video_count']}}</span>
+                                        <span class="la-global__search-list--seq text-xs pr-1">{{$result['duration']}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            {{-- <div class="col-12 la-global__search-col la-anim__stagger-item">
                 <div class="la-global__search-list">
                     <div class="d-md-flex align-items-start">
                         <div class="la-global__search-list--img">
@@ -233,16 +269,19 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
 
-            <div class="col-12 la-anim__wrap">
-                <div class="la-empty__courses text-center la-anim__stagger-item">
-                    <div class="la-empty__inner mb-0">
-                        <h6 class="la-empty__course-title mb-0">No Classes/Courses Found.</h6>
+                
+            @else
+                <div class="col-12 la-anim__wrap">
+                    <div class="la-empty__courses text-center la-anim__stagger-item">
+                        <div class="la-empty__inner mb-0">
+                            <h6 class="la-empty__course-title mb-0">No Classes/Courses Found.</h6>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endif
                
         </div>
       </div>
@@ -256,7 +295,13 @@
       <script>
           $('input[type=radio][name=sort_by]').change(function() {
              window.location.href= '{{url()->current()}}?sort_by='+this.value;
-
           });
+
+          $('.la-gsearch__input-searchglobal').on('input', function() {
+            var q = $(this).val();
+            $.get("/explore-ajax?q="+q, function( data ) {
+                $( ".search-results" ).html( data );
+            });
+        });
       </script>
   @endsection
