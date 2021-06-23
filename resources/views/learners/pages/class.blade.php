@@ -122,21 +122,24 @@ $course_id = $course->id;
               <div class="col-xl-11 mt-1 mt-lg-5">
                 <div class="la-vcourse__languages d-md-flex align-items-start la-anim__stagger-item"> 
                   <div class="la-text-gray4 mb-2 mt-md-2 mr-4">Languages: </div> 
-
                  
-                  <div class="la-vcourse__language-switcher d-flex align-items-center justify-content-between justify-content-md-start flex-wrap">
+                  <div class="la-vcourse__language-switcher">
                     {{-- @dd($course->multilingual) --}}
-                    <input type="radio" class="la-vcourse__language-switch" id="lang_1" name="language_selector" value="en"  checked/>
-                    <label for="lang_1" class="la-vcourse__language-label">English</label>
-                    @foreach ($course->multilingual as $multilingual)
-                      <input type="radio" class="la-vcourse__language-switch" id="lang_{{$multilingual->lang_code}}" name="language_selector" value="{{$multilingual->lang_code}}" />
-                      <label for="lang_{{$multilingual->lang_code}}" class="la-vcourse__language-label">{{$multilingual->vid_lang}}</label>
-                    @endforeach
+                    <div class="la-vcourse__language-wrap d-inline-flex align-items-start">
+                      <input type="radio" class="la-vcourse__language-switch" id="lang_1" name="language_selector" value="en"  checked/>
+                      <label for="lang_1" class="la-vcourse__language-label">English</label>
+                 
+                      @foreach ($course->multilingual as $multilingual)
+                        <input type="radio" class="la-vcourse__language-switch" id="lang_{{$multilingual->lang_code}}" name="language_selector" value="{{$multilingual->lang_code}}" />
+                        <label for="lang_{{$multilingual->lang_code}}" class="la-vcourse__language-label">{{$multilingual->vid_lang}}</label>
+                      @endforeach
 
-                    {{-- <input type="radio" class="la-vcourse__language-switch" id="lang_3" name="language_selector" value="ru" />
-                    <label for="lang_3" class="la-vcourse__language-label">Russian</label> --}}
-                  </div>
-                            
+                      {{-- <input type="radio" class="la-vcourse__language-switch" id="lang_4" name="language_selector" value="ru" />
+                      <label for="lang_4" class="la-vcourse__language-label">Russian</label> --}}
+                     
+                    </div>
+                  </div> 
+
                 </div>
               </div>
             </div>

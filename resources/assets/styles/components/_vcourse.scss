@@ -36,15 +36,17 @@
                         width: 100%;
                         
                         @include respond-above(md) {
-                            width: calc(100% - 550px);
+                            //width: calc(100% - 550px);
+                            width:50%;
                         }
                     }
                     &right {
                         width: 100%;
 
                         @include respond-above(md) {
-                            width: 550px;
-                            padding-left: 65px;
+                            width:50%;
+                            //width: 550px;
+                            //padding-left: 65px;
                         }
                     }
                 }
@@ -175,7 +177,10 @@
                         
                         @include respond-above(md){
                             width:50%;
-                            padding-right:var(--size-10);
+                            padding:0 var(--size-10) 0 0;
+                        }
+                        @include respond-above(lg){
+                            padding:0 var(--size-10) 0 var(--size-20);
                         }
 
                         @include respond-below(sm){
@@ -257,14 +262,10 @@
                 &-{
                     &switcher{
                         position:relative;
-                        background-color: var(--gray);
-                        display: inline-block;
-                        border-radius: 50px;      
-                        height:100%;
-                        //overflow-x: auto;
+                        overflow-x: scroll;                       
                         
                         &:hover{
-                           // overflow-x: scroll;
+                           overflow-x: scroll;
 
                             &::-webkit-scrollbar{
                                 visibility: visible;
@@ -281,13 +282,21 @@
                                 border-radius: 10px;
                                 padding:0;
                             }
+
+                            
                         }
                         &::-webkit-scrollbar{
                             width:6px;
                             height:6px;
-                            visibility: hidden;
+                            //visibility: hidden;
                             background-color: transparent;
                         }
+                    }
+                    &wrap{
+                        background-color: var(--gray);
+                        display: inline-block;
+                        border-radius: var(--rounded-full);      
+                        height:100%;
                     }
                     &switch{
                         display:none;
@@ -1008,6 +1017,11 @@
 
 
 //- Custom Radio buttons for Language Switcher
+input[type=radio] + label.la-vcourse__language-label{
+    color: var(--black);
+    background:var(--gray);
+    border-radius:50px;
+}
 input[type=radio]:checked + label.la-vcourse__language-label{
     color: var(--white);
     background: var(--black);

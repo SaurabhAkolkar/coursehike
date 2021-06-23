@@ -18938,7 +18938,7 @@ input:-webkit-autofill:active {
 }
 @media (min-width: 992px) {
   .la-vcourse__intro-left {
-    width: calc(100% - 550px);
+    width: 50%;
   }
 }
 .la-vcourse__intro-right {
@@ -18946,8 +18946,7 @@ input:-webkit-autofill:active {
 }
 @media (min-width: 992px) {
   .la-vcourse__intro-right {
-    width: 550px;
-    padding-left: 65px;
+    width: 50%;
   }
 }
 .la-vcourse__excerpt {
@@ -19068,7 +19067,12 @@ input:-webkit-autofill:active {
 @media (min-width: 992px) {
   .la-vcourse__buy-progress {
     width: 50%;
-    padding-right: var(--size-10);
+    padding: 0 var(--size-10) 0 0;
+  }
+}
+@media (min-width: 1200px) {
+  .la-vcourse__buy-progress {
+    padding: 0 var(--size-10) 0 var(--size-20);
   }
 }
 @media (max-width: 767px) {
@@ -19124,10 +19128,10 @@ input:-webkit-autofill:active {
 }
 .la-vcourse__language-switcher {
   position: relative;
-  background-color: var(--gray);
-  display: inline-block;
-  border-radius: 50px;
-  height: 100%;
+  overflow-x: scroll;
+}
+.la-vcourse__language-switcher:hover {
+  overflow-x: scroll;
 }
 .la-vcourse__language-switcher:hover::-webkit-scrollbar {
   visibility: visible;
@@ -19147,8 +19151,13 @@ input:-webkit-autofill:active {
 .la-vcourse__language-switcher::-webkit-scrollbar {
   width: 6px;
   height: 6px;
-  visibility: hidden;
   background-color: transparent;
+}
+.la-vcourse__language-wrap {
+  background-color: var(--gray);
+  display: inline-block;
+  border-radius: var(--rounded-full);
+  height: 100%;
 }
 .la-vcourse__language-switch {
   display: none;
@@ -19756,6 +19765,12 @@ input:-webkit-autofill:active {
 .vjs-poster {
   background-size: 100% !important;
   background-color: var(--gray) !important;
+}
+
+input[type=radio] + label.la-vcourse__language-label {
+  color: var(--black);
+  background: var(--gray);
+  border-radius: 50px;
 }
 
 input[type=radio]:checked + label.la-vcourse__language-label {
