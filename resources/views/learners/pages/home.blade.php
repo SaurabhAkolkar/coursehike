@@ -10,12 +10,12 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="LILA Art" />
     <meta property="og:image" content="{{config('app.url')}}/images/lila-meta-image.jpg">
-    <meta property="og:image" content="{{config('app.url')}}/images/lila-meta-image.jpg">
-    <meta property="og:image:url" content="{{config('app.url')}}/images/lila-meta-image.jpg">
-    <meta property="og:image:size" content="300" />
+    <meta property="og:image:size" content="1200" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Learn Anything Artistic Online | Start For Free Today | LILA" />
     <meta name="twitter:site" content="@lilaaliens" />
+    <meta name="twitter:image" content="{{config('app.url')}}/images/lila-meta-image.jpg">
+    <meta itemprop="image" content="{{config('app.url')}}/images/lila-meta-image.jpg">
 
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Learn Anything Artistic Online | Start For Free Today | LILA"}</script>
 
