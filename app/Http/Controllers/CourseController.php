@@ -79,7 +79,11 @@ class CourseController extends Controller
         $user =  User::where(['role' => 'mentors'])->orWhere(['role'=>'admin'])->get();
         $course = Course::all();
         $coursechapter = CourseChapter::all();
-        return view('admin.course.insert', compact("course", 'coursechapter', 'category', 'user'));
+        $languages = CourseLanguage::where(['status'=>1])->get();
+        foreach($languages as $language){
+            dump($language->id);
+        }
+        return view('admin.course.insert', compact("course", 'coursechapter', 'category', 'user','languages'));
     }
 
     /**

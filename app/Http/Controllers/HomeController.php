@@ -62,6 +62,8 @@ class HomeController extends Controller
                 $firstSection->sub_heading = 'Observe, learn and converse with creators to master your arts';
                 $firstSection->image = asset('images/learners/home/design-a@2x.png');
                 $firstSection->image_text = 'DESIGN';
+                $firstSection->video_url = Null;
+                $firstSection->heading = "Japnies";
             }
             return $firstSection;
         });

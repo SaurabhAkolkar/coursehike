@@ -57,7 +57,7 @@ class CategoriesController extends Controller
                 $file_name = time().rand().'.'.$file->getClientOriginalExtension();
                 
                 // $input['preview_image'] = Storage::putFile(config('path.course.img'), $photo );
-                Storage::put(config('path.category').$file_name, $photo->stream() );
+                Storage::disk('local')->put(config('path.category').$file_name, $photo->stream() );
                 // Storage::put(config('path.course.img').$file_name, $photo->getEncoded());
                 $input['image'] = $file_name;
         }

@@ -804,4 +804,15 @@ Route::view('/error-404', 'learners.messages.error-404');
 Route::view('/error-wrong', 'learners.messages.error-wrong');
 
 
+Route::get('/clear-cache', function() {
+  Artisan::call('cache:clear');
+  Artisan::call('optimize:clear');
+  Artisan::call('config:clear');
+  Artisan::call('route:clear');
+ 
+  
+  
+  
+  return "Cache is cleared";
+});
 

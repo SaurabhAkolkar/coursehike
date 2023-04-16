@@ -261,11 +261,11 @@
                     <div class="la-header__nav-icon">
                         <span class="la-icon--lg icon-courses"></span>
                     </div>
-                    <span class="la-header__nav-name">Browse Courses</span>
+                    <span class="la-header__nav-name">Category</span>
                 </a>
             </div>
 
-            <div class="la-header__nav-item">
+            {{-- <div class="la-header__nav-item">
                 <a class="la-header__nav-link @if(Request::segment(1) == 'browse' && Request::segment(2) == 'classes' ) active @endif"  href="/browse/classes">
                     <div class="la-header__nav-icon">
                         <span class="la-icon--lg icon-class"></span>
@@ -281,7 +281,7 @@
                     </div> 
                     <span class="la-header__nav-name">Mentors</span>
                 </a>
-            </div>
+            </div> 
 
             <div class="la-header__nav-item">   
                 <a class="la-header__nav-link @if(Request::segment(1) == 'learning-plans') active @endif " href="/learning-plans">
@@ -290,7 +290,7 @@
                     </div>
                     <span class="la-header__nav-name">Learning Plans</span>
                 </a>
-            </div>
+            </div> --}}
 
             <div class="la-header__nav-item d-lg-none">   
                 <a class="la-header__nav-link @if(Request::segment(1) == 'become-mentor') active @endif" href="/become-mentor">
@@ -329,7 +329,7 @@
             </div>
         </div>
 
-        <!-- <div class="la-header__nav-bottom d-lg-none">
+        <div class="la-header__nav-bottom d-lg-none">
             <div class="la-header__nav-item">   
                 <a class="la-header__nav-link @if(Request::segment(1) == 'help') active @endif" href="/help">
                     <div class="la-header__nav-icon">
@@ -338,7 +338,7 @@
                     <span class="la-header__nav-name">Help</span>
                 </a>
             </div>
-        </div> -->
+        </div> 
 
         <div class="la-header__nav-bottom d-lg-none"></div>
     @endif

@@ -14,7 +14,7 @@ class AddCurrencyToUserInvoiceDetailsTable extends Migration
     public function up()
     {
         Schema::table('user_invoice_details', function (Blueprint $table) {
-            $table->string('currency', 4)->nullable()->after('total');
+            $table->string('bkp_currency', 4)->nullable()->after('total');
         });
     }
 
@@ -26,7 +26,7 @@ class AddCurrencyToUserInvoiceDetailsTable extends Migration
     public function down()
     {
         Schema::table('user_invoice_details', function (Blueprint $table) {
-            $table->dropColumn('currency');
+            $table->dropColumn('bkp_currency');
         });
     }
 }

@@ -25078,14 +25078,14 @@ label.error {
 .la-hero__tag {
   font-size: var(--text-xl);
   line-height: calc(var(--text-2xl) + 6px);
-  color: var(--white);
+  color: var(--black);
 }
 
 .la-hero__title {
   font-size: calc(var(--text-5xl) * 2);
   line-height: calc(var(--text-5xl) * 2 + 6px);
   line-height: 1;
-  color: var(--white);
+  color: var(--black);
 }
 @media (max-width: 1199px) {
   .la-hero__title {
@@ -25100,7 +25100,7 @@ label.error {
 .la-hero__lead {
   font-size: var(--text-lg);
   line-height: calc(var(--text-xl) + 6px);
-  color: var(--white);
+  color: var(--black);
 }
 @media (max-width: 767px) {
   .la-hero__lead {

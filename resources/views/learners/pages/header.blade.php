@@ -247,7 +247,7 @@ if(Auth::check()){
 
   <!-- Header: Start-->
   <header class="la-header">
-    <div class="la-header__inner px-5 py-3 d-flex align-items-center">
+    <div class="la-header__inner px-5 py-3 d-flex align-items-center container">
       <div class="la-header__lft d-inline-flex align-items-center">
         <a class="la-header__brandwrap" href="/">
           <img class="la-header__brand" src="/images/learners/logo.svg" alt="Lila" />
@@ -281,7 +281,11 @@ if(Auth::check()){
             <a class="la-header__nav-link la-header__nav-link--login" href="/login">Login</a>
           </div>
 
-          <div class="la-header__menu-item dropdown">
+          <div class="la-header__menu-item">
+            <a class="la-header__nav-link la-header__nav-link--login" href="/login">Sign Up</a>
+          </div>
+
+          {{-- <div class="la-header__menu-item dropdown">
             <a class="la-header__menu-link la-header__menu-icon dropdown-toggle la-icon icon-announcement" id="announcementPanel" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
             <div class="la-notification__dropdown  dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="announcementPanel" style="border:none !important;">
               <div class="card la-announcement__card">
@@ -353,7 +357,7 @@ if(Auth::check()){
               <a class="dropdown-item la-header__dropdown-item text-sm @if(Request::segment(1) == 'about') active @endif" href="/about">About Us</a>
               <a class="dropdown-item la-header__dropdown-item text-sm @if(Request::segment(1) == 'contact') active @endif" href="/contact">Contact Us</a>
             </div>
-          </div>
+          </div> --}}
 
           <div class="d-lg-none position-relative la-header__menu-item la-header__sidemenu-btn">
             <span class="la-icon la-icon--xl icon-hamburger-menu"></span>
@@ -362,6 +366,7 @@ if(Auth::check()){
         </div>
 
       </div>
+
     </div>
   </header>
 @endif

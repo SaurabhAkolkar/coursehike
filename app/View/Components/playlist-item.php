@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class playlist-item extends Component
+class PlayListItem extends Component
 {
     /**
      * Create a new component instance.
