@@ -38,7 +38,7 @@ class LoginController extends Controller
         if (Auth::User()->role == "user")
             auth()->logoutOtherDevices($request->password);
 
-        Mail::to($user->email)->later(now()->addSeconds(5), new UserLogged($user));
+        // Mail::to($user->email)->later(now()->addSeconds(5), new UserLogged($user));
 
         if (Auth::User()->status == 1)
         {

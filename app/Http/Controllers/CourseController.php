@@ -80,9 +80,6 @@ class CourseController extends Controller
         $course = Course::all();
         $coursechapter = CourseChapter::all();
         $languages = CourseLanguage::where(['status'=>1])->get();
-        foreach($languages as $language){
-            dump($language->id);
-        }
         return view('admin.course.insert', compact("course", 'coursechapter', 'category', 'user','languages'));
     }
 
@@ -112,7 +109,7 @@ class CourseController extends Controller
         $input = $request->all();
 
         $data = Course::create($input);
-        $data->package_type = $request->package_type;
+        // $data->package_type = $request->package_type;
 
 
         if ($file = $request->file('preview_image')) {

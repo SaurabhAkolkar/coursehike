@@ -117,4 +117,9 @@ class HomeController extends Controller
         return view('learners.pages.home')->with($data);
     }
 
+    public function demo()
+    {
+        return view('learners.pages.demo');
+    }
+
 }

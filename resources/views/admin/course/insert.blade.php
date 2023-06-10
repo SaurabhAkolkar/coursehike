@@ -31,7 +31,7 @@
          
         <div class="box-body">
           <div class="form-group">
-            <form action="{{ url('course/') }}" method="post" enctype="multipart/form-data">
+            <form action="{{url('course/')}}" method="post" enctype="multipart/form-data">
               {{ csrf_field() }} 
   
               <div class="row">
@@ -83,9 +83,9 @@
                 <div class="col-md-6 mt-4 mt-md-6"> 
                   <label>{{ __('adminstaticword.Language') }}: <span class="redstar">*</span></label>
                   <select name="language_id" class="form-control js-example-basic-single">
-                   @foreach ($languages as $language)
-                       <option value="{{ $language->id }}">{{ $language }}</option>
-                   @endforeach
+                    @foreach($languages as $caat)
+                      <option {{ $caat->language_id == $caat->id ? 'selected' : "" }} value="{{ $caat->id }}">{{ $caat->name }}</option>
+                    @endforeach
                   </select> 
                 </div>
               </div>

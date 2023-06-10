@@ -5,6 +5,10 @@
         <div class="la-lclass__inner">
             <div class="la-lclass__inner-link">
                 <div class="la-lclass__inner-wrap">
+                    {{-- comment by saurabh akolkar need to uncommmet in future
+                    <div class="la-lclass__imgwrap" style="background-image:url('/images/learners/home/course-mask.png'); -webkit-mask-image:url('/images/learners/home/course-mask.png');">
+                        <img class="img-fluid lazy" src= "{{ $img }}?width=560&height=460&auto_optimize=true" data-src= "{{ $img }}?width=560&height=460&auto_optimize=true" alt= "{{ $course }}" />
+                    </div>  --}}
                     <div class="la-lclass__imgwrap" style="background-image:url('/images/learners/home/course-mask.png'); -webkit-mask-image:url('/images/learners/home/course-mask.png');">
                         <img class="img-fluid lazy" src= "{{ $img }}?width=560&height=460&auto_optimize=true" data-src= "{{ $img }}?width=560&height=460&auto_optimize=true" alt= "{{ $course }}" />
                     </div> 

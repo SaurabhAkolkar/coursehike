@@ -29,6 +29,12 @@
             p.parentNode.insertBefore(m, p);
         })(window, document, 'script', 'https://u.heatmap.it/log.js');
     </script>
+    <style>
+        .popover {
+            width: 300px !important;
+            height: 450px !important;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -196,7 +202,9 @@
                             {{-- <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"> <span class="position-relative">Tattoo</span></a></li>
                   <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> <span class="position-relative">Rangoli</span></a></li>
                   <li class="nav-item la-courses__nav-item"><a class="nav-link la-courses__nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> <span class="position-relative">Design</span></a></li> --}}
-                            @foreach ($categories as $category)
+
+                            {{-- @dd($categories) --}}
+                            {{-- @foreach ($categories as $category)
                                 <!-- <div class="d-none d-md-block la-courses__nav-prev la-anim__fade-in-left"><span class="la-courses__nav-prev--icon la-icon icon-arrow"></span></div> -->
                                 <li class="nav-item la-courses__nav-item"><a
                                         class="nav-link la-courses__nav-link @if ($loop->first) active @endif "
@@ -205,7 +213,7 @@
                                         aria-controls="nav-{{ $category->slug }}" aria-selected="true"> <span
                                             class="position-relative text-nowrap">{{ $category->title }}</span></a></li>
                                 <!-- <div class="d-none d-md-block  la-courses__nav-next la-anim__fade-in-right"><span class="la-courses__nav-next--icon la-icon icon-right-arrow2"></span></div> -->
-                            @endforeach
+                            @endforeach --}}
                         </ul>
                     </nav>
 
@@ -227,8 +235,117 @@
                                             @php
                                                 $courses = $category->courses->where('featured', 1);
                                             @endphp
+                                            <div class="row row-cols-1 row-cols-md-4 g-4">
+                                                <div class="col">
+                                                    <div class="card h-100">
+                                                        <img id="name"
+                                                            src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp"
+                                                            class="card-img-top" alt="Hollywood Sign on The Hill"
+                                                            data-toggle="popover" data-html="true" data-trigger="hover"
+                                                            data-content='<h5 class="card-title text-justify">Japanese N5 Course</h5>
+                                                            <h6 class="text-justify">Language : Hindi<h6>
+                                                            <h6 class="text-justify mt-3">Duration: 12 Hourse<h6>
+                                                            <h6 class="text-justify mt-3">Level : Beginner<h6>
+                                                            <h6 class="text-justify mt-3" >Discription: <h6>
+                                                               
+                                                            <p>
+                                                                <ui>
+                                                                    <li class="text-justify text-muted" style="font-weight:normal !important;">・Master the basics of writing and pronunciation of Japanese vocabulary.</li>
+                                                                    <li class="text-justify text-muted" style="font-weight:normal !important;">・Being able to use basic greetings often used in daily life.</li>
+                                                                    <li class="text-justify text-muted" style="font-weight:normal !important;">・Being able to comprehend hiragana and katakana, as well as read common</li>
+                                                                </ui>
+                                                            </p>
 
-                                            @foreach ($courses as $course)
+                                                            ' />
+                                                        <div class="card-body">
+                                                            <h6 class="text-justify">Japanese N5 Course</h6>
+                                                            <small class="card-subtitle"> <span>Duration: 12 Hourse </span>
+                                                                | <span>Language: Hindi </span> </small>
+                                                            <p class="card-text">
+                                                                ₹ 2499
+                                                        </div>
+                                                        <div class="card-footer bg-success">
+                                                            <h5 class="text-white bold text-center">BUY NOW</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp"
+                                                            class="card-img-top" alt="Palm Springs Road"
+                                                            data-toggle="popover" data-html="true" data-trigger="hover"
+                                                            data-content='<div class="card h-100">
+                                                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp"
+                                                            class="card-img-top" alt="Palm Springs Road" />
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Card title</h5>
+                                                            <p class="card-text">This is a short card.</p>
+                                                        </div>
+                                                    </div>' />
+                                                        <div class="card-body">
+                                                            <h6>Japanese N4 Course</h6>
+                                                            <small class="card-subtitle"> <span>Duration: 12 Hourse </span>
+                                                                | <span>Language: Hindi </span> </small>
+                                                            <p class="card-text">
+                                                                ₹ 2499
+                                                        </div>
+                                                        <div class="card-footer bg-info">
+                                                            <h5 class="text-white bold text-center">Comming Soon...</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp"
+                                                            class="card-img-top" alt="Los Angeles Skyscrapers"
+                                                            data-toggle="popover" data-html="true" data-trigger="hover"
+                                                            data-content='<div class="card h-100">
+                                                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp"
+                                                            class="card-img-top" alt="Palm Springs Road" />
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Card title</h5>
+                                                            <p class="card-text">This is a short card.</p>
+                                                        </div>
+                                                    </div>' />
+                                                        <div class="card-body">
+                                                            <h6>Japanese N3 Course</h6>
+                                                            <small class="card-subtitle"> <span>Duration: 12 Hourse </span>
+                                                                | <span>Language: Hindi </span> </small>
+                                                            <p class="card-text">
+                                                                ₹ 2499
+                                                        </div>
+                                                        <div class="card-footer bg-info">
+                                                            <h5 class="text-white bold text-center">Comming Soon...</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp"
+                                                            class="card-img-top" alt="Skyscrapers" data-toggle="popover"
+                                                            data-html="true" data-trigger="hover"
+                                                            data-content='<div class="card h-100">
+                                                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp"
+                                                            class="card-img-top" alt="Palm Springs Road" />
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Card title</h5>
+                                                            <p class="card-text">This is a short card.</p>
+                                                        </div>
+                                                    </div>' />
+                                                        <div class="card-body">
+                                                            <h6>Japanese N2 Course</h6>
+                                                            <small class="card-subtitle"> <span>Duration: 12 Hourse </span>
+                                                                | <span>Language: Hindi </span> </small>
+                                                            <p class="card-text">
+                                                                ₹ 2499
+                                                        </div>
+                                                        <div class="card-footer bg-info">
+                                                            <h5 class="text-white bold text-center">Comming Soon...</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{-- @foreach ($courses as $course)
                                                 <div class="swiper-slide la-home__course-slide2 pt-md-6">
                                                     <x-course :id="$course->id" :img="$course->preview_image" :course="$course->title"
                                                         :url="$course->slug" :rating="round($course->average_rating, 2)" :creatorImg="$course->user->user_img"
@@ -237,7 +354,7 @@
                                                         :checkCart="$course->checkCart" :videoCount="$course->videoCount" :chapterCount="$course->chapterCount"
                                                         :progress="$course->getProgress()" />
                                                 </div>
-                                            @endforeach
+                                            @endforeach --}}
 
                                         </div>
 
@@ -248,7 +365,7 @@
                                                         class="col-12  my-3 my-md-8 la-empty__courses d-md-flex justify-content-center align-items-start">
                                                         <div class="la-empty__inner text-center mb-0">
                                                             <h6 class="la-empty__course-title">No Courses available
-                                                                currently.</h6>
+                                                                currently. s</h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -292,12 +409,12 @@
 
                                             @foreach ($courses as $course)
                                                 <div class="swiper-slide la-home__course-slide pt-md-6">
-                                                    <x-bundle-course :id="$course->id" :img="$course->preview_image"
-                                                        :course="$course->title" :url="$course->slug" :rating="round($course->average_rating, 2)"
-                                                        :videoCount="$course->videoCount()" :classesCount="count($course->course_id)" :creatorImg="$course->users()"
-                                                        :creatorName="$course->users()->first()->fullName" :creatorUrl="$course->user->id" :learnerCount="$course->learnerCount"
-                                                        :price="$course->price" :bought="$course->isPurchased()" :checkWishList="$course->checkWishList"
-                                                        :checkCart="$course->checkCart" :progress="$course->progress" />
+                                                    <x-bundle-course :id="$course->id" :img="$course->preview_image" :course="$course->title"
+                                                        :url="$course->slug" :rating="round($course->average_rating, 2)" :videoCount="$course->videoCount()"
+                                                        :classesCount="count($course->course_id)" :creatorImg="$course->users()" :creatorName="$course->users()->first()->fullName"
+                                                        :creatorUrl="$course->user->id" :learnerCount="$course->learnerCount" :price="$course->price"
+                                                        :bought="$course->isPurchased()" :checkWishList="$course->checkWishList" :checkCart="$course->checkCart"
+                                                        :progress="$course->progress" />
                                                 </div>
                                             @endforeach
                                         </div>
@@ -686,8 +803,8 @@
                         </div>
 
                         <!--<div class="d-inline-flex justify-content-start align-items-center">
-                        <div class="swiper-pagination  la-home__pagination-top " id="slideshow"></div>
-                      </div>-->
+                                                <div class="swiper-pagination  la-home__pagination-top " id="slideshow"></div>
+                                              </div>-->
 
                         <div
                             class="la-slider__navigations  la-home__course-navigations d-flex justify-content-end align-items-start">
@@ -704,76 +821,76 @@
 
     <!-- Section: Start -->
     <!-- <div class="la-section  la-home__section-learn position-relative la-anim__wrap">
-          <div class="la-section__inner position-relative">
-            <span class="la-section__circle la-section__circle-learn d-none d-md-block"></span>
-              <div class="container-fluid">
-                  <div class="row">
-                      <div class="col-lg-2">
-                          <div class="la-home__learn position-relative">
-                              <h3 class="la-home__learn-title leading-none mb-4 la-anim__stagger-item">How do you learn?</h3>
+                                  <div class="la-section__inner position-relative">
+                                    <span class="la-section__circle la-section__circle-learn d-none d-md-block"></span>
+                                      <div class="container-fluid">
+                                          <div class="row">
+                                              <div class="col-lg-2">
+                                                  <div class="la-home__learn position-relative">
+                                                      <h3 class="la-home__learn-title leading-none mb-4 la-anim__stagger-item">How do you learn?</h3>
 
-                              <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-md-8 mr-5 mr-md-1 la-anim__stagger-item--x">
-                                <a href="/browse/courses" >Get Started</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
-                              </div>
-                          </div>
-                      </div>
+                                                      <div class=" la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold pt-md-8 mr-5 mr-md-1 la-anim__stagger-item--x">
+                                                        <a href="/browse/courses" >Get Started</a><span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span>
+                                                      </div>
+                                                  </div>
+                                              </div>
 
-                      <div class="col-lg-10">
-                          <div class="la-home__learn-info position-relative la-anim__stagger-item--x">
-                                <img src="./images/learners/home/learn.png" alt="How do you Learn?" class="img-fluid mx-auto d-block la-home__learn-img">
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div> -->
+                                              <div class="col-lg-10">
+                                                  <div class="la-home__learn-info position-relative la-anim__stagger-item--x">
+                                                        <img src="./images/learners/home/learn.png" alt="How do you Learn?" class="img-fluid mx-auto d-block la-home__learn-img">
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div> -->
     <!-- Section: End -->
 
     <!-- Section: Start-->
     <!-- <section class="la-section la-section--trail position-relative la-section--grey  la-anim__wrap">
-        <div class="la-section__inner">
-          <span class="la-section__circle la-section__circle--right"></span>
-          <div class="container-fluid">
+                                <div class="la-section__inner">
+                                  <span class="la-section__circle la-section__circle--right"></span>
+                                  <div class="container-fluid">
 
-            <div class="row">
-              <div class="col-12 col-md-5 la-trail__left  position-relative">
-                <div class="la-trail__img-wrap la-anim__fade-in-right la-anim__B">
-                  <div class="la-trail__img position-relative">
-                    <img class="w-100" src="./images/learners/home/observe.png" alt="observe">
-                  </div>
-                </div>
-              </div>
+                                    <div class="row">
+                                      <div class="col-12 col-md-5 la-trail__left  position-relative">
+                                        <div class="la-trail__img-wrap la-anim__fade-in-right la-anim__B">
+                                          <div class="la-trail__img position-relative">
+                                            <img class="w-100" src="./images/learners/home/observe.png" alt="observe">
+                                          </div>
+                                        </div>
+                                      </div>
 
-              <div class="col-12 col-md-7 pl-md-0 mt-auto position-relative">
-                <div class="la-trail__title-main">
-                  <div class="swiper-container la-trail__title-container ">
-                    <div class="swiper-wrapper la-trail__title-wrapper">
-                      <div class="swiper-slide la-trail__title-slide">
-                          <div class="la-trail__title text-left la-trail__title--black la-section__title la-section__title--big">Observe.</div>
-                      </div>
-                      <div class="swiper-slide la-trail__title-slide">
-                          <div class="la-trail__title text-left la-trail__title--black la-section__title la-section__title--big">Learn.</div>
-                      </div>
-                      <div class="swiper-slide la-trail__title-slide">
-                          <div class="la-trail__title text-left la-trail__title--black la-section__title la-section__title--big">Practice.</div>
-                      </div>
-                      <div class="swiper-slide la-trail__title-slide">
-                          <div class="la-trail__title text-left la-trail__title--black la-section__title la-section__title--big">Repeat.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                                      <div class="col-12 col-md-7 pl-md-0 mt-auto position-relative">
+                                        <div class="la-trail__title-main">
+                                          <div class="swiper-container la-trail__title-container ">
+                                            <div class="swiper-wrapper la-trail__title-wrapper">
+                                              <div class="swiper-slide la-trail__title-slide">
+                                                  <div class="la-trail__title text-left la-trail__title--black la-section__title la-section__title--big">Observe.</div>
+                                              </div>
+                                              <div class="swiper-slide la-trail__title-slide">
+                                                  <div class="la-trail__title text-left la-trail__title--black la-section__title la-section__title--big">Learn.</div>
+                                              </div>
+                                              <div class="swiper-slide la-trail__title-slide">
+                                                  <div class="la-trail__title text-left la-trail__title--black la-section__title la-section__title--big">Practice.</div>
+                                              </div>
+                                              <div class="swiper-slide la-trail__title-slide">
+                                                  <div class="la-trail__title text-left la-trail__title--black la-section__title la-section__title--big">Repeat.</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
 
-                <div class="la-trail__right position-relative d-flex align-items-end">
-                  <div class="la-trail__content-wrap la-anim__stagger">
-                    <div class="la-home__trail-btn la-btn__plain d-flex justify-content-start align-items-start la-anim__fade-in-left">
-                      <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold la-anim__fade-in-right" style="transform: translate(0px, 0px); opacity: 1;">
-                          <a href="/about">ALIENS WAY OF TEACHING <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
-                      </div>
-                    </div>
+                                        <div class="la-trail__right position-relative d-flex align-items-end">
+                                          <div class="la-trail__content-wrap la-anim__stagger">
+                                            <div class="la-home__trail-btn la-btn__plain d-flex justify-content-start align-items-start la-anim__fade-in-left">
+                                              <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold la-anim__fade-in-right" style="transform: translate(0px, 0px); opacity: 1;">
+                                                  <a href="/about">ALIENS WAY OF TEACHING <span class="la-btn__arrow-icon la-icon la-icon--7xl icon-grey-arrow"></span></a>
+                                              </div>
+                                            </div>
 
-                    <div class="la-trail__para la-anim__stagger-item la-anim__B">We strongly believe observation is integral to honing art. Learn from artists who have created their niche in the world of tattooing with consistent practice, and become the master of your niche!</div>
-                    @if (Auth::check())
+                                            <div class="la-trail__para la-anim__stagger-item la-anim__B">We strongly believe observation is integral to honing art. Learn from artists who have created their niche in the world of tattooing with consistent practice, and become the master of your niche!</div>
+                                            @if (Auth::check())
     @if (Auth::user()->subscription())
     <a class="btn btn-primary la-btn  mt-md-10 la-anim__stagger-item" href="/browse/course/">Browse Course</a>
 @else
@@ -782,13 +899,13 @@
 @else
     <a class="btn btn-primary la-btn  mt-md-6 la-anim__stagger-item" href="/login">Start free trial</a>
     @endif
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> -->
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </section> -->
     <!-- Section: End-->
 
     <!-- Section: Start-->
@@ -918,17 +1035,21 @@
                                                             @if (getLocation() == 'IN')
                                                                 <div class="la-soffer__bestprice la-soffer__bestprice--black"
                                                                     style="font-weight:var(--font-bold)">
-                                                                    <sup><small>₹</small></sup> 2999 / Month</div>
+                                                                    <sup><small>₹</small></sup> 2999 / Month
+                                                                </div>
                                                                 <div
                                                                     class="la-soffer__realprice la-soffer__realprice--black">
-                                                                    <sup><small>₹</small></sup> 5999 (INR) </div>
+                                                                    <sup><small>₹</small></sup> 5999 (INR)
+                                                                </div>
                                                             @else
                                                                 <div class="la-soffer__bestprice la-soffer__bestprice--black"
                                                                     style="font-weight:var(--font-bold)">
-                                                                    <sup><small>$</small></sup> 39 / Month</div>
+                                                                    <sup><small>$</small></sup> 39 / Month
+                                                                </div>
                                                                 <div
                                                                     class="la-soffer__realprice la-soffer__realprice--black">
-                                                                    <sup><small>$</small></sup> 99 (USD) </div>
+                                                                    <sup><small>$</small></sup> 99 (USD)
+                                                                </div>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -942,18 +1063,18 @@
                         </div>
 
                         <!-- <div class="la-price__slide la-anim__slide">
-                    <div class="la-price__row row mb-16">
-                      <div class="col-lg-5 pt-lg-20 la-anim__wrap">
-                        <h3 class="la-section__subtitle la-anim__stagger-item">What’s LILA for you ?</h3>
-                        <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x">Our mission is to Encourage, Empower and Embrace self-learning among all curious individuals who wish to learn, expand their potential and make a mark in the world.<br/><br/>
-                            Through our Radical team, we strive every day to make knowledge Affordable, Accessible for everyone regardless of who or where they are
-                        </p>
-                        <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold  pt-4 pt-md-8  la-anim__stagger-item--x">
-                          <a href="/about">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
+                                            <div class="la-price__row row mb-16">
+                                              <div class="col-lg-5 pt-lg-20 la-anim__wrap">
+                                                <h3 class="la-section__subtitle la-anim__stagger-item">What’s LILA for you ?</h3>
+                                                <p class="la-section__text text-lg text-md-xl la-anim__stagger-item--x">Our mission is to Encourage, Empower and Embrace self-learning among all curious individuals who wish to learn, expand their potential and make a mark in the world.<br/><br/>
+                                                    Through our Radical team, we strive every day to make knowledge Affordable, Accessible for everyone regardless of who or where they are
+                                                </p>
+                                                <div class="la-btn__arrow text--burple text-uppercase text-spacing font-weight--bold  pt-4 pt-md-8  la-anim__stagger-item--x">
+                                                  <a href="/about">learn more<span class="la-icon la-icon--7xl icon-grey-arrow la-btn__arrow-icon"></span></a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div> -->
 
                     </div>
                 </div>

@@ -174,7 +174,7 @@ class Course extends Model
     public function getVideoPreviewImgAttribute($value)
     {
         if($value != null){
-            return Storage::url(config('path.course.img'). $value);
+            return config('path.course.img').$value; // commented by me //Storage::url(config('path.course.img'). $value);
        }else{
            return $this->preview_image;
        }

@@ -43,14 +43,8 @@
                       <div class="form-group">
                         <label>{{ __('adminstaticword.SelectClass') }}: <span class="redstar">*</span></label>
                         <select class="form-control js-example-basic-single" name="course_id[]" multiple="multiple" size="5" row="5" placeholder="Select Courses">
-
-
-                          @foreach ($courses as $cat)
-                            @if($cat->status == 1)
-                            <option value="{{ $cat->id }}">{{ $cat->title }}
-                            </option>
-                            @endif
-
+                          @foreach($courses as $cat)
+                              <option value="{{ $cat->id }}">{{ $cat->title }}</option>
                           @endforeach
 
                         </select>

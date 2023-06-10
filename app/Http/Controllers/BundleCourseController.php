@@ -40,9 +40,9 @@ class BundleCourseController extends Controller
     public function create()
     {   
         if(Auth::user()->role == 'admin'){
-            $courses = Course::get();
+            $courses = Course::where('status', 1)->get();
         }else{
-            $courses = Course::where('user_id', Auth::user()->id)->get();
+            $courses = Course::where([['user_id', Auth::user()->id],['status', 1]])->get();
         }
         $category = Categories::where(['status'=>1])->get();
         return view('admin.bundle.create', compact('courses','category'));

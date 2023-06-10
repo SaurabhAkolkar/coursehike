@@ -816,3 +816,4 @@ Route::get('/clear-cache', function() {
   return "Cache is cleared";
 });
 
+Route::get('/demo','HomeController@demo');
