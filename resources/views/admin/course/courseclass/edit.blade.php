@@ -152,7 +152,7 @@
                   <label for="" class="la-admin__preview-label"> Status:<sup class="redstar">*</sup></label>
                   <div class="la-admin__class-status d-flex justify-content-start align-items-center">
                     <div class="la-admin__class-active pr-5">
-                        <input type="radio" name="editClass-status" id="editClass-active" value="active" class="la-admin__cp-input" {{ $cate->status == '2' ? 'checked' : '' }} >
+                        <input type="radio" name="editClass_status" id="editClass-active" value="1" class="la-admin__cp-input" {{ $cate->status == '1' ? 'checked' : '' }} >
                         <label for="editClass-active" > 
                           <div class="la-admin__cp-circle d-flex align-items-center">
                             <span class="la-admin__cp-radio"></span>
@@ -162,7 +162,7 @@
                     </div>
 
                     <div class="la-admin__class-hold pr-5">
-                      <input type="radio" name="editClass-status" id="editClass-hold" value="hold" class="la-admin__cp-input" {{ $cate->status == '0' ? 'checked' : '' }} >
+                      <input type="radio" name="editClass_status" id="editClass-hold" value="0" class="la-admin__cp-input" {{ $cate->status == '0' ? 'checked' : '' }} >
                       <label for="editClass-hold" > 
                         <div class="la-admin__cp-circle d-flex align-items-center">
                           <span class="la-admin__cp-radio"></span>

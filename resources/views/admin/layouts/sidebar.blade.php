@@ -110,9 +110,9 @@
                     {{--<li class="{{ Nav::isResource('childcategory') }}"><a href="{{url('childcategory')}}" class="d-flex align-items-center"><i class="la-icon la-icon--sm icon-child-category mr-4"></i>{{ __('adminstaticword.ChildCategory') }}</a></li> --}}
                   </ul>
 
-                  <li class="{{ Nav::isResource('bundle') }}"><a href="{{url('bundle')}}"><i class="la-icon la-icon--md icon-courses mr-4"></i><span>{{ __('adminstaticword.Course') }}</span></a></li>
+                  {{-- <li class="{{ Nav::isResource('bundle') }}"><a href="{{url('bundle')}}"><i class="la-icon la-icon--md icon-courses mr-4"></i><span>{{ __('adminstaticword.Course') }}</span></a></li> --}}
 
-                  <li class="@if(Request::segment(1) == 'course') active @endif"><a href="{{url('course')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-class mr-4"></i><span>{{ __('adminstaticword.Classes') }}</span></a></li>
+                  <li class="@if(Request::segment(1) == 'course') active @endif"><a href="{{url('course')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-class mr-4"></i><span>{{ __('adminstaticword.Courses') }}</span></a></li>
 
                   <li class="@if(Request::segment(1) == 'featuredcourses') active @endif"><a href="{{url('featuredcourses')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-featured-class mr-4"></i><span>{{ __('adminstaticword.featuredClasses') }}</span></a></li>
 

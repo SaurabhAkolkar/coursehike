@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddLevelToBundleCourses extends Migration
+class AddPreviewVideoToCoursesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddLevelToBundleCourses extends Migration
      */
     public function up()
     {
-        Schema::table('bundle_courses', function (Blueprint $table) {
-            $table->string('level')->nullable()->after('status');
+        Schema::table('courses', function (Blueprint $table) {
+            $table->string('preview_video')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class AddLevelToBundleCourses extends Migration
      */
     public function down()
     {
-        Schema::table('bundle_courses', function (Blueprint $table) {
-            $table->dropColumn('level');
+        Schema::table('courses', function (Blueprint $table) {
+            $table->dropColumn('preview_video');
         });
     }
 }

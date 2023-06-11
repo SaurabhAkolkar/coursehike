@@ -17,6 +17,7 @@ class CreateCourseLanguagesTable extends Migration
             Schema::create('course_languages', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('name');
+                $table->string('iso_code');
                 $table->enum('status',['1','0']);
                 $table->timestamps();
             });

@@ -52,7 +52,7 @@ class CoursechapterController extends Controller
 
         $input = $request->all();
       
-        if($request->status == 2){
+        if($request->status == 1){
 
             $user_ids = UserPurchasedCourse::where('course_id', $request->course_id)->pluck('user_id');
             $users = User::whereIN('id', $user_ids)->get();
@@ -102,7 +102,7 @@ class CoursechapterController extends Controller
      * @param  \App\coursechapter  $coursechapter
      * @return \Illuminate\Http\Response
      */
-    public function show( $id)
+    public function show($id)
     {
         $cate = CourseChapter::find($id);
         $courses = Course::all();
@@ -137,7 +137,7 @@ class CoursechapterController extends Controller
         $data = CourseChapter::findorfail($id);
         $input = $request->all();
 
-        if(isset($request->status))
+        if($request->status == 1)
         {
             $input['status'] = '1';
         }

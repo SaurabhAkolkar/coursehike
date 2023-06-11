@@ -107,9 +107,9 @@ class CourseController extends Controller
         ]);
 
         $input = $request->all();
-
+        
         $data = Course::create($input);
-        // $data->package_type = $request->package_type;
+        $data->package_type = $request->package_type;
 
 
         if ($file = $request->file('preview_image')) {
@@ -130,21 +130,21 @@ class CourseController extends Controller
             Storage::put(config('path.course.preview_video').$file_name, fopen($file->getRealPath(), 'r+') );
             $data->preview_video = $file_name;
 
-            $response = Http::withHeaders([
-                'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
-                'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
-            ])->post('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/copy', [
-                'url' => Storage::temporaryUrl(config('path.course.preview_video'). $file_name, now()->addMinutes(10)),
-                'meta' => [
-                    'name' => $file_name
-                ],
-                "requireSignedURLs" => true,
-            ]);
+            // $response = Http::withHeaders([
+            //     'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
+            //     'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
+            // ])->post('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/copy', [
+            //     'url' => Storage::temporaryUrl(config('path.course.preview_video'). $file_name, now()->addMinutes(10)),
+            //     'meta' => [
+            //         'name' => $file_name
+            //     ],
+            //     "requireSignedURLs" => true,
+            // ]);
 
-            if($response->successful()){
-                $res = $response->json();
-                $data->stream_video = $res['result']['uid'];
-            }
+            // if($response->successful()){
+            //     $res = $response->json();
+            //     $data->stream_video = $res['result']['uid'];
+            // }
         }
 
         $data->slug = Str::slug($request->title, '-');
@@ -152,7 +152,7 @@ class CourseController extends Controller
 
 
         $data->save();
-
+        Session::flash('success','Course Added Successfully !');
         return redirect('course');
     }
 
@@ -208,7 +208,7 @@ class CourseController extends Controller
         $course = Course::findOrFail($id);
         $input = $request->all();
 
-        $course->package_type = $request->package_type;
+        // $course->package_type = $request->package_type;
 
 
         if ($file = $request->file('preview_image')) {
@@ -243,31 +243,31 @@ class CourseController extends Controller
                 if ($exists){
                     Storage::delete(config('path.course.preview_video').$course->preview_video);
 
-                    Http::withHeaders([
-                        'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
-                        'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
-                    ])->delete('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/'.$course->stream_video);
+                    // Http::withHeaders([
+                    //     'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
+                    //     'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
+                    // ])->delete('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/'.$course->stream_video);
                 }
             }
 
             $file_name = basename(Storage::putFile(config('path.course.preview_video'), $file ));
             $input['preview_video'] = $file_name;
 
-            $response = Http::withHeaders([
-                'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
-                'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
-            ])->post('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/copy', [
-                'url' => Storage::temporaryUrl(config('path.course.preview_video'). $file_name, now()->addMinutes(10)),
-                'meta' => [
-                    'name' => $file_name
-                ],
-                "requireSignedURLs" => true,
-            ]);
+            // $response = Http::withHeaders([
+            //     'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
+            //     'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
+            // ])->post('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/copy', [
+            //     'url' => Storage::temporaryUrl(config('path.course.preview_video'). $file_name, now()->addMinutes(10)),
+            //     'meta' => [
+            //         'name' => $file_name
+            //     ],
+            //     "requireSignedURLs" => true,
+            // ]);
 
-            if($response->successful()){
-                $res = $response->json();
-                $course->stream_video = $input['stream_video'] = $res['result']['uid'];
-            }
+            // if($response->successful()){
+            //     $res = $response->json();
+            //     $course->stream_video = $input['stream_video'] = $res['result']['uid'];
+            // }
 
         }
 
@@ -545,22 +545,22 @@ class CourseController extends Controller
             $file_name = basename(Storage::putFile(config('path.announcement.preview_video'), $file ));
             $input['preview_video'] = $file_name;
 
-            $response = Http::withHeaders([
-                'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
-                'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
-            ])->post('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/copy', [
-                'url' => Storage::temporaryUrl(config('path.announcement.preview_video'). $file_name, now()->addMinutes(10)),
-                'meta' => [
-                    'name' => $file_name
-                ],
-                "requireSignedURLs" => true,
-            ]);
+            // $response = Http::withHeaders([
+            //     'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
+            //     'X-Auth-Email' => env('CLOUDFLARE_Auth_EMAIL'),
+            // ])->post('https://api.cloudflare.com/client/v4/accounts/'.env('CLOUDFLARE_ACCOUNT_ID').'/stream/copy', [
+            //     'url' => Storage::temporaryUrl(config('path.announcement.preview_video'). $file_name, now()->addMinutes(10)),
+            //     'meta' => [
+            //         'name' => $file_name
+            //     ],
+            //     "requireSignedURLs" => true,
+            // ]);
 
-            if($response->successful()){
-                $res = $response->json();
+            // if($response->successful()){
+            //     $res = $response->json();
 
-                $input['stream_video'] = $res['result']['uid'];
-            }
+            //     $input['stream_video'] = $res['result']['uid'];
+            // }
 
         }
 

@@ -71,7 +71,7 @@
               <!-- CLASS THUMBNAIL: END -->
               <br>
 
-              <div class="row">
+              {{-- <div class="row">
                 <div class="col-md-12 mb-2">
                   <label>One-Time Purchase Cost:<span class="redstar">*</span> </label>
                   <input type="text" placeholder="Enter Your Class Price" class="form-control " name="price" value="{{$cate->price}}">
@@ -79,7 +79,7 @@
                 <div class="col-md-6"> 
                   
                 </div>
-              </div>
+              </div> --}}
 
 
               {{-- <div class="row">
@@ -101,7 +101,7 @@
                     <label class="la-admin__preview-label"> Status:<sup class="redstar">*</sup></label>
                     <div class="la-admin__class-status d-flex justify-content-start">
                       <div class="la-admin__class-active pr-5">
-                          <input type="radio" name="status" id="addClass-active" value="2" class="la-admin__cp-input" {{ $cate->status == '2' ? 'checked' : '' }} >
+                          <input type="radio" name="status" id="addClass-active" {{ $cate->status == 1 ? 'checked' : '' }} value="1" class="la-admin__cp-input" {{ $cate->status == '2' ? 'checked' : '' }} >
                           <label for="addClass-active" > 
                             <div class="la-admin__cp-circle">
                               <span class="la-admin__cp-radio"></span>
@@ -111,7 +111,7 @@
                       </div>
 
                       <div class="la-admin__class-hold pr-5">
-                        <input type="radio" name="status" id="addClass-hold" value="0" class="la-admin__cp-input" {{ $cate->status == '0' ? 'checked' : '' }} >
+                        <input type="radio" name="status" id="addClass-hold" {{ $cate->status == 0 ? 'checked' : '' }} value="0" class="la-admin__cp-input" {{ $cate->status == '0' ? 'checked' : '' }} >
                         <label for="addClass-hold" > 
                           <div class="la-admin__cp-circle">
                             <span class="la-admin__cp-radio"></span>

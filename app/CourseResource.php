@@ -39,9 +39,9 @@ class CourseResource extends Model
 
     public function getFileUrlAttribute($value)
     {
-        return Storage::temporaryUrl(
-            config('path.course.resources').$this->course_id. '/' . $value, now()->addMinutes(5)
-        );
-        // return Storage::url(config('path.course.video').$this->course_id. '/' . $value);
+        // return Storage::temporaryUrl(
+        //     config('path.course.resources').$this->course_id. '/' . $value, now()->addMinutes(5)
+        // );
+        return Storage::url(config('path.course.video').$this->course_id. '/' . $value);
     }
 }

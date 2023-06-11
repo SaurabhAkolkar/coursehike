@@ -3,7 +3,7 @@
   <div class="row">
     <!-- left column -->
     <div class="col-12 px-0">
-        <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Class') }}</h3>
+        <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Edit') }} {{ __('adminstaticword.Course') }}</h3>
         
         
         <!-- /.box-header -->
@@ -266,14 +266,14 @@
 
               <div class="row">    
 
-                <div class="col-6 col-md-2">
+                {{-- <div class="col-6 col-md-2">
                   <label for="exampleInputDetails">Master Class:</label>
                   <li class="tg-list-item">              
                     <input class="la-admin__toggle-switch" id="master_class" type="checkbox" name="master_class" @if($check_master_class) checked @endif >
                     <label class="la-admin__toggle-label" data-tg-off="Disable" data-tg-on="Enable" for="master_class"></label>
                   </li>
                   <input type="hidden"  name="master_class"  for="master_class" id="master_class2" @if($check_master_class) value="1" @endif>
-                </div>
+                </div> --}}
 
                 <div class="col-6 col-md-2"> 
                   @if(Auth::User()->role == "admin")

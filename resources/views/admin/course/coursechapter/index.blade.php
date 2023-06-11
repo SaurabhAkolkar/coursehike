@@ -116,7 +116,7 @@
                 <!-- CLASS THUMBNAIL: END -->
                 <br>
 
-                <div class="row">
+                {{-- <div class="row">
                   <div class="col-md-12">
                     <label>One-Time Purchase Cost:<span class="redstar">*</span> </label>
                     <input type="text" placeholder="Enter Your Class Price" class="form-control " name="price" value="">
@@ -124,7 +124,7 @@
                   <div class="col-md-6"> 
                    
                   </div>
-                </div>
+                </div> --}}
                 <br>
 
                 <!--  ADD CLASS STATUS: START -->
@@ -133,7 +133,7 @@
                       <label class="la-admin__preview-label"> Status:<sup class="redstar">*</sup></label>
                       <div class="la-admin__class-status d-flex justify-content-start">
                         <div class="la-admin__class-active pr-5">
-                            <input type="radio" name="status" id="addClass-active" value="2" class="la-admin__cp-input" >
+                            <input type="radio" name="status" id="addClass-active" value="1" class="la-admin__cp-input" >
                             <label for="addClass-active" > 
                               <div class="la-admin__cp-circle">
                                 <span class="la-admin__cp-radio"></span>

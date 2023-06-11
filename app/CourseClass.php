@@ -35,7 +35,7 @@ class CourseClass extends Model
 
     protected $fillable = [
         'course_id', 'coursechapter_id', 'title', 'duration', 'featured', 'status','url', 'size',
-        'image','video', 'stream_url', 'pdf','zip', 'preview_video', 'date_time', 'audio', 'detail', 'position', 'aws_upload', 'type'
+        'image','video', 'stream_url', 'pdf','zip', 'preview_video', 'date_time', 'audio', 'detail', 'position', 'aws_upload', 'type','is_preview'
     ];
 
     public function user()
@@ -103,10 +103,10 @@ class CourseClass extends Model
             return  $value;
         }
 
-        return Storage::temporaryUrl(
-            config('path.course.video').$this->course_id. '/' . $value, now()->addMinutes(60)
-        );
-        // return Storage::url(config('path.course.video').$this->course_id. '/' . $value);
+        // return Storage::temporaryUrl(
+        //     config('path.course.video').$this->course_id. '/' . $value, now()->addMinutes(60)
+        // );
+        return Storage::url(config('path.course.video').$this->course_id. '/' . $value);
     }
 
     public function getSignedStreamURL()

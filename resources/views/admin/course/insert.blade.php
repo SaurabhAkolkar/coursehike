@@ -21,7 +21,7 @@
       <div class="box box-primary">
           <div class="row">
             <div class="col-md-12">
-              <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Class') }}</h3>
+              <h3 class="la-admin__section-title ml-3"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Course') }}</h3>
             </div>
             <div  class="col-md-2">
                 <!--<div><h4 class="admin-form-text"><a href="{{url('course')}}" data-toggle="tooltip" data-original-title="Go back" class="btn-floating"><i class="material-icons"><button class="btn btn-xs btn-success abc"> << {{ __('adminstaticword.Back') }}</button> </i></a></h4></div> -->
@@ -199,19 +199,19 @@
                            <label for="subPaid"> 
                              <div class="la-admin__cp-circle">
                                 <span class="la-admin__cp-radio"></span>
-                                <span class="la-admin__cp-label">Subscription</span>
+                                <span class="la-admin__cp-label">Premium</span>
                                 <small class=" text-xs mt-1 pl-1">(Default)</small>
                              </div>
 
                               <div class="la-admin__cp-desc">
-                                  <p>This class is accessible by all Subscribers & also available for life-time purchase. </p>
-                                  <p>Please enter the class cost for One-Time Purchase</p>
+                                  {{-- <p>This class is accessible by all Subscribers & also available for life-time purchase. </p>  --}}
+                                   <p>Please enter the class cost for One-Time Purchase</p>
                                   <div class="form-group row  la-admin__subform-group">
                                       <div class="input-group col-10 col-sm-6 la-admin__subinput-group">
                                         <div class="input-group-prepend la-admin__subinput-prepend" >
-                                            <span class="fa fa-dollar input-group-text la-admin__subinput-text"></span> 
+                                            <span class="fa fa-rupee input-group-text la-admin__subinput-text"></span> 
                                         </div>
-                                        <input type="number" class="form-control la-admin__subform-input" name="price" style="width:160px"/>
+                                        <input type="number" class="form-control la-admin__subform-input" name="price" />
                                       </div>
                                   </div>
                               </div>
@@ -243,7 +243,7 @@
                               </div>
 
                                 <div class="la-admin__cp-desc">
-                                    <p class="">  This class is accessible by any learner </p>
+                                    <p class="">This class is accessible by any learner </p>
                                 </div>
                             </label>
                         </div>
@@ -273,7 +273,31 @@
                       </div>
                   </div>
 
-                  <div class="col-md-6 col-xl-7">
+                  <div class="col-md-5">
+                    <div class="la-admin__preview">
+                      <label for="" class="la-admin__preview-label"> {{ __('adminstaticword.PreviewVideo') }}:</label>
+                      <div class="la-admin__preview-video la-admin__course-imgvid">
+                         <div class="la-admin__preview-text">
+                                <p class="la-admin__preview-size">Preview video size: 20MB</p>
+                                <p class="text-uppercase la-admin__preview-file">Choose a File</p>
+                          </div>
+                          <div class="text-center pr-20 mr-10">
+                            <span class="la-icon la-icon--8xl icon-preview-video" style="font-size:160px;">
+                              <span class="path1"><span class="path2"></span></span>
+                            </span>
+                          </div>
+                          <input type="file" class="form-control la-admin__preview-input preview_video" name="preview_video" />
+                          <video controls class="d-none preview-video w-100">
+                            <source src="">
+                              Your browser does not support HTML5 video.
+                          </video>
+                      </div>
+                    </div>
+                  </div>
+
+                  {{-- 
+                    commented by saurabh may be used as video preview image
+                    <div class="col-md-6 col-xl-7">
                     <div class="la-admin__preview">
                       <label for="" class="la-admin__preview-label">{{ __('adminstaticword.PreviewImage') }}:<sup class="redstar">*</sup></label>
                       <div class="la-admin__preview-img la-admin__course-imgvid" >
@@ -287,12 +311,14 @@
                             </span>
                           </div>
                           <input type="file" class="form-control la-admin__preview-input" name="" id="" />
-                      </div>
+                      </div> 
+
+                      --}}
                     </div>
                 </div>
               </div>
 
-              <div class="row mt-6">  
+              {{-- <div class="row mt-6">  
                 <div class="col-md-5">
                       <div class="la-admin__preview">
                         <label for="" class="la-admin__preview-label"> {{ __('adminstaticword.PreviewVideo') }}:</label>
@@ -311,13 +337,12 @@
                               <source src="">
                                 Your browser does not support HTML5 video.
                             </video>
-
                         </div>
                       </div>
                 </div>
-              </div>
+              </div> --}}
                <!-- PREVIEW IMAGE & VIDEO FILES: END -->
-              <br/>
+              {{-- <br/>
               <div class="row">
                 <div class="col-md-2">
                   <label for="exampleInputDetails">Master Class:</label>
@@ -327,7 +352,7 @@
                   </li>
                   <input type="hidden"  name="master_class" value="0" for="master_class" id="master_class">
                 </div>
-              </div>
+              </div> --}}
               <br/>
               <br/>
 

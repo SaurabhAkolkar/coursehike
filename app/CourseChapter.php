@@ -32,7 +32,7 @@ class CourseChapter extends Model
 
     protected $table = 'course_chapters';
 
-    protected $fillable = [ 'course_id', 'chapter_name', 'short_number', 'status', 'file', 'price' ];
+    protected $fillable = [ 'course_id', 'chapter_name', 'short_number', 'status', 'file' ];
 
     public function courseclass()
     {
