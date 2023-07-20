@@ -28,7 +28,7 @@
           {{-- <li class="{{ Nav::isRoute('user.index') }} {{ Nav::isRoute('create.subscription') }} {{ Nav::isRoute('store.user.course') }} {{ Nav::isRoute('user.add') }} {{ Nav::isRoute('user.edit') }}">
             <a href="{{route('user.index')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Users') }}</span></a></li> --}}
 
-          <li class="{{ Nav::isRoute('user.index') }} {{ Nav::isRoute('user.ontrial') }} {{Nav::isRoute('user.subscribed')}} {{Nav::isRoute('user.learners')}} {{ Nav::isRoute('create.subscription') }} {{ Nav::isRoute('store.user.course') }} {{ Nav::isRoute('user.add') }} {{ Nav::isRoute('user.edit') }} treeview">
+          <li class="{{ Nav::isRoute('user.index') }} {{ Nav::isRoute('all.instructor') }} {{ Nav::isRoute('user.ontrial') }} {{Nav::isRoute('user.subscribed')}} {{Nav::isRoute('user.learners')}} {{ Nav::isRoute('create.subscription') }} {{ Nav::isRoute('store.user.course') }} {{ Nav::isRoute('user.add') }} {{ Nav::isRoute('user.edit') }} treeview">
             <a href="#" class="d-flex align-items-center">
               <i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Users') }}</span>
               <span class="pull-right-container">
@@ -36,10 +36,14 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="{{ Nav::isRoute('user.index') }} {{ Nav::isRoute('create.subscription') }} {{ Nav::isRoute('store.user.course') }} {{ Nav::isRoute('user.add') }} {{ Nav::isRoute('user.edit') }}"><a href="{{route('user.index')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Users') }}</span></a></li>
+              <li class="{{ Nav::isRoute('all.instructor') }}"><a href="{{route('all.instructor')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-all-mentors mr-3"></i>{{ __('adminstaticword.AllInstructor') }}</a></li>
               <li class="{{ Nav::isRoute('user.learners') }} "><a href="{{route('user.learners')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-learners  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Learners') }}</span></a></li>
-              <li class="{{ Nav::isRoute('user.subscribed') }} "><a href="{{route('user.subscribed')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-subscribed  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Subscribed') }}</span></a></li>
-              <li class="{{ Nav::isRoute('user.ontrial') }} "><a href="{{route('user.ontrial')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-on-trial  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.OnTrial') }}</span></a></li>
+              {{-- <li class="{{ Nav::isRoute('user.index') }} {{ Nav::isRoute('create.subscription') }} {{ Nav::isRoute('store.user.course') }} {{ Nav::isRoute('user.add') }} {{ Nav::isRoute('user.edit') }}"><a href="{{route('user.index')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-users  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Users') }}</span></a></li> --}}
+
+              {{-- 
+                commented by saurabh akolkar 
+                <li class="{{ Nav::isRoute('user.subscribed') }} "><a href="{{route('user.subscribed')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-subscribed  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Subscribed') }}</span></a></li>
+              <li class="{{ Nav::isRoute('user.ontrial') }} "><a href="{{route('user.ontrial')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-on-trial  mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.OnTrial') }}</span></a></li> --}}
             </ul>
           </li>
 
@@ -94,7 +98,7 @@
 
           <li class="@if(Request::segment(1) == 'category' || Request::segment(1) == 'subcategory' || Request::segment(1) == 'course' || Request::segment(1) == 'featuredcourses' ) active menu-open @endif {{ Nav::isResource('category') }} {{ Nav::isResource('subcategory') }} {{ Nav::isResource('publishrequest') }} {{ Nav::isResource('childcategory') }} {{ Nav::isResource('bundle') }} {{ Nav::isResource('courselang') }}  {{Nav::isResource('coursereviewunpublish')}} treeview">
             <a href="#" class="d-flex align-items-center">
-                <i class="la-icon la-icon--lg icon-courses mr-4"></i>{{ __('adminstaticword.Course&Class') }}
+                <i class="la-icon la-icon--lg icon-courses mr-4"></i>{{ __('adminstaticword.Course') }}
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
@@ -114,7 +118,7 @@
 
                   <li class="@if(Request::segment(1) == 'course') active @endif"><a href="{{url('course')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-class mr-4"></i><span>{{ __('adminstaticword.Courses') }}</span></a></li>
 
-                  <li class="@if(Request::segment(1) == 'featuredcourses') active @endif"><a href="{{url('featuredcourses')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-featured-class mr-4"></i><span>{{ __('adminstaticword.featuredClasses') }}</span></a></li>
+                  {{-- <li class="@if(Request::segment(1) == 'featuredcourses') active @endif"><a href="{{url('featuredcourses')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-featured-class mr-4"></i><span>{{ __('adminstaticword.featuredClasses') }}</span></a></li> --}}
 
                   <li class="{{ Nav::isResource('courselang') }}"><a href="{{url('courselang')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-course-language mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.CourseLanguage') }}</span></a></li>
 
@@ -132,7 +136,8 @@
 
           <li class="{{ Nav::isResource('coupon') }}"><a href="{{url('coupon')}}" class="d-flex align-items-center"><i class="la-icon  la-icon--lg icon-coupon mr-4" aria-hidden="true"></i><span>{{ __('adminstaticword.Coupon') }}</span></a></li>
 
-          <li class="{{ Nav::isRoute('all.instructor') }} {{ Nav::isResource('requestinstructor') }} treeview">
+          {{-- 
+            <li class="{{ Nav::isRoute('all.instructor') }} {{ Nav::isResource('requestinstructor') }} treeview">
            <a href="#" class="d-flex align-items-center">
              <i class="la-icon la-icon--xl icon-all-mentors mr-3" aria-hidden="true"></i> <span>{{ __('adminstaticword.Instructor') }}</span>
               <span class="pull-right-container">
@@ -143,7 +148,7 @@
               <li class="{{ Nav::isRoute('all.instructor') }}"><a href="{{route('all.instructor')}}" class="d-flex align-items-center"><i class="la-icon la-icon--lg icon-all-mentors mr-3"></i>{{ __('adminstaticword.AllInstructor') }}</a></li>
               <li class="{{ Nav::isResource('requestinstructor') }}"><a href="{{url('requestinstructor')}}" class="d-flex align-items-center"><i class="la-icon la-icon--md icon-request mr-4"></i>{{ __('adminstaticword.InstructorRequest') }}</a></li>
             </ul>
-          </li>
+          </li> --}}
 
 
           <li class="{{ Nav::isResource('order')}} {{ Nav::isResource('subscriptions') }} {{ Nav::isResource('purchasedcourses')   }}   treeview">

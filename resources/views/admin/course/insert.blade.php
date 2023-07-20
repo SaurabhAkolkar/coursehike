@@ -37,8 +37,8 @@
               <div class="row">
                 <div class="col-md-4 mt-4 mt-md-6">
                   <label>{{ __('adminstaticword.Category') }}:<span class="redstar">*</span></label>
-                  <select name="category_id" id="category_id" class="form-control js-example-basic-single">
-                    <option value="0">{{ __('adminstaticword.SelectanOption') }}</option>
+                  <select name="category_id" id="category_id" class="form-control js-example-basic-single" required>
+                    <option value="" selected disabled>{{ __('adminstaticword.SelectanOption') }}</option>
                     @foreach($category as $cate)
                       <option value="{{$cate->id}}">{{$cate->title}}</option>
                     @endforeach
@@ -46,7 +46,7 @@
                 </div>
                 <div class="col-md-4 mt-4 mt-md-6">
                   <label>{{ __('adminstaticword.SubCategory') }}:<span class="redstar">*</span></label>
-                    <select name="subcategory_id" id="upload_id" class="form-control js-example-basic-single">
+                    <select name="subcategory_id" id="upload_id" class="form-control js-example-basic-single" required>
                     </select>
                 </div>
                 {{-- <div class="col-md-3">
@@ -93,8 +93,8 @@
               <div class="row">
                 <div class="col-md-6 mt-4 mt-md-6"> 
                   <label>{{ __('adminstaticword.level') }}: <span class="redstar">*</span></label>
-                  <select name="level" class="form-control js-example-basic-single">
-                    <option selected disabled > Select Level</option>
+                  <select name="level" class="form-control js-example-basic-single" required>
+                    <option value="" selected disabled > Select Level</option>
                     <option value="1" > Beginner</option>
                     <option value="2" > Intermediate</option>
                     <option value="3" > Advanced</option>
@@ -109,11 +109,12 @@
 
               
 
-              <div class="row">
-                {{-- <div class="col-md-6">
+              {{-- <div class="row">
+                <div class="col-md-6">
                   <label for="exampleInputSlug">{{ __('adminstaticword.Slug') }}: <sup class="redstar">*</sup></label>
                   <input pattern="[/^\S*$/]+"  type="text" class="form-control" name="slug" id="exampleInputPassword1" placeholder="Please Enter Your Slug" required>
-                </div> --}}
+              </div> --}}
+
               </div>
               
                  
@@ -136,15 +137,15 @@
               </div>
               <br>
 
-              <div class="row">
-                {{-- <div class="col-md-3">
+              {{-- <div class="row">
+                <div class="col-md-3">
           
                     <label for="exampleInputSlug">{{ __('adminstaticword.Days') }}: <sup class="redstar">*</sup></label>
                     <input type="number" min="1" class="form-control" name="day" id="exampleInputPassword1" placeholder="Please Your Enter day" value="">
                
-                </div>  --}}
+                </div> 
 
-                {{-- <div class="col-md-3">
+                <div class="col-md-3">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Free') }}:</label>                 
                   <li class="tg-list-item">
                     <input name="type" class="la-admin__toggle-switch" id="cb111" type="checkbox"/>
@@ -180,14 +181,10 @@
                   </li>
                   <input type="hidden" name="status" value="0" id="test">
                   @endif
-                </div>--}}
                 </div>
-                <br> 
-
-              {{-- <div class="row">
-                 
-              </div>
-              <br/> --}}
+              </div> --}}
+              
+              <br> 
 
               <!-- COURSE PACKAGE TYPE: START -->
               <div class="row">
@@ -195,7 +192,7 @@
                   <div class="la-admin__course-package">
                       <label for="" class="la-admin__cp-title">Class package type<sup class="redstar">*</sup></label><br/>
                       <div class="la-admin__cp-subscription">
-                          <input type="radio" id="subPaid" name="package_type" value="1" class="la-admin__cp-input"> 
+                          <input checked type="radio" id="subPaid" name="package_type" value="1" class="la-admin__cp-input" required> 
                            <label for="subPaid"> 
                              <div class="la-admin__cp-circle">
                                 <span class="la-admin__cp-radio"></span>
@@ -205,13 +202,13 @@
 
                               <div class="la-admin__cp-desc">
                                   {{-- <p>This class is accessible by all Subscribers & also available for life-time purchase. </p>  --}}
-                                   <p>Please enter the class cost for One-Time Purchase</p>
-                                  <div class="form-group row  la-admin__subform-group">
+                                   <p></p>
+                                  <div class="form-group row  la-admin__subform-group"  id="pricebox">
                                       <div class="input-group col-10 col-sm-6 la-admin__subinput-group">
                                         <div class="input-group-prepend la-admin__subinput-prepend" >
                                             <span class="fa fa-rupee input-group-text la-admin__subinput-text"></span> 
                                         </div>
-                                        <input type="number" class="form-control la-admin__subform-input" name="price" />
+                                        <input type="number" id="priceMain" class="form-control la-admin__subform-input" name="price" required/>
                                       </div>
                                   </div>
                               </div>
@@ -267,8 +264,9 @@
                                 <span class="path1"><span class="path2"></span></span>
                               </span>
                             </div>
-                            <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="preview_image" id="image" />
                             <img src="" alt="" class="d-none preview-img"/>
+                            <input type="file" class="form-control la-admin__preview-input inputfile inputfile-1 preview_img" name="preview_image" id="image" />
+                            
                         </div>
                       </div>
                   </div>
@@ -294,12 +292,10 @@
                       </div>
                     </div>
                   </div>
-
-                  {{-- 
-                    commented by saurabh may be used as video preview image
-                    <div class="col-md-6 col-xl-7">
+                  
+                  <div class="col-md-6 col-xl-7 mt-5">
                     <div class="la-admin__preview">
-                      <label for="" class="la-admin__preview-label">{{ __('adminstaticword.PreviewImage') }}:<sup class="redstar">*</sup></label>
+                      <label for="" class="la-admin__preview-label">Video Player {{ __('adminstaticword.VideoPreviewImage') }}:<sup class="redstar">*</sup></label>
                       <div class="la-admin__preview-img la-admin__course-imgvid" >
                           <div class="la-admin__preview-text">
                                 <p class="la-admin__preview-size">Horizontal Preview Image size: 1280x600</p>
@@ -310,12 +306,12 @@
                               <span class="path1"><span class="path2"></span></span>
                             </span>
                           </div>
-                          <input type="file" class="form-control la-admin__preview-input" name="" id="" />
-                      </div> 
-
-                      --}}
+                          <input type="file" class="form-control la-admin__preview-input preview_img" name="video_preview_img" />
+                          <img src="" class="d-none preview-img" />
+                      </div>
                     </div>
-                </div>
+                  </div>
+
               </div>
 
               {{-- <div class="row mt-6">  
@@ -375,6 +371,10 @@
 
 @section('scripts')
 <script>
+
+function valid_pkg() {
+  
+}
 (function($) {
   "use strict";
     tinymce.init({selector:'textarea#detail'});
@@ -402,20 +402,17 @@
     })
   })
 
-  $('#cb111').on('change',function(){
-
-    if($('#cb111').is(':checked')){
-      $('#pricebox').show('fast');
-
-      $('#priceMain').prop('required','required');
-
-    }else{
-      $('#pricebox').hide('fast');
-
+  $("input[name$='package_type']").click(function() {
+    var test = $(this).val()  
+    if(test==0){
+      // $('#pricebox').hide('fast');
       $('#priceMain').removeAttr('required');
+    }else{
+      // $('#pricebox').show('fast');
+      $('#priceMain').prop('required','required');
     }
-
   });
+
 
   $('#preview').on('change',function(){
 
@@ -497,7 +494,7 @@
           data: {catId: cat_id},
           success:function(data){   
             console.log(data);
-            up.append('<option value="0">Please Choose</option>');
+            up.append('<option value="" disabled selected>Please Choose</option>');
             $.each(data, function(id, title) {
               up.append($('<option>', {value:id, text:title}));
             });

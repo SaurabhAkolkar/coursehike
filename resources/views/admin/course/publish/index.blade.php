@@ -149,7 +149,13 @@
 
         <div class="col-10 text-right pt-16">
             @if(!$publisRequest)
-                 @if($cor->status != 1)   
+                <form action="/send-course-to-publish" method="post">
+                    @csrf
+                    <input type="hidden" name="course_id" value="{{$cor->id}}" />
+                    <button type="submit" class="la-admin__publish-btn">Publish</button>
+                </form>
+            @else
+                @if($cor->status != 1)   
                     <form action="/send-course-to-publish" method="post">
                         @csrf
                         <input type="hidden" name="course_id" value="{{$cor->id}}" />
@@ -161,16 +167,6 @@
                         <input type="hidden" name="course_id" value="{{$cor->id}}" />
                         <button type="submit" class="la-admin__publish-btn">Unpublish</button>
                     </form>
-                @endif
-            @else
-                @if($publisRequest->request_type == 'publish')
-                    <form action="/send-course-to-unpublish" method="post">
-                        @csrf
-                        <input type="hidden" name="course_id" value="{{$cor->id}}" />
-                        <button type="submit" class="la-admin__publish-btn">Unpublish</button>
-                    </form>
-                @else
-                    <h5 class="text-2xl">Your Request to unpublish is already sent.</h5>
                 @endif
             @endif
         </div>

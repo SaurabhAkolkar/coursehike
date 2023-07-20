@@ -17,7 +17,7 @@
                 <div class="col-md-4 mt-3 mt-md-0">
                   <label>{{ __('adminstaticword.Category') }}<span class="redstar">*</span></label>
                   <select name="category_id" id="category_id" class="form-control js-example-basic-single" required>
-                    <option value="0">{{ __('adminstaticword.SelectanOption') }}</option>
+                    <option value="">{{ __('adminstaticword.SelectanOption') }}</option>
                     @php
                       $category = App\Categories::all();
                     @endphp 
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-4 mt-3 mt-md-0">
                   <label>{{ __('adminstaticword.SubCategory') }}:<span class="redstar">*</span></label>
-                  <select name="subcategory_id" id="upload_id" class="form-control js-example-basic-single">
+                  <select name="subcategory_id" id="upload_id" class="form-control js-example-basic-single" required>
                     @php
                       $subcategory = App\SubCategory::all();
                     @endphp
@@ -67,7 +67,7 @@
               <div class="row">
                 <div class="col-md-6 mt-3 mt-md-6"> 
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Title') }}:<sup class="redstar">*</sup></label>
-                  <input type="text" class="form-control" name="title" id="exampleInputTitle" value="{{ $cor->title }}">
+                  <input type="text" class="form-control" name="title" id="exampleInputTitle" value="{{ $cor->title }}" required>
                 </div>
 
                 <div class="col-md-6 mt-3 mt-md-6"> 
@@ -75,7 +75,7 @@
                       $languages = App\CourseLanguage::where(['status'=>1])->get();
                   @endphp
                   <label for="exampleInputSlug">{{ __('adminstaticword.SelectLanguage') }}</label>
-                  <select name="language_id" class="form-control js-example-basic-single col-12">
+                  <select name="language_id" class="form-control js-example-basic-single col-12" required>
                     @foreach($languages as $cat)
                       <option {{ $cor->language_id == $cat->id ? 'selected' : "" }} value="{{ $cat->id }}">{{ $cat->name }}</option>
                     @endforeach
@@ -88,7 +88,7 @@
               <div class="row">
                 <div class="col-md-6 mt-3 mt-md-6">
                   <label for="exampleInputDetails">{{ __('adminstaticword.ShortDetail') }}:<sup class="redstar">*</sup></label>
-                  <textarea name="short_detail" rows="3" class="form-control" >{!! $cor->short_detail !!}</textarea>
+                  <textarea name="short_detail" rows="3" class="form-control" required>{!! $cor->short_detail !!}</textarea>
                 </div>
                 <div class="col-md-6 mt-3 mt-md-6">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Requirements') }}:<sup class="redstar">*</sup></label>
@@ -100,7 +100,7 @@
               <div class="row">
                 <div class="col-md-6 mt-3 mt-md-6">
                   <label for="exampleInputDetails">{{ __('adminstaticword.level') }}:<sup class="redstar">*</sup></label>
-                  <select name="level" class="form-control js-example-basic-single">
+                  <select name="level" class="form-control js-example-basic-single" required>
                     <option disabled selected > Select Level</option>
                     <option value="1" @if($cor->level == 1) selected @endif> Begginer</option>
                     <option value="2" @if($cor->level == 2) selected @endif > Intermediate</option>
@@ -119,7 +119,7 @@
               <div class="row">
                 <div class="col-md-12 mt-3 mt-md-6">
                   <label for="exampleInputDetails">{{ __('adminstaticword.Detail') }}:<sup class="redstar">*</sup></label>
-                  <textarea id="detail" name="detail" rows="3" class="form-control">{!! $cor->detail !!}</textarea>
+                  <textarea id="detail" name="detail" rows="3" class="form-control" required>{!! $cor->detail !!}</textarea>
                 </div>
               </div>
               <br>
@@ -134,19 +134,18 @@
                            <label for="subPaid"> 
                              <div class="la-admin__cp-circle">
                                 <span class="la-admin__cp-radio"></span>
-                                <span class="la-admin__cp-label">Subscription</span> 
+                                <span class="la-admin__cp-label">Premium</span> 
                                 <small class=" text-xs mt-1 pl-1">(Default)</small>
                              </div>
 
                               <div class="la-admin__cp-desc">
-                                  <p>This course is accessible by all Subscribers & also available for life-time purchase. </p>
-                                  <p>Please enter the Course cost for One-Time Purchase</p>
+                                 <p> </p> 
                                   <div class="form-group row  la-admin__subform-group">
                                       <div class="input-group col-10 col-sm-6 la-admin__subinput-group">
                                         <div class="input-group-prepend la-admin__subinput-prepend" >
-                                            <span class="fa fa-dollar input-group-text la-admin__subinput-text"></span> 
+                                            <span class="fa fa-rupee input-group-text la-admin__subinput-text"></span> 
                                         </div>
-                                        <input type="text" class="form-control la-admin__subform-input" name="price" style="width:160px" value="{{ $cor->price }}"/>
+                                        <input type="text" id="priceMain" class="form-control la-admin__subform-input" name="price" value="{{ $cor->price }}"  {{ $cor->package_type == '1' ? 'required' : '' }}/>
                                       </div>
                                   </div>
                               </div>
@@ -177,9 +176,9 @@
                                 <span class="la-admin__cp-label">Free</span> 
                               </div>
 
-                                <div class="la-admin__cp-desc">
-                                    <p class="la-admin__cp-desc">  This course is accessible by any learner </p>
-                                </div>
+                              <div class="la-admin__cp-desc">
+                                  <p class="la-admin__cp-desc">This course is accessible by any learner </p>
+                              </div>
                             </label>
                         </div>
                   </div>
@@ -215,7 +214,7 @@
                 
                 <div class="col-md-6 col-xl-7">
                   <div class="la-admin__preview">
-                    <label for="" class="la-admin__preview-label">Video Player {{ __('adminstaticword.PreviewImage') }}:<sup class="redstar">*</sup></label>
+                    <label for="" class="la-admin__preview-label">Video Player {{ __('adminstaticword.VideoPreviewImage') }}:<sup class="redstar">*</sup></label>
                     <div class="la-admin__preview-img la-admin__course-imgvid" >
                         <div class="la-admin__preview-text">
                               <p class="la-admin__preview-size">Horizontal Preview Image size: 1280x600</p>
@@ -232,7 +231,7 @@
                         @endif
                     </div>
                   </div>
-              </div>
+                </div>
             </div>
 
             <div class="row mt-6">
@@ -275,7 +274,8 @@
                   <input type="hidden"  name="master_class"  for="master_class" id="master_class2" @if($check_master_class) value="1" @endif>
                 </div> --}}
 
-                <div class="col-6 col-md-2"> 
+                {{-- commented by saurabh akolkar
+                  <div class="col-6 col-md-2"> 
                   @if(Auth::User()->role == "admin")
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Featured') }}:</label>
                   <li class="tg-list-item">
@@ -284,7 +284,7 @@
                   </li>
                   <input type="hidden" name="featured" value="{{ $cor->featured }}" id="f">
                   @endif
-                </div>                
+                </div>                 --}}
 
                 <div class="col-md-4">
                   @if(Auth::User()->role == "admin")
@@ -312,8 +312,10 @@
     <!--/.col (right) -->
   </div>
   <!-- /.row -->
-  <hr>
-  <div class="la-admin__hr-line"></div>
+ 
+  {{-- commented by saurabh akolkar
+     <hr>
+     <div class="la-admin__hr-line"></div>
 	<div class="row pr-md-10">
 
 		<div class="box box-primary">
@@ -412,7 +414,7 @@
 			</table>
 			</div>
 		</div> 
-	</div>
+	</div> --}}
 </section> 
 
 
@@ -471,6 +473,17 @@
 
   $(function(){
 
+      $("input[name$='package_type']").click(function() {
+        var test = $(this).val()  
+        if(test==0){
+          // $('#pricebox').hide('fast');
+          $('#priceMain').removeAttr('required');
+        }else{
+          // $('#pricebox').show('fast');
+          $('#priceMain').prop('required','required');
+        }
+      });
+
       $('#murll').change(function(){
         if($('#murll').val()=='yes')
         {
@@ -512,7 +525,7 @@
           data: {catId: cat_id},
           success:function(data){   
             console.log(data);
-            up.append('<option value="0">Please Choose</option>');
+            up.append('<option value="">Please Choose</option>');
             $.each(data, function(id, title) {
               up.append($('<option>', {value:id, text:title}));
             });
@@ -540,7 +553,7 @@
           data: {catId: cat_id},
           success:function(data){   
             console.log(data);
-            up.append('<option value="0">Please Choose</option>');
+            up.append('<option value="">Please Choose</option>');
             $.each(data, function(id, title) {
               up.append($('<option>', {value:id, text:title}));
             });
@@ -576,7 +589,8 @@ $(document).on("change", ".preview_video", function(evt) {
   $($source).removeClass('d-none');
 });
 
-
+/**
+ * commented by saurabh akolkar may be used for fature for multiple languages
 var $multilingualFileUpload = $('#multilingual-browse');
 
 if ($multilingualFileUpload.length > 0) {
@@ -636,6 +650,8 @@ if ($multilingualFileUpload.length > 0) {
 	}
 	
 }
+
+**/
 </script>
   
 @endsection

@@ -222,6 +222,7 @@ return [
     'DiscountPrice' => 'Discount Price',
     'PreviewVideo' => 'Preview Video',
     'PreviewImage' => 'Preview Image',
+    'VideoPreviewImage' => 'Video Preview Image',
     'Chooseafile' => 'Choose a file',
     'Days' => 'Days',
     'ReviewRating' => 'Reviews & Ratings',

@@ -33,9 +33,8 @@
                       @csrf
                           <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item--x">
                             <span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-profile"></span></span>
-                            <input class="la-form__input la-entry__input" type="text" value="" name="display_name" placeholder="Display Name">
+                            <input class="la-form__input la-entry__input" type="text" name="display_name" placeholder="Display Name" required>
                           </div>
-                          
                             @error('display_name')
                                 <span class="alert alert-danger">{{ $message }}</span>
                             @enderror 
@@ -43,14 +42,14 @@
 
                           <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item--x">
                             <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-expert-in"></span></span>
-                            <input class="la-form__input la-entry__input" type="text" value="" name="expert_in" placeholder="Expert In">
+                            <input class="la-form__input la-entry__input" type="text" value="" name="expert_in" placeholder="Expert In" required>
                           </div>
                           @error('expert_in')
                               <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
                           <div class="la-form__input-wrap la-entry__input-wrap la-anim__stagger-item--x">
                             <span class="la-entry__input-icon"><span class="la-icon la-icon--lg icon-experience"></span></span>
-                            <input class="la-form__input la-entry__input" type="number" value="" name="yoe" placeholder="Years of Experience">
+                            <input class="la-form__input la-entry__input" type="number" value="" name="yoe" placeholder="Years of Experience" required>
                           </div>
                           @error('yoe')
                               <div class="alert alert-danger">{{ $message }}</div>

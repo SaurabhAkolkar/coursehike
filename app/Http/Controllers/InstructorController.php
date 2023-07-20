@@ -44,7 +44,6 @@ class InstructorController extends Controller
         $check = null;
         if(Auth::check()){
                 $check = Instructor::where('user_id',Auth::user()->id)->first();
-
         }
         return view('learners.auth.creator-signup',compact('check'));
     }
@@ -62,27 +61,29 @@ class InstructorController extends Controller
                 return 'You are already a mentor.';
             }
             
-            $check = Instructor::where('user_id', Auth::User()->id)->first();
-            if($check){
-                return 'You already have a request for the becoming a mentor.';
-            }
-            if(Auth::user()->dob == "" || Auth::user()->detail == "" || Auth::user()->address =="" || Auth::user()->state_id =="" || Auth::user()->country_id =="" ){
-                return 'Update your profile to become a creator';
-            }
+            // $check = Instructor::where('user_id', Auth::User()->id)->first();
+            // if($check){
+            //     return 'You already have a request for the becoming a mentor.';
+            // }
+            
+            // if(Auth::user()->dob == "" || Auth::user()->detail == "" || Auth::user()->address =="" || Auth::user()->state_id =="" || Auth::user()->country_id =="" ){
+            //     return 'Update your profile to become a creator';
+            // }
+            $user = Auth::user();
             $portfolio = $request->all_portfolio;
             $portfolio= json_encode(explode(",",$portfolio));
             $awards = $request->all_awards;
             $awards= json_encode(explode(",",$awards));
-            $input['user_id'] = Auth::user()->id;
-            $input['fname'] = Auth::user()->fname;
-            $input['lname'] = Auth::user()->lname;
-            $input['dob'] = Auth::user()->dob;
-            $input['email'] = Auth::user()->email;
-            $input['gender'] = Auth::user()->gender;
-            $input['detail'] = Auth::user()->detail;
-            $input['image'] = Auth::user()->user_img;
-            $input['role'] = Auth::user()->role;
-
+            $input['user_id'] = $user->id;
+            $input['fname'] = $user->fname;
+            $input['lname'] = $user->lname;
+            $input['dob'] = $user->dob;
+            $input['email'] = $user->email;
+            $input['gender'] = $user->gender;
+            $input['detail'] = $user->detail;
+            $input['image'] = $user->user_img;
+            $user->role = "mentors";
+            $user->save();
             $input['display_name'] = $request->display_name;
             $input['awards'] = $awards;
             $input['portfolio_links'] = $portfolio;

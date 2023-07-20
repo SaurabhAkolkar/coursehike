@@ -374,7 +374,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::get("admin/gcat","CourseController@gcato");
 
 
-      Route::get('instructor', 'InstructorController@index')->name('instructor.index');
+      Route::get('/instructor', 'InstructorController@index')->name('instructor.index');
       Route::resource('userenroll', 'InstructorEnrollController');
       Route::resource('instructorquestion', 'InstructorQuestionController');
       Route::resource('instructoranswer', 'InstructorAnswerController');

@@ -147,6 +147,13 @@ class CourseController extends Controller
             // }
         }
 
+        if ($file = $request->file('video_preview_img')) {
+            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+
+            Storage::put(config('path.course.img').$file_name, fopen($file->getRealPath(), 'r+') );
+            $data['video_preview_img'] = $file_name;
+        }
+
         $data->slug = Str::slug($request->title, '-');
         $data->status = 0;
 

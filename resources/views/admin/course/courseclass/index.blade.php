@@ -4,7 +4,7 @@
     <div class="col-md-12 px-0 px-md-4">
       <div class="text-right">
         <a data-toggle="modal" data-target="#myModalab" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.UploadVideo') }}</a>
-        <a data-toggle="modal" data-target="#exitingVideo" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.ExistingChapter') }}</a>
+        {{-- <a data-toggle="modal" data-target="#exitingVideo" href="#" class="btn btn-info btn-sm">+ {{ __('adminstaticword.Add') }} {{ __('adminstaticword.ExistingChapter') }}</a> --}}
       </div><br/>
 
       <div class="la-admin__tab-table">

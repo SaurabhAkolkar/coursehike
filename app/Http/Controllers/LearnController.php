@@ -237,18 +237,18 @@ class LearnController extends Controller
         if($class_video)
         {
 
-            if(count($class_video->multilingual) > 0)
-                $multilingual = $class_video->multilingual->mapWithKeys(function ($model, $i) {
-                    return [$i => [ 'lang' => $model->vid_lang , 'lang_code' => $model->lang_code, 'stream_url' => $model->getSignedStreamURL()]];
-                })->toArray();
+            // if(count($class_video->multilingual) > 0)
+            //     $multilingual = $class_video->multilingual->mapWithKeys(function ($model, $i) {
+            //         return [$i => [ 'lang' => $model->vid_lang , 'lang_code' => $model->lang_code, 'stream_url' => $model->getSignedStreamURL()]];
+            //     })->toArray();
 
-            array_unshift($multilingual, [  'lang' => 'English' , 'lang_code' => 'en', 'stream_url' => $class_video->getSignedStreamURL() ]);
+            // array_unshift($multilingual, [  'lang' => 'English' , 'lang_code' => 'en', 'stream_url' => $class_video->getSignedStreamURL() ]);
 
             $response = array(
                 'status' => 'success',
                 'data' => [
                     'title' => $class_video->title,
-                    'url' => $class_video->getSignedStreamURL(),
+                    'url' => "https://www.youtube.com/watch?v=w7cJhF3yfvc",//$class_video->getSignedStreamURL(),
                     'poster' => $class_video->video_preview_img,
                     'subtitles' => $class_video->subtitle,
                     'multilingual' => $multilingual,
