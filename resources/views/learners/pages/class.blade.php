@@ -216,7 +216,7 @@ $course_id = $course->id;
           <div class="la-vcourse__class-col la-vcourse__class-col--video  la-anim__stagger-item">
             <div class="la-player la-vcourse__video-wrap mb-3">
               
-                <video-js
+                {{-- <video-js
                   id="lila-video"
                   class="la-vcourse__video video-js"
                   controls
@@ -227,10 +227,10 @@ $course_id = $course->id;
                   poster="{{ $course->video_preview_img }}"
                   data-setup='{"fluid": true, "aspectRatio": "16:9"}'
                   type="application/x-mpegURL"
-                >
+                > --}}
                   {{-- <source src="{{ $course->getSignedStreamURL()}}" type="application/x-mpegURL" /> --}}
                   <p class="vjs-no-js"></p>
-                </video-js>
+                {{-- </video-js> --}}
 
             </div>
             <h2 class="la-vlesson__title m-0  text-capitalize la-anim__stagger-item">{{ $course->title}} - Class Preview</h2>
@@ -962,3 +962,7 @@ $course_id = $course->id;
 
   </script>
 @endsection
+
+
+
+// https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=INFY&interval=5min&apikey=9Y1ZIP6PWRX8DV7G
