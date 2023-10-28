@@ -36,4 +36,23 @@ class Quiz extends Model
     	return $this->hasMany('App\QuizAnswer','question_id');
     }
     
+    /**
+     * Get the quiztopic that owns the Quiz
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function quiztopic()
+    {
+        return $this->belongsTo(QuizTopic::class, 'topic_id');
+    }
+
+    /**
+     * Get the quiztopic that owns the Quiz
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function course()
+    {
+        return $this->belongsTo(Course::class, 'course_id');
+    }
 }

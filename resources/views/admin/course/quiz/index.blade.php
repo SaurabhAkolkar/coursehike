@@ -20,7 +20,7 @@
         <div class="box-header with-border">
           <h3 class="box-title">{{ __('adminstaticword.Quiz') }} {{ __('adminstaticword.Question') }}</h3>
         </div>
-        <div class="box-header">
+        <div class="text-right">
           <a data-toggle="modal" data-target="#myModalquiz" href="#" class="btn btn-info btn-sm">+   {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Question') }}</a>
         </div>
 
@@ -44,13 +44,13 @@
                 </tr>
               </thead>
               <tbody>
-                <?php $i=0;?>
-                @foreach($quizes as $quiz)
-                <?php $i++;?>
+                
+                @foreach($quizes as $key => $quiz)
+                
                   <tr>
-                    <td><?php echo $i;?></td>
-                    <td>{{$quiz->course_id}}</td>
-                    <td>{{$quiz->topic_id}}</td> 
+                    <td>{{ ++$key }}</td>
+                    <td>{{$quiz->course->title}}</td>
+                    <td>{{$quiz->quiztopic->title}}</td> 
                     <td>{{$quiz->question}}</td>
                     <td>{{$quiz->a}}</td>
                     <td>{{$quiz->b}}</td>
@@ -89,21 +89,21 @@
 
                                 <input type="hidden" name="topic_id" value="{{ $topic->id }}"  />
 
-                                <div class="row"> 
-                                  <div class="col-md-6">
-                                    <label for="exampleInputTit1e">{{ __('adminstaticword.Question') }}</label>
-                                    <textarea name="question" rows="6" class="form-control" placeholder="Enter Your Question" >{{ $quiz->question }}</textarea>
-                                    <br>
+                              
+                                <label for="exampleInputTit1e">{{ __('adminstaticword.Question') }}</label>
+                                <textarea name="question" rows="6" class="form-control" placeholder="Enter Your Question" >{{ $quiz->question }}</textarea>
+                                <br>
 
-                                    <label for="exampleInputDetails">{{ __('adminstaticword.Answer') }}:<sup class="redstar">*</sup></label>
-                                    <select style="width: 100%" name="answer" class="form-control js-example-basic-single">
-                                      <option {{ $quiz->answer == 'A' ? 'selected' : ''}} value="A">{{ __('adminstaticword.A') }}</option>
-                                      <option {{ $quiz->answer == 'B' ? 'selected' : ''}} value="B">{{ __('adminstaticword.B') }}</option>
-                                      <option {{ $quiz->answer == 'C' ? 'selected' : ''}} value="C">{{ __('adminstaticword.C') }}</option>
-                                      <option  {{ $quiz->answer == 'D' ? 'selected' : ''}} value="D">{{ __('adminstaticword.D') }}</option>
-                                    </select>
-                                  </div>
-                                
+                                <label for="exampleInputDetails">{{ __('adminstaticword.Answer') }}:<sup class="redstar">*</sup></label>
+                                <select style="width: 100%" name="answer" class="form-control js-example-basic-single">
+                                  <option {{ $quiz->answer == 'A' ? 'selected' : ''}} value="A">{{ __('adminstaticword.A') }}</option>
+                                  <option {{ $quiz->answer == 'B' ? 'selected' : ''}} value="B">{{ __('adminstaticword.B') }}</option>
+                                  <option {{ $quiz->answer == 'C' ? 'selected' : ''}} value="C">{{ __('adminstaticword.C') }}</option>
+                                  <option  {{ $quiz->answer == 'D' ? 'selected' : ''}} value="D">{{ __('adminstaticword.D') }}</option>
+                                </select>
+                                <br>
+                                 
+                                <div class="row"> 
                              
                                   <div class="col-md-6">
                                    
@@ -146,7 +146,7 @@
                     </div>
                   </div>
                   <!--Model close -->
-          
+                  
       
                 @endforeach
 
@@ -163,7 +163,7 @@
 <div class="modal fade" id="myModalquiz" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header d-block">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel"> {{ __('adminstaticword.Add') }} {{ __('adminstaticword.Question') }}</h4>
       </div>
@@ -176,9 +176,9 @@
               <input type="hidden" name="course_id" value="{{ $topic->course_id }}"  />
 
               <input type="hidden" name="topic_id" value="{{ $topic->id }}"  />
-
-              <div class="row"> 
-                <div class="col-md-6">
+              
+              <div class="row">
+                
                   <label for="exampleInputTit1e">{{ __('adminstaticword.Question') }}</label>
                   <textarea name="question" rows="6" class="form-control" placeholder="Enter Your Question"></textarea>
                   <br>
@@ -193,11 +193,12 @@
                     <option value="C">{{ __('adminstaticword.C') }}</option>
                     <option value="D">{{ __('adminstaticword.D') }}</option>
                   </select>
-                </div>
-              
-           
+                
+              </div>
+              <br>
+              <div class="row"> 
+
                 <div class="col-md-6">
-                 
                   <label for="exampleInputDetails">{{ __('adminstaticword.AOption') }} :<sup class="redstar">*</sup></label>
                   <input type="text" name="a" class="form-control" placeholder="Enter Option A">
                 </div>
@@ -214,14 +215,11 @@
                 </div>
 
                 <div class="col-md-6">
-               
                   <label for="exampleInputDetails">{{ __('adminstaticword.DOption') }} :<sup class="redstar">*</sup></label>
                   <input type="text" name="d" class="form-control" placeholder="Enter Option D" />
                 </div>
-                 
 
-
-                </div>
+              </div>
               </div>
               <br>
              

@@ -34,6 +34,7 @@
               <li  class=""  role="presentation"><a href="#d" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.CourseChapter') }}</a></li>
               <li  class=""  role="presentation"><a href="#e" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.CourseClass') }}</a></li>
               <li  class=""  role="presentation"><a href="#resource" aria-controls="settings" role="tab" data-toggle="tab">Course Resource</a></li>
+              <li  class=""  role="presentation"><a href="#topic" aria-controls="topic" role="tab" data-toggle="tab">{{ __('adminstaticword.QuizTopic') }}</a></li>
               {{-- <li  class=""  role="presentation"><a href="#market" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.RelatedCourse') }}</a></li>
               <li  class=""  role="presentation"><a href="#copy" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.Question') }}</a></li>
               <li  class=""  role="presentation"><a href="#ans" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.Answer') }}</a></li>
@@ -41,7 +42,7 @@
               {{-- <li  class=""  role="presentation"><a href="#an" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.Announcement') }}</a></li> --}}
               @if(Auth::user()->id == $cor->user_id) <li class="" role="presentation"><a href="#publish" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.Publish') }}</a></li>@endif
               {{-- <li  class=""  role="presentation"><a href="#report" aria-controls="settings" role="tab" data-toggle="tab">{{ __('adminstaticword.ReviewReport') }}</a></li> --}}
-              {{-- <li  class=""  role="presentation"><a href="#topic" aria-controls="topic" role="tab" data-toggle="tab">{{ __('adminstaticword.QuizTopic') }}</a></li> --}}
+              
 
               {{-- @if($gsetting->appointment_enable == 1)
               <li  class=""  role="presentation"><a href="#appoint" aria-controls="Appointment" role="tab" data-toggle="tab">{{ __('adminstaticword.Appointment') }}</a></li>
