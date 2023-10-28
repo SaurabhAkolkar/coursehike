@@ -33,14 +33,14 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
 <script src="{{ url('js/sweetalert2@9.js')}}"></script>
 
 
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ $gsetting->google_ana }}"></script>
+{{-- Saurabh  <script async src="https://www.googletagmanager.com/gtag/js?id={{ $gsetting->google_ana }}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', '{{ $gsetting->google_ana }}');
-</script>
+</script> --}}
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -50,7 +50,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5CW2KJ5');</script>
 <!-- End Google Tag Manager -->
 
-@if($gsetting->rightclick=='1')
+{{-- Saurabh @if($gsetting->rightclick=='1')
 	<script>
 		(function($) {
   		"use strict";
@@ -85,7 +85,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	      }
       })(jQuery);
     </script>
-@endif
+@endif --}}
 
 <script>
 

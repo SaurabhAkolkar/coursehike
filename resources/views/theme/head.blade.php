@@ -2,11 +2,11 @@
 <meta charset="utf-8" />
 <title>@yield('title') | LILA</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="{{ $gsetting->meta_data_desc }}" />
-<meta name="keywords" content="{{ $gsetting->meta_data_keyword }}">
+{{-- saurabh <meta name="description" content="{{ $gsetting->meta_data_desc }}" />
+<meta name="keywords" content="{{ $gsetting->meta_data_keyword }}"> --}}
 <meta name="author" content="Media City" />
 <meta name="MobileOptimized" content="320" />
-<link rel="icon" type="image/icon" href="{{ asset('images/favicon/'.$gsetting->favicon) }}"> <!-- favicon-icon -->
+{{-- saurabh <link rel="icon" type="image/icon" href="{{ asset('images/favicon/'.$gsetting->favicon) }}"> <!-- favicon-icon --> --}}
 <!-- theme styles -->
 <link href="{{ url('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/> <!-- bootstrap css -->
 <link href="https://fonts.googleapis.com/css2?&family=Roboto:wght@300;400;500;700&family=Raleway:wght@700&display=swap" rel="stylesheet">

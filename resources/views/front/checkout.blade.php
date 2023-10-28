@@ -94,7 +94,7 @@
         			@endphp
 	            	<div class="payment-gateways">
 	            		<div id="accordion" class="second-accordion">
-	            			@if($gsetting->paypal_enable == 1)
+	            			{{-- Saurabh @if($gsetting->paypal_enable == 1) --}}
 						    <div class="card">
 	                            <div class="card-header" id="headingOne">
 							        <div class="panel-title">
@@ -122,8 +122,8 @@
 							        </div>
 							    </div>
 							</div>
-							@endif
-							@if($gsetting->instamojo_enable == 1)
+							{{-- Saurabh @endif
+							@if($gsetting->instamojo_enable == 1) --}}
 							<div class="card">
 	                            <div class="card-header" id="headingTwo">
 							        <div class="panel-title">
@@ -177,8 +177,8 @@
 							        </div>
 							    </div>
 							</div>
-							@endif
-							@if($gsetting->stripe_enable == 1)
+							{{-- Saurabh @endif
+							@if($gsetting->stripe_enable == 1) --}}
 							<div class="card">
 	                            <div class="card-header" id="headingThree">
 							        <div class="panel-title">
@@ -257,11 +257,11 @@
 							        </div>
 							    </div>
 							</div>
-							@endif
+							{{-- Saurabh  @endif
 							@if($gsetting->braintree_enable == 1)
 							
 							@endif
-							@if($gsetting->razorpay_enable == 1)
+							@if($gsetting->razorpay_enable == 1) --}}
 							<div class="card">
 	                            <div class="card-header" id="headingSix">
 							        <div class="panel-title">
@@ -306,8 +306,8 @@
 							        </div>
 							    </div>
 							</div>
-							@endif
-							@if($gsetting->paystack_enable == 1)
+							{{-- Saurabh @endif
+							@if($gsetting->paystack_enable == 1) --}}
 							<div class="card">
 	                            <div class="card-header" id="headingSeven">
 							        <div class="panel-title">
@@ -346,8 +346,8 @@
 							        </div>
 							    </div>
 							</div>
-							@endif
-							@if($gsetting->paytm_enable == 1)
+							{{-- Saurabh @endif
+							@if($gsetting->paytm_enable == 1) --}}
 							<div class="card">
 	                            <div class="card-header" id="headingFour">
 							        <div class="panel-title">
@@ -401,7 +401,7 @@
 							        </div>
 							    </div>
 							</div>
-							@endif
+							{{-- Saurabh @endif --}}
 
 							@php
 								$banktransfer = App\BankTransfer::first();

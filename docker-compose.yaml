@@ -1,0 +1,30 @@
+version: '3'
+services:
+  mysql:
+    container_name: coursehike_db
+    restart: always
+    image: mysql:latest
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root 
+      MYSQL_USER: coursehike
+      MYSQL_PASSWORD: hikecourse
+      MYSQL_DATABASE: courseHike_dev
+    volumes:
+      - db-data:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    restart: always
+    depends_on:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+      UPLOAD_LIMIT: 300M
+    ports:
+      - "8080:80"
+volumes:
+  db-data:

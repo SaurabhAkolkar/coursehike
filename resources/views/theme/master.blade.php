@@ -25,7 +25,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
 <!-- body start-->
 <body>
 <!-- preloader --> 
-@if($gsetting->preloader_enable == 1)
+{{-- saurabh @if($gsetting->preloader_enable == 1)
 <div class="preloader">
     <div class="status">
         <div class="status-message">
@@ -33,7 +33,7 @@ $rtl = array('ar','he','ur', 'arc', 'az', 'dv', 'ku'); //make a list of rtl lang
         </div>
     </div>
 </div>
-@endif
+@endif --}}
 
 @php
   if(isset(Auth::user()->orders)){

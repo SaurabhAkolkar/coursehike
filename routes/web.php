@@ -547,6 +547,9 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::get('razorpay', 'RazorpayController@pay')->name('pay');
       Route::post('dopayment', 'RazorpayController@dopayment')->name('dopayment');
 
+      Route::get('rproduct', 'RazorpayController@rproduct')->name('rproduct');
+      Route::post('razorpay-payment', 'RazorpayController@razorpay_payment')->name('rp');
+
       Route::post('/paywithpaystack', 'PayStackController@redirectToGateway')->name('paywithpaystack');
       Route::get('callback', 'PayStackController@handleGatewayCallback');
 

@@ -100,7 +100,7 @@
                                 @endif
                             </li>
 
-                            <li>{{ $cpy_txt }}</li>
+                            {{-- Saurabh <li>{{ $cpy_txt }}</li> --}}
                         </ul>
                     </div>
                 </div>

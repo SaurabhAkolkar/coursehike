@@ -1,4 +1,4 @@
-@if($gsetting->promo_enable == 1)
+{{-- Saurabh @if($gsetting->promo_enable == 1)
 <div id="promo-outer">
     <div id="promo-inner">
         <a href="{{ $gsetting['promo_link'] }}">{{ $gsetting['promo_text'] }}</a>
@@ -6,7 +6,7 @@
     </div>
 </div>
 <div id="promo-tab" class="display-none">SHOW</div>
-@endif
+@endif --}}
 
 <section id="nav-bar" class="nav-bar-main-block">
     <div class="container">
@@ -204,9 +204,9 @@
                         <a href="{{ route('purchase.show') }}"><li><i class="fa fa-shopping-cart"></i>{{ __('frontstaticword.PurchaseHistory') }}</li></a>
                         <a href="{{route('profile.show',Auth::User()->id)}}"><li ><i class="fa fa-user"></i>{{ __('frontstaticword.UserProfile') }}</li></a>
                         @if(Auth::User()->role == "user")
-                            @if($gsetting->instructor_enable == 1)
+                            {{-- Saurabh @if($gsetting->instructor_enable == 1)
                             <a href="#" data-toggle="modal" data-target="#myModalinstructor" title="Become An Instructor"><li><i class="fas fa-chalkboard-teacher"></i>{{ __('frontstaticword.BecomeAnInstructor') }}</li></a>
-                            @endif
+                            @endif --}}
                 
                         @endif
 
@@ -448,17 +448,17 @@
                                 <a href="{{ route('purchase.show') }}"><li><i class="fa fa-shopping-cart"></i>{{ __('frontstaticword.PurchaseHistory') }}</li></a>
                                 <a href="{{route('profile.show',Auth::User()->id)}}"><li ><i class="fa fa-user"></i>{{ __('frontstaticword.UserProfile') }}</li></a>
                                 @if(Auth::User()->role == "user")
-                                @if($gsetting->instructor_enable == 1)
+                                {{-- Saurabh @if($gsetting->instructor_enable == 1)
                                 <a href="#" data-toggle="modal" data-target="#myModalinstructor" title="Become An Instructor"><li><i class="fas fa-chalkboard-teacher"></i>{{ __('frontstaticword.BecomeAnInstructor') }}</li></a>
 
-                                @endif
+                                @endif --}}
                         
                                 @endif
 
                                 @if(Auth::User()->role == "user" || Auth::User()->role == "mentors")
-                                @if($gsetting->device_control == 1)
+                                {{-- Saurabh  @if($gsetting->device_control == 1)
                                 <a href="{{ route('active.courses') }}" title="Watchlist"><li><i class="fas fa-swatchbook"></i>{{ __('frontstaticword.Watchlist') }}</li></a>
-                                @endif
+                                @endif --}}
                                 @endif
 
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
