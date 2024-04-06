@@ -17,7 +17,7 @@ class Wishlist extends Model
         return $this->belongsTo('App\User','user_id','id');
     }
 
-    public function courses()
+    public function course()
     {
         return $this->belongsTo('App\Course','course_id','id');
 

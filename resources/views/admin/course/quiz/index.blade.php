@@ -198,26 +198,26 @@
               <br>
               <div class="row"> 
 
-                <div class="col-md-6">
+                {{-- <div class="col-md-6"> --}}
                   <label for="exampleInputDetails">{{ __('adminstaticword.AOption') }} :<sup class="redstar">*</sup></label>
                   <input type="text" name="a" class="form-control" placeholder="Enter Option A">
-                </div>
+                {{-- </div> --}}
                
-                <div class="col-md-6">
+                {{-- <div class="col-md-6"> --}}
                   <label for="exampleInputDetails">{{ __('adminstaticword.BOption') }} :<sup class="redstar">*</sup></label>
                   <input type="text" name="b" class="form-control" placeholder="Enter Option B" />
-                </div>
+                {{-- </div> --}}
 
-                <div class="col-md-6">
+                {{-- <div class="col-md-6"> --}}
               
                   <label for="exampleInputDetails">{{ __('adminstaticword.COption') }} :<sup class="redstar">*</sup></label>
                   <input type="text" name="c" class="form-control" placeholder="Enter Option C" />
-                </div>
+                {{-- </div> --}}
 
-                <div class="col-md-6">
+                {{-- <div class="col-md-6"> --}}
                   <label for="exampleInputDetails">{{ __('adminstaticword.DOption') }} :<sup class="redstar">*</sup></label>
                   <input type="text" name="d" class="form-control" placeholder="Enter Option D" />
-                </div>
+                {{-- </div> --}}
 
               </div>
               </div>

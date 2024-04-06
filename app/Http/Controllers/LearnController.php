@@ -421,6 +421,7 @@ class LearnController extends Controller
             }
 
         }
+        dd("watchclass");
         return Redirect::route('login')->withInput()->with('delete', 'Please Login to access restricted area.');
     }
 
@@ -577,6 +578,7 @@ class LearnController extends Controller
             }
 
         }
+        dd("audioclass");
         return Redirect::route('login')->withInput()->with('delete', 'Please Login to access restricted area.');
     }
 

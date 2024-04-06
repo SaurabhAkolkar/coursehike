@@ -1,0 +1,517 @@
+body {
+    overflow-x: clip;
+}
+
+.chike-header-course-title {
+    margin-bottom: 25px;
+}
+
+.chike-description-more-content {
+    display: none;
+}
+
+.chike-cat-title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23px;
+}
+
+.chike-course-like {
+    float: right;
+    padding: 8px;
+    color: #808080;
+    font-size: 22px;
+    padding: 8px 15px 5px 15px;
+}
+
+.chike-course-like:hover {
+    color: #ff0000;
+}
+
+.chike-apply-coupon-title {
+    font-weight: 700;
+    text-align: center;
+}
+
+.chike-apply-coupon-btn {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: auto;
+    padding: 0px 30px;
+    height: 100%;
+    text-align: center;
+    line-height: 28px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.course-sidebar .banner-form .form-control {
+    height: 40px;
+}
+
+.chike-you-will-get {
+    padding: 0px 40px;
+}
+
+.chike-you-will-get i {
+    color: #5A5C5D !important;
+}
+
+.chike-preview-course-title {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 28.75px;
+    color: #fff;
+    margin-top: 25px;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+    background-color: transparent;
+}
+
+.chike-mentor-profile {
+    padding: 5px 15px;
+    color: #000;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: 600;
+    width: 42 px;
+    height: 40px;
+    margin-right: 10px;
+    background-color: #ffffff;
+}
+
+#chike-q-and-a-search-form .form-control {
+    height: 50px;
+    padding-right: 0px;
+}
+
+.chike-ask-question-submit-btn {
+    font-size: 16px;
+    margin: 5px 0px 0px 15px;
+}
+
+.tutori-course-content .learn-press-nav-tabs .course-nav a {
+    padding: 0px 15px 15px 0px;
+    margin-right: 30px;
+}
+
+/*===Video accordion==*/
+.chike-video-info-box-accordion-header {
+    background-color: #F4F4F4;
+    cursor: pointer;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #3479E2;
+    background-color: #D9D9D9;
+}
+
+.accordion-body {
+    background-color: #ffffff;
+}
+
+.progress {
+    height: 0.2rem;
+}
+
+.chike-video-unlocked-status {
+    color: #3479E2 !important;
+}
+
+/*===faqs accordion==*/
+#accordionFaqs .chike-faqs-accordion-header,
+#accordionFaqs #accordionSubFaqs .chike-faqs-accordion-header {
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+#accordionFaqs .accordion-item {
+    margin-bottom: 20px;
+}
+
+.chike-list-group-item.active {
+    z-index: 2;
+    color: #000;
+    background-color: #D9D9D9;
+    border-color: #D9D9D9;
+}
+
+/*=====comment====*/
+.comments .course-review {
+    background-color: #ffffff;
+    position: relative;
+}
+
+.comments .course-single-review {
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.chike-comment-answered-status {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 16px
+}
+
+.chike-comment-time {
+    font-size: 12px;
+    color: #B8B8B8;
+}
+
+.chike-comment-replay-box {
+    padding: 15px 0px 30px 50px;
+    display: block;
+}
+
+.chike-comment-box {
+    width: 100%;
+    padding: 15px;
+    margin: 0;
+}
+
+.chike-leftside-pricebox-sticky {
+    position: sticky;
+    top: 80px;
+    z-index: 99;
+}
+
+.chike-leftside-pricebox-sticky .chike-course-like {
+    float: right;
+    padding: 8px;
+    color: #808080;
+    font-size: 22px;
+    padding: 8px 15px 5px 15px;
+    border: 1px solid #eee;
+    margin-top: 8px;
+}
+
+.course-meta i {
+    color: #C5C4C4;
+}
+
+.chike-comment-job-profile-type {
+    color: #3479E2;
+    font-size: 12px;
+}
+
+.chike-profile-icon-bg-grey {
+    color: #ffffff;
+    background: #7D8590;
+    padding: 5px 11px;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+.chike-profile-icon-bg-green {
+    color: #ffffff;
+    background: #00AF51;
+    padding: 5px 11px;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+.chike-profile-icon-bg-blue {
+    color: #ffffff;
+    background: #3479E2;
+    padding: 5px 11px;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+.course-single-review .user-image {
+    margin-right: 20px;
+}
+
+#nav-feedback .course-single-review-box {
+    padding: 10px 0px 30px 0px;
+    border: none;
+    border-bottom: 2px solid #ddd !important;
+}
+
+.course-meta a {
+    color: #BDBCBC;
+}
+
+.course-meta a:hover,
+.course-meta a:hover i {
+    color: #000000;
+}
+
+/*--------rating card------*/
+.chike-overall-rating-box .chike-rating-star {
+    margin-left: 5px;
+}
+
+.chike-overall-rating-box .chike-rating-star i {
+    color: #F8BC24;
+}
+
+.chike-overall-rating-box {
+    background-color: #ffffff;
+    margin-top: 20px;
+    padding: 25px;
+}
+
+.chike-overall-rating-box .progress {
+    height: 0.5rem;
+}
+
+.chike-overall-rating-box .progress-bar {
+    background-color: #F8BC24;
+}
+
+/*======Review Modal======*/
+#chikeLeaveaReviewModal .btn-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+#chikeLeaveaReviewModal .modal-title {
+    font-size: 24px;
+}
+
+#chikeLeaveaReviewModal .rating-stars {
+    margin: 15px 0px
+}
+
+#chikeLeaveaReviewModal .modal-footer {
+    text-align: center;
+    justify-content: center;
+}
+
+.chike-all-questions-title {
+    margin-bottom: 25px !important;
+}
+
+/* Rating Star Widgets Style */
+#chikeLeaveaReviewModal .rating-stars ul {
+    list-style-type: none;
+    padding: 0;
+    /* user-select: all; */
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+#chikeLeaveaReviewModal .rating-stars ul>li.star {
+    display: inline-block;
+
+}
+
+/* Idle State of the stars */
+#chikeLeaveaReviewModal .rating-stars ul>li.star>i.fa {
+    font-size: 2.5em;
+    /* Change the size of the stars */
+    color: #ccc;
+    /* Color on idle state */
+    cursor: pointer;
+}
+
+/* Hover state of the stars */
+#chikeLeaveaReviewModal .rating-stars ul>li.star.hover>i.fa {
+    color: #FFCC36;
+}
+
+/* Selected state of the stars */
+#chikeLeaveaReviewModal .rating-stars ul>li.star.selected>i.fa {
+    color: #FFCC36;
+}
+
+#chikeLeaveaReviewModal .success-box {
+    padding: 0px 0px 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #00AF51;
+}
+
+.chike-featured-courses-box .chike-course-like {
+    float: right;
+    padding: 8px;
+    color: #808080;
+    font-size: 22px;
+    padding: 8px 15px 5px 15px;
+    margin: 0px;
+    border: none !important;
+}
+
+.chike-featured-courses-box .chike-course-like:hover {
+    color: #ff0000 !important;
+}
+
+#chikeLeaveaReviewModal .modal-content {
+    top: 50px;
+}
+
+.mfp-image-holder .mfp-close,
+.mfp-iframe-holder .mfp-close {
+    color: #FFF;
+    right: 0px;
+    text-align: right;
+    padding-right: 13px;
+    width: auto;
+}
+
+.chike-menu-icon {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .chike-featured-courses-box .chike-course-like {
+        float: right;
+    }
+
+    .tutori-course-single {
+        padding: 0px;
+    }
+
+    .course-top-wrap select {
+        margin-top: 15px;
+    }
+
+    #chikeLeaveaReviewModalBtn {
+        width: 100%;
+    }
+
+    .chike-preview-course-title {
+        margin-top: 50px;
+        margin-bottom: 0px;
+    }
+
+    .chike-description-show_hide {
+        float: right;
+        font-weight: 600;
+    }
+
+    .single-course-details p {
+        margin-bottom: 0px;
+    }
+
+    .chike-all-questions-title {
+        margin-top: 25px;
+    }
+
+    .course-single-review .user-image {
+        margin-right: 10px;
+    }
+
+    /*--*/
+    .chike-comment-answered-status {
+        right: 15px;
+        top: 5px;
+        font-size: 12px;
+    }
+
+    .user-review-content .user-name {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .chike-comment-time {
+        font-size: 10px;
+    }
+
+    .course-meta span {
+        font-size: 12px;
+    }
+
+    .chike-comment-replay-box {
+        padding: 15px 0px 15px 0px;
+    }
+
+    .comments .course-single-review {
+        padding: 15px;
+    }
+
+    .chike-comment-box {
+        text-align: center;
+    }
+
+    .course-single-review .user-review-content {
+        padding: 0px;
+    }
+
+    .chike-ask-question-submit-btn {
+        margin: 20px 0px 0px 0px;
+        width: 50%;
+    }
+
+    .chike-menu-title {
+        display: none;
+    }
+
+    .chike-menu-icon {
+        display: block;
+        width: 30px;
+        height: 30px;
+        color: #BDBCBC;
+    }
+
+    .tutori-course-content .learn-press-nav-tabs .course-nav a {
+        padding: 15px 15px 10px 15px;
+        margin: -1px auto;
+    }
+
+    .course-single-tabs .nav {
+        display: flex !important;
+    }
+
+    .nav .nav-link svg {
+        fill: #BDBCBC;
+    }
+
+    .nav .nav-link.active svg {
+        fill: #3479E2 !important;
+    }
+}
+
+/* course content  */
+.chike-hide {
+    display: none !important;
+}
+
+.chike-show {
+    display: block !important;
+}
+
+/* alert message */
+#pageMessages {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 30%;
+}
+
+.alert {
+    position: relative;
+}
+
+.alert .close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1em;
+}
+
+.alert .fa {
+    margin-right: .3em;
+}

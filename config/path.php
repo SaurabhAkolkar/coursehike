@@ -22,10 +22,11 @@ return array(
     'category' => 'public/img/category/',
     'course' => [
         'img' => 'public/images/course/',
+        'image' => '/storage/images/course/',
         'class_thumnail' => 'public/images/class_thumnail/',
         'video_thumnail' => 'public/images/video_thumnail/',
 
-        'preview_video' => 'public/assets/video/course_preview/',
+        'preview_video' => 'upload/course/',
         'video' => 'assets/video/course/',
 
         'audio_tracks' => 'public/assets/audio_tracks/',

@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Categories;
-use App\Slider;
-use App\SliderFacts;
-use App\CategorySlider;
-use App\Course;
 use App\BundleCourse;
-use App\Playlist;
-use App\MasterClass;
-use App\FirstSection;
+use App\Cart;
+use App\Categories;
+use App\Course;
+use App\EmailSubscribe;
 use App\FeaturedMentor;
+use App\FirstSection;
+use App\MasterClass;
+use App\Playlist;
+use App\Wishlist;
 use Auth;
-use App\CourseLanguage;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use stdClass;
+
 class HomeController extends Controller
 {
     /**
@@ -44,52 +44,55 @@ class HomeController extends Controller
         });
 
         $filter_categories = Cache::remember('home_filter_categories', $seconds = 86400, function () {
-            return Categories::with('subcategory', 'courses', 'courses.user')->where(['status'=>1])->get();
+            return Categories::with('subcategory', 'courses', 'courses.user')->where(['status' => 1])->get();
         });
 
         $selected_categories = [];
-		$selected_level = [];
-		$selected_languages = [];
-		$sort_type = "";
-		$filtres_applied = false;
+        $selected_level = [];
+        $selected_languages = [];
+        $sort_type = "";
+        $filtres_applied = false;
         $selected_duration = "";
         $courses = [];
 
         $firstSection = Cache::remember('home_FirstSection', $seconds = 86400, function () {
             $firstSection = FirstSection::first();
-            if($firstSection == null){
+            if ($firstSection == null) {
                 $firstSection = new stdClass;
                 $firstSection->sub_heading = 'Observe, learn and converse with creators to master your arts';
                 $firstSection->image = asset('images/learners/home/design-a@2x.png');
                 $firstSection->image_text = 'DESIGN';
-                $firstSection->video_url = Null;
+                $firstSection->video_url = null;
                 $firstSection->heading = "Japnies";
             }
             return $firstSection;
         });
 
-        if(Auth::check())
+        if (Auth::check()) {
             $playlists = Playlist::where('user_id', Auth::user()->id)->get();
+        }
 
         $master_classes = Cache::remember('home_master_classes', $seconds = 86400, function () {
-            return MasterClass::with(array('courses' => function($query) {$query->with('user')->where('status', 1)->orderBy('order');}),'courses.user', 'review')->get();
+            return MasterClass::with(array('courses' => function ($query) {$query->with('user')->where('status', 1)->orderBy('order');}), 'courses.user', 'review')->get();
         });
-        
+
         $featuredMentor = Cache::remember('home_featuredMentor', $seconds = 86400, function () {
-            return FeaturedMentor::with('user','courses','courses.category')->where(['status'=>'1'])->get();
+            return FeaturedMentor::with('user', 'courses', 'courses.category')->where(['status' => '1'])->get();
         });
 
         $bundleCoures = Cache::remember('home_bundle', $seconds = 86400, function () {
-            return BundleCourse::with('user')->where(['status'=>1])->get();
-        });
-        
-        $categories = Cache::remember('home_categories', $seconds = 86400, function () {
-            return Categories::with(array('courses' => function($query) {$query->orderBy('order')->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+            return BundleCourse::with('user')->where(['status' => 1])->get();
         });
 
+        $categories = Cache::remember('home_categories', $seconds = 86400, function () {
+            return Categories::with('subcategory')->orderBy('id', 'ASC')->get();
+            // return Categories::with(array('courses' => function($query) {$query->orderBy('order')->where('status', 1);}),'subcategory')->where('featured','1')->orderBy('position','ASC')->get();
+        });
+        $carts = Cart::where("user_id", Auth::id())->get()->count();
 
         $data = [
-            'categories'=>$categories,
+            'categories' => $categories,
+            'cart_items' => $carts,
             'playlists' => $playlists,
             'firstSection' => $firstSection,
             'featuredMentor' => $featuredMentor,
@@ -110,16 +113,28 @@ class HomeController extends Controller
             'filtres_applied' => $filtres_applied,
             'courses' => $courses,
             // 'langauges' => $langauges,
-            'filter_categories'=>$filter_categories,
-            'bundleCoures' => $bundleCoures
+            'filter_categories' => $filter_categories,
+            'bundleCoures' => $bundleCoures,
         ];
 
-        return view('learners.pages.home')->with($data);
+        return view('newui.homex')->with($data);
+        // return view('learners.pages.home')->with($data);
     }
 
     public function demo()
     {
         return view('learners.pages.demo');
+    }
+
+    public function email_subscriber(Request $request)
+    {
+        $request->validate([
+            'email' => 'unique:email_subscribes'
+        ]);
+        $data = $request->all();
+        $data["user_id"] = Auth::id();
+        EmailSubscribe::create($data);
+        return back()->with("info", "Thanks for subscribe.");
     }
 
 }

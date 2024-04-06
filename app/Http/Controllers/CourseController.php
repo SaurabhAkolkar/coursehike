@@ -2,56 +2,121 @@
 
 namespace App\Http\Controllers;
 
-use App\Course;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
-use App\AdditionalVideo;
-use DB;
-use Image;
-use App\CourseInclude;
-use App\WhatLearn;
-use App\CourseChapter;
-use App\RelatedCourse;
-use App\CourseClass;
-use App\CourseResource;
-use App\Categories;
-use App\User;
-use App\Wishlist;
-use App\ReviewRating;
-use App\Question;
+use App\Adsense;
 use App\Announcement;
-use App\Order;
 use App\Answer;
+use App\Appointment;
+use App\Assignment;
+use App\BBL;
+use App\BundleCourse;
 use App\Cart;
 use App\CartItem;
-use App\ReportReview;
-use App\SubCategory;
-use Session;
-use App\QuizTopic;
-use App\Quiz;
-use Auth;
-use Redirect;
-use App\BundleCourse;
-use App\CourseProgress;
-use App\Adsense;
-use App\Assignment;
-use App\Appointment;
-use App\BBL;
+use App\Categories;
+use App\Course;
+use App\CourseChapter;
+use App\CourseClass;
 use App\CourseClassMultilingual;
+use App\CourseInclude;
 use App\CourseLanguage;
-use App\Meeting;
-use App\PublishRequest;
+use App\CourseProgress;
+use App\CourseResource;
 use App\Currency;
 use App\Events\UploadMultilingualVideoToCloudEvent;
 use App\MasterClass;
+use App\Meeting;
+use App\Order;
+use App\PublishRequest;
+use App\Question;
+use App\Quiz;
+use App\QuizTopic;
+use App\RelatedCourse;
+use App\ReportReview;
+use App\ReviewRating;
+use App\SubCategory;
+use App\User;
+use App\WhatLearn;
+use App\Wishlist;
+use Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Image;
 use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
 use Pion\Laravel\ChunkUpload\Receiver\FileReceiver;
+use Redirect;
+use Session;
 
 class CourseController extends Controller
 {
+
+    public function course_overview($course_id)
+    {
+        $categories = Cache::remember('home_categories', $seconds = 86400, function () {
+            return Categories::with('subcategory')->orderBy('id', 'ASC')->get();
+        });
+        $course = Course::with('review', 'user')->where("id",$course_id)->first();
+        $cart_items = Cart::where("user_id", Auth::id())->get()->count();
+        return view("newui.course_overview")
+            ->with("categories", $categories)
+            ->with("course", $course)
+            ->with("cart_items", $cart_items);
+    }
+    public function course_content()
+    {
+        return view("newui.course_content");
+    }
+
+    public function all_course_list()
+    {
+        $categories = Cache::remember('home_categories', $seconds = 86400, function () {
+            return Categories::with('subcategory')->orderBy('id', 'ASC')->get();
+        });
+        $courses = Cache::remember('home_classes', $seconds = 86400, function () {
+            return Course::with('review', 'user')->get();
+        });
+        $cart_items = Cart::where("user_id", Auth::id())->get()->count();
+        return view("newui.all_course_list")
+            ->with("categories", $categories)
+            ->with("courses", $courses)
+            ->with("cart_items", $cart_items);
+    }
+
+    public function subcategoryAllCourse($subcategory_id)
+    {
+        $categories = Cache::remember('home_categories', $seconds = 86400, function () {
+            return Categories::with('subcategory')->orderBy('id', 'ASC')->get();
+        });
+        $courses =Course::with('review', 'user')->where("subcategory_id",$subcategory_id)->get();
+        $cart_items = Cart::where("user_id", Auth::id())->get()->count();
+        return view("newui.all_course_list")
+            ->with("categories", $categories)
+            ->with("courses", $courses)
+            ->with("cart_items", $cart_items);
+    }
+    
+
+    public function my_courses_list()
+    {
+        return view("newui.my_courses_list");
+    }
+
+    public function coursehike_sign_in()
+    {
+        $categories = Cache::remember('home_categories', $seconds = 86400, function () {
+            return Categories::with('subcategory')->orderBy('id', 'ASC')->get();
+        });
+        return view("newui.sign_in")->with("categories", $categories);
+
+    }
+    public function coursehike_sign_up()
+    {
+        $categories = Cache::remember('home_categories', $seconds = 86400, function () {
+            return Categories::with('subcategory')->orderBy('id', 'ASC')->get();
+        });
+        return view("newui.sign_up")->with("categories", $categories);
+    }
 
     /**
      * Display a listing of the resource.
@@ -76,11 +141,11 @@ class CourseController extends Controller
     public function create()
     {
         $category = Categories::all();
-        $user =  User::where(['role' => 'mentors'])->orWhere(['role'=>'admin'])->get();
+        $user = User::where(['role' => 'mentors'])->orWhere(['role' => 'admin'])->get();
         $course = Course::all();
         $coursechapter = CourseChapter::all();
-        $languages = CourseLanguage::where(['status'=>1])->get();
-        return view('admin.course.insert', compact("course", 'coursechapter', 'category', 'user','languages'));
+        $languages = CourseLanguage::where(['status' => 1])->get();
+        return view('admin.course.insert', compact("course", 'coursechapter', 'category', 'user', 'languages'));
     }
 
     /**
@@ -99,35 +164,34 @@ class CourseController extends Controller
             'title' => 'required',
             'short_detail' => 'required',
             'detail' => 'required',
-            'preview_image'=>'required',
-            'language_id'=>'required',
-            'requirement'=>'required',
+            'preview_image' => 'required',
+            'language_id' => 'required',
+            'requirement' => 'required',
             'video' => 'mimes:mp4,avi,wmv',
             // 'slug' => 'required|unique:courses,slug',
         ]);
 
         $input = $request->all();
-        
+
         $data = Course::create($input);
         $data->package_type = $request->package_type;
-
 
         if ($file = $request->file('preview_image')) {
             // $photo = Image::make($file)->fit(600, 360, function ($constraint) {
             //     $constraint->upsize();
             // })->encode('jpg', 70);
 
-            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
-            Storage::put(config('path.course.img').$file_name, fopen($file->getRealPath(), 'r+') );
+            $file_name = time() . rand() . '.' . $file->getClientOriginalExtension();
+            Storage::put(config('path.course.img') . $file_name, fopen($file->getRealPath(), 'r+'));
             $data->preview_image = $file_name;
 
         }
 
         if ($file = $request->file('preview_video')) {
 
-            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+            $file_name = time() . rand() . '.' . $file->getClientOriginalExtension();
 
-            Storage::put(config('path.course.preview_video').$file_name, fopen($file->getRealPath(), 'r+') );
+            Storage::put(config('path.course.preview_video') . $file_name, fopen($file->getRealPath(), 'r+'));
             $data->preview_video = $file_name;
 
             // $response = Http::withHeaders([
@@ -148,18 +212,17 @@ class CourseController extends Controller
         }
 
         if ($file = $request->file('video_preview_img')) {
-            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+            $file_name = time() . rand() . '.' . $file->getClientOriginalExtension();
 
-            Storage::put(config('path.course.img').$file_name, fopen($file->getRealPath(), 'r+') );
+            Storage::put(config('path.course.img') . $file_name, fopen($file->getRealPath(), 'r+'));
             $data['video_preview_img'] = $file_name;
         }
 
         $data->slug = Str::slug($request->title, '-');
         $data->status = 0;
 
-
         $data->save();
-        Session::flash('success','Course Added Successfully !');
+        Session::flash('success', 'Course Added Successfully !');
         return redirect('course');
     }
 
@@ -199,16 +262,16 @@ class CourseController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-          'title' => 'required',
-          'video' => 'mimes:mp4,avi,wmv'
+            'title' => 'required',
+            'video' => 'mimes:mp4,avi,wmv',
         ]);
 
-        if($request->master_class){
+        if ($request->master_class) {
             $check = MasterClass::where('course_id', $id)->first();
-            if(!$check){
+            if (!$check) {
                 MasterClass::create(['course_id' => $id]);
             }
-        }else{
+        } else {
             MasterClass::where('course_id', $id)->delete();
         }
 
@@ -217,38 +280,41 @@ class CourseController extends Controller
 
         // $course->package_type = $request->package_type;
 
-
         if ($file = $request->file('preview_image')) {
             if ($course->preview_image != null) {
-                $exists = Storage::exists(config('path.course.img').$course->preview_image);
-                if ($exists)
-                    Storage::delete(config('path.course.img').$course->preview_image);
+                $exists = Storage::exists(config('path.course.img') . $course->preview_image);
+                if ($exists) {
+                    Storage::delete(config('path.course.img') . $course->preview_image);
+                }
+
             }
 
-            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+            $file_name = time() . rand() . '.' . $file->getClientOriginalExtension();
 
-            Storage::put(config('path.course.img').$file_name, fopen($file->getRealPath(), 'r+') );
+            Storage::put(config('path.course.img') . $file_name, fopen($file->getRealPath(), 'r+'));
             $input['preview_image'] = $file_name;
         }
 
         if ($file = $request->file('video_preview_img')) {
             if ($course->video_preview_img != null) {
-                $exists = Storage::exists(config('path.course.img').$course->video_preview_img);
-                if ($exists)
-                    Storage::delete(config('path.course.img').$course->video_preview_img);
+                $exists = Storage::exists(config('path.course.img') . $course->video_preview_img);
+                if ($exists) {
+                    Storage::delete(config('path.course.img') . $course->video_preview_img);
+                }
+
             }
 
-            $file_name = time().rand().'.'.$file->getClientOriginalExtension();
+            $file_name = time() . rand() . '.' . $file->getClientOriginalExtension();
 
-            Storage::put(config('path.course.img').$file_name, fopen($file->getRealPath(), 'r+') );
+            Storage::put(config('path.course.img') . $file_name, fopen($file->getRealPath(), 'r+'));
             $input['video_preview_img'] = $file_name;
         }
 
         if ($file = $request->file('preview_video')) {
             if ($course->preview_video != "") {
-                $exists = Storage::exists(config('path.course.preview_video').$course->preview_video);
-                if ($exists){
-                    Storage::delete(config('path.course.preview_video').$course->preview_video);
+                $exists = Storage::exists(config('path.course.preview_video') . $course->preview_video);
+                if ($exists) {
+                    Storage::delete(config('path.course.preview_video') . $course->preview_video);
 
                     // Http::withHeaders([
                     //     'X-Auth-Key' => env('CLOUDFLARE_Auth_Key'),
@@ -257,7 +323,7 @@ class CourseController extends Controller
                 }
             }
 
-            $file_name = basename(Storage::putFile(config('path.course.preview_video'), $file ));
+            $file_name = basename(Storage::putFile(config('path.course.preview_video'), $file));
             $input['preview_video'] = $file_name;
 
             // $response = Http::withHeaders([
@@ -278,28 +344,26 @@ class CourseController extends Controller
 
         }
 
-        if(isset($input['status'])){
+        if (isset($input['status'])) {
 
-            if(($course->status == '0' || $course->status == '2') && $input['status'] == '1' ){
-                PublishRequest::where(['status'=>'1', 'request_type' => 'publish','course_id'=> $id ])->update(['status'=>0]);
-             }
-             if(($input['status'] == '0' || $input['status'] == '2') && $course->status == '1' ){
-                 PublishRequest::where(['status'=>1, 'request_type' => 'unpublish','course_id'=> $id ])->update(['status'=>0]);
-             }
+            if (($course->status == '0' || $course->status == '2') && $input['status'] == '1') {
+                PublishRequest::where(['status' => '1', 'request_type' => 'publish', 'course_id' => $id])->update(['status' => 0]);
+            }
+            if (($input['status'] == '0' || $input['status'] == '2') && $course->status == '1') {
+                PublishRequest::where(['status' => 1, 'request_type' => 'unpublish', 'course_id' => $id])->update(['status' => 0]);
+            }
 
         }
 
-
-
         CartItem::where('course_id', $id)
-         ->update([
-             'price' => $request->price,
-             'offer_price' => $request->discount_price,
-          ]);
+            ->update([
+                'price' => $request->price,
+                'offer_price' => $request->discount_price,
+            ]);
 
         $course->update($input);
 
-        return back()->with('success', 'Updated Successfully !');;
+        return back()->with('success', 'Updated Successfully !');
     }
 
     /**
@@ -319,18 +383,21 @@ class CourseController extends Controller
                 $course = Course::find($id);
 
                 if ($course->preview_image != null) {
-                    $exists = Storage::exists(config('path.course.img').$course->preview_image);
-                    if ($exists)
-                        Storage::delete(config('path.course.img').$course->preview_image);
+                    $exists = Storage::exists(config('path.course.img') . $course->preview_image);
+                    if ($exists) {
+                        Storage::delete(config('path.course.img') . $course->preview_image);
+                    }
+
                 }
                 if ($course->video != null) {
-                    $exists = Storage::exists(config('path.course.preview_video').$course->preview_video);
-                    if ($exists)
-                        Storage::delete(config('path.course.preview_video').$course->preview_video);
+                    $exists = Storage::exists(config('path.course.preview_video') . $course->preview_video);
+                    if ($exists) {
+                        Storage::delete(config('path.course.preview_video') . $course->preview_video);
+                    }
+
                 }
 
                 $value = $course->delete();
-
 
                 Wishlist::where('course_id', $id)->delete();
                 CartItem::where('course_id', $id)->delete();
@@ -351,33 +418,30 @@ class CourseController extends Controller
         }
     }
 
-    public function featuredCourses(){
-        $courses = Course::where('featured','1')->orderBy('order')->get();
+    public function featuredCourses()
+    {
+        $courses = Course::where('featured', '1')->orderBy('order')->get();
 
-        return view('admin.course.featured',compact('courses'));
+        return view('admin.course.featured', compact('courses'));
     }
 
     public function reposition(Request $request)
     {
 
-        $data= $request->all();
+        $data = $request->all();
 
-        $posts = Course::where(['featured'=>1])->get();
+        $posts = Course::where(['featured' => 1])->get();
         $pos = $data['id'];
 
-
-
-
-        $position =json_encode($data);
+        $position = json_encode($data);
 
         foreach ($pos as $key => $item) {
-          Course::where('id', $item)->update(array('order' => $key));
-          // $new_data = Course::findOrFail($itme->id)
+            Course::where('id', $item)->update(array('order' => $key));
+            // $new_data = Course::findOrFail($itme->id)
 
         }
 
-        return response()->json(['msg'=>'Updated Successfully', 'success'=>true]);
-
+        return response()->json(['msg' => 'Updated Successfully', 'success' => true]);
 
     }
 
@@ -389,7 +453,6 @@ class CourseController extends Controller
 
         return response()->json($upload);
     }
-
 
     public function gcato(Request $request)
     {
@@ -406,10 +469,10 @@ class CourseController extends Controller
         $course = Course::all();
 
         $cor = Course::with('user')->findOrFail($id);
-        $categories = Categories::where('status',1)->pluck('title','id');
+        $categories = Categories::where('status', 1)->pluck('title', 'id');
         $publisRequest = PublishRequest::where(['status' => 1, 'course_id' => $id, 'user_id' => Auth::User()->id])->first();
-        $users =  User::where(['role' => 'mentors'])->orWhere(['role'=>'admin'])->get();
-        $check_master_class = MasterClass::where(['course_id'=>$id])->first();
+        $users = User::where(['role' => 'mentors'])->orWhere(['role' => 'admin'])->get();
+        $check_master_class = MasterClass::where(['course_id' => $id])->first();
 
         $courseinclude = CourseInclude::where('course_id', '=', $id)->get();
         $coursechapter = CourseChapter::where('course_id', '=', $id)->get();
@@ -425,39 +488,39 @@ class CourseController extends Controller
         $quizes = Quiz::where('course_id', '=', $id)->get();
         $topics = QuizTopic::where('course_id', '=', $id)->get();
         $appointment = Appointment::where('course_id', '=', $id)->get();
-        
-        $preview_languages = CourseLanguage::where('iso_code', '!=', 'en')->get();        
-        $additional_videos = CourseClassMultilingual::where('course_id',$id)->where('type', 'preview')->get();
 
-        return view('admin.course.show', compact('cor', 'users','course', 'categories', 'additional_videos', 'preview_languages', 'publisRequest','courseinclude', 'whatlearns', 'coursechapters', 'coursechapter', 'check_master_class','relatedcourse', 'courseclass', 'courseresources', 'announsments', 'answers', 'reports', 'questions', 'quizes', 'topics', 'appointment'));
+        $preview_languages = CourseLanguage::where('iso_code', '!=', 'en')->get();
+        $additional_videos = CourseClassMultilingual::where('course_id', $id)->where('type', 'preview')->get();
+
+        return view('admin.course.show', compact('cor', 'users', 'course', 'categories', 'additional_videos', 'preview_languages', 'publisRequest', 'courseinclude', 'whatlearns', 'coursechapters', 'coursechapter', 'check_master_class', 'relatedcourse', 'courseclass', 'courseresources', 'announsments', 'answers', 'reports', 'questions', 'quizes', 'topics', 'appointment'));
     }
 
+    public function sendToPublish(Request $request)
+    {
+        $check = PublishRequest::where(['course_id' => $request->course_id, 'user_id' => Auth::User()->id, 'request_type' => 'publish', 'status' => 1])->first();
 
-    public function sendToPublish(Request $request){
-        $check = PublishRequest::where(['course_id'=> $request->course_id , 'user_id' => Auth::User()->id , 'request_type'=>'publish','status' => 1])->first();
-
-        if($check){
-            return redirect()->back()->with('success','Class has already sent for publish approval.');
+        if ($check) {
+            return redirect()->back()->with('success', 'Class has already sent for publish approval.');
         }
 
-        PublishRequest::create(['course_id' => $request->course_id, 'user_id' => Auth::User()->id, 'request_type'=>'publish','status' => 1 ]);
+        PublishRequest::create(['course_id' => $request->course_id, 'user_id' => Auth::User()->id, 'request_type' => 'publish', 'status' => 1]);
 
-        return redirect()->back()->with('success','Class has been sent for publish approval.');
+        return redirect()->back()->with('success', 'Class has been sent for publish approval.');
     }
 
-    public function sendToUnPublish(Request $request){
+    public function sendToUnPublish(Request $request)
+    {
 
-        $check = PublishRequest::where(['course_id'=> $request->course_id ,  'user_id' => Auth::User()->id , 'request_type'=>'unpublish','status' => 1])->first();
+        $check = PublishRequest::where(['course_id' => $request->course_id, 'user_id' => Auth::User()->id, 'request_type' => 'unpublish', 'status' => 1])->first();
 
-        if($check){
-            return redirect()->back()->with('success','Class has already sent for unpublish unapproval.');
+        if ($check) {
+            return redirect()->back()->with('success', 'Class has already sent for unpublish unapproval.');
         }
 
-        PublishRequest::create(['course_id' => $request->course_id, 'user_id' => Auth::User()->id, 'request_type'=>'unpublish', 'status' => 1]);
+        PublishRequest::create(['course_id' => $request->course_id, 'user_id' => Auth::User()->id, 'request_type' => 'unpublish', 'status' => 1]);
 
-        return redirect()->back()->with('success','Class has been sent for  unpublish unapproval.');
+        return redirect()->back()->with('success', 'Class has been sent for  unpublish unapproval.');
     }
-
 
     public function CourseDetailPage($id, $slug)
     {
@@ -491,7 +554,6 @@ class CourseController extends Controller
 
                     $course_id = array();
 
-
                     foreach ($bundle as $b) {
                         $bundle = BundleCourse::where('id', $b->bundle_id)->first();
                         array_push($course_id, $bundle->course_id);
@@ -513,8 +575,8 @@ class CourseController extends Controller
         }
     }
 
-    public function storeAnnoucement(Request $request){
-
+    public function storeAnnoucement(Request $request)
+    {
 
         $request->validate([
             'announcement_title' => 'required',
@@ -523,9 +585,9 @@ class CourseController extends Controller
             'announcement_long' => 'required',
             'layouts' => 'required',
             'status' => 'required',
-            'preview_image'=>'mimes:jpg,jpeg',
-            'preview_video'=>'mimes:mp4,avi,wmv'
-          ]);
+            'preview_image' => 'mimes:jpg,jpeg',
+            'preview_video' => 'mimes:mp4,avi,wmv',
+        ]);
 
         $input['title'] = $request->announcement_title;
         $input['category_id'] = $request->announcement_category;
@@ -539,9 +601,9 @@ class CourseController extends Controller
         if ($file = $request->file('preview_image')) {
 
             $optimizeImage = Image::make($file);
-            $optimizePath = public_path().'/images/announcement/';
-            $image = time().$file->getClientOriginalName();
-            $optimizeImage->save($optimizePath.$image, 72);
+            $optimizePath = public_path() . '/images/announcement/';
+            $image = time() . $file->getClientOriginalName();
+            $optimizeImage->save($optimizePath . $image, 72);
             $input['preview_image'] = $image;
 
         }
@@ -549,7 +611,7 @@ class CourseController extends Controller
         if ($file = $request->file('preview_video')) {
 
             // $file_name = md5(microtime().rand()). time().'.'.$file->getClientOriginalExtension();
-            $file_name = basename(Storage::putFile(config('path.announcement.preview_video'), $file ));
+            $file_name = basename(Storage::putFile(config('path.announcement.preview_video'), $file));
             $input['preview_video'] = $file_name;
 
             // $response = Http::withHeaders([
@@ -573,8 +635,7 @@ class CourseController extends Controller
 
         Announcement::create($input);
 
-        return redirect()->back()->with('success','Announcement Created Successfully');
-
+        return redirect()->back()->with('success', 'Announcement Created Successfully');
 
     }
 
@@ -586,7 +647,7 @@ class CourseController extends Controller
         $whatlearns = WhatLearn::where('course_id', '=', $id)->get();
         $coursechapters = CourseChapter::where('course_id', '=', $id)->get();
         $coursequestions = Question::where('course_id', '=', $id)->get();
-        $courseclass= CourseClass::get();
+        $courseclass = CourseClass::get();
         $announsments = Announcement::where('course_id', '=', $id)->get();
 
         if (Auth::check()) {
@@ -599,6 +660,7 @@ class CourseController extends Controller
             return view('front.course_content', compact('course', 'courseinclude', 'whatlearns', 'coursechapters', 'courseclass', 'coursequestions', 'announsments', 'progress', 'assignment', 'appointment'));
         }
 
+        dd("CourseContentPage");
         return Redirect::route('login')->withInput()->with('delete', 'Please Login to access restricted area.');
     }
 
@@ -609,16 +671,16 @@ class CourseController extends Controller
 
         return view('front.my_course', compact('course', 'enroll'));
     }
-    
+
     public function post_multilingual(Request $request)
     {
 
         $multilingual = null;
 
         $receiver = new FileReceiver("file", $request, HandlerFactory::classFromRequest($request));
-        if ($receiver->isUploaded() !== false ) {
+        if ($receiver->isUploaded() !== false) {
             $save = $receiver->receive();
-        
+
             if ($save->isFinished()) {
 
                 $language = CourseLanguage::where('iso_code', $request->sub_lang)->first();
@@ -636,15 +698,17 @@ class CourseController extends Controller
 
                 $multilingual->save();
 
-            }else{
+            } else {
                 $handler = $save->handler();
                 return response()->json([
                     "done" => $handler->getPercentageDone(),
-                    'status' => true
+                    'status' => true,
                 ]);
             }
 
-        }else
-            return back()->with('error','Video must be uploaded');
+        } else {
+            return back()->with('error', 'Video must be uploaded');
+        }
+
     }
 }

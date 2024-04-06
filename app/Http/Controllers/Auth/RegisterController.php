@@ -35,7 +35,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/learning-plans?registered=true';
+    protected $redirectTo = '/?registered=true';
 
     /**
      * Create a new controller instance.
@@ -67,22 +67,21 @@ class RegisterController extends Controller
         if($setting->captcha_enable == 1){
 
             return Validator::make($data, [
-                'fname' => ['required', 'string', 'max:255'],
-                'lname' => ['required', 'string', 'max:255'],
-                'mobile' => ['required', 'string', 'max:255'],
+                'full_name' => ['required', 'string', 'max:255', 'min:3'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'string', 'min:6'],
-                // 'g-recaptcha-response' => 'required|captcha',
+                'password' => ['required', 'string', 'min:6', 'max:60'],
+                'mobile' => ['required', 'string', 'max:20', 'min:3'],
+                'dob' => ['required', 'date']
             ]);
         }
         else{
 
             return Validator::make($data, [
-                'fname' => ['required', 'string', 'max:255'],
-                'lname' => ['required', 'string', 'max:255'],
-                'mobile' => ['required', 'string', 'max:255'],
+                'full_name' => ['required', 'string', 'max:255', 'min:3'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'string', 'min:6'],
+                'password' => ['required', 'string', 'min:6', 'max:60'],
+                'mobile' => ['required', 'string', 'max:20', 'min:3'],
+                'dob' => ['required', 'date']
             ]);
 
         }
@@ -101,8 +100,7 @@ class RegisterController extends Controller
 
                 
         $user = User::create([
-            'fname' => $data['fname'],
-            'lname' => $data['lname'],
+            'fname' => $data['full_name'],
             'email' => $data['email'],
             'mobile' => $data['mobile'],
             'email_verified_at'  => $verified,
@@ -122,8 +120,8 @@ class RegisterController extends Controller
                 Mail::to($data['email'])->later(now()->addSeconds(5), new WelcomeUser($user));               
             }
             catch(\Swift_TransportException $e){
-                header( "refresh:5;url=./login" );            
-                // dd("Your Registration is successfull ! but welcome email is not sent because your webmaster not updated the mail settings in admin dashboard ! Kindly go back and login");
+                // header( "refresh:5;url=./login" );            
+                dd("Your Registration is successfull ! but welcome email is not sent because your webmaster not updated the mail settings in admin dashboard ! Kindly go back and login");
             }
         // }
 

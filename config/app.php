@@ -180,7 +180,7 @@ return [
         Jorenvh\Share\Providers\ShareServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
+        // Barryvdh\Debugbar\ServiceProvider::class,
         Stevebauman\Location\LocationServiceProvider::class,
 
 
@@ -262,7 +262,7 @@ return [
         'Share' => Jorenvh\Share\ShareFacade::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        // 'Debugbar' => Barryvdh\Debugbar\Facade::class,
         
     ],
 

@@ -63,8 +63,31 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
         //  });
 
         Route::get('/', 'HomeController@index');
+        // Route::get('/chhome', 'HomeController@chhome');
 
         Route::get('/home', 'HomeController@index')->name('home');
+        Route::post('/email-subscriber', 'HomeController@email_subscriber')->name('emailsubscriber');
+        Route::get('/course-overview/{courseid}', 'CourseController@course_overview')->name('course.overview');
+        Route::get('/course-content', 'CourseController@course_content')->name('course.content');
+        Route::get('/all-course-list', 'CourseController@all_course_list')->name('allcourselist');
+        Route::get('/subcategory-all-course/{subcategoryid}', 'CourseController@subcategoryAllCourse')->name('subcategoryallcourse');
+        Route::get('/buynow/{courseid}', 'CartController@buyNow')->name('buynow');
+
+        Route::get('/my-wishlist', 'CourseController@my_wishlist')->name('mywishlist');
+        Route::get('/my-courses-list', 'CourseController@my_courses_list')->name('my_courses_list');
+        Route::get('/sign-in', 'CourseController@coursehike_sign_in')->name('coursehike_sign_in')->middleware('guest');
+        Route::get('/sign-up', 'CourseController@coursehike_sign_up')->name('coursehike_sign_up')->middleware('guest');
+
+        
+        // sign-in-form
+        
+        Route::get('/about-us', 'AboutController@about_us')->name('about_us');
+        Route::get('/coursehike-privacy-policy', 'AboutController@privacy_policy')->name('privacy_policy');
+        Route::get('/coursehike-terms-condition', 'AboutController@terms_condition')->name('terms_condition');
+        Route::get('/contact-us', 'ContactUsController@contact_us')->name('contact_us');
+        Route::get('/know-your-mentor', 'InstructorController@know_your_mentor')->name('know_your_mentor');
+        Route::get('/become-a-mentor-at-coursehike', 'InstructorController@become_a_mentor')->name('become_a_mentor');
+        
 
     });
 
@@ -245,6 +268,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
       Route::resource('requestinstructor', 'InstructorRequestController');
 
       Route::resource('coupon','CouponController');
+      Route::post('apply-coupon','CouponController@dummy');
 
       Route::get('all/instructor', 'InstructorRequestController@allinstructor')->name('all.instructor');
 
@@ -672,7 +696,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
 
     Route::get('/filter-courses','SearchController@applyFilter')->name('apply.filters');
-    Route::get('/add-to-cart','CartController@addtocartAjax');
+    // Route::get('/add-to-cart','CartController@addtocartAjax');
+    Route::get('/add-to-cart/{courseid}','CartController@course_addtocartAjax');
     Route::post('/add-to-cart','CartController@addToCart');
 
     Route::get('/remove-from-cart/{id}','CartController@removeFromCart');
@@ -705,10 +730,13 @@ Route::middleware(['auth'])->group(function () {
   Route::post('/add-to-playlist','PlaylistController@addToPlaylist')->name('add.to.playlist');
   Route::post('/create-playlist','PlaylistController@createPlaylist')->name('create.playlist');
   Route::post('/edit-playlist','PlaylistController@editPlaylist');
+
   // Wishlist Routes
-  Route::post('/add-to-wishlist','LearnerWishlistController@store');
+  Route::get('/add-to-wishlist/{courseid}','LearnerWishlistController@add_to_wishlist');
   Route::get('/wishlist','LearnerWishlistController@index');
   Route::get('/remove-from-wishlist/{id}','LearnerWishlistController@destroy');
+  Route::get('/move-to-wishlist/{courseid}/{cartid}','LearnerWishlistController@move_to_wishlist');
+  Route::get('/move-to-cart/{courseid}/{wishlistid}','LearnerWishlistController@move_to_cart');
 
   Route::get('/playlist-delete/{id}','LearnerWishlistController@deletePlaylist');
   // Route::post('/upload', 'UploadController@upload');

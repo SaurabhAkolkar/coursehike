@@ -7,6 +7,15 @@ use App\About;
 
 class AboutController extends Controller
 {
+    public function about_us(){
+        return view("newui.about_us");
+    }
+    public function privacy_policy(){
+        return view("newui.privacy_policy");
+    }
+    public function terms_condition(){
+        return view("newui.terms_condition");
+    }
     public function show()
     {
     	$data = About::first();

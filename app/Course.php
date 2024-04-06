@@ -165,7 +165,8 @@ class Course extends Model
     public function getPreviewImageAttribute($value)
     {
         if($value != null){
-            return Storage::url(config('path.course.img'). $value);
+            // return Storage::url(config('path.course.img'). $value);
+            return config('path.course.image'). $value;
        }else{
            return asset('/images/default-images/course_default.png');
        }
@@ -174,7 +175,8 @@ class Course extends Model
     public function getVideoPreviewImgAttribute($value)
     {
         if($value != null){
-            return Storage::url(config('path.course.img'). $value);
+            // return Storage::url(config('path.course.img'). $value);
+            return config('path.course.image'). $value;
        }else{
            return $this->preview_image;
        }

@@ -24,6 +24,13 @@ class InstructorController extends Controller
     public static $REVENUE_POOL = 40;
     public static $LEARNER_PAID = 39;
 
+    public function know_your_mentor() {
+        return view("newui.know_your_mentor");
+    }
+    public function become_a_mentor() {
+        return view("newui.become_a_mentor");
+    }
+    
     public function index()
     {   
         if(Auth::User()->role == "mentors")

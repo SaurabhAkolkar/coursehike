@@ -51,8 +51,7 @@
         "stevebauman/location": "^6.1",
         "stripe/stripe-php": "^7.52",
         "tzsk/payu": "^4.0",
-        "unicodeveloper/laravel-paystack": "1.0.*",
-        "zohocrm/php-sdk": "^2.2"
+        "unicodeveloper/laravel-paystack": "1.0.*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",

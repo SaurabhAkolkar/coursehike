@@ -1,247 +1,234 @@
-@extends('learners.layouts.intro')
-{{-- @include('theme.head') --}}
+@extends('newui.layouts.auth_master')
 @section('seo_content')
-    <title>Login | Start For Free Today | LILA</title>
-    <meta name='description' itemprop='description' content='Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now' />
+    <title> {{-- $course->title --}} | Courses | Best Online Courses for Art & Creativity | LILA</title>
+    <meta name='description' itemprop='description'
+        content='Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now' />
 
-    <meta property="og:description"content="Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now" />
-    <meta property="og:title"content="Login | Start For Free Today | LILA" />
-    <meta property="og:url"content="{{Request::url()}}" />
-    <meta property="og:type"content="website" />
-    <meta property="og:site_name"content="LILA Art" />
-    <meta property="og:image"content="{{config('app.url')}}/images/learners/logo.svg" />
-    <meta property="og:image:url"content="{{config('app.url')}}/images/learners/logo.svg" />
-    <meta property="og:image:size"content="300" />
+    <meta property="og:description"
+        content="Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now" />
+    <meta property="og:title" content="Courses | Best Online Courses for Art & Creativity | LILA" />
+    <meta property="og:url" content="{{ Request::url() }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LILA Art" />
+    <meta property="og:image" content="{{-- $course->preview_image --}}" />
+    <meta property="og:image:url" content="{{-- $course->preview_image --}}" />
+    <meta property="og:image:size" content="300" />
 
     <meta name="twitter:card"content="summary" />
-    <meta name="twitter:title"content="Login | Start For Free Today | LILA" />
-    <meta name="twitter:site"content="@lilaaliens" />
-    
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Login | Start For Free Today | LILA"}</script>
+    <meta name="twitter:title"content="Courses | Best Online Courses for Art & Creativity | LILA" />
+    <meta name="twitter:site"content="@coursehike" />
 
-    <script>
-        (function(h,e,a,t,m,p) {
-        m=e.createElement(a);m.async=!0;m.src=t;
-        p=e.getElementsByTagName(a)[0];p.parentNode.insertBefore(m,p);
-        })(window,document,'script','https://u.heatmap.it/log.js');
-    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Courses | Best Online Courses for Art & Creativity | LILA"}</script>
+@section('stylesheets')
+    <style type="text/css">
+        .chike-left-side-box {
+            background: linear-gradient(180deg, #C087EC 0%, #87C8EC 100%);
+        }
+
+        .chike-left-side-inner-box {
+            position: relative;
+            text-align: center;
+        }
+
+        .chike-left-side-inner-box h1 {
+            color: #fff;
+            font-size: 40px;
+            margin-top: 100px;
+        }
+
+        .chike-graduation {
+            color: #fff;
+            font-size: 75px;
+        }
+
+        .required {
+            color: red;
+        }
+
+        .chike-login-share ul li {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 13px;
+            color: #0e1133;
+            border-radius: 4px;
+        }
+
+        .chike-login-share ul li a img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .woocommerce-form p {
+            margin-bottom: 10px;
+        }
+
+        .chike-email-box,
+        .chike-password-box {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .chike-email-box .input-group-text {
+            border: none;
+            border-right: 2px solid #eee;
+        }
+
+        .chike-password-box .input-group-text {
+            border: none;
+            border-right: 2px solid #eee;
+        }
+
+        .input-group-text {
+            border: none;
+            background-color: #fff;
+        }
+
+        .chike-password-box .input-group-text i {
+            color: #A1A1A1;
+        }
+
+        .chike-email-box .input-group-text i {
+            color: #A1A1A1;
+        }
+
+        .woocommerce-form-login .form-control {
+            height: 40px !important;
+            border: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .chike-left-side-box {
+                display: none;
+            }
+        }
+    </style>
+@endsection
 @endsection
 @include('admin.message')
 
-<!-- top-nav bar start-->
-{{-- <section id="nav-bar " class="nav-bar-main-block nav-bar-main-block-one p-0">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="nav-bar-btn btm-20">
-                    <a href="{{ url('/') }}" class="btn btn-secondary" title="Home"><i class="fa fa-chevron-left"></i>{{ __('frontstaticword.Backtohome') }}</a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="logo text-center btm-10">
-                    @php
-                        $logo = App\Setting::first();
-                    @endphp
+@section('body')
 
-                    @if($logo->logo_type == 'L')
-                        <a href="{{ url('/') }}" title="logo"><img src="{{ asset('images/logo/'.$logo->logo) }}" class="img-fluid" alt="logo"></a>
-                    @else()
-                        <a href="{{ url('/') }}"><b><div class="logotext">{{ $logo->project_title }}</div></b></a>
-                    @endif
+<!--shop register start-->
+<section class="woocommerce single page-wrapper p-0">
+    <div class="fuild-container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-xl-8 chike-left-side-box">
+                <div class="chike-left-side-inner-box">
+                    <h1>Watch.<BR> Learn.<BR> Practice.<BR> Repeat.</h1><BR>
+                    <p class="chike-graduation"><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="Login-btn txt-rgt">
-                    <a href="{{ route('register') }}" class="btn btn-primary" title="signup">{{ __('frontstaticword.Signup') }}</a>
-                </div> 
-            </div> 
+            <div class="col-md-4 col-xl-4 m-0 p-0">
+
+                <div class="login-form">
+                    <div class="form-header">
+                        <h2 class="font-weight-bold mb-3">sign in</h2>
+                    </div>
+                    <form method="POST" class="woocommerce-form woocommerce-form-login login"
+                        action="{{ route('login') }}">
+                        @csrf
+
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                        <div class="input-group flex-nowrap chike-email-box">
+                            <span class="input-group-text" id="addon-wrapping"><i class="fa fa-envelope"
+                                    aria-hidden="true"></i></span>
+                            <input id="email" type="email" class="form-control" placeholder="Enter Your E-Mail"
+                                name="email" value="{{ old('email') }}" required autofocus
+                                aria-label="Enter Your E-Mail" aria-describedby="addon-wrapping">
+                        </div>
+                        </p>
+
+                        @if ($errors->has('email'))
+                            <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                        @endif
+
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                        <div class="input-group chike-password-box">
+                            <span class="input-group-text" id="addon-wrapping" style="font-size: 18px;"><i
+                                    class="fa fa-lock" aria-hidden="true"></i></span>
+                            <input type="password" class="form-control" name="password" id="password"
+                                autocomplete="Enter Password" placeholder="Enter Password"
+                                aria-describedby="Enter Password" required>
+                            <a class="input-group-text togglePassword border-0"><i class="fa fa-eye"
+                                    aria-hidden="true"></i></a>
+                        </div>
+                        </p>
+
+                        @if ($errors->has('password'))
+                            <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
+                                <strong>{{ $errors->first('password') }}</strong>
+                            </span>
+                        @endif
+
+                        <div class="d-flex align-items-center justify-content-between py-2">
+                            <p class="form-row">
+                                <label
+                                    class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme">
+                                    <input class="woocommerce-form__input woocommerce-form__input-checkbox"
+                                        name="rememberme" type="checkbox" id="rememberme" value="forever">
+                                    <span>Remember me</span>
+                                </label>
+                            </p>
+
+                            <p class="woocommerce-LostPassword lost_password">
+                                <a href="{{ 'password/reset' }}">{{ __('frontstaticword.ForgotPassword') }} ?</a>
+                            </p>
+                        </div>
+
+                        <p class="woocommerce-FormRow form-row text-center">
+                            <button type="submit" class="btn btn-sm btn-main-outline m-2 rounded w-50">{{ __('frontstaticword.Login') }}</button>
+                        </p>
+
+                        <div class="text-center">
+                            <div class="mb-3">Login with</div>
+                            <div class="chike-login-share align-items-center mb-3">
+                                <ul class="social-icon">
+                                    <li class="chike-social-icon-box">
+                                        <a href="{{ url('/auth/linkedin') }}"><img src="assets/images/login/chike-linkedin-icon.svg"
+                                                class="img-fluid" alt="linkedin" width="20" height="20"></a>
+                                    </li>
+                                    <li class="chike-social-icon-box">
+                                        <a href="{{ url('/auth/facebook') }}"><img src="assets/images/login/chike-facebook-icon.svg"
+                                                class="img-fluid" alt="facebook" width="20" height="20"></a>
+                                    </li>
+                                    <li class="chiksocial-icon-box">
+                                        <a href="{{ url('/auth/google') }}"><img src="assets/images/login/chike-google-icon.svg"
+                                                class="img-fluid" alt="google" width="20" height="20"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="woocommerce-register mb-2">
+                                Don't have an account yet? <a class="text-decoration-underline"
+                                style="color:#3479E2;font-weight: 700;" href="{{ route('register') }}" title="sign-up">  {{ __('frontstaticword.Signup') }} </a>
+                            </div>
+                            <p>Facing an issue? <a href="#" class="ml-1"
+                                    style="color:#3479E2;font-weight: 700;">Get support</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-</section> --}}
-<!-- top-nav bar end-->
-
-<!-- Signup start-->
-@section('content')
-
-    <section id="signup" class="la-entry__sec">
-        <div class="container-fluid la-entry__sec-inner ">
-            <div class="row la-entry__row h-100">
-                <div class="col-md-7 la-entry__col la-entry__col-left h-100 d-none d-md-block la-anim__wrap">
-                    <div class="la-entry__slider-wrap d-flex align-items-center la-anim__fade-in-left">
-                        <div class="swiper-container entry-swiper-container h-100 la-entry__slider ">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide " style="width: 80vw;height: 80vh;background-image:url(../images/learners/login-register/login-slide1.svg)"></div>
-                                <div class="swiper-slide" style="width: 80vw;height: 80vh;background-image:url(../images/learners/login-register/login-slide2.svg)"></div>
-                            </div>
-                            <div class="swiper-pagination swiper-pagination-black"></div>
-                        </div>
-                    </div> 
-                </div>
-
-                <div class="col-md-5 la-entry__col la-entry__col-right h-100 la-anim__wrap">
-                    {{-- <div class="signup-heading">
-                        {{ __('frontstaticword.LogIntoYour') }} {{ $project_title }} {{ __('frontstaticword.Account') }}!
-                    </div> --}}
-
-                    <div class="la-entry__content-wrap d-flex flex-column justify-content-center">  
-                        <div class="d-flex flex-column la-entry__content-top mt-md-5 ">
-                                <form method="POST" class="signup-form la-entry__form" action="{{ route('login') }}">
-                                    @csrf
-                                    <div class="la-form__input-wrap la-entry__input-wrap mb-md-10 la-anim__stagger-item">
-                                        <!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
-                                        <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-mail-id"></span></span>
-                                        <input id="email" type="email" class="la-form__input la-entry__input{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Enter Your E-Mail"   name="email" value="{{ old('email') }}" required autofocus>
-                
-                                        @if ($errors->has('email'))
-                                            <span class="invalid-feedback" role="alert"  style="margin-left:60px;position:absolute">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                
-                                    <div class="la-form__input-wrap la-entry__input-wrap  mb-md-6 la-anim__stagger-item">
-                                        <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
-                                        <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-password"></span></span>
-                                        <input id="password" type="password" class="la-form__input la-entry__input{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Enter Your Password" name="password" required>
-                                        <span class="la-entry__input-picon d-none" id="password_hide_icon"><span class="la-icon la-icon--xl icon-hide-Password "></span></span>
-                                        <span class="la-entry__input-picon" id="password_show_icon"><span class="la-icon la-icon--xl icon-show-password "></span></span>
-
-                                        @if ($errors->has('password'))
-                                            <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-
-                                    <div class="d-flex align-items-center">
-                                        <!-- <div class="form-group">                       
-                                            <div class="form-check d-flex align-items-center">
-                                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                    
-                                                <label class="form-check-label text-sm" for="remember">
-                                                    {{ __('Remember Me') }}
-                                                </label>
-                                            </div>
-                                        </div> -->
-                                        <div class="form-group ml-auto la-anim__stagger-item">
-                                            <div class="forgot-password la-btn__plain text--burple text-right mb-md-8">
-                                                <a class="text-sm" href="{{ 'password/reset' }}" title="sign-up">{{ __('frontstaticword.ForgotPassword') }} ?</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                
-                                    <div class="form-group la-anim__stagger-item">
-                                        <button type="submit"  class="la-btn__app la-btn__secondary py-md-4 text-sm w-100">
-                                            {{ __('frontstaticword.Login') }}
-                                        </button>   
-                                    </div>
-                
-                                    {{-- <div class="signin-link text-center pt-2 pb-10">
-                                    {{ __('frontstaticword.Bysigningup') }} <a href="{{url('terms_condition')}}" title="Policy">{{ __('frontstaticword.Terms&Condition') }} </a>, <a href="{{url('privacy_policy')}}" title="Policy">{{ __('frontstaticword.PrivacyPolicy') }}.</a>
-                                    </div> --}}
-                                </form>
-                        </div>
-                            
-                        <div class="la-entry__content-bottom text-center pt-md-14 la-anim__wrap">
-                            <span class="la-entry__bottom-title la-anim__fade-in-top">Login with</span>
-                            <div class="d-flex justify-content-center align-items-center">
-                                    
-                                    {{-- @if($gsetting->fb_login_enable == 1)   --}}
-                                        <div class="la-entry__social-lnk la-anim__stagger-item">
-                                            <a href="{{ url('/auth/facebook') }}" target="_blank" title="facebook" class="" title="Facebook">
-                                                <span class="la-icon la-icon--6xl icon-facebook-colored"></span>
-                                                {{-- {{ __('frontstaticword.ContinuewithFacebook') }} --}}
-                                            </a>
-                                        </div>
-                                    {{-- @endif --}}
-
-                                    {{-- @if($gsetting->linkedin_enable == 0) --}}
-                                    <div class="la-entry__social-lnk la-anim__stagger-item">
-                                        <a href="{{ url('/auth/linkedin') }}" target="_blank" title="linkedin" class="" title="Linkedin">
-                                            <span class="la-icon la-icon--6xl icon-linkedin-colored"></span>
-                                            {{-- {{ __('frontstaticword.ContinuewithLinkedin') }} --}}
-                                        </a>
-                                    </div>
-                                    {{-- @endif --}}
-
-                                    {{-- @if($gsetting->google_login_enable == 1) --}}
-                                        <div class="la-entry__social-lnk la-anim__stagger-item">
-                                            <a href="{{ url('/auth/google') }}" target="_blank" title="google" class="" title="google">
-                                                <span class="la-icon la-icon--6xl icon-google-colored"><span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span></span>
-                                                {{-- {{ __('frontstaticword.ContinuewithGoogle') }} --}}
-                                            </a>
-                                        </div>
-                                    {{-- @endif --}}
-                                    
-                                    {{-- @if($gsetting->amazon_enable == 1)
-                                        <div class="signin-link amazon-button">
-                                            <a href="{{ url('/auth/amazon') }}" target="_blank" title="amazon" class="btn btn-info rounded-circle" title="Amazon"><i class="m-0 fab fa-amazon"></i>
-                                                {{ __('frontstaticword.ContinuewithAmazon') }}
-                                            </a>
-                                        </div>
-                                    @endif --}}
-                
-                                
-                                    {{-- @if($gsetting->twitter_enable == 1)
-                                        <div class="signin-link twitter-button">
-                                            <a href="{{ url('/auth/twitter') }}" target="_blank" title="twitter" class="btn btn-info rounded-circle" title="Twitter"><i class="m-0 fab fa-twitter"></i>
-                                                 {{ __('frontstaticword.ContinuewithTwitter') }} 
-                                            </a>
-                                        </div>
-                                    @endif --}}
-                
-                                    {{-- @if($gsetting->gitlab_login_enable == 1)
-                                        <div class="signin-link">
-                                            <a href="{{ url('/auth/gitlab') }}" target="_blank" title="gitlab" class="btn btn-white rounded-circle" title="gitlab"><i class="m-0 fab fa-gitlab"></i>
-                                                 {{ __('frontstaticword.ContinuewithGitLab') }} 
-                                            </a>
-                                        </div>
-                                    @endif --}}
-                            </div>
-                        </div>
-                        
-                        <div class="la-anim__wrap">
-                            <div class="text-center la-entry__other-option mt-md-8 la-anim__fade-in-left">Create a new account?
-                                <span class="la-btn__plain text--burple text--md ml-2 la-anim__stagger-item--x">
-                                    <a href="{{ route('register') }}" title="sign-up">  {{ __('frontstaticword.Signup') }}</a>
-                                </span>
-                            </div>  
-                        </div>
-
-                        <div class="la-anim__wrap">
-                            <div class="text-center la-entry__other-option mt-md-8 la-anim__fade-in-left">Facing an issue?
-                                <span class="la-btn__plain text--burple text--md ml-2 la-anim__stagger-item--x">
-                                    <a href="https://desk.zoho.com/portal/alienstattoo/en/newticket" title="support">Get support</a>
-                                </span>
-                            </div>  
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+</section>
+<!--shop register end-->
+@section('scripts')
+    <script type="text/javascript">
+        $(".togglePassword").click(function(e) {
+            e.preventDefault();
+            var type = $("#password").attr('type');
+            if (type == "password") {
+                $(this).html('<i class="fa fa-eye-slash" aria-hidden="true"></i>');
+                $("#password").attr("type", "text");
+            } else if (type == "text") {
+                $(this).html('<i class="fa fa-eye" aria-hidden="true"></i>');
+                $("#password").attr("type", "password");
+            }
+        });
+    </script>
 @endsection
-<!--  Signup end-->
-
-<!-- jquery -->
-{{-- @include('theme.scripts') --}}
-<!-- end jquery -->
-@section('footerScripts')
-<script>
-    $('#password_show_icon').click(function(){
-        $(this).addClass('d-none');
-        $('#password_hide_icon').removeClass('d-none');
-        $('#password').prop('type', 'text');
-    });
-
-    $('#password_hide_icon').click(function(){
-        $(this).addClass('d-none');
-        $('#password_show_icon').removeClass('d-none');
-        $('#password').prop('type', 'password');
-    });
-</script>
 @endsection
-
-
-

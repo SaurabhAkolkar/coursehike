@@ -20,6 +20,10 @@ class CouponController extends Controller
         return view("admin.coupan.index",compact("coupans"));
     }
 
+    public function dummy(){
+        return back()->with("info","invalid coupon code please try with diffrent code");
+    }
+
     /**
      * Show the form for creating a new resource.
      *

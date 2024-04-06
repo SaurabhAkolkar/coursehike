@@ -1,288 +1,247 @@
-@extends('learners.layouts.intro')
-{{-- @include('theme.head') --}}
+@extends('newui.layouts.auth_master')
 @section('seo_content')
-    <title>Register | Start For Free Today | LILA</title>
-    <meta name='description' itemprop='description' content='Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now' />
+    <title>Sign Up at Coursehike | Best Online Courses</title>
+    <meta name='description' itemprop='description'
+        content='Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now' />
 
-    <meta property="og:description"content="Creative online course for creative minds. Discover & learn classes on art,design, baking, tattoo making & much more. Start your free trial with LILA now" />
-    <meta property="og:title"content="Register | Start For Free Today | LILA" />
-    <meta property="og:url"content="{{Request::url()}}" />
-    <meta property="og:type"content="website" />
-    <meta property="og:site_name"content="LILA Art" />
-    <meta property="og:image"content="{{config('app.url')}}/images/learners/logo.svg" />
-    <meta property="og:image:url"content="{{config('app.url')}}/images/learners/logo.svg" />
-    <meta property="og:image:size"content="300" />
+    <meta property="og:description"
+        content="Best Online Courses in art & creativity for creative minds Get Started for free and learn from passionate creators & mentors all around the world. Join now" />
+    <meta property="og:title" content="Courses | Best Online Courses for Art & Creativity | LILA" />
+    <meta property="og:url" content="{{ Request::url() }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LILA Art" />
+    <meta property="og:image" content="{{-- $course->preview_image --}}" />
+    <meta property="og:image:url" content="{{-- $course->preview_image --}}" />
+    <meta property="og:image:size" content="300" />
 
     <meta name="twitter:card"content="summary" />
-    <meta name="twitter:title"content="Register | Start For Free Today | LILA" />
-    <meta name="twitter:site"content="@lilaaliens" />
-    
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Register | Start For Free Today | LILA"}</script>
+    <meta name="twitter:title"content="Courses | Best Online Courses for Art & Creativity | LILA" />
+    <meta name="twitter:site"content="@coursehike" />
 
-    <script>
-        (function(h,e,a,t,m,p) {
-        m=e.createElement(a);m.async=!0;m.src=t;
-        p=e.getElementsByTagName(a)[0];p.parentNode.insertBefore(m,p);
-        })(window,document,'script','https://u.heatmap.it/log.js');
-    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Courses | Best Online Courses for Art & Creativity | LILA"}</script>
+@section('stylesheets')
+    <link rel="stylesheet" href="assets/vendors/country-code/intltelInput.min.css">
+    <style type="text/css">
+        .helptext {
+            color: #e63946;
+        }
+        .chike-left-side-box {
+            background: linear-gradient(180deg, #C087EC 0%, #87C8EC 100%);
+        }
+
+        .chike-left-side-inner-box {
+            position: relative;
+            text-align: center;
+        }
+
+        .chike-left-side-inner-box h1 {
+            color: #fff;
+            font-size: 40px;
+            margin-top: 100px;
+        }
+
+        .chike-graduation {
+            color: #fff;
+            font-size: 75px;
+        }
+
+        .required {
+            color: red;
+        }
+
+        .chike-login-share ul li {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 13px;
+            color: #0e1133;
+            border-radius: 4px;
+        }
+
+        .chike-login-share ul li a img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .chike-input-group-box {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .chike-input-group-box .input-group-text {
+            border: none;
+            border-right: 2px solid #eee;
+        }
+
+        .input-group-text {
+            border: none;
+            background-color: #fff;
+        }
+
+        .chike-input-group-box .input-group-text i {
+            color: #A1A1A1;
+        }
+
+        .woocommerce-form-login .form-control {
+            height: 40px !important;
+            border: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .chike-left-side-box {
+                display: none;
+            }
+        }
+    </style>
 @endsection
-@include('admin.message')
+@endsection
 
-
-{{-- <section id="nav-bar" class="nav-bar-main-block nav-bar-main-block-one">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="nav-bar-btn btm-20">
-                    <a href="{{ url('/') }}" class="btn btn-secondary" title="Home"><i class="fa fa-chevron-left"></i>{{ __('frontstaticword.Backtohome') }}</a>
+@section('body')
+<!--shop register start-->
+<section class="woocommerce single page-wrapper p-0">
+    <div class="fuild-container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-xl-8 chike-left-side-box">
+                <div class="chike-left-side-inner-box">
+                    <h1>Watch.<BR> Learn.<BR> Practice.<BR> Repeat.</h1><BR>
+                    <p class="chike-graduation"><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="logo text-center btm-10">
-                    @php
-                        $logo = App\Setting::first();
-                    @endphp
+            <div class="col-md-4 col-xl-4 m-0 p-0">
 
-                    @if($logo->logo_type == 'L')
-                        <a href="{{ url('/') }}" title="logo"><img src="{{ asset('images/logo/'.$logo->logo) }}" class="img-fluid" alt="logo"></a>
-                    @else()
-                        <a href="{{ url('/') }}"><b><div class="logotext">{{ $logo->project_title }}</div></b></a>
-                    @endif
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="Login-btn txt-rgt">
-                    <a href="{{ route('login') }}" class="btn btn-secondary" title="login">{{ __('frontstaticword.Login') }}</a>
-                </div> 
-            </div>
-        </div>
-    </div>
-</section> --}}
+                <div class="login-form">
+                    <div class="form-header">
+                        <h2 class="font-weight-bold mb-3">Sign Up</h2>
+                    </div>
+                    <form action="{{ route('register') }}" class="woocommerce-form woocommerce-form-login login"
+                        method="post">
+                        @csrf
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                        <div class="input-group flex-nowrap chike-input-group-box">
+                            <span class="input-group-text" id="addon-wrapping"><i class="fa fa-user"
+                                    aria-hidden="true"></i></span>
+                            <input value="{{ old('full_name') }}" name="full_name" type="text" class="form-control" placeholder="Enter Full Name"
+                                aria-label="Enter Full Name" aria-describedby="addon-wrapping" required>
 
-@section('content')
-<section id="signup" class="la-entry__sec">
-    <div class="container-fluid la-entry__sec-inner">
-        <div class="row la-entry__row ">
-            <div class="col-md-7 la-entry__col la-entry__col-left h-100 d-none d-md-block la-anim__wrap">
-                <div class="la-entry__slider-wrap d-flex align-items-center la-anim__fade-in-left">
-                   <div class="swiper-container entry-swiper-container h-100 la-entry__slider">
-                       <div class="swiper-wrapper">
-                           <div class="swiper-slide" style="width: 80vw;height: 80vh;background-image:url(../images/learners/login-register/login-slide1.svg)"></div>
-                            <div class="swiper-slide" style="width: 80vw;height: 80vh;background-image:url(../images/learners/login-register/login-slide2.svg)"></div>
                         </div>
-                       <div class="swiper-pagination swiper-pagination-black"></div>
-                   </div>
-               </div> 
-           </div>
+                        </p>
+                        @if ($errors->has('full_name'))
+                            <div id="namehelp" class="form-text helptext">{{ $errors->first('full_name') }}</div>
+                        @endif
 
-            <div class="col-md-5  la-entry__col la-entry__col-right h-100 la-anim__wrap">
-                {{-- <div class="signup-heading">
-                    {{ __('frontstaticword.StartLearning') }}!
-                </div> --}}
-
-                <div class="la-entry__content-wrap d-flex flex-column justify-content-center la-anim__stagger-item" >     
-                    <div class="d-flex flex-column la-entry__content-top">
-                        <form class="la-entry__form " method="POST" action="{{ route('register') }}">
-                            @csrf
-                            <div class="la-form__input-wrap la-entry__input-wrap ">
-                                <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
-                                <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-profile"></span></span>
-                                <input type="text" class="la-form__input la-entry__input{{ $errors->has('fname') ? ' is-invalid' : '' }}" name="fname" value="{{ old('fname') }}" id="fname" placeholder="First Name">
-                                @if ($errors->has('fname'))
-                                    <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
-                                        <strong>{{ $errors->first('fname') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-
-                            <div class="la-form__input-wrap la-entry__input-wrap ">
-                                <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
-                                <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-profile"></span></span>
-                                <input type="text" class="la-form__input la-entry__input{{ $errors->has('lname') ? ' is-invalid' : '' }}" name="lname" value="{{ old('lname') }}" id="lname" placeholder="Last Name">
-                                @if ($errors->has('lname'))
-                                    <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
-                                        <strong>{{ $errors->first('lname') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            {{-- <div class="form-group">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                <input type="text" class="form-control{{ $errors->has('lname') ? ' is-invalid' : '' }}" name="lname" value="{{ old('lname') }}" id="lname" placeholder="Last Name">
-                                @if($errors->has('lname'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('lname') }}</strong>
-                                    </span>
-                                @endif
-                            </div> --}}
-                            {{-- @if($gsetting->mobile_enable == 0) --}}
-                            <div class="la-form__input-wrap la-entry__input-wrap ">
-                                <!-- <i class="fa fa-phone" aria-hidden="true"></i> -->
-                                <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-contact-number"></span></span>
-                                <input type="text" class="la-form__input la-entry__input{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile') }}" id="mobile" placeholder="Mobile Number" maxlength="10">
-                                @if($errors->has('mobile'))
-                                    <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
-                                        <strong>{{ $errors->first('mobile') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            {{-- @endif --}}
-                            
-                            <div class="la-form__input-wrap la-entry__input-wrap ">
-                                <!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
-                                <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-mail-id"></span></span>
-                                <input type="email" class="la-form__input la-entry__input{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" id="email" placeholder="Email ID">
-                                @if($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-
-                            <div class="la-form__input-wrap la-entry__input-wrap">
-                                <span class="la-entry__input-icon">
-                                    <span class="la-icon la-icon--xl icon-birthday"></span>
-                                </span>
-                                <input class="la-form__input la-entry__input" type="text" value="" onfocus="(this.type='date')" name="dob" min='1899-01-01' max='{{ Carbon\Carbon::now()->subYear(18)->format('Y-m-d') }}' placeholder="Date of Birth(dd/mm/yyyy)">
-                            </div>
-                           
-                            <div class="la-form__input-wrap la-entry__input-wrap ">
-                                <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
-                                <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-password"></span></span>
-                                <input type="password" class="la-form__input la-entry__input{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" id="password" placeholder="Password">
-                                <span class="la-entry__input-picon d-none" id="password_hide_icon"><span class="la-icon la-icon--xl icon-hide-Password"></span></span>
-                                <span class="la-entry__input-picon" id="password_show_icon"><span class="la-icon la-icon--xl icon-show-password"></span></span>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert" style="margin-left:60px;position:absolute">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-        
-                            {{-- <div class="la-form__input-wrap la-entry__input-wrap mb-12">
-                                <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
-                                <span class="la-entry__input-icon"><span class="la-icon la-icon--xl icon-confirm-password"></span></span>
-                                <input id="password-confirm" type="password" class="la-form__input la-entry__input" name="password_confirmation" placeholder="Confirm Password" required>
-                            </div> --}}
-                            
-                            {{-- @if($gsetting->captcha_enable == 1)
-                             <div class="form-group mb-5{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
-                                {!! app('captcha')->display() !!}
-                                @if ($errors->has('g-recaptcha-response'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
-                                    </span>
-                                @endif
-                            </div> 
-                            @endif --}}
-                            
-                            <button type="submit" title="Sign Up" class="la-btn__app la-btn__secondary w-100 la-anim__stagger-item">{{ __('frontstaticword.Signup') }}</button> 
-                        </form>
-                    </div>
-
-                    <div class="la-entry__content-bottom text-center la-anim__wrap">
-                        <span class="la-entry__bottom-title la-anim__fade-in-top">Register with</span>
-                        <div class="d-flex justify-content-center align-items-center ">
-
-                                {{-- @if($gsetting->fb_login_enable == 1) --}}
-                                    <div class="la-entry__social-lnk la-anim__stagger-item">
-                                        <a href="{{ url('/auth/facebook') }}" target="_blank" title="facebook" class="" title="Facebook">
-                                            <span class="la-icon la-icon--6xl icon-facebook-colored"></span>
-                                            {{-- {{ __('frontstaticword.ContinuewithFacebook') }} --}}
-                                        </a>
-                                    </div>
-                                {{-- @endif --}}
-
-                                {{-- @if($gsetting->linkedin_enable == 0) --}}
-                                <div class="la-entry__social-lnk la-anim__stagger-item">
-                                    <a href="{{ url('/auth/linkedin') }}" target="_blank" title="linkedin" class="" title="Linkedin">
-                                        <span class="la-icon la-icon--6xl icon-linkedin-colored"></span>
-                                        {{-- {{ __('frontstaticword.ContinuewithLinkedin') }} --}}
-                                    </a>
-                                </div>
-                                {{-- @endif --}}
-                                
-                                {{-- @if($gsetting->google_login_enable == 1) --}}
-                                    <div class="la-entry__social-lnk la-anim__stagger-item">
-                                        <a href="{{ url('/auth/google') }}" target="_blank" title="google" class="" title="google">
-                                            <span class="la-icon la-icon--6xl icon-google-colored"><span class="path1"><span class="path2"><span class="path3"><span class="path4"><span class="path5"></span></span></span></span></span></span>
-                                            {{-- {{ __('frontstaticword.ContinuewithGoogle') }} --}}
-                                        </a>
-                                    </div>
-                                {{-- @endif --}}
-                                
-                               {{-- @if($gsetting->amazon_enable == 1)
-                                    <div class="signin-link amazon-button">
-                                        <a href="{{ url('/auth/amazon') }}" target="_blank" title="amazon" class="" title="Amazon">
-                                             {{ __('frontstaticword.ContinuewithAmazon') }} 
-                                        </a>
-                                    </div>
-                                @endif  --}}
-                
-                            
-                                {{-- @if($gsetting->twitter_enable == 1)
-                                    <div class="signin-link twitter-button">
-                                        <a href="{{ url('/auth/twitter') }}" target="_blank" title="twitter" class="rounded-circle btn btn-info btm-10" title="Twitter"><i class="fab fa-twitter"></i>
-                                             {{ __('frontstaticword.ContinuewithTwitter') }} 
-                                        </a>
-                                    </div> 
-                                @endif --}}
-                
-                                {{-- @if($gsetting->gitlab_login_enable == 1)
-                                    <div class="signin-link">
-                                        <a href="{{ url('/auth/gitlab') }}" target="_blank" title="gitlab" class="rounded-circle btn btn-white" title="gitlab"><i class="fab fa-gitlab"></i>
-                                             {{ __('frontstaticword.ContinuewithGitLab') }} 
-                                        </a>
-                                    </div> 
-                                @endif --}}
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                        <div class="input-group flex-nowrap chike-input-group-box">
+                            <span class="input-group-text" id="addon-wrapping"><i class="fa fa-envelope"
+                                    aria-hidden="true"></i></span>
+                            <input value="{{ old('email') }}" name="email" type="email" class="form-control" placeholder="Enter Email"
+                                aria-label="Enter Email" aria-describedby="addon-wrapping" required>
                         </div>
-                    </div>
-        
-                    <!-- <div class="signin-link text-center btm-20">
-                        {{ __('frontstaticword.Bysigningup') }} <a href="{{url('terms_condition')}}" title="Policy">{{ __('frontstaticword.Terms&Condition') }} </a>, <a href="{{url('privacy_policy')}}" title="Policy">{{ __('frontstaticword.PrivacyPolicy') }}.</a>
-                    </div> -->
+                        </p>
+                        @if ($errors->has('email'))
+                            <div id="emailHelp" class="form-text helptext">{{ $errors->first('email') }}</div>
+                        @endif
 
-                    <div class="la-entry__other-option text-center mt-md-4">
-                        {{ __('frontstaticword.Alreadyhaveanaccount') }}? 
-                        <span class="la-btn__plain text--burple text--md ml-2">
-                            <a href="{{ route('login') }}" >{{ __('frontstaticword.Login') }}</a>
-                        </span>
-                    </div>
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                        <div class="input-group chike-input-group-box">
+                            <span class="input-group-text" id="addon-wrapping" style="font-size: 18px;"><i
+                                    class="fa fa-lock" aria-hidden="true"></i></span>
+                            <input type="password" class="form-control" name="password" id="password"
+                                autocomplete="Enter Password" placeholder="********" aria-describedby="Enter Password" required>
+                            <a class="input-group-text togglePassword border-0"><i class="fa fa-eye"
+                                    aria-hidden="true"></i></a>
+                        </div>
+                        </p>
+                        @if ($errors->has('password'))
+                            <div id="passwordHelpBlock" class="form-text helptext">
+                                Your password must be 8-20 characters long, contain letters and numbers, and must not
+                                contain spaces, special characters, or emoji.
+                            </div>
+                        @endif
 
-                    <div class="la-entry__terms text-center mt-1">
-                        <a href="/terms-conditions" class="la-entry__terms-link text-sm">Terms of Use</a>
-                    </div>
-                        
-                    <div class="la-anim__wrap">
-                        <div class="text-center la-entry__other-option mt-md-8 la-anim__fade-in-left">Facing an issue?
-                            <span class="la-btn__plain text--burple text--md ml-2 la-anim__stagger-item--x">
-                                <a href="https://desk.zoho.com/portal/alienstattoo/en/newticket" title="support">Get support</a>
-                            </span>
-                        </div>  
-                    </div>
-                    
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                        <div class="chike-input-group-box pb-0">
+                            <input  value="{{ old('mobile') }}" type="text" class="form-control" name="mobile" id="telephone"
+                                autocomplete="Enter Mobile Number" placeholder="Enter Mobile Number"
+                                aria-describedby="Enter Mobile Number" required>
+                        </div>
+                        </p>
+                        @if ($errors->has('mobile'))
+                            <div id="mobileHelp" class="form-text helptext">{{ $errors->first('mobile') }}</div>
+                        @endif
+
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                        <div class="input-group flex-nowrap chike-input-group-box pb-0">
+                            <span class="input-group-text" id="addon-wrapping"><i class="fa fa-birthday-cake"
+                                    aria-hidden="true"></i></span>
+                            <input value="{{ old('dob') }}" type="date" class="form-control" name="dob"
+                                placeholder="Enter date of birth" aria-label="Enter date of birth"
+                                aria-describedby="addon-wrapping" required>
+                        </div>
+                        </p>
+                        @if ($errors->has('dob'))
+                            <div id="dobHelp" class="form-text helptext" >{{ $errors->first('dob') }}</div>
+                        @endif
+
+                        <p class="woocommerce-FormRow form-row text-center">
+                            <button type="submit" class="btn btn-sm btn-main-outline m-2 rounded w-50">Sign
+                                Up</button>
+                        </p>
+
+                        <div class="text-center">
+                            <div class="mb-3">Register with</div>
+                            <div class="chike-login-share align-items-center mb-3">
+                                <ul class="social-icon">
+                                    <li class="chike-social-icon-box">
+                                        <a href="{{ url('/auth/linkedin') }}"><img src="assets/images/login/chike-linkedin-icon.svg"
+                                                class="img-fluid" alt="linkedin" width="20" height="20"></a>
+                                    </li>
+                                    <li class="chike-social-icon-box">
+                                        <a href="{{ url('/auth/facebook') }}"><img src="assets/images/login/chike-facebook-icon.svg"
+                                                class="img-fluid" alt="facebook" width="20" height="20"></a>
+                                    </li>
+                                    <li class="chiksocial-icon-box">
+                                        <a href="{{ url('/auth/google') }}"><img src="assets/images/login/chike-google-icon.svg"
+                                                class="img-fluid" alt="google" width="20" height="20"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="woocommerce-register mb-2">
+                                Don't have an account yet? <a href="#" class="text-decoration-underline"
+                                    style="color:#3479E2;font-weight: 700;">Sign Up</a>
+                            </div>
+                            <p>Facing an issue? <a href="#" class="ml-1"
+                                    style="color:#3479E2;font-weight: 700;">Get support</a></p>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<!--shop register end-->
+
+@section('scripts')
+    <!-- Country Code -->
+    <script src="assets/vendors/country-code/intltelInput.min.js"></script>
+    <script type="text/javascript">
+        $(".togglePassword").click(function(e) {
+            e.preventDefault();
+            var type = $("#password").attr('type');
+            if (type == "password") {
+                $(this).html('<i class="fa fa-eye-slash" aria-hidden="true"></i>');
+                $("#password").attr("type", "text");
+            } else if (type == "text") {
+                $(this).html('<i class="fa fa-eye" aria-hidden="true"></i>');
+                $("#password").attr("type", "password");
+            }
+        });
+        var input = document.querySelector("#telephone");
+        window.intlTelInput(input, ({
+            preferredCountries: ["in"],
+            separateDialCode: true,
+        }));
+    </script>
 @endsection
-
-{{-- @include('theme.scripts') --}}
-<!-- end jquery -->
-
-@section('footerScripts')
-<script>
-    $('#password_show_icon').click(function(){
-        $(this).addClass('d-none');
-        $('#password_hide_icon').removeClass('d-none');
-        $('#password').prop('type', 'text');
-    });
-
-    $('#password_hide_icon').click(function(){
-        $(this).addClass('d-none');
-        $('#password_show_icon').removeClass('d-none');
-        $('#password').prop('type', 'password');
-    });
-</script>
 @endsection

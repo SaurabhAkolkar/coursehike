@@ -8,6 +8,9 @@ use Auth;
 
 class ContactUsController extends Controller
 {
+	public function contact_us(){
+		return view("newui.contact_us");
+	}
 	public function index()
 	{
 		$items = Contact::all();
