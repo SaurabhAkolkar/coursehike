@@ -65,55 +65,56 @@ class SettingController extends Controller
         $setting = Setting::first();
         $setting->dollar_price = $request->price;
         $setting->save();
+        return back();
 
-        $active = @file_get_contents(public_path().'/config.txt');
+        // $active = @file_get_contents(public_path().'/config.txt');
 
-        if(!$active){
-            $putS = 1;
-            @file_put_contents(public_path().'/config.txt',$putS);
-        }
+        // if(!$active){
+        //     $putS = 1;
+        //     @file_put_contents(public_path().'/config.txt',$putS);
+        // }
 
        
-        $d = \Request::getHost();
-        $domain = str_replace("www.", "", $d); 
+        // $d = \Request::getHost();
+        // $domain = str_replace("www.", "", $d); 
 
-        if($domain == 'localhost' || strstr( $domain, '192.168.0' ) || strstr( $domain, 'mediacity.co.in' )){
-            return $this->extraupdate($request);
-        }else{
+        // if($domain == 'localhost' || strstr( $domain, '192.168.0' ) || strstr( $domain, 'mediacity.co.in' )){
+        //     return $this->extraupdate($request);
+        // }else{
 
-          $token = (file_exists(public_path().'/intialize.txt') &&  @file_get_contents(public_path().'/intialize.txt') != null) ? @file_get_contents(public_path().'/intialize.txt') : 0;
+        //   $token = (file_exists(public_path().'/intialize.txt') &&  @file_get_contents(public_path().'/intialize.txt') != null) ? @file_get_contents(public_path().'/intialize.txt') : 0;
           
-          $code = (file_exists(public_path().'/code.txt') &&  @file_get_contents(public_path().'/code.txt') != null) ? @file_get_contents(public_path().'/code.txt') : 0;
+        //   $code = (file_exists(public_path().'/code.txt') &&  @file_get_contents(public_path().'/code.txt') != null) ? @file_get_contents(public_path().'/code.txt') : 0;
           
-            $ch = curl_init();
-            $options = array(
-              CURLOPT_URL => "https://mediacity.co.in/purchase/public/api/check/{$domain}",
-              CURLOPT_RETURNTRANSFER => true,
-              CURLOPT_TIMEOUT => 20, 
-              CURLOPT_HTTPHEADER => array(
-                    'Accept: application/json',
-                    "Authorization: Bearer ".$token
-              ),
-            );
-            curl_setopt_array($ch, $options);
-            $response = curl_exec($ch);
+        //     $ch = curl_init();
+        //     $options = array(
+        //       CURLOPT_URL => "https://mediacity.co.in/purchase/public/api/check/{$domain}",
+        //       CURLOPT_RETURNTRANSFER => true,
+        //       CURLOPT_TIMEOUT => 20, 
+        //       CURLOPT_HTTPHEADER => array(
+        //             'Accept: application/json',
+        //             "Authorization: Bearer ".$token
+        //       ),
+        //     );
+        //     curl_setopt_array($ch, $options);
+        //     $response = curl_exec($ch);
         
-          if (curl_errno($ch) > 0) { 
-             $message = "Error connecting to API.";
-             return back()->with('delete',$message);
-          }
-          $responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-          if ($responseCode == 200) {
-              $body = json_decode($response);
-              return $this->extraupdate($request);    
-          }
-          else{
-               $message = "Failed";
-               $putS = 0;
-               @file_put_contents(public_path().'/config.txt', $putS);
-               return redirect()->route('inactive');
-          }
-        }
+        //   if (curl_errno($ch) > 0) { 
+        //      $message = "Error connecting to API.";
+        //      return back()->with('delete',$message);
+        //   }
+        //   $responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        //   if ($responseCode == 200) {
+        //       $body = json_decode($response);
+        //       return $this->extraupdate($request);    
+        //   }
+        //   else{
+        //        $message = "Failed";
+        //        $putS = 0;
+        //        @file_put_contents(public_path().'/config.txt', $putS);
+        //        return redirect()->route('inactive');
+        //   }
+        // }
         
       
     }

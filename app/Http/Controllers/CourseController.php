@@ -22,6 +22,7 @@ use App\CourseProgress;
 use App\CourseResource;
 use App\Currency;
 use App\Events\UploadMultilingualVideoToCloudEvent;
+use App\FaqStudent;
 use App\MasterClass;
 use App\Meeting;
 use App\Order;
@@ -56,8 +57,9 @@ class CourseController extends Controller
         $categories = Cache::remember('home_categories', $seconds = 86400, function () {
             return Categories::with('subcategory')->orderBy('id', 'ASC')->get();
         });
-        $course = Course::with('review', 'user')->where("id",$course_id)->first();
+        $course = Course::with('review', 'user')->where("id", $course_id)->first();
         $cart_items = Cart::where("user_id", Auth::id())->get()->count();
+        // $faqs = FaqStudent::all(); , compact('faqs')
         return view("newui.course_overview")
             ->with("categories", $categories)
             ->with("course", $course)
@@ -88,14 +90,13 @@ class CourseController extends Controller
         $categories = Cache::remember('home_categories', $seconds = 86400, function () {
             return Categories::with('subcategory')->orderBy('id', 'ASC')->get();
         });
-        $courses =Course::with('review', 'user')->where("subcategory_id",$subcategory_id)->get();
+        $courses = Course::with('review', 'user')->where("subcategory_id", $subcategory_id)->get();
         $cart_items = Cart::where("user_id", Auth::id())->get()->count();
         return view("newui.all_course_list")
             ->with("categories", $categories)
             ->with("courses", $courses)
             ->with("cart_items", $cart_items);
     }
-    
 
     public function my_courses_list()
     {

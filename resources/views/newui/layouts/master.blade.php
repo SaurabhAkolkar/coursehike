@@ -98,6 +98,7 @@
             } else {
                 msg = "We will improve ourselves. You rated this " + ratingValue + " stars.";
             }
+            $('#rating_value').val(ratingValue)
             responseMessage(msg);
 
         });
@@ -106,6 +107,7 @@
             $('.success-box').fadeIn(200);
             $('.success-box div.text-message').html("<span>" + msg + "</span>");
         }
+
         $(".chike-description-show_hide").on("click", function() {
             var show_hide = $(this).text();
             if (show_hide == 'Read More...') {
@@ -115,6 +117,8 @@
             }
             $('.chike-description-more-content').slideToggle(200);
         });
+
+       
     </script>
 
     @yield('scripts')

@@ -4,7 +4,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body text-center">
-                    <form id="chikeLeaveaReviewModalForm">
+                    <form id="chikeLeaveaReviewModalForm" method="POST" action="{{ route("reviewrating.store") }}">
+                      @csrf
                         <h5 class="modal-title mt-3" id="chikeLeaveaReviewModalLabel">Leave a Rating</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
@@ -34,14 +35,16 @@
                                     <div class='text-message'></div>
                                 </div>
                             </div>
+                            <input type="hidden" name="rating" id="rating_value">
+                            <input type="hidden" name="course_id" id="course_id" value="{{ $course->id }}">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <textarea id="message" name="message" cols="30" rows="6" class="form-control"
+                                    <textarea id="message" name="review" cols="30" rows="6" class="form-control"
                                         placeholder="*Tell us about your experience"></textarea>
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-sm btn-main-outline m-2 rounded">SUBMIT REVIEW</button>
+                        <button type="submit" class="btn btn-sm btn-main-outline m-2 rounded">SUBMIT REVIEW</button>
                     </form>
                 </div>
             </div>

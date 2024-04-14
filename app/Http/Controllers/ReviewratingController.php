@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\ReviewRating;
-use Illuminate\Http\Request;
-use App\User; 
 use App\Course;
-use DB;
-use Auth;
 use App\Order;
+use App\ReviewRating;
+use App\User;
+use Auth;
+use DB;
+use Illuminate\Http\Request;
 
 class ReviewratingController extends Controller
 {
@@ -19,8 +19,8 @@ class ReviewratingController extends Controller
      */
     public function index()
     {
-      //
-      
+        //
+
     }
 
     /**
@@ -30,7 +30,7 @@ class ReviewratingController extends Controller
      */
     public function create()
     {
-      //
+        //
     }
 
     /**
@@ -41,21 +41,43 @@ class ReviewratingController extends Controller
      */
     public function store(Request $request)
     {
-        DB::table('review_ratings')->insert(
-        array(
-            'course_id' => $request->course,
-            'user_id' => $request->user_id,
-            'review' => $request->review,
-            'status' => $request->status,
-            'approved' => $request->approved,
-            'featured' => $request->featured,
-            'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
-            )
-        );
-        return redirect()->route('course.show',$request->course);
-    }   
- 
+
+        $user_id = Auth::id();
+        if (ReviewRating::where('user_id', '=', $user_id)->exists()) {
+            DB::table('review_ratings')->where('user_id',$user_id)
+            ->update(
+                array(
+                    'course_id' => $request->course_id,
+                    'user_id' => $user_id,
+                    'review' => $request->review,
+                    'status' => 1,
+                    'rating' => $request->rating,
+                    'approved' => 1,
+                    // 'featured' => $request->featured,
+                    'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                    'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                )
+            );
+            return back()->with("success", "Rating update successfully.");
+        } else {
+
+            DB::table('review_ratings')->insert(
+                array(
+                    'course_id' => $request->course_id,
+                    'user_id' => $user_id,
+                    'review' => $request->review,
+                    'status' => 1,
+                    'rating' => $request->rating,
+                    'approved' => 1,
+                    // 'featured' => $request->featured,
+                    'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                    'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                )
+            );
+            return back()->with("success", "Thanks for your valuable ratings.");
+        }
+
+    }
 
     /**
      * Display the specified resource.
@@ -65,14 +87,13 @@ class ReviewratingController extends Controller
      */
     public function show($id)
     {
-        
+
         $jp = ReviewRating::find($id);
         $users = User::all();
         $courses = Course::all();
-        return view('admin.course.reviewrating.edit',compact('jp','courses','users'));
-   
+        return view('admin.course.reviewrating.edit', compact('jp', 'courses', 'users'));
+
     }
-  
 
     /**
      * Show the form for editing the specified resource.
@@ -92,15 +113,15 @@ class ReviewratingController extends Controller
      * @param  \App\reviewrating  $reviewrating
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
 
         $data = ReviewRating::findorfail($id);
         $input = $request->all();
-        $data ->update($input);
-       
-        return redirect()->route('course.show',$request->course);
-    
+        $data->update($input);
+
+        return redirect()->route('course.show', $request->course);
+
     }
 
     /**
@@ -111,23 +132,20 @@ class ReviewratingController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('review_ratings')->where('id',$id)->delete();
+        DB::table('review_ratings')->where('id', $id)->delete();
         return back();
     }
 
-
-    public function rating(Request $request,$id)
+    public function rating(Request $request, $id)
     {
 
         $orders = Order::where('user_id', Auth::User()->id)->where('course_id', $id)->first();
         $review = ReviewRating::where('user_id', Auth::User()->id)->where('course_id', $id)->first();
 
-        if(!empty($orders)){
-            if(!empty($review))
-            {
-                return back()->with('delete','You already reviewed this course');
-            }
-            else{
+        if (!empty($orders)) {
+            if (!empty($review)) {
+                return back()->with('delete', 'You already reviewed this course');
+            } else {
 
                 $input = $request->all();
                 $input['course_id'] = $id;
@@ -135,16 +153,14 @@ class ReviewratingController extends Controller
                 $data = ReviewRating::create($input);
                 $data->save();
 
-                return back()->with('success','Review Successfully');
+                return back()->with('success', 'Review Successfully');
             }
-            return back()->with('success','Review Successfully');
-        }
-        else{
-            return back()->with('delete','Purchase to review this course');
+            return back()->with('success', 'Review Successfully');
+        } else {
+            return back()->with('delete', 'Purchase to review this course');
 
         }
-        
+
     }
 
-    
 }

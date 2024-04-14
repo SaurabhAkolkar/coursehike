@@ -24,7 +24,7 @@
                         d="M5.50596 41.1861H38.5004C38.5004 40.2181 38.4733 39.2793 38.507 38.345C38.5546 37.0057 39.5224 35.9664 40.8562 35.7642C41.4765 35.666 42.1116 35.7907 42.6488 36.116C43.186 36.4413 43.5908 36.9463 43.7914 37.5415C43.9111 37.9298 43.9717 38.3338 43.9711 38.7401C43.9982 40.4355 43.9982 42.1316 44.0041 43.8277C44.0101 45.5238 42.7634 46.729 41.0676 46.7257C28.6187 46.7147 16.1703 46.705 3.72226 46.6966C3.21027 46.6966 2.68441 46.7263 2.1896 46.6233C0.859757 46.3464 0.00358131 45.2608 0.000938791 43.905C-0.00302498 42.1431 0.00556315 40.3829 0.0267033 38.6245C0.048504 36.9205 1.24424 35.6856 2.81125 35.7173C4.37826 35.749 5.49473 36.9627 5.5053 38.6443C5.51058 39.4801 5.50596 40.3126 5.50596 41.1861Z" />
                 </svg><span class="chike-menu-title">Resources</span></a>
 
-            <a class="nav-item nav-link" id="nav-instructor-tab" data-bs-toggle="tab" href="#nav-instructor"
+            {{-- <a class="nav-item nav-link" id="nav-instructor-tab" data-bs-toggle="tab" href="#nav-instructor"
                 role="tab" aria-controls="nav-instructor-tab" aria-selected="false"><svg class="chike-menu-icon"
                     width="54" height="48" viewBox="0 0 54 48" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -33,7 +33,8 @@
                         d="M23.5881 33.323C23.7421 33.8365 23.8599 34.3389 24.0407 34.8177C25.7656 39.3918 29.1179 42.1842 33.8185 43.4518C35.9752 44.0336 38.1676 44.0518 40.3672 43.6548C40.6349 43.6127 40.909 43.6388 41.1636 43.7306C42.8445 44.3348 44.5159 44.9659 46.1914 45.5842C46.9111 45.8501 47.5202 45.7206 47.9579 45.2171C48.385 44.7259 48.4213 44.1336 48.0769 43.4671C47.6837 42.7024 47.3078 41.9306 46.9075 41.1701C46.7594 40.8877 46.7838 40.7218 47.0491 40.4942C50.0266 37.9365 51.6801 34.7136 51.6593 30.8012C51.6331 26.2024 49.4699 22.6771 45.6656 20.1271C43.08 18.3942 40.178 17.6659 37.0655 17.7242C36.9198 17.7242 36.7735 17.7242 36.6218 17.7242C36.6694 17.0136 36.6991 16.3501 36.774 15.6906C36.7848 15.5995 37.0149 15.4677 37.147 15.4642C38.6622 15.4124 40.1771 15.5734 41.6466 15.9424C46.1188 17.0812 49.6501 19.5248 51.9692 23.5071C54.3157 27.5336 54.6018 31.7742 52.9661 36.1283C52.2523 38.0324 51.196 39.7342 49.728 41.1736C49.6561 41.2448 49.6418 41.4436 49.6858 41.5477C49.8404 41.9106 50.0349 42.2565 50.2086 42.6118C50.9027 44.0312 50.6916 45.6059 49.6549 46.7606C49.1591 47.3163 48.5054 47.7111 47.7791 47.8934C47.0528 48.0757 46.2878 48.037 45.5841 47.7824C44.1061 47.2642 42.6411 46.7083 41.1779 46.1501C40.7967 45.9994 40.3816 45.9523 39.9758 46.0136C32.8002 47.0212 25.8198 43.5806 22.6674 37.4106C22.1749 36.4465 21.8793 35.3842 21.4956 34.3659C21.3903 34.0853 21.4629 33.9242 21.7894 33.8442C22.3848 33.6953 22.9701 33.5071 23.5881 33.323Z" />
                     <path
                         d="M44.8501 36.4189C44.8501 37.1836 44.451 37.6613 43.8562 37.8213C43.2614 37.9813 42.7226 37.7972 42.4585 37.2477C42.076 36.4525 41.7447 35.6301 41.4342 34.8036C41.3093 34.4713 41.1559 34.3519 40.7895 34.3572C39.1794 34.3789 37.5687 34.3742 35.958 34.3572C35.6731 34.3572 35.5553 34.4501 35.4596 34.7101C35.1556 35.5248 34.8457 36.3395 34.49 37.133C34.1849 37.8125 33.6871 38.0154 33.0167 37.8083C32.3767 37.613 32.0109 37.0713 32.1174 36.3966C32.1799 36.0633 32.2786 35.7377 32.4118 35.4254C33.7204 32.1246 35.0335 28.826 36.3512 25.5295C36.4469 25.2901 36.5587 25.0554 36.6777 24.8236C37.0292 24.1436 37.5996 23.7925 38.3675 23.7789C39.1467 23.7648 39.7908 24.0613 40.1263 24.7707C40.5795 25.7289 40.9709 26.716 41.3754 27.6966C42.4321 30.2628 43.4829 32.8315 44.5278 35.4025C44.686 35.7919 44.7805 36.2025 44.8501 36.4189ZM40.501 32.3307C39.8075 30.4289 39.1282 28.566 38.449 26.706L38.3384 26.7142C37.6722 28.5736 37.0066 30.4336 36.3268 32.3307H40.501Z" />
-                </svg><span class="chike-menu-title">Q & A</span></a>
+                </svg><span class="chike-menu-title">Q & A</span>
+            </a> --}}
 
             <a class="nav-item nav-link" id="nav-feedback-tab" data-bs-toggle="tab" href="#nav-feedback" role="tab"
                 aria-controls="nav-feedback-tab" aria-selected="false"><svg class="chike-menu-icon" width="56"
@@ -113,15 +114,14 @@
 
                 <h4 class="course-title mt-5">Chapters List</h4>
                 <div class="accordion" id="accordionPanelsStayOpenExample">
-
-                    @foreach ($course->courseclass as $chapter)
+                    @foreach ($course->chapter as $key => $chapter)
                         <div class="accordion-item mb-3">
                             <h2 class="accordion-header border chike-video-info-box-accordion-header"
                                 id="panelsStayOpen-headingOne">
                                 <div class="accordion-button" data-bs-toggle="collapse"
                                     data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                                     aria-controls="panelsStayOpen-collapseOne">
-                                    Chapter 1.{{ $chapter->title }}
+                                    Chapter {{ ++$key }}.{!! $chapter->chapter_name !!}
                                 </div>
                             </h2>
                             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
@@ -132,52 +132,46 @@
                                             <ul class="curriculum-sections">
                                                 <li class="section">
                                                     <ul class="section-content">
-                                                        @dd($chapter->courseclass)
                                                         @foreach ($chapter->courseclass as $class)
                                                             <li class="course-item has-status course-item-lp_lesson">
                                                                 <a class="section-item-link" href="#">
-                                                                    <span class="item-name">What is
-                                                                        script?</span>
+                                                                    <span class="item-name">{{ $class->title }}</span>
                                                                     <div class="course-item-meta">
                                                                         <span class="item-meta duration">20.30
                                                                             min</span>
-                                                                        <span
-                                                                            class="item-meta chike-video-unlocked-status"><strong>Unlocked</strong></span>
+                                                                        <span class="item-meta"><i
+                                                                                class="fa fa-lock m-0"></i></span>
                                                                     </div>
-
                                                                 </a>
                                                                 <div class="progress" style="margin:0px 40px;">
-                                                                    <div class="progress-bar w-75" role="progressbar"
-                                                                        aria-valuenow="75" aria-valuemin="0"
-                                                                        aria-valuemax="100"
-                                                                        style="background-color: #008000;">
+                                                                    <div class="progress-bar w-25" role="progressbar"
+                                                                        aria-valuenow="25" aria-valuemin="0"
+                                                                        aria-valuemax="100">
                                                                     </div>
                                                                 </div>
                                                             </li>
+                                                            {{--
+                                                                    <li class="course-item has-status course-item-lp_lesson">
+                                                                        <a class="section-item-link" href="#">
+                                                                            <span class="item-name">{{ $class->title }}</span>
+                                                                            <div class="course-item-meta">
+                                                                                <span class="item-meta duration">20.30
+                                                                                    min</span>
+                                                                                <span
+                                                                                    class="item-meta chike-video-unlocked-status"><strong>Unlocked</strong></span>
+                                                                            </div>
+
+                                                                        </a>
+                                                                        <div class="progress" style="margin:0px 40px;">
+                                                                            <div class="progress-bar w-75" role="progressbar"
+                                                                                aria-valuenow="75" aria-valuemin="0"
+                                                                                aria-valuemax="100"
+                                                                                style="background-color: #008000;">
+                                                                            </div>
+                                                                        </div>
+                                                                    </li> 
+                                                            --}}
                                                         @endforeach
-
-
-                                                        {{-- <li class="course-item has-status course-item-lp_lesson">
-                                                        <a class="section-item-link" href="#">
-                                                            <span class="item-name">What is Hiragana,
-                                                                Katakana and Kanji</span>
-                                                            <div class="course-item-meta">
-                                                                <span class="item-meta duration">20.30
-                                                                    min</span>
-                                                                <span class="item-meta"><i
-                                                                        class="fa fa-lock m-0"></i></span>
-                                                            </div>
-                                                        </a>
-                                                        <div class="progress" style="margin:0px 40px;">
-                                                            <div class="progress-bar w-25" role="progressbar"
-                                                                aria-valuenow="25" aria-valuemin="0"
-                                                                aria-valuemax="100">
-                                                            </div>
-                                                        </div>
-                                                    </li> --}}
-
-
-
                                                     </ul>
                                                 </li>
                                                 <!-- section end -->
@@ -201,14 +195,14 @@
                 <h4 class="course-title mt-5">Certification</h4>
                 <p>Upon completion of all chapters you will get certificate of course completion from
                     CourseHike. To get certificate it is required to complete all chapters.</p>
-                <button class="btn btn-sm btn-main-outline rounded"><i class="fa fa-certificate me-2"
-                        aria-hidden="true"></i> Get Certificate</button>
+                <button onclick="getCertificate()" class="btn btn-sm btn-main-outline rounded"><i
+                        class="fa fa-certificate me-2" aria-hidden="true"></i> Get Certificate</button>
                 <p style="color:#A4A0A0;"><small>Please complet remaining 20 chapters to get
                         certificate</small></p>
             </div>
 
             <!-- Featured Courses -->
-            <h3 class="course-title mt-4 mb-4">Featured Courses</h3>
+            {{-- <h3 class="course-title mt-4 mb-4">Featured Courses</h3>
             <div class="row justify-content-lg-center chike-featured-courses-box">
                 <div class="col-xl-4 col-lg-6 col-md-6">
                     <div class="course-grid tooltip-style bg-white hover-shadow">
@@ -315,7 +309,7 @@
                     <a href="#" class="btn btn-sm btn-main rounded mt-3"><i class="fa fa-repeat me-2"
                             aria-hidden="true"></i> View More</a>
                 </div>
-            </div>
+            </div> --}}
             <!-- /Featured Courses -->
 
             <!-- FAQs -->
@@ -453,134 +447,22 @@
                     aria-current="true">
                     Downloadable Resources
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    hiragana & katakana book.pdf
-                    <a href="#"><i class="fa fa-download me-2" aria-hidden="true"></i> <small
-                            class="text-right">(1.5 MB)</small></a>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    A third list item
-                    <a href="#"><i class="fa fa-download me-2" aria-hidden="true"></i> <small
-                            class="text-right">(5.5 MB)</small></a>
-                </li>
+
+                @foreach ($course->resources as $resource)
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        {{ $resource->file_name }}
+                        <a href="{{ route('download_res_pdf', $resource->id) }}"><i class="fa fa-download me-2"
+                                aria-hidden="true"></i>
+                            {{-- <small class="text-right">(1.5 MB)</small> --}}
+                        </a>
+                    </li>
+                @endforeach
             </ul>
-
-            <!-- Featured Courses -->
-            <h3 class="course-title mt-5 mb-4">Featured Courses</h3>
-            <div class="row justify-content-lg-center">
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                    <div class="course-grid tooltip-style bg-white hover-shadow">
-                        <div class="course-header">
-                            <div class="course-thumb">
-                                <img src="assets/images/course/course1.png" alt="" class="img-fluid">
-                                <div class="course-price">$300</div>
-                            </div>
-                        </div>
-                        <div class="course-content">
-                            <div class="rating mb-10">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-
-                                <span>3.9 (30 reviews)</span>
-                            </div>
-                            <h3 class="course-title mb-20"> <a href="#">SQL-Data Analysis: Crash
-                                    Course</a> </h3>
-                            <div class="course-footer mt-20 d-flex align-items-center justify-content-between ">
-                                <span class="duration"><i class="far fa-clock me-2"></i>6.5 hr</span>
-                                <span class="lessons"><i class="far fa-play-circle me-2"></i>26
-                                    Lessons</span>
-                            </div>
-                        </div>
-                        <div class="course-footer text-center border p-3">
-                            <a href="#" class="text-right chike-course-like"><i class="fa fa-heart"></i></a>
-                            <a href="#" class="btn btn-main-outline btn-radius btn-sm">Buy Now
-                                <i class="fa fa-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- COURSE END -->
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                    <div class="course-grid tooltip-style bg-white hover-shadow">
-                        <div class="course-header">
-                            <div class="course-thumb">
-                                <img src="assets/images/course/course1.png" alt="" class="img-fluid">
-                                <div class="course-price">$300</div>
-                            </div>
-                        </div>
-                        <div class="course-content">
-                            <div class="rating mb-10">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-
-                                <span>3.9 (30 reviews)</span>
-                            </div>
-                            <h3 class="course-title mb-20"> <a href="#">SQL-Data Analysis: Crash
-                                    Course</a> </h3>
-                            <div class="course-footer mt-20 d-flex align-items-center justify-content-between ">
-                                <span class="duration"><i class="far fa-clock me-2"></i>6.5 hr</span>
-                                <span class="lessons"><i class="far fa-play-circle me-2"></i>26
-                                    Lessons</span>
-                            </div>
-                        </div>
-                        <div class="course-footer text-center border p-3">
-                            <a href="#" class="text-right chike-course-like"><i class="fa fa-heart"></i></a>
-                            <a href="#" class="btn btn-main-outline btn-radius btn-sm">Buy Now
-                                <i class="fa fa-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- COURSE END -->
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                    <div class="course-grid tooltip-style bg-white hover-shadow">
-                        <div class="course-header">
-                            <div class="course-thumb">
-                                <img src="assets/images/course/course1.png" alt="" class="img-fluid">
-                                <div class="course-price">$300</div>
-                            </div>
-                        </div>
-                        <div class="course-content">
-                            <div class="rating mb-10">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-
-                                <span>3.9 (30 reviews)</span>
-                            </div>
-                            <h3 class="course-title mb-20"> <a href="#">SQL-Data Analysis: Crash
-                                    Course</a> </h3>
-                            <div class="course-footer mt-20 d-flex align-items-center justify-content-between ">
-                                <span class="duration"><i class="far fa-clock me-2"></i>6.5 hr</span>
-                                <span class="lessons"><i class="far fa-play-circle me-2"></i>26
-                                    Lessons</span>
-                            </div>
-                        </div>
-                        <div class="course-footer text-center border p-3">
-                            <a href="#" class="text-right chike-course-like"><i class="fa fa-heart"></i></a>
-                            <a href="#" class="btn btn-main-outline btn-radius btn-sm">Buy Now
-                                <i class="fa fa-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- COURSE END -->
-                <div class="col-xl-12 col-lg-12 col-md-12 text-center">
-                    <a href="#" class="btn btn-sm btn-main rounded mt-3"><i class="fa fa-repeat me-2"
-                            aria-hidden="true"></i> View More</a>
-                </div>
-            </div>
-            <!-- /Featured Courses -->
         </div>
         <!-- /Resources -->
 
         <!-- Q & A -->
-        <div class="tab-pane fade" id="nav-instructor" role="tabpanel" aria-labelledby="nav-instructor-tab">
+        {{-- <div class="tab-pane fade" id="nav-instructor" role="tabpanel" aria-labelledby="nav-instructor-tab">
             <div class="banner-form mb-4">
                 <form action="#" class="form" id="chike-q-and-a-search-form">
                     <input type="text" class="form-control" placeholder="Search Questions ">
@@ -892,14 +774,14 @@
                 </div>
             </div>
             <!-- /Featured Courses -->
-        </div>
+        </div> --}}
         <!-- /Q & A -->
 
         <!--Reviews -->
         <div class="tab-pane fade" id="nav-feedback" role="tabpanel" aria-labelledby="nav-feedback-tab">
-            <h4 class="mb-3">Students Rating & Review</h4>
+            {{-- <h4 class="mb-3">Students Rating & Review</h4> --}}
             <!-- overall reating box -->
-            <div class="row border chike-overall-rating-box">
+            {{-- <div class="row border chike-overall-rating-box">
                 <div class="col-xs-3 col-md-3 text-center">
                     <h1 class="rating-num">
                         4.0</h1>
@@ -979,10 +861,10 @@
                     </div>
                     <!-- end row -->
                 </div>
-            </div>
+            </div> --}}
             <!-- /overall reating box -->
 
-            <div class="course-top-wrap mb-4 mt-4">
+            {{-- <div class="course-top-wrap mb-4 mt-4">
                 <div class="fuild-container">
                     <div class="row align-items-center">
                         <div class="col-lg-8">
@@ -999,53 +881,57 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div id="course-reviews mb-4">
                 <ul class="course-reviews-list">
-                    <!-- user reviews -->
-                    <li>
-                        <div class="course-review">
-                            <div class="course-single-review  course-single-review-box">
-                                <div class="user-image chike-profile-icon-bg-grey">
-                                    AD
-                                </div>
-                                <div class="user-content user-review-content">
-                                    <div class="review-header mb-0">
-                                        <h4 class="user-name">Ajinkya Dabholkar <span class="chike-comment-time">1
-                                                week ago</span></h4>
-                                        <div class="rating review-stars-rated">
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star-half"></i></a>
-                                        </div>
+
+                    {{-- @dd($course->review[0]->user) --}}
+                    @foreach ($course->review as $re)
+                        @php
+                            $startDate = \Carbon\Carbon::parse($re->created_at);
+                            $endDate = \Carbon\Carbon::now();
+                            $weeksDifference = $startDate->diffInWeeks($endDate);
+                            if ($weeksDifference == 1) {
+                                    $result = "1 week ago";
+                            } elseif ($weeksDifference > 1) {
+                                $result = $weeksDifference . " weeks ago";
+                            } else {
+                                $result = "Less than a week ago";
+                            }
+                        @endphp
+                        <!-- user reviews -->
+                        <li>
+                            <div class="course-review">
+                                <div class="course-single-review  course-single-review-box">
+                                    <div class="user-image chike-profile-icon-bg-grey">
+                                        AD
                                     </div>
-                                    <div class="review-text">
-                                        <div class="review-content">
-                                            Nice Course!
+                                    <div class="user-content user-review-content">
+                                        <div class="review-header mb-0">
+                                            <h4 class="user-name">{{ $re->user->fname }} <span
+                                                    class="chike-comment-time">
+                                                    {{ $result }}</span></h4>
+                                            <div class="rating review-stars-rated">
+                                                @for ($i = 0; $i < $re->rating; $i++)
+                                                    <a><i class="fa fa-star"></i></a>
+                                                @endfor
+                                            </div>
                                         </div>
-                                        <p class="mb-0" style="color: #BDBCBC;font-size:14px;">was
-                                            this review helpful?</p>
-                                        <div class="course-meta mb-0">
-                                            <a href="#" class="me-3"><span class="duration"><i
-                                                        class="fa fa-thumbs-up me-1" aria-hidden="true"></i>
-                                                    Like</span></a>
-                                            <a href="#" class="me-3"><span class="lessons"><i
-                                                        class="fa fa-thumbs-down me-1" aria-hidden="true"></i>
-                                                    Dislike</span></a>
-                                            <a href="#" class="me-3"><span class="lessons"><i
-                                                        class="fa fa-comment me-1" aria-hidden="true"></i>
-                                                    Report</span></a>
+                                        <div class="review-text">
+                                            <div class="review-content">
+                                                {{ $re->review_message }}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                    <!-- /user reviews -->
+                        </li>
+                        <!-- /user reviews -->
+                    @endforeach
+
+
                     <!-- user reviews -->
-                    <li>
+                    {{-- <li>
                         <div class="course-review">
                             <div class="course-single-review  course-single-review-box">
                                 <div class="user-image chike-profile-icon-bg-grey">
@@ -1084,177 +970,21 @@
                                 </div>
                             </div>
                         </div>
-                    </li>
+                    </li> --}}
                     <!-- /user reviews -->
-                    <!-- user reviews -->
-                    <li>
-                        <div class="course-review">
-                            <div class="course-single-review course-single-review-box">
-                                <div class="user-image chike-profile-icon-bg-grey">
-                                    TB
-                                </div>
-                                <div class="user-content user-review-content">
-                                    <div class="review-header mb-0">
-                                        <h4 class="user-name">Tushar Bairwa <span class="chike-comment-time">1
-                                                week ago</span></h4>
-                                        <div class="rating review-stars-rated">
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star-half"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="review-text">
-                                        <div class="review-content">
-                                            Nice Course!
-                                        </div>
-                                        <p class="mb-0" style="color: #BDBCBC;font-size:14px;">was
-                                            this review helpful?.</p>
-                                        <div class="course-meta mb-0">
-                                            <a href="#" class="me-3" style="color:#BDBCBC;"><span
-                                                    class="duration"><i class="fa fa-thumbs-up me-1"
-                                                        aria-hidden="true"></i> Like</span></a>
-                                            <a href="#" class="me-3" style="color:#BDBCBC;"><span
-                                                    class="lessons"><i class="fa fa-thumbs-down me-1"
-                                                        aria-hidden="true"></i> Dislike</span></a>
-                                            <a href="#" class="me-3" style="color:#BDBCBC;"><span
-                                                    class="lessons"><i class="fa fa-comment me-1"
-                                                        aria-hidden="true"></i> Report</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- /user reviews -->
+
+
                 </ul>
-                <div class="text-center mt-3 mb-3">
+                {{-- <div class="text-center mt-3 mb-3">
                     <a href="#" class="btn btn-sm btn-main rounded"><i class="fa fa-repeat me-2"
                             aria-hidden="true"></i> Load More</a>
-                </div>
+                </div> --}}
             </div>
 
             <button type="button" class="btn btn-sm btn-main-outline m-2 rounded" data-bs-toggle="modal"
                 data-bs-target="#chikeLeaveaReviewModal" id="chikeLeaveaReviewModalBtn"><i
                     class="fa fa-paper-plane me-2"></i> Leave a
                 Review</button>
-
-            <!-- Featured Courses -->
-            <h3 class="course-title mt-5 mb-4">Featured Courses</h3>
-            <div class="row justify-content-lg-center">
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                    <div class="course-grid tooltip-style bg-white hover-shadow">
-                        <div class="course-header">
-                            <div class="course-thumb">
-                                <img src="assets/images/course/course1.png" alt="" class="img-fluid">
-                                <div class="course-price">$300</div>
-
-                            </div>
-                        </div>
-                        <div class="course-content">
-                            <div class="rating mb-10">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <span>3.9 (30 reviews)</span>
-                            </div>
-                            <h3 class="course-title mb-20">
-                                <a href="#">SQL-Data Analysis: Crash Course</a>
-                            </h3>
-                            <div class="course-footer mt-20 d-flex align-items-center justify-content-between ">
-                                <span class="duration"><i class="far fa-clock me-2"></i>6.5
-                                    hr</span>
-                                <span class="lessons"><i class="far fa-play-circle me-2"></i>26
-                                    Lessons</span>
-                            </div>
-                        </div>
-                        <div class="course-footer text-center border p-3">
-                            <a href="#" class="text-right chike-course-like"><i class="fa fa-heart"></i></a>
-                            <a href="#" class="btn btn-main-outline btn-radius btn-sm">Buy Now
-                                <i class="fa fa-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- COURSE END -->
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                    <div class="course-grid tooltip-style bg-white hover-shadow">
-                        <div class="course-header">
-                            <div class="course-thumb">
-                                <img src="assets/images/course/course1.png" alt="" class="img-fluid">
-                                <div class="course-price">$300</div>
-                            </div>
-                        </div>
-                        <div class="course-content">
-                            <div class="rating mb-10">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-
-                                <span>3.9 (30 reviews)</span>
-                            </div>
-                            <h3 class="course-title mb-20"> <a href="#">SQL-Data Analysis:
-                                    Crash Course</a> </h3>
-                            <div class="course-footer mt-20 d-flex align-items-center justify-content-between ">
-                                <span class="duration"><i class="far fa-clock me-2"></i>6.5
-                                    hr</span>
-                                <span class="lessons"><i class="far fa-play-circle me-2"></i>26
-                                    Lessons</span>
-                            </div>
-                        </div>
-                        <div class="course-footer text-center border p-3">
-                            <a href="#" class="text-right chike-course-like"><i class="fa fa-heart"></i></a>
-                            <a href="#" class="btn btn-main-outline btn-radius btn-sm">Buy Now
-                                <i class="fa fa-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- COURSE END -->
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                    <div class="course-grid tooltip-style bg-white hover-shadow">
-                        <div class="course-header">
-                            <div class="course-thumb">
-                                <img src="assets/images/course/course1.png" alt="" class="img-fluid">
-                                <div class="course-price">$300</div>
-                            </div>
-                        </div>
-                        <div class="course-content">
-                            <div class="rating mb-10">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-
-                                <span>3.9 (30 reviews)</span>
-                            </div>
-                            <h3 class="course-title mb-20"> <a href="#">SQL-Data Analysis:
-                                    Crash Course</a> </h3>
-                            <div class="course-footer mt-20 d-flex align-items-center justify-content-between ">
-                                <span class="duration"><i class="far fa-clock me-2"></i>6.5
-                                    hr</span>
-                                <span class="lessons"><i class="far fa-play-circle me-2"></i>26
-                                    Lessons</span>
-                            </div>
-                        </div>
-                        <div class="course-footer text-center border p-3">
-                            <a href="#" class="text-right chike-course-like"><i class="fa fa-heart"></i></a>
-                            <a href="#" class="btn btn-main-outline btn-radius btn-sm">Buy Now
-                                <i class="fa fa-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- COURSE END -->
-                <div class="col-xl-12 col-lg-12 col-md-12 text-center">
-                    <a href="#" class="btn btn-sm btn-main rounded mt-3"><i class="fa fa-repeat me-2"
-                            aria-hidden="true"></i> View More</a>
-                </div>
-            </div>
-            <!-- /Featured Courses -->
         </div>
         <!--Reviews -->
     </div>

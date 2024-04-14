@@ -10,16 +10,16 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class SendOrderMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $x, $order;
+    public $x, $user;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($x, $order)
+    public function __construct($x, $user)
     {
         $this->x = $x;
-        $this->order = $order;
+        $this->user = $user;
     }
 
     /**

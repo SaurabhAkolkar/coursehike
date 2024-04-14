@@ -494,7 +494,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::get('all/cart', 'CartController@cartpage')->name('cart.show');
 
-      Route::post('gotocheckout', 'CheckoutController@checkoutpage');
+      Route::post('gotocheckout', 'CheckoutController@checkoutpage')->name('gotocheckout');
 
       Route::get('notifications/{id}', 'NotificationController@markAsRead')
       ->name('markAsRead');
@@ -503,6 +503,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::get('/view', 'DownloadController@getDownload');
 
+      Route::get('/resource-download/{id}', 'DownloadController@getResourceDownload')->name('download_res_pdf')->middleware('auth');
       Route::get('/download/{id}', 'DownloadController@getDownload')->name('downloadPdf')->middleware('auth');
 
       Route::post('review/helpful/{id}', 'ReviewHelpfulController@store')->name('helpful');
@@ -570,6 +571,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
       Route::get('razorpay', 'RazorpayController@pay')->name('pay');
       Route::post('dopayment', 'RazorpayController@dopayment')->name('dopayment');
+      Route::post('payment-completed', 'RazorpayController@payment_completed')->name('pc')->middleware('auth');
 
       Route::get('rproduct', 'RazorpayController@rproduct')->name('rproduct');
       Route::post('razorpay-payment', 'RazorpayController@razorpay_payment')->name('rp');

@@ -59,10 +59,12 @@
                             <ul class="inline-list list-info">
                                 <li>
                                     <div class="course-author">
-                                        <button class="chike-mentor-profile">{{ $course->user->fname[0] }}</button>{{ $course->user->fname }}
+                                        <button
+                                            class="chike-mentor-profile">{{ $course->user->fname[0] }}</button>{{ $course->user->fname }}
                                     </div>
                                 </li>
-                                <li><i class="fa fa-user me-2"></i>Last Updated: {{ date('d/m/Y',strtotime($course->updated_at)) }}</li>
+                                <li><i class="fa fa-user me-2"></i>Last Updated:
+                                    {{ date('d/m/Y', strtotime($course->updated_at)) }}</li>
                                 <li>
                                     <div class="list-rating">
                                         <span><i class="fas fa-star"></i></span>
@@ -84,10 +86,9 @@
                 <div class="col-lg-5 col-xl-5">
                     <div class="course-thumb-wrap chike-top-course-video-box">
                         <div class="course-thumbnail mb-0">
-                            <img src="{{ $course->VideoPreviewImg }}" alt=""
-                                class="img-fluid w-100">
+                            <img src="{{ $course->VideoPreviewImg }}" alt="" class="img-fluid w-100">
                         </div>
-                        
+
                         <a class="popup-video video_icon" href="{{ $course->preview_video }}"><i
                                 class="fal fa-play"></i></a>
                     </div>
@@ -109,13 +110,25 @@
                     <div class="course-sidebar course-sidebar-5 mt-5 mt-xl-0 chike-leftside-pricebox-sticky">
                         <div class="course-widget course-details-info">
                             <div class="price-header d-block text-center mb-2">
-                                <h2 class="course-price">$120.00 <span>$150</span></h2>
-                                <span class="course-price-badge onsale">39% off</span>
+                                <h2 class="course-price"> ₹ {{ $course->price }} {{-- <span>$150</span> --}} </h2>
+                                {{-- <span class="course-price-badge onsale">39% off</span> --}}
                             </div>
                             <div class="price-header d-block text-center mb-1">
-                                <a href="#" class="btn btn-sm btn-main-outline m-2 rounded"><i
-                                        class="fa fa-shopping-cart me-2"></i> Buy this Course</a>
-                                <a href="#" class="text-right chike-course-like"><i class="fa fa-heart"></i></a>
+                                @guest
+                                    <a onclick="alert('login popup')" class="btn btn-sm btn-main-outline m-2 rounded">
+                                        <i class="fa fa-shopping-cart me-2"></i>
+                                        Buy this Course
+                                    </a>
+                                @endguest
+
+                                @auth
+                                    <a href="{{ route("buynow",$course->id) }}"
+                                        class="btn btn-sm btn-main-outline m-2 rounded">
+                                        <i class="fa fa-shopping-cart me-2"></i>
+                                        Buy this Course
+                                    </a>
+                                @endauth
+                                {{-- <a href="#" class="text-right chike-course-like"><i class="fa fa-heart"></i></a> --}}
                             </div>
                             <div class="price-header d-block text-center">
                                 <p class="mb-0">7 Days return policy*</p>
@@ -124,9 +137,9 @@
                             <hr>
                             <p class="chike-apply-coupon-title">Apply Coupon</p>
                             <div class="banner-form">
-                                <form action="#" class="form">
-                                    <input type="text" class="form-control rounded-0">
-                                    <button type="submit" class="btn rounded-0 bg-dark text-white chike-apply-coupon-btn"
+                                <form action="" class="form">
+                                    <input type="text" class="form-control rounded-0" >
+                                    <button type="button" class="btn rounded-0 bg-dark text-white chike-apply-coupon-btn"
                                         name="apply_coupon" value="Apply coupon">Apply</button>
                                 </form>
                             </div>
@@ -140,7 +153,7 @@
                                 </ul>
                             </div>
                             <div class="text-center mt-2">
-                                <a href="#">Share this course <i class="far fa-share"></i></a>
+                                {{-- <a href="#">Share this course <i class="far fa-share"></i></a> --}}
                             </div>
                         </div>
                     </div>
@@ -152,4 +165,11 @@
     </section>
 
     @include('newui.models.leave_review')
+@section('scripts')
+    <script>
+        function getCertificate() {
+            alert("complete course to get certificate.");
+        }
+    </script>
+@endsection
 @endsection

@@ -32,7 +32,7 @@ return array(
         'audio_tracks' => 'public/assets/audio_tracks/',
         'subtitles' => 'public/assets/subtitles/',
 
-        'resources' => 'public/assets/course_resources/',
+        'resources' => 'storage/assets/courseresources/',
 
         'learn' => 'public/learn/course/',
     ]

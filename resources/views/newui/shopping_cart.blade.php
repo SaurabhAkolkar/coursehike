@@ -89,14 +89,18 @@
             margin-right: 10px;
         }
 
+        .razorpay-payment-button {
+            color: chartreuse !important
+        }
+
         @media (max-width: 767px) {
             /* .chike-course-price-title{
-                                position: relative;
-                                top: -225px;
-                                left: 165px;
-                                font-size: 24px;
+                                                    position: relative;
+                                                    top: -225px;
+                                                    left: 165px;
+                                                    font-size: 24px;
 
-                              }*/
+                                                  }*/
         }
     </style>
 @endsection
@@ -211,7 +215,8 @@
                                 <tr class="cart-subtotal">
                                     <th>Subtotal</th>
                                     <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><span
-                                                class="woocommerce-Price-currencySymbol">₹ </span>{{  $sub_total }}</span></td>
+                                                class="woocommerce-Price-currencySymbol">₹
+                                            </span>{{ $sub_total }}</span></td>
                                 </tr>
                                 <tr class="cart-subtotal">
                                     <th>Discount</th>
@@ -227,16 +232,33 @@
                                 <tr class="order-total">
                                     <th>Total</th>
                                     <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><span
-                                                    class="woocommerce-Price-currencySymbol">₹ </span>{{  $sub_total }}</span></strong>
+                                                    class="woocommerce-Price-currencySymbol">₹
+                                                </span>{{ $sub_total }}</span></strong>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="wc-proceed-to-checkout">
-                            <a href="#" class="checkout-button btn btn-sm btn-main-outline m-2 rounded">
-                                checkout
-                            </a>
-                        </div>
+                        <form action="{{ route('pc') }}" method="POST">
+                            @csrf
+                            @php
+                                $set = App\Setting::first();
+                                $currency = App\Currency::first();
+                            @endphp
+                            
+                            <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="{{ env('RAZORPAY_KEY') }}"
+                                data-amount="{{ $sub_total * 100 }}" data-currency="{{ $currency->currency }}" data-order_id=""
+                                data-buttontext="Checkout" data-name="{{ $set->project_title }}" data-description=""
+                                data-image="{{ asset('images/logo/' . $set->logo) }}" data-prefill.name="XYZ" data-prefill.email="info@example.com"
+                                data-theme.color=""></script>
+                        </form>
+                        {{-- <form action="{{ route('gotocheckout') }}" method="post">
+                            @csrf
+                            <div class="wc-proceed-to-checkout">
+                                <button class="checkout-button btn btn-sm btn-main-outline m-2 rounded">
+                                    checkout
+                                </button>
+                            </div>
+                        </form> --}}
                         <hr>
                         <p class="chike-apply-coupon-title">Apply Coupon</p>
                         <div class="banner-form">

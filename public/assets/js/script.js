@@ -115,7 +115,7 @@
   });
 
 
-  // Testimonial layout 2
+  // Testimonial layout 2 commented by saurabh 
   $(".hero-carousel").owlCarousel({
     loop: true,
     margin: 10,
@@ -145,7 +145,7 @@
       },
     },
   });
-
+  // Testimonial layout 2 end commented by saurabh 
 
 
   //  Lightbox what is this used of this section 

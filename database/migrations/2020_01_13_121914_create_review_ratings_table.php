@@ -16,12 +16,12 @@ class CreateReviewRatingsTable extends Migration
         if(!Schema::hasTable('review_ratings')){
             Schema::create('review_ratings', function (Blueprint $table) {
                 $table->increments('id');
-                $table->string('course_id');
-                $table->string('user_id');
-                $table->integer('learn');
-                $table->integer('price');
-                $table->integer('value');
-                $table->longtext('review');
+                $table->string('course_id')->nullable();
+                $table->string('user_id')->nullable();
+                $table->integer('learn')->nullable();
+                $table->integer('price')->nullable();
+                $table->integer('value')->nullable();
+                $table->longtext('review')->nullable();
                 $table->boolean('status')->default(true);
                 $table->boolean('approved')->default(true);
                 $table->boolean('featured')->nullable();
