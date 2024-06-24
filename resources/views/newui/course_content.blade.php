@@ -21,10 +21,10 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Courses | Best Online Courses for Art & Creativity | LILA"}</script>
 @section('stylesheets')
     <!-- animate.css -->
-    <link rel="stylesheet" href="assets/vendors/animate-css/animate.css">
-    <link rel="stylesheet" href="assets/vendors/animated-headline/animated-headline.css">
-    <link rel="stylesheet" href="assets/vendors/owl/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/vendors/owl/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="{{ asset("assets/vendors/animate-css/animate.css") }}">
+    <link rel="stylesheet" href="{{ asset("assets/vendors/animated-headline/animated-headline.css") }}">
+    <link rel="stylesheet" href="{{ asset("assets/vendors/owl/assets/owl.carousel.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("assets/vendors/owl/assets/owl.theme.default.min.css") }}">
 
     <style type="text/css">
         /*------quiz-box--------*/
@@ -322,6 +322,7 @@
             }
         }
     </style>
+     <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet">
 @endsection
 
 @endsection
@@ -335,20 +336,27 @@
                 <div class="course-thumb-wrap">
                     <div class="course-thumbnail border-0 mb-0">
                         <!-- image box-->
-                        <img src="assets/images/course-overview/course-overview-2.png" alt=""
-                            class="img-fluid w-100 rounded-0 chike-show">
+                        <img src="{{ asset("assets/images/course-overview/course-overview-2.png") }}" alt=""
+                            class="img-fluid w-100 rounded-0 chike-hide">
                         <!-- /image box -->
-
+                        
                         <!-- iframe box -->
-                        <iframe hidden="hidden" width="100%" height="500"
-                            src="https://www.youtube.com/embed/R-0siNQlNTU?si=_RmYwYcqn6wu_6ch"
+                        {{-- <iframe width="100%" height="500"
+                            src="http://127.0.0.1:8000/stream-video"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen></iframe>
+                            allowfullscreen></iframe> --}}
+
+
+                            <video id="my-video" class="video-js" controls preload="auto" width="830" height="500" poster="poster.jpg" data-setup="{}">
+                                <source src="http://127.0.0.1:8000/stream-video" type="video/mp4">
+                                <!-- Add additional video sources here -->
+                            </video>
+
                         <!-- /iframe box -->
 
                         <!-- chike-quiz-box-1 -->
-                        <div id="chike-quiz-box-1" class="chike-hide">
+                        {{-- <div id="chike-quiz-box-1" class="chike-hide">
                             <div class="row align-items-center justify-content-lg-center">
                                 <div class="col-xl-12 col-lg-12">
                                     <div class="section-heading mt-4 mt-lg-0 text-center">
@@ -359,10 +367,10 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- /chike-quiz-box-1 -->
                         <!-- chike-quiz-box-2 -->
-                        <div id="chike-quiz-box-2" class="chike-hide">
+                        {{-- <div id="chike-quiz-box-2" class="chike-hide">
                             <div class="row align-items-center justify-content-lg-center">
                                 <div class="col-xl-12 col-lg-12">
                                     <div class="section-heading mt-4 mt-lg-0 text-center">
@@ -376,10 +384,10 @@
                                 <a href="#" class="btn btn-sm btn-main m-2 rounded">Continue</a>
                                 <a href="#" class="btn btn-sm btn-main-outline m-2 rounded">Retry Quiz</a>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- /chike-quiz-box-2 -->
                         <!-- chike-quiz-box-3 -->
-                        <div id="chike-quiz-box-3" class="chike-hide">
+                        {{-- <div id="chike-quiz-box-3" class="chike-hide">
                             <div class="row align-items-center justify-content-lg-center">
                                 <div class="col-xl-12 col-lg-12">
                                     <div class="section-heading mt-4 mt-lg-0 text-left">
@@ -438,10 +446,10 @@
                                 <a href="#" class="btn btn-sm btn-main-outline m-2 rounded">Skip Qustion</a>
                                 <a href="#" class="btn btn-sm btn-main m-2 rounded">Check Answer</a>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- /chike-quiz-box-3 -->
                         <!-- chike-quiz-box-4 -->
-                        <div id="chike-quiz-box-4" class="chike-hide">
+                        {{-- <div id="chike-quiz-box-4" class="chike-hide">
                             <div class="row align-items-center justify-content-lg-center">
                                 <div class="col-xl-12 col-lg-12">
                                     <div class="section-heading mt-4 mt-lg-0 text-left">
@@ -496,7 +504,7 @@
                                 <a href="#" class="btn btn-sm btn-main-outline m-2 rounded">Skip Qustion</a>
                                 <a href="#" class="btn btn-sm btn-main m-2 rounded">Check Answer</a>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- /chike-quiz-box-4 -->
 
                     </div>
@@ -523,6 +531,9 @@
                         </h2>
                     </div>
 
+                    {{-- @foreach ($collection as $item)
+                        
+                    @endforeach --}}
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="panelsStayOpen-headingOneScripts">
                             <button class="accordion-button rounded-0" type="button" data-bs-toggle="collapse"
@@ -552,17 +563,12 @@
                                                 aria-hidden="true"></i></span><span
                                             class="chike-video-timer-view">05.20</span> 3. Learn with example?
                                     </label>
-                                    <label class="list-group-item" style="width:100%">
-                                        <span class="mr-4"><img
-                                                src="assets/images/course-overview/chike-edit-video-icon.svg"
-                                                width="20" height="20" class="chike-edit-video-icon"></span>
-                                        4. Quiz
-                                    </label>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+
+                    {{-- <div class="accordion-item">
                         <h2 class="accordion-header" id="panelsStayOpen-headingTwoChapter">
                             <button class="accordion-button collapsed rounded-0" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwoChapter"
@@ -594,7 +600,7 @@
                                     </label>
                                     <label class="list-group-item" style="width:100%">
                                         <span class="mr-4"><img
-                                                src="assets/images/course-overview/chike-edit-video-icon.svg"
+                                                src="{{ asset("/assets/images/course-overview/chike-edit-video-icon.svg") }}"
                                                 width="20" height="20" class="chike-edit-video-icon"></span>
                                         4. Quiz
                                     </label>
@@ -602,6 +608,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="panelsStayOpen-headingThreeChapter">
                             <button class="accordion-button collapsed rounded-0" type="button"
@@ -634,7 +641,7 @@
                                     </label>
                                     <label class="list-group-item" style="width:100%">
                                         <span class="mr-4"><img
-                                                src="assets/images/course-overview/chike-edit-video-icon.svg"
+                                                src="{{ asset("/assets/images/course-overview/chike-edit-video-icon.svg") }}"
                                                 width="20" height="20" class="chike-edit-video-icon"></span>
                                         4. Quiz
                                     </label>
@@ -642,6 +649,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="panelsStayOpen-headingFourChapter">
                             <button class="accordion-button collapsed rounded-0" type="button"
@@ -674,14 +682,15 @@
                                     </label>
                                     <label class="list-group-item" style="width:100%">
                                         <span class="mr-4"><img
-                                                src="assets/images/course-overview/chike-edit-video-icon.svg"
+                                                src="{{ asset("/assets/images/course-overview/chike-edit-video-icon.svg") }}"
                                                 width="20" height="20" class="chike-edit-video-icon"></span>
                                         4. Quiz
                                     </label>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
+                    
                 </div>
             </div>
             <!-- leftside course session box  -->
@@ -691,10 +700,17 @@
 @include('newui.models.leave_review')
 
 @section('scripts')
+<script src="https://vjs.zencdn.net/7.8.4/video.min.js"></script>
+<script>
+    var player = videojs('my-video');
+    player.on('contextmenu', function(e) {
+            e.preventDefault();
+        });
+</script>
     <!--  Owl Carousel -->
-    <script src="assets/vendors/owl/owl.carousel.min.js"></script>
+    <script src="{{ asset("assets/vendors/owl/owl.carousel.min.js") }}"></script>
     <!-- Animated Headline -->
-    <script src="assets/vendors/animated-headline/animated-headline.js"></script>
+    <script src="{{ asset("assets/vendors/animated-headline/animated-headline.js") }}"></script>
 
     <script type="text/javascript">
         $('.chike-leftside-video-session-menu-close-btn').click(function() {

@@ -68,7 +68,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
         Route::get('/home', 'HomeController@index')->name('home');
         Route::post('/email-subscriber', 'HomeController@email_subscriber')->name('emailsubscriber');
         Route::get('/course-overview/{courseid}', 'CourseController@course_overview')->name('course.overview');
-        Route::get('/course-content', 'CourseController@course_content')->name('course.content');
+        Route::get('/course-content/{courseid}', 'CourseController@course_content')->name('course.content');
         Route::get('/all-course-list', 'CourseController@all_course_list')->name('allcourselist');
         Route::get('/subcategory-all-course/{subcategoryid}', 'CourseController@subcategoryAllCourse')->name('subcategoryallcourse');
         Route::get('/buynow/{courseid}', 'CartController@buyNow')->name('buynow');
@@ -682,6 +682,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
 
     });
 
+    Route::get('/stream-video', 'LearnController@streamVideo')->name('stream.video');
     Route::get('/learn/course/{id}/{slug}', 'LearnController@show')->name('learn.course');
     Route::get('/learn/class/{id}/{slug}', 'LearnController@class')->name('learn.class');
     Route::post('/learn/course/{video_id}','LearnController@video')->name('learn.video');

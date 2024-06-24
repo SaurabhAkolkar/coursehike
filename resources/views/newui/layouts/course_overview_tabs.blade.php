@@ -117,15 +117,15 @@
                     @foreach ($course->chapter as $key => $chapter)
                         <div class="accordion-item mb-3">
                             <h2 class="accordion-header border chike-video-info-box-accordion-header"
-                                id="panelsStayOpen-headingOne">
+                                id="panelsStayOpen-headingOne_{{$key}}">
                                 <div class="accordion-button" data-bs-toggle="collapse"
-                                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                                    aria-controls="panelsStayOpen-collapseOne">
+                                    data-bs-target="#panelsStayOpen-collapseOne_{{$key}}" aria-expanded="true"
+                                    aria-controls="panelsStayOpen-collapseOne_{{$key}}">
                                     Chapter {{ ++$key }}.{!! $chapter->chapter_name !!}
                                 </div>
                             </h2>
-                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                                aria-labelledby="panelsStayOpen-headingOne">
+                            <div id="panelsStayOpen-collapseOne_{{$key}}" class="accordion-collapse collapse "
+                                aria-labelledby="panelsStayOpen-headingOne_{{$key}}">
                                 <div class="accordion-body p-0">
                                     <div class="tutori-course-curriculum">
                                         <div class="curriculum-scrollable">

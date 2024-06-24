@@ -86,7 +86,7 @@
                 <div class="col-lg-5 col-xl-5">
                     <div class="course-thumb-wrap chike-top-course-video-box">
                         <div class="course-thumbnail mb-0">
-                            <img src="{{ $course->VideoPreviewImg }}" alt="" class="img-fluid w-100">
+                            <img src="{{ $course->video_preview_img }}" alt="" class="img-fluid w-100">
                         </div>
 
                         <a class="popup-video video_icon" href="{{ $course->preview_video }}"><i

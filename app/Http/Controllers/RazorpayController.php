@@ -406,11 +406,11 @@ class RazorpayController extends Controller
                 Mail::to($user_email)->send(new SendOrderMail($x, $user));
             } catch (\Swift_TransportException $e) {
                 Session::flash('deleted', 'Payment Successfully ! but Invoice will not sent because of error in mail configuration !');
-                return redirect()->route('/home');
+                return redirect()->route('home');
             }
         }
         \Session::flash('success', 'Payment success');
-        return redirect()->route('/home');
+        return redirect()->route('home');
     }
 
 

@@ -4,11 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\About;
+use App\Categories;
+use App\Cart;
+use Auth;
+use Illuminate\Support\Facades\Cache;
 
 class AboutController extends Controller
 {
     public function about_us(){
-        return view("newui.about_us");
+        $categories = Cache::remember('home_categories', $seconds = 86400, function () {
+            return Categories::with('subcategory')->orderBy('id', 'ASC')->get();
+        });
+        $cart_items = Cart::where("user_id", Auth::id())->get()->count();
+        return view("newui.about_us")
+            ->with("categories", $categories)
+            ->with("cart_items", $cart_items);
     }
     public function privacy_policy(){
         return view("newui.privacy_policy");

@@ -65,9 +65,19 @@ class CourseController extends Controller
             ->with("course", $course)
             ->with("cart_items", $cart_items);
     }
-    public function course_content()
+
+    public function course_content($course_id)
     {
-        return view("newui.course_content");
+        $categories = Cache::remember('home_categories', $seconds = 86400, function () {
+            return Categories::with('subcategory')->orderBy('id', 'ASC')->get();
+        });
+        $course = Course::with('review', 'user')->where("id", $course_id)->first();
+        $cart_items = Cart::where("user_id", Auth::id())->get()->count();
+        // $faqs = FaqStudent::all(); , compact('faqs')
+        return view("newui.course_content")
+            ->with("categories", $categories)
+            ->with("course", $course)
+            ->with("cart_items", $cart_items);
     }
 
     public function all_course_list()

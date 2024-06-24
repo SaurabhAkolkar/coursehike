@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
+use Request;
 use App\Order;
 use App\CourseClass;
 use App\CourseChapter;
 use App\Course;
+use App\VideoStream;
 use Auth;
 use Crypt;
 use Redirect;
@@ -227,6 +229,36 @@ class LearnController extends Controller
 
         return view('learners.pages.class')->with($data);
 
+    }
+
+    public function streamVideo()
+    {
+    
+        if(Auth::check() && Request::segment(1)  == "stream-video"){
+            $videoPath = "/home/saurabh/Downloads/projects/courseHike-ui/public/assets/images/home-page/demo.mp4";#storage_path('app/public/videos/video.mp4');
+            // $videoUrl = asset('storage/videos/video.mp4');
+
+            // return response()->stream(function () use ($videoPath) {
+            //     $stream = fopen($videoPath, 'rb');
+            //     fpassthru($stream);
+            //     fclose($stream);
+            // }, 200, [
+            //     'Content-Type' => 'video/mp4',
+            //     'Content-Length' => filesize($videoPath),
+            //     'Cache-Control' => 'no-cache',
+            //     'Connection' => 'keep-alive',
+            //     'Pragma' => 'public',
+            // ]);
+            $stream = new VideoStream($videoPath);
+
+            return response()->stream(function() use ($stream) {
+                $stream->start();
+            });
+        }else{
+            return  "Heloo";
+        }
+        
+        
     }
 
     public function preview_video($class_id)
