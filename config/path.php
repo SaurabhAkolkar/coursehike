@@ -26,13 +26,13 @@ return array(
         'class_thumnail' => 'public/images/class_thumnail/',
         'video_thumnail' => 'public/images/video_thumnail/',
 
-        'preview_video' => 'upload/course/',
+        'preview_video' => 'public/upload/course/',
         'video' => 'assets/video/course/',
 
         'audio_tracks' => 'public/assets/audio_tracks/',
         'subtitles' => 'public/assets/subtitles/',
 
-        'resources' => 'storage/assets/courseresources/',
+        'resources' => 'public/course_resources/',
 
         'learn' => 'public/learn/course/',
     ]

@@ -349,7 +349,7 @@
 
 
                             <video id="my-video" class="video-js" controls preload="auto" width="830" height="500" poster="poster.jpg" data-setup="{}">
-                                <source src="http://127.0.0.1:8000/stream-video" type="video/mp4">
+                                <source src="http://127.0.0.1:8000/playvideo" type="video/mp4">
                                 <!-- Add additional video sources here -->
                             </video>
 

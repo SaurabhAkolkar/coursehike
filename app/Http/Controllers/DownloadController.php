@@ -21,6 +21,7 @@ class DownloadController extends Controller
 	public function getResourceDownload($id){
 
     	$entry = CourseResource::where('id', '=', $id)->firstOrFail();
+		dd($entry->file_url);
     	return response()->download($entry->file_url);
 
 	}

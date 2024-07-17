@@ -17,9 +17,23 @@ use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
 use Pion\Laravel\ChunkUpload\Receiver\FileReceiver;
 use Session;
 use Storage;
+use Iman\Streamer\VideoStreamer;
 
 class CourseclassController extends Controller
 {
+
+    public function playVideo()
+    {
+        if (Auth::check()) {
+            $path = public_path('/content/videos/travel.mp4');
+
+            VideoStreamer::streamFile($path);
+        } else {
+            $path = public_path('/content/videos/party.mp4');
+
+            VideoStreamer::streamFile($path);
+        }
+    }
     /**
      * Display a listing of the resource.
      *
@@ -158,7 +172,6 @@ class CourseclassController extends Controller
                 $courseclass->featured = isset($request->featured) ? '1' : '0';
                 $courseclass->is_preview = isset($request->is_preview) ? '1' : '0';
                 $courseclass->save();
-
 
                 $video_local_path = Storage::disk('local')->putFile('public/upload/course', $save->getFile());
                 unset($request['file']);

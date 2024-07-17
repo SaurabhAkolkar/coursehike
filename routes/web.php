@@ -851,3 +851,5 @@ Route::get('/clear-cache', function() {
 });
 
 Route::get('/demo','HomeController@demo');
+
+Route::get('/playvideo', 'CourseclassController@playVideo');
