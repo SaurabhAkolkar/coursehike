@@ -11,7 +11,7 @@ return [
         /*
          * Returns the folder name of the chunks. The location is in storage/app/{folder_name}
          */
-        'chunks' => 'chunks',
+        'chunks' => 'public/chunks',
         'disk' => 'local',
     ],
     'clear' => [

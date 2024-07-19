@@ -43,6 +43,6 @@ class CourseResource extends Model
         //     config('path.course.resources').$this->course_id. '/' . $value, now()->addMinutes(5)
         // );
         // return Storage::url(config('path.course.video').$this->course_id. '/' . $value);
-        return config('path.course.resources').$this->course_id. '/' . $value;
+        return config('path.course.resources_dnl').$this->course_id. '/' . $value;
     }
 }

@@ -32,7 +32,8 @@ return array(
         'audio_tracks' => 'public/assets/audio_tracks/',
         'subtitles' => 'public/assets/subtitles/',
 
-        'resources' => 'public/course_resources/',
+        'resources' => 'public/courseresources/',
+        'resources_dnl' => '/home/saurabh/Downloads/projects/courseHike-ui/storage/app/public/courseresources/',
 
         'learn' => 'public/learn/course/',
     ]
