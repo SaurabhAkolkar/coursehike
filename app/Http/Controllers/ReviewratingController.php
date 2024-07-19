@@ -49,7 +49,7 @@ class ReviewratingController extends Controller
                 array(
                     'course_id' => $request->course_id,
                     'user_id' => $user_id,
-                    'review' => $request->review,
+                    'review_message' => $request->review,
                     'status' => 1,
                     'rating' => $request->rating,
                     'approved' => 1,
@@ -65,7 +65,7 @@ class ReviewratingController extends Controller
                 array(
                     'course_id' => $request->course_id,
                     'user_id' => $user_id,
-                    'review' => $request->review,
+                    'review_message' => $request->review,
                     'status' => 1,
                     'rating' => $request->rating,
                     'approved' => 1,

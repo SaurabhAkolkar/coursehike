@@ -30,7 +30,7 @@ class ReviewRating extends Model
     protected $table = 'review_ratings'; 
 
     protected $fillable = [
-        'course_id', 'user_id', 'rating','learn', 'price', 'value', 'review', 'status', 'approved', 
+        'course_id', 'user_id', 'rating','learn', 'price', 'value', 'review_message', 'status', 'approved', 
         'featured'];
 
     public function user()
