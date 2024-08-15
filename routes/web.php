@@ -73,6 +73,8 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
         Route::get('/subcategory-all-course/{subcategoryid}', 'CourseController@subcategoryAllCourse')->name('subcategoryallcourse');
         Route::get('/buynow/{courseid}', 'CartController@buyNow')->name('buynow');
 
+        Route::get('/load-more-chapters', 'CourseController@loadMoreChapters')->name('load-more-chapters');
+
         Route::get('/my-wishlist', 'CourseController@my_wishlist')->name('mywishlist');
         Route::get('/my-courses-list', 'CourseController@my_courses_list')->name('my_courses_list');
         Route::get('/sign-in', 'CourseController@coursehike_sign_in')->name('coursehike_sign_in')->middleware('guest');

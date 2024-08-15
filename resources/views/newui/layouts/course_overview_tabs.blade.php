@@ -114,18 +114,18 @@
 
                 <h4 class="course-title mt-5">Chapters List</h4>
                 <div class="accordion" id="accordionPanelsStayOpenExample">
-                    @foreach ($course->chapter as $key => $chapter)
-                        <div class="accordion-item mb-3">
+                    @foreach ($course->chapter->slice(0, 1) as $key => $chapter)
+                        <div id="chapterlist" class="accordion-item mb-3">
                             <h2 class="accordion-header border chike-video-info-box-accordion-header"
-                                id="panelsStayOpen-headingOne_{{$key}}">
+                                id="panelsStayOpen-headingOne_{{$chapter->id}}">
                                 <div class="accordion-button" data-bs-toggle="collapse"
-                                    data-bs-target="#panelsStayOpen-collapseOne_{{$key}}" aria-expanded="true"
-                                    aria-controls="panelsStayOpen-collapseOne_{{$key}}">
-                                    Chapter {{ ++$key }}.{!! $chapter->chapter_name !!}
+                                    data-bs-target="#panelsStayOpen-collapseOne_{{$chapter->id}}" aria-expanded="true"
+                                    aria-controls="panelsStayOpen-collapseOne_{{$chapter->id}}">
+                                    Chapter {{ $chapter->id }}.{!! $chapter->chapter_name !!}
                                 </div>
                             </h2>
-                            <div id="panelsStayOpen-collapseOne_{{$key}}" class="accordion-collapse collapse "
-                                aria-labelledby="panelsStayOpen-headingOne_{{$key}}">
+                            <div id="panelsStayOpen-collapseOne_{{ $chapter->id }}" class="accordion-collapse collapse "
+                                aria-labelledby="panelsStayOpen-headingOne_{{ $chapter->id }}">
                                 <div class="accordion-body p-0">
                                     <div class="tutori-course-curriculum">
                                         <div class="curriculum-scrollable">
@@ -137,8 +137,7 @@
                                                                 <a class="section-item-link" href="#">
                                                                     <span class="item-name">{{ $class->title }}</span>
                                                                     <div class="course-item-meta">
-                                                                        <span class="item-meta duration">20.30
-                                                                            min</span>
+                                                                        <span class="item-meta duration">{{ $class->duration}} min</span>
                                                                         <span class="item-meta"><i
                                                                                 class="fa fa-lock m-0"></i></span>
                                                                     </div>
@@ -186,10 +185,11 @@
                     @endforeach
 
 
-                    <div class="text-center">
-                        <button class="btn btn-main w-100 rounded" type="button">36 More
-                            section</button>
-                    </div>
+                   
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-main w-100 rounded" id="load-more-btn" type="button">36 More
+                        section</button>
                 </div>
 
                 <h4 class="course-title mt-5">Certification</h4>

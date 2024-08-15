@@ -122,7 +122,7 @@
                                 @endguest
 
                                 @auth
-                                    <a href="{{ route("buynow",$course->id) }}"
+                                    <a href="{{ route('buynow', $course->id) }}"
                                         class="btn btn-sm btn-main-outline m-2 rounded">
                                         <i class="fa fa-shopping-cart me-2"></i>
                                         Buy this Course
@@ -138,7 +138,7 @@
                             <p class="chike-apply-coupon-title">Apply Coupon</p>
                             <div class="banner-form">
                                 <form action="" class="form">
-                                    <input type="text" class="form-control rounded-0" >
+                                    <input type="text" class="form-control rounded-0">
                                     <button type="button" class="btn rounded-0 bg-dark text-white chike-apply-coupon-btn"
                                         name="apply_coupon" value="Apply coupon">Apply</button>
                                 </form>
@@ -170,6 +170,33 @@
         function getCertificate() {
             alert("complete course to get certificate.");
         }
+        $(document).ready(function() {
+            $('#load-more-btn').on('click', function() {
+                var offset = $('#chapterlist').length; // Number of chapters already loaded
+                var course_id = {{ $course->id }}; // Assuming $course is passed from controller
+
+                // Make AJAX request using jQuery
+                $.ajax({
+                    url: '{{ route('load-more-chapters') }}',
+                    method: 'GET',
+                    data: {
+                        course_id: course_id,
+                        offset: offset
+                    },
+                    success: function(response) {
+                        console.log("success");
+                        $('#accordionPanelsStayOpenExample').append(response);
+                        // Check if there are more chapters
+                        if (!response.hasMoreChapters) {
+                            $('#load-more-btn').hide(); // Hide the button if no more chapters
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error loading more chapters:', error);
+                    }
+                });
+            });
+        });
     </script>
 @endsection
 @endsection

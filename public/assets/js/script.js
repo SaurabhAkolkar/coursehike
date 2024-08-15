@@ -116,35 +116,35 @@
 
 
   // Testimonial layout 2 commented by saurabh 
-  $(".hero-carousel").owlCarousel({
-    loop: true,
-    margin: 10,
-    nav: false,
-    dots: true,
-    touchDrag: false,
-    mouseDrag: false,
-    autoplay: true,
-    responsiveClass: true,
-    autoplayHoverPause: false,
-    margin: 0,
-    padding: 0,
-    items: 1,
-    smartSpeed: 600,
-    animateIn: 'fadeIn',
-    animateOut: 'fadeOut',
-    navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
-    responsive: {
-      0: {
-        items: 1,
-      },
-      600: {
-        items: 1,
-      },
-      1000: {
-        items: 1,
-      },
-    },
-  });
+  // $(".hero-carousel").owlCarousel({
+  //   loop: true,
+  //   margin: 10,
+  //   nav: false,
+  //   dots: true,
+  //   touchDrag: false,
+  //   mouseDrag: false,
+  //   autoplay: true,
+  //   responsiveClass: true,
+  //   autoplayHoverPause: false,
+  //   margin: 0,
+  //   padding: 0,
+  //   items: 1,
+  //   smartSpeed: 600,
+  //   animateIn: 'fadeIn',
+  //   animateOut: 'fadeOut',
+  //   navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+  //   responsive: {
+  //     0: {
+  //       items: 1,
+  //     },
+  //     600: {
+  //       items: 1,
+  //     },
+  //     1000: {
+  //       items: 1,
+  //     },
+  //   },
+  // });
   // Testimonial layout 2 end commented by saurabh 
 
 

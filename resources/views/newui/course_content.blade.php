@@ -158,7 +158,14 @@
             border-color: #ffffff;
             box-shadow: none;
         }
-
+        .video-js .vjs-big-play-button {
+            left: 40% !important; 
+            top: 40% !important; 
+        }
+        .razorpay-payment-button {
+    color: chartreuse !important;
+    background: red !important;
+}
         @media (max-width: 991px) {
             #chike-video-accordion-session-menu-show-right-btn {
                 position: relative;

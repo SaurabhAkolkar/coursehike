@@ -22,7 +22,6 @@ use App\CourseProgress;
 use App\CourseResource;
 use App\Currency;
 use App\Events\UploadMultilingualVideoToCloudEvent;
-use App\FaqStudent;
 use App\MasterClass;
 use App\Meeting;
 use App\Order;
@@ -722,4 +721,34 @@ class CourseController extends Controller
         }
 
     }
+
+    public function loadMoreChapters(Request $request)
+    {
+        $course_id = $request->input('course_id');
+        $offset = $request->input('offset', 0);
+        $limit = 1; // Number of chapters to load each time
+
+        // Query chapters based on course_id and offset
+        $chapters = CourseChapter::where('course_id', $course_id)
+            ->skip($offset)
+            ->take($limit)
+            ->get();
+        // Determine if there are more chapters
+        $skip = $offset + $limit;
+        // Check if there are more chapters
+        $hasMoreChapters = CourseChapter::where('course_id', $course_id)
+            ->where('id', '>', function ($query) use ($course_id, $offset, $limit) {
+                $query->select('id')
+                    ->from('course_chapters')
+                    ->where('course_id', $course_id)
+                    ->orderBy('id')
+                    ->skip($offset)
+                    ->take(1);
+            })
+            ->exists();
+
+        // Return view with additional chapters
+        return view('newui.load_more', compact('chapters', 'hasMoreChapters'));
+    }
+
 }
