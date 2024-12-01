@@ -251,14 +251,14 @@
                                 data-image="{{ asset('images/logo/' . $set->logo) }}" data-prefill.name="XYZ" data-prefill.email="info@example.com"
                                 data-theme.color=""></script>
                         </form>
-                        {{-- <form action="{{ route('gotocheckout') }}" method="post">
+                        <form action="{{ route('gotocheckout') }}" method="post">
                             @csrf
                             <div class="wc-proceed-to-checkout">
                                 <button class="checkout-button btn btn-sm btn-main-outline m-2 rounded">
                                     checkout
                                 </button>
                             </div>
-                        </form> --}}
+                        </form>
                         <hr>
                         <p class="chike-apply-coupon-title">Apply Coupon</p>
                         <div class="banner-form">

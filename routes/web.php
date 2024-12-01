@@ -6,6 +6,7 @@ use App\User;
 use App\Setting;
 use App\CourseClass;
 use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\Cache;
 
 // dd(Auth::user());
 /*
@@ -90,6 +91,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
         Route::get('/know-your-mentor', 'InstructorController@know_your_mentor')->name('know_your_mentor');
         Route::get('/become-a-mentor-at-coursehike', 'InstructorController@become_a_mentor')->name('become_a_mentor');
         
+        Route::resource('carts', 'CartController');
 
     });
 
@@ -845,8 +847,8 @@ Route::get('/clear-cache', function() {
   Artisan::call('optimize:clear');
   Artisan::call('config:clear');
   Artisan::call('route:clear');
- 
   
+  Cache::flush();
   
   
   return "Cache is cleared";
