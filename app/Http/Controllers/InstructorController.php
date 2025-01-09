@@ -17,6 +17,9 @@ use App\UserSubscriptionInvoice;
 use Illuminate\Support\Str;
 use App\Playlist;
 use App\BundleCourse;
+use App\Categories;
+use Illuminate\Support\Facades\Cache;
+use App\Cart;
 
 class InstructorController extends Controller
 {
@@ -25,10 +28,26 @@ class InstructorController extends Controller
     public static $LEARNER_PAID = 39;
 
     public function know_your_mentor() {
-        return view("newui.know_your_mentor");
+        $categories = Cache::remember('home_categories', $seconds = 86400, function () {
+            return Categories::with('subcategory')->orderBy('id', 'ASC')->get();
+        });
+        $carts = Cart::where("user_id", Auth::id())->get()->count();
+        $data = [
+            'categories' => $categories,
+            'cart_items' => $carts
+        ];
+        return view("newui.know_your_mentor")->with($data);
     }
     public function become_a_mentor() {
-        return view("newui.become_a_mentor");
+        $categories = Cache::remember('home_categories', $seconds = 86400, function () {
+            return Categories::with('subcategory')->orderBy('id', 'ASC')->get();
+        });
+        $carts = Cart::where("user_id", Auth::id())->get()->count();
+        $data = [
+            'categories' => $categories,
+            'cart_items' => $carts
+        ];
+        return view("newui.become_a_mentor")->with($data);
     }
     
     public function index()

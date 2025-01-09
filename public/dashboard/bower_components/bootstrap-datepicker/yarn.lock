@@ -1178,7 +1178,7 @@ jodid25519@^1.0.0:
   dependencies:
     jsbn "~0.1.0"
 
-"jquery@>=1.7.1 <4.0.0":
+jquery@<4.0.0:
   version "3.1.1"
   resolved "https://registry.npmjs.org/jquery/-/jquery-3.1.1.tgz"
   integrity sha512-zuiWRmx65Kd1oFGdWLvAjbsumdOBFvs3r1vuqCyKFF79R7exBHNbiNEJ8LR+xkzgfxqBznMD/4Cv6PHXS6mvEw==

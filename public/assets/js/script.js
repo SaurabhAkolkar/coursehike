@@ -115,37 +115,35 @@
   });
 
 
-  // Testimonial layout 2 commented by saurabh 
-  // $(".hero-carousel").owlCarousel({
-  //   loop: true,
-  //   margin: 10,
-  //   nav: false,
-  //   dots: true,
-  //   touchDrag: false,
-  //   mouseDrag: false,
-  //   autoplay: true,
-  //   responsiveClass: true,
-  //   autoplayHoverPause: false,
-  //   margin: 0,
-  //   padding: 0,
-  //   items: 1,
-  //   smartSpeed: 600,
-  //   animateIn: 'fadeIn',
-  //   animateOut: 'fadeOut',
-  //   navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
-  //   responsive: {
-  //     0: {
-  //       items: 1,
-  //     },
-  //     600: {
-  //       items: 1,
-  //     },
-  //     1000: {
-  //       items: 1,
-  //     },
-  //   },
-  // });
-  // Testimonial layout 2 end commented by saurabh 
+  $(".hero-carousel").owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: false,
+    dots: true,
+    touchDrag: false,
+    mouseDrag: false,
+    autoplay: true,
+    responsiveClass: true,
+    autoplayHoverPause: false,
+    margin: 0,
+    padding: 0,
+    items: 1,
+    smartSpeed: 600,
+    animateIn: 'fadeIn',
+    animateOut: 'fadeOut',
+    navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+    responsive: {
+      0: {
+        items: 1,
+      },
+      600: {
+        items: 1,
+      },
+      1000: {
+        items: 1,
+      },
+    },
+  });
 
 
   //  Lightbox what is this used of this section 
@@ -237,8 +235,11 @@ function addToWishlist(course_id) {
     url: '/add-to-wishlist/' + course_id,
     success: function (data) {
       if (data == 1) {
-        var element = document.getElementById("wishlist-color");
-        element.style.color = 'red';
+        var element = document.getElementById("wishlist-i");
+        var element1 = document.getElementById("wishlist-nav-i");
+        element.classList.remove("chike-course-not-like");
+        element.classList.add("fa-heart-red");
+        element1.classList.add("fa-heart-blue");
         createAlert('', 'Nice Work!', "Course added in Wishlist", 'success', true, true, 'pageMessages');
       } else {
         createAlert('', '', "Course is alerady added in Wishlist", 'info', false, true, 'pageMessages');

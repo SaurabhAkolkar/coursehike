@@ -23,6 +23,62 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/coursehike.css">
+
+    <!-- course list -->
+    <style type="text/css">
+        .chike-course-like-btn {
+            background-color: #fff;
+            padding: 1px 7px;
+            position: absolute;
+            border-radius: 20px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            top: 10px;
+            cursor: pointer;
+        }
+
+        .chike-course-like-btn .chike-course-like {
+            color: #3479E2 !important;
+        }
+
+        .chike-course-like-btn .chike-course-not-like {
+            color: #C9C8C8;
+        }
+
+        .chike-course-like-btn .chike-course-not-like:hover {
+            color: #ff0000 !important;
+        }
+
+        .chike-course-like-btn .fa-heart-red {
+            color: #ff0000 !important;
+        }
+
+        .fa-heart-blue {
+            color: #0d6efd !important;
+        }
+
+        .chike-course-buy-status-success-label {
+            background-color: #008000;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 500;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            padding: 0px 15px;
+            border-radius: 20px;
+        }
+
+        .chike-course-explore-more-btn {
+            color: #3479E2;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-block;
+        }
+    </style>
+
     <style type="text/css">
         /*====top menu=========*/
         .header-style-2 {
@@ -256,11 +312,11 @@
                     </div>
                     <nav class="chike-top-header-navbar-desktop ms-auto">
                         <ul class="primary-menu">
-                            <li>
+                            {{--<li>
                                 <a href="#" class="header-search header_search_btn"><i
                                         class="fa fa-search"></i></a>
                             </li>
-                            {{-- <li class="position-relative" id="chike-top-menu-notifications-btn">
+                             <li class="position-relative" id="chike-top-menu-notifications-btn">
                                 <span
                                     class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger chike-top-menu-notifications-btn"
                                     id="chike-top-menu-notifications-btn">9</span>
@@ -300,7 +356,17 @@
                                 </span>
                             </li> --}}
                             <li>
-                                <a href="/wishlist"><i class="fa fa-heart"></i></a>
+
+                                @auth
+                                    <a href="/wishlist"><i id="wishlist-nav-i" class="fa fa-heart {{ Auth::user()->CheckWishlist ? 'fa-heart-blue' : '' }} "></i></a>
+                                @endauth
+                                
+                                @guest
+                                    <a data-bs-toggle="modal" data-bs-target="#chikeLoginModal" href="/wishlist">
+                                        <i class="fa fa-heart"></i>
+                                    </a>
+                                @endguest
+                                
                             </li>
                             <li>
                                 @if ($cart_items)
@@ -313,11 +379,19 @@
                                     <span class="position-absolute start-100 translate-middle badge rounded-pill"
                                     style="top: -3px;"  id="cart_count"></span>
                                 @endif
-                                <a href="/carts"><i class="fa fa-shopping-cart"></i></a>
+                                @auth
+                                    <a  href="/carts"><i class="fa fa-shopping-cart"></i></a>
+                                @endauth
+                                
+                                @guest
+                                    <a data-bs-toggle="modal" data-bs-target="#chikeLoginModal" href="/carts"><i class="fa fa-shopping-cart"></i></a>
+                                @endguest
+                                
+                                
                             </li>
                         </ul>
 
-                        <a href="#" class="nav-close"><i class="fal fa-times"></i></a>
+                        {{-- <a href="#" class="nav-close"><i class="fal fa-times"></i></a> --}}
                     </nav>
 
 
@@ -407,107 +481,82 @@
                 <!-- COURSE CARD START -->
                 @foreach ($cor as $course)
                     <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="course-grid bg-shadow tooltip-style">
+                        <div class="course-grid course-style-3 bg-white">
+                            
                             <div class="course-header">
-                                <div class="course-thumb">
-                                    <img src="{{ $course->VideoPreviewImg }}" alt="" class="img-fluid">
+
+                                <div class="course-thumb p-0">
+                                    
+                                    @auth
+                                        <span onclick="addToWishlist({{ $course->id }})" id="wishlist-color"
+                                            class="chike-course-like-btn"><i id="wishlist-i"  class="fa fa-heart {{ $course->CheckWishlist ? 'fa-heart-red' : 'chike-course-not-like' }}"></i>
+                                        </span>
+                                    @endauth
+                                    
+                                    @guest
+                                        <span data-bs-toggle="modal" data-bs-target="#chikeLoginModal" id="wishlist-color"
+                                            class="chike-course-like-btn"><i class="fa fa-heart chike-course-not-like"></i>
+                                        </span>
+                                    @endguest
+                                   
+                                    {{-- <span class="chike-course-buy-status-success-label">Purchased</span> --}}
+                                    <img src="{{ $course->VideoPreviewImg }}" alt="{{ $course->title }}"
+                                        class="img-fluid">
                                 </div>
                             </div>
 
                             <div class="course-content">
-                                <div class="course-footer mb-10 d-flex align-items-center justify-content-between ">
-                                    <span class="students"><i class="far fa-language me-2"></i>
-                                        {{ $course->language->name }}
-                                    </span>
-                                    <span class="lessons"><i class="far fa-play-circle me-2"></i>
-                                        {{ $course->courseclass->count() }}
-                                        {{ $course->courseclass->count() > 1 ? 'Lessons' : 'Lesson' }}</span>
-                                    <span class="duration"><i class="far fa-clock me-2"></i> {{ $course->duration }}
-                                        {{ $course->duration > 1 ? 'Hourse' : 'Hour' }} </span>
+                                <div class="course-meta d-flex justify-content-between mb-10">
+                                    <b><span class="students"><i class="far fa-language me-2"></i>
+                                            {{ $course->language->name }}</span></b>
+                                    <b><span class="lessons"><i
+                                                class="far fa-play-circle me-2"></i>{{ $course->courseclass->count() }}
+                                            {{ $course->courseclass->count() > 1 ? 'Lessons' : 'Lesson' }}</span></b>
+                                    <b><span class="duration"><i
+                                                class="far fa-clock me-2"></i>{{ $course->duration }}
+                                            {{ $course->duration > 1 ? 'Hourse' : 'Hour' }}</span></b>
                                 </div>
-                                <h3 class="course-title mb-10">
-                                    <a href="#">
-                                        {{ $course->title }}
-                                    </a>
+                                <h3 class="course-title mb-10"> <a
+                                        href="{{ route('course.overview', $course->id) }}">{{ $course->title }}</a>
                                 </h3>
-                                <div class="rating mb-10">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <span>3.9 (30 reviews)</span>
-                                </div>
-                                <div class="course-footer d-flex">
-                                    <div class="course-meta d-flex">
-                                        <div class="author me-4">
-                                            <span class="chike-profile-name">{{ $course->user->fname[0] }}</span>
-                                            <a href="#">{{ $course->user->fname }}</a>
+                                <div class="course-meta-info">
+                                    <div class="d-flex align-items-center">
+                                        <div class="author me-3">
+                                            By <a href="#">{{ $course->user->fname }}</a>
                                         </div>
-                                        @if ($course->package_type == 1)
-                                            <span class="lesson text-primary">
-                                                <div class="price">₹ {{ $course->price }}</div>
-                                            </span>
-                                        @else
-                                            <span class="lesson text-success">
-                                                <div class="price">Free</div>
-                                            </span>
-                                        @endif
+                                        <div class="rating mb-10">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <span>3.9 (30 reviews)</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="course-footer mt-3 pt-3 d-flex align-items-center justify-content-between">
+                                    @if ($course->package_type == 1)
+                                        <div class="course-price text-primary">₹ {{ $course->price }}</div>
+                                    @else
+                                        <div class="course-price text-success">Free</div>
+                                    @endif
+                                    @auth
+                                        <a href="{{ route("buynow",$course->id)  }}" class="btn btn-main-outline btn-radius btn-sm">Buy Now 
+                                            <i class="fa fa-long-arrow-right"></i>
+                                        </a>
+                                    @endauth
 
-                            <div class="course-hover-content">
-                                <h3 class="course-title">
-                                    <a href="{{ route("course.overview",$course->id) }}">
-                                        {{ $course->title }}
-                                    </a>
-                                </h3>
-                                <div class="course-footer d-flex align-items-center justify-content-between ">
-                                    <span class="students"><i class="far fa-language me-2"></i>
-                                        {{ $course->language->name }}</span>
-                                    <span class="lessons"><i
-                                            class="far fa-play-circle me-2"></i>{{ $course->courseclass->count() }}
-                                        {{ $course->courseclass->count() > 1 ? 'Lessons' : 'Lesson' }}</span>
-                                    <span class="duration"><i class="far fa-clock me-2"></i>{{ $course->duration }}
-                                        {{ $course->duration > 1 ? 'Hourse' : 'Hour' }}</span>
+                                    @guest
+                                        <a data-bs-toggle="modal" data-bs-target="#chikeLoginModal" class="btn btn-main-outline btn-radius btn-sm">Buy Now 
+                                            <i class="fa fa-long-arrow-right"></i>
+                                        </a>
+                                    @endguest
+
                                 </div>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <span>3.9 (30 reviews)</span>
-                                </div>
-                                <p class="mb-0"><strong>Description: {{ $course->short_detail }}</strong> <a
-                                        href="{{ route("course.overview",$course->id) }}">Read More</a></p>
-                                @if ($course->package_type == 1)
-                                    <div class="price mt-2 mb-2 text-primary">₹ {{ $course->price }}</div>
-                                @else
-                                    <div class="price mt-2 mb-2 text-success">Free</div>
-                                @endif
-                                @guest
-                                    <a onclick="alert('login popup')"
-                                        class="btn btn-primary btn-sm rounded chike-course-card-houre-add-to-card-btn">
-                                        Add to cart
-                                    </a>
-                                @endguest
-
-                                @auth
-                                    <a onclick="addToCart({{ $course->id }},{{ $cart_items }})"
-                                        class="btn btn-primary btn-sm rounded chike-course-card-houre-add-to-card-btn">
-                                        Add to cart
-                                    </a>
-                                @endauth
-
-                                
-                                <a onclick="addToWishlist({{ $course->id }})"  id="wishlist-color" class="text-right chike-course-like">
-                                    <i class="fa fa-heart"></i>
-                                </a>
                             </div>
                         </div>
                     </div>
+                    <!-- COURSE END -->
                 @endforeach
                 <!-- COURSE CARD END -->
             </div>
@@ -515,7 +564,8 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="text-center">
-                        <a href="{{ route("allcourselist") }}" class="text-style2 fw-bold chike-explore-more-title">Explore More</a>
+                        <a href="{{ route('allcourselist') }}"
+                            class="text-style2 fw-bold chike-explore-more-title">Explore More</a>
                     </div>
                 </div>
             </div>
@@ -583,11 +633,13 @@
                     <div class="section-heading mt-4 mt-lg-0">
                         <h2 class="font-lg mb-20">Let’s Join To Our Newsletters</h2>
                         <div class="subscribe-form rounded-pill">
-                            <form action="{{ route("emailsubscriber") }}"  method="POST" class="form border rounded-pill">
-                               @csrf
-                                <input type="email"  required name="email" class="form-control rounded-pill"
+                            <form action="{{ route('emailsubscriber') }}" method="POST"
+                                class="form border rounded-pill">
+                                @csrf
+                                <input type="email" required name="email" class="form-control rounded-pill"
                                     placeholder="Enter your email">
-                                    <button type="submit" class="btn btn-main rounded rounded-pill">SUBSCRIBE NOW</button>
+                                <button type="submit" class="btn btn-main rounded rounded-pill">SUBSCRIBE
+                                    NOW</button>
                             </form>
                         </div>
                     </div>
@@ -691,6 +743,153 @@
         </form>
     </div>
     <!-- /search box popup box -->
+
+
+
+
+      <!-- login model -->
+      
+      <!-- Modal -->
+      <style type="text/css">
+      #chikeLoginModal .login-form, #chikeLoginModal.signup-form{
+          padding: 0px 25px!important;
+          border: 0px !important;
+      }
+      #chikeLoginModal .chike-left-side-box{
+        background: linear-gradient(180deg, #C087EC 0%, #87C8EC 100%);
+      }
+      #chikeLoginModal .chike-left-side-inner-box{
+        position: relative;
+        text-align: center;
+      }
+      #chikeLoginModal .chike-left-side-inner-box h1{
+        color: #fff;
+        font-size: 40px;
+        margin-top: 80px;
+      }
+      #chikeLoginModal .chike-graduation{
+        color: #fff;
+        font-size: 75px;
+      }
+      #chikeLoginModal .required{
+          color: red;
+      }
+      #chikeLoginModal .chike-login-share ul li {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 13px;
+        color: #0e1133;
+        border-radius: 4px;
+    }
+    #chikeLoginModal .chike-login-share ul li a img{
+      width: 35px;
+      height: 35px;
+    }
+    #chikeLoginModal .chike-email-box, .chike-password-box{
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+    }
+    #chikeLoginModal .chike-email-box .input-group-text{
+      border: none;
+      border-right: 2px solid #eee;
+    }
+    #chikeLoginModal .chike-password-box .input-group-text{
+      border: none;
+      border-right: 2px solid #eee;
+    }
+    #chikeLoginModal .input-group-text{
+      border: none;
+      background-color: #fff;
+    }
+    #chikeLoginModal .chike-password-box .input-group-text i{
+      color: #A1A1A1;
+    }
+    #chikeLoginModal .chike-email-box .input-group-text i{
+      color: #A1A1A1;
+    }
+    #chikeLoginModal .woocommerce-form-login .form-control{
+        height: 40px !important;
+        border: none !important;
+        background-color: #fff !important;
+    }
+    #chikeLoginModal .togglePassword:hover i{
+      color: #3479e2;
+      cursor: pointer;
+    }
+    #chikeLoginModal .chike-tandc-title{
+      font-size: 12px;
+      color: #A1A1A1;
+      margin-bottom: 0px;
+    }
+    #chikeLoginModal .btn-close{
+      cursor: pointer;
+    }
+    </style>
+      <div class="modal fade" id="chikeLoginModal" tabindex="-1" aria-labelledby="chikeLoginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="border-radius: 1rem;">
+            <div class="modal-header border-0">
+              <span class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>
+            </div>
+            <div class="modal-body" >
+              <div class="login-form">
+                  <div class="form-header">
+                      <h2 class="font-weight-bold mb-3">Login</h2>
+                      <p>to continue your journey with <strong>CourseHike</strong></p>
+                  </div>
+                  <form class="woocommerce-form woocommerce-form-login login" method="post">
+                      <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                          <div class="input-group flex-nowrap chike-email-box">
+                            <span class="input-group-text" id="addon-wrapping"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" placeholder="*Enter Email" aria-label="Enter Email" aria-describedby="addon-wrapping">
+                          </div>
+                      </p>
+                      <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                          <div class="input-group chike-password-box">
+                            <span class="input-group-text" id="addon-wrapping" style="font-size: 18px;"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                            <input type="password" class="form-control"  name="password" id="password" autocomplete="Enter Password" placeholder="*Enter Password" aria-describedby="Enter Password">
+                            <a class="input-group-text togglePassword border-0"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                          </div>
+                      </p>
+                      <p class="woocommerce-FormRow form-row text-center">
+                          <button type="submit" class="btn btn-sm btn-main-outline m-2 rounded w-50" name="register" value="LOGIN">LOGIN</button>
+                      </p>
+
+                      <div class="text-center">
+                          <p class="woocommerce-LostPassword lost_password fw-bolder mb-1">
+                              <a href="#">Forgot password?</a>
+                          </p>
+                      </div>
+                      <div class="row">
+                          <div class="col"><hr></div>
+                          <div class="col-auto">OR</div>
+                          <div class="col"><hr></div>
+                      </div>
+                      <div class="text-center">
+                        <div class="chike-login-share align-items-center mb-3">
+                            <ul class="social-icon">
+                                <li class="chike-social-icon-box"><a href="#"><img src="assets/images/login/chike-linkedin-icon.svg" class="img-fluid" alt="linkedin" width="20" height="20"></a></li>
+                                <li class="chike-social-icon-box"><a href="#"><img src="assets/images/login/chike-facebook-icon.svg" class="img-fluid" alt="facebook" width="20" height="20"></a></li>
+                                <li class="chiksocial-icon-box"><a href="#"><img src="assets/images/login/chike-google-icon.svg" class="img-fluid" alt="google" width="20" height="20"></a></li>
+                            </ul>
+                        </div>
+                        <p class="chike-tandc-title">By continuing you agree to CourseHike’s  Terms and conditions, privacy policy. </p>
+                        <hr>
+                         <div class="woocommerce-register mb-2">
+                          Don't have an account yet? <a href="#" class="text-decoration-none" style="color:#3479E2;font-weight: 700;">Sign Up Now</a>
+                         </div>
+                      </div>
+                  </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  <!-- /login model -->
 
     <!--
     Essential Scripts

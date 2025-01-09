@@ -15,6 +15,7 @@ use Rinvex\Subscriptions\Models\Plan;
 
 use Kyranb\Footprints\TrackableInterface;
 use Kyranb\Footprints\TrackRegistrationAttribution;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable implements TrackableInterface
 {
@@ -99,6 +100,14 @@ class User extends Authenticatable implements TrackableInterface
         }
     }
 
+    public function getCheckWishlistAttribute(){
+        if(Auth::check()){
+            $wishlist = Wishlist::where(['user_id' => $this->id])->first();
+
+            return $wishlist?true:false;
+        }   
+        return false;
+}
 
     public function blogs()
     {
