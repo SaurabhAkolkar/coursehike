@@ -299,7 +299,9 @@
                                                 <ul class="submenu">
                                                     @if ($category->subcategory)
                                                         @foreach ($category->subcategory as $subcategory)
-                                                            <li><a href="{{ route('subcategoryallcourse',$subcategory->id) }}">{{ $subcategory->title }} </a></li>
+                                                            <li><a
+                                                                    href="{{ route('subcategoryallcourse', $subcategory->id) }}">{{ $subcategory->title }}
+                                                                </a></li>
                                                         @endforeach
                                                     @endif
                                                 </ul>
@@ -312,7 +314,7 @@
                     </div>
                     <nav class="chike-top-header-navbar-desktop ms-auto">
                         <ul class="primary-menu">
-                            {{--<li>
+                            {{-- <li>
                                 <a href="#" class="header-search header_search_btn"><i
                                         class="fa fa-search"></i></a>
                             </li>
@@ -358,15 +360,16 @@
                             <li>
 
                                 @auth
-                                    <a href="/wishlist"><i id="wishlist-nav-i" class="fa fa-heart {{ Auth::user()->CheckWishlist ? 'fa-heart-blue' : '' }} "></i></a>
+                                    <a href="/wishlist"><i id="wishlist-nav-i"
+                                            class="fa fa-heart {{ Auth::user()->CheckWishlist ? 'fa-heart-blue' : '' }} "></i></a>
                                 @endauth
-                                
+
                                 @guest
                                     <a data-bs-toggle="modal" data-bs-target="#chikeLoginModal" href="/wishlist">
                                         <i class="fa fa-heart"></i>
                                     </a>
                                 @endguest
-                                
+
                             </li>
                             <li>
                                 @if ($cart_items)
@@ -377,17 +380,18 @@
                                     </span>
                                 @else
                                     <span class="position-absolute start-100 translate-middle badge rounded-pill"
-                                    style="top: -3px;"  id="cart_count"></span>
+                                        style="top: -3px;" id="cart_count"></span>
                                 @endif
                                 @auth
-                                    <a  href="/carts"><i class="fa fa-shopping-cart"></i></a>
+                                    <a href="/carts"><i class="fa fa-shopping-cart"></i></a>
                                 @endauth
-                                
+
                                 @guest
-                                    <a data-bs-toggle="modal" data-bs-target="#chikeLoginModal" href="/carts"><i class="fa fa-shopping-cart"></i></a>
+                                    <a data-bs-toggle="modal" data-bs-target="#chikeLoginModal" href="/carts"><i
+                                            class="fa fa-shopping-cart"></i></a>
                                 @endguest
-                                
-                                
+
+
                             </li>
                         </ul>
 
@@ -482,23 +486,25 @@
                 @foreach ($cor as $course)
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="course-grid course-style-3 bg-white">
-                            
+
                             <div class="course-header">
 
                                 <div class="course-thumb p-0">
-                                    
+
                                     @auth
                                         <span onclick="addToWishlist({{ $course->id }})" id="wishlist-color"
-                                            class="chike-course-like-btn"><i id="wishlist-i"  class="fa fa-heart {{ $course->CheckWishlist ? 'fa-heart-red' : 'chike-course-not-like' }}"></i>
+                                            class="chike-course-like-btn"><i id="wishlist-i"
+                                                class="fa fa-heart {{ $course->CheckWishlist ? 'fa-heart-red' : 'chike-course-not-like' }}"></i>
                                         </span>
                                     @endauth
-                                    
+
                                     @guest
-                                        <span data-bs-toggle="modal" data-bs-target="#chikeLoginModal" id="wishlist-color"
-                                            class="chike-course-like-btn"><i class="fa fa-heart chike-course-not-like"></i>
+                                        <span data-bs-toggle="modal" data-bs-target="#chikeLoginModal"
+                                            id="wishlist-color" class="chike-course-like-btn"><i
+                                                class="fa fa-heart chike-course-not-like"></i>
                                         </span>
                                     @endguest
-                                   
+
                                     {{-- <span class="chike-course-buy-status-success-label">Purchased</span> --}}
                                     <img src="{{ $course->VideoPreviewImg }}" alt="{{ $course->title }}"
                                         class="img-fluid">
@@ -541,13 +547,15 @@
                                         <div class="course-price text-success">Free</div>
                                     @endif
                                     @auth
-                                        <a href="{{ route("buynow",$course->id)  }}" class="btn btn-main-outline btn-radius btn-sm">Buy Now 
+                                        <a href="{{ route('buynow', $course->id) }}"
+                                            class="btn btn-main-outline btn-radius btn-sm">Buy Now
                                             <i class="fa fa-long-arrow-right"></i>
                                         </a>
                                     @endauth
 
                                     @guest
-                                        <a data-bs-toggle="modal" data-bs-target="#chikeLoginModal" class="btn btn-main-outline btn-radius btn-sm">Buy Now 
+                                        <a data-bs-toggle="modal" data-bs-target="#chikeLoginModal"
+                                            class="btn btn-main-outline btn-radius btn-sm">Buy Now
                                             <i class="fa fa-long-arrow-right"></i>
                                         </a>
                                     @endguest
@@ -611,8 +619,9 @@
                         <p class="mb-20">Share your expertise with the world! Become an instructor on CourseHike and
                             create high-quality <BR>e-learning courses that reach a global audience. Apply today and
                             join our community of educators and creators.</p>
-                        <a href="#" class="btn btn-sm btn-main m-2 rounded">Join Now</a>
-                        <a href="#" class="btn btn-sm btn-main-outline m-2 rounded">Learn More</a>
+                        {{-- <a href="#" class="btn btn-sm btn-main m-2 rounded">Join Now</a> --}}
+                        <a href="{{ route('become_a_mentor') }}"
+                            class="btn btn-sm btn-main-outline m-2 rounded">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -703,10 +712,11 @@
                         <div class="footer-widget mb-5 mb-lg-0">
                             <h5 class="widget-title">Links</h5>
                             <ul class="list-unstyled footer-links">
-                                <li><a href="#">News & Blogs</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Support</a></li>
-                                <li><a href="#">Return Policy</a></li>
+                                <li><a href="#" onclick="showMessageBox('SUCCESS',1)">News & Blogs</a></li>
+                                <li><a href="#" onclick="showMessageBox('Completed',2)">Privacy Policy</a></li>
+                                <li><a href="#" onclick="showMessageBox('Failed',3)">Support</a></li>
+                                <li><a href="#" onclick="showMessageBox('ERROR',4)">Return Policy</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -747,149 +757,398 @@
 
 
 
-      <!-- login model -->
-      
-      <!-- Modal -->
-      <style type="text/css">
-      #chikeLoginModal .login-form, #chikeLoginModal.signup-form{
-          padding: 0px 25px!important;
-          border: 0px !important;
-      }
-      #chikeLoginModal .chike-left-side-box{
-        background: linear-gradient(180deg, #C087EC 0%, #87C8EC 100%);
-      }
-      #chikeLoginModal .chike-left-side-inner-box{
-        position: relative;
-        text-align: center;
-      }
-      #chikeLoginModal .chike-left-side-inner-box h1{
-        color: #fff;
-        font-size: 40px;
-        margin-top: 80px;
-      }
-      #chikeLoginModal .chike-graduation{
-        color: #fff;
-        font-size: 75px;
-      }
-      #chikeLoginModal .required{
-          color: red;
-      }
-      #chikeLoginModal .chike-login-share ul li {
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        font-size: 13px;
-        color: #0e1133;
-        border-radius: 4px;
-    }
-    #chikeLoginModal .chike-login-share ul li a img{
-      width: 35px;
-      height: 35px;
-    }
-    #chikeLoginModal .chike-email-box, .chike-password-box{
-      border-bottom: 1px solid #eee;
-      padding-bottom: 5px;
-    }
-    #chikeLoginModal .chike-email-box .input-group-text{
-      border: none;
-      border-right: 2px solid #eee;
-    }
-    #chikeLoginModal .chike-password-box .input-group-text{
-      border: none;
-      border-right: 2px solid #eee;
-    }
-    #chikeLoginModal .input-group-text{
-      border: none;
-      background-color: #fff;
-    }
-    #chikeLoginModal .chike-password-box .input-group-text i{
-      color: #A1A1A1;
-    }
-    #chikeLoginModal .chike-email-box .input-group-text i{
-      color: #A1A1A1;
-    }
-    #chikeLoginModal .woocommerce-form-login .form-control{
-        height: 40px !important;
-        border: none !important;
-        background-color: #fff !important;
-    }
-    #chikeLoginModal .togglePassword:hover i{
-      color: #3479e2;
-      cursor: pointer;
-    }
-    #chikeLoginModal .chike-tandc-title{
-      font-size: 12px;
-      color: #A1A1A1;
-      margin-bottom: 0px;
-    }
-    #chikeLoginModal .btn-close{
-      cursor: pointer;
-    }
+    <!-- login model -->
+
+    <!-- Modal -->
+    <style type="text/css">
+        #chikeLoginModal .login-form,
+        #chikeLoginModal.signup-form {
+            padding: 0px 25px !important;
+            border: 0px !important;
+        }
+
+        #chikeLoginModal .chike-left-side-box {
+            background: linear-gradient(180deg, #C087EC 0%, #87C8EC 100%);
+        }
+
+        #chikeLoginModal .chike-left-side-inner-box {
+            position: relative;
+            text-align: center;
+        }
+
+        #chikeLoginModal .chike-left-side-inner-box h1 {
+            color: #fff;
+            font-size: 40px;
+            margin-top: 80px;
+        }
+
+        #chikeLoginModal .chike-graduation {
+            color: #fff;
+            font-size: 75px;
+        }
+
+        #chikeLoginModal .required {
+            color: red;
+        }
+
+        #chikeLoginModal .chike-login-share ul li {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 13px;
+            color: #0e1133;
+            border-radius: 4px;
+        }
+
+        #chikeLoginModal .chike-login-share ul li a img {
+            width: 35px;
+            height: 35px;
+        }
+
+        #chikeLoginModal .chike-email-box,
+        .chike-password-box {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        #chikeLoginModal .chike-email-box .input-group-text {
+            border: none;
+            border-right: 2px solid #eee;
+        }
+
+        #chikeLoginModal .chike-password-box .input-group-text {
+            border: none;
+            border-right: 2px solid #eee;
+        }
+
+        #chikeLoginModal .input-group-text {
+            border: none;
+            background-color: #fff;
+        }
+
+        #chikeLoginModal .chike-password-box .input-group-text i {
+            color: #A1A1A1;
+        }
+
+        #chikeLoginModal .chike-email-box .input-group-text i {
+            color: #A1A1A1;
+        }
+
+        #chikeLoginModal .woocommerce-form-login .form-control {
+            height: 40px !important;
+            border: none !important;
+            background-color: #fff !important;
+        }
+
+        #chikeLoginModal .togglePassword:hover i {
+            color: #3479e2;
+            cursor: pointer;
+        }
+
+        #chikeLoginModal .chike-tandc-title {
+            font-size: 12px;
+            color: #A1A1A1;
+            margin-bottom: 0px;
+        }
+
+        #chikeLoginModal .btn-close {
+            cursor: pointer;
+        }
     </style>
-      <div class="modal fade" id="chikeLoginModal" tabindex="-1" aria-labelledby="chikeLoginModalLabel" aria-hidden="true">
+    <div class="modal fade" id="chikeLoginModal" tabindex="-1" aria-labelledby="chikeLoginModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content" style="border-radius: 1rem;">
-            <div class="modal-header border-0">
-              <span class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>
-            </div>
-            <div class="modal-body" >
-              <div class="login-form">
-                  <div class="form-header">
-                      <h2 class="font-weight-bold mb-3">Login</h2>
-                      <p>to continue your journey with <strong>CourseHike</strong></p>
-                  </div>
-                  <form class="woocommerce-form woocommerce-form-login login" method="post">
-                      <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                          <div class="input-group flex-nowrap chike-email-box">
-                            <span class="input-group-text" id="addon-wrapping"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" placeholder="*Enter Email" aria-label="Enter Email" aria-describedby="addon-wrapping">
-                          </div>
-                      </p>
-                      <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                          <div class="input-group chike-password-box">
-                            <span class="input-group-text" id="addon-wrapping" style="font-size: 18px;"><i class="fa fa-lock" aria-hidden="true"></i></span>
-                            <input type="password" class="form-control"  name="password" id="password" autocomplete="Enter Password" placeholder="*Enter Password" aria-describedby="Enter Password">
-                            <a class="input-group-text togglePassword border-0"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                          </div>
-                      </p>
-                      <p class="woocommerce-FormRow form-row text-center">
-                          <button type="submit" class="btn btn-sm btn-main-outline m-2 rounded w-50" name="register" value="LOGIN">LOGIN</button>
-                      </p>
-
-                      <div class="text-center">
-                          <p class="woocommerce-LostPassword lost_password fw-bolder mb-1">
-                              <a href="#">Forgot password?</a>
-                          </p>
-                      </div>
-                      <div class="row">
-                          <div class="col"><hr></div>
-                          <div class="col-auto">OR</div>
-                          <div class="col"><hr></div>
-                      </div>
-                      <div class="text-center">
-                        <div class="chike-login-share align-items-center mb-3">
-                            <ul class="social-icon">
-                                <li class="chike-social-icon-box"><a href="#"><img src="assets/images/login/chike-linkedin-icon.svg" class="img-fluid" alt="linkedin" width="20" height="20"></a></li>
-                                <li class="chike-social-icon-box"><a href="#"><img src="assets/images/login/chike-facebook-icon.svg" class="img-fluid" alt="facebook" width="20" height="20"></a></li>
-                                <li class="chiksocial-icon-box"><a href="#"><img src="assets/images/login/chike-google-icon.svg" class="img-fluid" alt="google" width="20" height="20"></a></li>
-                            </ul>
+            <div class="modal-content" style="border-radius: 1rem;">
+                <div class="modal-header border-0">
+                    <span class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>
+                </div>
+                <div class="modal-body">
+                    <div class="login-form">
+                        <div class="form-header">
+                            <h2 class="font-weight-bold mb-3">Login</h2>
+                            <p>to continue your journey with <strong>CourseHike</strong></p>
                         </div>
-                        <p class="chike-tandc-title">By continuing you agree to CourseHike’s  Terms and conditions, privacy policy. </p>
-                        <hr>
-                         <div class="woocommerce-register mb-2">
-                          Don't have an account yet? <a href="#" class="text-decoration-none" style="color:#3479E2;font-weight: 700;">Sign Up Now</a>
-                         </div>
-                      </div>
-                  </form>
-              </div>
+                        <form class="woocommerce-form woocommerce-form-login login" method="POST"
+                            action="{{ route('login') }}">
+                            @csrf
+                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                            <div class="input-group flex-nowrap chike-email-box">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fa fa-envelope"
+                                        aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" placeholder="Enter Your E-Mail"
+                                    name="email" value="{{ old('email') }}" required autofocus
+                                    aria-label="Enter Your E-Mail" aria-describedby="addon-wrapping">
+                            </div>
+                            </p>
+                            @if ($errors->has('email'))
+                                <span class="invalid-feedback" role="alert"
+                                    style="margin-left:60px;position:absolute">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
+                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                            <div class="input-group chike-password-box">
+                                <span class="input-group-text" id="addon-wrapping" style="font-size: 18px;"><i
+                                        class="fa fa-lock" aria-hidden="true"></i></span>
+                                <input type="password" class="form-control" name="password" id="password"
+                                    autocomplete="Enter Password" placeholder="Enter Password"
+                                    aria-describedby="Enter Password" required>
+                                <a class="input-group-text togglePassword border-0"><i class="fa fa-eye"
+                                        aria-hidden="true"></i></a>
+                            </div>
+                            </p>
+                            @if ($errors->has('password'))
+                                <span class="invalid-feedback" role="alert"
+                                    style="margin-left:60px;position:absolute">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
+                            <p class="woocommerce-FormRow form-row text-center">
+                                <button type="submit" class="btn btn-sm btn-main-outline m-2 rounded w-50"
+                                    name="register" value="LOGIN">LOGIN</button>
+                            </p>
 
+                            <div class="text-center">
+                                <p class="woocommerce-LostPassword lost_password fw-bolder mb-1">
+                                    <a href="{{ 'password/reset' }}">Forgot password?</a>
+                                </p>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <hr>
+                                </div>
+                                <div class="col-auto">OR</div>
+                                <div class="col">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="chike-login-share align-items-center mb-3">
+                                    <ul class="social-icon">
+                                        <li class="chike-social-icon-box">
+                                            <a href="{{ url('/auth/linkedin') }}">
+                                                <img src="assets/images/login/chike-linkedin-icon.svg"
+                                                    class="img-fluid" alt="linkedin" width="20" height="20">
+                                            </a>
+                                        </li>
+                                        <li class="chike-social-icon-box">
+                                            <a href="{{ url('/auth/facebook') }}">
+                                                <img src="assets/images/login/chike-facebook-icon.svg"
+                                                    class="img-fluid" alt="facebook" width="20" height="20">
+                                            </a>
+                                        </li>
+                                        <li class="chiksocial-icon-box">
+                                            <a href="{{ url('/auth/google') }}">
+                                                <img src="assets/images/login/chike-google-icon.svg" class="img-fluid"
+                                                    alt="google" width="20" height="20">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="chike-tandc-title">By continuing you agree to CourseHike’s Terms and
+                                    conditions, privacy policy. </p>
+                                <hr>
+                                <div class="woocommerce-register mb-2">
+                                    Don't have an account yet? <a href="{{ route('register') }}"
+                                        class="text-decoration-none" style="color:#3479E2;font-weight: 700;">Sign Up
+                                        Now</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-  <!-- /login model -->
+    </div>
+    <!-- /login model -->
+
+
+    <!-- message-box-css -->
+    <style type="text/css">
+        .msg_box_hide {
+            display: none !important
+        }
+
+        .chike-icon-notification-box {
+            float: left;
+            margin-right: 5px;
+        }
+
+        .chike-notification-content-box {
+            overflow: hidden;
+        }
+
+        .chike-notification-content-box .chike-notification-box-title {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-left: 5px;
+            display: inline-flex;
+        }
+
+        /*-------error info box--------*/
+        #chike-error-notification-box {
+            width: 350px;
+            max-width: 100%;
+            font-size: .875rem;
+            pointer-events: auto;
+            background-color: rgba(255, 255, 255, .85);
+            border: 1px solid rgba(0, 0, 0, .1);
+            border-radius: .25rem;
+            padding: 15px;
+            position: fixed;
+            right: 15px;
+            bottom: 15px;
+            z-index: 999;
+        }
+
+        #chike-error-notification-box .chike-error-notification-box-text {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-left: 5px;
+        }
+
+        /*-------error info box--------*/
+        #chike-failed-notification-box {
+            width: 350px;
+            max-width: 100%;
+            font-size: .875rem;
+            pointer-events: auto;
+            background-color: rgba(255, 255, 255, .85);
+            border: 1px solid rgba(0, 0, 0, .1);
+            border-radius: .25rem;
+            padding: 15px;
+            position: fixed;
+            right: 15px;
+            bottom: 15px;
+            z-index: 999;
+        }
+
+        #chike-failed-notification-box .chike-failed-notification-box-text {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-left: 5px;
+        }
+
+        /*--------success  info box-----*/
+        #chike-success-notification-box {
+            width: 350px;
+            max-width: 100%;
+            font-size: .875rem;
+            pointer-events: auto;
+            background-color: rgba(255, 255, 255, .85);
+            border: 1px solid rgba(0, 0, 0, .1);
+            border-radius: .25rem;
+            padding: 15px;
+            position: fixed;
+            right: 15px;
+            bottom: 15px;
+            z-index: 999;
+        }
+
+        #chike-success-notification-box .chike-success-notification-box-text {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-left: 5px;
+        }
+
+        /*--------complete  info box-----*/
+        #chike-complete-notification-box {
+            width: 350px;
+            max-width: 100%;
+            font-size: .875rem;
+            pointer-events: auto;
+            background-color: rgba(255, 255, 255, .85);
+            border: 1px solid rgba(0, 0, 0, .1);
+            border-radius: .25rem;
+            padding: 15px;
+            position: fixed;
+            right: 15px;
+            bottom: 15px;
+            z-index: 999;
+        }
+    </style>
+    <!-- /message-box-css -->
+
+
+    {{-- message box started --}}
+
+    <!-- chike-error-notification-box -->
+    <div class="d-flex align-items-center msg_box_hide" id="chike-error-notification-box">
+        <div class="chike-icon-notification-box">
+            <svg width="34" height="34" viewBox="0 0 61 61" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30.3246" cy="30.5" r="29.7807" fill="#F8BC24" />
+                <path
+                    d="M27.076 36.044L25.9 22.422L25.606 15.17H34.034L33.74 22.422L32.564 36.044H27.076ZM29.82 48.588C28.3827 48.588 27.2067 48.098 26.292 47.118C25.3773 46.138 24.92 44.9293 24.92 43.492C24.92 42.0547 25.3773 40.846 26.292 39.866C27.2067 38.886 28.3827 38.396 29.82 38.396C31.2573 38.396 32.4333 38.886 33.348 39.866C34.2627 40.846 34.72 42.0547 34.72 43.492C34.72 44.9293 34.2627 46.138 33.348 47.118C32.4333 48.098 31.2573 48.588 29.82 48.588Z"
+                    fill="white" />
+            </svg>
+        </div>
+        <div class="chike-notification-content-box">
+            {{-- <span class="chike-notification-box-title">Opps! Something went wrong Please try again</span> --}}
+        </div>
+    </div>
+    <!-- /chike-error-notification-box -->
+
+
+
+    <!-- chike-failed-notification-box -->
+    <div class="d-flex align-items-center msg_box_hide" id="chike-failed-notification-box">
+        <div class="chike-icon-notification-box">
+            <svg width="34" height="34" viewBox="0 0 60 61" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle cx="29.7807" cy="30.4999" r="29.7807" fill="#FF0000" />
+                <path
+                    d="M40.6461 21.705C40.6461 22.2183 40.4827 22.6967 40.1561 23.14C37.2394 27.06 34.9877 30.07 33.4011 32.17L39.2811 40.185C39.8411 40.9083 40.1211 41.445 40.1211 41.795C40.1211 42.4483 39.8294 43.0433 39.2461 43.58C38.6861 44.0933 38.0327 44.35 37.2861 44.35C36.9127 44.35 36.6211 44.2683 36.4111 44.105C36.2011 43.965 35.9794 43.7433 35.7461 43.44C33.9027 41.0367 32.0944 38.645 30.3211 36.265L25.5611 42.635C25.1877 43.125 24.8027 43.4867 24.4061 43.72C24.0327 43.93 23.5894 44.035 23.0761 44.035C22.3294 44.035 21.6994 43.8017 21.1861 43.335C20.6727 42.8683 20.4161 42.3433 20.4161 41.76C20.4161 41.3633 20.4627 41.0717 20.5561 40.885C20.6494 40.6983 20.8127 40.465 21.0461 40.185C21.9794 38.9717 22.6794 38.085 23.1461 37.525L27.2761 32.17C25.7594 30.1167 23.7177 27.3167 21.1511 23.77L20.6961 23.14C20.3694 22.72 20.2061 22.335 20.2061 21.985C20.2061 21.285 20.4861 20.69 21.0461 20.2C21.6294 19.71 22.3294 19.465 23.1461 19.465C23.6127 19.465 23.9744 19.5933 24.2311 19.85C24.4877 20.0833 24.8261 20.48 25.2461 21.04L30.4261 28.11L36.0961 20.585C36.3994 20.1883 36.6444 19.9083 36.8311 19.745C37.0411 19.5583 37.3094 19.465 37.6361 19.465C38.1494 19.465 38.6394 19.5817 39.1061 19.815C39.5727 20.0483 39.9461 20.34 40.2261 20.69C40.5061 21.04 40.6461 21.3783 40.6461 21.705Z"
+                    fill="white" />
+            </svg>
+        </div>
+        <div class="chike-notification-content-box">
+            {{-- <span class="chike-notification-box-title">Opps! Something went wrong Please try again</span> --}}
+        </div>
+    </div>
+    <!-- /chike-failed-notification-box -->
+
+
+    <!-- chike-success-notification-box -->
+    <div class="d-flex align-items-center msg_box_hide" id="chike-success-notification-box">
+        <div class="chike-icon-notification-box">
+            <svg width="34" height="34" viewBox="0 0 60 61" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle cx="29.7807" cy="30.4999" r="29.7807" fill="#00AF51" />
+                <path d="M16.5457 31.6509L25.2359 39.3238L45.2234 21.676" stroke="white" stroke-width="5" />
+            </svg>
+        </div>
+        <div class="chike-notification-content-box">
+            {{-- <span class="chike-notification-box-title">Successful</span> --}}
+        </div>
+    </div>
+    <!-- /chike-success-notification-box -->
+
+
+    <!-- chike-complete-notification-box -->
+    <div class="d-flex align-items-center msg_box_hide" id="chike-complete-notification-box">
+        <div class="chike-icon-notification-box">
+            <svg width="34" height="34" viewBox="0 0 61 61" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle cx="29.7807" cy="30.4999" r="29.7807" fill="#3479E2" />
+                <path
+                    d="M27.076 36.044L25.9 22.422L25.606 15.17H34.034L33.74 22.422L32.564 36.044H27.076ZM29.82 48.588C28.3827 48.588 27.2067 48.098 26.292 47.118C25.3773 46.138 24.92 44.9293 24.92 43.492C24.92 42.0547 25.3773 40.846 26.292 39.866C27.2067 38.886 28.3827 38.396 29.82 38.396C31.2573 38.396 32.4333 38.886 33.348 39.866C34.2627 40.846 34.72 42.0547 34.72 43.492C34.72 44.9293 34.2627 46.138 33.348 47.118C32.4333 48.098 31.2573 48.588 29.82 48.588Z"
+                    fill="white" />
+            </svg>
+        </div>
+        <div class="chike-notification-content-box">
+            {{-- <span class="chike-notification-box-title">Completed Successfully</span> --}}
+        </div>
+    </div>
+    <!-- /chike-complete-notification-box -->
+    {{-- message box ended  --}}
 
     <!--
     Essential Scripts
@@ -903,7 +1162,46 @@
     <!--  Owl Carousel -->
     <script src="assets/vendors/owl/owl.carousel.min.js"></script>
     <script src="assets/js/script.js"></script>
-    <script></script>
+    <script type="text/javascript">
+        $(".togglePassword").click(function(e) {
+            e.preventDefault();
+            var type = $("#password").attr('type');
+            if (type == "password") {
+                $(this).html('<i class="fa fa-eye-slash" aria-hidden="true"></i>');
+                $("#password").attr("type", "text");
+            } else if (type == "text") {
+                $(this).html('<i class="fa fa-eye" aria-hidden="true"></i>');
+                $("#password").attr("type", "password");
+            }
+        });
+
+        function showMessageBox(message, type) {
+           
+            let element;
+            let contentBox
+            if (type == 1) {
+                element = document.getElementById('chike-success-notification-box');
+            } else if (type == 2) {
+                element = document.getElementById('chike-complete-notification-box');
+            } else if (type == 3) {
+                element = document.getElementById('chike-failed-notification-box');
+            } else if (type == 4) {
+                element = document.getElementById('chike-error-notification-box');
+            }
+
+            contentBox = element.querySelector('.chike-notification-content-box');
+
+            // Replace the content dynamically
+            contentBox.innerHTML = `<span class="chike-notification-box-title">${message}</span>`;
+
+            element.classList.remove('msg_box_hide');
+
+            // Remove the notification after 3 seconds
+            setTimeout(() => {
+                element.classList.add('msg_box_hide');
+            }, 3000); // Duration in milliseconds
+        }
+    </script>
 </body>
 
 </html>
