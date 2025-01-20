@@ -134,7 +134,7 @@ class HomeController extends Controller
         $data = $request->all();
         $data["user_id"] = Auth::id();
         EmailSubscribe::create($data);
-        return back()->with("info", "Thanks for subscribe.");
+        return back()->with("EmailSubscribe", "Thanks for subscribe.");
     }
 
 }

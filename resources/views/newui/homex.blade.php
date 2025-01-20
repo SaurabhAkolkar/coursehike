@@ -1176,7 +1176,7 @@
         });
 
         function showMessageBox(message, type) {
-           
+
             let element;
             let contentBox
             if (type == 1) {
@@ -1199,9 +1199,23 @@
             // Remove the notification after 3 seconds
             setTimeout(() => {
                 element.classList.add('msg_box_hide');
-            }, 3000); // Duration in milliseconds
+            }, 5000); // Duration in milliseconds
         }
     </script>
+
+    @if ($errors->has('email') || $errors->has('password'))
+        <script>
+            showMessageBox('The provided username or password is incorrect. Please try again.', 3)
+        </script>
+    @endif
+
+
+    @if (session('EmailSubscribe'))
+        <script>
+            showMessageBox("Thanks for subscribe.", 1)
+        </script>
+    @endif
+
 </body>
 
 </html>

@@ -63,7 +63,7 @@ Route::middleware(['web','IsInstalled' ,'switch_languages', 'ip_block'])->group(
         //     return view('home');
         //  });
 
-        Route::get('/', 'HomeController@index');
+        Route::get('/', 'HomeController@index')->name("homex");
         // Route::get('/chhome', 'HomeController@chhome');
 
         Route::get('/home', 'HomeController@index')->name('home');
