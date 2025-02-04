@@ -3,13 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use App\Contact;
+use App\Categories;
+use App\Cart;
 use Auth;
 
 class ContactUsController extends Controller
 {
 	public function contact_us(){
-		return view("newui.contact_us");
+		$categories = Cache::remember('home_categories', $seconds = 86400, function () {
+            return Categories::with('subcategory')->orderBy('id', 'ASC')->get();
+		});
+        $carts = Cart::where("user_id", Auth::id())->get()->count();
+		$data = [
+            'categories' => $categories,
+            'cart_items' => $carts,
+        ];
+
+        return view("newui.contact_us")->with($data);
+		
 	}
 	public function index()
 	{
